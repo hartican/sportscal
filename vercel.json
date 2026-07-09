@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/sports_calendar.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

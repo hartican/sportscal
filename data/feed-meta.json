@@ -1,0 +1,21 @@
+{
+  "version": "bundled-2026-07-09",
+  "schemaVersion": "events.v1",
+  "publishedAt": "2026-07-09T00:00:00+10:00",
+  "activeSports": [
+    "wimbledon",
+    "rugby",
+    "fifa",
+    "f1",
+    "tdf",
+    "nrl",
+    "cricket",
+    "nba",
+    "masters",
+    "lemans",
+    "nfl",
+    "ski"
+  ],
+  "briefingWeekKey": "2026-W28",
+  "usesBundledEvents": true
+}

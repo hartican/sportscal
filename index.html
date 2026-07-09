@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jack's Sports Calendar</title>
+<title>nothingSports</title>
+<meta name="theme-color" content="#0a0a0f">
+<meta name="description" content="A spoiler-free sports calendar and watch planner for Sydney time.">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/sportscal-icon.svg" type="image/svg+xml">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -237,6 +241,21 @@ header.top{
   color: #05050a;
 }
 
+.preference-summary{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+}
+
+.summary-chip{
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.03);
+}
+
 /* ---------- Main content ---------- */
 main{
   max-width: 1100px;
@@ -287,6 +306,8 @@ main{
   align-items:flex-start;
   transition: all 0.15s ease;
   position: relative;
+  cursor: pointer;
+  overflow:hidden;
 }
 
 .event-card:hover{
@@ -300,6 +321,18 @@ main{
 
 .event-card.is-past:hover{
   opacity: 0.85;
+}
+
+.event-card.is-rail-card{
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--importance-color, var(--sport-color)) var(--importance-strength, 18%), #16161d), #15151c 78%),
+    var(--bg-card);
+}
+
+.event-card.is-selected,
+.event-card.is-opened{
+  border-color: color-mix(in srgb, var(--importance-color, var(--sport-color)) 58%, var(--border));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--importance-color, var(--sport-color)) 28%, transparent) inset;
 }
 
 .event-icon{
@@ -339,6 +372,88 @@ main{
   font-size: 0.76rem;
   color: var(--text-faint);
   margin-top: 2px;
+}
+
+.event-selected-copy,
+.event-opened-copy{
+  margin-top: 10px;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height:1.45;
+}
+
+.event-opened-copy{
+  color: color-mix(in srgb, var(--text-dim) 82%, var(--text));
+}
+
+.event-detail-grid{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.event-detail-item{
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 9px;
+  background: rgba(255,255,255,0.025);
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  line-height:1.35;
+}
+
+.event-detail-item strong{
+  display:block;
+  color: var(--text);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing:0.05em;
+  margin-bottom: 3px;
+}
+
+.event-action-panel{
+  margin-top: 12px;
+  border: 1px solid color-mix(in srgb, var(--importance-color, var(--sport-color)) 28%, var(--border));
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255,255,255,0.025);
+}
+
+.event-action-status{
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  margin-bottom: 9px;
+}
+
+.event-action-row{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.action-btn{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor:pointer;
+  font-family: inherit;
+}
+
+.action-btn:hover{
+  border-color: color-mix(in srgb, var(--importance-color, var(--sport-color)) 50%, var(--border));
+  background: rgba(255,255,255,0.07);
+}
+
+.action-btn.active{
+  color:#05050a;
+  background: var(--importance-color, var(--sport-color));
+  border-color: var(--importance-color, var(--sport-color));
 }
 
 .badges{
@@ -450,6 +565,23 @@ main{
   color: var(--text);
 }
 
+.stakes-meter{
+  display:inline-flex;
+  align-items:center;
+  gap: 5px;
+}
+
+.stakes-dot{
+  width: 18px;
+  height: 5px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.12);
+}
+
+.stakes-dot.filled{
+  background: var(--importance-color, var(--sport-color));
+}
+
 /* ---------- Month calendar view ---------- */
 .month-nav{
   display:flex;
@@ -522,16 +654,53 @@ main{
 }
 
 .month-cell .cell-event{
+  position: relative;
   font-size: 0.62rem;
-  padding: 2px 5px;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--sport-color, var(--accent)) 25%, #16161d);
-  color: var(--text);
+  padding: 3px 5px 3px 7px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--sport-color, var(--accent)) 11%, #15151b);
+  color: color-mix(in srgb, var(--text-dim) 84%, var(--text));
   white-space:nowrap;
   overflow:hidden;
   text-overflow: ellipsis;
-  border-left: 2px solid var(--sport-color, var(--accent));
+  border-left: 2px solid color-mix(in srgb, var(--sport-color, var(--accent)) 52%, #3a3a45);
   cursor: pointer;
+  opacity: 0.78;
+  filter: saturate(0.58);
+}
+
+.month-cell .cell-event.solid{
+  background: color-mix(in srgb, var(--sport-color, var(--accent)) 20%, #16161d);
+  color: var(--text-dim);
+  border-left-color: color-mix(in srgb, var(--sport-color, var(--accent)) 78%, #3a3a45);
+  opacity: 0.9;
+  filter: saturate(0.82);
+}
+
+.month-cell .cell-event.must-watch{
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--sport-color, var(--accent)) 42%, #16161d), #171720 70%),
+    color-mix(in srgb, var(--sport-color, var(--accent)) 32%, #16161d);
+  color: var(--text);
+  border-left-color: var(--sport-color, var(--accent));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sport-color, var(--accent)) 55%, transparent) inset,
+              0 0 14px color-mix(in srgb, var(--sport-color, var(--accent)) 28%, transparent);
+  font-weight: 800;
+  opacity: 1;
+  filter: saturate(1.35);
+}
+
+.month-cell .cell-event.must-watch::after{
+  content: "🔥";
+  position:absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.58rem;
+}
+
+.month-cell .cell-event.must-watch{
+  padding-right: 18px;
 }
 
 .cell-more{
@@ -554,6 +723,59 @@ main{
   gap: 8px;
 }
 
+.briefing-hero,
+.catchup-hero{
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  background:
+    linear-gradient(135deg, rgba(0,229,255,0.08), rgba(255,138,0,0.06)),
+    rgba(255,255,255,0.025);
+}
+
+.briefing-hero h2,
+.catchup-hero h2{
+  font-size: 1.15rem;
+  line-height:1.2;
+  margin-bottom: 6px;
+}
+
+.briefing-hero p,
+.catchup-hero p{
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height:1.45;
+}
+
+.briefing-day,
+.catchup-band{
+  margin-bottom: 24px;
+}
+
+.briefing-day h3,
+.catchup-band h3{
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.catchup-label{
+  display:inline-flex;
+  align-items:center;
+  width: fit-content;
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
 .empty-state{
   text-align:center;
   padding: 60px 20px;
@@ -563,6 +785,170 @@ main{
 .empty-state .big{
   font-size: 2.4rem;
   margin-bottom: 12px;
+}
+
+.empty-state .btn{
+  margin-top: 16px;
+}
+
+/* ---------- Onboarding ---------- */
+.modal-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(3,3,8,0.78);
+  backdrop-filter: blur(16px);
+  z-index: 200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding: 20px;
+}
+
+.modal-backdrop.show{
+  display:flex;
+}
+
+.onboarding-panel{
+  width: min(920px, 100%);
+  max-height: min(820px, 92vh);
+  overflow:auto;
+  background: #111118;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+}
+
+.onboarding-head{
+  position: sticky;
+  top:0;
+  z-index: 2;
+  background: rgba(17,17,24,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap: 16px;
+}
+
+.onboarding-head h2{
+  font-size: 1.15rem;
+  margin-bottom: 5px;
+}
+
+.onboarding-head p{
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.step-indicator{
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.onboarding-body{
+  padding: 20px;
+}
+
+.choice-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+.choice-card{
+  text-align:left;
+  min-height: 96px;
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px;
+  cursor:pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, transform 0.15s, background 0.15s;
+}
+
+.choice-card:hover{
+  transform: translateY(-1px);
+  background: var(--bg-card-hover);
+}
+
+.choice-card.selected{
+  border-color: var(--choice-color, var(--accent));
+  box-shadow: 0 0 0 1px var(--choice-color, var(--accent)) inset;
+}
+
+.choice-card.disabled{
+  cursor:not-allowed;
+  opacity: 0.45;
+}
+
+.choice-title{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.choice-detail{
+  margin-top: 8px;
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  line-height: 1.35;
+}
+
+.filter-panel{
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(255,255,255,0.025);
+}
+
+.filter-panel h3{
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.segmented-row{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 14px;
+}
+
+.segment-btn{
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 11px;
+  border-radius: 9px;
+  font-size: 0.77rem;
+  font-weight: 700;
+  cursor:pointer;
+  font-family: inherit;
+}
+
+.segment-btn.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #05050a;
+}
+
+.onboarding-actions{
+  border-top: 1px solid var(--border);
+  padding: 16px 20px;
+  display:flex;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* ---------- Toast ---------- */
@@ -605,11 +991,30 @@ footer.app-footer{
 /* ---------- Responsive ---------- */
 @media (max-width: 640px){
   .brand h1{ font-size: 1.1rem; }
+  .tabs{
+    padding: 0 16px;
+    gap: 4px;
+  }
+  .tab-btn{
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 9px 6px;
+    font-size: 0.76rem;
+    text-align:center;
+    line-height:1.15;
+  }
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
   .month-cell{ min-height: 64px; }
   .month-cell .cell-event{ font-size: 0.55rem; }
   .header-actions .btn span.full-label{ display:none; }
+  .onboarding-head{
+    position: static;
+    flex-direction:column;
+  }
+  .choice-grid{
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -618,10 +1023,12 @@ footer.app-footer{
 <header class="top">
   <div class="header-inner">
     <div class="brand">
-      <h1>🏆 Jack's Sports Calendar</h1>
+      <h1>nothingSports</h1>
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
+      <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Preferences</span></button>
+      <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
       <button class="btn ghost" id="suggestBtn">💡 <span class="full-label">Suggest additions</span></button>
       <button class="btn primary" id="exportBtn">⬇ <span class="full-label">Export Calendar</span></button>
     </div>
@@ -629,12 +1036,15 @@ footer.app-footer{
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="calendar">Calendar</button>
-    <button class="tab-btn" data-tab="mustwatch">🔥 Must Watch</button>
+    <button class="tab-btn" data-tab="mustwatch">Never Miss</button>
+    <button class="tab-btn" data-tab="briefing">Weekly Briefing</button>
+    <button class="tab-btn" data-tab="catchup">Catch-up</button>
   </div>
 </header>
 
 <div class="controls" id="calendarControls">
   <div class="filter-row" id="sportFilters"></div>
+  <div class="preference-summary" id="preferenceSummary"></div>
   <div class="view-toggle">
     <button class="active" data-view="list">List View</button>
     <button data-view="month">Month View</button>
@@ -645,13 +1055,35 @@ footer.app-footer{
   <section id="listView"></section>
   <section id="monthView" style="display:none;"></section>
   <section id="mustWatchView" style="display:none;"></section>
+  <section id="briefingView" style="display:none;"></section>
+  <section id="catchupView" style="display:none;"></section>
 </main>
 
 <footer class="app-footer">
-  Built for Jack &middot; No scores, no spoilers &middot; All times AEST (UTC+10) &middot; Data updates weekly
+  Built for Jack &middot; No scores, no spoilers &middot; All times shown in Sydney time &middot; Data updates weekly
 </footer>
 
 <div class="toast" id="toast"></div>
+
+<div class="modal-backdrop" id="onboardingModal" aria-hidden="true">
+  <div class="onboarding-panel" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="onboardingTitle">Set up nothingSports</h2>
+        <p id="onboardingCopy">Choose the sports and providers you actually use. The calendar stays spoiler-free.</p>
+      </div>
+      <div class="step-indicator" id="stepIndicator">Step 1 of 3</div>
+    </div>
+    <div class="onboarding-body" id="onboardingBody"></div>
+    <div class="onboarding-actions">
+      <button class="btn ghost" id="resetPreferencesBtn">Reset</button>
+      <div>
+        <button class="btn ghost" id="backStepBtn">Back</button>
+        <button class="btn primary" id="nextStepBtn">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ============ DATA ============ */
@@ -672,31 +1104,434 @@ const SPORT_META = {
   nfl:         { label: "Super Bowl",       color: "var(--c-nfl)",      icon: "🏈" },
 };
 
-const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","cricket","nba","masters","lemans","ski"];
+const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","cricket","nba","masters","lemans","nfl","ski"];
+const ACTION_FILTERS = {
+  tracked: { label: "Tracked", icon: "✓" },
+  saved: { label: "Saved", icon: "↺" },
+};
+
+const SPORTS_LIBRARY = {
+  wimbledon: { label: "Tennis", detail: "Grand Slam rounds, finals, and Australian contenders.", filterLabel: "Wimbledon", color: "var(--c-tennis)", icon: "🎾" },
+  rugby: { label: "Rugby", detail: "Wallabies Tests and major international windows.", color: "var(--c-rugby)", icon: "🏉" },
+  fifa: { label: "Football / World Cup", detail: "Socceroos and knockout-stage World Cup matches.", color: "var(--c-football)", icon: "⚽" },
+  f1: { label: "F1", detail: "Qualifying and race sessions in Sydney time.", color: "var(--c-f1)", icon: "🏎️" },
+  tdf: { label: "Le Tour de France", detail: "Mountain stages, time trials, and the Paris finish.", color: "var(--c-cycling)", icon: "🚴" },
+  masters: { label: "Masters Golf", detail: "Augusta rounds and Sunday contention windows.", color: "var(--c-golf)", icon: "⛳" },
+  cricket: { label: "Cricket", detail: "Australian Tests and summer headline matches.", color: "var(--c-cricket)", icon: "🏏" },
+  nba: { label: "NBA Finals", detail: "Finals games and potential deciders.", color: "var(--c-nba)", icon: "🏀" },
+  nfl: { label: "Super Bowl", detail: "NFL championship event.", color: "var(--c-nfl)", icon: "🏈" },
+  lemans: { label: "Le Mans", detail: "24 Hours start and finish windows.", color: "var(--c-lemans)", icon: "🏁" },
+  nrl: { label: "Rugby League", detail: "NRL finals and Grand Final.", color: "var(--c-nrl)", icon: "🏉" },
+  ski: { label: "Alpine / Freestyle Skiing", detail: "World Cup and finals events.", color: "var(--c-ski)", icon: "⛷️" },
+};
+
+const COMING_SOON_SPORTS = [
+  "UFC",
+  "MotoGP",
+  "AFL",
+  "Olympics",
+];
+
+const BROADCASTER_LIBRARY = {
+  kayo: { label: "Kayo Sports", aliases: ["kayo", "espn"] },
+  stan: { label: "Stan Sport", aliases: ["stan sport"] },
+  sbs: { label: "SBS On Demand", aliases: ["sbs", "sbs on demand"] },
+  nine: { label: "Nine / 9Now", aliases: ["nine", "9now"] },
+  foxtel: { label: "Foxtel", aliases: ["foxtel"] },
+  abc: { label: "ABC", aliases: ["abc"] },
+  seven: { label: "7plus", aliases: ["7plus"] },
+  ten: { label: "10", aliases: ["10 "] },
+  fis: { label: "FIS broadcast", aliases: ["fis broadcast"] },
+};
+
+const FUTURE_BROADCASTERS = ["Sky Sports", "Canal+", "Eurosport", "VPN / international access"];
+
+const DEFAULT_PREFERENCES = {
+  version: 1,
+  onboardingComplete: false,
+  followedSports: Object.keys(SPORTS_LIBRARY),
+  selectedBroadcasters: ["kayo","stan","sbs","nine","foxtel","fis"],
+  tennis: {
+    enthusiasm: "froth",
+    gender: "both",
+    eventType: "both",
+    round: "all",
+  },
+};
+
+const APP_CONTRACT = {
+  schemaVersion: "events.v1",
+  rails: {
+    topStorylines: "Top Storylines This Week",
+    worthCheckingOut: "Worth Checking Out",
+    catchupClassics: "Catch-up Classics",
+    weeklyBriefing: "Weekly No-Regrets Briefing",
+  },
+  cardStates: ["compact", "selected", "opened"],
+  reminderStates: ["off", "calendar_added", "watching", "saved_for_catchup"],
+  enthusiasm: ["like", "froth", "choose"],
+};
+
+const SCORE_BANDS = {
+  topStorylines: { min: 8, max: 10 },
+  worthCheckingOut: { min: 7, max: 8 },
+  boostedWorth: { min: 6, max: 6 },
+};
+
+const FEED_CONFIG = {
+  metaUrl: "/data/feed-meta.json",
+  eventsUrl: "/data/events.json",
+};
+
+const STORAGE_KEYS = {
+  preferences: "ns_preferences_v1",
+  followedSports: "ns_followed_sports_v1",
+  eventActions: "ns_event_actions_v1",
+  hiddenItems: "ns_hidden_items_v1",
+  feedCache: "ns_feed_cache_v1",
+  lastFeedVersion: "ns_last_feed_version_v1",
+  lastRefreshAt: "ns_last_refresh_at_v1",
+  briefingSeen: "ns_briefing_seen_v1",
+  savedCatchup: "ns_saved_catchup_v1",
+  ratings: "ns_ratings_v1",
+  legacyPreferences: "sportscal:v1:preferences",
+  legacyRatingsV2: "sportscal:v1:ratings",
+  legacyRatings: "jacksSportsCalendar_actualRatings_v1",
+};
 
 /* ============ STATE ============ */
 let activeFilter = "all";
 let activeView = "list";
 let activeTab = "calendar";
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
+let onboardingStep = 0;
+let draftPreferences = null;
+let cardViewStates = {};
 
-const RATINGS_KEY = "jacksSportsCalendar_actualRatings_v1";
+function readStorage(key, fallback){
+  try{
+    const raw = localStorage.getItem(key);
+    if (!raw) return fallback;
+    return JSON.parse(raw);
+  }catch(e){
+    console.warn("Storage read failed", key, e);
+    return fallback;
+  }
+}
+
+function writeStorage(key, value){
+  try{
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  }catch(e){
+    console.warn("Storage write failed", key, e);
+    showToast("Could not save locally. Browser storage may be full or disabled.");
+    return false;
+  }
+}
+
+function uniqueArray(values){
+  return Array.from(new Set(values.filter(Boolean)));
+}
+
+function mergePreferences(saved){
+  const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
+  if (!saved || typeof saved !== "object") return merged;
+  return {
+    ...merged,
+    ...saved,
+    followedSports: uniqueArray(saved.followedSports || merged.followedSports).filter(key => SPORTS_LIBRARY[key]),
+    selectedBroadcasters: uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]),
+    tennis: { ...merged.tennis, ...(saved.tennis || {}) },
+  };
+}
+
+function loadPreferences(){
+  const current = readStorage(STORAGE_KEYS.preferences, null);
+  if (current && typeof current === "object") return mergePreferences(current);
+  const legacy = readStorage(STORAGE_KEYS.legacyPreferences, null);
+  if (legacy && typeof legacy === "object"){
+    const migrated = mergePreferences(legacy);
+    writeStorage(STORAGE_KEYS.preferences, migrated);
+    return migrated;
+  }
+  return mergePreferences(null);
+}
+
+function savePreferences(next){
+  const clean = mergePreferences(next);
+  if (writeStorage(STORAGE_KEYS.preferences, clean)){
+    userPreferences = clean;
+  }
+}
+
 function loadRatings(){
-  try{ return JSON.parse(localStorage.getItem(RATINGS_KEY)) || {}; }catch(e){ return {}; }
+  const current = readStorage(STORAGE_KEYS.ratings, null);
+  if (current && typeof current === "object") return current;
+  const prior = readStorage(STORAGE_KEYS.legacyRatingsV2, null);
+  if (prior && typeof prior === "object"){
+    writeStorage(STORAGE_KEYS.ratings, prior);
+    return prior;
+  }
+  const legacy = readStorage(STORAGE_KEYS.legacyRatings, {});
+  if (legacy && typeof legacy === "object"){
+    writeStorage(STORAGE_KEYS.ratings, legacy);
+    return legacy;
+  }
+  return {};
 }
+
 function saveRatings(r){
-  localStorage.setItem(RATINGS_KEY, JSON.stringify(r));
+  writeStorage(STORAGE_KEYS.ratings, r);
 }
+
+function loadEventActions(){
+  const current = readStorage(STORAGE_KEYS.eventActions, {});
+  return current && typeof current === "object" ? current : {};
+}
+
+function saveEventActions(next){
+  eventActions = next && typeof next === "object" ? next : {};
+  writeStorage(STORAGE_KEYS.eventActions, eventActions);
+}
+
+let userPreferences = loadPreferences();
 let ratings = loadRatings();
+let eventActions = loadEventActions();
+let activeEvents = loadCachedFeedEvents() || EVENTS;
+
+/* ============ FEED REFRESH ============ */
+function sydneyPartsFromIso(iso){
+  if (!iso) return null;
+  const dt = new Date(iso);
+  if (Number.isNaN(dt.getTime())) return null;
+  const parts = new Intl.DateTimeFormat("en-AU", {
+    timeZone: "Australia/Sydney",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(dt).reduce((acc, part) => {
+    acc[part.type] = part.value;
+    return acc;
+  }, {});
+  return {
+    date: `${parts.year}-${parts.month}-${parts.day}`,
+    time: `${parts.hour}:${parts.minute}`,
+  };
+}
+
+function coerceEventRecord(raw, index){
+  if (!raw || typeof raw !== "object") return null;
+  const fromUtc = sydneyPartsFromIso(raw.startTimeUtc);
+  const key = raw.key || raw.sportId || raw.competitionId;
+  const name = raw.name || raw.displayTitleCompact;
+  const date = raw.date || fromUtc?.date;
+  const time = raw.time || fromUtc?.time;
+  if (!key || !SPORT_META[key] || !name || !date || !time) return null;
+  return {
+    ...raw,
+    id: raw.id || raw.eventId || `remote_${index}`,
+    eventId: raw.eventId || raw.id || `remote_${index}`,
+    key,
+    sport: raw.sport || SPORT_META[key].label,
+    name,
+    date,
+    time,
+    broadcaster: raw.broadcaster || raw.broadcastOptions?.[0] || "Broadcaster TBC",
+    expected: Number(raw.expected ?? raw.recommendationScore ?? 6),
+    venue: raw.venue ?? null,
+    liveWindow: Number(raw.liveWindow || raw.calendarTemplate?.durationHours || 3),
+  };
+}
+
+function coerceEventList(payload){
+  const rawEvents = Array.isArray(payload) ? payload : payload?.events;
+  if (!Array.isArray(rawEvents)) return [];
+  return rawEvents.map(coerceEventRecord).filter(Boolean);
+}
+
+function loadCachedFeedEvents(){
+  const cached = readStorage(STORAGE_KEYS.feedCache, null);
+  const events = coerceEventList(cached);
+  return events.length ? events : null;
+}
+
+async function fetchJson(url){
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok){
+    throw new Error(`${url} returned ${response.status}`);
+  }
+  return response.json();
+}
+
+function applyFeedEvents(events, meta){
+  activeEvents = events;
+  normalizeEvents(activeEvents);
+  writeStorage(STORAGE_KEYS.feedCache, { events });
+  if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
+  writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
+  renderAll();
+}
+
+async function refreshRemoteFeed({ quiet = false } = {}){
+  try{
+    if (!quiet) showToast("Checking feed updates...");
+    const meta = await fetchJson(FEED_CONFIG.metaUrl);
+    const eventsPath = meta.eventsPath || meta.eventsUrl;
+    if (!eventsPath && meta.usesBundledEvents){
+      if (meta.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
+      writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
+      renderPreferenceSummary();
+      if (!quiet) showToast("Feed metadata refreshed. Bundled schedule is current.");
+      return;
+    }
+    const payload = await fetchJson(eventsPath || FEED_CONFIG.eventsUrl);
+    const events = coerceEventList(payload);
+    if (!events.length){
+      throw new Error("Remote feed did not contain usable events");
+    }
+    applyFeedEvents(events, meta);
+    if (!quiet) showToast(`Feed refreshed: ${events.length} events loaded.`);
+  }catch(err){
+    console.warn("Feed refresh failed", err);
+    if (!quiet) showToast("No remote feed update found. Using saved or bundled schedule.");
+  }
+}
+
+/* ============ METADATA NORMALIZATION ============ */
+function inferBroadcasterIds(label){
+  const text = String(label || "").toLowerCase();
+  return Object.entries(BROADCASTER_LIBRARY)
+    .filter(([, provider]) => provider.aliases.some(alias => text.includes(alias.trim().toLowerCase())))
+    .map(([id]) => id);
+}
+
+function inferTennisGender(name){
+  const text = String(name || "").toLowerCase();
+  if (text.includes("women")) return "women";
+  if (text.includes("men")) return "men";
+  return "unknown";
+}
+
+function inferRound(name){
+  const text = String(name || "").toLowerCase();
+  if (text.includes("semifinal")) return "semifinal";
+  if (text.includes("quarterfinal")) return "quarterfinal";
+  if (text.includes("final")) return "final";
+  if (text.includes("round of")) return "knockout";
+  if (text.includes(" r3")) return "early";
+  return "all";
+}
+
+function stakesScoreForEvent(ev){
+  if (ev.expected >= 10) return 5;
+  if (ev.expected >= 8) return 4;
+  if (ev.expected >= 6) return 3;
+  if (ev.expected >= 4) return 2;
+  return 1;
+}
+
+function importanceBandForEvent(ev){
+  if (ev.expected >= SCORE_BANDS.topStorylines.min) return "topStorylines";
+  if (ev.expected >= SCORE_BANDS.worthCheckingOut.min) return "worthCheckingOut";
+  return "longTail";
+}
+
+function selectedSentenceForEvent(ev){
+  const round = inferRound(ev.name);
+  if (ev.key === "wimbledon" && round !== "all"){
+    return `${SPORT_META[ev.key].label} ${round.replace("quarterfinal", "quarterfinals")} with enough stakes to plan around.`;
+  }
+  if (ev.key === "tdf" && /mountain|alpe|itt/i.test(ev.name)){
+    return "A Tour stage with genuine race-shaping potential and strong replay value.";
+  }
+  if (ev.expected >= 9){
+    return "One of the week’s clearest appointment-viewing picks.";
+  }
+  if (ev.expected >= 7){
+    return "Worth checking before you fill the calendar around it.";
+  }
+  return "Lower priority, but still relevant if this sport is high on your list.";
+}
+
+function inclusionExplanationForEvent(ev){
+  if (ev.key === "wimbledon"){
+    const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
+    if (tennis.round === "all") return "Included because your tennis settings keep this Wimbledon event in scope.";
+    return `Included because your ${tennis.round} tennis focus keeps this Wimbledon event in scope.`;
+  }
+  if (ev.expected >= 9) return "Included because its recommendation score puts it near the top of the week.";
+  if (ev.expected >= 7) return "Included because it clears the Worth Checking Out threshold.";
+  return "Included because your sport and broadcaster preferences keep it visible.";
+}
+
+function fullSpielForEvent(ev){
+  if (ev.fullSpiel) return ev.fullSpiel;
+  const venue = ev.venue ? ` at ${ev.venue}` : "";
+  return `${ev.name}${venue} is a spoiler-safe pick for ${fmtTime12(ev.time)} Sydney time on ${fmtDateHeading(ev.date)}. It is ranked from fixed event metadata, not runtime generation.`;
+}
+
+function importanceColorForEvent(ev){
+  if (ev.expected >= 9) return "#ff8a00";
+  if (ev.expected >= 8) return "#ffc247";
+  if (ev.expected >= 7) return "#00e5ff";
+  return "#6f7a86";
+}
+
+function normalizeEvents(events = activeEvents){
+  events.forEach(ev => {
+    ev.eventId = ev.eventId || ev.id;
+    ev.sportId = ev.key;
+    ev.competitionId = ev.key;
+    ev.startTimeUtc = ev.startTimeUtc || null;
+    ev.endTimeUtc = ev.endTimeUtc || null;
+    ev.status = getEventStatus(ev);
+    ev.displayTitleCompact = ev.displayTitleCompact || ev.name;
+    ev.displaySubtitle = ev.displaySubtitle || `${fmtTime12(ev.time)} Sydney time · ${ev.broadcaster}`;
+    ev.selectedSentence = ev.selectedSentence || selectedSentenceForEvent(ev);
+    ev.fullSpiel = ev.fullSpiel || fullSpielForEvent(ev);
+    ev.stakesScore = ev.stakesScore || stakesScoreForEvent(ev);
+    ev.recommendationScore = ev.recommendationScore || ev.expected;
+    ev.importanceBand = ev.importanceBand || importanceBandForEvent(ev);
+    ev.narrativeType = ev.narrativeType || inferRound(ev.name);
+    ev.broadcasterIds = inferBroadcasterIds(ev.broadcaster);
+    ev.broadcastOptions = ev.broadcastOptions || [ev.broadcaster].filter(Boolean);
+    ev.venueId = ev.venueId || (ev.venue ? ev.venue.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : null);
+    ev.replayEligible = ev.replayEligible ?? ev.expected >= 7;
+    ev.highlightEligible = ev.highlightEligible ?? ev.expected >= 6;
+    ev.replayWindowEnd = ev.replayWindowEnd || null;
+    ev.briefingEligible = ev.briefingEligible ?? ev.expected >= 7;
+    ev.catchupEligible = ev.catchupEligible ?? ev.expected >= 7;
+    ev.userReasonTemplateKeys = ev.userReasonTemplateKeys || [ev.importanceBand, ev.key].filter(Boolean);
+    ev.calendarTemplate = ev.calendarTemplate || {
+      title: `${SPORT_META[ev.key]?.icon || ""} ${ev.name}`.trim(),
+      durationHours: ev.liveWindow || 3,
+    };
+    ev.updatedAt = ev.updatedAt || "2026-07-09";
+    ev.expectedSpectacle = ev.expected;
+    if (ev.key === "wimbledon"){
+      ev.gender = inferTennisGender(ev.name);
+      ev.eventType = ev.name.toLowerCase().includes("doubles") ? "doubles" : "singles";
+      ev.round = inferRound(ev.name);
+    } else {
+      ev.round = inferRound(ev.name);
+    }
+  });
+}
+
+normalizeEvents(activeEvents);
 
 /* ============ TIME HELPERS ============ */
-// "Now" is always computed relative to real device clock, treated as AEST for this app's purposes.
+// "Now" is computed from the device clock. User-facing labels are Sydney-time-first.
 function nowAEST(){
   return new Date();
 }
 
 function eventDateTime(ev){
-  // date "YYYY-MM-DD", time "HH:MM" -> local Date object (browser local time assumed AEST as app is AEST-only)
+  // date "YYYY-MM-DD", time "HH:MM" -> local Date object for simple static sorting and status checks.
   const [y,m,d] = ev.date.split("-").map(Number);
   const [hh,mm] = ev.time.split(":").map(Number);
   return new Date(y, m-1, d, hh, mm, 0);
@@ -738,18 +1573,136 @@ function isPreFlagged(ev){
 function isUpgrade(ev){
   const actual = getActual(ev.id);
   if (actual === null) return false;
-  return actual >= 8 && (actual - ev.expected) >= 2;
+  return actual > 8 || (actual - ev.expected) >= 2;
 }
 
 function isMustWatch(ev){
   return isPreFlagged(ev) || isUpgrade(ev);
 }
 
+function eventActionKey(ev){
+  return `${ev.eventId || ev.id}:${ev.date}T${ev.time}`;
+}
+
+function defaultEventAction(ev){
+  return {
+    eventId: ev.eventId || ev.id,
+    startTime: `${ev.date}T${ev.time}`,
+    reminderState: "off",
+    savedForCatchup: false,
+    dismissed: false,
+    lastActionAt: null,
+  };
+}
+
+function getEventAction(ev){
+  return { ...defaultEventAction(ev), ...(eventActions[eventActionKey(ev)] || {}) };
+}
+
+function updateEventAction(ev, patch){
+  const key = eventActionKey(ev);
+  const nextAction = {
+    ...getEventAction(ev),
+    ...patch,
+    eventId: ev.eventId || ev.id,
+    startTime: `${ev.date}T${ev.time}`,
+    lastActionAt: new Date().toISOString(),
+  };
+  saveEventActions({ ...eventActions, [key]: nextAction });
+  return nextAction;
+}
+
+function dismissEventFromBriefing(ev){
+  updateEventAction(ev, { dismissed: true });
+  renderAll();
+  showToast("Dismissed from this briefing.");
+}
+
+function reminderLabel(action){
+  if (action.reminderState === "calendar_added") return "Calendar added";
+  if (action.reminderState === "watching") return "Watching live";
+  if (action.reminderState === "saved_for_catchup") return "Saved for catch-up";
+  return "No reminder set";
+}
+
+function buildEventActionPanel(ev, options = {}){
+  const action = getEventAction(ev);
+  const panel = document.createElement("div");
+  panel.className = "event-action-panel";
+
+  const status = document.createElement("div");
+  status.className = "event-action-status";
+  status.textContent = `${reminderLabel(action)} · ${action.savedForCatchup ? "Catch-up saved" : "Not saved for catch-up"}${action.dismissed ? " · Dismissed from briefing" : ""}`;
+  panel.appendChild(status);
+
+  const row = document.createElement("div");
+  row.className = "event-action-row";
+
+  const calendarBtn = document.createElement("button");
+  calendarBtn.className = "action-btn" + (action.reminderState === "calendar_added" ? " active" : "");
+  calendarBtn.textContent = action.reminderState === "calendar_added" ? "Calendar added" : "Add to calendar";
+  calendarBtn.addEventListener("click", evt => {
+    evt.stopPropagation();
+    updateEventAction(ev, { reminderState: "calendar_added" });
+    downloadEventICS(ev);
+    renderAll();
+  });
+  row.appendChild(calendarBtn);
+
+  const watchingBtn = document.createElement("button");
+  watchingBtn.className = "action-btn" + (action.reminderState === "watching" ? " active" : "");
+  watchingBtn.textContent = "Watching";
+  watchingBtn.addEventListener("click", evt => {
+    evt.stopPropagation();
+    const nextState = action.reminderState === "watching" ? "off" : "watching";
+    updateEventAction(ev, { reminderState: nextState });
+    renderAll();
+    showToast(nextState === "watching" ? "Marked as watching." : "Watching marker cleared.");
+  });
+  row.appendChild(watchingBtn);
+
+  const catchupBtn = document.createElement("button");
+  catchupBtn.className = "action-btn" + (action.savedForCatchup ? " active" : "");
+  catchupBtn.textContent = action.savedForCatchup ? "Catch-up saved" : "Save for catch-up";
+  catchupBtn.addEventListener("click", evt => {
+    evt.stopPropagation();
+    const savedForCatchup = !action.savedForCatchup;
+    const nextReminderState = savedForCatchup
+      ? (action.reminderState === "off" ? "saved_for_catchup" : action.reminderState)
+      : (action.reminderState === "saved_for_catchup" ? "off" : action.reminderState);
+    updateEventAction(ev, {
+      savedForCatchup,
+      reminderState: nextReminderState,
+    });
+    renderAll();
+    showToast(savedForCatchup ? "Saved for catch-up." : "Catch-up save removed.");
+  });
+  row.appendChild(catchupBtn);
+
+  if (options.showDismiss){
+    const dismissBtn = document.createElement("button");
+    dismissBtn.className = "action-btn" + (action.dismissed ? " active" : "");
+    dismissBtn.textContent = action.dismissed ? "Dismissed from briefing" : "Dismiss from briefing";
+    dismissBtn.addEventListener("click", evt => {
+      evt.stopPropagation();
+      dismissEventFromBriefing(ev);
+    });
+    row.appendChild(dismissBtn);
+  }
+
+  panel.appendChild(row);
+  return panel;
+}
+
 /* ============ RENDER: SPORT FILTERS ============ */
 function renderFilters(){
   const container = document.getElementById("sportFilters");
   container.innerHTML = "";
-  FILTER_ORDER.forEach(key => {
+  const followed = new Set(userPreferences.followedSports);
+  if (activeFilter !== "all" && !followed.has(activeFilter) && !ACTION_FILTERS[activeFilter]){
+    activeFilter = "all";
+  }
+  FILTER_ORDER.filter(key => key === "all" || followed.has(key)).forEach(key => {
     const btn = document.createElement("button");
     btn.className = "pill" + (activeFilter === key ? " active" : "");
     if (key !== "all"){
@@ -764,13 +1717,103 @@ function renderFilters(){
     });
     container.appendChild(btn);
   });
+  Object.entries(ACTION_FILTERS).forEach(([key, filter]) => {
+    const btn = document.createElement("button");
+    btn.className = "pill" + (activeFilter === key ? " active" : "");
+    btn.innerHTML = `<span>${filter.icon}</span><span>${filter.label}</span>`;
+    btn.addEventListener("click", () => {
+      activeFilter = key;
+      renderAll();
+    });
+    container.appendChild(btn);
+  });
+  renderPreferenceSummary();
+}
+
+function renderPreferenceSummary(){
+  const container = document.getElementById("preferenceSummary");
+  const sportCount = userPreferences.followedSports.length;
+  const providers = userPreferences.selectedBroadcasters
+    .map(key => BROADCASTER_LIBRARY[key]?.label)
+    .filter(Boolean)
+    .slice(0, 3);
+  const providerCopy = providers.length ? providers.join(", ") : "No providers selected";
+  const feedVersion = readStorage(STORAGE_KEYS.lastFeedVersion, null) || "bundled";
+  const lastRefresh = readStorage(STORAGE_KEYS.lastRefreshAt, null);
+  const refreshCopy = lastRefresh
+    ? new Date(lastRefresh).toLocaleString("en-AU", { timeZone: "Australia/Sydney", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
+    : "not checked";
+  container.innerHTML = `
+    <span class="summary-chip">${sportCount} sports followed</span>
+    <span class="summary-chip">${providerCopy}${userPreferences.selectedBroadcasters.length > 3 ? " +" + (userPreferences.selectedBroadcasters.length - 3) : ""}</span>
+    <span class="summary-chip">Feed ${feedVersion} · ${refreshCopy}</span>
+  `;
+}
+
+function eventMatchesSportPreferences(ev){
+  return userPreferences.followedSports.includes(ev.sportId || ev.key);
+}
+
+function eventMatchesBroadcasterPreferences(ev){
+  if (!userPreferences.selectedBroadcasters.length) return false;
+  if (!ev.broadcasterIds || !ev.broadcasterIds.length) return true;
+  return ev.broadcasterIds.some(id => userPreferences.selectedBroadcasters.includes(id));
+}
+
+function eventMatchesTennisFilters(ev){
+  if (ev.sportId !== "wimbledon") return true;
+  const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
+  const rules = tennisRulesForPreference(tennis);
+  if (rules.gender !== "both" && ev.gender !== "unknown" && ev.gender !== rules.gender) return false;
+  if (rules.eventType !== "both" && ev.eventType && ev.eventType !== rules.eventType) return false;
+  if (rules.round !== "all" && ev.round !== "all" && !roundMeetsMinimum(ev.round, rules.round)) return false;
+  return true;
+}
+
+function eventMatchesActionFilter(ev){
+  if (activeFilter === "tracked"){
+    return ["calendar_added", "watching"].includes(getEventAction(ev).reminderState);
+  }
+  if (activeFilter === "saved"){
+    return getEventAction(ev).savedForCatchup;
+  }
+  return true;
+}
+
+function tennisRulesForPreference(tennis){
+  if (tennis.enthusiasm === "like"){
+    return { gender: "both", eventType: "singles", round: "quarterfinal" };
+  }
+  if (tennis.enthusiasm === "choose"){
+    return {
+      gender: tennis.gender || "both",
+      eventType: tennis.eventType || "both",
+      round: tennis.round || "all",
+    };
+  }
+  return { gender: "both", eventType: "both", round: "all" };
+}
+
+function roundMeetsMinimum(eventRound, minimumRound){
+  if (minimumRound === "all") return true;
+  const order = ["early", "knockout", "quarterfinal", "semifinal", "final"];
+  const eventIndex = order.indexOf(eventRound);
+  const minimumIndex = order.indexOf(minimumRound);
+  if (eventIndex === -1 || minimumIndex === -1) return true;
+  return eventIndex >= minimumIndex;
 }
 
 /* ============ FILTERED EVENTS ============ */
 function getFilteredEvents(){
-  let list = EVENTS.slice();
+  let list = activeEvents.slice();
+  list = list.filter(eventMatchesSportPreferences);
+  list = list.filter(eventMatchesBroadcasterPreferences);
+  list = list.filter(eventMatchesTennisFilters);
+  list = list.filter(eventMatchesActionFilter);
   if (activeFilter !== "all"){
-    list = list.filter(e => e.key === activeFilter);
+    if (!ACTION_FILTERS[activeFilter]){
+      list = list.filter(e => e.key === activeFilter);
+    }
   }
   return list;
 }
@@ -823,16 +1866,70 @@ function buildStars(ev, interactive){
   return wrap;
 }
 
-function buildEventCard(ev){
+function buildStakesMeter(ev){
+  const wrap = document.createElement("span");
+  wrap.className = "stakes-meter";
+  wrap.setAttribute("aria-label", `Stakes ${ev.stakesScore} out of 5`);
+  for (let i=1; i<=5; i++){
+    const dot = document.createElement("span");
+    dot.className = "stakes-dot" + (i <= ev.stakesScore ? " filled" : "");
+    wrap.appendChild(dot);
+  }
+  return wrap;
+}
+
+function nextCardState(current){
+  if (current === "compact") return "selected";
+  if (current === "selected") return "opened";
+  return "compact";
+}
+
+function cardStateForEvent(ev){
+  return cardViewStates[ev.eventId] || "compact";
+}
+
+function setCardState(ev, state){
+  cardViewStates = { ...cardViewStates, [ev.eventId]: state };
+}
+
+function buildEventCard(ev, options = {}){
   const meta = SPORT_META[ev.key];
   const status = getEventStatus(ev);
   const actual = getActual(ev.id);
-  const mustWatch = isPreFlagged(ev);
+  const mustWatch = ev.recommendationScore >= SCORE_BANDS.topStorylines.min || isUpgrade(ev);
   const upgraded = isUpgrade(ev);
+  const mode = options.mode || "calendar";
+  const state = mode === "rail" ? cardStateForEvent(ev) : (mode === "calendar" ? "compact" : "opened");
+  const importanceColor = importanceColorForEvent(ev);
+  const action = getEventAction(ev);
 
   const card = document.createElement("div");
-  card.className = "event-card" + (status === "past" ? " is-past" : "");
+  card.className = [
+    "event-card",
+    mode === "rail" ? "is-rail-card" : "",
+    state === "selected" ? "is-selected" : "",
+    state === "opened" ? "is-opened" : "",
+    status === "past" ? "is-past" : "",
+  ].filter(Boolean).join(" ");
   card.style.setProperty("--sport-color", meta.color);
+  card.style.setProperty("--importance-color", importanceColor);
+  card.style.setProperty("--importance-strength", `${Math.min(34, 10 + ev.stakesScore * 4)}%`);
+  if (mode === "rail"){
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-label", `${ev.displayTitleCompact}. ${state === "compact" ? "Tap for short context." : state === "selected" ? "Tap for details." : "Tap to collapse."}`);
+    const advance = () => {
+      setCardState(ev, nextCardState(state));
+      renderMustWatch();
+    };
+    card.addEventListener("click", advance);
+    card.addEventListener("keydown", evt => {
+      if (evt.key === "Enter" || evt.key === " "){
+        evt.preventDefault();
+        advance();
+      }
+    });
+  }
 
   const icon = document.createElement("div");
   icon.className = "event-icon";
@@ -848,9 +1945,9 @@ function buildEventCard(ev){
   const nameWrap = document.createElement("div");
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
-  nameEl.textContent = ev.name;
+  nameEl.textContent = ev.displayTitleCompact;
   nameWrap.appendChild(nameEl);
-  if (ev.venue){
+  if (state === "opened" && ev.venue){
     const venueEl = document.createElement("div");
     venueEl.className = "event-venue";
     venueEl.textContent = ev.venue;
@@ -879,13 +1976,25 @@ function buildEventCard(ev){
   if (mustWatch){
     const b = document.createElement("span");
     b.className = "badge mustwatch";
-    b.textContent = "🔥 Must Watch";
+    b.textContent = "Never Miss";
     badges.appendChild(b);
   }
   if (upgraded){
     const b = document.createElement("span");
     b.className = "badge exceeded";
-    b.textContent = "⭐ Exceeded Expectations";
+    b.textContent = "Promoted replay";
+    badges.appendChild(b);
+  }
+  if (action.reminderState !== "off"){
+    const b = document.createElement("span");
+    b.className = "badge upcoming";
+    b.textContent = reminderLabel(action);
+    badges.appendChild(b);
+  }
+  if (action.savedForCatchup){
+    const b = document.createElement("span");
+    b.className = "badge upcoming";
+    b.textContent = "Catch-up saved";
     badges.appendChild(b);
   }
   topRow.appendChild(badges);
@@ -895,9 +2004,14 @@ function buildEventCard(ev){
   metaRow.className = "event-meta-row";
   metaRow.innerHTML = `
     <span class="meta-item sport-tag">${meta.icon} ${meta.label}</span>
-    <span class="meta-item">🕒 ${fmtTime12(ev.time)} AEST</span>
-    <span class="meta-item">📡 ${ev.broadcaster}</span>
+    <span class="meta-item">🕒 ${fmtTime12(ev.time)} Sydney time</span>
   `;
+  if (state === "opened"){
+    const broadcaster = document.createElement("span");
+    broadcaster.className = "meta-item";
+    broadcaster.textContent = `📡 ${ev.broadcaster}`;
+    metaRow.appendChild(broadcaster);
+  }
   mainDiv.appendChild(metaRow);
 
   const ratingRow = document.createElement("div");
@@ -905,14 +2019,15 @@ function buildEventCard(ev){
 
   const expectedBlock = document.createElement("div");
   expectedBlock.className = "rating-block";
-  expectedBlock.innerHTML = `Expected: <span class="expected-num">${ev.expected}/10</span>`;
+  expectedBlock.innerHTML = `Stakes: <span class="expected-num">${ev.stakesScore}/5</span>`;
+  expectedBlock.appendChild(buildStakesMeter(ev));
   ratingRow.appendChild(expectedBlock);
 
-  if (status === "past"){
+  if (state === "opened" && status === "past"){
     const actualBlock = document.createElement("div");
     actualBlock.className = "rating-block";
     const label = document.createElement("span");
-    label.textContent = "Your rating:";
+    label.textContent = "Actual spectacle:";
     actualBlock.appendChild(label);
     actualBlock.appendChild(buildStars(ev, true));
     if (actual !== null){
@@ -926,6 +2041,32 @@ function buildEventCard(ev){
   }
 
   mainDiv.appendChild(ratingRow);
+
+  if (state === "selected"){
+    const selected = document.createElement("div");
+    selected.className = "event-selected-copy";
+    selected.textContent = ev.selectedSentence;
+    mainDiv.appendChild(selected);
+  }
+
+  if (state === "opened"){
+    const spiel = document.createElement("div");
+    spiel.className = "event-opened-copy";
+    spiel.textContent = ev.fullSpiel;
+    mainDiv.appendChild(spiel);
+
+    const details = document.createElement("div");
+    details.className = "event-detail-grid";
+    details.innerHTML = `
+      <div class="event-detail-item"><strong>Why this is here</strong>${inclusionExplanationForEvent(ev)}</div>
+      <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
+      <div class="event-detail-item"><strong>Replay</strong>${ev.replayEligible ? "Replay or highlights candidate if missed." : "Live-only priority for now."}</div>
+      <div class="event-detail-item"><strong>Calendar</strong>${ev.calendarTemplate.durationHours}h watch window ready for export.</div>
+    `;
+    mainDiv.appendChild(details);
+    mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
+  }
+
   card.appendChild(mainDiv);
   return card;
 }
@@ -936,7 +2077,7 @@ function renderListView(){
   container.innerHTML = "";
   const filtered = getFilteredEvents();
   if (filtered.length === 0){
-    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match this filter.</div>`;
+    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match your current preferences.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
     return;
   }
   const ordered = sortUpcomingFirst(filtered);
@@ -1050,10 +2191,11 @@ function renderMonthView(){
     dayEvents.slice(0, maxShow).forEach(ev => {
       const meta = SPORT_META[ev.key];
       const evEl = document.createElement("div");
-      evEl.className = "cell-event";
+      const priorityClass = isMustWatch(ev) ? " must-watch" : (ev.expected >= 7 ? " solid" : " quiet");
+      evEl.className = "cell-event" + priorityClass;
       evEl.style.setProperty("--sport-color", meta.color);
       evEl.textContent = `${meta.icon} ${ev.name}`;
-      evEl.title = `${ev.name} — ${fmtTime12(ev.time)} AEST — ${ev.broadcaster}`;
+      evEl.title = `${ev.name} — ${fmtTime12(ev.time)} Sydney time — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
       cell.appendChild(evEl);
     });
     if (dayEvents.length > maxShow){
@@ -1069,40 +2211,253 @@ function renderMonthView(){
   container.appendChild(grid);
 }
 
-/* ============ RENDER: MUST WATCH ============ */
+/* ============ RENDER: RECOMMENDATION RAILS ============ */
+function upcomingRecommendationEvents(){
+  const now = nowAEST();
+  const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
+  return getFilteredEvents()
+    .filter(ev => {
+      const start = eventDateTime(ev);
+      return getEventStatus(ev) !== "past" && start <= weekEnd;
+    })
+    .sort((a,b) => (b.recommendationScore - a.recommendationScore) || (eventDateTime(a) - eventDateTime(b)));
+}
+
+function boostedWorthCheckingOut(ev){
+  if (ev.recommendationScore !== SCORE_BANDS.boostedWorth.min) return false;
+  if (ev.key === "wimbledon"){
+    const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
+    return tennis.round === "all" && tennis.eventType !== "doubles";
+  }
+  return false;
+}
+
+function renderRecommendationRail(container, title, events, emptyCopy){
+  const rail = document.createElement("div");
+  rail.className = "mw-tier";
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+  rail.appendChild(heading);
+
+  if (!events.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.style.padding = "24px 12px";
+    empty.textContent = emptyCopy;
+    rail.appendChild(empty);
+  } else {
+    const grid = document.createElement("div");
+    grid.className = "cards-grid";
+    events.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "rail" })));
+    rail.appendChild(grid);
+  }
+
+  container.appendChild(rail);
+}
+
 function renderMustWatch(){
   const container = document.getElementById("mustWatchView");
   container.innerHTML = "";
 
-  const preFlagged = EVENTS.filter(isPreFlagged).sort((a,b) => b.expected - a.expected);
-  const upgrades = EVENTS.filter(isUpgrade).sort((a,b) => getActual(b.id) - getActual(a.id));
+  const recommendations = upcomingRecommendationEvents();
+  const topStorylines = recommendations
+    .filter(ev => ev.recommendationScore >= SCORE_BANDS.topStorylines.min)
+    .slice(0, 8);
+  const topIds = new Set(topStorylines.map(ev => ev.eventId));
+  const worthCheckingOut = recommendations
+    .filter(ev => !topIds.has(ev.eventId))
+    .filter(ev => ev.recommendationScore >= SCORE_BANDS.worthCheckingOut.min || boostedWorthCheckingOut(ev))
+    .slice(0, 10);
 
-  if (preFlagged.length === 0 && upgrades.length === 0){
-    container.innerHTML = `<div class="empty-state"><div class="big">🔥</div>No Must Watch events yet.</div>`;
+  if (topStorylines.length === 0 && worthCheckingOut.length === 0){
+    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No recommended events match your current preferences this week.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
     return;
   }
 
-  if (preFlagged.length){
-    const tier = document.createElement("div");
-    tier.className = "mw-tier";
-    tier.innerHTML = `<h3>🔥 Pre-Flagged Must Watch <span style="color:var(--text-faint); font-weight:600; font-size:0.8rem;">(Expected ≥ 8/10)</span></h3>`;
-    const grid = document.createElement("div");
-    grid.className = "cards-grid";
-    preFlagged.forEach(ev => grid.appendChild(buildEventCard(ev)));
-    tier.appendChild(grid);
-    container.appendChild(tier);
+  renderRecommendationRail(
+    container,
+    APP_CONTRACT.rails.topStorylines,
+    topStorylines,
+    "No top recommendations in the next seven days."
+  );
+  renderRecommendationRail(
+    container,
+    APP_CONTRACT.rails.worthCheckingOut,
+    worthCheckingOut,
+    "No secondary recommendations in the next seven days."
+  );
+}
+
+function getBriefingWeekKey(date = nowAEST()){
+  const start = new Date(date.getFullYear(), 0, 1);
+  const dayMs = 24 * 3600 * 1000;
+  const dayOfYear = Math.floor((date - start) / dayMs) + 1;
+  const week = Math.ceil((dayOfYear + start.getDay()) / 7);
+  return `${date.getFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
+function weeklyBriefingEvents(){
+  const now = nowAEST();
+  const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
+  return getFilteredEvents()
+    .filter(ev => {
+      const action = getEventAction(ev);
+      const start = eventDateTime(ev);
+      return !action.dismissed &&
+        ev.briefingEligible !== false &&
+        getEventStatus(ev) !== "past" &&
+        start >= now &&
+        start <= weekEnd &&
+        ev.recommendationScore >= SCORE_BANDS.worthCheckingOut.min;
+    })
+    .sort((a,b) => (b.recommendationScore - a.recommendationScore) || (eventDateTime(a) - eventDateTime(b)))
+    .slice(0, 15);
+}
+
+function groupEventsByDate(events){
+  return events.reduce((groups, ev) => {
+    if (!groups[ev.date]) groups[ev.date] = [];
+    groups[ev.date].push(ev);
+    return groups;
+  }, {});
+}
+
+function renderWeeklyBriefing(){
+  const container = document.getElementById("briefingView");
+  container.innerHTML = "";
+  const weekKey = getBriefingWeekKey();
+  writeStorage(STORAGE_KEYS.briefingSeen, weekKey);
+
+  const hero = document.createElement("div");
+  hero.className = "briefing-hero";
+  hero.innerHTML = `
+    <h2>${APP_CONTRACT.rails.weeklyBriefing}</h2>
+    <p>Next seven days, ranked by the same spoiler-safe recommendation model. Add calendar reminders, save catch-up candidates, or dismiss noise before the week gets away from you.</p>
+  `;
+  container.appendChild(hero);
+
+  const events = weeklyBriefingEvents();
+  if (!events.length){
+    container.innerHTML += `<div class="empty-state"><div class="big">🗓️</div>No briefing-worthy events match your current preferences this week.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
+    return;
   }
 
-  if (upgrades.length){
-    const tier = document.createElement("div");
-    tier.className = "mw-tier";
-    tier.innerHTML = `<h3>⭐ Post-Broadcast Upgrades <span style="color:var(--text-faint); font-weight:600; font-size:0.8rem;">(Actual exceeded expected by 2+, actual ≥ 8)</span></h3>`;
+  const grouped = groupEventsByDate(events);
+  Object.keys(grouped)
+    .sort()
+    .forEach(dateStr => {
+      const day = document.createElement("div");
+      day.className = "briefing-day";
+      const heading = document.createElement("h3");
+      heading.textContent = fmtDateHeading(dateStr);
+      day.appendChild(heading);
+      const grid = document.createElement("div");
+      grid.className = "cards-grid";
+      grouped[dateStr]
+        .sort((a,b) => (b.recommendationScore - a.recommendationScore) || (eventDateTime(a) - eventDateTime(b)))
+        .forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "briefing" })));
+      day.appendChild(grid);
+      container.appendChild(day);
+    });
+}
+
+function replayHalfLifeDays(stakesScore){
+  return { 5: 7, 4: 5, 3: 3, 2: 2, 1: 1 }[stakesScore] || 3;
+}
+
+function eventEndDateTime(ev){
+  const start = eventDateTime(ev);
+  return new Date(start.getTime() + (ev.liveWindow || 3) * 3600 * 1000);
+}
+
+function replayAgeDays(ev){
+  const ageMs = nowAEST() - eventEndDateTime(ev);
+  return Math.max(0, ageMs / (24 * 3600 * 1000));
+}
+
+function replayScore(ev){
+  const halfLife = replayHalfLifeDays(ev.stakesScore);
+  return ev.recommendationScore * Math.exp(-replayAgeDays(ev) / halfLife);
+}
+
+function catchupLabelForScore(score){
+  if (score >= 6) return "Replay worth it";
+  if (score >= 3.5) return "Highlights enough";
+  return "Safe to skip";
+}
+
+function catchupBandForEvent(ev){
+  const age = replayAgeDays(ev);
+  if (getEventStatus(ev) === "live") return "Still live";
+  if (age < 1) return "Fresh misses";
+  if (age < 4) return "This week";
+  return "Aged classics";
+}
+
+function catchupEvents(){
+  return getFilteredEvents()
+    .map(ev => {
+      const action = getEventAction(ev);
+      const score = replayScore(ev);
+      return { ev, action, score };
+    })
+    .filter(item => {
+      const status = getEventStatus(item.ev);
+      const replayExpired = item.ev.replayWindowEnd && nowAEST() > new Date(item.ev.replayWindowEnd);
+      return status !== "upcoming" &&
+        !replayExpired &&
+        (item.ev.catchupEligible || item.ev.replayEligible || item.action.savedForCatchup) &&
+        (item.score >= 3.5 || item.action.savedForCatchup);
+    })
+    .sort((a,b) => (b.score - a.score) || (eventDateTime(b.ev) - eventDateTime(a.ev)))
+    .slice(0, 18);
+}
+
+function renderCatchupClassics(){
+  const container = document.getElementById("catchupView");
+  container.innerHTML = "";
+
+  const hero = document.createElement("div");
+  hero.className = "catchup-hero";
+  hero.innerHTML = `
+    <h2>${APP_CONTRACT.rails.catchupClassics}</h2>
+    <p>Missed live does not mean missed forever. These are spoiler-safe replay and highlights candidates, ranked by recommendation score with age decay.</p>
+  `;
+  container.appendChild(hero);
+
+  const items = catchupEvents();
+  if (!items.length){
+    container.innerHTML += `<div class="empty-state"><div class="big">↺</div>No catch-up candidates match your current preferences yet.</div>`;
+    return;
+  }
+
+  const grouped = items.reduce((groups, item) => {
+    const band = catchupBandForEvent(item.ev);
+    if (!groups[band]) groups[band] = [];
+    groups[band].push(item);
+    return groups;
+  }, {});
+
+  ["Still live", "Fresh misses", "This week", "Aged classics"].forEach(band => {
+    if (!grouped[band]?.length) return;
+    const section = document.createElement("div");
+    section.className = "catchup-band";
+    const heading = document.createElement("h3");
+    heading.textContent = band;
+    section.appendChild(heading);
     const grid = document.createElement("div");
     grid.className = "cards-grid";
-    upgrades.forEach(ev => grid.appendChild(buildEventCard(ev)));
-    tier.appendChild(grid);
-    container.appendChild(tier);
-  }
+    grouped[band].forEach(({ ev, score }) => {
+      const card = buildEventCard(ev, { mode: "catchup" });
+      const label = document.createElement("div");
+      label.className = "catchup-label";
+      label.textContent = `${catchupLabelForScore(score)} · replay score ${score.toFixed(1)}`;
+      card.querySelector(".event-main")?.appendChild(label);
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
 }
 
 /* ============ TOAST ============ */
@@ -1118,8 +2473,8 @@ function showToast(msg){
 /* ============ LIVE CLOCK ============ */
 function updateClock(){
   const now = nowAEST();
-  const opts = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-  document.getElementById("liveClock").textContent = now.toLocaleDateString('en-AU', opts) + " AEST";
+  const opts = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Australia/Sydney' };
+  document.getElementById("liveClock").textContent = now.toLocaleDateString('en-AU', opts) + " Sydney time";
 }
 setInterval(() => {
   updateClock();
@@ -1149,8 +2504,12 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 function renderCurrentSection(){
   if (activeTab === "calendar"){
     if (activeView === "list") renderListView(); else renderMonthView();
-  } else {
+  } else if (activeTab === "mustwatch"){
     renderMustWatch();
+  } else if (activeTab === "briefing"){
+    renderWeeklyBriefing();
+  } else {
+    renderCatchupClassics();
   }
 }
 
@@ -1160,10 +2519,14 @@ function renderAll(){
   const listView = document.getElementById("listView");
   const monthView = document.getElementById("monthView");
   const mustWatchView = document.getElementById("mustWatchView");
+  const briefingView = document.getElementById("briefingView");
+  const catchupView = document.getElementById("catchupView");
 
   if (activeTab === "calendar"){
     calControls.style.display = "flex";
     mustWatchView.style.display = "none";
+    briefingView.style.display = "none";
+    catchupView.style.display = "none";
     if (activeView === "list"){
       listView.style.display = "block";
       monthView.style.display = "none";
@@ -1173,14 +2536,234 @@ function renderAll(){
       monthView.style.display = "block";
       renderMonthView();
     }
-  } else {
+  } else if (activeTab === "mustwatch"){
     calControls.style.display = "none";
     listView.style.display = "none";
     monthView.style.display = "none";
     mustWatchView.style.display = "block";
+    briefingView.style.display = "none";
+    catchupView.style.display = "none";
     renderMustWatch();
+  } else if (activeTab === "briefing"){
+    calControls.style.display = "none";
+    listView.style.display = "none";
+    monthView.style.display = "none";
+    mustWatchView.style.display = "none";
+    briefingView.style.display = "block";
+    catchupView.style.display = "none";
+    renderWeeklyBriefing();
+  } else {
+    calControls.style.display = "none";
+    listView.style.display = "none";
+    monthView.style.display = "none";
+    mustWatchView.style.display = "none";
+    briefingView.style.display = "none";
+    catchupView.style.display = "block";
+    renderCatchupClassics();
   }
 }
+
+/* ============ ONBOARDING / PREFERENCES ============ */
+function clonePreferences(prefs){
+  return typeof structuredClone === "function" ? structuredClone(prefs) : JSON.parse(JSON.stringify(prefs));
+}
+
+function toggleArrayValue(list, value){
+  return list.includes(value) ? list.filter(item => item !== value) : list.concat(value);
+}
+
+function openOnboarding(firstRun){
+  onboardingStep = 0;
+  draftPreferences = clonePreferences(userPreferences);
+  const modal = document.getElementById("onboardingModal");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  renderOnboardingStep(firstRun);
+}
+
+function closeOnboarding(){
+  const modal = document.getElementById("onboardingModal");
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+  draftPreferences = null;
+}
+
+function renderOnboardingStep(){
+  const body = document.getElementById("onboardingBody");
+  const stepIndicator = document.getElementById("stepIndicator");
+  const nextBtn = document.getElementById("nextStepBtn");
+  const backBtn = document.getElementById("backStepBtn");
+  const copy = document.getElementById("onboardingCopy");
+  stepIndicator.textContent = `Step ${onboardingStep + 1} of 3`;
+  backBtn.disabled = onboardingStep === 0;
+  backBtn.style.opacity = onboardingStep === 0 ? "0.45" : "1";
+  nextBtn.textContent = onboardingStep === 2 ? "Save preferences" : "Next";
+
+  if (onboardingStep === 0){
+    copy.textContent = "Choose the sports you want in the calendar.";
+    body.innerHTML = `<div class="choice-grid" id="sportsChoiceGrid"></div>`;
+    const grid = document.getElementById("sportsChoiceGrid");
+    Object.entries(SPORTS_LIBRARY).forEach(([key, sport]) => {
+      const selected = draftPreferences.followedSports.includes(key);
+      const btn = document.createElement("button");
+      btn.className = "choice-card" + (selected ? " selected" : "");
+      btn.style.setProperty("--choice-color", sport.color);
+      btn.innerHTML = `
+        <div class="choice-title"><span>${sport.icon}</span><span>${sport.label}</span></div>
+        <div class="choice-detail">${sport.detail}</div>
+      `;
+      btn.addEventListener("click", () => {
+        draftPreferences.followedSports = toggleArrayValue(draftPreferences.followedSports, key);
+        renderOnboardingStep();
+      });
+      grid.appendChild(btn);
+    });
+    COMING_SOON_SPORTS.forEach(label => {
+      const btn = document.createElement("button");
+      btn.className = "choice-card disabled";
+      btn.disabled = true;
+      btn.innerHTML = `<div class="choice-title"><span>＋</span><span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
+      grid.appendChild(btn);
+    });
+  }
+
+  if (onboardingStep === 1){
+    copy.textContent = "Choose the services available to you. Events with unknown deep mapping stay visible.";
+    body.innerHTML = `<div class="choice-grid" id="providerChoiceGrid"></div>`;
+    const grid = document.getElementById("providerChoiceGrid");
+    Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
+      const selected = draftPreferences.selectedBroadcasters.includes(key);
+      const btn = document.createElement("button");
+      btn.className = "choice-card" + (selected ? " selected" : "");
+      btn.innerHTML = `
+        <div class="choice-title"><span>📡</span><span>${provider.label}</span></div>
+        <div class="choice-detail">Used only where this provider is evidenced in current event data.</div>
+      `;
+      btn.addEventListener("click", () => {
+        draftPreferences.selectedBroadcasters = toggleArrayValue(draftPreferences.selectedBroadcasters, key);
+        renderOnboardingStep();
+      });
+      grid.appendChild(btn);
+    });
+    FUTURE_BROADCASTERS.forEach(label => {
+      const btn = document.createElement("button");
+      btn.className = "choice-card disabled";
+      btn.disabled = true;
+      btn.innerHTML = `<div class="choice-title"><span>↗</span><span>${label}</span></div><div class="choice-detail">Modelled for later, not active in filtering yet.</div>`;
+      grid.appendChild(btn);
+    });
+  }
+
+  if (onboardingStep === 2){
+    copy.textContent = "Set how much tennis you want. Tennis is the first active preference schema.";
+    const tennis = draftPreferences.tennis;
+    const showManual = tennis.enthusiasm === "choose";
+    body.innerHTML = `
+      <div class="filter-panel">
+        <h3>Tennis enthusiasm</h3>
+        <div class="choice-detail">Like keeps both tours, singles only, quarterfinals and later. Froth keeps both tours, singles and doubles, all rounds.</div>
+        <div class="choice-grid" id="tennisEnthusiasmGrid"></div>
+        <div id="manualTennisFilters" style="${showManual ? "" : "display:none;"}">
+          <div class="choice-detail">Gender</div>
+          <div class="segmented-row" data-filter="gender"></div>
+          <div class="choice-detail">Event type</div>
+          <div class="segmented-row" data-filter="eventType"></div>
+          <div class="choice-detail">Round focus</div>
+          <div class="segmented-row" data-filter="round"></div>
+        </div>
+      </div>
+    `;
+    renderTennisEnthusiasmChoices(tennis.enthusiasm || "froth");
+    if (showManual){
+      renderSegments("gender", [["both","Both"],["men","Men"],["women","Women"]], tennis.gender);
+      renderSegments("eventType", [["both","Both"],["singles","Singles"],["doubles","Doubles"]], tennis.eventType);
+      renderSegments("round", [["all","All"],["early","Early rounds"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Finals"]], tennis.round);
+    }
+  }
+}
+
+function renderTennisEnthusiasmChoices(activeValue){
+  const grid = document.getElementById("tennisEnthusiasmGrid");
+  const choices = [
+    ["like", "Like", "Both tours, singles only, quarterfinals and later."],
+    ["froth", "Froth", "Both tours, singles and doubles, all rounds."],
+    ["choose", "Let me choose", "Manual gender, event type, and round controls."],
+  ];
+  choices.forEach(([value, label, detail]) => {
+    const btn = document.createElement("button");
+    btn.className = "choice-card" + (value === activeValue ? " selected" : "");
+    btn.style.setProperty("--choice-color", "var(--c-tennis)");
+    btn.innerHTML = `
+      <div class="choice-title"><span>🎾</span><span>${label}</span></div>
+      <div class="choice-detail">${detail}</div>
+    `;
+    btn.addEventListener("click", () => {
+      draftPreferences.tennis.enthusiasm = value;
+      if (value === "like"){
+        draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: value, gender: "both", eventType: "singles", round: "quarterfinal" };
+      }
+      if (value === "froth"){
+        draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: value, gender: "both", eventType: "both", round: "all" };
+      }
+      renderOnboardingStep();
+    });
+    grid.appendChild(btn);
+  });
+}
+
+function renderSegments(filterName, options, activeValue){
+  const row = document.querySelector(`.segmented-row[data-filter="${filterName}"]`);
+  options.forEach(([value, label]) => {
+    const btn = document.createElement("button");
+    btn.className = "segment-btn" + (value === activeValue ? " active" : "");
+    btn.textContent = label;
+    btn.addEventListener("click", () => {
+      draftPreferences.tennis[filterName] = value;
+      renderOnboardingStep();
+    });
+    row.appendChild(btn);
+  });
+}
+
+function saveOnboardingPreferences(){
+  if (!draftPreferences.followedSports.length){
+    showToast("Choose at least one sport.");
+    return;
+  }
+  if (!draftPreferences.selectedBroadcasters.length){
+    showToast("Choose at least one provider.");
+    return;
+  }
+  draftPreferences.onboardingComplete = true;
+  savePreferences(draftPreferences);
+  closeOnboarding();
+  renderAll();
+  showToast("Preferences saved.");
+}
+
+document.getElementById("settingsBtn").addEventListener("click", () => openOnboarding(false));
+document.getElementById("backStepBtn").addEventListener("click", () => {
+  if (onboardingStep > 0){
+    onboardingStep -= 1;
+    renderOnboardingStep();
+  }
+});
+document.getElementById("nextStepBtn").addEventListener("click", () => {
+  if (onboardingStep < 2){
+    onboardingStep += 1;
+    renderOnboardingStep();
+  } else {
+    saveOnboardingPreferences();
+  }
+});
+document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
+  draftPreferences = clonePreferences(DEFAULT_PREFERENCES);
+  renderOnboardingStep();
+});
+
+document.getElementById("refreshBtn").addEventListener("click", () => {
+  refreshRemoteFeed();
+});
 
 /* ============ SUGGEST ADDITIONS ============ */
 document.getElementById("suggestBtn").addEventListener("click", () => {
@@ -1224,14 +2807,14 @@ function escapeICS(str){
   return String(str).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
 }
 
-function generateICS(){
+function generateICS(events = getFilteredEvents()){
   const lines = [];
   lines.push("BEGIN:VCALENDAR");
   lines.push("VERSION:2.0");
-  lines.push("PRODID:-//Jack's Sports Calendar//EN");
+  lines.push("PRODID:-//nothingSports//EN");
   lines.push("CALSCALE:GREGORIAN");
   lines.push("METHOD:PUBLISH");
-  lines.push("X-WR-CALNAME:Jack's Sports Calendar");
+  lines.push("X-WR-CALNAME:nothingSports");
   lines.push("X-WR-TIMEZONE:Australia/Sydney");
 
   // VTIMEZONE block for Australia/Sydney with fixed AEST(+10)/AEDT(+11) rules
@@ -1256,26 +2839,26 @@ function generateICS(){
   const nowStamp = new Date();
   const dtstamp = `${nowStamp.getUTCFullYear()}${pad2(nowStamp.getUTCMonth()+1)}${pad2(nowStamp.getUTCDate())}T${pad2(nowStamp.getUTCHours())}${pad2(nowStamp.getUTCMinutes())}${pad2(nowStamp.getUTCSeconds())}Z`;
 
-  EVENTS.forEach(ev => {
+  events.forEach(ev => {
     const meta = SPORT_META[ev.key];
     const dtStart = buildICSDateTimeAEST(ev.date, ev.time);
-    const durationHours = 3; // default assumed broadcast duration
+    const durationHours = ev.liveWindow || 3;
     const dtEnd = addHoursToDateTimeStr(ev.date, ev.time, durationHours);
-    const mustWatch = isPreFlagged(ev);
+    const mustWatch = isMustWatch(ev);
     const actual = getActual(ev.id);
 
     const descParts = [
       `Sport: ${meta.label}`,
       `Broadcaster: ${ev.broadcaster}`,
-      `Expected Spectacle: ${ev.expected}/10`,
-      `Must Watch: ${mustWatch ? "YES" : "No"}`
+      `Stakes: ${ev.stakesScore}/5`,
+      `Never Miss: ${mustWatch ? "YES" : "No"}`
     ];
     if (ev.venue) descParts.push(`Venue: ${ev.venue}`);
-    if (actual !== null) descParts.push(`Actual Spectacle: ${actual}/10`);
+    if (actual !== null) descParts.push(`Actual spectacle: ${actual}/10`);
     const description = escapeICS(descParts.join("\n"));
 
     lines.push("BEGIN:VEVENT");
-    lines.push(`UID:${ev.id}@jacks-sports-calendar`);
+    lines.push(`UID:${ev.id}@sportscal`);
     lines.push(`DTSTAMP:${dtstamp}`);
     lines.push(`DTSTART;TZID=Australia/Sydney:${dtStart}`);
     lines.push(`DTEND;TZID=Australia/Sydney:${dtEnd}`);
@@ -1290,24 +2873,53 @@ function generateICS(){
   return lines.join("\r\n");
 }
 
-document.getElementById("exportBtn").addEventListener("click", () => {
-  const icsContent = generateICS();
+function downloadICS(filename, icsContent){
   const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "jacks-sports-calendar.ics";
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  showToast(`Exported ${EVENTS.length} events to jacks-sports-calendar.ics`);
+}
+
+function safeFilenamePart(value){
+  return String(value || "event")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 48) || "event";
+}
+
+function downloadEventICS(ev){
+  const filename = `sportscal-${safeFilenamePart(ev.name)}.ics`;
+  downloadICS(filename, generateICS([ev]));
+  showToast(`Calendar file created for ${ev.name}.`);
+}
+
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const exportEvents = getFilteredEvents();
+  const icsContent = generateICS(exportEvents);
+  downloadICS("sportscal.ics", icsContent);
+  showToast(`Exported ${getFilteredEvents().length} visible events to sportscal.ics`);
 });
 
 /* ============ INIT ============ */
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();
+if (!userPreferences.onboardingComplete){
+  openOnboarding(true);
+}
+if ("serviceWorker" in navigator){
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/service-worker.js").catch(err => {
+      console.warn("Service worker registration failed", err);
+    });
+  });
+}
 
 </script>
 </body>

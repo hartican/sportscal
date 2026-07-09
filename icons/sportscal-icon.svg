@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">nothingSports icon</title>
+  <desc id="desc">A dark calendar tile with a cyan sport orbit and gold date mark.</desc>
+  <rect width="512" height="512" rx="112" fill="#0a0a0f"/>
+  <rect x="112" y="126" width="288" height="264" rx="44" fill="#16161d" stroke="#2c2c38" stroke-width="16"/>
+  <path d="M112 188h288" stroke="#00e5ff" stroke-width="18" stroke-linecap="round"/>
+  <path d="M172 106v62M340 106v62" stroke="#f4f4f6" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="256" cy="278" r="74" fill="none" stroke="#00e5ff" stroke-width="18"/>
+  <path d="M205 278c24-20 78-20 102 0M256 204c20 24 20 124 0 148" stroke="#00e5ff" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="332" cy="206" r="30" fill="#ffb300"/>
+</svg>
