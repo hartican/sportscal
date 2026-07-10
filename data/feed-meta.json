@@ -6,17 +6,91 @@
   "activeSports": [
     "wimbledon",
     "rugby",
-    "fifa",
     "f1",
     "tdf",
+    "masters",
+    "nba",
+    "nfl",
+    "lemans",
     "nrl",
     "cricket",
-    "nba",
-    "masters",
-    "lemans",
-    "nfl",
-    "ski"
+    "ski",
+    "fifa"
   ],
   "briefingWeekKey": "2026-W28",
-  "usesBundledEvents": false
+  "usesBundledEvents": false,
+  "feedHorizon": {
+    "basisDate": "2026-07-10",
+    "target": {
+      "standardPreloadDays": 92,
+      "marqueeAnnualMonths": 12
+    },
+    "status": "scaffolded",
+    "firstEventDate": "2026-02-09",
+    "lastEventDate": "2027-03-20",
+    "daysAhead": 253,
+    "coversStandardPreloadWindow": true,
+    "sports": {
+      "wimbledon": {
+        "count": 8,
+        "firstEventDate": "2026-07-03",
+        "lastEventDate": "2026-07-12"
+      },
+      "rugby": {
+        "count": 12,
+        "firstEventDate": "2026-07-04",
+        "lastEventDate": "2026-11-28"
+      },
+      "f1": {
+        "count": 28,
+        "firstEventDate": "2026-07-05",
+        "lastEventDate": "2026-12-07"
+      },
+      "tdf": {
+        "count": 21,
+        "firstEventDate": "2026-07-05",
+        "lastEventDate": "2026-07-27"
+      },
+      "masters": {
+        "count": 4,
+        "firstEventDate": "2026-04-09",
+        "lastEventDate": "2026-04-12"
+      },
+      "nba": {
+        "count": 7,
+        "firstEventDate": "2026-06-04",
+        "lastEventDate": "2026-06-23"
+      },
+      "nfl": {
+        "count": 1,
+        "firstEventDate": "2026-02-09",
+        "lastEventDate": "2026-02-09"
+      },
+      "lemans": {
+        "count": 2,
+        "firstEventDate": "2026-06-13",
+        "lastEventDate": "2026-06-14"
+      },
+      "nrl": {
+        "count": 4,
+        "firstEventDate": "2026-09-12",
+        "lastEventDate": "2026-10-04"
+      },
+      "cricket": {
+        "count": 7,
+        "firstEventDate": "2026-08-13",
+        "lastEventDate": "2027-01-02"
+      },
+      "ski": {
+        "count": 4,
+        "firstEventDate": "2027-03-06",
+        "lastEventDate": "2027-03-20"
+      },
+      "fifa": {
+        "count": 8,
+        "firstEventDate": "2026-07-10",
+        "lastEventDate": "2026-07-20"
+      }
+    }
+  }
 }
