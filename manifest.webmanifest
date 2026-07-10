@@ -1,6 +1,6 @@
 {
-  "name": "nothingSports",
-  "short_name": "nothingSports",
+  "name": "nothingSport",
+  "short_name": "nothingSport",
   "description": "Spoiler-free sports calendar and watch planner for Sydney time.",
   "start_url": "/",
   "scope": "/",

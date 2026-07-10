@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>nothingSports</title>
+<title>nothingSport</title>
 <meta name="theme-color" content="#0a0a0f">
 <meta name="description" content="A spoiler-free sports calendar and watch planner for Sydney time.">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -97,6 +97,13 @@ header.top{
   color: var(--text-dim);
   font-variant-numeric: tabular-nums;
   font-weight: 500;
+}
+
+.brand .slogan{
+  font-size: 0.72rem;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
 .header-actions{
@@ -335,6 +342,17 @@ main{
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--importance-color, var(--sport-color)) 28%, transparent) inset;
 }
 
+.event-card.is-spoiler-protected{
+  border-style: solid;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.035), transparent 62%),
+    var(--bg-card);
+}
+
+.event-card.mode-calendar{
+  cursor: default;
+}
+
 .event-icon{
   font-size: 1.6rem;
   line-height:1;
@@ -374,6 +392,18 @@ main{
   margin-top: 2px;
 }
 
+.event-date-chip{
+  display:inline-flex;
+  align-items:center;
+  width: fit-content;
+  margin-bottom: 6px;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .event-selected-copy,
 .event-opened-copy{
   margin-top: 10px;
@@ -384,6 +414,40 @@ main{
 
 .event-opened-copy{
   color: color-mix(in srgb, var(--text-dim) 82%, var(--text));
+}
+
+.spoiler-panel{
+  margin-top: 12px;
+  border: 1px solid color-mix(in srgb, #ff8a00 35%, var(--border));
+  border-radius: 10px;
+  padding: 11px;
+  background: rgba(255,138,0,0.055);
+}
+
+.spoiler-panel strong{
+  display:block;
+  color: var(--text);
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+}
+
+.spoiler-panel p{
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.spoiler-reveal-btn{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid color-mix(in srgb, #ff8a00 48%, var(--border));
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.74rem;
+  font-weight: 900;
+  font-family: inherit;
+  cursor:pointer;
 }
 
 .event-detail-grid{
@@ -497,6 +561,11 @@ main{
 .badge.exceeded{
   background: linear-gradient(135deg, #7c4dff, #536dfe);
   color: #fff;
+}
+
+.badge.spoiler-safe{
+  background: rgba(255,138,0,0.16);
+  color: #ffbf69;
 }
 
 @keyframes pulse{
@@ -818,6 +887,10 @@ main{
   box-shadow: 0 30px 90px rgba(0,0,0,0.55);
 }
 
+.about-panel{
+  width: min(760px, 100%);
+}
+
 .onboarding-head{
   position: sticky;
   top:0;
@@ -854,6 +927,19 @@ main{
 
 .onboarding-body{
   padding: 20px;
+}
+
+.about-body{
+  padding: 20px;
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.about-body p{
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .choice-grid{
@@ -942,13 +1028,18 @@ main{
   color: #05050a;
 }
 
-.onboarding-actions{
+.onboarding-actions,
+.about-actions{
   border-top: 1px solid var(--border);
   padding: 16px 20px;
   display:flex;
   justify-content:space-between;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.about-actions{
+  justify-content:flex-end;
 }
 
 /* ---------- Toast ---------- */
@@ -991,6 +1082,7 @@ footer.app-footer{
 /* ---------- Responsive ---------- */
 @media (max-width: 640px){
   .brand h1{ font-size: 1.1rem; }
+  .brand .slogan{ font-size: 0.66rem; }
   .tabs{
     padding: 0 16px;
     gap: 4px;
@@ -1023,10 +1115,12 @@ footer.app-footer{
 <header class="top">
   <div class="header-inner">
     <div class="brand">
-      <h1>nothingSports</h1>
+      <h1>nothingSport</h1>
+      <div class="slogan">nothing short. nothing missed.</div>
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
+      <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSport</span></button>
       <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Preferences</span></button>
       <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
       <button class="btn ghost" id="suggestBtn">💡 <span class="full-label">Suggest additions</span></button>
@@ -1060,7 +1154,7 @@ footer.app-footer{
 </main>
 
 <footer class="app-footer">
-  Built for Jack &middot; No scores, no spoilers &middot; All times shown in Sydney time &middot; Data updates weekly
+  nothingSport &middot; No scores, no spoilers &middot; All times shown in Sydney time &middot; Data updates weekly
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -1069,7 +1163,7 @@ footer.app-footer{
   <div class="onboarding-panel" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
     <div class="onboarding-head">
       <div>
-        <h2 id="onboardingTitle">Set up nothingSports</h2>
+        <h2 id="onboardingTitle">Set up nothingSport</h2>
         <p id="onboardingCopy">Choose the sports and providers you actually use. The calendar stays spoiler-free.</p>
       </div>
       <div class="step-indicator" id="stepIndicator">Step 1 of 3</div>
@@ -1081,6 +1175,27 @@ footer.app-footer{
         <button class="btn ghost" id="backStepBtn">Back</button>
         <button class="btn primary" id="nextStepBtn">Next</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="aboutModal" aria-hidden="true">
+  <div class="onboarding-panel about-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="aboutTitle">About nothingSport</h2>
+        <p>nothing short. nothing missed.</p>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>nothingSport is part of the Nothing Group: products built to filter noise so people can get more out of their regular schedules without extra cognitive burden. Across the group, nothing has come to mean nothing short of expectations, nothing missed, and nothing to onboard.</p>
+      <p>nothingSport applies that ethos to live sport. It is a spoiler-safe sports filter for people who care about watching sport properly, but do not want to sift through every fixture, feed, and low-stakes event to work out what actually deserves their time.</p>
+      <p>Think of it like having a sports-obsessed friend with unusually good taste: someone who knows your preferences, keeps track of what matters, and quietly keeps your calendar aligned with the games worth sitting down for.</p>
+      <p>We would rather you miss the occasional surprise than be buried in choices. nothingSport filters hard, using preset sports and event categories, must-watch logic, and spoiler-safe context so that the important fixtures stand out without spoiling the result.</p>
+      <p>The result is a calmer, more trustworthy way to follow sport: less scrolling, less second-guessing, fewer missed big games, and a better sense that the best of sport will surface when it matters.</p>
+    </div>
+    <div class="about-actions">
+      <button class="btn primary" id="closeAboutBtn">Close</button>
     </div>
   </div>
 </div>
@@ -1199,6 +1314,7 @@ const STORAGE_KEYS = {
   briefingSeen: "ns_briefing_seen_v1",
   savedCatchup: "ns_saved_catchup_v1",
   ratings: "ns_ratings_v1",
+  spoilerReveals: "ns_spoiler_reveals_v1",
   legacyPreferences: "sportscal:v1:preferences",
   legacyRatingsV2: "sportscal:v1:ratings",
   legacyRatings: "jacksSportsCalendar_actualRatings_v1",
@@ -1304,6 +1420,7 @@ function saveEventActions(next){
 let userPreferences = loadPreferences();
 let ratings = loadRatings();
 let eventActions = loadEventActions();
+let spoilerReveals = readStorage(STORAGE_KEYS.spoilerReveals, {});
 let activeEvents = loadCachedFeedEvents() || EVENTS;
 
 /* ============ FEED REFRESH ============ */
@@ -1632,6 +1749,37 @@ function dismissEventFromBriefing(ev){
   showToast("Dismissed from this briefing.");
 }
 
+function spoilerRevealKey(ev){
+  return `${ev.eventId || ev.id}:${ev.date}T${ev.time}`;
+}
+
+function isSpoilerRevealed(ev){
+  return Boolean(spoilerReveals[spoilerRevealKey(ev)]);
+}
+
+function markSpoilerRevealed(ev){
+  spoilerReveals = { ...spoilerReveals, [spoilerRevealKey(ev)]: new Date().toISOString() };
+  writeStorage(STORAGE_KEYS.spoilerReveals, spoilerReveals);
+}
+
+function isSpoilerSensitiveEvent(ev){
+  const end = eventEndDateTime(ev);
+  const ageDays = (nowAEST() - end) / (24 * 3600 * 1000);
+  const recent = getEventStatus(ev) === "past" && ageDays >= 0 && ageDays <= 3;
+  const major = isMustWatch(ev) || ev.expected >= 8 || ev.copyReview?.reviewRequired;
+  const knockout = ["knockout", "quarterfinal", "semifinal", "final"].includes(ev.round || inferRound(ev.name));
+  return recent && major && knockout;
+}
+
+function dayDateLabel(dateStr){
+  const [y,m,d] = dateStr.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-AU", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  });
+}
+
 function reminderLabel(action){
   if (action.reminderState === "calendar_added") return "Calendar added";
   if (action.reminderState === "watching") return "Watching live";
@@ -1941,28 +2089,33 @@ function buildEventCard(ev, options = {}){
   const mustWatch = ev.recommendationScore >= SCORE_BANDS.topStorylines.min || isUpgrade(ev);
   const upgraded = isUpgrade(ev);
   const mode = options.mode || "calendar";
-  const state = mode === "rail" ? cardStateForEvent(ev) : (mode === "calendar" ? "compact" : "opened");
+  const expandable = mode !== "calendar";
+  const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
   const action = getEventAction(ev);
+  const spoilerProtected = isSpoilerSensitiveEvent(ev);
+  const spoilerRevealed = !spoilerProtected || isSpoilerRevealed(ev);
 
   const card = document.createElement("div");
   card.className = [
     "event-card",
-    mode === "rail" ? "is-rail-card" : "",
+    `mode-${mode}`,
+    expandable ? "is-rail-card" : "",
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
+    spoilerProtected && !spoilerRevealed ? "is-spoiler-protected" : "",
     status === "past" ? "is-past" : "",
   ].filter(Boolean).join(" ");
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 10 + ev.stakesScore * 4)}%`);
-  if (mode === "rail"){
+  if (expandable){
     card.setAttribute("role", "button");
     card.setAttribute("tabindex", "0");
     card.setAttribute("aria-label", `${ev.displayTitleCompact}. ${state === "compact" ? "Tap for short context." : state === "selected" ? "Tap for details." : "Tap to collapse."}`);
     const advance = () => {
       setCardState(ev, nextCardState(state));
-      renderMustWatch();
+      renderCurrentSection();
     };
     card.addEventListener("click", advance);
     card.addEventListener("keydown", evt => {
@@ -1985,6 +2138,12 @@ function buildEventCard(ev, options = {}){
   topRow.className = "event-top-row";
 
   const nameWrap = document.createElement("div");
+  if (expandable){
+    const dateChip = document.createElement("div");
+    dateChip.className = "event-date-chip";
+    dateChip.textContent = `${dayDateLabel(ev.date)} · ${fmtTime12(ev.time)} Sydney`;
+    nameWrap.appendChild(dateChip);
+  }
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
   nameEl.textContent = ev.displayTitleCompact;
@@ -2027,6 +2186,12 @@ function buildEventCard(ev, options = {}){
     b.textContent = "Promoted replay";
     badges.appendChild(b);
   }
+  if (spoilerProtected && !spoilerRevealed){
+    const b = document.createElement("span");
+    b.className = "badge spoiler-safe";
+    b.textContent = "Spoiler safe";
+    badges.appendChild(b);
+  }
   if (action.reminderState !== "off"){
     const b = document.createElement("span");
     b.className = "badge upcoming";
@@ -2048,6 +2213,12 @@ function buildEventCard(ev, options = {}){
     <span class="meta-item sport-tag">${meta.icon} ${meta.label}</span>
     <span class="meta-item">🕒 ${fmtTime12(ev.time)} Sydney time</span>
   `;
+  if (expandable){
+    const dateItem = document.createElement("span");
+    dateItem.className = "meta-item";
+    dateItem.textContent = `📅 ${dayDateLabel(ev.date)}`;
+    metaRow.appendChild(dateItem);
+  }
   if (state === "opened"){
     const broadcaster = document.createElement("span");
     broadcaster.className = "meta-item";
@@ -2084,14 +2255,54 @@ function buildEventCard(ev, options = {}){
 
   mainDiv.appendChild(ratingRow);
 
-  if (state === "selected"){
+  if (state === "selected" && spoilerProtected && !spoilerRevealed){
+    const spoilerPanel = document.createElement("div");
+    spoilerPanel.className = "spoiler-panel";
+    spoilerPanel.innerHTML = `
+      <strong>Spoiler details hidden</strong>
+      <p>This recent high-stakes event is kept opaque by default. Actions stay available while result-sensitive context is hidden.</p>
+    `;
+    const revealBtn = document.createElement("button");
+    revealBtn.className = "spoiler-reveal-btn";
+    revealBtn.textContent = "Reveal details";
+    revealBtn.addEventListener("click", evt => {
+      evt.stopPropagation();
+      if (window.confirm("Reveal spoiler-sensitive event context for this card?")){
+        markSpoilerRevealed(ev);
+        renderCurrentSection();
+      }
+    });
+    spoilerPanel.appendChild(revealBtn);
+    mainDiv.appendChild(spoilerPanel);
+    mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
+  } else if (state === "selected"){
     const selected = document.createElement("div");
     selected.className = "event-selected-copy";
     selected.textContent = ev.selectedSentence;
     mainDiv.appendChild(selected);
   }
 
-  if (state === "opened"){
+  if (state === "opened" && spoilerProtected && !spoilerRevealed){
+    const spoilerPanel = document.createElement("div");
+    spoilerPanel.className = "spoiler-panel";
+    spoilerPanel.innerHTML = `
+      <strong>Spoiler details hidden</strong>
+      <p>This card is recent and high-stakes. Reveal only when you are ready to see context that may imply what happened next.</p>
+    `;
+    const revealBtn = document.createElement("button");
+    revealBtn.className = "spoiler-reveal-btn";
+    revealBtn.textContent = "Confirm reveal";
+    revealBtn.addEventListener("click", evt => {
+      evt.stopPropagation();
+      if (window.confirm("Reveal spoiler-sensitive event context for this card?")){
+        markSpoilerRevealed(ev);
+        renderCurrentSection();
+      }
+    });
+    spoilerPanel.appendChild(revealBtn);
+    mainDiv.appendChild(spoilerPanel);
+    mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
+  } else if (state === "opened"){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
     spiel.textContent = ev.fullSpiel;
@@ -2852,6 +3063,21 @@ function saveOnboardingPreferences(){
 }
 
 document.getElementById("settingsBtn").addEventListener("click", () => openOnboarding(false));
+document.getElementById("aboutBtn").addEventListener("click", () => {
+  const modal = document.getElementById("aboutModal");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+});
+document.getElementById("closeAboutBtn").addEventListener("click", () => {
+  const modal = document.getElementById("aboutModal");
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+});
+document.getElementById("aboutModal").addEventListener("click", evt => {
+  if (evt.target.id === "aboutModal"){
+    document.getElementById("closeAboutBtn").click();
+  }
+});
 document.getElementById("backStepBtn").addEventListener("click", () => {
   if (onboardingStep > 0){
     onboardingStep -= 1;
@@ -2921,10 +3147,10 @@ function generateICS(events = getFilteredEvents()){
   const lines = [];
   lines.push("BEGIN:VCALENDAR");
   lines.push("VERSION:2.0");
-  lines.push("PRODID:-//nothingSports//EN");
+  lines.push("PRODID:-//nothingSport//EN");
   lines.push("CALSCALE:GREGORIAN");
   lines.push("METHOD:PUBLISH");
-  lines.push("X-WR-CALNAME:nothingSports");
+  lines.push("X-WR-CALNAME:nothingSport");
   lines.push("X-WR-TIMEZONE:Australia/Sydney");
 
   // VTIMEZONE block for Australia/Sydney with fixed AEST(+10)/AEDT(+11) rules
@@ -3004,7 +3230,7 @@ function safeFilenamePart(value){
 }
 
 function downloadEventICS(ev){
-  const filename = `sportscal-${safeFilenamePart(ev.name)}.ics`;
+  const filename = `nothingsport-${safeFilenamePart(ev.name)}.ics`;
   downloadICS(filename, generateICS([ev]));
   showToast(`Calendar file created for ${ev.name}.`);
 }
@@ -3012,8 +3238,8 @@ function downloadEventICS(ev){
 document.getElementById("exportBtn").addEventListener("click", () => {
   const exportEvents = getFilteredEvents();
   const icsContent = generateICS(exportEvents);
-  downloadICS("sportscal.ics", icsContent);
-  showToast(`Exported ${getFilteredEvents().length} visible events to sportscal.ics`);
+  downloadICS("nothingsport.ics", icsContent);
+  showToast(`Exported ${getFilteredEvents().length} visible events to nothingsport.ics`);
 });
 
 /* ============ INIT ============ */
