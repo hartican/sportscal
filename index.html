@@ -1157,6 +1157,11 @@ const DEFAULT_PREFERENCES = {
     eventType: "both",
     round: "all",
   },
+  fifa: {
+    enthusiasm: "froth",
+    stage: "quarterfinal",
+    contenders: "all",
+  },
 };
 
 const APP_CONTRACT = {
@@ -1243,6 +1248,7 @@ function mergePreferences(saved){
     followedSports: uniqueArray(saved.followedSports || merged.followedSports).filter(key => SPORTS_LIBRARY[key]),
     selectedBroadcasters: uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]),
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
+    fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
 }
 
@@ -1418,8 +1424,9 @@ function inferTennisGender(name){
 
 function inferRound(name){
   const text = String(name || "").toLowerCase();
-  if (text.includes("semifinal")) return "semifinal";
-  if (text.includes("quarterfinal")) return "quarterfinal";
+  if (text.includes("semifinal") || text.includes("semi-final")) return "semifinal";
+  if (text.includes("quarterfinal") || text.includes("quarter-final")) return "quarterfinal";
+  if (text.includes("third-place") || text.includes("third place")) return "final";
   if (text.includes("final")) return "final";
   if (text.includes("round of")) return "knockout";
   if (text.includes(" r3")) return "early";
@@ -1462,6 +1469,13 @@ function inclusionExplanationForEvent(ev){
     const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
     if (tennis.round === "all") return "Included because your tennis settings keep this Wimbledon event in scope.";
     return `Included because your ${tennis.round} tennis focus keeps this Wimbledon event in scope.`;
+  }
+  if (ev.key === "fifa"){
+    const fifa = userPreferences.fifa || DEFAULT_PREFERENCES.fifa;
+    const rules = fifaRulesForPreference(fifa);
+    if (rules.contenders === "title") return "Included because your World Cup settings focus on title-contender knockout matches.";
+    if (rules.stage !== "all") return `Included because your World Cup settings keep ${rules.stage} and later matches visible.`;
+    return "Included because your World Cup settings keep major knockout matches in scope.";
   }
   if (ev.expected >= 9) return "Included because its recommendation score puts it near the top of the week.";
   if (ev.expected >= 7) return "Included because it clears the Worth Checking Out threshold.";
@@ -1515,9 +1529,9 @@ function normalizeEvents(events = activeEvents){
     if (ev.key === "wimbledon"){
       ev.gender = inferTennisGender(ev.name);
       ev.eventType = ev.name.toLowerCase().includes("doubles") ? "doubles" : "singles";
-      ev.round = inferRound(ev.name);
+      ev.round = ev.round || inferRound(ev.name);
     } else {
-      ev.round = inferRound(ev.name);
+      ev.round = ev.round || inferRound(ev.name);
     }
   });
 }
@@ -1770,6 +1784,20 @@ function eventMatchesTennisFilters(ev){
   return true;
 }
 
+function eventMatchesFifaFilters(ev){
+  if (ev.sportId !== "fifa") return true;
+  const fifa = userPreferences.fifa || DEFAULT_PREFERENCES.fifa;
+  const rules = fifaRulesForPreference(fifa);
+  if (rules.stage !== "all" && ev.round !== "all" && !roundMeetsMinimum(ev.round, rules.stage)) return false;
+  if (rules.contenders === "australia"){
+    return /australia|socceroos/i.test([ev.name, ev.displayTitleCompact, ev.selectedSentence, ev.fullSpiel].filter(Boolean).join(" "));
+  }
+  if (rules.contenders === "title"){
+    return ev.expected >= 8 || /france|spain|argentina|england|belgium/i.test(ev.name);
+  }
+  return true;
+}
+
 function eventMatchesActionFilter(ev){
   if (activeFilter === "tracked"){
     return ["calendar_added", "watching"].includes(getEventAction(ev).reminderState);
@@ -1794,6 +1822,19 @@ function tennisRulesForPreference(tennis){
   return { gender: "both", eventType: "both", round: "all" };
 }
 
+function fifaRulesForPreference(fifa){
+  if (fifa.enthusiasm === "like"){
+    return { stage: "semifinal", contenders: "title" };
+  }
+  if (fifa.enthusiasm === "choose"){
+    return {
+      stage: fifa.stage || "all",
+      contenders: fifa.contenders || "all",
+    };
+  }
+  return { stage: "quarterfinal", contenders: "all" };
+}
+
 function roundMeetsMinimum(eventRound, minimumRound){
   if (minimumRound === "all") return true;
   const order = ["early", "knockout", "quarterfinal", "semifinal", "final"];
@@ -1809,6 +1850,7 @@ function getFilteredEvents(){
   list = list.filter(eventMatchesSportPreferences);
   list = list.filter(eventMatchesBroadcasterPreferences);
   list = list.filter(eventMatchesTennisFilters);
+  list = list.filter(eventMatchesFifaFilters);
   list = list.filter(eventMatchesActionFilter);
   if (activeFilter !== "all"){
     if (!ACTION_FILTERS[activeFilter]){
@@ -2062,6 +2104,7 @@ function buildEventCard(ev, options = {}){
       <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
       <div class="event-detail-item"><strong>Replay</strong>${ev.replayEligible ? "Replay or highlights candidate if missed." : "Live-only priority for now."}</div>
       <div class="event-detail-item"><strong>Calendar</strong>${ev.calendarTemplate.durationHours}h watch window ready for export.</div>
+      ${ev.sourceName ? `<div class="event-detail-item"><strong>Data</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
     mainDiv.appendChild(details);
     mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
@@ -2594,10 +2637,10 @@ function renderOnboardingStep(){
   const nextBtn = document.getElementById("nextStepBtn");
   const backBtn = document.getElementById("backStepBtn");
   const copy = document.getElementById("onboardingCopy");
-  stepIndicator.textContent = `Step ${onboardingStep + 1} of 3`;
+  stepIndicator.textContent = `Step ${onboardingStep + 1} of 4`;
   backBtn.disabled = onboardingStep === 0;
   backBtn.style.opacity = onboardingStep === 0 ? "0.45" : "1";
-  nextBtn.textContent = onboardingStep === 2 ? "Save preferences" : "Next";
+  nextBtn.textContent = onboardingStep === 3 ? "Save preferences" : "Next";
 
   if (onboardingStep === 0){
     copy.textContent = "Choose the sports you want in the calendar.";
@@ -2680,6 +2723,30 @@ function renderOnboardingStep(){
       renderSegments("round", [["all","All"],["early","Early rounds"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Finals"]], tennis.round);
     }
   }
+
+  if (onboardingStep === 3){
+    copy.textContent = "Set how much FIFA World Cup coverage you want in the demo.";
+    const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
+    const showManual = fifa.enthusiasm === "choose";
+    body.innerHTML = `
+      <div class="filter-panel">
+        <h3>World Cup enthusiasm</h3>
+        <div class="choice-detail">Like keeps title contenders and semifinals onward. Froth keeps the full knockout run from quarterfinals onward.</div>
+        <div class="choice-grid" id="fifaEnthusiasmGrid"></div>
+        <div id="manualFifaFilters" style="${showManual ? "" : "display:none;"}">
+          <div class="choice-detail">Stage focus</div>
+          <div class="segmented-row" data-filter="fifaStage"></div>
+          <div class="choice-detail">Team focus</div>
+          <div class="segmented-row" data-filter="fifaContenders"></div>
+        </div>
+      </div>
+    `;
+    renderFifaEnthusiasmChoices(fifa.enthusiasm || "froth");
+    if (showManual){
+      renderFifaSegments("stage", [["all","All"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Final"]], fifa.stage);
+      renderFifaSegments("contenders", [["all","All"],["title","Title contenders"],["australia","Australia"]], fifa.contenders);
+    }
+  }
 }
 
 function renderTennisEnthusiasmChoices(activeValue){
@@ -2725,6 +2792,49 @@ function renderSegments(filterName, options, activeValue){
   });
 }
 
+function renderFifaEnthusiasmChoices(activeValue){
+  const grid = document.getElementById("fifaEnthusiasmGrid");
+  const choices = [
+    ["like", "Like", "Semifinals onward, title-contender bias."],
+    ["froth", "Froth", "Quarterfinals onward, all remaining knockout matches."],
+    ["choose", "Let me choose", "Manual stage and contender controls."],
+  ];
+  choices.forEach(([value, label, detail]) => {
+    const btn = document.createElement("button");
+    btn.className = "choice-card" + (value === activeValue ? " selected" : "");
+    btn.style.setProperty("--choice-color", "var(--c-football)");
+    btn.innerHTML = `
+      <div class="choice-title"><span>⚽</span><span>${label}</span></div>
+      <div class="choice-detail">${detail}</div>
+    `;
+    btn.addEventListener("click", () => {
+      draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), enthusiasm: value };
+      if (value === "like"){
+        draftPreferences.fifa = { enthusiasm: value, stage: "semifinal", contenders: "title" };
+      }
+      if (value === "froth"){
+        draftPreferences.fifa = { enthusiasm: value, stage: "quarterfinal", contenders: "all" };
+      }
+      renderOnboardingStep();
+    });
+    grid.appendChild(btn);
+  });
+}
+
+function renderFifaSegments(filterName, options, activeValue){
+  const row = document.querySelector(`.segmented-row[data-filter="fifa${filterName[0].toUpperCase()}${filterName.slice(1)}"]`);
+  options.forEach(([value, label]) => {
+    const btn = document.createElement("button");
+    btn.className = "segment-btn" + (value === activeValue ? " active" : "");
+    btn.textContent = label;
+    btn.addEventListener("click", () => {
+      draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), [filterName]: value, enthusiasm: "choose" };
+      renderOnboardingStep();
+    });
+    row.appendChild(btn);
+  });
+}
+
 function saveOnboardingPreferences(){
   if (!draftPreferences.followedSports.length){
     showToast("Choose at least one sport.");
@@ -2749,7 +2859,7 @@ document.getElementById("backStepBtn").addEventListener("click", () => {
   }
 });
 document.getElementById("nextStepBtn").addEventListener("click", () => {
-  if (onboardingStep < 2){
+  if (onboardingStep < 3){
     onboardingStep += 1;
     renderOnboardingStep();
   } else {
@@ -2910,6 +3020,7 @@ document.getElementById("exportBtn").addEventListener("click", () => {
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();
+refreshRemoteFeed({ quiet: true });
 if (!userPreferences.onboardingComplete){
   openOnboarding(true);
 }

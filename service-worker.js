@@ -1,9 +1,10 @@
-const CACHE_NAME = "sportscal-shell-v1";
+const CACHE_NAME = "sportscal-shell-v2";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
   "/data/feed-meta.json",
+  "/data/events.json",
   "/manifest.webmanifest",
   "/icons/sportscal-icon.svg"
 ];

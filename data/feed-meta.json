@@ -1,7 +1,8 @@
 {
-  "version": "bundled-2026-07-09",
+  "version": "demo-feed-2026-07-10-stage1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-09T00:00:00+10:00",
+  "publishedAt": "2026-07-10T08:30:00+10:00",
+  "eventsPath": "/data/events.json",
   "activeSports": [
     "wimbledon",
     "rugby",
@@ -17,5 +18,5 @@
     "ski"
   ],
   "briefingWeekKey": "2026-W28",
-  "usesBundledEvents": true
+  "usesBundledEvents": false
 }
