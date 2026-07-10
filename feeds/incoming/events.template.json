@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "events.v1",
+  "version": "daily-feed-2026-07-11",
+  "publishedAt": "2026-07-11T09:00:00+10:00",
+  "sourceNote": "Replace this template with a researched feed. Times must be Australia/Sydney local time. MVP feeds exclude events with expected below 5 and keep default copy spoiler-safe.",
+  "events": [
+    {
+      "id": "f1-british-gp-race-2026",
+      "eventId": "f1-british-gp-race-2026",
+      "sport": "F1",
+      "key": "f1",
+      "name": "British Grand Prix Race",
+      "displayTitleCompact": "British GP Race",
+      "date": "2026-07-06",
+      "time": "01:00",
+      "startTimeUtc": "2026-07-05T15:00:00Z",
+      "endTimeUtc": "2026-07-05T17:00:00Z",
+      "broadcaster": "Kayo Sports",
+      "broadcastOptions": ["Kayo Sports", "Foxtel"],
+      "expected": 9,
+      "venue": "Silverstone Circuit",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "race",
+      "selectedSentence": "A headline race window with enough stakes to plan the morning around.",
+      "fullSpiel": "Use this field for spoiler-safe context: why the event matters, what kind of viewing commitment it needs, and whether it is better live or replay. Do not include winner/result spoilers for upcoming events.",
+      "sourceName": "Official event schedule",
+      "sourceUrl": "https://example.com/source",
+      "sourceCheckedAt": "2026-07-11T09:00:00+10:00",
+      "copyReview": {
+        "reviewRequired": true,
+        "reviewComplete": false,
+        "note": "Marquee AI-generated selectedSentence and fullSpiel need HITL review before publish."
+      },
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": true,
+      "catchupEligible": true
+    }
+  ]
+}
