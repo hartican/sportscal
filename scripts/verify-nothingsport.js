@@ -22,6 +22,8 @@ assert(html.includes('anchor.id = "neverMissTodayAnchor"'), "Never Miss must ren
 assert(html.includes("scheduleInitialNeverMissJump()"), "Never Miss must default the viewport to Today");
 assert(html.includes('activeTab !== "calendar" && activeTab !== "nevermiss"'), "Jump to Today must remain available on Calendar and Never Miss");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
+assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
+assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
 assert(html.includes('facts.outcome && typeof facts.outcome === "object"'), "empty outcome data must not break revealed PAST cards");
@@ -92,6 +94,11 @@ globalThis.__test = {
   setPreferences(next){ userPreferences = mergePreferences(next); },
   setFilter(filter){ activeFilter = filter; },
   eventActionKey,
+  cardStateForEvent,
+  setCardState,
+  collapseCardStates,
+  collapseAllCardStates,
+  isCardActivelyViewed,
   getFilteredEvents,
   getEventAction,
   getEventSpoilerState,
@@ -252,6 +259,15 @@ app.setRatings({});
 app.setSpoilerState({});
 app.setPreferences({ showSpoilers: false });
 assert.deepEqual(Array.from(app.calendarTimelineEvents([nextRound, pastB, pastA]), event => event.id), ["past-a", "past-b", "next-round"], "Calendar timeline must place past events above Today and future events below it");
+app.setCardState(pastA, "opened");
+assert.equal(app.cardStateForEvent(pastA), "opened", "the actively viewed card must retain its expanded state");
+app.setCardState(pastB, "selected");
+assert.equal(app.cardStateForEvent(pastA), "compact", "opening a new card must retract the previous card");
+assert.equal(app.cardStateForEvent(pastB), "selected", "the new active card must remain selected");
+assert.equal(app.isCardActivelyViewed({ top: 120, bottom: 520, height: 400 }, 100, 700), true, "a meaningfully visible card must stay expanded");
+assert.equal(app.isCardActivelyViewed({ top: -400, bottom: 30, height: 430 }, 100, 700), false, "a card scrolled above the active viewport must retract");
+assert.equal(app.collapseCardStates([pastB.eventId]), true, "scroll retraction must clear the expanded card state");
+assert.equal(app.cardStateForEvent(pastB), "compact", "a retracted card must return to compact");
 assert.equal(app.isSpoilerVisible(pastA), false, "PAST events must be spoiler-protected by default");
 assert.equal(app.isSpoilerVisible(nextRound), false, "future events must inherit global spoiler protection");
 nextRound.spoilerSafeTitle = "World Cup Semifinal";

@@ -2797,7 +2797,55 @@ function cardStateForEvent(ev){
 }
 
 function setCardState(ev, state){
-  cardViewStates = { ...cardViewStates, [ev.eventId]: state };
+  const eventId = ev.eventId || ev.id;
+  if (state === "compact"){
+    const next = { ...cardViewStates };
+    delete next[eventId];
+    cardViewStates = next;
+    return;
+  }
+  // Expanded cards represent the user's current reading focus, so only one remains open.
+  cardViewStates = { [eventId]: state };
+}
+
+function collapseCardStates(eventIds){
+  const next = { ...cardViewStates };
+  let changed = false;
+  eventIds.forEach(eventId => {
+    if (!next[eventId]) return;
+    delete next[eventId];
+    changed = true;
+  });
+  if (changed) cardViewStates = next;
+  return changed;
+}
+
+function collapseAllCardStates(){
+  const eventIds = Object.keys(cardViewStates);
+  if (!eventIds.length) return false;
+  cardViewStates = {};
+  return true;
+}
+
+function isCardActivelyViewed(rect, viewportTop, viewportBottom){
+  const visibleHeight = Math.max(0, Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop));
+  const minimumVisibleHeight = Math.min(120, Math.max(48, rect.height * 0.2));
+  return visibleHeight >= minimumVisibleHeight;
+}
+
+function collapseCardsOutsideActiveViewport(){
+  const expandedCards = Array.from(document.querySelectorAll(".event-card.is-selected, .event-card.is-opened"));
+  if (!expandedCards.length) return false;
+  const stickyHeader = document.querySelector("header.top");
+  const viewportTop = (stickyHeader ? stickyHeader.getBoundingClientRect().height : 0) + 12;
+  const viewportBottom = window.innerHeight - 12;
+  const eventIds = expandedCards
+    .filter(card => !isCardActivelyViewed(card.getBoundingClientRect(), viewportTop, viewportBottom))
+    .map(card => card.dataset.eventId)
+    .filter(Boolean);
+  if (!collapseCardStates(eventIds)) return false;
+  renderCurrentSection();
+  return true;
 }
 
 function buildEventCard(ev, options = {}){
@@ -2832,6 +2880,7 @@ function buildEventCard(ev, options = {}){
     spoilerProtected ? "is-spoiler-protected" : "",
     status === "past" ? "is-past" : "",
   ].filter(Boolean).join(" ");
+  card.dataset.eventId = ev.eventId || ev.id;
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 10 + ev.stakesScore * 4)}%`);
@@ -3526,9 +3575,19 @@ setInterval(() => {
   renderCurrentSection(true);
 }, 30000);
 
+let cardScrollFrame = null;
+window.addEventListener("scroll", () => {
+  if (cardScrollFrame !== null) return;
+  cardScrollFrame = window.requestAnimationFrame(() => {
+    cardScrollFrame = null;
+    collapseCardsOutsideActiveViewport();
+  });
+}, { passive: true });
+
 /* ============ TABS / VIEW SWITCHING ============ */
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
+    collapseAllCardStates();
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeTab = btn.dataset.tab;
@@ -3540,6 +3599,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 
 document.querySelectorAll(".view-toggle button").forEach(btn => {
   btn.addEventListener("click", () => {
+    collapseAllCardStates();
     document.querySelectorAll(".view-toggle button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeView = btn.dataset.view;
