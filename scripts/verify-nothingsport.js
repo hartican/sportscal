@@ -145,6 +145,7 @@ globalThis.__test = {
   getActual,
   archiveEvent,
   spoilerSafeDisplayTitle,
+  eventSpielForDisplay,
   retrospectiveSignificanceForEvent,
   shouldSuggestWatchLater,
   getNeverMissExportSections,
@@ -294,6 +295,17 @@ app.setActions({});
 app.setRatings({});
 app.setSpoilerState({});
 app.setPreferences({ showSpoilers: false });
+const picturedWimbledonFinal = wimbledonCards.find(event => event.id === "wimbledon-final-sinner-zverev-2026");
+app.setSpoilerState({
+  [app.eventActionKey(semifinalOne)]: { override: "show" },
+  [app.eventActionKey(semifinalTwo)]: { override: "show" },
+  [app.eventActionKey(picturedWimbledonFinal)]: { override: "show" },
+});
+assert.equal(app.eventSpielForDisplay(semifinalOne), semifinalOne.recapText, "revealed France v Spain must use its actual match spiel rather than spoiler-policy boilerplate");
+assert.equal(app.eventSpielForDisplay(picturedWimbledonFinal), picturedWimbledonFinal.recapText, "revealed Wimbledon final must use its actual match spiel rather than spoiler-policy boilerplate");
+assert.equal(app.spoilerSafeDisplayTitle(semifinalOne), "France vs Spain — World Cup Semi Final 1", "revealing semifinal 1 must show its teams and fixture label");
+assert.equal(app.spoilerSafeDisplayTitle(semifinalTwo), "England vs Argentina — World Cup Semi Final 2", "revealing semifinal 2 must show both teams and fixture label");
+app.setSpoilerState({});
 assert.deepEqual(Array.from(app.calendarTimelineEvents([nextRound, pastB, pastA]), event => event.id), ["past-a", "past-b", "next-round"], "Calendar timeline must place past events above Today and future events below it");
 const scoredPast = { ...event("compact-result", -1, 4), score: "Home 2-1 Away", outcomeText: "Home advanced to the final." };
 assert.equal(app.compactResultForEvent(scoredPast), null, "compact cards must not leak results while spoilers are protected");

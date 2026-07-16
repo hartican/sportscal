@@ -34,7 +34,7 @@ function wimbledonCard(card){
     briefingEligible: true,
     catchupEligible: true,
     selectedSentence: `A completed Wimbledon ${roundLabel} match retained as a spoiler-protected replay.`,
-    fullSpiel: `${sessionCopy} The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.`,
+    fullSpiel: card.fullSpiel || card.recapText || `${sessionCopy} The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.`,
     resultLabels: [roundLabel, "Completed"],
     ...card,
   };

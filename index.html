@@ -1953,7 +1953,7 @@ const OFFICIAL_TICKET_URLS = {
 const SPOILER_FIELDS = {
   score: ["score", "finalScore", "scoreline"],
   outcome: ["outcomeText", "outcome", "result"],
-  recap: ["recapCopy", "recap", "summaryAfterEvent"],
+  recap: ["recapText", "recapCopy", "recap", "summaryAfterEvent"],
   thumbnail: ["thumbnailUrl", "resultThumbnailUrl"],
   rating: ["perceivedQuality", "actualRating"],
   labels: ["spoilerLabels", "resultLabels"],
@@ -2678,11 +2678,31 @@ function spoilerSafeDisplayTitle(ev){
   if (!Array.isArray(ev.matchupParticipants) || ev.matchupParticipants.length < 2){
     return ev.displayTitleCompact;
   }
+  if (isSpoilerVisible(ev)){
+    const matchup = ev.matchupParticipants.map(participant => participant.name).join(" vs ");
+    const compactFixtureLabel = /^World Cup Semifinal \d+$/i.test(ev.displayTitleCompact || "") ? ev.displayTitleCompact : "";
+    const fixtureLabel = String(ev.revealedFixtureLabel || compactFixtureLabel)
+      .replace(/\bSemifinal\b/g, "Semi Final");
+    return fixtureLabel ? `${matchup} — ${fixtureLabel}` : matchup;
+  }
   const revealed = ev.matchupParticipants.map(participant => dependencySideIsRevealed(participant));
   if (!revealed.some(Boolean)) return ev.spoilerSafeTitle || ev.displayTitleCompact;
   return ev.matchupParticipants
     .map((participant, index) => revealed[index] ? participant.name : "Opponent hidden")
     .join(" vs ");
+}
+
+function isSpoilerPolicySpiel(copy){
+  return /^(?:This .+ match is retained with|The Sydney-local start is taken|Wimbledon publishes the court session)/i.test(String(copy || ""));
+}
+
+function eventSpielForDisplay(ev){
+  const fullSpiel = ev.fullSpiel || "";
+  const recap = spoilerFactsForEvent(ev).recap;
+  if (isSpoilerVisible(ev) && ["past", "live"].includes(getEventStatus(ev)) && recap && (!fullSpiel || isSpoilerPolicySpiel(fullSpiel))){
+    return String(recap);
+  }
+  return fullSpiel || (recap ? String(recap) : "") || ev.selectedSentence || "";
 }
 
 function setEventRating(ev, value){
@@ -3077,7 +3097,9 @@ function buildSpoilerFacts(ev){
 
   addFact("Score", facts.score);
   addFact("Outcome", spoilerOutcomeCopy(facts.outcome));
-  addFact("Recap", facts.recap);
+  const displayedSpiel = eventSpielForDisplay(ev).trim();
+  const recapCopy = facts.recap === null || facts.recap === undefined ? "" : String(facts.recap).trim();
+  addFact("Recap", recapCopy && recapCopy !== displayedSpiel ? recapCopy : null);
   addFact("Rating", facts.rating !== null ? `${facts.rating}/10` : null);
   addFact("Labels", facts.labels.length ? facts.labels.join(" · ") : null);
 
@@ -3446,7 +3468,7 @@ function buildEventCard(ev, options = {}){
   } else if (state === "opened"){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
-    spiel.textContent = ev.fullSpiel;
+    spiel.textContent = eventSpielForDisplay(ev);
     mainDiv.appendChild(spiel);
 
     const spoilerFacts = buildSpoilerFacts(ev);

@@ -30,7 +30,7 @@ function fifaCard(card){
       ? `A completed ${safeRound} fixture retained as a spoiler-protected replay.`
       : card.selectedSentence,
     fullSpiel: completed
-      ? `This ${safeRound} match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.`
+      ? (card.fullSpiel || card.recapText || `This ${safeRound} match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.`)
       : card.fullSpiel,
     ...card,
   };
@@ -82,6 +82,7 @@ const fifaCards = [
     expected: 10,
     roundLabel: "Semifinal",
     displayTitleCompact: "World Cup Semifinal 1",
+    revealedFixtureLabel: "World Cup Semi Final 1",
     spoilerSafeTitle: "World Cup Semifinal 1",
     matchupParticipants: [
       { name: "France", sourceEventId: "fifa-qf-france-morocco-2026" },
@@ -103,6 +104,7 @@ const fifaCards = [
     "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals.",
     {
     displayTitleCompact: "World Cup Semifinal 2",
+    revealedFixtureLabel: "World Cup Semi Final 2",
     spoilerSafeTitle: "World Cup Semifinal 2",
     expected: 10,
     liveWindow: 4,
