@@ -2591,6 +2591,11 @@ function markSpoilerRevealed(ev){
   });
 }
 
+function revealSpoilerDetails(ev){
+  markSpoilerRevealed(ev);
+  setCardState(ev, "opened");
+}
+
 function hideSpoilersForEvent(ev){
   updateEventSpoilerState(ev, { override: "hide" });
 }
@@ -3029,7 +3034,7 @@ function buildSpoilerOverrideControl(ev){
       return;
     }
     if (window.confirm("Reveal spoiler-sensitive details for this event?")){
-      markSpoilerRevealed(ev);
+      revealSpoilerDetails(ev);
       renderCurrentSection();
       showToast("Spoilers revealed for this event.");
     }

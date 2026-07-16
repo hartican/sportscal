@@ -135,6 +135,7 @@ globalThis.__test = {
   hasSpoilerSensitiveContent,
   compactResultForEvent,
   markSpoilerRevealed,
+  revealSpoilerDetails,
   hideSpoilersForEvent,
   resetSpoilerOverride,
   isLocalGame,
@@ -317,6 +318,9 @@ assert.equal(app.spoilerSafeDisplayTitle(nextRound), "World Cup Semifinal", "unr
 app.markSpoilerRevealed(pastA);
 assert.equal(app.isSpoilerVisible(pastA), true, "per-event reveal must override global protection");
 assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A vs Opponent hidden", "only a legitimately revealed knockout side may be named");
+app.setCardState(pastA, "selected");
+app.revealSpoilerDetails(pastA);
+assert.equal(app.cardStateForEvent(pastA), "opened", "revealing an individual event must immediately open its additional spoiler details");
 app.markSpoilerRevealed(nextRound);
 assert.equal(app.isSpoilerVisible(nextRound), true, "per-event reveal must work before an event starts");
 app.hideSpoilersForEvent(nextRound);
