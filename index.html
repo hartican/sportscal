@@ -429,6 +429,30 @@ main{
   letter-spacing: 0.06em;
 }
 
+.event-date-line{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.event-date-line .event-date-chip{
+  margin-bottom:0;
+}
+
+.ticket-link{
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-decoration:none;
+  border-bottom: 1px solid rgba(0,229,255,0.35);
+}
+
+.ticket-link:hover{
+  border-bottom-color: var(--accent);
+}
+
 .event-selected-copy,
 .event-opened-copy{
   margin-top: 10px;
@@ -473,6 +497,50 @@ main{
   font-weight: 900;
   font-family: inherit;
   cursor:pointer;
+}
+
+.spoiler-control{
+  margin-top: 10px;
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.spoiler-control-copy{
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  margin-right:auto;
+}
+
+.spoiler-facts{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.spoiler-fact{
+  border-left: 2px solid #ff8a00;
+  padding: 7px 9px;
+  background: rgba(255,138,0,0.055);
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  line-height:1.4;
+}
+
+.spoiler-fact strong{
+  display:block;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.spoiler-thumbnail{
+  width:100%;
+  max-height: 220px;
+  object-fit:cover;
+  border-radius: 9px;
+  border: 1px solid var(--border);
 }
 
 .event-detail-grid{
@@ -595,6 +663,11 @@ main{
 .badge.spoiler-safe{
   background: rgba(255,138,0,0.16);
   color: #ffbf69;
+}
+
+.badge.local-game{
+  background: rgba(126,231,135,0.15);
+  color: #7ee787;
 }
 
 @keyframes pulse{
@@ -1014,6 +1087,82 @@ main{
   margin-bottom: 10px;
 }
 
+.preference-stack{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+.setting-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(255,255,255,0.025);
+}
+
+.setting-row strong{
+  display:block;
+  font-size: 0.86rem;
+  margin-bottom: 4px;
+}
+
+.setting-row p,
+.preference-help{
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  line-height:1.4;
+}
+
+.settings-switch{
+  flex-shrink:0;
+  min-width: 76px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 11px;
+  background: var(--bg-card);
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor:pointer;
+}
+
+.settings-switch.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #05050a;
+}
+
+.venue-choice-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.venue-choice{
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 10px;
+  background: var(--bg-card);
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-align:left;
+  cursor:pointer;
+}
+
+.venue-choice.selected{
+  border-color: #7ee787;
+  color: #7ee787;
+  background: rgba(126,231,135,0.075);
+}
+
 .segmented-row{
   display:flex;
   flex-wrap: wrap;
@@ -1051,6 +1200,129 @@ main{
 
 .about-actions{
   justify-content:flex-end;
+}
+
+.utility-panel{
+  width: min(680px, 100%);
+}
+
+.utility-form{
+  padding: 20px;
+  display:flex;
+  flex-direction:column;
+  gap: 16px;
+}
+
+.section-choice-list{
+  display:flex;
+  flex-direction:column;
+  gap: 9px;
+}
+
+.section-choice{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(255,255,255,0.025);
+  cursor:pointer;
+}
+
+.section-choice input{
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.section-choice-copy{
+  min-width:0;
+  flex:1;
+}
+
+.section-choice-copy strong{
+  display:block;
+  font-size: 0.84rem;
+  margin-bottom: 3px;
+}
+
+.section-choice-copy span,
+.utility-help{
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  line-height:1.4;
+}
+
+.section-count{
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 900;
+  white-space:nowrap;
+}
+
+.field-label{
+  display:flex;
+  flex-direction:column;
+  gap: 7px;
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.field-label select,
+.field-label textarea{
+  width:100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--text);
+  font: inherit;
+  padding: 11px 12px;
+}
+
+.field-label textarea{
+  min-height: 128px;
+  resize: vertical;
+  line-height:1.45;
+}
+
+.sms-preview{
+  border: 1px dashed rgba(0,229,255,0.35);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(0,229,255,0.035);
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  line-height:1.45;
+  white-space:pre-wrap;
+  max-height: 190px;
+  overflow:auto;
+}
+
+.retrospective-prompt{
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(126,231,135,0.32);
+  border-radius: 10px;
+  background: rgba(126,231,135,0.055);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+}
+
+.retrospective-prompt strong{
+  display:block;
+  color: #9be9a8;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+.retrospective-prompt span{
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  line-height:1.4;
 }
 
 /* ---------- Toast ---------- */
@@ -1143,8 +1415,8 @@ footer.app-footer{
       <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSport</span></button>
       <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Preferences</span></button>
       <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
-      <button class="btn ghost" id="suggestBtn">💡 <span class="full-label">Suggest additions</span></button>
-      <button class="btn primary" id="exportBtn">⬇ <span class="full-label">Export Calendar</span></button>
+      <button class="btn ghost" id="suggestBtn">💬 <span class="full-label">Feedback</span></button>
+      <button class="btn primary" id="exportBtn">⬇ <span class="full-label">Export Never Miss</span></button>
     </div>
   </div>
 
@@ -1174,7 +1446,7 @@ footer.app-footer{
 </main>
 
 <footer class="app-footer">
-  nothingSport &middot; No scores, no spoilers &middot; All times shown in Sydney time &middot; Data updates weekly
+  nothingSport &middot; Spoiler-safe by default &middot; All times shown in Sydney time &middot; Data updates weekly
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -1217,6 +1489,59 @@ footer.app-footer{
     <div class="about-actions">
       <button class="btn primary" id="closeAboutBtn">Close</button>
     </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="exportModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="exportTitle">Export Never Miss</h2>
+        <p>Choose exactly which recommendation sections to include in the calendar file.</p>
+      </div>
+    </div>
+    <form id="exportForm">
+      <div class="utility-form">
+        <div class="section-choice-list" id="exportSectionChoices"></div>
+        <p class="utility-help" id="exportSummary" aria-live="polite"></p>
+      </div>
+      <div class="about-actions">
+        <button class="btn ghost" type="button" id="closeExportBtn">Cancel</button>
+        <button class="btn primary" type="submit" id="confirmExportBtn">Export selected</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="feedbackModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="feedbackTitle">Send feedback</h2>
+        <p>Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p>
+      </div>
+    </div>
+    <form id="feedbackForm">
+      <div class="utility-form">
+        <label class="field-label" for="feedbackCategory">Category
+          <select id="feedbackCategory" required>
+            <option>Add a sport</option>
+            <option>Add a competition</option>
+            <option>Bug report</option>
+            <option selected>General feedback</option>
+            <option>Feature request</option>
+          </select>
+        </label>
+        <label class="field-label" for="feedbackMessage">Message
+          <textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSport is missing."></textarea>
+        </label>
+        <div class="sms-preview" id="feedbackPreview" aria-live="polite"></div>
+      </div>
+      <div class="about-actions">
+        <button class="btn ghost" type="button" id="closeFeedbackBtn">Cancel</button>
+        <button class="btn primary" type="submit">Open SMS composer</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -1282,9 +1607,38 @@ const BROADCASTER_LIBRARY = {
 
 const FUTURE_BROADCASTERS = ["Sky Sports", "Canal+", "Eurosport", "VPN / international access"];
 
+const LOCAL_VENUE_OPTIONS = {
+  "gio-stadium": { label: "GIO Stadium", aliases: ["gio stadium"] },
+  "manuka-oval": { label: "Manuka Oval", aliases: ["manuka oval", "corroboree group oval"] },
+  "allianz-stadium": { label: "Allianz Stadium", aliases: ["allianz stadium"] },
+  "accor-stadium": { label: "Accor Stadium", aliases: ["accor stadium"] },
+  "sydney-cricket-ground": { label: "Sydney Cricket Ground", aliases: ["sydney cricket ground", "scg"] },
+  "melbourne-cricket-ground": { label: "Melbourne Cricket Ground", aliases: ["melbourne cricket ground", "mcg"] },
+  "marvel-stadium": { label: "Marvel Stadium", aliases: ["marvel stadium"] },
+  "suncorp-stadium": { label: "Suncorp Stadium", aliases: ["suncorp stadium", "brisbane stadium"] },
+};
+
+const OFFICIAL_TICKET_URLS = {
+  nrl: "https://www.nrl.com/tickets",
+  afl: "https://www.afl.com.au/tickets",
+  rugby: "https://www.rugby.com.au/Tickets",
+  cricket: "https://www.cricket.com.au/tickets",
+};
+
+const SPOILER_FIELDS = {
+  score: ["score", "finalScore", "scoreline"],
+  outcome: ["outcomeText", "outcome", "result"],
+  recap: ["recapCopy", "recap", "summaryAfterEvent"],
+  thumbnail: ["thumbnailUrl", "resultThumbnailUrl"],
+  rating: ["perceivedQuality", "actualRating"],
+  labels: ["spoilerLabels", "resultLabels"],
+};
+
 const DEFAULT_PREFERENCES = {
-  version: 1,
+  version: 2,
   onboardingComplete: false,
+  showSpoilers: false,
+  localVenueIds: ["gio-stadium", "manuka-oval"],
   followedSports: Object.keys(SPORTS_LIBRARY),
   selectedBroadcasters: ["kayo","stan","sbs","nine","foxtel","fis"],
   tennis: {
@@ -1312,6 +1666,14 @@ const APP_CONTRACT = {
   enthusiasm: ["like", "froth", "choose"],
 };
 
+const EXPORT_SECTIONS = [
+  { key: "topStorylines", label: APP_CONTRACT.rails.topStorylines, detail: "4/5 and 5/5 events in the next seven days." },
+  { key: "worthCheckingOut", label: APP_CONTRACT.rails.worthCheckingOut, detail: "Exactly 3/5 events in the next seven days." },
+  { key: "aroundTheCorner", label: APP_CONTRACT.rails.aroundTheCorner, detail: "4/5 and 5/5 events 8-30 days away." },
+];
+
+const FEEDBACK_RECIPIENT = "0437041326";
+
 const SCORE_BANDS = {
   minimumStakes: 3,
   topStorylines: { minStakes: 4, maxStakes: 5 },
@@ -1328,13 +1690,14 @@ const STORAGE_KEYS = {
   preferences: "ns_preferences_v1",
   followedSports: "ns_followed_sports_v1",
   eventUserState: "ns_event_user_state_v1",
+  eventSpoilerState: "ns_event_spoiler_state_v1",
   legacyEventActions: "ns_event_actions_v1",
   hiddenItems: "ns_hidden_items_v1",
   feedCache: "ns_feed_cache_v1",
   lastFeedVersion: "ns_last_feed_version_v1",
   lastRefreshAt: "ns_last_refresh_at_v1",
   ratings: "ns_ratings_v1",
-  spoilerReveals: "ns_spoiler_reveals_v1",
+  legacySpoilerReveals: "ns_spoiler_reveals_v1",
   legacyPreferences: "sportscal:v1:preferences",
   legacyRatingsV2: "sportscal:v1:ratings",
   legacyRatings: "jacksSportsCalendar_actualRatings_v1",
@@ -1381,6 +1744,8 @@ function mergePreferences(saved){
   return {
     ...merged,
     ...saved,
+    showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
+    localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
     followedSports: uniqueArray(saved.followedSports || merged.followedSports).filter(key => SPORTS_LIBRARY[key]),
     selectedBroadcasters: uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]),
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
@@ -1439,7 +1804,6 @@ function loadEventActions(){
     mustWatch: ["calendar_added", "watching"].includes(action.reminderState),
     watchLater: Boolean(action.savedForCatchup || action.reminderState === "saved_for_catchup"),
     archived: Boolean(action.archived || action.dismissed),
-    spoilerOverride: action.spoilerOverride || "inherit",
     lastActionAt: action.lastActionAt || null,
   }]));
   writeStorage(STORAGE_KEYS.eventUserState, migrated);
@@ -1451,10 +1815,35 @@ function saveEventActions(next){
   writeStorage(STORAGE_KEYS.eventUserState, eventActions);
 }
 
+function loadEventSpoilerState(actions = {}){
+  const current = readStorage(STORAGE_KEYS.eventSpoilerState, null);
+  if (current && typeof current === "object") return current;
+
+  const legacyReveals = readStorage(STORAGE_KEYS.legacySpoilerReveals, {});
+  const migrated = {};
+  Object.entries(legacyReveals || {}).forEach(([key, revealedAt]) => {
+    migrated[key] = { override: "show", revealedAt: revealedAt || null };
+  });
+  Object.entries(actions || {}).forEach(([key, action]) => {
+    if (!action?.spoilerOverride || action.spoilerOverride === "inherit") return;
+    migrated[key] = {
+      override: action.spoilerOverride,
+      revealedAt: action.spoilerOverride === "show" ? action.lastActionAt || null : null,
+    };
+  });
+  writeStorage(STORAGE_KEYS.eventSpoilerState, migrated);
+  return migrated;
+}
+
+function saveEventSpoilerState(next){
+  eventSpoilerState = next && typeof next === "object" ? next : {};
+  writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
+}
+
 let userPreferences = loadPreferences();
 let ratings = loadRatings();
 let eventActions = loadEventActions();
-let spoilerReveals = readStorage(STORAGE_KEYS.spoilerReveals, {});
+let eventSpoilerState = loadEventSpoilerState(eventActions);
 let activeEvents = loadCachedFeedEvents() || EVENTS;
 
 /* ============ FEED REFRESH ============ */
@@ -1735,13 +2124,32 @@ function isPreFlagged(ev){
 }
 
 function isUpgrade(ev){
-  const actual = getActual(ev.id);
-  if (actual === null) return false;
-  return actual > 8 || (actual - ev.expected) >= 2;
+  return retrospectiveSignificanceForEvent(ev).upgraded;
+}
+
+function retrospectiveSignificanceForEvent(ev){
+  const perceivedQuality = getActual(ev.id);
+  const baseStakes = Number(ev.stakesScore || stakesScoreForEvent(ev));
+  const upgraded = perceivedQuality !== null && (perceivedQuality > 8 || (perceivedQuality - ev.expected) >= 2);
+  return {
+    baseStakes,
+    perceivedQuality,
+    upgraded,
+    effectiveStakes: upgraded ? Math.max(baseStakes, 4) : baseStakes,
+  };
+}
+
+function shouldSuggestWatchLater(ev){
+  const action = getEventAction(ev);
+  const retrospective = retrospectiveSignificanceForEvent(ev);
+  return getEventStatus(ev) === "past"
+    && retrospective.perceivedQuality > 8
+    && !action.watchLater
+    && !action.archived;
 }
 
 function isMustWatch(ev){
-  return getEventAction(ev).mustWatch || isPreFlagged(ev) || isUpgrade(ev);
+  return getEventAction(ev).mustWatch || isPreFlagged(ev) || (isSpoilerVisible(ev) && isUpgrade(ev));
 }
 
 function eventActionKey(ev){
@@ -1755,7 +2163,6 @@ function defaultEventAction(ev){
     mustWatch: false,
     watchLater: false,
     archived: false,
-    spoilerOverride: "inherit",
     lastActionAt: null,
   };
 }
@@ -1777,26 +2184,129 @@ function updateEventAction(ev, patch){
   return nextAction;
 }
 
-function spoilerRevealKey(ev){
-  return `${ev.eventId || ev.id}:${ev.date}T${ev.time}`;
+function defaultEventSpoilerState(){
+  return {
+    override: "inherit",
+    revealedAt: null,
+    lastChangedAt: null,
+  };
 }
 
-function isSpoilerRevealed(ev){
-  return Boolean(spoilerReveals[spoilerRevealKey(ev)]);
+function getEventSpoilerState(ev){
+  return {
+    ...defaultEventSpoilerState(),
+    ...(eventSpoilerState[eventActionKey(ev)] || {}),
+  };
+}
+
+function updateEventSpoilerState(ev, patch){
+  const key = eventActionKey(ev);
+  const nextState = {
+    ...getEventSpoilerState(ev),
+    ...patch,
+    lastChangedAt: new Date().toISOString(),
+  };
+  saveEventSpoilerState({ ...eventSpoilerState, [key]: nextState });
+  return nextState;
+}
+
+function isSpoilerVisible(ev){
+  if (getEventStatus(ev) !== "past") return true;
+  const override = getEventSpoilerState(ev).override;
+  if (override === "show") return true;
+  if (override === "hide") return false;
+  return Boolean(userPreferences.showSpoilers);
 }
 
 function markSpoilerRevealed(ev){
-  spoilerReveals = { ...spoilerReveals, [spoilerRevealKey(ev)]: new Date().toISOString() };
-  writeStorage(STORAGE_KEYS.spoilerReveals, spoilerReveals);
+  updateEventSpoilerState(ev, {
+    override: "show",
+    revealedAt: new Date().toISOString(),
+  });
 }
 
-function isSpoilerSensitiveEvent(ev){
-  const end = eventEndDateTime(ev);
-  const ageDays = (nowAEST() - end) / (24 * 3600 * 1000);
-  const recent = getEventStatus(ev) === "past" && ageDays >= 0 && ageDays <= 3;
-  const major = isMustWatch(ev) || ev.expected >= 8 || ev.copyReview?.reviewRequired;
-  const knockout = ["knockout", "quarterfinal", "semifinal", "final"].includes(ev.round || inferRound(ev.name));
-  return recent && major && knockout;
+function hideSpoilersForEvent(ev){
+  updateEventSpoilerState(ev, { override: "hide" });
+}
+
+function resetSpoilerOverride(ev){
+  updateEventSpoilerState(ev, { override: "inherit" });
+}
+
+function firstEventValue(ev, keys){
+  for (const key of keys){
+    const value = ev[key];
+    if (value !== undefined && value !== null && value !== "") return value;
+  }
+  return null;
+}
+
+function spoilerFactsForEvent(ev){
+  const labels = firstEventValue(ev, SPOILER_FIELDS.labels);
+  return {
+    score: firstEventValue(ev, SPOILER_FIELDS.score),
+    outcome: firstEventValue(ev, SPOILER_FIELDS.outcome),
+    recap: firstEventValue(ev, SPOILER_FIELDS.recap),
+    thumbnail: firstEventValue(ev, SPOILER_FIELDS.thumbnail),
+    rating: getActual(ev.id) ?? firstEventValue(ev, SPOILER_FIELDS.rating),
+    labels: Array.isArray(labels) ? labels : labels ? [labels] : [],
+  };
+}
+
+function normalizeVenueText(value){
+  return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function matchedLocalVenue(ev){
+  const venue = normalizeVenueText(ev.venue);
+  if (!venue) return null;
+  for (const id of userPreferences.localVenueIds || []){
+    const option = LOCAL_VENUE_OPTIONS[id];
+    if (option?.aliases.some(alias => venue.includes(normalizeVenueText(alias)))) return option;
+  }
+  return null;
+}
+
+function isLocalGame(ev){
+  return Boolean(matchedLocalVenue(ev));
+}
+
+function preferredTicketUrlForEvent(ev){
+  return ev.ticketUrl || ev.ticketsUrl || OFFICIAL_TICKET_URLS[ev.key] || null;
+}
+
+function dependencySideIsRevealed(participant){
+  if (!participant?.sourceEventId) return true;
+  const source = activeEvents.find(event => (event.eventId || event.id) === participant.sourceEventId);
+  if (!source) return false;
+  return isSpoilerVisible(source) || getEventAction(source).archived || getActual(source.id) !== null;
+}
+
+function spoilerSafeDisplayTitle(ev){
+  if (!Array.isArray(ev.matchupParticipants) || ev.matchupParticipants.length < 2){
+    return ev.displayTitleCompact;
+  }
+  const revealed = ev.matchupParticipants.map(participant => dependencySideIsRevealed(participant));
+  if (!revealed.some(Boolean)) return ev.spoilerSafeTitle || ev.displayTitleCompact;
+  return ev.matchupParticipants
+    .map((participant, index) => revealed[index] ? participant.name : "Opponent hidden")
+    .join(" vs ");
+}
+
+function setEventRating(ev, value){
+  const current = getActual(ev.id);
+  if (current === value){
+    delete ratings[ev.id];
+  } else {
+    ratings[ev.id] = value;
+  }
+  saveRatings(ratings);
+  markSpoilerRevealed(ev);
+}
+
+function archiveEvent(ev){
+  if (getEventStatus(ev) === "past") markSpoilerRevealed(ev);
+  return updateEventAction(ev, { archived: true, watchLater: false, mustWatch: false });
 }
 
 function dayDateLabel(dateStr){
@@ -1857,6 +2367,7 @@ function buildEventActionPanel(ev, options = {}){
         }
       );
       makeActionButton("Rate", "", () => {
+        markSpoilerRevealed(ev);
         setCardState(ev, "opened");
         renderCurrentSection();
         showToast("Choose a rating from 1 to 10.");
@@ -1864,7 +2375,7 @@ function buildEventActionPanel(ev, options = {}){
     }
 
     makeActionButton("Archive", "danger", () => {
-      updateEventAction(ev, { archived: true, watchLater: false, mustWatch: false });
+      archiveEvent(ev);
       renderAll();
       showToast(`Archived ${ev.name}.`);
     });
@@ -1926,6 +2437,8 @@ function renderPreferenceSummary(){
   container.innerHTML = `
     <span class="summary-chip">${sportCount} sports followed</span>
     <span class="summary-chip">${providerCopy}${userPreferences.selectedBroadcasters.length > 3 ? " +" + (userPreferences.selectedBroadcasters.length - 3) : ""}</span>
+    <span class="summary-chip">Spoilers ${userPreferences.showSpoilers ? "shown" : "protected"}</span>
+    <span class="summary-chip">${userPreferences.localVenueIds.length} local venues</span>
     <span class="summary-chip">Feed ${feedVersion} · ${refreshCopy}</span>
   `;
 }
@@ -2068,16 +2581,10 @@ function buildStars(ev, interactive){
     if (interactive){
       s.addEventListener("click", (evt) => {
         evt.stopPropagation();
-        const current = getActual(ev.id);
-        // toggle off if clicking same value again
-        if (current === i){
-          delete ratings[ev.id];
-        } else {
-          ratings[ev.id] = i;
-        }
-        saveRatings(ratings);
+        const removing = getActual(ev.id) === i;
+        setEventRating(ev, i);
         renderAll();
-        showToast(`Actual spectacle for "${ev.name}" set to ${i}/10`);
+        showToast(removing ? `Rating removed for "${ev.name}".` : `Actual spectacle for "${ev.name}" set to ${i}/10`);
       });
     }
     wrap.appendChild(s);
@@ -2095,6 +2602,118 @@ function buildStakesMeter(ev){
     wrap.appendChild(dot);
   }
   return wrap;
+}
+
+function buildSpoilerOverrideControl(ev){
+  if (getEventStatus(ev) !== "past") return null;
+  const state = getEventSpoilerState(ev);
+  const visible = isSpoilerVisible(ev);
+  const control = document.createElement("div");
+  control.className = "spoiler-control";
+
+  const copy = document.createElement("span");
+  copy.className = "spoiler-control-copy";
+  copy.textContent = `Global spoilers ${userPreferences.showSpoilers ? "on" : "off"} · Event ${state.override === "inherit" ? "uses global setting" : state.override === "show" ? "revealed" : "hidden"}`;
+  control.appendChild(copy);
+
+  const toggle = document.createElement("button");
+  toggle.className = "spoiler-reveal-btn";
+  toggle.textContent = visible ? "Hide spoilers for this event" : "Reveal spoilers for this event";
+  toggle.addEventListener("click", evt => {
+    evt.stopPropagation();
+    if (visible){
+      hideSpoilersForEvent(ev);
+      renderCurrentSection();
+      showToast("Spoilers hidden for this event.");
+      return;
+    }
+    if (window.confirm("Reveal spoiler-sensitive details for this event?")){
+      markSpoilerRevealed(ev);
+      renderCurrentSection();
+      showToast("Spoilers revealed for this event.");
+    }
+  });
+  control.appendChild(toggle);
+
+  if (state.override !== "inherit"){
+    const reset = document.createElement("button");
+    reset.className = "spoiler-reveal-btn";
+    reset.textContent = "Use global setting";
+    reset.addEventListener("click", evt => {
+      evt.stopPropagation();
+      resetSpoilerOverride(ev);
+      renderCurrentSection();
+      showToast("This event now follows the global spoiler setting.");
+    });
+    control.appendChild(reset);
+  }
+
+  return control;
+}
+
+function buildSpoilerFacts(ev){
+  if (!isSpoilerVisible(ev) || getEventStatus(ev) !== "past") return null;
+  const facts = spoilerFactsForEvent(ev);
+  const wrap = document.createElement("div");
+  wrap.className = "spoiler-facts";
+
+  const addFact = (label, value) => {
+    if (value === null || value === undefined || value === "") return;
+    const fact = document.createElement("div");
+    fact.className = "spoiler-fact";
+    const title = document.createElement("strong");
+    title.textContent = label;
+    const copy = document.createElement("span");
+    copy.textContent = String(value);
+    fact.append(title, copy);
+    wrap.appendChild(fact);
+  };
+
+  addFact("Score", facts.score);
+  addFact("Outcome", facts.outcome && typeof facts.outcome === "object" ? facts.outcome.text || facts.outcome.winner : facts.outcome);
+  addFact("Recap", facts.recap);
+  addFact("Rating", facts.rating !== null ? `${facts.rating}/10` : null);
+  addFact("Labels", facts.labels.length ? facts.labels.join(" · ") : null);
+
+  if (facts.thumbnail){
+    const image = document.createElement("img");
+    image.className = "spoiler-thumbnail";
+    image.src = facts.thumbnail;
+    image.alt = `${ev.name} result thumbnail`;
+    image.loading = "lazy";
+    image.referrerPolicy = "no-referrer";
+    wrap.appendChild(image);
+  }
+
+  return wrap.childElementCount ? wrap : null;
+}
+
+function buildRetrospectivePrompt(ev){
+  if (!isSpoilerVisible(ev) || !shouldSuggestWatchLater(ev)) return null;
+  const retrospective = retrospectiveSignificanceForEvent(ev);
+  const prompt = document.createElement("div");
+  prompt.className = "retrospective-prompt";
+
+  const copy = document.createElement("div");
+  const title = document.createElement("strong");
+  title.textContent = "Worth saving for later";
+  const detail = document.createElement("span");
+  detail.textContent = `Your ${retrospective.perceivedQuality}/10 rating makes this a replay recommendation without changing its place in the past timeline.`;
+  copy.append(title, detail);
+
+  const button = document.createElement("button");
+  button.className = "action-btn active";
+  button.type = "button";
+  button.textContent = "Add to Watch Later";
+  button.addEventListener("click", evt => {
+    evt.stopPropagation();
+    updateEventAction(ev, { watchLater: true });
+    renderAll();
+    showToast("Saved to Watch Later.");
+  });
+
+  prompt.append(copy, button);
+  return prompt;
 }
 
 function nextCardState(current){
@@ -2115,7 +2734,8 @@ function buildEventCard(ev, options = {}){
   const meta = SPORT_META[ev.key];
   const status = getEventStatus(ev);
   const actual = getActual(ev.id);
-  const upgraded = isUpgrade(ev);
+  const displayTitle = spoilerSafeDisplayTitle(ev);
+  const upgraded = isUpgrade(ev) && isSpoilerVisible(ev);
   const mode = options.mode || "calendar";
   // Every full card uses the same compact → context → detail interaction.
   // Month-view entries are not cards; all card surfaces share this path.
@@ -2123,8 +2743,9 @@ function buildEventCard(ev, options = {}){
   const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
   const action = getEventAction(ev);
-  const spoilerProtected = isSpoilerSensitiveEvent(ev);
-  const spoilerRevealed = !spoilerProtected || isSpoilerRevealed(ev);
+  const spoilerVisible = isSpoilerVisible(ev);
+  const spoilerProtected = status === "past" && !spoilerVisible;
+  const localGame = isLocalGame(ev);
 
   const card = document.createElement("div");
   card.className = [
@@ -2133,7 +2754,7 @@ function buildEventCard(ev, options = {}){
     expandable ? "is-rail-card" : "",
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
-    spoilerProtected && !spoilerRevealed ? "is-spoiler-protected" : "",
+    spoilerProtected ? "is-spoiler-protected" : "",
     status === "past" ? "is-past" : "",
   ].filter(Boolean).join(" ");
   card.style.setProperty("--sport-color", meta.color);
@@ -2142,7 +2763,7 @@ function buildEventCard(ev, options = {}){
   if (expandable){
     card.setAttribute("role", "button");
     card.setAttribute("tabindex", "0");
-    card.setAttribute("aria-label", `${ev.displayTitleCompact}. ${state === "compact" ? "Tap for short context." : state === "selected" ? "Tap for details." : "Tap to collapse."}`);
+    card.setAttribute("aria-label", `${displayTitle}. ${state === "compact" ? "Tap for short context." : state === "selected" ? "Tap for details." : "Tap to collapse."}`);
     const advance = () => {
       setCardState(ev, nextCardState(state));
       renderCurrentSection();
@@ -2169,14 +2790,29 @@ function buildEventCard(ev, options = {}){
 
   const nameWrap = document.createElement("div");
   if (expandable){
+    const dateLine = document.createElement("div");
+    dateLine.className = "event-date-line";
     const dateChip = document.createElement("div");
     dateChip.className = "event-date-chip";
     dateChip.textContent = `${dayDateLabel(ev.date)} · ${fmtTime12(ev.time)} Sydney`;
-    nameWrap.appendChild(dateChip);
+    dateLine.appendChild(dateChip);
+    const ticketUrl = localGame ? preferredTicketUrlForEvent(ev) : null;
+    if (ticketUrl){
+      const tickets = document.createElement("a");
+      tickets.className = "ticket-link";
+      tickets.href = ticketUrl;
+      tickets.target = "_blank";
+      tickets.rel = "noopener";
+      tickets.textContent = "🎟️ Tickets";
+      tickets.setAttribute("aria-label", `Tickets for ${displayTitle}`);
+      tickets.addEventListener("click", evt => evt.stopPropagation());
+      dateLine.appendChild(tickets);
+    }
+    nameWrap.appendChild(dateLine);
   }
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
-  nameEl.textContent = ev.displayTitleCompact;
+  nameEl.textContent = displayTitle;
   nameWrap.appendChild(nameEl);
   if (state === "opened" && ev.venue){
     const venueEl = document.createElement("div");
@@ -2199,6 +2835,12 @@ function buildEventCard(ev, options = {}){
     b.textContent = "PAST";
     badges.appendChild(b);
   }
+  if (localGame){
+    const b = document.createElement("span");
+    b.className = "badge local-game";
+    b.textContent = "LOCAL GAME";
+    badges.appendChild(b);
+  }
   if (ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes){
     const b = document.createElement("span");
     b.className = "badge mustwatch";
@@ -2211,7 +2853,7 @@ function buildEventCard(ev, options = {}){
     b.textContent = "Promoted replay";
     badges.appendChild(b);
   }
-  if (spoilerProtected && !spoilerRevealed){
+  if (spoilerProtected){
     const b = document.createElement("span");
     b.className = "badge spoiler-safe";
     b.textContent = "Spoiler safe";
@@ -2261,7 +2903,7 @@ function buildEventCard(ev, options = {}){
   expectedBlock.appendChild(buildStakesMeter(ev));
   ratingRow.appendChild(expectedBlock);
 
-  if (state === "opened" && status === "past"){
+  if (state === "opened" && status === "past" && spoilerVisible){
     const actualBlock = document.createElement("div");
     actualBlock.className = "rating-block";
     const label = document.createElement("span");
@@ -2280,59 +2922,47 @@ function buildEventCard(ev, options = {}){
 
   mainDiv.appendChild(ratingRow);
 
-  if (state === "selected" && spoilerProtected && !spoilerRevealed){
+  if (state === "selected" && spoilerProtected){
     const spoilerPanel = document.createElement("div");
     spoilerPanel.className = "spoiler-panel";
     spoilerPanel.innerHTML = `
       <strong>Spoiler details hidden</strong>
-      <p>This recent high-stakes event is kept opaque by default. Actions stay available while result-sensitive context is hidden.</p>
+      <p>Scores, outcomes, recap copy, thumbnails, ratings, and result labels are protected. Event actions remain available.</p>
     `;
-    const revealBtn = document.createElement("button");
-    revealBtn.className = "spoiler-reveal-btn";
-    revealBtn.textContent = "Reveal details";
-    revealBtn.addEventListener("click", evt => {
-      evt.stopPropagation();
-      if (window.confirm("Reveal spoiler-sensitive event context for this card?")){
-        markSpoilerRevealed(ev);
-        renderCurrentSection();
-      }
-    });
-    spoilerPanel.appendChild(revealBtn);
     mainDiv.appendChild(spoilerPanel);
+    mainDiv.appendChild(buildSpoilerOverrideControl(ev));
     mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   } else if (state === "selected"){
     const selected = document.createElement("div");
     selected.className = "event-selected-copy";
     selected.textContent = ev.selectedSentence;
     mainDiv.appendChild(selected);
+    const spoilerControl = buildSpoilerOverrideControl(ev);
+    if (spoilerControl) mainDiv.appendChild(spoilerControl);
     mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   }
 
-  if (state === "opened" && spoilerProtected && !spoilerRevealed){
+  if (state === "opened" && spoilerProtected){
     const spoilerPanel = document.createElement("div");
     spoilerPanel.className = "spoiler-panel";
     spoilerPanel.innerHTML = `
       <strong>Spoiler details hidden</strong>
-      <p>This card is recent and high-stakes. Reveal only when you are ready to see context that may imply what happened next.</p>
+      <p>This PAST event follows your spoiler settings. Reveal it only when you are ready to see result-sensitive detail.</p>
     `;
-    const revealBtn = document.createElement("button");
-    revealBtn.className = "spoiler-reveal-btn";
-    revealBtn.textContent = "Confirm reveal";
-    revealBtn.addEventListener("click", evt => {
-      evt.stopPropagation();
-      if (window.confirm("Reveal spoiler-sensitive event context for this card?")){
-        markSpoilerRevealed(ev);
-        renderCurrentSection();
-      }
-    });
-    spoilerPanel.appendChild(revealBtn);
     mainDiv.appendChild(spoilerPanel);
+    mainDiv.appendChild(buildSpoilerOverrideControl(ev));
     mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   } else if (state === "opened"){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
     spiel.textContent = ev.fullSpiel;
     mainDiv.appendChild(spiel);
+
+    const spoilerFacts = buildSpoilerFacts(ev);
+    if (spoilerFacts) mainDiv.appendChild(spoilerFacts);
+
+    const retrospectivePrompt = buildRetrospectivePrompt(ev);
+    if (retrospectivePrompt) mainDiv.appendChild(retrospectivePrompt);
 
     const details = document.createElement("div");
     details.className = "event-detail-grid";
@@ -2341,6 +2971,8 @@ function buildEventCard(ev, options = {}){
       ${ev.sourceName ? `<div class="event-detail-item"><strong>Data</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
     mainDiv.appendChild(details);
+    const spoilerControl = buildSpoilerOverrideControl(ev);
+    if (spoilerControl) mainDiv.appendChild(spoilerControl);
     mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   }
 
@@ -2467,12 +3099,13 @@ function renderMonthView(){
     const maxShow = 3;
     dayEvents.slice(0, maxShow).forEach(ev => {
       const meta = SPORT_META[ev.key];
+      const displayTitle = spoilerSafeDisplayTitle(ev);
       const evEl = document.createElement("div");
       const priorityClass = isMustWatch(ev) ? " must-watch" : (ev.expected >= 7 ? " solid" : " quiet");
       evEl.className = "cell-event" + priorityClass;
       evEl.style.setProperty("--sport-color", meta.color);
-      evEl.textContent = `${meta.icon} ${ev.name}`;
-      evEl.title = `${ev.name} — ${fmtTime12(ev.time)} Sydney time — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
+      evEl.textContent = `${meta.icon} ${displayTitle}`;
+      evEl.title = `${displayTitle} — ${fmtTime12(ev.time)} Sydney time — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
       cell.appendChild(evEl);
     });
     if (dayEvents.length > maxShow){
@@ -2636,6 +3269,57 @@ function renderArchived(){
   });
 }
 
+function getNeverMissExportSections(){
+  return neverMissBuckets();
+}
+
+function selectedNeverMissExportEvents(selection, sections = getNeverMissExportSections()){
+  const seen = new Set();
+  const selected = [];
+  EXPORT_SECTIONS.forEach(({ key }) => {
+    if (!selection[key]) return;
+    (sections[key] || []).forEach(ev => {
+      const id = ev.eventId || ev.id;
+      if (seen.has(id)) return;
+      seen.add(id);
+      selected.push(ev);
+    });
+  });
+  return selected;
+}
+
+function formatFeedbackTimestamp(date = new Date()){
+  return new Intl.DateTimeFormat("en-AU", {
+    timeZone: "Australia/Sydney",
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZoneName: "short",
+  }).format(date);
+}
+
+function buildFeedbackMessage(category, message, date = new Date()){
+  return [
+    "NOTHINGSPORT FEEDBACK",
+    "Meta: nothingSport feedback form",
+    `Timestamp: ${formatFeedbackTimestamp(date)}`,
+    `Category: ${category}`,
+    "",
+    "Message:",
+    String(message || "").trim() || "(No message entered)",
+    "",
+    "Sent from NothingSport",
+  ].join("\n");
+}
+
+function buildFeedbackSmsUrl(category, message, date = new Date()){
+  return `sms:${FEEDBACK_RECIPIENT}?&body=${encodeURIComponent(buildFeedbackMessage(category, message, date))}`;
+}
+
 /* ============ TOAST ============ */
 let toastTimer;
 function showToast(msg){
@@ -2745,7 +3429,7 @@ function toggleArrayValue(list, value){
 }
 
 function openOnboarding(firstRun){
-  onboardingStep = 0;
+  onboardingStep = firstRun ? 0 : 4;
   draftPreferences = clonePreferences(userPreferences);
   const modal = document.getElementById("onboardingModal");
   modal.classList.add("show");
@@ -2766,10 +3450,10 @@ function renderOnboardingStep(){
   const nextBtn = document.getElementById("nextStepBtn");
   const backBtn = document.getElementById("backStepBtn");
   const copy = document.getElementById("onboardingCopy");
-  stepIndicator.textContent = `Step ${onboardingStep + 1} of 4`;
+  stepIndicator.textContent = `Step ${onboardingStep + 1} of 5`;
   backBtn.disabled = onboardingStep === 0;
   backBtn.style.opacity = onboardingStep === 0 ? "0.45" : "1";
-  nextBtn.textContent = onboardingStep === 3 ? "Save preferences" : "Next";
+  nextBtn.textContent = onboardingStep === 4 ? "Save preferences" : "Next";
 
   if (onboardingStep === 0){
     copy.textContent = "Choose the sports you want in the calendar.";
@@ -2875,6 +3559,45 @@ function renderOnboardingStep(){
       renderFifaSegments("stage", [["all","All"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Final"]], fifa.stage);
       renderFifaSegments("contenders", [["all","All"],["title","Title contenders"],["australia","Australia"]], fifa.contenders);
     }
+  }
+
+  if (onboardingStep === 4){
+    copy.textContent = "Set spoiler protection and the venues that count as local to you.";
+    body.innerHTML = `
+      <div class="preference-stack">
+        <div class="setting-row">
+          <div>
+            <strong>Show spoilers globally</strong>
+            <p>Off keeps scores, outcomes, recaps, thumbnails, ratings, and result labels hidden. Every PAST event can override this setting.</p>
+          </div>
+          <button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button>
+        </div>
+        <div class="filter-panel">
+          <h3>Local venues</h3>
+          <p class="preference-help">GIO Stadium and Manuka Oval are selected by default. Choose any additional venues you regularly attend.</p>
+          <div class="venue-choice-grid" id="localVenueGrid"></div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("globalSpoilerSwitch").addEventListener("click", () => {
+      draftPreferences.showSpoilers = !draftPreferences.showSpoilers;
+      renderOnboardingStep();
+    });
+
+    const venueGrid = document.getElementById("localVenueGrid");
+    Object.entries(LOCAL_VENUE_OPTIONS).forEach(([id, venue]) => {
+      const selected = draftPreferences.localVenueIds.includes(id);
+      const btn = document.createElement("button");
+      btn.className = `venue-choice${selected ? " selected" : ""}`;
+      btn.textContent = `${selected ? "✓ " : ""}${venue.label}`;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.addEventListener("click", () => {
+        draftPreferences.localVenueIds = toggleArrayValue(draftPreferences.localVenueIds, id);
+        renderOnboardingStep();
+      });
+      venueGrid.appendChild(btn);
+    });
   }
 }
 
@@ -3003,7 +3726,7 @@ document.getElementById("backStepBtn").addEventListener("click", () => {
   }
 });
 document.getElementById("nextStepBtn").addEventListener("click", () => {
-  if (onboardingStep < 3){
+  if (onboardingStep < 4){
     onboardingStep += 1;
     renderOnboardingStep();
   } else {
@@ -3019,9 +3742,94 @@ document.getElementById("refreshBtn").addEventListener("click", () => {
   refreshRemoteFeed();
 });
 
-/* ============ SUGGEST ADDITIONS ============ */
+/* ============ EXPORT + FEEDBACK MODALS ============ */
+let exportSelection = Object.fromEntries(EXPORT_SECTIONS.map(section => [section.key, true]));
+
+function setUtilityModalOpen(id, open){
+  const modal = document.getElementById(id);
+  modal.classList.toggle("show", open);
+  modal.setAttribute("aria-hidden", open ? "false" : "true");
+}
+
+function renderExportSectionChoices(){
+  const sections = getNeverMissExportSections();
+  const container = document.getElementById("exportSectionChoices");
+  container.innerHTML = "";
+
+  EXPORT_SECTIONS.forEach(section => {
+    const label = document.createElement("label");
+    label.className = "section-choice";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = section.key;
+    input.checked = Boolean(exportSelection[section.key]);
+    input.addEventListener("change", () => {
+      exportSelection = { ...exportSelection, [section.key]: input.checked };
+      renderExportSectionChoices();
+    });
+
+    const copy = document.createElement("span");
+    copy.className = "section-choice-copy";
+    const title = document.createElement("strong");
+    title.textContent = section.label;
+    const detail = document.createElement("span");
+    detail.textContent = section.detail;
+    copy.append(title, detail);
+
+    const count = document.createElement("span");
+    count.className = "section-count";
+    count.textContent = `${sections[section.key].length} event${sections[section.key].length === 1 ? "" : "s"}`;
+
+    label.append(input, copy, count);
+    container.appendChild(label);
+  });
+
+  const selected = selectedNeverMissExportEvents(exportSelection, sections);
+  document.getElementById("exportSummary").textContent = selected.length
+    ? `${selected.length} event${selected.length === 1 ? "" : "s"} will be included in chronological order.`
+    : "Choose at least one section containing events.";
+  document.getElementById("confirmExportBtn").disabled = selected.length === 0;
+}
+
+function openExportModal(){
+  exportSelection = Object.fromEntries(EXPORT_SECTIONS.map(section => [section.key, true]));
+  renderExportSectionChoices();
+  setUtilityModalOpen("exportModal", true);
+}
+
+function updateFeedbackPreview(){
+  const category = document.getElementById("feedbackCategory").value;
+  const message = document.getElementById("feedbackMessage").value;
+  document.getElementById("feedbackPreview").textContent = buildFeedbackMessage(category, message);
+}
+
 document.getElementById("suggestBtn").addEventListener("click", () => {
-  showToast("Check back weekly — new major events will be suggested based on your watch history.");
+  updateFeedbackPreview();
+  setUtilityModalOpen("feedbackModal", true);
+  document.getElementById("feedbackMessage").focus();
+});
+document.getElementById("feedbackCategory").addEventListener("change", updateFeedbackPreview);
+document.getElementById("feedbackMessage").addEventListener("input", updateFeedbackPreview);
+document.getElementById("closeFeedbackBtn").addEventListener("click", () => setUtilityModalOpen("feedbackModal", false));
+document.getElementById("feedbackModal").addEventListener("click", evt => {
+  if (evt.target.id === "feedbackModal") setUtilityModalOpen("feedbackModal", false);
+});
+document.getElementById("feedbackForm").addEventListener("submit", evt => {
+  evt.preventDefault();
+  const category = document.getElementById("feedbackCategory").value;
+  const message = document.getElementById("feedbackMessage").value.trim();
+  if (!message){
+    showToast("Add a short message before opening the SMS composer.");
+    return;
+  }
+  window.location.href = buildFeedbackSmsUrl(category, message);
+});
+
+document.getElementById("exportBtn").addEventListener("click", openExportModal);
+document.getElementById("closeExportBtn").addEventListener("click", () => setUtilityModalOpen("exportModal", false));
+document.getElementById("exportModal").addEventListener("click", evt => {
+  if (evt.target.id === "exportModal") setUtilityModalOpen("exportModal", false);
 });
 
 /* ============ ICS EXPORT ============ */
@@ -3116,7 +3924,7 @@ function generateICS(events = getFilteredEvents()){
     lines.push(`DTSTAMP:${dtstamp}`);
     lines.push(`DTSTART;TZID=Australia/Sydney:${dtStart}`);
     lines.push(`DTEND;TZID=Australia/Sydney:${dtEnd}`);
-    lines.push(`SUMMARY:${escapeICS((mustWatch ? "🔥 " : "") + meta.icon + " " + ev.name)}`);
+    lines.push(`SUMMARY:${escapeICS((mustWatch ? "🔥 " : "") + meta.icon + " " + spoilerSafeDisplayTitle(ev))}`);
     if (ev.venue) lines.push(`LOCATION:${escapeICS(ev.venue)}`);
     lines.push(`DESCRIPTION:${description}`);
     lines.push(`CATEGORIES:${escapeICS(meta.label)}`);
@@ -3136,7 +3944,7 @@ function downloadICS(filename, icsContent){
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function safeFilenamePart(value){
@@ -3153,11 +3961,17 @@ function downloadEventICS(ev){
   showToast(`Calendar file created for ${ev.name}.`);
 }
 
-document.getElementById("exportBtn").addEventListener("click", () => {
-  const exportEvents = getFilteredEvents();
+document.getElementById("exportForm").addEventListener("submit", evt => {
+  evt.preventDefault();
+  const exportEvents = selectedNeverMissExportEvents(exportSelection);
+  if (!exportEvents.length){
+    showToast("Choose at least one Never Miss section to export.");
+    return;
+  }
   const icsContent = generateICS(exportEvents);
-  downloadICS("nothingsport.ics", icsContent);
-  showToast(`Exported ${getFilteredEvents().length} visible events to nothingsport.ics`);
+  downloadICS("nothingsport-never-miss.ics", icsContent);
+  setUtilityModalOpen("exportModal", false);
+  showToast(`Exported ${exportEvents.length} Never Miss event${exportEvents.length === 1 ? "" : "s"}.`);
 });
 
 /* ============ INIT ============ */
