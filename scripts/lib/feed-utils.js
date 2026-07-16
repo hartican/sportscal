@@ -8,6 +8,7 @@ const SPORT_KEYS = new Set([
   "f1",
   "tdf",
   "nrl",
+  "afl",
   "cricket",
   "nba",
   "masters",
@@ -17,6 +18,7 @@ const SPORT_KEYS = new Set([
 ]);
 
 const ROUNDS = new Set(["all", "early", "knockout", "quarterfinal", "semifinal", "final"]);
+const SOURCE_TYPES = new Set(["official", "broadcaster", "reputable", "personal-calendar"]);
 const STANDARD_PRELOAD_DAYS = 92;
 const MARQUEE_ANNUAL_MONTHS = 12;
 
@@ -123,8 +125,21 @@ function validateFeed(feed) {
     if (String(event.displayTitleCompact || "").length > 80) errors.push(`${prefix}.displayTitleCompact must be 80 chars or fewer.`);
     if (String(event.selectedSentence || "").length > 180) errors.push(`${prefix}.selectedSentence must be 180 chars or fewer.`);
     if (String(event.fullSpiel || "").length > 700) errors.push(`${prefix}.fullSpiel must be 700 chars or fewer.`);
-    if (!/^https?:\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) URL.`);
+    if (!/^(https?|calendar):\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) or calendar URL.`);
     if (!isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
+    if (event.sourceType !== undefined && !SOURCE_TYPES.has(event.sourceType)) errors.push(`${prefix}.sourceType is unsupported.`);
+    if (event.customClassification !== undefined) {
+      const classification = event.customClassification;
+      if (!classification || typeof classification !== "object" || Array.isArray(classification)) {
+        errors.push(`${prefix}.customClassification must be an object if present.`);
+      } else {
+        ["schemaVersion", "calendarName", "sportRule", "eventRule"].forEach(field => {
+          if (!String(classification[field] || "").trim()) errors.push(`${prefix}.customClassification.${field} is required.`);
+        });
+        if (classification.schemaVersion && classification.schemaVersion !== "calendar-events.v1") errors.push(`${prefix}.customClassification.schemaVersion must be calendar-events.v1.`);
+      }
+      if (event.sourceType !== "personal-calendar") errors.push(`${prefix}.customClassification requires sourceType personal-calendar.`);
+    }
     if (event.copyReview !== undefined) {
       if (!event.copyReview || typeof event.copyReview !== "object" || Array.isArray(event.copyReview)) {
         errors.push(`${prefix}.copyReview must be an object if present.`);

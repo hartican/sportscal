@@ -15,10 +15,7 @@
       "time": "15:00",
       "startTimeUtc": "2026-07-18T05:00:00Z",
       "broadcaster": "Kayo Sports / Foxtel",
-      "broadcastOptions": [
-        "Kayo Sports",
-        "Foxtel"
-      ],
+      "broadcastOptions": ["Kayo Sports", "Foxtel"],
       "expected": 7,
       "venue": "GIO Stadium Canberra",
       "liveWindow": 3,
@@ -28,11 +25,7 @@
       "fullSpiel": "Canberra Raiders host South Sydney Rabbitohs at GIO Stadium. The official NRL draw lists a 3:00 pm Sydney start and Foxtel coverage; plan for the full afternoon window.",
       "sourceName": "Official NRL 2026 draw",
       "sourceUrl": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "nrl-raiders-tigers-2026-07-25",
@@ -45,10 +38,7 @@
       "time": "15:00",
       "startTimeUtc": "2026-07-25T05:00:00Z",
       "broadcaster": "Kayo Sports / Foxtel",
-      "broadcastOptions": [
-        "Kayo Sports",
-        "Foxtel"
-      ],
+      "broadcastOptions": ["Kayo Sports", "Foxtel"],
       "expected": 7,
       "venue": "GIO Stadium Canberra",
       "liveWindow": 3,
@@ -58,11 +48,7 @@
       "fullSpiel": "Canberra Raiders host Wests Tigers at GIO Stadium. The official NRL draw lists a 3:00 pm Sydney start and Foxtel coverage, making this a clean live or replay window.",
       "sourceName": "Official NRL 2026 draw",
       "sourceUrl": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "nrl-raiders-knights-2026-08-09",
@@ -75,10 +61,7 @@
       "time": "14:00",
       "startTimeUtc": "2026-08-09T04:00:00Z",
       "broadcaster": "Kayo Sports / Foxtel",
-      "broadcastOptions": [
-        "Kayo Sports",
-        "Foxtel"
-      ],
+      "broadcastOptions": ["Kayo Sports", "Foxtel"],
       "expected": 6,
       "venue": "GIO Stadium Canberra",
       "liveWindow": 3,
@@ -88,11 +71,7 @@
       "fullSpiel": "Canberra Raiders host Newcastle Knights at GIO Stadium. The official NRL draw lists a 2:00 pm Sydney kick-off and Foxtel coverage for this late-season home fixture.",
       "sourceName": "Official NRL 2026 draw",
       "sourceUrl": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "nrl-raiders-broncos-2026-08-21",
@@ -105,10 +84,7 @@
       "time": "18:00",
       "startTimeUtc": "2026-08-21T08:00:00Z",
       "broadcaster": "Kayo Sports / Foxtel",
-      "broadcastOptions": [
-        "Kayo Sports",
-        "Foxtel"
-      ],
+      "broadcastOptions": ["Kayo Sports", "Foxtel"],
       "expected": 8,
       "venue": "GIO Stadium Canberra",
       "liveWindow": 3,
@@ -118,11 +94,7 @@
       "fullSpiel": "Canberra Raiders host Brisbane Broncos at GIO Stadium. The official NRL draw lists a 6:00 pm Sydney kick-off and Foxtel coverage for this marquee Canberra home fixture.",
       "sourceName": "Official NRL 2026 draw",
       "sourceUrl": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "afl-collingwood-carlton-2026-07-18",
@@ -135,10 +107,7 @@
       "time": "19:35",
       "startTimeUtc": "2026-07-18T09:35:00Z",
       "broadcaster": "Seven / 7plus",
-      "broadcastOptions": [
-        "Seven",
-        "7plus"
-      ],
+      "broadcastOptions": ["Seven", "7plus"],
       "expected": 8,
       "venue": "Melbourne Cricket Ground",
       "liveWindow": 3,
@@ -148,11 +117,7 @@
       "fullSpiel": "Collingwood meet Carlton at the MCG. The official AFL fixture lists a 7:35 pm Sydney start with Seven coverage; it is one of the highlighted Melbourne fixtures in the confirmed rounds.",
       "sourceName": "Official AFL fixture (rounds 16–22)",
       "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "afl-essendon-gws-2026-07-19",
@@ -165,10 +130,7 @@
       "time": "16:40",
       "startTimeUtc": "2026-07-19T06:40:00Z",
       "broadcaster": "Fox Footy / Kayo Sports",
-      "broadcastOptions": [
-        "Fox Footy",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Fox Footy", "Kayo Sports"],
       "expected": 6,
       "venue": "Marvel Stadium",
       "liveWindow": 3,
@@ -178,11 +140,7 @@
       "fullSpiel": "Greater Western Sydney Giants play Essendon at Marvel Stadium in Melbourne. The official AFL fixture lists a 4:40 pm Sydney start and Fox Footy coverage.",
       "sourceName": "Official AFL fixture (rounds 16–22)",
       "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "afl-western-bulldogs-richmond-2026-07-25",
@@ -195,10 +153,7 @@
       "time": "19:40",
       "startTimeUtc": "2026-07-25T09:40:00Z",
       "broadcaster": "Seven / 7plus",
-      "broadcastOptions": [
-        "Seven",
-        "7plus"
-      ],
+      "broadcastOptions": ["Seven", "7plus"],
       "expected": 6,
       "venue": "Marvel Stadium",
       "liveWindow": 3,
@@ -208,11 +163,7 @@
       "fullSpiel": "Western Bulldogs host Richmond at Marvel Stadium in Melbourne. The official AFL fixture lists a 7:40 pm Sydney start and Seven coverage.",
       "sourceName": "Official AFL fixture (rounds 16–22)",
       "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "afl-collingwood-geelong-2026-07-30",
@@ -225,10 +176,7 @@
       "time": "19:30",
       "startTimeUtc": "2026-07-30T09:30:00Z",
       "broadcaster": "Seven / 7plus",
-      "broadcastOptions": [
-        "Seven",
-        "7plus"
-      ],
+      "broadcastOptions": ["Seven", "7plus"],
       "expected": 8,
       "venue": "Melbourne Cricket Ground",
       "liveWindow": 3,
@@ -238,11 +186,7 @@
       "fullSpiel": "Collingwood host Geelong Cats at the MCG. The official AFL fixture lists a 7:30 pm Sydney start and Seven coverage for this Melbourne-based marquee match.",
       "sourceName": "Official AFL fixture (rounds 16–22)",
       "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "afl-western-bulldogs-north-melbourne-2026-08-06",
@@ -255,10 +199,7 @@
       "time": "19:30",
       "startTimeUtc": "2026-08-06T09:30:00Z",
       "broadcaster": "Seven / 7plus",
-      "broadcastOptions": [
-        "Seven",
-        "7plus"
-      ],
+      "broadcastOptions": ["Seven", "7plus"],
       "expected": 6,
       "venue": "Marvel Stadium",
       "liveWindow": 3,
@@ -268,11 +209,7 @@
       "fullSpiel": "Western Bulldogs host North Melbourne at Marvel Stadium. The official AFL fixture lists a 7:30 pm Sydney start and Seven coverage.",
       "sourceName": "Official AFL fixture (rounds 16–22)",
       "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "afl-gws-gold-coast-2026-08-09",
@@ -285,10 +222,7 @@
       "time": "13:10",
       "startTimeUtc": "2026-08-09T03:10:00Z",
       "broadcaster": "Fox Footy / Kayo Sports",
-      "broadcastOptions": [
-        "Fox Footy",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Fox Footy", "Kayo Sports"],
       "expected": 6,
       "venue": "Corroboree Group Oval, Manuka",
       "liveWindow": 3,
@@ -298,11 +232,7 @@
       "fullSpiel": "Greater Western Sydney Giants host Gold Coast Suns at Corroboree Group Oval, Manuka. The official AFL fixture lists a 1:10 pm Sydney start and Fox Footy coverage.",
       "sourceName": "Official AFL fixture (rounds 16–22)",
       "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-australia-italy-2026-07-18",
@@ -315,9 +245,7 @@
       "time": "20:00",
       "startTimeUtc": "2026-07-18T10:00:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 7,
       "venue": "HBF Park, Perth",
       "liveWindow": 3,
@@ -327,11 +255,7 @@
       "fullSpiel": "Australia play Italy at HBF Park in Perth. Rugby Australia lists a 6:00 pm AWST start, which is 8:00 pm in Sydney; Stan Sport carries the Wallabies Test schedule.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-japan-australia-2026-08-08",
@@ -344,9 +268,7 @@
       "time": "20:05",
       "startTimeUtc": "2026-08-08T10:05:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 6,
       "venue": "Hanazono Rugby Stadium, Osaka",
       "liveWindow": 3,
@@ -356,11 +278,7 @@
       "fullSpiel": "Japan host Australia at Hanazono Rugby Stadium. Rugby Australia's match centre lists the official start; the converted Sydney time is 8:05 pm and Stan Sport is the Australian broadcaster.",
       "sourceName": "Rugby Australia match centre",
       "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949621",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-australia-japan-2026-08-15",
@@ -373,9 +291,7 @@
       "time": "15:00",
       "startTimeUtc": "2026-08-15T05:00:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 7,
       "venue": "Queensland Country Bank Stadium, Townsville",
       "liveWindow": 3,
@@ -385,11 +301,7 @@
       "fullSpiel": "Australia host Japan at Queensland Country Bank Stadium in Townsville. Rugby Australia lists a 3:00 pm Sydney start for this home Test, with Stan Sport coverage.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-argentina-australia-jujuy-2026-08-30",
@@ -402,9 +314,7 @@
       "time": "05:00",
       "startTimeUtc": "2026-08-29T19:00:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 7,
       "venue": "Estadio 23 de Agosto, San Salvador de Jujuy",
       "liveWindow": 3,
@@ -414,11 +324,7 @@
       "fullSpiel": "Argentina host Australia in San Salvador de Jujuy. Rugby Australia lists a 5:00 am Sydney start for the opening Argentina leg, with Stan Sport coverage in Australia.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-argentina-australia-mendoza-2026-09-06",
@@ -431,9 +337,7 @@
       "time": "05:00",
       "startTimeUtc": "2026-09-05T19:00:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 7,
       "venue": "Estadio Malvinas Argentinas, Mendoza",
       "liveWindow": 3,
@@ -443,11 +347,7 @@
       "fullSpiel": "Argentina host Australia at Estadio Malvinas Argentinas in Mendoza. Rugby Australia lists a 5:00 am Sydney start, with the Wallabies available on Stan Sport.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-australia-south-africa-2026-09-27",
@@ -460,9 +360,7 @@
       "time": "19:30",
       "startTimeUtc": "2026-09-27T09:30:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 9,
       "venue": "Optus Stadium, Perth",
       "liveWindow": 3,
@@ -472,11 +370,7 @@
       "fullSpiel": "Australia host South Africa at Optus Stadium in Perth. Rugby Australia lists a 5:30 pm AWST start, which is 7:30 pm Sydney time; Stan Sport carries the Test.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-new-zealand-australia-2026-10-10",
@@ -489,9 +383,7 @@
       "time": "13:10",
       "startTimeUtc": "2026-10-10T02:10:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 9,
       "venue": "Eden Park, Auckland",
       "liveWindow": 3,
@@ -501,11 +393,7 @@
       "fullSpiel": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-australia-new-zealand-2026-10-17",
@@ -518,9 +406,7 @@
       "time": "15:45",
       "startTimeUtc": "2026-10-17T04:45:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 10,
       "venue": "Accor Stadium, Sydney",
       "liveWindow": 3,
@@ -530,11 +416,7 @@
       "fullSpiel": "Australia host New Zealand at Accor Stadium in Sydney. Rugby Australia lists a 3:45 pm Sydney kick-off for the home Bledisloe Test, with Stan Sport coverage.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-england-australia-2026-11-09",
@@ -547,9 +429,7 @@
       "time": "02:10",
       "startTimeUtc": "2026-11-08T15:10:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 8,
       "venue": "Twickenham Stadium, London",
       "liveWindow": 3,
@@ -559,11 +439,7 @@
       "fullSpiel": "England host Australia at Twickenham Stadium. Rugby Australia lists a 2:10 am Sydney start for the Wallabies' northern tour opener, with Stan Sport coverage.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-scotland-australia-2026-11-16",
@@ -576,9 +452,7 @@
       "time": "02:10",
       "startTimeUtc": "2026-11-15T15:10:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 7,
       "venue": "Murrayfield Stadium, Edinburgh",
       "liveWindow": 3,
@@ -588,11 +462,7 @@
       "fullSpiel": "Scotland host Australia at Murrayfield Stadium in Edinburgh. Rugby Australia lists a 2:10 am Sydney start for this Wallabies Test, carried by Stan Sport.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rugby-wales-australia-2026-11-22",
@@ -605,9 +475,7 @@
       "time": "07:10",
       "startTimeUtc": "2026-11-21T20:10:00Z",
       "broadcaster": "Stan Sport",
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
+      "broadcastOptions": ["Stan Sport"],
       "expected": 7,
       "venue": "Principality Stadium, Cardiff",
       "liveWindow": 3,
@@ -617,11 +485,7 @@
       "fullSpiel": "Wales host Australia at Principality Stadium in Cardiff. Rugby Australia lists a 7:10 am Sydney start for this northern-tour Test, with Stan Sport coverage.",
       "sourceName": "Rugby Australia 2026 Wallabies fixture",
       "sourceUrl": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-bangladesh-first-test-2026",
@@ -634,12 +498,7 @@
       "time": "10:30",
       "startTimeUtc": "2026-08-13T00:30:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 8,
       "venue": "Marrara Cricket Ground, Darwin",
       "liveWindow": 8,
@@ -649,11 +508,7 @@
       "fullSpiel": "Australia host Bangladesh in the first Test at Marrara Cricket Ground, Darwin. Cricket Australia lists a 10:30 am Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international season.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-bangladesh-second-test-2026",
@@ -666,12 +521,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-08-22T00:00:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 7,
       "venue": "Great Barrier Reef Arena, Mackay",
       "liveWindow": 8,
@@ -681,11 +531,7 @@
       "fullSpiel": "Australia host Bangladesh in the second Test at Great Barrier Reef Arena in Mackay. Cricket Australia lists a 10:00 am Sydney start with the home international broadcast group available.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-first-odi-2026",
@@ -698,12 +544,7 @@
       "time": "14:30",
       "startTimeUtc": "2026-11-13T03:30:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 6,
       "venue": "Sydney Cricket Ground",
       "liveWindow": 8,
@@ -713,11 +554,7 @@
       "fullSpiel": "Australia host England in the first ODI at the Sydney Cricket Ground. Cricket Australia lists a 2:30 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-second-odi-2026",
@@ -730,12 +567,7 @@
       "time": "14:30",
       "startTimeUtc": "2026-11-15T03:30:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 7,
       "venue": "Adelaide Oval",
       "liveWindow": 8,
@@ -745,11 +577,7 @@
       "fullSpiel": "Australia host England in the second ODI at Adelaide Oval. Cricket Australia lists a 2:30 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-third-odi-2026",
@@ -762,12 +590,7 @@
       "time": "14:30",
       "startTimeUtc": "2026-11-18T03:30:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 7,
       "venue": "Melbourne Cricket Ground",
       "liveWindow": 8,
@@ -777,11 +600,7 @@
       "fullSpiel": "Australia host England in the third ODI at the MCG. Cricket Australia lists a 2:30 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-first-t20-2026",
@@ -794,12 +613,7 @@
       "time": "19:15",
       "startTimeUtc": "2026-11-21T08:15:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 7,
       "venue": "Perth Stadium",
       "liveWindow": 4,
@@ -809,11 +623,7 @@
       "fullSpiel": "Australia host England in the first T20 International at Perth Stadium. Cricket Australia lists a 7:15 pm Sydney start with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-second-t20-2026",
@@ -826,12 +636,7 @@
       "time": "19:15",
       "startTimeUtc": "2026-11-24T08:15:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 6,
       "venue": "Adelaide Oval",
       "liveWindow": 4,
@@ -841,11 +646,7 @@
       "fullSpiel": "Australia host England in the second T20 International at Adelaide Oval. Cricket Australia lists a 7:15 pm Sydney start and the home schedule is carried by Seven, 7plus, Foxtel and Kayo Sports.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": false,
-      "highlightEligible": true,
-      "briefingEligible": false,
-      "catchupEligible": false
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-third-t20-2026",
@@ -858,12 +659,7 @@
       "time": "19:15",
       "startTimeUtc": "2026-11-27T08:15:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 7,
       "venue": "Sydney Cricket Ground",
       "liveWindow": 4,
@@ -873,11 +669,7 @@
       "fullSpiel": "Australia host England in the third T20 International at the SCG. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-fourth-t20-2026",
@@ -890,12 +682,7 @@
       "time": "19:15",
       "startTimeUtc": "2026-11-29T08:15:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 8,
       "venue": "Brisbane Cricket Ground",
       "liveWindow": 4,
@@ -905,11 +692,7 @@
       "fullSpiel": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-england-fifth-t20-2026",
@@ -922,12 +705,7 @@
       "time": "19:15",
       "startTimeUtc": "2026-12-02T08:15:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 8,
       "venue": "Manuka Oval, Canberra",
       "liveWindow": 4,
@@ -937,11 +715,7 @@
       "fullSpiel": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "cricket-australia-new-zealand-test-2026",
@@ -954,12 +728,7 @@
       "time": "13:20",
       "startTimeUtc": "2026-12-09T02:20:00Z",
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports",
-      "broadcastOptions": [
-        "Seven",
-        "7plus",
-        "Foxtel",
-        "Kayo Sports"
-      ],
+      "broadcastOptions": ["Seven", "7plus", "Foxtel", "Kayo Sports"],
       "expected": 8,
       "venue": "Perth Stadium",
       "liveWindow": 8,
@@ -969,11 +738,7 @@
       "fullSpiel": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
       "sourceName": "Cricket Australia 2026–27 international schedule",
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rlwc-australia-new-zealand-2026",
@@ -986,10 +751,7 @@
       "time": "20:05",
       "startTimeUtc": "2026-10-15T09:05:00Z",
       "broadcaster": "Seven / 7plus Sport",
-      "broadcastOptions": [
-        "Seven",
-        "7plus Sport"
-      ],
+      "broadcastOptions": ["Seven", "7plus Sport"],
       "expected": 10,
       "venue": "Allianz Stadium, Sydney",
       "liveWindow": 3,
@@ -999,11 +761,7 @@
       "fullSpiel": "Australia play New Zealand at Allianz Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
       "sourceName": "Official NRL Rugby League World Cup match centre",
       "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rlwc-australia-fiji-2026",
@@ -1016,10 +774,7 @@
       "time": "20:05",
       "startTimeUtc": "2026-10-25T09:05:00Z",
       "broadcaster": "Seven / 7plus Sport",
-      "broadcastOptions": [
-        "Seven",
-        "7plus Sport"
-      ],
+      "broadcastOptions": ["Seven", "7plus Sport"],
       "expected": 8,
       "venue": "Suncorp Stadium, Brisbane",
       "liveWindow": 3,
@@ -1029,11 +784,7 @@
       "fullSpiel": "Australia play Fiji at Suncorp Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
       "sourceName": "Official NRL Rugby League World Cup match centre",
       "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/australia-v-fiji/",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     },
     {
       "id": "rlwc-australia-cook-islands-2026",
@@ -1046,10 +797,7 @@
       "time": "20:05",
       "startTimeUtc": "2026-10-31T09:05:00Z",
       "broadcaster": "Seven / 7plus Sport",
-      "broadcastOptions": [
-        "Seven",
-        "7plus Sport"
-      ],
+      "broadcastOptions": ["Seven", "7plus Sport"],
       "expected": 7,
       "venue": "Queensland Country Bank Stadium, Townsville",
       "liveWindow": 3,
@@ -1059,11 +807,7 @@
       "fullSpiel": "Australia play Cook Islands at Queensland Country Bank Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
       "sourceName": "Official NRL Rugby League World Cup match centre",
       "sourceUrl": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-3/australia-v-cook-islands/",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
-      "replayEligible": true,
-      "highlightEligible": true,
-      "briefingEligible": true,
-      "catchupEligible": true
+      "sourceCheckedAt": "2026-07-15T13:30:00+10:00"
     }
   ]
 }

@@ -49,6 +49,28 @@ open http://127.0.0.1:8002/
 
 The app's `Refresh feed` button reads `data/feed-meta.json`, follows `eventsPath`, and imports `data/events.json` into local storage.
 
+## Personal calendar import
+
+Use `calendar-events.template.json` as the simple hand-entry/import shape. It accepts the small, portable subset that Google Calendar, Apple Calendar or Outlook exports can provide: a stable calendar ID, title, start/end time, location and optional URL, broadcaster, expected score and explicit category override.
+
+The categoriser is deterministic. `sportKey` wins whenever you provide it. Otherwise `scripts/import-calendar-events.js` tests title, description and location against its ordered rule list. If no rule matches, it fails rather than guessing; add a supported `sportKey` to that record. `eventType` similarly overrides the deterministic type rule. The importer records the matching rule on the output card so every classification is auditable.
+
+1. Copy the template to `feeds/incoming/calendar-events.json` and enter/paste calendar details.
+2. Build a merged feed, keeping the current researched cards:
+
+```bash
+node scripts/import-calendar-events.js feeds/incoming/calendar-events.json feeds/incoming/events.json feeds/incoming/events.with-calendar.json
+```
+
+3. Validate and publish the merged result:
+
+```bash
+node scripts/validate-feed.js feeds/incoming/events.with-calendar.json
+node scripts/publish-feed.js feeds/incoming/events.with-calendar.json
+```
+
+Personal-calendar cards use a `calendar://` provenance URL when an event has no public URL. They stay local to the import file; the importer does not connect to or send data to a calendar service.
+
 ## Future Horizon
 
 The July block is the current MVP proving path. After that flow is stable, feed refreshes should extend toward all supported sports more than 3 months ahead, with annual marquee events planned up to 12 months ahead when reliable dates and broadcast assumptions exist.

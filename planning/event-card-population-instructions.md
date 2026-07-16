@@ -79,6 +79,7 @@ Supported `key` values:
 - `f1`
 - `tdf`
 - `nrl`
+- `afl`
 - `cricket`
 - `nba`
 - `masters`

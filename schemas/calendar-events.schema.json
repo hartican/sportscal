@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sportscal.local/schemas/calendar-events.schema.json",
+  "title": "Sportscal personal calendar import",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "calendarName", "importedAt", "events"],
+  "properties": {
+    "schemaVersion": { "const": "calendar-events.v1" },
+    "calendarName": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "importedAt": { "type": "string", "format": "date-time" },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/calendarEvent" }
+    }
+  },
+  "$defs": {
+    "sportKey": {
+      "enum": ["wimbledon", "rugby", "fifa", "f1", "tdf", "nrl", "afl", "cricket", "nba", "masters", "lemans", "nfl", "ski"]
+    },
+    "calendarEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["calendarEventId", "title", "startTime"],
+      "properties": {
+        "calendarEventId": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "title": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "startTime": { "type": "string", "format": "date-time" },
+        "endTime": { "type": "string", "format": "date-time" },
+        "location": { "type": "string", "maxLength": 180 },
+        "description": { "type": "string", "maxLength": 2000 },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "broadcaster": { "type": "string", "maxLength": 120 },
+        "expected": { "type": "number", "minimum": 5, "maximum": 10 },
+        "sportKey": { "$ref": "#/$defs/sportKey" },
+        "eventType": {
+          "enum": ["all", "fixture", "match", "test", "race", "knockout", "quarterfinal", "semifinal", "final"]
+        }
+      }
+    }
+  }
+}

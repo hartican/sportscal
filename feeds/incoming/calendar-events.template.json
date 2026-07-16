@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "calendar-events.v1",
+  "calendarName": "Personal calendar",
+  "importedAt": "2026-07-15T14:00:00+10:00",
+  "events": [
+    {
+      "calendarEventId": "google-calendar-abc123",
+      "title": "Wallabies v New Zealand",
+      "startTime": "2026-10-17T15:45:00+11:00",
+      "endTime": "2026-10-17T18:45:00+11:00",
+      "location": "Accor Stadium, Sydney",
+      "broadcaster": "Stan Sport",
+      "expected": 10
+    },
+    {
+      "calendarEventId": "google-calendar-def456",
+      "title": "Sunday football",
+      "startTime": "2026-08-09T13:10:00+10:00",
+      "sportKey": "afl",
+      "eventType": "fixture",
+      "expected": 6
+    }
+  ]
+}

@@ -65,7 +65,7 @@
           "minLength": 2
         },
         "key": {
-          "enum": ["wimbledon", "rugby", "fifa", "f1", "tdf", "nrl", "cricket", "nba", "masters", "lemans", "nfl", "ski"]
+          "enum": ["wimbledon", "rugby", "fifa", "f1", "tdf", "nrl", "afl", "cricket", "nba", "masters", "lemans", "nfl", "ski"]
         },
         "name": {
           "type": "string",
@@ -138,11 +138,25 @@
         },
         "sourceUrl": {
           "type": "string",
-          "pattern": "^https?://"
+          "pattern": "^(https?|calendar)://"
         },
         "sourceCheckedAt": {
           "type": "string",
           "format": "date-time"
+        },
+        "sourceType": {
+          "enum": ["official", "broadcaster", "reputable", "personal-calendar"]
+        },
+        "customClassification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schemaVersion", "calendarName", "sportRule", "eventRule"],
+          "properties": {
+            "schemaVersion": { "const": "calendar-events.v1" },
+            "calendarName": { "type": "string", "minLength": 1, "maxLength": 80 },
+            "sportRule": { "type": "string", "minLength": 1, "maxLength": 80 },
+            "eventRule": { "type": "string", "minLength": 1, "maxLength": 80 }
+          }
         },
         "copyReview": {
           "type": "object",

@@ -34,6 +34,7 @@
   --c-lemans: #d4a017;
   --c-ski: #4fc3f7;
   --c-nfl: #1a237e;
+  --c-afl: #8b1d2c;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -1217,9 +1218,10 @@ const SPORT_META = {
   lemans:      { label: "Le Mans",          color: "var(--c-lemans)",   icon: "🏁" },
   ski:         { label: "Ski/Alpine",       color: "var(--c-ski)",      icon: "⛷️" },
   nfl:         { label: "Super Bowl",       color: "var(--c-nfl)",      icon: "🏈" },
+  afl:         { label: "AFL",              color: "var(--c-afl)",      icon: "🏉" },
 };
 
-const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","cricket","nba","masters","lemans","nfl","ski"];
+const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","afl","cricket","nba","masters","lemans","nfl","ski"];
 const ACTION_FILTERS = {
   tracked: { label: "Tracked", icon: "✓" },
   saved: { label: "Saved", icon: "↺" },
@@ -1237,6 +1239,7 @@ const SPORTS_LIBRARY = {
   nfl: { label: "Super Bowl", detail: "NFL championship event.", color: "var(--c-nfl)", icon: "🏈" },
   lemans: { label: "Le Mans", detail: "24 Hours start and finish windows.", color: "var(--c-lemans)", icon: "🏁" },
   nrl: { label: "Rugby League", detail: "NRL finals and Grand Final.", color: "var(--c-nrl)", icon: "🏉" },
+  afl: { label: "AFL", detail: "Canberra and Melbourne fixtures, plus the finals series.", color: "var(--c-afl)", icon: "🏉" },
   ski: { label: "Alpine / Freestyle Skiing", detail: "World Cup and finals events.", color: "var(--c-ski)", icon: "⛷️" },
 };
 
