@@ -7,6 +7,7 @@ const vm = require("node:vm");
 const html = fs.readFileSync("index.html", "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
+assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the NothingSport contract");
@@ -15,6 +16,15 @@ assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Wat
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
 assert(html.includes("id=\"globalSpoilerSwitch\""), "Settings must expose a global spoiler control");
+assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
+assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
+assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
+assert(html.includes('if (firstRun) draftPreferences.followedSports = []'), "first-time setup must start with every sport deselected");
+assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
+assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
+assert(html.includes('class="filing-cabinet-icon"') && html.includes("🗄️"), "Archived must use the larger filing cabinet tab symbol");
+assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
+assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
@@ -24,9 +34,11 @@ assert(html.includes('activeTab !== "calendar" && activeTab !== "nevermiss"'), "
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
+assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
+assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
-assert(html.includes('facts.outcome && typeof facts.outcome === "object"'), "empty outcome data must not break revealed PAST cards");
+assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
 assert(html.includes('id="exportSectionChoices"'), "Never Miss export must expose section choices");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
@@ -87,6 +99,8 @@ vm.createContext(sandbox);
 const expose = `
 globalThis.__test = {
   SCORE_BANDS,
+  mergePreferences,
+  normalizeThemePreference,
   setEvents(events){ activeEvents = events; normalizeEvents(activeEvents); },
   setActions(actions){ eventActions = actions; },
   setSpoilerState(state){ eventSpoilerState = state; },
@@ -106,6 +120,7 @@ globalThis.__test = {
   neverMissTimelineEvents,
   updateEventAction,
   isSpoilerVisible,
+  compactResultForEvent,
   markSpoilerRevealed,
   hideSpoilersForEvent,
   resetSpoilerOverride,
@@ -137,6 +152,11 @@ const app = sandbox.__test;
 assert.equal(app.SCORE_BANDS.minimumStakes, 3, "global feed floor must be stakes 3/5");
 assert.equal(app.SCORE_BANDS.topStorylines.minStakes, 4, "Top Storylines must start at stakes 4/5");
 assert.equal(app.SCORE_BANDS.worthCheckingOut.minStakes, 3, "Worth Checking Out must be stakes 3/5");
+assert.equal(app.normalizeThemePreference("day"), "day", "Day must be a valid theme preference");
+assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a valid theme preference");
+assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
+assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
+assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
 
 function dateAtOffset(days){
   const date = new Date();
@@ -259,6 +279,12 @@ app.setRatings({});
 app.setSpoilerState({});
 app.setPreferences({ showSpoilers: false });
 assert.deepEqual(Array.from(app.calendarTimelineEvents([nextRound, pastB, pastA]), event => event.id), ["past-a", "past-b", "next-round"], "Calendar timeline must place past events above Today and future events below it");
+const scoredPast = { ...event("compact-result", -1, 4), score: "Home 2-1 Away", outcomeText: "Home advanced to the final." };
+assert.equal(app.compactResultForEvent(scoredPast), null, "compact cards must not leak results while spoilers are protected");
+app.setPreferences({ showSpoilers: true });
+assert.equal(app.compactResultForEvent(scoredPast).score, "Home 2-1 Away", "compact cards must show scores when spoilers are enabled");
+assert.equal(app.compactResultForEvent(scoredPast).outcome, "Home advanced to the final.", "compact cards must show a short outcome when spoilers are enabled");
+app.setPreferences({ showSpoilers: false });
 app.setCardState(pastA, "opened");
 assert.equal(app.cardStateForEvent(pastA), "opened", "the actively viewed card must retain its expanded state");
 app.setCardState(pastB, "selected");

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="system">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>nothingSport</title>
 <meta name="theme-color" content="#0a0a0f">
 <meta name="description" content="A spoiler-free sports calendar and watch planner for Sydney time.">
@@ -12,6 +12,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root{
+  color-scheme: dark;
   --bg: #0a0a0f;
   --bg-elev: #131318;
   --bg-card: #16161d;
@@ -21,6 +22,14 @@
   --text-dim: #9a9aa6;
   --text-faint: #5f5f6b;
   --accent: #00e5ff;
+  --brand-start: #ffffff;
+  --brand-end: #00e5ff;
+  --header-bg: rgba(10,10,15,0.88);
+  --panel-bg: #111118;
+  --overlay-bg: rgba(3,3,8,0.78);
+  --soft-fill: rgba(255,255,255,0.025);
+  --soft-fill-strong: rgba(255,255,255,0.06);
+  --shadow: rgba(0,0,0,0.55);
 
   --c-f1: #e8002d;
   --c-rugby: #1a6b3a;
@@ -37,6 +46,50 @@
   --c-afl: #8b1d2c;
 }
 
+:root[data-theme="day"]{
+  color-scheme: light;
+  --bg: #f3f5f7;
+  --bg-elev: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f7fafb;
+  --border: #d9dee4;
+  --text: #151820;
+  --text-dim: #5f6875;
+  --text-faint: #8c96a3;
+  --accent: #007f99;
+  --brand-start: #151820;
+  --brand-end: #007f99;
+  --header-bg: rgba(243,245,247,0.9);
+  --panel-bg: #ffffff;
+  --overlay-bg: rgba(28,34,42,0.38);
+  --soft-fill: rgba(15,25,38,0.035);
+  --soft-fill-strong: rgba(15,25,38,0.075);
+  --shadow: rgba(20,28,38,0.22);
+}
+
+@media (prefers-color-scheme: light){
+  :root[data-theme="system"]{
+    color-scheme: light;
+    --bg: #f3f5f7;
+    --bg-elev: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f7fafb;
+    --border: #d9dee4;
+    --text: #151820;
+    --text-dim: #5f6875;
+    --text-faint: #8c96a3;
+    --accent: #007f99;
+    --brand-start: #151820;
+    --brand-end: #007f99;
+    --header-bg: rgba(243,245,247,0.9);
+    --panel-bg: #ffffff;
+    --overlay-bg: rgba(28,34,42,0.38);
+    --soft-fill: rgba(15,25,38,0.035);
+    --soft-fill-strong: rgba(15,25,38,0.075);
+    --shadow: rgba(20,28,38,0.22);
+  }
+}
+
 *{box-sizing:border-box; margin:0; padding:0;}
 
 html,body{
@@ -44,15 +97,28 @@ html,body{
   color: var(--text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   min-height:100vh;
+  min-height:100dvh;
+  overscroll-behavior-y: none;
+  -webkit-text-size-adjust: 100%;
 }
+
+html{ touch-action: manipulation; }
 
 body{
   background:
     radial-gradient(circle at 20% 0%, rgba(0,229,255,0.06), transparent 40%),
     radial-gradient(circle at 80% 10%, rgba(232,0,45,0.05), transparent 40%),
     var(--bg);
-  padding-bottom: 60px;
+  padding-bottom: calc(60px + env(safe-area-inset-bottom));
 }
+
+body.modal-open{ overflow:hidden; }
+
+button,
+a,
+input,
+select,
+textarea{ touch-action: manipulation; }
 
 a{color:inherit;}
 
@@ -61,10 +127,10 @@ header.top{
   position: sticky;
   top:0;
   z-index: 50;
-  background: rgba(10,10,15,0.85);
+  background: var(--header-bg);
   backdrop-filter: blur(14px) saturate(150%);
   border-bottom: 1px solid var(--border);
-  padding: 16px 20px;
+  padding: calc(16px + env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 16px max(20px, env(safe-area-inset-left));
 }
 
 .header-inner{
@@ -87,7 +153,7 @@ header.top{
   font-size: 1.35rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  background: linear-gradient(90deg, #fff, #00e5ff);
+  background: linear-gradient(90deg, var(--brand-start), var(--brand-end));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -199,6 +265,16 @@ header.top{
 .tab-btn.active .tab-count{
   background: rgba(0,229,255,0.14);
   color: var(--accent);
+}
+
+.filing-cabinet-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width: 1.5rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  transform: translateY(-1px);
 }
 
 /* ---------- Controls bar ---------- */
@@ -408,7 +484,7 @@ main{
 
 .event-card.is-rail-card{
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--importance-color, var(--sport-color)) var(--importance-strength, 18%), #16161d), #15151c 78%),
+    linear-gradient(90deg, color-mix(in srgb, var(--importance-color, var(--sport-color)) var(--importance-strength, 18%), var(--bg-card)), var(--bg-card) 78%),
     var(--bg-card);
 }
 
@@ -605,7 +681,7 @@ main{
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 8px 9px;
-  background: rgba(255,255,255,0.025);
+  background: var(--soft-fill);
   color: var(--text-dim);
   font-size: 0.74rem;
   line-height:1.35;
@@ -625,7 +701,7 @@ main{
   border: 1px solid color-mix(in srgb, var(--importance-color, var(--sport-color)) 28%, var(--border));
   border-radius: 10px;
   padding: 10px;
-  background: rgba(255,255,255,0.025);
+  background: var(--soft-fill);
 }
 
 .event-action-status{
@@ -642,7 +718,7 @@ main{
 }
 
 .action-btn{
-  background: rgba(255,255,255,0.04);
+  background: var(--soft-fill-strong);
   border: 1px solid var(--border);
   color: var(--text);
   border-radius: 8px;
@@ -655,7 +731,7 @@ main{
 
 .action-btn:hover{
   border-color: color-mix(in srgb, var(--importance-color, var(--sport-color)) 50%, var(--border));
-  background: rgba(255,255,255,0.07);
+  background: color-mix(in srgb, var(--soft-fill-strong) 72%, var(--accent));
 }
 
 .action-btn.active{
@@ -744,6 +820,40 @@ main{
 .event-meta-row .sport-tag{
   color: var(--sport-color, var(--accent));
   font-weight: 700;
+}
+
+.compact-result{
+  display:grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items:baseline;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.compact-result-label{
+  color: var(--accent);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.compact-result-copy{
+  min-width: 0;
+  overflow:hidden;
+  color: var(--text);
+  font-weight: 800;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.compact-result-outcome{
+  color: var(--text-dim);
+  font-weight: 500;
 }
 
 .rating-row{
@@ -880,29 +990,29 @@ main{
   font-size: 0.62rem;
   padding: 3px 5px 3px 7px;
   border-radius: 5px;
-  background: color-mix(in srgb, var(--sport-color, var(--accent)) 11%, #15151b);
+  background: color-mix(in srgb, var(--sport-color, var(--accent)) 11%, var(--bg-card));
   color: color-mix(in srgb, var(--text-dim) 84%, var(--text));
   white-space:nowrap;
   overflow:hidden;
   text-overflow: ellipsis;
-  border-left: 2px solid color-mix(in srgb, var(--sport-color, var(--accent)) 52%, #3a3a45);
+  border-left: 2px solid color-mix(in srgb, var(--sport-color, var(--accent)) 52%, var(--border));
   cursor: pointer;
   opacity: 0.78;
   filter: saturate(0.58);
 }
 
 .month-cell .cell-event.solid{
-  background: color-mix(in srgb, var(--sport-color, var(--accent)) 20%, #16161d);
+  background: color-mix(in srgb, var(--sport-color, var(--accent)) 20%, var(--bg-card));
   color: var(--text-dim);
-  border-left-color: color-mix(in srgb, var(--sport-color, var(--accent)) 78%, #3a3a45);
+  border-left-color: color-mix(in srgb, var(--sport-color, var(--accent)) 78%, var(--border));
   opacity: 0.9;
   filter: saturate(0.82);
 }
 
 .month-cell .cell-event.must-watch{
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--sport-color, var(--accent)) 42%, #16161d), #171720 70%),
-    color-mix(in srgb, var(--sport-color, var(--accent)) 32%, #16161d);
+    linear-gradient(90deg, color-mix(in srgb, var(--sport-color, var(--accent)) 42%, var(--bg-card)), var(--bg-card) 70%),
+    color-mix(in srgb, var(--sport-color, var(--accent)) 32%, var(--bg-card));
   color: var(--text);
   border-left-color: var(--sport-color, var(--accent));
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--sport-color, var(--accent)) 55%, transparent) inset,
@@ -999,7 +1109,7 @@ main{
 .modal-backdrop{
   position: fixed;
   inset: 0;
-  background: rgba(3,3,8,0.78);
+  background: var(--overlay-bg);
   backdrop-filter: blur(16px);
   z-index: 200;
   display:none;
@@ -1016,10 +1126,14 @@ main{
   width: min(920px, 100%);
   max-height: min(820px, 92vh);
   overflow:auto;
-  background: #111118;
+  background: var(--panel-bg);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+  box-shadow: 0 30px 90px var(--shadow);
+}
+
+.settings-panel{
+  width: min(760px, 100%);
 }
 
 .about-panel{
@@ -1030,7 +1144,7 @@ main{
   position: sticky;
   top:0;
   z-index: 2;
-  background: rgba(17,17,24,0.94);
+  background: color-mix(in srgb, var(--panel-bg) 94%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 18px 20px;
@@ -1039,6 +1153,35 @@ main{
   align-items:flex-start;
   gap: 16px;
 }
+
+.settings-title-row{
+  display:flex;
+  align-items:flex-start;
+  gap: 10px;
+  min-width:0;
+}
+
+.settings-icon-btn{
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--text);
+  font: 800 1.15rem/1 inherit;
+  cursor:pointer;
+}
+
+.settings-icon-btn:hover{
+  background: var(--bg-card-hover);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+.settings-icon-btn[hidden]{ display:none; }
 
 .onboarding-head h2{
   font-size: 1.15rem;
@@ -1082,6 +1225,8 @@ main{
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 10px;
 }
+
+.filter-panel > .choice-grid{ margin-top: 10px; }
 
 .choice-card{
   text-align:left;
@@ -1130,7 +1275,7 @@ main{
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px;
-  background: rgba(255,255,255,0.025);
+  background: var(--soft-fill);
 }
 
 .filter-panel h3{
@@ -1152,7 +1297,98 @@ main{
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px;
-  background: rgba(255,255,255,0.025);
+  background: var(--soft-fill);
+}
+
+.settings-menu{
+  display:flex;
+  flex-direction:column;
+  border-top: 1px solid var(--border);
+}
+
+.settings-menu-item{
+  width:100%;
+  display:grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items:center;
+  gap: 12px;
+  padding: 15px 4px;
+  border:0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+
+.settings-menu-item:hover{ background: var(--soft-fill); }
+
+.settings-menu-icon{
+  width: 38px;
+  height: 38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 11px;
+  background: var(--soft-fill-strong);
+  font-size: 1.1rem;
+}
+
+.settings-menu-copy strong{
+  display:block;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.settings-menu-copy span{
+  display:block;
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  line-height:1.35;
+}
+
+.settings-menu-arrow{
+  color: var(--text-faint);
+  font-size: 1.1rem;
+}
+
+.theme-choice-list{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.theme-choice{
+  display:flex;
+  flex-direction:column;
+  gap: 7px;
+  min-height: 112px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text);
+  cursor:pointer;
+}
+
+.theme-choice.selected{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent) inset;
+}
+
+.theme-choice input{
+  width:18px;
+  height:18px;
+  accent-color: var(--accent);
+}
+
+.theme-choice strong{ font-size: 0.86rem; }
+
+.theme-choice span{
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  line-height:1.35;
 }
 
 .setting-row strong{
@@ -1277,7 +1513,7 @@ main{
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px;
-  background: rgba(255,255,255,0.025);
+  background: var(--soft-fill);
   cursor:pointer;
 }
 
@@ -1437,16 +1673,25 @@ footer.app-footer{
     line-height:1.15;
   }
   .tab-count{ display:none; }
-  .tab-btn[data-tab="archived"] .tab-label{ display:none; }
+  .filing-cabinet-icon{ font-size: 1.45rem; }
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
   .month-cell{ min-height: 64px; }
   .month-cell .cell-event{ font-size: 0.55rem; }
   .header-actions .btn span.full-label{ display:none; }
   .onboarding-head{
-    position: static;
-    flex-direction:column;
+    padding: 14px 16px;
   }
+  .onboarding-panel{
+    width:100%;
+    max-height:100dvh;
+    border-radius: 0;
+    border-left:0;
+    border-right:0;
+  }
+  .modal-backdrop{ padding:0; }
+  .onboarding-body{ padding:16px; }
+  .theme-choice-list{ grid-template-columns:1fr; }
   .choice-grid{
     grid-template-columns: 1fr;
   }
@@ -1464,9 +1709,8 @@ footer.app-footer{
     </div>
     <div class="header-actions">
       <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSport</span></button>
-      <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Preferences</span></button>
+      <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
-      <button class="btn ghost" id="suggestBtn">💬 <span class="full-label">Feedback</span></button>
       <button class="btn primary" id="exportBtn">⬇ <span class="full-label">Export Never Miss</span></button>
     </div>
   </div>
@@ -1475,7 +1719,7 @@ footer.app-footer{
     <button class="tab-btn active" data-tab="calendar"><span class="tab-label">Calendar</span><span class="tab-count" id="calendarTabCount">0</span></button>
     <button class="tab-btn" data-tab="nevermiss"><span class="tab-label">Never Miss</span><span class="tab-count" id="neverMissTabCount">0</span></button>
     <button class="tab-btn" data-tab="watchlater"><span class="tab-label">Watch Later</span><span class="tab-count" id="watchLaterTabCount">0</span></button>
-    <button class="tab-btn" data-tab="archived" aria-label="Archived"><span aria-hidden="true">⌁</span><span class="tab-label">Archived</span><span class="tab-count" id="archivedTabCount">0</span></button>
+    <button class="tab-btn" data-tab="archived" aria-label="Filing cabinet" title="Filing cabinet"><span class="filing-cabinet-icon" aria-hidden="true">🗄️</span><span class="tab-count" id="archivedTabCount">0</span></button>
   </div>
 </header>
 
@@ -1504,22 +1748,22 @@ footer.app-footer{
 
 <div class="toast" id="toast"></div>
 
-<div class="modal-backdrop" id="onboardingModal" aria-hidden="true">
-  <div class="onboarding-panel" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+<div class="modal-backdrop" id="settingsModal" aria-hidden="true">
+  <div class="onboarding-panel settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="onboarding-head">
-      <div>
-        <h2 id="onboardingTitle">Set up nothingSport</h2>
-        <p id="onboardingCopy">Choose the sports and providers you actually use. The calendar stays spoiler-free.</p>
+      <div class="settings-title-row">
+        <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
+        <div>
+          <h2 id="settingsTitle">Settings</h2>
+          <p id="settingsCopy">Choose what nothingSport follows and how the app behaves.</p>
+        </div>
       </div>
-      <div class="step-indicator" id="stepIndicator">Step 1 of 3</div>
+      <button class="settings-icon-btn" id="closeSettingsBtn" type="button" aria-label="Close Settings">×</button>
     </div>
-    <div class="onboarding-body" id="onboardingBody"></div>
+    <div class="onboarding-body" id="settingsBody"></div>
     <div class="onboarding-actions">
       <button class="btn ghost" id="resetPreferencesBtn">Reset</button>
-      <div>
-        <button class="btn ghost" id="backStepBtn">Back</button>
-        <button class="btn primary" id="nextStepBtn">Next</button>
-      </div>
+      <button class="btn primary" id="saveSettingsBtn">Save &amp; close</button>
     </div>
   </div>
 </div>
@@ -1561,38 +1805,6 @@ footer.app-footer{
       <div class="about-actions">
         <button class="btn ghost" type="button" id="closeExportBtn">Cancel</button>
         <button class="btn primary" type="submit" id="confirmExportBtn">Export selected</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="modal-backdrop" id="feedbackModal" aria-hidden="true">
-  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
-    <div class="onboarding-head">
-      <div>
-        <h2 id="feedbackTitle">Send feedback</h2>
-        <p>Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p>
-      </div>
-    </div>
-    <form id="feedbackForm">
-      <div class="utility-form">
-        <label class="field-label" for="feedbackCategory">Category
-          <select id="feedbackCategory" required>
-            <option>Add a sport</option>
-            <option>Add a competition</option>
-            <option>Bug report</option>
-            <option selected>General feedback</option>
-            <option>Feature request</option>
-          </select>
-        </label>
-        <label class="field-label" for="feedbackMessage">Message
-          <textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSport is missing."></textarea>
-        </label>
-        <div class="sms-preview" id="feedbackPreview" aria-live="polite"></div>
-      </div>
-      <div class="about-actions">
-        <button class="btn ghost" type="button" id="closeFeedbackBtn">Cancel</button>
-        <button class="btn primary" type="submit">Open SMS composer</button>
       </div>
     </form>
   </div>
@@ -1688,8 +1900,9 @@ const SPOILER_FIELDS = {
 };
 
 const DEFAULT_PREFERENCES = {
-  version: 2,
+  version: 3,
   onboardingComplete: false,
+  theme: "system",
   showSpoilers: false,
   localVenueIds: ["gio-stadium", "manuka-oval"],
   followedSports: Object.keys(SPORTS_LIBRARY),
@@ -1763,7 +1976,8 @@ let activeTab = "calendar";
 let calendarInitialJumpPending = true;
 let neverMissInitialJumpPending = true;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
-let onboardingStep = 0;
+let settingsSection = "main";
+let settingsFirstRun = false;
 let draftPreferences = null;
 let cardViewStates = {};
 
@@ -1793,12 +2007,17 @@ function uniqueArray(values){
   return Array.from(new Set(values.filter(Boolean)));
 }
 
+function normalizeThemePreference(value){
+  return ["day", "night", "system"].includes(value) ? value : "system";
+}
+
 function mergePreferences(saved){
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
   if (!saved || typeof saved !== "object") return merged;
   return {
     ...merged,
     ...saved,
+    theme: normalizeThemePreference(saved.theme ?? merged.theme),
     showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
     localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
     followedSports: uniqueArray(saved.followedSports || merged.followedSports).filter(key => SPORTS_LIBRARY[key]),
@@ -1825,6 +2044,14 @@ function savePreferences(next){
   if (writeStorage(STORAGE_KEYS.preferences, clean)){
     userPreferences = clean;
   }
+}
+
+function applyThemePreference(theme){
+  const nextTheme = normalizeThemePreference(theme);
+  document.documentElement.dataset.theme = nextTheme;
+  const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+  const useDark = nextTheme === "night" || (nextTheme === "system" && systemDark);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", useDark ? "#0a0a0f" : "#f3f5f7");
 }
 
 function loadRatings(){
@@ -2309,6 +2536,20 @@ function spoilerFactsForEvent(ev){
   };
 }
 
+function spoilerOutcomeCopy(outcome){
+  if (outcome && typeof outcome === "object") return outcome.text || outcome.winner || null;
+  return outcome;
+}
+
+function compactResultForEvent(ev){
+  if (!isSpoilerVisible(ev)) return null;
+  const facts = spoilerFactsForEvent(ev);
+  const score = facts.score === null || facts.score === undefined ? null : String(facts.score);
+  const outcome = spoilerOutcomeCopy(facts.outcome);
+  if (!score && !outcome) return null;
+  return { score, outcome: outcome ? String(outcome) : null };
+}
+
 function normalizeVenueText(value){
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
@@ -2740,7 +2981,7 @@ function buildSpoilerFacts(ev){
   };
 
   addFact("Score", facts.score);
-  addFact("Outcome", facts.outcome && typeof facts.outcome === "object" ? facts.outcome.text || facts.outcome.winner : facts.outcome);
+  addFact("Outcome", spoilerOutcomeCopy(facts.outcome));
   addFact("Recap", facts.recap);
   addFact("Rating", facts.rating !== null ? `${facts.rating}/10` : null);
   addFact("Labels", facts.labels.length ? facts.labels.join(" · ") : null);
@@ -2756,6 +2997,35 @@ function buildSpoilerFacts(ev){
   }
 
   return wrap.childElementCount ? wrap : null;
+}
+
+function buildCompactResult(ev){
+  const result = compactResultForEvent(ev);
+  if (!result) return null;
+
+  const wrap = document.createElement("div");
+  wrap.className = "compact-result";
+
+  const label = document.createElement("span");
+  label.className = "compact-result-label";
+  label.textContent = "Result";
+  wrap.appendChild(label);
+
+  const copy = document.createElement("div");
+  copy.className = "compact-result-copy";
+  if (result.score){
+    const score = document.createElement("span");
+    score.textContent = result.score;
+    copy.appendChild(score);
+  }
+  if (result.outcome){
+    const outcome = document.createElement("span");
+    outcome.className = "compact-result-outcome";
+    outcome.textContent = `${result.score ? " — " : ""}${result.outcome}`;
+    copy.appendChild(outcome);
+  }
+  wrap.appendChild(copy);
+  return wrap;
 }
 
 function buildRetrospectivePrompt(ev){
@@ -3018,6 +3288,11 @@ function buildEventCard(ev, options = {}){
   }
   mainDiv.appendChild(metaRow);
 
+  if (state !== "opened"){
+    const compactResult = buildCompactResult(ev);
+    if (compactResult) mainDiv.appendChild(compactResult);
+  }
+
   const ratingRow = document.createElement("div");
   ratingRow.className = "rating-row";
 
@@ -3110,7 +3385,7 @@ function renderListView(){
   container.innerHTML = "";
   const filtered = getFilteredEvents();
   if (filtered.length === 0){
-    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match your current preferences.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
+    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match your current preferences.<br><button class="btn primary" onclick="openSettings()">Edit settings</button></div>`;
     return;
   }
   const ordered = calendarTimelineEvents(filtered);
@@ -3492,8 +3767,8 @@ function renderWatchLater(){
 function renderArchived(){
   renderSavedSurface({
     containerId: "archivedView",
-    title: "Archived",
-    copy: "Events removed from active feeds. Reinstate any event to return it to Calendar.",
+    title: "Filing Cabinet",
+    copy: "Filed events stay out of active feeds. Reinstate any event to return it to Calendar.",
     events: archivedEvents(),
     emptyIcon: "⌁",
     emptyCopy: "No archived events.",
@@ -3683,7 +3958,7 @@ function renderAll(){
   }
 }
 
-/* ============ ONBOARDING / PREFERENCES ============ */
+/* ============ SETTINGS ============ */
 function clonePreferences(prefs){
   return typeof structuredClone === "function" ? structuredClone(prefs) : JSON.parse(JSON.stringify(prefs));
 }
@@ -3692,177 +3967,216 @@ function toggleArrayValue(list, value){
   return list.includes(value) ? list.filter(item => item !== value) : list.concat(value);
 }
 
-function openOnboarding(firstRun){
-  onboardingStep = firstRun ? 0 : 4;
+function openSettings({ firstRun = false, section = "main" } = {}){
+  settingsFirstRun = firstRun;
+  settingsSection = section;
   draftPreferences = clonePreferences(userPreferences);
-  const modal = document.getElementById("onboardingModal");
+  if (firstRun) draftPreferences.followedSports = [];
+  const modal = document.getElementById("settingsModal");
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
-  renderOnboardingStep(firstRun);
+  document.body.classList.add("modal-open");
+  applyThemePreference(draftPreferences.theme);
+  renderSettingsScreen();
 }
 
-function closeOnboarding(){
-  const modal = document.getElementById("onboardingModal");
+function closeSettings({ restoreTheme = true } = {}){
+  const modal = document.getElementById("settingsModal");
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  if (restoreTheme) applyThemePreference(userPreferences.theme);
+  settingsSection = "main";
+  settingsFirstRun = false;
   draftPreferences = null;
 }
 
-function renderOnboardingStep(){
-  const body = document.getElementById("onboardingBody");
-  const stepIndicator = document.getElementById("stepIndicator");
-  const nextBtn = document.getElementById("nextStepBtn");
-  const backBtn = document.getElementById("backStepBtn");
-  const copy = document.getElementById("onboardingCopy");
-  stepIndicator.textContent = `Step ${onboardingStep + 1} of 5`;
-  backBtn.disabled = onboardingStep === 0;
-  backBtn.style.opacity = onboardingStep === 0 ? "0.45" : "1";
-  nextBtn.textContent = onboardingStep === 4 ? "Save preferences" : "Next";
+function settingsMenuItem(section, icon, title, detail){
+  return `<button class="settings-menu-item" type="button" data-settings-section="${section}">
+    <span class="settings-menu-icon" aria-hidden="true">${icon}</span>
+    <span class="settings-menu-copy"><strong>${title}</strong><span>${detail}</span></span>
+    <span class="settings-menu-arrow" aria-hidden="true">›</span>
+  </button>`;
+}
 
-  if (onboardingStep === 0){
-    copy.textContent = "Choose the sports you want in the calendar.";
-    body.innerHTML = `<div class="choice-grid" id="sportsChoiceGrid"></div>`;
-    const grid = document.getElementById("sportsChoiceGrid");
-    Object.entries(SPORTS_LIBRARY).forEach(([key, sport]) => {
-      const selected = draftPreferences.followedSports.includes(key);
-      const btn = document.createElement("button");
-      btn.className = "choice-card" + (selected ? " selected" : "");
-      btn.style.setProperty("--choice-color", sport.color);
-      btn.innerHTML = `
-        <div class="choice-title"><span>${sport.icon}</span><span>${sport.label}</span></div>
-        <div class="choice-detail">${sport.detail}</div>
-      `;
-      btn.addEventListener("click", () => {
-        draftPreferences.followedSports = toggleArrayValue(draftPreferences.followedSports, key);
-        renderOnboardingStep();
-      });
-      grid.appendChild(btn);
+function renderSettingsMenu(body){
+  const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
+  body.innerHTML = `<div class="settings-menu">
+    ${settingsMenuItem("sports", "◉", "Sports & competitions", `${draftPreferences.followedSports.length} sports selected · includes tennis and World Cup detail`)}
+    ${settingsMenuItem("providers", "📡", "TV & streaming", `${draftPreferences.selectedBroadcasters.length} providers selected`)}
+    ${settingsMenuItem("privacy", "◐", "Spoilers & local venues", `Spoilers ${draftPreferences.showSpoilers ? "on" : "protected"} · ${draftPreferences.localVenueIds.length} local venues`)}
+    ${settingsMenuItem("appearance", "☼", "Appearance", `${themeLabel} theme`)}
+    ${settingsMenuItem("feedback", "✎", "Feedback", "Send an idea, request, or bug report from Settings")}
+  </div>`;
+  body.querySelectorAll("[data-settings-section]").forEach(button => {
+    button.addEventListener("click", () => {
+      settingsSection = button.dataset.settingsSection;
+      renderSettingsScreen();
     });
-    COMING_SOON_SPORTS.forEach(label => {
-      const btn = document.createElement("button");
-      btn.className = "choice-card disabled";
-      btn.disabled = true;
-      btn.innerHTML = `<div class="choice-title"><span>＋</span><span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
-      grid.appendChild(btn);
-    });
-  }
+  });
+}
 
-  if (onboardingStep === 1){
-    copy.textContent = "Choose the services available to you. Events with unknown deep mapping stay visible.";
-    body.innerHTML = `<div class="choice-grid" id="providerChoiceGrid"></div>`;
-    const grid = document.getElementById("providerChoiceGrid");
-    Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
-      const selected = draftPreferences.selectedBroadcasters.includes(key);
-      const btn = document.createElement("button");
-      btn.className = "choice-card" + (selected ? " selected" : "");
-      btn.innerHTML = `
-        <div class="choice-title"><span>📡</span><span>${provider.label}</span></div>
-        <div class="choice-detail">Used only where this provider is evidenced in current event data.</div>
-      `;
-      btn.addEventListener("click", () => {
-        draftPreferences.selectedBroadcasters = toggleArrayValue(draftPreferences.selectedBroadcasters, key);
-        renderOnboardingStep();
-      });
-      grid.appendChild(btn);
+function renderSportsSettings(body){
+  body.innerHTML = `<div class="preference-stack">
+    <div class="filter-panel">
+      <h3>Sports selector</h3>
+      <p class="preference-help">Choose the sports and competitions that belong in your feeds.</p>
+      <div class="choice-grid" id="sportsChoiceGrid"></div>
+    </div>
+    <div class="preference-stack" id="sportDetailSettings"></div>
+  </div>`;
+  const grid = document.getElementById("sportsChoiceGrid");
+  Object.entries(SPORTS_LIBRARY).forEach(([key, sport]) => {
+    const selected = draftPreferences.followedSports.includes(key);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "choice-card" + (selected ? " selected" : "");
+    btn.style.setProperty("--choice-color", sport.color);
+    btn.setAttribute("aria-pressed", selected ? "true" : "false");
+    btn.innerHTML = `<div class="choice-title"><span>${sport.icon}</span><span>${sport.label}</span></div><div class="choice-detail">${sport.detail}</div>`;
+    btn.addEventListener("click", () => {
+      draftPreferences.followedSports = toggleArrayValue(draftPreferences.followedSports, key);
+      renderSettingsScreen();
     });
-    FUTURE_BROADCASTERS.forEach(label => {
-      const btn = document.createElement("button");
-      btn.className = "choice-card disabled";
-      btn.disabled = true;
-      btn.innerHTML = `<div class="choice-title"><span>↗</span><span>${label}</span></div><div class="choice-detail">Modelled for later, not active in filtering yet.</div>`;
-      grid.appendChild(btn);
-    });
-  }
+    grid.appendChild(btn);
+  });
+  COMING_SOON_SPORTS.forEach(label => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "choice-card disabled";
+    btn.disabled = true;
+    btn.innerHTML = `<div class="choice-title"><span>＋</span><span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
+    grid.appendChild(btn);
+  });
 
-  if (onboardingStep === 2){
-    copy.textContent = "Set how much tennis you want. Tennis is the first active preference schema.";
+  const details = document.getElementById("sportDetailSettings");
+  const detailPanels = [];
+  if (draftPreferences.followedSports.includes("wimbledon")){
     const tennis = draftPreferences.tennis;
-    const showManual = tennis.enthusiasm === "choose";
-    body.innerHTML = `
-      <div class="filter-panel">
-        <h3>Tennis enthusiasm</h3>
-        <div class="choice-detail">Like keeps both tours, singles only, quarterfinals and later. Froth keeps both tours, singles and doubles, all rounds.</div>
-        <div class="choice-grid" id="tennisEnthusiasmGrid"></div>
-        <div id="manualTennisFilters" style="${showManual ? "" : "display:none;"}">
-          <div class="choice-detail">Gender</div>
-          <div class="segmented-row" data-filter="gender"></div>
-          <div class="choice-detail">Event type</div>
-          <div class="segmented-row" data-filter="eventType"></div>
-          <div class="choice-detail">Round focus</div>
-          <div class="segmented-row" data-filter="round"></div>
-        </div>
-      </div>
-    `;
+    detailPanels.push(`<div class="filter-panel"><h3>Tennis detail</h3><div class="choice-detail">Tune tour, event type, and round coverage.</div><div class="choice-grid" id="tennisEnthusiasmGrid"></div><div id="manualTennisFilters" style="${tennis.enthusiasm === "choose" ? "" : "display:none;"}"><div class="choice-detail">Gender</div><div class="segmented-row" data-filter="gender"></div><div class="choice-detail">Event type</div><div class="segmented-row" data-filter="eventType"></div><div class="choice-detail">Round focus</div><div class="segmented-row" data-filter="round"></div></div></div>`);
+  }
+  if (draftPreferences.followedSports.includes("fifa")){
+    const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
+    detailPanels.push(`<div class="filter-panel"><h3>World Cup detail</h3><div class="choice-detail">Tune stage and contender coverage.</div><div class="choice-grid" id="fifaEnthusiasmGrid"></div><div id="manualFifaFilters" style="${fifa.enthusiasm === "choose" ? "" : "display:none;"}"><div class="choice-detail">Stage focus</div><div class="segmented-row" data-filter="fifaStage"></div><div class="choice-detail">Team focus</div><div class="segmented-row" data-filter="fifaContenders"></div></div></div>`);
+  }
+  details.innerHTML = detailPanels.join("");
+  if (document.getElementById("tennisEnthusiasmGrid")){
+    const tennis = draftPreferences.tennis;
     renderTennisEnthusiasmChoices(tennis.enthusiasm || "froth");
-    if (showManual){
+    if (tennis.enthusiasm === "choose"){
       renderSegments("gender", [["both","Both"],["men","Men"],["women","Women"]], tennis.gender);
       renderSegments("eventType", [["both","Both"],["singles","Singles"],["doubles","Doubles"]], tennis.eventType);
       renderSegments("round", [["all","All"],["early","Early rounds"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Finals"]], tennis.round);
     }
   }
-
-  if (onboardingStep === 3){
-    copy.textContent = "Set how much FIFA World Cup coverage you want in the demo.";
+  if (document.getElementById("fifaEnthusiasmGrid")){
     const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
-    const showManual = fifa.enthusiasm === "choose";
-    body.innerHTML = `
-      <div class="filter-panel">
-        <h3>World Cup enthusiasm</h3>
-        <div class="choice-detail">Like keeps title contenders and semifinals onward. Froth keeps the full knockout run from quarterfinals onward.</div>
-        <div class="choice-grid" id="fifaEnthusiasmGrid"></div>
-        <div id="manualFifaFilters" style="${showManual ? "" : "display:none;"}">
-          <div class="choice-detail">Stage focus</div>
-          <div class="segmented-row" data-filter="fifaStage"></div>
-          <div class="choice-detail">Team focus</div>
-          <div class="segmented-row" data-filter="fifaContenders"></div>
-        </div>
-      </div>
-    `;
     renderFifaEnthusiasmChoices(fifa.enthusiasm || "froth");
-    if (showManual){
+    if (fifa.enthusiasm === "choose"){
       renderFifaSegments("stage", [["all","All"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Final"]], fifa.stage);
       renderFifaSegments("contenders", [["all","All"],["title","Title contenders"],["australia","Australia"]], fifa.contenders);
     }
   }
+}
 
-  if (onboardingStep === 4){
-    copy.textContent = "Set spoiler protection and the venues that count as local to you.";
-    body.innerHTML = `
-      <div class="preference-stack">
-        <div class="setting-row">
-          <div>
-            <strong>Show spoilers globally</strong>
-            <p>Off keeps scores, outcomes, recaps, thumbnails, ratings, and result labels hidden. Every PAST event can override this setting.</p>
-          </div>
-          <button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button>
-        </div>
-        <div class="filter-panel">
-          <h3>Local venues</h3>
-          <p class="preference-help">GIO Stadium and Manuka Oval are selected by default. Choose any additional venues you regularly attend.</p>
-          <div class="venue-choice-grid" id="localVenueGrid"></div>
-        </div>
-      </div>
-    `;
-
-    document.getElementById("globalSpoilerSwitch").addEventListener("click", () => {
-      draftPreferences.showSpoilers = !draftPreferences.showSpoilers;
-      renderOnboardingStep();
+function renderProviderSettings(body){
+  body.innerHTML = `<div class="choice-grid" id="providerChoiceGrid"></div>`;
+  const grid = document.getElementById("providerChoiceGrid");
+  Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
+    const selected = draftPreferences.selectedBroadcasters.includes(key);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "choice-card" + (selected ? " selected" : "");
+    btn.setAttribute("aria-pressed", selected ? "true" : "false");
+    btn.innerHTML = `<div class="choice-title"><span>📡</span><span>${provider.label}</span></div><div class="choice-detail">Used where this provider is evidenced in current event data.</div>`;
+    btn.addEventListener("click", () => {
+      draftPreferences.selectedBroadcasters = toggleArrayValue(draftPreferences.selectedBroadcasters, key);
+      renderSettingsScreen();
     });
+    grid.appendChild(btn);
+  });
+  FUTURE_BROADCASTERS.forEach(label => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "choice-card disabled";
+    btn.disabled = true;
+    btn.innerHTML = `<div class="choice-title"><span>↗</span><span>${label}</span></div><div class="choice-detail">Modelled for later, not active in filtering yet.</div>`;
+    grid.appendChild(btn);
+  });
+}
 
-    const venueGrid = document.getElementById("localVenueGrid");
-    Object.entries(LOCAL_VENUE_OPTIONS).forEach(([id, venue]) => {
-      const selected = draftPreferences.localVenueIds.includes(id);
-      const btn = document.createElement("button");
-      btn.className = `venue-choice${selected ? " selected" : ""}`;
-      btn.textContent = `${selected ? "✓ " : ""}${venue.label}`;
-      btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.addEventListener("click", () => {
-        draftPreferences.localVenueIds = toggleArrayValue(draftPreferences.localVenueIds, id);
-        renderOnboardingStep();
-      });
-      venueGrid.appendChild(btn);
+function renderPrivacySettings(body){
+  body.innerHTML = `<div class="preference-stack"><div class="setting-row"><div><strong>Show spoilers globally</strong><p>Off protects scores, outcomes, recaps, thumbnails, ratings, and result labels. Individual events can still override this setting.</p></div><button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" type="button" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button></div><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p><div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
+  document.getElementById("globalSpoilerSwitch").addEventListener("click", () => {
+    draftPreferences.showSpoilers = !draftPreferences.showSpoilers;
+    renderSettingsScreen();
+  });
+  const venueGrid = document.getElementById("localVenueGrid");
+  Object.entries(LOCAL_VENUE_OPTIONS).forEach(([id, venue]) => {
+    const selected = draftPreferences.localVenueIds.includes(id);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = `venue-choice${selected ? " selected" : ""}`;
+    btn.textContent = `${selected ? "✓ " : ""}${venue.label}`;
+    btn.setAttribute("aria-pressed", selected ? "true" : "false");
+    btn.addEventListener("click", () => {
+      draftPreferences.localVenueIds = toggleArrayValue(draftPreferences.localVenueIds, id);
+      renderSettingsScreen();
     });
-  }
+    venueGrid.appendChild(btn);
+  });
+}
+
+function renderAppearanceSettings(body){
+  const theme = normalizeThemePreference(draftPreferences.theme);
+  const themes = [
+    ["day", "☀", "Day", "Light surfaces and dark text."],
+    ["night", "◐", "Night", "Dark surfaces with restrained contrast."],
+    ["system", "◒", "System", "Follow the device appearance automatically."],
+  ];
+  body.innerHTML = `<div class="theme-choice-list" role="radiogroup" aria-label="App theme">${themes.map(([value, icon, label, detail]) => `<label class="theme-choice${theme === value ? " selected" : ""}"><input type="radio" name="theme" value="${value}" ${theme === value ? "checked" : ""}><strong>${icon} ${label}</strong><span>${detail}</span></label>`).join("")}</div>`;
+  body.querySelectorAll('input[name="theme"]').forEach(input => {
+    input.addEventListener("change", () => {
+      draftPreferences.theme = normalizeThemePreference(input.value);
+      applyThemePreference(draftPreferences.theme);
+      renderSettingsScreen();
+    });
+  });
+}
+
+function renderFeedbackSettings(body){
+  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
+  const category = document.getElementById("feedbackCategory");
+  const message = document.getElementById("feedbackMessage");
+  category.addEventListener("change", updateFeedbackPreview);
+  message.addEventListener("input", updateFeedbackPreview);
+  document.getElementById("feedbackForm").addEventListener("submit", submitFeedbackForm);
+  updateFeedbackPreview();
+}
+
+function renderSettingsScreen(){
+  const body = document.getElementById("settingsBody");
+  const title = document.getElementById("settingsTitle");
+  const copy = document.getElementById("settingsCopy");
+  const back = document.getElementById("settingsBackBtn");
+  back.hidden = settingsSection === "main";
+  document.getElementById("saveSettingsBtn").textContent = settingsFirstRun ? "Save & start" : "Save & close";
+
+  const screens = {
+    main: [settingsFirstRun ? "Set up nothingSport" : "Settings", "Choose an area. Every submenu can return here or close at any time."],
+    sports: ["Sports & competitions", "Choose sports, then tune Tennis and World Cup detail where relevant."],
+    providers: ["TV & streaming", "Choose the services available to you."],
+    privacy: ["Spoilers & local venues", "Control result visibility and the venues that count as local."],
+    appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
+    feedback: ["Feedback", "Send an idea, request, or bug report without leaving Settings."],
+  };
+  [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
+  if (settingsSection === "sports") renderSportsSettings(body);
+  else if (settingsSection === "providers") renderProviderSettings(body);
+  else if (settingsSection === "privacy") renderPrivacySettings(body);
+  else if (settingsSection === "appearance") renderAppearanceSettings(body);
+  else if (settingsSection === "feedback") renderFeedbackSettings(body);
+  else renderSettingsMenu(body);
 }
 
 function renderTennisEnthusiasmChoices(activeValue){
@@ -3888,7 +4202,7 @@ function renderTennisEnthusiasmChoices(activeValue){
       if (value === "froth"){
         draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: value, gender: "both", eventType: "both", round: "all" };
       }
-      renderOnboardingStep();
+      renderSettingsScreen();
     });
     grid.appendChild(btn);
   });
@@ -3902,7 +4216,7 @@ function renderSegments(filterName, options, activeValue){
     btn.textContent = label;
     btn.addEventListener("click", () => {
       draftPreferences.tennis[filterName] = value;
-      renderOnboardingStep();
+      renderSettingsScreen();
     });
     row.appendChild(btn);
   });
@@ -3931,7 +4245,7 @@ function renderFifaEnthusiasmChoices(activeValue){
       if (value === "froth"){
         draftPreferences.fifa = { enthusiasm: value, stage: "quarterfinal", contenders: "all" };
       }
-      renderOnboardingStep();
+      renderSettingsScreen();
     });
     grid.appendChild(btn);
   });
@@ -3945,13 +4259,13 @@ function renderFifaSegments(filterName, options, activeValue){
     btn.textContent = label;
     btn.addEventListener("click", () => {
       draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), [filterName]: value, enthusiasm: "choose" };
-      renderOnboardingStep();
+      renderSettingsScreen();
     });
     row.appendChild(btn);
   });
 }
 
-function saveOnboardingPreferences(){
+function saveSettingsPreferences(){
   if (!draftPreferences.followedSports.length){
     showToast("Choose at least one sport.");
     return;
@@ -3962,12 +4276,22 @@ function saveOnboardingPreferences(){
   }
   draftPreferences.onboardingComplete = true;
   savePreferences(draftPreferences);
-  closeOnboarding();
+  applyThemePreference(userPreferences.theme);
+  closeSettings({ restoreTheme: false });
   renderAll();
-  showToast("Preferences saved.");
+  showToast("Settings saved.");
 }
 
-document.getElementById("settingsBtn").addEventListener("click", () => openOnboarding(false));
+document.getElementById("settingsBtn").addEventListener("click", () => openSettings());
+document.getElementById("settingsBackBtn").addEventListener("click", () => {
+  settingsSection = "main";
+  renderSettingsScreen();
+});
+document.getElementById("closeSettingsBtn").addEventListener("click", () => closeSettings());
+document.getElementById("settingsModal").addEventListener("click", evt => {
+  if (evt.target.id === "settingsModal") closeSettings();
+});
+document.getElementById("saveSettingsBtn").addEventListener("click", saveSettingsPreferences);
 document.getElementById("aboutBtn").addEventListener("click", () => {
   const modal = document.getElementById("aboutModal");
   modal.classList.add("show");
@@ -3983,23 +4307,22 @@ document.getElementById("aboutModal").addEventListener("click", evt => {
     document.getElementById("closeAboutBtn").click();
   }
 });
-document.getElementById("backStepBtn").addEventListener("click", () => {
-  if (onboardingStep > 0){
-    onboardingStep -= 1;
-    renderOnboardingStep();
-  }
-});
-document.getElementById("nextStepBtn").addEventListener("click", () => {
-  if (onboardingStep < 4){
-    onboardingStep += 1;
-    renderOnboardingStep();
-  } else {
-    saveOnboardingPreferences();
-  }
-});
 document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
   draftPreferences = clonePreferences(DEFAULT_PREFERENCES);
-  renderOnboardingStep();
+  if (settingsFirstRun) draftPreferences.followedSports = [];
+  applyThemePreference(draftPreferences.theme);
+  renderSettingsScreen();
+  showToast("Settings reset. Save to keep these defaults.");
+});
+
+document.addEventListener("keydown", evt => {
+  if (evt.key !== "Escape" || !document.getElementById("settingsModal").classList.contains("show")) return;
+  if (settingsSection !== "main"){
+    settingsSection = "main";
+    renderSettingsScreen();
+  } else {
+    closeSettings();
+  }
 });
 
 document.getElementById("refreshBtn").addEventListener("click", () => {
@@ -4063,23 +4386,14 @@ function openExportModal(){
 }
 
 function updateFeedbackPreview(){
-  const category = document.getElementById("feedbackCategory").value;
-  const message = document.getElementById("feedbackMessage").value;
-  document.getElementById("feedbackPreview").textContent = buildFeedbackMessage(category, message);
+  const category = document.getElementById("feedbackCategory");
+  const message = document.getElementById("feedbackMessage");
+  const preview = document.getElementById("feedbackPreview");
+  if (!category || !message || !preview) return;
+  preview.textContent = buildFeedbackMessage(category.value, message.value);
 }
 
-document.getElementById("suggestBtn").addEventListener("click", () => {
-  updateFeedbackPreview();
-  setUtilityModalOpen("feedbackModal", true);
-  document.getElementById("feedbackMessage").focus();
-});
-document.getElementById("feedbackCategory").addEventListener("change", updateFeedbackPreview);
-document.getElementById("feedbackMessage").addEventListener("input", updateFeedbackPreview);
-document.getElementById("closeFeedbackBtn").addEventListener("click", () => setUtilityModalOpen("feedbackModal", false));
-document.getElementById("feedbackModal").addEventListener("click", evt => {
-  if (evt.target.id === "feedbackModal") setUtilityModalOpen("feedbackModal", false);
-});
-document.getElementById("feedbackForm").addEventListener("submit", evt => {
+function submitFeedbackForm(evt){
   evt.preventDefault();
   const category = document.getElementById("feedbackCategory").value;
   const message = document.getElementById("feedbackMessage").value.trim();
@@ -4088,7 +4402,7 @@ document.getElementById("feedbackForm").addEventListener("submit", evt => {
     return;
   }
   window.location.href = buildFeedbackSmsUrl(category, message);
-});
+}
 
 document.getElementById("exportBtn").addEventListener("click", openExportModal);
 document.getElementById("closeExportBtn").addEventListener("click", () => setUtilityModalOpen("exportModal", false));
@@ -4239,12 +4553,17 @@ document.getElementById("exportForm").addEventListener("submit", evt => {
 });
 
 /* ============ INIT ============ */
+applyThemePreference(userPreferences.theme);
+window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
+  if (normalizeThemePreference(userPreferences.theme) === "system" && !draftPreferences) applyThemePreference("system");
+});
+document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive: false });
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();
 refreshRemoteFeed({ quiet: true });
 if (!userPreferences.onboardingComplete){
-  openOnboarding(true);
+  openSettings({ firstRun: true });
 }
 if ("serviceWorker" in navigator){
   window.addEventListener("load", () => {
