@@ -5,160 +5,90 @@ const { readJson, writeJson } = require("./lib/feed-utils");
 const inputPath = process.argv[2] || "feeds/incoming/events.json";
 const outputPath = process.argv[3] || inputPath;
 const sourceUrl = "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums";
-const sourceCheckedAt = "2026-07-16T21:00:00+10:00";
+const sourceCheckedAt = "2026-07-16T08:30:00+10:00";
 const defaultCopySpoilerGuard = /\b(?:advanced|beat|defeated|won)\b|\b\d+\s*[-–]\s*\d+\b/i;
 
-function review(note){
-  return {
-    reviewRequired: true,
-    reviewComplete: false,
-    note,
-  };
-}
-
 function fifaCard(card){
+  const completed = Boolean(card.score);
+  const safeRound = card.roundLabel || card.round;
   return {
     sport: "Football",
     key: "fifa",
     broadcaster: "SBS On Demand",
     broadcastOptions: ["SBS On Demand"],
-    sourceName: "Official FIFA World Cup 2026 match schedule",
+    sourceName: "Official FIFA World Cup 2026 schedule and results",
     sourceUrl,
     sourceCheckedAt,
     sourceType: "official",
-    liveWindow: 3,
+    liveWindow: card.liveWindow || 3,
     replayEligible: true,
     highlightEligible: true,
     briefingEligible: true,
     catchupEligible: true,
+    narrativeType: completed ? "post-match" : (card.narrativeType || card.round),
+    selectedSentence: completed
+      ? `A completed ${safeRound} fixture retained as a spoiler-protected replay.`
+      : card.selectedSentence,
+    fullSpiel: completed
+      ? `This ${safeRound} match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.`
+      : card.fullSpiel,
     ...card,
   };
 }
 
+function resultCard(id, name, date, time, startTimeUtc, venue, round, score, outcomeText, recapText, extras = {}){
+  return fifaCard({
+    id,
+    eventId: id,
+    name,
+    displayTitleCompact: name,
+    date,
+    time,
+    startTimeUtc,
+    endTimeUtc: new Date(Date.parse(startTimeUtc) + 3 * 60 * 60 * 1000).toISOString(),
+    expected: extras.expected || 8,
+    venue,
+    round,
+    roundLabel: extras.roundLabel || round,
+    score,
+    outcomeText,
+    recapText,
+    resultLabels: [extras.roundLabel || round, extras.resultLabel || "Completed"],
+    ...extras,
+  });
+}
+
 const fifaCards = [
-  fifaCard({
-    id: "fifa-r32-australia-egypt-2026",
-    eventId: "fifa-r32-australia-egypt-2026",
-    name: "Australia vs Egypt - Round of 32",
-    displayTitleCompact: "Australia vs Egypt - Round of 32",
-    date: "2026-07-04",
-    time: "12:30",
-    startTimeUtc: "2026-07-04T02:30:00Z",
-    endTimeUtc: "2026-07-04T05:30:00Z",
-    expected: 9,
-    venue: "Dallas Stadium",
-    round: "knockout",
-    narrativeType: "knockout",
-    selectedSentence: "Australia's knockout match stays available in spoiler-safe replay framing.",
-    fullSpiel: "Australia's Round of 32 fixture is retained as a high-stakes replay card. The default card names the fixture but keeps the score, shootout outcome, and downstream bracket consequences behind the deliberate spoiler reveal.",
-    score: "1-1 (Egypt won 4-2 on penalties)",
-    outcomeText: "Egypt advanced after a penalty shootout.",
-    resultLabels: ["Round of 32", "Penalty shootout"],
-    copyReview: review("Australian knockout rewrite sourced from FIFA; confirm tone before publishing."),
-  }),
-  fifaCard({
-    id: "fifa-qf-france-morocco-2026",
-    eventId: "fifa-qf-france-morocco-2026",
-    name: "France vs Morocco - Quarterfinal",
-    displayTitleCompact: "France vs Morocco - Quarterfinal",
-    date: "2026-07-10",
-    time: "06:00",
-    startTimeUtc: "2026-07-09T20:00:00Z",
-    endTimeUtc: "2026-07-09T23:00:00Z",
-    expected: 8,
-    venue: "Boston Stadium",
-    round: "quarterfinal",
-    narrativeType: "quarterfinal",
-    selectedSentence: "A recent World Cup quarterfinal kept in spoiler-safe replay framing.",
-    fullSpiel: "This recent knockout fixture has genuine replay value, so the default card avoids the result and bracket consequence. Reveal the protected details only when you are ready to see how the first quarterfinal shaped the last four.",
-    score: "France 2-0 Morocco",
-    outcomeText: "France advanced to the semifinals.",
-    resultLabels: ["Quarterfinal", "Completed"],
-    copyReview: review("Recent knockout copy must stay spoiler-safe until human review confirms the reveal flow."),
-  }),
-  fifaCard({
-    id: "fifa-qf-spain-belgium-2026",
-    eventId: "fifa-qf-spain-belgium-2026",
-    name: "Spain vs Belgium - Quarterfinal",
-    displayTitleCompact: "Spain vs Belgium - Quarterfinal",
-    date: "2026-07-11",
-    time: "05:00",
-    startTimeUtc: "2026-07-10T19:00:00Z",
-    endTimeUtc: "2026-07-10T22:00:00Z",
-    expected: 9,
-    venue: "Los Angeles Stadium",
-    round: "quarterfinal",
-    narrativeType: "quarterfinal",
-    selectedSentence: "A title-contender quarterfinal with enough quality to justify a protected replay.",
-    fullSpiel: "Spain and Belgium brought title-contender stakes to the second quarterfinal. The default card preserves the matchup and replay value without exposing the winner or the downstream semifinal pairing.",
-    score: "Spain 2-1 Belgium",
-    outcomeText: "Spain advanced to the semifinals.",
-    resultLabels: ["Quarterfinal", "Completed"],
-    copyReview: review("Marquee knockout copy should be checked for spoiler-safe bracket wording."),
-  }),
-  fifaCard({
-    id: "fifa-qf-norway-england-2026",
-    eventId: "fifa-qf-norway-england-2026",
-    name: "Norway vs England - Quarterfinal",
-    displayTitleCompact: "Norway vs England - Quarterfinal",
-    date: "2026-07-12",
-    time: "07:00",
-    startTimeUtc: "2026-07-11T21:00:00Z",
-    endTimeUtc: "2026-07-12T00:00:00Z",
-    expected: 9,
-    venue: "Miami Stadium",
-    round: "quarterfinal",
-    narrativeType: "quarterfinal",
-    selectedSentence: "Star power and knockout pressure make this a strong spoiler-safe replay candidate.",
-    fullSpiel: "Norway versus England combined a heavyweight forward matchup with semifinal stakes. The result and bracket consequence remain protected until the user reveals, rates, or archives the event.",
-    score: "England 2-1 Norway (after extra time)",
-    outcomeText: "England advanced to the semifinals.",
-    resultLabels: ["Quarterfinal", "Extra time"],
-    copyReview: review("Marquee knockout copy should be checked for spoiler-safe bracket wording."),
-  }),
-  fifaCard({
-    id: "fifa-qf-argentina-switzerland-2026",
-    eventId: "fifa-qf-argentina-switzerland-2026",
-    name: "Argentina vs Switzerland - Quarterfinal",
-    displayTitleCompact: "Argentina vs Switzerland - Quarterfinal",
-    date: "2026-07-12",
-    time: "11:00",
-    startTimeUtc: "2026-07-12T01:00:00Z",
-    endTimeUtc: "2026-07-12T04:00:00Z",
-    expected: 9,
-    venue: "Kansas City Stadium",
-    round: "quarterfinal",
-    narrativeType: "quarterfinal",
-    selectedSentence: "The final quarterfinal remains a high-value replay without exposing the last-four bracket.",
-    fullSpiel: "Argentina versus Switzerland completed the quarterfinal set in a Sydney-friendly replay window. Default copy stays focused on the matchup and stakes, with the result and semifinal consequence protected.",
-    score: "Argentina 3-1 Switzerland (after extra time)",
-    outcomeText: "Argentina advanced to the semifinals.",
-    resultLabels: ["Quarterfinal", "Extra time"],
-    copyReview: review("Marquee knockout copy should be checked for spoiler-safe bracket wording."),
-  }),
-  fifaCard({
-    id: "fifa-sf-1-2026",
-    eventId: "fifa-sf-1-2026",
-    name: "France vs Spain - Semifinal",
+  resultCard("fifa-group-australia-turkiye-2026", "Australia vs Türkiye - Group D", "2026-06-14", "14:00", "2026-06-14T04:00:00Z", "BC Place Vancouver", "early", "Australia 2-0 Türkiye", "Australia opened its campaign with three points.", "Australia handled the opening-game pressure, kept Türkiye scoreless and established a strong platform in Group D.", { expected: 9, roundLabel: "Group D" }),
+  resultCard("fifa-group-usa-australia-2026", "USA vs Australia - Group D", "2026-06-20", "05:00", "2026-06-19T19:00:00Z", "Seattle Stadium", "early", "USA 2-0 Australia", "The hosts took the Group D points in Seattle.", "The United States used home support and a clean sheet to halt Australia's early momentum, leaving qualification to be settled in the final group match.", { expected: 9, roundLabel: "Group D" }),
+  resultCard("fifa-group-paraguay-australia-2026", "Paraguay vs Australia - Group D", "2026-06-26", "12:00", "2026-06-26T02:00:00Z", "San Francisco Bay Area Stadium", "early", "Paraguay 0-0 Australia", "Australia progressed after a scoreless final group match.", "A disciplined defensive performance delivered the point Australia needed. The goalless draw closed the group stage and sent the Socceroos into the knockouts.", { expected: 9, roundLabel: "Group D" }),
+  resultCard("fifa-r32-australia-egypt-2026", "Australia vs Egypt - Round of 32", "2026-07-04", "04:00", "2026-07-03T18:00:00Z", "Dallas Stadium", "knockout", "1-1 (Egypt won 4-2 on penalties)", "Egypt progressed after the penalty shootout.", "Australia stayed level through regulation and extra time, but Egypt converted the decisive shootout kicks to end the Socceroos' tournament in the Round of 32.", { expected: 10, roundLabel: "Round of 32", resultLabel: "Penalty shootout" }),
+
+  resultCard("fifa-r16-paraguay-france-2026", "Paraguay vs France - Round of 16", "2026-07-05", "07:00", "2026-07-04T21:00:00Z", "Philadelphia Stadium", "knockout", "Paraguay 0-1 France", "France reached the quarterfinals.", "France found the only goal in a tight knockout match and protected the lead, ending Paraguay's run without allowing the contest to open up.", { roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-canada-morocco-2026", "Canada vs Morocco - Round of 16", "2026-07-05", "03:00", "2026-07-04T17:00:00Z", "Houston Stadium", "knockout", "Canada 0-3 Morocco", "Morocco reached the quarterfinals.", "Morocco paired a clean sheet with three goals to control the tie, absorbing the hosts' energy before turning the match decisively in their favour.", { roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-brazil-norway-2026", "Brazil vs Norway - Round of 16", "2026-07-06", "06:00", "2026-07-05T20:00:00Z", "New York New Jersey Stadium", "knockout", "Brazil 1-2 Norway", "Norway eliminated Brazil and reached the quarterfinals.", "Norway delivered one of the round's major upsets, matching Brazil's technical threat and taking the chances that carried them into the last eight.", { expected: 9, roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-mexico-england-2026", "Mexico vs England - Round of 16", "2026-07-06", "10:00", "2026-07-06T00:00:00Z", "Mexico City Stadium", "knockout", "Mexico 2-3 England", "England survived a five-goal match to reach the quarterfinals.", "England came through a volatile knockout game in Mexico City. Mexico kept the hosts in the contest, but England's third goal proved decisive.", { expected: 9, roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-portugal-spain-2026", "Portugal vs Spain - Round of 16", "2026-07-07", "05:00", "2026-07-06T19:00:00Z", "Dallas Stadium", "knockout", "Portugal 0-1 Spain", "Spain reached the quarterfinals with a clean sheet.", "A single goal separated the Iberian rivals. Spain controlled enough of the match to protect the margin and close out a high-pressure knockout tie.", { expected: 9, roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-usa-belgium-2026", "USA vs Belgium - Round of 16", "2026-07-07", "10:00", "2026-07-07T00:00:00Z", "Seattle Stadium", "knockout", "USA 1-4 Belgium", "Belgium ended the hosts' campaign and reached the quarterfinals.", "Belgium's attacking quality produced the round's widest knockout margin, with four goals overcoming the energy of a home crowd in Seattle.", { expected: 9, roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-argentina-egypt-2026", "Argentina vs Egypt - Round of 16", "2026-07-08", "02:00", "2026-07-07T16:00:00Z", "Atlanta Stadium", "knockout", "Argentina 3-2 Egypt", "Argentina reached the quarterfinals after a five-goal contest.", "Egypt continued its knockout run with two goals, but Argentina's third strike settled an open match and secured the reigning champions' place in the last eight.", { expected: 9, roundLabel: "Round of 16" }),
+  resultCard("fifa-r16-switzerland-colombia-2026", "Switzerland vs Colombia - Round of 16", "2026-07-08", "06:00", "2026-07-07T20:00:00Z", "BC Place Vancouver", "knockout", "0-0 (Switzerland won 4-3 on penalties)", "Switzerland progressed through the penalty shootout.", "Neither side found a goal through regulation and extra time. Switzerland held their nerve from the spot to claim the final quarterfinal place.", { roundLabel: "Round of 16", resultLabel: "Penalty shootout" }),
+
+  resultCard("fifa-qf-france-morocco-2026", "France vs Morocco - Quarterfinal", "2026-07-10", "06:00", "2026-07-09T20:00:00Z", "Boston Stadium", "quarterfinal", "France 2-0 Morocco", "France reached the semifinals.", "France combined two goals with a clean sheet to end Morocco's run, controlling the decisive phases and earning the first place in the last four.", { roundLabel: "Quarterfinal" }),
+  resultCard("fifa-qf-spain-belgium-2026", "Spain vs Belgium - Quarterfinal", "2026-07-11", "05:00", "2026-07-10T19:00:00Z", "Los Angeles Stadium", "quarterfinal", "Spain 2-1 Belgium", "Spain reached the semifinals.", "Spain survived sustained Belgian pressure in a high-quality quarterfinal, making a narrow lead stand to secure a last-four meeting with France.", { expected: 9, roundLabel: "Quarterfinal" }),
+  resultCard("fifa-qf-norway-england-2026", "Norway vs England - Quarterfinal", "2026-07-12", "07:00", "2026-07-11T21:00:00Z", "Miami Stadium", "quarterfinal", "Norway 1-2 England (after extra time)", "England reached the semifinals after extra time.", "Norway extended its breakthrough run into extra time, where England found the decisive goal and completed another demanding knockout win.", { expected: 9, roundLabel: "Quarterfinal", resultLabel: "Extra time" }),
+  resultCard("fifa-qf-argentina-switzerland-2026", "Argentina vs Switzerland - Quarterfinal", "2026-07-12", "11:00", "2026-07-12T01:00:00Z", "Kansas City Stadium", "quarterfinal", "Argentina 3-1 Switzerland (after extra time)", "Argentina reached the semifinals after extra time.", "Switzerland forced the reigning champions beyond 90 minutes, but Argentina pulled clear in extra time to complete the semifinal line-up.", { expected: 9, roundLabel: "Quarterfinal", resultLabel: "Extra time" }),
+
+  resultCard("fifa-sf-1-2026", "France vs Spain - Semifinal", "2026-07-15", "05:00", "2026-07-14T19:00:00Z", "Dallas Stadium", "semifinal", "France 0-2 Spain", "Spain reached the World Cup final.", "Mikel Oyarzabal converted a first-half penalty and Pedro Porro added the second after the break. Spain frustrated France at one end and punished them at the other.", {
+    expected: 10,
+    roundLabel: "Semifinal",
     displayTitleCompact: "World Cup Semifinal 1",
     spoilerSafeTitle: "World Cup Semifinal 1",
-    date: "2026-07-15",
-    time: "05:00",
-    startTimeUtc: "2026-07-14T19:00:00Z",
-    endTimeUtc: "2026-07-14T22:00:00Z",
-    expected: 10,
-    venue: "Dallas Stadium",
-    round: "semifinal",
-    narrativeType: "semifinal",
-    selectedSentence: "A recent World Cup semifinal kept opaque until its quarterfinal branches are revealed.",
-    fullSpiel: "The first semifinal is protected as a recent knockout event. Timing, broadcast path, and stakes remain useful by default; participants and the final implication appear only as the relevant source matches are legitimately revealed.",
     matchupParticipants: [
       { name: "France", sourceEventId: "fifa-qf-france-morocco-2026" },
       { name: "Spain", sourceEventId: "fifa-qf-spain-belgium-2026" },
     ],
-    outcomeText: "Spain advanced to the World Cup final.",
-    resultLabels: ["Semifinal", "Completed"],
-    copyReview: review("Recent semifinal participants must stay hidden until their source quarterfinals are revealed."),
+    sourceName: "Official FIFA France v Spain match report",
+    sourceUrl: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/france-spain-match-report-highlights",
   }),
   fifaCard({
     id: "fifa-sf-2-2026",
@@ -172,15 +102,14 @@ const fifaCards = [
     endTimeUtc: "2026-07-15T22:00:00Z",
     expected: 10,
     venue: "Atlanta Stadium",
+    liveWindow: 4,
     round: "semifinal",
-    narrativeType: "semifinal",
-    selectedSentence: "Today's second semifinal stays bracket-safe until the user reveals its source matches.",
-    fullSpiel: "The second semifinal remains useful as a protected appointment or replay card without exposing the preceding quarterfinal outcomes. Reveal the relevant branches deliberately when you are ready for the matchup detail.",
+    selectedSentence: "The second semifinal remains live or replay-safe while the official result is confirmed.",
+    fullSpiel: "England and Argentina meet for the second place in the World Cup final. The card retains its verified Sydney start and SBS path, while any result or bracket consequence waits for an official FIFA update.",
     matchupParticipants: [
       { name: "England", sourceEventId: "fifa-qf-norway-england-2026" },
       { name: "Argentina", sourceEventId: "fifa-qf-argentina-switzerland-2026" },
     ],
-    copyReview: review("Same-day semifinal participants must stay hidden until their source quarterfinals are revealed."),
   }),
   fifaCard({
     id: "fifa-third-place-2026",
@@ -195,14 +124,12 @@ const fifaCards = [
     expected: 6,
     venue: "Miami Stadium",
     round: "final",
-    narrativeType: "final",
-    selectedSentence: "Useful for tournament completists, but lower priority than the final.",
-    fullSpiel: "The third-place playoff remains in the calendar for World Cup completists. Its matchup is deliberately generic until both semifinal outcomes are safe to reveal, while the confirmed Sydney time and broadcast path stay useful.",
+    selectedSentence: "The bronze match remains useful for tournament completists, with its pairing protected.",
+    fullSpiel: "The third-place playoff stays in the calendar with its confirmed Sydney time and broadcast path. Its full pairing remains protected until both semifinal outcomes are official and deliberately revealed.",
     matchupParticipants: [
       { name: "France", sourceEventId: "fifa-sf-1-2026" },
       { name: "Semifinal 2 runner-up", sourceEventId: "fifa-sf-2-2026" },
     ],
-    copyReview: review("Update the second participant after an official semifinal result is available."),
   }),
   fifaCard({
     id: "fifa-final-2026",
@@ -218,14 +145,12 @@ const fifaCards = [
     venue: "New York New Jersey Stadium",
     liveWindow: 4,
     round: "final",
-    narrativeType: "final",
-    selectedSentence: "The tournament's defining appointment, kept bracket-safe until the semifinals are revealed.",
-    fullSpiel: "The World Cup final is the anchor card for the remaining calendar: global stakes, a clear SBS broadcast path, and a Monday 5:00am Sydney start. The matchup remains protected until the source semifinals are legitimately revealed.",
+    selectedSentence: "The tournament's defining appointment remains bracket-safe until the semifinals are revealed.",
+    fullSpiel: "The World Cup final is the anchor card for the remaining calendar: global stakes, a clear SBS broadcast path, and a Monday 5:00am Sydney start. The full matchup remains protected until both source semifinals are official and deliberately revealed.",
     matchupParticipants: [
       { name: "Spain", sourceEventId: "fifa-sf-1-2026" },
       { name: "Semifinal 2 winner", sourceEventId: "fifa-sf-2-2026" },
     ],
-    copyReview: review("Update the second finalist after an official semifinal result is available."),
   }),
 ];
 
@@ -244,9 +169,9 @@ function rewriteFifaCards(feed){
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
   return {
     ...feed,
-    version: "nothingsport-phase3-2026-07-16",
+    version: "nothingsport-history-2026-07-16",
     publishedAt: sourceCheckedAt,
-    sourceNote: "Source-backed NothingSport feed with spoiler-safe FIFA knockout rewrites and preserved multi-sport coverage.",
+    sourceNote: "Source-backed historical results, complete World Cup coverage from Australia's campaign and the Round of 16 onward, and spoiler-safe live bracket cards.",
     events,
   };
 }
@@ -254,7 +179,7 @@ function rewriteFifaCards(feed){
 if (require.main === module){
   const feed = rewriteFifaCards(readJson(inputPath));
   writeJson(outputPath, feed);
-  console.log(`Rewrote FIFA cards in ${outputPath}: ${fifaCards.length} current tournament events, ${feed.events.length} total.`);
+  console.log(`Rewrote FIFA cards in ${outputPath}: ${fifaCards.length} tournament events, ${feed.events.length} total.`);
 }
 
 module.exports = { fifaCards, rewriteFifaCards };

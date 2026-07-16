@@ -1,15 +1,15 @@
 {
-  "version": "nothingsport-phase3-2026-07-16",
+  "version": "nothingsport-history-2026-07-16",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-16T21:00:00+10:00",
+  "publishedAt": "2026-07-16T08:30:00+10:00",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
     "masters",
     "nba",
     "lemans",
-    "wimbledon",
     "fifa",
+    "wimbledon",
     "rugby",
     "tdf",
     "f1",
@@ -52,15 +52,15 @@
         "firstEventDate": "2026-06-13",
         "lastEventDate": "2026-06-14"
       },
-      "wimbledon": {
-        "count": 8,
-        "firstEventDate": "2026-07-03",
-        "lastEventDate": "2026-07-12"
-      },
       "fifa": {
-        "count": 9,
-        "firstEventDate": "2026-07-04",
+        "count": 20,
+        "firstEventDate": "2026-06-14",
         "lastEventDate": "2026-07-20"
+      },
+      "wimbledon": {
+        "count": 32,
+        "firstEventDate": "2026-07-03",
+        "lastEventDate": "2026-07-13"
       },
       "rugby": {
         "count": 14,
@@ -73,9 +73,9 @@
         "lastEventDate": "2026-07-27"
       },
       "f1": {
-        "count": 28,
+        "count": 30,
         "firstEventDate": "2026-07-05",
-        "lastEventDate": "2026-12-07"
+        "lastEventDate": "2027-03-07"
       },
       "nrl": {
         "count": 11,
