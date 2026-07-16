@@ -2182,13 +2182,26 @@ function saveEventSpoilerState(next){
   writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
 }
 
-function clearHiddenSpoilerOverrides(){
-  const hiddenKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === "hide");
-  if (!hiddenKeys.length) return 0;
+function clearSpoilerOverrides(override){
+  const matchingKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === override);
+  if (!matchingKeys.length) return 0;
   const next = { ...eventSpoilerState };
-  hiddenKeys.forEach(key => delete next[key]);
+  matchingKeys.forEach(key => delete next[key]);
   saveEventSpoilerState(next);
-  return hiddenKeys.length;
+  return matchingKeys.length;
+}
+
+function clearHiddenSpoilerOverrides(){
+  return clearSpoilerOverrides("hide");
+}
+
+function clearShownSpoilerOverrides(){
+  return clearSpoilerOverrides("show");
+}
+
+function applyGlobalSpoilerPolicy(nextShowSpoilers, previousShowSpoilers){
+  if (Boolean(nextShowSpoilers) === Boolean(previousShowSpoilers)) return 0;
+  return nextShowSpoilers ? clearHiddenSpoilerOverrides() : clearShownSpoilerOverrides();
 }
 
 let userPreferences = loadPreferences();
@@ -4211,7 +4224,7 @@ function renderProviderSettings(body){
 }
 
 function renderPrivacySettings(body){
-  body.innerHTML = `<div class="preference-stack"><div class="setting-row"><div><strong>Show spoilers globally</strong><p>Off protects scores, outcomes, recaps, thumbnails, ratings, result labels and post-event context. Turning this on reveals results and clears older event-level protections.</p></div><button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" type="button" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button></div><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p>${selectionActionsMarkup("venues", "Local venues")}<div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
+  body.innerHTML = `<div class="preference-stack"><div class="setting-row"><div><strong>Show spoilers globally</strong><p>Changing this switch resets every event to match the new global setting. Individual event choices made afterwards remain until the global setting changes again.</p></div><button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" type="button" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button></div><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p>${selectionActionsMarkup("venues", "Local venues")}<div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
   document.getElementById("globalSpoilerSwitch").addEventListener("click", () => {
     draftPreferences.showSpoilers = !draftPreferences.showSpoilers;
     renderSettingsScreen();
@@ -4385,9 +4398,10 @@ function saveSettingsPreferences(){
     showToast("Choose at least one provider.");
     return;
   }
+  const previousShowSpoilers = userPreferences.showSpoilers;
   draftPreferences.onboardingComplete = true;
   savePreferences(draftPreferences);
-  if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
+  applyGlobalSpoilerPolicy(userPreferences.showSpoilers, previousShowSpoilers);
   applyThemePreference(userPreferences.theme);
   closeSettings({ restoreTheme: false });
   renderAll();

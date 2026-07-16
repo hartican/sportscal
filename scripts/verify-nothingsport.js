@@ -130,6 +130,8 @@ globalThis.__test = {
   updateEventAction,
   isSpoilerVisible,
   clearHiddenSpoilerOverrides,
+  clearShownSpoilerOverrides,
+  applyGlobalSpoilerPolicy,
   hasSpoilerSensitiveContent,
   compactResultForEvent,
   markSpoilerRevealed,
@@ -340,6 +342,20 @@ assert.equal(Object.keys(app.getSpoilerStateSnapshot()).length, 0, "cleared prot
 assert.equal(app.compactResultForEvent(scoredPast).score, "Home 2-1 Away", "global spoiler-on must restore compact results after clearing stale protections");
 assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A vs Winner B", "global spoiler-on must restore next-round contestants");
 assert.equal(app.hasSpoilerSensitiveContent({ ...pastA, fullSpiel: "A decisive post-event review." }), true, "post-event spiels must participate in spoiler protection and reveal logic");
+
+app.setSpoilerState({
+  [app.eventActionKey(pastA)]: { override: "show" },
+  [app.eventActionKey(pastB)]: { override: "hide" },
+});
+assert.equal(app.applyGlobalSpoilerPolicy(false, true), 1, "changing the global setting to OFF must clear every earlier per-event reveal");
+assert.equal(app.getSpoilerStateSnapshot()[app.eventActionKey(pastA)], undefined, "global OFF must return previously revealed events to inherited protection");
+assert.equal(app.getSpoilerStateSnapshot()[app.eventActionKey(pastB)].override, "hide", "global OFF may retain already-protected events");
+app.setPreferences({ showSpoilers: false });
+assert.equal(app.isSpoilerVisible(pastA), false, "a global OFF reset must hide spoiler-bearing events immediately");
+app.markSpoilerRevealed(pastA);
+assert.equal(app.isSpoilerVisible(pastA), true, "an event may be deliberately revealed after the global OFF reset");
+assert.equal(app.applyGlobalSpoilerPolicy(false, false), 0, "saving unrelated settings must not erase a later individual reveal");
+assert.equal(app.isSpoilerVisible(pastA), true, "an individual reveal must persist until the global spoiler setting changes again");
 
 app.setPreferences({ showSpoilers: false });
 app.setEventRating(pastB, 9);
