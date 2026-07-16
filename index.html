@@ -299,6 +299,11 @@ main{
   margin-bottom: 28px;
 }
 
+.date-group.is-past-date .date-heading{
+  color: var(--text-faint);
+  opacity: 0.72;
+}
+
 .date-heading{
   font-size: 0.82rem;
   font-weight: 800;
@@ -318,6 +323,47 @@ main{
   padding: 1px 8px;
   border-radius: 6px;
   font-size: 0.68rem;
+}
+
+.today-anchor{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  margin: 4px 0 18px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.today-anchor::before,
+.today-anchor::after{
+  content:"";
+  height: 1px;
+  flex:1;
+  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.48));
+}
+
+.today-anchor::after{
+  background: linear-gradient(90deg, rgba(0,229,255,0.48), transparent);
+}
+
+.jump-today-btn{
+  position: fixed;
+  right: max(20px, calc((100vw - 1100px) / 2 + 20px));
+  bottom: 22px;
+  z-index: 45;
+  border-color: rgba(0,229,255,0.55);
+  background: rgba(19,19,24,0.94);
+  color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+}
+
+.jump-today-btn:hover{
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
 }
 
 .cards-grid{
@@ -353,6 +399,11 @@ main{
 
 .event-card.is-past:hover{
   opacity: 0.85;
+}
+
+.event-card.is-past.is-selected,
+.event-card.is-past.is-opened{
+  opacity: 0.92;
 }
 
 .event-card.is-rail-card{
@@ -1437,6 +1488,8 @@ footer.app-footer{
   </div>
 </div>
 
+<button class="btn jump-today-btn" id="jumpTodayBtn" type="button" aria-label="Jump to today in the calendar">↕ Jump to Today</button>
+
 <main>
   <section id="listView"></section>
   <section id="monthView" style="display:none;"></section>
@@ -1707,6 +1760,7 @@ const STORAGE_KEYS = {
 let activeFilter = "all";
 let activeView = "list";
 let activeTab = "calendar";
+let calendarInitialJumpPending = true;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let onboardingStep = 0;
 let draftPreferences = null;
@@ -1919,6 +1973,7 @@ function applyFeedEvents(events, meta){
   writeStorage(STORAGE_KEYS.feedCache, { events });
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
+  calendarInitialJumpPending = true;
   renderAll();
 }
 
@@ -2563,6 +2618,10 @@ function sortedChrono(list){
   return list.slice().sort((a,b) => eventDateTime(a) - eventDateTime(b));
 }
 
+function calendarTimelineEvents(list){
+  return sortedChrono(list);
+}
+
 /* Upcoming first (ascending by date), past events at bottom (also ascending, but after all upcoming) */
 function sortUpcomingFirst(list){
   const now = nowAEST();
@@ -3003,7 +3062,7 @@ function renderListView(){
     container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match your current preferences.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
     return;
   }
-  const ordered = sortUpcomingFirst(filtered);
+  const ordered = calendarTimelineEvents(filtered);
 
   // group by date, preserving order
   const groups = [];
@@ -3018,9 +3077,23 @@ function renderListView(){
 
   const todayStr = formatDateKey(nowAEST());
 
+  let todayAnchorInserted = false;
+  const appendTodayAnchor = () => {
+    if (todayAnchorInserted) return;
+    const anchor = document.createElement("div");
+    anchor.className = "today-anchor";
+    anchor.id = "calendarTodayAnchor";
+    anchor.setAttribute("role", "separator");
+    anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
+    anchor.textContent = "Today";
+    container.appendChild(anchor);
+    todayAnchorInserted = true;
+  };
+
   groups.forEach(dateStr => {
+    if (!todayAnchorInserted && dateStr >= todayStr) appendTodayAnchor();
     const groupDiv = document.createElement("div");
-    groupDiv.className = "date-group";
+    groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
 
     const heading = document.createElement("div");
     heading.className = "date-heading";
@@ -3034,6 +3107,9 @@ function renderListView(){
 
     container.appendChild(groupDiv);
   });
+
+  appendTodayAnchor();
+  scheduleInitialCalendarJump();
 }
 
 function formatDateKey(dt){
@@ -3041,6 +3117,24 @@ function formatDateKey(dt){
   const m = String(dt.getMonth()+1).padStart(2,"0");
   const d = String(dt.getDate()).padStart(2,"0");
   return `${y}-${m}-${d}`;
+}
+
+function scrollCalendarToToday({ behavior = "smooth" } = {}){
+  const anchor = document.getElementById("calendarTodayAnchor");
+  if (!anchor) return false;
+  const stickyHeader = document.querySelector("header.top");
+  const headerOffset = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
+  const top = window.scrollY + anchor.getBoundingClientRect().top - headerOffset - 14;
+  window.scrollTo({ top: Math.max(0, top), behavior });
+  return true;
+}
+
+function scheduleInitialCalendarJump(){
+  if (!calendarInitialJumpPending || activeTab !== "calendar" || activeView !== "list") return;
+  calendarInitialJumpPending = false;
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => scrollCalendarToToday({ behavior: "auto" }));
+  });
 }
 
 /* ============ RENDER: MONTH VIEW ============ */
@@ -3365,6 +3459,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeTab = btn.dataset.tab;
+    if (activeTab === "calendar") calendarInitialJumpPending = true;
     renderAll();
   });
 });
@@ -3374,8 +3469,21 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
     document.querySelectorAll(".view-toggle button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeView = btn.dataset.view;
+    if (activeView === "list") calendarInitialJumpPending = true;
     renderAll();
   });
+});
+
+document.getElementById("jumpTodayBtn").addEventListener("click", () => {
+  calendarInitialJumpPending = false;
+  if (activeView !== "list"){
+    activeView = "list";
+    document.querySelectorAll(".view-toggle button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.view === "list");
+    });
+    renderAll();
+  }
+  window.requestAnimationFrame(() => scrollCalendarToToday({ behavior: "smooth" }));
 });
 
 function renderCurrentSection(){
@@ -3409,6 +3517,7 @@ function renderAll(){
   const neverMissView = document.getElementById("neverMissView");
   const watchLaterView = document.getElementById("watchLaterView");
   const archivedView = document.getElementById("archivedView");
+  const jumpTodayBtn = document.getElementById("jumpTodayBtn");
 
   [listView, monthView, neverMissView, watchLaterView, archivedView].forEach(view => {
     view.style.display = "none";
@@ -3416,6 +3525,7 @@ function renderAll(){
 
   if (activeTab === "calendar"){
     calControls.style.display = "flex";
+    jumpTodayBtn.hidden = false;
     if (activeView === "list"){
       listView.style.display = "block";
       renderListView();
@@ -3425,6 +3535,7 @@ function renderAll(){
     }
   } else {
     calControls.style.display = "none";
+    jumpTodayBtn.hidden = true;
     const viewByTab = {
       nevermiss: neverMissView,
       watchlater: watchLaterView,

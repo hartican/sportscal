@@ -15,6 +15,10 @@ assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Wat
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
 assert(html.includes("id=\"globalSpoilerSwitch\""), "Settings must expose a global spoiler control");
+assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
+assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
+assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
+assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
 assert(html.includes('facts.outcome && typeof facts.outcome === "object"'), "empty outcome data must not break revealed PAST cards");
@@ -109,6 +113,7 @@ globalThis.__test = {
   buildFeedbackMessage,
   buildFeedbackSmsUrl,
   sortUpcomingFirst,
+  calendarTimelineEvents,
   eventDateLabel,
   eventTimeLabel,
 };`;
@@ -236,6 +241,7 @@ app.setActions({});
 app.setRatings({});
 app.setSpoilerState({});
 app.setPreferences({ showSpoilers: false });
+assert.deepEqual(Array.from(app.calendarTimelineEvents([nextRound, pastB, pastA]), event => event.id), ["past-a", "past-b", "next-round"], "Calendar timeline must place past events above Today and future events below it");
 assert.equal(app.isSpoilerVisible(pastA), false, "PAST events must be spoiler-protected by default");
 assert.equal(app.isSpoilerVisible(nextRound), false, "future events must inherit global spoiler protection");
 nextRound.spoilerSafeTitle = "World Cup Semifinal";
