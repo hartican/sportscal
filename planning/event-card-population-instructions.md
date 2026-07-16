@@ -9,6 +9,7 @@ Operating rules for AGENT:
 - Limit MCP use unless the user explicitly asks for it.
 - Keep copy concise and practical.
 - Preserve the existing feed pipeline unless a dedicated cleanup pass changes it consistently.
+- Treat every incoming research feed as an additive update. Do not delete an existing card merely because it was not included in a new research batch. A newer source may supersede only the same event; `publish-feed.js` enforces this preservation-first merge by default.
 - At the end of each implementation pass, provide stage and commit commands for HITL testing.
 
 ## Import Flow

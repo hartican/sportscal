@@ -351,7 +351,7 @@ main{
 }
 
 .event-card.mode-calendar{
-  cursor: default;
+  cursor: pointer;
 }
 
 .event-icon{
@@ -2092,7 +2092,9 @@ function buildEventCard(ev, options = {}){
   const mustWatch = ev.recommendationScore >= SCORE_BANDS.topStorylines.min || isUpgrade(ev);
   const upgraded = isUpgrade(ev);
   const mode = options.mode || "calendar";
-  const expandable = mode !== "calendar";
+  // Every full card uses the same compact → context → detail interaction.
+  // Month-view entries are not cards; all card surfaces share this path.
+  const expandable = true;
   const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
   const action = getEventAction(ev);

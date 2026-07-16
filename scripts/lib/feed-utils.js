@@ -173,6 +173,62 @@ function normalizeFeed(feed) {
   };
 }
 
+const IDENTITY_STOP_WORDS = new Set([
+  "australia", "australian", "match", "game", "round", "stage", "day", "tour", "home", "away",
+  "first", "second", "third", "fourth", "fifth", "one", "two", "three", "four", "five",
+  "international", "finals", "final", "semi", "semifinal", "quarterfinal", "preliminary",
+  "test", "race", "qualifying", "versus", "world", "cup", "men", "women",
+]);
+
+function identityTokens(event) {
+  return new Set(String(event.name || "")
+    .toLowerCase()
+    .replace(/new\s+zealand/g, "newzealand")
+    .replace(/\bnz\b/g, "newzealand")
+    .replace(/\bvs?\.?\b/g, "versus")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(token => token.length > 2 && !IDENTITY_STOP_WORDS.has(token)));
+}
+
+function daysApart(first, second) {
+  const firstTime = Date.parse(`${first.date}T00:00:00Z`);
+  const secondTime = Date.parse(`${second.date}T00:00:00Z`);
+  if (Number.isNaN(firstTime) || Number.isNaN(secondTime)) return Infinity;
+  return Math.abs(firstTime - secondTime) / (24 * 3600 * 1000);
+}
+
+function isSupersededEvent(retained, incoming) {
+  if (retained.id === incoming.id || retained.eventId === incoming.eventId) return true;
+  if (retained.key !== incoming.key || daysApart(retained, incoming) > 7) return false;
+  if (incoming.sourceName === "Bundled Sportscal seed data") return false;
+  const retainedTokens = identityTokens(retained);
+  const incomingTokens = identityTokens(incoming);
+  let sharedTokens = 0;
+  retainedTokens.forEach(token => {
+    if (incomingTokens.has(token)) sharedTokens += 1;
+  });
+  return sharedTokens >= 2;
+}
+
+function mergeFeedEvents(primaryEvents, retainedEvents) {
+  const originalRetained = [...retainedEvents];
+  const retained = [...retainedEvents];
+  primaryEvents.forEach(incoming => {
+    const matchingIndexes = retained
+      .map((event, index) => isSupersededEvent(event, incoming) ? index : -1)
+      .filter(index => index >= 0);
+    if (matchingIndexes.length) {
+      matchingIndexes.reverse().forEach(index => retained.splice(index, 1));
+    }
+  });
+  const events = [...retained, ...primaryEvents]
+    .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
+  const added = primaryEvents.filter(incoming => !originalRetained.some(event => isSupersededEvent(event, incoming))).length;
+  return { events, added, overridden: originalRetained.length - retained.length, preserved: retained.length };
+}
+
 function activeSportsFor(feed) {
   return Array.from(new Set(feed.events.map(event => event.key))).filter(key => SPORT_KEYS.has(key));
 }
@@ -226,6 +282,7 @@ function summarizeFeedHorizon(feed, options = {}) {
 
 module.exports = {
   activeSportsFor,
+  mergeFeedEvents,
   normalizeFeed,
   readJson,
   summarizeFeedHorizon,

@@ -1,30 +1,84 @@
 {
-  "version": "population-feed-2026-07-15",
+  "version": "population-feed-2026-07-16-preserved",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-15T13:30:00+10:00",
+  "publishedAt": "2026-07-16T09:00:00+10:00",
   "eventsPath": "/data/events.json",
   "activeSports": [
+    "nfl",
+    "masters",
+    "nba",
+    "lemans",
+    "wimbledon",
+    "fifa",
+    "rugby",
+    "tdf",
+    "f1",
     "nrl",
     "afl",
-    "rugby",
-    "cricket"
+    "cricket",
+    "ski"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-07-15",
+    "basisDate": "2026-07-16",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
     },
     "status": "scaffolded",
-    "firstEventDate": "2026-07-18",
-    "lastEventDate": "2026-12-09",
-    "daysAhead": 147,
+    "firstEventDate": "2026-02-09",
+    "lastEventDate": "2027-03-20",
+    "daysAhead": 247,
     "coversStandardPreloadWindow": true,
     "sports": {
-      "nrl": {
+      "nfl": {
+        "count": 1,
+        "firstEventDate": "2026-02-09",
+        "lastEventDate": "2026-02-09"
+      },
+      "masters": {
+        "count": 4,
+        "firstEventDate": "2026-04-09",
+        "lastEventDate": "2026-04-12"
+      },
+      "nba": {
         "count": 7,
+        "firstEventDate": "2026-06-04",
+        "lastEventDate": "2026-06-23"
+      },
+      "lemans": {
+        "count": 2,
+        "firstEventDate": "2026-06-13",
+        "lastEventDate": "2026-06-14"
+      },
+      "wimbledon": {
+        "count": 8,
+        "firstEventDate": "2026-07-03",
+        "lastEventDate": "2026-07-12"
+      },
+      "fifa": {
+        "count": 7,
+        "firstEventDate": "2026-07-04",
+        "lastEventDate": "2026-07-20"
+      },
+      "rugby": {
+        "count": 14,
+        "firstEventDate": "2026-07-04",
+        "lastEventDate": "2026-11-28"
+      },
+      "tdf": {
+        "count": 21,
+        "firstEventDate": "2026-07-05",
+        "lastEventDate": "2026-07-27"
+      },
+      "f1": {
+        "count": 28,
+        "firstEventDate": "2026-07-05",
+        "lastEventDate": "2026-12-07"
+      },
+      "nrl": {
+        "count": 11,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-10-31"
       },
@@ -33,15 +87,15 @@
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-08-09"
       },
-      "rugby": {
-        "count": 11,
-        "firstEventDate": "2026-07-18",
-        "lastEventDate": "2026-11-22"
-      },
       "cricket": {
-        "count": 11,
+        "count": 18,
         "firstEventDate": "2026-08-13",
-        "lastEventDate": "2026-12-09"
+        "lastEventDate": "2027-01-02"
+      },
+      "ski": {
+        "count": 4,
+        "firstEventDate": "2027-03-06",
+        "lastEventDate": "2027-03-20"
       }
     }
   }

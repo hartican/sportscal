@@ -32,6 +32,15 @@ node scripts/validate-feed.js feeds/incoming/events.json
 node scripts/publish-feed.js feeds/incoming/events.json
 ```
 
+Publishing is preservation-first. Existing cards remain in `data/events.json`; an incoming card replaces one only when it has the same stable ID, or it is a newer source-backed match for the same sport, participants and event window. Use `--replace` only when you have deliberately prepared a complete replacement feed.
+
+To rebuild the canonical incoming feed with the cards bundled in the app before publishing a research refresh:
+
+```bash
+node scripts/restore-bundled-events.js feeds/incoming/events.json
+node scripts/publish-feed.js feeds/incoming/events.json
+```
+
 7. Run the app-level smoke checks:
 
 ```bash

@@ -3,6 +3,7 @@
 const path = require("path");
 const {
   activeSportsFor,
+  mergeFeedEvents,
   normalizeFeed,
   readJson,
   summarizeFeedHorizon,
@@ -10,9 +11,11 @@ const {
   writeJson,
 } = require("./lib/feed-utils");
 
-const inputPath = process.argv[2] || "feeds/incoming/events.json";
-const eventsOutPath = process.argv[3] || "data/events.json";
-const metaOutPath = process.argv[4] || "data/feed-meta.json";
+const args = process.argv.slice(2).filter(arg => arg !== "--replace");
+const replaceExisting = process.argv.includes("--replace");
+const inputPath = args[0] || "feeds/incoming/events.json";
+const eventsOutPath = args[1] || "data/events.json";
+const metaOutPath = args[2] || "data/feed-meta.json";
 
 const feed = normalizeFeed(readJson(inputPath));
 const errors = validateFeed(feed);
@@ -20,6 +23,29 @@ const errors = validateFeed(feed);
 if (errors.length) {
   console.error(`Refusing to publish invalid feed from ${inputPath}:`);
   errors.forEach(error => console.error(`- ${error}`));
+  process.exit(1);
+}
+
+let publishedFeed = feed;
+let mergeSummary = null;
+if (!replaceExisting) {
+  try {
+    const existing = normalizeFeed(readJson(eventsOutPath));
+    const existingErrors = validateFeed(existing);
+    if (existingErrors.length) {
+      throw new Error(existingErrors.join("; "));
+    }
+    mergeSummary = mergeFeedEvents(feed.events, existing.events);
+    publishedFeed = { ...feed, events: mergeSummary.events };
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+}
+
+const publishedErrors = validateFeed(publishedFeed);
+if (publishedErrors.length) {
+  console.error("Refusing to publish an invalid merged feed:");
+  publishedErrors.forEach(error => console.error(`- ${error}`));
   process.exit(1);
 }
 
@@ -40,19 +66,20 @@ try {
 }
 const nextMeta = {
   ...meta,
-  version: feed.version,
-  schemaVersion: feed.schemaVersion,
-  publishedAt: feed.publishedAt,
+  version: publishedFeed.version,
+  schemaVersion: publishedFeed.schemaVersion,
+  publishedAt: publishedFeed.publishedAt,
   eventsPath: "/" + path.relative(process.cwd(), eventsOutPath).replace(/\\/g, "/"),
-  activeSports: activeSportsFor(feed),
-  feedHorizon: summarizeFeedHorizon(feed),
+  activeSports: activeSportsFor(publishedFeed),
+  feedHorizon: summarizeFeedHorizon(publishedFeed),
   usesBundledEvents: false,
 };
 
-writeJson(eventsOutPath, feed);
+writeJson(eventsOutPath, publishedFeed);
 writeJson(metaOutPath, nextMeta);
 
-console.log(`Published ${feed.events.length} events from ${inputPath}`);
+console.log(`Published ${publishedFeed.events.length} events from ${inputPath}`);
+if (mergeSummary) console.log(`Preservation merge: ${mergeSummary.preserved} retained, ${mergeSummary.overridden} superseded, ${mergeSummary.added} added.`);
 console.log(`Updated ${eventsOutPath}`);
 console.log(`Updated ${metaOutPath}`);
 console.log(`Feed version: ${feed.version}`);
