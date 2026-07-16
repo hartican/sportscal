@@ -24,11 +24,17 @@ assert(html.includes("Add a competition") && html.includes("Feature request"), "
 assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
 assert(html.includes("b.textContent = \"Coming Up\""), "future cards must use the Coming Up status tag");
 assert(html.includes("b.textContent = \"PAST\""), "completed cards must use the PAST status tag");
+const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(spoilerControlSource, "an individual spoiler control must exist");
+assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "individual spoiler controls must not be limited to past events");
 
 const publishedFeed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
+assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing Sportscal card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
 const fifaCards = publishedFeed.events.filter(event => event.key === "fifa");
-assert.equal(fifaCards.length, 9, "published feed must contain the source-backed FIFA rewrite set");
+assert.equal(fifaCards.length, 20, "published feed must contain all Australia matches and every Round-of-16-onward FIFA card");
 assert(!fifaCards.some(event => /if advanced/i.test(event.name)), "stale conditional FIFA placeholders must be removed");
+assert.equal(fifaCards.filter(event => /australia/i.test(event.name)).length, 4, "all four Australia World Cup matches must be present");
+assert.equal(fifaCards.filter(event => event.id.startsWith("fifa-r16-")).length, 8, "all eight Round of 16 matches must be present");
 const semifinalOne = fifaCards.find(event => event.id === "fifa-sf-1-2026");
 const semifinalTwo = fifaCards.find(event => event.id === "fifa-sf-2-2026");
 assert.deepEqual(semifinalOne.matchupParticipants.map(participant => participant.name), ["France", "Spain"]);
@@ -36,6 +42,26 @@ assert.deepEqual(semifinalTwo.matchupParticipants.map(participant => participant
 assert.equal(semifinalOne.displayTitleCompact, "World Cup Semifinal 1", "recent semifinal default title must stay spoiler-safe");
 assert.equal(semifinalTwo.displayTitleCompact, "World Cup Semifinal 2", "same-day semifinal default title must stay spoiler-safe");
 assert(fifaCards.every(event => event.sourceType === "official"), "FIFA rewrites must retain official-source provenance");
+assert.equal(fifaCards.find(event => event.id === "fifa-r32-australia-egypt-2026").time, "04:00", "Australia v Egypt must use FIFA's corrected Sydney time");
+assert(fifaCards.filter(event => event.date < "2026-07-16").every(event => event.score && event.outcomeText && event.recapText), "verified past FIFA matches must carry score, outcome and analysis");
+assert(!semifinalTwo.score, "England v Argentina must remain unscored until FIFA publishes a verified result");
+
+const wimbledonCards = publishedFeed.events.filter(event => event.key === "wimbledon");
+assert.equal(wimbledonCards.length, 32, "Wimbledon must contain the two retained R3 matches plus all 30 singles matches from R4 onward");
+assert.equal(wimbledonCards.filter(event => event.id.startsWith("wimbledon-r4-")).length, 16, "all 16 fourth-round singles matches must be present");
+assert.equal(wimbledonCards.filter(event => event.id.startsWith("wimbledon-qf-")).length, 8, "all eight Wimbledon quarterfinals must be present");
+assert.equal(wimbledonCards.filter(event => event.id.startsWith("wimbledon-sf-")).length, 4, "all four Wimbledon semifinals must be present");
+assert.equal(wimbledonCards.filter(event => event.id.startsWith("wimbledon-final-")).length, 2, "both Wimbledon singles finals must be present");
+assert(wimbledonCards.every(event => event.score && event.outcomeText && event.recapText), "every restored Wimbledon match must carry score, outcome and analysis");
+assert.equal(wimbledonCards.find(event => event.id === "wimbledon-final-noskova-muchova-2026").time, "01:00", "women's final must use its verified Sydney time");
+assert.equal(wimbledonCards.find(event => event.id === "wimbledon-final-sinner-zverev-2026").date, "2026-07-13", "men's final must use the following Sydney calendar day");
+assert(wimbledonCards.filter(event => event.timeTbc).every(event => /Order of play/.test(event.displayTimeLabel)), "non-exact Wimbledon starts must be labelled as order-of-play sessions");
+
+const melbourneCards = publishedFeed.events.filter(event => event.id.startsWith("f1-australian-gp-2027-"));
+assert.equal(melbourneCards.length, 2, "the 2027 Melbourne date and ticket alert cards must be present");
+assert(melbourneCards.every(event => event.horizonException && event.ticketUrl), "Melbourne cards must be explicit horizon exceptions with official ticket actions");
+assert(melbourneCards.every(event => event.ticketSaleStatus === "waitlist-open-date-not-announced"), "Melbourne cards must not invent an unconfirmed ticket-sale week");
+assert.equal(melbourneCards.find(event => event.timeTbc)?.calendarExportEligible, false, "the date-TBC Melbourne card must not create a false calendar appointment");
 
 const appPrelude = scriptMatch[1].split("/* ============ LIVE CLOCK ============ */")[0];
 const storage = new Map();
@@ -83,6 +109,8 @@ globalThis.__test = {
   buildFeedbackMessage,
   buildFeedbackSmsUrl,
   sortUpcomingFirst,
+  eventDateLabel,
+  eventTimeLabel,
 };`;
 vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
 const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
@@ -124,6 +152,7 @@ const phaseOneEvents = [
   event("top-week", 2, 4),
   event("worth-week", 3, 3),
   event("around", 10, 5),
+  { ...event("horizon-exception", 200, 5), horizonException: true, calendarExportEligible: false },
   event("too-far", 31, 5),
   event("below-floor", 4, 2),
 ];
@@ -134,7 +163,7 @@ app.setFilter("all");
 const buckets = app.neverMissBuckets();
 assert.deepEqual(Array.from(buckets.topStorylines, ev => ev.id), ["top-week"]);
 assert.deepEqual(Array.from(buckets.worthCheckingOut, ev => ev.id), ["worth-week"]);
-assert.deepEqual(Array.from(buckets.aroundTheCorner, ev => ev.id), ["around"]);
+assert.deepEqual(Array.from(buckets.aroundTheCorner, ev => ev.id), ["around", "horizon-exception"]);
 assert(!app.getFilteredEvents().some(ev => ev.id === "below-floor"), "events below stakes 3/5 must be excluded");
 
 const exportedTopOnly = app.selectedNeverMissExportEvents({
@@ -148,7 +177,7 @@ const exportedWorthAndAround = app.selectedNeverMissExportEvents({
   worthCheckingOut: true,
   aroundTheCorner: true,
 });
-assert.deepEqual(Array.from(exportedWorthAndAround, ev => ev.id), ["worth-week", "around"], "multi-section export must remain chronological");
+assert.deepEqual(Array.from(exportedWorthAndAround, ev => ev.id), ["worth-week", "around"], "calendar export must omit a date-TBC horizon exception");
 const globallyChronologicalExport = app.selectedNeverMissExportEvents(
   { topStorylines: true, worthCheckingOut: true, aroundTheCorner: false },
   {
@@ -165,6 +194,7 @@ assert.match(selectedIcs, /TZID:Australia\/Sydney/);
 assert.match(selectedIcs, /END:VCALENDAR$/);
 assert.match(selectedIcs, /UID:worth-week@sportscal/);
 assert.match(selectedIcs, /UID:around@sportscal/);
+assert.doesNotMatch(selectedIcs, /UID:horizon-exception@sportscal/);
 assert.doesNotMatch(selectedIcs, /UID:top-week@sportscal/);
 
 const archived = phaseOneEvents[0];
@@ -207,12 +237,21 @@ app.setRatings({});
 app.setSpoilerState({});
 app.setPreferences({ showSpoilers: false });
 assert.equal(app.isSpoilerVisible(pastA), false, "PAST events must be spoiler-protected by default");
+assert.equal(app.isSpoilerVisible(nextRound), false, "future events must inherit global spoiler protection");
 nextRound.spoilerSafeTitle = "World Cup Semifinal";
 assert.equal(app.spoilerSafeDisplayTitle(nextRound), "World Cup Semifinal", "unrevealed knockout branches must retain a useful generic title");
 
 app.markSpoilerRevealed(pastA);
 assert.equal(app.isSpoilerVisible(pastA), true, "per-event reveal must override global protection");
 assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A vs Opponent hidden", "only a legitimately revealed knockout side may be named");
+app.markSpoilerRevealed(nextRound);
+assert.equal(app.isSpoilerVisible(nextRound), true, "per-event reveal must work before an event starts");
+app.hideSpoilersForEvent(nextRound);
+assert.equal(app.isSpoilerVisible(nextRound), false, "per-event protection must work before an event starts");
+
+assert.equal(app.eventDateLabel({ date: "2027-03-07", displayDateLabel: "Date TBC - 2027" }), "Date TBC - 2027");
+assert.equal(app.eventTimeLabel({ time: "15:00", timeTbc: true }), "Time TBC");
+assert.equal(app.eventTimeLabel({ time: "20:00", displayTimeLabel: "Order of play; session from 8:00pm AEST" }), "Order of play; session from 8:00pm AEST");
 
 app.setPreferences({ showSpoilers: true });
 assert.equal(app.isSpoilerVisible(pastB), true, "global spoiler-on must reveal inherited events");

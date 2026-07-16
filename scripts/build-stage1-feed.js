@@ -9,12 +9,20 @@ const {
   writeJson,
 } = require("./lib/feed-utils");
 const { rewriteFifaCards } = require("./rewrite-fifa-cards");
+const { rewriteWimbledonCards } = require("./rewrite-wimbledon-cards");
+const { enrichLegacyCards } = require("./enrich-legacy-cards");
 
 const inputPath = process.argv[2] || "feeds/incoming/events.json";
 const eventsOutPath = process.argv[3] || "data/events.json";
 const metaOutPath = process.argv[4] || "data/feed-meta.json";
 
-const output = normalizeFeed(rewriteFifaCards(readJson(inputPath)));
+const output = normalizeFeed(
+  enrichLegacyCards(
+    rewriteWimbledonCards(
+      rewriteFifaCards(readJson(inputPath))
+    )
+  )
+);
 const errors = validateFeed(output);
 
 if (errors.length){
@@ -55,4 +63,5 @@ writeJson(metaOutPath, nextMeta);
 
 console.log(`Built source-backed stage-one feed: ${output.events.length} events.`);
 console.log(`FIFA cards: ${output.events.filter(event => event.key === "fifa").length}.`);
+console.log(`Wimbledon cards: ${output.events.filter(event => event.key === "wimbledon").length}.`);
 console.log(`Updated ${eventsOutPath} and ${metaOutPath}.`);

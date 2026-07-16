@@ -2045,7 +2045,7 @@ function normalizeEvents(events = activeEvents){
     ev.endTimeUtc = ev.endTimeUtc || null;
     ev.status = getEventStatus(ev);
     ev.displayTitleCompact = ev.displayTitleCompact || ev.name;
-    ev.displaySubtitle = ev.displaySubtitle || `${fmtTime12(ev.time)} Sydney time · ${ev.broadcaster}`;
+    ev.displaySubtitle = ev.displaySubtitle || `${eventTimeLabel(ev)} · ${ev.broadcaster}`;
     ev.selectedSentence = ev.selectedSentence || selectedSentenceForEvent(ev);
     ev.fullSpiel = ev.fullSpiel || fullSpielForEvent(ev);
     ev.stakesScore = Number(ev.stakesScore || stakesScoreForEvent(ev));
@@ -2211,7 +2211,6 @@ function updateEventSpoilerState(ev, patch){
 }
 
 function isSpoilerVisible(ev){
-  if (getEventStatus(ev) !== "past") return true;
   const override = getEventSpoilerState(ev).override;
   if (override === "show") return true;
   if (override === "hide") return false;
@@ -2316,6 +2315,16 @@ function dayDateLabel(dateStr){
     day: "numeric",
     month: "short",
   });
+}
+
+function eventDateLabel(ev){
+  return ev.displayDateLabel || dayDateLabel(ev.date);
+}
+
+function eventTimeLabel(ev){
+  if (ev.displayTimeLabel) return ev.displayTimeLabel;
+  if (ev.timeTbc) return "Time TBC";
+  return `${fmtTime12(ev.time)} Sydney`;
 }
 
 function buildEventActionPanel(ev, options = {}){
@@ -2605,20 +2614,20 @@ function buildStakesMeter(ev){
 }
 
 function buildSpoilerOverrideControl(ev){
-  if (getEventStatus(ev) !== "past") return null;
   const state = getEventSpoilerState(ev);
   const visible = isSpoilerVisible(ev);
+  const status = getEventStatus(ev);
   const control = document.createElement("div");
   control.className = "spoiler-control";
 
   const copy = document.createElement("span");
   copy.className = "spoiler-control-copy";
-  copy.textContent = `Global spoilers ${userPreferences.showSpoilers ? "on" : "off"} · Event ${state.override === "inherit" ? "uses global setting" : state.override === "show" ? "revealed" : "hidden"}`;
+  copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Global spoilers ${userPreferences.showSpoilers ? "on" : "off"} · ${state.override === "inherit" ? "Uses global setting" : state.override === "show" ? "Details revealed" : "Details protected"}`;
   control.appendChild(copy);
 
   const toggle = document.createElement("button");
   toggle.className = "spoiler-reveal-btn";
-  toggle.textContent = visible ? "Hide spoilers for this event" : "Reveal spoilers for this event";
+  toggle.textContent = visible ? "Protect event details" : "Reveal event details";
   toggle.addEventListener("click", evt => {
     evt.stopPropagation();
     if (visible){
@@ -2652,7 +2661,7 @@ function buildSpoilerOverrideControl(ev){
 }
 
 function buildSpoilerFacts(ev){
-  if (!isSpoilerVisible(ev) || getEventStatus(ev) !== "past") return null;
+  if (!isSpoilerVisible(ev)) return null;
   const facts = spoilerFactsForEvent(ev);
   const wrap = document.createElement("div");
   wrap.className = "spoiler-facts";
@@ -2744,7 +2753,12 @@ function buildEventCard(ev, options = {}){
   const importanceColor = importanceColorForEvent(ev);
   const action = getEventAction(ev);
   const spoilerVisible = isSpoilerVisible(ev);
-  const spoilerProtected = status === "past" && !spoilerVisible;
+  const protectedFacts = spoilerFactsForEvent(ev);
+  const hasSpoilerFacts = Boolean(
+    protectedFacts.score || protectedFacts.outcome || protectedFacts.recap || protectedFacts.thumbnail ||
+    protectedFacts.rating !== null || ((status === "past" || status === "live") && protectedFacts.labels.length)
+  );
+  const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
 
   const card = document.createElement("div");
@@ -2794,9 +2808,9 @@ function buildEventCard(ev, options = {}){
     dateLine.className = "event-date-line";
     const dateChip = document.createElement("div");
     dateChip.className = "event-date-chip";
-    dateChip.textContent = `${dayDateLabel(ev.date)} · ${fmtTime12(ev.time)} Sydney`;
+    dateChip.textContent = `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
     dateLine.appendChild(dateChip);
-    const ticketUrl = localGame ? preferredTicketUrlForEvent(ev) : null;
+    const ticketUrl = (localGame || ev.ticketUrl || ev.ticketsUrl) ? preferredTicketUrlForEvent(ev) : null;
     if (ticketUrl){
       const tickets = document.createElement("a");
       tickets.className = "ticket-link";
@@ -2878,12 +2892,12 @@ function buildEventCard(ev, options = {}){
   metaRow.className = "event-meta-row";
   metaRow.innerHTML = `
     <span class="meta-item sport-tag">${meta.icon} ${meta.label}</span>
-    <span class="meta-item">🕒 ${fmtTime12(ev.time)} Sydney time</span>
+    <span class="meta-item">🕒 ${eventTimeLabel(ev)}</span>
   `;
   if (expandable){
     const dateItem = document.createElement("span");
     dateItem.className = "meta-item";
-    dateItem.textContent = `📅 ${dayDateLabel(ev.date)}`;
+    dateItem.textContent = `📅 ${eventDateLabel(ev)}`;
     metaRow.appendChild(dateItem);
   }
   if (state === "opened"){
@@ -2947,7 +2961,7 @@ function buildEventCard(ev, options = {}){
     spoilerPanel.className = "spoiler-panel";
     spoilerPanel.innerHTML = `
       <strong>Spoiler details hidden</strong>
-      <p>This PAST event follows your spoiler settings. Reveal it only when you are ready to see result-sensitive detail.</p>
+      <p>This ${status} event follows your spoiler settings. Reveal it only when you are ready to see result-sensitive detail.</p>
     `;
     mainDiv.appendChild(spoilerPanel);
     mainDiv.appendChild(buildSpoilerOverrideControl(ev));
@@ -3105,7 +3119,7 @@ function renderMonthView(){
       evEl.className = "cell-event" + priorityClass;
       evEl.style.setProperty("--sport-color", meta.color);
       evEl.textContent = `${meta.icon} ${displayTitle}`;
-      evEl.title = `${displayTitle} — ${fmtTime12(ev.time)} Sydney time — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
+      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
       cell.appendChild(evEl);
     });
     if (dayEvents.length > maxShow){
@@ -3134,7 +3148,9 @@ function neverMissBuckets(){
   return {
     topStorylines: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes),
     worthCheckingOut: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore === SCORE_BANDS.worthCheckingOut.minStakes),
-    aroundTheCorner: upcoming.filter(ev => eventDateTime(ev) > weekEnd && eventDateTime(ev) <= monthEnd && ev.stakesScore >= SCORE_BANDS.aroundTheCorner.minStakes),
+    aroundTheCorner: upcoming.filter(ev => (
+      (eventDateTime(ev) > weekEnd && eventDateTime(ev) <= monthEnd) || ev.horizonException
+    ) && ev.stakesScore >= SCORE_BANDS.aroundTheCorner.minStakes),
   };
 }
 
@@ -3279,6 +3295,7 @@ function selectedNeverMissExportEvents(selection, sections = getNeverMissExportS
   EXPORT_SECTIONS.forEach(({ key }) => {
     if (!selection[key]) return;
     (sections[key] || []).forEach(ev => {
+      if (ev.calendarExportEligible === false) return;
       const id = ev.eventId || ev.id;
       if (seen.has(id)) return;
       seen.add(id);
