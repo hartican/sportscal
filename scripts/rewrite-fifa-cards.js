@@ -90,22 +90,28 @@ const fifaCards = [
     sourceName: "Official FIFA France v Spain match report",
     sourceUrl: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/france-spain-match-report-highlights",
   }),
-  fifaCard({
-    id: "fifa-sf-2-2026",
-    eventId: "fifa-sf-2-2026",
-    name: "England vs Argentina - Semifinal",
+  resultCard(
+    "fifa-sf-2-2026",
+    "England vs Argentina - Semifinal",
+    "2026-07-16",
+    "05:00",
+    "2026-07-15T19:00:00Z",
+    "Atlanta Stadium",
+    "semifinal",
+    "England 1-2 Argentina",
+    "Argentina reached the World Cup final against Spain; England move to the third-place playoff against France.",
+    "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals.",
+    {
     displayTitleCompact: "World Cup Semifinal 2",
     spoilerSafeTitle: "World Cup Semifinal 2",
-    date: "2026-07-16",
-    time: "05:00",
-    startTimeUtc: "2026-07-15T19:00:00Z",
-    endTimeUtc: "2026-07-15T22:00:00Z",
     expected: 10,
-    venue: "Atlanta Stadium",
     liveWindow: 4,
-    round: "semifinal",
-    selectedSentence: "The second semifinal remains live or replay-safe while the official result is confirmed.",
-    fullSpiel: "England and Argentina meet for the second place in the World Cup final. The card retains its verified Sydney start and SBS path, while any result or bracket consequence waits for an official FIFA update.",
+    roundLabel: "Semifinal",
+    fullSpiel: "England led through Anthony Gordon, but Argentina turned the semifinal around in the final minutes. Enzo Fernandez equalised in the 85th minute before Lautaro Martinez headed the stoppage-time winner from Lionel Messi's cross.",
+    sourceName: "AP and Sky Sports match reports",
+    sourceUrl: "https://apnews.com/article/world-cup-england-argentina-score-2ae6a218ae88248db6565ffd13f60d38",
+    sourceCheckedAt: "2026-07-16T23:41:39+10:00",
+    sourceType: "reputable",
     matchupParticipants: [
       { name: "England", sourceEventId: "fifa-qf-norway-england-2026" },
       { name: "Argentina", sourceEventId: "fifa-qf-argentina-switzerland-2026" },
@@ -128,7 +134,7 @@ const fifaCards = [
     fullSpiel: "The third-place playoff stays in the calendar with its confirmed Sydney time and broadcast path. Its full pairing remains protected until both semifinal outcomes are official and deliberately revealed.",
     matchupParticipants: [
       { name: "France", sourceEventId: "fifa-sf-1-2026" },
-      { name: "Semifinal 2 runner-up", sourceEventId: "fifa-sf-2-2026" },
+      { name: "England", sourceEventId: "fifa-sf-2-2026" },
     ],
   }),
   fifaCard({
@@ -149,7 +155,7 @@ const fifaCards = [
     fullSpiel: "The World Cup final is the anchor card for the remaining calendar: global stakes, a clear SBS broadcast path, and a Monday 5:00am Sydney start. The full matchup remains protected until both source semifinals are official and deliberately revealed.",
     matchupParticipants: [
       { name: "Spain", sourceEventId: "fifa-sf-1-2026" },
-      { name: "Semifinal 2 winner", sourceEventId: "fifa-sf-2-2026" },
+      { name: "Argentina", sourceEventId: "fifa-sf-2-2026" },
     ],
   }),
 ];

@@ -10,7 +10,10 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the NothingSport contract");
+assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the nothingSports contract");
+assert(html.includes("<title>nothingSports</title>"), "the document title must use the nothingSports brand");
+assert(html.includes("nothing sport of expectations."), "the requested nothingSports slogan must be present");
+assert(html.includes('class="brand-colosseum"'), "the wordmark must include an outline colosseum glyph");
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Watch Later");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
@@ -22,7 +25,8 @@ assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports
 assert(html.includes('if (firstRun) draftPreferences.followedSports = []'), "first-time setup must start with every sport deselected");
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
-assert(html.includes('class="filing-cabinet-icon"') && html.includes("🗄️"), "Archived must use the larger filing cabinet tab symbol");
+assert(html.includes('class="filing-cabinet-icon"') && !html.includes("🗄️"), "Archived must use a traced filing cabinet glyph rather than emoji");
+assert(html.includes('selectionActionsMarkup("sports"') && html.includes('selectionActionsMarkup("providers"') && html.includes('selectionActionsMarkup("venues"'), "every setup multi-select must expose Select all and Deselect all controls");
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
@@ -62,10 +66,14 @@ assert.deepEqual(semifinalOne.matchupParticipants.map(participant => participant
 assert.deepEqual(semifinalTwo.matchupParticipants.map(participant => participant.name), ["England", "Argentina"]);
 assert.equal(semifinalOne.displayTitleCompact, "World Cup Semifinal 1", "recent semifinal default title must stay spoiler-safe");
 assert.equal(semifinalTwo.displayTitleCompact, "World Cup Semifinal 2", "same-day semifinal default title must stay spoiler-safe");
-assert(fifaCards.every(event => event.sourceType === "official"), "FIFA rewrites must retain official-source provenance");
+assert(fifaCards.every(event => ["official", "reputable"].includes(event.sourceType)), "FIFA rewrites must retain explicit source provenance");
 assert.equal(fifaCards.find(event => event.id === "fifa-r32-australia-egypt-2026").time, "04:00", "Australia v Egypt must use FIFA's corrected Sydney time");
 assert(fifaCards.filter(event => event.date < "2026-07-16").every(event => event.score && event.outcomeText && event.recapText), "verified past FIFA matches must carry score, outcome and analysis");
-assert(!semifinalTwo.score, "England v Argentina must remain unscored until FIFA publishes a verified result");
+assert.equal(semifinalTwo.score, "England 1-2 Argentina", "England v Argentina must carry the consensus final score");
+assert.match(semifinalTwo.recapText, /Fernandez.+Martinez/i, "England v Argentina must carry a consensus synopsis");
+assert.equal(semifinalTwo.sourceType, "reputable", "the consensus result must not be mislabelled as an official FIFA update");
+assert.deepEqual(fifaCards.find(event => event.id === "fifa-third-place-2026").matchupParticipants.map(participant => participant.name), ["France", "England"], "the third-place card must carry the resolved contestants");
+assert.deepEqual(fifaCards.find(event => event.id === "fifa-final-2026").matchupParticipants.map(participant => participant.name), ["Spain", "Argentina"], "the final card must carry the resolved contestants");
 
 const wimbledonCards = publishedFeed.events.filter(event => event.key === "wimbledon");
 assert.equal(wimbledonCards.length, 32, "Wimbledon must contain the two retained R3 matches plus all 30 singles matches from R4 onward");
@@ -104,8 +112,9 @@ globalThis.__test = {
   setEvents(events){ activeEvents = events; normalizeEvents(activeEvents); },
   setActions(actions){ eventActions = actions; },
   setSpoilerState(state){ eventSpoilerState = state; },
+  getSpoilerStateSnapshot(){ return structuredClone(eventSpoilerState); },
   setRatings(next){ ratings = next; },
-  setPreferences(next){ userPreferences = mergePreferences(next); },
+  setPreferences(next){ userPreferences = mergePreferences({ followedSports: Object.keys(SPORTS_LIBRARY), selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY), ...next }); },
   setFilter(filter){ activeFilter = filter; },
   eventActionKey,
   cardStateForEvent,
@@ -120,6 +129,8 @@ globalThis.__test = {
   neverMissTimelineEvents,
   updateEventAction,
   isSpoilerVisible,
+  clearHiddenSpoilerOverrides,
+  hasSpoilerSensitiveContent,
   compactResultForEvent,
   markSpoilerRevealed,
   hideSpoilersForEvent,
@@ -157,6 +168,8 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
+assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), [], "new profiles must start with every sport deselected");
+app.setPreferences({});
 
 function dateAtOffset(days){
   const date = new Date();
@@ -318,6 +331,16 @@ assert.equal(app.isSpoilerVisible(pastB), false, "per-event hide must override g
 app.resetSpoilerOverride(pastB);
 assert.equal(app.isSpoilerVisible(pastB), true, "reset must restore the global spoiler policy");
 
+app.setSpoilerState({
+  [app.eventActionKey(pastA)]: { override: "hide" },
+  [app.eventActionKey(pastB)]: { override: "hide" },
+});
+assert.equal(app.clearHiddenSpoilerOverrides(), 2, "turning spoilers on must clear stale per-event protections");
+assert.equal(Object.keys(app.getSpoilerStateSnapshot()).length, 0, "cleared protections must not remain in saved spoiler state");
+assert.equal(app.compactResultForEvent(scoredPast).score, "Home 2-1 Away", "global spoiler-on must restore compact results after clearing stale protections");
+assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A vs Winner B", "global spoiler-on must restore next-round contestants");
+assert.equal(app.hasSpoilerSensitiveContent({ ...pastA, fullSpiel: "A decisive post-event review." }), true, "post-event spiels must participate in spoiler protection and reveal logic");
+
 app.setPreferences({ showSpoilers: false });
 app.setEventRating(pastB, 9);
 assert.equal(app.getActual("past-b"), 9, "rating must be stored");
@@ -337,9 +360,9 @@ const summerTimestamp = app.formatFeedbackTimestamp(new Date("2026-12-16T10:00:0
 assert.match(winterTimestamp, /AEST$/, "winter feedback timestamps must use AEST");
 assert.match(summerTimestamp, /AEDT$/, "summer feedback timestamps must use AEDT");
 const feedbackMessage = app.buildFeedbackMessage("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z"));
-assert.match(feedbackMessage, /^NOTHINGSPORT FEEDBACK/);
+assert.match(feedbackMessage, /^NOTHINGSPORTS FEEDBACK/);
 assert.match(feedbackMessage, /Category: Bug report/);
-assert.match(feedbackMessage, /Sent from NothingSport$/);
+assert.match(feedbackMessage, /Sent from nothingSports$/);
 assert.match(app.buildFeedbackSmsUrl("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z")), /^sms:0437041326\?&body=/);
 
-console.log("NothingSport phase rules verified");
+console.log("nothingSports phase rules verified");

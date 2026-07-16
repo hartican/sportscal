@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>nothingSport</title>
+<title>nothingSports</title>
 <meta name="theme-color" content="#0a0a0f">
 <meta name="description" content="A spoiler-free sports calendar and watch planner for Sydney time.">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -149,6 +149,13 @@ header.top{
   gap:2px;
 }
 
+.brand-title-row{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  width:fit-content;
+}
+
 .brand h1{
   font-size: 1.35rem;
   font-weight: 900;
@@ -157,6 +164,22 @@ header.top{
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.brand-colosseum{
+  width: 1.72rem;
+  height: 1.35rem;
+  flex: 0 0 auto;
+  color: var(--text-dim);
+}
+
+.brand-colosseum path{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.35;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
 }
 
 .brand .clock{
@@ -271,10 +294,21 @@ header.top{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width: 1.5rem;
-  font-size: 1.35rem;
+  width: 1.5rem;
+  height: 1.5rem;
   line-height: 1;
   transform: translateY(-1px);
+}
+
+.filing-cabinet-icon svg{
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.55;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
 }
 
 /* ---------- Controls bar ---------- */
@@ -1289,6 +1323,29 @@ main{
   gap: 14px;
 }
 
+.selection-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:7px;
+  margin: 10px 0;
+}
+
+.selection-action{
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:7px 10px;
+  background:var(--bg-card);
+  color:var(--text-dim);
+  font:700 0.69rem/1 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor:pointer;
+}
+
+.selection-action:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
 .setting-row{
   display:flex;
   align-items:center;
@@ -1673,7 +1730,8 @@ footer.app-footer{
     line-height:1.15;
   }
   .tab-count{ display:none; }
-  .filing-cabinet-icon{ font-size: 1.45rem; }
+  .brand-colosseum{ width:1.5rem; height:1.15rem; }
+  .filing-cabinet-icon{ width:1.55rem; height:1.55rem; }
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
   .month-cell{ min-height: 64px; }
@@ -1703,12 +1761,17 @@ footer.app-footer{
 <header class="top">
   <div class="header-inner">
     <div class="brand">
-      <h1>nothingSport</h1>
-      <div class="slogan">nothing short of expectations. nothing missed.</div>
+      <div class="brand-title-row">
+        <h1>nothingSports</h1>
+        <svg class="brand-colosseum" viewBox="0 0 32 24" aria-hidden="true">
+          <path d="M4 20.5h24M5.5 20.5V9.2h21v11.3M4.5 9.2h23M6.5 6.5h19M9 3.8h14M8 9.2V6.5M24 9.2V6.5M11 20.5v-5.1a2.2 2.2 0 0 1 4.4 0v5.1M16.6 20.5v-5.1a2.2 2.2 0 0 1 4.4 0v5.1M7.5 12.1h2M22.5 12.1h2"/>
+        </svg>
+      </div>
+      <div class="slogan">nothing sport of expectations.</div>
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
-      <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSport</span></button>
+      <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSports</span></button>
       <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
       <button class="btn primary" id="exportBtn">⬇ <span class="full-label">Export Never Miss</span></button>
@@ -1719,7 +1782,7 @@ footer.app-footer{
     <button class="tab-btn active" data-tab="calendar"><span class="tab-label">Calendar</span><span class="tab-count" id="calendarTabCount">0</span></button>
     <button class="tab-btn" data-tab="nevermiss"><span class="tab-label">Never Miss</span><span class="tab-count" id="neverMissTabCount">0</span></button>
     <button class="tab-btn" data-tab="watchlater"><span class="tab-label">Watch Later</span><span class="tab-count" id="watchLaterTabCount">0</span></button>
-    <button class="tab-btn" data-tab="archived" aria-label="Filing cabinet" title="Filing cabinet"><span class="filing-cabinet-icon" aria-hidden="true">🗄️</span><span class="tab-count" id="archivedTabCount">0</span></button>
+    <button class="tab-btn" data-tab="archived" aria-label="Filing cabinet" title="Filing cabinet"><span class="filing-cabinet-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5h14v17H5zM5 11.8h14M8 7.2h8M9.5 9.1h5M8 15.4h8M9.5 17.4h5"/></svg></span><span class="tab-count" id="archivedTabCount">0</span></button>
   </div>
 </header>
 
@@ -1743,7 +1806,7 @@ footer.app-footer{
 </main>
 
 <footer class="app-footer">
-  nothingSport &middot; Spoiler-safe by default &middot; All times shown in Sydney time &middot; Data updates weekly
+  nothingSports &middot; Spoiler-safe by default &middot; All times shown in Sydney time &middot; Data updates weekly
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -1755,7 +1818,7 @@ footer.app-footer{
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
-          <p id="settingsCopy">Choose what nothingSport follows and how the app behaves.</p>
+          <p id="settingsCopy">Choose what nothingSports follows and how the app behaves.</p>
         </div>
       </div>
       <button class="settings-icon-btn" id="closeSettingsBtn" type="button" aria-label="Close Settings">×</button>
@@ -1772,16 +1835,13 @@ footer.app-footer{
   <div class="onboarding-panel about-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
     <div class="onboarding-head">
       <div>
-        <h2 id="aboutTitle">About nothingSport</h2>
-        <p>nothing short of expectations. nothing missed.</p>
+        <h2 id="aboutTitle">About nothingSports</h2>
+        <p>nothing sport of expectations.</p>
       </div>
     </div>
     <div class="about-body">
-      <p>nothingSport is part of the Nothing Group: products built to filter noise so people can get more out of their regular schedules without extra cognitive burden. Across the group, nothing has come to mean nothing short of expectations, nothing missed, and nothing to onboard.</p>
-      <p>nothingSport applies that ethos to live sport. It is a spoiler-safe sports filter for people who care about watching sport properly, but do not want to sift through every fixture, feed, and low-stakes event to work out what actually deserves their time.</p>
-      <p>Think of it like having a sports-obsessed friend with unusually good taste: someone who knows your preferences, keeps track of what matters, and quietly keeps your calendar aligned with the games worth sitting down for.</p>
-      <p>We would rather you miss the occasional surprise than be buried in choices. nothingSport filters hard, using preset sports and event categories, must-watch logic, and spoiler-safe context so that the important fixtures stand out without spoiling the result.</p>
-      <p>The result is a calmer, more trustworthy way to follow sport: less scrolling, less second-guessing, fewer missed big games, and a better sense that the best of sport will surface when it matters.</p>
+      <p>nothingSports is a calm, spoiler-aware filter for people who care about live sport, but not every fixture. It learns the sports, services and venues that matter to you, then keeps the high-stakes events visible in Sydney time.</p>
+      <p>nothing sport of expectations. Results stay protected until you choose otherwise; with spoilers on, scores, next-round contestants and post-event context surface throughout the feed.</p>
     </div>
     <div class="about-actions">
       <button class="btn primary" id="closeAboutBtn">Close</button>
@@ -1905,7 +1965,7 @@ const DEFAULT_PREFERENCES = {
   theme: "system",
   showSpoilers: false,
   localVenueIds: ["gio-stadium", "manuka-oval"],
-  followedSports: Object.keys(SPORTS_LIBRARY),
+  followedSports: [],
   selectedBroadcasters: ["kayo","stan","sbs","nine","foxtel","fis"],
   tennis: {
     enthusiasm: "froth",
@@ -2122,10 +2182,20 @@ function saveEventSpoilerState(next){
   writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
 }
 
+function clearHiddenSpoilerOverrides(){
+  const hiddenKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === "hide");
+  if (!hiddenKeys.length) return 0;
+  const next = { ...eventSpoilerState };
+  hiddenKeys.forEach(key => delete next[key]);
+  saveEventSpoilerState(next);
+  return hiddenKeys.length;
+}
+
 let userPreferences = loadPreferences();
 let ratings = loadRatings();
 let eventActions = loadEventActions();
 let eventSpoilerState = loadEventSpoilerState(eventActions);
+if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
 let activeEvents = loadCachedFeedEvents() || EVENTS;
 
 /* ============ FEED REFRESH ============ */
@@ -2534,6 +2604,13 @@ function spoilerFactsForEvent(ev){
     rating: getActual(ev.id) ?? firstEventValue(ev, SPOILER_FIELDS.rating),
     labels: Array.isArray(labels) ? labels : labels ? [labels] : [],
   };
+}
+
+function hasSpoilerSensitiveContent(ev, facts = spoilerFactsForEvent(ev), status = getEventStatus(ev)){
+  return Boolean(
+    facts.score || facts.outcome || facts.recap || facts.thumbnail || facts.rating !== null ||
+    ((status === "past" || status === "live") && (facts.labels.length || ev.fullSpiel))
+  );
 }
 
 function spoilerOutcomeCopy(outcome){
@@ -3133,10 +3210,7 @@ function buildEventCard(ev, options = {}){
   const action = getEventAction(ev);
   const spoilerVisible = isSpoilerVisible(ev);
   const protectedFacts = spoilerFactsForEvent(ev);
-  const hasSpoilerFacts = Boolean(
-    protectedFacts.score || protectedFacts.outcome || protectedFacts.recap || protectedFacts.thumbnail ||
-    protectedFacts.rating !== null || ((status === "past" || status === "live") && protectedFacts.labels.length)
-  );
+  const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
 
@@ -3812,15 +3886,15 @@ function formatFeedbackTimestamp(date = new Date()){
 
 function buildFeedbackMessage(category, message, date = new Date()){
   return [
-    "NOTHINGSPORT FEEDBACK",
-    "Meta: nothingSport feedback form",
+    "NOTHINGSPORTS FEEDBACK",
+    "Meta: nothingSports feedback form",
     `Timestamp: ${formatFeedbackTimestamp(date)}`,
     `Category: ${category}`,
     "",
     "Message:",
     String(message || "").trim() || "(No message entered)",
     "",
-    "Sent from NothingSport",
+    "Sent from nothingSports",
   ].join("\n");
 }
 
@@ -3999,6 +4073,24 @@ function settingsMenuItem(section, icon, title, detail){
   </button>`;
 }
 
+function selectionActionsMarkup(group, label){
+  return `<div class="selection-actions" aria-label="${label} selection controls">
+    <button class="selection-action" type="button" data-selection-group="${group}" data-selection-action="select-all">Select all</button>
+    <button class="selection-action" type="button" data-selection-group="${group}" data-selection-action="deselect-all">Deselect all</button>
+  </div>`;
+}
+
+function bindSelectionActions(body, group, selectAll, deselectAll){
+  body.querySelector(`[data-selection-group="${group}"][data-selection-action="select-all"]`)?.addEventListener("click", () => {
+    selectAll();
+    renderSettingsScreen();
+  });
+  body.querySelector(`[data-selection-group="${group}"][data-selection-action="deselect-all"]`)?.addEventListener("click", () => {
+    deselectAll();
+    renderSettingsScreen();
+  });
+}
+
 function renderSettingsMenu(body){
   const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
   body.innerHTML = `<div class="settings-menu">
@@ -4021,6 +4113,7 @@ function renderSportsSettings(body){
     <div class="filter-panel">
       <h3>Sports selector</h3>
       <p class="preference-help">Choose the sports and competitions that belong in your feeds.</p>
+      ${selectionActionsMarkup("sports", "Sports")}
       <div class="choice-grid" id="sportsChoiceGrid"></div>
     </div>
     <div class="preference-stack" id="sportDetailSettings"></div>
@@ -4048,6 +4141,12 @@ function renderSportsSettings(body){
     btn.innerHTML = `<div class="choice-title"><span>＋</span><span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
     grid.appendChild(btn);
   });
+  bindSelectionActions(
+    body,
+    "sports",
+    () => { draftPreferences.followedSports = Object.keys(SPORTS_LIBRARY); },
+    () => { draftPreferences.followedSports = []; }
+  );
 
   const details = document.getElementById("sportDetailSettings");
   const detailPanels = [];
@@ -4080,7 +4179,7 @@ function renderSportsSettings(body){
 }
 
 function renderProviderSettings(body){
-  body.innerHTML = `<div class="choice-grid" id="providerChoiceGrid"></div>`;
+  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Choose the services available to you.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>`;
   const grid = document.getElementById("providerChoiceGrid");
   Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
     const selected = draftPreferences.selectedBroadcasters.includes(key);
@@ -4103,10 +4202,16 @@ function renderProviderSettings(body){
     btn.innerHTML = `<div class="choice-title"><span>↗</span><span>${label}</span></div><div class="choice-detail">Modelled for later, not active in filtering yet.</div>`;
     grid.appendChild(btn);
   });
+  bindSelectionActions(
+    body,
+    "providers",
+    () => { draftPreferences.selectedBroadcasters = Object.keys(BROADCASTER_LIBRARY); },
+    () => { draftPreferences.selectedBroadcasters = []; }
+  );
 }
 
 function renderPrivacySettings(body){
-  body.innerHTML = `<div class="preference-stack"><div class="setting-row"><div><strong>Show spoilers globally</strong><p>Off protects scores, outcomes, recaps, thumbnails, ratings, and result labels. Individual events can still override this setting.</p></div><button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" type="button" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button></div><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p><div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
+  body.innerHTML = `<div class="preference-stack"><div class="setting-row"><div><strong>Show spoilers globally</strong><p>Off protects scores, outcomes, recaps, thumbnails, ratings, result labels and post-event context. Turning this on reveals results and clears older event-level protections.</p></div><button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" type="button" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button></div><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p>${selectionActionsMarkup("venues", "Local venues")}<div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
   document.getElementById("globalSpoilerSwitch").addEventListener("click", () => {
     draftPreferences.showSpoilers = !draftPreferences.showSpoilers;
     renderSettingsScreen();
@@ -4125,6 +4230,12 @@ function renderPrivacySettings(body){
     });
     venueGrid.appendChild(btn);
   });
+  bindSelectionActions(
+    body,
+    "venues",
+    () => { draftPreferences.localVenueIds = Object.keys(LOCAL_VENUE_OPTIONS); },
+    () => { draftPreferences.localVenueIds = []; }
+  );
 }
 
 function renderAppearanceSettings(body){
@@ -4145,7 +4256,7 @@ function renderAppearanceSettings(body){
 }
 
 function renderFeedbackSettings(body){
-  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
+  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSports is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
   category.addEventListener("change", updateFeedbackPreview);
@@ -4163,7 +4274,7 @@ function renderSettingsScreen(){
   document.getElementById("saveSettingsBtn").textContent = settingsFirstRun ? "Save & start" : "Save & close";
 
   const screens = {
-    main: [settingsFirstRun ? "Set up nothingSport" : "Settings", "Choose an area. Every submenu can return here or close at any time."],
+    main: [settingsFirstRun ? "Set up nothingSports" : "Settings", "Choose an area. Every submenu can return here or close at any time."],
     sports: ["Sports & competitions", "Choose sports, then tune Tennis and World Cup detail where relevant."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Spoilers & local venues", "Control result visibility and the venues that count as local."],
@@ -4276,6 +4387,7 @@ function saveSettingsPreferences(){
   }
   draftPreferences.onboardingComplete = true;
   savePreferences(draftPreferences);
+  if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
   applyThemePreference(userPreferences.theme);
   closeSettings({ restoreTheme: false });
   renderAll();
@@ -4451,10 +4563,10 @@ function generateICS(events = getFilteredEvents()){
   const lines = [];
   lines.push("BEGIN:VCALENDAR");
   lines.push("VERSION:2.0");
-  lines.push("PRODID:-//nothingSport//EN");
+  lines.push("PRODID:-//nothingSports//EN");
   lines.push("CALSCALE:GREGORIAN");
   lines.push("METHOD:PUBLISH");
-  lines.push("X-WR-CALNAME:nothingSport");
+  lines.push("X-WR-CALNAME:nothingSports");
   lines.push("X-WR-TIMEZONE:Australia/Sydney");
 
   // VTIMEZONE block for Australia/Sydney with fixed AEST(+10)/AEDT(+11) rules
