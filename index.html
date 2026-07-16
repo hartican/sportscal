@@ -111,6 +111,8 @@ header.top{
   display:flex;
   gap:8px;
   flex-wrap: wrap;
+  min-width:0;
+  justify-content:flex-end;
 }
 
 .btn{
@@ -168,6 +170,10 @@ header.top{
   border-bottom: 3px solid transparent;
   font-family: inherit;
   transition: all 0.15s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 6px;
 }
 
 .tab-btn:hover{ color: var(--text); }
@@ -175,6 +181,24 @@ header.top{
 .tab-btn.active{
   color: var(--text);
   border-bottom-color: var(--accent);
+}
+
+.tab-count{
+  min-width: 19px;
+  height: 19px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  color: var(--text-dim);
+  font-size: 0.62rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tab-btn.active .tab-count{
+  background: rgba(0,229,255,0.14);
+  color: var(--accent);
 }
 
 /* ---------- Controls bar ---------- */
@@ -521,6 +545,16 @@ main{
   border-color: var(--importance-color, var(--sport-color));
 }
 
+.action-btn.danger:hover{
+  border-color: #ff6b7a;
+  color: #ff9aa5;
+}
+
+.action-btn.restore{
+  border-color: rgba(0,229,255,0.45);
+  color: var(--accent);
+}
+
 .badges{
   display:flex;
   gap: 6px;
@@ -536,12 +570,6 @@ main{
   text-transform: uppercase;
   letter-spacing: 0.03em;
   white-space:nowrap;
-}
-
-.badge.live{
-  background: #ff1744;
-  color: #fff;
-  animation: pulse 1.6s infinite;
 }
 
 .badge.upcoming{
@@ -779,7 +807,7 @@ main{
   padding-left: 4px;
 }
 
-/* ---------- Must watch section ---------- */
+/* ---------- Curated and saved surfaces ---------- */
 .mw-tier{
   margin-bottom: 30px;
 }
@@ -793,8 +821,7 @@ main{
   gap: 8px;
 }
 
-.briefing-hero,
-.catchup-hero{
+.surface-intro{
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
@@ -804,46 +831,29 @@ main{
     rgba(255,255,255,0.025);
 }
 
-.briefing-hero h2,
-.catchup-hero h2{
+.surface-intro h2{
   font-size: 1.15rem;
   line-height:1.2;
   margin-bottom: 6px;
 }
 
-.briefing-hero p,
-.catchup-hero p{
+.surface-intro p{
   color: var(--text-dim);
   font-size: 0.82rem;
   line-height:1.45;
 }
 
-.briefing-day,
-.catchup-band{
+.queue-section{
   margin-bottom: 24px;
 }
 
-.briefing-day h3,
-.catchup-band h3{
+.queue-section h3{
   color: var(--text-dim);
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0.06em;
   margin-bottom: 10px;
   text-transform: uppercase;
-}
-
-.catchup-label{
-  display:inline-flex;
-  align-items:center;
-  width: fit-content;
-  margin-top: 10px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 5px 9px;
-  color: var(--text-dim);
-  font-size: 0.72rem;
-  font-weight: 800;
 }
 
 .empty-state{
@@ -1081,6 +1091,13 @@ footer.app-footer{
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 980px){
+  .header-actions{
+    flex: 1 0 100%;
+    justify-content:flex-start;
+  }
+}
+
 @media (max-width: 640px){
   .brand h1{ font-size: 1.1rem; }
   .brand .slogan{ font-size: 0.66rem; }
@@ -1096,6 +1113,8 @@ footer.app-footer{
     text-align:center;
     line-height:1.15;
   }
+  .tab-count{ display:none; }
+  .tab-btn[data-tab="archived"] .tab-label{ display:none; }
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
   .month-cell{ min-height: 64px; }
@@ -1130,10 +1149,10 @@ footer.app-footer{
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="calendar">Calendar</button>
-    <button class="tab-btn" data-tab="mustwatch">Never Miss</button>
-    <button class="tab-btn" data-tab="briefing">Weekly Briefing</button>
-    <button class="tab-btn" data-tab="catchup">Catch-up</button>
+    <button class="tab-btn active" data-tab="calendar"><span class="tab-label">Calendar</span><span class="tab-count" id="calendarTabCount">0</span></button>
+    <button class="tab-btn" data-tab="nevermiss"><span class="tab-label">Never Miss</span><span class="tab-count" id="neverMissTabCount">0</span></button>
+    <button class="tab-btn" data-tab="watchlater"><span class="tab-label">Watch Later</span><span class="tab-count" id="watchLaterTabCount">0</span></button>
+    <button class="tab-btn" data-tab="archived" aria-label="Archived"><span aria-hidden="true">⌁</span><span class="tab-label">Archived</span><span class="tab-count" id="archivedTabCount">0</span></button>
   </div>
 </header>
 
@@ -1149,9 +1168,9 @@ footer.app-footer{
 <main>
   <section id="listView"></section>
   <section id="monthView" style="display:none;"></section>
-  <section id="mustWatchView" style="display:none;"></section>
-  <section id="briefingView" style="display:none;"></section>
-  <section id="catchupView" style="display:none;"></section>
+  <section id="neverMissView" style="display:none;"></section>
+  <section id="watchLaterView" style="display:none;"></section>
+  <section id="archivedView" style="display:none;"></section>
 </main>
 
 <footer class="app-footer">
@@ -1223,8 +1242,8 @@ const SPORT_META = {
 
 const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","afl","cricket","nba","masters","lemans","nfl","ski"];
 const ACTION_FILTERS = {
-  tracked: { label: "Tracked", icon: "✓" },
-  saved: { label: "Saved", icon: "↺" },
+  mustwatch: { label: "Must Watch", icon: "★" },
+  watchlater: { label: "Watch Later", icon: "↺" },
 };
 
 const SPORTS_LIBRARY = {
@@ -1246,7 +1265,6 @@ const SPORTS_LIBRARY = {
 const COMING_SOON_SPORTS = [
   "UFC",
   "MotoGP",
-  "AFL",
   "Olympics",
 ];
 
@@ -1287,18 +1305,18 @@ const APP_CONTRACT = {
   rails: {
     topStorylines: "Top Storylines This Week",
     worthCheckingOut: "Worth Checking Out",
-    catchupClassics: "Catch-up Classics",
-    weeklyBriefing: "Weekly No-Regrets Briefing",
+    aroundTheCorner: "Around the Corner",
   },
   cardStates: ["compact", "selected", "opened"],
-  reminderStates: ["off", "calendar_added", "watching", "saved_for_catchup"],
+  userStates: ["mustWatch", "watchLater", "archived"],
   enthusiasm: ["like", "froth", "choose"],
 };
 
 const SCORE_BANDS = {
-  topStorylines: { min: 8, max: 10 },
-  worthCheckingOut: { min: 7, max: 8 },
-  boostedWorth: { min: 6, max: 6 },
+  minimumStakes: 3,
+  topStorylines: { minStakes: 4, maxStakes: 5 },
+  worthCheckingOut: { minStakes: 3, maxStakes: 3 },
+  aroundTheCorner: { minStakes: 4, maxStakes: 5 },
 };
 
 const FEED_CONFIG = {
@@ -1309,13 +1327,12 @@ const FEED_CONFIG = {
 const STORAGE_KEYS = {
   preferences: "ns_preferences_v1",
   followedSports: "ns_followed_sports_v1",
-  eventActions: "ns_event_actions_v1",
+  eventUserState: "ns_event_user_state_v1",
+  legacyEventActions: "ns_event_actions_v1",
   hiddenItems: "ns_hidden_items_v1",
   feedCache: "ns_feed_cache_v1",
   lastFeedVersion: "ns_last_feed_version_v1",
   lastRefreshAt: "ns_last_refresh_at_v1",
-  briefingSeen: "ns_briefing_seen_v1",
-  savedCatchup: "ns_saved_catchup_v1",
   ratings: "ns_ratings_v1",
   spoilerReveals: "ns_spoiler_reveals_v1",
   legacyPreferences: "sportscal:v1:preferences",
@@ -1411,13 +1428,27 @@ function saveRatings(r){
 }
 
 function loadEventActions(){
-  const current = readStorage(STORAGE_KEYS.eventActions, {});
-  return current && typeof current === "object" ? current : {};
+  const current = readStorage(STORAGE_KEYS.eventUserState, null);
+  if (current && typeof current === "object") return current;
+
+  const legacy = readStorage(STORAGE_KEYS.legacyEventActions, {});
+  if (!legacy || typeof legacy !== "object") return {};
+  const migrated = Object.fromEntries(Object.entries(legacy).map(([key, action]) => [key, {
+    eventId: action.eventId,
+    startTime: action.startTime,
+    mustWatch: ["calendar_added", "watching"].includes(action.reminderState),
+    watchLater: Boolean(action.savedForCatchup || action.reminderState === "saved_for_catchup"),
+    archived: Boolean(action.archived || action.dismissed),
+    spoilerOverride: action.spoilerOverride || "inherit",
+    lastActionAt: action.lastActionAt || null,
+  }]));
+  writeStorage(STORAGE_KEYS.eventUserState, migrated);
+  return migrated;
 }
 
 function saveEventActions(next){
   eventActions = next && typeof next === "object" ? next : {};
-  writeStorage(STORAGE_KEYS.eventActions, eventActions);
+  writeStorage(STORAGE_KEYS.eventUserState, eventActions);
 }
 
 let userPreferences = loadPreferences();
@@ -1562,8 +1593,9 @@ function stakesScoreForEvent(ev){
 }
 
 function importanceBandForEvent(ev){
-  if (ev.expected >= SCORE_BANDS.topStorylines.min) return "topStorylines";
-  if (ev.expected >= SCORE_BANDS.worthCheckingOut.min) return "worthCheckingOut";
+  const stakes = ev.stakesScore || stakesScoreForEvent(ev);
+  if (stakes >= SCORE_BANDS.topStorylines.minStakes) return "topStorylines";
+  if (stakes === SCORE_BANDS.worthCheckingOut.minStakes) return "worthCheckingOut";
   return "longTail";
 }
 
@@ -1627,7 +1659,7 @@ function normalizeEvents(events = activeEvents){
     ev.displaySubtitle = ev.displaySubtitle || `${fmtTime12(ev.time)} Sydney time · ${ev.broadcaster}`;
     ev.selectedSentence = ev.selectedSentence || selectedSentenceForEvent(ev);
     ev.fullSpiel = ev.fullSpiel || fullSpielForEvent(ev);
-    ev.stakesScore = ev.stakesScore || stakesScoreForEvent(ev);
+    ev.stakesScore = Number(ev.stakesScore || stakesScoreForEvent(ev));
     ev.recommendationScore = ev.recommendationScore || ev.expected;
     ev.importanceBand = ev.importanceBand || importanceBandForEvent(ev);
     ev.narrativeType = ev.narrativeType || inferRound(ev.name);
@@ -1637,8 +1669,6 @@ function normalizeEvents(events = activeEvents){
     ev.replayEligible = ev.replayEligible ?? ev.expected >= 7;
     ev.highlightEligible = ev.highlightEligible ?? ev.expected >= 6;
     ev.replayWindowEnd = ev.replayWindowEnd || null;
-    ev.briefingEligible = ev.briefingEligible ?? ev.expected >= 7;
-    ev.catchupEligible = ev.catchupEligible ?? ev.expected >= 7;
     ev.userReasonTemplateKeys = ev.userReasonTemplateKeys || [ev.importanceBand, ev.key].filter(Boolean);
     ev.calendarTemplate = ev.calendarTemplate || {
       title: `${SPORT_META[ev.key]?.icon || ""} ${ev.name}`.trim(),
@@ -1701,7 +1731,7 @@ function getActual(id){
 }
 
 function isPreFlagged(ev){
-  return ev.expected >= 8;
+  return ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes;
 }
 
 function isUpgrade(ev){
@@ -1711,7 +1741,7 @@ function isUpgrade(ev){
 }
 
 function isMustWatch(ev){
-  return isPreFlagged(ev) || isUpgrade(ev);
+  return getEventAction(ev).mustWatch || isPreFlagged(ev) || isUpgrade(ev);
 }
 
 function eventActionKey(ev){
@@ -1722,9 +1752,10 @@ function defaultEventAction(ev){
   return {
     eventId: ev.eventId || ev.id,
     startTime: `${ev.date}T${ev.time}`,
-    reminderState: "off",
-    savedForCatchup: false,
-    dismissed: false,
+    mustWatch: false,
+    watchLater: false,
+    archived: false,
+    spoilerOverride: "inherit",
     lastActionAt: null,
   };
 }
@@ -1744,12 +1775,6 @@ function updateEventAction(ev, patch){
   };
   saveEventActions({ ...eventActions, [key]: nextAction });
   return nextAction;
-}
-
-function dismissEventFromBriefing(ev){
-  updateEventAction(ev, { dismissed: true });
-  renderAll();
-  showToast("Dismissed from this briefing.");
 }
 
 function spoilerRevealKey(ev){
@@ -1783,76 +1808,66 @@ function dayDateLabel(dateStr){
   });
 }
 
-function reminderLabel(action){
-  if (action.reminderState === "calendar_added") return "Calendar added";
-  if (action.reminderState === "watching") return "Watching live";
-  if (action.reminderState === "saved_for_catchup") return "Saved for catch-up";
-  return "No reminder set";
-}
-
 function buildEventActionPanel(ev, options = {}){
   const action = getEventAction(ev);
   const panel = document.createElement("div");
   panel.className = "event-action-panel";
-
-  const status = document.createElement("div");
-  status.className = "event-action-status";
-  status.textContent = `${reminderLabel(action)} · ${action.savedForCatchup ? "Catch-up saved" : "Not saved for catch-up"}${action.dismissed ? " · Dismissed from briefing" : ""}`;
-  panel.appendChild(status);
-
   const row = document.createElement("div");
   row.className = "event-action-row";
 
-  const calendarBtn = document.createElement("button");
-  calendarBtn.className = "action-btn" + (action.reminderState === "calendar_added" ? " active" : "");
-  calendarBtn.textContent = action.reminderState === "calendar_added" ? "Calendar added" : "Add to calendar";
-  calendarBtn.addEventListener("click", evt => {
-    evt.stopPropagation();
-    updateEventAction(ev, { reminderState: "calendar_added" });
-    downloadEventICS(ev);
-    renderAll();
-  });
-  row.appendChild(calendarBtn);
-
-  const watchingBtn = document.createElement("button");
-  watchingBtn.className = "action-btn" + (action.reminderState === "watching" ? " active" : "");
-  watchingBtn.textContent = "Watching";
-  watchingBtn.addEventListener("click", evt => {
-    evt.stopPropagation();
-    const nextState = action.reminderState === "watching" ? "off" : "watching";
-    updateEventAction(ev, { reminderState: nextState });
-    renderAll();
-    showToast(nextState === "watching" ? "Marked as watching." : "Watching marker cleared.");
-  });
-  row.appendChild(watchingBtn);
-
-  const catchupBtn = document.createElement("button");
-  catchupBtn.className = "action-btn" + (action.savedForCatchup ? " active" : "");
-  catchupBtn.textContent = action.savedForCatchup ? "Catch-up saved" : "Save for catch-up";
-  catchupBtn.addEventListener("click", evt => {
-    evt.stopPropagation();
-    const savedForCatchup = !action.savedForCatchup;
-    const nextReminderState = savedForCatchup
-      ? (action.reminderState === "off" ? "saved_for_catchup" : action.reminderState)
-      : (action.reminderState === "saved_for_catchup" ? "off" : action.reminderState);
-    updateEventAction(ev, {
-      savedForCatchup,
-      reminderState: nextReminderState,
-    });
-    renderAll();
-    showToast(savedForCatchup ? "Saved for catch-up." : "Catch-up save removed.");
-  });
-  row.appendChild(catchupBtn);
-
-  if (options.showDismiss){
-    const dismissBtn = document.createElement("button");
-    dismissBtn.className = "action-btn" + (action.dismissed ? " active" : "");
-    dismissBtn.textContent = action.dismissed ? "Dismissed from briefing" : "Dismiss from briefing";
-    dismissBtn.addEventListener("click", evt => {
+  const makeActionButton = (label, className, onClick) => {
+    const btn = document.createElement("button");
+    btn.className = `action-btn${className ? ` ${className}` : ""}`;
+    btn.textContent = label;
+    btn.addEventListener("click", evt => {
       evt.stopPropagation();
-      dismissEventFromBriefing(ev);
+      onClick();
     });
-    row.appendChild(dismissBtn);
+    row.appendChild(btn);
+  };
+
+  if (options.archived){
+    makeActionButton("Reinstate to Calendar", "restore", () => {
+      updateEventAction(ev, { archived: false });
+      renderAll();
+      showToast(`Reinstated ${ev.name} to Calendar.`);
+    });
+  } else {
+    const systemState = getEventStatus(ev) === "past" ? "past" : "coming-up";
+    if (systemState === "coming-up"){
+      makeActionButton(
+        action.mustWatch ? "Added to Must Watch" : "Add to Must Watch",
+        action.mustWatch ? "active" : "",
+        () => {
+          const mustWatch = !action.mustWatch;
+          updateEventAction(ev, { mustWatch });
+          renderAll();
+          showToast(mustWatch ? "Added to Must Watch." : "Removed from Must Watch.");
+        }
+      );
+    } else {
+      makeActionButton(
+        action.watchLater ? "Saved to Watch Later" : "Watch Later",
+        action.watchLater ? "active" : "",
+        () => {
+          const watchLater = !action.watchLater;
+          updateEventAction(ev, { watchLater });
+          renderAll();
+          showToast(watchLater ? "Saved to Watch Later." : "Removed from Watch Later.");
+        }
+      );
+      makeActionButton("Rate", "", () => {
+        setCardState(ev, "opened");
+        renderCurrentSection();
+        showToast("Choose a rating from 1 to 10.");
+      });
+    }
+
+    makeActionButton("Archive", "danger", () => {
+      updateEventAction(ev, { archived: true, watchLater: false, mustWatch: false });
+      renderAll();
+      showToast(`Archived ${ev.name}.`);
+    });
   }
 
   panel.appendChild(row);
@@ -1950,11 +1965,11 @@ function eventMatchesFifaFilters(ev){
 }
 
 function eventMatchesActionFilter(ev){
-  if (activeFilter === "tracked"){
-    return ["calendar_added", "watching"].includes(getEventAction(ev).reminderState);
+  if (activeFilter === "mustwatch"){
+    return getEventAction(ev).mustWatch;
   }
-  if (activeFilter === "saved"){
-    return getEventAction(ev).savedForCatchup;
+  if (activeFilter === "watchlater"){
+    return getEventAction(ev).watchLater;
   }
   return true;
 }
@@ -1996,12 +2011,23 @@ function roundMeetsMinimum(eventRound, minimumRound){
 }
 
 /* ============ FILTERED EVENTS ============ */
-function getFilteredEvents(){
+function eventMeetsGlobalThreshold(ev){
+  return Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes;
+}
+
+function getPreferenceMatchedEvents(){
   let list = activeEvents.slice();
+  list = list.filter(eventMeetsGlobalThreshold);
   list = list.filter(eventMatchesSportPreferences);
   list = list.filter(eventMatchesBroadcasterPreferences);
   list = list.filter(eventMatchesTennisFilters);
   list = list.filter(eventMatchesFifaFilters);
+  return list;
+}
+
+function getFilteredEvents(){
+  let list = getPreferenceMatchedEvents();
+  list = list.filter(ev => !getEventAction(ev).archived);
   list = list.filter(eventMatchesActionFilter);
   if (activeFilter !== "all"){
     if (!ACTION_FILTERS[activeFilter]){
@@ -2089,7 +2115,6 @@ function buildEventCard(ev, options = {}){
   const meta = SPORT_META[ev.key];
   const status = getEventStatus(ev);
   const actual = getActual(ev.id);
-  const mustWatch = ev.recommendationScore >= SCORE_BANDS.topStorylines.min || isUpgrade(ev);
   const upgraded = isUpgrade(ev);
   const mode = options.mode || "calendar";
   // Every full card uses the same compact → context → detail interaction.
@@ -2163,26 +2188,21 @@ function buildEventCard(ev, options = {}){
 
   const badges = document.createElement("div");
   badges.className = "badges";
-  if (status === "live"){
-    const b = document.createElement("span");
-    b.className = "badge live";
-    b.textContent = "● LIVE";
-    badges.appendChild(b);
-  } else if (status === "upcoming"){
+  if (status !== "past"){
     const b = document.createElement("span");
     b.className = "badge upcoming";
-    b.textContent = "Upcoming";
+    b.textContent = "Coming Up";
     badges.appendChild(b);
   } else {
     const b = document.createElement("span");
     b.className = "badge past";
-    b.textContent = "Past";
+    b.textContent = "PAST";
     badges.appendChild(b);
   }
-  if (mustWatch){
+  if (ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes){
     const b = document.createElement("span");
     b.className = "badge mustwatch";
-    b.textContent = "Never Miss";
+    b.textContent = "Top Storyline";
     badges.appendChild(b);
   }
   if (upgraded){
@@ -2197,16 +2217,16 @@ function buildEventCard(ev, options = {}){
     b.textContent = "Spoiler safe";
     badges.appendChild(b);
   }
-  if (action.reminderState !== "off"){
+  if (action.mustWatch && status !== "past"){
     const b = document.createElement("span");
     b.className = "badge upcoming";
-    b.textContent = reminderLabel(action);
+    b.textContent = "Must Watch";
     badges.appendChild(b);
   }
-  if (action.savedForCatchup){
+  if (action.watchLater){
     const b = document.createElement("span");
     b.className = "badge upcoming";
-    b.textContent = "Catch-up saved";
+    b.textContent = "Watch Later";
     badges.appendChild(b);
   }
   topRow.appendChild(badges);
@@ -2279,12 +2299,13 @@ function buildEventCard(ev, options = {}){
     });
     spoilerPanel.appendChild(revealBtn);
     mainDiv.appendChild(spoilerPanel);
-    mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
+    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   } else if (state === "selected"){
     const selected = document.createElement("div");
     selected.className = "event-selected-copy";
     selected.textContent = ev.selectedSentence;
     mainDiv.appendChild(selected);
+    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   }
 
   if (state === "opened" && spoilerProtected && !spoilerRevealed){
@@ -2306,7 +2327,7 @@ function buildEventCard(ev, options = {}){
     });
     spoilerPanel.appendChild(revealBtn);
     mainDiv.appendChild(spoilerPanel);
-    mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
+    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   } else if (state === "opened"){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
@@ -2316,14 +2337,11 @@ function buildEventCard(ev, options = {}){
     const details = document.createElement("div");
     details.className = "event-detail-grid";
     details.innerHTML = `
-      <div class="event-detail-item"><strong>Why this is here</strong>${inclusionExplanationForEvent(ev)}</div>
       <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
-      <div class="event-detail-item"><strong>Replay</strong>${ev.replayEligible ? "Replay or highlights candidate if missed." : "Live-only priority for now."}</div>
-      <div class="event-detail-item"><strong>Calendar</strong>${ev.calendarTemplate.durationHours}h watch window ready for export.</div>
       ${ev.sourceName ? `<div class="event-detail-item"><strong>Data</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
     mainDiv.appendChild(details);
-    mainDiv.appendChild(buildEventActionPanel(ev, { showDismiss: mode === "briefing" }));
+    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   }
 
   card.appendChild(mainDiv);
@@ -2470,25 +2488,21 @@ function renderMonthView(){
   container.appendChild(grid);
 }
 
-/* ============ RENDER: RECOMMENDATION RAILS ============ */
-function upcomingRecommendationEvents(){
+/* ============ RENDER: PRIMARY SURFACES ============ */
+function neverMissBuckets(){
   const now = nowAEST();
   const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
-  return getFilteredEvents()
-    .filter(ev => {
-      const start = eventDateTime(ev);
-      return getEventStatus(ev) !== "past" && start <= weekEnd;
-    })
-    .sort((a,b) => (b.recommendationScore - a.recommendationScore) || (eventDateTime(a) - eventDateTime(b)));
-}
+  const monthEnd = new Date(now.getTime() + 30 * 24 * 3600 * 1000);
+  const upcoming = getPreferenceMatchedEvents()
+    .filter(ev => !getEventAction(ev).archived)
+    .filter(ev => eventDateTime(ev) >= now)
+    .sort((a,b) => eventDateTime(a) - eventDateTime(b));
 
-function boostedWorthCheckingOut(ev){
-  if (ev.recommendationScore !== SCORE_BANDS.boostedWorth.min) return false;
-  if (ev.key === "wimbledon"){
-    const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
-    return tennis.round === "all" && tennis.eventType !== "doubles";
-  }
-  return false;
+  return {
+    topStorylines: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes),
+    worthCheckingOut: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore === SCORE_BANDS.worthCheckingOut.minStakes),
+    aroundTheCorner: upcoming.filter(ev => eventDateTime(ev) > weekEnd && eventDateTime(ev) <= monthEnd && ev.stakesScore >= SCORE_BANDS.aroundTheCorner.minStakes),
+  };
 }
 
 function renderRecommendationRail(container, title, events, emptyCopy){
@@ -2507,70 +2521,42 @@ function renderRecommendationRail(container, title, events, emptyCopy){
   } else {
     const grid = document.createElement("div");
     grid.className = "cards-grid";
-    events.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "rail" })));
+    events.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "nevermiss" })));
     rail.appendChild(grid);
   }
 
   container.appendChild(rail);
 }
 
-function renderMustWatch(){
-  const container = document.getElementById("mustWatchView");
+function renderNeverMiss(){
+  const container = document.getElementById("neverMissView");
   container.innerHTML = "";
 
-  const recommendations = upcomingRecommendationEvents();
-  const topStorylines = recommendations
-    .filter(ev => ev.recommendationScore >= SCORE_BANDS.topStorylines.min)
-    .slice(0, 8);
-  const topIds = new Set(topStorylines.map(ev => ev.eventId));
-  const worthCheckingOut = recommendations
-    .filter(ev => !topIds.has(ev.eventId))
-    .filter(ev => ev.recommendationScore >= SCORE_BANDS.worthCheckingOut.min || boostedWorthCheckingOut(ev))
-    .slice(0, 10);
+  const intro = document.createElement("div");
+  intro.className = "surface-intro";
+  intro.innerHTML = `<h2>Never Miss</h2><p>The next seven days, filtered by stakes. Defining events lead; worthwhile fixtures stay chronological.</p>`;
+  container.appendChild(intro);
 
-  if (topStorylines.length === 0 && worthCheckingOut.length === 0){
-    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No recommended events match your current preferences this week.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
-    return;
-  }
+  const { topStorylines, worthCheckingOut, aroundTheCorner } = neverMissBuckets();
 
   renderRecommendationRail(
     container,
     APP_CONTRACT.rails.topStorylines,
     topStorylines,
-    "No top recommendations in the next seven days."
+    "No 4/5-or-higher events in the next seven days."
   );
   renderRecommendationRail(
     container,
     APP_CONTRACT.rails.worthCheckingOut,
     worthCheckingOut,
-    "No secondary recommendations in the next seven days."
+    "No 3/5 events in the next seven days."
   );
-}
-
-function getBriefingWeekKey(date = nowAEST()){
-  const start = new Date(date.getFullYear(), 0, 1);
-  const dayMs = 24 * 3600 * 1000;
-  const dayOfYear = Math.floor((date - start) / dayMs) + 1;
-  const week = Math.ceil((dayOfYear + start.getDay()) / 7);
-  return `${date.getFullYear()}-W${String(week).padStart(2, "0")}`;
-}
-
-function weeklyBriefingEvents(){
-  const now = nowAEST();
-  const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
-  return getFilteredEvents()
-    .filter(ev => {
-      const action = getEventAction(ev);
-      const start = eventDateTime(ev);
-      return !action.dismissed &&
-        ev.briefingEligible !== false &&
-        getEventStatus(ev) !== "past" &&
-        start >= now &&
-        start <= weekEnd &&
-        ev.recommendationScore >= SCORE_BANDS.worthCheckingOut.min;
-    })
-    .sort((a,b) => (b.recommendationScore - a.recommendationScore) || (eventDateTime(a) - eventDateTime(b)))
-    .slice(0, 15);
+  renderRecommendationRail(
+    container,
+    APP_CONTRACT.rails.aroundTheCorner,
+    aroundTheCorner,
+    "No 4/5-or-higher events between 8 and 30 days away."
+  );
 }
 
 function groupEventsByDate(events){
@@ -2581,141 +2567,72 @@ function groupEventsByDate(events){
   }, {});
 }
 
-function renderWeeklyBriefing(){
-  const container = document.getElementById("briefingView");
-  container.innerHTML = "";
-  const weekKey = getBriefingWeekKey();
-  writeStorage(STORAGE_KEYS.briefingSeen, weekKey);
-
-  const hero = document.createElement("div");
-  hero.className = "briefing-hero";
-  hero.innerHTML = `
-    <h2>${APP_CONTRACT.rails.weeklyBriefing}</h2>
-    <p>Next seven days, ranked by the same spoiler-safe recommendation model. Add calendar reminders, save catch-up candidates, or dismiss noise before the week gets away from you.</p>
-  `;
-  container.appendChild(hero);
-
-  const events = weeklyBriefingEvents();
-  if (!events.length){
-    container.innerHTML += `<div class="empty-state"><div class="big">🗓️</div>No briefing-worthy events match your current preferences this week.<br><button class="btn primary" onclick="openOnboarding(false)">Edit preferences</button></div>`;
-    return;
-  }
-
-  const grouped = groupEventsByDate(events);
-  Object.keys(grouped)
-    .sort()
-    .forEach(dateStr => {
-      const day = document.createElement("div");
-      day.className = "briefing-day";
-      const heading = document.createElement("h3");
-      heading.textContent = fmtDateHeading(dateStr);
-      day.appendChild(heading);
-      const grid = document.createElement("div");
-      grid.className = "cards-grid";
-      grouped[dateStr]
-        .sort((a,b) => (b.recommendationScore - a.recommendationScore) || (eventDateTime(a) - eventDateTime(b)))
-        .forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "briefing" })));
-      day.appendChild(grid);
-      container.appendChild(day);
-    });
-}
-
-function replayHalfLifeDays(stakesScore){
-  return { 5: 7, 4: 5, 3: 3, 2: 2, 1: 1 }[stakesScore] || 3;
-}
-
 function eventEndDateTime(ev){
   const start = eventDateTime(ev);
   return new Date(start.getTime() + (ev.liveWindow || 3) * 3600 * 1000);
 }
 
-function replayAgeDays(ev){
-  const ageMs = nowAEST() - eventEndDateTime(ev);
-  return Math.max(0, ageMs / (24 * 3600 * 1000));
-}
-
-function replayScore(ev){
-  const halfLife = replayHalfLifeDays(ev.stakesScore);
-  return ev.recommendationScore * Math.exp(-replayAgeDays(ev) / halfLife);
-}
-
-function catchupLabelForScore(score){
-  if (score >= 6) return "Replay worth it";
-  if (score >= 3.5) return "Highlights enough";
-  return "Safe to skip";
-}
-
-function catchupBandForEvent(ev){
-  const age = replayAgeDays(ev);
-  if (getEventStatus(ev) === "live") return "Still live";
-  if (age < 1) return "Fresh misses";
-  if (age < 4) return "This week";
-  return "Aged classics";
-}
-
-function catchupEvents(){
-  return getFilteredEvents()
-    .map(ev => {
-      const action = getEventAction(ev);
-      const score = replayScore(ev);
-      return { ev, action, score };
-    })
-    .filter(item => {
-      const status = getEventStatus(item.ev);
-      const replayExpired = item.ev.replayWindowEnd && nowAEST() > new Date(item.ev.replayWindowEnd);
-      return status !== "upcoming" &&
-        !replayExpired &&
-        (item.ev.catchupEligible || item.ev.replayEligible || item.action.savedForCatchup) &&
-        (item.score >= 3.5 || item.action.savedForCatchup);
-    })
-    .sort((a,b) => (b.score - a.score) || (eventDateTime(b.ev) - eventDateTime(a.ev)))
-    .slice(0, 18);
-}
-
-function renderCatchupClassics(){
-  const container = document.getElementById("catchupView");
+function renderSavedSurface({ containerId, title, copy, events, emptyIcon, emptyCopy, archived = false }){
+  const container = document.getElementById(containerId);
   container.innerHTML = "";
 
-  const hero = document.createElement("div");
-  hero.className = "catchup-hero";
-  hero.innerHTML = `
-    <h2>${APP_CONTRACT.rails.catchupClassics}</h2>
-    <p>Missed live does not mean missed forever. These are spoiler-safe replay and highlights candidates, ranked by recommendation score with age decay.</p>
-  `;
-  container.appendChild(hero);
+  const intro = document.createElement("div");
+  intro.className = "surface-intro";
+  intro.innerHTML = `<h2>${title}</h2><p>${copy}</p>`;
+  container.appendChild(intro);
 
-  const items = catchupEvents();
-  if (!items.length){
-    container.innerHTML += `<div class="empty-state"><div class="big">↺</div>No catch-up candidates match your current preferences yet.</div>`;
+  if (!events.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = `<div class="big">${emptyIcon}</div>${emptyCopy}`;
+    container.appendChild(empty);
     return;
   }
 
-  const grouped = items.reduce((groups, item) => {
-    const band = catchupBandForEvent(item.ev);
-    if (!groups[band]) groups[band] = [];
-    groups[band].push(item);
-    return groups;
-  }, {});
-
-  ["Still live", "Fresh misses", "This week", "Aged classics"].forEach(band => {
-    if (!grouped[band]?.length) return;
+  const grouped = groupEventsByDate(sortUpcomingFirst(events));
+  Object.keys(grouped).forEach(dateStr => {
     const section = document.createElement("div");
-    section.className = "catchup-band";
+    section.className = "queue-section";
     const heading = document.createElement("h3");
-    heading.textContent = band;
+    heading.textContent = fmtDateHeading(dateStr);
     section.appendChild(heading);
     const grid = document.createElement("div");
     grid.className = "cards-grid";
-    grouped[band].forEach(({ ev, score }) => {
-      const card = buildEventCard(ev, { mode: "catchup" });
-      const label = document.createElement("div");
-      label.className = "catchup-label";
-      label.textContent = `${catchupLabelForScore(score)} · replay score ${score.toFixed(1)}`;
-      card.querySelector(".event-main")?.appendChild(label);
-      grid.appendChild(card);
-    });
+    grouped[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, { mode: archived ? "archived" : "watchlater", archived })));
     section.appendChild(grid);
     container.appendChild(section);
+  });
+}
+
+function watchLaterEvents(){
+  return getPreferenceMatchedEvents()
+    .filter(ev => !getEventAction(ev).archived && getEventAction(ev).watchLater);
+}
+
+function archivedEvents(){
+  return getPreferenceMatchedEvents().filter(ev => getEventAction(ev).archived);
+}
+
+function renderWatchLater(){
+  renderSavedSurface({
+    containerId: "watchLaterView",
+    title: "Watch Later",
+    copy: "Your spoiler-safe queue for events you plan to watch when the timing suits.",
+    events: watchLaterEvents(),
+    emptyIcon: "↺",
+    emptyCopy: "Nothing saved yet. Open a PAST event and choose Watch Later.",
+  });
+}
+
+function renderArchived(){
+  renderSavedSurface({
+    containerId: "archivedView",
+    title: "Archived",
+    copy: "Events removed from active feeds. Reinstate any event to return it to Calendar.",
+    events: archivedEvents(),
+    emptyIcon: "⌁",
+    emptyCopy: "No archived events.",
+    archived: true,
   });
 }
 
@@ -2763,62 +2680,58 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 function renderCurrentSection(){
   if (activeTab === "calendar"){
     if (activeView === "list") renderListView(); else renderMonthView();
-  } else if (activeTab === "mustwatch"){
-    renderMustWatch();
-  } else if (activeTab === "briefing"){
-    renderWeeklyBriefing();
-  } else {
-    renderCatchupClassics();
+  } else if (activeTab === "nevermiss"){
+    renderNeverMiss();
+  } else if (activeTab === "watchlater"){
+    renderWatchLater();
+  } else if (activeTab === "archived"){
+    renderArchived();
   }
+}
+
+function renderTabCounts(){
+  const eligible = getPreferenceMatchedEvents();
+  const active = eligible.filter(ev => !getEventAction(ev).archived);
+  const neverMiss = neverMissBuckets();
+  document.getElementById("calendarTabCount").textContent = active.length;
+  document.getElementById("neverMissTabCount").textContent = neverMiss.topStorylines.length + neverMiss.worthCheckingOut.length + neverMiss.aroundTheCorner.length;
+  document.getElementById("watchLaterTabCount").textContent = watchLaterEvents().length;
+  document.getElementById("archivedTabCount").textContent = archivedEvents().length;
 }
 
 function renderAll(){
   renderFilters();
+  renderTabCounts();
   const calControls = document.getElementById("calendarControls");
   const listView = document.getElementById("listView");
   const monthView = document.getElementById("monthView");
-  const mustWatchView = document.getElementById("mustWatchView");
-  const briefingView = document.getElementById("briefingView");
-  const catchupView = document.getElementById("catchupView");
+  const neverMissView = document.getElementById("neverMissView");
+  const watchLaterView = document.getElementById("watchLaterView");
+  const archivedView = document.getElementById("archivedView");
+
+  [listView, monthView, neverMissView, watchLaterView, archivedView].forEach(view => {
+    view.style.display = "none";
+  });
 
   if (activeTab === "calendar"){
     calControls.style.display = "flex";
-    mustWatchView.style.display = "none";
-    briefingView.style.display = "none";
-    catchupView.style.display = "none";
     if (activeView === "list"){
       listView.style.display = "block";
-      monthView.style.display = "none";
       renderListView();
     } else {
-      listView.style.display = "none";
       monthView.style.display = "block";
       renderMonthView();
     }
-  } else if (activeTab === "mustwatch"){
-    calControls.style.display = "none";
-    listView.style.display = "none";
-    monthView.style.display = "none";
-    mustWatchView.style.display = "block";
-    briefingView.style.display = "none";
-    catchupView.style.display = "none";
-    renderMustWatch();
-  } else if (activeTab === "briefing"){
-    calControls.style.display = "none";
-    listView.style.display = "none";
-    monthView.style.display = "none";
-    mustWatchView.style.display = "none";
-    briefingView.style.display = "block";
-    catchupView.style.display = "none";
-    renderWeeklyBriefing();
   } else {
     calControls.style.display = "none";
-    listView.style.display = "none";
-    monthView.style.display = "none";
-    mustWatchView.style.display = "none";
-    briefingView.style.display = "none";
-    catchupView.style.display = "block";
-    renderCatchupClassics();
+    const viewByTab = {
+      nevermiss: neverMissView,
+      watchlater: watchLaterView,
+      archived: archivedView,
+    };
+    const activeSection = viewByTab[activeTab] || neverMissView;
+    activeSection.style.display = "block";
+    renderCurrentSection();
   }
 }
 
