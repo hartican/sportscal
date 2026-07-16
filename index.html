@@ -1488,7 +1488,7 @@ footer.app-footer{
   </div>
 </div>
 
-<button class="btn jump-today-btn" id="jumpTodayBtn" type="button" aria-label="Jump to today in the calendar">↕ Jump to Today</button>
+<button class="btn jump-today-btn" id="jumpTodayBtn" type="button" aria-label="Jump to today in the active feed">↕ Jump to Today</button>
 
 <main>
   <section id="listView"></section>
@@ -1761,6 +1761,7 @@ let activeFilter = "all";
 let activeView = "list";
 let activeTab = "calendar";
 let calendarInitialJumpPending = true;
+let neverMissInitialJumpPending = true;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let onboardingStep = 0;
 let draftPreferences = null;
@@ -1974,6 +1975,7 @@ function applyFeedEvents(events, meta){
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
   calendarInitialJumpPending = true;
+  neverMissInitialJumpPending = true;
   renderAll();
 }
 
@@ -3119,8 +3121,12 @@ function formatDateKey(dt){
   return `${y}-${m}-${d}`;
 }
 
-function scrollCalendarToToday({ behavior = "smooth" } = {}){
-  const anchor = document.getElementById("calendarTodayAnchor");
+function activeTodayAnchorId(){
+  return activeTab === "nevermiss" ? "neverMissTodayAnchor" : "calendarTodayAnchor";
+}
+
+function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
+  const anchor = document.getElementById(activeTodayAnchorId());
   if (!anchor) return false;
   const stickyHeader = document.querySelector("header.top");
   const headerOffset = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
@@ -3133,7 +3139,15 @@ function scheduleInitialCalendarJump(){
   if (!calendarInitialJumpPending || activeTab !== "calendar" || activeView !== "list") return;
   calendarInitialJumpPending = false;
   window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => scrollCalendarToToday({ behavior: "auto" }));
+    window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
+  });
+}
+
+function scheduleInitialNeverMissJump(){
+  if (!neverMissInitialJumpPending || activeTab !== "nevermiss") return;
+  neverMissInitialJumpPending = false;
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
   });
 }
 
@@ -3230,8 +3244,24 @@ function renderMonthView(){
 }
 
 /* ============ RENDER: PRIMARY SURFACES ============ */
-function neverMissBuckets(){
-  const now = nowAEST();
+function neverMissTimelineEvents(reference = nowAEST()){
+  const windowStart = new Date(reference.getTime() - 7 * 24 * 3600 * 1000);
+  const windowEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
+  return getPreferenceMatchedEvents()
+    .filter(ev => !getEventAction(ev).archived)
+    .filter(ev => {
+      const start = eventDateTime(ev);
+      return start >= windowStart && start <= windowEnd;
+    })
+    .filter(ev => {
+      const band = importanceBandForEvent(ev);
+      return band === "topStorylines" || band === "worthCheckingOut";
+    })
+    .sort((a,b) => eventDateTime(a) - eventDateTime(b));
+}
+
+function neverMissBuckets(reference = nowAEST()){
+  const now = reference;
   const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
   const monthEnd = new Date(now.getTime() + 30 * 24 * 3600 * 1000);
   const upcoming = getPreferenceMatchedEvents()
@@ -3271,29 +3301,72 @@ function renderRecommendationRail(container, title, events, emptyCopy){
   container.appendChild(rail);
 }
 
+function renderNeverMissTimeline(container, events){
+  const timeline = document.createElement("div");
+  timeline.className = "mw-tier never-miss-timeline";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Top Storylines + Worth Checking Out";
+  timeline.appendChild(heading);
+
+  const groups = groupEventsByDate(events);
+  const dates = Object.keys(groups).sort();
+  const todayStr = formatDateKey(nowAEST());
+  let todayAnchorInserted = false;
+
+  const appendTodayAnchor = () => {
+    if (todayAnchorInserted) return;
+    const anchor = document.createElement("div");
+    anchor.className = "today-anchor";
+    anchor.id = "neverMissTodayAnchor";
+    anchor.setAttribute("role", "separator");
+    anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
+    anchor.textContent = "Today";
+    timeline.appendChild(anchor);
+    todayAnchorInserted = true;
+  };
+
+  dates.forEach(dateStr => {
+    if (!todayAnchorInserted && dateStr >= todayStr) appendTodayAnchor();
+    const group = document.createElement("div");
+    group.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
+
+    const dateHeading = document.createElement("div");
+    dateHeading.className = "date-heading";
+    dateHeading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
+    group.appendChild(dateHeading);
+
+    const grid = document.createElement("div");
+    grid.className = "cards-grid";
+    groups[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "nevermiss" })));
+    group.appendChild(grid);
+    timeline.appendChild(group);
+  });
+
+  appendTodayAnchor();
+  if (!events.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.style.padding = "24px 12px";
+    empty.textContent = "No Top Storyline or Worth Checking Out events in the seven days around Today.";
+    timeline.appendChild(empty);
+  }
+
+  container.appendChild(timeline);
+  scheduleInitialNeverMissJump();
+}
+
 function renderNeverMiss(){
   const container = document.getElementById("neverMissView");
   container.innerHTML = "";
 
   const intro = document.createElement("div");
   intro.className = "surface-intro";
-  intro.innerHTML = `<h2>Never Miss</h2><p>The next seven days, filtered by stakes. Defining events lead; worthwhile fixtures stay chronological.</p>`;
+  intro.innerHTML = `<h2>Never Miss</h2><p>Top Storylines and Worth Checking Out in one timeline: the previous seven days above Today, the next seven below.</p>`;
   container.appendChild(intro);
 
-  const { topStorylines, worthCheckingOut, aroundTheCorner } = neverMissBuckets();
-
-  renderRecommendationRail(
-    container,
-    APP_CONTRACT.rails.topStorylines,
-    topStorylines,
-    "No 4/5-or-higher events in the next seven days."
-  );
-  renderRecommendationRail(
-    container,
-    APP_CONTRACT.rails.worthCheckingOut,
-    worthCheckingOut,
-    "No 3/5 events in the next seven days."
-  );
+  const { aroundTheCorner } = neverMissBuckets();
+  renderNeverMissTimeline(container, neverMissTimelineEvents());
   renderRecommendationRail(
     container,
     APP_CONTRACT.rails.aroundTheCorner,
@@ -3460,6 +3533,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.classList.add("active");
     activeTab = btn.dataset.tab;
     if (activeTab === "calendar") calendarInitialJumpPending = true;
+    if (activeTab === "nevermiss") neverMissInitialJumpPending = true;
     renderAll();
   });
 });
@@ -3475,15 +3549,16 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 });
 
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
-  calendarInitialJumpPending = false;
-  if (activeView !== "list"){
+  if (activeTab === "calendar") calendarInitialJumpPending = false;
+  if (activeTab === "nevermiss") neverMissInitialJumpPending = false;
+  if (activeTab === "calendar" && activeView !== "list"){
     activeView = "list";
     document.querySelectorAll(".view-toggle button").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.view === "list");
     });
     renderAll();
   }
-  window.requestAnimationFrame(() => scrollCalendarToToday({ behavior: "smooth" }));
+  window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "smooth" }));
 });
 
 function renderCurrentSection(){
@@ -3502,8 +3577,9 @@ function renderTabCounts(){
   const eligible = getPreferenceMatchedEvents();
   const active = eligible.filter(ev => !getEventAction(ev).archived);
   const neverMiss = neverMissBuckets();
+  const neverMissTimeline = neverMissTimelineEvents();
   document.getElementById("calendarTabCount").textContent = active.length;
-  document.getElementById("neverMissTabCount").textContent = neverMiss.topStorylines.length + neverMiss.worthCheckingOut.length + neverMiss.aroundTheCorner.length;
+  document.getElementById("neverMissTabCount").textContent = neverMissTimeline.length + neverMiss.aroundTheCorner.length;
   document.getElementById("watchLaterTabCount").textContent = watchLaterEvents().length;
   document.getElementById("archivedTabCount").textContent = archivedEvents().length;
 }
@@ -3522,10 +3598,11 @@ function renderAll(){
   [listView, monthView, neverMissView, watchLaterView, archivedView].forEach(view => {
     view.style.display = "none";
   });
+  jumpTodayBtn.hidden = activeTab !== "calendar" && activeTab !== "nevermiss";
+  jumpTodayBtn.setAttribute("aria-label", activeTab === "nevermiss" ? "Jump to today in Never Miss" : "Jump to today in the calendar");
 
   if (activeTab === "calendar"){
     calControls.style.display = "flex";
-    jumpTodayBtn.hidden = false;
     if (activeView === "list"){
       listView.style.display = "block";
       renderListView();
@@ -3535,7 +3612,6 @@ function renderAll(){
     }
   } else {
     calControls.style.display = "none";
-    jumpTodayBtn.hidden = true;
     const viewByTab = {
       nevermiss: neverMissView,
       watchlater: watchLaterView,

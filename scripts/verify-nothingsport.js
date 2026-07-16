@@ -18,6 +18,9 @@ assert(html.includes("id=\"globalSpoilerSwitch\""), "Settings must expose a glob
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
+assert(html.includes('anchor.id = "neverMissTodayAnchor"'), "Never Miss must render a Today timeline anchor");
+assert(html.includes("scheduleInitialNeverMissJump()"), "Never Miss must default the viewport to Today");
+assert(html.includes('activeTab !== "calendar" && activeTab !== "nevermiss"'), "Jump to Today must remain available on Calendar and Never Miss");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
@@ -93,6 +96,7 @@ globalThis.__test = {
   getEventAction,
   getEventSpoilerState,
   neverMissBuckets,
+  neverMissTimelineEvents,
   updateEventAction,
   isSpoilerVisible,
   markSpoilerRevealed,
@@ -154,6 +158,9 @@ function event(id, days, stakes){
 }
 
 const phaseOneEvents = [
+  event("recent-top", -6, 5),
+  event("recent-worth", -2, 3),
+  event("expired-top", -8, 5),
   event("top-week", 2, 4),
   event("worth-week", 3, 3),
   event("around", 10, 5),
@@ -169,6 +176,9 @@ const buckets = app.neverMissBuckets();
 assert.deepEqual(Array.from(buckets.topStorylines, ev => ev.id), ["top-week"]);
 assert.deepEqual(Array.from(buckets.worthCheckingOut, ev => ev.id), ["worth-week"]);
 assert.deepEqual(Array.from(buckets.aroundTheCorner, ev => ev.id), ["around", "horizon-exception"]);
+const neverMissTimeline = app.neverMissTimelineEvents();
+assert.deepEqual(Array.from(neverMissTimeline, ev => ev.id), ["recent-top", "recent-worth", "top-week", "worth-week"], "Never Miss must combine Top Storylines and Worth Checking Out across the seven days around Today");
+assert(!neverMissTimeline.some(ev => ev.id === "expired-top"), "Never Miss must exclude events more than seven days in the past");
 assert(!app.getFilteredEvents().some(ev => ev.id === "below-floor"), "events below stakes 3/5 must be excluded");
 
 const exportedTopOnly = app.selectedNeverMissExportEvents({
