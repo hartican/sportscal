@@ -1,7 +1,7 @@
 {
-  "version": "population-feed-2026-07-16-preserved",
+  "version": "nothingsport-phase3-2026-07-16",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-16T09:00:00+10:00",
+  "publishedAt": "2026-07-16T21:00:00+10:00",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -58,7 +58,7 @@
         "lastEventDate": "2026-07-12"
       },
       "fifa": {
-        "count": 7,
+        "count": 9,
         "firstEventDate": "2026-07-04",
         "lastEventDate": "2026-07-20"
       },

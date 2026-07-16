@@ -85,6 +85,9 @@ globalThis.__test = {
   sortUpcomingFirst,
 };`;
 vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
+const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
+assert(icsSource, "calendar export functions must be present");
+vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
 
 assert.equal(app.SCORE_BANDS.minimumStakes, 3, "global feed floor must be stakes 3/5");
@@ -145,7 +148,24 @@ const exportedWorthAndAround = app.selectedNeverMissExportEvents({
   worthCheckingOut: true,
   aroundTheCorner: true,
 });
-assert.deepEqual(Array.from(exportedWorthAndAround, ev => ev.id), ["worth-week", "around"], "multi-section export must preserve section order");
+assert.deepEqual(Array.from(exportedWorthAndAround, ev => ev.id), ["worth-week", "around"], "multi-section export must remain chronological");
+const globallyChronologicalExport = app.selectedNeverMissExportEvents(
+  { topStorylines: true, worthCheckingOut: true, aroundTheCorner: false },
+  {
+    topStorylines: [event("late-top", 5, 5)],
+    worthCheckingOut: [event("early-worth", 1, 3)],
+    aroundTheCorner: [],
+  }
+);
+assert.deepEqual(Array.from(globallyChronologicalExport, ev => ev.id), ["early-worth", "late-top"], "selected export events must be globally chronological");
+const selectedIcs = app.generateICS(exportedWorthAndAround);
+assert.equal((selectedIcs.match(/BEGIN:VEVENT/g) || []).length, 2, "calendar file must contain only the selected events");
+assert.match(selectedIcs, /^BEGIN:VCALENDAR/);
+assert.match(selectedIcs, /TZID:Australia\/Sydney/);
+assert.match(selectedIcs, /END:VCALENDAR$/);
+assert.match(selectedIcs, /UID:worth-week@sportscal/);
+assert.match(selectedIcs, /UID:around@sportscal/);
+assert.doesNotMatch(selectedIcs, /UID:top-week@sportscal/);
 
 const archived = phaseOneEvents[0];
 app.updateEventAction(archived, { archived: true });

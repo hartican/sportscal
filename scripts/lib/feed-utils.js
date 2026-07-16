@@ -128,6 +128,23 @@ function validateFeed(feed) {
     if (!/^(https?|calendar):\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) or calendar URL.`);
     if (!isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
     if (event.sourceType !== undefined && !SOURCE_TYPES.has(event.sourceType)) errors.push(`${prefix}.sourceType is unsupported.`);
+    if (event.spoilerSafeTitle !== undefined && (!String(event.spoilerSafeTitle).trim() || String(event.spoilerSafeTitle).length > 80)) {
+      errors.push(`${prefix}.spoilerSafeTitle must be 1-80 characters if present.`);
+    }
+    if (event.matchupParticipants !== undefined) {
+      if (!Array.isArray(event.matchupParticipants) || event.matchupParticipants.length !== 2) {
+        errors.push(`${prefix}.matchupParticipants must contain exactly two participants.`);
+      } else {
+        event.matchupParticipants.forEach((participant, participantIndex) => {
+          if (!participant || typeof participant !== "object" || !String(participant.name || "").trim()) {
+            errors.push(`${prefix}.matchupParticipants[${participantIndex}].name is required.`);
+          }
+          if (!String(participant?.sourceEventId || "").trim()) {
+            errors.push(`${prefix}.matchupParticipants[${participantIndex}].sourceEventId is required.`);
+          }
+        });
+      }
+    }
     if (event.customClassification !== undefined) {
       const classification = event.customClassification;
       if (!classification || typeof classification !== "object" || Array.isArray(classification)) {
@@ -160,6 +177,14 @@ function validateFeed(feed) {
     if (eventIds.has(event.eventId)) errors.push(`${prefix}.eventId duplicates ${event.eventId}.`);
     ids.add(event.id);
     eventIds.add(event.eventId);
+  });
+
+  (feed.events || []).forEach((event, index) => {
+    (event.matchupParticipants || []).forEach((participant, participantIndex) => {
+      if (participant?.sourceEventId && !eventIds.has(participant.sourceEventId)) {
+        errors.push(`events[${index}].matchupParticipants[${participantIndex}].sourceEventId does not exist: ${participant.sourceEventId}`);
+      }
+    });
   });
 
   return errors;

@@ -3285,7 +3285,7 @@ function selectedNeverMissExportEvents(selection, sections = getNeverMissExportS
       selected.push(ev);
     });
   });
-  return selected;
+  return selected.sort((first, second) => eventDateTime(first) - eventDateTime(second));
 }
 
 function formatFeedbackTimestamp(date = new Date()){
