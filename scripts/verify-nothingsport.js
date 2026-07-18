@@ -12,7 +12,8 @@ assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app scr
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the nothingSports contract");
 assert(html.includes("<title>nothingSports</title>"), "the document title must use the nothingSports brand");
-assert(html.includes("nothing sport of expectations."), "the requested nothingSports slogan must be present");
+assert(html.includes("nothingSports is your smart sports streaming filter"), "the requested nothingSports slogan must be present");
+assert(html.includes("clean, <strong>journalistic</strong> feed"), "the requested journalistic positioning must be present");
 assert(html.includes('class="brand-colosseum"'), "the wordmark must include an outline colosseum glyph");
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Watch Later");
