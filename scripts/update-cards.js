@@ -11,6 +11,8 @@ const steps = [
   ["scripts/qa-storyline-spoilers.js", "data/events.json"],
   ["scripts/validate-feed.js", "feeds/incoming/events.json"],
   ["scripts/validate-feed.js", "data/events.json"],
+  ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
+  ["scripts/verify-result-completeness.js", "data/events.json"],
 ];
 
 for (const args of steps) {

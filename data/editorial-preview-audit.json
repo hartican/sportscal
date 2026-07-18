@@ -1,29 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-07-18T23:15:37.274Z",
+  "generatedAt": "2026-07-18T23:42:29.651Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 9,
-    "passed": 9,
+    "due": 8,
+    "passed": 8,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "fifa-third-place-2026",
-      "name": "World Cup Third-Place Playoff",
-      "sport": "Football",
-      "date": "2026-07-19",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "tournament-path",
-        "golden-boot",
-        "historical-stakes"
-      ],
-      "sourceUrl": "https://www.fifa.com/en/articles/france-v-england-live-stream-team-news-tickets-and-more",
-      "issues": []
-    },
     {
       "id": "evt_60",
       "name": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)",

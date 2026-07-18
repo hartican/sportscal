@@ -75,7 +75,8 @@ assert.match(semifinalTwo.recapText, /Fernandez.+Martinez/i, "England v Argentin
 assert.equal(semifinalTwo.sourceType, "reputable", "the consensus result must not be mislabelled as an official FIFA update");
 assert.deepEqual(fifaCards.find(event => event.id === "fifa-third-place-2026").matchupParticipants.map(participant => participant.name), ["France", "England"], "the third-place card must carry the resolved contestants");
 assert.deepEqual(fifaCards.find(event => event.id === "fifa-final-2026").matchupParticipants.map(participant => participant.name), ["Spain", "Argentina"], "the final card must carry the resolved contestants");
-assert.match(fifaCards.find(event => event.id === "fifa-third-place-2026").selectedSentence, /Golden Boot/i, "the third-place preview must carry current tournament context");
+const thirdPlace = fifaCards.find(event => event.id === "fifa-third-place-2026");
+assert(thirdPlace.status === "completed" ? /6-4|finished third/i.test(`${thirdPlace.selectedSentence} ${thirdPlace.outcomeText}`) : /Golden Boot/i.test(thirdPlace.selectedSentence), "the third-place card must carry current context or its verified result");
 assert.match(fifaCards.find(event => event.id === "fifa-final-2026").selectedSentence, /best attack.+best defence/i, "the final preview must carry a specific tactical angle");
 
 const belgianGrandPrix = publishedFeed.events.find(event => event.id === "evt_21");
