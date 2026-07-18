@@ -122,6 +122,52 @@
           "type": "string",
           "minLength": 2
         },
+        "status": {
+          "enum": ["upcoming", "completed"]
+        },
+        "participants": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+              "role": { "enum": ["home", "away", "team"] }
+            }
+          }
+        },
+        "consensusResult": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "winner": { "type": "string", "minLength": 2, "maxLength": 100 },
+            "loser": { "type": "string", "minLength": 2, "maxLength": 100 },
+            "summary": { "type": "string", "minLength": 2, "maxLength": 240 },
+            "marginText": { "type": "string", "minLength": 2, "maxLength": 80 }
+          }
+        },
+        "storyline": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "stakes": { "type": "integer", "minimum": 1, "maximum": 5 },
+            "intensity": { "type": "integer", "minimum": 1, "maximum": 5 },
+            "archetype": { "type": "string", "minLength": 2, "maxLength": 80 },
+            "arcStage": { "enum": ["preview", "recap"] },
+            "hookSpoilerOff": { "type": "string", "minLength": 4, "maxLength": 180 },
+            "hookSpoilerOn": { "type": "string", "minLength": 4, "maxLength": 180 },
+            "synopsisSpoilerOff": { "type": "string", "minLength": 20, "maxLength": 700 },
+            "synopsisSpoilerOn": { "type": "string", "minLength": 20, "maxLength": 700 },
+            "expectedSpectacle": { "type": "number", "minimum": 1, "maximum": 10 },
+            "actualSpectacle": { "type": "number", "minimum": 1, "maximum": 10 }
+          }
+        },
+        "lastReviewedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
         "selectedSentence": {
           "type": "string",
           "minLength": 20,

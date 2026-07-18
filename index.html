@@ -2342,6 +2342,8 @@ function inferRound(name){
 }
 
 function stakesScoreForEvent(ev){
+  const storylineStakes = Number(ev.storyline?.stakes);
+  if (Number.isInteger(storylineStakes) && storylineStakes >= 1 && storylineStakes <= 5) return storylineStakes;
   if (ev.expected >= 10) return 5;
   if (ev.expected >= 8) return 4;
   if (ev.expected >= 6) return 3;
@@ -2697,7 +2699,38 @@ function isSpoilerPolicySpiel(copy){
   return /^(?:This .+ match is retained with|The Sydney-local start is taken|Wimbledon publishes the court session)/i.test(String(copy || ""));
 }
 
+function storylineCopyForDisplay(ev){
+  const storyline = ev.storyline || {};
+  const status = getEventStatus(ev);
+  const completed = ev.status === "completed" || status === "past";
+  if (!completed){
+    return {
+      hook: storyline.hookSpoilerOff || storyline.hookSpoilerOn || ev.selectedSentence || "",
+      synopsis: storyline.synopsisSpoilerOff || storyline.synopsisSpoilerOn || ev.fullSpiel || ev.selectedSentence || "",
+    };
+  }
+
+  if (isSpoilerVisible(ev)){
+    return {
+      hook: storyline.hookSpoilerOn || ev.outcomeText || ev.selectedSentence || "",
+      synopsis: storyline.synopsisSpoilerOn || ev.recapText || ev.fullSpiel || ev.selectedSentence || "",
+    };
+  }
+
+  const safeTitle = ev.displayTitleCompact || ev.name || "This event";
+  return {
+    hook: storyline.hookSpoilerOff || `${safeTitle} is complete, with the result protected until you choose to reveal it.`,
+    synopsis: storyline.synopsisSpoilerOff || `${safeTitle} is complete. The key moments and result are ready when you are, without giving anything away here.`,
+  };
+}
+
+function selectedSentenceForDisplay(ev){
+  return storylineCopyForDisplay(ev).hook;
+}
+
 function eventSpielForDisplay(ev){
+  const storylineCopy = storylineCopyForDisplay(ev);
+  if (storylineCopy.synopsis) return storylineCopy.synopsis;
   const fullSpiel = ev.fullSpiel || "";
   const recap = spoilerFactsForEvent(ev).recap;
   if (isSpoilerVisible(ev) && ["past", "live"].includes(getEventStatus(ev)) && recap && (!fullSpiel || isSpoilerPolicySpiel(fullSpiel))){
@@ -3436,47 +3469,48 @@ function buildEventCard(ev, options = {}){
 
   mainDiv.appendChild(ratingRow);
 
-  if (state === "selected" && spoilerProtected){
-    const spoilerPanel = document.createElement("div");
-    spoilerPanel.className = "spoiler-panel";
-    spoilerPanel.innerHTML = `
-      <strong>Spoiler details hidden</strong>
-      <p>Scores, outcomes, recap copy, thumbnails, ratings, and result labels are protected. Event actions remain available.</p>
-    `;
-    mainDiv.appendChild(spoilerPanel);
-    mainDiv.appendChild(buildSpoilerOverrideControl(ev));
-    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
-  } else if (state === "selected"){
+  if (state === "selected"){
     const selected = document.createElement("div");
     selected.className = "event-selected-copy";
-    selected.textContent = ev.selectedSentence;
+    selected.textContent = selectedSentenceForDisplay(ev);
     mainDiv.appendChild(selected);
+    if (spoilerProtected){
+      const spoilerPanel = document.createElement("div");
+      spoilerPanel.className = "spoiler-panel";
+      spoilerPanel.innerHTML = `
+        <strong>Spoiler details hidden</strong>
+        <p>The spoiler-safe recap is shown above. Scores, outcomes, and full result details stay protected.</p>
+      `;
+      mainDiv.appendChild(spoilerPanel);
+    }
     const spoilerControl = buildSpoilerOverrideControl(ev);
     if (spoilerControl) mainDiv.appendChild(spoilerControl);
     mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
   }
 
-  if (state === "opened" && spoilerProtected){
-    const spoilerPanel = document.createElement("div");
-    spoilerPanel.className = "spoiler-panel";
-    spoilerPanel.innerHTML = `
-      <strong>Spoiler details hidden</strong>
-      <p>This ${status} event follows your spoiler settings. Reveal it only when you are ready to see result-sensitive detail.</p>
-    `;
-    mainDiv.appendChild(spoilerPanel);
-    mainDiv.appendChild(buildSpoilerOverrideControl(ev));
-    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
-  } else if (state === "opened"){
+  if (state === "opened"){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
     spiel.textContent = eventSpielForDisplay(ev);
     mainDiv.appendChild(spiel);
 
-    const spoilerFacts = buildSpoilerFacts(ev);
-    if (spoilerFacts) mainDiv.appendChild(spoilerFacts);
+    if (spoilerProtected){
+      const spoilerPanel = document.createElement("div");
+      spoilerPanel.className = "spoiler-panel";
+      spoilerPanel.innerHTML = `
+        <strong>Spoiler details hidden</strong>
+        <p>This ${status} event has a spoiler-safe recap above. Reveal it only when you are ready for the result-aware version.</p>
+      `;
+      mainDiv.appendChild(spoilerPanel);
+      mainDiv.appendChild(buildSpoilerOverrideControl(ev));
+      mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
+    } else {
+      const spoilerFacts = buildSpoilerFacts(ev);
+      if (spoilerFacts) mainDiv.appendChild(spoilerFacts);
 
-    const retrospectivePrompt = buildRetrospectivePrompt(ev);
-    if (retrospectivePrompt) mainDiv.appendChild(retrospectivePrompt);
+      const retrospectivePrompt = buildRetrospectivePrompt(ev);
+      if (retrospectivePrompt) mainDiv.appendChild(retrospectivePrompt);
+    }
 
     const details = document.createElement("div");
     details.className = "event-detail-grid";

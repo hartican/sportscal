@@ -128,6 +128,31 @@ function validateFeed(feed) {
     if (!/^(https?|calendar):\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) or calendar URL.`);
     if (!isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
     if (event.sourceType !== undefined && !SOURCE_TYPES.has(event.sourceType)) errors.push(`${prefix}.sourceType is unsupported.`);
+    if (event.status !== undefined && !["upcoming", "completed"].includes(event.status)) errors.push(`${prefix}.status must be upcoming or completed.`);
+    if (event.lastReviewedAt !== undefined && !isDateTime(event.lastReviewedAt)) errors.push(`${prefix}.lastReviewedAt must be an ISO date-time string.`);
+    if (event.participants !== undefined && (!Array.isArray(event.participants) || event.participants.length < 2 || event.participants.some(participant => !participant || !String(participant.name || "").trim()))) {
+      errors.push(`${prefix}.participants must contain at least two named participants if present.`);
+    }
+    if (event.consensusResult !== undefined && (!event.consensusResult || typeof event.consensusResult !== "object" || Array.isArray(event.consensusResult))) {
+      errors.push(`${prefix}.consensusResult must be an object if present.`);
+    }
+    if (event.storyline !== undefined) {
+      const storyline = event.storyline;
+      if (!storyline || typeof storyline !== "object" || Array.isArray(storyline)) {
+        errors.push(`${prefix}.storyline must be an object if present.`);
+      } else {
+        ["stakes", "intensity"].forEach(field => {
+          if (storyline[field] !== undefined && (!Number.isInteger(storyline[field]) || storyline[field] < 1 || storyline[field] > 5)) errors.push(`${prefix}.storyline.${field} must be an integer from 1 to 5.`);
+        });
+        ["expectedSpectacle", "actualSpectacle"].forEach(field => {
+          if (storyline[field] !== undefined && (!Number.isFinite(Number(storyline[field])) || storyline[field] < 1 || storyline[field] > 10)) errors.push(`${prefix}.storyline.${field} must be a number from 1 to 10.`);
+        });
+        if (storyline.arcStage !== undefined && !["preview", "recap"].includes(storyline.arcStage)) errors.push(`${prefix}.storyline.arcStage must be preview or recap.`);
+        ["hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn"].forEach(field => {
+          if (storyline[field] !== undefined && (!String(storyline[field]).trim() || String(storyline[field]).length > 700)) errors.push(`${prefix}.storyline.${field} must be a non-empty string of 700 characters or fewer.`);
+        });
+      }
+    }
     if (event.spoilerSafeTitle !== undefined && (!String(event.spoilerSafeTitle).trim() || String(event.spoilerSafeTitle).length > 80)) {
       errors.push(`${prefix}.spoilerSafeTitle must be 1-80 characters if present.`);
     }
