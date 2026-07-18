@@ -84,6 +84,12 @@ assert.match(belgianGrandPrix.selectedSentence, /Antonelli.+Norris/i, "the Belgi
 const editorialAudit = JSON.parse(fs.readFileSync("data/editorial-preview-audit.json", "utf8"));
 assert.equal(editorialAudit.summary.failed, 0, "every high-stakes card inside the editorial window must pass journalistic preview QA");
 
+const wallabiesItaly = publishedFeed.events.find(event => event.id === "rugby-australia-italy-2026-07-18");
+assert.equal(wallabiesItaly.status, "completed", "Wallabies v Italy must be converted from preview to result");
+assert.equal(wallabiesItaly.score, "Australia 57-10 Italy", "Wallabies v Italy must carry the official final score");
+assert.match(wallabiesItaly.storyline.hookSpoilerOn, /57.10/i, "the revealed Wallabies result must include the final score");
+assert.doesNotMatch(wallabiesItaly.storyline.hookSpoilerOff, /57.10|Australia beat/i, "the protected Wallabies result must not leak the outcome");
+
 const wimbledonCards = publishedFeed.events.filter(event => event.key === "wimbledon");
 assert.equal(wimbledonCards.length, 32, "Wimbledon must contain the two retained R3 matches plus all 30 singles matches from R4 onward");
 assert.equal(wimbledonCards.filter(event => event.id.startsWith("wimbledon-r4-")).length, 16, "all 16 fourth-round singles matches must be present");

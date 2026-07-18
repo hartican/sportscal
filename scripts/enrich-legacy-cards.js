@@ -101,6 +101,16 @@ const resultOverrides = {
     recapText: "Australia carried a lead into the interval, but France's pace and depth changed the match after halftime. The visitors shut the Wallabies out for the decisive stretch and pulled clear by 16.",
     resultLabels: ["Nations Championship", "France by 16"],
   },
+  "rugby-australia-italy-2026-07-18": {
+    sourceName: "Official Rugby Australia Wallabies v Italy match centre",
+    sourceUrl: "https://www.rugby.com.au/match-centre/114/2026/949577",
+    sourceCheckedAt: "2026-07-18T23:03:26+10:00",
+    sourceType: "official",
+    score: "Australia 57-10 Italy",
+    outcomeText: "Australia beat Italy 57-10 in Perth to end Joe Schmidt's Wallabies tenure with a win.",
+    recapText: "Australia finished its July Nations Championship home run with a 47-point victory at HBF Park, scoring 57 points and holding Italy to 10 in Joe Schmidt's final Test in charge.",
+    resultLabels: ["Nations Championship", "Australia by 47", "Schmidt farewell"],
+  },
   evt_18: {
     sourceName: "Official Formula 1 British GP qualifying results",
     sourceUrl: "https://www.formula1.com/en/results/2026/races/1289/united-kingdom/qualifying",
@@ -207,7 +217,9 @@ function enrichEvent(event){
       ...event,
       ...result,
       ...resultCopy(event, result),
-      sourceCheckedAt: SOURCE_CHECKED_AT,
+      sourceCheckedAt: result.sourceCheckedAt || SOURCE_CHECKED_AT,
+      status: "completed",
+      editorialPreview: undefined,
       round: event.round || "all",
       narrativeType: "post-match",
     };

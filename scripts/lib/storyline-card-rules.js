@@ -23,14 +23,6 @@ const MANUAL_STORYLINE_OVERRIDES = {
   },
   "rugby-australia-italy-2026-07-18": {
     stakes: 4,
-    intensity: 4,
-    archetype: "reset under pressure",
-    arcStage: "preview",
-    hookSpoilerOff: "A reset opportunity in Perth, with pressure and transition hanging over the Wallabies.",
-    hookSpoilerOn: "A reset opportunity in Perth, with pressure and transition hanging over the Wallabies.",
-    synopsisSpoilerOff: "Carlo Tizzano starts in his hometown as Australia reshapes its XV after two losses. With Joe Schmidt's final Test in charge and an injury-hit Italy arriving, the Wallabies need their accuracy to hold for 80 minutes.",
-    synopsisSpoilerOn: "Carlo Tizzano starts in his hometown as Australia reshapes its XV after two losses. With Joe Schmidt's final Test in charge and an injury-hit Italy arriving, the Wallabies need their accuracy to hold for 80 minutes.",
-    expectedSpectacle: 8,
   },
 };
 

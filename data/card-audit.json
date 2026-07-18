@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-07-18T12:27:48.514Z",
+  "generatedAt": "2026-07-18T13:10:38.588Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 122,
-    "completed": 68,
-    "upcoming": 54,
+    "completed": 69,
+    "upcoming": 53,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1130,7 +1130,7 @@
       "name": "Wallabies v Italy",
       "sport": "Rugby Union",
       "date": "2026-07-18",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

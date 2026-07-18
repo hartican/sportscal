@@ -25,6 +25,7 @@ inputs.forEach(input => {
     const override = overrides.events[event.id] || overrides.events[event.eventId];
     if (override) {
       foundIds.add(event.id);
+      if (lifecycleFor(event) === "completed") return event;
       applied += 1;
       return { ...event, ...override };
     }

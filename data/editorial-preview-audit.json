@@ -1,11 +1,11 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-07-18T12:27:48.427Z",
+  "generatedAt": "2026-07-18T13:10:38.496Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 12,
-    "passed": 12,
+    "due": 11,
+    "passed": 11,
     "failed": 0
   },
   "cards": [
@@ -22,21 +22,6 @@
         "recent-form"
       ],
       "sourceUrl": "https://www.afl.com.au/afl/matches/8199",
-      "issues": []
-    },
-    {
-      "id": "rugby-australia-italy-2026-07-18",
-      "name": "Wallabies v Italy",
-      "sport": "Rugby Union",
-      "date": "2026-07-18",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "team-selection",
-        "recent-form",
-        "coaching-transition"
-      ],
-      "sourceUrl": "https://wallabies.rugby/news/wallabies-team-confirmed-to-play-italy-in-perth-2026716",
       "issues": []
     },
     {
