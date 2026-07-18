@@ -75,6 +75,14 @@ assert.match(semifinalTwo.recapText, /Fernandez.+Martinez/i, "England v Argentin
 assert.equal(semifinalTwo.sourceType, "reputable", "the consensus result must not be mislabelled as an official FIFA update");
 assert.deepEqual(fifaCards.find(event => event.id === "fifa-third-place-2026").matchupParticipants.map(participant => participant.name), ["France", "England"], "the third-place card must carry the resolved contestants");
 assert.deepEqual(fifaCards.find(event => event.id === "fifa-final-2026").matchupParticipants.map(participant => participant.name), ["Spain", "Argentina"], "the final card must carry the resolved contestants");
+assert.match(fifaCards.find(event => event.id === "fifa-third-place-2026").selectedSentence, /Golden Boot/i, "the third-place preview must carry current tournament context");
+assert.match(fifaCards.find(event => event.id === "fifa-final-2026").selectedSentence, /best attack.+best defence/i, "the final preview must carry a specific tactical angle");
+
+const belgianGrandPrix = publishedFeed.events.find(event => event.id === "evt_21");
+assert.equal(`${belgianGrandPrix.date} ${belgianGrandPrix.time}`, "2026-07-19 23:00", "the Belgian Grand Prix must use the official Sydney start time");
+assert.match(belgianGrandPrix.selectedSentence, /Antonelli.+Norris/i, "the Belgian Grand Prix preview must carry current championship and grid context");
+const editorialAudit = JSON.parse(fs.readFileSync("data/editorial-preview-audit.json", "utf8"));
+assert.equal(editorialAudit.summary.failed, 0, "every high-stakes card inside the editorial window must pass journalistic preview QA");
 
 const wimbledonCards = publishedFeed.events.filter(event => event.key === "wimbledon");
 assert.equal(wimbledonCards.length, 32, "Wimbledon must contain the two retained R3 matches plus all 30 singles matches from R4 onward");

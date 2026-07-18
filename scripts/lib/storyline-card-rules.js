@@ -2,6 +2,13 @@ const RESULT_LEAK = /\b(?:won|lost|beat|defeated|winner|loser|score|margin|\d{1,
 const PREVIEW_LEAK = /\b(?:won|lost|beat|defeated|completed|final score)\b/i;
 const PREVIEW_TENSE = /\b(?:will|awaits|host|upcoming)\b/i;
 const MANUAL_STORYLINE_OVERRIDES = {
+  "fifa-third-place-2026": {
+    stakes: 4,
+    intensity: 4,
+    archetype: "podium decider",
+    arcStage: "preview",
+    expectedSpectacle: 6,
+  },
   "nrl-raiders-rabbitohs-2026-07-18": {
     stakes: 4,
     intensity: 4,

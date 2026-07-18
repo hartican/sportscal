@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "sportscal.editorial-preview-audit.v1",
+  "generatedAt": "2026-07-18T12:27:48.427Z",
+  "editorialWindowDays": 10,
+  "sourceFeed": "/data/events.json",
+  "summary": {
+    "due": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "cards": [
+    {
+      "id": "afl-collingwood-carlton-2026-07-18",
+      "name": "Collingwood v Carlton",
+      "sport": "AFL",
+      "date": "2026-07-18",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "team-selection",
+        "injury",
+        "recent-form"
+      ],
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8199",
+      "issues": []
+    },
+    {
+      "id": "rugby-australia-italy-2026-07-18",
+      "name": "Wallabies v Italy",
+      "sport": "Rugby Union",
+      "date": "2026-07-18",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "team-selection",
+        "recent-form",
+        "coaching-transition"
+      ],
+      "sourceUrl": "https://wallabies.rugby/news/wallabies-team-confirmed-to-play-italy-in-perth-2026716",
+      "issues": []
+    },
+    {
+      "id": "evt_59",
+      "name": "Stage 14 — Mulhouse → Le Markstein (Mountain)",
+      "sport": "Cycling",
+      "date": "2026-07-18",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "course-profile",
+        "general-classification",
+        "tactical-position"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-14/mulhouse-le-markstein-1/1332949",
+      "issues": []
+    },
+    {
+      "id": "fifa-third-place-2026",
+      "name": "World Cup Third-Place Playoff",
+      "sport": "Football",
+      "date": "2026-07-19",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "tournament-path",
+        "golden-boot",
+        "historical-stakes"
+      ],
+      "sourceUrl": "https://www.fifa.com/en/articles/france-v-england-live-stream-team-news-tickets-and-more",
+      "issues": []
+    },
+    {
+      "id": "evt_60",
+      "name": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)",
+      "sport": "Cycling",
+      "date": "2026-07-19",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "course-profile",
+        "general-classification",
+        "climbing-gradient"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-15/champagnole-plateau-de-solaison-1/1332950",
+      "issues": []
+    },
+    {
+      "id": "evt_21",
+      "name": "R10 Belgian GP Race",
+      "sport": "F1",
+      "date": "2026-07-19",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "championship-standings",
+        "practice-form",
+        "grid-penalty",
+        "reliability"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-belgium-2026.MRyGOUCXkm6zQru7JvoUG",
+      "issues": []
+    },
+    {
+      "id": "fifa-final-2026",
+      "name": "FIFA World Cup Final",
+      "sport": "Football",
+      "date": "2026-07-20",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "tournament-form",
+        "tactical-matchup",
+        "title-history"
+      ],
+      "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-v-argentina-live-stream-team-news-tickets-and-more",
+      "issues": []
+    },
+    {
+      "id": "evt_61",
+      "name": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT)",
+      "sport": "Cycling",
+      "date": "2026-07-21",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "course-profile",
+        "general-classification",
+        "pacing"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-16/evian-les-bains-thonon-les-bains-c-l-m-individuel-1/1332951",
+      "issues": []
+    },
+    {
+      "id": "evt_63",
+      "name": "Stage 18 — Voiron → Orcières-Merlette (Mountain)",
+      "sport": "Cycling",
+      "date": "2026-07-23",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "summit-finish",
+        "breakaway",
+        "general-classification"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-18/voiron-orcieres-merlette-1/1332954",
+      "issues": []
+    },
+    {
+      "id": "evt_64",
+      "name": "Stage 19 — Gap → Alpe d'Huez (Mountain)",
+      "sport": "Cycling",
+      "date": "2026-07-24",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "course-profile",
+        "tactical-position",
+        "summit-finish"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-19/gap-alpe-dhuez-1/1332955",
+      "issues": []
+    },
+    {
+      "id": "evt_65",
+      "name": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain)",
+      "sport": "Cycling",
+      "date": "2026-07-25",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "course-profile",
+        "fatigue",
+        "general-classification"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-20/le-bourg-doisans-alpe-dhuez/1332956",
+      "issues": []
+    },
+    {
+      "id": "evt_66",
+      "name": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial)",
+      "sport": "Cycling",
+      "date": "2026-07-27",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "course-profile",
+        "tactical-matchup",
+        "sprint-finish"
+      ],
+      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-21/thoiry-paris-champs-elysees-1/1332958",
+      "issues": []
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 const path = require("path");
 const { readJson, writeJson } = require("./lib/feed-utils");
 const { RESULT_LEAK, PREVIEW_LEAK, PREVIEW_TENSE, wordCount, lifecycleFor, stakesFor, isMajorCard } = require("./lib/storyline-card-rules");
+const { editorialPreviewIssues } = require("./lib/editorial-preview-quality");
 
 const inputPath = process.argv[2] || "data/events.json";
 const outputPath = process.argv[3] || "data/card-audit.json";
@@ -37,6 +38,7 @@ const cards = feed.events.filter(isMajorCard).map(event => {
   const missingParticipants = matchup && (!Array.isArray(event.participants) || event.participants.length < 2 || event.participants.some(participant => !participant?.name || /^s\s+/i.test(participant.name)));
   const needsPreviewRefresh = status === "upcoming" && (!hasSpoilerOffCopy || !hasSpoilerOnCopy || upcomingResultLeak);
   const needsRecap = status === "completed" && (!hasSpoilerOffCopy || !hasSpoilerOnCopy || previewOnly || identicalSpoilerStates || leaksResult);
+  const editorialIssues = editorialPreviewIssues({ ...event, status }, stakesFor(event), now);
   return {
     id: event.id,
     name: event.name,
@@ -49,7 +51,8 @@ const cards = feed.events.filter(isMajorCard).map(event => {
     hasSpoilerOnCopy,
     needsPreviewRefresh,
     needsRecap,
-    isStale: needsPreviewRefresh || needsRecap || !event.lastReviewedAt || copyLengthOverflow || missingParticipants,
+    needsEditorialRefresh: editorialIssues.length > 0,
+    isStale: needsPreviewRefresh || needsRecap || editorialIssues.length > 0 || !event.lastReviewedAt || copyLengthOverflow || missingParticipants,
     issues: [
       !event.lastReviewedAt && "missing-last-reviewed-at",
       previewOnly && "completed-preview-copy",
@@ -58,6 +61,7 @@ const cards = feed.events.filter(isMajorCard).map(event => {
       upcomingResultLeak && "upcoming-result-language",
       copyLengthOverflow && "copy-length-overflow",
       missingParticipants && "missing-participants",
+      ...editorialIssues,
     ].filter(Boolean),
   };
 });
@@ -69,6 +73,7 @@ const summary = {
   stale: cards.filter(card => card.isStale).length,
   needsRecap: cards.filter(card => card.needsRecap).length,
   needsPreviewRefresh: cards.filter(card => card.needsPreviewRefresh).length,
+  needsEditorialRefresh: cards.filter(card => card.needsEditorialRefresh).length,
 };
 
 writeJson(path.resolve(outputPath), {
@@ -81,6 +86,8 @@ writeJson(path.resolve(outputPath), {
     previewStatesMayMatch: true,
     hookWordLimit: 25,
     synopsisWordLimit: 80,
+    journalisticPreviewWindowDays: 10,
+    minimumContextSignals: 2,
   },
   summary,
   cards,

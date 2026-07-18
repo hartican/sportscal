@@ -14,6 +14,17 @@ Operating rules for AGENT:
 
 ## Import Flow
 
+For the normal end-to-end card refresh, run:
+
+```bash
+cd "/Users/jackhartican/Documents/AI/Perplexity/Sportscal"
+node scripts/update-cards.js
+```
+
+This applies `feeds/editorial-preview-overrides.json` to both feeds, regenerates Storyline fields, queues future high-stakes cards for research, audits editorial quality and spoilers, and validates both JSON feeds. A failed editorial audit is a required research-and-rewrite stop, not a reason to replace the copy with a generic template.
+
+The lower-level import flow remains available when publishing a new additive feed:
+
 ```bash
 cd "/Users/jackhartican/Documents/AI/Perplexity/Sportscal"
 node scripts/validate-feed.js feeds/incoming/events.json
@@ -114,6 +125,22 @@ The July block remains the canonical MVP proving path. Once that flow validates,
 
 ## Card Copy Rules
 
+### Journalistic pre-event requirement
+
+Every upcoming card with `storyline.stakes >= 4` inside the 10-day editorial window must read like current pre-event sports commentary, not deterministic schedule information. This requirement is sport-agnostic and applies to existing and newly added sports.
+
+Before a high-stakes preview can pass:
+
+- research current official competition, governing-body, team or broadcaster reporting
+- identify one clear editorial angle and at least two event-specific context signals, such as recent form, tournament path, team selection, injury, championship standings, session result, grid penalty, course profile, tactical matchup or title history
+- save the final copy and its evidence in `feeds/editorial-preview-overrides.json`
+- set `editorialPreview.status` to `journalistic`, include the angle and `contextSignals`, and record the exact source URL and check time
+- refresh session-dependent copy after its prerequisite, such as Formula 1 qualifying or a preceding Tour stage
+
+Reject copy that could be pasted unchanged onto another fixture. A venue, start time, broadcaster, generic stakes or phrases such as “points and strategy”, “terrain and general-classification impact” and “finals pressure” do not constitute an editorial preview.
+
+High-stakes cards more than 10 days away should carry `editorialPreview.status: "research-required"` and `needsPreviewRefresh: true`. Do not pad them early with speculative prose. `node scripts/update-cards.js` adds this queue state automatically and will fail once a queued card enters the editorial window without a researched override.
+
 `displayTitleCompact`:
 - 80 characters or fewer.
 - Prefer named matchups or stage names: `Norway vs England - Quarterfinal`, `Stage 15 - Plateau de Solaison`.
@@ -123,11 +150,13 @@ The July block remains the canonical MVP proving path. Once that flow validates,
 - 20-180 characters.
 - One sentence only.
 - Explain why a normal user would care.
+- For a high-stakes card in the editorial window, lead with its current tension, not its date, venue or broadcast logistics.
 - Do not reveal results, winners, advancement, or bracket consequences by default.
 
 `fullSpiel`:
 - 80-700 characters.
 - Explain why the event matters, viewing commitment, broadcast path, and replay logic.
+- For a high-stakes card in the editorial window, explain the source-backed form, selection, standings, route or tactical facts that create that tension. Viewing logistics may support the analysis but cannot replace it.
 - Stay spoiler-safe unless the product intentionally creates a protected result card.
 
 Avoid default-card language such as:
@@ -234,6 +263,8 @@ Before returning JSON:
 - Confirm every source URL is real and specific.
 - Confirm no event with `expected < 5` is included.
 - Keep all default copy spoiler-safe.
+- Confirm every high-stakes card inside 10 days has `editorialPreview.status: "journalistic"`, at least two context signals and an exact current source.
+- Run `node scripts/update-cards.js`; do not call the card update complete while its editorial audit fails.
 - Run or ask the implementer to run `node scripts/validate-feed.js feeds/incoming/events.json`.
 
 ## Pass Commands

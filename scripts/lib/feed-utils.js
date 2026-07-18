@@ -153,6 +153,22 @@ function validateFeed(feed) {
         });
       }
     }
+    if (event.editorialPreview !== undefined) {
+      const preview = event.editorialPreview;
+      if (!preview || typeof preview !== "object" || Array.isArray(preview)) {
+        errors.push(`${prefix}.editorialPreview must be an object if present.`);
+      } else {
+        if (!['journalistic', 'research-required'].includes(preview.status)) errors.push(`${prefix}.editorialPreview.status must be journalistic or research-required.`);
+        if (preview.status === 'journalistic') {
+          if (!String(preview.angle || '').trim()) errors.push(`${prefix}.editorialPreview.angle is required for journalistic previews.`);
+          if (!Array.isArray(preview.contextSignals) || preview.contextSignals.filter(Boolean).length < 2) errors.push(`${prefix}.editorialPreview.contextSignals must contain at least two values for journalistic previews.`);
+          if (!String(preview.sourceName || '').trim()) errors.push(`${prefix}.editorialPreview.sourceName is required for journalistic previews.`);
+          if (!/https:\/\//.test(preview.sourceUrl || '')) errors.push(`${prefix}.editorialPreview.sourceUrl must be an https URL for journalistic previews.`);
+          if (!isDateTime(preview.sourceCheckedAt)) errors.push(`${prefix}.editorialPreview.sourceCheckedAt must be an ISO date-time for journalistic previews.`);
+        }
+        if (preview.needsPreviewRefresh !== undefined && typeof preview.needsPreviewRefresh !== 'boolean') errors.push(`${prefix}.editorialPreview.needsPreviewRefresh must be boolean if present.`);
+      }
+    }
     if (event.spoilerSafeTitle !== undefined && (!String(event.spoilerSafeTitle).trim() || String(event.spoilerSafeTitle).length > 80)) {
       errors.push(`${prefix}.spoilerSafeTitle must be 1-80 characters if present.`);
     }

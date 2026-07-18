@@ -1,21 +1,24 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-07-18T09:33:38.053Z",
+  "generatedAt": "2026-07-18T12:27:48.514Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
     "completedSpoilerStatesMustDiffer": true,
     "previewStatesMayMatch": true,
     "hookWordLimit": 25,
-    "synopsisWordLimit": 80
+    "synopsisWordLimit": 80,
+    "journalisticPreviewWindowDays": 10,
+    "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 121,
+    "totalMajorCards": 122,
     "completed": 68,
-    "upcoming": 53,
+    "upcoming": 54,
     "stale": 0,
     "needsRecap": 0,
-    "needsPreviewRefresh": 0
+    "needsPreviewRefresh": 0,
+    "needsEditorialRefresh": 0
   },
   "cards": [
     {
@@ -30,6 +33,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -45,6 +49,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -60,6 +65,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -75,6 +81,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -90,6 +97,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -105,6 +113,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -120,6 +129,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -135,6 +145,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -150,6 +161,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -165,6 +177,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -180,6 +193,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -195,6 +209,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -210,6 +225,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -225,6 +241,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -240,6 +257,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -255,6 +273,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -270,6 +289,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -285,6 +305,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -300,6 +321,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -315,6 +337,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -330,6 +353,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -345,6 +369,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -360,6 +385,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -375,6 +401,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -390,6 +417,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -405,6 +433,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -420,6 +449,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -435,6 +465,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -450,6 +481,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -465,6 +497,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -480,6 +513,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -495,6 +529,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -510,6 +545,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -525,6 +561,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -540,6 +577,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -555,6 +593,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -570,6 +609,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -585,6 +625,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -600,6 +641,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -615,6 +657,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -630,6 +673,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -645,6 +689,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -660,6 +705,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -675,6 +721,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -690,6 +737,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -705,6 +753,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -720,6 +769,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -735,6 +785,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -750,6 +801,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -765,6 +817,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -780,6 +833,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -795,6 +849,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -810,6 +865,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -825,6 +881,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -840,6 +897,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -855,6 +913,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -870,6 +929,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -885,6 +945,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -900,6 +961,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -915,6 +977,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -930,6 +993,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -945,6 +1009,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -960,6 +1025,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -975,6 +1041,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -990,6 +1057,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1005,6 +1073,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1020,6 +1089,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1035,6 +1105,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1050,6 +1121,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1065,6 +1137,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1080,6 +1153,23 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "fifa-third-place-2026",
+      "name": "World Cup Third-Place Playoff",
+      "sport": "Football",
+      "date": "2026-07-19",
+      "status": "upcoming",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1095,6 +1185,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1102,7 +1193,7 @@
       "id": "evt_21",
       "name": "R10 Belgian GP Race",
       "sport": "F1",
-      "date": "2026-07-20",
+      "date": "2026-07-19",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -1110,6 +1201,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1125,6 +1217,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1140,6 +1233,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1155,6 +1249,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1170,6 +1265,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1185,6 +1281,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1200,6 +1297,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1215,6 +1313,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1230,6 +1329,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1245,6 +1345,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1260,6 +1361,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1275,6 +1377,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1290,6 +1393,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1305,6 +1409,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1320,6 +1425,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1335,6 +1441,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1350,6 +1457,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1365,6 +1473,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1380,6 +1489,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1395,6 +1505,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1410,6 +1521,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1425,6 +1537,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1440,6 +1553,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1455,6 +1569,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1470,6 +1585,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1485,6 +1601,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1500,6 +1617,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1515,6 +1633,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1530,6 +1649,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1545,6 +1665,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1560,6 +1681,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1575,6 +1697,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1590,6 +1713,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1605,6 +1729,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1620,6 +1745,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1635,6 +1761,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1650,6 +1777,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1665,6 +1793,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1680,6 +1809,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1695,6 +1825,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1710,6 +1841,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1725,6 +1857,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1740,6 +1873,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1755,6 +1889,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1770,6 +1905,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1785,6 +1921,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1800,6 +1937,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1815,6 +1953,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     },
@@ -1830,6 +1969,7 @@
       "hasSpoilerOnCopy": true,
       "needsPreviewRefresh": false,
       "needsRecap": false,
+      "needsEditorialRefresh": false,
       "isStale": false,
       "issues": []
     }
