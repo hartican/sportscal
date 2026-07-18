@@ -1,44 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-07-18T13:10:38.496Z",
+  "generatedAt": "2026-07-18T23:15:37.274Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 11,
-    "passed": 11,
+    "due": 9,
+    "passed": 9,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "afl-collingwood-carlton-2026-07-18",
-      "name": "Collingwood v Carlton",
-      "sport": "AFL",
-      "date": "2026-07-18",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "team-selection",
-        "injury",
-        "recent-form"
-      ],
-      "sourceUrl": "https://www.afl.com.au/afl/matches/8199",
-      "issues": []
-    },
-    {
-      "id": "evt_59",
-      "name": "Stage 14 — Mulhouse → Le Markstein (Mountain)",
-      "sport": "Cycling",
-      "date": "2026-07-18",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "course-profile",
-        "general-classification",
-        "tactical-position"
-      ],
-      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-14/mulhouse-le-markstein-1/1332949",
-      "issues": []
-    },
     {
       "id": "fifa-third-place-2026",
       "name": "World Cup Third-Place Playoff",
@@ -78,11 +48,11 @@
       "status": "journalistic",
       "contextSignals": [
         "championship-standings",
-        "practice-form",
+        "qualifying-result",
         "grid-penalty",
-        "reliability"
+        "tactical-recovery"
       ],
-      "sourceUrl": "https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-belgium-2026.MRyGOUCXkm6zQru7JvoUG",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
       "issues": []
     },
     {

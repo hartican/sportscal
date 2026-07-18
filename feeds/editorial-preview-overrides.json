@@ -41,21 +41,20 @@
       "time": "23:00",
       "startTimeUtc": "2026-07-19T13:00:00Z",
       "endTimeUtc": "2026-07-19T16:00:00Z",
-      "selectedSentence": "Antonelli's shrinking title lead meets Spa: quickest on Friday, with Norris fast but carrying a 10-place grid penalty.",
-      "fullSpiel": "Antonelli leads Russell by only 25 points after two reliability-hit races in three, but set Friday's benchmark. Norris was second yet faces a 10-place drop, while Piastri recovered from a hydraulic leak to finish sixth. Qualifying now decides the real shape of Sunday's race.",
-      "sourceName": "Formula 1 Belgian Grand Prix Friday report",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-belgium-2026.MRyGOUCXkm6zQru7JvoUG",
-      "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
-      "sourceType": "official",
+      "selectedSentence": "Antonelli starts from pole at Spa, but Norris's 10-place penalty drops the fastest McLaren to P13 and puts Verstappen on the front row.",
+      "fullSpiel": "Antonelli converted Friday's pace into pole ahead of Verstappen. Norris qualified third but starts 13th after his power-unit penalty, while Russell and Leclerc inherit the pressure behind the front row. The title leader has track position; McLaren has the recovery story.",
+      "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
+      "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
+      "sourceType": "reputable",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "A tightening title race meets a disrupted Spa grid after Friday practice.",
-        "contextSignals": ["championship-standings", "practice-form", "grid-penalty", "reliability"],
-        "sourceName": "Formula 1 Belgian Grand Prix Friday report",
-        "sourceUrl": "https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-belgium-2026.MRyGOUCXkm6zQru7JvoUG",
-        "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
-        "needsPreviewRefresh": false,
-        "refreshAfter": "qualifying"
+        "angle": "A pole-winning title leader faces a reshuffled grid after Norris's penalty.",
+        "contextSignals": ["championship-standings", "qualifying-result", "grid-penalty", "tactical-recovery"],
+        "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
+        "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
+        "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
+        "needsPreviewRefresh": false
       }
     },
     "afl-collingwood-carlton-2026-07-18": {

@@ -131,6 +131,16 @@ const resultOverrides = {
     recapText: "Leclerc converted Ferrari's front-row pace into victory in a compressed finish, with Russell and Hamilton both within eight-tenths at the flag. Piastri's recovery was a secondary storyline after starting eighth.",
     resultLabels: ["Race", "Leclerc winner", "Ferrari victory"],
   },
+  evt_20: {
+    sourceName: "Official Formula 1 Belgian Grand Prix qualifying report",
+    sourceUrl: "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
+    sourceCheckedAt: "2026-07-19T09:14:41+10:00",
+    sourceType: "reputable",
+    score: "Pole: Kimi Antonelli 1:44.361; 2 Max Verstappen 1:44.678; 3 Lando Norris 1:44.801",
+    outcomeText: "Kimi Antonelli took pole at Spa ahead of Max Verstappen, while Lando Norris qualified third but drops to P13 for the race.",
+    recapText: "Antonelli led Verstappen in qualifying at Spa. Norris set the third-fastest time but his 10-place power-unit penalty sends him to P13, reshaping the front of the grid for Sunday's race.",
+    resultLabels: ["Qualifying", "Antonelli pole", "Norris starts P13"],
+  },
 };
 
 const tourWinners = [
