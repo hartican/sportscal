@@ -39,7 +39,20 @@
         "Super Bowl LX",
         "Seattle champions",
         "Kenneth Walker III MVP"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "Super Bowl LX is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Super Bowl LX is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Seattle won Super Bowl LX; Kenneth Walker III was named MVP.",
+        "synopsisSpoilerOn": "Seattle's defence controlled the game with six sacks and three takeaways, while Kenneth Walker III supplied 135 rushing yards to keep the Patriots under pressure."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Golf",
@@ -75,7 +88,20 @@
       "resultLabels": [
         "Round 1",
         "Co-leaders -5"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 7,
+        "archetype": "major test",
+        "hookSpoilerOff": "Masters Round 1 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Masters Round 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Burns and defending champion McIlroy shared the overnight lead.",
+        "synopsisSpoilerOn": "Both leaders opened with 67s. Burns posted his lowest opening round in a major, while McIlroy began his title defence with an eagle and a share of the lead."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Golf",
@@ -112,7 +138,20 @@
         "Round 2",
         "Leader -12",
         "Record 36-hole margin"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 7,
+        "archetype": "major test",
+        "hookSpoilerOff": "Masters Round 2 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Masters Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "McIlroy set the largest 36-hole lead in Masters history.",
+        "synopsisSpoilerOn": "A seven-under 65, powered by nine birdies and six in his final seven holes, moved McIlroy six shots clear of Sam Burns and Patrick Reed at the halfway point."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Golf",
@@ -148,7 +187,20 @@
       "resultLabels": [
         "Round 3",
         "Co-leaders -11"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "major test",
+        "hookSpoilerOff": "Masters Round 3 (Moving Day) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Masters Round 3 (Moving Day) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Young's 65 erased an eight-shot halfway deficit and created a tie for the final-round lead.",
+        "synopsisSpoilerOn": "Moving Day lived up to its name: Young surged from eight behind with a career-low Masters round, while McIlroy's 73 brought the field back into the contest."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Golf",
@@ -185,7 +237,20 @@
         "Final round",
         "Rory McIlroy champion",
         "Back-to-back titles"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "major test",
+        "hookSpoilerOff": "Masters Final Round (Sunday) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Masters Final Round (Sunday) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "McIlroy successfully defended the Masters for his sixth major title.",
+        "synopsisSpoilerOn": "McIlroy closed with 71 and held off Scheffler's bogey-free 68 by one. The victory made him only the fourth player to win consecutive Masters titles."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NBA",
@@ -221,7 +286,20 @@
       "resultLabels": [
         "NBA Finals",
         "Completed"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 1 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "New York took a 1-0 series lead.",
+        "synopsisSpoilerOn": "The Knicks controlled the opener and limited San Antonio to 95 points, establishing the defensive shape of the series."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NBA",
@@ -257,7 +335,20 @@
       "resultLabels": [
         "NBA Finals",
         "Completed"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 2 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "New York took a 2-0 series lead.",
+        "synopsisSpoilerOn": "A one-point finish gave New York consecutive wins and left San Antonio needing a response when the series shifted venues."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NBA",
@@ -293,7 +384,20 @@
       "resultLabels": [
         "NBA Finals",
         "Completed"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 3 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "New York's series lead narrowed to 2-1.",
+        "synopsisSpoilerOn": "San Antonio produced its best offensive game of the Finals to win by four and keep the series alive."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Le Mans",
@@ -330,7 +434,20 @@
         "Race start",
         "62 starters",
         "Toyota early leader"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "major test",
+        "hookSpoilerOff": "24 Hours of Le Mans — Start is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "24 Hours of Le Mans — Start is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "The 94th 24 Hours of Le Mans began with Toyota setting the early pace.",
+        "synopsisSpoilerOn": "Toyota split the opening strategy across its two cars and emerged at the head of the field after hour one, with BMW close enough to keep the Hypercar contest open."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NBA",
@@ -366,7 +483,20 @@
       "resultLabels": [
         "NBA Finals",
         "Completed"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "New York moved within one win of the championship at 3-1.",
+        "synopsisSpoilerOn": "Another one-point game went New York's way, giving the Knicks three wins in four tightly contested Finals games."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Football",
@@ -405,6 +535,28 @@
       "resultLabels": [
         "Group D",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Australia vs Türkiye - Group D is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Australia vs Türkiye - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Australia opened its campaign with three points.",
+        "synopsisSpoilerOn": "Australia handled the opening-game pressure, kept Türkiye scoreless and established a strong platform in Group D."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "Türkiye - Group D",
+          "role": "away"
+        }
       ]
     },
     {
@@ -442,7 +594,20 @@
         "Toyota victory",
         "#7 Hypercar",
         "10.9-second margin"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "major test",
+        "hookSpoilerOff": "24 Hours of Le Mans — Finish is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "24 Hours of Le Mans — Finish is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Kamui Kobayashi, Nyck de Vries and Mike Conway delivered Toyota's sixth overall Le Mans victory.",
+        "synopsisSpoilerOn": "A disciplined Toyota strategy decided an open Hypercar race. BMW kept the winning #7 car honest to the flag, finishing only 10.9 seconds behind after 24 hours."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NBA",
@@ -478,7 +643,20 @@
       "resultLabels": [
         "NBA Finals",
         "Completed"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 5 (if needed) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 5 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "New York won the NBA Finals 4-1.",
+        "synopsisSpoilerOn": "The Knicks closed the series in a lower-scoring Game 5, securing the franchise's first championship since 1973."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Football",
@@ -517,6 +695,28 @@
       "resultLabels": [
         "Group D",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "USA vs Australia - Group D is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "USA vs Australia - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "The hosts took the Group D points in Seattle.",
+        "synopsisSpoilerOn": "The United States used home support and a clean sheet to halt Australia's early momentum, leaving qualification to be settled in the final group match."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "USA",
+          "role": "home"
+        },
+        {
+          "name": "Australia - Group D",
+          "role": "away"
+        }
       ]
     },
     {
@@ -553,7 +753,20 @@
       "resultLabels": [
         "NBA Finals",
         "Not required"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 6 (if needed) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 6 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Game 6 was not required.",
+        "synopsisSpoilerOn": "New York's 4-1 series victory removed the need for the scheduled sixth game; this card remains as an explicit record of the conditional fixture."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NBA",
@@ -589,7 +802,20 @@
       "resultLabels": [
         "NBA Finals",
         "Not required"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "NBA Finals Game 7 (if needed) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "NBA Finals Game 7 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Game 7 was not required.",
+        "synopsisSpoilerOn": "The Finals ended in five games, so the potential decider was never played. The card is retained to make the original conditional schedule unambiguous."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Football",
@@ -628,6 +854,28 @@
       "resultLabels": [
         "Group D",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Paraguay vs Australia - Group D is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Paraguay vs Australia - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Australia progressed after a scoreless final group match.",
+        "synopsisSpoilerOn": "A disciplined defensive performance delivered the point Australia needed. The goalless draw closed the group stage and sent the Socceroos into the knockouts."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Paraguay",
+          "role": "home"
+        },
+        {
+          "name": "Australia - Group D",
+          "role": "away"
+        }
       ]
     },
     {
@@ -666,7 +914,29 @@
       "scheduleDay": 12,
       "score": "Naomi Osaka d Daria Kasatkina 6-1 6-3",
       "outcomeText": "Osaka reached the fourth round in straight sets.",
-      "recapText": "Osaka imposed the cleaner scoreline throughout, conceding only four games and completing the match without needing a deciding set."
+      "recapText": "Osaka imposed the cleaner scoreline throughout, conceding only four games and completing the match without needing a deciding set.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Kasatkina vs Osaka - Women's R3 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Kasatkina vs Osaka - Women's R3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Osaka reached the fourth round in straight sets.",
+        "synopsisSpoilerOn": "Osaka imposed the cleaner scoreline throughout, conceding only four games and completing the match without needing a deciding set."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Kasatkina",
+          "role": "home"
+        },
+        {
+          "name": "Osaka - Women's R3",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Football",
@@ -706,7 +976,30 @@
         "Round of 32",
         "Penalty shootout"
       ],
-      "resultLabel": "Penalty shootout"
+      "resultLabel": "Penalty shootout",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Australia vs Egypt - Round of 32 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Australia vs Egypt - Round of 32 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Egypt progressed after the penalty shootout.",
+        "synopsisSpoilerOn": "Australia stayed level through regulation and extra time, but Egypt converted the decisive shootout kicks to end the Socceroos' tournament in the Round of 32."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "Egypt - Round of 32",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -744,7 +1037,29 @@
       "scheduleDay": 13,
       "score": "Alex de Minaur d Zachary Svajda 6-3 6-2 6-2",
       "outcomeText": "De Minaur reached the fourth round in straight sets.",
-      "recapText": "The Australian improved his control after the opening set and conceded only four games across the final two, completing an efficient straight-sets win."
+      "recapText": "The Australian improved his control after the opening set and conceded only four games across the final two, completing an efficient straight-sets win.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "De Minaur vs Svajda - Men's R3 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "De Minaur vs Svajda - Men's R3 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "De Minaur reached the fourth round in straight sets.",
+        "synopsisSpoilerOn": "The Australian improved his control after the opening set and conceded only four games across the final two, completing an efficient straight-sets win."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "De Minaur",
+          "role": "home"
+        },
+        {
+          "name": "Svajda - Men's R3 🇦🇺",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Rugby",
@@ -780,6 +1095,29 @@
       "resultLabels": [
         "Nations Championship",
         "Ireland by 2"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "Wallabies vs Ireland is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Wallabies vs Ireland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Ireland completed a late comeback to win by two points in Sydney.",
+        "synopsisSpoilerOn": "Australia stayed in the contest to the final kick, but Ireland's late pressure and a decisive closing try overturned the Wallabies' lead in a high-scoring Nations Championship opener."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "Ireland",
+          "role": "away"
+        }
       ]
     },
     {
@@ -892,6 +1230,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Canada vs Morocco - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Canada vs Morocco - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Morocco reached the quarterfinals.",
+        "synopsisSpoilerOn": "Morocco paired a clean sheet with three goals to control the tie, absorbing the hosts' energy before turning the match decisively in their favour."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Canada",
+          "role": "home"
+        },
+        {
+          "name": "Morocco - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -931,6 +1292,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Paraguay vs France - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Paraguay vs France - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "France reached the quarterfinals.",
+        "synopsisSpoilerOn": "France found the only goal in a tight knockout match and protected the lead, ending Paraguay's run without allowing the contest to open up."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Paraguay",
+          "role": "home"
+        },
+        {
+          "name": "France - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -972,7 +1356,29 @@
       "recapText": "Three tie-break sets kept the contest volatile before Auger-Aliassime finally separated himself, conceding only one game in the fifth.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Auger-Aliassime vs Davidovich Fokina - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Auger-Aliassime vs Davidovich Fokina - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Auger-Aliassime reached the quarterfinals after five sets.",
+        "synopsisSpoilerOn": "Three tie-break sets kept the contest volatile before Auger-Aliassime finally separated himself, conceding only one game in the fifth."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Auger-Aliassime",
+          "role": "home"
+        },
+        {
+          "name": "Davidovich Fokina - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1013,7 +1419,29 @@
       "recapText": "The opening tie-break established Djokovic's advantage. Safiullin forced a fourth set, but Djokovic restored control and closed the match before a decider.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Djokovic vs Safiullin - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Djokovic vs Safiullin - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Djokovic reached the quarterfinals in four sets.",
+        "synopsisSpoilerOn": "The opening tie-break established Djokovic's advantage. Safiullin forced a fourth set, but Djokovic restored control and closed the match before a decider."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Djokovic",
+          "role": "home"
+        },
+        {
+          "name": "Safiullin - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1054,7 +1482,29 @@
       "recapText": "Bencic claimed the opening set, but Gauff steadied the match and found the decisive margin in a close third set.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Gauff vs Bencic - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Gauff vs Bencic - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Gauff recovered from a set down to reach the quarterfinals.",
+        "synopsisSpoilerOn": "Bencic claimed the opening set, but Gauff steadied the match and found the decisive margin in a close third set."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Gauff",
+          "role": "home"
+        },
+        {
+          "name": "Bencic - Women's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1095,7 +1545,29 @@
       "recapText": "The first two sets split by identical 7-5 margins before Muchova created the clearer gap in the decider.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Muchova vs Krejcikova - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Muchova vs Krejcikova - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Muchova reached the quarterfinals in three sets.",
+        "synopsisSpoilerOn": "The first two sets split by identical 7-5 margins before Muchova created the clearer gap in the decider."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Muchova",
+          "role": "home"
+        },
+        {
+          "name": "Krejcikova - Women's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1136,7 +1608,29 @@
       "recapText": "Osaka controlled the first set and then dominated the second-set tie-break, turning a marquee fourth-round meeting into a straight-sets result.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "Osaka vs Sabalenka - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Osaka vs Sabalenka - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Osaka eliminated the top seed in straight sets.",
+        "synopsisSpoilerOn": "Osaka controlled the first set and then dominated the second-set tie-break, turning a marquee fourth-round meeting into a straight-sets result."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Osaka",
+          "role": "home"
+        },
+        {
+          "name": "Sabalenka - Women's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1177,7 +1671,29 @@
       "recapText": "Jovic took the opener, but Pegula reversed the match across the next two sets and conceded only one game in the decider.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Pegula vs Jovic - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Pegula vs Jovic - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Pegula recovered from a set down to reach the quarterfinals.",
+        "synopsisSpoilerOn": "Jovic took the opener, but Pegula reversed the match across the next two sets and conceded only one game in the decider."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Pegula",
+          "role": "home"
+        },
+        {
+          "name": "Jovic - Women's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1218,7 +1734,29 @@
       "recapText": "Sinner allowed no momentum swing: the middle-set tie-break ended without a point conceded and the top seed completed the match in three.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Sinner vs Mochizuki - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Sinner vs Mochizuki - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Sinner reached the quarterfinals in straight sets.",
+        "synopsisSpoilerOn": "Sinner allowed no momentum swing: the middle-set tie-break ended without a point conceded and the top seed completed the match in three."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Sinner",
+          "role": "home"
+        },
+        {
+          "name": "Mochizuki - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1259,7 +1797,29 @@
       "recapText": "Hurkacz led by two sets, but Struff forced a decider through a tie-break and a late fourth-set break. The match ended by retirement with Struff leading the fifth.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Struff vs Hurkacz - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Struff vs Hurkacz - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Struff progressed after Hurkacz retired in the fifth set.",
+        "synopsisSpoilerOn": "Hurkacz led by two sets, but Struff forced a decider through a tie-break and a late fourth-set break. The match ended by retirement with Struff leading the fifth."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Struff",
+          "role": "home"
+        },
+        {
+          "name": "Hurkacz - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Cycling",
@@ -1332,7 +1892,19 @@
         "Race",
         "Leclerc winner",
         "Ferrari victory"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "R9 British GP Race is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "R9 British GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Leclerc won the British Grand Prix for Ferrari.",
+        "synopsisSpoilerOn": "Leclerc converted Ferrari's front-row pace into victory in a compressed finish, with Russell and Hamilton both within eight-tenths at the flag. Piastri's recovery was a secondary storyline after starting eighth."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Football",
@@ -1371,6 +1943,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Brazil vs Norway - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Brazil vs Norway - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Norway eliminated Brazil and reached the quarterfinals.",
+        "synopsisSpoilerOn": "Norway delivered one of the round's major upsets, matching Brazil's technical threat and taking the chances that carried them into the last eight."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Brazil",
+          "role": "home"
+        },
+        {
+          "name": "Norway - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -1410,6 +2005,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Mexico vs England - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Mexico vs England - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "England survived a five-goal match to reach the quarterfinals.",
+        "synopsisSpoilerOn": "England came through a volatile knockout game in Mexico City. Mexico kept the hosts in the contest, but England's third goal proved decisive."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Mexico",
+          "role": "home"
+        },
+        {
+          "name": "England - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -1487,7 +2105,29 @@
       "recapText": "The opening set was decided late and the second in a tie-break. Cobolli then maintained the pressure to prevent an Australian recovery.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "Cobolli vs De Minaur - Men's R4 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Cobolli vs De Minaur - Men's R4 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Cobolli ended De Minaur's tournament in straight sets.",
+        "synopsisSpoilerOn": "The opening set was decided late and the second in a tie-break. Cobolli then maintained the pressure to prevent an Australian recovery."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Cobolli",
+          "role": "home"
+        },
+        {
+          "name": "De Minaur - Men's R4 🇦🇺",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1528,7 +2168,29 @@
       "recapText": "Fery came back from two sets to one down and held his nerve in the deciding tie-break, extending the home wildcard's run into the last eight.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Fery vs Dimitrov - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Fery vs Dimitrov - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Fery reached the quarterfinals after a fifth-set tie-break.",
+        "synopsisSpoilerOn": "Fery came back from two sets to one down and held his nerve in the deciding tie-break, extending the home wildcard's run into the last eight."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Fery",
+          "role": "home"
+        },
+        {
+          "name": "Dimitrov - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1569,7 +2231,29 @@
       "recapText": "Fritz dominated the opening tie-break and found one-set margins in each of the next two, denying Bublik a route back into the match.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Fritz vs Bublik - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Fritz vs Bublik - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Fritz reached the quarterfinals in straight sets.",
+        "synopsisSpoilerOn": "Fritz dominated the opening tie-break and found one-set margins in each of the next two, denying Bublik a route back into the match."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Fritz",
+          "role": "home"
+        },
+        {
+          "name": "Bublik - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1692,7 +2376,29 @@
       "recapText": "Noskova protected the first-set margin and dominated the second-set tie-break, closing the match without allowing a decider.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Noskova vs Keys - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Noskova vs Keys - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Noskova reached the quarterfinals in straight sets.",
+        "synopsisSpoilerOn": "Noskova protected the first-set margin and dominated the second-set tie-break, closing the match without allowing a decider."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Noskova",
+          "role": "home"
+        },
+        {
+          "name": "Keys - Women's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1733,7 +2439,29 @@
       "recapText": "Eala levelled the match in the second set, but Paolini recovered the initiative and made the decisive break stand in the third.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Paolini vs Eala - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Paolini vs Eala - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Paolini reached the quarterfinals in three sets.",
+        "synopsisSpoilerOn": "Eala levelled the match in the second set, but Paolini recovered the initiative and made the decisive break stand in the third."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Paolini",
+          "role": "home"
+        },
+        {
+          "name": "Eala - Women's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1774,7 +2502,29 @@
       "recapText": "Play was suspended at one set in the fourth before completion on 7 July. Lehecka forced the extra session, but Zverev won the closing tie-break.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Zverev vs Lehecka - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Zverev vs Lehecka - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Zverev completed the suspended match and reached the quarterfinals.",
+        "synopsisSpoilerOn": "Play was suspended at one set in the fourth before completion on 7 July. Lehecka forced the extra session, but Zverev won the closing tie-break."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Zverev",
+          "role": "home"
+        },
+        {
+          "name": "Lehecka - Men's R4",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Football",
@@ -1813,6 +2563,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Portugal vs Spain - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Portugal vs Spain - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Spain reached the quarterfinals with a clean sheet.",
+        "synopsisSpoilerOn": "A single goal separated the Iberian rivals. Spain controlled enough of the match to protect the margin and close out a high-pressure knockout tie."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Portugal",
+          "role": "home"
+        },
+        {
+          "name": "Spain - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -1852,6 +2625,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "USA vs Belgium - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "USA vs Belgium - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Belgium ended the hosts' campaign and reached the quarterfinals.",
+        "synopsisSpoilerOn": "Belgium's attacking quality produced the round's widest knockout margin, with four goals overcoming the energy of a home crowd in Seattle."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "USA",
+          "role": "home"
+        },
+        {
+          "name": "Belgium - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -1893,7 +2689,30 @@
       "recapText": "Two of the five sets required tie-breaks, including the decider. Djokovic survived the extended opening breaker and finally separated the match in the last one.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Djokovic vs Auger-Aliassime - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Djokovic vs Auger-Aliassime - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Djokovic reached the semifinals after five sets.",
+        "synopsisSpoilerOn": "Two of the five sets required tie-breaks, including the decider. Djokovic survived the extended opening breaker and finally separated the match in the last one."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Djokovic",
+          "role": "home"
+        },
+        {
+          "name": "Auger-Aliassime - Men's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1934,7 +2753,30 @@
       "recapText": "Pegula made the stronger start, but Gauff levelled and repeated the 6-3 margin in the decider to complete the comeback.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Gauff vs Pegula - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Gauff vs Pegula - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Gauff recovered from a set down to reach the semifinals.",
+        "synopsisSpoilerOn": "Pegula made the stronger start, but Gauff levelled and repeated the 6-3 margin in the decider to complete the comeback."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Gauff",
+          "role": "home"
+        },
+        {
+          "name": "Pegula - Women's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -1975,7 +2817,30 @@
       "recapText": "Muchova took the opening tie-break and then protected a single-break margin in the second, ending Osaka's notable run in two sets.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Muchova vs Osaka - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Muchova vs Osaka - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Muchova reached the semifinals in straight sets.",
+        "synopsisSpoilerOn": "Muchova took the opening tie-break and then protected a single-break margin in the second, ending Osaka's notable run in two sets."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Muchova",
+          "role": "home"
+        },
+        {
+          "name": "Osaka - Women's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2016,7 +2881,30 @@
       "recapText": "Sinner won the tight points in the first two sets, then created a clearer margin in the third to finish without extending the match.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Sinner vs Struff - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Sinner vs Struff - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Sinner reached the semifinals in straight sets.",
+        "synopsisSpoilerOn": "Sinner won the tight points in the first two sets, then created a clearer margin in the third to finish without extending the match."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Sinner",
+          "role": "home"
+        },
+        {
+          "name": "Struff - Men's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Cycling",
@@ -2091,6 +2979,29 @@
       "resultLabels": [
         "Round of 16",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Argentina vs Egypt - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Argentina vs Egypt - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Argentina reached the quarterfinals after a five-goal contest.",
+        "synopsisSpoilerOn": "Egypt continued its knockout run with two goals, but Argentina's third strike settled an open match and secured the reigning champions' place in the last eight."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Argentina",
+          "role": "home"
+        },
+        {
+          "name": "Egypt - Round of 16",
+          "role": "away"
+        }
       ]
     },
     {
@@ -2131,7 +3042,30 @@
         "Round of 16",
         "Penalty shootout"
       ],
-      "resultLabel": "Penalty shootout"
+      "resultLabel": "Penalty shootout",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Switzerland vs Colombia - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Switzerland vs Colombia - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Switzerland progressed through the penalty shootout.",
+        "synopsisSpoilerOn": "Neither side found a goal through regulation and extra time. Switzerland held their nerve from the spot to claim the final quarterfinal place."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Switzerland",
+          "role": "home"
+        },
+        {
+          "name": "Colombia - Round of 16",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2172,7 +3106,30 @@
       "recapText": "Fery won a tight opening set and tie-break before accelerating through a one-sided third, extending the British wildcard's run into the last four.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Fery vs Cobolli - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Fery vs Cobolli - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Fery reached the semifinals in straight sets.",
+        "synopsisSpoilerOn": "Fery won a tight opening set and tie-break before accelerating through a one-sided third, extending the British wildcard's run into the last four."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Fery",
+          "role": "home"
+        },
+        {
+          "name": "Cobolli - Men's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2213,7 +3170,30 @@
       "recapText": "Kostyuk increased her control from the first set to the second, conceding only five games across a compact quarterfinal.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Kostyuk vs Paolini - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Kostyuk vs Paolini - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Kostyuk reached the semifinals in straight sets.",
+        "synopsisSpoilerOn": "Kostyuk increased her control from the first set to the second, conceding only five games across a compact quarterfinal."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Kostyuk",
+          "role": "home"
+        },
+        {
+          "name": "Paolini - Women's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2254,7 +3234,30 @@
       "recapText": "Noskova established the early advantage and then closed a tighter second set late, completing the quarterfinal without a decider.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Noskova vs Mertens - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Noskova vs Mertens - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Noskova reached the semifinals in straight sets.",
+        "synopsisSpoilerOn": "Noskova established the early advantage and then closed a tighter second set late, completing the quarterfinal without a decider."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Noskova",
+          "role": "home"
+        },
+        {
+          "name": "Mertens - Women's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2295,7 +3298,30 @@
       "recapText": "Zverev repeated a one-break margin in the first two sets and widened it in the third, completing the most direct men's quarterfinal result.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Zverev vs Fritz - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Zverev vs Fritz - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Zverev reached the semifinals in straight sets.",
+        "synopsisSpoilerOn": "Zverev repeated a one-break margin in the first two sets and widened it in the third, completing the most direct men's quarterfinal result."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Zverev",
+          "role": "home"
+        },
+        {
+          "name": "Fritz - Men's Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Cycling",
@@ -2367,7 +3393,19 @@
       "resultLabels": [
         "Stage 6",
         "Tadej Pogacar winner"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead.",
+        "synopsisSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Tennis",
@@ -2408,7 +3446,30 @@
       "recapText": "The first two sets swung sharply in opposite directions. Muchova then won an extended deciding tie-break to settle the semifinal at its narrowest point.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; show-court session from 10:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned show court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned show court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Muchova vs Gauff - Women's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Muchova vs Gauff - Women's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Muchova reached the Wimbledon final after a deciding tie-break.",
+        "synopsisSpoilerOn": "The first two sets swung sharply in opposite directions. Muchova then won an extended deciding tie-break to settle the semifinal at its narrowest point."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Muchova",
+          "role": "home"
+        },
+        {
+          "name": "Gauff - Women's Semifinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2449,7 +3510,30 @@
       "recapText": "Noskova maintained matching margins in both sets, staying composed through the semifinal pressure to book her place in the final.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; show-court session from 10:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned show court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned show court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Noskova vs Kostyuk - Women's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Noskova vs Kostyuk - Women's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Noskova reached the Wimbledon final in straight sets.",
+        "synopsisSpoilerOn": "Noskova maintained matching margins in both sets, staying composed through the semifinal pressure to book her place in the final."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Noskova",
+          "role": "home"
+        },
+        {
+          "name": "Kostyuk - Women's Semifinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Football",
@@ -2488,6 +3572,29 @@
       "resultLabels": [
         "Quarterfinal",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "archetype": "elimination",
+        "hookSpoilerOff": "France vs Morocco - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "France vs Morocco - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "France reached the semifinals.",
+        "synopsisSpoilerOn": "France combined two goals with a clean sheet to end Morocco's run, controlling the decisive phases and earning the first place in the last four."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "France",
+          "role": "home"
+        },
+        {
+          "name": "Morocco - Quarterfinal",
+          "role": "away"
+        }
       ]
     },
     {
@@ -2565,7 +3672,30 @@
       "recapText": "Sinner found the same decisive margin in every set, preventing Djokovic from extending a semifinal that remained competitive but consistently tilted one way.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; show-court session from 10:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned show court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned show court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Sinner vs Djokovic - Men's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Sinner vs Djokovic - Men's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Sinner reached the Wimbledon final in straight sets.",
+        "synopsisSpoilerOn": "Sinner found the same decisive margin in every set, preventing Djokovic from extending a semifinal that remained competitive but consistently tilted one way."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Sinner",
+          "role": "home"
+        },
+        {
+          "name": "Djokovic - Men's Semifinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Tennis",
@@ -2606,7 +3736,30 @@
       "recapText": "Fery reached a tie-break in the opener, but Zverev shut it out and controlled the next two sets to end the wildcard's run.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; show-court session from 10:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned show court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned show court.",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Zverev vs Fery - Men's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Zverev vs Fery - Men's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Zverev reached the Wimbledon final in straight sets.",
+        "synopsisSpoilerOn": "Fery reached a tie-break in the opener, but Zverev shut it out and controlled the next two sets to end the wildcard's run."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Zverev",
+          "role": "home"
+        },
+        {
+          "name": "Fery - Men's Semifinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Football",
@@ -2645,6 +3798,29 @@
       "resultLabels": [
         "Quarterfinal",
         "Completed"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Spain vs Belgium - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Spain vs Belgium - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Spain reached the semifinals.",
+        "synopsisSpoilerOn": "Spain survived sustained Belgian pressure in a high-quality quarterfinal, making a narrow lead stand to secure a last-four meeting with France."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Spain",
+          "role": "home"
+        },
+        {
+          "name": "Belgium - Quarterfinal",
+          "role": "away"
+        }
       ]
     },
     {
@@ -2681,6 +3857,29 @@
       "resultLabels": [
         "Nations Championship",
         "France by 16"
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 7,
+        "archetype": "international test",
+        "hookSpoilerOff": "Wallabies vs France is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Wallabies vs France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "France overturned a halftime deficit with 30 unanswered second-half points.",
+        "synopsisSpoilerOn": "Australia carried a lead into the interval, but France's pace and depth changed the match after halftime. The visitors shut the Wallabies out for the decisive stretch and pulled clear by 16."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "France",
+          "role": "away"
+        }
       ]
     },
     {
@@ -2757,7 +3956,29 @@
       "outcomeText": "Noskova won the 2026 Wimbledon women's singles title.",
       "recapText": "Noskova made the faster start, absorbed Muchova's second-set response and re-established control in the decider to claim the championship.",
       "startTimeUtc": "2026-07-11T15:00:00Z",
-      "endTimeUtc": "2026-07-11T18:00:00Z"
+      "endTimeUtc": "2026-07-11T18:00:00Z",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "Noskova vs Muchova - Women's Final is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Noskova vs Muchova - Women's Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Noskova won the 2026 Wimbledon women's singles title.",
+        "synopsisSpoilerOn": "Noskova made the faster start, absorbed Muchova's second-set response and re-established control in the decider to claim the championship."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Noskova",
+          "role": "home"
+        },
+        {
+          "name": "Muchova - Women's Final",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Football",
@@ -2797,7 +4018,30 @@
         "Quarterfinal",
         "Extra time"
       ],
-      "resultLabel": "Extra time"
+      "resultLabel": "Extra time",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Norway vs England - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Norway vs England - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "England reached the semifinals after extra time.",
+        "synopsisSpoilerOn": "Norway extended its breakthrough run into extra time, where England found the decisive goal and completed another demanding knockout win."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Norway",
+          "role": "home"
+        },
+        {
+          "name": "England - Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Football",
@@ -2837,7 +4081,30 @@
         "Quarterfinal",
         "Extra time"
       ],
-      "resultLabel": "Extra time"
+      "resultLabel": "Extra time",
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "Argentina vs Switzerland - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Argentina vs Switzerland - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Argentina reached the semifinals after extra time.",
+        "synopsisSpoilerOn": "Switzerland forced the reigning champions beyond 90 minutes, but Argentina pulled clear in extra time to complete the semifinal line-up."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Argentina",
+          "role": "home"
+        },
+        {
+          "name": "Switzerland - Quarterfinal",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Cycling",
@@ -2913,7 +4180,29 @@
       "outcomeText": "Sinner won the 2026 Wimbledon men's singles title.",
       "recapText": "After losing the opening tie-break, Sinner dominated the second-set breaker and then created the clearer margins across the final two sets to secure the title.",
       "startTimeUtc": "2026-07-12T15:00:00Z",
-      "endTimeUtc": "2026-07-12T19:00:00Z"
+      "endTimeUtc": "2026-07-12T19:00:00Z",
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "Sinner vs Zverev - Men's Final is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Sinner vs Zverev - Men's Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Sinner won the 2026 Wimbledon men's singles title.",
+        "synopsisSpoilerOn": "After losing the opening tie-break, Sinner dominated the second-set breaker and then created the clearer margins across the final two sets to secure the title."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Sinner",
+          "role": "home"
+        },
+        {
+          "name": "Zverev - Men's Final",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Cycling",
@@ -2949,7 +4238,19 @@
       "resultLabels": [
         "Stage 10",
         "Tadej Pogacar winner"
-      ]
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "recap",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour.",
+        "synopsisSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Football",
@@ -2999,6 +4300,29 @@
         {
           "name": "Spain",
           "sourceEventId": "fifa-qf-spain-belgium-2026"
+        }
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "World Cup Semifinal 1 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "World Cup Semifinal 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Spain reached the World Cup final.",
+        "synopsisSpoilerOn": "Mikel Oyarzabal converted a first-half penalty and Pedro Porro added the second after the break. Spain frustrated France at one end and punished them at the other."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "France",
+          "role": "home"
+        },
+        {
+          "name": "Spain - Semifinal",
+          "role": "away"
         }
       ]
     },
@@ -3086,6 +4410,29 @@
           "name": "Argentina",
           "sourceEventId": "fifa-qf-argentina-switzerland-2026"
         }
+      ],
+      "status": "completed",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "recap",
+        "expectedSpectacle": 10,
+        "archetype": "elimination",
+        "hookSpoilerOff": "World Cup Semifinal 2 is complete; the key moments are protected until you choose to reveal them.",
+        "synopsisSpoilerOff": "World Cup Semifinal 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "hookSpoilerOn": "Argentina reached the World Cup final against Spain; England move to the third-place playoff against France.",
+        "synopsisSpoilerOn": "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "England",
+          "role": "home"
+        },
+        {
+          "name": "Argentina - Semifinal",
+          "role": "away"
+        }
       ]
     },
     {
@@ -3153,8 +4500,14 @@
       "displayTitleCompact": "Raiders v Rabbitohs",
       "status": "completed",
       "participants": [
-        { "name": "Canberra Raiders", "role": "home" },
-        { "name": "South Sydney Rabbitohs", "role": "away" }
+        {
+          "name": "Canberra Raiders",
+          "role": "home"
+        },
+        {
+          "name": "South Sydney Rabbitohs",
+          "role": "away"
+        }
       ],
       "date": "2026-07-18",
       "time": "15:00",
@@ -3186,16 +4539,16 @@
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "archetype": "finals push",
         "arcStage": "recap",
         "hookSpoilerOff": "A fast start, a late Souths surge and a desperate final stand in Canberra.",
         "hookSpoilerOn": "Canberra held off Souths 34–24 to make it three wins in a row.",
-        "synopsisSpoilerOff": "The contest swung sharply after half-time before a tense late finish at GIO Stadium. Canberra’s season-defining urgency was tested to the last set.",
+        "synopsisSpoilerOff": "The contest swung sharply after half-time before a tense late finish at GIO Stadium. Canberra's season-defining urgency was tested to the last set.",
         "synopsisSpoilerOn": "The Raiders built the platform early, absorbed a second-half Rabbitohs surge and closed out a valuable home win. The result kept their late finals push alive, though Hudson Young left injured.",
         "expectedSpectacle": 8,
-        "actualSpectacle": 8
+        "actualSpectacle": 8,
+        "archetype": "finals push"
       },
-      "lastReviewedAt": "2026-07-18T18:30:00+10:00",
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -3229,7 +4582,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Collingwood",
+          "role": "home"
+        },
+        {
+          "name": "Carlton",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A full-scale MCG rivalry fixture for Collingwood followers in Melbourne.",
+        "hookSpoilerOn": "A full-scale MCG rivalry fixture for Collingwood followers in Melbourne.",
+        "synopsisSpoilerOff": "Collingwood meet Carlton at the MCG. The official AFL fixture lists a 7:35 pm Sydney start with Seven coverage; it is one of the highlighted Melbourne fixtures in the confirmed rounds.",
+        "synopsisSpoilerOn": "Collingwood meet Carlton at the MCG. The official AFL fixture lists a 7:35 pm Sydney start with Seven coverage; it is one of the highlighted Melbourne fixtures in the confirmed rounds."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rugby-australia-italy-2026-07-18",
@@ -3240,8 +4615,14 @@
       "displayTitleCompact": "Wallabies v Italy",
       "status": "upcoming",
       "participants": [
-        { "name": "Wallabies", "role": "home" },
-        { "name": "Italy", "role": "away" }
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "Italy",
+          "role": "away"
+        }
       ],
       "date": "2026-07-18",
       "time": "20:00",
@@ -3268,11 +4649,11 @@
         "arcStage": "preview",
         "hookSpoilerOff": "A reset opportunity in Perth, with pressure and transition hanging over the Wallabies.",
         "hookSpoilerOn": "A reset opportunity in Perth, with pressure and transition hanging over the Wallabies.",
-        "synopsisSpoilerOff": "Carlo Tizzano starts in his hometown as Australia reshapes its XV after two losses. With Joe Schmidt’s final Test in charge and an injury-hit Italy arriving, the Wallabies need their accuracy to hold for 80 minutes.",
-        "synopsisSpoilerOn": "Carlo Tizzano starts in his hometown as Australia reshapes its XV after two losses. With Joe Schmidt’s final Test in charge and an injury-hit Italy arriving, the Wallabies need their accuracy to hold for 80 minutes.",
+        "synopsisSpoilerOff": "Carlo Tizzano starts in his hometown as Australia reshapes its XV after two losses. With Joe Schmidt's final Test in charge and an injury-hit Italy arriving, the Wallabies need their accuracy to hold for 80 minutes.",
+        "synopsisSpoilerOn": "Carlo Tizzano starts in his hometown as Australia reshapes its XV after two losses. With Joe Schmidt's final Test in charge and an injury-hit Italy arriving, the Wallabies need their accuracy to hold for 80 minutes.",
         "expectedSpectacle": 8
       },
-      "lastReviewedAt": "2026-07-18T18:30:00+10:00",
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -3304,7 +4685,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 14 — Mulhouse → Le Markstein (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 14 — Mulhouse → Le Markstein (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -3432,7 +4825,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -3460,7 +4865,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R10 Belgian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R10 Belgian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Football",
@@ -3502,7 +4919,20 @@
           "name": "Argentina",
           "sourceEventId": "fifa-sf-2-2026"
         }
-      ]
+      ],
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "The tournament's defining appointment remains bracket-safe until the semifinals are revealed.",
+        "hookSpoilerOn": "The tournament's defining appointment remains bracket-safe until the semifinals are revealed.",
+        "synopsisSpoilerOff": "The World Cup final is the anchor card for the remaining calendar: global stakes, a clear SBS broadcast path, and a Monday 5:00am Sydney start. The full matchup remains protected until both source semifinals are official and deliberately revealed.",
+        "synopsisSpoilerOn": "The World Cup final is the anchor card for the remaining calendar: global stakes, a clear SBS broadcast path, and a Monday 5:00am Sydney start. The full matchup remains protected until both source semifinals are official and deliberately revealed."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "f1-australian-gp-2027-ticket-watch",
@@ -3534,7 +4964,19 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": true,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "The 2027 Melbourne ticket sale week is still unannounced; join the official waitlist now for the release alert.",
+        "hookSpoilerOn": "The 2027 Melbourne ticket sale week is still unannounced; join the official waitlist now for the release alert.",
+        "synopsisSpoilerOff": "This week-long alert is the honest ticketing signal currently supported by the official sources. Formula 1 lists the 2027 Australian Grand Prix with a Join the waitlist action, while the Australian Grand Prix Corporation offers registration for release updates. The older grandstand page displays a 2025 sale date and is not treated as a reliable 2027 on-sale date.",
+        "synopsisSpoilerOn": "This week-long alert is the honest ticketing signal currently supported by the official sources. Formula 1 lists the 2027 Australian Grand Prix with a Join the waitlist action, while the Australian Grand Prix Corporation offers registration for release updates. The older grandstand page displays a 2025 sale date and is not treated as a reliable 2027 on-sale date."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cycling",
@@ -3562,7 +5004,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cycling",
@@ -3618,7 +5072,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 18 — Voiron → Orcières-Merlette (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 18 — Voiron → Orcières-Merlette (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cycling",
@@ -3646,7 +5112,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 19 — Gap → Alpe d'Huez (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 19 — Gap → Alpe d'Huez (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "nrl-raiders-tigers-2026-07-25",
@@ -3704,7 +5182,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "afl-western-bulldogs-richmond-2026-07-25",
@@ -3818,7 +5308,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "hookSpoilerOn": "A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.",
+        "synopsisSpoilerOff": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand.",
+        "synopsisSpoilerOn": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial) brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders. Watch via SBS / SBS On Demand."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "afl-collingwood-geelong-2026-07-30",
@@ -3848,7 +5350,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Collingwood",
+          "role": "home"
+        },
+        {
+          "name": "Geelong Cats",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Collingwood and Geelong meet under lights at the MCG on a Thursday night.",
+        "hookSpoilerOn": "Collingwood and Geelong meet under lights at the MCG on a Thursday night.",
+        "synopsisSpoilerOff": "Collingwood host Geelong Cats at the MCG. The official AFL fixture lists a 7:30 pm Sydney start and Seven coverage for this Melbourne-based marquee match.",
+        "synopsisSpoilerOn": "Collingwood host Geelong Cats at the MCG. The official AFL fixture lists a 7:30 pm Sydney start and Seven coverage for this Melbourne-based marquee match."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "afl-western-bulldogs-north-melbourne-2026-08-06",
@@ -3907,7 +5431,30 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Japan",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 6,
+        "archetype": "international test",
+        "hookSpoilerOff": "The Wallabies' Japan tour begins in Osaka in a prime Sydney evening slot.",
+        "hookSpoilerOn": "The Wallabies' Japan tour begins in Osaka in a prime Sydney evening slot.",
+        "synopsisSpoilerOff": "Japan host Australia at Hanazono Rugby Stadium. Rugby Australia's match centre lists the official start; the converted Sydney time is 8:05 pm and Stan Sport is the Australian broadcaster.",
+        "synopsisSpoilerOn": "Japan host Australia at Hanazono Rugby Stadium. Rugby Australia's match centre lists the official start; the converted Sydney time is 8:05 pm and Stan Sport is the Australian broadcaster."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "afl-gws-gold-coast-2026-08-09",
@@ -4027,7 +5574,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "Bangladesh",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "Australia's Top End Test series starts in Darwin with a daytime first ball.",
+        "hookSpoilerOn": "Australia's Top End Test series starts in Darwin with a daytime first ball.",
+        "synopsisSpoilerOff": "Australia host Bangladesh in the first Test at Marrara Cricket Ground, Darwin. Cricket Australia lists a 10:30 am Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international season.",
+        "synopsisSpoilerOn": "Australia host Bangladesh in the first Test at Marrara Cricket Ground, Darwin. Cricket Australia lists a 10:30 am Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international season."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rugby-australia-japan-2026-08-15",
@@ -4056,7 +5626,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "Japan",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 7,
+        "archetype": "international test",
+        "hookSpoilerOff": "Japan return the fixture for a Saturday afternoon Wallabies Test in Townsville.",
+        "hookSpoilerOn": "Japan return the fixture for a Saturday afternoon Wallabies Test in Townsville.",
+        "synopsisSpoilerOff": "Australia host Japan at Queensland Country Bank Stadium in Townsville. Rugby Australia lists a 3:00 pm Sydney start for this home Test, with Stan Sport coverage.",
+        "synopsisSpoilerOn": "Australia host Japan at Queensland Country Bank Stadium in Townsville. Rugby Australia lists a 3:00 pm Sydney start for this home Test, with Stan Sport coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "nrl-raiders-broncos-2026-08-21",
@@ -4086,7 +5679,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Canberra Raiders",
+          "role": "home"
+        },
+        {
+          "name": "Brisbane Broncos",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A Friday-night Raiders–Broncos match with the finals close enough to matter.",
+        "hookSpoilerOn": "A Friday-night Raiders–Broncos match with the finals close enough to matter.",
+        "synopsisSpoilerOff": "Canberra Raiders host Brisbane Broncos at GIO Stadium. The official NRL draw lists a 6:00 pm Sydney kick-off and Foxtel coverage for this marquee Canberra home fixture.",
+        "synopsisSpoilerOn": "Canberra Raiders host Brisbane Broncos at GIO Stadium. The official NRL draw lists a 6:00 pm Sydney kick-off and Foxtel coverage for this marquee Canberra home fixture."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "cricket-australia-bangladesh-second-test-2026",
@@ -4202,7 +5817,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R12 Dutch GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R12 Dutch GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rugby-argentina-australia-jujuy-2026-08-30",
@@ -4231,7 +5858,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Argentina",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 7,
+        "archetype": "international test",
+        "hookSpoilerOff": "The Rugby Championship opens for Australia with an early-morning Argentina Test.",
+        "hookSpoilerOn": "The Rugby Championship opens for Australia with an early-morning Argentina Test.",
+        "synopsisSpoilerOff": "Argentina host Australia in San Salvador de Jujuy. Rugby Australia lists a 5:00 am Sydney start for the opening Argentina leg, with Stan Sport coverage in Australia.",
+        "synopsisSpoilerOn": "Argentina host Australia in San Salvador de Jujuy. Rugby Australia lists a 5:00 am Sydney start for the opening Argentina leg, with Stan Sport coverage in Australia."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4288,7 +5938,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Argentina",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 7,
+        "archetype": "international test",
+        "hookSpoilerOff": "Australia's second Argentina Test is another early Sydney start in the Championship.",
+        "hookSpoilerOn": "Australia's second Argentina Test is another early Sydney start in the Championship.",
+        "synopsisSpoilerOff": "Argentina host Australia at Estadio Malvinas Argentinas in Mendoza. Rugby Australia lists a 5:00 am Sydney start, with the Wallabies available on Stan Sport.",
+        "synopsisSpoilerOn": "Argentina host Australia at Estadio Malvinas Argentinas in Mendoza. Rugby Australia lists a 5:00 am Sydney start, with the Wallabies available on Stan Sport."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4316,7 +5989,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NRL",
@@ -4428,7 +6113,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
+        "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
+        "synopsisSpoilerOff": "NRL Finals Week 2 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+        "synopsisSpoilerOn": "NRL Finals Week 2 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4456,7 +6153,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
+        "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
+        "synopsisSpoilerOff": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NRL",
@@ -4484,7 +6193,20 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "archetype": "elimination",
+        "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
+        "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
+        "synopsisSpoilerOff": "NRL Preliminary Finals belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+        "synopsisSpoilerOn": "NRL Preliminary Finals belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4512,7 +6234,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rugby-australia-south-africa-2026-09-27",
@@ -4541,7 +6275,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "South Africa",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "archetype": "international test",
+        "hookSpoilerOff": "South Africa at Optus Stadium is one of the Wallabies' biggest home Tests.",
+        "hookSpoilerOn": "South Africa at Optus Stadium is one of the Wallabies' biggest home Tests.",
+        "synopsisSpoilerOff": "Australia host South Africa at Optus Stadium in Perth. Rugby Australia lists a 5:30 pm AWST start, which is 7:30 pm Sydney time; Stan Sport carries the Test.",
+        "synopsisSpoilerOn": "Australia host South Africa at Optus Stadium in Perth. Rugby Australia lists a 5:30 pm AWST start, which is 7:30 pm Sydney time; Stan Sport carries the Test."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "NRL",
@@ -4569,7 +6326,20 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "archetype": "championship decider",
+        "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
+        "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
+        "synopsisSpoilerOff": "NRL Grand Final belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+        "synopsisSpoilerOn": "NRL Grand Final belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cricket",
@@ -4626,7 +6396,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "New Zealand",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "archetype": "international test",
+        "hookSpoilerOff": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
+        "hookSpoilerOn": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
+        "synopsisSpoilerOff": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
+        "synopsisSpoilerOn": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4682,7 +6475,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R16 Singapore GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R16 Singapore GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rlwc-australia-new-zealand-2026",
@@ -4712,7 +6517,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "New Zealand",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "Australia and New Zealand open their Rugby League World Cup campaigns in Sydney.",
+        "hookSpoilerOn": "Australia and New Zealand open their Rugby League World Cup campaigns in Sydney.",
+        "synopsisSpoilerOff": "Australia play New Zealand at Allianz Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
+        "synopsisSpoilerOn": "Australia play New Zealand at Allianz Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rugby-australia-new-zealand-2026-10-17",
@@ -4741,7 +6568,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "New Zealand",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "archetype": "international test",
+        "hookSpoilerOff": "The home Bledisloe Test gives Sydney a major Saturday afternoon Wallabies window.",
+        "hookSpoilerOn": "The home Bledisloe Test gives Sydney a major Saturday afternoon Wallabies window.",
+        "synopsisSpoilerOff": "Australia host New Zealand at Accor Stadium in Sydney. Rugby Australia lists a 3:45 pm Sydney kick-off for the home Bledisloe Test, with Stan Sport coverage.",
+        "synopsisSpoilerOn": "Australia host New Zealand at Accor Stadium in Sydney. Rugby Australia lists a 3:45 pm Sydney kick-off for the home Bledisloe Test, with Stan Sport coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cricket",
@@ -4769,7 +6619,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
+        "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
+        "synopsisSpoilerOff": "2nd Test vs South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+        "synopsisSpoilerOn": "2nd Test vs South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "2nd Test",
+          "role": "home"
+        },
+        {
+          "name": "South Africa (Day 1)",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "F1",
@@ -4827,7 +6700,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "Fiji",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Australia meet Fiji in Brisbane in the World Cup group stage.",
+        "hookSpoilerOn": "Australia meet Fiji in Brisbane in the World Cup group stage.",
+        "synopsisSpoilerOff": "Australia play Fiji at Suncorp Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
+        "synopsisSpoilerOn": "Australia play Fiji at Suncorp Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4855,7 +6750,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cricket",
@@ -4883,7 +6790,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
+        "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
+        "synopsisSpoilerOff": "3rd Test vs South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+        "synopsisSpoilerOn": "3rd Test vs South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "3rd Test",
+          "role": "home"
+        },
+        {
+          "name": "South Africa (Day 1)",
+          "role": "away"
+        }
+      ]
     },
     {
       "id": "rlwc-australia-cook-islands-2026",
@@ -4913,7 +6843,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "Cook Islands",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 7,
+        "hookSpoilerOff": "Australia's final confirmed World Cup group game is a Townsville night fixture.",
+        "hookSpoilerOn": "Australia's final confirmed World Cup group game is a Townsville night fixture.",
+        "synopsisSpoilerOff": "Australia play Cook Islands at Queensland Country Bank Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
+        "synopsisSpoilerOn": "Australia play Cook Islands at Queensland Country Bank Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4969,7 +6921,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -4997,7 +6961,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
+        "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
+        "synopsisSpoilerOff": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "rugby-england-australia-2026-11-09",
@@ -5026,7 +7002,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "England",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "The northern tour opens with an early Sydney-morning Test at Twickenham.",
+        "hookSpoilerOn": "The northern tour opens with an early Sydney-morning Test at Twickenham.",
+        "synopsisSpoilerOff": "England host Australia at Twickenham Stadium. Rugby Australia lists a 2:10 am Sydney start for the Wallabies' northern tour opener, with Stan Sport coverage.",
+        "synopsisSpoilerOn": "England host Australia at Twickenham Stadium. Rugby Australia lists a 2:10 am Sydney start for the Wallabies' northern tour opener, with Stan Sport coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -5054,7 +7053,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "cricket-australia-england-first-odi-2026",
@@ -5147,7 +7158,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Scotland",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 7,
+        "archetype": "international test",
+        "hookSpoilerOff": "A second northern-tour test sends the Wallabies to Murrayfield in the early hours.",
+        "hookSpoilerOn": "A second northern-tour test sends the Wallabies to Murrayfield in the early hours.",
+        "synopsisSpoilerOff": "Scotland host Australia at Murrayfield Stadium in Edinburgh. Rugby Australia lists a 2:10 am Sydney start for this Wallabies Test, carried by Stan Sport.",
+        "synopsisSpoilerOn": "Scotland host Australia at Murrayfield Stadium in Edinburgh. Rugby Australia lists a 2:10 am Sydney start for this Wallabies Test, carried by Stan Sport."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "cricket-australia-england-third-odi-2026",
@@ -5268,7 +7302,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Wales",
+          "role": "home"
+        },
+        {
+          "name": "Wallabies",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 7,
+        "archetype": "international test",
+        "hookSpoilerOff": "The Wallabies' Cardiff Test is a Sunday-morning Sydney viewing window.",
+        "hookSpoilerOn": "The Wallabies' Cardiff Test is a Sunday-morning Sydney viewing window.",
+        "synopsisSpoilerOff": "Wales host Australia at Principality Stadium in Cardiff. Rugby Australia lists a 7:10 am Sydney start for this northern-tour Test, with Stan Sport coverage.",
+        "synopsisSpoilerOn": "Wales host Australia at Principality Stadium in Cardiff. Rugby Australia lists a 7:10 am Sydney start for this northern-tour Test, with Stan Sport coverage."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -5296,7 +7353,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "cricket-australia-england-second-t20-2026",
@@ -5388,7 +7457,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "A Wallabies Test with selection, form, and international stakes.",
+        "hookSpoilerOn": "A Wallabies Test with selection, form, and international stakes.",
+        "synopsisSpoilerOff": "Wallabies vs Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
+        "synopsisSpoilerOn": "Wallabies vs Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Wallabies",
+          "role": "home"
+        },
+        {
+          "name": "Ireland (Nov tour)",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "F1",
@@ -5448,7 +7540,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "England",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A Sunday-night Brisbane T20 closes the England white-ball run.",
+        "hookSpoilerOn": "A Sunday-night Brisbane T20 closes the England white-ball run.",
+        "synopsisSpoilerOff": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
+        "synopsisSpoilerOn": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -5508,7 +7622,29 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "England",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
+        "hookSpoilerOn": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
+        "synopsisSpoilerOff": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
+        "synopsisSpoilerOn": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "F1",
@@ -5564,7 +7700,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+        "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+        "synopsisSpoilerOff": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+        "synopsisSpoilerOn": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "cricket-australia-new-zealand-test-2026",
@@ -5596,7 +7744,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Australia",
+          "role": "home"
+        },
+        {
+          "name": "New Zealand",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "Australia's December Test calendar includes a home New Zealand match in Perth.",
+        "hookSpoilerOn": "Australia's December Test calendar includes a home New Zealand match in Perth.",
+        "synopsisSpoilerOff": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
+        "synopsisSpoilerOn": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Cricket",
@@ -5624,7 +7795,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "archetype": "international test",
+        "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
+        "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
+        "synopsisSpoilerOff": "Boxing Day Test vs New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+        "synopsisSpoilerOn": "Boxing Day Test vs New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "Boxing Day Test",
+          "role": "home"
+        },
+        {
+          "name": "New Zealand",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Cricket",
@@ -5652,7 +7846,30 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "archetype": "international test",
+        "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
+        "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
+        "synopsisSpoilerOff": "New Year's Test vs New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+        "synopsisSpoilerOn": "New Year's Test vs New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z",
+      "participants": [
+        {
+          "name": "New Year's Test",
+          "role": "home"
+        },
+        {
+          "name": "New Zealand",
+          "role": "away"
+        }
+      ]
     },
     {
       "sport": "Ski",
@@ -5680,7 +7897,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "A World Cup race where speed, conditions, and season standings converge.",
+        "hookSpoilerOn": "A World Cup race where speed, conditions, and season standings converge.",
+        "synopsisSpoilerOff": "Kvitfjell — Men's Downhill World Cup at Kvitfjell, Norway is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
+        "synopsisSpoilerOn": "Kvitfjell — Men's Downhill World Cup at Kvitfjell, Norway is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "id": "f1-australian-gp-2027-date-watch",
@@ -5715,7 +7944,19 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": true,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "A deliberate horizon exception for Melbourne's 2027 Formula 1 return; the official race date is still to be confirmed.",
+        "hookSpoilerOn": "A deliberate horizon exception for Melbourne's 2027 Formula 1 return; the official race date is still to be confirmed.",
+        "synopsisSpoilerOff": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact.",
+        "synopsisSpoilerOn": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     },
     {
       "sport": "Ski",
@@ -5799,7 +8040,19 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "A World Cup race where speed, conditions, and season standings converge.",
+        "hookSpoilerOn": "A World Cup race where speed, conditions, and season standings converge.",
+        "synopsisSpoilerOff": "Sun Valley — Men's Alpine Finals Downhill at Sun Valley, Idaho is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
+        "synopsisSpoilerOn": "Sun Valley — Men's Alpine Finals Downhill at Sun Valley, Idaho is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast."
+      },
+      "lastReviewedAt": "2026-07-18T09:28:32.461Z"
     }
   ]
 }

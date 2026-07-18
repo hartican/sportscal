@@ -1,26 +1,15 @@
 #!/usr/bin/env node
 
 const { readJson } = require("./lib/feed-utils");
+const { RESULT_LEAK, PREVIEW_LEAK, PREVIEW_TENSE, lifecycleFor, stakesFor } = require("./lib/storyline-card-rules");
 
 const inputPath = process.argv[2] || "data/events.json";
 const feed = readJson(inputPath);
 const now = new Date();
 const errors = [];
 
-function stakesFor(event) {
-  if (Number.isInteger(event.storyline?.stakes)) return event.storyline.stakes;
-  if (event.expected >= 10) return 5;
-  if (event.expected >= 8) return 4;
-  if (event.expected >= 6) return 3;
-  if (event.expected >= 4) return 2;
-  return 1;
-}
-
 function completed(event) {
-  if (event.status === "completed") return true;
-  const start = new Date(`${event.date}T${event.time}:00+10:00`);
-  const durationMs = Number(event.liveWindow || 3) * 60 * 60 * 1000;
-  return start.getTime() + durationMs < now.getTime();
+  return lifecycleFor(event, now) === "completed";
 }
 
 function displayCopy(event, spoilersOn) {
@@ -44,8 +33,6 @@ function displayCopy(event, spoilersOn) {
   };
 }
 
-const resultLeak = /\b(?:won|lost|beat|defeated|winner|loser|score|margin|\d{1,3}\s*[-–]\s*\d{1,3})\b/i;
-const previewLeak = /\b(?:won|lost|beat|defeated|completed|final score)\b/i;
 const majorCards = feed.events.filter(event => stakesFor(event) >= 4);
 
 majorCards.forEach(event => {
@@ -58,9 +45,9 @@ majorCards.forEach(event => {
   }
   if (completed(event)) {
     if (`${off.hook}\n${off.synopsis}` === `${on.hook}\n${on.synopsis}`) errors.push(`${label} completed-card spoiler ON/OFF copy is identical.`);
-    if (resultLeak.test(`${off.hook}\n${off.synopsis}`)) errors.push(`${label} spoiler-off copy leaks a result.`);
-    if (/\b(?:will|awaits|host|upcoming)\b/i.test(`${on.hook}\n${on.synopsis}`)) errors.push(`${label} completed card still reads as a preview.`);
-  } else if (previewLeak.test(`${off.hook}\n${off.synopsis}\n${on.hook}\n${on.synopsis}`)) {
+    if (RESULT_LEAK.test(`${off.hook}\n${off.synopsis}`)) errors.push(`${label} spoiler-off copy leaks a result.`);
+    if (PREVIEW_TENSE.test(`${on.hook}\n${on.synopsis}`)) errors.push(`${label} completed card still reads as a preview.`);
+  } else if (PREVIEW_LEAK.test(`${off.hook}\n${off.synopsis}\n${on.hook}\n${on.synopsis}`)) {
     errors.push(`${label} upcoming card contains result language.`);
   }
 
