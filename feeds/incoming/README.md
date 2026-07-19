@@ -72,7 +72,7 @@ The app's `Refresh feed` button reads `data/feed-meta.json`, follows `eventsPath
 
 Use `calendar-events.template.json` as the simple hand-entry/import shape. It accepts the small, portable subset that Google Calendar, Apple Calendar or Outlook exports can provide: a stable calendar ID, title, start/end time, location and optional URL, broadcaster, expected score and explicit category override.
 
-The categoriser is deterministic. `sportKey` wins whenever you provide it. Otherwise `scripts/import-calendar-events.js` tests title, description and location against its ordered rule list. If no rule matches, it fails rather than guessing; add a supported `sportKey` to that record. `eventType` similarly overrides the deterministic type rule. The importer records the matching rule on the output card so every classification is auditable.
+The categoriser is deterministic. `sportKey` wins whenever you provide it. Otherwise `scripts/import-calendar-events.js` tests title, description and location against its ordered rule list. If no rule matches, it fails rather than guessing; add a supported `sportKey` to that record. `eventType` similarly overrides the deterministic type rule. Commonwealth Games records use `sportKey: "cwg"`; optional `commonwealthDiscipline` maps the fixed top-nine filters, while any other Games sport resolves to `Miscellaneous`. The importer records the matching rule on the output card so every classification is auditable.
 
 1. Copy the template to `feeds/incoming/calendar-events.json` and enter/paste calendar details.
 2. Build a merged feed, keeping the current researched cards:

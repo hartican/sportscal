@@ -16,6 +16,7 @@ const SPORT_KEYS = new Set([
   "lemans",
   "nfl",
   "ski",
+  "cwg",
 ]);
 
 const ROUNDS = new Set(["all", "early", "knockout", "quarterfinal", "semifinal", "final"]);
@@ -116,6 +117,7 @@ function validateFeed(feed) {
       if (event[field] === undefined || event[field] === null || event[field] === "") errors.push(`${prefix}.${field} is required.`);
     });
     if (!SPORT_KEYS.has(event.key)) errors.push(`${prefix}.key is not a supported sport key: ${event.key}`);
+    if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
     if (!isDate(event.date)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
     if (!isTime(event.time)) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
     if (event.startTimeUtc !== undefined && event.startTimeUtc !== null && !isDateTime(event.startTimeUtc)) errors.push(`${prefix}.startTimeUtc must be ISO date-time if present.`);

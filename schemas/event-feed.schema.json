@@ -65,7 +65,12 @@
           "minLength": 2
         },
         "key": {
-          "enum": ["wimbledon", "rugby", "fifa", "f1", "tdf", "nrl", "afl", "cricket", "nba", "masters", "lemans", "nfl", "ski"]
+          "enum": ["wimbledon", "rugby", "fifa", "f1", "tdf", "nrl", "afl", "cricket", "nba", "masters", "lemans", "nfl", "ski", "cwg"]
+        },
+        "commonwealthDiscipline": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
         },
         "name": {
           "type": "string",

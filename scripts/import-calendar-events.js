@@ -22,11 +22,13 @@ const SPORT_META = {
   lemans: { sport: "Le Mans", label: "Le Mans" },
   nfl: { sport: "NFL", label: "NFL" },
   ski: { sport: "Ski/Alpine", label: "Ski/Alpine" },
+  cwg: { sport: "Commonwealth Games", label: "Commonwealth Games" },
 };
 
 // First match wins. Keep this list ordered and versioned: it is the deterministic
 // fallback when a calendar record does not state sportKey explicitly.
 const SPORT_RULES = [
+  { id: "commonwealth-games", key: "cwg", pattern: /\bcommonwealth games?\b/i },
   { id: "afl.teams-or-league", key: "afl", pattern: /\b(afl|aussie rules|swans|gws|giants|collingwood|magpies|western bulldogs|carlton|richmond)\b/i },
   { id: "nrl.teams-or-league", key: "nrl", pattern: /\b(nrl|rugby league|raiders|rabbitohs|broncos|kangaroos|state of origin)\b/i },
   { id: "rugby.union", key: "rugby", pattern: /\b(rugby union|wallabies|brumbies|super rugby|bledisloe|six nations)\b/i },
@@ -41,6 +43,20 @@ const SPORT_RULES = [
   { id: "endurance-racing", key: "lemans", pattern: /\b(le mans|bathurst|supercars|endurance racing)\b/i },
   { id: "skiing", key: "ski", pattern: /\b(ski|skiing|snowboard|alpine)\b/i },
 ];
+
+function classifyCommonwealthDiscipline(value) {
+  const text = String(value || "");
+  if (/\bathletics?|track and field\b/i.test(text)) return "athletics";
+  if (/\bswimm?ing|aquatics?\b/i.test(text)) return "swimming";
+  if (/\brugby sevens?|rugby 7s\b/i.test(text)) return "rugby-sevens";
+  if (/\bnetball\b/i.test(text)) return "netball";
+  if (/\bcricket\b/i.test(text)) return "cricket";
+  if (/\bhockey\b/i.test(text)) return "hockey";
+  if (/\bgymnastics?\b/i.test(text)) return "gymnastics";
+  if (/\bcycling|bmx|mountain bike\b/i.test(text)) return "cycling";
+  if (/\bboxing\b/i.test(text)) return "boxing";
+  return "miscellaneous";
+}
 
 const EVENT_TYPE_RULES = [
   { id: "semifinal", value: "semifinal", pattern: /\b(semi[- ]?final|semi)\b/i },
@@ -85,6 +101,7 @@ function validateCalendarImport(payload) {
     if (event.endTime && event.startTime && Date.parse(event.endTime) <= Date.parse(event.startTime)) errors.push(`${prefix}.endTime must be after startTime.`);
     if (event.expected !== undefined && (!Number.isFinite(Number(event.expected)) || Number(event.expected) < 5 || Number(event.expected) > 10)) errors.push(`${prefix}.expected must be 5-10.`);
     if (event.sportKey !== undefined && !SPORT_META[event.sportKey]) errors.push(`${prefix}.sportKey is unsupported.`);
+    if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
     if (event.eventType !== undefined && !["all", "fixture", "match", "test", "race", "knockout", "quarterfinal", "semifinal", "final"].includes(event.eventType)) errors.push(`${prefix}.eventType is unsupported.`);
     if (event.url !== undefined && !/^https?:\/\//.test(event.url)) errors.push(`${prefix}.url must be an http(s) URL if present.`);
     if (ids.has(event.calendarEventId)) errors.push(`${prefix}.calendarEventId duplicates ${event.calendarEventId}.`);
@@ -124,6 +141,9 @@ function toImportedEvent(calendar, event) {
   const title = String(event.title).trim();
   const sourceUrl = event.url || `calendar://${calendarSlug}/${eventSlug}`;
   const sport = SPORT_META[classification.key];
+  const commonwealthDiscipline = classification.key === "cwg"
+    ? classifyCommonwealthDiscipline(event.commonwealthDiscipline || [event.title, event.description, event.location].filter(Boolean).join(" "))
+    : null;
   const round = ["knockout", "quarterfinal", "semifinal", "final"].includes(classification.eventType)
     ? classification.eventType
     : "all";
@@ -132,6 +152,7 @@ function toImportedEvent(calendar, event) {
     eventId: `calendar-${calendarSlug}-${eventSlug}`,
     sport: sport.sport,
     key: classification.key,
+    ...(commonwealthDiscipline ? { commonwealthDiscipline } : {}),
     name: title,
     displayTitleCompact: title.slice(0, 80),
     date: parts.date,
@@ -205,4 +226,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { classifyCalendarEvent, importCalendarEvents, toImportedEvent, validateCalendarImport };
+module.exports = { classifyCalendarEvent, classifyCommonwealthDiscipline, importCalendarEvents, toImportedEvent, validateCalendarImport };

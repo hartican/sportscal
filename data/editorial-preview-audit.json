@@ -1,45 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-07-19T01:29:59.464Z",
+  "generatedAt": "2026-07-19T14:42:07.080Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 8,
-    "passed": 8,
+    "due": 24,
+    "passed": 24,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "evt_60",
-      "name": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)",
-      "sport": "Cycling",
-      "date": "2026-07-19",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "course-profile",
-        "general-classification",
-        "climbing-gradient"
-      ],
-      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-15/champagnole-plateau-de-solaison-1/1332950",
-      "issues": []
-    },
-    {
-      "id": "evt_21",
-      "name": "R10 Belgian GP Race",
-      "sport": "F1",
-      "date": "2026-07-19",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "championship-standings",
-        "qualifying-result",
-        "grid-penalty",
-        "tactical-recovery"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
-      "issues": []
-    },
     {
       "id": "fifa-final-2026",
       "name": "FIFA World Cup Final",
@@ -86,6 +55,20 @@
       "issues": []
     },
     {
+      "id": "cwg-glasgow-2026-3x3-australia-opening",
+      "name": "3x3 Basketball — Australia opening session 🇦🇺",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-24",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "New Zealand v Australia men and Australia v Kenya women headline the first Australian session.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
       "id": "evt_64",
       "name": "Stage 19 — Gap → Alpe d'Huez (Mountain)",
       "sport": "Cycling",
@@ -98,6 +81,48 @@
         "summit-finish"
       ],
       "sourceUrl": "https://www.letour.fr/en/news/2026/stage-19/gap-alpe-dhuez-1/1332955",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-para-powerlifting-finals",
+      "name": "Para Powerlifting — medal finals",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-24",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Men's and women's lightweight finals begin the programme before both heavyweight finals.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-gymnastics-mens-team-final",
+      "name": "Artistic Gymnastics — men's team final",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-25",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Team scores and individual qualification places are resolved in the same session.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-swimming-opening-finals",
+      "name": "Swimming — opening finals and 4x100m relays",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-25",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "The women's and men's 4x100m freestyle relays close a broad opening night of finals.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
       "issues": []
     },
     {
@@ -116,6 +141,62 @@
       "issues": []
     },
     {
+      "id": "cwg-glasgow-2026-gymnastics-womens-team-final",
+      "name": "Artistic Gymnastics — women's team final",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-26",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The last two subdivisions settle the team medals and the all-around and apparatus qualifiers.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-netball-australia-england",
+      "name": "Netball — Australia v England 🇦🇺",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-26",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The defending champion Diamonds face one of the tournament's four highest-ranked teams.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-weightlifting-opening-finals",
+      "name": "Weightlifting — opening finals",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-26",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Men's 60kg and 65kg and women's 48kg finals open the lifting programme.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-gymnastics-mens-all-around",
+      "name": "Artistic Gymnastics — men's all-around final",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-26",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Consistency across every apparatus shapes the first individual gymnastics title.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
       "id": "evt_66",
       "name": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial)",
       "sport": "Cycling",
@@ -128,6 +209,146 @@
         "sprint-finish"
       ],
       "sourceUrl": "https://www.letour.fr/en/news/2026/stage-21/thoiry-paris-champs-elysees-1/1332958",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-gymnastics-womens-all-around",
+      "name": "Artistic Gymnastics — women's all-around final",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-27",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The evening session awards the individual all-around medals before apparatus finals begin.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-gymnastics-apparatus-finals-one",
+      "name": "Artistic Gymnastics — apparatus finals day 1",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-27",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Men's floor and pommel horse join women's vault and uneven bars among the medal events.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-gymnastics-apparatus-finals-two",
+      "name": "Artistic Gymnastics — apparatus finals day 2",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-28",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Beam, floor, parallel bars and horizontal bar are among the closing medal events.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-athletics-100m-finals",
+      "name": "Athletics — men's and women's 100m finals",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-29",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "Both 100m semifinals and finals sit inside a medal-heavy evening programme.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-netball-australia-malawi",
+      "name": "Netball — Australia v Malawi 🇦🇺",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-29",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The Diamonds continue Pool A against Malawi in the Tuesday evening Glasgow session.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-3x3-medal-finals",
+      "name": "3x3 Basketball — medal finals",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-30",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The session contains the men's and women's medal matches in both 3x3 disciplines.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-athletics-medal-night-two",
+      "name": "Athletics — heptathlon and stadium finals",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-30",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Long jump, shot put, steeplechase and para finals add depth to the evening.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-netball-australia-south-africa",
+      "name": "Netball — Australia v South Africa 🇦🇺",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-30",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The match sits in the same session as New Zealand v Wales and can shape semifinal positioning.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "cwg-glasgow-2026-swimming-closing-finals",
+      "name": "Swimming — closing finals and medley relays",
+      "sport": "Commonwealth Games",
+      "date": "2026-07-30",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "Individual and para finals lead into the women's and men's 4x100m medley relays.",
+        "Official Glasgow 2026 session timing converted to Sydney time."
+      ],
+      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "issues": []
+    },
+    {
+      "id": "afl-collingwood-geelong-2026-07-30",
+      "name": "Collingwood v Geelong Cats",
+      "sport": "AFL",
+      "date": "2026-07-30",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "The official AFL fixture confirms a 7:30 pm Sydney start.",
+        "Seven and 7plus provide the Australian broadcast path."
+      ],
+      "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
       "issues": []
     }
   ]

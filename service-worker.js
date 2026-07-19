@@ -1,12 +1,22 @@
-const CACHE_NAME = "nothingsport-shell-v14";
+const CACHE_NAME = "nothingsport-shell-v18";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
+  "/config/selector-taxonomy.js",
+  "/config/au-broadcast-weights.js",
+  "/data/cwg-events.js",
   "/data/feed-meta.json",
   "/data/events.json",
   "/manifest.webmanifest",
-  "/icons/sportscal-icon.svg"
+  "/assets/brand/web/nothingsport-logo-day.png",
+  "/assets/brand/web/nothingsport-logo-night.png",
+  "/assets/brand/web/nothingsport-compact-icon-day.png",
+  "/assets/brand/web/nothingsport-compact-icon-night.png",
+  "/icons/nothingsport-helm-32.png",
+  "/icons/nothingsport-helm-180.png",
+  "/icons/nothingsport-helm-192.png",
+  "/icons/nothingsport-helm-512.png"
 ];
 
 self.addEventListener("install", event => {

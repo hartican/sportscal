@@ -3,8 +3,13 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
+const { classifyCalendarEvent, classifyCommonwealthDiscipline } = require("./import-calendar-events");
 
 const html = fs.readFileSync("index.html", "utf8");
+const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
+const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", "utf8");
+const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
+const cwgBundleSource = fs.readFileSync("data/cwg-events.js", "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
@@ -14,18 +19,46 @@ assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], 
 assert(html.includes("<title>nothingSports</title>"), "the document title must use the nothingSports brand");
 assert(html.includes("nothingSports is your smart sports streaming filter"), "the requested nothingSports slogan must be present");
 assert(html.includes("clean, <strong>journalistic</strong> feed"), "the requested journalistic positioning must be present");
-assert(html.includes('class="brand-colosseum"'), "the wordmark must include an outline colosseum glyph");
+const brandAssets = [
+  "assets/brand/web/nothingsport-logo-day.png",
+  "assets/brand/web/nothingsport-logo-night.png",
+  "assets/brand/web/nothingsport-compact-icon-day.png",
+  "assets/brand/web/nothingsport-compact-icon-night.png",
+  "icons/nothingsport-helm-32.png",
+  "icons/nothingsport-helm-180.png",
+  "icons/nothingsport-helm-192.png",
+  "icons/nothingsport-helm-512.png",
+];
+brandAssets.forEach(asset => assert(fs.existsSync(asset), `brand asset must exist: ${asset}`));
+assert(html.includes('data-brand-asset="logo"'), "the full centurion logo must replace the legacy text-and-colosseum lockup");
+assert(html.includes('data-brand-asset="icon"'), "the compact centurion icon must appear in constrained app UI");
+assert(html.includes("syncThemeBrandAssets(useDark)"), "brand assets must follow the existing day, night, and system theme selection");
+assert(!html.includes('class="brand-colosseum"'), "the legacy colosseum placeholder must be removed");
+assert.deepEqual(manifest.icons.map(icon => icon.src), ["/icons/nothingsport-helm-192.png", "/icons/nothingsport-helm-512.png"], "the install manifest must use the standalone centurion helm");
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Watch Later");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
+assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation state must be persisted separately from canonical events");
+assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned Australian broadcast config must load in hosted and direct-file modes");
+assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
+assert(html.includes('src="data/cwg-events.js"'), "direct-file mode must load the published Commonwealth Games fallback bundle");
+assert(html.includes("withBundledCommonwealthGames(loadCachedFeedEvents() || EVENTS)"), "a stale local feed cache must receive new Commonwealth Games cards without duplicating ids");
+assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
+assert(html.includes("className = \"new-dot\""), "new cards must render the compact contrast-colour dot");
 assert(html.includes('id="homeSpoilerToggle"'), "the global spoiler toggle must be visible in the sticky home-screen header");
 assert(html.includes("setGlobalSpoilerPreference(!userPreferences.showSpoilers"), "the home-screen spoiler toggle must update the global preference immediately");
 assert(html.includes("id=\"globalSpoilerSwitch\""), "Settings must expose a global spoiler control");
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
 assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
-assert(html.includes('if (firstRun) draftPreferences.followedSports = []'), "first-time setup must start with every sport deselected");
+assert(html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must start with every selector entity deselected");
+assert(html.includes('id="selectorCategoryList"'), "Settings must expose top-level selector categories");
+assert(html.includes('id="commonwealthFilterList"'), "Commonwealth Games must expose its discipline filters");
+assert(html.includes('id="selectorOptInModal"'), "new selector entities must use one consolidated opt-in prompt");
+assert.equal((html.match(/id="selectorOptInModal"/g) || []).length, 1, "new selector entities must not stack multiple prompts");
+assert(html.includes('selectorNewMarkerMarkup(entity)'), "new selector entities must reuse the contrast-colour dot treatment");
+assert(html.includes('setTimeout(openSelectorOptInPrompt, 250)'), "existing profiles must receive the batched opt-in prompt on the next app open");
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
 assert(html.includes('class="filing-cabinet-icon"') && !html.includes("🗄️"), "Archived must use a traced filing cabinet glyph rather than emoji");
@@ -48,6 +81,7 @@ assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
+assert(!/textContent\s*=\s*["']NEW["']/.test(eventCardSource), "the freshness treatment must not add a NEW text badge");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
 assert(html.includes('id="exportSectionChoices"'), "Never Miss export must expose section choices");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
@@ -60,6 +94,53 @@ assert(spoilerControlSource, "an individual spoiler control must exist");
 assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "individual spoiler controls must not be limited to past events");
 
 const publishedFeed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
+const incomingFeed = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
+const eventFeedSchema = JSON.parse(fs.readFileSync("schemas/event-feed.schema.json", "utf8"));
+const calendarEventSchema = JSON.parse(fs.readFileSync("schemas/calendar-events.schema.json", "utf8"));
+assert(eventFeedSchema.$defs.event.properties.key.enum.includes("cwg"), "published feeds must accept Commonwealth Games canonical events");
+assert(calendarEventSchema.$defs.sportKey.enum.includes("cwg"), "calendar imports must accept Commonwealth Games canonical events");
+assert.equal(classifyCalendarEvent({ title: "Commonwealth Games Rugby Sevens Final" }).key, "cwg", "Commonwealth Games tagging must win before its underlying sport classification");
+assert.equal(classifyCommonwealthDiscipline("Commonwealth Games Rugby Sevens Final"), "rugby-sevens", "Commonwealth discipline mapping must be deterministic");
+assert.equal(classifyCommonwealthDiscipline("Commonwealth Games Badminton Final"), "miscellaneous", "unlisted Commonwealth disciplines must map to Miscellaneous");
+assert.equal(new Set(publishedFeed.events.map(event => event.id)).size, publishedFeed.events.length, "selector views must not require duplicated canonical events");
+const incomingCwgCards = incomingFeed.events.filter(event => event.key === "cwg");
+const publishedCwgCards = publishedFeed.events.filter(event => event.key === "cwg");
+assert.equal(incomingCwgCards.length, 32, "incoming feed must contain the curated Glasgow 2026 Commonwealth Games card set");
+assert.equal(publishedCwgCards.length, 32, "published feed must contain the curated Glasgow 2026 Commonwealth Games card set");
+assert.deepEqual(
+  publishedCwgCards.map(event => event.id).sort(),
+  incomingCwgCards.map(event => event.id).sort(),
+  "every incoming Commonwealth Games card must publish with the same canonical id"
+);
+assert(publishedCwgCards.every(event => event.status === "upcoming" && event.storyline?.arcStage === "preview"), "Commonwealth Games cards must remain pre-event and spoiler-safe");
+assert(publishedCwgCards.every(event => event.expected >= 5), "Commonwealth Games cards must clear the feed's hard relevance floor");
+assert(publishedCwgCards.every(event => ["final", "semifinal"].includes(event.round) || /Australia|world number one/i.test(`${event.name} ${event.selectedSentence}`)), "every surfaced Commonwealth Games card must be a final/semifinal or carry explicit Australian/top-contender relevance");
+assert(!publishedCwgCards.some(event => /Rugby Sevens|Cricket|Hockey/i.test(event.commonwealthDiscipline)), "the Glasgow 2026 feed must not fabricate cards for sports outside the official programme");
+const expectedCwgProgrammeDisciplines = [
+  "3x3 Basketball",
+  "Artistic Gymnastics",
+  "Athletics",
+  "Bowls and Para Bowls",
+  "Boxing",
+  "Judo",
+  "Netball",
+  "Para Powerlifting",
+  "Swimming and Para Swimming",
+  "Track Cycling and Para Track Cycling",
+  "Weightlifting",
+];
+expectedCwgProgrammeDisciplines.forEach(discipline => {
+  assert(publishedCwgCards.some(event => event.commonwealthDiscipline === discipline), `Commonwealth Games feed must cover ${discipline}`);
+});
+const cwgBundleSandbox = { globalThis: {} };
+vm.runInNewContext(cwgBundleSource, cwgBundleSandbox, { filename: "data/cwg-events.js" });
+const bundledCwgCards = cwgBundleSandbox.globalThis.NOTHINGSPORTS_CWG_EVENTS;
+assert.equal(bundledCwgCards.length, 32, "direct-file fallback must contain every published Commonwealth Games card");
+assert.deepEqual(
+  Array.from(bundledCwgCards, event => event.id).sort(),
+  publishedCwgCards.map(event => event.id).sort(),
+  "direct-file fallback must mirror the canonical published Commonwealth Games ids"
+);
 assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing Sportscal card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
 const fifaCards = publishedFeed.events.filter(event => event.key === "fifa");
 assert.equal(fifaCards.length, 20, "published feed must contain all Australia matches and every Round-of-16-onward FIFA card");
@@ -127,20 +208,42 @@ const sandbox = {
   },
 };
 vm.createContext(sandbox);
+vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
+vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
 
 const expose = `
 globalThis.__test = {
   SCORE_BANDS,
+  SURFACE_CONFIG,
+  AU_BROADCAST_CONFIG,
+  SELECTOR_TAXONOMY,
   mergePreferences,
+  allSelectorEntities,
+  orderSelectorEntities,
+  selectorNewPromptEntities,
+  canonicalSportKeysForSelectorIds,
+  selectorEntityMatchesEvent,
+  commonwealthDisciplineForEvent,
   normalizeThemePreference,
   setEvents(events){ activeEvents = events; normalizeEvents(activeEvents); },
   setActions(actions){ eventActions = actions; },
   setSpoilerState(state){ eventSpoilerState = state; },
+  setSurfacePresentation(state){ surfacePresentationState = state; },
+  getSurfacePresentationSnapshot(){ return structuredClone(surfacePresentationState); },
   getSpoilerStateSnapshot(){ return structuredClone(eventSpoilerState); },
   setRatings(next){ ratings = next; },
   setPreferences(next){ userPreferences = mergePreferences({ followedSports: Object.keys(SPORTS_LIBRARY), selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY), ...next }); },
   setFilter(filter){ activeFilter = filter; },
   eventActionKey,
+  surfacePresentationKey,
+  surfacePresentationForEvent,
+  markEventSeen,
+  getStaticAuBroadcastWeight,
+  computeAuBroadcastWeightScore,
+  auBroadcastWeightScoreForEvent,
+  orderSurfacedEvents,
+  partitionSurfacedEvents,
+  topNineEvents,
   cardStateForEvent,
   setCardState,
   collapseCardStates,
@@ -148,6 +251,7 @@ globalThis.__test = {
   isCardActivelyViewed,
   scrollOffsetToPreserveAnchor,
   getFilteredEvents,
+  getPreferenceMatchedEvents,
   getEventAction,
   getEventSpoilerState,
   neverMissBuckets,
@@ -211,6 +315,43 @@ assert.equal(app.normalizeThemePreference("system"), "system", "System must be a
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
 assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), [], "new profiles must start with every sport deselected");
+assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), [], "new profiles must start with categories, event groups, and subcategories deselected");
+assert.deepEqual(
+  Array.from(app.mergePreferences({ followedSports: ["wimbledon", "fifa"] }).selectedSelectorEntityIds),
+  ["sport:wimbledon", "sport:fifa"],
+  "legacy sport preferences must migrate into the selector layer without following new entities"
+);
+
+const selectorCategories = Array.from(app.orderSelectorEntities(app.SELECTOR_TAXONOMY.categories));
+assert.equal(selectorCategories[0].label, "Special Events", "the newly introduced Special Events category must appear before its existing sibling");
+assert.equal(selectorCategories[0].level, 1, "Special Events must be a top-level selector category");
+const specialEventLabels = Array.from(app.SELECTOR_TAXONOMY.specialEvents, entity => entity.label);
+[
+  "Super Bowl",
+  "Masters Tournament",
+  "FIFA World Cup",
+  "Tour de France",
+  "Wimbledon",
+  "24 Hours of Le Mans",
+  "Commonwealth Games",
+].forEach(label => assert(specialEventLabels.includes(label), `Special Events must include ${label}`));
+assert.equal(
+  Array.from(app.orderSelectorEntities(app.SELECTOR_TAXONOMY.specialEvents))[0].label,
+  "Commonwealth Games",
+  "the most recently introduced event group must appear first among its siblings"
+);
+const commonwealthFilters = Array.from(app.SELECTOR_TAXONOMY.commonwealthDisciplines).sort((a, b) => a.lockedSlot - b.lockedSlot);
+assert.deepEqual(
+  commonwealthFilters.map(entity => entity.label),
+  ["Athletics", "Swimming", "Rugby Sevens", "Netball", "Cricket", "Hockey", "Gymnastics", "Cycling", "Boxing", "Miscellaneous"],
+  "Commonwealth Games must use the fixed Australian broadcast-priority filter list"
+);
+assert.equal(commonwealthFilters.at(-1).lockedSlot, 10, "Miscellaneous must remain locked at Commonwealth slot 10");
+assert(commonwealthFilters.every(entity => entity.isNew), "new Commonwealth subcategories must carry selector-level new state");
+const promptEntities = Array.from(app.selectorNewPromptEntities());
+assert(promptEntities.length > 1, "multiple newly introduced selector entities must be batched together");
+assert.equal(promptEntities.filter(entity => entity.id === "category:special-events").length, 1, "the consolidated prompt must contain each new entity once");
+assert.deepEqual(Array.from(app.canonicalSportKeysForSelectorIds(["sport:wimbledon", "special:wimbledon"])), ["wimbledon"], "base-sport and Special Events selections must resolve to one canonical sport key");
 app.setPreferences({});
 
 function dateAtOffset(days){
@@ -238,6 +379,103 @@ function event(id, days, stakes){
     liveWindow: 3,
   };
 }
+
+const canonicalWimbledon = { ...event("canonical-wimbledon", 2, 4), sport: "Tennis", key: "wimbledon" };
+app.setEvents([canonicalWimbledon]);
+app.setPreferences({ selectedSelectorEntityIds: ["sport:wimbledon", "special:wimbledon"] });
+assert.equal(app.getPreferenceMatchedEvents().length, 1, "Special Events must not duplicate a canonical event selected through the base sport tree");
+
+const commonwealthAthletics = { ...event("cwg-athletics", 2, 4), sport: "Commonwealth Games", key: "cwg", commonwealthDiscipline: "Athletics" };
+const commonwealthBadminton = { ...event("cwg-badminton", 3, 4), sport: "Commonwealth Games", key: "cwg", commonwealthDiscipline: "Badminton" };
+app.setEvents([commonwealthAthletics, commonwealthBadminton]);
+app.setPreferences({ selectedSelectorEntityIds: ["cwg:athletics"] });
+assert.deepEqual(Array.from(app.getPreferenceMatchedEvents(), item => item.id), ["cwg-athletics"], "a Commonwealth top-nine subfilter must match its mapped discipline only");
+app.setPreferences({ selectedSelectorEntityIds: ["cwg:miscellaneous"] });
+assert.deepEqual(Array.from(app.getPreferenceMatchedEvents(), item => item.id), ["cwg-badminton"], "Miscellaneous must be computed from Commonwealth sports outside the locked top nine");
+assert.equal(app.commonwealthDisciplineForEvent(commonwealthBadminton), "miscellaneous", "unlisted Commonwealth sports must map to Miscellaneous by rule");
+app.setPreferences({});
+
+function eventFromReference(id, reference, hours, stakes, broadcaster, intensity = stakes){
+  const start = new Date(reference.getTime() + hours * 3600 * 1000);
+  return {
+    ...event(id, 0, stakes),
+    date: `${start.getFullYear()}-${String(start.getMonth() + 1).padStart(2, "0")}-${String(start.getDate()).padStart(2, "0")}`,
+    time: `${String(start.getHours()).padStart(2, "0")}:${String(start.getMinutes()).padStart(2, "0")}`,
+    broadcaster,
+    broadcastOptions: [broadcaster],
+    storyline: { stakes, intensity },
+  };
+}
+
+const rankingReference = new Date(2026, 6, 19, 12, 0, 0);
+const newlySurfaced = eventFromReference("new-lower-importance", rankingReference, 4, 3, "Kayo Sports", 3);
+const seenMarquee = eventFromReference("seen-marquee", rankingReference, 2, 5, "SBS On Demand", 5);
+app.setEvents([newlySurfaced, seenMarquee]);
+app.setActions({});
+app.setSurfacePresentation({
+  [app.surfacePresentationKey(newlySurfaced)]: { firstSurfacedAt: new Date(rankingReference.getTime() - 3600 * 1000).toISOString(), seenAt: null },
+  [app.surfacePresentationKey(seenMarquee)]: { firstSurfacedAt: new Date(rankingReference.getTime() - 2 * 3600 * 1000).toISOString(), seenAt: new Date(rankingReference.getTime() - 3600 * 1000).toISOString() },
+});
+assert.deepEqual(
+  Array.from(app.orderSurfacedEvents([seenMarquee, newlySurfaced], { reference: rankingReference }), ev => ev.id),
+  ["new-lower-importance", "seen-marquee"],
+  "a new eligible item must sort above a higher-importance seen item"
+);
+app.markEventSeen(newlySurfaced, rankingReference);
+assert.equal(app.surfacePresentationForEvent(newlySurfaced, rankingReference).isNew, false, "marking a surfaced item seen must clear its new state");
+assert.deepEqual(
+  Array.from(app.orderSurfacedEvents([newlySurfaced, seenMarquee], { reference: rankingReference }), ev => ev.id),
+  ["seen-marquee", "new-lower-importance"],
+  "seen items must return to importance ordering"
+);
+const tieBreakEvents = [
+  eventFromReference("later-high-intensity", rankingReference, 6, 4, "Stan Sport", 5),
+  eventFromReference("earlier-low-intensity", rankingReference, 5, 4, "Stan Sport", 3),
+  eventFromReference("same-time-low-intensity", rankingReference, 7, 4, "Stan Sport", 3),
+  eventFromReference("same-time-high-intensity", rankingReference, 7, 4, "Stan Sport", 5),
+  eventFromReference("stable-b", rankingReference, 8, 4, "Stan Sport", 4),
+  eventFromReference("stable-a", rankingReference, 8, 4, "Stan Sport", 4),
+];
+app.setEvents(tieBreakEvents);
+app.setSurfacePresentation(Object.fromEntries(tieBreakEvents.map(ev => [
+  app.surfacePresentationKey(ev),
+  { firstSurfacedAt: new Date(rankingReference.getTime() - 2 * 3600 * 1000).toISOString(), seenAt: rankingReference.toISOString() },
+])));
+const tieBreakOrder = Array.from(app.orderSurfacedEvents(tieBreakEvents, { reference: rankingReference }), ev => ev.id);
+assert(tieBreakOrder.indexOf("earlier-low-intensity") < tieBreakOrder.indexOf("later-high-intensity"), "earlier start must break an importance tie before storyline intensity");
+assert(tieBreakOrder.indexOf("same-time-high-intensity") < tieBreakOrder.indexOf("same-time-low-intensity"), "stronger storyline intensity must break an equal-time tie");
+assert(tieBreakOrder.indexOf("stable-a") < tieBreakOrder.indexOf("stable-b"), "stable event ID must provide the final deterministic tie-break");
+app.setSurfacePresentation({
+  [app.surfacePresentationKey(newlySurfaced)]: { firstSurfacedAt: new Date(rankingReference.getTime() - 8 * 24 * 3600 * 1000).toISOString(), seenAt: null },
+});
+assert.equal(app.surfacePresentationForEvent(newlySurfaced, rankingReference).isNew, false, "new state must expire after the configured freshness window");
+
+assert(app.getStaticAuBroadcastWeight("SBS On Demand") > app.getStaticAuBroadcastWeight("Kayo Sports"), "free Australian broadcast access must carry more weight than subscription-only access");
+assert.equal(
+  app.computeAuBroadcastWeightScore({ broadcasters: ["SBS On Demand"], competitionImportance: 4, storylineIntensity: 3, userInterestScore: 2 }),
+  4.15,
+  "the Top 9 score must use the documented static weighted formula"
+);
+
+const topNineCandidates = [
+  eventFromReference("top-sbs", rankingReference, 1, 4, "SBS On Demand", 4),
+  ...Array.from({ length: 8 }, (_, index) => eventFromReference(`top-stan-${index + 1}`, rankingReference, index + 2, 4, "Stan Sport", 4)),
+  eventFromReference("lower-broadcast-weight", rankingReference, 11, 4, "Broadcaster TBC", 4),
+  eventFromReference("below-top-nine-floor", rankingReference, 12, 3, "SBS On Demand", 3),
+];
+app.setEvents(topNineCandidates);
+app.setSurfacePresentation(Object.fromEntries(topNineCandidates.map(ev => [
+  app.surfacePresentationKey(ev),
+  { firstSurfacedAt: new Date(rankingReference.getTime() - 2 * 3600 * 1000).toISOString(), seenAt: new Date(rankingReference.getTime() - 3600 * 1000).toISOString() },
+])));
+const rankedTopNine = app.topNineEvents(rankingReference);
+assert.equal(rankedTopNine.length, 9, "Top 9 must cap an eligible set at nine items");
+assert.equal(rankedTopNine[0].id, "top-sbs", "Top 9 must put the highest Australian broadcast-weight score first");
+assert(!rankedTopNine.some(ev => ev.id === "lower-broadcast-weight" || ev.id === "below-top-nine-floor"), "Top 9 must not use lower-priority fixtures as filler");
+assert.deepEqual(Array.from(app.topNineEvents(rankingReference).slice(0, 2), ev => ev.id), ["top-sbs", "top-stan-1"]);
+
+app.setEvents(topNineCandidates.slice(0, 2));
+assert.equal(app.topNineEvents(rankingReference).length, 2, "Top 9 must show fewer items when fewer than nine are eligible");
 
 const phaseOneEvents = [
   event("recent-top", -6, 5),

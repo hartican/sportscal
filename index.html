@@ -7,7 +7,8 @@
 <meta name="theme-color" content="#0a0a0f">
 <meta name="description" content="A spoiler-free sports calendar and watch planner for Sydney time.">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" href="/icons/sportscal-icon.svg" type="image/svg+xml">
+<link rel="icon" href="/icons/nothingsport-helm-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icons/nothingsport-helm-180.png" sizes="180x180">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -21,6 +22,7 @@
   --text: #f4f4f6;
   --text-dim: #9a9aa6;
   --text-faint: #5f5f6b;
+  --color-contrast: #ffffff;
   --accent: #00e5ff;
   --brand-start: #ffffff;
   --brand-end: #00e5ff;
@@ -44,6 +46,7 @@
   --c-ski: #4fc3f7;
   --c-nfl: #1a237e;
   --c-afl: #8b1d2c;
+  --c-cwg: #6f4cc3;
 }
 
 :root[data-theme="day"]{
@@ -56,6 +59,7 @@
   --text: #151820;
   --text-dim: #5f6875;
   --text-faint: #8c96a3;
+  --color-contrast: #151820;
   --accent: #007f99;
   --brand-start: #151820;
   --brand-end: #007f99;
@@ -78,6 +82,7 @@
     --text: #151820;
     --text-dim: #5f6875;
     --text-faint: #8c96a3;
+    --color-contrast: #151820;
     --accent: #007f99;
     --brand-start: #151820;
     --brand-end: #007f99;
@@ -152,34 +157,36 @@ header.top{
 .brand-title-row{
   display:flex;
   align-items:center;
-  gap: 8px;
   width:fit-content;
+  max-width:100%;
 }
 
-.brand h1{
-  font-size: 1.35rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  background: linear-gradient(90deg, var(--brand-start), var(--brand-end));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.brand-lockup{
+  max-width:100%;
+  line-height:0;
 }
 
-.brand-colosseum{
-  width: 1.72rem;
-  height: 1.35rem;
-  flex: 0 0 auto;
-  color: var(--text-dim);
+.brand-logo{
+  display:block;
+  height:auto;
+  object-fit:contain;
 }
 
-.brand-colosseum path{
-  fill:none;
-  stroke:currentColor;
-  stroke-width:1.35;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  vector-effect:non-scaling-stroke;
+.header-brand-logo{
+  width:clamp(178px, 18vw, 235px);
+}
+
+.modal-brand-logo{
+  width:min(300px, 76vw);
+  margin-bottom:12px;
+}
+
+.brand-compact-icon{
+  display:block;
+  width:38px;
+  height:auto;
+  flex:0 0 38px;
+  object-fit:contain;
 }
 
 .brand .clock{
@@ -602,6 +609,26 @@ main{
   font-weight: 700;
   color: var(--text);
   line-height:1.3;
+}
+
+.event-name-line{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+}
+
+.new-dot{
+  inline-size: 12px;
+  block-size: 12px;
+  border-radius: 9999px;
+  background: var(--color-contrast);
+  flex: 0 0 12px;
+}
+
+.cell-event .new-dot{
+  inline-size: 10px;
+  block-size: 10px;
+  flex-basis: 10px;
 }
 
 .event-venue{
@@ -1053,6 +1080,9 @@ main{
 
 .month-cell .cell-event{
   position: relative;
+  display:flex;
+  align-items:center;
+  gap: 8px;
   font-size: 0.62rem;
   padding: 3px 5px 3px 7px;
   border-radius: 5px;
@@ -1065,6 +1095,12 @@ main{
   cursor: pointer;
   opacity: 0.78;
   filter: saturate(0.58);
+}
+
+.cell-event-label{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .month-cell .cell-event.solid{
@@ -1335,6 +1371,187 @@ main{
   color: var(--text-dim);
   font-size: 0.74rem;
   line-height: 1.35;
+}
+
+.selector-category-list{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.selector-category-row{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items:stretch;
+}
+
+.selector-category-button,
+.selector-follow-button{
+  border:1px solid var(--border);
+  background:var(--bg-card);
+  color:var(--text);
+  font:inherit;
+  cursor:pointer;
+}
+
+.selector-category-button{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  padding:12px 14px;
+  border-radius:10px;
+  text-align:left;
+  font-size:0.88rem;
+  font-weight:850;
+}
+
+.selector-category-button.active{
+  border-color:var(--accent);
+  background:var(--soft-fill-strong);
+}
+
+.selector-follow-button{
+  min-width:92px;
+  border-radius:10px;
+  padding:10px 12px;
+  color:var(--text-dim);
+  font-size:0.72rem;
+  font-weight:800;
+}
+
+.selector-follow-button.selected{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+.selector-section-heading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:4px;
+}
+
+.selector-section-heading h3,
+.selector-section-heading h4{
+  margin:0;
+}
+
+.selector-path{
+  color:var(--text-faint);
+  font-size:0.69rem;
+  font-weight:750;
+  letter-spacing:0.02em;
+}
+
+.selector-entity-card .choice-title{
+  align-items:flex-start;
+}
+
+.selector-entity-card .selector-path{
+  display:block;
+  margin-top:5px;
+}
+
+.commonwealth-filter-list{
+  display:flex;
+  flex-direction:column;
+  border-top:1px solid var(--border);
+  margin-top:12px;
+}
+
+.commonwealth-filter-row{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  width:100%;
+  min-height:50px;
+  padding:8px 6px;
+  border:0;
+  border-bottom:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+
+.commonwealth-filter-row.selected{
+  background:var(--soft-fill-strong);
+}
+
+.commonwealth-rank{
+  color:var(--text-faint);
+  font-size:0.72rem;
+  font-weight:900;
+  text-align:center;
+}
+
+.commonwealth-filter-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  font-size:0.8rem;
+  font-weight:800;
+}
+
+.commonwealth-lock{
+  color:var(--text-faint);
+  font-size:0.66rem;
+  font-weight:750;
+}
+
+.selector-opt-in-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.selector-opt-in-item{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  padding:11px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+
+.selector-opt-in-item.selected{
+  border-color:var(--accent);
+}
+
+.selector-opt-in-copy strong{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.82rem;
+}
+
+.selector-opt-in-copy > .selector-path{
+  display:block;
+  margin-top:4px;
+}
+
+.selector-opt-in-toggle{
+  color:var(--text-dim);
+  font-size:0.72rem;
+  font-weight:850;
+}
+
+.selector-opt-in-item.selected .selector-opt-in-toggle{
+  color:var(--accent);
 }
 
 .filter-panel{
@@ -1747,7 +1964,7 @@ footer.app-footer{
 }
 
 @media (max-width: 640px){
-  .brand h1{ font-size: 1.1rem; }
+  .header-brand-logo{ width:178px; }
   .brand .slogan{ font-size: 0.66rem; }
   .tabs{
     padding: 0 16px;
@@ -1762,7 +1979,6 @@ footer.app-footer{
     line-height:1.15;
   }
   .tab-count{ display:none; }
-  .brand-colosseum{ width:1.5rem; height:1.15rem; }
   .filing-cabinet-icon{ width:1.55rem; height:1.55rem; }
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
@@ -1794,10 +2010,7 @@ footer.app-footer{
   <div class="header-inner">
     <div class="brand">
       <div class="brand-title-row">
-        <h1>nothingSports</h1>
-        <svg class="brand-colosseum" viewBox="0 0 32 24" aria-hidden="true">
-          <path d="M4 20.5h24M5.5 20.5V9.2h21v11.3M4.5 9.2h23M6.5 6.5h19M9 3.8h14M8 9.2V6.5M24 9.2V6.5M11 20.5v-5.1a2.2 2.2 0 0 1 4.4 0v5.1M16.6 20.5v-5.1a2.2 2.2 0 0 1 4.4 0v5.1M7.5 12.1h2M22.5 12.1h2"/>
-        </svg>
+        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo-night.png" width="1200" height="445" alt="nothingSports"></h1>
       </div>
       <div class="slogan">Smart sports streaming filter for the right live games.</div>
       <div class="clock" id="liveClock">—</div>
@@ -1848,6 +2061,7 @@ footer.app-footer{
   <div class="onboarding-panel settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="onboarding-head">
       <div class="settings-title-row">
+        <img class="brand-compact-icon" id="settingsBrandIcon" data-brand-asset="icon" src="assets/brand/web/nothingsport-compact-icon-night.png" width="640" height="619" alt="" aria-hidden="true">
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
@@ -1868,6 +2082,7 @@ footer.app-footer{
   <div class="onboarding-panel about-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
     <div class="onboarding-head">
       <div>
+        <img class="brand-logo modal-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo-night.png" width="1200" height="445" alt="" aria-hidden="true">
         <h2 id="aboutTitle">About nothingSports</h2>
         <p>Smart sports streaming filter for the right live games.</p>
       </div>
@@ -1879,6 +2094,24 @@ footer.app-footer{
     </div>
     <div class="about-actions">
       <button class="btn primary" id="closeAboutBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="selectorOptInModal" aria-hidden="true">
+  <div class="onboarding-panel settings-panel" role="dialog" aria-modal="true" aria-labelledby="selectorOptInTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="selectorOptInTitle">New feed choices</h2>
+        <p>Choose any new selector items you want to add. Nothing is added automatically.</p>
+      </div>
+    </div>
+    <div class="onboarding-body">
+      <div class="selector-opt-in-list" id="selectorOptInList"></div>
+    </div>
+    <div class="onboarding-actions">
+      <button class="btn ghost" type="button" id="skipSelectorOptInBtn">Not now</button>
+      <button class="btn primary" type="button" id="confirmSelectorOptInBtn">Add selected</button>
     </div>
   </div>
 </div>
@@ -1904,6 +2137,9 @@ footer.app-footer{
   </div>
 </div>
 
+<script src="config/selector-taxonomy.js"></script>
+<script src="config/au-broadcast-weights.js"></script>
+<script src="data/cwg-events.js"></script>
 <script>
 /* ============ DATA ============ */
 const EVENTS = [{"sport": "Tennis", "key": "wimbledon", "name": "Kasatkina vs Osaka — Women's R3", "date": "2026-07-03", "time": "22:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_0"}, {"sport": "Tennis", "key": "wimbledon", "name": "De Minaur vs Svajda — Men's R3 🇦🇺", "date": "2026-07-04", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_1"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Quarterfinals", "date": "2026-07-07", "time": "22:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_2"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Quarterfinals", "date": "2026-07-08", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_3"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Semifinals", "date": "2026-07-09", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_4"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Semifinals", "date": "2026-07-10", "time": "22:00", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_5"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Final", "date": "2026-07-11", "time": "23:00", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_6"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Final", "date": "2026-07-12", "time": "23:00", "broadcaster": "Stan Sport", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_7"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Ireland", "date": "2026-07-04", "time": "20:10", "broadcaster": "Stan Sport", "expected": 8, "venue": "Allianz Stadium, Sydney", "liveWindow": 3, "id": "evt_8"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs France", "date": "2026-07-11", "time": "17:40", "broadcaster": "Stan Sport", "expected": 7, "venue": "Brisbane Stadium", "liveWindow": 3, "id": "evt_9"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Italy", "date": "2026-07-18", "time": "20:10", "broadcaster": "Stan Sport", "expected": 6, "venue": "HBF Park, Perth", "liveWindow": 3, "id": "evt_10"}, {"sport": "Football", "key": "fifa", "name": "Socceroos vs Egypt — Round of 32 🇦🇺", "date": "2026-07-04", "time": "04:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_11"}, {"sport": "Football", "key": "fifa", "name": "Socceroos Round of 16 (if advanced) 🇦🇺", "date": "2026-07-09", "time": "02:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_12"}, {"sport": "Football", "key": "fifa", "name": "Quarterfinals", "date": "2026-07-09", "time": "06:00", "broadcaster": "SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_13"}, {"sport": "Football", "key": "fifa", "name": "Semifinal 1", "date": "2026-07-15", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_14"}, {"sport": "Football", "key": "fifa", "name": "Semifinal 2", "date": "2026-07-16", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_15"}, {"sport": "Football", "key": "fifa", "name": "Third-Place Playoff", "date": "2026-07-19", "time": "07:00", "broadcaster": "SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_16"}, {"sport": "Football", "key": "fifa", "name": "FIFA World Cup Final", "date": "2026-07-20", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_17"}, {"sport": "F1", "key": "f1", "name": "R9 British GP Qualifying", "date": "2026-07-05", "time": "02:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_18"}, {"sport": "F1", "key": "f1", "name": "R9 British GP Race", "date": "2026-07-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_19"}, {"sport": "F1", "key": "f1", "name": "R10 Belgian GP Qualifying", "date": "2026-07-19", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_20"}, {"sport": "F1", "key": "f1", "name": "R10 Belgian GP Race", "date": "2026-07-20", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_21"}, {"sport": "F1", "key": "f1", "name": "R11 Hungarian GP Qualifying", "date": "2026-07-26", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_22"}, {"sport": "F1", "key": "f1", "name": "R11 Hungarian GP Race", "date": "2026-07-27", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_23"}, {"sport": "F1", "key": "f1", "name": "R12 Dutch GP Qualifying", "date": "2026-08-23", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_24"}, {"sport": "F1", "key": "f1", "name": "R12 Dutch GP Race", "date": "2026-08-24", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_25"}, {"sport": "F1", "key": "f1", "name": "R13 Italian GP Qualifying", "date": "2026-09-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_26"}, {"sport": "F1", "key": "f1", "name": "R13 Italian GP Race", "date": "2026-09-07", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_27"}, {"sport": "F1", "key": "f1", "name": "R14 Spanish GP Qualifying", "date": "2026-09-13", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_28"}, {"sport": "F1", "key": "f1", "name": "R14 Spanish GP Race", "date": "2026-09-14", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_29"}, {"sport": "F1", "key": "f1", "name": "R15 Azerbaijan GP Qualifying", "date": "2026-09-25", "time": "23:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_30"}, {"sport": "F1", "key": "f1", "name": "R15 Azerbaijan GP Race", "date": "2026-09-26", "time": "22:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_31"}, {"sport": "F1", "key": "f1", "name": "R16 Singapore GP Qualifying", "date": "2026-10-11", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_32"}, {"sport": "F1", "key": "f1", "name": "R16 Singapore GP Race", "date": "2026-10-12", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_33"}, {"sport": "F1", "key": "f1", "name": "R17 US GP (COTA) Qualifying", "date": "2026-10-25", "time": "09:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_34"}, {"sport": "F1", "key": "f1", "name": "R17 US GP (COTA) Race", "date": "2026-10-26", "time": "07:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_35"}, {"sport": "F1", "key": "f1", "name": "R18 Mexico City GP Qualifying", "date": "2026-11-01", "time": "08:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_36"}, {"sport": "F1", "key": "f1", "name": "R18 Mexico City GP Race", "date": "2026-11-02", "time": "07:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_37"}, {"sport": "F1", "key": "f1", "name": "R19 Brazilian GP Qualifying", "date": "2026-11-08", "time": "05:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_38"}, {"sport": "F1", "key": "f1", "name": "R19 Brazilian GP Race", "date": "2026-11-09", "time": "04:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_39"}, {"sport": "F1", "key": "f1", "name": "R20 Las Vegas GP Qualifying", "date": "2026-11-21", "time": "15:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_40"}, {"sport": "F1", "key": "f1", "name": "R20 Las Vegas GP Race", "date": "2026-11-22", "time": "15:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_41"}, {"sport": "F1", "key": "f1", "name": "R21 Qatar GP Qualifying", "date": "2026-11-29", "time": "05:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_42"}, {"sport": "F1", "key": "f1", "name": "R21 Qatar GP Race", "date": "2026-11-30", "time": "03:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_43"}, {"sport": "F1", "key": "f1", "name": "R22 Abu Dhabi GP Qualifying", "date": "2026-12-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_44"}, {"sport": "F1", "key": "f1", "name": "R22 Abu Dhabi GP Race", "date": "2026-12-07", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_45"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 1 — Barcelona → Barcelona (Team Time Trial)", "date": "2026-07-05", "time": "00:55", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_46"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 2 — Tarragona → Barcelona (Hilly)", "date": "2026-07-05", "time": "21:05", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_47"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 3 — Granollers → Les Angles (Mountain)", "date": "2026-07-06", "time": "20:00", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_48"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 4 — Carcassonne → Foix (Hilly)", "date": "2026-07-07", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_49"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 5 — Lannemezan → Pau (Flat)", "date": "2026-07-08", "time": "21:55", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_50"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain)", "date": "2026-07-09", "time": "20:15", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_51"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 7 — Hagetmau → Bordeaux (Flat)", "date": "2026-07-10", "time": "21:05", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_52"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 8 — Périgueux → Bergerac (Flat)", "date": "2026-07-11", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_53"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 9 — Malemort → Ussel (Hilly)", "date": "2026-07-12", "time": "21:20", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_54"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 10 — Aurillac → Le Lioran (Mountain)", "date": "2026-07-14", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_55"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 11 — Vichy → Nevers (Flat)", "date": "2026-07-15", "time": "21:40", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_56"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat)", "date": "2026-07-16", "time": "21:20", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_57"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 13 — Dole → Belfort (Hilly)", "date": "2026-07-17", "time": "20:50", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_58"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 14 — Mulhouse → Le Markstein (Mountain)", "date": "2026-07-18", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_59"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)", "date": "2026-07-19", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_60"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT)", "date": "2026-07-21", "time": "20:50", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_61"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 17 — Chambéry → Voiron (Flat)", "date": "2026-07-22", "time": "21:10", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_62"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 18 — Voiron → Orcières-Merlette (Mountain)", "date": "2026-07-23", "time": "20:25", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_63"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 19 — Gap → Alpe d'Huez (Mountain)", "date": "2026-07-24", "time": "21:50", "broadcaster": "SBS / SBS On Demand", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_64"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain)", "date": "2026-07-25", "time": "19:35", "broadcaster": "SBS / SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_65"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial)", "date": "2026-07-27", "time": "00:05", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_66"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 1", "date": "2026-04-09", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_67"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 2", "date": "2026-04-10", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_68"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 3 (Moving Day)", "date": "2026-04-11", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_69"}, {"sport": "Golf", "key": "masters", "name": "Masters Final Round (Sunday)", "date": "2026-04-12", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_70"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 1", "date": "2026-06-04", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_71"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 2", "date": "2026-06-08", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_72"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 3", "date": "2026-06-11", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_73"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 4", "date": "2026-06-14", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_74"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 5 (if needed)", "date": "2026-06-17", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_75"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 6 (if needed)", "date": "2026-06-20", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_76"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 7 (if needed)", "date": "2026-06-23", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 10, "venue": null, "liveWindow": 4, "id": "evt_77"}, {"sport": "American Football", "key": "nfl", "name": "Super Bowl LX", "date": "2026-02-09", "time": "10:30", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_78"}, {"sport": "Le Mans", "key": "lemans", "name": "24 Hours of Le Mans — Start", "date": "2026-06-13", "time": "23:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_79"}, {"sport": "Le Mans", "key": "lemans", "name": "24 Hours of Le Mans — Finish", "date": "2026-06-14", "time": "23:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_80"}, {"sport": "NRL", "key": "nrl", "name": "NRL Finals Week 1", "date": "2026-09-12", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_81"}, {"sport": "NRL", "key": "nrl", "name": "NRL Finals Week 2", "date": "2026-09-19", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_82"}, {"sport": "NRL", "key": "nrl", "name": "NRL Preliminary Finals", "date": "2026-09-26", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_83"}, {"sport": "NRL", "key": "nrl", "name": "NRL Grand Final", "date": "2026-10-04", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_84"}, {"sport": "Cricket", "key": "cricket", "name": "1st Test vs Bangladesh (Day 1)", "date": "2026-08-13", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 6, "venue": null, "liveWindow": 8, "id": "evt_85"}, {"sport": "Cricket", "key": "cricket", "name": "2nd Test vs Bangladesh (Day 1)", "date": "2026-08-22", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 6, "venue": null, "liveWindow": 8, "id": "evt_86"}, {"sport": "Cricket", "key": "cricket", "name": "1st Test vs South Africa (Day 1)", "date": "2026-10-09", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 7, "venue": null, "liveWindow": 8, "id": "evt_87"}, {"sport": "Cricket", "key": "cricket", "name": "2nd Test vs South Africa (Day 1)", "date": "2026-10-18", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_88"}, {"sport": "Cricket", "key": "cricket", "name": "3rd Test vs South Africa (Day 1)", "date": "2026-10-27", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_89"}, {"sport": "Cricket", "key": "cricket", "name": "Boxing Day Test vs New Zealand", "date": "2026-12-26", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 9, "venue": null, "liveWindow": 8, "id": "evt_90"}, {"sport": "Cricket", "key": "cricket", "name": "New Year's Test vs New Zealand", "date": "2027-01-02", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_91"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Japan (away)", "date": "2026-08-08", "time": "19:00", "broadcaster": "Stan Sport", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_92"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Japan (home)", "date": "2026-08-15", "time": "19:30", "broadcaster": "Stan Sport", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_93"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Argentina", "date": "2026-08-29", "time": "06:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_94"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs South Africa", "date": "2026-09-27", "time": "17:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_95"}, {"sport": "Rugby", "key": "rugby", "name": "Bledisloe Cup — Wallabies vs NZ (Game 1)", "date": "2026-10-10", "time": "19:45", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_96"}, {"sport": "Rugby", "key": "rugby", "name": "Bledisloe Cup — Wallabies vs NZ (Game 2)", "date": "2026-10-17", "time": "19:45", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_97"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs England (Nov tour)", "date": "2026-11-14", "time": "00:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_98"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Scotland (Nov tour)", "date": "2026-11-21", "time": "00:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_99"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Ireland (Nov tour)", "date": "2026-11-28", "time": "00:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_100"}, {"sport": "Ski", "key": "ski", "name": "Kvitfjell — Men's Downhill World Cup", "date": "2027-03-06", "time": "22:00", "broadcaster": "FIS broadcast", "expected": 8, "venue": "Kvitfjell, Norway", "liveWindow": 3, "id": "evt_101"}, {"sport": "Ski", "key": "ski", "name": "Kvitfjell — Men's Super-G World Cup", "date": "2027-03-07", "time": "22:00", "broadcaster": "FIS broadcast", "expected": 7, "venue": "Kvitfjell, Norway", "liveWindow": 3, "id": "evt_102"}, {"sport": "Ski", "key": "ski", "name": "Sun Valley — Men's Alpine Finals Downhill", "date": "2027-03-20", "time": "04:00", "broadcaster": "FIS broadcast", "expected": 9, "venue": "Sun Valley, Idaho", "liveWindow": 3, "id": "evt_103"}, {"sport": "Ski", "key": "ski", "name": "Shahdag — Moguls World Cup Finals", "date": "2027-03-15", "time": "21:00", "broadcaster": "FIS broadcast", "expected": 7, "venue": "Shahdag, Azerbaijan", "liveWindow": 3, "id": "evt_104"}];
@@ -1922,9 +2158,10 @@ const SPORT_META = {
   ski:         { label: "Ski/Alpine",       color: "var(--c-ski)",      icon: "⛷️" },
   nfl:         { label: "Super Bowl",       color: "var(--c-nfl)",      icon: "🏈" },
   afl:         { label: "AFL",              color: "var(--c-afl)",      icon: "🏉" },
+  cwg:         { label: "Commonwealth Games", color: "var(--c-cwg)",   icon: "🏅" },
 };
 
-const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","afl","cricket","nba","masters","lemans","nfl","ski"];
+const FILTER_ORDER = ["all","f1","rugby","wimbledon","fifa","tdf","nrl","afl","cricket","nba","masters","lemans","nfl","ski","cwg"];
 const ACTION_FILTERS = {
   mustwatch: { label: "Must Watch", icon: "★" },
   watchlater: { label: "Watch Later", icon: "↺" },
@@ -1951,6 +2188,28 @@ const COMING_SOON_SPORTS = [
   "MotoGP",
   "Olympics",
 ];
+
+const SELECTOR_TAXONOMY = globalThis.NOTHINGSPORTS_SELECTOR_TAXONOMY || {
+  version: "selector-taxonomy-unavailable",
+  categories: [],
+  specialEvents: [],
+  commonwealthDisciplines: [],
+};
+
+const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY).map(([key, sport], index) => ({
+  id: `sport:${key}`,
+  level: 2,
+  label: sport.label,
+  parentId: "category:sports",
+  path: ["Sports", sport.label],
+  categoryType: "sport",
+  canonicalSportKeys: [key],
+  icon: sport.icon,
+  detail: sport.detail,
+  color: sport.color,
+  isNew: false,
+  editorialOrder: index + 1,
+}));
 
 const BROADCASTER_LIBRARY = {
   kayo: { label: "Kayo Sports", aliases: ["kayo", "espn"] },
@@ -1994,11 +2253,12 @@ const SPOILER_FIELDS = {
 };
 
 const DEFAULT_PREFERENCES = {
-  version: 3,
+  version: 4,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
   localVenueIds: ["gio-stadium", "manuka-oval"],
+  selectedSelectorEntityIds: [],
   followedSports: [],
   selectedBroadcasters: ["kayo","stan","sbs","nine","foxtel","fis"],
   tennis: {
@@ -2017,7 +2277,7 @@ const DEFAULT_PREFERENCES = {
 const APP_CONTRACT = {
   schemaVersion: "events.v1",
   rails: {
-    topStorylines: "Top Storylines This Week",
+    topStorylines: "Top 9",
     worthCheckingOut: "Worth Checking Out",
     aroundTheCorner: "Around the Corner",
   },
@@ -2042,8 +2302,20 @@ const SCORE_BANDS = {
 };
 
 const FEED_CONFIG = {
-  metaUrl: "/data/feed-meta.json",
-  eventsUrl: "/data/events.json",
+  metaUrl: "data/feed-meta.json",
+  eventsUrl: "data/events.json",
+};
+
+const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
+  defaultWeight: 0,
+  profiles: [],
+};
+
+const SURFACE_CONFIG = {
+  freshnessWindowMs: 7 * 24 * 3600 * 1000,
+  topNineLimit: 9,
+  seenThreshold: 0.6,
+  seenDelayMs: 800,
 };
 
 const STORAGE_KEYS = {
@@ -2051,6 +2323,8 @@ const STORAGE_KEYS = {
   followedSports: "ns_followed_sports_v1",
   eventUserState: "ns_event_user_state_v1",
   eventSpoilerState: "ns_event_spoiler_state_v1",
+  surfacePresentation: "ns_surface_presentation_v1",
+  selectorReleaseAcknowledgement: "ns_selector_release_ack_v1",
   legacyEventActions: "ns_event_actions_v1",
   hiddenItems: "ns_hidden_items_v1",
   feedCache: "ns_feed_cache_v1",
@@ -2072,7 +2346,9 @@ let neverMissInitialJumpPending = true;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
 let settingsFirstRun = false;
+let settingsSelectorCategory = "category:special-events";
 let draftPreferences = null;
+let pendingSelectorPromptIds = new Set();
 let cardViewStates = {};
 
 function readStorage(key, fallback){
@@ -2101,20 +2377,151 @@ function uniqueArray(values){
   return Array.from(new Set(values.filter(Boolean)));
 }
 
+function allSelectorEntities(){
+  return [
+    ...(SELECTOR_TAXONOMY.categories || []),
+    ...BASE_SPORT_SELECTOR_ENTITIES,
+    ...(SELECTOR_TAXONOMY.specialEvents || []),
+    ...(SELECTOR_TAXONOMY.commonwealthDisciplines || []),
+  ];
+}
+
+function selectorEntityById(entityId){
+  return allSelectorEntities().find(entity => entity.id === entityId) || null;
+}
+
+function orderSelectorEntities(entities){
+  return entities.slice().sort((first, second) => {
+    if (Boolean(first.isNew) !== Boolean(second.isNew)) return first.isNew ? -1 : 1;
+    if (first.isNew && second.isNew){
+      const introducedDifference = Date.parse(second.introducedAt || 0) - Date.parse(first.introducedAt || 0);
+      if (introducedDifference) return introducedDifference;
+    }
+    const editorialDifference = Number(first.editorialOrder || 0) - Number(second.editorialOrder || 0);
+    if (editorialDifference) return editorialDifference;
+    return String(first.label).localeCompare(String(second.label));
+  });
+}
+
+function selectorEntityCanonicalSportKeys(entity){
+  if (!entity) return [];
+  if (entity.id === "category:sports") return Object.keys(SPORTS_LIBRARY);
+  if (entity.id === "category:special-events"){
+    return uniqueArray((SELECTOR_TAXONOMY.specialEvents || []).flatMap(item => item.canonicalSportKeys || []));
+  }
+  if (entity.id.startsWith("cwg:")) return ["cwg"];
+  return uniqueArray(entity.canonicalSportKeys || []);
+}
+
+function normalizeSelectorEntityIds(values){
+  const validIds = new Set(allSelectorEntities().map(entity => entity.id));
+  return uniqueArray(Array.isArray(values) ? values : []).filter(id => validIds.has(id));
+}
+
+function legacySelectorIdsForFollowedSports(keys){
+  return uniqueArray(Array.isArray(keys) ? keys : [])
+    .filter(key => SPORT_META[key])
+    .map(key => {
+      if (SPORTS_LIBRARY[key]) return `sport:${key}`;
+      return (SELECTOR_TAXONOMY.specialEvents || []).find(entity => (entity.canonicalSportKeys || []).includes(key))?.id;
+    })
+    .filter(Boolean);
+}
+
+function canonicalSportKeysForSelectorIds(entityIds){
+  return uniqueArray(normalizeSelectorEntityIds(entityIds).flatMap(id => selectorEntityCanonicalSportKeys(selectorEntityById(id))))
+    .filter(key => SPORT_META[key]);
+}
+
+function selectorEntityIsEffectivelySelected(entityId, preferences){
+  const selected = new Set(preferences?.selectedSelectorEntityIds || []);
+  if (selected.has(entityId)) return true;
+  if (entityId.startsWith("sport:") && selected.has("category:sports")) return true;
+  if (entityId.startsWith("special:") && selected.has("category:special-events")) return true;
+  if (entityId.startsWith("cwg:") && (selected.has("category:special-events") || selected.has("special:commonwealth-games"))) return true;
+  return false;
+}
+
+function normalizeCommonwealthDiscipline(value){
+  const label = String(value || "").trim().toLowerCase();
+  if (/\bathletics?|track and field\b/.test(label)) return "athletics";
+  if (/\bswimm?ing|aquatics?\b/.test(label)) return "swimming";
+  if (/\brugby sevens?|rugby 7s\b/.test(label)) return "rugby-sevens";
+  if (/\bnetball\b/.test(label)) return "netball";
+  if (/\bcricket\b/.test(label)) return "cricket";
+  if (/\bhockey\b/.test(label)) return "hockey";
+  if (/\bgymnastics?\b/.test(label)) return "gymnastics";
+  if (/\bcycling|bmx|mountain bike\b/.test(label)) return "cycling";
+  if (/\bboxing\b/.test(label)) return "boxing";
+  return "miscellaneous";
+}
+
+function commonwealthDisciplineForEvent(ev){
+  return normalizeCommonwealthDiscipline(ev.commonwealthDiscipline || ev.discipline || ev.sportDiscipline || ev.sport);
+}
+
+function selectorEntityMatchesEvent(entityId, ev){
+  const entity = selectorEntityById(entityId);
+  if (!entity) return false;
+  if (entity.id.startsWith("cwg:")){
+    return ev.key === "cwg" && commonwealthDisciplineForEvent(ev) === entity.canonicalDiscipline;
+  }
+  return selectorEntityCanonicalSportKeys(entity).includes(ev.sportId || ev.key);
+}
+
+function selectorNewPromptEntities(){
+  const result = [];
+  orderSelectorEntities((SELECTOR_TAXONOMY.categories || []).filter(entity => entity.isNew)).forEach(category => {
+    result.push(category);
+    if (category.id === "category:special-events"){
+      orderSelectorEntities((SELECTOR_TAXONOMY.specialEvents || []).filter(entity => entity.isNew)).forEach(entity => {
+        result.push(entity);
+        if (entity.id === "special:commonwealth-games"){
+          result.push(...(SELECTOR_TAXONOMY.commonwealthDisciplines || []).filter(item => item.isNew).slice().sort((a, b) => a.lockedSlot - b.lockedSlot));
+        }
+      });
+    }
+  });
+  return result;
+}
+
 function normalizeThemePreference(value){
   return ["day", "night", "system"].includes(value) ? value : "system";
+}
+
+const BRAND_ASSETS = Object.freeze({
+  logo: Object.freeze({
+    day: "assets/brand/web/nothingsport-logo-day.png",
+    night: "assets/brand/web/nothingsport-logo-night.png",
+  }),
+  icon: Object.freeze({
+    day: "assets/brand/web/nothingsport-compact-icon-day.png",
+    night: "assets/brand/web/nothingsport-compact-icon-night.png",
+  }),
+});
+
+function syncThemeBrandAssets(useDark){
+  const mode = useDark ? "night" : "day";
+  document.querySelectorAll("[data-brand-asset]").forEach(image => {
+    const nextSrc = BRAND_ASSETS[image.dataset.brandAsset]?.[mode];
+    if (nextSrc && image.getAttribute("src") !== nextSrc) image.setAttribute("src", nextSrc);
+  });
 }
 
 function mergePreferences(saved){
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
   if (!saved || typeof saved !== "object") return merged;
+  const selectedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
+    ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
+    : legacySelectorIdsForFollowedSports(saved.followedSports);
   return {
     ...merged,
     ...saved,
     theme: normalizeThemePreference(saved.theme ?? merged.theme),
     showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
     localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
-    followedSports: uniqueArray(saved.followedSports || merged.followedSports).filter(key => SPORTS_LIBRARY[key]),
+    selectedSelectorEntityIds,
+    followedSports: canonicalSportKeysForSelectorIds(selectedSelectorEntityIds),
     selectedBroadcasters: uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]),
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
@@ -2146,6 +2553,7 @@ function applyThemePreference(theme){
   const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
   const useDark = nextTheme === "night" || (nextTheme === "system" && systemDark);
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", useDark ? "#0a0a0f" : "#f3f5f7");
+  syncThemeBrandAssets(useDark);
 }
 
 function loadRatings(){
@@ -2216,6 +2624,16 @@ function saveEventSpoilerState(next){
   writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
 }
 
+function loadSurfacePresentation(){
+  const current = readStorage(STORAGE_KEYS.surfacePresentation, null);
+  return current && typeof current === "object" && !Array.isArray(current) ? current : {};
+}
+
+function saveSurfacePresentation(next){
+  surfacePresentationState = next && typeof next === "object" ? next : {};
+  writeStorage(STORAGE_KEYS.surfacePresentation, surfacePresentationState);
+}
+
 function clearSpoilerOverrides(override){
   const matchingKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === override);
   if (!matchingKeys.length) return 0;
@@ -2265,8 +2683,32 @@ let userPreferences = loadPreferences();
 let ratings = loadRatings();
 let eventActions = loadEventActions();
 let eventSpoilerState = loadEventSpoilerState(eventActions);
+let surfacePresentationState = loadSurfacePresentation();
 if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
-let activeEvents = loadCachedFeedEvents() || EVENTS;
+function withBundledCommonwealthGames(events){
+  const merged = Array.isArray(events) ? events.slice() : [];
+  const existingIds = new Set(merged.map(ev => String(ev.eventId || ev.id || "")));
+  (globalThis.NOTHINGSPORTS_CWG_EVENTS || []).forEach(ev => {
+    const id = String(ev.eventId || ev.id || "");
+    if (!id || existingIds.has(id)) return;
+    merged.push({ ...ev });
+    existingIds.add(id);
+  });
+  return merged;
+}
+
+let activeEvents = withBundledCommonwealthGames(loadCachedFeedEvents() || EVENTS);
+
+function bootstrapExistingSurfaceHistory(events, reference = nowAEST()){
+  if (Object.keys(surfacePresentationState).length || !userPreferences.onboardingComplete) return;
+  const timestamp = new Date(reference).toISOString();
+  saveSurfacePresentation(Object.fromEntries(events.map(ev => [
+    surfacePresentationKey(ev),
+    { firstSurfacedAt: timestamp, seenAt: timestamp },
+  ])));
+}
+
+bootstrapExistingSurfaceHistory(activeEvents);
 
 /* ============ FEED REFRESH ============ */
 function sydneyPartsFromIso(iso){
@@ -2608,6 +3050,153 @@ function updateEventAction(ev, patch){
   };
   saveEventActions({ ...eventActions, [key]: nextAction });
   return nextAction;
+}
+
+function surfacePresentationKey(ev){
+  const id = ev.eventId || ev.id;
+  return id === undefined || id === null ? "" : String(id);
+}
+
+function ensureSurfacePresentations(events, reference = nowAEST()){
+  const surfacedAt = new Date(reference);
+  if (Number.isNaN(surfacedAt.getTime())) return surfacePresentationState;
+  let next = surfacePresentationState;
+  let changed = false;
+  events.forEach(ev => {
+    const key = surfacePresentationKey(ev);
+    if (!key || next[key]) return;
+    if (!changed) next = { ...surfacePresentationState };
+    next[key] = { firstSurfacedAt: surfacedAt.toISOString(), seenAt: null };
+    changed = true;
+  });
+  if (changed) saveSurfacePresentation(next);
+  return next;
+}
+
+function storylineIntensityForEvent(ev){
+  const intensity = Number(ev.storyline?.intensity ?? ev.stakesScore ?? stakesScoreForEvent(ev));
+  return Math.max(1, Math.min(5, Number.isFinite(intensity) ? intensity : 1));
+}
+
+function getStaticAuBroadcastWeight(broadcaster){
+  const labels = (Array.isArray(broadcaster) ? broadcaster : [broadcaster])
+    .map(value => String(value || "").toLowerCase())
+    .filter(Boolean);
+  return AU_BROADCAST_CONFIG.profiles.reduce((highest, profile) => {
+    const aliases = [profile.broadcasterKey, ...(profile.aliases || [])]
+      .map(value => String(value || "").toLowerCase())
+      .filter(Boolean);
+    const matches = labels.some(label => aliases.some(alias => label.includes(alias)));
+    return matches ? Math.max(highest, Number(profile.weight) || 0) : highest;
+  }, Number(AU_BROADCAST_CONFIG.defaultWeight) || 0);
+}
+
+function computeAuBroadcastWeightScore(input){
+  const broadcastWeight = getStaticAuBroadcastWeight(input.broadcasters || []);
+  const competitionImportance = Math.max(0, Math.min(5, Number(input.competitionImportance) || 0));
+  const storylineIntensity = Math.max(0, Math.min(5, Number(input.storylineIntensity) || 0));
+  const userInterestScore = Math.max(0, Math.min(5, Number(input.userInterestScore) || 0));
+  return Number((
+    broadcastWeight * 0.5 +
+    competitionImportance * 0.25 +
+    storylineIntensity * 0.15 +
+    userInterestScore * 0.10
+  ).toFixed(3));
+}
+
+function userInterestScoreForEvent(ev){
+  if (getEventAction(ev).mustWatch) return 5;
+  const followsSport = userPreferences.followedSports.includes(ev.sportId || ev.key);
+  const hasPreferredBroadcaster = (ev.broadcasterIds || []).some(id => userPreferences.selectedBroadcasters.includes(id));
+  if (followsSport && hasPreferredBroadcaster) return 4;
+  return followsSport ? 3 : 0;
+}
+
+function auBroadcastWeightScoreForEvent(ev){
+  return computeAuBroadcastWeightScore({
+    broadcasters: ev.broadcastOptions?.length ? ev.broadcastOptions : [ev.broadcaster],
+    competitionImportance: Number(ev.stakesScore || stakesScoreForEvent(ev)),
+    storylineIntensity: storylineIntensityForEvent(ev),
+    userInterestScore: userInterestScoreForEvent(ev),
+  });
+}
+
+function surfacePresentationForEvent(ev, reference = nowAEST()){
+  ensureSurfacePresentations([ev], reference);
+  const saved = surfacePresentationState[surfacePresentationKey(ev)] || {};
+  const firstSurfacedAt = saved.firstSurfacedAt || null;
+  const firstSurfacedMs = firstSurfacedAt ? new Date(firstSurfacedAt).getTime() : NaN;
+  const referenceMs = new Date(reference).getTime();
+  const ageMs = referenceMs - firstSurfacedMs;
+  const isNew = !saved.seenAt
+    && Number.isFinite(ageMs)
+    && ageMs >= 0
+    && ageMs <= SURFACE_CONFIG.freshnessWindowMs;
+  return {
+    isNew,
+    firstSurfacedAt,
+    seenAt: saved.seenAt || null,
+    auBroadcastWeightScore: auBroadcastWeightScoreForEvent(ev),
+    feedBucket: isNew ? "new" : "seen",
+  };
+}
+
+function markEventSeen(ev, seenAt = nowAEST()){
+  ensureSurfacePresentations([ev], seenAt);
+  const key = surfacePresentationKey(ev);
+  const current = surfacePresentationState[key] || {};
+  if (current.seenAt) return surfacePresentationForEvent(ev, seenAt);
+  saveSurfacePresentation({
+    ...surfacePresentationState,
+    [key]: { ...current, seenAt: new Date(seenAt).toISOString() },
+  });
+  return surfacePresentationForEvent(ev, seenAt);
+}
+
+function compareStableEventIds(first, second){
+  const firstId = surfacePresentationKey(first);
+  const secondId = surfacePresentationKey(second);
+  if (firstId === secondId) return 0;
+  return firstId < secondId ? -1 : 1;
+}
+
+function compareSurfacedEvents(first, second, { topNine = false, reference = nowAEST() } = {}){
+  const firstPresentation = surfacePresentationForEvent(first, reference);
+  const secondPresentation = surfacePresentationForEvent(second, reference);
+  if (firstPresentation.isNew !== secondPresentation.isNew) return firstPresentation.isNew ? -1 : 1;
+  if (topNine && firstPresentation.auBroadcastWeightScore !== secondPresentation.auBroadcastWeightScore){
+    return secondPresentation.auBroadcastWeightScore - firstPresentation.auBroadcastWeightScore;
+  }
+  const importanceDifference = Number(second.stakesScore || stakesScoreForEvent(second)) - Number(first.stakesScore || stakesScoreForEvent(first));
+  if (importanceDifference) return importanceDifference;
+  const timeDifference = eventDateTime(first) - eventDateTime(second);
+  if (timeDifference) return timeDifference;
+  const intensityDifference = storylineIntensityForEvent(second) - storylineIntensityForEvent(first);
+  if (intensityDifference) return intensityDifference;
+  return compareStableEventIds(first, second);
+}
+
+function orderSurfacedEvents(events, options = {}){
+  const eligible = events.filter(eventMeetsGlobalThreshold);
+  ensureSurfacePresentations(eligible, options.reference || nowAEST());
+  return eligible.slice().sort((first, second) => compareSurfacedEvents(first, second, options));
+}
+
+function partitionSurfacedEvents(events, options = {}){
+  const ordered = orderSurfacedEvents(events, options);
+  return {
+    newItems: ordered.filter(ev => surfacePresentationForEvent(ev, options.reference || nowAEST()).isNew),
+    seenItems: ordered.filter(ev => !surfacePresentationForEvent(ev, options.reference || nowAEST()).isNew),
+  };
+}
+
+function topNineEvents(reference = nowAEST()){
+  const weekEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
+  const candidates = getPreferenceMatchedEvents()
+    .filter(ev => !getEventAction(ev).archived)
+    .filter(ev => eventDateTime(ev) >= reference && eventDateTime(ev) <= weekEnd)
+    .filter(ev => Number(ev.stakesScore) >= SCORE_BANDS.topStorylines.minStakes);
+  return orderSurfacedEvents(candidates, { topNine: true, reference }).slice(0, SURFACE_CONFIG.topNineLimit);
 }
 
 function defaultEventSpoilerState(){
@@ -2956,7 +3545,7 @@ function renderPreferenceSummary(){
 }
 
 function eventMatchesSportPreferences(ev){
-  return userPreferences.followedSports.includes(ev.sportId || ev.key);
+  return (userPreferences.selectedSelectorEntityIds || []).some(entityId => selectorEntityMatchesEvent(entityId, ev));
 }
 
 function eventMatchesBroadcasterPreferences(ev){
@@ -3082,6 +3671,47 @@ function sortUpcomingFirst(list){
   upcoming.sort((a,b) => eventDateTime(a) - eventDateTime(b));
   past.sort((a,b) => eventDateTime(a) - eventDateTime(b));
   return upcoming.concat(past);
+}
+
+let surfaceSeenObserver = null;
+const surfaceSeenEvents = new WeakMap();
+const surfaceSeenTimers = new WeakMap();
+
+function removeNewMarker(card){
+  card.classList.remove("is-new");
+  card.dataset.feedBucket = "seen";
+  card.querySelector(".new-dot")?.remove();
+}
+
+function getSurfaceSeenObserver(){
+  if (surfaceSeenObserver || typeof IntersectionObserver !== "function") return surfaceSeenObserver;
+  surfaceSeenObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const existingTimer = surfaceSeenTimers.get(entry.target);
+      if (!entry.isIntersecting || entry.intersectionRatio < SURFACE_CONFIG.seenThreshold){
+        if (existingTimer) clearTimeout(existingTimer);
+        surfaceSeenTimers.delete(entry.target);
+        return;
+      }
+      if (existingTimer) return;
+      const timer = setTimeout(() => {
+        surfaceSeenTimers.delete(entry.target);
+        const ev = surfaceSeenEvents.get(entry.target);
+        if (!ev || !entry.target.isConnected) return;
+        markEventSeen(ev);
+        removeNewMarker(entry.target);
+        surfaceSeenObserver?.unobserve(entry.target);
+      }, SURFACE_CONFIG.seenDelayMs);
+      surfaceSeenTimers.set(entry.target, timer);
+    });
+  }, { threshold: [SURFACE_CONFIG.seenThreshold] });
+  return surfaceSeenObserver;
+}
+
+function observeNewSurfaceItem(element, ev, presentation = surfacePresentationForEvent(ev)){
+  if (!presentation.isNew) return;
+  surfaceSeenEvents.set(element, ev);
+  getSurfaceSeenObserver()?.observe(element);
 }
 
 /* ============ CARD BUILDER ============ */
@@ -3362,6 +3992,7 @@ function collapseCardsOutsideActiveViewport(){
 function buildEventCard(ev, options = {}){
   const meta = SPORT_META[ev.key];
   const status = getEventStatus(ev);
+  const presentation = surfacePresentationForEvent(ev);
   const actual = getActual(ev.id);
   const displayTitle = spoilerSafeDisplayTitle(ev);
   const upgraded = isUpgrade(ev) && isSpoilerVisible(ev);
@@ -3386,9 +4017,11 @@ function buildEventCard(ev, options = {}){
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
     spoilerProtected ? "is-spoiler-protected" : "",
+    presentation.isNew ? "is-new" : "",
     status === "past" ? "is-past" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
+  card.dataset.feedBucket = presentation.feedBucket;
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 10 + ev.stakesScore * 4)}%`);
@@ -3442,10 +4075,19 @@ function buildEventCard(ev, options = {}){
     }
     nameWrap.appendChild(dateLine);
   }
+  const nameLine = document.createElement("div");
+  nameLine.className = "event-name-line";
+  if (presentation.isNew){
+    const newDot = document.createElement("span");
+    newDot.className = "new-dot";
+    newDot.setAttribute("aria-label", "New item");
+    nameLine.appendChild(newDot);
+  }
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
   nameEl.textContent = displayTitle;
-  nameWrap.appendChild(nameEl);
+  nameLine.appendChild(nameEl);
+  nameWrap.appendChild(nameLine);
   if (state === "opened" && ev.venue){
     const venueEl = document.createElement("div");
     venueEl.className = "event-venue";
@@ -3613,10 +4255,27 @@ function buildEventCard(ev, options = {}){
   }
 
   card.appendChild(mainDiv);
+  observeNewSurfaceItem(card, ev, presentation);
   return card;
 }
 
 /* ============ RENDER: LIST VIEW ============ */
+function appendNewlySurfacedSection(container, events, { mode = "calendar" } = {}){
+  if (!events.length) return false;
+  const section = document.createElement("section");
+  section.className = "queue-section surfaced-new-section";
+  section.setAttribute("aria-label", "Newly surfaced events");
+  const heading = document.createElement("h3");
+  heading.textContent = "Newly surfaced";
+  section.appendChild(heading);
+  const grid = document.createElement("div");
+  grid.className = "cards-grid";
+  events.forEach(ev => grid.appendChild(buildEventCard(ev, { mode })));
+  section.appendChild(grid);
+  container.appendChild(section);
+  return true;
+}
+
 function renderListView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
@@ -3625,7 +4284,10 @@ function renderListView(){
     container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match your current preferences.<br><button class="btn primary" onclick="openSettings()">Edit settings</button></div>`;
     return;
   }
-  const ordered = calendarTimelineEvents(filtered);
+  const { newItems, seenItems } = partitionSurfacedEvents(filtered);
+  appendNewlySurfacedSection(container, newItems);
+  const ordered = calendarTimelineEvents(seenItems);
+  if (newItems.length) calendarInitialJumpPending = false;
 
   // group by date, preserving order
   const groups = [];
@@ -3778,17 +4440,29 @@ function renderMonthView(){
     dateLabel.textContent = day;
     cell.appendChild(dateLabel);
 
-    const dayEvents = (eventsByDate[dateStr] || []).sort((a,b) => a.time.localeCompare(b.time));
+    const dayEvents = orderSurfacedEvents(eventsByDate[dateStr] || []);
     const maxShow = 3;
     dayEvents.slice(0, maxShow).forEach(ev => {
       const meta = SPORT_META[ev.key];
       const displayTitle = spoilerSafeDisplayTitle(ev);
       const evEl = document.createElement("div");
+      const presentation = surfacePresentationForEvent(ev);
       const priorityClass = isMustWatch(ev) ? " must-watch" : (ev.expected >= 7 ? " solid" : " quiet");
-      evEl.className = "cell-event" + priorityClass;
+      evEl.className = "cell-event" + priorityClass + (presentation.isNew ? " is-new" : "");
+      evEl.dataset.feedBucket = presentation.feedBucket;
       evEl.style.setProperty("--sport-color", meta.color);
-      evEl.textContent = `${meta.icon} ${displayTitle}`;
+      if (presentation.isNew){
+        const newDot = document.createElement("span");
+        newDot.className = "new-dot";
+        newDot.setAttribute("aria-label", "New item");
+        evEl.appendChild(newDot);
+      }
+      const label = document.createElement("span");
+      label.className = "cell-event-label";
+      label.textContent = `${meta.icon} ${displayTitle}`;
+      evEl.appendChild(label);
       evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
+      observeNewSurfaceItem(evEl, ev, presentation);
       cell.appendChild(evEl);
     });
     if (dayEvents.length > maxShow){
@@ -3831,7 +4505,7 @@ function neverMissBuckets(reference = nowAEST()){
     .sort((a,b) => eventDateTime(a) - eventDateTime(b));
 
   return {
-    topStorylines: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes),
+    topStorylines: topNineEvents(reference),
     worthCheckingOut: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore === SCORE_BANDS.worthCheckingOut.minStakes),
     aroundTheCorner: upcoming.filter(ev => (
       (eventDateTime(ev) > weekEnd && eventDateTime(ev) <= monthEnd) || ev.horizonException
@@ -3839,7 +4513,7 @@ function neverMissBuckets(reference = nowAEST()){
   };
 }
 
-function renderRecommendationRail(container, title, events, emptyCopy){
+function renderRecommendationRail(container, title, events, emptyCopy, options = {}){
   const rail = document.createElement("div");
   rail.className = "mw-tier";
   const heading = document.createElement("h3");
@@ -3855,7 +4529,8 @@ function renderRecommendationRail(container, title, events, emptyCopy){
   } else {
     const grid = document.createElement("div");
     grid.className = "cards-grid";
-    events.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "nevermiss" })));
+    const ordered = orderSurfacedEvents(events, { topNine: Boolean(options.topNine) });
+    ordered.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "nevermiss" })));
     rail.appendChild(grid);
   }
 
@@ -3867,10 +4542,12 @@ function renderNeverMissTimeline(container, events){
   timeline.className = "mw-tier never-miss-timeline";
 
   const heading = document.createElement("h3");
-  heading.textContent = "Top Storylines + Worth Checking Out";
+  heading.textContent = "This week’s timeline";
   timeline.appendChild(heading);
 
-  const groups = groupEventsByDate(events);
+  const { newItems, seenItems } = partitionSurfacedEvents(events);
+  appendNewlySurfacedSection(timeline, newItems, { mode: "nevermiss" });
+  const groups = groupEventsByDate(calendarTimelineEvents(seenItems));
   const dates = Object.keys(groups).sort();
   const todayStr = formatDateKey(nowAEST());
   let todayAnchorInserted = false;
@@ -3914,7 +4591,8 @@ function renderNeverMissTimeline(container, events){
   }
 
   container.appendChild(timeline);
-  scheduleInitialNeverMissJump();
+  if (newItems.length) neverMissInitialJumpPending = false;
+  else scheduleInitialNeverMissJump();
 }
 
 function renderNeverMiss(){
@@ -3923,11 +4601,22 @@ function renderNeverMiss(){
 
   const intro = document.createElement("div");
   intro.className = "surface-intro";
-  intro.innerHTML = `<h2>Never Miss</h2><p>Top Storylines and Worth Checking Out in one timeline: the previous seven days above Today, the next seven below.</p>`;
+  intro.innerHTML = `<h2>Never Miss</h2><p>The Top 9 is ranked for Australian viewing access. The timeline keeps the rest of this week’s selective, spoiler-safe picks around Today.</p>`;
   container.appendChild(intro);
 
-  const { aroundTheCorner } = neverMissBuckets();
-  renderNeverMissTimeline(container, neverMissTimelineEvents());
+  const { topStorylines, aroundTheCorner } = neverMissBuckets();
+  renderRecommendationRail(
+    container,
+    APP_CONTRACT.rails.topStorylines,
+    topStorylines,
+    "No 4/5-or-higher events are eligible for the Top 9 this week.",
+    { topNine: true }
+  );
+  const topNineIds = new Set(topStorylines.map(ev => surfacePresentationKey(ev)));
+  renderNeverMissTimeline(
+    container,
+    neverMissTimelineEvents().filter(ev => !topNineIds.has(surfacePresentationKey(ev)))
+  );
   renderRecommendationRail(
     container,
     APP_CONTRACT.rails.aroundTheCorner,
@@ -4205,11 +4894,96 @@ function toggleArrayValue(list, value){
   return list.includes(value) ? list.filter(item => item !== value) : list.concat(value);
 }
 
+function selectorNewMarkerMarkup(entity){
+  return entity?.isNew ? '<span class="new-dot" aria-label="New selector item"></span>' : "";
+}
+
+function syncDraftSelectorSports(){
+  draftPreferences.selectedSelectorEntityIds = normalizeSelectorEntityIds(draftPreferences.selectedSelectorEntityIds);
+  draftPreferences.followedSports = canonicalSportKeysForSelectorIds(draftPreferences.selectedSelectorEntityIds);
+}
+
+function selectorCategoryLeafIds(categoryId){
+  if (categoryId === "category:sports") return BASE_SPORT_SELECTOR_ENTITIES.map(entity => entity.id);
+  if (categoryId === "category:special-events") return (SELECTOR_TAXONOMY.specialEvents || []).map(entity => entity.id);
+  return [];
+}
+
+function clearSelectorCategoryFromDraft(categoryId){
+  const removeIds = new Set([categoryId, ...selectorCategoryLeafIds(categoryId)]);
+  if (categoryId === "category:special-events"){
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => removeIds.add(entity.id));
+  }
+  draftPreferences.selectedSelectorEntityIds = draftPreferences.selectedSelectorEntityIds.filter(id => !removeIds.has(id));
+  syncDraftSelectorSports();
+}
+
+function setDraftSelectorCategory(categoryId, selected){
+  clearSelectorCategoryFromDraft(categoryId);
+  if (selected) draftPreferences.selectedSelectorEntityIds.push(categoryId);
+  syncDraftSelectorSports();
+}
+
+function toggleSelectorEntityInDraft(entityId){
+  const selected = new Set(draftPreferences.selectedSelectorEntityIds);
+  const entity = selectorEntityById(entityId);
+  if (!entity) return;
+
+  if (entity.level === 1){
+    setDraftSelectorCategory(entityId, !selected.has(entityId));
+    return;
+  }
+
+  if (entityId.startsWith("sport:") && selected.has("category:sports")){
+    selected.delete("category:sports");
+    BASE_SPORT_SELECTOR_ENTITIES.forEach(item => {
+      if (item.id !== entityId) selected.add(item.id);
+    });
+  } else if (entityId.startsWith("special:") && selected.has("category:special-events")){
+    selected.delete("category:special-events");
+    (SELECTOR_TAXONOMY.specialEvents || []).forEach(item => {
+      if (item.id !== entityId) selected.add(item.id);
+    });
+  } else if (entityId.startsWith("cwg:") && selected.has("category:special-events")){
+    selected.delete("category:special-events");
+    (SELECTOR_TAXONOMY.specialEvents || []).forEach(item => {
+      if (item.id !== "special:commonwealth-games") selected.add(item.id);
+    });
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(item => {
+      if (item.id !== entityId) selected.add(item.id);
+    });
+  } else if (entityId.startsWith("cwg:") && selected.has("special:commonwealth-games")){
+    selected.delete("special:commonwealth-games");
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(item => {
+      if (item.id !== entityId) selected.add(item.id);
+    });
+  } else if (selected.has(entityId)){
+    selected.delete(entityId);
+  } else {
+    if (entityId.startsWith("sport:")) selected.delete("category:sports");
+    if (entityId.startsWith("special:")) selected.delete("category:special-events");
+    if (entityId.startsWith("cwg:")){
+      selected.delete("category:special-events");
+      selected.delete("special:commonwealth-games");
+    }
+    if (entityId === "special:commonwealth-games"){
+      (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(item => selected.delete(item.id));
+    }
+    selected.add(entityId);
+  }
+
+  draftPreferences.selectedSelectorEntityIds = Array.from(selected);
+  syncDraftSelectorSports();
+}
+
 function openSettings({ firstRun = false, section = "main" } = {}){
   settingsFirstRun = firstRun;
   settingsSection = section;
   draftPreferences = clonePreferences(userPreferences);
-  if (firstRun) draftPreferences.followedSports = [];
+  if (firstRun){
+    draftPreferences.selectedSelectorEntityIds = [];
+    draftPreferences.followedSports = [];
+  }
   const modal = document.getElementById("settingsModal");
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
@@ -4227,6 +5001,7 @@ function closeSettings({ restoreTheme = true } = {}){
   settingsSection = "main";
   settingsFirstRun = false;
   draftPreferences = null;
+  setTimeout(openSelectorOptInPrompt, 0);
 }
 
 function settingsMenuItem(section, icon, title, detail){
@@ -4258,7 +5033,7 @@ function bindSelectionActions(body, group, selectAll, deselectAll){
 function renderSettingsMenu(body){
   const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
   body.innerHTML = `<div class="settings-menu">
-    ${settingsMenuItem("sports", "◉", "Sports & competitions", `${draftPreferences.followedSports.length} sports selected · includes tennis and World Cup detail`)}
+    ${settingsMenuItem("sports", "◉", "Sports Selector", `${draftPreferences.selectedSelectorEntityIds.length} selector choices · Sports and Special Events`)}
     ${settingsMenuItem("providers", "📡", "TV & streaming", `${draftPreferences.selectedBroadcasters.length} providers selected`)}
     ${settingsMenuItem("privacy", "◐", "Spoilers & local venues", `Spoilers ${draftPreferences.showSpoilers ? "on" : "protected"} · ${draftPreferences.localVenueIds.length} local venues`)}
     ${settingsMenuItem("appearance", "☼", "Appearance", `${themeLabel} theme`)}
@@ -4275,42 +5050,109 @@ function renderSettingsMenu(body){
 function renderSportsSettings(body){
   body.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
-      <h3>Sports selector</h3>
-      <p class="preference-help">Choose the sports and competitions that belong in your feeds.</p>
-      ${selectionActionsMarkup("sports", "Sports")}
-      <div class="choice-grid" id="sportsChoiceGrid"></div>
+      <h3>Sports Selector</h3>
+      <p class="preference-help">Choose a top-level category, then follow its event groups or filters. Every selector choice is opt-in.</p>
+      <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
     </div>
+    <div class="filter-panel" id="selectorChildrenPanel"></div>
     <div class="preference-stack" id="sportDetailSettings"></div>
   </div>`;
-  const grid = document.getElementById("sportsChoiceGrid");
-  Object.entries(SPORTS_LIBRARY).forEach(([key, sport]) => {
-    const selected = draftPreferences.followedSports.includes(key);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "choice-card" + (selected ? " selected" : "");
-    btn.style.setProperty("--choice-color", sport.color);
-    btn.setAttribute("aria-pressed", selected ? "true" : "false");
-    btn.innerHTML = `<div class="choice-title"><span>${sport.icon}</span><span>${sport.label}</span></div><div class="choice-detail">${sport.detail}</div>`;
-    btn.addEventListener("click", () => {
-      draftPreferences.followedSports = toggleArrayValue(draftPreferences.followedSports, key);
+
+  const categoryList = document.getElementById("selectorCategoryList");
+  orderSelectorEntities(SELECTOR_TAXONOMY.categories || []).forEach(category => {
+    const row = document.createElement("div");
+    row.className = "selector-category-row";
+    const active = settingsSelectorCategory === category.id;
+    const selected = draftPreferences.selectedSelectorEntityIds.includes(category.id);
+    row.innerHTML = `<button class="selector-category-button${active ? " active" : ""}" type="button" data-open-selector-category="${category.id}" aria-current="${active ? "true" : "false"}">
+      <span aria-hidden="true">${category.icon || "◉"}</span><span class="choice-title">${selectorNewMarkerMarkup(category)}<span>${category.label}</span></span>
+    </button><button class="selector-follow-button${selected ? " selected" : ""}" type="button" data-follow-selector-category="${category.id}" aria-pressed="${selected ? "true" : "false"}">${selected ? "Following all" : "Follow all"}</button>`;
+    categoryList.appendChild(row);
+  });
+  categoryList.querySelectorAll("[data-open-selector-category]").forEach(button => {
+    button.addEventListener("click", () => {
+      settingsSelectorCategory = button.dataset.openSelectorCategory;
       renderSettingsScreen();
     });
-    grid.appendChild(btn);
   });
-  COMING_SOON_SPORTS.forEach(label => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "choice-card disabled";
-    btn.disabled = true;
-    btn.innerHTML = `<div class="choice-title"><span>＋</span><span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
-    grid.appendChild(btn);
+  categoryList.querySelectorAll("[data-follow-selector-category]").forEach(button => {
+    button.addEventListener("click", () => {
+      toggleSelectorEntityInDraft(button.dataset.followSelectorCategory);
+      renderSettingsScreen();
+    });
   });
-  bindSelectionActions(
-    body,
-    "sports",
-    () => { draftPreferences.followedSports = Object.keys(SPORTS_LIBRARY); },
-    () => { draftPreferences.followedSports = []; }
-  );
+
+  const childPanel = document.getElementById("selectorChildrenPanel");
+  if (settingsSelectorCategory === "category:special-events"){
+    childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Special Events</h3><div class="selector-path">Level 1 › Level 2 event groups</div></div>${selectionActionsMarkup("special-events", "Special Events")}</div><p class="preference-help">Marquee event groups map back to canonical events; no fixture is copied to appear here.</p><div class="choice-grid" id="specialEventGrid"></div><div class="filter-panel" id="commonwealthFilters"><div class="selector-section-heading"><div><h4>Commonwealth Games sport filters</h4><div class="selector-path">Special Events › Commonwealth Games › Level 3</div></div></div><p class="preference-help">Fixed Australian broadcast-priority order. Miscellaneous is permanently reserved at slot 10.</p><div class="commonwealth-filter-list" id="commonwealthFilterList"></div></div>`;
+    const specialGrid = document.getElementById("specialEventGrid");
+    orderSelectorEntities(SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => {
+      const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `choice-card selector-entity-card${selected ? " selected" : ""}`;
+      btn.style.setProperty("--choice-color", SPORT_META[entity.canonicalSportKeys?.[0]]?.color || "var(--accent)");
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}<span aria-hidden="true">${entity.icon}</span><span>${entity.label}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
+      btn.addEventListener("click", () => {
+        toggleSelectorEntityInDraft(entity.id);
+        renderSettingsScreen();
+      });
+      specialGrid.appendChild(btn);
+    });
+
+    const commonwealthList = document.getElementById("commonwealthFilterList");
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).slice().sort((a, b) => a.lockedSlot - b.lockedSlot).forEach(entity => {
+      const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `commonwealth-filter-row${selected ? " selected" : ""}`;
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.innerHTML = `<span class="commonwealth-rank">${entity.lockedSlot}</span><span class="commonwealth-filter-label">${selectorNewMarkerMarkup(entity)}<span>${entity.label}</span></span><span class="commonwealth-lock">${entity.lockedSlot === 10 ? "Locked #10" : ""}</span>`;
+      btn.addEventListener("click", () => {
+        toggleSelectorEntityInDraft(entity.id);
+        renderSettingsScreen();
+      });
+      commonwealthList.appendChild(btn);
+    });
+    bindSelectionActions(
+      body,
+      "special-events",
+      () => setDraftSelectorCategory("category:special-events", true),
+      () => clearSelectorCategoryFromDraft("category:special-events")
+    );
+  } else {
+    childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Sports</h3><div class="selector-path">Level 1 › Level 2 sports and competitions</div></div>${selectionActionsMarkup("sports", "Sports")}</div><p class="preference-help">Choose the sports and competitions that belong in your feeds.</p><div class="choice-grid" id="sportsChoiceGrid"></div>`;
+    const grid = document.getElementById("sportsChoiceGrid");
+    orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES).forEach(entity => {
+      const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `choice-card selector-entity-card${selected ? " selected" : ""}`;
+      btn.style.setProperty("--choice-color", entity.color);
+      btn.setAttribute("aria-pressed", selected ? "true" : "false");
+      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}<span>${entity.icon}</span><span>${entity.label}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
+      btn.addEventListener("click", () => {
+        toggleSelectorEntityInDraft(entity.id);
+        renderSettingsScreen();
+      });
+      grid.appendChild(btn);
+    });
+    COMING_SOON_SPORTS.forEach(label => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "choice-card disabled";
+      btn.disabled = true;
+      btn.innerHTML = `<div class="choice-title"><span>＋</span><span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
+      grid.appendChild(btn);
+    });
+    bindSelectionActions(
+      body,
+      "sports",
+      () => setDraftSelectorCategory("category:sports", true),
+      () => clearSelectorCategoryFromDraft("category:sports")
+    );
+  }
 
   const details = document.getElementById("sportDetailSettings");
   const detailPanels = [];
@@ -4434,12 +5276,14 @@ function renderSettingsScreen(){
   const title = document.getElementById("settingsTitle");
   const copy = document.getElementById("settingsCopy");
   const back = document.getElementById("settingsBackBtn");
+  const brandIcon = document.getElementById("settingsBrandIcon");
   back.hidden = settingsSection === "main";
+  brandIcon.hidden = settingsSection !== "main";
   document.getElementById("saveSettingsBtn").textContent = settingsFirstRun ? "Save & start" : "Save & close";
 
   const screens = {
     main: [settingsFirstRun ? "Set up nothingSports" : "Settings", "Choose an area. Every submenu can return here or close at any time."],
-    sports: ["Sports & competitions", "Choose sports, then tune Tennis and World Cup detail where relevant."],
+    sports: ["Sports Selector", "Choose between Sports and Special Events, then tune event groups and subcategory filters."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Spoilers & local venues", "Control result visibility and the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
@@ -4541,17 +5385,15 @@ function renderFifaSegments(filterName, options, activeValue){
 }
 
 function saveSettingsPreferences(){
-  if (!draftPreferences.followedSports.length){
-    showToast("Choose at least one sport.");
-    return;
-  }
   if (!draftPreferences.selectedBroadcasters.length){
     showToast("Choose at least one provider.");
     return;
   }
   const previousShowSpoilers = userPreferences.showSpoilers;
   draftPreferences.onboardingComplete = true;
+  syncDraftSelectorSports();
   savePreferences(draftPreferences);
+  writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
   applyGlobalSpoilerPolicy(userPreferences.showSpoilers, previousShowSpoilers);
   applyThemePreference(userPreferences.theme);
   closeSettings({ restoreTheme: false });
@@ -4586,7 +5428,10 @@ document.getElementById("aboutModal").addEventListener("click", evt => {
 });
 document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
   draftPreferences = clonePreferences(DEFAULT_PREFERENCES);
-  if (settingsFirstRun) draftPreferences.followedSports = [];
+  if (settingsFirstRun){
+    draftPreferences.selectedSelectorEntityIds = [];
+    draftPreferences.followedSports = [];
+  }
   applyThemePreference(draftPreferences.theme);
   renderSettingsScreen();
   showToast("Settings reset. Save to keep these defaults.");
@@ -4600,6 +5445,76 @@ document.addEventListener("keydown", evt => {
   } else {
     closeSettings();
   }
+});
+
+function closeSelectorOptInPrompt(){
+  const modal = document.getElementById("selectorOptInModal");
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  pendingSelectorPromptIds = new Set();
+}
+
+function acknowledgeSelectorRelease(){
+  writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
+}
+
+function renderSelectorOptInPrompt(){
+  const list = document.getElementById("selectorOptInList");
+  list.innerHTML = "";
+  selectorNewPromptEntities().forEach(entity => {
+    const selected = pendingSelectorPromptIds.has(entity.id);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `selector-opt-in-item${selected ? " selected" : ""}`;
+    button.setAttribute("aria-pressed", selected ? "true" : "false");
+    button.innerHTML = `<span class="selector-opt-in-copy"><strong>${selectorNewMarkerMarkup(entity)}<span>${entity.label}</span></strong><span class="selector-path">${entity.path.join(" › ")}</span></span><span class="selector-opt-in-toggle">${selected ? "Include" : "Not selected"}</span>`;
+    button.addEventListener("click", () => {
+      if (pendingSelectorPromptIds.has(entity.id)) pendingSelectorPromptIds.delete(entity.id);
+      else pendingSelectorPromptIds.add(entity.id);
+      renderSelectorOptInPrompt();
+    });
+    list.appendChild(button);
+  });
+  document.getElementById("confirmSelectorOptInBtn").disabled = pendingSelectorPromptIds.size === 0;
+}
+
+function openSelectorOptInPrompt(){
+  if (!userPreferences.onboardingComplete) return false;
+  if (readStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, null) === SELECTOR_TAXONOMY.version) return false;
+  if (document.getElementById("settingsModal").classList.contains("show")) return false;
+  pendingSelectorPromptIds = new Set();
+  renderSelectorOptInPrompt();
+  const modal = document.getElementById("selectorOptInModal");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  return true;
+}
+
+document.getElementById("skipSelectorOptInBtn").addEventListener("click", () => {
+  acknowledgeSelectorRelease();
+  closeSelectorOptInPrompt();
+});
+
+document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () => {
+  if (!pendingSelectorPromptIds.size) return;
+  const selectionCount = pendingSelectorPromptIds.size;
+  const next = clonePreferences(userPreferences);
+  const combined = new Set([...(next.selectedSelectorEntityIds || []), ...pendingSelectorPromptIds]);
+  if (combined.has("category:special-events")){
+    (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => combined.delete(entity.id));
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => combined.delete(entity.id));
+  } else if (combined.has("special:commonwealth-games")){
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => combined.delete(entity.id));
+  }
+  next.selectedSelectorEntityIds = Array.from(combined);
+  next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+  savePreferences(next);
+  acknowledgeSelectorRelease();
+  closeSelectorOptInPrompt();
+  renderAll();
+  showToast(`${selectionCount === 1 ? "New feed choice" : "New feed choices"} added.`);
 });
 
 document.getElementById("refreshBtn").addEventListener("click", () => {
@@ -4844,6 +5759,8 @@ renderAll();
 refreshRemoteFeed({ quiet: true });
 if (!userPreferences.onboardingComplete){
   openSettings({ firstRun: true });
+} else {
+  setTimeout(openSelectorOptInPrompt, 250);
 }
 if ("serviceWorker" in navigator){
   window.addEventListener("load", () => {
