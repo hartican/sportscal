@@ -41,6 +41,7 @@ assert(html.includes('activeTab !== "calendar" && activeTab !== "nevermiss"'), "
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
+assert(html.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "above-viewport card retraction must preserve the visible feed position");
 assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
@@ -145,6 +146,7 @@ globalThis.__test = {
   collapseCardStates,
   collapseAllCardStates,
   isCardActivelyViewed,
+  scrollOffsetToPreserveAnchor,
   getFilteredEvents,
   getEventAction,
   getEventSpoilerState,
@@ -360,6 +362,7 @@ assert.equal(app.isCardActivelyViewed({ top: -400, bottom: 100, height: 500 }, 1
 assert.equal(app.isCardActivelyViewed({ top: 699, bottom: 900, height: 201 }, 100, 700), true, "a card must stay expanded while its first pixel remains visible below");
 assert.equal(app.isCardActivelyViewed({ top: 700, bottom: 900, height: 200 }, 100, 700), false, "a card may retract once it has completely left below the active viewport");
 assert.equal(app.isCardActivelyViewed({ top: -400, bottom: 30, height: 430 }, 100, 700), false, "a card scrolled above the active viewport must retract");
+assert.equal(app.scrollOffsetToPreserveAnchor(330, -210), -540, "retraction above the viewport must offset the removed height rather than jump the feed");
 assert.equal(app.collapseCardStates([pastB.eventId]), true, "scroll retraction must clear the expanded card state");
 assert.equal(app.cardStateForEvent(pastB), "compact", "a retracted card must return to compact");
 assert.equal(app.isSpoilerVisible(pastA), false, "PAST events must be spoiler-protected by default");

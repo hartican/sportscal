@@ -3308,18 +3308,54 @@ function isCardActivelyViewed(rect, viewportTop, viewportBottom){
   return rect.bottom > viewportTop && rect.top < viewportBottom;
 }
 
+function scrollOffsetToPreserveAnchor(anchorTopBefore, anchorTopAfter){
+  return anchorTopAfter - anchorTopBefore;
+}
+
+function captureViewportRetractionAnchor(collapsingCards, viewportTop){
+  const collapsingAboveIds = new Set(
+    collapsingCards
+      .filter(({ rect }) => rect.bottom <= viewportTop)
+      .map(({ card }) => card.dataset.eventId)
+      .filter(Boolean)
+  );
+  if (!collapsingAboveIds.size) return null;
+
+  const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
+    .find(card => !collapsingAboveIds.has(card.dataset.eventId) && card.getBoundingClientRect().bottom > viewportTop);
+  if (!anchorCard) return null;
+  return {
+    eventId: anchorCard.dataset.eventId,
+    top: anchorCard.getBoundingClientRect().top,
+  };
+}
+
+function restoreViewportRetractionAnchor(anchor){
+  if (!anchor) return;
+  const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
+    .find(card => card.dataset.eventId === anchor.eventId);
+  if (!anchorCard) return;
+  const offset = scrollOffsetToPreserveAnchor(anchor.top, anchorCard.getBoundingClientRect().top);
+  if (Math.abs(offset) < 0.5) return;
+  window.scrollBy(0, offset);
+}
+
 function collapseCardsOutsideActiveViewport(){
   const expandedCards = Array.from(document.querySelectorAll(".event-card.is-selected, .event-card.is-opened"));
   if (!expandedCards.length) return false;
   const stickyHeader = document.querySelector("header.top");
   const viewportTop = (stickyHeader ? stickyHeader.getBoundingClientRect().height : 0) + 12;
   const viewportBottom = window.innerHeight - 12;
-  const eventIds = expandedCards
-    .filter(card => !isCardActivelyViewed(card.getBoundingClientRect(), viewportTop, viewportBottom))
-    .map(card => card.dataset.eventId)
+  const collapsingCards = expandedCards
+    .map(card => ({ card, rect: card.getBoundingClientRect() }))
+    .filter(({ rect }) => !isCardActivelyViewed(rect, viewportTop, viewportBottom));
+  const retractionAnchor = captureViewportRetractionAnchor(collapsingCards, viewportTop);
+  const eventIds = collapsingCards
+    .map(({ card }) => card.dataset.eventId)
     .filter(Boolean);
   if (!collapseCardStates(eventIds)) return false;
   renderCurrentSection();
+  restoreViewportRetractionAnchor(retractionAnchor);
   return true;
 }
 
