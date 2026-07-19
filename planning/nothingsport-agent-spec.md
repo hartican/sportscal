@@ -49,7 +49,7 @@ Notes:
 
 ### 4. Spoiler state
 Support:
-- Global spoiler toggle in Settings.
+- Global spoiler toggle in the sticky home-screen header, mirrored in Settings.
 - Per-event spoiler override.[conversation_history:1]
 
 This must work both ways:

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { normalizeFeed, readJson, validateFeed, writeJson } = require("./lib/feed-utils");
+const { safeCompletedCopy } = require("./lib/storyline-card-rules");
 
 const PLACEHOLDER = "Preserved from the existing Sportscal card set until a newer source supersedes it.";
 const SOURCE_CHECKED_AT = "2026-07-16T08:30:00+10:00";
@@ -279,11 +280,8 @@ function previewCopy(event){
 }
 
 function resultCopy(event, result){
-  const title = event.displayTitleCompact || event.name;
-  return {
-    selectedSentence: result.outcomeText,
-    fullSpiel: `${title} is complete. ${result.recapText} Score and outcome details remain behind the per-event spoiler control until deliberately revealed.`,
-  };
+  const safe = safeCompletedCopy(event);
+  return { selectedSentence: safe.hook, fullSpiel: safe.synopsis };
 }
 
 function enrichEvent(event){

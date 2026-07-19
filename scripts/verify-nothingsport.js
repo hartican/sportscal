@@ -19,6 +19,8 @@ assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Watch Later");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
+assert(html.includes('id="homeSpoilerToggle"'), "the global spoiler toggle must be visible in the sticky home-screen header");
+assert(html.includes("setGlobalSpoilerPreference(!userPreferences.showSpoilers"), "the home-screen spoiler toggle must update the global preference immediately");
 assert(html.includes("id=\"globalSpoilerSwitch\""), "Settings must expose a global spoiler control");
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
@@ -43,6 +45,8 @@ assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact c
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
+const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
 assert(html.includes('id="exportSectionChoices"'), "Never Miss export must expose section choices");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
@@ -77,6 +81,9 @@ assert.deepEqual(fifaCards.find(event => event.id === "fifa-third-place-2026").m
 assert.deepEqual(fifaCards.find(event => event.id === "fifa-final-2026").matchupParticipants.map(participant => participant.name), ["Spain", "Argentina"], "the final card must carry the resolved contestants");
 const thirdPlace = fifaCards.find(event => event.id === "fifa-third-place-2026");
 assert(thirdPlace.status === "completed" ? /6-4|finished third/i.test(`${thirdPlace.selectedSentence} ${thirdPlace.outcomeText}`) : /Golden Boot/i.test(thirdPlace.selectedSentence), "the third-place card must carry current context or its verified result");
+assert.equal(thirdPlace.storyline.arcStage, "recap", "the completed third-place card must not retain preview lifecycle metadata");
+assert.doesNotMatch(`${thirdPlace.selectedSentence}\n${thirdPlace.fullSpiel}`, /6-4|beat(?:ing)? France|finished third|hat-trick/i, "the third-place card's default fields must remain spoiler-safe");
+assert.match(`${thirdPlace.storyline.hookSpoilerOn}\n${thirdPlace.storyline.synopsisSpoilerOn}`, /6-4|finished third|hat-trick/i, "the third-place card's spoiler-on fields must contain the result-aware recap");
 assert.match(fifaCards.find(event => event.id === "fifa-final-2026").selectedSentence, /best attack.+best defence/i, "the final preview must carry a specific tactical angle");
 
 const belgianGrandPrix = publishedFeed.events.find(event => event.id === "evt_21");
@@ -161,6 +168,8 @@ globalThis.__test = {
   getActual,
   archiveEvent,
   spoilerSafeDisplayTitle,
+  selectedSentenceForDisplay,
+  storylineCopyForDisplay,
   eventSpielForDisplay,
   retrospectiveSignificanceForEvent,
   shouldSuggestWatchLater,
@@ -179,6 +188,17 @@ const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction 
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+
+app.setEvents([thirdPlace]);
+app.setActions({});
+app.setRatings({});
+app.setSpoilerState({});
+app.setPreferences({ showSpoilers: false });
+assert.doesNotMatch(app.selectedSentenceForDisplay(thirdPlace), /6-4|beat(?:ing)? France|finished third/i, "FRA v ENG must show only protected copy with spoilers off");
+assert.doesNotMatch(app.eventSpielForDisplay(thirdPlace), /6-4|hat-trick|Saka/i, "FRA v ENG opened copy must stay protected with spoilers off");
+app.setPreferences({ showSpoilers: true });
+assert.match(app.selectedSentenceForDisplay(thirdPlace), /6-4|finished third/i, "FRA v ENG must show the result hook with spoilers on");
+assert.match(app.eventSpielForDisplay(thirdPlace), /hat-trick|Saka/i, "FRA v ENG opened copy must show the result recap with spoilers on");
 
 assert.equal(app.SCORE_BANDS.minimumStakes, 3, "global feed floor must be stakes 3/5");
 assert.equal(app.SCORE_BANDS.topStorylines.minStakes, 4, "Top Storylines must start at stakes 4/5");

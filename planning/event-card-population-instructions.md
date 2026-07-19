@@ -159,6 +159,18 @@ High-stakes cards more than 10 days away should carry `editorialPreview.status: 
 - For a high-stakes card in the editorial window, explain the source-backed form, selection, standings, route or tactical facts that create that tension. Viewing logistics may support the analysis but cannot replace it.
 - Stay spoiler-safe unless the product intentionally creates a protected result card.
 
+### Completed-result copy contract
+
+Keep result facts and default display copy in separate fields. This is a publish-time contract, not a writing preference:
+
+- `score`, `outcomeText` and `recapText` contain verified result-aware facts.
+- `selectedSentence` and `fullSpiel` remain safe when spoilers are OFF, including after an event is completed.
+- `storyline.hookSpoilerOff` and `storyline.synopsisSpoilerOff` mirror the safe default copy.
+- `storyline.hookSpoilerOn` and `storyline.synopsisSpoilerOn` carry the result-aware hook and recap.
+- `storyline.arcStage` is derived from lifecycle: `preview` for upcoming events and `recap` for completed events. Do not pin it in a manual editorial override.
+
+Never put a result into `selectedSentence` or `fullSpiel` and append a sentence claiming it is hidden. That mixes the two modes and can leak through a fallback renderer. `node scripts/update-cards.js` normalises completed defaults, and ordinary feed validation now rejects mixed-mode copy or stale lifecycle metadata.
+
 Avoid default-card language such as:
 - explicit winners in recent knockout cards
 - `X are through`
@@ -263,6 +275,7 @@ Before returning JSON:
 - Confirm every source URL is real and specific.
 - Confirm no event with `expected < 5` is included.
 - Keep all default copy spoiler-safe.
+- For completed cards, keep result facts in `score`, `outcomeText` and `recapText`; verify `selectedSentence` and `fullSpiel` remain spoiler-safe fallbacks.
 - Confirm every high-stakes card inside 10 days has `editorialPreview.status: "journalistic"`, at least two context signals and an exact current source.
 - Run `node scripts/update-cards.js`; do not call the card update complete while its editorial audit fails.
 - Run or ask the implementer to run `node scripts/validate-feed.js feeds/incoming/events.json`.

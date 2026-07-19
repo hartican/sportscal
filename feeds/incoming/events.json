@@ -17,8 +17,8 @@
       "id": "evt_78",
       "eventId": "evt_78",
       "displayTitleCompact": "Super Bowl LX",
-      "selectedSentence": "Seattle won Super Bowl LX; Kenneth Walker III was named MVP.",
-      "fullSpiel": "Super Bowl LX is complete. Seattle's defence controlled the game with six sacks and three takeaways, while Kenneth Walker III supplied 135 rushing yards to keep the Patriots under pressure. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Super Bowl LX is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Super Bowl LX is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "NFL Super Bowl LX match report",
       "sourceUrl": "https://www.nfl.com/news/seahawks-patriots-in-super-bowl-lx-what-we-learned-from-seattle-s-29-13-win",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -52,7 +52,7 @@
         "hookSpoilerOn": "Seattle won Super Bowl LX; Kenneth Walker III was named MVP.",
         "synopsisSpoilerOn": "Seattle's defence controlled the game with six sacks and three takeaways, while Kenneth Walker III supplied 135 rushing yards to keep the Patriots under pressure."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Golf",
@@ -67,8 +67,8 @@
       "id": "evt_67",
       "eventId": "evt_67",
       "displayTitleCompact": "Masters Round 1",
-      "selectedSentence": "Burns and defending champion McIlroy shared the overnight lead.",
-      "fullSpiel": "Masters Round 1 is complete. Both leaders opened with 67s. Burns posted his lowest opening round in a major, while McIlroy began his title defence with an eagle and a share of the lead. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Masters Round 1 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Masters Round 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "PGA TOUR 2026 Masters first-round notes",
       "sourceUrl": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2026/pgatour/masterstournament/roundInfo/R1_Notes.pdf",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -101,7 +101,7 @@
         "hookSpoilerOn": "Burns and defending champion McIlroy shared the overnight lead.",
         "synopsisSpoilerOn": "Both leaders opened with 67s. Burns posted his lowest opening round in a major, while McIlroy began his title defence with an eagle and a share of the lead."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Golf",
@@ -116,8 +116,8 @@
       "id": "evt_68",
       "eventId": "evt_68",
       "displayTitleCompact": "Masters Round 2",
-      "selectedSentence": "McIlroy set the largest 36-hole lead in Masters history.",
-      "fullSpiel": "Masters Round 2 is complete. A seven-under 65, powered by nine birdies and six in his final seven holes, moved McIlroy six shots clear of Sam Burns and Patrick Reed at the halfway point. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Masters Round 2 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Masters Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "PGA TOUR 2026 Masters second-round notes",
       "sourceUrl": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2026/pgatour/masterstournament/roundInfo/R2_Notes.pdf",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -151,7 +151,7 @@
         "hookSpoilerOn": "McIlroy set the largest 36-hole lead in Masters history.",
         "synopsisSpoilerOn": "A seven-under 65, powered by nine birdies and six in his final seven holes, moved McIlroy six shots clear of Sam Burns and Patrick Reed at the halfway point."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Golf",
@@ -166,8 +166,8 @@
       "id": "evt_69",
       "eventId": "evt_69",
       "displayTitleCompact": "Masters Round 3 (Moving Day)",
-      "selectedSentence": "Young's 65 erased an eight-shot halfway deficit and created a tie for the final-round lead.",
-      "fullSpiel": "Masters Round 3 (Moving Day) is complete. Moving Day lived up to its name: Young surged from eight behind with a career-low Masters round, while McIlroy's 73 brought the field back into the contest. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Masters Round 3 (Moving Day) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Masters Round 3 (Moving Day) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "PGA TOUR 2026 Masters third-round notes",
       "sourceUrl": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2026/pgatour/masterstournament/roundInfo/R3_Notes.pdf",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -200,7 +200,7 @@
         "hookSpoilerOn": "Young's 65 erased an eight-shot halfway deficit and created a tie for the final-round lead.",
         "synopsisSpoilerOn": "Moving Day lived up to its name: Young surged from eight behind with a career-low Masters round, while McIlroy's 73 brought the field back into the contest."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Golf",
@@ -215,8 +215,8 @@
       "id": "evt_70",
       "eventId": "evt_70",
       "displayTitleCompact": "Masters Final Round (Sunday)",
-      "selectedSentence": "McIlroy successfully defended the Masters for his sixth major title.",
-      "fullSpiel": "Masters Final Round (Sunday) is complete. McIlroy closed with 71 and held off Scheffler's bogey-free 68 by one. The victory made him only the fourth player to win consecutive Masters titles. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Masters Final Round (Sunday) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Masters Final Round (Sunday) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "PGA TOUR 2026 Masters final-round notes",
       "sourceUrl": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2026/pgatour/masterstournament/roundInfo/R4_Notes.pdf",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -250,7 +250,7 @@
         "hookSpoilerOn": "McIlroy successfully defended the Masters for his sixth major title.",
         "synopsisSpoilerOn": "McIlroy closed with 71 and held off Scheffler's bogey-free 68 by one. The victory made him only the fourth player to win consecutive Masters titles."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "NBA",
@@ -265,8 +265,8 @@
       "id": "evt_71",
       "eventId": "evt_71",
       "displayTitleCompact": "NBA Finals Game 1",
-      "selectedSentence": "New York took a 1-0 series lead.",
-      "fullSpiel": "NBA Finals Game 1 is complete. The Knicks controlled the opener and limited San Antonio to 95 points, establishing the defensive shape of the series. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 1 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -299,7 +299,7 @@
         "hookSpoilerOn": "New York took a 1-0 series lead.",
         "synopsisSpoilerOn": "The Knicks controlled the opener and limited San Antonio to 95 points, establishing the defensive shape of the series."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "NBA",
@@ -314,8 +314,8 @@
       "id": "evt_72",
       "eventId": "evt_72",
       "displayTitleCompact": "NBA Finals Game 2",
-      "selectedSentence": "New York took a 2-0 series lead.",
-      "fullSpiel": "NBA Finals Game 2 is complete. A one-point finish gave New York consecutive wins and left San Antonio needing a response when the series shifted venues. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 2 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -348,7 +348,7 @@
         "hookSpoilerOn": "New York took a 2-0 series lead.",
         "synopsisSpoilerOn": "A one-point finish gave New York consecutive wins and left San Antonio needing a response when the series shifted venues."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "NBA",
@@ -363,8 +363,8 @@
       "id": "evt_73",
       "eventId": "evt_73",
       "displayTitleCompact": "NBA Finals Game 3",
-      "selectedSentence": "New York's series lead narrowed to 2-1.",
-      "fullSpiel": "NBA Finals Game 3 is complete. San Antonio produced its best offensive game of the Finals to win by four and keep the series alive. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 3 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -397,7 +397,7 @@
         "hookSpoilerOn": "New York's series lead narrowed to 2-1.",
         "synopsisSpoilerOn": "San Antonio produced its best offensive game of the Finals to win by four and keep the series alive."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Le Mans",
@@ -412,8 +412,8 @@
       "id": "evt_79",
       "eventId": "evt_79",
       "displayTitleCompact": "24 Hours of Le Mans — Start",
-      "selectedSentence": "The 94th 24 Hours of Le Mans began with Toyota setting the early pace.",
-      "fullSpiel": "24 Hours of Le Mans — Start is complete. Toyota split the opening strategy across its two cars and emerged at the head of the field after hour one, with BMW close enough to keep the Hypercar contest open. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "24 Hours of Le Mans — Start is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "24 Hours of Le Mans — Start is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official 24 Hours of Le Mans race start report",
       "sourceUrl": "https://www.24h-lemans.com/en/news/2026-24-hours-of-le-mans-the-94th-running-is-underway-60800",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -447,7 +447,7 @@
         "hookSpoilerOn": "The 94th 24 Hours of Le Mans began with Toyota setting the early pace.",
         "synopsisSpoilerOn": "Toyota split the opening strategy across its two cars and emerged at the head of the field after hour one, with BMW close enough to keep the Hypercar contest open."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "NBA",
@@ -462,8 +462,8 @@
       "id": "evt_74",
       "eventId": "evt_74",
       "displayTitleCompact": "NBA Finals Game 4",
-      "selectedSentence": "New York moved within one win of the championship at 3-1.",
-      "fullSpiel": "NBA Finals Game 4 is complete. Another one-point game went New York's way, giving the Knicks three wins in four tightly contested Finals games. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -496,7 +496,7 @@
         "hookSpoilerOn": "New York moved within one win of the championship at 3-1.",
         "synopsisSpoilerOn": "Another one-point game went New York's way, giving the Knicks three wins in four tightly contested Finals games."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Football",
@@ -515,8 +515,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Group D fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Group D match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Australia vs Türkiye - Group D is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Australia vs Türkiye - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-group-australia-turkiye-2026",
       "eventId": "fifa-group-australia-turkiye-2026",
       "name": "Australia vs Türkiye - Group D",
@@ -547,7 +547,7 @@
         "hookSpoilerOn": "Australia opened its campaign with three points.",
         "synopsisSpoilerOn": "Australia handled the opening-game pressure, kept Türkiye scoreless and established a strong platform in Group D."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Australia",
@@ -572,8 +572,8 @@
       "id": "evt_80",
       "eventId": "evt_80",
       "displayTitleCompact": "24 Hours of Le Mans — Finish",
-      "selectedSentence": "Kamui Kobayashi, Nyck de Vries and Mike Conway delivered Toyota's sixth overall Le Mans victory.",
-      "fullSpiel": "24 Hours of Le Mans — Finish is complete. A disciplined Toyota strategy decided an open Hypercar race. BMW kept the winning #7 car honest to the flag, finishing only 10.9 seconds behind after 24 hours. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "24 Hours of Le Mans — Finish is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "24 Hours of Le Mans — Finish is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official 2026 24 Hours of Le Mans race report",
       "sourceUrl": "https://www.24h-lemans.com/en/news/toyota-take-its-sixth-victory-at-le-mans-60812",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -607,7 +607,7 @@
         "hookSpoilerOn": "Kamui Kobayashi, Nyck de Vries and Mike Conway delivered Toyota's sixth overall Le Mans victory.",
         "synopsisSpoilerOn": "A disciplined Toyota strategy decided an open Hypercar race. BMW kept the winning #7 car honest to the flag, finishing only 10.9 seconds behind after 24 hours."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "NBA",
@@ -622,8 +622,8 @@
       "id": "evt_75",
       "eventId": "evt_75",
       "displayTitleCompact": "NBA Finals Game 5 (if needed)",
-      "selectedSentence": "New York won the NBA Finals 4-1.",
-      "fullSpiel": "NBA Finals Game 5 (if needed) is complete. The Knicks closed the series in a lower-scoring Game 5, securing the franchise's first championship since 1973. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 5 (if needed) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 5 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -656,7 +656,7 @@
         "hookSpoilerOn": "New York won the NBA Finals 4-1.",
         "synopsisSpoilerOn": "The Knicks closed the series in a lower-scoring Game 5, securing the franchise's first championship since 1973."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Football",
@@ -675,8 +675,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Group D fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Group D match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "USA vs Australia - Group D is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "USA vs Australia - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-group-usa-australia-2026",
       "eventId": "fifa-group-usa-australia-2026",
       "name": "USA vs Australia - Group D",
@@ -707,7 +707,7 @@
         "hookSpoilerOn": "The hosts took the Group D points in Seattle.",
         "synopsisSpoilerOn": "The United States used home support and a clean sheet to halt Australia's early momentum, leaving qualification to be settled in the final group match."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "USA",
@@ -732,8 +732,8 @@
       "id": "evt_76",
       "eventId": "evt_76",
       "displayTitleCompact": "NBA Finals Game 6 (if needed)",
-      "selectedSentence": "Game 6 was not required.",
-      "fullSpiel": "NBA Finals Game 6 (if needed) is complete. New York's 4-1 series victory removed the need for the scheduled sixth game; this card remains as an explicit record of the conditional fixture. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 6 (if needed) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 6 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -766,7 +766,7 @@
         "hookSpoilerOn": "Game 6 was not required.",
         "synopsisSpoilerOn": "New York's 4-1 series victory removed the need for the scheduled sixth game; this card remains as an explicit record of the conditional fixture."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "NBA",
@@ -781,8 +781,8 @@
       "id": "evt_77",
       "eventId": "evt_77",
       "displayTitleCompact": "NBA Finals Game 7 (if needed)",
-      "selectedSentence": "Game 7 was not required.",
-      "fullSpiel": "NBA Finals Game 7 (if needed) is complete. The Finals ended in five games, so the potential decider was never played. The card is retained to make the original conditional schedule unambiguous. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "NBA Finals Game 7 (if needed) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "NBA Finals Game 7 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official NBA 2026 Finals schedule and results",
       "sourceUrl": "https://www.nba.com/news/2026-nba-playoffs-schedule",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -815,7 +815,7 @@
         "hookSpoilerOn": "Game 7 was not required.",
         "synopsisSpoilerOn": "The Finals ended in five games, so the potential decider was never played. The card is retained to make the original conditional schedule unambiguous."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Football",
@@ -834,8 +834,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Group D fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Group D match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Paraguay vs Australia - Group D is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Paraguay vs Australia - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-group-paraguay-australia-2026",
       "eventId": "fifa-group-paraguay-australia-2026",
       "name": "Paraguay vs Australia - Group D",
@@ -866,7 +866,7 @@
         "hookSpoilerOn": "Australia progressed after a scoreless final group match.",
         "synopsisSpoilerOn": "A disciplined defensive performance delivered the point Australia needed. The goalless draw closed the group stage and sent the Socceroos into the knockouts."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Paraguay",
@@ -897,8 +897,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Third round match retained as a spoiler-protected replay.",
-      "fullSpiel": "The Sydney-local start is taken from Wimbledon's official order of play. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Kasatkina vs Osaka - Women's R3 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Kasatkina vs Osaka - Women's R3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Third round",
         "Completed"
@@ -926,7 +926,7 @@
         "hookSpoilerOn": "Osaka reached the fourth round in straight sets.",
         "synopsisSpoilerOn": "Osaka imposed the cleaner scoreline throughout, conceding only four games and completing the match without needing a deciding set."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Kasatkina",
@@ -955,8 +955,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 32 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 32 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Australia vs Egypt - Round of 32 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Australia vs Egypt - Round of 32 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r32-australia-egypt-2026",
       "eventId": "fifa-r32-australia-egypt-2026",
       "name": "Australia vs Egypt - Round of 32",
@@ -989,7 +989,7 @@
         "hookSpoilerOn": "Egypt progressed after the penalty shootout.",
         "synopsisSpoilerOn": "Australia stayed level through regulation and extra time, but Egypt converted the decisive shootout kicks to end the Socceroos' tournament in the Round of 32."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Australia",
@@ -1020,8 +1020,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Third round match retained as a spoiler-protected replay.",
-      "fullSpiel": "The Sydney-local start is taken from Wimbledon's official order of play. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "De Minaur vs Svajda - Men's R3 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "De Minaur vs Svajda - Men's R3 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Third round",
         "Completed"
@@ -1049,7 +1049,7 @@
         "hookSpoilerOn": "De Minaur reached the fourth round in straight sets.",
         "synopsisSpoilerOn": "The Australian improved his control after the opening set and conceded only four games across the final two, completing an efficient straight-sets win."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "De Minaur",
@@ -1074,8 +1074,8 @@
       "id": "evt_8",
       "eventId": "evt_8",
       "displayTitleCompact": "Wallabies vs Ireland",
-      "selectedSentence": "Ireland completed a late comeback to win by two points in Sydney.",
-      "fullSpiel": "Wallabies vs Ireland is complete. Australia stayed in the contest to the final kick, but Ireland's late pressure and a decisive closing try overturned the Wallabies' lead in a high-scoring Nations Championship opener. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Wallabies vs Ireland is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Wallabies vs Ireland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Wallabies official Australia v Ireland match report",
       "sourceUrl": "https://www.wallabies.rugby/news/wallabies-ireland-match-report-scores-reaction-rugby-union-nations-championship-202674",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -1108,7 +1108,7 @@
         "hookSpoilerOn": "Ireland completed a late comeback to win by two points in Sydney.",
         "synopsisSpoilerOn": "Australia stayed in the contest to the final kick, but Ireland's late pressure and a decisive closing try overturned the Wallabies' lead in a high-scoring Nations Championship opener."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Wallabies",
@@ -1133,8 +1133,8 @@
       "id": "evt_46",
       "eventId": "evt_46",
       "displayTitleCompact": "Stage 1 — Barcelona → Barcelona (Team Time Trial)",
-      "selectedSentence": "Visma won the opening team time trial and Jonas Vingegaard took the first yellow jersey.",
-      "fullSpiel": "Stage 1 — Barcelona → Barcelona (Team Time Trial) is complete. Visma won the opening team time trial and Jonas Vingegaard took the first yellow jersey. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 1 — Barcelona → Barcelona (Team Time Trial) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 1 — Barcelona → Barcelona (Team Time Trial) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 1 result",
       "sourceUrl": "https://www.letour.fr/en/stage-1",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -1170,8 +1170,8 @@
       "id": "evt_18",
       "eventId": "evt_18",
       "displayTitleCompact": "R9 British GP Qualifying",
-      "selectedSentence": "Antonelli qualified ahead of Charles Leclerc and Lewis Hamilton.",
-      "fullSpiel": "R9 British GP Qualifying is complete. Mercedes took pole through Antonelli, but Ferrari placed both cars in the top three. Oscar Piastri qualified eighth for the highest Australian interest on the grid. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "R9 British GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "R9 British GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Formula 1 British GP qualifying results",
       "sourceUrl": "https://www.formula1.com/en/results/2026/races/1289/united-kingdom/qualifying",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -1212,8 +1212,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Canada vs Morocco - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Canada vs Morocco - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-canada-morocco-2026",
       "eventId": "fifa-r16-canada-morocco-2026",
       "name": "Canada vs Morocco - Round of 16",
@@ -1245,7 +1245,7 @@
         "hookSpoilerOn": "Morocco reached the quarterfinals.",
         "synopsisSpoilerOn": "Morocco paired a clean sheet with three goals to control the tie, absorbing the hosts' energy before turning the match decisively in their favour."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Canada",
@@ -1274,8 +1274,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Paraguay vs France - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Paraguay vs France - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-paraguay-france-2026",
       "eventId": "fifa-r16-paraguay-france-2026",
       "name": "Paraguay vs France - Round of 16",
@@ -1307,7 +1307,7 @@
         "hookSpoilerOn": "France reached the quarterfinals.",
         "synopsisSpoilerOn": "France found the only goal in a tight knockout match and protected the lead, ending Paraguay's run without allowing the contest to open up."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Paraguay",
@@ -1338,8 +1338,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Auger-Aliassime vs Davidovich Fokina - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Auger-Aliassime vs Davidovich Fokina - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1370,7 +1370,7 @@
         "hookSpoilerOn": "Auger-Aliassime reached the quarterfinals after five sets.",
         "synopsisSpoilerOn": "Three tie-break sets kept the contest volatile before Auger-Aliassime finally separated himself, conceding only one game in the fifth."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Auger-Aliassime",
@@ -1401,8 +1401,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Djokovic vs Safiullin - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Djokovic vs Safiullin - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1433,7 +1433,7 @@
         "hookSpoilerOn": "Djokovic reached the quarterfinals in four sets.",
         "synopsisSpoilerOn": "The opening tie-break established Djokovic's advantage. Safiullin forced a fourth set, but Djokovic restored control and closed the match before a decider."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Djokovic",
@@ -1464,8 +1464,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Gauff vs Bencic - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Gauff vs Bencic - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1496,7 +1496,7 @@
         "hookSpoilerOn": "Gauff recovered from a set down to reach the quarterfinals.",
         "synopsisSpoilerOn": "Bencic claimed the opening set, but Gauff steadied the match and found the decisive margin in a close third set."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Gauff",
@@ -1527,8 +1527,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Muchova vs Krejcikova - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Muchova vs Krejcikova - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1559,7 +1559,7 @@
         "hookSpoilerOn": "Muchova reached the quarterfinals in three sets.",
         "synopsisSpoilerOn": "The first two sets split by identical 7-5 margins before Muchova created the clearer gap in the decider."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Muchova",
@@ -1590,8 +1590,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Osaka vs Sabalenka - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Osaka vs Sabalenka - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1622,7 +1622,7 @@
         "hookSpoilerOn": "Osaka eliminated the top seed in straight sets.",
         "synopsisSpoilerOn": "Osaka controlled the first set and then dominated the second-set tie-break, turning a marquee fourth-round meeting into a straight-sets result."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Osaka",
@@ -1653,8 +1653,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Pegula vs Jovic - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Pegula vs Jovic - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1685,7 +1685,7 @@
         "hookSpoilerOn": "Pegula recovered from a set down to reach the quarterfinals.",
         "synopsisSpoilerOn": "Jovic took the opener, but Pegula reversed the match across the next two sets and conceded only one game in the decider."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Pegula",
@@ -1716,8 +1716,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Sinner vs Mochizuki - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sinner vs Mochizuki - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -1748,7 +1748,7 @@
         "hookSpoilerOn": "Sinner reached the quarterfinals in straight sets.",
         "synopsisSpoilerOn": "Sinner allowed no momentum swing: the middle-set tie-break ended without a point conceded and the top seed completed the match in three."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Sinner",
@@ -1779,8 +1779,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Struff vs Hurkacz - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Struff vs Hurkacz - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Retirement"
@@ -1811,7 +1811,7 @@
         "hookSpoilerOn": "Struff progressed after Hurkacz retired in the fifth set.",
         "synopsisSpoilerOn": "Hurkacz led by two sets, but Struff forced a decider through a tie-break and a late fourth-set break. The match ended by retirement with Struff leading the fifth."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Struff",
@@ -1836,8 +1836,8 @@
       "id": "evt_47",
       "eventId": "evt_47",
       "displayTitleCompact": "Stage 2 — Tarragona → Barcelona (Hilly)",
-      "selectedSentence": "Del Toro won the hilly finish in Barcelona while Vingegaard retained the overall lead.",
-      "fullSpiel": "Stage 2 — Tarragona → Barcelona (Hilly) is complete. Del Toro won the hilly finish in Barcelona while Vingegaard retained the overall lead. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 2 — Tarragona → Barcelona (Hilly) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 2 — Tarragona → Barcelona (Hilly) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 2 result",
       "sourceUrl": "https://www.letour.fr/en/stage-2",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -1873,8 +1873,8 @@
       "id": "evt_19",
       "eventId": "evt_19",
       "displayTitleCompact": "R9 British GP Race",
-      "selectedSentence": "Leclerc won the British Grand Prix for Ferrari.",
-      "fullSpiel": "R9 British GP Race is complete. Leclerc converted Ferrari's front-row pace into victory in a compressed finish, with Russell and Hamilton both within eight-tenths at the flag. Piastri's recovery was a secondary storyline after starting eighth. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "R9 British GP Race is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "R9 British GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Formula 1 2026 race results",
       "sourceUrl": "https://www.formula1.com/en/results/2026/races",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -1907,7 +1907,7 @@
         "hookSpoilerOn": "Leclerc won the British Grand Prix for Ferrari.",
         "synopsisSpoilerOn": "Leclerc converted Ferrari's front-row pace into victory in a compressed finish, with Russell and Hamilton both within eight-tenths at the flag. Piastri's recovery was a secondary storyline after starting eighth."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Football",
@@ -1926,8 +1926,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Brazil vs Norway - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Brazil vs Norway - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-brazil-norway-2026",
       "eventId": "fifa-r16-brazil-norway-2026",
       "name": "Brazil vs Norway - Round of 16",
@@ -1959,7 +1959,7 @@
         "hookSpoilerOn": "Norway eliminated Brazil and reached the quarterfinals.",
         "synopsisSpoilerOn": "Norway delivered one of the round's major upsets, matching Brazil's technical threat and taking the chances that carried them into the last eight."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Brazil",
@@ -1988,8 +1988,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Mexico vs England - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Mexico vs England - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-mexico-england-2026",
       "eventId": "fifa-r16-mexico-england-2026",
       "name": "Mexico vs England - Round of 16",
@@ -2021,7 +2021,7 @@
         "hookSpoilerOn": "England survived a five-goal match to reach the quarterfinals.",
         "synopsisSpoilerOn": "England came through a volatile knockout game in Mexico City. Mexico kept the hosts in the contest, but England's third goal proved decisive."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Mexico",
@@ -2046,8 +2046,8 @@
       "id": "evt_48",
       "eventId": "evt_48",
       "displayTitleCompact": "Stage 3 — Granollers → Les Angles (Mountain)",
-      "selectedSentence": "Pogacar won the first mountain stage to Les Angles and moved into yellow.",
-      "fullSpiel": "Stage 3 — Granollers → Les Angles (Mountain) is complete. Pogacar won the first mountain stage to Les Angles and moved into yellow. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 3 — Granollers → Les Angles (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 3 — Granollers → Les Angles (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 3 result",
       "sourceUrl": "https://www.letour.fr/en/stage-3",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -2089,8 +2089,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Cobolli vs De Minaur - Men's R4 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Cobolli vs De Minaur - Men's R4 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2121,7 +2121,7 @@
         "hookSpoilerOn": "Cobolli ended De Minaur's tournament in straight sets.",
         "synopsisSpoilerOn": "The opening set was decided late and the second in a tie-break. Cobolli then maintained the pressure to prevent an Australian recovery."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Cobolli",
@@ -2152,8 +2152,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Fery vs Dimitrov - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Fery vs Dimitrov - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2184,7 +2184,7 @@
         "hookSpoilerOn": "Fery reached the quarterfinals after a fifth-set tie-break.",
         "synopsisSpoilerOn": "Fery came back from two sets to one down and held his nerve in the deciding tie-break, extending the home wildcard's run into the last eight."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Fery",
@@ -2215,8 +2215,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Fritz vs Bublik - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Fritz vs Bublik - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2247,7 +2247,7 @@
         "hookSpoilerOn": "Fritz reached the quarterfinals in straight sets.",
         "synopsisSpoilerOn": "Fritz dominated the opening tie-break and found one-set margins in each of the next two, denying Bublik a route back into the match."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Fritz",
@@ -2278,8 +2278,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Kostyuk vs Krueger - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Kostyuk vs Krueger - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2298,7 +2298,8 @@
       "recapText": "Kostyuk repeated the same controlled margin in both sets, preventing Krueger from extending the contest.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed"
     },
     {
       "sport": "Tennis",
@@ -2319,8 +2320,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Mertens vs Bouzkova - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Mertens vs Bouzkova - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2339,7 +2340,8 @@
       "recapText": "Mertens produced matching 6-4 sets, preserving the key service and return margins long enough to avoid a decider.",
       "timeTbc": true,
       "displayTimeLabel": "Order of play; session from 8:00pm AEST",
-      "scheduleNote": "Exact start followed the preceding match on the assigned court."
+      "scheduleNote": "Exact start followed the preceding match on the assigned court.",
+      "status": "completed"
     },
     {
       "sport": "Tennis",
@@ -2360,8 +2362,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Noskova vs Keys - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Noskova vs Keys - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2392,7 +2394,7 @@
         "hookSpoilerOn": "Noskova reached the quarterfinals in straight sets.",
         "synopsisSpoilerOn": "Noskova protected the first-set margin and dominated the second-set tie-break, closing the match without allowing a decider."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Noskova",
@@ -2423,8 +2425,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Paolini vs Eala - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Paolini vs Eala - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed"
@@ -2455,7 +2457,7 @@
         "hookSpoilerOn": "Paolini reached the quarterfinals in three sets.",
         "synopsisSpoilerOn": "Eala levelled the match in the second set, but Paolini recovered the initiative and made the decisive break stand in the third."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Paolini",
@@ -2486,8 +2488,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Fourth round match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Zverev vs Lehecka - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Zverev vs Lehecka - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Fourth round",
         "Completed 7 July"
@@ -2518,7 +2520,7 @@
         "hookSpoilerOn": "Zverev completed the suspended match and reached the quarterfinals.",
         "synopsisSpoilerOn": "Play was suspended at one set in the fourth before completion on 7 July. Lehecka forced the extra session, but Zverev won the closing tie-break."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Zverev",
@@ -2547,8 +2549,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Portugal vs Spain - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Portugal vs Spain - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-portugal-spain-2026",
       "eventId": "fifa-r16-portugal-spain-2026",
       "name": "Portugal vs Spain - Round of 16",
@@ -2580,7 +2582,7 @@
         "hookSpoilerOn": "Spain reached the quarterfinals with a clean sheet.",
         "synopsisSpoilerOn": "A single goal separated the Iberian rivals. Spain controlled enough of the match to protect the margin and close out a high-pressure knockout tie."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Portugal",
@@ -2609,8 +2611,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "USA vs Belgium - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "USA vs Belgium - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-usa-belgium-2026",
       "eventId": "fifa-r16-usa-belgium-2026",
       "name": "USA vs Belgium - Round of 16",
@@ -2642,7 +2644,7 @@
         "hookSpoilerOn": "Belgium ended the hosts' campaign and reached the quarterfinals.",
         "synopsisSpoilerOn": "Belgium's attacking quality produced the round's widest knockout margin, with four goals overcoming the energy of a home crowd in Seattle."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "USA",
@@ -2673,8 +2675,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Djokovic vs Auger-Aliassime - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Djokovic vs Auger-Aliassime - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -2706,7 +2708,7 @@
         "hookSpoilerOn": "Djokovic reached the semifinals after five sets.",
         "synopsisSpoilerOn": "Two of the five sets required tie-breaks, including the decider. Djokovic survived the extended opening breaker and finally separated the match in the last one."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Djokovic",
@@ -2737,8 +2739,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Gauff vs Pegula - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Gauff vs Pegula - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -2770,7 +2772,7 @@
         "hookSpoilerOn": "Gauff recovered from a set down to reach the semifinals.",
         "synopsisSpoilerOn": "Pegula made the stronger start, but Gauff levelled and repeated the 6-3 margin in the decider to complete the comeback."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Gauff",
@@ -2801,8 +2803,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Muchova vs Osaka - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Muchova vs Osaka - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -2834,7 +2836,7 @@
         "hookSpoilerOn": "Muchova reached the semifinals in straight sets.",
         "synopsisSpoilerOn": "Muchova took the opening tie-break and then protected a single-break margin in the second, ending Osaka's notable run in two sets."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Muchova",
@@ -2865,8 +2867,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Sinner vs Struff - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sinner vs Struff - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -2898,7 +2900,7 @@
         "hookSpoilerOn": "Sinner reached the semifinals in straight sets.",
         "synopsisSpoilerOn": "Sinner won the tight points in the first two sets, then created a clearer margin in the third to finish without extending the match."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Sinner",
@@ -2923,8 +2925,8 @@
       "id": "evt_49",
       "eventId": "evt_49",
       "displayTitleCompact": "Stage 4 — Carcassonne → Foix (Hilly)",
-      "selectedSentence": "Pedersen won the hilly run to Foix as Tobias Halland Johannessen Traeen moved into the race lead.",
-      "fullSpiel": "Stage 4 — Carcassonne → Foix (Hilly) is complete. Pedersen won the hilly run to Foix as Tobias Halland Johannessen Traeen moved into the race lead. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 4 — Carcassonne → Foix (Hilly) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 4 — Carcassonne → Foix (Hilly) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 4 result",
       "sourceUrl": "https://www.letour.fr/en/stage-4",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -2964,8 +2966,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Argentina vs Egypt - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Argentina vs Egypt - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-argentina-egypt-2026",
       "eventId": "fifa-r16-argentina-egypt-2026",
       "name": "Argentina vs Egypt - Round of 16",
@@ -2997,7 +2999,7 @@
         "hookSpoilerOn": "Argentina reached the quarterfinals after a five-goal contest.",
         "synopsisSpoilerOn": "Egypt continued its knockout run with two goals, but Argentina's third strike settled an open match and secured the reigning champions' place in the last eight."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Argentina",
@@ -3026,8 +3028,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Round of 16 fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Round of 16 match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Switzerland vs Colombia - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Switzerland vs Colombia - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-r16-switzerland-colombia-2026",
       "eventId": "fifa-r16-switzerland-colombia-2026",
       "name": "Switzerland vs Colombia - Round of 16",
@@ -3060,7 +3062,7 @@
         "hookSpoilerOn": "Switzerland progressed through the penalty shootout.",
         "synopsisSpoilerOn": "Neither side found a goal through regulation and extra time. Switzerland held their nerve from the spot to claim the final quarterfinal place."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Switzerland",
@@ -3091,8 +3093,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Fery vs Cobolli - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Fery vs Cobolli - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -3124,7 +3126,7 @@
         "hookSpoilerOn": "Fery reached the semifinals in straight sets.",
         "synopsisSpoilerOn": "Fery won a tight opening set and tie-break before accelerating through a one-sided third, extending the British wildcard's run into the last four."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Fery",
@@ -3155,8 +3157,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Kostyuk vs Paolini - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Kostyuk vs Paolini - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -3188,7 +3190,7 @@
         "hookSpoilerOn": "Kostyuk reached the semifinals in straight sets.",
         "synopsisSpoilerOn": "Kostyuk increased her control from the first set to the second, conceding only five games across a compact quarterfinal."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Kostyuk",
@@ -3219,8 +3221,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Noskova vs Mertens - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Noskova vs Mertens - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -3252,7 +3254,7 @@
         "hookSpoilerOn": "Noskova reached the semifinals in straight sets.",
         "synopsisSpoilerOn": "Noskova established the early advantage and then closed a tighter second set late, completing the quarterfinal without a decider."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Noskova",
@@ -3283,8 +3285,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Quarterfinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Zverev vs Fritz - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Zverev vs Fritz - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Quarterfinal",
         "Completed"
@@ -3316,7 +3318,7 @@
         "hookSpoilerOn": "Zverev reached the semifinals in straight sets.",
         "synopsisSpoilerOn": "Zverev repeated a one-break margin in the first two sets and widened it in the third, completing the most direct men's quarterfinal result."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Zverev",
@@ -3341,8 +3343,8 @@
       "id": "evt_50",
       "eventId": "evt_50",
       "displayTitleCompact": "Stage 5 — Lannemezan → Pau (Flat)",
-      "selectedSentence": "Kooij won the flat sprint into Pau.",
-      "fullSpiel": "Stage 5 — Lannemezan → Pau (Flat) is complete. Kooij won the flat sprint into Pau. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 5 — Lannemezan → Pau (Flat) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 5 — Lannemezan → Pau (Flat) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 5 result",
       "sourceUrl": "https://www.letour.fr/en/stage-5",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -3378,8 +3380,8 @@
       "id": "evt_51",
       "eventId": "evt_51",
       "displayTitleCompact": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain)",
-      "selectedSentence": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead.",
-      "fullSpiel": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete. Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 6 result",
       "sourceUrl": "https://www.letour.fr/en/stage-6",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -3411,7 +3413,7 @@
         "hookSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead.",
         "synopsisSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Tennis",
@@ -3432,8 +3434,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Semifinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Muchova vs Gauff - Women's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Muchova vs Gauff - Women's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Semifinal",
         "Completed"
@@ -3465,7 +3467,7 @@
         "hookSpoilerOn": "Muchova reached the Wimbledon final after a deciding tie-break.",
         "synopsisSpoilerOn": "The first two sets swung sharply in opposite directions. Muchova then won an extended deciding tie-break to settle the semifinal at its narrowest point."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Muchova",
@@ -3496,8 +3498,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Semifinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Noskova vs Kostyuk - Women's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Noskova vs Kostyuk - Women's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Semifinal",
         "Completed"
@@ -3529,7 +3531,7 @@
         "hookSpoilerOn": "Noskova reached the Wimbledon final in straight sets.",
         "synopsisSpoilerOn": "Noskova maintained matching margins in both sets, staying composed through the semifinal pressure to book her place in the final."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Noskova",
@@ -3558,8 +3560,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Quarterfinal fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Quarterfinal match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "France vs Morocco - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "France vs Morocco - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-qf-france-morocco-2026",
       "eventId": "fifa-qf-france-morocco-2026",
       "name": "France vs Morocco - Quarterfinal",
@@ -3591,7 +3593,7 @@
         "hookSpoilerOn": "France reached the semifinals.",
         "synopsisSpoilerOn": "France combined two goals with a clean sheet to end Morocco's run, controlling the decisive phases and earning the first place in the last four."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "France",
@@ -3616,8 +3618,8 @@
       "id": "evt_52",
       "eventId": "evt_52",
       "displayTitleCompact": "Stage 7 — Hagetmau → Bordeaux (Flat)",
-      "selectedSentence": "Merlier won the Bordeaux sprint.",
-      "fullSpiel": "Stage 7 — Hagetmau → Bordeaux (Flat) is complete. Merlier won the Bordeaux sprint. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 7 — Hagetmau → Bordeaux (Flat) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 7 — Hagetmau → Bordeaux (Flat) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 7 result",
       "sourceUrl": "https://www.letour.fr/en/stage-7",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -3659,8 +3661,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Semifinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Sinner vs Djokovic - Men's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sinner vs Djokovic - Men's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Semifinal",
         "Completed"
@@ -3692,7 +3694,7 @@
         "hookSpoilerOn": "Sinner reached the Wimbledon final in straight sets.",
         "synopsisSpoilerOn": "Sinner found the same decisive margin in every set, preventing Djokovic from extending a semifinal that remained competitive but consistently tilted one way."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Sinner",
@@ -3723,8 +3725,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Semifinal match retained as a spoiler-protected replay.",
-      "fullSpiel": "Wimbledon publishes the court session and order of play rather than an exact start for later matches, so this card shows the verified session opening instead of inventing a match time. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Zverev vs Fery - Men's Semifinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Zverev vs Fery - Men's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Semifinal",
         "Completed"
@@ -3756,7 +3758,7 @@
         "hookSpoilerOn": "Zverev reached the Wimbledon final in straight sets.",
         "synopsisSpoilerOn": "Fery reached a tie-break in the opener, but Zverev shut it out and controlled the next two sets to end the wildcard's run."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Zverev",
@@ -3785,8 +3787,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Quarterfinal fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Quarterfinal match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Spain vs Belgium - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Spain vs Belgium - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-qf-spain-belgium-2026",
       "eventId": "fifa-qf-spain-belgium-2026",
       "name": "Spain vs Belgium - Quarterfinal",
@@ -3818,7 +3820,7 @@
         "hookSpoilerOn": "Spain reached the semifinals.",
         "synopsisSpoilerOn": "Spain survived sustained Belgian pressure in a high-quality quarterfinal, making a narrow lead stand to secure a last-four meeting with France."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Spain",
@@ -3843,8 +3845,8 @@
       "id": "evt_9",
       "eventId": "evt_9",
       "displayTitleCompact": "Wallabies vs France",
-      "selectedSentence": "France overturned a halftime deficit with 30 unanswered second-half points.",
-      "fullSpiel": "Wallabies vs France is complete. Australia carried a lead into the interval, but France's pace and depth changed the match after halftime. The visitors shut the Wallabies out for the decisive stretch and pulled clear by 16. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Wallabies vs France is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Wallabies vs France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "2026 Nations Championship results",
       "sourceUrl": "https://www.rugby.com.au/news",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -3877,7 +3879,7 @@
         "hookSpoilerOn": "France overturned a halftime deficit with 30 unanswered second-half points.",
         "synopsisSpoilerOn": "Australia carried a lead into the interval, but France's pace and depth changed the match after halftime. The visitors shut the Wallabies out for the decisive stretch and pulled clear by 16."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Wallabies",
@@ -3902,8 +3904,8 @@
       "id": "evt_53",
       "eventId": "evt_53",
       "displayTitleCompact": "Stage 8 — Périgueux → Bergerac (Flat)",
-      "selectedSentence": "Merlier completed back-to-back sprint wins in Bergerac.",
-      "fullSpiel": "Stage 8 — Périgueux → Bergerac (Flat) is complete. Merlier completed back-to-back sprint wins in Bergerac. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 8 — Périgueux → Bergerac (Flat) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 8 — Périgueux → Bergerac (Flat) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 8 result",
       "sourceUrl": "https://www.letour.fr/en/stage-8",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -3945,8 +3947,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Women's final match retained as a spoiler-protected replay.",
-      "fullSpiel": "The Sydney-local start is taken from Wimbledon's official order of play. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Noskova vs Muchova - Women's Final is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Noskova vs Muchova - Women's Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Women's final",
         "Completed"
@@ -3976,7 +3978,7 @@
         "hookSpoilerOn": "Noskova won the 2026 Wimbledon women's singles title.",
         "synopsisSpoilerOn": "Noskova made the faster start, absorbed Muchova's second-set response and re-established control in the decider to claim the championship."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Noskova",
@@ -4005,8 +4007,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Quarterfinal fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Quarterfinal match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Norway vs England - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Norway vs England - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-qf-norway-england-2026",
       "eventId": "fifa-qf-norway-england-2026",
       "name": "Norway vs England - Quarterfinal",
@@ -4039,7 +4041,7 @@
         "hookSpoilerOn": "England reached the semifinals after extra time.",
         "synopsisSpoilerOn": "Norway extended its breakthrough run into extra time, where England found the decisive goal and completed another demanding knockout win."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Norway",
@@ -4068,8 +4070,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Quarterfinal fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Quarterfinal match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "Argentina vs Switzerland - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Argentina vs Switzerland - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-qf-argentina-switzerland-2026",
       "eventId": "fifa-qf-argentina-switzerland-2026",
       "name": "Argentina vs Switzerland - Quarterfinal",
@@ -4102,7 +4104,7 @@
         "hookSpoilerOn": "Argentina reached the semifinals after extra time.",
         "synopsisSpoilerOn": "Switzerland forced the reigning champions beyond 90 minutes, but Argentina pulled clear in extra time to complete the semifinal line-up."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Argentina",
@@ -4127,8 +4129,8 @@
       "id": "evt_54",
       "eventId": "evt_54",
       "displayTitleCompact": "Stage 9 — Malemort → Ussel (Hilly)",
-      "selectedSentence": "Van der Poel won the hilly stage into Ussel.",
-      "fullSpiel": "Stage 9 — Malemort → Ussel (Hilly) is complete. Van der Poel won the hilly stage into Ussel. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 9 — Malemort → Ussel (Hilly) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 9 — Malemort → Ussel (Hilly) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 9 result",
       "sourceUrl": "https://www.letour.fr/en/stage-9",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -4170,8 +4172,8 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "selectedSentence": "A completed Wimbledon Men's final match retained as a spoiler-protected replay.",
-      "fullSpiel": "The Sydney-local start is taken from Wimbledon's official order of play. The official score, outcome, and concise match analysis stay behind the individual spoiler control until deliberately revealed.",
+      "selectedSentence": "Sinner vs Zverev - Men's Final is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sinner vs Zverev - Men's Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "resultLabels": [
         "Men's final",
         "Completed"
@@ -4201,7 +4203,7 @@
         "hookSpoilerOn": "Sinner won the 2026 Wimbledon men's singles title.",
         "synopsisSpoilerOn": "After losing the opening tie-break, Sinner dominated the second-set breaker and then created the clearer margins across the final two sets to secure the title."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "Sinner",
@@ -4226,8 +4228,8 @@
       "id": "evt_55",
       "eventId": "evt_55",
       "displayTitleCompact": "Stage 10 — Aurillac → Le Lioran (Mountain)",
-      "selectedSentence": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour.",
-      "fullSpiel": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete. Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 10 result",
       "sourceUrl": "https://www.letour.fr/en/stage-10",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -4259,7 +4261,7 @@
         "hookSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour.",
         "synopsisSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z"
     },
     {
       "sport": "Football",
@@ -4278,8 +4280,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed Semifinal fixture retained as a spoiler-protected replay.",
-      "fullSpiel": "This Semifinal match is retained with its official score, outcome, and a concise match analysis. Those result details stay behind the individual spoiler control until the viewer deliberately reveals them.",
+      "selectedSentence": "World Cup Semifinal 1 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "World Cup Semifinal 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-sf-1-2026",
       "eventId": "fifa-sf-1-2026",
       "name": "France vs Spain - Semifinal",
@@ -4323,7 +4325,7 @@
         "hookSpoilerOn": "Spain reached the World Cup final.",
         "synopsisSpoilerOn": "Mikel Oyarzabal converted a first-half penalty and Pedro Porro added the second after the break. Spain frustrated France at one end and punished them at the other."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "France",
@@ -4348,8 +4350,8 @@
       "id": "evt_56",
       "eventId": "evt_56",
       "displayTitleCompact": "Stage 11 — Vichy → Nevers (Flat)",
-      "selectedSentence": "Waerenskjold won the flat stage into Nevers.",
-      "fullSpiel": "Stage 11 — Vichy → Nevers (Flat) is complete. Waerenskjold won the flat stage into Nevers. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 11 — Vichy → Nevers (Flat) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 11 — Vichy → Nevers (Flat) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Tour de France Stage 11 result",
       "sourceUrl": "https://www.letour.fr/en/stage-11",
       "sourceCheckedAt": "2026-07-16T08:30:00+10:00",
@@ -4389,8 +4391,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "result-pending",
-      "selectedSentence": "A completed semifinal retained as a spoiler-protected replay.",
-      "fullSpiel": "England led through Anthony Gordon, but Argentina turned the semifinal around in the final minutes. Enzo Fernandez equalised in the 85th minute before Lautaro Martinez headed the stoppage-time winner from Lionel Messi's cross.",
+      "selectedSentence": "World Cup Semifinal 2 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "World Cup Semifinal 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "score": "England 1-2 Argentina",
       "outcomeText": "Argentina reached the World Cup final against Spain; England move to the third-place playoff against France.",
       "recapText": "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals.",
@@ -4433,7 +4435,7 @@
         "hookSpoilerOn": "Argentina reached the World Cup final against Spain; England move to the third-place playoff against France.",
         "synopsisSpoilerOn": "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "participants": [
         {
           "name": "England",
@@ -4458,8 +4460,8 @@
       "id": "evt_57",
       "eventId": "evt_57",
       "displayTitleCompact": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat)",
-      "selectedSentence": "Tim Merlier won Stage 12 in a bunch sprint at Chalon-sur-Saône.",
-      "fullSpiel": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat) is complete. Merlier claimed his third stage win of the 2026 Tour in the sprint finish, with a late crash affecting the peloton behind him. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "CyclingNews and L'Équipe stage reports",
       "sourceUrl": "https://www.cyclingnews.com/pro-cycling/racing/tour-de-france-tim-merlier-wins-sprint-skirmish-on-stage-12-ahead-of-major-pileup/",
       "sourceCheckedAt": "2026-07-19T09:41:04+10:00",
@@ -4496,8 +4498,8 @@
       "id": "evt_58",
       "eventId": "evt_58",
       "displayTitleCompact": "Stage 13 — Dole → Belfort (Hilly)",
-      "selectedSentence": "Mauro Schmid won Stage 13 in Belfort after outsprinting Harold Tejada.",
-      "fullSpiel": "Stage 13 — Dole → Belfort (Hilly) is complete. Schmid and Tejada survived from the breakaway, with Schmid taking the two-up sprint. Tom Pidcock led the chase home in third. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 13 — Dole → Belfort (Hilly) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 13 — Dole → Belfort (Hilly) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Cycling Weekly stage report",
       "sourceUrl": "https://www.cyclingweekly.com/racing/tour-de-france/mauro-schmid-outguns-breakaway-partner-to-win-tour-de-france-stage-13",
       "sourceCheckedAt": "2026-07-19T09:41:04+10:00",
@@ -4551,8 +4553,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "post-match",
-      "selectedSentence": "Canberra made it three straight wins with a 34-24 victory over South Sydney.",
-      "fullSpiel": "Raiders v Rabbitohs is complete. The Raiders built a strong lead, absorbed a Rabbitohs comeback and closed out a ten-point home win in Round 20. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "A fast start, a late Souths surge and a desperate final stand in Canberra.",
+      "fullSpiel": "The contest swung sharply after half-time before a tense late finish at GIO Stadium. Canberra's season-defining urgency was tested to the last set.",
       "sourceName": "Canberra Raiders match report",
       "sourceUrl": "https://www.raiders.com.au/news/2026/07/18/raiders-continue-hot-streak-with-big-win-over-rabbitohs/",
       "sourceCheckedAt": "2026-07-19T09:41:04+10:00",
@@ -4577,7 +4579,7 @@
         "actualSpectacle": 8,
         "archetype": "finals push"
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -4608,8 +4610,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "post-match",
-      "selectedSentence": "Collingwood defeated Carlton by 21 points in the MCG clash.",
-      "fullSpiel": "Collingwood v Carlton is complete. Collingwood controlled the contest to win 14.6 (90) to 10.9 (69), keeping Carlton at arm's length through the second half. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Collingwood v Carlton is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Collingwood v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "AFL media consensus post-match reports",
       "sourceUrl": "https://aapnews.aap.com.au/news/collingwood-extend-winning-streak-over-rivals-carlton",
       "sourceCheckedAt": "2026-07-19T09:41:04+10:00",
@@ -4638,7 +4640,7 @@
         "synopsisSpoilerOff": "Collingwood v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Collingwood controlled the contest to win 14.6 (90) to 10.9 (69), keeping Carlton at arm's length through the second half."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "sourceType": "reputable",
       "score": "Collingwood 14.6 (90) defeated Carlton 10.9 (69)",
       "outcomeText": "Collingwood defeated Carlton by 21 points in the MCG clash.",
@@ -4679,8 +4681,8 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "post-match",
-      "selectedSentence": "Australia beat Italy 57-10 in Perth to end Joe Schmidt's Wallabies tenure with a win.",
-      "fullSpiel": "Wallabies v Italy is complete. Australia finished its July Nations Championship home run with a 47-point victory at HBF Park, scoring 57 points and holding Italy to 10 in Joe Schmidt's final Test in charge. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Wallabies v Italy is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Wallabies v Italy is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Rugby Australia Wallabies v Italy match centre",
       "sourceUrl": "https://www.rugby.com.au/match-centre/114/2026/949577",
       "sourceCheckedAt": "2026-07-18T23:03:26+10:00",
@@ -4696,7 +4698,7 @@
         "synopsisSpoilerOn": "Australia finished its July Nations Championship home run with a 47-point victory at HBF Park, scoring 57 points and holding Italy to 10 in Joe Schmidt's final Test in charge.",
         "expectedSpectacle": 7
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -4723,8 +4725,8 @@
       "id": "evt_59",
       "eventId": "evt_59",
       "displayTitleCompact": "Stage 14 — Mulhouse → Le Markstein (Mountain)",
-      "selectedSentence": "Tadej Pogačar won Stage 14 at Le Markstein and extended his Tour lead.",
-      "fullSpiel": "Stage 14 — Mulhouse → Le Markstein (Mountain) is complete. Pogačar attacked on the final climb to claim his fourth stage win of the 2026 Tour, with the mountain finish reshaping the general-classification gaps. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "Stage 14 — Mulhouse → Le Markstein (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 14 — Mulhouse → Le Markstein (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "The Guardian and Tour Magazin stage reports",
       "sourceUrl": "https://www.theguardian.com/sport/2026/jul/18/pogacar-attacks-on-steepest-climb-to-clinch-another-tour-de-france-stage-win",
       "sourceCheckedAt": "2026-07-19T09:41:04+10:00",
@@ -4748,7 +4750,7 @@
         "synopsisSpoilerOff": "Stage 14 — Mulhouse → Le Markstein (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "Pogačar attacked on the final climb to claim his fourth stage win of the 2026 Tour, with the mountain finish reshaping the general-classification gaps."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "sourceType": "reputable",
       "score": "Stage winner: Tadej Pogačar",
       "outcomeText": "Tadej Pogačar won Stage 14 at Le Markstein and extended his Tour lead.",
@@ -4772,8 +4774,8 @@
       "id": "evt_20",
       "eventId": "evt_20",
       "displayTitleCompact": "R10 Belgian GP Qualifying",
-      "selectedSentence": "Kimi Antonelli took pole at Spa ahead of Max Verstappen, while Lando Norris qualified third but drops to P13 for the race.",
-      "fullSpiel": "R10 Belgian GP Qualifying is complete. Antonelli led Verstappen in qualifying at Spa. Norris set the third-fastest time but his 10-place power-unit penalty sends him to P13, reshaping the front of the grid for Sunday's race. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "R10 Belgian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "R10 Belgian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
       "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
       "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
@@ -4814,8 +4816,8 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "post-match",
-      "selectedSentence": "England finished third after beating France 6-4 in the bronze final (media-reported consensus).",
-      "fullSpiel": "World Cup Third-Place Playoff is complete. Two independent mainstream reports agree on England's 6-4 win. Bukayo Saka scored a hat-trick, with Declan Rice, Ezri Konsa and Jude Bellingham also on the scoresheet; France replied through Kylian Mbappe twice, Bradley Barcola and Ousmane Dembele. FIFA's result feed had not caught up at checking time. Score and outcome details remain behind the per-event spoiler control until deliberately revealed.",
+      "selectedSentence": "World Cup Third-Place Playoff is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "World Cup Third-Place Playoff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-third-place-2026",
       "eventId": "fifa-third-place-2026",
       "name": "World Cup Third-Place Playoff",
@@ -4842,7 +4844,7 @@
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 6,
         "hookSpoilerOff": "World Cup Third-Place Playoff is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "England finished third after beating France 6-4 in the bronze final (media-reported consensus).",
@@ -4850,7 +4852,7 @@
         "synopsisSpoilerOn": "Two independent mainstream reports agree on England's 6-4 win. Bukayo Saka scored a hat-trick, with Declan Rice, Ezri Konsa and Jude Bellingham also on the scoresheet; France replied through Kylian Mbappe twice, Bradley Barcola and Ousmane Dembele. FIFA's result feed had not caught up at checking time.",
         "archetype": "podium decider"
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:00.699Z",
       "score": "England 6-4 France",
       "outcomeText": "England finished third after beating France 6-4 in the bronze final (media-reported consensus).",
       "recapText": "Two independent mainstream reports agree on England's 6-4 win. Bukayo Saka scored a hat-trick, with Declan Rice, Ezri Konsa and Jude Bellingham also on the scoresheet; France replied through Kylian Mbappe twice, Bradley Barcola and Ousmane Dembele. FIFA's result feed had not caught up at checking time.",
@@ -4888,7 +4890,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "Cycling",
@@ -5148,10 +5151,10 @@
         "expectedSpectacle": 8,
         "hookSpoilerOff": "The 26.1-kilometre time trial is equal parts climb, descent and flat road—a recovery day only in name.",
         "hookSpoilerOn": "The 26.1-kilometre time trial is equal parts climb, descent and flat road—a recovery day only in name.",
-        "synopsisSpoilerOff": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT) is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-        "synopsisSpoilerOn": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT) is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed."
+        "synopsisSpoilerOff": "After the rest day, the Tour resumes with a test designed for complete riders rather than pure specialists. One third uphill, one third downhill and one third flat gives anyone who lost time in the mountains a chance to claw it back, while punishing weak descending or pacing.",
+        "synopsisSpoilerOn": "After the rest day, the Tour resumes with a test designed for complete riders rather than pure specialists. One third uphill, one third downhill and one third flat gives anyone who lost time in the mountains a chance to claw it back, while punishing weak descending or pacing."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-19T01:10:22.195Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -5193,7 +5196,8 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "Cycling",
@@ -5331,7 +5335,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "Cycling",
@@ -5415,7 +5420,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -5443,7 +5449,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -5471,7 +5478,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "Cycling",
@@ -5613,7 +5621,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "id": "rugby-japan-australia-2026-08-08",
@@ -5701,7 +5710,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "id": "nrl-raiders-knights-2026-08-09",
@@ -5731,7 +5741,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "Cricket",
@@ -5759,7 +5770,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "id": "cricket-australia-bangladesh-first-test-2026",
@@ -5968,7 +5980,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "Cricket",
@@ -5996,7 +6009,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -6024,7 +6038,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -6156,7 +6171,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "rugby-argentina-australia-mendoza-2026-09-06",
@@ -6288,7 +6304,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -6316,7 +6333,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -6344,7 +6362,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "NRL",
@@ -6662,7 +6681,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "rugby-new-zealand-australia-2026-10-10",
@@ -6748,7 +6768,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -6995,7 +7016,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "rlwc-australia-fiji-2026",
@@ -7242,7 +7264,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -7470,7 +7493,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "id": "cricket-australia-england-second-odi-2026",
@@ -7502,7 +7526,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "rugby-scotland-australia-2026-11-16",
@@ -7592,7 +7617,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -7620,7 +7646,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "cricket-australia-england-first-t20-2026",
@@ -7652,7 +7679,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "rugby-wales-australia-2026-11-22",
@@ -7788,7 +7816,8 @@
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "status": "upcoming"
     },
     {
       "id": "cricket-australia-england-third-t20-2026",
@@ -7820,7 +7849,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "Rugby",
@@ -7905,7 +7935,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "cricket-australia-england-fourth-t20-2026",
@@ -7993,7 +8024,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "id": "cricket-australia-england-fifth-t20-2026",
@@ -8081,7 +8113,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "F1",
@@ -8423,7 +8456,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "Ski",
@@ -8451,7 +8485,8 @@
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
-      "catchupEligible": true
+      "catchupEligible": true,
+      "status": "upcoming"
     },
     {
       "sport": "Ski",

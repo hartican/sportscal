@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { readJson } = require("./lib/feed-utils");
-const { RESULT_LEAK, PREVIEW_LEAK, PREVIEW_TENSE, lifecycleFor, stakesFor } = require("./lib/storyline-card-rules");
+const { lifecycleFor, spoilerContractIssues, stakesFor } = require("./lib/storyline-card-rules");
 
 const inputPath = process.argv[2] || "data/events.json";
 const feed = readJson(inputPath);
@@ -43,13 +43,7 @@ majorCards.forEach(event => {
   if (!off.hook || !off.synopsis || !on.hook || !on.synopsis) {
     errors.push(`${label} is missing display copy.`);
   }
-  if (completed(event)) {
-    if (`${off.hook}\n${off.synopsis}` === `${on.hook}\n${on.synopsis}`) errors.push(`${label} completed-card spoiler ON/OFF copy is identical.`);
-    if (RESULT_LEAK.test(`${off.hook}\n${off.synopsis}`)) errors.push(`${label} spoiler-off copy leaks a result.`);
-    if (PREVIEW_TENSE.test(`${on.hook}\n${on.synopsis}`)) errors.push(`${label} completed card still reads as a preview.`);
-  } else if (PREVIEW_LEAK.test(`${off.hook}\n${off.synopsis}\n${on.hook}\n${on.synopsis}`)) {
-    errors.push(`${label} upcoming card contains result language.`);
-  }
+  spoilerContractIssues(event, now).forEach(issue => errors.push(`${label} ${issue}.`));
 
   if (event.storyline?.stakes >= 4) {
     const required = ["arcStage", "hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn"];

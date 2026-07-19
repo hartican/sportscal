@@ -20,13 +20,23 @@ Refresh process:
    - exclude events with `expected < 5`
    - use Australia/Sydney local `date` and `time`
    - avoid default-card result, winner, advancement, or bracket-consequence spoilers
-5. Validate it:
+5. Normalise card lifecycle/copy and run the editorial, spoiler and schema QA suite:
+
+```bash
+node scripts/update-cards.js
+```
+
+This command keeps completed result facts in `score`, `outcomeText` and `recapText`, keeps `selectedSentence` and `fullSpiel` safe for spoiler-OFF fallbacks, derives `storyline.arcStage` from lifecycle, and checks both incoming and published feeds. Do not bypass this step for result updates.
+
+6. Validate the incoming file explicitly:
 
 ```bash
 node scripts/validate-feed.js feeds/incoming/events.json
 ```
 
-6. Publish it into the app:
+Validation and publishing reject mixed spoiler modes, including result-bearing default fields or a completed card left at `storyline.arcStage: "preview"`.
+
+7. Publish it into the app:
 
 ```bash
 node scripts/publish-feed.js feeds/incoming/events.json
@@ -41,7 +51,7 @@ node scripts/restore-bundled-events.js feeds/incoming/events.json
 node scripts/publish-feed.js feeds/incoming/events.json
 ```
 
-7. Run the app-level smoke checks:
+8. Run the app-level smoke checks:
 
 ```bash
 node -e "const fs=require('fs');const html=fs.readFileSync('index.html','utf8');const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);for (const script of scripts) new Function(script); console.log('inline scripts ok:', scripts.length);"

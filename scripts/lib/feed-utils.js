@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { spoilerContractIssues } = require("./storyline-card-rules");
 
 const SPORT_KEYS = new Set([
   "wimbledon",
@@ -214,6 +215,7 @@ function validateFeed(feed) {
         }
       }
     }
+    spoilerContractIssues(event).forEach(issue => errors.push(`${prefix} violates spoiler copy contract: ${issue}.`));
     if (ids.has(event.id)) errors.push(`${prefix}.id duplicates ${event.id}.`);
     if (eventIds.has(event.eventId)) errors.push(`${prefix}.eventId duplicates ${event.eventId}.`);
     ids.add(event.id);

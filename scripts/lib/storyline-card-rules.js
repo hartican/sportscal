@@ -1,12 +1,11 @@
-const RESULT_LEAK = /\b(?:won|lost|beat|defeated|winner|loser|score|margin|\d{1,3}\s*[-–]\s*\d{1,3})\b/i;
-const PREVIEW_LEAK = /\b(?:won|lost|beat|defeated|completed|final score)\b/i;
+const RESULT_LEAK = /\b(?:won|lost|beat|defeated|winner|loser|score|margin|advanced|reached|eliminated|victory|champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|\b\d{1,3}\s*[-–]\s*\d{1,3}\b/i;
+const PREVIEW_LEAK = /\b(?:won|beat|defeated|completed|final score)\b|\blost\b(?!\s+time)/i;
 const PREVIEW_TENSE = /\b(?:will|awaits|host|upcoming)\b/i;
 const MANUAL_STORYLINE_OVERRIDES = {
   "fifa-third-place-2026": {
     stakes: 4,
     intensity: 4,
     archetype: "podium decider",
-    arcStage: "preview",
     expectedSpectacle: 6,
   },
   "nrl-raiders-rabbitohs-2026-07-18": {
@@ -134,7 +133,61 @@ function storylineFor(event, now = new Date()) {
     base.synopsisSpoilerOn = preview.synopsis;
     delete base.actualSpectacle;
   }
-  return { ...base, ...(MANUAL_STORYLINE_OVERRIDES[event.id] || {}) };
+  return {
+    ...base,
+    ...(MANUAL_STORYLINE_OVERRIDES[event.id] || {}),
+    // Lifecycle is canonical. A stale manual override must never turn a
+    // completed recap back into preview copy (or vice versa).
+    arcStage: status === "completed" ? "recap" : "preview",
+  };
+}
+
+function spoilerSafeRootCopy(event, storyline = event.storyline, now = new Date()) {
+  const status = lifecycleFor(event, now);
+  if (status !== "completed") {
+    return {
+      hook: String(event.selectedSentence || "").trim(),
+      synopsis: String(event.fullSpiel || event.selectedSentence || "").trim(),
+    };
+  }
+  const safe = safeCompletedCopy(event);
+  return {
+    hook: compactCopy(storyline?.hookSpoilerOff || safe.hook, 25),
+    synopsis: compactCopy(storyline?.synopsisSpoilerOff || safe.synopsis, 80),
+  };
+}
+
+function spoilerContractIssues(event, now = new Date()) {
+  const issues = [];
+  const status = lifecycleFor(event, now);
+  const completed = status === "completed";
+  const storyline = event.storyline || {};
+  const rootCopy = `${event.selectedSentence || ""}\n${event.fullSpiel || ""}`;
+
+  if (completed && RESULT_LEAK.test(rootCopy)) {
+    issues.push("default selectedSentence/fullSpiel leaks a completed result");
+  }
+  if (!completed && PREVIEW_LEAK.test(rootCopy)) {
+    issues.push("upcoming selectedSentence/fullSpiel contains completed-result language");
+  }
+
+  if (Object.keys(storyline).length) {
+    const expectedArc = completed ? "recap" : "preview";
+    if (storyline.arcStage && storyline.arcStage !== expectedArc) {
+      issues.push(`storyline.arcStage is ${storyline.arcStage}; expected ${expectedArc}`);
+    }
+    const off = `${storyline.hookSpoilerOff || ""}\n${storyline.synopsisSpoilerOff || ""}`;
+    const on = `${storyline.hookSpoilerOn || ""}\n${storyline.synopsisSpoilerOn || ""}`;
+    if (completed) {
+      if (RESULT_LEAK.test(off)) issues.push("storyline spoiler-OFF copy leaks a result");
+      if (off.trim() && off === on) issues.push("completed storyline spoiler ON/OFF copy is identical");
+      if (PREVIEW_TENSE.test(on)) issues.push("completed storyline spoiler-ON copy still reads as a preview");
+    } else if (PREVIEW_LEAK.test(`${off}\n${on}`)) {
+      issues.push("upcoming storyline copy contains completed-result language");
+    }
+  }
+
+  return issues;
 }
 
 function isMajorCard(event) {
@@ -152,6 +205,9 @@ module.exports = {
   stakesFor,
   intensityFor,
   participantsFor,
+  safeCompletedCopy,
+  spoilerContractIssues,
+  spoilerSafeRootCopy,
   storylineFor,
   isMajorCard,
 };

@@ -204,6 +204,38 @@ header.top{
   justify-content:flex-end;
 }
 
+.spoiler-home-toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border-color: color-mix(in srgb, #7ee787 58%, var(--border));
+  color:#9be9a8;
+  background:rgba(126,231,135,0.075);
+}
+
+.spoiler-home-toggle:hover{
+  border-color:#7ee787;
+  background:rgba(126,231,135,0.12);
+}
+
+.spoiler-home-toggle.active{
+  border-color: color-mix(in srgb, #ff8a00 70%, var(--border));
+  color:#ffb454;
+  background:rgba(255,138,0,0.1);
+}
+
+.spoiler-home-toggle.active:hover{
+  border-color:#ff8a00;
+  background:rgba(255,138,0,0.16);
+}
+
+.spoiler-home-state{
+  min-width:28px;
+  font-size:0.7rem;
+  font-weight:900;
+  letter-spacing:0.04em;
+}
+
 .btn{
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1771,6 +1803,7 @@ footer.app-footer{
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
+      <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show spoilers globally: off"><span aria-hidden="true">◐</span> <span>Spoilers</span> <span class="spoiler-home-state">OFF</span></button>
       <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSports</span></button>
       <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
@@ -2203,6 +2236,29 @@ function clearShownSpoilerOverrides(){
 function applyGlobalSpoilerPolicy(nextShowSpoilers, previousShowSpoilers){
   if (Boolean(nextShowSpoilers) === Boolean(previousShowSpoilers)) return 0;
   return nextShowSpoilers ? clearHiddenSpoilerOverrides() : clearShownSpoilerOverrides();
+}
+
+function renderHomeSpoilerToggle(){
+  const toggle = document.getElementById("homeSpoilerToggle");
+  if (!toggle) return;
+  const shown = Boolean(userPreferences.showSpoilers);
+  toggle.classList.toggle("active", shown);
+  toggle.setAttribute("aria-checked", shown ? "true" : "false");
+  toggle.setAttribute("aria-label", `Show spoilers globally: ${shown ? "on" : "off"}`);
+  const state = toggle.querySelector(".spoiler-home-state");
+  if (state) state.textContent = shown ? "ON" : "OFF";
+}
+
+function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
+  const previousShowSpoilers = Boolean(userPreferences.showSpoilers);
+  const next = Boolean(nextShowSpoilers);
+  savePreferences({ ...userPreferences, showSpoilers: next });
+  const resetCount = applyGlobalSpoilerPolicy(next, previousShowSpoilers);
+  renderAll();
+  if (notify){
+    const resetCopy = resetCount ? ` ${resetCount} event override${resetCount === 1 ? " was" : "s were"} reset.` : "";
+    showToast(`Spoilers ${next ? "shown" : "protected"} globally.${resetCopy}`);
+  }
 }
 
 let userPreferences = loadPreferences();
@@ -3500,8 +3556,6 @@ function buildEventCard(ev, options = {}){
         <p>This ${status} event has a spoiler-safe recap above. Reveal it only when you are ready for the result-aware version.</p>
       `;
       mainDiv.appendChild(spoilerPanel);
-      mainDiv.appendChild(buildSpoilerOverrideControl(ev));
-      mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
     } else {
       const spoilerFacts = buildSpoilerFacts(ev);
       if (spoilerFacts) mainDiv.appendChild(spoilerFacts);
@@ -4067,6 +4121,7 @@ function renderTabCounts(){
 }
 
 function renderAll(){
+  renderHomeSpoilerToggle();
   renderFilters();
   renderTabCounts();
   const calControls = document.getElementById("calendarControls");
@@ -4513,6 +4568,9 @@ document.addEventListener("keydown", evt => {
 
 document.getElementById("refreshBtn").addEventListener("click", () => {
   refreshRemoteFeed();
+});
+document.getElementById("homeSpoilerToggle").addEventListener("click", () => {
+  setGlobalSpoilerPreference(!userPreferences.showSpoilers, { notify: true });
 });
 
 /* ============ EXPORT + FEEDBACK MODALS ============ */
