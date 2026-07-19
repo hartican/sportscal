@@ -3249,9 +3249,7 @@ function collapseAllCardStates(){
 }
 
 function isCardActivelyViewed(rect, viewportTop, viewportBottom){
-  const visibleHeight = Math.max(0, Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop));
-  const minimumVisibleHeight = Math.min(120, Math.max(48, rect.height * 0.2));
-  return visibleHeight >= minimumVisibleHeight;
+  return rect.bottom > viewportTop && rect.top < viewportBottom;
 }
 
 function collapseCardsOutsideActiveViewport(){
