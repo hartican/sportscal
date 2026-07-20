@@ -4,11 +4,15 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
 const { classifyCalendarEvent, classifyCommonwealthDiscipline } = require("./import-calendar-events");
+const profileStorage = require("../config/profile-storage.js");
+const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
 const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", "utf8");
 const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
+const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
+const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const cwgBundleSource = fs.readFileSync("data/cwg-events.js", "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
@@ -42,6 +46,9 @@ assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persis
 assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation state must be persisted separately from canonical events");
 assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned Australian broadcast config must load in hosted and direct-file modes");
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
+assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
+assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
+assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert(html.includes('src="data/cwg-events.js"'), "direct-file mode must load the published Commonwealth Games fallback bundle");
 assert(html.includes("withBundledCommonwealthGames(loadCachedFeedEvents() || EVENTS)"), "a stale local feed cache must receive new Commonwealth Games cards without duplicating ids");
 assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
@@ -100,6 +107,16 @@ const publishedFeed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const incomingFeed = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
 const eventFeedSchema = JSON.parse(fs.readFileSync("schemas/event-feed.schema.json", "utf8"));
 const calendarEventSchema = JSON.parse(fs.readFileSync("schemas/calendar-events.schema.json", "utf8"));
+const canonicalSportsSchema = JSON.parse(fs.readFileSync("schemas/canonical-sports.schema.json", "utf8"));
+const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage.schema.json", "utf8"));
+const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
+assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sports.v1", "canonical sports schema must be explicitly versioned");
+assert.equal(profileStorageSchema.properties.schemaVersion.const, 1, "profile storage schema must be explicitly versioned");
+const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
+assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
+assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
+assert.equal(canonicalIndex.getLatestLadder("competition:afl-premiership-2026").entries.length, 18, "AFL ladder must be queryable by competition");
+assert.equal(canonicalIndex.getLatestLadder("competition:nrl-premiership-2026").entries.length, 17, "NRL ladder must be queryable by competition");
 assert(eventFeedSchema.$defs.event.properties.key.enum.includes("cwg"), "published feeds must accept Commonwealth Games canonical events");
 assert(calendarEventSchema.$defs.sportKey.enum.includes("cwg"), "calendar imports must accept Commonwealth Games canonical events");
 assert.equal(classifyCalendarEvent({ title: "Commonwealth Games Rugby Sevens Final" }).key, "cwg", "Commonwealth Games tagging must win before its underlying sport classification");
@@ -228,6 +245,8 @@ const sandbox = {
   },
 };
 vm.createContext(sandbox);
+vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
+vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
 vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
 
@@ -238,6 +257,8 @@ globalThis.__test = {
   AU_BROADCAST_CONFIG,
   SELECTOR_TAXONOMY,
   mergePreferences,
+  getActiveProfileId(){ return activeProfileBundle?.profile?.id || null; },
+  getActiveProfileBundle(){ return structuredClone(activeProfileBundle); },
   allSelectorEntities,
   orderSelectorEntities,
   selectorNewPromptEntities,
@@ -314,6 +335,33 @@ const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction 
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+
+function memoryStorage(seed = {}){
+  const values = new Map(Object.entries(seed));
+  return {
+    getItem: key => values.has(key) ? values.get(key) : null,
+    setItem: (key, value) => values.set(key, String(value)),
+    snapshot: () => Object.fromEntries(values),
+  };
+}
+
+const legacyProfileStorage = memoryStorage({
+  ns_preferences_v1: JSON.stringify({ version: 5, onboardingComplete: true, theme: "day", followedSports: ["afl"] }),
+  ns_ratings_v1: JSON.stringify({ "legacy-event": 9 }),
+  ns_event_user_state_v1: JSON.stringify({ "legacy-event": { archived: true } }),
+});
+const migratedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:00:00Z") });
+assert.match(migratedProfile.profile.id, /^profile:/, "legacy settings must migrate under a stable internal profile id");
+assert.equal(migratedProfile.schemaVersion, 1, "profile migration must land on the current schema version");
+assert.equal(migratedProfile.preferences.theme, "day", "existing preference fields must survive the profile migration");
+assert.equal(migratedProfile.ratings["legacy-event"], 9, "existing ratings must survive the profile migration");
+assert.equal(migratedProfile.eventUserState["legacy-event"].archived, true, "existing event state must survive the profile migration");
+const renamedProfile = profileStorage.setUsernameLabel(legacyProfileStorage, migratedProfile, "Changed display name", { now: new Date("2026-07-20T00:01:00Z") });
+assert.equal(renamedProfile.profile.id, migratedProfile.profile.id, "changing the username label must not change the storage identity");
+const reloadedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:02:00Z") });
+assert.equal(reloadedProfile.profile.id, migratedProfile.profile.id, "profile id must survive a simulated app update and reload");
+assert.equal(reloadedProfile.preferences.theme, "day", "settings must survive a simulated app update and reload");
+assert.match(app.getActiveProfileId(), /^profile:/, "the app runtime must load state through a stable profile id");
 
 app.setEvents([thirdPlace]);
 app.setActions({});

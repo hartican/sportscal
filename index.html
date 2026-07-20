@@ -2100,6 +2100,8 @@ footer.app-footer{
   </div>
 </div>
 
+<script src="config/canonical-sports-taxonomy.js"></script>
+<script src="config/profile-storage.js"></script>
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
 <script src="data/cwg-events.js"></script>
@@ -2299,6 +2301,30 @@ const STORAGE_KEYS = {
   legacyRatingsV2: "sportscal:v1:ratings",
   legacyRatings: "jacksSportsCalendar_actualRatings_v1",
 };
+
+const PROFILE_STORAGE = globalThis.NOTHINGSPORTS_PROFILE_STORAGE || null;
+let activeProfileBundle = null;
+try{
+  activeProfileBundle = PROFILE_STORAGE?.loadActiveProfile(localStorage) || null;
+}catch(error){
+  console.warn("Profile storage unavailable; using legacy local storage", error);
+}
+
+function activeProfileSection(section, fallback){
+  const value = activeProfileBundle?.[section];
+  return value === undefined || value === null ? fallback : value;
+}
+
+function saveActiveProfileSection(section, value){
+  if (!PROFILE_STORAGE || !activeProfileBundle) return false;
+  try{
+    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, section, value);
+    return true;
+  }catch(error){
+    console.warn("Profile-scoped storage write failed", section, error);
+    return false;
+  }
+}
 
 /* ============ STATE ============ */
 let activeFilter = "all";
@@ -2505,24 +2531,36 @@ function mergePreferences(saved){
 }
 
 function loadPreferences(){
+  const scoped = activeProfileSection("preferences", null);
+  if (scoped && typeof scoped === "object"){
+    const migrated = mergePreferences(scoped);
+    if (migrated.version !== scoped.version) saveActiveProfileSection("preferences", migrated);
+    return migrated;
+  }
   const current = readStorage(STORAGE_KEYS.preferences, null);
   if (current && typeof current === "object"){
     const migrated = mergePreferences(current);
     if (migrated.version !== current.version) writeStorage(STORAGE_KEYS.preferences, migrated);
+    saveActiveProfileSection("preferences", migrated);
     return migrated;
   }
   const legacy = readStorage(STORAGE_KEYS.legacyPreferences, null);
   if (legacy && typeof legacy === "object"){
     const migrated = mergePreferences(legacy);
     writeStorage(STORAGE_KEYS.preferences, migrated);
+    saveActiveProfileSection("preferences", migrated);
     return migrated;
   }
-  return mergePreferences(null);
+  const defaults = mergePreferences(null);
+  saveActiveProfileSection("preferences", defaults);
+  return defaults;
 }
 
 function savePreferences(next){
   const clean = mergePreferences(next);
-  if (writeStorage(STORAGE_KEYS.preferences, clean)){
+  const legacySaved = writeStorage(STORAGE_KEYS.preferences, clean);
+  const profileSaved = saveActiveProfileSection("preferences", clean);
+  if (legacySaved || profileSaved){
     userPreferences = clean;
   }
 }
@@ -2537,16 +2575,23 @@ function applyThemePreference(theme){
 }
 
 function loadRatings(){
+  const scoped = activeProfileSection("ratings", null);
+  if (scoped && typeof scoped === "object") return scoped;
   const current = readStorage(STORAGE_KEYS.ratings, null);
-  if (current && typeof current === "object") return current;
+  if (current && typeof current === "object"){
+    saveActiveProfileSection("ratings", current);
+    return current;
+  }
   const prior = readStorage(STORAGE_KEYS.legacyRatingsV2, null);
   if (prior && typeof prior === "object"){
     writeStorage(STORAGE_KEYS.ratings, prior);
+    saveActiveProfileSection("ratings", prior);
     return prior;
   }
   const legacy = readStorage(STORAGE_KEYS.legacyRatings, {});
   if (legacy && typeof legacy === "object"){
     writeStorage(STORAGE_KEYS.ratings, legacy);
+    saveActiveProfileSection("ratings", legacy);
     return legacy;
   }
   return {};
@@ -2554,34 +2599,69 @@ function loadRatings(){
 
 function saveRatings(r){
   writeStorage(STORAGE_KEYS.ratings, r);
+  saveActiveProfileSection("ratings", r);
 }
 
 function loadEventActions(){
+  const scoped = activeProfileSection("eventUserState", null);
+  if (scoped && typeof scoped === "object" && Object.keys(scoped).length){
+    const migrated = migrateEventActionRecords(scoped);
+    saveActiveProfileSection("eventUserState", migrated);
+    return migrated;
+  }
   const current = readStorage(STORAGE_KEYS.eventUserState, null);
-  if (current && typeof current === "object") return current;
+  if (current && typeof current === "object"){
+    saveActiveProfileSection("eventUserState", current);
+    return current;
+  }
 
   const legacy = readStorage(STORAGE_KEYS.legacyEventActions, {});
   if (!legacy || typeof legacy !== "object") return {};
-  const migrated = Object.fromEntries(Object.entries(legacy).map(([key, action]) => [key, {
-    eventId: action.eventId,
-    startTime: action.startTime,
-    mustWatch: ["calendar_added", "watching"].includes(action.reminderState),
-    watchLater: Boolean(action.savedForCatchup || action.reminderState === "saved_for_catchup"),
-    archived: Boolean(action.archived || action.dismissed),
-    lastActionAt: action.lastActionAt || null,
-  }]));
+  const migrated = migrateEventActionRecords(legacy);
   writeStorage(STORAGE_KEYS.eventUserState, migrated);
+  saveActiveProfileSection("eventUserState", migrated);
   return migrated;
+}
+
+function migrateEventActionRecords(records){
+  return Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
+    if (!action || typeof action !== "object") return [key, action];
+    if (!Object.prototype.hasOwnProperty.call(action, "reminderState") && !Object.prototype.hasOwnProperty.call(action, "savedForCatchup")){
+      return [key, action];
+    }
+    return [key, {
+      eventId: action.eventId,
+      startTime: action.startTime,
+      mustWatch: ["calendar_added", "watching"].includes(action.reminderState),
+      watchLater: Boolean(action.savedForCatchup || action.reminderState === "saved_for_catchup"),
+      archived: Boolean(action.archived || action.dismissed),
+      lastActionAt: action.lastActionAt || null,
+    }];
+  }));
 }
 
 function saveEventActions(next){
   eventActions = next && typeof next === "object" ? next : {};
   writeStorage(STORAGE_KEYS.eventUserState, eventActions);
+  saveActiveProfileSection("eventUserState", eventActions);
 }
 
 function loadEventSpoilerState(actions = {}){
+  const scoped = activeProfileSection("eventSpoilerState", null);
+  if (scoped && typeof scoped === "object" && Object.keys(scoped).length){
+    const migrated = Object.fromEntries(Object.entries(scoped).map(([key, value]) => [key,
+      value && typeof value === "object"
+        ? value
+        : { override: "show", revealedAt: value || null }
+    ]));
+    saveActiveProfileSection("eventSpoilerState", migrated);
+    return migrated;
+  }
   const current = readStorage(STORAGE_KEYS.eventSpoilerState, null);
-  if (current && typeof current === "object") return current;
+  if (current && typeof current === "object"){
+    saveActiveProfileSection("eventSpoilerState", current);
+    return current;
+  }
 
   const legacyReveals = readStorage(STORAGE_KEYS.legacySpoilerReveals, {});
   const migrated = {};
@@ -2596,22 +2676,29 @@ function loadEventSpoilerState(actions = {}){
     };
   });
   writeStorage(STORAGE_KEYS.eventSpoilerState, migrated);
+  saveActiveProfileSection("eventSpoilerState", migrated);
   return migrated;
 }
 
 function saveEventSpoilerState(next){
   eventSpoilerState = next && typeof next === "object" ? next : {};
   writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
+  saveActiveProfileSection("eventSpoilerState", eventSpoilerState);
 }
 
 function loadSurfacePresentation(){
+  const scoped = activeProfileSection("surfacePresentation", null);
+  if (scoped && typeof scoped === "object" && !Array.isArray(scoped)) return scoped;
   const current = readStorage(STORAGE_KEYS.surfacePresentation, null);
-  return current && typeof current === "object" && !Array.isArray(current) ? current : {};
+  const migrated = current && typeof current === "object" && !Array.isArray(current) ? current : {};
+  saveActiveProfileSection("surfacePresentation", migrated);
+  return migrated;
 }
 
 function saveSurfacePresentation(next){
   surfacePresentationState = next && typeof next === "object" ? next : {};
   writeStorage(STORAGE_KEYS.surfacePresentation, surfacePresentationState);
+  saveActiveProfileSection("surfacePresentation", surfacePresentationState);
 }
 
 function clearSpoilerOverrides(override){

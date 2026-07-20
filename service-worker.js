@@ -1,13 +1,16 @@
-const CACHE_NAME = "nothingsport-shell-v18";
+const CACHE_NAME = "nothingsport-shell-v19";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
+  "/config/canonical-sports-taxonomy.js",
+  "/config/profile-storage.js",
   "/config/selector-taxonomy.js",
   "/config/au-broadcast-weights.js",
   "/data/cwg-events.js",
   "/data/feed-meta.json",
   "/data/events.json",
+  "/data/canonical/afl-nrl-2026.json",
   "/manifest.webmanifest",
   "/assets/brand/web/nothingsport-logo-day.png",
   "/assets/brand/web/nothingsport-logo-night.png",

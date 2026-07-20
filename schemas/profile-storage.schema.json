@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/profile-storage.schema.json",
+  "title": "nothingSports profile storage bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profile",
+    "preferences",
+    "domainPreferences",
+    "competitionPreferences",
+    "entityFollows",
+    "viewingPreference",
+    "ratings",
+    "eventUserState",
+    "eventSpoilerState",
+    "surfacePresentation",
+    "archivedEvents"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "usernameLabel", "createdAt", "updatedAt", "schemaVersion", "onboardingCompleted", "timezone"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^profile:" },
+        "usernameLabel": { "type": "string", "minLength": 1 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "schemaVersion": { "const": 1 },
+        "onboardingCompleted": { "type": "boolean" },
+        "timezone": { "type": "string", "minLength": 3 }
+      }
+    },
+    "preferences": { "type": ["object", "null"] },
+    "domainPreferences": { "type": "array", "items": { "type": "object" } },
+    "competitionPreferences": { "type": "array", "items": { "type": "object" } },
+    "entityFollows": { "type": "array", "items": { "type": "object" } },
+    "viewingPreference": { "type": ["object", "null"] },
+    "ratings": { "type": "object" },
+    "eventUserState": { "type": "object" },
+    "eventSpoilerState": { "type": "object" },
+    "surfacePresentation": { "type": "object" },
+    "archivedEvents": { "type": "array", "items": { "type": "object" } }
+  }
+}

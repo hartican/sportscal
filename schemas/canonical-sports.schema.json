@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/canonical-sports.schema.json",
+  "title": "nothingSports canonical sports bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "taxonomyVersion",
+    "season",
+    "generatedAt",
+    "sources",
+    "sportDomains",
+    "competitionFamilies",
+    "competitions",
+    "participants",
+    "events",
+    "ladderSnapshots"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "canonical-sports.v1" },
+    "taxonomyVersion": { "const": "sports-taxonomy.v1" },
+    "season": { "type": "integer", "minimum": 2026 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "sportDomains": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sportDomain" }
+    },
+    "competitionFamilies": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/competitionFamily" }
+    },
+    "competitions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/competition" }
+    },
+    "participants": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/participant" }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/canonicalEvent" }
+    },
+    "ladderSnapshots": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/ladderSnapshot" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9:._-]*$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "sourceUrl", "sourceType", "checkedAt"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 2 },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "sourceType": { "enum": ["official", "official-provider"] },
+        "checkedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "sportDomain": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "kind",
+        "sortOrder",
+        "isActive",
+        "supportsLadders",
+        "supportsAllFixtures",
+        "supportsNarrative",
+        "supportsTeams",
+        "supportsAthletes"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string", "minLength": 2 },
+        "kind": { "enum": ["sport", "specialEventDomain"] },
+        "sortOrder": { "type": "integer" },
+        "isActive": { "type": "boolean" },
+        "supportsLadders": { "type": "boolean" },
+        "supportsAllFixtures": { "type": "boolean" },
+        "supportsNarrative": { "type": "boolean" },
+        "supportsTeams": { "type": "boolean" },
+        "supportsAthletes": { "type": "boolean" },
+        "defaultTemplateId": { "$ref": "#/$defs/id" },
+        "metadata": { "type": "object" }
+      }
+    },
+    "competitionFamily": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "sportDomainId", "slug", "name", "familyType", "sortOrder", "isActive"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "sportDomainId": { "$ref": "#/$defs/id" },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string", "minLength": 2 },
+        "familyType": { "enum": ["league", "cup", "tour", "testSeries", "major", "specialEvent"] },
+        "sortOrder": { "type": "integer" },
+        "isActive": { "type": "boolean" }
+      }
+    },
+    "competition": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "sportDomainId",
+        "competitionFamilyId",
+        "slug",
+        "name",
+        "competitionType",
+        "supportsLadder",
+        "supportsTeams",
+        "supportsAthletes",
+        "isSpecialEvent"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "sportDomainId": { "$ref": "#/$defs/id" },
+        "competitionFamilyId": { "$ref": "#/$defs/id" },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string", "minLength": 2 },
+        "competitionType": { "enum": ["seasonLeague", "finalsSeries", "tournament", "knockout", "roundRobin", "testSeries", "specialEvent"] },
+        "seasonLabel": { "type": "string" },
+        "region": { "type": "string" },
+        "gender": { "enum": ["mens", "womens", "mixed", "open"] },
+        "supportsLadder": { "type": "boolean" },
+        "supportsTeams": { "type": "boolean" },
+        "supportsAthletes": { "type": "boolean" },
+        "isSpecialEvent": { "type": "boolean" },
+        "parentCompetitionId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "participant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "sportDomainId", "displayName", "canonicalName"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "enum": ["team", "athlete", "pair", "nationalSide", "unknown"] },
+        "sportDomainId": { "$ref": "#/$defs/id" },
+        "displayName": { "type": "string", "minLength": 2 },
+        "shortName": { "type": "string", "minLength": 2 },
+        "canonicalName": { "type": "string", "minLength": 2 },
+        "teamCode": { "type": "string", "minLength": 2 },
+        "countryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "metadata": { "type": "object" }
+      }
+    },
+    "broadcaster": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["broadcasterId", "broadcasterName", "platformType", "regionCode", "live", "replay", "highlights"],
+      "properties": {
+        "broadcasterId": { "$ref": "#/$defs/id" },
+        "broadcasterName": { "type": "string", "minLength": 2 },
+        "platformType": { "enum": ["fta", "subscription", "streaming", "radio", "other"] },
+        "regionCode": { "type": "string", "minLength": 2 },
+        "live": { "type": "boolean" },
+        "replay": { "type": "boolean" },
+        "highlights": { "type": "boolean" },
+        "deeplinkUrl": { "type": "string", "format": "uri" }
+      }
+    },
+    "eventResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "spoilerLevel"],
+      "properties": {
+        "status": { "enum": ["completed", "abandoned", "cancelled"] },
+        "completedAtUtc": { "type": "string", "format": "date-time" },
+        "winnerParticipantId": { "$ref": "#/$defs/id" },
+        "scorelineText": { "type": "string", "minLength": 2 },
+        "spoilerLevel": { "enum": ["safe", "sensitive"] },
+        "expiresForSpoilerHidingAtUtc": { "type": "string", "format": "date-time" }
+      }
+    },
+    "canonicalEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceId",
+        "sportDomainId",
+        "competitionId",
+        "seasonLabel",
+        "roundLabel",
+        "eventType",
+        "startTimeUtc",
+        "scheduleStatus",
+        "localTimezone",
+        "homeParticipantId",
+        "awayParticipantId",
+        "participantIds",
+        "displayName",
+        "status",
+        "broadcasters",
+        "hasLadderImplications",
+        "hasFinalsImplications",
+        "createdAt",
+        "updatedAt",
+        "source"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "sourceId": { "type": "string", "minLength": 1 },
+        "sportDomainId": { "$ref": "#/$defs/id" },
+        "competitionId": { "$ref": "#/$defs/id" },
+        "seasonLabel": { "type": "string" },
+        "roundLabel": { "type": "string", "minLength": 2 },
+        "roundNumber": { "type": "integer", "minimum": 0 },
+        "stageLabel": { "type": "string" },
+        "eventType": { "enum": ["fixture", "match", "race", "session", "special"] },
+        "startTimeUtc": {
+          "oneOf": [
+            { "type": "string", "format": "date-time" },
+            { "type": "null" }
+          ]
+        },
+        "endTimeUtc": {
+          "oneOf": [
+            { "type": "string", "format": "date-time" },
+            { "type": "null" }
+          ]
+        },
+        "scheduleStatus": { "enum": ["confirmed", "dateWindow", "tbc"] },
+        "dateWindow": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["startDate", "endDate"],
+          "properties": {
+            "startDate": { "type": "string", "format": "date" },
+            "endDate": { "type": "string", "format": "date" }
+          }
+        },
+        "localTimezone": { "type": "string", "minLength": 3 },
+        "venueName": { "type": "string" },
+        "venueCity": { "type": "string" },
+        "venueCountryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "homeParticipantId": { "$ref": "#/$defs/id" },
+        "awayParticipantId": { "$ref": "#/$defs/id" },
+        "participantIds": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "displayName": { "type": "string", "pattern": "^.+ v .+$" },
+        "status": { "enum": ["scheduled", "live", "completed", "postponed", "cancelled"] },
+        "broadcasters": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/broadcaster" }
+        },
+        "hasLadderImplications": { "type": "boolean" },
+        "hasFinalsImplications": { "type": "boolean" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "result": { "$ref": "#/$defs/eventResult" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    },
+    "ladderEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["participantId", "rank", "played", "won", "lost", "ladderPoints"],
+      "properties": {
+        "participantId": { "$ref": "#/$defs/id" },
+        "rank": { "type": "integer", "minimum": 1 },
+        "played": { "type": "integer", "minimum": 0 },
+        "won": { "type": "integer", "minimum": 0 },
+        "lost": { "type": "integer", "minimum": 0 },
+        "drawn": { "type": "integer", "minimum": 0 },
+        "byes": { "type": "integer", "minimum": 0 },
+        "pointsFor": { "type": "number", "minimum": 0 },
+        "pointsAgainst": { "type": "number", "minimum": 0 },
+        "pointsDifference": { "type": "number" },
+        "percentage": { "type": "number", "minimum": 0 },
+        "ladderPoints": { "type": "number", "minimum": 0 },
+        "streak": { "type": "string" },
+        "movement": { "enum": ["up", "down", "same"] }
+      }
+    },
+    "ladderSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "competitionId", "seasonLabel", "roundLabel", "snapshotTimeUtc", "entries", "source"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "competitionId": { "$ref": "#/$defs/id" },
+        "seasonLabel": { "type": "string" },
+        "roundLabel": { "type": "string" },
+        "snapshotTimeUtc": { "type": "string", "format": "date-time" },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/ladderEntry" }
+        },
+        "source": { "$ref": "#/$defs/source" },
+        "metadata": { "type": "object" }
+      }
+    }
+  }
+}
