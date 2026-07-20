@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/enriched-event.schema.json",
+  "title": "nothingSports enriched event",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "canonicalEventId",
+    "userInterestScore",
+    "followBoost",
+    "broadcasterFitScore",
+    "timeWindowFitScore",
+    "mustWatchScore",
+    "intensity",
+    "cardVariant"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "enriched-event.v1" },
+    "canonicalEventId": { "type": "string", "minLength": 1 },
+    "userInterestScore": { "type": "number", "minimum": 0, "maximum": 5 },
+    "followBoost": { "type": "number", "minimum": 0, "maximum": 5 },
+    "broadcasterFitScore": { "type": "number", "minimum": 0, "maximum": 5 },
+    "timeWindowFitScore": { "type": "number", "minimum": 0, "maximum": 5 },
+    "mustWatchScore": { "type": "number", "minimum": 0, "maximum": 100 },
+    "intensity": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "cardVariant": { "enum": ["plain", "compact", "standard", "marquee"] },
+    "storyline": {
+      "type": "object",
+      "properties": {
+        "archetype": { "enum": ["monster", "ragsToRiches", "quest", "voyageReturn", "rivalry", "rebirth", "comedy"] },
+        "visibleLabel": { "enum": ["Must Watch", "Rivalry", "Record Chase", "Title Decider", "Upset Watch"] },
+        "stakes": { "enum": ["low", "medium", "high", "critical"] },
+        "arcStage": { "enum": ["inciting", "rising", "climax", "resolution"] },
+        "narrativeHook": { "type": "string" },
+        "intensity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "intensitySource": { "enum": ["computed", "manual"] },
+        "scoreReasons": { "type": "array", "items": { "type": "string" } },
+        "characterRoles": {
+          "type": "array",
+          "items": { "enum": ["underdog", "favourite", "rival", "veteran", "rookie", "champion"] }
+        },
+        "lastReviewedAt": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

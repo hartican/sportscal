@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-07-20T08:06:45.345Z",
+  "generatedAt": "2026-07-20T14:59:14.114Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -183,7 +183,7 @@
     },
     {
       "id": "fifa-group-australia-turkiye-2026",
-      "name": "Australia vs Türkiye - Group D",
+      "name": "Australia v Türkiye - Group D",
       "sport": "Football",
       "date": "2026-06-14",
       "status": "completed",
@@ -231,7 +231,7 @@
     },
     {
       "id": "fifa-group-usa-australia-2026",
-      "name": "USA vs Australia - Group D",
+      "name": "USA v Australia - Group D",
       "sport": "Football",
       "date": "2026-06-20",
       "status": "completed",
@@ -279,7 +279,7 @@
     },
     {
       "id": "fifa-group-paraguay-australia-2026",
-      "name": "Paraguay vs Australia - Group D",
+      "name": "Paraguay v Australia - Group D",
       "sport": "Football",
       "date": "2026-06-26",
       "status": "completed",
@@ -295,7 +295,7 @@
     },
     {
       "id": "evt_0",
-      "name": "Kasatkina vs Osaka - Women's R3",
+      "name": "Kasatkina v Osaka - Women's R3",
       "sport": "Tennis",
       "date": "2026-07-03",
       "status": "completed",
@@ -311,7 +311,7 @@
     },
     {
       "id": "fifa-r32-australia-egypt-2026",
-      "name": "Australia vs Egypt - Round of 32",
+      "name": "Australia v Egypt - Round of 32",
       "sport": "Football",
       "date": "2026-07-04",
       "status": "completed",
@@ -327,7 +327,7 @@
     },
     {
       "id": "evt_1",
-      "name": "De Minaur vs Svajda - Men's R3 🇦🇺",
+      "name": "De Minaur v Svajda - Men's R3 🇦🇺",
       "sport": "Tennis",
       "date": "2026-07-04",
       "status": "completed",
@@ -343,7 +343,7 @@
     },
     {
       "id": "evt_8",
-      "name": "Wallabies vs Ireland",
+      "name": "Australia v Ireland",
       "sport": "Rugby",
       "date": "2026-07-04",
       "status": "completed",
@@ -359,7 +359,7 @@
     },
     {
       "id": "fifa-r16-canada-morocco-2026",
-      "name": "Canada vs Morocco - Round of 16",
+      "name": "Canada v Morocco - Round of 16",
       "sport": "Football",
       "date": "2026-07-05",
       "status": "completed",
@@ -375,7 +375,7 @@
     },
     {
       "id": "fifa-r16-paraguay-france-2026",
-      "name": "Paraguay vs France - Round of 16",
+      "name": "Paraguay v France - Round of 16",
       "sport": "Football",
       "date": "2026-07-05",
       "status": "completed",
@@ -391,7 +391,7 @@
     },
     {
       "id": "wimbledon-r4-auger-aliassime-davidovich-fokina-2026",
-      "name": "Auger-Aliassime vs Davidovich Fokina - Men's R4",
+      "name": "Auger-Aliassime v Davidovich Fokina - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -407,7 +407,7 @@
     },
     {
       "id": "wimbledon-r4-djokovic-safiullin-2026",
-      "name": "Djokovic vs Safiullin - Men's R4",
+      "name": "Djokovic v Safiullin - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -423,7 +423,7 @@
     },
     {
       "id": "wimbledon-r4-gauff-bencic-2026",
-      "name": "Gauff vs Bencic - Women's R4",
+      "name": "Gauff v Bencic - Women's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -439,7 +439,7 @@
     },
     {
       "id": "wimbledon-r4-muchova-krejcikova-2026",
-      "name": "Muchova vs Krejcikova - Women's R4",
+      "name": "Muchova v Krejcikova - Women's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -455,7 +455,7 @@
     },
     {
       "id": "wimbledon-r4-osaka-sabalenka-2026",
-      "name": "Osaka vs Sabalenka - Women's R4",
+      "name": "Osaka v Sabalenka - Women's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -471,7 +471,7 @@
     },
     {
       "id": "wimbledon-r4-pegula-jovic-2026",
-      "name": "Pegula vs Jovic - Women's R4",
+      "name": "Pegula v Jovic - Women's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -487,7 +487,7 @@
     },
     {
       "id": "wimbledon-r4-sinner-mochizuki-2026",
-      "name": "Sinner vs Mochizuki - Men's R4",
+      "name": "Sinner v Mochizuki - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -503,7 +503,7 @@
     },
     {
       "id": "wimbledon-r4-struff-hurkacz-2026",
-      "name": "Struff vs Hurkacz - Men's R4",
+      "name": "Struff v Hurkacz - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-05",
       "status": "completed",
@@ -535,7 +535,7 @@
     },
     {
       "id": "fifa-r16-brazil-norway-2026",
-      "name": "Brazil vs Norway - Round of 16",
+      "name": "Brazil v Norway - Round of 16",
       "sport": "Football",
       "date": "2026-07-06",
       "status": "completed",
@@ -551,7 +551,7 @@
     },
     {
       "id": "fifa-r16-mexico-england-2026",
-      "name": "Mexico vs England - Round of 16",
+      "name": "Mexico v England - Round of 16",
       "sport": "Football",
       "date": "2026-07-06",
       "status": "completed",
@@ -567,7 +567,7 @@
     },
     {
       "id": "wimbledon-r4-cobolli-de-minaur-2026",
-      "name": "Cobolli vs De Minaur - Men's R4 🇦🇺",
+      "name": "Cobolli v De Minaur - Men's R4 🇦🇺",
       "sport": "Tennis",
       "date": "2026-07-06",
       "status": "completed",
@@ -583,7 +583,7 @@
     },
     {
       "id": "wimbledon-r4-fery-dimitrov-2026",
-      "name": "Fery vs Dimitrov - Men's R4",
+      "name": "Fery v Dimitrov - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-06",
       "status": "completed",
@@ -599,7 +599,7 @@
     },
     {
       "id": "wimbledon-r4-fritz-bublik-2026",
-      "name": "Fritz vs Bublik - Men's R4",
+      "name": "Fritz v Bublik - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-06",
       "status": "completed",
@@ -615,7 +615,7 @@
     },
     {
       "id": "wimbledon-r4-noskova-keys-2026",
-      "name": "Noskova vs Keys - Women's R4",
+      "name": "Noskova v Keys - Women's R4",
       "sport": "Tennis",
       "date": "2026-07-06",
       "status": "completed",
@@ -631,7 +631,7 @@
     },
     {
       "id": "wimbledon-r4-paolini-eala-2026",
-      "name": "Paolini vs Eala - Women's R4",
+      "name": "Paolini v Eala - Women's R4",
       "sport": "Tennis",
       "date": "2026-07-06",
       "status": "completed",
@@ -647,7 +647,7 @@
     },
     {
       "id": "wimbledon-r4-zverev-lehecka-2026",
-      "name": "Zverev vs Lehecka - Men's R4",
+      "name": "Zverev v Lehecka - Men's R4",
       "sport": "Tennis",
       "date": "2026-07-06",
       "status": "completed",
@@ -663,7 +663,7 @@
     },
     {
       "id": "fifa-r16-portugal-spain-2026",
-      "name": "Portugal vs Spain - Round of 16",
+      "name": "Portugal v Spain - Round of 16",
       "sport": "Football",
       "date": "2026-07-07",
       "status": "completed",
@@ -679,7 +679,7 @@
     },
     {
       "id": "fifa-r16-usa-belgium-2026",
-      "name": "USA vs Belgium - Round of 16",
+      "name": "USA v Belgium - Round of 16",
       "sport": "Football",
       "date": "2026-07-07",
       "status": "completed",
@@ -695,7 +695,7 @@
     },
     {
       "id": "wimbledon-qf-djokovic-auger-aliassime-2026",
-      "name": "Djokovic vs Auger-Aliassime - Men's Quarterfinal",
+      "name": "Djokovic v Auger-Aliassime - Men's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-07",
       "status": "completed",
@@ -711,7 +711,7 @@
     },
     {
       "id": "wimbledon-qf-gauff-pegula-2026",
-      "name": "Gauff vs Pegula - Women's Quarterfinal",
+      "name": "Gauff v Pegula - Women's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-07",
       "status": "completed",
@@ -727,7 +727,7 @@
     },
     {
       "id": "wimbledon-qf-muchova-osaka-2026",
-      "name": "Muchova vs Osaka - Women's Quarterfinal",
+      "name": "Muchova v Osaka - Women's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-07",
       "status": "completed",
@@ -743,7 +743,7 @@
     },
     {
       "id": "wimbledon-qf-sinner-struff-2026",
-      "name": "Sinner vs Struff - Men's Quarterfinal",
+      "name": "Sinner v Struff - Men's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-07",
       "status": "completed",
@@ -759,7 +759,7 @@
     },
     {
       "id": "fifa-r16-argentina-egypt-2026",
-      "name": "Argentina vs Egypt - Round of 16",
+      "name": "Argentina v Egypt - Round of 16",
       "sport": "Football",
       "date": "2026-07-08",
       "status": "completed",
@@ -775,7 +775,7 @@
     },
     {
       "id": "fifa-r16-switzerland-colombia-2026",
-      "name": "Switzerland vs Colombia - Round of 16",
+      "name": "Switzerland v Colombia - Round of 16",
       "sport": "Football",
       "date": "2026-07-08",
       "status": "completed",
@@ -791,7 +791,7 @@
     },
     {
       "id": "wimbledon-qf-fery-cobolli-2026",
-      "name": "Fery vs Cobolli - Men's Quarterfinal",
+      "name": "Fery v Cobolli - Men's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-08",
       "status": "completed",
@@ -807,7 +807,7 @@
     },
     {
       "id": "wimbledon-qf-kostyuk-paolini-2026",
-      "name": "Kostyuk vs Paolini - Women's Quarterfinal",
+      "name": "Kostyuk v Paolini - Women's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-08",
       "status": "completed",
@@ -823,7 +823,7 @@
     },
     {
       "id": "wimbledon-qf-noskova-mertens-2026",
-      "name": "Noskova vs Mertens - Women's Quarterfinal",
+      "name": "Noskova v Mertens - Women's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-08",
       "status": "completed",
@@ -839,7 +839,7 @@
     },
     {
       "id": "wimbledon-qf-zverev-fritz-2026",
-      "name": "Zverev vs Fritz - Men's Quarterfinal",
+      "name": "Zverev v Fritz - Men's Quarterfinal",
       "sport": "Tennis",
       "date": "2026-07-08",
       "status": "completed",
@@ -871,7 +871,7 @@
     },
     {
       "id": "wimbledon-sf-muchova-gauff-2026",
-      "name": "Muchova vs Gauff - Women's Semifinal",
+      "name": "Muchova v Gauff - Women's Semifinal",
       "sport": "Tennis",
       "date": "2026-07-09",
       "status": "completed",
@@ -887,7 +887,7 @@
     },
     {
       "id": "wimbledon-sf-noskova-kostyuk-2026",
-      "name": "Noskova vs Kostyuk - Women's Semifinal",
+      "name": "Noskova v Kostyuk - Women's Semifinal",
       "sport": "Tennis",
       "date": "2026-07-09",
       "status": "completed",
@@ -903,7 +903,7 @@
     },
     {
       "id": "fifa-qf-france-morocco-2026",
-      "name": "France vs Morocco - Quarterfinal",
+      "name": "France v Morocco - Quarterfinal",
       "sport": "Football",
       "date": "2026-07-10",
       "status": "completed",
@@ -919,7 +919,7 @@
     },
     {
       "id": "wimbledon-sf-sinner-djokovic-2026",
-      "name": "Sinner vs Djokovic - Men's Semifinal",
+      "name": "Sinner v Djokovic - Men's Semifinal",
       "sport": "Tennis",
       "date": "2026-07-10",
       "status": "completed",
@@ -935,7 +935,7 @@
     },
     {
       "id": "wimbledon-sf-zverev-fery-2026",
-      "name": "Zverev vs Fery - Men's Semifinal",
+      "name": "Zverev v Fery - Men's Semifinal",
       "sport": "Tennis",
       "date": "2026-07-10",
       "status": "completed",
@@ -951,7 +951,7 @@
     },
     {
       "id": "fifa-qf-spain-belgium-2026",
-      "name": "Spain vs Belgium - Quarterfinal",
+      "name": "Spain v Belgium - Quarterfinal",
       "sport": "Football",
       "date": "2026-07-11",
       "status": "completed",
@@ -967,11 +967,11 @@
     },
     {
       "id": "evt_9",
-      "name": "Wallabies vs France",
+      "name": "Australia v France",
       "sport": "Rugby",
       "date": "2026-07-11",
       "status": "completed",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -983,7 +983,7 @@
     },
     {
       "id": "wimbledon-final-noskova-muchova-2026",
-      "name": "Noskova vs Muchova - Women's Final",
+      "name": "Noskova v Muchova - Women's Final",
       "sport": "Tennis",
       "date": "2026-07-12",
       "status": "completed",
@@ -999,7 +999,7 @@
     },
     {
       "id": "fifa-qf-norway-england-2026",
-      "name": "Norway vs England - Quarterfinal",
+      "name": "Norway v England - Quarterfinal",
       "sport": "Football",
       "date": "2026-07-12",
       "status": "completed",
@@ -1015,7 +1015,7 @@
     },
     {
       "id": "fifa-qf-argentina-switzerland-2026",
-      "name": "Argentina vs Switzerland - Quarterfinal",
+      "name": "Argentina v Switzerland - Quarterfinal",
       "sport": "Football",
       "date": "2026-07-12",
       "status": "completed",
@@ -1031,7 +1031,7 @@
     },
     {
       "id": "wimbledon-final-sinner-zverev-2026",
-      "name": "Sinner vs Zverev - Men's Final",
+      "name": "Sinner v Zverev - Men's Final",
       "sport": "Tennis",
       "date": "2026-07-13",
       "status": "completed",
@@ -1063,7 +1063,7 @@
     },
     {
       "id": "fifa-sf-1-2026",
-      "name": "France vs Spain - Semifinal",
+      "name": "France v Spain - Semifinal",
       "sport": "Football",
       "date": "2026-07-15",
       "status": "completed",
@@ -1079,7 +1079,7 @@
     },
     {
       "id": "fifa-sf-2-2026",
-      "name": "England vs Argentina - Semifinal",
+      "name": "England v Argentina - Semifinal",
       "sport": "Football",
       "date": "2026-07-16",
       "status": "completed",
@@ -1127,7 +1127,7 @@
     },
     {
       "id": "rugby-australia-italy-2026-07-18",
-      "name": "Wallabies v Italy",
+      "name": "Australia v Italy",
       "sport": "Rugby Union",
       "date": "2026-07-18",
       "status": "completed",
@@ -1847,11 +1847,11 @@
     },
     {
       "id": "rugby-japan-australia-2026-08-08",
-      "name": "Japan v Wallabies",
+      "name": "Japan v Australia",
       "sport": "Rugby Union",
       "date": "2026-08-08",
       "status": "upcoming",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -1879,11 +1879,11 @@
     },
     {
       "id": "rugby-australia-japan-2026-08-15",
-      "name": "Wallabies v Japan",
+      "name": "Australia v Japan",
       "sport": "Rugby Union",
       "date": "2026-08-15",
       "status": "upcoming",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -1927,11 +1927,11 @@
     },
     {
       "id": "rugby-argentina-australia-jujuy-2026-08-30",
-      "name": "Argentina v Wallabies",
+      "name": "Argentina v Australia",
       "sport": "Rugby Union",
       "date": "2026-08-30",
       "status": "upcoming",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -1943,11 +1943,11 @@
     },
     {
       "id": "rugby-argentina-australia-mendoza-2026-09-06",
-      "name": "Argentina v Wallabies",
+      "name": "Argentina v Australia",
       "sport": "Rugby Union",
       "date": "2026-09-06",
       "status": "upcoming",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -2039,7 +2039,7 @@
     },
     {
       "id": "rugby-australia-south-africa-2026-09-27",
-      "name": "Wallabies v South Africa",
+      "name": "Australia v South Africa",
       "sport": "Rugby Union",
       "date": "2026-09-27",
       "status": "upcoming",
@@ -2071,7 +2071,7 @@
     },
     {
       "id": "rugby-new-zealand-australia-2026-10-10",
-      "name": "New Zealand v Wallabies",
+      "name": "New Zealand v Australia",
       "sport": "Rugby Union",
       "date": "2026-10-10",
       "status": "upcoming",
@@ -2119,7 +2119,7 @@
     },
     {
       "id": "rugby-australia-new-zealand-2026-10-17",
-      "name": "Wallabies v New Zealand",
+      "name": "Australia v New Zealand",
       "sport": "Rugby Union",
       "date": "2026-10-17",
       "status": "upcoming",
@@ -2135,7 +2135,7 @@
     },
     {
       "id": "evt_88",
-      "name": "2nd Test vs South Africa (Day 1)",
+      "name": "2nd Test v South Africa (Day 1)",
       "sport": "Cricket",
       "date": "2026-10-18",
       "status": "upcoming",
@@ -2183,7 +2183,7 @@
     },
     {
       "id": "evt_89",
-      "name": "3rd Test vs South Africa (Day 1)",
+      "name": "3rd Test v South Africa (Day 1)",
       "sport": "Cricket",
       "date": "2026-10-27",
       "status": "upcoming",
@@ -2247,7 +2247,7 @@
     },
     {
       "id": "rugby-england-australia-2026-11-09",
-      "name": "England v Wallabies",
+      "name": "England v Australia",
       "sport": "Rugby Union",
       "date": "2026-11-09",
       "status": "upcoming",
@@ -2279,11 +2279,11 @@
     },
     {
       "id": "rugby-scotland-australia-2026-11-16",
-      "name": "Scotland v Wallabies",
+      "name": "Scotland v Australia",
       "sport": "Rugby Union",
       "date": "2026-11-16",
       "status": "upcoming",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -2295,11 +2295,11 @@
     },
     {
       "id": "rugby-wales-australia-2026-11-22",
-      "name": "Wales v Wallabies",
+      "name": "Wales v Australia",
       "sport": "Rugby Union",
       "date": "2026-11-22",
       "status": "upcoming",
-      "stakes": 4,
+      "stakes": 3,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,
@@ -2327,7 +2327,7 @@
     },
     {
       "id": "evt_100",
-      "name": "Wallabies vs Ireland (Nov tour)",
+      "name": "Australia v Ireland (Nov tour)",
       "sport": "Rugby",
       "date": "2026-11-28",
       "status": "upcoming",
@@ -2407,7 +2407,7 @@
     },
     {
       "id": "evt_90",
-      "name": "Boxing Day Test vs New Zealand",
+      "name": "Boxing Day Test v New Zealand",
       "sport": "Cricket",
       "date": "2026-12-26",
       "status": "upcoming",
@@ -2423,7 +2423,7 @@
     },
     {
       "id": "evt_91",
-      "name": "New Year's Test vs New Zealand",
+      "name": "New Year's Test v New Zealand",
       "sport": "Cricket",
       "date": "2027-01-02",
       "status": "upcoming",

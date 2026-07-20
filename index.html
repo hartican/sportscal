@@ -562,6 +562,46 @@ main{
     var(--bg-card);
 }
 
+.event-card.variant-plain{
+  background: color-mix(in srgb, var(--bg-card) 78%, transparent);
+  border-left-width: 2px;
+  border-radius: 9px;
+  padding-block: 11px;
+}
+
+.event-card.variant-plain .event-icon{
+  opacity: 0.48;
+  background: transparent;
+}
+
+.event-card.variant-plain .rating-row,
+.event-card.variant-plain .badges{
+  opacity: 0.72;
+}
+
+.event-card.variant-compact{
+  border-left-width: 3px;
+  background: color-mix(in srgb, var(--sport-color) 3%, var(--bg-card));
+}
+
+.event-card.variant-standard{
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--importance-color, var(--sport-color)) 12%, var(--bg-card)), var(--bg-card) 72%),
+    var(--bg-card);
+}
+
+.event-card.variant-marquee{
+  border-left-width: 5px;
+  background:
+    linear-gradient(105deg, color-mix(in srgb, var(--importance-color, var(--sport-color)) 24%, var(--bg-card)), var(--bg-card) 68%),
+    var(--bg-card);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--importance-color, var(--sport-color)) 13%, transparent);
+}
+
+.event-card.variant-marquee .event-name{
+  font-size: 1.06rem;
+}
+
 .event-card.is-selected,
 .event-card.is-opened{
   border-color: color-mix(in srgb, var(--importance-color, var(--sport-color)) 58%, var(--border));
@@ -606,8 +646,8 @@ main{
 }
 
 .event-name{
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.98rem;
+  font-weight: 800;
   color: var(--text);
   line-height:1.3;
 }
@@ -684,6 +724,29 @@ main{
 
 .event-opened-copy{
   color: color-mix(in srgb, var(--text-dim) 82%, var(--text));
+}
+
+.rank-explanation{
+  margin-top: 12px;
+  padding: 10px 11px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--soft-fill);
+}
+
+.rank-explanation strong{
+  display:block;
+  color: var(--text);
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+
+.rank-explanation ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  line-height: 1.45;
 }
 
 .spoiler-panel{
@@ -902,7 +965,7 @@ main{
   gap: 14px;
   margin-top: 8px;
   font-size: 0.78rem;
-  color: var(--text-dim);
+  color: var(--text-faint);
 }
 
 .event-meta-row .meta-item{
@@ -2304,12 +2367,13 @@ footer.app-footer{
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/profile-storage.js"></script>
 <script src="config/preference-system.js"></script>
+<script src="config/enrichment-engine.js"></script>
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
 <script src="data/cwg-events.js"></script>
 <script>
 /* ============ DATA ============ */
-const EVENTS = [{"sport": "Tennis", "key": "wimbledon", "name": "Kasatkina vs Osaka — Women's R3", "date": "2026-07-03", "time": "22:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_0"}, {"sport": "Tennis", "key": "wimbledon", "name": "De Minaur vs Svajda — Men's R3 🇦🇺", "date": "2026-07-04", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_1"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Quarterfinals", "date": "2026-07-07", "time": "22:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_2"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Quarterfinals", "date": "2026-07-08", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_3"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Semifinals", "date": "2026-07-09", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_4"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Semifinals", "date": "2026-07-10", "time": "22:00", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_5"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Final", "date": "2026-07-11", "time": "23:00", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_6"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Final", "date": "2026-07-12", "time": "23:00", "broadcaster": "Stan Sport", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_7"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Ireland", "date": "2026-07-04", "time": "20:10", "broadcaster": "Stan Sport", "expected": 8, "venue": "Allianz Stadium, Sydney", "liveWindow": 3, "id": "evt_8"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs France", "date": "2026-07-11", "time": "17:40", "broadcaster": "Stan Sport", "expected": 7, "venue": "Brisbane Stadium", "liveWindow": 3, "id": "evt_9"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Italy", "date": "2026-07-18", "time": "20:10", "broadcaster": "Stan Sport", "expected": 6, "venue": "HBF Park, Perth", "liveWindow": 3, "id": "evt_10"}, {"sport": "Football", "key": "fifa", "name": "Socceroos vs Egypt — Round of 32 🇦🇺", "date": "2026-07-04", "time": "04:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_11"}, {"sport": "Football", "key": "fifa", "name": "Socceroos Round of 16 (if advanced) 🇦🇺", "date": "2026-07-09", "time": "02:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_12"}, {"sport": "Football", "key": "fifa", "name": "Quarterfinals", "date": "2026-07-09", "time": "06:00", "broadcaster": "SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_13"}, {"sport": "Football", "key": "fifa", "name": "Semifinal 1", "date": "2026-07-15", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_14"}, {"sport": "Football", "key": "fifa", "name": "Semifinal 2", "date": "2026-07-16", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_15"}, {"sport": "Football", "key": "fifa", "name": "Third-Place Playoff", "date": "2026-07-19", "time": "07:00", "broadcaster": "SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_16"}, {"sport": "Football", "key": "fifa", "name": "FIFA World Cup Final", "date": "2026-07-20", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_17"}, {"sport": "F1", "key": "f1", "name": "R9 British GP Qualifying", "date": "2026-07-05", "time": "02:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_18"}, {"sport": "F1", "key": "f1", "name": "R9 British GP Race", "date": "2026-07-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_19"}, {"sport": "F1", "key": "f1", "name": "R10 Belgian GP Qualifying", "date": "2026-07-19", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_20"}, {"sport": "F1", "key": "f1", "name": "R10 Belgian GP Race", "date": "2026-07-20", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_21"}, {"sport": "F1", "key": "f1", "name": "R11 Hungarian GP Qualifying", "date": "2026-07-26", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_22"}, {"sport": "F1", "key": "f1", "name": "R11 Hungarian GP Race", "date": "2026-07-27", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_23"}, {"sport": "F1", "key": "f1", "name": "R12 Dutch GP Qualifying", "date": "2026-08-23", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_24"}, {"sport": "F1", "key": "f1", "name": "R12 Dutch GP Race", "date": "2026-08-24", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_25"}, {"sport": "F1", "key": "f1", "name": "R13 Italian GP Qualifying", "date": "2026-09-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_26"}, {"sport": "F1", "key": "f1", "name": "R13 Italian GP Race", "date": "2026-09-07", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_27"}, {"sport": "F1", "key": "f1", "name": "R14 Spanish GP Qualifying", "date": "2026-09-13", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_28"}, {"sport": "F1", "key": "f1", "name": "R14 Spanish GP Race", "date": "2026-09-14", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_29"}, {"sport": "F1", "key": "f1", "name": "R15 Azerbaijan GP Qualifying", "date": "2026-09-25", "time": "23:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_30"}, {"sport": "F1", "key": "f1", "name": "R15 Azerbaijan GP Race", "date": "2026-09-26", "time": "22:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_31"}, {"sport": "F1", "key": "f1", "name": "R16 Singapore GP Qualifying", "date": "2026-10-11", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_32"}, {"sport": "F1", "key": "f1", "name": "R16 Singapore GP Race", "date": "2026-10-12", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_33"}, {"sport": "F1", "key": "f1", "name": "R17 US GP (COTA) Qualifying", "date": "2026-10-25", "time": "09:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_34"}, {"sport": "F1", "key": "f1", "name": "R17 US GP (COTA) Race", "date": "2026-10-26", "time": "07:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_35"}, {"sport": "F1", "key": "f1", "name": "R18 Mexico City GP Qualifying", "date": "2026-11-01", "time": "08:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_36"}, {"sport": "F1", "key": "f1", "name": "R18 Mexico City GP Race", "date": "2026-11-02", "time": "07:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_37"}, {"sport": "F1", "key": "f1", "name": "R19 Brazilian GP Qualifying", "date": "2026-11-08", "time": "05:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_38"}, {"sport": "F1", "key": "f1", "name": "R19 Brazilian GP Race", "date": "2026-11-09", "time": "04:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_39"}, {"sport": "F1", "key": "f1", "name": "R20 Las Vegas GP Qualifying", "date": "2026-11-21", "time": "15:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_40"}, {"sport": "F1", "key": "f1", "name": "R20 Las Vegas GP Race", "date": "2026-11-22", "time": "15:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_41"}, {"sport": "F1", "key": "f1", "name": "R21 Qatar GP Qualifying", "date": "2026-11-29", "time": "05:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_42"}, {"sport": "F1", "key": "f1", "name": "R21 Qatar GP Race", "date": "2026-11-30", "time": "03:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_43"}, {"sport": "F1", "key": "f1", "name": "R22 Abu Dhabi GP Qualifying", "date": "2026-12-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_44"}, {"sport": "F1", "key": "f1", "name": "R22 Abu Dhabi GP Race", "date": "2026-12-07", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_45"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 1 — Barcelona → Barcelona (Team Time Trial)", "date": "2026-07-05", "time": "00:55", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_46"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 2 — Tarragona → Barcelona (Hilly)", "date": "2026-07-05", "time": "21:05", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_47"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 3 — Granollers → Les Angles (Mountain)", "date": "2026-07-06", "time": "20:00", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_48"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 4 — Carcassonne → Foix (Hilly)", "date": "2026-07-07", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_49"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 5 — Lannemezan → Pau (Flat)", "date": "2026-07-08", "time": "21:55", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_50"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain)", "date": "2026-07-09", "time": "20:15", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_51"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 7 — Hagetmau → Bordeaux (Flat)", "date": "2026-07-10", "time": "21:05", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_52"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 8 — Périgueux → Bergerac (Flat)", "date": "2026-07-11", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_53"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 9 — Malemort → Ussel (Hilly)", "date": "2026-07-12", "time": "21:20", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_54"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 10 — Aurillac → Le Lioran (Mountain)", "date": "2026-07-14", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_55"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 11 — Vichy → Nevers (Flat)", "date": "2026-07-15", "time": "21:40", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_56"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat)", "date": "2026-07-16", "time": "21:20", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_57"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 13 — Dole → Belfort (Hilly)", "date": "2026-07-17", "time": "20:50", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_58"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 14 — Mulhouse → Le Markstein (Mountain)", "date": "2026-07-18", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_59"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)", "date": "2026-07-19", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_60"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT)", "date": "2026-07-21", "time": "20:50", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_61"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 17 — Chambéry → Voiron (Flat)", "date": "2026-07-22", "time": "21:10", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_62"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 18 — Voiron → Orcières-Merlette (Mountain)", "date": "2026-07-23", "time": "20:25", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_63"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 19 — Gap → Alpe d'Huez (Mountain)", "date": "2026-07-24", "time": "21:50", "broadcaster": "SBS / SBS On Demand", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_64"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain)", "date": "2026-07-25", "time": "19:35", "broadcaster": "SBS / SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_65"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial)", "date": "2026-07-27", "time": "00:05", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_66"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 1", "date": "2026-04-09", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_67"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 2", "date": "2026-04-10", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_68"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 3 (Moving Day)", "date": "2026-04-11", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_69"}, {"sport": "Golf", "key": "masters", "name": "Masters Final Round (Sunday)", "date": "2026-04-12", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_70"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 1", "date": "2026-06-04", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_71"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 2", "date": "2026-06-08", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_72"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 3", "date": "2026-06-11", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_73"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 4", "date": "2026-06-14", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_74"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 5 (if needed)", "date": "2026-06-17", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_75"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 6 (if needed)", "date": "2026-06-20", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_76"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 7 (if needed)", "date": "2026-06-23", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 10, "venue": null, "liveWindow": 4, "id": "evt_77"}, {"sport": "American Football", "key": "nfl", "name": "Super Bowl LX", "date": "2026-02-09", "time": "10:30", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_78"}, {"sport": "Le Mans", "key": "lemans", "name": "24 Hours of Le Mans — Start", "date": "2026-06-13", "time": "23:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_79"}, {"sport": "Le Mans", "key": "lemans", "name": "24 Hours of Le Mans — Finish", "date": "2026-06-14", "time": "23:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_80"}, {"sport": "NRL", "key": "nrl", "name": "NRL Finals Week 1", "date": "2026-09-12", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_81"}, {"sport": "NRL", "key": "nrl", "name": "NRL Finals Week 2", "date": "2026-09-19", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_82"}, {"sport": "NRL", "key": "nrl", "name": "NRL Preliminary Finals", "date": "2026-09-26", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_83"}, {"sport": "NRL", "key": "nrl", "name": "NRL Grand Final", "date": "2026-10-04", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_84"}, {"sport": "Cricket", "key": "cricket", "name": "1st Test vs Bangladesh (Day 1)", "date": "2026-08-13", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 6, "venue": null, "liveWindow": 8, "id": "evt_85"}, {"sport": "Cricket", "key": "cricket", "name": "2nd Test vs Bangladesh (Day 1)", "date": "2026-08-22", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 6, "venue": null, "liveWindow": 8, "id": "evt_86"}, {"sport": "Cricket", "key": "cricket", "name": "1st Test vs South Africa (Day 1)", "date": "2026-10-09", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 7, "venue": null, "liveWindow": 8, "id": "evt_87"}, {"sport": "Cricket", "key": "cricket", "name": "2nd Test vs South Africa (Day 1)", "date": "2026-10-18", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_88"}, {"sport": "Cricket", "key": "cricket", "name": "3rd Test vs South Africa (Day 1)", "date": "2026-10-27", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_89"}, {"sport": "Cricket", "key": "cricket", "name": "Boxing Day Test vs New Zealand", "date": "2026-12-26", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 9, "venue": null, "liveWindow": 8, "id": "evt_90"}, {"sport": "Cricket", "key": "cricket", "name": "New Year's Test vs New Zealand", "date": "2027-01-02", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_91"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Japan (away)", "date": "2026-08-08", "time": "19:00", "broadcaster": "Stan Sport", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_92"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Japan (home)", "date": "2026-08-15", "time": "19:30", "broadcaster": "Stan Sport", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_93"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Argentina", "date": "2026-08-29", "time": "06:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_94"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs South Africa", "date": "2026-09-27", "time": "17:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_95"}, {"sport": "Rugby", "key": "rugby", "name": "Bledisloe Cup — Wallabies vs NZ (Game 1)", "date": "2026-10-10", "time": "19:45", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_96"}, {"sport": "Rugby", "key": "rugby", "name": "Bledisloe Cup — Wallabies vs NZ (Game 2)", "date": "2026-10-17", "time": "19:45", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_97"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs England (Nov tour)", "date": "2026-11-14", "time": "00:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_98"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Scotland (Nov tour)", "date": "2026-11-21", "time": "00:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_99"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies vs Ireland (Nov tour)", "date": "2026-11-28", "time": "00:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_100"}, {"sport": "Ski", "key": "ski", "name": "Kvitfjell — Men's Downhill World Cup", "date": "2027-03-06", "time": "22:00", "broadcaster": "FIS broadcast", "expected": 8, "venue": "Kvitfjell, Norway", "liveWindow": 3, "id": "evt_101"}, {"sport": "Ski", "key": "ski", "name": "Kvitfjell — Men's Super-G World Cup", "date": "2027-03-07", "time": "22:00", "broadcaster": "FIS broadcast", "expected": 7, "venue": "Kvitfjell, Norway", "liveWindow": 3, "id": "evt_102"}, {"sport": "Ski", "key": "ski", "name": "Sun Valley — Men's Alpine Finals Downhill", "date": "2027-03-20", "time": "04:00", "broadcaster": "FIS broadcast", "expected": 9, "venue": "Sun Valley, Idaho", "liveWindow": 3, "id": "evt_103"}, {"sport": "Ski", "key": "ski", "name": "Shahdag — Moguls World Cup Finals", "date": "2027-03-15", "time": "21:00", "broadcaster": "FIS broadcast", "expected": 7, "venue": "Shahdag, Azerbaijan", "liveWindow": 3, "id": "evt_104"}];
+const EVENTS = [{"sport": "Tennis", "key": "wimbledon", "name": "Kasatkina v Osaka — Women's R3", "date": "2026-07-03", "time": "22:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_0"}, {"sport": "Tennis", "key": "wimbledon", "name": "De Minaur v Svajda — Men's R3 🇦🇺", "date": "2026-07-04", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_1"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Quarterfinals", "date": "2026-07-07", "time": "22:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_2"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Quarterfinals", "date": "2026-07-08", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_3"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Semifinals", "date": "2026-07-09", "time": "22:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_4"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Semifinals", "date": "2026-07-10", "time": "22:00", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_5"}, {"sport": "Tennis", "key": "wimbledon", "name": "Women's Final", "date": "2026-07-11", "time": "23:00", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_6"}, {"sport": "Tennis", "key": "wimbledon", "name": "Men's Final", "date": "2026-07-12", "time": "23:00", "broadcaster": "Stan Sport", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_7"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Ireland", "date": "2026-07-04", "time": "20:10", "broadcaster": "Stan Sport", "expected": 8, "venue": "Allianz Stadium, Sydney", "liveWindow": 3, "id": "evt_8"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v France", "date": "2026-07-11", "time": "17:40", "broadcaster": "Stan Sport", "expected": 7, "venue": "Brisbane Stadium", "liveWindow": 3, "id": "evt_9"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Italy", "date": "2026-07-18", "time": "20:10", "broadcaster": "Stan Sport", "expected": 6, "venue": "HBF Park, Perth", "liveWindow": 3, "id": "evt_10"}, {"sport": "Football", "key": "fifa", "name": "Socceroos v Egypt — Round of 32 🇦🇺", "date": "2026-07-04", "time": "04:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_11"}, {"sport": "Football", "key": "fifa", "name": "Socceroos Round of 16 (if advanced) 🇦🇺", "date": "2026-07-09", "time": "02:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_12"}, {"sport": "Football", "key": "fifa", "name": "Quarterfinals", "date": "2026-07-09", "time": "06:00", "broadcaster": "SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_13"}, {"sport": "Football", "key": "fifa", "name": "Semifinal 1", "date": "2026-07-15", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_14"}, {"sport": "Football", "key": "fifa", "name": "Semifinal 2", "date": "2026-07-16", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_15"}, {"sport": "Football", "key": "fifa", "name": "Third-Place Playoff", "date": "2026-07-19", "time": "07:00", "broadcaster": "SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_16"}, {"sport": "Football", "key": "fifa", "name": "FIFA World Cup Final", "date": "2026-07-20", "time": "05:00", "broadcaster": "SBS On Demand", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_17"}, {"sport": "F1", "key": "f1", "name": "R9 British GP Qualifying", "date": "2026-07-05", "time": "02:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_18"}, {"sport": "F1", "key": "f1", "name": "R9 British GP Race", "date": "2026-07-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_19"}, {"sport": "F1", "key": "f1", "name": "R10 Belgian GP Qualifying", "date": "2026-07-19", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_20"}, {"sport": "F1", "key": "f1", "name": "R10 Belgian GP Race", "date": "2026-07-20", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_21"}, {"sport": "F1", "key": "f1", "name": "R11 Hungarian GP Qualifying", "date": "2026-07-26", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_22"}, {"sport": "F1", "key": "f1", "name": "R11 Hungarian GP Race", "date": "2026-07-27", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_23"}, {"sport": "F1", "key": "f1", "name": "R12 Dutch GP Qualifying", "date": "2026-08-23", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_24"}, {"sport": "F1", "key": "f1", "name": "R12 Dutch GP Race", "date": "2026-08-24", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_25"}, {"sport": "F1", "key": "f1", "name": "R13 Italian GP Qualifying", "date": "2026-09-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_26"}, {"sport": "F1", "key": "f1", "name": "R13 Italian GP Race", "date": "2026-09-07", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_27"}, {"sport": "F1", "key": "f1", "name": "R14 Spanish GP Qualifying", "date": "2026-09-13", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_28"}, {"sport": "F1", "key": "f1", "name": "R14 Spanish GP Race", "date": "2026-09-14", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_29"}, {"sport": "F1", "key": "f1", "name": "R15 Azerbaijan GP Qualifying", "date": "2026-09-25", "time": "23:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_30"}, {"sport": "F1", "key": "f1", "name": "R15 Azerbaijan GP Race", "date": "2026-09-26", "time": "22:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_31"}, {"sport": "F1", "key": "f1", "name": "R16 Singapore GP Qualifying", "date": "2026-10-11", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_32"}, {"sport": "F1", "key": "f1", "name": "R16 Singapore GP Race", "date": "2026-10-12", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_33"}, {"sport": "F1", "key": "f1", "name": "R17 US GP (COTA) Qualifying", "date": "2026-10-25", "time": "09:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_34"}, {"sport": "F1", "key": "f1", "name": "R17 US GP (COTA) Race", "date": "2026-10-26", "time": "07:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_35"}, {"sport": "F1", "key": "f1", "name": "R18 Mexico City GP Qualifying", "date": "2026-11-01", "time": "08:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_36"}, {"sport": "F1", "key": "f1", "name": "R18 Mexico City GP Race", "date": "2026-11-02", "time": "07:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_37"}, {"sport": "F1", "key": "f1", "name": "R19 Brazilian GP Qualifying", "date": "2026-11-08", "time": "05:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_38"}, {"sport": "F1", "key": "f1", "name": "R19 Brazilian GP Race", "date": "2026-11-09", "time": "04:00", "broadcaster": "Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_39"}, {"sport": "F1", "key": "f1", "name": "R20 Las Vegas GP Qualifying", "date": "2026-11-21", "time": "15:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_40"}, {"sport": "F1", "key": "f1", "name": "R20 Las Vegas GP Race", "date": "2026-11-22", "time": "15:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_41"}, {"sport": "F1", "key": "f1", "name": "R21 Qatar GP Qualifying", "date": "2026-11-29", "time": "05:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_42"}, {"sport": "F1", "key": "f1", "name": "R21 Qatar GP Race", "date": "2026-11-30", "time": "03:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_43"}, {"sport": "F1", "key": "f1", "name": "R22 Abu Dhabi GP Qualifying", "date": "2026-12-06", "time": "01:00", "broadcaster": "Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_44"}, {"sport": "F1", "key": "f1", "name": "R22 Abu Dhabi GP Race", "date": "2026-12-07", "time": "00:00", "broadcaster": "Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_45"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 1 — Barcelona → Barcelona (Team Time Trial)", "date": "2026-07-05", "time": "00:55", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_46"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 2 — Tarragona → Barcelona (Hilly)", "date": "2026-07-05", "time": "21:05", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_47"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 3 — Granollers → Les Angles (Mountain)", "date": "2026-07-06", "time": "20:00", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_48"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 4 — Carcassonne → Foix (Hilly)", "date": "2026-07-07", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_49"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 5 — Lannemezan → Pau (Flat)", "date": "2026-07-08", "time": "21:55", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_50"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain)", "date": "2026-07-09", "time": "20:15", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_51"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 7 — Hagetmau → Bordeaux (Flat)", "date": "2026-07-10", "time": "21:05", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_52"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 8 — Périgueux → Bergerac (Flat)", "date": "2026-07-11", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_53"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 9 — Malemort → Ussel (Hilly)", "date": "2026-07-12", "time": "21:20", "broadcaster": "SBS / SBS On Demand", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_54"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 10 — Aurillac → Le Lioran (Mountain)", "date": "2026-07-14", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_55"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 11 — Vichy → Nevers (Flat)", "date": "2026-07-15", "time": "21:40", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_56"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 12 — Magny-Cours → Chalon-sur-Saône (Flat)", "date": "2026-07-16", "time": "21:20", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_57"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 13 — Dole → Belfort (Hilly)", "date": "2026-07-17", "time": "20:50", "broadcaster": "SBS / SBS On Demand", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_58"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 14 — Mulhouse → Le Markstein (Mountain)", "date": "2026-07-18", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_59"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)", "date": "2026-07-19", "time": "21:00", "broadcaster": "SBS / SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_60"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT)", "date": "2026-07-21", "time": "20:50", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_61"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 17 — Chambéry → Voiron (Flat)", "date": "2026-07-22", "time": "21:10", "broadcaster": "SBS / SBS On Demand", "expected": 5, "venue": null, "liveWindow": 3, "id": "evt_62"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 18 — Voiron → Orcières-Merlette (Mountain)", "date": "2026-07-23", "time": "20:25", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_63"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 19 — Gap → Alpe d'Huez (Mountain)", "date": "2026-07-24", "time": "21:50", "broadcaster": "SBS / SBS On Demand", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_64"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain)", "date": "2026-07-25", "time": "19:35", "broadcaster": "SBS / SBS On Demand", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_65"}, {"sport": "Cycling", "key": "tdf", "name": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial)", "date": "2026-07-27", "time": "00:05", "broadcaster": "SBS / SBS On Demand", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_66"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 1", "date": "2026-04-09", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_67"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 2", "date": "2026-04-10", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_68"}, {"sport": "Golf", "key": "masters", "name": "Masters Round 3 (Moving Day)", "date": "2026-04-11", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_69"}, {"sport": "Golf", "key": "masters", "name": "Masters Final Round (Sunday)", "date": "2026-04-12", "time": "06:00", "broadcaster": "Kayo Sports / Foxtel", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_70"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 1", "date": "2026-06-04", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_71"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 2", "date": "2026-06-08", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_72"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 3", "date": "2026-06-11", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 8, "venue": null, "liveWindow": 4, "id": "evt_73"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 4", "date": "2026-06-14", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_74"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 5 (if needed)", "date": "2026-06-17", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_75"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 6 (if needed)", "date": "2026-06-20", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_76"}, {"sport": "NBA", "key": "nba", "name": "NBA Finals Game 7 (if needed)", "date": "2026-06-23", "time": "09:00", "broadcaster": "Kayo Sports / ESPN", "expected": 10, "venue": null, "liveWindow": 4, "id": "evt_77"}, {"sport": "American Football", "key": "nfl", "name": "Super Bowl LX", "date": "2026-02-09", "time": "10:30", "broadcaster": "Kayo Sports / ESPN", "expected": 9, "venue": null, "liveWindow": 4, "id": "evt_78"}, {"sport": "Le Mans", "key": "lemans", "name": "24 Hours of Le Mans — Start", "date": "2026-06-13", "time": "23:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_79"}, {"sport": "Le Mans", "key": "lemans", "name": "24 Hours of Le Mans — Finish", "date": "2026-06-14", "time": "23:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_80"}, {"sport": "NRL", "key": "nrl", "name": "NRL Finals Week 1", "date": "2026-09-12", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_81"}, {"sport": "NRL", "key": "nrl", "name": "NRL Finals Week 2", "date": "2026-09-19", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_82"}, {"sport": "NRL", "key": "nrl", "name": "NRL Preliminary Finals", "date": "2026-09-26", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_83"}, {"sport": "NRL", "key": "nrl", "name": "NRL Grand Final", "date": "2026-10-04", "time": "19:30", "broadcaster": "Nine / Kayo Sports", "expected": 10, "venue": null, "liveWindow": 3, "id": "evt_84"}, {"sport": "Cricket", "key": "cricket", "name": "1st Test v Bangladesh (Day 1)", "date": "2026-08-13", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 6, "venue": null, "liveWindow": 8, "id": "evt_85"}, {"sport": "Cricket", "key": "cricket", "name": "2nd Test v Bangladesh (Day 1)", "date": "2026-08-22", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 6, "venue": null, "liveWindow": 8, "id": "evt_86"}, {"sport": "Cricket", "key": "cricket", "name": "1st Test v South Africa (Day 1)", "date": "2026-10-09", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 7, "venue": null, "liveWindow": 8, "id": "evt_87"}, {"sport": "Cricket", "key": "cricket", "name": "2nd Test v South Africa (Day 1)", "date": "2026-10-18", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_88"}, {"sport": "Cricket", "key": "cricket", "name": "3rd Test v South Africa (Day 1)", "date": "2026-10-27", "time": "16:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_89"}, {"sport": "Cricket", "key": "cricket", "name": "Boxing Day Test v New Zealand", "date": "2026-12-26", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 9, "venue": null, "liveWindow": 8, "id": "evt_90"}, {"sport": "Cricket", "key": "cricket", "name": "New Year's Test v New Zealand", "date": "2027-01-02", "time": "10:00", "broadcaster": "Kayo / Foxtel", "expected": 8, "venue": null, "liveWindow": 8, "id": "evt_91"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Japan (away)", "date": "2026-08-08", "time": "19:00", "broadcaster": "Stan Sport", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_92"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Japan (home)", "date": "2026-08-15", "time": "19:30", "broadcaster": "Stan Sport", "expected": 6, "venue": null, "liveWindow": 3, "id": "evt_93"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Argentina", "date": "2026-08-29", "time": "06:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_94"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v South Africa", "date": "2026-09-27", "time": "17:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_95"}, {"sport": "Rugby", "key": "rugby", "name": "Bledisloe Cup — Wallabies v NZ (Game 1)", "date": "2026-10-10", "time": "19:45", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_96"}, {"sport": "Rugby", "key": "rugby", "name": "Bledisloe Cup — Wallabies v NZ (Game 2)", "date": "2026-10-17", "time": "19:45", "broadcaster": "Stan Sport", "expected": 9, "venue": null, "liveWindow": 3, "id": "evt_97"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v England (Nov tour)", "date": "2026-11-14", "time": "00:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_98"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Scotland (Nov tour)", "date": "2026-11-21", "time": "00:00", "broadcaster": "Stan Sport", "expected": 7, "venue": null, "liveWindow": 3, "id": "evt_99"}, {"sport": "Rugby", "key": "rugby", "name": "Wallabies v Ireland (Nov tour)", "date": "2026-11-28", "time": "00:00", "broadcaster": "Stan Sport", "expected": 8, "venue": null, "liveWindow": 3, "id": "evt_100"}, {"sport": "Ski", "key": "ski", "name": "Kvitfjell — Men's Downhill World Cup", "date": "2027-03-06", "time": "22:00", "broadcaster": "FIS broadcast", "expected": 8, "venue": "Kvitfjell, Norway", "liveWindow": 3, "id": "evt_101"}, {"sport": "Ski", "key": "ski", "name": "Kvitfjell — Men's Super-G World Cup", "date": "2027-03-07", "time": "22:00", "broadcaster": "FIS broadcast", "expected": 7, "venue": "Kvitfjell, Norway", "liveWindow": 3, "id": "evt_102"}, {"sport": "Ski", "key": "ski", "name": "Sun Valley — Men's Alpine Finals Downhill", "date": "2027-03-20", "time": "04:00", "broadcaster": "FIS broadcast", "expected": 9, "venue": "Sun Valley, Idaho", "liveWindow": 3, "id": "evt_103"}, {"sport": "Ski", "key": "ski", "name": "Shahdag — Moguls World Cup Finals", "date": "2027-03-15", "time": "21:00", "broadcaster": "FIS broadcast", "expected": 7, "venue": "Shahdag, Azerbaijan", "liveWindow": 3, "id": "evt_104"}];
 
 const SPORT_META = {
   f1:          { label: "F1",               color: "var(--c-f1)",       icon: "🏎️" },
@@ -2369,6 +2433,7 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
 };
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
+const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
 
 const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY).map(([key, sport], index) => ({
   id: `sport:${key}`,
@@ -3243,6 +3308,15 @@ function importanceColorForEvent(ev){
 
 function normalizeEvents(events = activeEvents){
   events.forEach(ev => {
+    if (ENRICHMENT_ENGINE){
+      ev.name = ENRICHMENT_ENGINE.canonicalFixtureTitle(ev.name, { sportKey: ev.key });
+      if (ev.displayTitleCompact){
+        ev.displayTitleCompact = ENRICHMENT_ENGINE.canonicalFixtureTitle(ev.displayTitleCompact, { sportKey: ev.key });
+      }
+      if (ev.spoilerSafeTitle){
+        ev.spoilerSafeTitle = ENRICHMENT_ENGINE.canonicalFixtureTitle(ev.spoilerSafeTitle, { sportKey: ev.key });
+      }
+    }
     ev.eventId = ev.eventId || ev.id;
     ev.sportId = ev.key;
     ev.competitionId = ev.key;
@@ -3354,7 +3428,10 @@ function shouldSuggestWatchLater(ev){
 }
 
 function isMustWatch(ev){
-  return getEventAction(ev).mustWatch || isPreFlagged(ev) || (isSpoilerVisible(ev) && isUpgrade(ev));
+  return getEventAction(ev).mustWatch
+    || isPreFlagged(ev)
+    || eventEnrichment(ev).mustWatchScore >= 70
+    || (isSpoilerVisible(ev) && isUpgrade(ev));
 }
 
 function eventActionKey(ev){
@@ -3374,6 +3451,29 @@ function defaultEventAction(ev){
 
 function getEventAction(ev){
   return { ...defaultEventAction(ev), ...(eventActions[eventActionKey(ev)] || {}) };
+}
+
+function enrichmentContextForEvent(ev){
+  return {
+    preferenceGraph: userPreferences.preferenceGraph,
+    followedSports: userPreferences.followedSports,
+    selectedBroadcasterIds: userPreferences.selectedBroadcasters,
+    explicitMustWatch: getEventAction(ev).mustWatch,
+  };
+}
+
+function eventEnrichment(ev){
+  if (!ENRICHMENT_ENGINE){
+    const intensity = storylineIntensityForEvent(ev);
+    return {
+      canonicalEventId: ev.eventId || ev.id,
+      mustWatchScore: intensity * 12,
+      intensity,
+      cardVariant: intensity >= 5 ? "marquee" : intensity >= 3 ? "standard" : intensity === 2 ? "compact" : "plain",
+      storyline: { scoreReasons: [] },
+    };
+  }
+  return ENRICHMENT_ENGINE.enrichEvent(ev, enrichmentContextForEvent(ev));
 }
 
 function updateEventAction(ev, patch){
@@ -3501,8 +3601,12 @@ function compareSurfacedEvents(first, second, { topNine = false, reference = now
   const firstPresentation = surfacePresentationForEvent(first, reference);
   const secondPresentation = surfacePresentationForEvent(second, reference);
   if (firstPresentation.isNew !== secondPresentation.isNew) return firstPresentation.isNew ? -1 : 1;
-  if (topNine && firstPresentation.auBroadcastWeightScore !== secondPresentation.auBroadcastWeightScore){
-    return secondPresentation.auBroadcastWeightScore - firstPresentation.auBroadcastWeightScore;
+  if (topNine){
+    const scoreDifference = eventEnrichment(second).mustWatchScore - eventEnrichment(first).mustWatchScore;
+    if (scoreDifference) return scoreDifference;
+    if (firstPresentation.auBroadcastWeightScore !== secondPresentation.auBroadcastWeightScore){
+      return secondPresentation.auBroadcastWeightScore - firstPresentation.auBroadcastWeightScore;
+    }
   }
   const importanceDifference = Number(second.stakesScore || stakesScoreForEvent(second)) - Number(first.stakesScore || stakesScoreForEvent(first));
   if (importanceDifference) return importanceDifference;
@@ -3532,7 +3636,7 @@ function topNineEvents(reference = nowAEST()){
   const candidates = getPreferenceMatchedEvents()
     .filter(ev => !getEventAction(ev).archived)
     .filter(ev => eventDateTime(ev) >= reference && eventDateTime(ev) <= weekEnd)
-    .filter(ev => Number(ev.stakesScore) >= SCORE_BANDS.topStorylines.minStakes);
+    .filter(ev => eventEnrichment(ev).intensity >= SCORE_BANDS.topStorylines.minStakes);
   return orderSurfacedEvents(candidates, { topNine: true, reference }).slice(0, SURFACE_CONFIG.topNineLimit);
 }
 
@@ -3660,21 +3764,17 @@ function dependencySideIsRevealed(participant){
 }
 
 function spoilerSafeDisplayTitle(ev){
-  if (!Array.isArray(ev.matchupParticipants) || ev.matchupParticipants.length < 2){
-    return ev.displayTitleCompact;
-  }
-  if (isSpoilerVisible(ev)){
-    const matchup = ev.matchupParticipants.map(participant => participant.name).join(" vs ");
-    const compactFixtureLabel = /^World Cup Semifinal \d+$/i.test(ev.displayTitleCompact || "") ? ev.displayTitleCompact : "";
-    const fixtureLabel = String(ev.revealedFixtureLabel || compactFixtureLabel)
-      .replace(/\bSemifinal\b/g, "Semi Final");
-    return fixtureLabel ? `${matchup} — ${fixtureLabel}` : matchup;
-  }
-  const revealed = ev.matchupParticipants.map(participant => dependencySideIsRevealed(participant));
-  if (!revealed.some(Boolean)) return ev.spoilerSafeTitle || ev.displayTitleCompact;
-  return ev.matchupParticipants
-    .map((participant, index) => revealed[index] ? participant.name : "Opponent hidden")
-    .join(" vs ");
+  if (!ENRICHMENT_ENGINE) return ev.displayTitleCompact;
+  const sourceEventsById = new Map(activeEvents.map(event => [event.eventId || event.id, event]));
+  return ENRICHMENT_ENGINE.spoilerSafeFixtureTitle(ev, {
+    now: nowAEST(),
+    revealSpoilers: isSpoilerVisible(ev),
+    sourceEventsById,
+    isSourceRevealed(sourceEventId){
+      const source = sourceEventsById.get(sourceEventId);
+      return Boolean(source && (isSpoilerVisible(source) || getEventAction(source).archived || getActual(source.id) !== null));
+    },
+  });
 }
 
 function isSpoilerPolicySpiel(copy){
@@ -4359,12 +4459,12 @@ function buildEventCard(ev, options = {}){
   const meta = SPORT_META[ev.key];
   const status = getEventStatus(ev);
   const presentation = surfacePresentationForEvent(ev);
+  const enrichment = eventEnrichment(ev);
   const actual = getActual(ev.id);
   const displayTitle = spoilerSafeDisplayTitle(ev);
   const upgraded = isUpgrade(ev) && isSpoilerVisible(ev);
   const mode = options.mode || "calendar";
-  // Every full card uses the same compact → context → detail interaction.
-  // Month-view entries are not cards; all card surfaces share this path.
+  // Interaction stays consistent while derived variants control visual weight.
   const expandable = true;
   const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
@@ -4379,7 +4479,9 @@ function buildEventCard(ev, options = {}){
   card.className = [
     "event-card",
     `mode-${mode}`,
-    expandable ? "is-rail-card" : "",
+    `variant-${enrichment.cardVariant}`,
+    `intensity-${enrichment.intensity}`,
+    ["standard", "marquee"].includes(enrichment.cardVariant) ? "is-rail-card" : "",
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
     spoilerProtected ? "is-spoiler-protected" : "",
@@ -4388,9 +4490,12 @@ function buildEventCard(ev, options = {}){
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.feedBucket = presentation.feedBucket;
+  card.dataset.cardVariant = enrichment.cardVariant;
+  card.dataset.intensity = String(enrichment.intensity);
+  card.dataset.mustWatchScore = String(enrichment.mustWatchScore);
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
-  card.style.setProperty("--importance-strength", `${Math.min(34, 10 + ev.stakesScore * 4)}%`);
+  card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
   if (expandable){
     card.setAttribute("role", "button");
     card.setAttribute("tabindex", "0");
@@ -4481,10 +4586,10 @@ function buildEventCard(ev, options = {}){
     b.textContent = "LOCAL GAME";
     badges.appendChild(b);
   }
-  if (ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes){
+  if (enrichment.storyline?.visibleLabel){
     const b = document.createElement("span");
     b.className = "badge mustwatch";
-    b.textContent = "Top Storyline";
+    b.textContent = enrichment.storyline.visibleLabel;
     badges.appendChild(b);
   }
   if (upgraded){
@@ -4544,7 +4649,7 @@ function buildEventCard(ev, options = {}){
 
   const expectedBlock = document.createElement("div");
   expectedBlock.className = "rating-block";
-  expectedBlock.innerHTML = `Stakes: <span class="expected-num">${ev.stakesScore}/5</span>`;
+  expectedBlock.innerHTML = `Stakes: <span class="expected-num">${enrichment.intensity}/5</span>`;
   expectedBlock.appendChild(buildStakesMeter(ev));
   ratingRow.appendChild(expectedBlock);
 
@@ -4591,6 +4696,14 @@ function buildEventCard(ev, options = {}){
     spiel.className = "event-opened-copy";
     spiel.textContent = eventSpielForDisplay(ev);
     mainDiv.appendChild(spiel);
+
+    const explanation = document.createElement("div");
+    explanation.className = "rank-explanation";
+    explanation.innerHTML = `
+      <strong>Why it ranked · ${enrichment.mustWatchScore}/100</strong>
+      <ul>${(enrichment.storyline?.scoreReasons || []).map(reason => `<li>${reason}</li>`).join("")}</ul>
+    `;
+    mainDiv.appendChild(explanation);
 
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
@@ -4647,7 +4760,7 @@ function renderListView(){
   container.innerHTML = "";
   const filtered = getFilteredEvents();
   if (filtered.length === 0){
-    container.innerHTML = `<div class="empty-state"><div class="big">🗂️</div>No events match your current preferences.<br><button class="btn primary" onclick="openSettings()">Edit settings</button></div>`;
+    container.innerHTML = `<div class="empty-state">Nothing in your current filter deserves your time right now.<br><button class="btn primary" onclick="openSettings()">Refine filters</button></div>`;
     return;
   }
   const { newItems, seenItems } = partitionSurfacedEvents(filtered);

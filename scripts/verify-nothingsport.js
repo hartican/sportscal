@@ -16,6 +16,7 @@ const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "u
 const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
+const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "utf8");
 const cwgBundleSource = fs.readFileSync("data/cwg-events.js", "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
@@ -58,6 +59,11 @@ assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonica
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
+assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
+assert(html.includes("eventEnrichment(ev).mustWatchScore"), "must-watch decisions must use the derived explainable score");
+assert(html.includes('`variant-${enrichment.cardVariant}`'), "cards must receive their derived plain, compact, standard, or marquee variant");
+assert(html.includes("Why it ranked ·"), "opened cards must explain their ranking score");
+assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
 assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
@@ -128,9 +134,11 @@ const eventFeedSchema = JSON.parse(fs.readFileSync("schemas/event-feed.schema.js
 const calendarEventSchema = JSON.parse(fs.readFileSync("schemas/calendar-events.schema.json", "utf8"));
 const canonicalSportsSchema = JSON.parse(fs.readFileSync("schemas/canonical-sports.schema.json", "utf8"));
 const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage.schema.json", "utf8"));
+const enrichedEventSchema = JSON.parse(fs.readFileSync("schemas/enriched-event.schema.json", "utf8"));
 const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sports.v1", "canonical sports schema must be explicitly versioned");
 assert.equal(profileStorageSchema.properties.schemaVersion.const, 1, "profile storage schema must be explicitly versioned");
+assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
@@ -181,6 +189,11 @@ assert.deepEqual(
   "direct-file fallback must mirror the canonical published Commonwealth Games ids"
 );
 assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing nothingSports card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
+publishedFeed.events.forEach(event => {
+  [event.name, event.displayTitleCompact, event.spoilerSafeTitle].filter(Boolean).forEach(title => {
+    assert.doesNotMatch(title, /\s(?:vs\.?|versus)\s/i, `published fixture title must use v: ${event.id}`);
+  });
+});
 const fifaCards = publishedFeed.events.filter(event => event.key === "fifa");
 assert.equal(fifaCards.length, 20, "published feed must contain all Australia matches and every Round-of-16-onward FIFA card");
 assert(!fifaCards.some(event => /if advanced/i.test(event.name)), "stale conditional FIFA placeholders must be removed");
@@ -267,6 +280,7 @@ vm.createContext(sandbox);
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
+vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-engine.js" });
 vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
 vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
 
@@ -277,6 +291,7 @@ globalThis.__test = {
   AU_BROADCAST_CONFIG,
   SELECTOR_TAXONOMY,
   PREFERENCE_SYSTEM,
+  ENRICHMENT_ENGINE,
   mergePreferences,
   getActiveProfileId(){ return activeProfileBundle?.profile?.id || null; },
   getActiveProfileBundle(){ return structuredClone(activeProfileBundle); },
@@ -304,6 +319,7 @@ globalThis.__test = {
   getStaticAuBroadcastWeight,
   computeAuBroadcastWeightScore,
   auBroadcastWeightScoreForEvent,
+  eventEnrichment,
   orderSurfacedEvents,
   partitionSurfacedEvents,
   topNineEvents,
@@ -689,8 +705,8 @@ app.setSpoilerState({
 });
 assert.equal(app.eventSpielForDisplay(semifinalOne), semifinalOne.recapText, "revealed France v Spain must use its actual match spiel rather than spoiler-policy boilerplate");
 assert.equal(app.eventSpielForDisplay(picturedWimbledonFinal), picturedWimbledonFinal.recapText, "revealed Wimbledon final must use its actual match spiel rather than spoiler-policy boilerplate");
-assert.equal(app.spoilerSafeDisplayTitle(semifinalOne), "France vs Spain — World Cup Semi Final 1", "revealing semifinal 1 must show its teams and fixture label");
-assert.equal(app.spoilerSafeDisplayTitle(semifinalTwo), "England vs Argentina — World Cup Semi Final 2", "revealing semifinal 2 must show both teams and fixture label");
+assert.equal(app.spoilerSafeDisplayTitle(semifinalOne), "France v Spain — World Cup Semi Final 1", "revealing semifinal 1 must show its teams and fixture label");
+assert.equal(app.spoilerSafeDisplayTitle(semifinalTwo), "England v Argentina — World Cup Semi Final 2", "revealing semifinal 2 must show both teams and fixture label");
 app.setSpoilerState({});
 assert.deepEqual(Array.from(app.calendarTimelineEvents([nextRound, pastB, pastA]), event => event.id), ["past-a", "past-b", "next-round"], "Calendar timeline must place past events above Today and future events below it");
 const scoredPast = { ...event("compact-result", -1, 4), score: "Home 2-1 Away", outcomeText: "Home advanced to the final." };
@@ -720,7 +736,7 @@ assert.equal(app.spoilerSafeDisplayTitle(nextRound), "World Cup Semifinal", "unr
 
 app.markSpoilerRevealed(pastA);
 assert.equal(app.isSpoilerVisible(pastA), true, "per-event reveal must override global protection");
-assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A vs Opponent hidden", "only a legitimately revealed knockout side may be named");
+assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A v Opponent hidden", "only a legitimately revealed knockout side may be named");
 app.setCardState(pastA, "selected");
 app.revealSpoilerDetails(pastA);
 assert.equal(app.cardStateForEvent(pastA), "opened", "revealing an individual event must immediately open its additional spoiler details");
@@ -747,7 +763,7 @@ app.setSpoilerState({
 assert.equal(app.clearHiddenSpoilerOverrides(), 2, "turning spoilers on must clear stale per-event protections");
 assert.equal(Object.keys(app.getSpoilerStateSnapshot()).length, 0, "cleared protections must not remain in saved spoiler state");
 assert.equal(app.compactResultForEvent(scoredPast).score, "Home 2-1 Away", "global spoiler-on must restore compact results after clearing stale protections");
-assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A vs Winner B", "global spoiler-on must restore next-round contestants");
+assert.equal(app.spoilerSafeDisplayTitle(nextRound), "Winner A v Winner B", "global spoiler-on must restore next-round contestants");
 assert.equal(app.hasSpoilerSensitiveContent({ ...pastA, fullSpiel: "A decisive post-event review." }), true, "post-event spiels must participate in spoiler protection and reveal logic");
 
 app.setSpoilerState({
