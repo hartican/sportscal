@@ -14,7 +14,7 @@
     "viewing"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v1" },
+    "schemaVersion": { "const": "preference-graph.v2" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -99,6 +99,7 @@
         "knownBroadcasterIds",
         "allowLateNightOverrides",
         "calendarSyncEnabled",
+        "browserAlertsEnabled",
         "reminderLeadMinutes"
       ],
       "properties": {
@@ -110,6 +111,7 @@
         "endHourLocal": { "type": "integer", "minimum": 0, "maximum": 23 },
         "allowLateNightOverrides": { "type": "boolean" },
         "calendarSyncEnabled": { "type": "boolean" },
+        "browserAlertsEnabled": { "type": "boolean" },
         "reminderLeadMinutes": { "type": "array", "items": { "type": "integer", "minimum": 0, "maximum": 10080 }, "uniqueItems": true }
       }
     }

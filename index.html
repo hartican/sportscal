@@ -2368,6 +2368,9 @@ footer.app-footer{
 <script src="config/profile-storage.js"></script>
 <script src="config/preference-system.js"></script>
 <script src="config/enrichment-engine.js"></script>
+<script src="config/card-lifecycle.js"></script>
+<script src="config/reminder-engine.js"></script>
+<script src="config/soundtrack.js"></script>
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
 <script src="data/cwg-events.js"></script>
@@ -2434,6 +2437,9 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
 const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
+const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
+const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
+const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
 
 const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY).map(([key, sport], index) => ({
   id: `sport:${key}`,
@@ -2492,7 +2498,7 @@ const SPOILER_FIELDS = {
 };
 
 const DEFAULT_PREFERENCES = {
-  version: 6,
+  version: 7,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
@@ -2501,6 +2507,10 @@ const DEFAULT_PREFERENCES = {
   followedSports: [],
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
+  soundtrack: {
+    enabled: false,
+    styleId: "elevator",
+  },
   tennis: {
     enthusiasm: "froth",
     gender: "both",
@@ -2568,6 +2578,8 @@ const STORAGE_KEYS = {
   legacyEventActions: "ns_event_actions_v1",
   hiddenItems: "ns_hidden_items_v1",
   feedCache: "ns_feed_cache_v1",
+  derivedCardCache: "ns_derived_card_cache_v1",
+  reminderDelivery: "ns_reminder_delivery_v1",
   lastFeedVersion: "ns_last_feed_version_v1",
   lastRefreshAt: "ns_last_refresh_at_v1",
   ratings: "ns_ratings_v1",
@@ -2831,6 +2843,11 @@ function mergePreferences(saved){
     legacySelectedBroadcasterIds: legacySelectionWasDefault ? undefined : legacySelectedBroadcasters,
   }) || null;
   const migratedBroadcasters = preferenceGraph?.viewing?.selectedBroadcasterIds || Object.keys(BROADCASTER_LIBRARY);
+  const soundtrackStyleIds = SOUNDTRACK?.styles?.map(style => style.id) || ["elevator", "epic", "metal"];
+  const soundtrack = {
+    enabled: Boolean(saved.soundtrack?.enabled),
+    styleId: soundtrackStyleIds.includes(saved.soundtrack?.styleId) ? saved.soundtrack.styleId : "elevator",
+  };
   return {
     ...merged,
     ...saved,
@@ -2842,6 +2859,7 @@ function mergePreferences(saved){
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
     selectedBroadcasters: migratedBroadcasters,
     preferenceGraph,
+    soundtrack,
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
@@ -2896,6 +2914,10 @@ function savePreferences(next){
   const graphSaved = saveActivePreferenceGraph(clean.preferenceGraph);
   if (legacySaved || profileSaved || graphSaved){
     userPreferences = clean;
+    if (typeof activeEvents !== "undefined"){
+      rebuildDerivedCardCache(activeEvents);
+      scheduleBrowserReminders();
+    }
   }
 }
 
@@ -3035,6 +3057,122 @@ function saveSurfacePresentation(next){
   saveActiveProfileSection("surfacePresentation", surfacePresentationState);
 }
 
+function loadDerivedCardCache(){
+  const raw = readStorage(STORAGE_KEYS.derivedCardCache, null);
+  return CARD_LIFECYCLE?.normalizeCache(raw) || { schemaVersion: "derived-card-cache.unavailable", generatedAt: new Date().toISOString(), derivedCards: [] };
+}
+
+function saveDerivedCardCache(cache){
+  derivedCardCache = cache;
+  writeStorage(STORAGE_KEYS.derivedCardCache, cache);
+  return cache;
+}
+
+function saveArchivedEventRefs(references){
+  archivedEventRefs = Array.isArray(references) ? references : [];
+  saveActiveProfileSection("archivedEvents", archivedEventRefs);
+  return archivedEventRefs;
+}
+
+function syncLegacyArchiveReferences(events = activeEvents){
+  if (!CARD_LIFECYCLE) return archivedEventRefs;
+  let next = archivedEventRefs;
+  events.forEach(ev => {
+    if (!getEventAction(ev).archived || next.some(reference => reference.canonicalEventId === (ev.eventId || ev.id))) return;
+    next = CARD_LIFECYCLE.archiveReference(next, ev, {
+      profileId: activeProfileBundle?.profile?.id || "profile:local",
+      archivedFromCardId: derivedCardIdForEvent(ev),
+      now: getEventAction(ev).lastActionAt ? new Date(getEventAction(ev).lastActionAt) : new Date(),
+    });
+  });
+  if (next !== archivedEventRefs) saveArchivedEventRefs(next);
+  return archivedEventRefs;
+}
+
+function derivedCardIdForEvent(ev){
+  const id = ev.eventId || ev.id;
+  return derivedCardCache?.derivedCards?.find(card => card.canonicalEventId === id)?.id || null;
+}
+
+function rebuildDerivedCardCache(events = activeEvents, reference = nowAEST()){
+  if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE) return derivedCardCache;
+  const cache = CARD_LIFECYCLE.materialize(events, {
+    profileId: activeProfileBundle?.profile?.id || "profile:local",
+    enrich: eventEnrichment,
+    actionFor: getEventAction,
+    now: reference,
+  });
+  return saveDerivedCardCache(cache);
+}
+
+function purgeDerivedCardCache(reference = nowAEST()){
+  if (!CARD_LIFECYCLE) return { removedCount: 0, cache: derivedCardCache };
+  const result = CARD_LIFECYCLE.purgeExpired(derivedCardCache, reference);
+  saveDerivedCardCache(result.cache);
+  return result;
+}
+
+function clearAndRebuildDerivedCardCache(reference = nowAEST()){
+  if (!CARD_LIFECYCLE) return derivedCardCache;
+  saveDerivedCardCache(CARD_LIFECYCLE.emptyCache(reference));
+  return rebuildDerivedCardCache(activeEvents, reference);
+}
+
+function saveReminderDeliveryState(next){
+  reminderDeliveryState = next && typeof next === "object" ? next : {};
+  writeStorage(STORAGE_KEYS.reminderDelivery, reminderDeliveryState);
+}
+
+async function deliverBrowserReminder(reminder){
+  if (typeof Notification === "undefined" || Notification.permission !== "granted") return false;
+  const options = {
+    body: reminder.body,
+    icon: "/icons/nothingsport-helm-192.png",
+    badge: "/icons/nothingsport-helm-32.png",
+    tag: reminder.key,
+    data: { eventId: reminder.eventId, url: "/" },
+  };
+  try{
+    if ("serviceWorker" in navigator){
+      const registration = await navigator.serviceWorker.ready;
+      await registration.showNotification(reminder.title, options);
+    } else {
+      new Notification(reminder.title, options);
+    }
+    saveReminderDeliveryState({ ...reminderDeliveryState, [reminder.key]: new Date().toISOString() });
+    return true;
+  }catch(error){
+    console.warn("Browser reminder delivery failed", error);
+    return false;
+  }
+}
+
+function scheduleBrowserReminders(reference = nowAEST()){
+  reminderTimers.forEach(timer => clearTimeout(timer));
+  reminderTimers = [];
+  const viewing = userPreferences?.preferenceGraph?.viewing;
+  if (!REMINDER_ENGINE || !viewing?.browserAlertsEnabled) return [];
+  if (typeof Notification === "undefined" || Notification.permission !== "granted") return [];
+  const schedule = REMINDER_ENGINE.buildSchedule(getPreferenceMatchedEvents(), {
+    now: reference,
+    leadMinutes: viewing.reminderLeadMinutes,
+    shouldRemind: isMustWatch,
+    deliveredKeys: Object.keys(reminderDeliveryState),
+  });
+  REMINDER_ENGINE.schedulableReminders(schedule, reference).forEach(reminder => {
+    const delay = new Date(reminder.remindAt).getTime() - new Date(reference).getTime();
+    reminderTimers.push(setTimeout(() => deliverBrowserReminder(reminder), delay));
+  });
+  return schedule.reminders;
+}
+
+async function requestBrowserAlerts(){
+  if (typeof Notification === "undefined") return "unsupported";
+  if (Notification.permission === "granted") return "granted";
+  if (Notification.permission === "denied") return "denied";
+  return Notification.requestPermission();
+}
+
 function clearSpoilerOverrides(override){
   const matchingKeys = Object.keys(eventSpoilerState).filter(key => eventSpoilerState[key]?.override === override);
   if (!matchingKeys.length) return 0;
@@ -3086,6 +3224,10 @@ let ratings = loadRatings();
 let eventActions = loadEventActions();
 let eventSpoilerState = loadEventSpoilerState(eventActions);
 let surfacePresentationState = loadSurfacePresentation();
+let archivedEventRefs = Array.isArray(activeProfileSection("archivedEvents", [])) ? activeProfileSection("archivedEvents", []) : [];
+let derivedCardCache = loadDerivedCardCache();
+let reminderDeliveryState = readStorage(STORAGE_KEYS.reminderDelivery, {});
+let reminderTimers = [];
 if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
 function withBundledCommonwealthGames(events){
   const merged = Array.isArray(events) ? events.slice() : [];
@@ -3182,6 +3324,9 @@ async function fetchJson(url){
 function applyFeedEvents(events, meta){
   activeEvents = events;
   normalizeEvents(activeEvents);
+  syncLegacyArchiveReferences(activeEvents);
+  rebuildDerivedCardCache(activeEvents);
+  scheduleBrowserReminders();
   writeStorage(STORAGE_KEYS.feedCache, { events });
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
@@ -3355,6 +3500,9 @@ function normalizeEvents(events = activeEvents){
 }
 
 normalizeEvents(activeEvents);
+syncLegacyArchiveReferences(activeEvents);
+purgeDerivedCardCache();
+rebuildDerivedCardCache(activeEvents);
 
 /* ============ TIME HELPERS ============ */
 // "Now" is computed from the device clock. User-facing labels are Sydney-time-first.
@@ -3450,7 +3598,9 @@ function defaultEventAction(ev){
 }
 
 function getEventAction(ev){
-  return { ...defaultEventAction(ev), ...(eventActions[eventActionKey(ev)] || {}) };
+  const saved = eventActions[eventActionKey(ev)] || {};
+  const archivedByReference = archivedEventRefs?.some(reference => reference.canonicalEventId === (ev.eventId || ev.id));
+  return { ...defaultEventAction(ev), ...saved, archived: Boolean(saved.archived || archivedByReference) };
 }
 
 function enrichmentContextForEvent(ev){
@@ -3486,6 +3636,8 @@ function updateEventAction(ev, patch){
     lastActionAt: new Date().toISOString(),
   };
   saveEventActions({ ...eventActions, [key]: nextAction });
+  rebuildDerivedCardCache(activeEvents);
+  scheduleBrowserReminders();
   return nextAction;
 }
 
@@ -3834,7 +3986,20 @@ function setEventRating(ev, value){
 
 function archiveEvent(ev){
   if (getEventStatus(ev) === "past") markSpoilerRevealed(ev);
+  if (CARD_LIFECYCLE){
+    saveArchivedEventRefs(CARD_LIFECYCLE.archiveReference(archivedEventRefs, ev, {
+      profileId: activeProfileBundle?.profile?.id || "profile:local",
+      archivedFromCardId: derivedCardIdForEvent(ev),
+    }));
+  }
   return updateEventAction(ev, { archived: true, watchLater: false, mustWatch: false });
+}
+
+function reinstateArchivedEvent(ev){
+  if (CARD_LIFECYCLE){
+    saveArchivedEventRefs(CARD_LIFECYCLE.removeArchiveReference(archivedEventRefs, ev.eventId || ev.id));
+  }
+  return updateEventAction(ev, { archived: false });
 }
 
 function dayDateLabel(dateStr){
@@ -3876,7 +4041,7 @@ function buildEventActionPanel(ev, options = {}){
 
   if (options.archived){
     makeActionButton("Reinstate to Calendar", "restore", () => {
-      updateEventAction(ev, { archived: false });
+      reinstateArchivedEvent(ev);
       renderAll();
       showToast(`Reinstated ${ev.name} to Calendar.`);
     });
@@ -4068,8 +4233,13 @@ function eventMeetsGlobalThreshold(ev){
   return Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes;
 }
 
+function eventMeetsDerivedRetention(ev, reference = nowAEST()){
+  return CARD_LIFECYCLE ? CARD_LIFECYCLE.isWithinRetention(ev, reference) : true;
+}
+
 function getPreferenceMatchedEvents(){
   let list = activeEvents.slice();
+  list = list.filter(eventMeetsDerivedRetention);
   list = list.filter(eventMeetsGlobalThreshold);
   list = list.filter(eventMatchesSportPreferences);
   list = list.filter(eventMatchesBroadcasterPreferences);
@@ -5155,7 +5325,8 @@ function watchLaterEvents(){
 }
 
 function archivedEvents(){
-  return getPreferenceMatchedEvents().filter(ev => getEventAction(ev).archived);
+  if (!CARD_LIFECYCLE) return activeEvents.filter(ev => getEventAction(ev).archived);
+  return CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events;
 }
 
 function renderWatchLater(){
@@ -5569,7 +5740,10 @@ function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
-  if (restoreTheme) applyThemePreference(userPreferences.theme);
+  if (restoreTheme){
+    applyThemePreference(userPreferences.theme);
+    restoreSavedSoundtrack();
+  }
   settingsSection = "main";
   settingsFirstRun = false;
   settingsWizardStep = 0;
@@ -5616,14 +5790,21 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("viewing", "◷", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · optional time window`)}
     ${settingsMenuItem("privacy", "⌖", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "☼", "Appearance", `${themeLabel} theme`)}
+    ${settingsMenuItem("soundtrack", "♫", "Soundtrack", `${draftPreferences.soundtrack?.enabled ? SOUNDTRACK?.styleFor(draftPreferences.soundtrack.styleId).label : "Off"} · original procedural audio`)}
     ${settingsMenuItem("feedback", "✎", "Feedback", "Send an idea, request, or bug report from Settings")}
-  </div>`;
+  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Past cards expire after 14 days; archives remain profile-scoped and rebuild from canonical events.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
   body.querySelectorAll("[data-settings-section]").forEach(button => {
     button.addEventListener("click", () => {
       settingsFocusedDomainId = null;
       settingsSection = button.dataset.settingsSection;
       renderSettingsScreen();
     });
+  });
+  document.getElementById("rebuildFeedCacheBtn").addEventListener("click", () => {
+    clearAndRebuildDerivedCardCache();
+    renderAll();
+    showToast("Feed cache rebuilt from canonical events and your preferences.");
+    renderSettingsScreen();
   });
 }
 
@@ -5925,7 +6106,7 @@ function renderViewingSettings(body, { providersOnly = false } = {}){
   body.innerHTML = `${providersOnly ? "" : wizardProgressMarkup()}<div class="preference-stack">
     <div class="filter-panel"><h3>TV & streaming</h3><p class="preference-help">Every available provider starts selected. Opt out only of services you cannot use; newly added providers will also start selected.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>
     ${providersOnly ? "" : `<div class="filter-panel"><h3>Optional viewing window</h3><p class="preference-help">AEST/AEDT is the default basis. High-stakes events may override the window when you allow it.</p><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour">${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour">${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
-    <div class="filter-panel"><h3>Calendar & reminders</h3><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep calendar sync enabled for selected recommendations</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
+    <div class="filter-panel"><h3>Calendar & reminders</h3><p class="preference-help">Calendar exports can sync across devices. Browser alerts are opt-in and scheduled while nothingSports is open.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep calendar sync enabled for selected recommendations</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span>Enable browser alerts for Must Watch events</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
   </div>`;
   const grid = document.getElementById("providerChoiceGrid");
   Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
@@ -5953,6 +6134,18 @@ function renderViewingSettings(body, { providersOnly = false } = {}){
   document.getElementById("viewingEndHour").addEventListener("change", event => updateDraftViewing({ endHourLocal: event.target.value === "" ? undefined : Number(event.target.value) }));
   document.getElementById("lateNightOverride").addEventListener("change", event => updateDraftViewing({ allowLateNightOverrides: event.target.checked }));
   document.getElementById("calendarSyncEnabled").addEventListener("change", event => updateDraftViewing({ calendarSyncEnabled: event.target.checked }));
+  document.getElementById("browserAlertsEnabled").addEventListener("change", async event => {
+    if (!event.target.checked){
+      updateDraftViewing({ browserAlertsEnabled: false });
+      return;
+    }
+    const permission = await requestBrowserAlerts();
+    updateDraftViewing({ browserAlertsEnabled: permission === "granted" });
+    if (permission !== "granted"){
+      showToast(permission === "unsupported" ? "Browser alerts are not supported on this device." : "Browser alert permission was not granted.");
+      renderSettingsScreen();
+    }
+  });
   document.getElementById("reminderLeadMinutes").addEventListener("change", event => updateDraftViewing({ reminderLeadMinutes: [Number(event.target.value)] }));
 }
 
@@ -6001,6 +6194,43 @@ function renderAppearanceSettings(body){
   });
 }
 
+function restoreSavedSoundtrack(){
+  if (!SOUNDTRACK) return;
+  if (!userPreferences.soundtrack?.enabled){
+    SOUNDTRACK.stop();
+    return;
+  }
+  if (SOUNDTRACK.state().playing && SOUNDTRACK.state().styleId === userPreferences.soundtrack.styleId) return;
+  SOUNDTRACK.start(userPreferences.soundtrack.styleId).catch(error => console.warn("Saved soundtrack could not resume", error));
+}
+
+function renderSoundtrackSettings(body){
+  const soundtrack = draftPreferences.soundtrack || { enabled: false, styleId: "elevator" };
+  const styles = SOUNDTRACK?.styles || [];
+  body.innerHTML = `<div class="preference-stack"><div class="filter-panel"><h3>Background soundtrack</h3><p class="preference-help">Off by default. These are original procedural soundscapes generated in your browser; no commercial recordings or artist playlists are bundled.</p><label class="viewing-toggle"><input type="checkbox" id="soundtrackEnabled" ${soundtrack.enabled ? "checked" : ""}><span>Enable background soundtrack</span></label></div><div class="filter-panel"><h3>Style</h3><div class="theme-choice-list" role="radiogroup" aria-label="Soundtrack style">${styles.map(style => `<label class="theme-choice${soundtrack.styleId === style.id ? " selected" : ""}"><input type="radio" name="soundtrackStyle" value="${style.id}" ${soundtrack.styleId === style.id ? "checked" : ""}><strong>${style.label}</strong><span>${style.bpm} BPM · generated locally</span></label>`).join("")}</div><p class="preference-help">${SOUNDTRACK?.attribution || ""}</p></div></div>`;
+  document.getElementById("soundtrackEnabled").addEventListener("change", async event => {
+    draftPreferences.soundtrack = { ...draftPreferences.soundtrack, enabled: event.target.checked };
+    if (!event.target.checked){
+      SOUNDTRACK?.stop();
+      return;
+    }
+    try{
+      await SOUNDTRACK?.start(draftPreferences.soundtrack.styleId);
+    }catch(error){
+      draftPreferences.soundtrack.enabled = false;
+      showToast("Background audio is not available in this browser.");
+      renderSettingsScreen();
+    }
+  });
+  body.querySelectorAll('input[name="soundtrackStyle"]').forEach(input => {
+    input.addEventListener("change", async () => {
+      draftPreferences.soundtrack = { ...draftPreferences.soundtrack, styleId: input.value };
+      if (draftPreferences.soundtrack.enabled) await SOUNDTRACK?.start(input.value);
+      renderSettingsScreen();
+    });
+  });
+}
+
 function renderFeedbackSettings(body){
   body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSports is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
   const category = document.getElementById("feedbackCategory");
@@ -6032,6 +6262,7 @@ function renderSettingsScreen(){
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
+    soundtrack: ["Soundtrack", "Optional original procedural audio, controlled entirely by you."],
     feedback: ["Feedback", "Send an idea, request, or bug report without leaving Settings."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
@@ -6042,6 +6273,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
+  else if (settingsSection === "soundtrack") renderSoundtrackSettings(body);
   else if (settingsSection === "feedback") renderFeedbackSettings(body);
   else renderSettingsMenu(body);
 }
@@ -6540,6 +6772,7 @@ document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();
+scheduleBrowserReminders();
 refreshRemoteFeed({ quiet: true });
 if (!userPreferences.onboardingComplete){
   openSettings({ firstRun: true });

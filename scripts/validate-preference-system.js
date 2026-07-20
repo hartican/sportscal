@@ -15,7 +15,9 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
+assert.equal(initial.schemaVersion, "preference-graph.v2");
 assert.deepEqual(initial.viewing.selectedBroadcasterIds, baseProviders, "all available providers must start selected");
+assert.equal(initial.viewing.browserAlertsEnabled, false, "browser alerts must remain opt-in");
 assert.equal(initial.domainPreferences[0].templateId, "template:like");
 assert.equal(initial.domainPreferences[0].showLadder, "summary");
 

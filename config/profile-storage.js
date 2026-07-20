@@ -5,9 +5,9 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildProfileStorage(){
   "use strict";
 
-  const PROFILE_SCHEMA_VERSION = 1;
+  const PROFILE_SCHEMA_VERSION = 2;
   const INSTALL_SCHEMA_VERSION = 1;
-  const CACHE_SCHEMA_VERSION = 1;
+  const CACHE_SCHEMA_VERSION = 2;
   const KEYS = Object.freeze({
     install: "ns_install_v1",
     activeProfileId: "ns_active_profile_id_v1",

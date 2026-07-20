@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v22";
+const CACHE_NAME = "nothingSports-shell-v23";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -8,6 +8,9 @@ const APP_SHELL = [
   "/config/profile-storage.js",
   "/config/preference-system.js",
   "/config/enrichment-engine.js",
+  "/config/card-lifecycle.js",
+  "/config/reminder-engine.js",
+  "/config/soundtrack.js",
   "/config/selector-taxonomy.js",
   "/config/au-broadcast-weights.js",
   "/data/cwg-events.js",
@@ -16,6 +19,7 @@ const APP_SHELL = [
   "/data/canonical/afl-nrl-2026.json",
   "/schemas/preference-graph.schema.json",
   "/schemas/enriched-event.schema.json",
+  "/schemas/derived-card-cache.schema.json",
   "/manifest.webmanifest",
   "/assets/brand/web/nothingsport-logo-day.png",
   "/assets/brand/web/nothingsport-logo-night.png",
@@ -53,5 +57,20 @@ self.addEventListener("fetch", event => {
         return response;
       })
       .catch(() => caches.match(event.request).then(cached => cached || caches.match("/index.html")))
+  );
+});
+
+self.addEventListener("notificationclick", event => {
+  event.notification.close();
+  const targetUrl = event.notification.data?.url || "/";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(clients => {
+      const existing = clients.find(client => "focus" in client);
+      if (existing){
+        existing.navigate?.(targetUrl);
+        return existing.focus();
+      }
+      return self.clients.openWindow ? self.clients.openWindow(targetUrl) : undefined;
+    })
   );
 });

@@ -19,7 +19,7 @@
     "archivedEvents"
   ],
   "properties": {
-    "schemaVersion": { "const": 1 },
+    "schemaVersion": { "const": 2 },
     "profile": {
       "type": "object",
       "additionalProperties": false,
@@ -29,7 +29,7 @@
         "usernameLabel": { "type": "string", "minLength": 1 },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" },
-        "schemaVersion": { "const": 1 },
+        "schemaVersion": { "const": 2 },
         "onboardingCompleted": { "type": "boolean" },
         "timezone": { "type": "string", "minLength": 3 }
       }
@@ -43,6 +43,21 @@
     "eventUserState": { "type": "object" },
     "eventSpoilerState": { "type": "object" },
     "surfacePresentation": { "type": "object" },
-    "archivedEvents": { "type": "array", "items": { "type": "object" } }
+    "archivedEvents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "profileId", "canonicalEventId", "archivedAt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^archive:" },
+          "profileId": { "type": "string", "pattern": "^profile:" },
+          "canonicalEventId": { "type": "string", "minLength": 1 },
+          "archivedFromCardId": { "type": "string" },
+          "archivedAt": { "type": "string", "format": "date-time" },
+          "note": { "type": "string" }
+        }
+      }
+    }
   }
 }

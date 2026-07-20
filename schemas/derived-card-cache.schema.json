@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/derived-card-cache.schema.json",
+  "title": "nothingSports disposable derived-card cache",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "derivedCards"],
+  "properties": {
+    "schemaVersion": { "const": "derived-card-cache.v1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "derivedCards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "canonicalEventId", "profileId", "surface", "cardVariant", "intensity", "rank", "renderPayload", "generatedAt", "expiresAt", "isArchived"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^card:" },
+          "canonicalEventId": { "type": "string", "minLength": 1 },
+          "profileId": { "type": "string", "pattern": "^profile:" },
+          "surface": { "enum": ["homeMustWatch", "topStorylines", "sportFeed", "teamFeed", "saved", "recent"] },
+          "cardVariant": { "enum": ["plain", "compact", "standard", "marquee"] },
+          "intensity": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "rank": { "type": "integer", "minimum": 0 },
+          "renderPayload": { "type": "object" },
+          "generatedAt": { "type": "string", "format": "date-time" },
+          "expiresAt": { "type": "string", "format": "date-time" },
+          "isArchived": { "const": false }
+        }
+      }
+    }
+  }
+}

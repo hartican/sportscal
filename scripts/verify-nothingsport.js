@@ -17,6 +17,9 @@ const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonom
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
 const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "utf8");
+const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
+const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
+const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
 const cwgBundleSource = fs.readFileSync("data/cwg-events.js", "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
@@ -60,9 +63,17 @@ assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must l
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
+assert(html.includes('src="config/card-lifecycle.js"'), "the 14-day derived-card lifecycle must load before app state");
+assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
+assert(html.includes('src="config/soundtrack.js"'), "the opt-in procedural soundtrack controller must load before app state");
 assert(html.includes("eventEnrichment(ev).mustWatchScore"), "must-watch decisions must use the derived explainable score");
 assert(html.includes('`variant-${enrichment.cardVariant}`'), "cards must receive their derived plain, compact, standard, or marquee variant");
 assert(html.includes("Why it ranked ·"), "opened cards must explain their ranking score");
+assert(html.includes('id="rebuildFeedCacheBtn"'), "settings must expose a safe cache rebuild from canonical events");
+assert(html.includes('id="browserAlertsEnabled"'), "browser reminders must require an explicit settings toggle");
+assert(html.includes('id="soundtrackEnabled"'), "background audio must require an explicit settings toggle");
+assert(html.includes("Off by default"), "soundtrack copy must state the quiet default");
+assert(!/Miley Cyrus/i.test(html), "commercial-artist soundtrack options must not ship");
 assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
@@ -137,7 +148,7 @@ const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage
 const enrichedEventSchema = JSON.parse(fs.readFileSync("schemas/enriched-event.schema.json", "utf8"));
 const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sports.v1", "canonical sports schema must be explicitly versioned");
-assert.equal(profileStorageSchema.properties.schemaVersion.const, 1, "profile storage schema must be explicitly versioned");
+assert.equal(profileStorageSchema.properties.schemaVersion.const, 2, "profile storage schema must be explicitly versioned");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
@@ -281,6 +292,9 @@ vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
 vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-engine.js" });
+vm.runInContext(cardLifecycleSource, sandbox, { filename: "config/card-lifecycle.js" });
+vm.runInContext(reminderEngineSource, sandbox, { filename: "config/reminder-engine.js" });
+vm.runInContext(soundtrackSource, sandbox, { filename: "config/soundtrack.js" });
 vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
 vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
 
@@ -292,6 +306,9 @@ globalThis.__test = {
   SELECTOR_TAXONOMY,
   PREFERENCE_SYSTEM,
   ENRICHMENT_ENGINE,
+  CARD_LIFECYCLE,
+  REMINDER_ENGINE,
+  SOUNDTRACK,
   mergePreferences,
   getActiveProfileId(){ return activeProfileBundle?.profile?.id || null; },
   getActiveProfileBundle(){ return structuredClone(activeProfileBundle); },
@@ -320,6 +337,12 @@ globalThis.__test = {
   computeAuBroadcastWeightScore,
   auBroadcastWeightScoreForEvent,
   eventEnrichment,
+  eventMeetsDerivedRetention,
+  rebuildDerivedCardCache,
+  purgeDerivedCardCache,
+  clearAndRebuildDerivedCardCache,
+  getDerivedCardCache(){ return structuredClone(derivedCardCache); },
+  getArchivedEventRefs(){ return structuredClone(archivedEventRefs); },
   orderSurfacedEvents,
   partitionSurfacedEvents,
   topNineEvents,
@@ -352,6 +375,8 @@ globalThis.__test = {
   setEventRating,
   getActual,
   archiveEvent,
+  reinstateArchivedEvent,
+  archivedEvents,
   spoilerSafeDisplayTitle,
   selectedSentenceForDisplay,
   storylineCopyForDisplay,
@@ -390,7 +415,7 @@ const legacyProfileStorage = memoryStorage({
 });
 const migratedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:00:00Z") });
 assert.match(migratedProfile.profile.id, /^profile:/, "legacy settings must migrate under a stable internal profile id");
-assert.equal(migratedProfile.schemaVersion, 1, "profile migration must land on the current schema version");
+assert.equal(migratedProfile.schemaVersion, 2, "profile migration must land on the current schema version");
 assert.equal(migratedProfile.preferences.theme, "day", "existing preference fields must survive the profile migration");
 assert.equal(migratedProfile.ratings["legacy-event"], 9, "existing ratings must survive the profile migration");
 assert.equal(migratedProfile.eventUserState["legacy-event"].archived, true, "existing event state must survive the profile migration");
@@ -793,6 +818,12 @@ assert.equal(app.shouldSuggestWatchLater(pastB), false, "the retrospective promp
 app.archiveEvent(pastA);
 assert.equal(app.getEventAction(pastA).archived, true, "archive action must persist");
 assert.equal(app.isSpoilerVisible(pastA), true, "archiving a PAST event must reveal it");
+assert.equal(app.getArchivedEventRefs().some(reference => reference.canonicalEventId === pastA.id), true, "archive must create an explicit profile-scoped reference");
+assert(app.getDerivedCardCache().derivedCards.every(card => card.isArchived === false), "archive state must never leak into disposable cache records");
+app.clearAndRebuildDerivedCardCache();
+assert.equal(app.archivedEvents().some(event => event.id === pastA.id), true, "archive view must rebuild from canonical events after a full cache purge");
+const olderThanRetention = { ...event("older-than-retention", -20, 4), status: "completed" };
+assert.equal(app.eventMeetsDerivedRetention(olderThanRetention), false, "unarchived past cards must expire after 14 days");
 
 const winterTimestamp = app.formatFeedbackTimestamp(new Date("2026-07-16T10:00:00Z"));
 const summerTimestamp = app.formatFeedbackTimestamp(new Date("2026-12-16T10:00:00Z"));

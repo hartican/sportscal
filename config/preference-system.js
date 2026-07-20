@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v1";
+  const SCHEMA_VERSION = "preference-graph.v2";
 
   const templates = [
     {
@@ -154,6 +154,7 @@
       endHourLocal: normalizeHour(saved.endHourLocal),
       allowLateNightOverrides: saved.allowLateNightOverrides !== false,
       calendarSyncEnabled: Boolean(saved.calendarSyncEnabled),
+      browserAlertsEnabled: Boolean(saved.browserAlertsEnabled),
       reminderLeadMinutes: normalizeLeadMinutes(saved.reminderLeadMinutes?.length ? saved.reminderLeadMinutes : [60]),
     };
   }
