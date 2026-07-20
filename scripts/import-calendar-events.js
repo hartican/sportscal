@@ -167,7 +167,7 @@ function toImportedEvent(calendar, event) {
     round,
     narrativeType: classification.eventType,
     selectedSentence: `Personal calendar event, categorised as ${sport.label} by the ${classification.sportRule} rule.`,
-    fullSpiel: `Imported from ${calendar.calendarName}. Sportscal categorised this event as ${sport.label} using the ${classification.sportRule} rule and assigned the ${classification.eventRule} event category.`,
+    fullSpiel: `Imported from ${calendar.calendarName}. nothingSports categorised this event as ${sport.label} using the ${classification.sportRule} rule and assigned the ${classification.eventRule} event category.`,
     sourceName: `Imported from ${calendar.calendarName}`,
     sourceUrl,
     sourceCheckedAt: calendar.importedAt,

@@ -1,7 +1,7 @@
 {
   "name": "nothingSports",
   "short_name": "nothingSports",
-  "description": "Spoiler-free sports calendar and watch planner for Sydney time.",
+  "description": "A smart sports streaming filter for high-stakes events, reminders, and where to watch.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

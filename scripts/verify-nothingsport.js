@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const vm = require("node:vm");
 const { classifyCalendarEvent, classifyCommonwealthDiscipline } = require("./import-calendar-events");
 const profileStorage = require("../config/profile-storage.js");
+const brand = require("../config/brand-copy.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
@@ -21,8 +22,13 @@ assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app scr
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the nothingSports contract");
 assert(html.includes("<title>nothingSports</title>"), "the document title must use the nothingSports brand");
-assert(html.includes("nothingSports is your smart sports streaming filter"), "the requested nothingSports slogan must be present");
-assert(html.includes("clean, <strong>journalistic</strong> feed"), "the requested journalistic positioning must be present");
+assert(html.includes(brand.hero), "the canonical nothingSports hero line must be present");
+assert(html.includes(brand.about), "the canonical nothingSports About paragraph must be present verbatim");
+assert.equal(manifest.description, brand.metadataDescription, "manifest copy must follow the brand source of truth");
+assert(html.includes(`content="${brand.metadataDescription}"`), "page metadata must follow the brand source of truth");
+assert(!/right live games/i.test(html), "superseded right-live-games copy must be removed");
+assert(!brand.about.includes("Sydney"), "core product copy must not be city-bound");
+assert(brand.about.includes("AEST/AEDT by default"), "core product copy must describe its default timezone basis");
 const brandAssets = [
   "assets/brand/web/nothingsport-logo-day.png",
   "assets/brand/web/nothingsport-logo-night.png",
@@ -47,6 +53,7 @@ assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation s
 assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned Australian broadcast config must load in hosted and direct-file modes");
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
+assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert(html.includes('src="data/cwg-events.js"'), "direct-file mode must load the published Commonwealth Games fallback bundle");
@@ -161,7 +168,7 @@ assert.deepEqual(
   publishedCwgCards.map(event => event.id).sort(),
   "direct-file fallback must mirror the canonical published Commonwealth Games ids"
 );
-assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing Sportscal card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
+assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing nothingSports card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
 const fifaCards = publishedFeed.events.filter(event => event.key === "fifa");
 assert.equal(fifaCards.length, 20, "published feed must contain all Australia matches and every Round-of-16-onward FIFA card");
 assert(!fifaCards.some(event => /if advanced/i.test(event.name)), "stale conditional FIFA placeholders must be removed");

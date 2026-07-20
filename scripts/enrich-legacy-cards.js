@@ -3,7 +3,7 @@
 const { normalizeFeed, readJson, validateFeed, writeJson } = require("./lib/feed-utils");
 const { safeCompletedCopy } = require("./lib/storyline-card-rules");
 
-const PLACEHOLDER = "Preserved from the existing Sportscal card set until a newer source supersedes it.";
+const PLACEHOLDER = "Preserved from the existing nothingSports card set until a newer source supersedes it.";
 const SOURCE_CHECKED_AT = "2026-07-16T08:30:00+10:00";
 
 const resultOverrides = {
@@ -303,7 +303,7 @@ function enrichEvent(event){
   return {
     ...event,
     selectedSentence: event.selectedSentence === PLACEHOLDER ? selectedSentence : event.selectedSentence,
-    fullSpiel: /remains available from the existing Sportscal card set/i.test(event.fullSpiel || "") ? fullSpiel : event.fullSpiel,
+    fullSpiel: /remains available from the existing nothingSports card set/i.test(event.fullSpiel || "") ? fullSpiel : event.fullSpiel,
     sourceCheckedAt: event.sourceCheckedAt || SOURCE_CHECKED_AT,
     narrativeType: isPast(event) ? "result-pending" : (event.narrativeType || event.round || "preview"),
   };

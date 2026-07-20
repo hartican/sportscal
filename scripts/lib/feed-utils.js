@@ -272,7 +272,7 @@ function daysApart(first, second) {
 function isSupersededEvent(retained, incoming) {
   if (retained.id === incoming.id || retained.eventId === incoming.eventId) return true;
   if (retained.key !== incoming.key || daysApart(retained, incoming) > 7) return false;
-  if (incoming.sourceName === "Bundled Sportscal seed data") return false;
+  if (incoming.sourceName === "Bundled nothingSports seed data") return false;
   const retainedTokens = identityTokens(retained);
   const incomingTokens = identityTokens(incoming);
   let sharedTokens = 0;
