@@ -56,9 +56,13 @@
     const original = String(value || "").trim();
     if (!original) return original;
     const withCanonicalSeparator = original
+      .replace(/\p{Regional_Indicator}{2}/gu, "")
+      .replace(/\p{Extended_Pictographic}/gu, "")
+      .replace(/\uFE0F/g, "")
       .replace(/\s+(?:vs\.?|versus)\s+/gi, " v ")
       .replace(/\s+[vV]\s+/g, " v ")
-      .replace(/\s{2,}/g, " ");
+      .replace(/\s{2,}/g, " ")
+      .trim();
     const parts = withCanonicalSeparator.split(" v ");
     if (parts.length < 2) return canonicalSideName(withCanonicalSeparator, sportKey);
     return parts.map(part => canonicalSideName(part, sportKey)).join(" v ");
@@ -228,9 +232,23 @@
     return "inciting";
   }
 
-  function archetypeFor(event){
+  function sportSpecificNarrative(event, context = {}){
+    const text = `${event.storyline?.narrativeHook || ""} ${event.name || ""}`;
+    const signals = Array.isArray(context.narrativeProfile?.signals) ? context.narrativeProfile.signals : [];
+    return signals.find(signal => {
+      try {
+        return new RegExp(signal.match, "i").test(text);
+      } catch {
+        return false;
+      }
+    });
+  }
+
+  function archetypeFor(event, context = {}){
     const supplied = event.storyline?.archetype;
     if (ALLOWED_ARCHETYPES.has(supplied)) return supplied;
+    const sportSpecific = sportSpecificNarrative(event, context);
+    if (ALLOWED_ARCHETYPES.has(sportSpecific?.archetype)) return sportSpecific.archetype;
     const text = `${supplied || ""} ${event.name || ""}`.toLowerCase();
     if (/rival|derby/.test(text)) return "rivalry";
     if (/upset|underdog|rags/.test(text)) return "ragsToRiches";
@@ -239,9 +257,11 @@
     return undefined;
   }
 
-  function visibleLabelFor(event, mustWatchScore){
+  function visibleLabelFor(event, mustWatchScore, context = {}){
     const supplied = event.storyline?.visibleLabel;
     if (ALLOWED_LABELS.has(supplied)) return supplied;
+    const sportSpecific = sportSpecificNarrative(event, context);
+    if (ALLOWED_LABELS.has(sportSpecific?.label)) return sportSpecific.label;
     const text = `${event.storyline?.archetype || ""} ${event.name || ""}`;
     if (/rival|derby/i.test(text)) return "Rivalry";
     if (/record/i.test(text)) return "Record Chase";
@@ -290,9 +310,9 @@
       intensitySource: Number.isFinite(Number(event.storyline?.intensity)) ? "manual" : "computed",
       scoreReasons,
     };
-    const archetype = archetypeFor(event);
+    const archetype = archetypeFor(event, context);
     if (archetype) storyline.archetype = archetype;
-    const visibleLabel = visibleLabelFor(event, mustWatchScore);
+    const visibleLabel = visibleLabelFor(event, mustWatchScore, context);
     if (visibleLabel) storyline.visibleLabel = visibleLabel;
     if (Array.isArray(event.storyline?.characterRoles)) storyline.characterRoles = event.storyline.characterRoles.slice();
     if (event.updatedAt) storyline.lastReviewedAt = event.updatedAt;

@@ -14,6 +14,8 @@ const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", "utf8");
 const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
 const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
+const vectorAssetsSource = fs.readFileSync("config/vector-assets.js", "utf8");
+const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
 const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "utf8");
@@ -60,6 +62,8 @@ assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
+assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
+assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
@@ -124,7 +128,7 @@ assert(html.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "abov
 assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
-assert(html.includes("🎟️ Tickets"), "local games must expose a Tickets link");
+assert(html.includes('glyphMarkup("ui:ticket")'), "local games must expose a vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
 assert(!/textContent\s*=\s*["']NEW["']/.test(eventCardSource), "the freshness treatment must not add a NEW text badge");
@@ -288,6 +292,8 @@ const sandbox = {
   },
 };
 vm.createContext(sandbox);
+vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.js" });
+vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-domain-registry.js" });
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });

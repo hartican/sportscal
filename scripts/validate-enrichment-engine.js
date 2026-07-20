@@ -3,6 +3,7 @@
 const assert = require("node:assert/strict");
 const engine = require("../config/enrichment-engine.js");
 const preferences = require("../config/preference-system.js");
+const sportRegistry = require("../config/sport-domain-registry.js");
 
 const graph = preferences.createPreferenceGraph({
   profileId: "profile:test",
@@ -17,6 +18,17 @@ graph.viewing.endHourLocal = 23;
 assert.equal(engine.canonicalFixtureTitle("Japan vs Wallabies", { sportKey: "rugby" }), "Japan v Australia");
 assert.equal(engine.canonicalFixtureTitle("Wallabies versus Cherry Blossoms", { sportKey: "rugby" }), "Australia v Japan");
 assert.equal(engine.canonicalFixtureTitle("Storm vs Broncos", { sportKey: "nrl" }), "Storm v Broncos");
+assert.equal(engine.canonicalFixtureTitle("Australia v England 🇦🇺", { sportKey: "fifa" }), "Australia v England", "decorative emoji must not survive canonical fixture formatting");
+
+const tourNarrative = engine.enrichEvent({
+  id: "tour-mountain",
+  key: "tdf",
+  name: "Stage 19 — Alpe d'Huez (Mountain)",
+  time: "20:00",
+  expected: 7,
+}, { preferenceGraph: graph, narrativeProfile: sportRegistry.byKey.tdf.narrativeProfile });
+assert.equal(tourNarrative.storyline.visibleLabel, "Must Watch", "sport-specific narrative signals must run before global fallback rules");
+assert.equal(tourNarrative.storyline.archetype, "quest");
 
 const routine = engine.enrichEvent({
   id: "routine",
