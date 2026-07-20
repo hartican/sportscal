@@ -1,29 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-07-19T14:42:07.080Z",
+  "generatedAt": "2026-07-20T08:06:45.150Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 24,
-    "passed": 24,
+    "due": 23,
+    "passed": 23,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "fifa-final-2026",
-      "name": "FIFA World Cup Final",
-      "sport": "Football",
-      "date": "2026-07-20",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "tournament-form",
-        "tactical-matchup",
-        "title-history"
-      ],
-      "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-v-argentina-live-stream-team-news-tickets-and-more",
-      "issues": []
-    },
     {
       "id": "evt_61",
       "name": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT)",

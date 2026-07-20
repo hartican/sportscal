@@ -237,10 +237,11 @@ header.top{
 }
 
 .spoiler-home-state{
-  min-width:28px;
+  min-width:82px;
   font-size:0.7rem;
   font-weight:900;
   letter-spacing:0.04em;
+  white-space:nowrap;
 }
 
 .btn{
@@ -1595,17 +1596,6 @@ main{
   color:var(--text);
 }
 
-.setting-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 18px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
-  background: var(--soft-fill);
-}
-
 .settings-menu{
   display:flex;
   flex-direction:column;
@@ -1697,37 +1687,10 @@ main{
   line-height:1.35;
 }
 
-.setting-row strong{
-  display:block;
-  font-size: 0.86rem;
-  margin-bottom: 4px;
-}
-
-.setting-row p,
 .preference-help{
   color: var(--text-dim);
   font-size: 0.75rem;
   line-height:1.4;
-}
-
-.settings-switch{
-  flex-shrink:0;
-  min-width: 76px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 8px 11px;
-  background: var(--bg-card);
-  color: var(--text-dim);
-  font-family: inherit;
-  font-size: 0.72rem;
-  font-weight: 800;
-  cursor:pointer;
-}
-
-.settings-switch.active{
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #05050a;
 }
 
 .venue-choice-grid{
@@ -2016,7 +1979,7 @@ footer.app-footer{
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
-      <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show spoilers globally: off"><span aria-hidden="true">◐</span> <span>Spoilers</span> <span class="spoiler-home-state">OFF</span></button>
+      <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show Results"><span aria-hidden="true">◐</span> <span class="spoiler-home-state">Show Results</span></button>
       <button class="btn ghost" id="aboutBtn"><span aria-hidden="true">ⓘ</span> <span class="full-label">About nothingSports</span></button>
       <button class="btn ghost" id="settingsBtn">⚙ <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="refreshBtn">↻ <span class="full-label">Refresh feed</span></button>
@@ -2253,7 +2216,7 @@ const SPOILER_FIELDS = {
 };
 
 const DEFAULT_PREFERENCES = {
-  version: 4,
+  version: 5,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
@@ -2349,6 +2312,8 @@ let settingsFirstRun = false;
 let settingsSelectorCategory = "category:special-events";
 let draftPreferences = null;
 let pendingSelectorPromptIds = new Set();
+let settingsViewportAnchor = null;
+let selectorOptInViewportAnchor = null;
 let cardViewStates = {};
 
 function readStorage(key, fallback){
@@ -2514,15 +2479,26 @@ function mergePreferences(saved){
   const selectedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
+  const shouldRestoreCwgForExistingProfile = Number(saved.version || 0) < DEFAULT_PREFERENCES.version
+    && Boolean(saved.onboardingComplete)
+    && selectedSelectorEntityIds.length > 0;
+  const migratedSelectorEntityIds = shouldRestoreCwgForExistingProfile
+    ? uniqueArray([...selectedSelectorEntityIds, "special:commonwealth-games"])
+    : selectedSelectorEntityIds;
+  const selectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
+  const migratedBroadcasters = shouldRestoreCwgForExistingProfile
+    ? uniqueArray([...selectedBroadcasters, "seven"])
+    : selectedBroadcasters;
   return {
     ...merged,
     ...saved,
+    version: DEFAULT_PREFERENCES.version,
     theme: normalizeThemePreference(saved.theme ?? merged.theme),
     showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
     localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
-    selectedSelectorEntityIds,
-    followedSports: canonicalSportKeysForSelectorIds(selectedSelectorEntityIds),
-    selectedBroadcasters: uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]),
+    selectedSelectorEntityIds: migratedSelectorEntityIds,
+    followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
+    selectedBroadcasters: migratedBroadcasters,
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
@@ -2530,7 +2506,11 @@ function mergePreferences(saved){
 
 function loadPreferences(){
   const current = readStorage(STORAGE_KEYS.preferences, null);
-  if (current && typeof current === "object") return mergePreferences(current);
+  if (current && typeof current === "object"){
+    const migrated = mergePreferences(current);
+    if (migrated.version !== current.version) writeStorage(STORAGE_KEYS.preferences, migrated);
+    return migrated;
+  }
   const legacy = readStorage(STORAGE_KEYS.legacyPreferences, null);
   if (legacy && typeof legacy === "object"){
     const migrated = mergePreferences(legacy);
@@ -2660,11 +2640,12 @@ function renderHomeSpoilerToggle(){
   const toggle = document.getElementById("homeSpoilerToggle");
   if (!toggle) return;
   const shown = Boolean(userPreferences.showSpoilers);
+  const action = shown ? "Hide Results" : "Show Results";
   toggle.classList.toggle("active", shown);
   toggle.setAttribute("aria-checked", shown ? "true" : "false");
-  toggle.setAttribute("aria-label", `Show spoilers globally: ${shown ? "on" : "off"}`);
+  toggle.setAttribute("aria-label", action);
   const state = toggle.querySelector(".spoiler-home-state");
-  if (state) state.textContent = shown ? "ON" : "OFF";
+  if (state) state.textContent = action;
 }
 
 function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
@@ -2672,7 +2653,7 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
   const next = Boolean(nextShowSpoilers);
   savePreferences({ ...userPreferences, showSpoilers: next });
   const resetCount = applyGlobalSpoilerPolicy(next, previousShowSpoilers);
-  renderAll();
+  renderAll({ preserveViewport: true });
   if (notify){
     const resetCopy = resetCount ? ` ${resetCount} event override${resetCount === 1 ? " was" : "s were"} reset.` : "";
     showToast(`Spoilers ${next ? "shown" : "protected"} globally.${resetCopy}`);
@@ -3970,6 +3951,33 @@ function restoreViewportRetractionAnchor(anchor){
   window.scrollBy(0, offset);
 }
 
+function captureViewportRenderAnchor(){
+  const stickyHeader = document.querySelector("header.top");
+  const viewportTop = (stickyHeader ? stickyHeader.getBoundingClientRect().height : 0) + 12;
+  const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
+    .find(card => card.getBoundingClientRect().bottom > viewportTop);
+  return {
+    eventId: anchorCard?.dataset.eventId || null,
+    top: anchorCard?.getBoundingClientRect().top || null,
+    scrollY: window.scrollY,
+  };
+}
+
+function restoreViewportRenderAnchor(anchor){
+  if (!anchor) return;
+  const anchorCard = anchor.eventId
+    ? Array.from(document.querySelectorAll(".event-card[data-event-id]"))
+      .find(card => card.dataset.eventId === anchor.eventId)
+    : null;
+  if (anchorCard && Number.isFinite(anchor.top)){
+    const offset = scrollOffsetToPreserveAnchor(anchor.top, anchorCard.getBoundingClientRect().top);
+    if (Math.abs(offset) >= 0.5) window.scrollBy(0, offset);
+    return;
+  }
+  const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  window.scrollTo({ top: Math.min(anchor.scrollY, maxScrollY), behavior: "auto" });
+}
+
 function collapseCardsOutsideActiveViewport(){
   const expandedCards = Array.from(document.querySelectorAll(".event-card.is-selected, .event-card.is-opened"));
   if (!expandedCards.length) return false;
@@ -4845,7 +4853,8 @@ function renderTabCounts(){
   document.getElementById("archivedTabCount").textContent = archivedEvents().length;
 }
 
-function renderAll(){
+function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
+  const preservedViewportAnchor = viewportAnchor || (preserveViewport ? captureViewportRenderAnchor() : null);
   renderHomeSpoilerToggle();
   renderFilters();
   renderTabCounts();
@@ -4883,6 +4892,7 @@ function renderAll(){
     activeSection.style.display = "block";
     renderCurrentSection();
   }
+  restoreViewportRenderAnchor(preservedViewportAnchor);
 }
 
 /* ============ SETTINGS ============ */
@@ -4892,6 +4902,13 @@ function clonePreferences(prefs){
 
 function toggleArrayValue(list, value){
   return list.includes(value) ? list.filter(item => item !== value) : list.concat(value);
+}
+
+function restoreViewportAnchorAfterLayout(anchor){
+  if (!anchor) return;
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => restoreViewportRenderAnchor(anchor));
+  });
 }
 
 function selectorNewMarkerMarkup(entity){
@@ -4977,6 +4994,7 @@ function toggleSelectorEntityInDraft(entityId){
 }
 
 function openSettings({ firstRun = false, section = "main" } = {}){
+  settingsViewportAnchor = captureViewportRenderAnchor();
   settingsFirstRun = firstRun;
   settingsSection = section;
   draftPreferences = clonePreferences(userPreferences);
@@ -4988,11 +5006,13 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+  restoreViewportAnchorAfterLayout(settingsViewportAnchor);
   applyThemePreference(draftPreferences.theme);
   renderSettingsScreen();
 }
 
-function closeSettings({ restoreTheme = true } = {}){
+function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
+  const viewportAnchor = settingsViewportAnchor;
   const modal = document.getElementById("settingsModal");
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
@@ -5001,6 +5021,8 @@ function closeSettings({ restoreTheme = true } = {}){
   settingsSection = "main";
   settingsFirstRun = false;
   draftPreferences = null;
+  settingsViewportAnchor = null;
+  if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
   setTimeout(openSelectorOptInPrompt, 0);
 }
 
@@ -5035,7 +5057,7 @@ function renderSettingsMenu(body){
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("sports", "◉", "Sports Selector", `${draftPreferences.selectedSelectorEntityIds.length} selector choices · Sports and Special Events`)}
     ${settingsMenuItem("providers", "📡", "TV & streaming", `${draftPreferences.selectedBroadcasters.length} providers selected`)}
-    ${settingsMenuItem("privacy", "◐", "Spoilers & local venues", `Spoilers ${draftPreferences.showSpoilers ? "on" : "protected"} · ${draftPreferences.localVenueIds.length} local venues`)}
+    ${settingsMenuItem("privacy", "⌖", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "☼", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("feedback", "✎", "Feedback", "Send an idea, request, or bug report from Settings")}
   </div>`;
@@ -5217,11 +5239,7 @@ function renderProviderSettings(body){
 }
 
 function renderPrivacySettings(body){
-  body.innerHTML = `<div class="preference-stack"><div class="setting-row"><div><strong>Show spoilers globally</strong><p>Changing this switch resets every event to match the new global setting. Individual event choices made afterwards remain until the global setting changes again.</p></div><button class="settings-switch${draftPreferences.showSpoilers ? " active" : ""}" id="globalSpoilerSwitch" type="button" role="switch" aria-checked="${draftPreferences.showSpoilers ? "true" : "false"}">${draftPreferences.showSpoilers ? "ON" : "OFF"}</button></div><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p>${selectionActionsMarkup("venues", "Local venues")}<div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
-  document.getElementById("globalSpoilerSwitch").addEventListener("click", () => {
-    draftPreferences.showSpoilers = !draftPreferences.showSpoilers;
-    renderSettingsScreen();
-  });
+  body.innerHTML = `<div class="preference-stack"><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p>${selectionActionsMarkup("venues", "Local venues")}<div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
   const venueGrid = document.getElementById("localVenueGrid");
   Object.entries(LOCAL_VENUE_OPTIONS).forEach(([id, venue]) => {
     const selected = draftPreferences.localVenueIds.includes(id);
@@ -5285,7 +5303,7 @@ function renderSettingsScreen(){
     main: [settingsFirstRun ? "Set up nothingSports" : "Settings", "Choose an area. Every submenu can return here or close at any time."],
     sports: ["Sports Selector", "Choose between Sports and Special Events, then tune event groups and subcategory filters."],
     providers: ["TV & streaming", "Choose the services available to you."],
-    privacy: ["Spoilers & local venues", "Control result visibility and the venues that count as local."],
+    privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
     feedback: ["Feedback", "Send an idea, request, or bug report without leaving Settings."],
   };
@@ -5389,15 +5407,15 @@ function saveSettingsPreferences(){
     showToast("Choose at least one provider.");
     return;
   }
-  const previousShowSpoilers = userPreferences.showSpoilers;
+  const viewportAnchor = settingsViewportAnchor;
   draftPreferences.onboardingComplete = true;
   syncDraftSelectorSports();
+  draftPreferences.showSpoilers = userPreferences.showSpoilers;
   savePreferences(draftPreferences);
   writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
-  applyGlobalSpoilerPolicy(userPreferences.showSpoilers, previousShowSpoilers);
   applyThemePreference(userPreferences.theme);
-  closeSettings({ restoreTheme: false });
-  renderAll();
+  closeSettings({ restoreTheme: false, restoreViewport: false });
+  renderAll({ viewportAnchor });
   showToast("Settings saved.");
 }
 
@@ -5447,12 +5465,15 @@ document.addEventListener("keydown", evt => {
   }
 });
 
-function closeSelectorOptInPrompt(){
+function closeSelectorOptInPrompt({ restoreViewport = true } = {}){
+  const viewportAnchor = selectorOptInViewportAnchor;
   const modal = document.getElementById("selectorOptInModal");
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
   pendingSelectorPromptIds = new Set();
+  selectorOptInViewportAnchor = null;
+  if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
 }
 
 function acknowledgeSelectorRelease(){
@@ -5483,12 +5504,14 @@ function openSelectorOptInPrompt(){
   if (!userPreferences.onboardingComplete) return false;
   if (readStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, null) === SELECTOR_TAXONOMY.version) return false;
   if (document.getElementById("settingsModal").classList.contains("show")) return false;
+  selectorOptInViewportAnchor = captureViewportRenderAnchor();
   pendingSelectorPromptIds = new Set();
   renderSelectorOptInPrompt();
   const modal = document.getElementById("selectorOptInModal");
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+  restoreViewportAnchorAfterLayout(selectorOptInViewportAnchor);
   return true;
 }
 
@@ -5500,6 +5523,7 @@ document.getElementById("skipSelectorOptInBtn").addEventListener("click", () => 
 document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () => {
   if (!pendingSelectorPromptIds.size) return;
   const selectionCount = pendingSelectorPromptIds.size;
+  const viewportAnchor = selectorOptInViewportAnchor;
   const next = clonePreferences(userPreferences);
   const combined = new Set([...(next.selectedSelectorEntityIds || []), ...pendingSelectorPromptIds]);
   if (combined.has("category:special-events")){
@@ -5512,8 +5536,8 @@ document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () 
   next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
   savePreferences(next);
   acknowledgeSelectorRelease();
-  closeSelectorOptInPrompt();
-  renderAll();
+  closeSelectorOptInPrompt({ restoreViewport: false });
+  renderAll({ viewportAnchor });
   showToast(`${selectionCount === 1 ? "New feed choice" : "New feed choices"} added.`);
 });
 

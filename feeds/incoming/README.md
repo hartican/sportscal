@@ -28,6 +28,8 @@ node scripts/update-cards.js
 
 This command keeps completed result facts in `score`, `outcomeText` and `recapText`, keeps `selectedSentence` and `fullSpiel` safe for spoiler-OFF fallbacks, derives `storyline.arcStage` from lifecycle, and checks both incoming and published feeds. Do not bypass this step for result updates.
 
+Result-close policy: `liveWindow` (or `endTimeUtc` where supplied) is the expected close time. Once that time has passed, publish the official result if it is available. If the official score is still delayed but reputable reports agree, publish that media consensus immediately with `sourceType: "reputable"`, clear consensus wording in the source/result labels, and exact source timestamps. Do not leave a completed card pending solely for an official score.
+
 6. Validate the incoming file explicitly:
 
 ```bash

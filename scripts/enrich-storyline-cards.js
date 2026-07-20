@@ -27,6 +27,7 @@ inputs.forEach(input => {
       selectedSentence: safeRoot.hook,
       fullSpiel: safeRoot.synopsis,
     };
+    if (status === "completed") delete next.editorialPreview;
     if (!isDeepStrictEqual(next, event)) {
       updated += 1;
       if (major) next.lastReviewedAt = reviewedAt;

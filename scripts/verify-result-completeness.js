@@ -6,25 +6,48 @@ const inputPath = process.argv[2] || "feeds/incoming/events.json";
 const feed = JSON.parse(fs.readFileSync(inputPath, "utf8"));
 const events = Array.isArray(feed) ? feed : feed.events;
 const now = new Date();
-const today = now.toISOString().slice(0, 10);
+
+function expectedCloseAt(event) {
+  const explicitEnd = event.endTimeUtc ? new Date(event.endTimeUtc) : null;
+  if (explicitEnd && !Number.isNaN(explicitEnd.getTime())) return explicitEnd;
+  if (!event.date || !event.time) return null;
+  const start = new Date(`${event.date}T${event.time}:00+10:00`);
+  if (Number.isNaN(start.getTime())) return null;
+  const durationHours = Number(event.liveWindow);
+  const expectedDurationMs = (Number.isFinite(durationHours) && durationHours > 0 ? durationHours : 3) * 60 * 60 * 1000;
+  return new Date(start.getTime() + expectedDurationMs);
+}
 
 function isDueForResult(event) {
   if (event.status === "completed") return true;
-  if (!event.date || event.date > today) return false;
-  if (event.date < today) return true;
-  if (!event.time) return false;
-  const start = new Date(`${event.date}T${event.time}:00+10:00`);
-  return now.getTime() >= start.getTime() + 4 * 60 * 60 * 1000;
+  const expectedClose = expectedCloseAt(event);
+  return Boolean(expectedClose && now.getTime() >= expectedClose.getTime());
 }
 
-const missing = events
-  .filter(isDueForResult)
+function resultSourceKind(event) {
+  return event.sourceType === "reputable" ? "media-consensus" : (event.sourceType || "source-type-unspecified");
+}
+
+const dueEvents = events.filter(isDueForResult);
+
+const missing = dueEvents
   .filter(event => !event.score || !event.outcomeText || !event.recapText || !event.sourceName || !event.sourceUrl || !event.sourceCheckedAt);
 
 const summary = {
   checkedAt: now.toISOString(),
-  dueEvents: events.filter(isDueForResult).length,
-  missingResults: missing.map(event => ({ id: event.id, name: event.name, date: event.date, status: event.status || "unset" })),
+  dueEvents: dueEvents.length,
+  resultsBySource: dueEvents.reduce((counts, event) => {
+    const kind = resultSourceKind(event);
+    counts[kind] = (counts[kind] || 0) + 1;
+    return counts;
+  }, {}),
+  missingResults: missing.map(event => ({
+    id: event.id,
+    name: event.name,
+    date: event.date,
+    status: event.status || "unset",
+    expectedCloseAt: expectedCloseAt(event)?.toISOString() || null,
+  })),
 };
 console.log(JSON.stringify(summary, null, 2));
 if (missing.length) {

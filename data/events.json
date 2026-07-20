@@ -4882,16 +4882,31 @@
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "fixture",
-      "selectedSentence": "GWS takes a Melbourne fixture into a Sunday afternoon Marvel Stadium slot.",
-      "fullSpiel": "Greater Western Sydney Giants play Essendon at Marvel Stadium in Melbourne. The official AFL fixture lists a 4:40 pm Sydney start and Fox Footy coverage.",
-      "sourceName": "Official AFL fixture (rounds 16–22)",
-      "sourceUrl": "https://www.afl.com.au/news/1518682/2026-toyota-afl-premiership-season-rounds-16-22-confirmed",
-      "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+      "selectedSentence": "Essendon v GWS Giants is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Essendon v GWS Giants is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Fox Sports and fixture-result reports (media consensus)",
+      "sourceUrl": "https://www.foxsports.com.au/afl/afl-2026-moments-that-won-essendon-bombers-game-vs-gws-giants-first-crack-analysis-video-highlights-latest-news/news-story/affc78285419e90ce955b63c73d35b73",
+      "sourceCheckedAt": "2026-07-20T16:15:05+10:00",
+      "sourceType": "reputable",
+      "score": "Essendon 10.7 (67) def GWS Giants 8.16 (64)",
+      "outcomeText": "Essendon held off GWS by three points at Marvel Stadium (media consensus).",
+      "recapText": "Fox Sports and independent fixture-result services agree that Essendon won 67-64 at Marvel Stadium after GWS finished with 8.16.",
+      "resultLabels": [
+        "AFL Round 19",
+        "Essendon by 3",
+        "Media consensus"
+      ],
+      "consensusResult": {
+        "winner": "Essendon",
+        "loser": "GWS Giants",
+        "summary": "Essendon 67, GWS Giants 64.",
+        "marginText": "Essendon by 3 points"
+      },
       "replayEligible": false,
       "highlightEligible": true,
       "briefingEligible": false,
       "catchupEligible": false,
-      "status": "upcoming"
+      "status": "completed"
     },
     {
       "sport": "Cycling",
@@ -4906,11 +4921,11 @@
       "id": "evt_60",
       "eventId": "evt_60",
       "displayTitleCompact": "Stage 15 — Champagnole → Plateau de Solaison (Mountain)",
-      "selectedSentence": "Two savage ramps—Croisette at 11.2% and Solaison at 9.1%—can turn the yellow-jersey shortlist into a verdict.",
-      "fullSpiel": "The final 11.3 kilometres to the Plateau de Solaison average 9.1%, after almost five relentless kilometres on the Col de la Croisette at 11.2%. This is not a stage for hiding: the strongest general-classification riders should be isolated before the final climb begins.",
-      "sourceName": "Official Tour de France Stage 15 route commentary",
-      "sourceUrl": "https://www.letour.fr/en/news/2026/stage-15/champagnole-plateau-de-solaison-1/1332950",
-      "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
+      "selectedSentence": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Associated Press and L'Équipe stage reports (media consensus)",
+      "sourceUrl": "https://wtop.com/sports/2026/07/tour-de-france-results-15/",
+      "sourceCheckedAt": "2026-07-20T16:15:05+10:00",
       "broadcastOptions": [
         "SBS / SBS On Demand"
       ],
@@ -4920,32 +4935,32 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
+      "score": "Stage winner: Remco Evenepoel (4:23:09)",
+      "outcomeText": "Remco Evenepoel won Stage 15 ahead of Tadej Pogačar, with Isaac del Toro third (media consensus).",
+      "recapText": "Associated Press and L'Équipe agree that Evenepoel won the Plateau de Solaison finish in 4:23:09, with Pogačar on the same time and Del Toro six seconds back.",
+      "resultLabels": [
+        "Stage 15",
+        "Remco Evenepoel winner",
+        "Media consensus"
+      ],
+      "consensusResult": {
+        "winner": "Remco Evenepoel",
+        "summary": "Evenepoel won in 4:23:09, ahead of Pogačar and Del Toro.",
+        "marginText": "Pogačar same time; Del Toro +6 seconds"
+      },
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Two savage ramps—Croisette at 11.2% and Solaison at 9.1%—can turn the yellow-jersey shortlist into a verdict.",
-        "hookSpoilerOn": "Two savage ramps—Croisette at 11.2% and Solaison at 9.1%—can turn the yellow-jersey shortlist into a verdict.",
-        "synopsisSpoilerOff": "The final 11.3 kilometres to the Plateau de Solaison average 9.1%, after almost five relentless kilometres on the Col de la Croisette at 11.2%. This is not a stage for hiding: the strongest general-classification riders should be isolated before the final climb begins.",
-        "synopsisSpoilerOn": "The final 11.3 kilometres to the Plateau de Solaison average 9.1%, after almost five relentless kilometres on the Col de la Croisette at 11.2%. This is not a stage for hiding: the strongest general-classification riders should be isolated before the final climb begins."
+        "hookSpoilerOff": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Remco Evenepoel won Stage 15 ahead of Tadej Pogačar, with Isaac del Toro third (media consensus).",
+        "synopsisSpoilerOff": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Associated Press and L'Équipe agree that Evenepoel won the Plateau de Solaison finish in 4:23:09, with Pogačar on the same time and Del Toro six seconds back."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
-      "sourceType": "official",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Back-to-back steep climbs can reveal the definitive title contenders.",
-        "contextSignals": [
-          "course-profile",
-          "general-classification",
-          "climbing-gradient"
-        ],
-        "sourceName": "Official Tour de France Stage 15 route commentary",
-        "sourceUrl": "https://www.letour.fr/en/news/2026/stage-15/champagnole-plateau-de-solaison-1/1332950",
-        "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
-        "needsPreviewRefresh": false
-      }
+      "lastReviewedAt": "2026-07-20T06:40:30.081Z",
+      "sourceType": "reputable"
     },
     {
       "sport": "F1",
@@ -4960,11 +4975,11 @@
       "id": "evt_21",
       "eventId": "evt_21",
       "displayTitleCompact": "R10 Belgian GP Race",
-      "selectedSentence": "Antonelli starts from pole at Spa, but Norris's 10-place penalty drops the fastest McLaren to P13 and puts Verstappen on the front row.",
-      "fullSpiel": "Antonelli converted Friday's pace into pole ahead of Verstappen. Norris qualified third but starts 13th after his power-unit penalty, while Russell and Leclerc inherit the pressure behind the front row. The title leader has track position; McLaren has the recovery story.",
-      "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
-      "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
-      "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
+      "selectedSentence": "R10 Belgian GP Race is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "R10 Belgian GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIA Belgian Grand Prix race report",
+      "sourceUrl": "https://www.fia.com/news/f1-antonelli-fights-back-beat-leclerc-and-verstappen-russell-retires",
+      "sourceCheckedAt": "2026-07-20T16:15:05+10:00",
       "broadcastOptions": [
         "Kayo Sports"
       ],
@@ -4974,35 +4989,29 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
+      "score": "1 Kimi Antonelli; 2 Charles Leclerc +1.952s; 3 Max Verstappen",
+      "outcomeText": "Kimi Antonelli won the Belgian Grand Prix after retaking the lead from Charles Leclerc late on.",
+      "recapText": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring.",
+      "resultLabels": [
+        "Belgian Grand Prix",
+        "Antonelli winner",
+        "FIA result"
+      ],
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Antonelli starts from pole at Spa, but Norris's 10-place penalty drops the fastest McLaren to P13 and puts Verstappen on the front row.",
-        "hookSpoilerOn": "Antonelli starts from pole at Spa, but Norris's 10-place penalty drops the fastest McLaren to P13 and puts Verstappen on the front row.",
-        "synopsisSpoilerOff": "Antonelli converted Friday's pace into pole ahead of Verstappen. Norris qualified third but starts 13th after his power-unit penalty, while Russell and Leclerc inherit the pressure behind the front row. The title leader has track position; McLaren has the recovery story.",
-        "synopsisSpoilerOn": "Antonelli converted Friday's pace into pole ahead of Verstappen. Norris qualified third but starts 13th after his power-unit penalty, while Russell and Leclerc inherit the pressure behind the front row. The title leader has track position; McLaren has the recovery story."
+        "hookSpoilerOff": "R10 Belgian GP Race is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Kimi Antonelli won the Belgian Grand Prix after retaking the lead from Charles Leclerc late on.",
+        "synopsisSpoilerOff": "R10 Belgian GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+      "lastReviewedAt": "2026-07-20T06:40:30.081Z",
       "startTimeUtc": "2026-07-19T13:00:00Z",
       "endTimeUtc": "2026-07-19T16:00:00Z",
-      "sourceType": "reputable",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "A pole-winning title leader faces a reshuffled grid after Norris's penalty.",
-        "contextSignals": [
-          "championship-standings",
-          "qualifying-result",
-          "grid-penalty",
-          "tactical-recovery"
-        ],
-        "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
-        "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
-        "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
-        "needsPreviewRefresh": false
-      }
+      "sourceType": "official"
     },
     {
       "sport": "Football",
@@ -5011,18 +5020,18 @@
       "broadcastOptions": [
         "SBS On Demand"
       ],
-      "sourceName": "FIFA Spain v Argentina final preview",
-      "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-v-argentina-live-stream-team-news-tickets-and-more",
-      "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
-      "sourceType": "official",
+      "sourceName": "AP and EFE World Cup final reports (media consensus)",
+      "sourceUrl": "https://apnews.com/article/4a3a8c93c0b21c1db866f7bd857f1c32",
+      "sourceCheckedAt": "2026-07-20T16:15:05+10:00",
+      "sourceType": "reputable",
       "liveWindow": 4,
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
       "narrativeType": "final",
-      "selectedSentence": "The tournament's best attack meets its best defence, with Messi chasing history and Spain one win from a second star.",
-      "fullSpiel": "Holders Argentina have scored more than anyone; unbeaten Spain have conceded only once. Messi leads the Golden Boot race on eight, but Spain's collective control presents the sharpest test yet of Argentina's bid to become the first repeat champions since 1962.",
+      "selectedSentence": "FIFA World Cup Final is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIFA World Cup Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "id": "fifa-final-2026",
       "eventId": "fifa-final-2026",
       "name": "FIFA World Cup Final",
@@ -5045,32 +5054,33 @@
           "sourceEventId": "fifa-sf-2-2026"
         }
       ],
-      "status": "upcoming",
+      "status": "completed",
+      "score": "Spain 1-0 Argentina (AET)",
+      "outcomeText": "Spain won the World Cup 1-0 after extra time; Ferran Torres scored the winner (media consensus).",
+      "recapText": "AP and EFE report that a scoreless final went to extra time before Ferran Torres scored the only goal to give Spain its second World Cup title.",
+      "resultLabels": [
+        "World Cup final",
+        "Spain champions",
+        "Media consensus"
+      ],
+      "consensusResult": {
+        "winner": "Spain",
+        "loser": "Argentina",
+        "summary": "Spain beat Argentina 1-0 after extra time; Ferran Torres scored.",
+        "marginText": "Spain by 1 after extra time"
+      },
       "storyline": {
         "stakes": 5,
         "intensity": 5,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 10,
         "archetype": "championship decider",
-        "hookSpoilerOff": "The tournament's best attack meets its best defence, with Messi chasing history and Spain one win from a second star.",
-        "hookSpoilerOn": "The tournament's best attack meets its best defence, with Messi chasing history and Spain one win from a second star.",
-        "synopsisSpoilerOff": "Holders Argentina have scored more than anyone; unbeaten Spain have conceded only once. Messi leads the Golden Boot race on eight, but Spain's collective control presents the sharpest test yet of Argentina's bid to become the first repeat champions since 1962.",
-        "synopsisSpoilerOn": "Holders Argentina have scored more than anyone; unbeaten Spain have conceded only once. Messi leads the Golden Boot race on eight, but Spain's collective control presents the sharpest test yet of Argentina's bid to become the first repeat champions since 1962."
+        "hookSpoilerOff": "FIFA World Cup Final is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Spain won the World Cup 1-0 after extra time; Ferran Torres scored the winner (media consensus).",
+        "synopsisSpoilerOff": "FIFA World Cup Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "AP and EFE report that a scoreless final went to extra time before Ferran Torres scored the only goal to give Spain its second World Cup title."
       },
-      "lastReviewedAt": "2026-07-18T23:42:29.563Z",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "The tournament's best attack faces its best defence with repeat-title history live.",
-        "contextSignals": [
-          "tournament-form",
-          "tactical-matchup",
-          "title-history"
-        ],
-        "sourceName": "FIFA Spain v Argentina final preview",
-        "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-v-argentina-live-stream-team-news-tickets-and-more",
-        "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
-        "needsPreviewRefresh": false
-      }
+      "lastReviewedAt": "2026-07-20T06:40:30.081Z"
     },
     {
       "id": "f1-australian-gp-2027-ticket-watch",
@@ -5393,8 +5403,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 8,
         "hookSpoilerOff": "All four para powerlifting titles are decided across two compact sessions in one day.",
@@ -5415,7 +5425,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -6297,8 +6307,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "Four compact gold-medal matches close the 3x3 and wheelchair basketball programme.",
@@ -6319,7 +6329,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -6470,8 +6480,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "The final swimming night builds towards the medley relays after six days at Tollcross.",
@@ -6492,7 +6502,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "id": "afl-collingwood-geelong-2026-07-30",
@@ -6646,8 +6656,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 8,
         "hookSpoilerOff": "The heaviest men's and women's classes bring the weightlifting programme to its finish.",
@@ -6668,7 +6678,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -6763,7 +6773,8 @@
         "hookSpoilerOff": "Five lightweight divisions move directly into their medal contests on judo's opening day.",
         "hookSpoilerOn": "Five lightweight divisions move directly into their medal contests on judo's opening day.",
         "synopsisSpoilerOff": "Judo — lightweight medal contests is scheduled at Scottish Event Campus from 01:00 Sydney time. Women's -48kg to -57kg and men's -60kg to -66kg medals are decided. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Judo — lightweight medal contests is scheduled at Scottish Event Campus from 01:00 Sydney time. Women's -48kg to -57kg and men's -60kg to -66kg medals are decided. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "synopsisSpoilerOn": "Judo — lightweight medal contests is scheduled at Scottish Event Campus from 01:00 Sydney time. Women's -48kg to -57kg and men's -60kg to -66kg medals are decided. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
+        "archetype": "international test"
       },
       "editorialPreview": {
         "status": "journalistic",
@@ -6778,7 +6789,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -6866,14 +6877,15 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "Two standalone semifinals decide which teams reach the Commonwealth Games gold-medal match.",
         "hookSpoilerOn": "Two standalone semifinals decide which teams reach the Commonwealth Games gold-medal match.",
         "synopsisSpoilerOff": "Netball — semifinals doubleheader is scheduled at The Hydro from 18:00 Sydney time. The first semifinal begins at 18:00 Sydney time and the second follows at 22:00. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Netball — semifinals doubleheader is scheduled at The Hydro from 18:00 Sydney time. The first semifinal begins at 18:00 Sydney time and the second follows at 22:00. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "synopsisSpoilerOn": "Netball — semifinals doubleheader is scheduled at The Hydro from 18:00 Sydney time. The first semifinal begins at 18:00 Sydney time and the second follows at 22:00. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
+        "archetype": "elimination"
       },
       "editorialPreview": {
         "status": "journalistic",
@@ -6888,7 +6900,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -6921,8 +6933,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "The first boxing final block awards medals across seven men's and women's divisions.",
@@ -6943,7 +6955,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -7038,7 +7050,8 @@
         "hookSpoilerOff": "The middleweight medal session brings four divisions to their decisive contests.",
         "hookSpoilerOn": "The middleweight medal session brings four divisions to their decisive contests.",
         "synopsisSpoilerOff": "Judo — middleweight medal contests is scheduled at Scottish Event Campus from 01:00 Sydney time. Women's -63kg and -70kg join men's -73kg, -81kg and -90kg medal contests. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Judo — middleweight medal contests is scheduled at Scottish Event Campus from 01:00 Sydney time. Women's -63kg and -70kg join men's -73kg, -81kg and -90kg medal contests. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "synopsisSpoilerOn": "Judo — middleweight medal contests is scheduled at Scottish Event Campus from 01:00 Sydney time. Women's -63kg and -70kg join men's -73kg, -81kg and -90kg medal contests. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
+        "archetype": "international test"
       },
       "editorialPreview": {
         "status": "journalistic",
@@ -7053,7 +7066,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -7086,8 +7099,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "The second boxing final block completes the Glasgow medal programme across seven divisions.",
@@ -7108,7 +7121,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -7141,8 +7154,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "Relay pressure and the last major track and field medals close the athletics programme.",
@@ -7163,7 +7176,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -7196,8 +7209,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 8,
         "hookSpoilerOff": "Four bronze and gold-medal programmes share one long closing bowls session.",
@@ -7218,7 +7231,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -7306,8 +7319,8 @@
       "catchupEligible": true,
       "status": "upcoming",
       "storyline": {
-        "stakes": 5,
-        "intensity": 5,
+        "stakes": 4,
+        "intensity": 4,
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "hookSpoilerOff": "Keirin, elimination and points-race medals close four days of track cycling.",
@@ -7328,7 +7341,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "sport": "Commonwealth Games",
@@ -7368,7 +7381,8 @@
         "hookSpoilerOff": "The heavyweight divisions provide the last judo medals of Glasgow 2026.",
         "hookSpoilerOn": "The heavyweight divisions provide the last judo medals of Glasgow 2026.",
         "synopsisSpoilerOff": "Judo — heavyweight medal contests is scheduled at Scottish Event Campus from 00:00 Sydney time. Women's -78kg and +78kg join men's -100kg and +100kg medal contests. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Judo — heavyweight medal contests is scheduled at Scottish Event Campus from 00:00 Sydney time. Women's -78kg and +78kg join men's -100kg and +100kg medal contests. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "synopsisSpoilerOn": "Judo — heavyweight medal contests is scheduled at Scottish Event Campus from 00:00 Sydney time. Women's -78kg and +78kg join men's -100kg and +100kg medal contests. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
+        "archetype": "international test"
       },
       "editorialPreview": {
         "status": "journalistic",
@@ -7383,7 +7397,7 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10
       },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
       "id": "afl-western-bulldogs-north-melbourne-2026-08-06",

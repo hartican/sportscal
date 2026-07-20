@@ -48,7 +48,10 @@ assert(html.includes("--color-contrast:"), "every theme must expose a contrast t
 assert(html.includes("className = \"new-dot\""), "new cards must render the compact contrast-colour dot");
 assert(html.includes('id="homeSpoilerToggle"'), "the global spoiler toggle must be visible in the sticky home-screen header");
 assert(html.includes("setGlobalSpoilerPreference(!userPreferences.showSpoilers"), "the home-screen spoiler toggle must update the global preference immediately");
-assert(html.includes("id=\"globalSpoilerSwitch\""), "Settings must expose a global spoiler control");
+assert(html.includes('>Show Results</span>'), "the home-screen control must invite users to show results when they are hidden");
+assert(html.includes('shown ? "Hide Results" : "Show Results"'), "the home-screen control must switch between Show Results and Hide Results");
+assert(!html.includes("id=\"globalSpoilerSwitch\""), "Settings must not duplicate the global result-visibility control");
+assert(html.includes('"Local venues", `${draftPreferences.localVenueIds.length} local venue'), "Settings must retain a Local venues entry after removing the result control");
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
 assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
@@ -166,11 +169,28 @@ assert(thirdPlace.status === "completed" ? /6-4|finished third/i.test(`${thirdPl
 assert.equal(thirdPlace.storyline.arcStage, "recap", "the completed third-place card must not retain preview lifecycle metadata");
 assert.doesNotMatch(`${thirdPlace.selectedSentence}\n${thirdPlace.fullSpiel}`, /6-4|beat(?:ing)? France|finished third|hat-trick/i, "the third-place card's default fields must remain spoiler-safe");
 assert.match(`${thirdPlace.storyline.hookSpoilerOn}\n${thirdPlace.storyline.synopsisSpoilerOn}`, /6-4|finished third|hat-trick/i, "the third-place card's spoiler-on fields must contain the result-aware recap");
-assert.match(fifaCards.find(event => event.id === "fifa-final-2026").selectedSentence, /best attack.+best defence/i, "the final preview must carry a specific tactical angle");
+const fifaFinal = fifaCards.find(event => event.id === "fifa-final-2026");
+assert.equal(fifaFinal.status, "completed", "the World Cup final must convert from preview to a completed result");
+assert.equal(fifaFinal.score, "Spain 1-0 Argentina (AET)", "the World Cup final must carry the media-consensus score");
+assert.equal(fifaFinal.sourceType, "reputable", "a delayed official World Cup score must be labelled as media consensus");
+assert.doesNotMatch(`${fifaFinal.selectedSentence}\n${fifaFinal.fullSpiel}`, /Spain 1-0|Ferran Torres|extra time/i, "the completed final's default fields must remain spoiler-safe");
+assert.match(`${fifaFinal.storyline.hookSpoilerOn}\n${fifaFinal.storyline.synopsisSpoilerOn}`, /Spain.+1-0|Ferran Torres|extra time/i, "the revealed final card must contain the result-aware recap");
 
 const belgianGrandPrix = publishedFeed.events.find(event => event.id === "evt_21");
 assert.equal(`${belgianGrandPrix.date} ${belgianGrandPrix.time}`, "2026-07-19 23:00", "the Belgian Grand Prix must use the official Sydney start time");
-assert.match(belgianGrandPrix.selectedSentence, /Antonelli.+Norris/i, "the Belgian Grand Prix preview must carry current championship and grid context");
+assert.equal(belgianGrandPrix.status, "completed", "the Belgian Grand Prix must convert from preview to result");
+assert.equal(belgianGrandPrix.sourceType, "official", "the FIA Belgian Grand Prix report must be treated as official");
+assert.match(belgianGrandPrix.score, /Antonelli.+Leclerc.+Verstappen/i, "the Belgian Grand Prix result must retain its podium");
+assert.doesNotMatch(`${belgianGrandPrix.selectedSentence}\n${belgianGrandPrix.fullSpiel}`, /Antonelli.+won|Leclerc|Verstappen/i, "the Belgian Grand Prix default fields must remain spoiler-safe");
+assert.match(`${belgianGrandPrix.storyline.hookSpoilerOn}\n${belgianGrandPrix.storyline.synopsisSpoilerOn}`, /Antonelli.+won|Leclerc/i, "the revealed Belgian Grand Prix card must contain the result-aware recap");
+const tourStageFifteen = publishedFeed.events.find(event => event.id === "evt_60");
+assert.equal(tourStageFifteen.status, "completed", "Tour de France Stage 15 must convert from preview to result");
+assert.equal(tourStageFifteen.sourceType, "reputable", "a delayed Tour score must be labelled as media consensus");
+assert.match(tourStageFifteen.score, /Remco Evenepoel.+4:23:09/i, "Tour de France Stage 15 must carry the consensus winner and time");
+const essendonGws = publishedFeed.events.find(event => event.id === "afl-essendon-gws-2026-07-19");
+assert.equal(essendonGws.status, "completed", "Essendon v GWS must convert from fixture to result");
+assert.equal(essendonGws.score, "Essendon 10.7 (67) def GWS Giants 8.16 (64)", "Essendon v GWS must carry the media-consensus score");
+assert.equal(essendonGws.sourceType, "reputable", "a delayed AFL score must be labelled as media consensus");
 const editorialAudit = JSON.parse(fs.readFileSync("data/editorial-preview-audit.json", "utf8"));
 assert.equal(editorialAudit.summary.failed, 0, "every high-stakes card inside the editorial window must pass journalistic preview QA");
 
@@ -321,6 +341,26 @@ assert.deepEqual(
   ["sport:wimbledon", "sport:fifa"],
   "legacy sport preferences must migrate into the selector layer without following new entities"
 );
+
+const existingProfileBeforeCwg = app.mergePreferences({
+  version: 4,
+  onboardingComplete: true,
+  selectedSelectorEntityIds: Array.from(app.allSelectorEntities())
+    .filter(entity => entity.id.startsWith("sport:"))
+    .map(entity => entity.id),
+  selectedBroadcasters: ["kayo", "stan", "sbs", "nine", "foxtel", "fis"],
+});
+assert(existingProfileBeforeCwg.selectedSelectorEntityIds.includes("special:commonwealth-games"), "existing profiles must receive the Commonwealth Games group when it is introduced");
+assert(existingProfileBeforeCwg.selectedBroadcasters.includes("seven"), "existing profiles must receive Seven when the Commonwealth Games broadcaster is introduced");
+app.setEvents(publishedCwgCards);
+app.setPreferences(existingProfileBeforeCwg);
+assert.equal(app.getPreferenceMatchedEvents().filter(event => event.key === "cwg").length, 32, "existing profiles must retain every Commonwealth Games card after the selector taxonomy updates");
+const cwgOptOut = app.mergePreferences({
+  ...existingProfileBeforeCwg,
+  version: 5,
+  selectedSelectorEntityIds: existingProfileBeforeCwg.selectedSelectorEntityIds.filter(id => id !== "special:commonwealth-games"),
+});
+assert(!cwgOptOut.selectedSelectorEntityIds.includes("special:commonwealth-games"), "a saved Commonwealth Games opt-out must not be overwritten by the migration");
 
 const selectorCategories = Array.from(app.orderSelectorEntities(app.SELECTOR_TAXONOMY.categories));
 assert.equal(selectorCategories[0].label, "Special Events", "the newly introduced Special Events category must appear before its existing sibling");
