@@ -49,7 +49,7 @@ Notes:
 
 ### 4. Spoiler state
 Support:
-- Global spoiler toggle in the sticky home-screen header, mirrored in Settings.
+- Global result-visibility control in the sticky home-screen header only. It reads Show Results when results are hidden and Hide Results when they are shown.
 - Per-event spoiler override.[conversation_history:1]
 
 This must work both ways:
