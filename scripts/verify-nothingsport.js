@@ -6,6 +6,7 @@ const vm = require("node:vm");
 const { classifyCalendarEvent, classifyCommonwealthDiscipline } = require("./import-calendar-events");
 const profileStorage = require("../config/profile-storage.js");
 const brand = require("../config/brand-copy.js");
+const preferenceSystem = require("../config/preference-system.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
@@ -14,6 +15,7 @@ const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", 
 const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
 const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
+const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
 const cwgBundleSource = fs.readFileSync("data/cwg-events.js", "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
@@ -55,7 +57,17 @@ assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonom
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
+assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
+assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
+assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
+assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
+assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "templates", "coverage", "viewing"]'), "first login must use the short four-step wizard");
+assert(html.includes("data-domain-template"), "templates must be applied per selected domain");
+assert(html.includes("data-competition-ladder"), "competition-level ladder overrides must be editable");
+assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
+assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
+assert(html.includes("Every available provider starts selected"), "provider selection must be opt-out");
 assert(html.includes('src="data/cwg-events.js"'), "direct-file mode must load the published Commonwealth Games fallback bundle");
 assert(html.includes("withBundledCommonwealthGames(loadCachedFeedEvents() || EVENTS)"), "a stale local feed cache must receive new Commonwealth Games cards without duplicating ids");
 assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
@@ -254,6 +266,7 @@ const sandbox = {
 vm.createContext(sandbox);
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
+vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
 vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
 vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
 
@@ -263,6 +276,7 @@ globalThis.__test = {
   SURFACE_CONFIG,
   AU_BROADCAST_CONFIG,
   SELECTOR_TAXONOMY,
+  PREFERENCE_SYSTEM,
   mergePreferences,
   getActiveProfileId(){ return activeProfileBundle?.profile?.id || null; },
   getActiveProfileBundle(){ return structuredClone(activeProfileBundle); },
@@ -270,6 +284,7 @@ globalThis.__test = {
   orderSelectorEntities,
   selectorNewPromptEntities,
   canonicalSportKeysForSelectorIds,
+  selectedPreferenceDomainIds,
   selectorEntityMatchesEvent,
   commonwealthDisciplineForEvent,
   normalizeThemePreference,

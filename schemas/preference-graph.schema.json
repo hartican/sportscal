@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/preference-graph.schema.json",
+  "title": "nothingSports profile preference graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profileId",
+    "updatedAt",
+    "domainPreferences",
+    "competitionPreferences",
+    "entityFollows",
+    "viewing"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "preference-graph.v1" },
+    "profileId": { "type": "string", "pattern": "^profile:" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "domainPreferences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/domainPreference" }
+    },
+    "competitionPreferences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/competitionPreference" }
+    },
+    "entityFollows": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entityFollow" }
+    },
+    "viewing": { "$ref": "#/$defs/viewingPreference" }
+  },
+  "$defs": {
+    "domainPreference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileId",
+        "sportDomainId",
+        "enabled",
+        "templateId",
+        "includeAllFixtures",
+        "includeMajorEvents",
+        "includeFollowedTeams",
+        "showLadder",
+        "narrativeVisibility",
+        "narrativeIntensity",
+        "mustWatchSensitivity",
+        "reminderDefault",
+        "scopedCompetitionIds"
+      ],
+      "properties": {
+        "profileId": { "type": "string", "pattern": "^profile:" },
+        "sportDomainId": { "type": "string", "minLength": 3 },
+        "enabled": { "type": "boolean" },
+        "templateId": { "enum": ["template:froth", "template:like", "template:casual", "template:custom"] },
+        "includeAllFixtures": { "type": "boolean" },
+        "includeMajorEvents": { "type": "boolean" },
+        "includeFollowedTeams": { "type": "boolean" },
+        "showLadder": { "enum": ["hidden", "summary", "full"] },
+        "narrativeVisibility": { "enum": ["off", "importantOnly", "allEligible"] },
+        "narrativeIntensity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "mustWatchSensitivity": { "enum": ["low", "medium", "high"] },
+        "reminderDefault": { "enum": ["off", "importantOnly", "allFollowed"] },
+        "scopedCompetitionIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "competitionPreference": {
+      "type": "object",
+      "required": ["profileId", "competitionId", "enabled", "templateInheritedFromDomain"],
+      "properties": {
+        "profileId": { "type": "string", "pattern": "^profile:" },
+        "competitionId": { "type": "string", "minLength": 3 },
+        "enabled": { "type": "boolean" },
+        "templateInheritedFromDomain": { "type": "boolean" },
+        "includeAllFixtures": { "type": "boolean" },
+        "includeMajorEvents": { "type": "boolean" },
+        "showLadder": { "enum": ["hidden", "summary", "full"] }
+      }
+    },
+    "entityFollow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profileId", "participantId", "followLevel"],
+      "properties": {
+        "profileId": { "type": "string", "pattern": "^profile:" },
+        "participantId": { "type": "string", "minLength": 3 },
+        "followLevel": { "enum": ["follow", "priority", "mute"] }
+      }
+    },
+    "viewingPreference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileId",
+        "selectedBroadcasterIds",
+        "excludedBroadcasterIds",
+        "knownBroadcasterIds",
+        "allowLateNightOverrides",
+        "calendarSyncEnabled",
+        "reminderLeadMinutes"
+      ],
+      "properties": {
+        "profileId": { "type": "string", "pattern": "^profile:" },
+        "selectedBroadcasterIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "excludedBroadcasterIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "knownBroadcasterIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "startHourLocal": { "type": "integer", "minimum": 0, "maximum": 23 },
+        "endHourLocal": { "type": "integer", "minimum": 0, "maximum": 23 },
+        "allowLateNightOverrides": { "type": "boolean" },
+        "calendarSyncEnabled": { "type": "boolean" },
+        "reminderLeadMinutes": { "type": "array", "items": { "type": "integer", "minimum": 0, "maximum": 10080 }, "uniqueItems": true }
+      }
+    }
+  }
+}

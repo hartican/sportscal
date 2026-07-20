@@ -1587,13 +1587,145 @@ main{
   padding:7px 10px;
   background:var(--bg-card);
   color:var(--text-dim);
-  font:700 0.69rem/1 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font:700 0.69rem/1 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   cursor:pointer;
 }
 
 .selection-action:hover{
   border-color:var(--accent);
   color:var(--text);
+}
+
+.wizard-progress{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-bottom:14px;
+}
+
+.wizard-progress span{
+  height:4px;
+  flex:1;
+  border-radius:999px;
+  background:var(--border);
+}
+
+.wizard-progress span.complete,
+.wizard-progress span.active{
+  background:var(--accent);
+}
+
+.template-domain-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.template-domain{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  background:var(--soft-fill);
+}
+
+.template-domain h3{
+  margin-bottom:4px;
+  font-size:0.92rem;
+}
+
+.template-grid,
+.coverage-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:8px;
+  margin-top:12px;
+}
+
+.template-option,
+.coverage-option{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:11px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+
+.template-option.selected,
+.coverage-option.selected{
+  border-color:var(--accent);
+  box-shadow:0 0 0 1px var(--accent) inset;
+}
+
+.template-option strong,
+.coverage-option strong{
+  display:block;
+  font-size:0.8rem;
+  margin-bottom:4px;
+}
+
+.template-option span,
+.coverage-option span{
+  display:block;
+  color:var(--text-dim);
+  font-size:0.7rem;
+  line-height:1.35;
+}
+
+.viewing-window-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px;
+}
+
+.viewing-window-grid label,
+.viewing-toggle{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  color:var(--text-dim);
+  font-size:0.74rem;
+  font-weight:700;
+}
+
+.viewing-window-grid select{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:10px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:inherit;
+}
+
+.viewing-toggle{
+  flex-direction:row;
+  align-items:flex-start;
+  padding:10px 0;
+}
+
+.viewing-toggle input{
+  width:18px;
+  height:18px;
+  accent-color:var(--accent);
+}
+
+.refine-filter-btn{
+  border:1px solid var(--accent);
+  border-radius:999px;
+  padding:7px 11px;
+  background:transparent;
+  color:var(--text);
+  font:800 0.69rem/1 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor:pointer;
+}
+
+@media (max-width:620px){
+  .template-grid,
+  .coverage-grid,
+  .viewing-window-grid{ grid-template-columns:1fr; }
 }
 
 .settings-menu{
@@ -1837,6 +1969,55 @@ main{
   padding: 11px 12px;
 }
 
+.competition-preference{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(150px, 0.45fr);
+  gap:12px;
+  align-items:end;
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+}
+
+.entity-follow-list{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-top:14px;
+  border-top:1px solid var(--border);
+}
+
+.entity-follow-list h4{
+  margin:12px 0 6px;
+  font-size:0.78rem;
+}
+
+.entity-follow-list label{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 150px;
+  gap:10px;
+  align-items:center;
+  padding:7px 0;
+  border-bottom:1px solid var(--border);
+  color:var(--text-dim);
+  font-size:0.73rem;
+  font-weight:700;
+}
+
+.entity-follow-list select{
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:inherit;
+}
+
+@media (max-width:620px){
+  .competition-preference{ grid-template-columns:1fr; }
+  .entity-follow-list label{ grid-template-columns:minmax(0,1fr) 120px; }
+}
+
 .field-label textarea{
   min-height: 128px;
   resize: vertical;
@@ -2077,6 +2258,27 @@ footer.app-footer{
   </div>
 </div>
 
+<div class="modal-backdrop" id="quickAddModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="quickAddTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="quickAddTitle">Sport added</h2>
+        <p id="quickAddCopy">Use balanced defaults now, or customise only this sport.</p>
+      </div>
+    </div>
+    <div class="onboarding-body">
+      <p class="preference-help">Your existing sport, provider, and reminder settings will stay unchanged.</p>
+    </div>
+    <div class="onboarding-actions">
+      <button class="btn ghost" type="button" id="cancelQuickAddBtn">Cancel</button>
+      <span>
+        <button class="btn ghost" type="button" id="customiseQuickAddBtn">Customise</button>
+        <button class="btn primary" type="button" id="confirmQuickAddBtn">Quick add</button>
+      </span>
+    </div>
+  </div>
+</div>
+
 <div class="modal-backdrop" id="exportModal" aria-hidden="true">
   <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
     <div class="onboarding-head">
@@ -2101,6 +2303,7 @@ footer.app-footer{
 <script src="config/brand-copy.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/profile-storage.js"></script>
+<script src="config/preference-system.js"></script>
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
 <script src="data/cwg-events.js"></script>
@@ -2160,6 +2363,13 @@ const SELECTOR_TAXONOMY = globalThis.NOTHINGSPORTS_SELECTOR_TAXONOMY || {
   commonwealthDisciplines: [],
 };
 
+const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
+  sportDomains: [],
+  competitions: [],
+};
+
+const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
+
 const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY).map(([key, sport], index) => ({
   id: `sport:${key}`,
   level: 2,
@@ -2217,14 +2427,15 @@ const SPOILER_FIELDS = {
 };
 
 const DEFAULT_PREFERENCES = {
-  version: 5,
+  version: 6,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
   localVenueIds: ["gio-stadium", "manuka-oval"],
   selectedSelectorEntityIds: [],
   followedSports: [],
-  selectedBroadcasters: ["kayo","stan","sbs","nine","foxtel","fis"],
+  selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
+  preferenceGraph: null,
   tennis: {
     enthusiasm: "froth",
     gender: "both",
@@ -2334,8 +2545,13 @@ let neverMissInitialJumpPending = true;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
 let settingsFirstRun = false;
+let settingsWizardStep = 0;
 let settingsSelectorCategory = "category:special-events";
+let settingsFocusedDomainId = null;
 let draftPreferences = null;
+let pendingQuickAddDomainId = null;
+let canonicalPreferenceParticipants = [];
+let canonicalPreferenceParticipantsLoading = false;
 let pendingSelectorPromptIds = new Set();
 let settingsViewportAnchor = null;
 let selectorOptInViewportAnchor = null;
@@ -2432,6 +2648,19 @@ function selectorEntityIsEffectivelySelected(entityId, preferences){
   return false;
 }
 
+function selectedPreferenceDomainIds(preferences){
+  const domains = [];
+  BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => {
+    if (selectorEntityIsEffectivelySelected(entity.id, preferences)) domains.push(entity.id);
+  });
+  (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => {
+    const hasSelectedDiscipline = entity.id === "special:commonwealth-games"
+      && (SELECTOR_TAXONOMY.commonwealthDisciplines || []).some(item => selectorEntityIsEffectivelySelected(item.id, preferences));
+    if (selectorEntityIsEffectivelySelected(entity.id, preferences) || hasSelectedDiscipline) domains.push(entity.id);
+  });
+  return uniqueArray(domains);
+}
+
 function normalizeCommonwealthDiscipline(value){
   const label = String(value || "").trim().toLowerCase();
   if (/\bathletics?|track and field\b/.test(label)) return "athletics";
@@ -2504,16 +2733,39 @@ function mergePreferences(saved){
   const selectedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
-  const shouldRestoreCwgForExistingProfile = Number(saved.version || 0) < DEFAULT_PREFERENCES.version
+  const shouldRestoreCwgForExistingProfile = Number(saved.version || 0) < 5
     && Boolean(saved.onboardingComplete)
     && selectedSelectorEntityIds.length > 0;
   const migratedSelectorEntityIds = shouldRestoreCwgForExistingProfile
     ? uniqueArray([...selectedSelectorEntityIds, "special:commonwealth-games"])
     : selectedSelectorEntityIds;
-  const selectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
-  const migratedBroadcasters = shouldRestoreCwgForExistingProfile
-    ? uniqueArray([...selectedBroadcasters, "seven"])
-    : selectedBroadcasters;
+  const legacySelectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
+  const priorDefaultBroadcasters = ["kayo", "stan", "sbs", "nine", "foxtel", "fis"];
+  const priorCwgDefaultBroadcasters = [...priorDefaultBroadcasters, "seven"];
+  const legacySelectionWasDefault = Number(saved.version || 0) < DEFAULT_PREFERENCES.version
+    && [priorDefaultBroadcasters, priorCwgDefaultBroadcasters].some(defaults =>
+      defaults.length === legacySelectedBroadcasters.length && defaults.every(id => legacySelectedBroadcasters.includes(id))
+    );
+  const profileGraph = activeProfileBundle && (
+    activeProfileBundle.domainPreferences?.length
+    || activeProfileBundle.competitionPreferences?.length
+    || activeProfileBundle.entityFollows?.length
+    || activeProfileBundle.viewingPreference
+  ) ? {
+    schemaVersion: PREFERENCE_SYSTEM?.SCHEMA_VERSION,
+    profileId: activeProfileBundle.profile?.id,
+    domainPreferences: activeProfileBundle.domainPreferences || [],
+    competitionPreferences: activeProfileBundle.competitionPreferences || [],
+    entityFollows: activeProfileBundle.entityFollows || [],
+    viewing: activeProfileBundle.viewingPreference || null,
+  } : null;
+  const preferenceGraph = PREFERENCE_SYSTEM?.migratePreferenceGraph(saved.preferenceGraph || profileGraph, {
+    profileId: activeProfileBundle?.profile?.id || "profile:local",
+    domainIds: selectedPreferenceDomainIds({ selectedSelectorEntityIds: migratedSelectorEntityIds }),
+    broadcasterIds: Object.keys(BROADCASTER_LIBRARY),
+    legacySelectedBroadcasterIds: legacySelectionWasDefault ? undefined : legacySelectedBroadcasters,
+  }) || null;
+  const migratedBroadcasters = preferenceGraph?.viewing?.selectedBroadcasterIds || Object.keys(BROADCASTER_LIBRARY);
   return {
     ...merged,
     ...saved,
@@ -2524,9 +2776,24 @@ function mergePreferences(saved){
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
     selectedBroadcasters: migratedBroadcasters,
+    preferenceGraph,
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
+}
+
+function saveActivePreferenceGraph(graph){
+  if (!PROFILE_STORAGE || !activeProfileBundle || !graph) return false;
+  try{
+    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "domainPreferences", graph.domainPreferences || []);
+    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "competitionPreferences", graph.competitionPreferences || []);
+    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "entityFollows", graph.entityFollows || []);
+    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "viewingPreference", graph.viewing || null);
+    return true;
+  }catch(error){
+    console.warn("Profile preference graph write failed", error);
+    return false;
+  }
 }
 
 function loadPreferences(){
@@ -2558,8 +2825,11 @@ function loadPreferences(){
 function savePreferences(next){
   const clean = mergePreferences(next);
   const legacySaved = writeStorage(STORAGE_KEYS.preferences, clean);
-  const profileSaved = saveActiveProfileSection("preferences", clean);
-  if (legacySaved || profileSaved){
+  const profilePreferences = { ...clean };
+  delete profilePreferences.preferenceGraph;
+  const profileSaved = saveActiveProfileSection("preferences", profilePreferences);
+  const graphSaved = saveActivePreferenceGraph(clean.preferenceGraph);
+  if (legacySaved || profileSaved || graphSaved){
     userPreferences = clean;
   }
 }
@@ -3608,7 +3878,9 @@ function renderPreferenceSummary(){
     <span class="summary-chip">Spoilers ${userPreferences.showSpoilers ? "shown" : "protected"}</span>
     <span class="summary-chip">${userPreferences.localVenueIds.length} local venues</span>
     <span class="summary-chip">Feed ${feedVersion} · ${refreshCopy}</span>
+    <button class="refine-filter-btn" id="refineFiltersBtn" type="button">Refine filters</button>
   `;
+  document.getElementById("refineFiltersBtn")?.addEventListener("click", () => openSettings({ section: "sports" }));
 }
 
 function eventMatchesSportPreferences(ev){
@@ -5004,6 +5276,22 @@ function selectorNewMarkerMarkup(entity){
 function syncDraftSelectorSports(){
   draftPreferences.selectedSelectorEntityIds = normalizeSelectorEntityIds(draftPreferences.selectedSelectorEntityIds);
   draftPreferences.followedSports = canonicalSportKeysForSelectorIds(draftPreferences.selectedSelectorEntityIds);
+  syncDraftPreferenceGraph();
+}
+
+function syncDraftPreferenceGraph(){
+  if (!draftPreferences || !PREFERENCE_SYSTEM) return;
+  const broadcasterIds = Object.keys(BROADCASTER_LIBRARY);
+  let graph = PREFERENCE_SYSTEM.migratePreferenceGraph(draftPreferences.preferenceGraph, {
+    profileId: activeProfileBundle?.profile?.id || "profile:local",
+    domainIds: selectedPreferenceDomainIds(draftPreferences),
+    broadcasterIds,
+    legacySelectedBroadcasterIds: draftPreferences.selectedBroadcasters,
+  });
+  graph = PREFERENCE_SYSTEM.updateViewingPreference(graph, {
+    selectedBroadcasterIds: draftPreferences.selectedBroadcasters,
+  }, broadcasterIds);
+  draftPreferences.preferenceGraph = graph;
 }
 
 function selectorCategoryLeafIds(categoryId){
@@ -5079,15 +5367,80 @@ function toggleSelectorEntityInDraft(entityId){
   syncDraftSelectorSports();
 }
 
+const ONBOARDING_SECTIONS = ["sports", "templates", "coverage", "viewing"];
+
+function preferenceDomainLabel(domainId){
+  return selectorEntityById(domainId)?.label
+    || CANONICAL_TAXONOMY.sportDomains?.find(domain => domain.id === domainId)?.name
+    || domainId.replace(/^(sport|special):/, "");
+}
+
+function preferenceDomainById(domainId){
+  return draftPreferences?.preferenceGraph?.domainPreferences?.find(preference => preference.sportDomainId === domainId) || null;
+}
+
+function wizardProgressMarkup(){
+  if (!settingsFirstRun) return "";
+  return `<div class="wizard-progress" aria-label="Setup step ${settingsWizardStep + 1} of ${ONBOARDING_SECTIONS.length}">${ONBOARDING_SECTIONS.map((_step, index) => `<span class="${index < settingsWizardStep ? "complete" : index === settingsWizardStep ? "active" : ""}"></span>`).join("")}</div>`;
+}
+
+function closeQuickAddPrompt(){
+  const modal = document.getElementById("quickAddModal");
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+  pendingQuickAddDomainId = null;
+}
+
+function openQuickAddPrompt(domainId){
+  pendingQuickAddDomainId = domainId;
+  const label = preferenceDomainLabel(domainId);
+  document.getElementById("quickAddTitle").textContent = `${label} added — Quick add or Customise?`;
+  document.getElementById("quickAddCopy").textContent = `Quick add uses the Like template for ${label}. Customise opens only this domain's detailed controls.`;
+  const modal = document.getElementById("quickAddModal");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function handleSelectorDomainToggle(domainId){
+  const isSelected = selectorEntityIsEffectivelySelected(domainId, draftPreferences);
+  if (!isSelected && !settingsFirstRun && userPreferences.onboardingComplete){
+    openQuickAddPrompt(domainId);
+    return;
+  }
+  toggleSelectorEntityInDraft(domainId);
+  if (!selectorEntityIsEffectivelySelected(domainId, draftPreferences) && draftPreferences.preferenceGraph){
+    draftPreferences.preferenceGraph = PREFERENCE_SYSTEM?.disableDomain(draftPreferences.preferenceGraph, domainId) || draftPreferences.preferenceGraph;
+  }
+}
+
+function applyQuickAdd(customise = false){
+  const domainId = pendingQuickAddDomainId;
+  if (!domainId) return;
+  if (!selectorEntityIsEffectivelySelected(domainId, draftPreferences)) toggleSelectorEntityInDraft(domainId);
+  draftPreferences.preferenceGraph = customise
+    ? PREFERENCE_SYSTEM.customiseDomain(draftPreferences.preferenceGraph, domainId)
+    : PREFERENCE_SYSTEM.quickAddDomain(draftPreferences.preferenceGraph, domainId, "template:like");
+  closeQuickAddPrompt();
+  if (customise){
+    settingsFocusedDomainId = domainId;
+    settingsSection = "coverage";
+  }
+  renderSettingsScreen();
+}
+
 function openSettings({ firstRun = false, section = "main" } = {}){
   settingsViewportAnchor = captureViewportRenderAnchor();
   settingsFirstRun = firstRun;
-  settingsSection = section;
+  settingsWizardStep = firstRun ? 0 : settingsWizardStep;
+  settingsFocusedDomainId = null;
+  settingsSection = firstRun ? ONBOARDING_SECTIONS[settingsWizardStep] : section;
   draftPreferences = clonePreferences(userPreferences);
   if (firstRun){
     draftPreferences.selectedSelectorEntityIds = [];
     draftPreferences.followedSports = [];
+    draftPreferences.selectedBroadcasters = Object.keys(BROADCASTER_LIBRARY);
   }
+  syncDraftPreferenceGraph();
   const modal = document.getElementById("settingsModal");
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
@@ -5106,6 +5459,8 @@ function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   if (restoreTheme) applyThemePreference(userPreferences.theme);
   settingsSection = "main";
   settingsFirstRun = false;
+  settingsWizardStep = 0;
+  settingsFocusedDomainId = null;
   draftPreferences = null;
   settingsViewportAnchor = null;
   if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
@@ -5140,15 +5495,19 @@ function bindSelectionActions(body, group, selectAll, deselectAll){
 
 function renderSettingsMenu(body){
   const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
+  const domainCount = selectedPreferenceDomainIds(draftPreferences).length;
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("sports", "◉", "Sports Selector", `${draftPreferences.selectedSelectorEntityIds.length} selector choices · Sports and Special Events`)}
-    ${settingsMenuItem("providers", "📡", "TV & streaming", `${draftPreferences.selectedBroadcasters.length} providers selected`)}
+    ${settingsMenuItem("templates", "◇", "Templates", `${domainCount} domain${domainCount === 1 ? "" : "s"} · Froth, Like, Casual, or Custom`)}
+    ${settingsMenuItem("coverage", "≡", "Coverage overrides", "Fixtures, competitions, ladders, teams, and athletes")}
+    ${settingsMenuItem("viewing", "◷", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · optional time window`)}
     ${settingsMenuItem("privacy", "⌖", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "☼", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("feedback", "✎", "Feedback", "Send an idea, request, or bug report from Settings")}
   </div>`;
   body.querySelectorAll("[data-settings-section]").forEach(button => {
     button.addEventListener("click", () => {
+      settingsFocusedDomainId = null;
       settingsSection = button.dataset.settingsSection;
       renderSettingsScreen();
     });
@@ -5156,7 +5515,7 @@ function renderSettingsMenu(body){
 }
 
 function renderSportsSettings(body){
-  body.innerHTML = `<div class="preference-stack">
+  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
     <div class="filter-panel">
       <h3>Sports Selector</h3>
       <p class="preference-help">Choose a top-level category, then follow its event groups or filters. Every selector choice is opt-in.</p>
@@ -5199,11 +5558,12 @@ function renderSportsSettings(body){
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = `choice-card selector-entity-card${selected ? " selected" : ""}`;
+      btn.dataset.selectorEntity = entity.id;
       btn.style.setProperty("--choice-color", SPORT_META[entity.canonicalSportKeys?.[0]]?.color || "var(--accent)");
       btn.setAttribute("aria-pressed", selected ? "true" : "false");
       btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}<span aria-hidden="true">${entity.icon}</span><span>${entity.label}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
       btn.addEventListener("click", () => {
-        toggleSelectorEntityInDraft(entity.id);
+        handleSelectorDomainToggle(entity.id);
         renderSettingsScreen();
       });
       specialGrid.appendChild(btn);
@@ -5237,11 +5597,12 @@ function renderSportsSettings(body){
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = `choice-card selector-entity-card${selected ? " selected" : ""}`;
+      btn.dataset.selectorEntity = entity.id;
       btn.style.setProperty("--choice-color", entity.color);
       btn.setAttribute("aria-pressed", selected ? "true" : "false");
       btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}<span>${entity.icon}</span><span>${entity.label}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
       btn.addEventListener("click", () => {
-        toggleSelectorEntityInDraft(entity.id);
+        handleSelectorDomainToggle(entity.id);
         renderSettingsScreen();
       });
       grid.appendChild(btn);
@@ -5292,8 +5653,167 @@ function renderSportsSettings(body){
   }
 }
 
-function renderProviderSettings(body){
-  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Choose the services available to you.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>`;
+function renderTemplateSettings(body){
+  syncDraftPreferenceGraph();
+  const selectedDomainIds = selectedPreferenceDomainIds(draftPreferences);
+  const domainIds = settingsFocusedDomainId && selectedDomainIds.includes(settingsFocusedDomainId)
+    ? [settingsFocusedDomainId]
+    : selectedDomainIds;
+  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
+    <p class="preference-help">Apply one reusable template to each selected sport or special event. You can override the expanded settings next.</p>
+    <div class="template-domain-list" id="templateDomainList"></div>
+  </div>`;
+  const list = document.getElementById("templateDomainList");
+  if (!domainIds.length){
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Choose at least one sport or special event first.</div>`;
+    return;
+  }
+  domainIds.forEach(domainId => {
+    const preference = preferenceDomainById(domainId);
+    const panel = document.createElement("section");
+    panel.className = "template-domain";
+    panel.dataset.preferenceDomain = domainId;
+    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3><p class="preference-help">Template defaults expand into fixtures, ladders, narrative, must-watch, and reminders.</p><div class="template-grid">${PREFERENCE_SYSTEM.templates.map(template => `<button class="template-option${preference?.templateId === template.id ? " selected" : ""}" type="button" data-domain-template="${domainId}" data-template-id="${template.id}" aria-pressed="${preference?.templateId === template.id ? "true" : "false"}"><strong>${template.name}</strong><span>${template.description}</span></button>`).join("")}</div>`;
+    list.appendChild(panel);
+  });
+  list.querySelectorAll("[data-domain-template]").forEach(button => {
+    button.addEventListener("click", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(
+        draftPreferences.preferenceGraph,
+        button.dataset.domainTemplate,
+        button.dataset.templateId
+      );
+      renderSettingsScreen();
+    });
+  });
+}
+
+function coverageModeFor(preference){
+  if (preference?.includeAllFixtures) return "all";
+  if (preference?.includeFollowedTeams) return "majorFollowed";
+  return "majorOnly";
+}
+
+async function loadCanonicalPreferenceParticipants(){
+  if (canonicalPreferenceParticipants.length || canonicalPreferenceParticipantsLoading) return;
+  canonicalPreferenceParticipantsLoading = true;
+  try{
+    const response = await fetch("data/canonical/afl-nrl-2026.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Canonical preference data returned ${response.status}`);
+    const payload = await response.json();
+    canonicalPreferenceParticipants = Array.isArray(payload.participants) ? payload.participants : [];
+  }catch(error){
+    console.warn("Canonical participant preferences unavailable", error);
+  }finally{
+    canonicalPreferenceParticipantsLoading = false;
+    if (draftPreferences && settingsSection === "coverage") renderSettingsScreen();
+  }
+}
+
+function renderCoverageSettings(body){
+  syncDraftPreferenceGraph();
+  const selectedDomainIds = selectedPreferenceDomainIds(draftPreferences);
+  const domainIds = settingsFocusedDomainId && selectedDomainIds.includes(settingsFocusedDomainId)
+    ? [settingsFocusedDomainId]
+    : selectedDomainIds;
+  const graph = draftPreferences.preferenceGraph;
+  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
+    <p class="preference-help">Detailed choices override template defaults. Competition and team controls appear where canonical data supports them.</p>
+    <div class="template-domain-list" id="coverageDomainList"></div>
+  </div>`;
+  const list = document.getElementById("coverageDomainList");
+  if (!domainIds.length){
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Choose at least one sport or special event first.</div>`;
+    return;
+  }
+  domainIds.forEach(domainId => {
+    const preference = preferenceDomainById(domainId);
+    const mode = coverageModeFor(preference);
+    const competitions = (CANONICAL_TAXONOMY.competitions || []).filter(competition => competition.sportDomainId === domainId);
+    const participants = canonicalPreferenceParticipants.filter(participant => participant.sportDomainId === domainId);
+    const panel = document.createElement("section");
+    panel.className = "template-domain";
+    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3>
+      <div class="coverage-grid">
+        <button class="coverage-option${mode === "all" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="all"><strong>All fixtures</strong><span>Include the complete eligible schedule.</span></button>
+        <button class="coverage-option${mode === "majorFollowed" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorFollowed"><strong>Major + followed</strong><span>Important events plus followed teams or athletes.</span></button>
+        <button class="coverage-option${mode === "majorOnly" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorOnly"><strong>Major events only</strong><span>The lightest, highest-signal schedule.</span></button>
+      </div>
+      ${competitions.map(competition => {
+        const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);
+        const ladder = competitionPreference?.showLadder || preference?.showLadder || "summary";
+        return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label><label class="field-label">Ladder visibility<select data-competition-ladder="${competition.id}"><option value="hidden" ${ladder === "hidden" ? "selected" : ""}>Hidden</option><option value="summary" ${ladder === "summary" ? "selected" : ""}>Summary</option><option value="full" ${ladder === "full" ? "selected" : ""}>Full</option></select></label></div>`;
+      }).join("")}
+      ${participants.length ? `<div class="entity-follow-list"><h4>Team follows</h4>${participants.map(participant => {
+        const follow = graph.entityFollows.find(item => item.participantId === participant.id)?.followLevel || "none";
+        return `<label><span>${participant.displayName}</span><select data-entity-follow="${participant.id}"><option value="none" ${follow === "none" ? "selected" : ""}>Not followed</option><option value="follow" ${follow === "follow" ? "selected" : ""}>Follow</option><option value="priority" ${follow === "priority" ? "selected" : ""}>Priority</option><option value="mute" ${follow === "mute" ? "selected" : ""}>Mute</option></select></label>`;
+      }).join("")}</div>` : competitions.length ? `<p class="preference-help">Loading canonical teams…</p>` : ""}`;
+    list.appendChild(panel);
+  });
+
+  list.querySelectorAll("[data-coverage-domain]").forEach(button => {
+    button.addEventListener("click", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setCoverageMode(
+        draftPreferences.preferenceGraph,
+        button.dataset.coverageDomain,
+        button.dataset.coverageMode
+      );
+      renderSettingsScreen();
+    });
+  });
+  list.querySelectorAll("[data-competition-enabled]").forEach(input => {
+    input.addEventListener("change", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.upsertCompetitionPreference(draftPreferences.preferenceGraph, input.dataset.competitionEnabled, {
+        enabled: input.checked,
+        templateInheritedFromDomain: false,
+      });
+    });
+  });
+  list.querySelectorAll("[data-competition-ladder]").forEach(select => {
+    select.addEventListener("change", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.upsertCompetitionPreference(draftPreferences.preferenceGraph, select.dataset.competitionLadder, {
+        enabled: true,
+        templateInheritedFromDomain: false,
+        showLadder: select.value,
+      });
+    });
+  });
+  list.querySelectorAll("[data-entity-follow]").forEach(select => {
+    select.addEventListener("change", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(draftPreferences.preferenceGraph, select.dataset.entityFollow, select.value);
+    });
+  });
+  if (domainIds.some(domainId => (CANONICAL_TAXONOMY.competitions || []).some(competition => competition.sportDomainId === domainId))){
+    loadCanonicalPreferenceParticipants();
+  }
+}
+
+function hourOptions(selected){
+  const options = [`<option value="" ${selected === undefined ? "selected" : ""}>Any time</option>`];
+  for (let hour = 0; hour < 24; hour += 1){
+    const label = new Intl.DateTimeFormat("en-AU", { hour: "numeric", hour12: true }).format(new Date(2026, 0, 1, hour));
+    options.push(`<option value="${hour}" ${selected === hour ? "selected" : ""}>${label}</option>`);
+  }
+  return options.join("");
+}
+
+function updateDraftViewing(patch){
+  draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.updateViewingPreference(
+    draftPreferences.preferenceGraph,
+    patch,
+    Object.keys(BROADCASTER_LIBRARY)
+  );
+  draftPreferences.selectedBroadcasters = draftPreferences.preferenceGraph.viewing.selectedBroadcasterIds.slice();
+}
+
+function renderViewingSettings(body, { providersOnly = false } = {}){
+  syncDraftPreferenceGraph();
+  const viewing = draftPreferences.preferenceGraph.viewing;
+  body.innerHTML = `${providersOnly ? "" : wizardProgressMarkup()}<div class="preference-stack">
+    <div class="filter-panel"><h3>TV & streaming</h3><p class="preference-help">Every available provider starts selected. Opt out only of services you cannot use; newly added providers will also start selected.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>
+    ${providersOnly ? "" : `<div class="filter-panel"><h3>Optional viewing window</h3><p class="preference-help">AEST/AEDT is the default basis. High-stakes events may override the window when you allow it.</p><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour">${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour">${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
+    <div class="filter-panel"><h3>Calendar & reminders</h3><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep calendar sync enabled for selected recommendations</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
+  </div>`;
   const grid = document.getElementById("providerChoiceGrid");
   Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
     const selected = draftPreferences.selectedBroadcasters.includes(key);
@@ -5304,24 +5824,27 @@ function renderProviderSettings(body){
     btn.innerHTML = `<div class="choice-title"><span>📡</span><span>${provider.label}</span></div><div class="choice-detail">Used where this provider is evidenced in current event data.</div>`;
     btn.addEventListener("click", () => {
       draftPreferences.selectedBroadcasters = toggleArrayValue(draftPreferences.selectedBroadcasters, key);
+      updateDraftViewing({ selectedBroadcasterIds: draftPreferences.selectedBroadcasters });
       renderSettingsScreen();
     });
-    grid.appendChild(btn);
-  });
-  FUTURE_BROADCASTERS.forEach(label => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "choice-card disabled";
-    btn.disabled = true;
-    btn.innerHTML = `<div class="choice-title"><span>↗</span><span>${label}</span></div><div class="choice-detail">Modelled for later, not active in filtering yet.</div>`;
     grid.appendChild(btn);
   });
   bindSelectionActions(
     body,
     "providers",
-    () => { draftPreferences.selectedBroadcasters = Object.keys(BROADCASTER_LIBRARY); },
-    () => { draftPreferences.selectedBroadcasters = []; }
+    () => { updateDraftViewing({ selectedBroadcasterIds: Object.keys(BROADCASTER_LIBRARY) }); },
+    () => { updateDraftViewing({ selectedBroadcasterIds: [] }); }
   );
+  if (providersOnly) return;
+  document.getElementById("viewingStartHour").addEventListener("change", event => updateDraftViewing({ startHourLocal: event.target.value === "" ? undefined : Number(event.target.value) }));
+  document.getElementById("viewingEndHour").addEventListener("change", event => updateDraftViewing({ endHourLocal: event.target.value === "" ? undefined : Number(event.target.value) }));
+  document.getElementById("lateNightOverride").addEventListener("change", event => updateDraftViewing({ allowLateNightOverrides: event.target.checked }));
+  document.getElementById("calendarSyncEnabled").addEventListener("change", event => updateDraftViewing({ calendarSyncEnabled: event.target.checked }));
+  document.getElementById("reminderLeadMinutes").addEventListener("change", event => updateDraftViewing({ reminderLeadMinutes: [Number(event.target.value)] }));
+}
+
+function renderProviderSettings(body){
+  renderViewingSettings(body, { providersOnly: true });
 }
 
 function renderPrivacySettings(body){
@@ -5381,13 +5904,18 @@ function renderSettingsScreen(){
   const copy = document.getElementById("settingsCopy");
   const back = document.getElementById("settingsBackBtn");
   const brandIcon = document.getElementById("settingsBrandIcon");
-  back.hidden = settingsSection === "main";
-  brandIcon.hidden = settingsSection !== "main";
-  document.getElementById("saveSettingsBtn").textContent = settingsFirstRun ? "Save & start" : "Save & close";
+  back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
+  brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
+  document.getElementById("saveSettingsBtn").textContent = settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
+    ? "Next"
+    : settingsFirstRun ? "Save & start" : "Save & close";
 
   const screens = {
-    main: [settingsFirstRun ? "Set up nothingSports" : "Settings", "Choose an area. Every submenu can return here or close at any time."],
-    sports: ["Sports Selector", "Choose between Sports and Special Events, then tune event groups and subcategory filters."],
+    main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
+    sports: [settingsFirstRun ? "Set up nothingSports · 1 of 4" : "Sports Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Choose between Sports and Special Events, then tune event groups and subcategory filters."],
+    templates: [settingsFirstRun ? "Choose your level · 2 of 4" : "Templates & detail", "Apply Froth, Like, Casual, or Custom after selecting each domain."],
+    coverage: [settingsFirstRun ? "Tune coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Coverage overrides", "Choose all fixtures, major events plus follows, or major events only."],
+    viewing: [settingsFirstRun ? "Viewing preferences · 4 of 4" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
@@ -5395,6 +5923,9 @@ function renderSettingsScreen(){
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
   if (settingsSection === "sports") renderSportsSettings(body);
+  else if (settingsSection === "templates") renderTemplateSettings(body);
+  else if (settingsSection === "coverage") renderCoverageSettings(body);
+  else if (settingsSection === "viewing") renderViewingSettings(body);
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
@@ -5505,16 +6036,46 @@ function saveSettingsPreferences(){
   showToast("Settings saved.");
 }
 
+function advanceOnboardingOrSave(){
+  if (!settingsFirstRun){
+    saveSettingsPreferences();
+    return;
+  }
+  if (settingsWizardStep === 0 && !selectedPreferenceDomainIds(draftPreferences).length){
+    showToast("Choose at least one sport or special event.");
+    return;
+  }
+  if (settingsWizardStep < ONBOARDING_SECTIONS.length - 1){
+    settingsWizardStep += 1;
+    settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
+    renderSettingsScreen();
+    return;
+  }
+  saveSettingsPreferences();
+}
+
 document.getElementById("settingsBtn").addEventListener("click", () => openSettings());
 document.getElementById("settingsBackBtn").addEventListener("click", () => {
-  settingsSection = "main";
+  if (settingsFirstRun && settingsWizardStep > 0){
+    settingsWizardStep -= 1;
+    settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
+  } else {
+    settingsFocusedDomainId = null;
+    settingsSection = "main";
+  }
   renderSettingsScreen();
 });
 document.getElementById("closeSettingsBtn").addEventListener("click", () => closeSettings());
 document.getElementById("settingsModal").addEventListener("click", evt => {
   if (evt.target.id === "settingsModal") closeSettings();
 });
-document.getElementById("saveSettingsBtn").addEventListener("click", saveSettingsPreferences);
+document.getElementById("saveSettingsBtn").addEventListener("click", advanceOnboardingOrSave);
+document.getElementById("cancelQuickAddBtn").addEventListener("click", closeQuickAddPrompt);
+document.getElementById("confirmQuickAddBtn").addEventListener("click", () => applyQuickAdd(false));
+document.getElementById("customiseQuickAddBtn").addEventListener("click", () => applyQuickAdd(true));
+document.getElementById("quickAddModal").addEventListener("click", event => {
+  if (event.target.id === "quickAddModal") closeQuickAddPrompt();
+});
 document.getElementById("aboutBtn").addEventListener("click", () => {
   const modal = document.getElementById("aboutModal");
   modal.classList.add("show");
