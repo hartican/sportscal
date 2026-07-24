@@ -477,7 +477,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 8, "the seeded league defaults must use the current preference migration");
+assert.equal(app.mergePreferences(null).version, 9, "the seeded league defaults must use the current preference migration");
 assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), ["nrl", "afl"], "new profiles must surface Rugby League and AFL immediately");
 assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl"], "new profiles must seed the two complete league selectors");
 const incompleteEmptyProfile = app.mergePreferences({
@@ -487,6 +487,20 @@ const incompleteEmptyProfile = app.mergePreferences({
   followedSports: [],
 });
 assert.deepEqual(Array.from(incompleteEmptyProfile.followedSports), ["nrl", "afl"], "incomplete empty profiles must migrate to the seeded league defaults");
+const completedEmptyProfile = app.mergePreferences({
+  version: 8,
+  onboardingComplete: true,
+  selectedSelectorEntityIds: [],
+  followedSports: [],
+});
+assert.deepEqual(Array.from(completedEmptyProfile.followedSports), ["nrl", "afl"], "completed empty v8 profiles must migrate to the seeded league defaults");
+const currentExplicitEmptyProfile = app.mergePreferences({
+  version: 9,
+  onboardingComplete: true,
+  selectedSelectorEntityIds: [],
+  followedSports: [],
+});
+assert.deepEqual(Array.from(currentExplicitEmptyProfile.followedSports), [], "current-version explicit empty profiles must remain empty");
 assert.deepEqual(
   Array.from(app.mergePreferences({ followedSports: ["wimbledon", "fifa"] }).selectedSelectorEntityIds),
   ["sport:wimbledon", "sport:fifa"],

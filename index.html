@@ -2601,7 +2601,7 @@ const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"];
 const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 
 const DEFAULT_PREFERENCES = {
-  version: 8,
+  version: 9,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
@@ -2912,7 +2912,9 @@ function mergePreferences(saved){
   const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
-  const selectedSelectorEntityIds = !saved.onboardingComplete && !savedSelectorEntityIds.length
+  const shouldSeedEmptyLegacyProfile = Number(saved.version || 0) < DEFAULT_PREFERENCES.version
+    && !savedSelectorEntityIds.length;
+  const selectedSelectorEntityIds = shouldSeedEmptyLegacyProfile
     ? DEFAULT_FIRST_RUN_SELECTOR_IDS.slice()
     : savedSelectorEntityIds;
   const shouldRestoreCwgForExistingProfile = Number(saved.version || 0) < 5
