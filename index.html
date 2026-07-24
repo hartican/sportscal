@@ -2597,14 +2597,17 @@ const SPOILER_FIELDS = {
   labels: ["spoilerLabels", "resultLabels"],
 };
 
+const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"];
+const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
+
 const DEFAULT_PREFERENCES = {
-  version: 7,
+  version: 8,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
   localVenueIds: ["gio-stadium", "manuka-oval"],
-  selectedSelectorEntityIds: [],
-  followedSports: [],
+  selectedSelectorEntityIds: DEFAULT_FIRST_RUN_SELECTOR_IDS,
+  followedSports: DEFAULT_FIRST_RUN_SPORT_KEYS,
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
   soundtrack: {
@@ -2906,9 +2909,12 @@ function syncThemeBrandAssets(useDark){
 function mergePreferences(saved){
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
   if (!saved || typeof saved !== "object") return merged;
-  const selectedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
+  const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
+  const selectedSelectorEntityIds = !saved.onboardingComplete && !savedSelectorEntityIds.length
+    ? DEFAULT_FIRST_RUN_SELECTOR_IDS.slice()
+    : savedSelectorEntityIds;
   const shouldRestoreCwgForExistingProfile = Number(saved.version || 0) < 5
     && Boolean(saved.onboardingComplete)
     && selectedSelectorEntityIds.length > 0;
@@ -5830,8 +5836,6 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   settingsSection = firstRun ? ONBOARDING_SECTIONS[settingsWizardStep] : section;
   draftPreferences = clonePreferences(userPreferences);
   if (firstRun){
-    draftPreferences.selectedSelectorEntityIds = [];
-    draftPreferences.followedSports = [];
     draftPreferences.selectedBroadcasters = Object.keys(BROADCASTER_LIBRARY);
   }
   syncDraftPreferenceGraph();
@@ -6548,10 +6552,6 @@ document.getElementById("aboutModal").addEventListener("click", evt => {
 });
 document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
   draftPreferences = clonePreferences(DEFAULT_PREFERENCES);
-  if (settingsFirstRun){
-    draftPreferences.selectedSelectorEntityIds = [];
-    draftPreferences.followedSports = [];
-  }
   applyThemePreference(draftPreferences.theme);
   renderSettingsScreen();
   showToast("Settings reset. Save to keep these defaults.");

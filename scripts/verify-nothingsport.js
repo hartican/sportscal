@@ -104,7 +104,8 @@ assert(html.includes('"Local venues", `${draftPreferences.localVenueIds.length} 
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
 assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
-assert(html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must start with every selector entity deselected");
+assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");
+assert(!html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must preserve its seeded league choices");
 assert(html.includes('id="selectorCategoryList"'), "Settings must expose top-level selector categories");
 assert(html.includes('id="commonwealthFilterList"'), "Commonwealth Games must expose its discipline filters");
 assert(html.includes('id="selectorOptInModal"'), "new selector entities must use one consolidated opt-in prompt");
@@ -476,8 +477,16 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), [], "new profiles must start with every sport deselected");
-assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), [], "new profiles must start with categories, event groups, and subcategories deselected");
+assert.equal(app.mergePreferences(null).version, 8, "the seeded league defaults must use the current preference migration");
+assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), ["nrl", "afl"], "new profiles must surface Rugby League and AFL immediately");
+assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl"], "new profiles must seed the two complete league selectors");
+const incompleteEmptyProfile = app.mergePreferences({
+  version: 7,
+  onboardingComplete: false,
+  selectedSelectorEntityIds: [],
+  followedSports: [],
+});
+assert.deepEqual(Array.from(incompleteEmptyProfile.followedSports), ["nrl", "afl"], "incomplete empty profiles must migrate to the seeded league defaults");
 assert.deepEqual(
   Array.from(app.mergePreferences({ followedSports: ["wimbledon", "fifa"] }).selectedSelectorEntityIds),
   ["sport:wimbledon", "sport:fifa"],
