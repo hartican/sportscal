@@ -3559,7 +3559,7 @@ function normalizeEvents(events = activeEvents){
     });
     ev.eventId = ev.eventId || ev.id;
     ev.sportId = ev.key;
-    ev.competitionId = ev.key;
+    ev.competitionId = ev.competitionId || ev.key;
     ev.startTimeUtc = ev.startTimeUtc || null;
     ev.endTimeUtc = ev.endTimeUtc || null;
     ev.status = getEventStatus(ev);
@@ -4330,17 +4330,56 @@ function eventMeetsGlobalThreshold(ev){
   return Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes;
 }
 
+function eventDomainPreference(ev){
+  const domainId = ev.sportDomainId
+    || SPORT_DOMAIN_REGISTRY?.byKey?.[ev.key]?.domainId
+    || (SPORTS_LIBRARY[ev.key] ? `sport:${ev.key}` : null);
+  if (!domainId) return null;
+  return userPreferences.preferenceGraph?.domainPreferences?.find(preference => preference.sportDomainId === domainId) || null;
+}
+
+function eventCompetitionPreference(ev){
+  if (!ev.competitionId) return null;
+  return userPreferences.preferenceGraph?.competitionPreferences?.find(preference => preference.competitionId === ev.competitionId) || null;
+}
+
+function eventParticipantFollowLevels(ev){
+  const participantIds = new Set([
+    ...(Array.isArray(ev.participantIds) ? ev.participantIds : []),
+    ev.homeParticipantId,
+    ev.awayParticipantId,
+  ].filter(Boolean));
+  return (userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(preference => participantIds.has(preference.participantId))
+    .map(preference => preference.followLevel);
+}
+
+function eventMeetsCoveragePreference(ev){
+  const domainPreference = eventDomainPreference(ev);
+  if (!domainPreference) return eventMeetsGlobalThreshold(ev);
+  if (domainPreference.enabled === false) return false;
+
+  const competitionPreference = eventCompetitionPreference(ev);
+  if (competitionPreference?.enabled === false) return false;
+
+  const followLevels = eventParticipantFollowLevels(ev);
+  if (followLevels.includes("mute")) return false;
+
+  const includeAllFixtures = competitionPreference?.includeAllFixtures ?? domainPreference.includeAllFixtures;
+  const includeMajorEvents = competitionPreference?.includeMajorEvents ?? domainPreference.includeMajorEvents;
+  if (includeAllFixtures) return true;
+  if (includeMajorEvents !== false && eventMeetsGlobalThreshold(ev)) return true;
+  return Boolean(domainPreference.includeFollowedTeams && followLevels.some(level => level === "follow" || level === "priority"));
+}
+
 function eventMeetsDerivedRetention(ev, reference = nowAEST()){
   return CARD_LIFECYCLE ? CARD_LIFECYCLE.isWithinRetention(ev, reference) : true;
 }
 
-function getPreferenceMatchedEvents({ includeRoutineSportKey = null } = {}){
+function getPreferenceMatchedEvents(){
   let list = activeEvents.slice();
   list = list.filter(eventMeetsDerivedRetention);
-  list = list.filter(ev =>
-    eventMeetsGlobalThreshold(ev)
-    || (includeRoutineSportKey && ev.key === includeRoutineSportKey && ev.canonicalEventId)
-  );
+  list = list.filter(eventMeetsCoveragePreference);
   list = list.filter(eventMatchesSportPreferences);
   list = list.filter(eventMatchesBroadcasterPreferences);
   list = list.filter(eventMatchesTennisFilters);
@@ -4349,8 +4388,7 @@ function getPreferenceMatchedEvents({ includeRoutineSportKey = null } = {}){
 }
 
 function getFilteredEvents(){
-  const includeRoutineSportKey = ["afl", "nrl"].includes(activeFilter) ? activeFilter : null;
-  let list = getPreferenceMatchedEvents({ includeRoutineSportKey });
+  let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived);
   list = list.filter(eventMatchesActionFilter);
   if (activeFilter !== "all"){

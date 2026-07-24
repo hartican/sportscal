@@ -692,7 +692,8 @@ const phaseOneEvents = [
   { ...event("horizon-exception", 200, 5), horizonException: true, calendarExportEligible: false },
   event("too-far", 31, 5),
   event("below-floor", 4, 2),
-  { ...event("routine-afl", 4, 2), key: "afl", sport: "AFL", canonicalEventId: "event:afl:routine" },
+  { ...event("routine-afl", 4, 2), key: "afl", sport: "AFL", canonicalEventId: "event:afl:routine", sportDomainId: "sport:afl", competitionId: "competition:afl-premiership-2026" },
+  { ...event("routine-nrl", 4, 2), key: "nrl", sport: "NRL", canonicalEventId: "event:nrl:routine", sportDomainId: "sport:nrl", competitionId: "competition:nrl-premiership-2026" },
 ];
 app.setEvents(phaseOneEvents);
 app.setActions({});
@@ -708,8 +709,27 @@ assert(!neverMissTimeline.some(ev => ev.id === "expired-top"), "Never Miss must 
 assert(!app.getFilteredEvents().some(ev => ev.id === "below-floor"), "events below stakes 3/5 must be excluded");
 assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "routine AFL fixtures must not clutter the selective home feed");
 app.setFilter("afl");
-assert(app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "the AFL filter must expose its complete canonical fixture list");
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "league filters must still respect selective coverage settings");
+let allLeagueFixturesGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:all-league-fixtures",
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: ["kayo", "foxtel"],
+});
+allLeagueFixturesGraph = app.PREFERENCE_SYSTEM.setCoverageMode(allLeagueFixturesGraph, "sport:afl", "all");
+allLeagueFixturesGraph = app.PREFERENCE_SYSTEM.setCoverageMode(allLeagueFixturesGraph, "sport:nrl", "all");
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  preferenceGraph: allLeagueFixturesGraph,
+});
+app.setFilter("afl");
+assert(app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "the AFL filter must expose routine fixtures when All fixtures is selected");
 app.setFilter("all");
+assert.deepEqual(
+  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id).sort(),
+  ["routine-afl", "routine-nrl"],
+  "All fixtures coverage must expose routine AFL and NRL cards in the All calendar"
+);
+app.setPreferences({});
 
 const exportedTopOnly = app.selectedNeverMissExportEvents({
   topStorylines: true,
