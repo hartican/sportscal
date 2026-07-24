@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-glasgow-2026-cwg-v1",
+  "version": "nothingsports-afl-nrl-fixtures-2026-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-19T12:00:00+10:00",
+  "publishedAt": "2026-07-24T08:27:54.216Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -22,7 +22,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-07-19",
+    "basisDate": "2026-07-24",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -30,7 +30,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-03-20",
-    "daysAhead": 244,
+    "daysAhead": 239,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {
@@ -79,12 +79,12 @@
         "lastEventDate": "2027-03-07"
       },
       "nrl": {
-        "count": 11,
+        "count": 63,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-10-31"
       },
       "afl": {
-        "count": 6,
+        "count": 28,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-08-09"
       },

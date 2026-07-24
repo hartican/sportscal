@@ -66,10 +66,8 @@ editorialLabels.forEach(label => assert.match(vectorAssets.editorialMarkup(label
   assert(vectorAssets.openUse[entity.glyph] || vectorAssets.custom[entity.glyph], `${entity.id} must reference a registered vector`);
 });
 
-const eventStart = html.indexOf("const EVENTS = [");
-const eventEnd = html.indexOf("\n\nconst VECTOR_ASSETS", eventStart);
-assert(eventStart >= 0 && eventEnd > eventStart, "inline canonical event payload must be discoverable");
-const uiSource = `${html.slice(0, eventStart)}${html.slice(eventEnd)}`;
+assert(html.includes('src="data/events.js"'), "the generated direct-file event bundle must load before the app");
+const uiSource = html;
 assert.doesNotMatch(uiSource, /\p{Extended_Pictographic}|\p{Regional_Indicator}{2}/u, "visible interface graphics must not use emoji");
 assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyphs must be removed before rendering or export");
 assert.match(uiSource, /class="skip-link"/, "keyboard users must receive a skip link");

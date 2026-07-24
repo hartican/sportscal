@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require("node:fs");
-const path = require("node:path");
 const {
   normalizeFeed,
   readJson,
@@ -10,7 +8,6 @@ const {
 } = require("./lib/feed-utils");
 
 const INPUT_PATH = process.argv[2] || "feeds/incoming/events.json";
-const BUNDLE_PATH = process.argv[3] || "data/cwg-events.js";
 const FEED_VERSION = "nothingsport-glasgow-2026-cwg-v1";
 const REVIEWED_AT = "2026-07-19T12:00:00+10:00";
 const SOURCE_URL = "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf";
@@ -492,12 +489,6 @@ if (errors.length) {
 }
 
 writeJson(INPUT_PATH, nextFeed);
-fs.mkdirSync(path.dirname(BUNDLE_PATH), { recursive: true });
-fs.writeFileSync(
-  BUNDLE_PATH,
-  `(function attachBundledCommonwealthGames(root){\n  root.NOTHINGSPORTS_CWG_EVENTS = Object.freeze(${JSON.stringify(cards, null, 2)}.map(event => Object.freeze(event)));\n})(typeof globalThis !== "undefined" ? globalThis : window);\n`,
-);
 
 console.log(`Upserted ${cards.length} Glasgow 2026 Commonwealth Games cards into ${INPUT_PATH}`);
 console.log(`Replaced ${existingCwgIds.size} earlier Commonwealth Games cards`);
-console.log(`Updated direct-file fallback bundle ${BUNDLE_PATH}`);

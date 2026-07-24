@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v24";
+const CACHE_NAME = "nothingSports-shell-v26";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -15,7 +15,7 @@ const APP_SHELL = [
   "/config/soundtrack.js",
   "/config/selector-taxonomy.js",
   "/config/au-broadcast-weights.js",
-  "/data/cwg-events.js",
+  "/data/events.js",
   "/data/feed-meta.json",
   "/data/events.json",
   "/data/canonical/afl-nrl-2026.json",

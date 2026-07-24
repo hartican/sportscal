@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
 const {
   mergeFeedEvents,
   normalizeFeed,
@@ -11,12 +10,7 @@ const {
 
 const inputPath = process.argv[2] || "feeds/incoming/events.json";
 const outputPath = process.argv[3] || "feeds/incoming/events.restored.json";
-const html = fs.readFileSync("index.html", "utf8");
-const match = html.match(/const EVENTS = (\[[\s\S]*?\]);\n\nconst SPORT_META/);
-
-if (!match) throw new Error("Bundled EVENTS block not found in index.html.");
-
-const bundled = JSON.parse(match[1])
+const bundled = normalizeFeed(readJson("data/events.json")).events
   .filter(event => Number(event.expected) >= 5)
   .filter(event => !["wimbledon", "fifa"].includes(event.key))
   .map((event, index) => ({

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-glasgow-2026-cwg-v1",
-  "publishedAt": "2026-07-19T12:00:00+10:00",
-  "sourceNote": "Source-backed historical results plus curated, spoiler-safe Glasgow 2026 Commonwealth Games sessions.",
+  "version": "nothingsports-afl-nrl-fixtures-2026-v1",
+  "publishedAt": "2026-07-24T08:27:54.216Z",
+  "sourceNote": "Curated event cards plus official confirmed 2026 AFL and NRL regular-season fixtures. Curated cards supersede routine imports for the same event.",
   "events": [
     {
       "sport": "American Football",
@@ -5264,6 +5264,68 @@
       }
     },
     {
+      "id": "event-nrl-129992102",
+      "eventId": "event-nrl-129992102",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Knights v Roosters",
+      "displayTitleCompact": "Knights v Roosters",
+      "date": "2026-07-24",
+      "time": "18:00",
+      "startTimeUtc": "2026-07-24T08:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "McDonald Jones Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Knights",
+          "role": "home"
+        },
+        {
+          "name": "Roosters",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Knights v Roosters is scheduled for Round 21 of the 2026 NRL season.",
+      "fullSpiel": "Knights v Roosters is an upcoming NRL fixture at McDonald Jones Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992102",
+      "canonicalSourceId": "129992102",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:325",
+        "team:nrl:331"
+      ],
+      "homeParticipantId": "team:nrl:325",
+      "awayParticipantId": "team:nrl:331",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "sport": "Commonwealth Games",
       "key": "cwg",
       "commonwealthDiscipline": "3x3 Basketball",
@@ -5317,6 +5379,192 @@
         "editorialWindowDays": 10
       },
       "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+    },
+    {
+      "id": "event-afl-cd_m20260142008",
+      "eventId": "event-afl-cd_m20260142008",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Melbourne v Geelong Cats",
+      "displayTitleCompact": "Melbourne v Geelong Cats",
+      "date": "2026-07-24",
+      "time": "19:40",
+      "startTimeUtc": "2026-07-24T09:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Melbourne",
+          "role": "home"
+        },
+        {
+          "name": "Geelong Cats",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Melbourne v Geelong Cats is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "Melbourne v Geelong Cats is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8205",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142008",
+      "canonicalSourceId": "CD_M20260142008",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t90",
+        "team:afl:cd_t70"
+      ],
+      "homeParticipantId": "team:afl:cd_t90",
+      "awayParticipantId": "team:afl:cd_t70",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992103",
+      "eventId": "event-nrl-129992103",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Rabbitohs v Storm",
+      "displayTitleCompact": "Rabbitohs v Storm",
+      "date": "2026-07-24",
+      "time": "20:00",
+      "startTimeUtc": "2026-07-24T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Accor Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Rabbitohs",
+          "role": "home"
+        },
+        {
+          "name": "Storm",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Rabbitohs v Storm is scheduled for Round 21 of the 2026 NRL season.",
+      "fullSpiel": "Rabbitohs v Storm is an upcoming NRL fixture at Accor Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992103",
+      "canonicalSourceId": "129992103",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:335",
+        "team:nrl:324"
+      ],
+      "homeParticipantId": "team:nrl:335",
+      "awayParticipantId": "team:nrl:324",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142004",
+      "eventId": "event-afl-cd_m20260142004",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Fremantle v West Coast Eagles",
+      "displayTitleCompact": "Fremantle v West Coast Eagles",
+      "date": "2026-07-24",
+      "time": "20:10",
+      "startTimeUtc": "2026-07-24T10:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Optus Stadium, Perth",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Fremantle",
+          "role": "home"
+        },
+        {
+          "name": "West Coast Eagles",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Fremantle v West Coast Eagles is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "Fremantle v West Coast Eagles is an upcoming AFL fixture at Optus Stadium, Perth. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8210",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142004",
+      "canonicalSourceId": "CD_M20260142004",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t150"
+      ],
+      "homeParticipantId": "team:afl:cd_t60",
+      "awayParticipantId": "team:afl:cd_t150",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Cycling",
@@ -5538,6 +5786,68 @@
       "lastReviewedAt": "2026-07-19T12:00:00+10:00"
     },
     {
+      "id": "event-afl-cd_m20260142003",
+      "eventId": "event-afl-cd_m20260142003",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Carlton v Gold Coast SUNS",
+      "displayTitleCompact": "Carlton v Gold Coast SUNS",
+      "date": "2026-07-25",
+      "time": "13:05",
+      "startTimeUtc": "2026-07-25T03:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Carlton",
+          "role": "home"
+        },
+        {
+          "name": "Gold Coast SUNS",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Carlton v Gold Coast SUNS is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "Carlton v Gold Coast SUNS is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8201",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142003",
+      "canonicalSourceId": "CD_M20260142003",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t30",
+        "team:afl:cd_t1000"
+      ],
+      "homeParticipantId": "team:afl:cd_t30",
+      "awayParticipantId": "team:afl:cd_t1000",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "id": "nrl-raiders-tigers-2026-07-25",
       "eventId": "nrl-raiders-tigers-2026-07-25",
       "sport": "NRL",
@@ -5566,7 +5876,284 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming"
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Raiders",
+          "role": "home"
+        },
+        {
+          "name": "Wests Tigers",
+          "role": "away"
+        }
+      ],
+      "canonicalEventId": "event:nrl:129992104",
+      "canonicalSourceId": "129992104",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:323",
+        "team:nrl:334"
+      ],
+      "homeParticipantId": "team:nrl:323",
+      "awayParticipantId": "team:nrl:334",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142006",
+      "eventId": "event-afl-cd_m20260142006",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Hawthorn v Essendon",
+      "displayTitleCompact": "Hawthorn v Essendon",
+      "date": "2026-07-25",
+      "time": "16:15",
+      "startTimeUtc": "2026-07-25T06:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Hawthorn",
+          "role": "home"
+        },
+        {
+          "name": "Essendon",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Hawthorn v Essendon is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "Hawthorn v Essendon is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8206",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142006",
+      "canonicalSourceId": "CD_M20260142006",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t80",
+        "team:afl:cd_t50"
+      ],
+      "homeParticipantId": "team:afl:cd_t80",
+      "awayParticipantId": "team:afl:cd_t50",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142005",
+      "eventId": "event-afl-cd_m20260142005",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "GWS GIANTS v Sydney Swans",
+      "displayTitleCompact": "GWS GIANTS v Sydney Swans",
+      "date": "2026-07-25",
+      "time": "16:35",
+      "startTimeUtc": "2026-07-25T06:35:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "ENGIE Stadium, Sydney",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "GWS GIANTS",
+          "role": "home"
+        },
+        {
+          "name": "Sydney Swans",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "GWS GIANTS v Sydney Swans is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "GWS GIANTS v Sydney Swans is an upcoming AFL fixture at ENGIE Stadium, Sydney. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8208",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142005",
+      "canonicalSourceId": "CD_M20260142005",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t1010",
+        "team:afl:cd_t160"
+      ],
+      "homeParticipantId": "team:afl:cd_t1010",
+      "awayParticipantId": "team:afl:cd_t160",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992105",
+      "eventId": "event-nrl-129992105",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Bulldogs v Warriors",
+      "displayTitleCompact": "Bulldogs v Warriors",
+      "date": "2026-07-25",
+      "time": "17:30",
+      "startTimeUtc": "2026-07-25T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Accor Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Bulldogs",
+          "role": "home"
+        },
+        {
+          "name": "Warriors",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Bulldogs v Warriors is scheduled for Round 21 of the 2026 NRL season.",
+      "fullSpiel": "Bulldogs v Warriors is an upcoming NRL fixture at Accor Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992105",
+      "canonicalSourceId": "129992105",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:332",
+        "team:nrl:321"
+      ],
+      "homeParticipantId": "team:nrl:332",
+      "awayParticipantId": "team:nrl:321",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992106",
+      "eventId": "event-nrl-129992106",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Cowboys v Broncos",
+      "displayTitleCompact": "Cowboys v Broncos",
+      "date": "2026-07-25",
+      "time": "19:30",
+      "startTimeUtc": "2026-07-25T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Queensland Country Bank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Cowboys",
+          "role": "home"
+        },
+        {
+          "name": "Broncos",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Cowboys v Broncos is scheduled for Round 21 of the 2026 NRL season.",
+      "fullSpiel": "Cowboys v Broncos is an upcoming NRL fixture at Queensland Country Bank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992106",
+      "canonicalSourceId": "129992106",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:326",
+        "team:nrl:322"
+      ],
+      "homeParticipantId": "team:nrl:326",
+      "awayParticipantId": "team:nrl:322",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Cycling",
@@ -5651,7 +6238,36 @@
       "highlightEligible": true,
       "briefingEligible": false,
       "catchupEligible": false,
-      "status": "upcoming"
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Western Bulldogs",
+          "role": "home"
+        },
+        {
+          "name": "Richmond",
+          "role": "away"
+        }
+      ],
+      "canonicalEventId": "event:afl:cd_m20260142009",
+      "canonicalSourceId": "CD_M20260142009",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t140",
+        "team:afl:cd_t120"
+      ],
+      "homeParticipantId": "team:afl:cd_t140",
+      "awayParticipantId": "team:afl:cd_t120",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Commonwealth Games",
@@ -5736,6 +6352,254 @@
       "briefingEligible": false,
       "catchupEligible": false,
       "status": "upcoming"
+    },
+    {
+      "id": "event-afl-cd_m20260142002",
+      "eventId": "event-afl-cd_m20260142002",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Brisbane Lions v Port Adelaide",
+      "displayTitleCompact": "Brisbane Lions v Port Adelaide",
+      "date": "2026-07-26",
+      "time": "13:10",
+      "startTimeUtc": "2026-07-26T03:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Gabba, Brisbane",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Brisbane Lions",
+          "role": "home"
+        },
+        {
+          "name": "Port Adelaide",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Brisbane Lions v Port Adelaide is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "Brisbane Lions v Port Adelaide is an upcoming AFL fixture at Gabba, Brisbane. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8203",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142002",
+      "canonicalSourceId": "CD_M20260142002",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t20",
+        "team:afl:cd_t110"
+      ],
+      "homeParticipantId": "team:afl:cd_t20",
+      "awayParticipantId": "team:afl:cd_t110",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992107",
+      "eventId": "event-nrl-129992107",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dragons v Titans",
+      "displayTitleCompact": "Dragons v Titans",
+      "date": "2026-07-26",
+      "time": "14:00",
+      "startTimeUtc": "2026-07-26T04:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Netstrata Jubilee Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dragons",
+          "role": "home"
+        },
+        {
+          "name": "Titans",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dragons v Titans is scheduled for Round 21 of the 2026 NRL season.",
+      "fullSpiel": "Dragons v Titans is an upcoming NRL fixture at Netstrata Jubilee Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992107",
+      "canonicalSourceId": "129992107",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:330",
+        "team:nrl:337"
+      ],
+      "homeParticipantId": "team:nrl:330",
+      "awayParticipantId": "team:nrl:337",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142007",
+      "eventId": "event-afl-cd_m20260142007",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "North Melbourne v St Kilda",
+      "displayTitleCompact": "North Melbourne v St Kilda",
+      "date": "2026-07-26",
+      "time": "15:15",
+      "startTimeUtc": "2026-07-26T05:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "North Melbourne",
+          "role": "home"
+        },
+        {
+          "name": "St Kilda",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "North Melbourne v St Kilda is scheduled for Round 20 of the 2026 AFL season.",
+      "fullSpiel": "North Melbourne v St Kilda is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8207",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142007",
+      "canonicalSourceId": "CD_M20260142007",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t100",
+        "team:afl:cd_t130"
+      ],
+      "homeParticipantId": "team:afl:cd_t100",
+      "awayParticipantId": "team:afl:cd_t130",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992108",
+      "eventId": "event-nrl-129992108",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Sea Eagles v Sharks",
+      "displayTitleCompact": "Sea Eagles v Sharks",
+      "date": "2026-07-26",
+      "time": "16:05",
+      "startTimeUtc": "2026-07-26T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "4 Pines Park",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sea Eagles",
+          "role": "home"
+        },
+        {
+          "name": "Sharks",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sea Eagles v Sharks is scheduled for Round 21 of the 2026 NRL season.",
+      "fullSpiel": "Sea Eagles v Sharks is an upcoming NRL fixture at 4 Pines Park. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992108",
+      "canonicalSourceId": "129992108",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:336",
+        "team:nrl:333"
+      ],
+      "homeParticipantId": "team:nrl:336",
+      "awayParticipantId": "team:nrl:333",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Commonwealth Games",
@@ -6568,7 +7432,88 @@
         "needsPreviewRefresh": false,
         "editorialWindowDays": 10,
         "note": "Official fixture timing and broadcast context confirmed for the editorial window."
-      }
+      },
+      "canonicalEventId": "event:afl:cd_m20260142102",
+      "canonicalSourceId": "CD_M20260142102",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t40",
+        "team:afl:cd_t70"
+      ],
+      "homeParticipantId": "team:afl:cd_t40",
+      "awayParticipantId": "team:afl:cd_t70",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992201",
+      "eventId": "event-nrl-129992201",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Cowboys v Roosters",
+      "displayTitleCompact": "Cowboys v Roosters",
+      "date": "2026-07-30",
+      "time": "19:50",
+      "startTimeUtc": "2026-07-30T09:50:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Queensland Country Bank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Cowboys",
+          "role": "home"
+        },
+        {
+          "name": "Roosters",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Cowboys v Roosters is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Cowboys v Roosters is an upcoming NRL fixture at Queensland Country Bank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992201",
+      "canonicalSourceId": "129992201",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:326",
+        "team:nrl:331"
+      ],
+      "homeParticipantId": "team:nrl:326",
+      "awayParticipantId": "team:nrl:331",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Commonwealth Games",
@@ -6679,6 +7624,192 @@
         "editorialWindowDays": 10
       },
       "lastReviewedAt": "2026-07-20T06:29:24.569Z"
+    },
+    {
+      "id": "event-nrl-129992202",
+      "eventId": "event-nrl-129992202",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dragons v Dolphins",
+      "displayTitleCompact": "Dragons v Dolphins",
+      "date": "2026-07-31",
+      "time": "18:00",
+      "startTimeUtc": "2026-07-31T08:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "WIN Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dragons",
+          "role": "home"
+        },
+        {
+          "name": "Dolphins",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dragons v Dolphins is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Dragons v Dolphins is an upcoming NRL fixture at WIN Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992202",
+      "canonicalSourceId": "129992202",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:330",
+        "team:nrl:9538"
+      ],
+      "homeParticipantId": "team:nrl:330",
+      "awayParticipantId": "team:nrl:9538",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992203",
+      "eventId": "event-nrl-129992203",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Storm v Bulldogs",
+      "displayTitleCompact": "Storm v Bulldogs",
+      "date": "2026-07-31",
+      "time": "20:00",
+      "startTimeUtc": "2026-07-31T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "AAMI Park",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Storm",
+          "role": "home"
+        },
+        {
+          "name": "Bulldogs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Storm v Bulldogs is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Storm v Bulldogs is an upcoming NRL fixture at AAMI Park. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992203",
+      "canonicalSourceId": "129992203",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:324",
+        "team:nrl:332"
+      ],
+      "homeParticipantId": "team:nrl:324",
+      "awayParticipantId": "team:nrl:332",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142104",
+      "eventId": "event-afl-cd_m20260142104",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Fremantle v Western Bulldogs",
+      "displayTitleCompact": "Fremantle v Western Bulldogs",
+      "date": "2026-07-31",
+      "time": "20:10",
+      "startTimeUtc": "2026-07-31T10:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Optus Stadium, Perth",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Fremantle",
+          "role": "home"
+        },
+        {
+          "name": "Western Bulldogs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Fremantle v Western Bulldogs is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Fremantle v Western Bulldogs is an upcoming AFL fixture at Optus Stadium, Perth. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8218",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142104",
+      "canonicalSourceId": "CD_M20260142104",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t140"
+      ],
+      "homeParticipantId": "team:afl:cd_t60",
+      "awayParticipantId": "team:afl:cd_t140",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Commonwealth Games",
@@ -6847,6 +7978,254 @@
       "lastReviewedAt": "2026-07-19T12:00:00+10:00"
     },
     {
+      "id": "event-afl-cd_m20260142109",
+      "eventId": "event-afl-cd_m20260142109",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "St Kilda v Sydney Swans",
+      "displayTitleCompact": "St Kilda v Sydney Swans",
+      "date": "2026-08-01",
+      "time": "13:05",
+      "startTimeUtc": "2026-08-01T03:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "St Kilda",
+          "role": "home"
+        },
+        {
+          "name": "Sydney Swans",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "St Kilda v Sydney Swans is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "St Kilda v Sydney Swans is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8217",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142109",
+      "canonicalSourceId": "CD_M20260142109",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t130",
+        "team:afl:cd_t160"
+      ],
+      "homeParticipantId": "team:afl:cd_t130",
+      "awayParticipantId": "team:afl:cd_t160",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142106",
+      "eventId": "event-afl-cd_m20260142106",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Hawthorn v North Melbourne",
+      "displayTitleCompact": "Hawthorn v North Melbourne",
+      "date": "2026-08-01",
+      "time": "13:35",
+      "startTimeUtc": "2026-08-01T03:35:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "UTAS Stadium, Launceston",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Hawthorn",
+          "role": "home"
+        },
+        {
+          "name": "North Melbourne",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Hawthorn v North Melbourne is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Hawthorn v North Melbourne is an upcoming AFL fixture at UTAS Stadium, Launceston. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8212",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142106",
+      "canonicalSourceId": "CD_M20260142106",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t80",
+        "team:afl:cd_t100"
+      ],
+      "homeParticipantId": "team:afl:cd_t80",
+      "awayParticipantId": "team:afl:cd_t100",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992204",
+      "eventId": "event-nrl-129992204",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Titans v Warriors",
+      "displayTitleCompact": "Titans v Warriors",
+      "date": "2026-08-01",
+      "time": "15:00",
+      "startTimeUtc": "2026-08-01T05:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Cbus Super Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Titans",
+          "role": "home"
+        },
+        {
+          "name": "Warriors",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Titans v Warriors is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Titans v Warriors is an upcoming NRL fixture at Cbus Super Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992204",
+      "canonicalSourceId": "129992204",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:337",
+        "team:nrl:321"
+      ],
+      "homeParticipantId": "team:nrl:337",
+      "awayParticipantId": "team:nrl:321",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992205",
+      "eventId": "event-nrl-129992205",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Panthers v Raiders",
+      "displayTitleCompact": "Panthers v Raiders",
+      "date": "2026-08-01",
+      "time": "17:30",
+      "startTimeUtc": "2026-08-01T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Glen Willow Oval",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Panthers",
+          "role": "home"
+        },
+        {
+          "name": "Raiders",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Panthers v Raiders is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Panthers v Raiders is an upcoming NRL fixture at Glen Willow Oval. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992205",
+      "canonicalSourceId": "129992205",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:329",
+        "team:nrl:323"
+      ],
+      "homeParticipantId": "team:nrl:329",
+      "awayParticipantId": "team:nrl:323",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "sport": "Commonwealth Games",
       "key": "cwg",
       "commonwealthDiscipline": "Netball",
@@ -6901,6 +8280,192 @@
         "editorialWindowDays": 10
       },
       "lastReviewedAt": "2026-07-20T06:29:24.569Z"
+    },
+    {
+      "id": "event-afl-cd_m20260142107",
+      "eventId": "event-afl-cd_m20260142107",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Port Adelaide v GWS GIANTS",
+      "displayTitleCompact": "Port Adelaide v GWS GIANTS",
+      "date": "2026-08-01",
+      "time": "18:35",
+      "startTimeUtc": "2026-08-01T08:35:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Adelaide Oval, Adelaide",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Port Adelaide",
+          "role": "home"
+        },
+        {
+          "name": "GWS GIANTS",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Port Adelaide v GWS GIANTS is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Port Adelaide v GWS GIANTS is an upcoming AFL fixture at Adelaide Oval, Adelaide. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8221",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142107",
+      "canonicalSourceId": "CD_M20260142107",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t110",
+        "team:afl:cd_t1010"
+      ],
+      "homeParticipantId": "team:afl:cd_t110",
+      "awayParticipantId": "team:afl:cd_t1010",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992206",
+      "eventId": "event-nrl-129992206",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Broncos v Knights",
+      "displayTitleCompact": "Broncos v Knights",
+      "date": "2026-08-01",
+      "time": "19:30",
+      "startTimeUtc": "2026-08-01T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Suncorp Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Broncos",
+          "role": "home"
+        },
+        {
+          "name": "Knights",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Broncos v Knights is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Broncos v Knights is an upcoming NRL fixture at Suncorp Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992206",
+      "canonicalSourceId": "129992206",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:322",
+        "team:nrl:325"
+      ],
+      "homeParticipantId": "team:nrl:322",
+      "awayParticipantId": "team:nrl:325",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142101",
+      "eventId": "event-afl-cd_m20260142101",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Carlton v Brisbane Lions",
+      "displayTitleCompact": "Carlton v Brisbane Lions",
+      "date": "2026-08-01",
+      "time": "19:40",
+      "startTimeUtc": "2026-08-01T09:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Carlton",
+          "role": "home"
+        },
+        {
+          "name": "Brisbane Lions",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Carlton v Brisbane Lions is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Carlton v Brisbane Lions is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8209",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142101",
+      "canonicalSourceId": "CD_M20260142101",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t30",
+        "team:afl:cd_t20"
+      ],
+      "homeParticipantId": "team:afl:cd_t30",
+      "awayParticipantId": "team:afl:cd_t20",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Commonwealth Games",
@@ -7179,6 +8744,316 @@
       "lastReviewedAt": "2026-07-20T06:29:24.569Z"
     },
     {
+      "id": "event-afl-cd_m20260142108",
+      "eventId": "event-afl-cd_m20260142108",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Richmond v West Coast Eagles",
+      "displayTitleCompact": "Richmond v West Coast Eagles",
+      "date": "2026-08-02",
+      "time": "13:10",
+      "startTimeUtc": "2026-08-02T03:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Richmond",
+          "role": "home"
+        },
+        {
+          "name": "West Coast Eagles",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Richmond v West Coast Eagles is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Richmond v West Coast Eagles is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8214",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142108",
+      "canonicalSourceId": "CD_M20260142108",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t120",
+        "team:afl:cd_t150"
+      ],
+      "homeParticipantId": "team:afl:cd_t120",
+      "awayParticipantId": "team:afl:cd_t150",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992207",
+      "eventId": "event-nrl-129992207",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Sharks v Rabbitohs",
+      "displayTitleCompact": "Sharks v Rabbitohs",
+      "date": "2026-08-02",
+      "time": "14:00",
+      "startTimeUtc": "2026-08-02T04:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Ocean Protect Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sharks",
+          "role": "home"
+        },
+        {
+          "name": "Rabbitohs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sharks v Rabbitohs is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Sharks v Rabbitohs is an upcoming NRL fixture at Ocean Protect Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992207",
+      "canonicalSourceId": "129992207",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:333",
+        "team:nrl:335"
+      ],
+      "homeParticipantId": "team:nrl:333",
+      "awayParticipantId": "team:nrl:335",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142105",
+      "eventId": "event-afl-cd_m20260142105",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Gold Coast SUNS v Melbourne",
+      "displayTitleCompact": "Gold Coast SUNS v Melbourne",
+      "date": "2026-08-02",
+      "time": "15:15",
+      "startTimeUtc": "2026-08-02T05:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "People First Stadium, Gold Coast",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Gold Coast SUNS",
+          "role": "home"
+        },
+        {
+          "name": "Melbourne",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Gold Coast SUNS v Melbourne is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Gold Coast SUNS v Melbourne is an upcoming AFL fixture at People First Stadium, Gold Coast. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8215",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142105",
+      "canonicalSourceId": "CD_M20260142105",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t1000",
+        "team:afl:cd_t90"
+      ],
+      "homeParticipantId": "team:afl:cd_t1000",
+      "awayParticipantId": "team:afl:cd_t90",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992208",
+      "eventId": "event-nrl-129992208",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Wests Tigers v Eels",
+      "displayTitleCompact": "Wests Tigers v Eels",
+      "date": "2026-08-02",
+      "time": "16:05",
+      "startTimeUtc": "2026-08-02T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Wests Tigers",
+          "role": "home"
+        },
+        {
+          "name": "Eels",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Wests Tigers v Eels is scheduled for Round 22 of the 2026 NRL season.",
+      "fullSpiel": "Wests Tigers v Eels is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992208",
+      "canonicalSourceId": "129992208",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:334",
+        "team:nrl:328"
+      ],
+      "homeParticipantId": "team:nrl:334",
+      "awayParticipantId": "team:nrl:328",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142103",
+      "eventId": "event-afl-cd_m20260142103",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Essendon v Adelaide Crows",
+      "displayTitleCompact": "Essendon v Adelaide Crows",
+      "date": "2026-08-02",
+      "time": "16:40",
+      "startTimeUtc": "2026-08-02T06:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Essendon",
+          "role": "home"
+        },
+        {
+          "name": "Adelaide Crows",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Essendon v Adelaide Crows is scheduled for Round 21 of the 2026 AFL season.",
+      "fullSpiel": "Essendon v Adelaide Crows is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8211",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142103",
+      "canonicalSourceId": "CD_M20260142103",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8211",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t50",
+        "team:afl:cd_t10"
+      ],
+      "homeParticipantId": "team:afl:cd_t50",
+      "awayParticipantId": "team:afl:cd_t10",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "sport": "Commonwealth Games",
       "key": "cwg",
       "commonwealthDiscipline": "Bowls and Para Bowls",
@@ -7428,7 +9303,718 @@
       "highlightEligible": true,
       "briefingEligible": false,
       "catchupEligible": false,
-      "status": "upcoming"
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Western Bulldogs",
+          "role": "home"
+        },
+        {
+          "name": "North Melbourne",
+          "role": "away"
+        }
+      ],
+      "canonicalEventId": "event:afl:cd_m20260142209",
+      "canonicalSourceId": "CD_M20260142209",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t140",
+        "team:afl:cd_t100"
+      ],
+      "homeParticipantId": "team:afl:cd_t140",
+      "awayParticipantId": "team:afl:cd_t100",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992301",
+      "eventId": "event-nrl-129992301",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Titans v Cowboys",
+      "displayTitleCompact": "Titans v Cowboys",
+      "date": "2026-08-06",
+      "time": "19:50",
+      "startTimeUtc": "2026-08-06T09:50:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Cbus Super Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Titans",
+          "role": "home"
+        },
+        {
+          "name": "Cowboys",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Titans v Cowboys is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Titans v Cowboys is an upcoming NRL fixture at Cbus Super Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992301",
+      "canonicalSourceId": "129992301",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:337",
+        "team:nrl:326"
+      ],
+      "homeParticipantId": "team:nrl:337",
+      "awayParticipantId": "team:nrl:326",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992302",
+      "eventId": "event-nrl-129992302",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Warriors v Panthers",
+      "displayTitleCompact": "Warriors v Panthers",
+      "date": "2026-08-07",
+      "time": "18:00",
+      "startTimeUtc": "2026-08-07T08:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Go Media Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Warriors",
+          "role": "home"
+        },
+        {
+          "name": "Panthers",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Warriors v Panthers is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Warriors v Panthers is an upcoming NRL fixture at Go Media Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992302",
+      "canonicalSourceId": "129992302",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:321",
+        "team:nrl:329"
+      ],
+      "homeParticipantId": "team:nrl:321",
+      "awayParticipantId": "team:nrl:329",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142202",
+      "eventId": "event-afl-cd_m20260142202",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Brisbane Lions v Hawthorn",
+      "displayTitleCompact": "Brisbane Lions v Hawthorn",
+      "date": "2026-08-07",
+      "time": "19:40",
+      "startTimeUtc": "2026-08-07T09:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Gabba, Brisbane",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Brisbane Lions",
+          "role": "home"
+        },
+        {
+          "name": "Hawthorn",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Brisbane Lions v Hawthorn is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "Brisbane Lions v Hawthorn is an upcoming AFL fixture at Gabba, Brisbane. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8223",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142202",
+      "canonicalSourceId": "CD_M20260142202",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t20",
+        "team:afl:cd_t80"
+      ],
+      "homeParticipantId": "team:afl:cd_t20",
+      "awayParticipantId": "team:afl:cd_t80",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992303",
+      "eventId": "event-nrl-129992303",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Roosters v Bulldogs",
+      "displayTitleCompact": "Roosters v Bulldogs",
+      "date": "2026-08-07",
+      "time": "20:00",
+      "startTimeUtc": "2026-08-07T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Allianz Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Roosters",
+          "role": "home"
+        },
+        {
+          "name": "Bulldogs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Roosters v Bulldogs is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Roosters v Bulldogs is an upcoming NRL fixture at Allianz Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992303",
+      "canonicalSourceId": "129992303",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:331",
+        "team:nrl:332"
+      ],
+      "homeParticipantId": "team:nrl:331",
+      "awayParticipantId": "team:nrl:332",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142205",
+      "eventId": "event-afl-cd_m20260142205",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Melbourne v Fremantle",
+      "displayTitleCompact": "Melbourne v Fremantle",
+      "date": "2026-08-08",
+      "time": "13:15",
+      "startTimeUtc": "2026-08-08T03:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Melbourne",
+          "role": "home"
+        },
+        {
+          "name": "Fremantle",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Melbourne v Fremantle is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "Melbourne v Fremantle is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8220",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142205",
+      "canonicalSourceId": "CD_M20260142205",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t90",
+        "team:afl:cd_t60"
+      ],
+      "homeParticipantId": "team:afl:cd_t90",
+      "awayParticipantId": "team:afl:cd_t60",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992304",
+      "eventId": "event-nrl-129992304",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Storm v Sea Eagles",
+      "displayTitleCompact": "Storm v Sea Eagles",
+      "date": "2026-08-08",
+      "time": "15:00",
+      "startTimeUtc": "2026-08-08T05:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "HBF Park",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Storm",
+          "role": "home"
+        },
+        {
+          "name": "Sea Eagles",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Storm v Sea Eagles is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Storm v Sea Eagles is an upcoming NRL fixture at HBF Park. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992304",
+      "canonicalSourceId": "129992304",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:324",
+        "team:nrl:336"
+      ],
+      "homeParticipantId": "team:nrl:324",
+      "awayParticipantId": "team:nrl:336",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142207",
+      "eventId": "event-afl-cd_m20260142207",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Sydney Swans v Port Adelaide",
+      "displayTitleCompact": "Sydney Swans v Port Adelaide",
+      "date": "2026-08-08",
+      "time": "16:15",
+      "startTimeUtc": "2026-08-08T06:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "SCG, Sydney",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sydney Swans",
+          "role": "home"
+        },
+        {
+          "name": "Port Adelaide",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sydney Swans v Port Adelaide is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "Sydney Swans v Port Adelaide is an upcoming AFL fixture at SCG, Sydney. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8222",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142207",
+      "canonicalSourceId": "CD_M20260142207",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t160",
+        "team:afl:cd_t110"
+      ],
+      "homeParticipantId": "team:afl:cd_t160",
+      "awayParticipantId": "team:afl:cd_t110",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142203",
+      "eventId": "event-afl-cd_m20260142203",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Geelong Cats v Essendon",
+      "displayTitleCompact": "Geelong Cats v Essendon",
+      "date": "2026-08-08",
+      "time": "16:35",
+      "startTimeUtc": "2026-08-08T06:35:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "GMHBA Stadium, Geelong",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Geelong Cats",
+          "role": "home"
+        },
+        {
+          "name": "Essendon",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Geelong Cats v Essendon is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "Geelong Cats v Essendon is an upcoming AFL fixture at GMHBA Stadium, Geelong. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8219",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142203",
+      "canonicalSourceId": "CD_M20260142203",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t70",
+        "team:afl:cd_t50"
+      ],
+      "homeParticipantId": "team:afl:cd_t70",
+      "awayParticipantId": "team:afl:cd_t50",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992305",
+      "eventId": "event-nrl-129992305",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dolphins v Broncos",
+      "displayTitleCompact": "Dolphins v Broncos",
+      "date": "2026-08-08",
+      "time": "17:30",
+      "startTimeUtc": "2026-08-08T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Suncorp Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dolphins",
+          "role": "home"
+        },
+        {
+          "name": "Broncos",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dolphins v Broncos is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Dolphins v Broncos is an upcoming NRL fixture at Suncorp Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992305",
+      "canonicalSourceId": "129992305",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:9538",
+        "team:nrl:322"
+      ],
+      "homeParticipantId": "team:nrl:9538",
+      "awayParticipantId": "team:nrl:322",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992306",
+      "eventId": "event-nrl-129992306",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Rabbitohs v Eels",
+      "displayTitleCompact": "Rabbitohs v Eels",
+      "date": "2026-08-08",
+      "time": "19:30",
+      "startTimeUtc": "2026-08-08T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Allianz Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Rabbitohs",
+          "role": "home"
+        },
+        {
+          "name": "Eels",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Rabbitohs v Eels is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Rabbitohs v Eels is an upcoming NRL fixture at Allianz Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992306",
+      "canonicalSourceId": "129992306",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:335",
+        "team:nrl:328"
+      ],
+      "homeParticipantId": "team:nrl:335",
+      "awayParticipantId": "team:nrl:328",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142201",
+      "eventId": "event-afl-cd_m20260142201",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Adelaide Crows v Richmond",
+      "displayTitleCompact": "Adelaide Crows v Richmond",
+      "date": "2026-08-08",
+      "time": "19:35",
+      "startTimeUtc": "2026-08-08T09:35:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Adelaide Oval, Adelaide",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Adelaide Crows",
+          "role": "home"
+        },
+        {
+          "name": "Richmond",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Adelaide Crows v Richmond is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "Adelaide Crows v Richmond is an upcoming AFL fixture at Adelaide Oval, Adelaide. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8230",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142201",
+      "canonicalSourceId": "CD_M20260142201",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t10",
+        "team:afl:cd_t120"
+      ],
+      "homeParticipantId": "team:afl:cd_t10",
+      "awayParticipantId": "team:afl:cd_t120",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "id": "rugby-japan-australia-2026-08-08",
@@ -7517,7 +10103,36 @@
       "highlightEligible": true,
       "briefingEligible": false,
       "catchupEligible": false,
-      "status": "upcoming"
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "GWS GIANTS",
+          "role": "home"
+        },
+        {
+          "name": "Gold Coast SUNS",
+          "role": "away"
+        }
+      ],
+      "canonicalEventId": "event:afl:cd_m20260142204",
+      "canonicalSourceId": "CD_M20260142204",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t1010",
+        "team:afl:cd_t1000"
+      ],
+      "homeParticipantId": "team:afl:cd_t1010",
+      "awayParticipantId": "team:afl:cd_t1000",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "id": "nrl-raiders-knights-2026-08-09",
@@ -7548,7 +10163,222 @@
       "highlightEligible": true,
       "briefingEligible": false,
       "catchupEligible": false,
-      "status": "upcoming"
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Raiders",
+          "role": "home"
+        },
+        {
+          "name": "Knights",
+          "role": "away"
+        }
+      ],
+      "canonicalEventId": "event:nrl:129992307",
+      "canonicalSourceId": "129992307",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:323",
+        "team:nrl:325"
+      ],
+      "homeParticipantId": "team:nrl:323",
+      "awayParticipantId": "team:nrl:325",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992308",
+      "eventId": "event-nrl-129992308",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dragons v Sharks",
+      "displayTitleCompact": "Dragons v Sharks",
+      "date": "2026-08-09",
+      "time": "16:05",
+      "startTimeUtc": "2026-08-09T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Netstrata Jubilee Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dragons",
+          "role": "home"
+        },
+        {
+          "name": "Sharks",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dragons v Sharks is scheduled for Round 23 of the 2026 NRL season.",
+      "fullSpiel": "Dragons v Sharks is an upcoming NRL fixture at Netstrata Jubilee Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992308",
+      "canonicalSourceId": "129992308",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:330",
+        "team:nrl:333"
+      ],
+      "homeParticipantId": "team:nrl:330",
+      "awayParticipantId": "team:nrl:333",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142208",
+      "eventId": "event-afl-cd_m20260142208",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "West Coast Eagles v Collingwood",
+      "displayTitleCompact": "West Coast Eagles v Collingwood",
+      "date": "2026-08-09",
+      "time": "16:10",
+      "startTimeUtc": "2026-08-09T06:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Optus Stadium, Perth",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "West Coast Eagles",
+          "role": "home"
+        },
+        {
+          "name": "Collingwood",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "West Coast Eagles v Collingwood is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "West Coast Eagles v Collingwood is an upcoming AFL fixture at Optus Stadium, Perth. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8227",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142208",
+      "canonicalSourceId": "CD_M20260142208",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t150",
+        "team:afl:cd_t40"
+      ],
+      "homeParticipantId": "team:afl:cd_t150",
+      "awayParticipantId": "team:afl:cd_t40",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142206",
+      "eventId": "event-afl-cd_m20260142206",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "St Kilda v Carlton",
+      "displayTitleCompact": "St Kilda v Carlton",
+      "date": "2026-08-09",
+      "time": "19:20",
+      "startTimeUtc": "2026-08-09T09:20:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "St Kilda",
+          "role": "home"
+        },
+        {
+          "name": "Carlton",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "St Kilda v Carlton is scheduled for Round 22 of the 2026 AFL season.",
+      "fullSpiel": "St Kilda v Carlton is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8225",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142206",
+      "canonicalSourceId": "CD_M20260142206",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t130",
+        "team:afl:cd_t30"
+      ],
+      "homeParticipantId": "team:afl:cd_t130",
+      "awayParticipantId": "team:afl:cd_t30",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "Cricket",
@@ -7641,6 +10471,254 @@
       }
     },
     {
+      "id": "event-nrl-129992401",
+      "eventId": "event-nrl-129992401",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Panthers v Roosters",
+      "displayTitleCompact": "Panthers v Roosters",
+      "date": "2026-08-13",
+      "time": "19:50",
+      "startTimeUtc": "2026-08-13T09:50:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Panthers",
+          "role": "home"
+        },
+        {
+          "name": "Roosters",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Panthers v Roosters is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Panthers v Roosters is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992401",
+      "canonicalSourceId": "129992401",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:329",
+        "team:nrl:331"
+      ],
+      "homeParticipantId": "team:nrl:329",
+      "awayParticipantId": "team:nrl:331",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992402",
+      "eventId": "event-nrl-129992402",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Sea Eagles v Dolphins",
+      "displayTitleCompact": "Sea Eagles v Dolphins",
+      "date": "2026-08-14",
+      "time": "18:00",
+      "startTimeUtc": "2026-08-14T08:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "4 Pines Park",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sea Eagles",
+          "role": "home"
+        },
+        {
+          "name": "Dolphins",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sea Eagles v Dolphins is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Sea Eagles v Dolphins is an upcoming NRL fixture at 4 Pines Park. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992402",
+      "canonicalSourceId": "129992402",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:336",
+        "team:nrl:9538"
+      ],
+      "homeParticipantId": "team:nrl:336",
+      "awayParticipantId": "team:nrl:9538",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992403",
+      "eventId": "event-nrl-129992403",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Bulldogs v Rabbitohs",
+      "displayTitleCompact": "Bulldogs v Rabbitohs",
+      "date": "2026-08-14",
+      "time": "20:00",
+      "startTimeUtc": "2026-08-14T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Accor Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Bulldogs",
+          "role": "home"
+        },
+        {
+          "name": "Rabbitohs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Bulldogs v Rabbitohs is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Bulldogs v Rabbitohs is an upcoming NRL fixture at Accor Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992403",
+      "canonicalSourceId": "129992403",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:332",
+        "team:nrl:335"
+      ],
+      "homeParticipantId": "team:nrl:332",
+      "awayParticipantId": "team:nrl:335",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992404",
+      "eventId": "event-nrl-129992404",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Sharks v Raiders",
+      "displayTitleCompact": "Sharks v Raiders",
+      "date": "2026-08-15",
+      "time": "15:00",
+      "startTimeUtc": "2026-08-15T05:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Ocean Protect Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sharks",
+          "role": "home"
+        },
+        {
+          "name": "Raiders",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sharks v Raiders is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Sharks v Raiders is an upcoming NRL fixture at Ocean Protect Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992404",
+      "canonicalSourceId": "129992404",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:333",
+        "team:nrl:323"
+      ],
+      "homeParticipantId": "team:nrl:333",
+      "awayParticipantId": "team:nrl:323",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "id": "rugby-australia-japan-2026-08-15",
       "eventId": "rugby-australia-japan-2026-08-15",
       "sport": "Rugby Union",
@@ -7699,6 +10777,316 @@
       }
     },
     {
+      "id": "event-nrl-129992405",
+      "eventId": "event-nrl-129992405",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Eels v Cowboys",
+      "displayTitleCompact": "Eels v Cowboys",
+      "date": "2026-08-15",
+      "time": "17:30",
+      "startTimeUtc": "2026-08-15T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Eels",
+          "role": "home"
+        },
+        {
+          "name": "Cowboys",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Eels v Cowboys is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Eels v Cowboys is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992405",
+      "canonicalSourceId": "129992405",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:328",
+        "team:nrl:326"
+      ],
+      "homeParticipantId": "team:nrl:328",
+      "awayParticipantId": "team:nrl:326",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992406",
+      "eventId": "event-nrl-129992406",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Broncos v Warriors",
+      "displayTitleCompact": "Broncos v Warriors",
+      "date": "2026-08-15",
+      "time": "19:30",
+      "startTimeUtc": "2026-08-15T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Suncorp Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Broncos",
+          "role": "home"
+        },
+        {
+          "name": "Warriors",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Broncos v Warriors is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Broncos v Warriors is an upcoming NRL fixture at Suncorp Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992406",
+      "canonicalSourceId": "129992406",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:322",
+        "team:nrl:321"
+      ],
+      "homeParticipantId": "team:nrl:322",
+      "awayParticipantId": "team:nrl:321",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992407",
+      "eventId": "event-nrl-129992407",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Knights v Titans",
+      "displayTitleCompact": "Knights v Titans",
+      "date": "2026-08-16",
+      "time": "14:00",
+      "startTimeUtc": "2026-08-16T04:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "McDonald Jones Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Knights",
+          "role": "home"
+        },
+        {
+          "name": "Titans",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Knights v Titans is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Knights v Titans is an upcoming NRL fixture at McDonald Jones Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992407",
+      "canonicalSourceId": "129992407",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:325",
+        "team:nrl:337"
+      ],
+      "homeParticipantId": "team:nrl:325",
+      "awayParticipantId": "team:nrl:337",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992408",
+      "eventId": "event-nrl-129992408",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Wests Tigers v Dragons",
+      "displayTitleCompact": "Wests Tigers v Dragons",
+      "date": "2026-08-16",
+      "time": "16:05",
+      "startTimeUtc": "2026-08-16T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Wests Tigers",
+          "role": "home"
+        },
+        {
+          "name": "Dragons",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Wests Tigers v Dragons is scheduled for Round 24 of the 2026 NRL season.",
+      "fullSpiel": "Wests Tigers v Dragons is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992408",
+      "canonicalSourceId": "129992408",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:334",
+        "team:nrl:330"
+      ],
+      "homeParticipantId": "team:nrl:334",
+      "awayParticipantId": "team:nrl:330",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992501",
+      "eventId": "event-nrl-129992501",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Storm v Panthers",
+      "displayTitleCompact": "Storm v Panthers",
+      "date": "2026-08-20",
+      "time": "19:50",
+      "startTimeUtc": "2026-08-20T09:50:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "AAMI Park",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Storm",
+          "role": "home"
+        },
+        {
+          "name": "Panthers",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Storm v Panthers is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Storm v Panthers is an upcoming NRL fixture at AAMI Park. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992501",
+      "canonicalSourceId": "129992501",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:324",
+        "team:nrl:329"
+      ],
+      "homeParticipantId": "team:nrl:324",
+      "awayParticipantId": "team:nrl:329",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "id": "nrl-raiders-broncos-2026-08-21",
       "eventId": "nrl-raiders-broncos-2026-08-21",
       "sport": "NRL",
@@ -7754,7 +11142,88 @@
         "needsPreviewRefresh": true,
         "editorialWindowDays": 10,
         "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-      }
+      },
+      "canonicalEventId": "event:nrl:129992502",
+      "canonicalSourceId": "129992502",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:323",
+        "team:nrl:322"
+      ],
+      "homeParticipantId": "team:nrl:323",
+      "awayParticipantId": "team:nrl:322",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992503",
+      "eventId": "event-nrl-129992503",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dolphins v Eels",
+      "displayTitleCompact": "Dolphins v Eels",
+      "date": "2026-08-21",
+      "time": "20:00",
+      "startTimeUtc": "2026-08-21T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Suncorp Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dolphins",
+          "role": "home"
+        },
+        {
+          "name": "Eels",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dolphins v Eels is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Dolphins v Eels is an upcoming NRL fixture at Suncorp Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992503",
+      "canonicalSourceId": "129992503",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:9538",
+        "team:nrl:328"
+      ],
+      "homeParticipantId": "team:nrl:9538",
+      "awayParticipantId": "team:nrl:328",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "id": "cricket-australia-bangladesh-second-test-2026",
@@ -7819,6 +11288,192 @@
       "status": "upcoming"
     },
     {
+      "id": "event-nrl-129992504",
+      "eventId": "event-nrl-129992504",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Knights v Sea Eagles",
+      "displayTitleCompact": "Knights v Sea Eagles",
+      "date": "2026-08-22",
+      "time": "15:00",
+      "startTimeUtc": "2026-08-22T05:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "McDonald Jones Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Knights",
+          "role": "home"
+        },
+        {
+          "name": "Sea Eagles",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Knights v Sea Eagles is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Knights v Sea Eagles is an upcoming NRL fixture at McDonald Jones Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992504",
+      "canonicalSourceId": "129992504",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:325",
+        "team:nrl:336"
+      ],
+      "homeParticipantId": "team:nrl:325",
+      "awayParticipantId": "team:nrl:336",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992505",
+      "eventId": "event-nrl-129992505",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Rabbitohs v Warriors",
+      "displayTitleCompact": "Rabbitohs v Warriors",
+      "date": "2026-08-22",
+      "time": "17:30",
+      "startTimeUtc": "2026-08-22T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Accor Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Rabbitohs",
+          "role": "home"
+        },
+        {
+          "name": "Warriors",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Rabbitohs v Warriors is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Rabbitohs v Warriors is an upcoming NRL fixture at Accor Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992505",
+      "canonicalSourceId": "129992505",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:335",
+        "team:nrl:321"
+      ],
+      "homeParticipantId": "team:nrl:335",
+      "awayParticipantId": "team:nrl:321",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992506",
+      "eventId": "event-nrl-129992506",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dragons v Bulldogs",
+      "displayTitleCompact": "Dragons v Bulldogs",
+      "date": "2026-08-22",
+      "time": "19:30",
+      "startTimeUtc": "2026-08-22T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Allianz Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dragons",
+          "role": "home"
+        },
+        {
+          "name": "Bulldogs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dragons v Bulldogs is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Dragons v Bulldogs is an upcoming NRL fixture at Allianz Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992506",
+      "canonicalSourceId": "129992506",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:330",
+        "team:nrl:332"
+      ],
+      "homeParticipantId": "team:nrl:330",
+      "awayParticipantId": "team:nrl:332",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "sport": "F1",
       "key": "f1",
       "name": "R12 Dutch GP Qualifying",
@@ -7846,6 +11501,130 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "status": "upcoming"
+    },
+    {
+      "id": "event-nrl-129992507",
+      "eventId": "event-nrl-129992507",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Titans v Sharks",
+      "displayTitleCompact": "Titans v Sharks",
+      "date": "2026-08-23",
+      "time": "14:00",
+      "startTimeUtc": "2026-08-23T04:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Cbus Super Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Titans",
+          "role": "home"
+        },
+        {
+          "name": "Sharks",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Titans v Sharks is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Titans v Sharks is an upcoming NRL fixture at Cbus Super Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992507",
+      "canonicalSourceId": "129992507",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:337",
+        "team:nrl:333"
+      ],
+      "homeParticipantId": "team:nrl:337",
+      "awayParticipantId": "team:nrl:333",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992508",
+      "eventId": "event-nrl-129992508",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Roosters v Wests Tigers",
+      "displayTitleCompact": "Roosters v Wests Tigers",
+      "date": "2026-08-23",
+      "time": "16:05",
+      "startTimeUtc": "2026-08-23T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Allianz Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Roosters",
+          "role": "home"
+        },
+        {
+          "name": "Wests Tigers",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Roosters v Wests Tigers is scheduled for Round 25 of the 2026 NRL season.",
+      "fullSpiel": "Roosters v Wests Tigers is an upcoming NRL fixture at Allianz Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992508",
+      "canonicalSourceId": "129992508",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:331",
+        "team:nrl:334"
+      ],
+      "homeParticipantId": "team:nrl:331",
+      "awayParticipantId": "team:nrl:334",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "F1",
@@ -7892,6 +11671,378 @@
         "editorialWindowDays": 10,
         "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
       }
+    },
+    {
+      "id": "event-nrl-129992601",
+      "eventId": "event-nrl-129992601",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Broncos v Storm",
+      "displayTitleCompact": "Broncos v Storm",
+      "date": "2026-08-27",
+      "time": "19:50",
+      "startTimeUtc": "2026-08-27T09:50:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Suncorp Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Broncos",
+          "role": "home"
+        },
+        {
+          "name": "Storm",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Broncos v Storm is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Broncos v Storm is an upcoming NRL fixture at Suncorp Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992601",
+      "canonicalSourceId": "129992601",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:322",
+        "team:nrl:324"
+      ],
+      "homeParticipantId": "team:nrl:322",
+      "awayParticipantId": "team:nrl:324",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992602",
+      "eventId": "event-nrl-129992602",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Sea Eagles v Dragons",
+      "displayTitleCompact": "Sea Eagles v Dragons",
+      "date": "2026-08-28",
+      "time": "18:00",
+      "startTimeUtc": "2026-08-28T08:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "4 Pines Park",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sea Eagles",
+          "role": "home"
+        },
+        {
+          "name": "Dragons",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sea Eagles v Dragons is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Sea Eagles v Dragons is an upcoming NRL fixture at 4 Pines Park. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992602",
+      "canonicalSourceId": "129992602",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:336",
+        "team:nrl:330"
+      ],
+      "homeParticipantId": "team:nrl:336",
+      "awayParticipantId": "team:nrl:330",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992603",
+      "eventId": "event-nrl-129992603",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Panthers v Bulldogs",
+      "displayTitleCompact": "Panthers v Bulldogs",
+      "date": "2026-08-28",
+      "time": "20:00",
+      "startTimeUtc": "2026-08-28T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Panthers",
+          "role": "home"
+        },
+        {
+          "name": "Bulldogs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Panthers v Bulldogs is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Panthers v Bulldogs is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992603",
+      "canonicalSourceId": "129992603",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:329",
+        "team:nrl:332"
+      ],
+      "homeParticipantId": "team:nrl:329",
+      "awayParticipantId": "team:nrl:332",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992604",
+      "eventId": "event-nrl-129992604",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Titans v Rabbitohs",
+      "displayTitleCompact": "Titans v Rabbitohs",
+      "date": "2026-08-29",
+      "time": "15:00",
+      "startTimeUtc": "2026-08-29T05:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Cbus Super Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Titans",
+          "role": "home"
+        },
+        {
+          "name": "Rabbitohs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Titans v Rabbitohs is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Titans v Rabbitohs is an upcoming NRL fixture at Cbus Super Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992604",
+      "canonicalSourceId": "129992604",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:337",
+        "team:nrl:335"
+      ],
+      "homeParticipantId": "team:nrl:337",
+      "awayParticipantId": "team:nrl:335",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992605",
+      "eventId": "event-nrl-129992605",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Roosters v Dolphins",
+      "displayTitleCompact": "Roosters v Dolphins",
+      "date": "2026-08-29",
+      "time": "17:30",
+      "startTimeUtc": "2026-08-29T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Allianz Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Roosters",
+          "role": "home"
+        },
+        {
+          "name": "Dolphins",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Roosters v Dolphins is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Roosters v Dolphins is an upcoming NRL fixture at Allianz Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992605",
+      "canonicalSourceId": "129992605",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:331",
+        "team:nrl:9538"
+      ],
+      "homeParticipantId": "team:nrl:331",
+      "awayParticipantId": "team:nrl:9538",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992606",
+      "eventId": "event-nrl-129992606",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Cowboys v Wests Tigers",
+      "displayTitleCompact": "Cowboys v Wests Tigers",
+      "date": "2026-08-29",
+      "time": "19:30",
+      "startTimeUtc": "2026-08-29T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Queensland Country Bank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Cowboys",
+          "role": "home"
+        },
+        {
+          "name": "Wests Tigers",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Cowboys v Wests Tigers is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Cowboys v Wests Tigers is an upcoming NRL fixture at Queensland Country Bank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992606",
+      "canonicalSourceId": "129992606",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:326",
+        "team:nrl:334"
+      ],
+      "homeParticipantId": "team:nrl:326",
+      "awayParticipantId": "team:nrl:334",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "id": "rugby-argentina-australia-jujuy-2026-08-30",
@@ -7950,6 +12101,502 @@
         "editorialWindowDays": 10,
         "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
       }
+    },
+    {
+      "id": "event-nrl-129992607",
+      "eventId": "event-nrl-129992607",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Warriors v Knights",
+      "displayTitleCompact": "Warriors v Knights",
+      "date": "2026-08-30",
+      "time": "14:00",
+      "startTimeUtc": "2026-08-30T04:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Go Media Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Warriors",
+          "role": "home"
+        },
+        {
+          "name": "Knights",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Warriors v Knights is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Warriors v Knights is an upcoming NRL fixture at Go Media Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992607",
+      "canonicalSourceId": "129992607",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:321",
+        "team:nrl:325"
+      ],
+      "homeParticipantId": "team:nrl:321",
+      "awayParticipantId": "team:nrl:325",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992608",
+      "eventId": "event-nrl-129992608",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Eels v Sharks",
+      "displayTitleCompact": "Eels v Sharks",
+      "date": "2026-08-30",
+      "time": "16:05",
+      "startTimeUtc": "2026-08-30T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Eels",
+          "role": "home"
+        },
+        {
+          "name": "Sharks",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Eels v Sharks is scheduled for Round 26 of the 2026 NRL season.",
+      "fullSpiel": "Eels v Sharks is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992608",
+      "canonicalSourceId": "129992608",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:328",
+        "team:nrl:333"
+      ],
+      "homeParticipantId": "team:nrl:328",
+      "awayParticipantId": "team:nrl:333",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992701",
+      "eventId": "event-nrl-129992701",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Bulldogs v Broncos",
+      "displayTitleCompact": "Bulldogs v Broncos",
+      "date": "2026-09-03",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-03T09:50:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Accor Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Bulldogs",
+          "role": "home"
+        },
+        {
+          "name": "Broncos",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Bulldogs v Broncos is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Bulldogs v Broncos is an upcoming NRL fixture at Accor Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992701",
+      "canonicalSourceId": "129992701",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:332",
+        "team:nrl:322"
+      ],
+      "homeParticipantId": "team:nrl:332",
+      "awayParticipantId": "team:nrl:322",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992702",
+      "eventId": "event-nrl-129992702",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Titans v Dolphins",
+      "displayTitleCompact": "Titans v Dolphins",
+      "date": "2026-09-04",
+      "time": "18:00",
+      "startTimeUtc": "2026-09-04T08:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Cbus Super Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Titans",
+          "role": "home"
+        },
+        {
+          "name": "Dolphins",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Titans v Dolphins is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Titans v Dolphins is an upcoming NRL fixture at Cbus Super Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992702",
+      "canonicalSourceId": "129992702",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:337",
+        "team:nrl:9538"
+      ],
+      "homeParticipantId": "team:nrl:337",
+      "awayParticipantId": "team:nrl:9538",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992703",
+      "eventId": "event-nrl-129992703",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Rabbitohs v Roosters",
+      "displayTitleCompact": "Rabbitohs v Roosters",
+      "date": "2026-09-04",
+      "time": "20:00",
+      "startTimeUtc": "2026-09-04T10:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Allianz Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Rabbitohs",
+          "role": "home"
+        },
+        {
+          "name": "Roosters",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Rabbitohs v Roosters is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Rabbitohs v Roosters is an upcoming NRL fixture at Allianz Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992703",
+      "canonicalSourceId": "129992703",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:335",
+        "team:nrl:331"
+      ],
+      "homeParticipantId": "team:nrl:335",
+      "awayParticipantId": "team:nrl:331",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992704",
+      "eventId": "event-nrl-129992704",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Warriors v Sea Eagles",
+      "displayTitleCompact": "Warriors v Sea Eagles",
+      "date": "2026-09-05",
+      "time": "15:00",
+      "startTimeUtc": "2026-09-05T05:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Go Media Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Warriors",
+          "role": "home"
+        },
+        {
+          "name": "Sea Eagles",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Warriors v Sea Eagles is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Warriors v Sea Eagles is an upcoming NRL fixture at Go Media Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992704",
+      "canonicalSourceId": "129992704",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:321",
+        "team:nrl:336"
+      ],
+      "homeParticipantId": "team:nrl:321",
+      "awayParticipantId": "team:nrl:336",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992705",
+      "eventId": "event-nrl-129992705",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Cowboys v Raiders",
+      "displayTitleCompact": "Cowboys v Raiders",
+      "date": "2026-09-05",
+      "time": "17:30",
+      "startTimeUtc": "2026-09-05T07:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Queensland Country Bank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Cowboys",
+          "role": "home"
+        },
+        {
+          "name": "Raiders",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Cowboys v Raiders is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Cowboys v Raiders is an upcoming NRL fixture at Queensland Country Bank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992705",
+      "canonicalSourceId": "129992705",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:326",
+        "team:nrl:323"
+      ],
+      "homeParticipantId": "team:nrl:326",
+      "awayParticipantId": "team:nrl:323",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992706",
+      "eventId": "event-nrl-129992706",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Sharks v Storm",
+      "displayTitleCompact": "Sharks v Storm",
+      "date": "2026-09-05",
+      "time": "19:30",
+      "startTimeUtc": "2026-09-05T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Ocean Protect Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sharks",
+          "role": "home"
+        },
+        {
+          "name": "Storm",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sharks v Storm is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Sharks v Storm is an upcoming NRL fixture at Ocean Protect Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992706",
+      "canonicalSourceId": "129992706",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:333",
+        "team:nrl:324"
+      ],
+      "homeParticipantId": "team:nrl:333",
+      "awayParticipantId": "team:nrl:324",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "F1",
@@ -8037,6 +12684,130 @@
         "editorialWindowDays": 10,
         "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
       }
+    },
+    {
+      "id": "event-nrl-129992707",
+      "eventId": "event-nrl-129992707",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Dragons v Eels",
+      "displayTitleCompact": "Dragons v Eels",
+      "date": "2026-09-06",
+      "time": "14:00",
+      "startTimeUtc": "2026-09-06T04:00:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "WIN Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Dragons",
+          "role": "home"
+        },
+        {
+          "name": "Eels",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Dragons v Eels is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Dragons v Eels is an upcoming NRL fixture at WIN Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992707",
+      "canonicalSourceId": "129992707",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:330",
+        "team:nrl:328"
+      ],
+      "homeParticipantId": "team:nrl:330",
+      "awayParticipantId": "team:nrl:328",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-nrl-129992708",
+      "eventId": "event-nrl-129992708",
+      "sport": "NRL",
+      "key": "nrl",
+      "name": "Panthers v Wests Tigers",
+      "displayTitleCompact": "Panthers v Wests Tigers",
+      "date": "2026-09-06",
+      "time": "16:05",
+      "startTimeUtc": "2026-09-06T06:05:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "CommBank Stadium",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Panthers",
+          "role": "home"
+        },
+        {
+          "name": "Wests Tigers",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Panthers v Wests Tigers is scheduled for Round 27 of the 2026 NRL season.",
+      "fullSpiel": "Panthers v Wests Tigers is an upcoming NRL fixture at CommBank Stadium. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceUrl": "https://www.nrl.com/draw",
+      "sourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-07-20T13:28:12.879Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:nrl:129992708",
+      "canonicalSourceId": "129992708",
+      "canonicalSourceName": "NRL Match Centre / Champion Data",
+      "canonicalSourceUrl": "https://www.nrl.com/draw",
+      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "participantIds": [
+        "team:nrl:329",
+        "team:nrl:334"
+      ],
+      "homeParticipantId": "team:nrl:329",
+      "awayParticipantId": "team:nrl:334",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "F1",

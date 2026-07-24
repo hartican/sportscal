@@ -22,7 +22,9 @@ const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "u
 const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
 const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
 const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
-const cwgBundleSource = fs.readFileSync("data/cwg-events.js", "utf8");
+const eventsBundlePath = "data/events.js";
+assert(fs.existsSync(eventsBundlePath), "direct-file mode must have a generated published-feed fallback");
+const eventsBundleSource = fs.readFileSync(eventsBundlePath, "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
@@ -70,6 +72,7 @@ assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enric
 assert(html.includes('src="config/card-lifecycle.js"'), "the 14-day derived-card lifecycle must load before app state");
 assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
 assert(html.includes('src="config/soundtrack.js"'), "the opt-in procedural soundtrack controller must load before app state");
+assert(html.includes('src="data/events.js"'), "direct-file mode must load the generated published-feed fallback");
 assert(html.includes("eventEnrichment(ev).mustWatchScore"), "must-watch decisions must use the derived explainable score");
 assert(html.includes('`variant-${enrichment.cardVariant}`'), "cards must receive their derived plain, compact, standard, or marquee variant");
 assert(html.includes("Why it ranked ·"), "opened cards must explain their ranking score");
@@ -89,8 +92,7 @@ assert(html.includes("data-competition-ladder"), "competition-level ladder overr
 assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
 assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
 assert(html.includes("Every available provider starts selected"), "provider selection must be opt-out");
-assert(html.includes('src="data/cwg-events.js"'), "direct-file mode must load the published Commonwealth Games fallback bundle");
-assert(html.includes("withBundledCommonwealthGames(loadCachedFeedEvents() || EVENTS)"), "a stale local feed cache must receive new Commonwealth Games cards without duplicating ids");
+assert(!html.includes("loadCachedFeedEvents"), "a stale saved feed must not override the generated published-feed fallback");
 assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
 assert(html.includes("className = \"new-dot\""), "new cards must render the compact contrast-colour dot");
 assert(html.includes('id="homeSpoilerToggle"'), "the global spoiler toggle must be visible in the sticky home-screen header");
@@ -151,6 +153,15 @@ const canonicalSportsSchema = JSON.parse(fs.readFileSync("schemas/canonical-spor
 const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage.schema.json", "utf8"));
 const enrichedEventSchema = JSON.parse(fs.readFileSync("schemas/enriched-event.schema.json", "utf8"));
 const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
+const eventsBundleSandbox = { globalThis: {} };
+vm.runInNewContext(eventsBundleSource, eventsBundleSandbox, { filename: eventsBundlePath });
+const bundledPublishedEvents = eventsBundleSandbox.globalThis.NOTHINGSPORTS_EVENTS;
+assert(Array.isArray(bundledPublishedEvents), "direct-file fallback must expose the published event list");
+assert.deepEqual(
+  Array.from(bundledPublishedEvents, event => event.id),
+  publishedFeed.events.map(event => event.id),
+  "direct-file fallback must mirror every published feed event"
+);
 assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sports.v1", "canonical sports schema must be explicitly versioned");
 assert.equal(profileStorageSchema.properties.schemaVersion.const, 2, "profile storage schema must be explicitly versioned");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
@@ -159,6 +170,19 @@ assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premie
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
 assert.equal(canonicalIndex.getLatestLadder("competition:afl-premiership-2026").entries.length, 18, "AFL ladder must be queryable by competition");
 assert.equal(canonicalIndex.getLatestLadder("competition:nrl-premiership-2026").entries.length, 17, "NRL ladder must be queryable by competition");
+const confirmedScheduledCanonicalFixtures = canonicalSports.events.filter(event =>
+  ["sport:afl", "sport:nrl"].includes(event.sportDomainId)
+  && event.status === "scheduled"
+  && event.startTimeUtc
+  && Date.parse(event.startTimeUtc) + 3 * 60 * 60 * 1000 >= Date.parse(publishedFeed.publishedAt)
+);
+[incomingFeed, publishedFeed].forEach(feed => {
+  const canonicalIds = feed.events.map(event => event.canonicalEventId).filter(Boolean);
+  assert.equal(new Set(canonicalIds).size, canonicalIds.length, "each canonical fixture may materialise as only one feed card");
+  confirmedScheduledCanonicalFixtures.forEach(event => {
+    assert(canonicalIds.includes(event.id), `${feed === incomingFeed ? "incoming" : "published"} feed must contain ${event.id}`);
+  });
+});
 assert(eventFeedSchema.$defs.event.properties.key.enum.includes("cwg"), "published feeds must accept Commonwealth Games canonical events");
 assert(calendarEventSchema.$defs.sportKey.enum.includes("cwg"), "calendar imports must accept Commonwealth Games canonical events");
 assert.equal(classifyCalendarEvent({ title: "Commonwealth Games Rugby Sevens Final" }).key, "cwg", "Commonwealth Games tagging must win before its underlying sport classification");
@@ -194,15 +218,6 @@ const expectedCwgProgrammeDisciplines = [
 expectedCwgProgrammeDisciplines.forEach(discipline => {
   assert(publishedCwgCards.some(event => event.commonwealthDiscipline === discipline), `Commonwealth Games feed must cover ${discipline}`);
 });
-const cwgBundleSandbox = { globalThis: {} };
-vm.runInNewContext(cwgBundleSource, cwgBundleSandbox, { filename: "data/cwg-events.js" });
-const bundledCwgCards = cwgBundleSandbox.globalThis.NOTHINGSPORTS_CWG_EVENTS;
-assert.equal(bundledCwgCards.length, 32, "direct-file fallback must contain every published Commonwealth Games card");
-assert.deepEqual(
-  Array.from(bundledCwgCards, event => event.id).sort(),
-  publishedCwgCards.map(event => event.id).sort(),
-  "direct-file fallback must mirror the canonical published Commonwealth Games ids"
-);
 assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing nothingSports card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
 publishedFeed.events.forEach(event => {
   [event.name, event.displayTitleCompact, event.spoilerSafeTitle].filter(Boolean).forEach(title => {
@@ -283,6 +298,9 @@ assert.equal(melbourneCards.find(event => event.timeTbc)?.calendarExportEligible
 
 const appPrelude = scriptMatch[1].split("/* ============ LIVE CLOCK ============ */")[0];
 const storage = new Map();
+storage.set("ns_feed_cache_v1", JSON.stringify({
+  events: [{ id: "stale-cache-card", eventId: "stale-cache-card", key: "nrl", sport: "NRL", name: "Stale cached fixture", date: "2026-07-24", time: "19:00", broadcaster: "Kayo Sports", expected: 5 }],
+}));
 const sandbox = {
   console,
   structuredClone,
@@ -303,6 +321,7 @@ vm.runInContext(reminderEngineSource, sandbox, { filename: "config/reminder-engi
 vm.runInContext(soundtrackSource, sandbox, { filename: "config/soundtrack.js" });
 vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
 vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
+vm.runInContext(eventsBundleSource, sandbox, { filename: eventsBundlePath });
 
 const expose = `
 globalThis.__test = {
@@ -316,6 +335,7 @@ globalThis.__test = {
   REMINDER_ENGINE,
   SOUNDTRACK,
   mergePreferences,
+  getActiveEventIds(){ return activeEvents.map(event => event.id); },
   getActiveProfileId(){ return activeProfileBundle?.profile?.id || null; },
   getActiveProfileBundle(){ return structuredClone(activeProfileBundle); },
   allSelectorEntities,
@@ -404,6 +424,11 @@ const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction 
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+assert.deepEqual(
+  Array.from(app.getActiveEventIds()),
+  publishedFeed.events.map(event => event.id),
+  "a stale saved feed must not override the generated published-feed fallback at startup"
+);
 
 function memoryStorage(seed = {}){
   const values = new Map(Object.entries(seed));
@@ -644,6 +669,7 @@ const phaseOneEvents = [
   { ...event("horizon-exception", 200, 5), horizonException: true, calendarExportEligible: false },
   event("too-far", 31, 5),
   event("below-floor", 4, 2),
+  { ...event("routine-afl", 4, 2), key: "afl", sport: "AFL", canonicalEventId: "event:afl:routine" },
 ];
 app.setEvents(phaseOneEvents);
 app.setActions({});
@@ -657,6 +683,10 @@ const neverMissTimeline = app.neverMissTimelineEvents();
 assert.deepEqual(Array.from(neverMissTimeline, ev => ev.id), ["recent-top", "recent-worth", "top-week", "worth-week"], "Never Miss must combine Top Storylines and Worth Checking Out across the seven days around Today");
 assert(!neverMissTimeline.some(ev => ev.id === "expired-top"), "Never Miss must exclude events more than seven days in the past");
 assert(!app.getFilteredEvents().some(ev => ev.id === "below-floor"), "events below stakes 3/5 must be excluded");
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "routine AFL fixtures must not clutter the selective home feed");
+app.setFilter("afl");
+assert(app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "the AFL filter must expose its complete canonical fixture list");
+app.setFilter("all");
 
 const exportedTopOnly = app.selectedNeverMissExportEvents({
   topStorylines: true,
@@ -714,8 +744,8 @@ const manukaGame = {
 assert.equal(app.isLocalGame(manukaGame), true, "Manuka venue aliases must match the default local venue");
 assert.equal(app.preferredTicketUrlForEvent(manukaGame), "https://www.cricket.com.au/tickets");
 
-const pastA = event("past-a", -3, 4);
-const pastB = event("past-b", -2, 3);
+const pastA = event("past-a", -2, 4);
+const pastB = event("past-b", -1, 3);
 const nextRound = {
   ...event("next-round", 5, 5),
   matchupParticipants: [
