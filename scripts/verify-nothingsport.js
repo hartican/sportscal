@@ -17,6 +17,7 @@ const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonom
 const vectorAssetsSource = fs.readFileSync("config/vector-assets.js", "utf8");
 const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
+const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
 const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
 const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "utf8");
 const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
@@ -70,6 +71,7 @@ assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must l
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
+assert(html.includes('src="config/server-sync.js"'), "magic-link sessions and server-state sync must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
 assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
@@ -124,7 +126,15 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v34"'), "Phase 5 must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v35"'), "Phase 6 must advance the served shell cache");
+assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
+assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
+assert(html.includes('"Account & sync"'), "Settings must expose magic-link identity and sync status");
+assert(html.includes("bootstrapServerPersistence()"), "app startup must hydrate durable user state before opening the profile experience");
+assert(html.includes("queueServerStateSync()"), "durable local changes must queue a server-state write");
+assert(html.includes("eventUserState: eventActions"), "saved cards and Catch Up watched state must be included in server truth");
+assert.match(serverSyncSource, /sessionStorage|SESSION_STORAGE_KEY/, "auth credentials must use session storage rather than permanent profile storage");
+assert(!serverSyncSource.includes("localStorage"), "server sync must not promote browser localStorage into the long-term source of truth");
 const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(preferences\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
 assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");

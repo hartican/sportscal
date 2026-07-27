@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v34";
+const CACHE_NAME = "nothingSports-shell-v35";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -8,6 +8,7 @@ const APP_SHELL = [
   "/config/sport-domain-registry.js",
   "/config/canonical-sports-taxonomy.js",
   "/config/profile-storage.js",
+  "/config/server-sync.js",
   "/config/preference-system.js",
   "/config/enrichment-engine.js",
   "/config/card-lifecycle.js",
@@ -61,6 +62,11 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){
+    event.respondWith(fetch(event.request));
+    return;
+  }
   event.respondWith(
     fetch(event.request)
       .then(response => {

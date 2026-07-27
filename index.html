@@ -32,6 +32,8 @@
   --soft-fill: rgba(255,255,255,0.025);
   --soft-fill-strong: rgba(255,255,255,0.06);
   --shadow: rgba(0,0,0,0.55);
+  --positive: #36c98f;
+  --attention: #f7d000;
 
   --c-f1: #e8002d;
   --c-rugby: #1a6b3a;
@@ -69,6 +71,8 @@
   --soft-fill: rgba(15,25,38,0.035);
   --soft-fill-strong: rgba(15,25,38,0.075);
   --shadow: rgba(20,28,38,0.22);
+  --positive: #157a53;
+  --attention: #9a6a00;
 }
 
 @media (prefers-color-scheme: light){
@@ -92,6 +96,8 @@
     --soft-fill: rgba(15,25,38,0.035);
     --soft-fill-strong: rgba(15,25,38,0.075);
     --shadow: rgba(20,28,38,0.22);
+    --positive: #157a53;
+    --attention: #9a6a00;
   }
 }
 
@@ -1976,6 +1982,63 @@ main{
   accent-color:var(--accent);
 }
 
+.account-sync-status{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px 0;
+}
+
+.account-sync-dot{
+  width:10px;
+  height:10px;
+  flex:0 0 10px;
+  margin-top:4px;
+  border-radius:999px;
+  background:var(--text-faint);
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--text-faint) 12%, transparent);
+}
+
+.account-sync-dot.connected{
+  background:var(--positive);
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--positive) 14%, transparent);
+}
+
+.account-sync-dot.pending{
+  background:var(--attention);
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--attention) 14%, transparent);
+}
+
+.account-sync-status strong{
+  display:block;
+  margin-bottom:3px;
+  font-size:0.86rem;
+}
+
+.account-sync-status span{
+  display:block;
+  color:var(--text-dim);
+  font-size:0.74rem;
+  line-height:1.4;
+}
+
+.account-sync-form{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  gap:9px;
+  align-items:end;
+  margin-top:10px;
+}
+
+.account-sync-form .field-label{ margin:0; }
+
+.account-sync-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
 .refine-filter-btn{
   border:1px solid var(--accent);
   border-radius:999px;
@@ -1989,7 +2052,8 @@ main{
 @media (max-width:620px){
   .template-grid,
   .coverage-grid,
-  .viewing-window-grid{ grid-template-columns:1fr; }
+  .viewing-window-grid,
+  .account-sync-form{ grid-template-columns:1fr; }
 }
 
 .settings-menu{
@@ -2863,6 +2927,7 @@ footer.app-footer{
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/profile-storage.js"></script>
+<script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
 <script src="config/enrichment-engine.js"></script>
 <script src="config/card-lifecycle.js"></script>
@@ -3112,6 +3177,10 @@ const STORAGE_KEYS = {
 };
 
 const PROFILE_STORAGE = globalThis.NOTHINGSPORTS_PROFILE_STORAGE || null;
+const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
+const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
+  ? SERVER_SYNC.createClient()
+  : null;
 let activeProfileBundle = null;
 try{
   activeProfileBundle = PROFILE_STORAGE?.loadActiveProfile(localStorage) || null;
@@ -3161,6 +3230,15 @@ let pendingSelectorPromptIds = new Set();
 let settingsViewportAnchor = null;
 let selectorOptInViewportAnchor = null;
 let cardViewStates = {};
+let serverSyncApplying = false;
+let serverSyncTimer = null;
+let serverPersistence = {
+  configured: false,
+  state: serverSyncClient ? "checking" : "local",
+  user: null,
+  lastSyncedAt: null,
+  message: "",
+};
 
 function readStorage(key, fallback){
   try{
@@ -3460,6 +3538,7 @@ function savePreferences(next){
       rebuildDerivedCardCache(activeEvents);
       scheduleBrowserReminders();
     }
+    queueServerStateSync();
   }
 }
 
@@ -3498,6 +3577,7 @@ function loadRatings(){
 function saveRatings(r){
   writeStorage(STORAGE_KEYS.ratings, r);
   saveActiveProfileSection("ratings", r);
+  queueServerStateSync();
 }
 
 function loadEventActions(){
@@ -3542,6 +3622,7 @@ function saveEventActions(next){
   eventActions = next && typeof next === "object" ? next : {};
   writeStorage(STORAGE_KEYS.eventUserState, eventActions);
   saveActiveProfileSection("eventUserState", eventActions);
+  queueServerStateSync();
 }
 
 function loadEventSpoilerState(actions = {}){
@@ -3582,6 +3663,7 @@ function saveEventSpoilerState(next){
   eventSpoilerState = next && typeof next === "object" ? next : {};
   writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
   saveActiveProfileSection("eventSpoilerState", eventSpoilerState);
+  queueServerStateSync();
 }
 
 function loadSurfacePresentation(){
@@ -3613,6 +3695,7 @@ function saveDerivedCardCache(cache){
 function saveArchivedEventRefs(references){
   archivedEventRefs = Array.isArray(references) ? references : [];
   saveActiveProfileSection("archivedEvents", archivedEventRefs);
+  queueServerStateSync();
   return archivedEventRefs;
 }
 
@@ -3783,6 +3866,200 @@ function bootstrapExistingSurfaceHistory(events, reference = nowAEST()){
 }
 
 bootstrapExistingSurfaceHistory(activeEvents);
+
+function setServerPersistence(patch){
+  serverPersistence = { ...serverPersistence, ...(patch || {}) };
+  const settingsOpen = typeof document !== "undefined"
+    && document.getElementById("settingsModal")?.classList.contains("show");
+  if (settingsOpen && settingsSection === "account" && draftPreferences){
+    renderSettingsScreen();
+  }
+  return serverPersistence;
+}
+
+function currentServerStatePayload(){
+  if (!SERVER_SYNC) return null;
+  return SERVER_SYNC.buildUserState({
+    profile: activeProfileBundle?.profile || {},
+    preferences: userPreferences,
+    eventUserState: eventActions,
+    eventSpoilerState,
+    archivedEvents: archivedEventRefs,
+    ratings,
+  });
+}
+
+function queueServerStateSync(){
+  if (
+    serverSyncApplying
+    || !serverSyncClient
+    || serverPersistence.state !== "signedIn"
+  ) return false;
+  clearTimeout(serverSyncTimer);
+  serverSyncTimer = setTimeout(() => {
+    serverSyncTimer = null;
+    syncCurrentServerState().catch(error => {
+      console.warn("Deferred server sync failed", error);
+    });
+  }, 650);
+  return true;
+}
+
+async function syncCurrentServerState({ notify = false } = {}){
+  if (!serverSyncClient || !serverPersistence.user) return null;
+  setServerPersistence({ state: "syncing", message: "Saving your latest choices…" });
+  try{
+    const result = await serverSyncClient.saveState(currentServerStatePayload());
+    const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
+    setServerPersistence({
+      configured: true,
+      state: "signedIn",
+      user: result.user || serverPersistence.user,
+      lastSyncedAt,
+      message: "",
+    });
+    if (notify) showToast("Your nothingSports profile is synced.");
+    return result;
+  }catch(error){
+    const signedOut = error?.status === 401;
+    setServerPersistence({
+      state: signedOut ? "signedOut" : "error",
+      user: signedOut ? null : serverPersistence.user,
+      message: signedOut
+        ? "Your session ended. Sign in again to resume sync."
+        : "Your local copy is safe. Server sync will retry after your next change.",
+    });
+    if (notify) showToast(serverPersistence.message);
+    throw error;
+  }
+}
+
+function normalizeServerArchiveReferences(references, profileId){
+  return (Array.isArray(references) ? references : [])
+    .filter(reference => reference && typeof reference.canonicalEventId === "string")
+    .map(reference => ({
+      ...reference,
+      id: `archive:${profileId}:${reference.canonicalEventId}`,
+      profileId,
+    }));
+}
+
+function applyServerState(state){
+  if (!state) return false;
+  serverSyncApplying = true;
+  try{
+    userPreferences = mergePreferences(state.preferences);
+    eventActions = state.eventUserState && typeof state.eventUserState === "object"
+      ? state.eventUserState
+      : {};
+    eventSpoilerState = state.eventSpoilerState && typeof state.eventSpoilerState === "object"
+      ? state.eventSpoilerState
+      : {};
+    ratings = state.ratings && typeof state.ratings === "object" ? state.ratings : {};
+    const localProfileId = activeProfileBundle?.profile?.id || "profile:local";
+    archivedEventRefs = normalizeServerArchiveReferences(state.archivedEvents, localProfileId);
+
+    writeStorage(STORAGE_KEYS.preferences, userPreferences);
+    writeStorage(STORAGE_KEYS.eventUserState, eventActions);
+    writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
+    writeStorage(STORAGE_KEYS.ratings, ratings);
+
+    if (PROFILE_STORAGE && activeProfileBundle){
+      const profilePreferences = { ...userPreferences };
+      delete profilePreferences.preferenceGraph;
+      const graph = userPreferences.preferenceGraph;
+      const serverProfile = state.profile && typeof state.profile === "object" ? state.profile : {};
+      activeProfileBundle = PROFILE_STORAGE.saveBundle(localStorage, {
+        ...activeProfileBundle,
+        profile: {
+          ...activeProfileBundle.profile,
+          usernameLabel: serverProfile.usernameLabel || activeProfileBundle.profile.usernameLabel,
+          timezone: serverProfile.timezone || activeProfileBundle.profile.timezone,
+          onboardingCompleted: Boolean(userPreferences.onboardingComplete),
+          id: localProfileId,
+        },
+        preferences: profilePreferences,
+        domainPreferences: graph?.domainPreferences || [],
+        competitionPreferences: graph?.competitionPreferences || [],
+        entityFollows: graph?.entityFollows || [],
+        viewingPreference: graph?.viewing || null,
+        ratings,
+        eventUserState: eventActions,
+        eventSpoilerState,
+        archivedEvents: archivedEventRefs,
+      });
+    }
+
+    applyThemePreference(userPreferences.theme);
+    rebuildDerivedCardCache(activeEvents);
+    scheduleBrowserReminders();
+    renderAll({ preserveViewport: true });
+    return true;
+  }finally{
+    serverSyncApplying = false;
+  }
+}
+
+async function bootstrapServerPersistence(){
+  if (!serverSyncClient){
+    setServerPersistence({ configured: false, state: "local", message: "" });
+    return serverPersistence;
+  }
+  setServerPersistence({ state: "checking", message: "Checking server sync…" });
+  try{
+    const status = await serverSyncClient.status();
+    if (!status.configured){
+      setServerPersistence({
+        configured: false,
+        state: "local",
+        user: null,
+        message: "",
+      });
+      return serverPersistence;
+    }
+
+    setServerPersistence({ configured: true });
+    const session = await serverSyncClient.restoreSession();
+    if (!session){
+      setServerPersistence({ state: "signedOut", user: null, message: "" });
+      return serverPersistence;
+    }
+
+    const user = await serverSyncClient.user();
+    setServerPersistence({
+      state: "syncing",
+      user,
+      message: "Loading your saved profile…",
+    });
+    const result = await serverSyncClient.loadState();
+    if (result.state){
+      applyServerState(result.state);
+      setServerPersistence({
+        state: "signedIn",
+        user: result.user || user,
+        lastSyncedAt: result.state.updatedAt,
+        message: "",
+      });
+    } else {
+      setServerPersistence({ state: "signedIn", user, message: "" });
+      await syncCurrentServerState();
+    }
+  }catch(error){
+    const unavailablePreview = error?.status === 404;
+    const signedOut = error?.status === 401;
+    setServerPersistence({
+      configured: !unavailablePreview,
+      state: unavailablePreview ? "local" : signedOut ? "signedOut" : "error",
+      user: signedOut ? null : serverPersistence.user,
+      message: unavailablePreview
+        ? ""
+        : signedOut
+          ? "Your session ended. Sign in again to resume sync."
+          : "Your local copy is active. Server sync is temporarily unavailable.",
+    });
+  }
+  return serverPersistence;
+}
 
 /* ============ FEED REFRESH ============ */
 function sydneyPartsFromIso(iso){
@@ -6839,6 +7116,134 @@ function bindSettingsMenuNavigation(root){
   });
 }
 
+function accountSettingsSummary(){
+  const email = serverPersistence.user?.email || "";
+  if (serverPersistence.state === "checking") return "Checking server sync";
+  if (serverPersistence.state === "local") return "Local only · this device";
+  if (serverPersistence.state === "signedOut") return "Sign in to sync across devices";
+  if (serverPersistence.state === "magicLinkSent") return "Magic link sent · check your email";
+  if (serverPersistence.state === "requesting") return "Sending magic link";
+  if (serverPersistence.state === "syncing") return `${email || "Signed in"} · syncing`;
+  if (serverPersistence.state === "signedIn") return `${email || "Signed in"} · synced`;
+  return email ? `${email} · local copy active` : "Local copy active";
+}
+
+function accountSyncTimeLabel(value){
+  const parsed = new Date(value || "");
+  if (Number.isNaN(parsed.getTime())) return "Not synced yet";
+  return `Last synced ${parsed.toLocaleString("en-AU", {
+    day: "numeric",
+    month: "short",
+    hour: "numeric",
+    minute: "2-digit",
+  })}`;
+}
+
+function renderAccountSettings(body){
+  const state = serverPersistence.state;
+  const signedIn = Boolean(serverPersistence.user) && ["signedIn", "syncing", "error"].includes(state);
+  const pending = ["checking", "requesting", "magicLinkSent", "syncing"].includes(state);
+  const dotClass = signedIn && state === "signedIn" ? " connected" : pending ? " pending" : "";
+  const heading = state === "local"
+    ? "Local profile"
+    : signedIn
+      ? "Profile sync"
+      : state === "magicLinkSent"
+        ? "Check your email"
+        : "Sign in with email";
+  const detail = state === "local"
+    ? "Your choices remain saved on this device. Server sync becomes available when the Supabase project is connected."
+    : state === "checking"
+      ? "Checking whether server sync is available."
+      : state === "requesting"
+        ? "Sending a secure, one-time sign-in link."
+        : state === "magicLinkSent"
+          ? (serverPersistence.message || "Open the one-time link on this device to connect your profile.")
+      : signedIn
+            ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
+            : state === "error"
+              ? (serverPersistence.message || "Your local copy is active while sync recovers.")
+              : (serverPersistence.message || "Use a one-time magic link. No password is required.");
+
+  body.innerHTML = `<div class="preference-stack">
+    <div class="filter-panel">
+      <div class="account-sync-status">
+        <span class="account-sync-dot${dotClass}" aria-hidden="true"></span>
+        <div><strong>${heading}</strong><span id="accountSyncDetail"></span></div>
+      </div>
+      <p class="preference-help">Preferences, followed teams and competitors, saved cards, Catch Up watched state, results, standings and Calendar sync settings follow your account. Disposable feed cards stay local and rebuild from source data.</p>
+      <div id="accountSyncControls"></div>
+    </div>
+  </div>`;
+  document.getElementById("accountSyncDetail").textContent = detail;
+  const controls = document.getElementById("accountSyncControls");
+
+  if (signedIn){
+    const identity = document.createElement("p");
+    identity.className = "preference-help";
+    identity.textContent = `Signed in as ${serverPersistence.user.email || "your magic-link account"}.`;
+    controls.appendChild(identity);
+    const actions = document.createElement("div");
+    actions.className = "account-sync-actions";
+    actions.innerHTML = `<button class="btn primary" type="button" id="syncAccountNowBtn" ${state === "syncing" ? "disabled" : ""}>${state === "syncing" ? "Syncing…" : "Sync now"}</button>
+      <button class="btn ghost" type="button" id="signOutAccountBtn">Sign out</button>`;
+    controls.appendChild(actions);
+    document.getElementById("syncAccountNowBtn").addEventListener("click", () => {
+      syncCurrentServerState({ notify: true }).catch(error => console.warn("Manual server sync failed", error));
+    });
+    document.getElementById("signOutAccountBtn").addEventListener("click", async () => {
+      try{
+        await serverSyncClient?.signOut();
+      }catch(error){
+        console.warn("Supabase sign out failed", error);
+      }
+      setServerPersistence({
+        configured: true,
+        state: "signedOut",
+        user: null,
+        lastSyncedAt: null,
+        message: "",
+      });
+      showToast("Signed out. Your local copy remains on this device.");
+    });
+    return;
+  }
+
+  if (state === "magicLinkSent"){
+    controls.innerHTML = `<div class="account-sync-actions"><button class="btn ghost" type="button" id="retryMagicLinkBtn">Use another email</button></div>`;
+    document.getElementById("retryMagicLinkBtn").addEventListener("click", () => {
+      setServerPersistence({ state: "signedOut", message: "" });
+    });
+    return;
+  }
+  if (!serverPersistence.configured || ["checking", "requesting"].includes(state)) return;
+
+  controls.innerHTML = `<form class="account-sync-form" id="accountSignInForm">
+    <label class="field-label" for="accountEmail">Email
+      <input id="accountEmail" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com">
+    </label>
+    <button class="btn primary" type="submit">Send magic link</button>
+  </form>`;
+  document.getElementById("accountSignInForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    const email = document.getElementById("accountEmail").value.trim();
+    setServerPersistence({ state: "requesting", message: "" });
+    try{
+      const result = await serverSyncClient.requestMagicLink(email);
+      setServerPersistence({
+        state: "magicLinkSent",
+        message: result.message || "Check your email for your nothingSports sign-in link.",
+      });
+    }catch(error){
+      setServerPersistence({
+        state: "signedOut",
+        message: error.message || "The magic link could not be sent.",
+      });
+      showToast(serverPersistence.message);
+    }
+  });
+}
+
 function renderSettingsMenu(body){
   const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
   const viewing = draftPreferences.preferenceGraph?.viewing;
@@ -6847,6 +7252,7 @@ function renderSettingsMenu(body){
     ? `${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window`
     : "Any time";
   body.innerHTML = `<div class="settings-menu">
+    ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
     ${settingsMenuItem("sports", "ui:filter", "Events Selector", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Special Events`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
@@ -7473,6 +7879,7 @@ function renderSettingsScreen(){
 
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
+    account: ["Account & sync", "Use a magic link to keep durable choices connected across devices."],
     sports: [settingsFirstRun ? "Events Selector · 1 of 4" : "Events Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Follow broad sports and special events, then open deeper controls only when you need them."],
     templates: [settingsFirstRun ? "Froth knobs · 2 of 4" : "Froth knobs", "Move from Casual to Like to Froth, or switch a followed event to Custom."],
     coverage: [settingsFirstRun ? "Teams, Ladders & Competitor Coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Teams, Ladders & Competitor Coverage", "Detailed controls appear only for followed events marked Froth."],
@@ -7485,7 +7892,8 @@ function renderSettingsScreen(){
     feedback: ["Feedback", "Send an idea, request, or bug report without leaving Settings."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
-  if (settingsSection === "sports") renderSportsSettings(body);
+  if (settingsSection === "account") renderAccountSettings(body);
+  else if (settingsSection === "sports") renderSportsSettings(body);
   else if (settingsSection === "templates") renderTemplateSettings(body);
   else if (settingsSection === "coverage") renderCoverageSettings(body);
   else if (settingsSection === "standings") renderStandingsSettings(body);
@@ -8019,11 +8427,13 @@ renderAll();
 loadCanonicalSportsData();
 scheduleBrowserReminders();
 refreshRemoteFeed({ quiet: true });
-if (!userPreferences.onboardingComplete){
-  openSettings({ firstRun: true });
-} else {
-  setTimeout(openSelectorOptInPrompt, 250);
-}
+bootstrapServerPersistence().finally(() => {
+  if (!userPreferences.onboardingComplete){
+    openSettings({ firstRun: true });
+  } else {
+    setTimeout(openSelectorOptInPrompt, 250);
+  }
+});
 if ("serviceWorker" in navigator){
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/service-worker.js").catch(err => {

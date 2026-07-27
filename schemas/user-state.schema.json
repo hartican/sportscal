@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/user-state.schema.json",
+  "title": "nothingSports durable user state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profile",
+    "preferences",
+    "eventUserState",
+    "eventSpoilerState",
+    "archivedEvents",
+    "ratings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "user-state.v1" },
+    "profile": { "type": "object" },
+    "preferences": { "type": "object" },
+    "eventUserState": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/eventAction" }
+    },
+    "eventSpoilerState": {
+      "type": "object",
+      "additionalProperties": { "type": "object" }
+    },
+    "archivedEvents": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "ratings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 10
+      }
+    }
+  },
+  "$defs": {
+    "eventAction": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "eventId": { "type": "string" },
+        "startTime": { "type": "string" },
+        "mustWatch": { "type": "boolean" },
+        "watchLater": { "type": "boolean" },
+        "watched": { "type": "boolean" },
+        "watchedAt": { "type": ["string", "null"], "format": "date-time" },
+        "archived": { "type": "boolean" },
+        "lastActionAt": { "type": ["string", "null"], "format": "date-time" }
+      }
+    }
+  }
+}
