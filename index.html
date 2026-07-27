@@ -242,6 +242,35 @@ header.top{
   background:rgba(126,231,135,0.08);
 }
 
+.soundtrack-toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+
+.soundtrack-toggle.active{
+  border-color:color-mix(in srgb, #7ee787 58%, var(--border));
+  background:rgba(126,231,135,0.08);
+}
+
+.soundtrack-toggle-state{
+  min-width:34px;
+  padding:3px 7px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--text-dim);
+  font-size:0.62rem;
+  font-weight:900;
+  letter-spacing:0.08em;
+  text-align:center;
+}
+
+.soundtrack-toggle.active .soundtrack-toggle-state{
+  border-color:#7ee787;
+  background:#2ea043;
+  color:#fff;
+}
+
 .spoiler-home-state{
   min-width:38px;
   padding:3px 8px;
@@ -2760,6 +2789,7 @@ footer.app-footer{
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
       <button class="btn ghost" id="aboutBtn"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
+      <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
       <button class="btn ghost" id="refreshBtn"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh</span></button>
       <button class="btn primary" id="calendarSyncBtn"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
     </div>
@@ -2772,6 +2802,8 @@ footer.app-footer{
     <button class="tab-btn" data-tab="archived"><span class="filing-cabinet-icon" data-vector-glyph="ui:archive"></span><span class="tab-label">Archived</span><span class="tab-count" id="archivedTabCount">0</span></button>
   </div>
 </header>
+
+<audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="metadata" loop></audio>
 
 <div class="controls" id="calendarControls">
   <div class="filter-row" id="sportFilters"></div>
@@ -2831,6 +2863,7 @@ footer.app-footer{
     </div>
     <div class="about-body">
       <p>nothingSports is a smart sports streaming filter that knows what to show you and what to leave out. It keeps your most important games in one place, without the back-and-forth of checking websites and streaming services. Set it up once, and it quietly handles the rest. It learns what you follow, surfaces the highest-stakes events, shows where to watch them, and stays quiet when nothing deserves your time. Sync with your calendar for reminders across devices. Built around AEST/AEDT by default, it can easily adapt to other time zones.</p>
+      <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
     </div>
     <div class="about-actions">
@@ -2926,6 +2959,7 @@ footer.app-footer{
 <script src="config/vector-assets.js"></script>
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
+<script src="config/sport-context.js"></script>
 <script src="config/profile-storage.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
@@ -2990,6 +3024,7 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
 };
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
+const SPORT_CONTEXT = globalThis.NOTHINGSPORTS_SPORT_CONTEXT || null;
 const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
 const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
@@ -3100,10 +3135,6 @@ const DEFAULT_PREFERENCES = {
   followedSports: DEFAULT_FIRST_RUN_SPORT_KEYS,
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
-  soundtrack: {
-    enabled: false,
-    styleId: "elevator",
-  },
   tennis: {
     enthusiasm: "froth",
     gender: "both",
@@ -3463,12 +3494,7 @@ function mergePreferences(saved){
     legacySelectedBroadcasterIds: legacySelectionWasDefault ? undefined : legacySelectedBroadcasters,
   }) || null;
   const migratedBroadcasters = preferenceGraph?.viewing?.selectedBroadcasterIds || Object.keys(BROADCASTER_LIBRARY);
-  const soundtrackStyleIds = SOUNDTRACK?.styles?.map(style => style.id) || ["elevator", "epic", "metal"];
-  const soundtrack = {
-    enabled: Boolean(saved.soundtrack?.enabled),
-    styleId: soundtrackStyleIds.includes(saved.soundtrack?.styleId) ? saved.soundtrack.styleId : "elevator",
-  };
-  return {
+  const preferences = {
     ...merged,
     ...saved,
     version: DEFAULT_PREFERENCES.version,
@@ -3479,10 +3505,11 @@ function mergePreferences(saved){
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
     selectedBroadcasters: migratedBroadcasters,
     preferenceGraph,
-    soundtrack,
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
+  delete preferences.soundtrack;
+  return preferences;
 }
 
 function saveActivePreferenceGraph(graph){
@@ -3723,7 +3750,7 @@ function rebuildDerivedCardCache(events = activeEvents, reference = nowAEST()){
   if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE) return derivedCardCache;
   const cache = CARD_LIFECYCLE.materialize(events, {
     profileId: activeProfileBundle?.profile?.id || "profile:local",
-    enrich: eventEnrichment,
+    enrich: calculateEventEnrichment,
     actionFor: getEventAction,
     now: reference,
   });
@@ -3829,6 +3856,46 @@ function renderHomeSpoilerToggle(){
   toggle.setAttribute("aria-label", shown ? "Hide results" : "Show results");
   const state = toggle.querySelector(".spoiler-home-state");
   if (state) state.textContent = shown ? "ON" : "OFF";
+}
+
+function renderSoundtrackToggle(){
+  const toggle = document.getElementById("soundtrackToggle");
+  if (!toggle) return;
+  const playing = Boolean(SOUNDTRACK?.state().playing);
+  toggle.classList.toggle("active", playing);
+  toggle.setAttribute("aria-checked", playing ? "true" : "false");
+  toggle.setAttribute("aria-label", `${playing ? "Stop" : "Play"} soundtrack: Skyscraper Samba by Scott Buckley`);
+  const state = toggle.querySelector(".soundtrack-toggle-state");
+  if (state) state.textContent = playing ? "ON" : "OFF";
+}
+
+async function toggleSoundtrack(){
+  if (!SOUNDTRACK){
+    showToast("Soundtrack playback is not available in this browser.");
+    return false;
+  }
+  const toggle = document.getElementById("soundtrackToggle");
+  toggle.disabled = true;
+  try{
+    if (SOUNDTRACK.state().playing){
+      SOUNDTRACK.stop();
+      renderSoundtrackToggle();
+      showToast("Soundtrack off.");
+      return false;
+    }
+    await SOUNDTRACK.start();
+    renderSoundtrackToggle();
+    showToast("Soundtrack on: Skyscraper Samba.");
+    return true;
+  }catch(error){
+    SOUNDTRACK.stop();
+    renderSoundtrackToggle();
+    console.warn("Soundtrack playback failed", error);
+    showToast("Soundtrack playback is not available in this browser.");
+    return false;
+  }finally{
+    toggle.disabled = false;
+  }
 }
 
 function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
@@ -4123,7 +4190,9 @@ async function fetchJson(url){
 }
 
 function applyFeedEvents(events, meta){
-  activeEvents = events;
+  activeEvents = SPORT_CONTEXT && canonicalSportsData
+    ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
+    : events;
   normalizeEvents(activeEvents);
   syncLegacyArchiveReferences(activeEvents);
   rebuildDerivedCardCache(activeEvents);
@@ -4135,15 +4204,56 @@ function applyFeedEvents(events, meta){
   renderAll();
 }
 
+function applyServerFeed(payload){
+  if (payload?.schemaVersion !== "server-feed.v1"){
+    throw new Error("Server feed schema is not supported");
+  }
+  if (!Array.isArray(payload.events)){
+    throw new Error("Server feed did not contain a canonical event collection");
+  }
+  const events = coerceEventList(payload);
+  const cache = CARD_LIFECYCLE?.normalizeCache(payload.derivedCardCache);
+  if (!cache || cache.buildOrigin !== "server"){
+    throw new Error("Server feed did not contain a central derived-card rebuild");
+  }
+  activeEvents = SPORT_CONTEXT && canonicalSportsData
+    ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
+    : events;
+  normalizeEvents(activeEvents);
+  saveDerivedCardCache(cache);
+  syncLegacyArchiveReferences(activeEvents);
+  scheduleBrowserReminders();
+  if (payload.sourceVersion) writeStorage(STORAGE_KEYS.lastFeedVersion, payload.sourceVersion);
+  writeStorage(STORAGE_KEYS.lastRefreshAt, payload.generatedAt || new Date().toISOString());
+  calendarInitialJumpPending = true;
+  neverMissInitialJumpPending = true;
+  renderAll();
+  return {
+    source: "server",
+    eventCount: events.length,
+    cardCount: cache.derivedCards.length,
+  };
+}
+
 async function refreshRemoteFeed({ quiet = false } = {}){
+  const centralRebuildRequested = Boolean(
+    serverSyncClient
+    && serverPersistence.user
+    && ["signedIn", "syncing", "error"].includes(serverPersistence.state)
+  );
   try{
-    if (!quiet) showToast("Checking feed updates...");
+    if (!quiet) showToast(centralRebuildRequested ? "Rebuilding your feed…" : "Checking feed updates...");
+    if (centralRebuildRequested){
+      const result = applyServerFeed(await serverSyncClient.loadFeed());
+      if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
+      return result;
+    }
     const meta = await fetchJson(FEED_CONFIG.metaUrl);
     const eventsPath = meta.eventsPath || meta.eventsUrl;
     if (!eventsPath && meta.usesBundledEvents){
       applyFeedEvents(EVENTS.slice(), meta);
       if (!quiet) showToast("Feed refreshed from canonical events and current retention rules.");
-      return;
+      return { source: "bundled", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length };
     }
     const payload = await fetchJson(eventsPath || FEED_CONFIG.eventsUrl);
     const events = coerceEventList(payload);
@@ -4152,10 +4262,28 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     }
     applyFeedEvents(events, meta);
     if (!quiet) showToast(`Feed refreshed: ${events.length} events loaded.`);
+    return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length };
   }catch(err){
     console.warn("Feed refresh failed", err);
+    if (centralRebuildRequested && err?.status === 401){
+      setServerPersistence({
+        state: "signedOut",
+        user: null,
+        message: "Your session ended. Sign in again to resume sync.",
+      });
+    } else if (centralRebuildRequested){
+      setServerPersistence({
+        state: "error",
+        message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
+      });
+    }
     applyFeedEvents(EVENTS.slice());
-    if (!quiet) showToast("No remote feed update found. Rebuilt from the bundled canonical schedule.");
+    if (!quiet){
+      showToast(centralRebuildRequested
+        ? "Central rebuild unavailable. Rebuilt safely on this device."
+        : "No remote feed update found. Rebuilt from the bundled canonical schedule.");
+    }
+    return { source: "fallback", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length };
   }
 }
 
@@ -4423,7 +4551,25 @@ function enrichmentContextForEvent(ev){
   };
 }
 
-function eventEnrichment(ev){
+function cachedEventEnrichment(ev){
+  const canonicalEventId = String(ev.eventId || ev.id || "");
+  const card = derivedCardCache?.derivedCards?.find(item => item.canonicalEventId === canonicalEventId);
+  const payload = card?.renderPayload;
+  if (!payload || !Number.isFinite(Number(payload.mustWatchScore))) return null;
+  return {
+    schemaVersion: "enriched-event.v1",
+    canonicalEventId,
+    mustWatchScore: Number(payload.mustWatchScore),
+    intensity: Number(card.intensity || storylineIntensityForEvent(ev)),
+    cardVariant: card.cardVariant || "standard",
+    followContext: Array.isArray(payload.followContext) ? payload.followContext : [],
+    storyline: payload.storyline && typeof payload.storyline === "object"
+      ? payload.storyline
+      : { scoreReasons: [] },
+  };
+}
+
+function calculateEventEnrichment(ev){
   if (!ENRICHMENT_ENGINE){
     const intensity = storylineIntensityForEvent(ev);
     return {
@@ -4436,6 +4582,10 @@ function eventEnrichment(ev){
     };
   }
   return ENRICHMENT_ENGINE.enrichEvent(ev, enrichmentContextForEvent(ev));
+}
+
+function eventEnrichment(ev){
+  return cachedEventEnrichment(ev) || calculateEventEnrichment(ev);
 }
 
 function buildFollowContext(contextItems){
@@ -6184,7 +6334,7 @@ function activeStandingsCompetitions(){
     .filter(competition => (
       activeFilter === "all"
       || ACTION_FILTERS[activeFilter]
-      || competition.sportDomainId === `sport:${activeFilter}`
+      || (competition.preferenceDomainId || competition.sportDomainId) === `sport:${activeFilter}`
     ));
 }
 
@@ -6198,6 +6348,10 @@ function latestStandingsSnapshot(competitionId){
 function standingsParticipantName(participantId){
   const participant = canonicalSportsData?.participants?.find(item => item.id === participantId);
   return participant?.displayName || participant?.shortName || participantId;
+}
+
+function standingsTeamName(entry){
+  return entry?.teamParticipantId ? standingsParticipantName(entry.teamParticipantId) : "—";
 }
 
 function followedStandingsParticipantIds(){
@@ -6221,6 +6375,21 @@ function standingsEntriesForVisibility(snapshot, visibility, followedParticipant
 }
 
 function standingsColumnsForCompetition(competition){
+  if (competition.standingsType === "drivers"){
+    return [
+      ["rank", "#"],
+      ["participant", "Driver"],
+      ["team", "Team"],
+      ["points", "Pts"],
+    ];
+  }
+  if (competition.standingsType === "constructors"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["points", "Pts"],
+    ];
+  }
   if (competition.sportDomainId === "sport:afl"){
     return [
       ["rank", "#"],
@@ -6276,6 +6445,8 @@ function appendStandingsTable(module, competition, snapshot, visibility){
           marker.textContent = "Following";
           cell.appendChild(marker);
         }
+      } else if (key === "team"){
+        cell.textContent = standingsTeamName(entry);
       } else {
         cell.textContent = entry[key] ?? "—";
       }
@@ -6354,7 +6525,7 @@ function renderStandingsContext(){
     const snapshot = latestStandingsSnapshot(competition.id);
     const detail = document.createElement("p");
     detail.textContent = snapshot?.snapshotTimeUtc
-      ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`
+      ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}${snapshot.roundLabel ? ` · ${snapshot.roundLabel}` : ""}`
       : "No current standings snapshot is available.";
     copy.append(title, detail);
     head.appendChild(copy);
@@ -6802,6 +6973,7 @@ function renderTabCounts(){
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   const preservedViewportAnchor = viewportAnchor || (preserveViewport ? captureViewportRenderAnchor() : null);
   renderHomeSpoilerToggle();
+  renderSoundtrackToggle();
   renderFilters();
   renderTabCounts();
   renderStandingsContext();
@@ -7045,7 +7217,6 @@ function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   document.body.classList.remove("modal-open");
   if (restoreTheme){
     applyThemePreference(userPreferences.theme);
-    restoreSavedSoundtrack();
   }
   settingsSection = "main";
   settingsFirstRun = false;
@@ -7257,14 +7428,24 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
-    ${settingsMenuItem("soundtrack", "ui:music", "Soundtrack", `${draftPreferences.soundtrack?.enabled ? SOUNDTRACK?.styleFor(draftPreferences.soundtrack.styleId).label : "Off"} · original procedural audio`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
   </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; saved Catch Up items remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
   bindSettingsMenuNavigation(body);
-  document.getElementById("rebuildFeedCacheBtn").addEventListener("click", () => {
-    clearAndRebuildDerivedCardCache();
-    renderAll();
-    showToast("Feed cache rebuilt from canonical events and your preferences.");
+  document.getElementById("rebuildFeedCacheBtn").addEventListener("click", async () => {
+    const centralRebuild = Boolean(serverPersistence.user && ["signedIn", "syncing", "error"].includes(serverPersistence.state));
+    let result;
+    if (centralRebuild){
+      result = await refreshRemoteFeed({ quiet: true });
+    } else {
+      clearAndRebuildDerivedCardCache();
+      renderAll();
+      result = { source: "local" };
+    }
+    showToast(result.source === "server"
+      ? "Feed cache rebuilt centrally from your synced preferences."
+      : result.source === "fallback"
+        ? "Central rebuild unavailable. Feed cache rebuilt safely on this device."
+        : "Feed cache rebuilt from canonical events and your preferences.");
     renderSettingsScreen();
   });
 }
@@ -7512,11 +7693,23 @@ function canonicalDomainIdForPreferenceDomain(domainId){
 
 function competitionsForPreferenceDomain(domainId){
   const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
-  return (CANONICAL_TAXONOMY.competitions || []).filter(competition => competition.sportDomainId === canonicalDomainId);
+  return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
+    competition.sportDomainId === canonicalDomainId
+    && (!competition.preferenceDomainId || competition.preferenceDomainId === domainId)
+  ));
 }
 
 function participantsForPreferenceDomain(domainId){
   const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
+  const scopedParticipantDomainIds = new Set((canonicalSportsData?.eventParticipantScopes || [])
+    .filter(scope => scope.preferenceDomainId === domainId)
+    .map(scope => scope.participantSportDomainId));
+  if (scopedParticipantDomainIds.size){
+    return canonicalPreferenceParticipants.filter(participant => scopedParticipantDomainIds.has(participant.sportDomainId));
+  }
+  const domainIsReservedForAnotherPreference = (canonicalSportsData?.eventParticipantScopes || [])
+    .some(scope => scope.participantSportDomainId === canonicalDomainId);
+  if (domainIsReservedForAnotherPreference) return [];
   return canonicalPreferenceParticipants.filter(participant => participant.sportDomainId === canonicalDomainId);
 }
 
@@ -7536,10 +7729,15 @@ async function loadCanonicalSportsData(){
   canonicalSportsDataLoading = true;
   canonicalSportsDataError = null;
   try{
-    const response = await fetch("data/canonical/afl-nrl-2026.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`Canonical sports data returned ${response.status}`);
-    canonicalSportsData = await response.json();
+    if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
+    const [leagueSports, f1Context] = await Promise.all([
+      fetchJson("data/canonical/afl-nrl-2026.json"),
+      fetchJson("data/canonical/f1-context-2026.json"),
+    ]);
+    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
+    activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);
+    normalizeEvents(activeEvents);
   }catch(error){
     canonicalSportsDataError = error;
     console.warn("Canonical standings and participant data unavailable", error);
@@ -7547,7 +7745,7 @@ async function loadCanonicalSportsData(){
     canonicalSportsDataLoading = false;
     if (draftPreferences && settingsSection === "coverage") renderSettingsScreen();
     if (draftPreferences && settingsSection === "standings") renderSettingsScreen();
-    if (canonicalSportsData){
+    if (canonicalSportsData && derivedCardCache?.buildOrigin !== "server"){
       rebuildDerivedCardCache(activeEvents);
       renderCurrentSection();
     }
@@ -7601,6 +7799,9 @@ function renderCoverageSettings(body){
         <button class="coverage-option${mode === "majorOnly" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorOnly"><strong>Major events only</strong><span>The lightest, highest-signal schedule.</span></button>
       </div>
       ${competitions.map(competition => {
+        if (competition.standingsOnly){
+          return `<div class="competition-preference"><strong>${competition.name}</strong><br><span>Championship standings context</span></div>`;
+        }
         const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);
         return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label></div>`;
       }).join("")}
@@ -7646,17 +7847,18 @@ function renderCoverageSettings(body){
 
 function standingsVisibilityForCompetition(preferences, competition){
   const graph = preferences?.preferenceGraph;
-  const domainPreference = graph?.domainPreferences?.find(item => item.sportDomainId === competition.sportDomainId);
+  const domainPreferenceId = competition.preferenceDomainId || competition.sportDomainId;
+  const domainPreference = graph?.domainPreferences?.find(item => item.sportDomainId === domainPreferenceId);
   const competitionPreference = graph?.competitionPreferences?.find(item => item.competitionId === competition.id);
   if (domainPreference?.enabled === false || competitionPreference?.enabled === false) return "hidden";
   return competitionPreference?.showLadder || domainPreference?.showLadder || "hidden";
 }
 
 function supportedStandingsCompetitions(preferences = userPreferences){
-  const selectedDomains = new Set(detailedCoverageDomainIds(preferences).map(canonicalDomainIdForPreferenceDomain));
+  const selectedDomains = new Set(detailedCoverageDomainIds(preferences));
   return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
     competition.supportsLadder
-    && selectedDomains.has(competition.sportDomainId)
+    && selectedDomains.has(competition.preferenceDomainId || competition.sportDomainId)
   ));
 }
 
@@ -7818,43 +8020,6 @@ function renderAppearanceSettings(body){
   });
 }
 
-function restoreSavedSoundtrack(){
-  if (!SOUNDTRACK) return;
-  if (!userPreferences.soundtrack?.enabled){
-    SOUNDTRACK.stop();
-    return;
-  }
-  if (SOUNDTRACK.state().playing && SOUNDTRACK.state().styleId === userPreferences.soundtrack.styleId) return;
-  SOUNDTRACK.start(userPreferences.soundtrack.styleId).catch(error => console.warn("Saved soundtrack could not resume", error));
-}
-
-function renderSoundtrackSettings(body){
-  const soundtrack = draftPreferences.soundtrack || { enabled: false, styleId: "elevator" };
-  const styles = SOUNDTRACK?.styles || [];
-  body.innerHTML = `<div class="preference-stack"><div class="filter-panel"><h3>Background soundtrack</h3><p class="preference-help">Off by default. These are original procedural soundscapes generated in your browser; no commercial recordings or artist playlists are bundled.</p><label class="viewing-toggle"><input type="checkbox" id="soundtrackEnabled" ${soundtrack.enabled ? "checked" : ""}><span>Enable background soundtrack</span></label></div><div class="filter-panel"><h3>Style</h3><div class="theme-choice-list" role="radiogroup" aria-label="Soundtrack style">${styles.map(style => `<label class="theme-choice${soundtrack.styleId === style.id ? " selected" : ""}"><input type="radio" name="soundtrackStyle" value="${style.id}" ${soundtrack.styleId === style.id ? "checked" : ""}><strong>${style.label}</strong><span>${style.bpm} BPM · generated locally</span></label>`).join("")}</div><p class="preference-help">${SOUNDTRACK?.attribution || ""}</p></div></div>`;
-  document.getElementById("soundtrackEnabled").addEventListener("change", async event => {
-    draftPreferences.soundtrack = { ...draftPreferences.soundtrack, enabled: event.target.checked };
-    if (!event.target.checked){
-      SOUNDTRACK?.stop();
-      return;
-    }
-    try{
-      await SOUNDTRACK?.start(draftPreferences.soundtrack.styleId);
-    }catch(error){
-      draftPreferences.soundtrack.enabled = false;
-      showToast("Background audio is not available in this browser.");
-      renderSettingsScreen();
-    }
-  });
-  body.querySelectorAll('input[name="soundtrackStyle"]').forEach(input => {
-    input.addEventListener("change", async () => {
-      draftPreferences.soundtrack = { ...draftPreferences.soundtrack, styleId: input.value };
-      if (draftPreferences.soundtrack.enabled) await SOUNDTRACK?.start(input.value);
-      renderSettingsScreen();
-    });
-  });
-}
-
 function renderFeedbackSettings(body){
   body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSports is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
   const category = document.getElementById("feedbackCategory");
@@ -7888,7 +8053,6 @@ function renderSettingsScreen(){
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
-    soundtrack: ["Soundtrack", "Optional original procedural audio, controlled entirely by you."],
     feedback: ["Feedback", "Send an idea, request, or bug report without leaving Settings."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
@@ -7901,7 +8065,6 @@ function renderSettingsScreen(){
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
-  else if (settingsSection === "soundtrack") renderSoundtrackSettings(body);
   else if (settingsSection === "feedback") renderFeedbackSettings(body);
   else renderSettingsMenu(body);
 }
@@ -8164,6 +8327,7 @@ document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () 
 document.getElementById("refreshBtn").addEventListener("click", () => {
   refreshRemoteFeed();
 });
+document.getElementById("soundtrackToggle").addEventListener("click", toggleSoundtrack);
 document.getElementById("homeSpoilerToggle").addEventListener("click", () => {
   setGlobalSpoilerPreference(!userPreferences.showSpoilers, { notify: true });
 });
@@ -8426,8 +8590,7 @@ setInterval(updateClock, 1000);
 renderAll();
 loadCanonicalSportsData();
 scheduleBrowserReminders();
-refreshRemoteFeed({ quiet: true });
-bootstrapServerPersistence().finally(() => {
+bootstrapServerPersistence().then(() => refreshRemoteFeed({ quiet: true })).finally(() => {
   if (!userPreferences.onboardingComplete){
     openSettings({ firstRun: true });
   } else {

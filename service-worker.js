@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v35";
+const CACHE_NAME = "nothingSports-shell-v37";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -28,6 +28,7 @@ const APP_SHELL = [
   "/assets/brand/web/nothingsport-logo-night.png",
   "/assets/brand/web/nothingsport-compact-icon-day.png",
   "/assets/brand/web/nothingsport-compact-icon-night.png",
+  "/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3",
   "/assets/icons/sporticon/motorsports.svg",
   "/assets/icons/sporticon/rugby.svg",
   "/assets/icons/sporticon/tennis.svg",

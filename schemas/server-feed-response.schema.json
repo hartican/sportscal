@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsport.vercel.app/schemas/server-feed-response.schema.json",
+  "title": "nothingSports personalised server feed",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "sourceVersion",
+    "events",
+    "derivedCardCache",
+    "retention"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "server-feed.v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceVersion": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "eventId", "date", "time"]
+      }
+    },
+    "derivedCardCache": {
+      "type": "object",
+      "required": ["schemaVersion", "generatedAt", "buildOrigin", "derivedCards"],
+      "properties": {
+        "schemaVersion": {
+          "const": "derived-card-cache.v1"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "buildOrigin": {
+          "const": "server"
+        },
+        "sourceVersion": {
+          "type": "string"
+        },
+        "derivedCards": {
+          "type": "array"
+        }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "required": [
+        "archiveDays",
+        "retentionDays",
+        "inputEvents",
+        "retainedEvents",
+        "enrichedEvents",
+        "derivedCards",
+        "active",
+        "archived",
+        "saved",
+        "expired"
+      ]
+    }
+  }
+}

@@ -106,6 +106,7 @@
     return {
       schemaVersion: SCHEMA_VERSION,
       generatedAt: timestamp,
+      buildOrigin: "local",
       derivedCards: [],
     };
   }
@@ -115,6 +116,8 @@
     return {
       schemaVersion: SCHEMA_VERSION,
       generatedAt: raw.generatedAt || (now instanceof Date ? now : new Date(now)).toISOString(),
+      buildOrigin: raw.buildOrigin === "server" ? "server" : "local",
+      ...(typeof raw.sourceVersion === "string" && raw.sourceVersion ? { sourceVersion: raw.sourceVersion } : {}),
       derivedCards: raw.derivedCards.filter(card => card && typeof card.canonicalEventId === "string"),
     };
   }
@@ -146,6 +149,9 @@
         time: event.time,
         mustWatchScore: enrichment.mustWatchScore,
         followContext: Array.isArray(enrichment.followContext) ? clone(enrichment.followContext) : [],
+        storyline: enrichment.storyline && typeof enrichment.storyline === "object"
+          ? clone(enrichment.storyline)
+          : { scoreReasons: [] },
       },
       generatedAt: generated.toISOString(),
       expiresAt: expiry.toISOString(),
@@ -168,6 +174,8 @@
     enrich,
     actionFor = () => ({}),
     now = new Date(),
+    buildOrigin = "local",
+    sourceVersion,
   } = {}){
     if (typeof enrich !== "function") throw new Error("materialize requires an enrichment function");
     const reference = now instanceof Date ? now : new Date(now);
@@ -189,6 +197,8 @@
     return {
       schemaVersion: SCHEMA_VERSION,
       generatedAt: reference.toISOString(),
+      buildOrigin: buildOrigin === "server" ? "server" : "local",
+      ...(typeof sourceVersion === "string" && sourceVersion ? { sourceVersion } : {}),
       derivedCards: ranked.map(({ event, enrichment, action }, index) => createDerivedCard(event, enrichment, {
         profileId,
         surface: surfaceFor(event, enrichment, action),

@@ -26,9 +26,12 @@ const delivered = reminders.buildSchedule(events, {
 });
 assert.equal(delivered.reminders.length, 0, "delivered reminder keys must not schedule twice");
 
-assert.deepEqual(soundtrack.styles.map(style => style.id), ["elevator", "epic", "metal"]);
-assert(soundtrack.styles.every(style => !/miley|artist|playlist/i.test(style.label)), "soundtrack labels must remain neutral genres");
-assert.match(soundtrack.attribution, /procedural audio/i);
+assert.equal(soundtrack.track.id, "skyscraper-samba");
+assert.equal(soundtrack.track.src, "/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3");
+assert.equal(soundtrack.track.artist, "Scott Buckley");
+assert.equal(soundtrack.track.licence, "CC-BY 4.0");
+assert.match(soundtrack.attribution, /'Skyscraper Samba' by Scott Buckley - released under CC-BY 4\.0/);
 assert.equal(soundtrack.state().playing, false, "audio must remain off until the user explicitly starts it");
+assert.equal(soundtrack.state().volume, 1, "the sole soundtrack must use full HTML media volume");
 
-console.log("Reminder and soundtrack validation passed.");
+console.log("Reminder and soundtrack validation passed: one attributed Scott Buckley track at full app volume.");

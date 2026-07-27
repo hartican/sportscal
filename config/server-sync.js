@@ -225,6 +225,9 @@
           state: stateFromDatabaseRow(payload.state),
         };
       },
+      async loadFeed(){
+        return authenticatedRequest("/api/feed");
+      },
       async saveState(state){
         const payload = await authenticatedRequest("/api/user-state", {
           method: "PUT",

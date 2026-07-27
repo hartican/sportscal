@@ -5,66 +5,59 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildSoundtrack(root){
   "use strict";
 
-  const styles = Object.freeze([
-    Object.freeze({ id: "elevator", label: "Elevator music", bpm: 82, waveform: "sine", notes: [261.63, 329.63, 392.00, 493.88] }),
-    Object.freeze({ id: "epic", label: "Epic orchestral", bpm: 68, waveform: "triangle", notes: [130.81, 196.00, 261.63, 329.63] }),
-    Object.freeze({ id: "metal", label: "Heavy metal", bpm: 132, waveform: "sawtooth", notes: [82.41, 98.00, 110.00, 123.47] }),
-  ]);
-  const attribution = "Original procedural audio generated in-browser by nothingSports; no recorded or commercial music is bundled.";
-  let context = null;
-  let master = null;
-  let loopTimer = null;
-  let activeStyle = null;
-  let step = 0;
+  const track = Object.freeze({
+    id: "skyscraper-samba",
+    title: "Skyscraper Samba",
+    artist: "Scott Buckley",
+    src: "/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3",
+    licence: "CC-BY 4.0",
+    website: "https://www.scottbuckley.com.au",
+  });
+  const attribution = "'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au";
+  let audio = null;
 
-  function styleFor(id){
-    return styles.find(style => style.id === id) || styles[0];
+  function audioElement(){
+    if (audio) return audio;
+    audio = root.document?.getElementById?.("soundtrackAudio") || null;
+    if (!audio && typeof root.Audio === "function") audio = new root.Audio(track.src);
+    if (!audio) return null;
+    audio.src = track.src;
+    audio.preload = "metadata";
+    audio.loop = true;
+    audio.muted = false;
+    audio.volume = 1;
+    return audio;
   }
 
-  function playTone(style){
-    if (!context || !master) return;
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-    oscillator.type = style.waveform;
-    oscillator.frequency.value = style.notes[step % style.notes.length];
-    gain.gain.setValueAtTime(0.0001, context.currentTime);
-    gain.gain.exponentialRampToValueAtTime(style.id === "metal" ? 0.045 : 0.025, context.currentTime + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + (style.id === "epic" ? 1.2 : 0.55));
-    oscillator.connect(gain);
-    gain.connect(master);
-    oscillator.start();
-    oscillator.stop(context.currentTime + (style.id === "epic" ? 1.25 : 0.6));
-    step += 1;
-  }
-
-  async function start(styleId){
-    stop();
-    const AudioContextClass = root.AudioContext || root.webkitAudioContext;
-    if (!AudioContextClass) throw new Error("Web Audio is not supported in this browser");
-    activeStyle = styleFor(styleId);
-    context = new AudioContextClass();
-    master = context.createGain();
-    master.gain.value = 0.24;
-    master.connect(context.destination);
-    await context.resume();
-    playTone(activeStyle);
-    loopTimer = root.setInterval(() => playTone(activeStyle), Math.round(60000 / activeStyle.bpm));
-    return activeStyle.id;
+  async function start(){
+    const player = audioElement();
+    if (!player) throw new Error("HTML audio is not supported in this browser");
+    player.loop = true;
+    player.muted = false;
+    player.volume = 1;
+    await player.play();
+    return track.id;
   }
 
   function stop(){
-    if (loopTimer !== null) root.clearInterval(loopTimer);
-    loopTimer = null;
-    if (context && typeof context.close === "function") context.close().catch(() => {});
-    context = null;
-    master = null;
-    activeStyle = null;
-    step = 0;
+    const player = audioElement();
+    if (!player) return;
+    player.pause();
+    try{
+      player.currentTime = 0;
+    }catch(_error){
+      // Some browsers prevent seeking until metadata has loaded.
+    }
   }
 
   function state(){
-    return { playing: Boolean(context), styleId: activeStyle?.id || null };
+    const player = audioElement();
+    return {
+      playing: Boolean(player && !player.paused),
+      trackId: track.id,
+      volume: player ? player.volume : 1,
+    };
   }
 
-  return Object.freeze({ styles, attribution, styleFor, start, stop, state });
+  return Object.freeze({ attribution, start, state, stop, track });
 });

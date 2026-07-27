@@ -4,22 +4,11 @@ const {
   USER_STATE_TABLE,
   authenticatedUser,
   bearerToken,
+  loadUserState,
   normalizeUserState,
   publicError,
   supabaseRequest,
 } = require("../lib/supabase-server");
-
-const USER_STATE_COLUMNS = [
-  "user_id",
-  "schema_version",
-  "profile",
-  "preferences",
-  "event_user_state",
-  "event_spoiler_state",
-  "archived_events",
-  "ratings",
-  "updated_at",
-].join(",");
 
 function setPrivateResponseHeaders(response){
   response.setHeader("Cache-Control", "private, no-store, max-age=0");
@@ -35,14 +24,6 @@ function requestBody(request){
   }catch(_error){
     return {};
   }
-}
-
-function statePath(userId){
-  const query = new URLSearchParams({
-    user_id: `eq.${userId}`,
-    select: USER_STATE_COLUMNS,
-  });
-  return `/rest/v1/${USER_STATE_TABLE}?${query.toString()}`;
 }
 
 function publicUser(user){
@@ -65,10 +46,10 @@ module.exports = async function userStateHandler(request, response){
     const user = await authenticatedUser(accessToken);
 
     if ((request.method || "GET") === "GET"){
-      const rows = await supabaseRequest(statePath(user.id), { accessToken });
+      const state = await loadUserState(user.id, accessToken);
       response.status(200).json({
         user: publicUser(user),
-        state: Array.isArray(rows) && rows.length ? rows[0] : null,
+        state,
       });
       return;
     }

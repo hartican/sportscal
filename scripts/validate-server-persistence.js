@@ -217,6 +217,21 @@ async function run(){
       if (url === "/api/user-state"){
         return browserResponse({ user: authUser, state: databaseRow });
       }
+      if (url === "/api/feed"){
+        return browserResponse({
+          schemaVersion: "server-feed.v1",
+          generatedAt: "2026-07-27T10:00:00.000Z",
+          sourceVersion: "test",
+          events: [],
+          derivedCardCache: {
+            schemaVersion: "derived-card-cache.v1",
+            generatedAt: "2026-07-27T10:00:00.000Z",
+            buildOrigin: "server",
+            derivedCards: [],
+          },
+          retention: {},
+        });
+      }
       return browserResponse({ configured: true, provider: "supabase" });
     },
   });
@@ -224,6 +239,7 @@ async function run(){
   assert.equal(replacedUrl, "/?from=email", "magic-link credentials must be removed from the URL after capture");
   assert.equal((await client.user()).id, authUser.id);
   assert.equal((await client.loadState()).state.eventUserState.event.watchLater, true);
+  assert.equal((await client.loadFeed()).derivedCardCache.buildOrigin, "server");
   assert(browserRequests.some(request => request.options.headers?.Authorization === "Bearer access"));
 
   const snapshot = serverSync.buildUserState({
