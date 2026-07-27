@@ -215,32 +215,50 @@ header.top{
   display:inline-flex;
   align-items:center;
   gap:7px;
-  border-color: color-mix(in srgb, #7ee787 58%, var(--border));
-  color:#9be9a8;
-  background:rgba(126,231,135,0.075);
+  border-color:var(--border);
+  color:var(--text);
+  background:var(--bg-card);
 }
 
 .spoiler-home-toggle:hover{
-  border-color:#7ee787;
-  background:rgba(126,231,135,0.12);
+  border-color:var(--text-dim);
+  background:var(--soft-fill);
 }
 
 .spoiler-home-toggle.active{
-  border-color: color-mix(in srgb, #ff8a00 70%, var(--border));
-  color:#ffb454;
-  background:rgba(255,138,0,0.1);
+  border-color:color-mix(in srgb, #7ee787 58%, var(--border));
+  color:var(--text);
+  background:var(--bg-card);
 }
 
 .spoiler-home-toggle.active:hover{
-  border-color:#ff8a00;
-  background:rgba(255,138,0,0.16);
+  border-color:#7ee787;
+  background:rgba(126,231,135,0.08);
 }
 
 .spoiler-home-state{
-  min-width:82px;
-  font-size:0.7rem;
+  min-width:38px;
+  padding:3px 8px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:transparent;
+  color:var(--text-dim);
+  font-size:0.66rem;
   font-weight:900;
-  letter-spacing:0.04em;
+  letter-spacing:0.08em;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.spoiler-home-toggle.active .spoiler-home-state{
+  border-color:#2ea043;
+  background:#2ea043;
+  color:#fff;
+}
+
+.spoiler-home-label{
+  font-size:0.7rem;
+  font-weight:800;
   white-space:nowrap;
 }
 
@@ -497,6 +515,36 @@ main{
 
 .today-anchor::after{
   background: linear-gradient(90deg, rgba(0,229,255,0.48), transparent);
+}
+
+.today-fallback{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:10px 0 18px;
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+  color:var(--text-dim);
+  font-size:0.82rem;
+}
+
+.today-fallback strong{
+  color:var(--text);
+  font-weight:750;
+  text-transform:lowercase;
+}
+
+.today-more-section{
+  margin:0 0 20px;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.today-more-section h3{
+  margin:0 0 10px;
+  color:var(--text);
+  font-size:0.86rem;
 }
 
 .jump-today-btn{
@@ -2133,6 +2181,139 @@ main{
   line-height:1.4;
 }
 
+.catchup-watched{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+}
+
+.catchup-watched-label{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:var(--text);
+  font-size:0.8rem;
+  font-weight:800;
+}
+
+.catchup-watched-label input{
+  width:18px;
+  height:18px;
+  accent-color:#2ea043;
+}
+
+.catchup-rating-prompt{
+  margin-top:10px;
+  padding:10px 12px;
+  border:1px solid rgba(126,231,135,0.28);
+  border-radius:10px;
+  background:rgba(126,231,135,0.055);
+}
+
+.catchup-rating-prompt strong,
+.catchup-rating-prompt span{
+  display:block;
+}
+
+.catchup-rating-prompt strong{
+  margin-bottom:4px;
+  color:#9be9a8;
+  font-size:0.78rem;
+}
+
+.catchup-rating-prompt > span{
+  margin-bottom:7px;
+  color:var(--text-dim);
+  font-size:0.72rem;
+}
+
+.action-note{
+  color:var(--text-dim);
+  font-size:0.74rem;
+}
+
+.standings-context{
+  max-width:1100px;
+  margin:0 auto 18px;
+  padding:0 20px;
+}
+
+.standings-context:empty{ display:none; }
+
+.standings-module{
+  margin-top:12px;
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--bg-card);
+  overflow:hidden;
+}
+
+.standings-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.standings-head h2{
+  margin:0;
+  font-size:1rem;
+}
+
+.standings-head p,
+.standings-withheld p{
+  margin:3px 0 0;
+  color:var(--text-dim);
+  font-size:0.74rem;
+}
+
+.standings-table-wrap{ overflow-x:auto; }
+
+.standings-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.75rem;
+  font-variant-numeric:tabular-nums;
+}
+
+.standings-table th,
+.standings-table td{
+  padding:7px 8px;
+  border-top:1px solid var(--border);
+  text-align:right;
+  white-space:nowrap;
+}
+
+.standings-table th:nth-child(2),
+.standings-table td:nth-child(2){
+  width:100%;
+  min-width:145px;
+  text-align:left;
+}
+
+.standings-table tbody tr.followed{
+  background:rgba(0,229,255,0.055);
+}
+
+.standings-withheld{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.standings-warning{
+  margin:0 0 12px;
+  padding:10px 12px;
+  border-left:3px solid #ffb454;
+  background:rgba(255,180,84,0.07);
+  color:var(--text-dim);
+  font-size:0.76rem;
+  line-height:1.45;
+}
+
 /* ---------- Toast ---------- */
 .toast{
   position: fixed;
@@ -2328,19 +2509,19 @@ footer.app-footer{
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
-      <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show Results"><span data-vector-glyph="semantic:must-watch"></span> <span class="spoiler-home-state">Show Results</span></button>
-      <button class="btn ghost" id="aboutBtn"><span data-vector-glyph="ui:info"></span> <span class="full-label">About nothingSports</span></button>
+      <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
+      <button class="btn ghost" id="aboutBtn"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
-      <button class="btn ghost" id="refreshBtn"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh feed</span></button>
+      <button class="btn ghost" id="refreshBtn"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh</span></button>
       <button class="btn primary" id="exportBtn"><span data-vector-glyph="ui:download"></span> <span class="full-label">Export Never Miss</span></button>
     </div>
   </div>
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="calendar"><span class="tab-label">Calendar</span><span class="tab-count" id="calendarTabCount">0</span></button>
-    <button class="tab-btn" data-tab="nevermiss"><span class="tab-label">Never Miss</span><span class="tab-count" id="neverMissTabCount">0</span></button>
-    <button class="tab-btn" data-tab="watchlater"><span class="tab-label">Watch Later</span><span class="tab-count" id="watchLaterTabCount">0</span></button>
-    <button class="tab-btn" data-tab="archived" aria-label="Filing cabinet" title="Filing cabinet"><span class="filing-cabinet-icon" data-vector-glyph="ui:archive"></span><span class="tab-count" id="archivedTabCount">0</span></button>
+    <button class="tab-btn" data-tab="nevermiss"><span class="tab-label">Don’t Miss</span><span class="tab-count" id="neverMissTabCount">0</span></button>
+    <button class="tab-btn" data-tab="watchlater"><span class="tab-label">Catch Up</span><span class="tab-count" id="watchLaterTabCount">0</span></button>
+    <button class="tab-btn" data-tab="archived"><span class="filing-cabinet-icon" data-vector-glyph="ui:archive"></span><span class="tab-label">Archived</span><span class="tab-count" id="archivedTabCount">0</span></button>
   </div>
 </header>
 
@@ -2356,6 +2537,7 @@ footer.app-footer{
 <button class="btn jump-today-btn" id="jumpTodayBtn" type="button" aria-label="Jump to today in the active feed"><span data-vector-glyph="ui:jump"></span> Jump to Today</button>
 
 <main id="mainContent" tabindex="-1">
+  <section class="standings-context" id="standingsContext"></section>
   <section id="listView"></section>
   <section id="monthView" style="display:none;"></section>
   <section id="neverMissView" style="display:none;"></section>
@@ -2395,7 +2577,7 @@ footer.app-footer{
     <div class="onboarding-head">
       <div>
         <img class="brand-logo modal-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo-night.png" width="1200" height="445" alt="" aria-hidden="true">
-        <h2 id="aboutTitle">About nothingSports</h2>
+        <h2 id="aboutTitle">About</h2>
         <p>A smart sports streaming filter that knows what to show you — and what to leave out.</p>
       </div>
     </div>
@@ -2448,6 +2630,24 @@ footer.app-footer{
   </div>
 </div>
 
+<div class="modal-backdrop" id="standingsSpoilerModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="standingsSpoilerTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="standingsSpoilerTitle">Ladder &amp; standings may reveal results</h2>
+        <p>Positions, wins, losses and points are not spoiler-free by nature.</p>
+      </div>
+    </div>
+    <div class="onboarding-body">
+      <p class="standings-warning">Results are currently hidden. Continue only if you are comfortable seeing standings context.</p>
+    </div>
+    <div class="onboarding-actions">
+      <button class="btn ghost" type="button" id="cancelStandingsRevealBtn">Keep hidden</button>
+      <button class="btn primary" type="button" id="confirmStandingsRevealBtn">Show standings</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-backdrop" id="exportModal" aria-hidden="true">
   <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
     <div class="onboarding-head">
@@ -2492,7 +2692,7 @@ const SPORT_META = SPORT_DOMAIN_REGISTRY.metaByKey();
 const FILTER_ORDER = SPORT_DOMAIN_REGISTRY.filterOrder;
 const ACTION_FILTERS = {
   mustwatch: { label: "Must Watch", glyph: "semantic:must-watch" },
-  watchlater: { label: "Watch Later", glyph: "ui:watch" },
+  watchlater: { label: "Catch Up", glyph: "ui:watch" },
 };
 const SPORTS_LIBRARY = SPORT_DOMAIN_REGISTRY.selectorLibrary();
 
@@ -2721,6 +2921,8 @@ let activeView = "list";
 let activeTab = "calendar";
 let calendarInitialJumpPending = true;
 let neverMissInitialJumpPending = true;
+let savedSurfaceInitialJumpPending = { watchlater: true, archived: true };
+let todayMoreReveal = false;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
 let settingsFirstRun = false;
@@ -2730,7 +2932,11 @@ let settingsFocusedDomainId = null;
 let draftPreferences = null;
 let pendingQuickAddDomainId = null;
 let canonicalPreferenceParticipants = [];
-let canonicalPreferenceParticipantsLoading = false;
+let canonicalSportsData = null;
+let canonicalSportsDataLoading = false;
+let canonicalSportsDataError = null;
+let standingsRevealApproved = false;
+let pendingStandingsReveal = null;
 let pendingSelectorPromptIds = new Set();
 let settingsViewportAnchor = null;
 let selectorOptInViewportAnchor = null;
@@ -3306,17 +3512,17 @@ function renderHomeSpoilerToggle(){
   const toggle = document.getElementById("homeSpoilerToggle");
   if (!toggle) return;
   const shown = Boolean(userPreferences.showSpoilers);
-  const action = shown ? "Hide Results" : "Show Results";
   toggle.classList.toggle("active", shown);
   toggle.setAttribute("aria-checked", shown ? "true" : "false");
-  toggle.setAttribute("aria-label", action);
+  toggle.setAttribute("aria-label", shown ? "Hide results" : "Show results");
   const state = toggle.querySelector(".spoiler-home-state");
-  if (state) state.textContent = action;
+  if (state) state.textContent = shown ? "ON" : "OFF";
 }
 
 function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
   const previousShowSpoilers = Boolean(userPreferences.showSpoilers);
   const next = Boolean(nextShowSpoilers);
+  if (!next) standingsRevealApproved = false;
   savePreferences({ ...userPreferences, showSpoilers: next });
   const resetCount = applyGlobalSpoilerPolicy(next, previousShowSpoilers);
   renderAll({ preserveViewport: true });
@@ -3429,10 +3635,8 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     const meta = await fetchJson(FEED_CONFIG.metaUrl);
     const eventsPath = meta.eventsPath || meta.eventsUrl;
     if (!eventsPath && meta.usesBundledEvents){
-      if (meta.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
-      writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
-      renderPreferenceSummary();
-      if (!quiet) showToast("Feed metadata refreshed. Bundled schedule is current.");
+      applyFeedEvents(EVENTS.slice(), meta);
+      if (!quiet) showToast("Feed refreshed from canonical events and current retention rules.");
       return;
     }
     const payload = await fetchJson(eventsPath || FEED_CONFIG.eventsUrl);
@@ -3444,7 +3648,8 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     if (!quiet) showToast(`Feed refreshed: ${events.length} events loaded.`);
   }catch(err){
     console.warn("Feed refresh failed", err);
-    if (!quiet) showToast("No remote feed update found. Using bundled schedule.");
+    applyFeedEvents(EVENTS.slice());
+    if (!quiet) showToast("No remote feed update found. Rebuilt from the bundled canonical schedule.");
   }
 }
 
@@ -3688,6 +3893,8 @@ function defaultEventAction(ev){
     startTime: `${ev.date}T${ev.time}`,
     mustWatch: false,
     watchLater: false,
+    watched: false,
+    watchedAt: null,
     archived: false,
     lastActionAt: null,
   };
@@ -3883,7 +4090,7 @@ function partitionSurfacedEvents(events, options = {}){
 function topNineEvents(reference = nowAEST()){
   const weekEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
   const candidates = getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived)
+    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
     .filter(ev => eventDateTime(ev) >= reference && eventDateTime(ev) <= weekEnd)
     .filter(ev => eventEnrichment(ev).intensity >= SCORE_BANDS.topStorylines.minStakes);
   return orderSurfacedEvents(candidates, { topNine: true, reference }).slice(0, SURFACE_CONFIG.topNineLimit);
@@ -4137,11 +4344,18 @@ function buildEventActionPanel(ev, options = {}){
   };
 
   if (options.archived){
-    makeActionButton("Reinstate to Calendar", "restore", () => {
-      reinstateArchivedEvent(ev);
-      renderAll();
-      showToast(`Reinstated ${ev.name} to Calendar.`);
-    });
+    if (options.autoArchived){
+      const note = document.createElement("span");
+      note.className = "action-note";
+      note.textContent = "Auto-archived after seven days.";
+      row.appendChild(note);
+    } else {
+      makeActionButton("Reinstate to Calendar", "restore", () => {
+        reinstateArchivedEvent(ev);
+        renderAll();
+        showToast(`Reinstated ${ev.name} to Calendar.`);
+      });
+    }
   } else {
     const systemState = getEventStatus(ev) === "past" ? "past" : "coming-up";
     if (systemState === "coming-up"){
@@ -4157,21 +4371,23 @@ function buildEventActionPanel(ev, options = {}){
       );
     } else {
       makeActionButton(
-        action.watchLater ? "Saved to Watch Later" : "Watch Later",
+        action.watchLater ? "Saved to Catch Up" : "Catch Up",
         action.watchLater ? "active" : "",
         () => {
           const watchLater = !action.watchLater;
           updateEventAction(ev, { watchLater });
           renderAll();
-          showToast(watchLater ? "Saved to Watch Later." : "Removed from Watch Later.");
+          showToast(watchLater ? "Saved to Catch Up." : "Removed from Catch Up.");
         }
       );
-      makeActionButton("Rate", "", () => {
-        markSpoilerRevealed(ev);
-        setCardState(ev, "opened");
-        renderCurrentSection();
-        showToast("Choose a rating from 1 to 10.");
-      });
+      if (!options.catchUp){
+        makeActionButton("Rate", "", () => {
+          markSpoilerRevealed(ev);
+          setCardState(ev, "opened");
+          renderCurrentSection();
+          showToast("Choose a rating from 1 to 10.");
+        });
+      }
     }
 
     makeActionButton("Archive", "danger", () => {
@@ -4373,7 +4589,21 @@ function eventMeetsCoveragePreference(ev){
 }
 
 function eventMeetsDerivedRetention(ev, reference = nowAEST()){
-  return CARD_LIFECYCLE ? CARD_LIFECYCLE.isWithinRetention(ev, reference) : true;
+  const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
+    ? new Date(reference.getTime())
+    : nowAEST();
+  return CARD_LIFECYCLE
+    ? CARD_LIFECYCLE.isWithinRetention(ev, effectiveReference, { action: getEventAction(ev) })
+    : true;
+}
+
+function eventIsAutoArchived(ev, reference = nowAEST()){
+  const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
+    ? new Date(reference.getTime())
+    : nowAEST();
+  return CARD_LIFECYCLE
+    ? CARD_LIFECYCLE.shouldAutoArchive(ev, effectiveReference, getEventAction(ev))
+    : false;
 }
 
 function getPreferenceMatchedEvents(){
@@ -4389,7 +4619,7 @@ function getPreferenceMatchedEvents(){
 
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
-  list = list.filter(ev => !getEventAction(ev).archived);
+  list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
   list = list.filter(eventMatchesActionFilter);
   if (activeFilter !== "all"){
     if (!ACTION_FILTERS[activeFilter]){
@@ -4483,6 +4713,46 @@ function buildStars(ev, interactive){
     }
     wrap.appendChild(s);
   }
+  return wrap;
+}
+
+function buildCatchUpWatchedControl(ev){
+  const action = getEventAction(ev);
+  const wrap = document.createElement("div");
+  wrap.className = "catchup-watched";
+
+  const label = document.createElement("label");
+  label.className = "catchup-watched-label";
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.checked = Boolean(action.watched);
+  input.setAttribute("aria-label", `Mark ${spoilerSafeDisplayTitle(ev)} as watched`);
+  const copy = document.createElement("span");
+  copy.textContent = "Watched";
+  label.append(input, copy);
+  wrap.appendChild(label);
+
+  input.addEventListener("change", event => {
+    event.stopPropagation();
+    updateEventAction(ev, {
+      watched: input.checked,
+      watchedAt: input.checked ? new Date().toISOString() : null,
+    });
+    renderCurrentSection();
+    showToast(input.checked ? "Marked as watched. Rating is optional." : "Marked as not watched.");
+  });
+
+  if (action.watched){
+    const prompt = document.createElement("div");
+    prompt.className = "catchup-rating-prompt";
+    const title = document.createElement("strong");
+    title.textContent = "Optional rating";
+    const detail = document.createElement("span");
+    detail.textContent = "How good was it? Skip this if you would rather not rate it.";
+    prompt.append(title, detail, buildStars(ev, true));
+    wrap.appendChild(prompt);
+  }
+
   return wrap;
 }
 
@@ -4624,12 +4894,12 @@ function buildRetrospectivePrompt(ev){
   const button = document.createElement("button");
   button.className = "action-btn active";
   button.type = "button";
-  button.textContent = "Add to Watch Later";
+  button.textContent = "Add to Catch Up";
   button.addEventListener("click", evt => {
     evt.stopPropagation();
     updateEventAction(ev, { watchLater: true });
     renderAll();
-    showToast("Saved to Watch Later.");
+    showToast("Saved to Catch Up.");
   });
 
   prompt.append(copy, button);
@@ -4932,7 +5202,7 @@ function buildEventCard(ev, options = {}){
   if (action.watchLater){
     const b = document.createElement("span");
     b.className = "badge upcoming";
-    b.textContent = "Watch Later";
+    b.textContent = "Catch Up";
     badges.appendChild(b);
   }
   topRow.appendChild(badges);
@@ -4975,7 +5245,7 @@ function buildEventCard(ev, options = {}){
   expectedBlock.appendChild(buildStakesMeter(ev));
   ratingRow.appendChild(expectedBlock);
 
-  if (state === "opened" && status === "past" && spoilerVisible){
+  if (state === "opened" && status === "past" && spoilerVisible && (mode !== "watchlater" || action.watched)){
     const actualBlock = document.createElement("div");
     actualBlock.className = "rating-block";
     const label = document.createElement("span");
@@ -4993,6 +5263,7 @@ function buildEventCard(ev, options = {}){
   }
 
   mainDiv.appendChild(ratingRow);
+  if (mode === "watchlater") mainDiv.appendChild(buildCatchUpWatchedControl(ev));
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
@@ -5011,7 +5282,11 @@ function buildEventCard(ev, options = {}){
     }
     const spoilerControl = buildSpoilerOverrideControl(ev);
     if (spoilerControl) mainDiv.appendChild(spoilerControl);
-    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
+    mainDiv.appendChild(buildEventActionPanel(ev, {
+      archived: options.archived,
+      autoArchived: options.autoArchived,
+      catchUp: mode === "watchlater",
+    }));
   }
 
   if (state === "opened"){
@@ -5053,7 +5328,11 @@ function buildEventCard(ev, options = {}){
     mainDiv.appendChild(details);
     const spoilerControl = buildSpoilerOverrideControl(ev);
     if (spoilerControl) mainDiv.appendChild(spoilerControl);
-    mainDiv.appendChild(buildEventActionPanel(ev, { archived: options.archived }));
+    mainDiv.appendChild(buildEventActionPanel(ev, {
+      archived: options.archived,
+      autoArchived: options.autoArchived,
+      catchUp: mode === "watchlater",
+    }));
   }
 
   card.appendChild(mainDiv);
@@ -5078,18 +5357,63 @@ function appendNewlySurfacedSection(container, events, { mode = "calendar" } = {
   return true;
 }
 
+function temporaryTodayMoreEvents(filtered, todayStr){
+  const visibleIds = new Set(filtered.map(ev => ev.eventId || ev.id));
+  const followed = new Set(userPreferences.followedSports || []);
+  return activeEvents
+    .filter(ev => ev.date === todayStr)
+    .filter(eventMeetsDerivedRetention)
+    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev))
+    .filter(ev => Number(ev.stakesScore) < SCORE_BANDS.minimumStakes || !followed.has(ev.key))
+    .filter(ev => !visibleIds.has(ev.eventId || ev.id))
+    .sort((first, second) => eventDateTime(first) - eventDateTime(second));
+}
+
+function appendTodayFallback(container, filtered, todayStr){
+  const hasHighStakesToday = filtered.some(ev => (
+    ev.date === todayStr
+    && Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes
+  ));
+  if (hasHighStakesToday) return;
+
+  const moreEvents = temporaryTodayMoreEvents(filtered, todayStr);
+  const fallback = document.createElement("div");
+  fallback.className = "today-fallback";
+  const copy = document.createElement("strong");
+  copy.textContent = "nothing high stakes on today";
+  fallback.appendChild(copy);
+  if (moreEvents.length){
+    const button = document.createElement("button");
+    button.className = "btn ghost";
+    button.type = "button";
+    button.textContent = todayMoreReveal ? "Hide" : "More";
+    button.addEventListener("click", () => {
+      todayMoreReveal = !todayMoreReveal;
+      renderListView();
+    });
+    fallback.appendChild(button);
+  }
+  container.appendChild(fallback);
+
+  if (!todayMoreReveal || !moreEvents.length) return;
+  const section = document.createElement("section");
+  section.className = "today-more-section";
+  const heading = document.createElement("h3");
+  heading.textContent = "More on today";
+  const grid = document.createElement("div");
+  grid.className = "cards-grid";
+  moreEvents.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "today-more" })));
+  section.append(heading, grid);
+  container.appendChild(section);
+}
+
 function renderListView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
   const filtered = getFilteredEvents();
-  if (filtered.length === 0){
-    container.innerHTML = `<div class="empty-state">Nothing in your current filter deserves your time right now.<br><button class="btn primary" onclick="openSettings()">Refine filters</button></div>`;
-    return;
-  }
   const { newItems, seenItems } = partitionSurfacedEvents(filtered);
   appendNewlySurfacedSection(container, newItems);
   const ordered = calendarTimelineEvents(seenItems);
-  if (newItems.length) calendarInitialJumpPending = false;
 
   // group by date, preserving order
   const groups = [];
@@ -5114,6 +5438,7 @@ function renderListView(){
     anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
     anchor.textContent = "Today";
     container.appendChild(anchor);
+    appendTodayFallback(container, filtered, todayStr);
     todayAnchorInserted = true;
   };
 
@@ -5136,6 +5461,13 @@ function renderListView(){
   });
 
   appendTodayAnchor();
+  if (!filtered.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = `Nothing in your current filter deserves your time right now.<br><button class="btn primary" type="button" id="emptyRefineFiltersBtn">Refine filters</button>`;
+    container.appendChild(empty);
+    document.getElementById("emptyRefineFiltersBtn").addEventListener("click", () => openSettings());
+  }
   scheduleInitialCalendarJump();
 }
 
@@ -5147,7 +5479,12 @@ function formatDateKey(dt){
 }
 
 function activeTodayAnchorId(){
-  return activeTab === "nevermiss" ? "neverMissTodayAnchor" : "calendarTodayAnchor";
+  return {
+    calendar: "calendarTodayAnchor",
+    nevermiss: "neverMissTodayAnchor",
+    watchlater: "catchUpTodayAnchor",
+    archived: "archivedTodayAnchor",
+  }[activeTab] || "calendarTodayAnchor";
 }
 
 function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
@@ -5171,6 +5508,14 @@ function scheduleInitialCalendarJump(){
 function scheduleInitialNeverMissJump(){
   if (!neverMissInitialJumpPending || activeTab !== "nevermiss") return;
   neverMissInitialJumpPending = false;
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
+  });
+}
+
+function scheduleInitialSavedSurfaceJump(tab){
+  if (!savedSurfaceInitialJumpPending[tab] || activeTab !== tab) return;
+  savedSurfaceInitialJumpPending = { ...savedSurfaceInitialJumpPending, [tab]: false };
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
   });
@@ -5266,7 +5611,7 @@ function renderMonthView(){
       labelCopy.textContent = displayTitle;
       label.appendChild(labelCopy);
       evEl.appendChild(label);
-      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Never Miss" : ""}`;
+      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Don’t Miss" : ""}`;
       observeNewSurfaceItem(evEl, ev, presentation);
       cell.appendChild(evEl);
     });
@@ -5283,12 +5628,188 @@ function renderMonthView(){
   container.appendChild(grid);
 }
 
+/* ============ RENDER: LADDER & STANDINGS ============ */
+function activeStandingsCompetitions(){
+  return supportedStandingsCompetitions(userPreferences)
+    .filter(competition => standingsVisibilityForCompetition(userPreferences, competition) !== "hidden")
+    .filter(competition => (
+      activeFilter === "all"
+      || ACTION_FILTERS[activeFilter]
+      || competition.sportDomainId === `sport:${activeFilter}`
+    ));
+}
+
+function latestStandingsSnapshot(competitionId){
+  const snapshots = canonicalSportsData?.ladderSnapshots?.filter(snapshot => snapshot.competitionId === competitionId) || [];
+  return snapshots.slice().sort((first, second) => (
+    Date.parse(second.snapshotTimeUtc || 0) - Date.parse(first.snapshotTimeUtc || 0)
+  ))[0] || null;
+}
+
+function standingsParticipantName(participantId){
+  const participant = canonicalSportsData?.participants?.find(item => item.id === participantId);
+  return participant?.displayName || participant?.shortName || participantId;
+}
+
+function followedStandingsParticipantIds(){
+  return new Set((userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(item => item.followLevel === "follow" || item.followLevel === "priority")
+    .map(item => item.participantId));
+}
+
+function standingsColumnsForCompetition(competition){
+  if (competition.sportDomainId === "sport:afl"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["played", "P"],
+      ["won", "W"],
+      ["lost", "L"],
+      ["drawn", "D"],
+      ["percentage", "%"],
+      ["ladderPoints", "Pts"],
+    ];
+  }
+  return [
+    ["rank", "#"],
+    ["participant", "Team"],
+    ["played", "P"],
+    ["won", "W"],
+    ["lost", "L"],
+    ["pointsDifference", "+/−"],
+    ["ladderPoints", "Pts"],
+  ];
+}
+
+function appendStandingsTable(module, competition, snapshot, visibility){
+  const entries = visibility === "summary" ? snapshot.entries.slice(0, 3) : snapshot.entries;
+  const columns = standingsColumnsForCompetition(competition);
+  const followed = followedStandingsParticipantIds();
+  const wrap = document.createElement("div");
+  wrap.className = "standings-table-wrap";
+  const table = document.createElement("table");
+  table.className = "standings-table";
+  const thead = document.createElement("thead");
+  const headingRow = document.createElement("tr");
+  columns.forEach(([, label]) => {
+    const th = document.createElement("th");
+    th.scope = "col";
+    th.textContent = label;
+    headingRow.appendChild(th);
+  });
+  thead.appendChild(headingRow);
+  table.appendChild(thead);
+  const tbody = document.createElement("tbody");
+  entries.forEach(entry => {
+    const row = document.createElement("tr");
+    row.classList.toggle("followed", followed.has(entry.participantId));
+    columns.forEach(([key]) => {
+      const cell = document.createElement("td");
+      cell.textContent = key === "participant"
+        ? standingsParticipantName(entry.participantId)
+        : entry[key] ?? "—";
+      row.appendChild(cell);
+    });
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  module.appendChild(wrap);
+}
+
+function renderStandingsContext(){
+  const container = document.getElementById("standingsContext");
+  if (!container) return;
+  container.innerHTML = "";
+  if (activeTab !== "calendar") return;
+  const competitions = activeStandingsCompetitions();
+  if (!competitions.length) return;
+
+  if (!userPreferences.showSpoilers && !standingsRevealApproved){
+    const module = document.createElement("section");
+    module.className = "standings-module standings-withheld";
+    const copy = document.createElement("div");
+    const title = document.createElement("h2");
+    title.textContent = "Ladder & Standings";
+    const detail = document.createElement("p");
+    detail.textContent = "Hidden while Results is off because positions can reveal recent outcomes.";
+    copy.append(title, detail);
+    const reveal = document.createElement("button");
+    reveal.className = "btn ghost";
+    reveal.type = "button";
+    reveal.textContent = "Reveal standings";
+    reveal.addEventListener("click", () => requestStandingsAccess(renderAll));
+    module.append(copy, reveal);
+    container.appendChild(module);
+    return;
+  }
+
+  if (!canonicalSportsData){
+    const module = document.createElement("section");
+    module.className = "standings-module";
+    const title = document.createElement("h2");
+    title.textContent = "Ladder & Standings";
+    const status = document.createElement("p");
+    status.textContent = canonicalSportsDataError
+      ? "Standings data is unavailable, so the module has been withheld."
+      : "Loading current standings…";
+    module.append(title, status);
+    if (canonicalSportsDataError){
+      const retry = document.createElement("button");
+      retry.className = "btn ghost";
+      retry.type = "button";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", () => {
+        canonicalSportsDataError = null;
+        loadCanonicalSportsData();
+        renderStandingsContext();
+      });
+      module.appendChild(retry);
+    } else {
+      loadCanonicalSportsData();
+    }
+    container.appendChild(module);
+    return;
+  }
+
+  competitions.forEach(competition => {
+    const module = document.createElement("section");
+    module.className = "standings-module";
+    const head = document.createElement("div");
+    head.className = "standings-head";
+    const copy = document.createElement("div");
+    const title = document.createElement("h2");
+    title.textContent = competition.name;
+    const snapshot = latestStandingsSnapshot(competition.id);
+    const detail = document.createElement("p");
+    detail.textContent = snapshot?.snapshotTimeUtc
+      ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`
+      : "No current standings snapshot is available.";
+    copy.append(title, detail);
+    head.appendChild(copy);
+    module.appendChild(head);
+    if (!snapshot?.entries?.length){
+      const withheld = document.createElement("p");
+      withheld.textContent = "No valid data is available, so this standings module has been withheld.";
+      module.appendChild(withheld);
+    } else {
+      appendStandingsTable(
+        module,
+        competition,
+        snapshot,
+        standingsVisibilityForCompetition(userPreferences, competition)
+      );
+    }
+    container.appendChild(module);
+  });
+}
+
 /* ============ RENDER: PRIMARY SURFACES ============ */
 function neverMissTimelineEvents(reference = nowAEST()){
   const windowStart = new Date(reference.getTime() - 7 * 24 * 3600 * 1000);
   const windowEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
   return getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived)
+    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
     .filter(ev => {
       const start = eventDateTime(ev);
       return start >= windowStart && start <= windowEnd;
@@ -5305,7 +5826,7 @@ function neverMissBuckets(reference = nowAEST()){
   const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
   const monthEnd = new Date(now.getTime() + 30 * 24 * 3600 * 1000);
   const upcoming = getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived)
+    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
     .filter(ev => eventDateTime(ev) >= now)
     .sort((a,b) => eventDateTime(a) - eventDateTime(b));
 
@@ -5396,8 +5917,7 @@ function renderNeverMissTimeline(container, events){
   }
 
   container.appendChild(timeline);
-  if (newItems.length) neverMissInitialJumpPending = false;
-  else scheduleInitialNeverMissJump();
+  scheduleInitialNeverMissJump();
 }
 
 function renderNeverMiss(){
@@ -5406,7 +5926,7 @@ function renderNeverMiss(){
 
   const intro = document.createElement("div");
   intro.className = "surface-intro";
-  intro.innerHTML = `<h2>Never Miss</h2><p>The Top 9 is ranked for Australian viewing access. The timeline keeps the rest of this week’s selective, spoiler-safe picks around Today.</p>`;
+  intro.innerHTML = `<h2>Don’t Miss</h2><p>The Top 9 is ranked for Australian viewing access. The timeline keeps the rest of this week’s selective, spoiler-safe picks around Today.</p>`;
   container.appendChild(intro);
 
   const { topStorylines, aroundTheCorner } = neverMissBuckets();
@@ -5452,16 +5972,24 @@ function renderSavedSurface({ containerId, title, copy, events, emptyIcon, empty
   intro.innerHTML = `<h2>${title}</h2><p>${copy}</p>`;
   container.appendChild(intro);
 
-  if (!events.length){
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.innerHTML = `<div class="big">${emptyIcon}</div>${emptyCopy}`;
-    container.appendChild(empty);
-    return;
-  }
+  const todayStr = formatDateKey(nowAEST());
+  const anchorId = archived ? "archivedTodayAnchor" : "catchUpTodayAnchor";
+  let todayAnchorInserted = false;
+  const appendTodayAnchor = () => {
+    if (todayAnchorInserted) return;
+    const anchor = document.createElement("div");
+    anchor.className = "today-anchor";
+    anchor.id = anchorId;
+    anchor.setAttribute("role", "separator");
+    anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
+    anchor.textContent = "Today";
+    container.appendChild(anchor);
+    todayAnchorInserted = true;
+  };
 
-  const grouped = groupEventsByDate(sortUpcomingFirst(events));
-  Object.keys(grouped).forEach(dateStr => {
+  const grouped = groupEventsByDate(calendarTimelineEvents(events));
+  Object.keys(grouped).sort().forEach(dateStr => {
+    if (!todayAnchorInserted && dateStr >= todayStr) appendTodayAnchor();
     const section = document.createElement("div");
     section.className = "queue-section";
     const heading = document.createElement("h3");
@@ -5469,10 +5997,23 @@ function renderSavedSurface({ containerId, title, copy, events, emptyIcon, empty
     section.appendChild(heading);
     const grid = document.createElement("div");
     grid.className = "cards-grid";
-    grouped[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, { mode: archived ? "archived" : "watchlater", archived })));
+    grouped[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, {
+      mode: archived ? "archived" : "watchlater",
+      archived,
+      autoArchived: archived && eventIsAutoArchived(ev) && !getEventAction(ev).archived,
+    })));
     section.appendChild(grid);
     container.appendChild(section);
   });
+  appendTodayAnchor();
+
+  if (!events.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = `<div class="big">${emptyIcon}</div>${emptyCopy}`;
+    container.appendChild(empty);
+  }
+  scheduleInitialSavedSurfaceJump(archived ? "archived" : "watchlater");
 }
 
 function watchLaterEvents(){
@@ -5481,26 +6022,34 @@ function watchLaterEvents(){
 }
 
 function archivedEvents(){
-  if (!CARD_LIFECYCLE) return activeEvents.filter(ev => getEventAction(ev).archived);
-  return CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events;
+  const explicit = CARD_LIFECYCLE
+    ? CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events.filter(eventMeetsDerivedRetention)
+    : activeEvents.filter(ev => getEventAction(ev).archived && eventMeetsDerivedRetention(ev));
+  const automatic = getPreferenceMatchedEvents().filter(ev => (
+    !getEventAction(ev).archived
+    && eventIsAutoArchived(ev)
+  ));
+  const byId = new Map();
+  [...explicit, ...automatic].forEach(ev => byId.set(ev.eventId || ev.id, ev));
+  return Array.from(byId.values());
 }
 
 function renderWatchLater(){
   renderSavedSurface({
     containerId: "watchLaterView",
-    title: "Watch Later",
+    title: "Catch Up",
     copy: "Your spoiler-safe queue for events you plan to watch when the timing suits.",
     events: watchLaterEvents(),
     emptyIcon: "↺",
-    emptyCopy: "Nothing saved yet. Open a PAST event and choose Watch Later.",
+    emptyCopy: "Nothing saved yet. Open a past event and choose Catch Up.",
   });
 }
 
 function renderArchived(){
   renderSavedSurface({
     containerId: "archivedView",
-    title: "Filing Cabinet",
-    copy: "Filed events stay out of active feeds. Reinstate any event to return it to Calendar.",
+    title: "Archived",
+    copy: "Past events move here after seven days and disappear after fourteen unless saved.",
     events: archivedEvents(),
     emptyIcon: "⌁",
     emptyCopy: "No archived events.",
@@ -5600,6 +6149,9 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     activeTab = btn.dataset.tab;
     if (activeTab === "calendar") calendarInitialJumpPending = true;
     if (activeTab === "nevermiss") neverMissInitialJumpPending = true;
+    if (activeTab === "watchlater" || activeTab === "archived"){
+      savedSurfaceInitialJumpPending = { ...savedSurfaceInitialJumpPending, [activeTab]: true };
+    }
     renderAll();
   });
 });
@@ -5618,6 +6170,9 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   if (activeTab === "calendar") calendarInitialJumpPending = false;
   if (activeTab === "nevermiss") neverMissInitialJumpPending = false;
+  if (activeTab === "watchlater" || activeTab === "archived"){
+    savedSurfaceInitialJumpPending = { ...savedSurfaceInitialJumpPending, [activeTab]: false };
+  }
   if (activeTab === "calendar" && activeView !== "list"){
     activeView = "list";
     document.querySelectorAll(".view-toggle button").forEach(btn => {
@@ -5642,7 +6197,7 @@ function renderCurrentSection(){
 
 function renderTabCounts(){
   const eligible = getPreferenceMatchedEvents();
-  const active = eligible.filter(ev => !getEventAction(ev).archived);
+  const active = eligible.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
   const neverMiss = neverMissBuckets();
   const neverMissTimeline = neverMissTimelineEvents();
   document.getElementById("calendarTabCount").textContent = active.length;
@@ -5656,6 +6211,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   renderHomeSpoilerToggle();
   renderFilters();
   renderTabCounts();
+  renderStandingsContext();
   const calControls = document.getElementById("calendarControls");
   const listView = document.getElementById("listView");
   const monthView = document.getElementById("monthView");
@@ -5667,8 +6223,8 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   [listView, monthView, neverMissView, watchLaterView, archivedView].forEach(view => {
     view.style.display = "none";
   });
-  jumpTodayBtn.hidden = activeTab !== "calendar" && activeTab !== "nevermiss";
-  jumpTodayBtn.setAttribute("aria-label", activeTab === "nevermiss" ? "Jump to today in Never Miss" : "Jump to today in the calendar");
+  jumpTodayBtn.hidden = false;
+  jumpTodayBtn.setAttribute("aria-label", `Jump to today in ${activeTab === "nevermiss" ? "Don’t Miss" : activeTab === "watchlater" ? "Catch Up" : activeTab === "archived" ? "Archived" : "Calendar"}`);
 
   if (activeTab === "calendar"){
     calControls.style.display = "flex";
@@ -5916,6 +6472,25 @@ function settingsMenuItem(section, glyph, title, detail){
   </button>`;
 }
 
+function setStandingsSpoilerModalOpen(open){
+  const modal = document.getElementById("standingsSpoilerModal");
+  modal.classList.toggle("show", open);
+  modal.setAttribute("aria-hidden", open ? "false" : "true");
+  document.body.classList.toggle(
+    "modal-open",
+    open || document.getElementById("settingsModal").classList.contains("show")
+  );
+}
+
+function requestStandingsAccess(onConfirm){
+  if (userPreferences.showSpoilers || standingsRevealApproved){
+    onConfirm();
+    return;
+  }
+  pendingStandingsReveal = onConfirm;
+  setStandingsSpoilerModalOpen(true);
+}
+
 function selectionActionsMarkup(group, label){
   return `<div class="selection-actions" aria-label="${label} selection controls">
     <button class="selection-action" type="button" data-selection-group="${group}" data-selection-action="select-all">Select all</button>
@@ -5940,18 +6515,23 @@ function renderSettingsMenu(body){
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("sports", "ui:filter", "Sports Selector", `${draftPreferences.selectedSelectorEntityIds.length} selector choices · Sports and Special Events`)}
     ${settingsMenuItem("templates", "ui:settings", "Templates", `${domainCount} domain${domainCount === 1 ? "" : "s"} · Froth, Like, Casual, or Custom`)}
-    ${settingsMenuItem("coverage", "ui:filter", "Coverage overrides", "Fixtures, competitions, ladders, teams, and athletes")}
+    ${settingsMenuItem("coverage", "ui:filter", "Coverage overrides", "Fixtures, competitions, teams, and competitors")}
+    ${settingsMenuItem("standings", "ui:filter", "Ladder & Standings", "Sport-calibrated tables · may reveal results")}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · optional time window`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("soundtrack", "ui:music", "Soundtrack", `${draftPreferences.soundtrack?.enabled ? SOUNDTRACK?.styleFor(draftPreferences.soundtrack.styleId).label : "Off"} · original procedural audio`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
-  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Past cards expire after 14 days; archives remain profile-scoped and rebuild from canonical events.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
+  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; saved Catch Up items remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
   body.querySelectorAll("[data-settings-section]").forEach(button => {
     button.addEventListener("click", () => {
-      settingsFocusedDomainId = null;
-      settingsSection = button.dataset.settingsSection;
-      renderSettingsScreen();
+      const openSection = () => {
+        settingsFocusedDomainId = null;
+        settingsSection = button.dataset.settingsSection;
+        renderSettingsScreen();
+      };
+      if (button.dataset.settingsSection === "standings") requestStandingsAccess(openSection);
+      else openSection();
     });
   });
   document.getElementById("rebuildFeedCacheBtn").addEventListener("click", () => {
@@ -6142,20 +6722,29 @@ function coverageModeFor(preference){
   return "majorOnly";
 }
 
-async function loadCanonicalPreferenceParticipants(){
-  if (canonicalPreferenceParticipants.length || canonicalPreferenceParticipantsLoading) return;
-  canonicalPreferenceParticipantsLoading = true;
+async function loadCanonicalSportsData(){
+  if (canonicalSportsData || canonicalSportsDataLoading) return canonicalSportsData;
+  canonicalSportsDataLoading = true;
+  canonicalSportsDataError = null;
   try{
     const response = await fetch("data/canonical/afl-nrl-2026.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`Canonical preference data returned ${response.status}`);
-    const payload = await response.json();
-    canonicalPreferenceParticipants = Array.isArray(payload.participants) ? payload.participants : [];
+    if (!response.ok) throw new Error(`Canonical sports data returned ${response.status}`);
+    canonicalSportsData = await response.json();
+    canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
   }catch(error){
-    console.warn("Canonical participant preferences unavailable", error);
+    canonicalSportsDataError = error;
+    console.warn("Canonical standings and participant data unavailable", error);
   }finally{
-    canonicalPreferenceParticipantsLoading = false;
+    canonicalSportsDataLoading = false;
     if (draftPreferences && settingsSection === "coverage") renderSettingsScreen();
+    if (draftPreferences && settingsSection === "standings") renderSettingsScreen();
+    renderStandingsContext();
   }
+  return canonicalSportsData;
+}
+
+async function loadCanonicalPreferenceParticipants(){
+  return loadCanonicalSportsData();
 }
 
 function renderCoverageSettings(body){
@@ -6184,13 +6773,12 @@ function renderCoverageSettings(body){
     panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3>
       <div class="coverage-grid">
         <button class="coverage-option${mode === "all" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="all"><strong>All fixtures</strong><span>Include the complete eligible schedule.</span></button>
-        <button class="coverage-option${mode === "majorFollowed" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorFollowed"><strong>Major + followed</strong><span>Important events plus followed teams or athletes.</span></button>
+        <button class="coverage-option${mode === "majorFollowed" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorFollowed"><strong>Major + followed</strong><span>Important events plus followed teams or competitors.</span></button>
         <button class="coverage-option${mode === "majorOnly" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorOnly"><strong>Major events only</strong><span>The lightest, highest-signal schedule.</span></button>
       </div>
       ${competitions.map(competition => {
         const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);
-        const ladder = competitionPreference?.showLadder || preference?.showLadder || "summary";
-        return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label><label class="field-label">Ladder visibility<select data-competition-ladder="${competition.id}"><option value="hidden" ${ladder === "hidden" ? "selected" : ""}>Hidden</option><option value="summary" ${ladder === "summary" ? "selected" : ""}>Summary</option><option value="full" ${ladder === "full" ? "selected" : ""}>Full</option></select></label></div>`;
+        return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label></div>`;
       }).join("")}
       ${participants.length ? `<div class="entity-follow-list"><h4>Team follows</h4>${participants.map(participant => {
         const follow = graph.entityFollows.find(item => item.participantId === participant.id)?.followLevel || "none";
@@ -6217,15 +6805,6 @@ function renderCoverageSettings(body){
       });
     });
   });
-  list.querySelectorAll("[data-competition-ladder]").forEach(select => {
-    select.addEventListener("change", () => {
-      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.upsertCompetitionPreference(draftPreferences.preferenceGraph, select.dataset.competitionLadder, {
-        enabled: true,
-        templateInheritedFromDomain: false,
-        showLadder: select.value,
-      });
-    });
-  });
   list.querySelectorAll("[data-entity-follow]").forEach(select => {
     select.addEventListener("change", () => {
       draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(draftPreferences.preferenceGraph, select.dataset.entityFollow, select.value);
@@ -6234,6 +6813,64 @@ function renderCoverageSettings(body){
   if (domainIds.some(domainId => (CANONICAL_TAXONOMY.competitions || []).some(competition => competition.sportDomainId === domainId))){
     loadCanonicalPreferenceParticipants();
   }
+}
+
+function standingsVisibilityForCompetition(preferences, competition){
+  const graph = preferences?.preferenceGraph;
+  const domainPreference = graph?.domainPreferences?.find(item => item.sportDomainId === competition.sportDomainId);
+  const competitionPreference = graph?.competitionPreferences?.find(item => item.competitionId === competition.id);
+  if (domainPreference?.enabled === false || competitionPreference?.enabled === false) return "hidden";
+  return competitionPreference?.showLadder || domainPreference?.showLadder || "hidden";
+}
+
+function supportedStandingsCompetitions(preferences = userPreferences){
+  const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
+  return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
+    competition.supportsLadder
+    && selectedDomains.has(competition.sportDomainId)
+  ));
+}
+
+function renderStandingsSettings(body){
+  syncDraftPreferenceGraph();
+  const competitions = supportedStandingsCompetitions(draftPreferences);
+  body.innerHTML = `<div class="preference-stack">
+    <p class="standings-warning">Ladders and standings are not spoiler-free by nature. With Results off, nothingSports asks before revealing them.</p>
+    <div class="template-domain-list" id="standingsSettingsList"></div>
+  </div>`;
+  const list = document.getElementById("standingsSettingsList");
+  if (!competitions.length){
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Follow a sport with supported standings before enabling this section.</div>`;
+    return;
+  }
+  competitions.forEach(competition => {
+    const visibility = standingsVisibilityForCompetition(draftPreferences, competition);
+    const panel = document.createElement("section");
+    panel.className = "template-domain";
+    panel.innerHTML = `<h3>${competition.name}</h3>
+      <p class="preference-help">Choose how much context may appear above the calendar feed.</p>
+      <label class="field-label">Ladder visibility
+        <select data-standings-visibility="${competition.id}">
+          <option value="hidden" ${visibility === "hidden" ? "selected" : ""}>Hidden</option>
+          <option value="summary" ${visibility === "summary" ? "selected" : ""}>Top 3 summary</option>
+          <option value="full" ${visibility === "full" ? "selected" : ""}>Full ladder</option>
+        </select>
+      </label>`;
+    list.appendChild(panel);
+  });
+  list.querySelectorAll("[data-standings-visibility]").forEach(select => {
+    select.addEventListener("change", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.upsertCompetitionPreference(
+        draftPreferences.preferenceGraph,
+        select.dataset.standingsVisibility,
+        {
+          enabled: true,
+          templateInheritedFromDomain: false,
+          showLadder: select.value,
+        }
+      );
+    });
+  });
 }
 
 function hourOptions(selected){
@@ -6412,6 +7049,7 @@ function renderSettingsScreen(){
     sports: [settingsFirstRun ? "Set up nothingSports · 1 of 4" : "Sports Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Choose between Sports and Special Events, then tune event groups and subcategory filters."],
     templates: [settingsFirstRun ? "Choose your level · 2 of 4" : "Templates & detail", "Apply Froth, Like, Casual, or Custom after selecting each domain."],
     coverage: [settingsFirstRun ? "Tune coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Coverage overrides", "Choose all fixtures, major events plus follows, or major events only."],
+    standings: ["Ladder & Standings", "Choose sport-calibrated standings context. This information may reveal results."],
     viewing: [settingsFirstRun ? "Viewing preferences · 4 of 4" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
@@ -6423,6 +7061,7 @@ function renderSettingsScreen(){
   if (settingsSection === "sports") renderSportsSettings(body);
   else if (settingsSection === "templates") renderTemplateSettings(body);
   else if (settingsSection === "coverage") renderCoverageSettings(body);
+  else if (settingsSection === "standings") renderStandingsSettings(body);
   else if (settingsSection === "viewing") renderViewingSettings(body);
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
@@ -6689,6 +7328,22 @@ document.getElementById("refreshBtn").addEventListener("click", () => {
 document.getElementById("homeSpoilerToggle").addEventListener("click", () => {
   setGlobalSpoilerPreference(!userPreferences.showSpoilers, { notify: true });
 });
+document.getElementById("cancelStandingsRevealBtn").addEventListener("click", () => {
+  pendingStandingsReveal = null;
+  setStandingsSpoilerModalOpen(false);
+});
+document.getElementById("confirmStandingsRevealBtn").addEventListener("click", () => {
+  const action = pendingStandingsReveal;
+  pendingStandingsReveal = null;
+  standingsRevealApproved = true;
+  setStandingsSpoilerModalOpen(false);
+  action?.();
+});
+document.getElementById("standingsSpoilerModal").addEventListener("click", event => {
+  if (event.target.id !== "standingsSpoilerModal") return;
+  pendingStandingsReveal = null;
+  setStandingsSpoilerModalOpen(false);
+});
 
 /* ============ EXPORT + FEEDBACK MODALS ============ */
 let exportSelection = Object.fromEntries(EXPORT_SECTIONS.map(section => [section.key, true]));
@@ -6922,6 +7577,7 @@ document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();
+loadCanonicalSportsData();
 scheduleBrowserReminders();
 refreshRemoteFeed({ quiet: true });
 if (!userPreferences.onboardingComplete){

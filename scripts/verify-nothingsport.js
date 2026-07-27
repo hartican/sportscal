@@ -56,7 +56,9 @@ assert(html.includes("syncThemeBrandAssets(useDark)"), "brand assets must follow
 assert(!html.includes('class="brand-colosseum"'), "the legacy colosseum placeholder must be removed");
 assert.deepEqual(manifest.icons.map(icon => icon.src), ["/icons/nothingsport-helm-192.png", "/icons/nothingsport-helm-512.png"], "the install manifest must use the standalone centurion helm");
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
-assert(!html.includes("data-tab=\"catchup\""), "Catch-up must be replaced by Watch Later");
+assert(html.includes('<span class="tab-label">Don’t Miss</span>'), "Never Miss must be renamed Don’t Miss in the primary tabs");
+assert(html.includes('<span class="tab-label">Catch Up</span>'), "Watch Later must be renamed Catch Up in the primary tabs");
+assert(html.includes('<span class="tab-label">Archived</span>'), "Archived must retain a visible primary-tab label");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
 assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation state must be persisted separately from canonical events");
@@ -69,7 +71,7 @@ assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports 
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
-assert(html.includes('src="config/card-lifecycle.js"'), "the 14-day derived-card lifecycle must load before app state");
+assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
 assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
 assert(html.includes('src="config/soundtrack.js"'), "the opt-in procedural soundtrack controller must load before app state");
 assert(html.includes('src="data/events.js"'), "direct-file mode must load the generated published-feed fallback");
@@ -88,7 +90,9 @@ assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious 
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "templates", "coverage", "viewing"]'), "first login must use the short four-step wizard");
 assert(html.includes("data-domain-template"), "templates must be applied per selected domain");
-assert(html.includes("data-competition-ladder"), "competition-level ladder overrides must be editable");
+assert(html.includes("data-standings-visibility"), "competition-level ladder and standings visibility must have one dedicated settings home");
+assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
+assert(html.includes('id="standingsContext"'), "supported standings must resolve into a visible feed module");
 assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
 assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
 assert(html.includes("Every available provider starts selected"), "provider selection must be opt-out");
@@ -97,8 +101,9 @@ assert(html.includes("--color-contrast:"), "every theme must expose a contrast t
 assert(html.includes("className = \"new-dot\""), "new cards must render the compact contrast-colour dot");
 assert(html.includes('id="homeSpoilerToggle"'), "the global spoiler toggle must be visible in the sticky home-screen header");
 assert(html.includes("setGlobalSpoilerPreference(!userPreferences.showSpoilers"), "the home-screen spoiler toggle must update the global preference immediately");
-assert(html.includes('>Show Results</span>'), "the home-screen control must invite users to show results when they are hidden");
-assert(html.includes('shown ? "Hide Results" : "Show Results"'), "the home-screen control must switch between Show Results and Hide Results");
+assert(html.includes('<span class="spoiler-home-label">Show/Hide Results:</span>'), "the home-screen result control must use the canonical Show/Hide Results label");
+assert(html.includes('state.textContent = shown ? "ON" : "OFF"'), "the result control must expose explicit ON and OFF pill states");
+assert(html.includes(".spoiler-home-toggle.active .spoiler-home-state"), "the ON result pill must have a distinct active treatment");
 assert(!html.includes("id=\"globalSpoilerSwitch\""), "Settings must not duplicate the global result-visibility control");
 assert(html.includes('"Local venues", `${draftPreferences.localVenueIds.length} local venue'), "Settings must retain a Local venues entry after removing the result control");
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
@@ -123,7 +128,10 @@ assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('anchor.id = "neverMissTodayAnchor"'), "Never Miss must render a Today timeline anchor");
 assert(html.includes("scheduleInitialNeverMissJump()"), "Never Miss must default the viewport to Today");
-assert(html.includes('activeTab !== "calendar" && activeTab !== "nevermiss"'), "Jump to Today must remain available on Calendar and Never Miss");
+assert(html.includes('anchorId = archived ? "archivedTodayAnchor" : "catchUpTodayAnchor"'), "Catch Up and Archived must render Today timeline anchors");
+assert(html.includes('jumpTodayBtn.hidden = false'), "Jump to Today must remain available on every primary screen");
+assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
+assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
@@ -137,6 +145,10 @@ assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || [])
 assert(!/textContent\s*=\s*["']NEW["']/.test(eventCardSource), "the freshness treatment must not add a NEW text badge");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
 assert(html.includes('id="exportSectionChoices"'), "Never Miss export must expose section choices");
+assert(html.includes('className = "catchup-watched"'), "each Catch Up card must expose a Watched control");
+assert(html.includes('title.textContent = "Optional rating"'), "Catch Up rating must be introduced as optional");
+assert(html.includes('if (action.watched)'), "the Catch Up rating prompt must remain hidden until Watched is selected");
+assert(html.includes("applyFeedEvents(EVENTS.slice(), meta)"), "bundled-feed Refresh must run through the canonical lifecycle rebuild");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
 assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
@@ -365,6 +377,7 @@ globalThis.__test = {
   auBroadcastWeightScoreForEvent,
   eventEnrichment,
   eventMeetsDerivedRetention,
+  eventIsAutoArchived,
   rebuildDerivedCardCache,
   purgeDerivedCardCache,
   clearAndRebuildDerivedCardCache,
@@ -419,12 +432,23 @@ globalThis.__test = {
   calendarTimelineEvents,
   eventDateLabel,
   eventTimeLabel,
+  standingsColumnsForCompetition,
 };`;
 vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
 const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ sportDomainId: "sport:afl" }), column => column[0]),
+  ["rank", "participant", "played", "won", "lost", "drawn", "percentage", "ladderPoints"],
+  "AFL ladders must use played, win/loss/draw, percentage and premiership-point columns"
+);
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ sportDomainId: "sport:nrl" }), column => column[0]),
+  ["rank", "participant", "played", "won", "lost", "pointsDifference", "ladderPoints"],
+  "NRL ladders must use played, win/loss, points difference and competition-point columns"
+);
 assert.deepEqual(
   Array.from(app.getActiveEventIds()),
   publishedFeed.events.map(event => event.id),
@@ -903,6 +927,22 @@ app.clearAndRebuildDerivedCardCache();
 assert.equal(app.archivedEvents().some(event => event.id === pastA.id), true, "archive view must rebuild from canonical events after a full cache purge");
 const olderThanRetention = { ...event("older-than-retention", -20, 4), status: "completed" };
 assert.equal(app.eventMeetsDerivedRetention(olderThanRetention), false, "unarchived past cards must expire after 14 days");
+
+const autoArchivedAfterSevenDays = { ...event("auto-archived-after-seven-days", -8, 4), status: "completed" };
+const expiredAfterFourteenDays = { ...event("expired-after-fourteen-days", -15, 4), status: "completed" };
+const savedPastRetention = { ...event("saved-past-retention", -20, 4), status: "completed" };
+app.setEvents([autoArchivedAfterSevenDays, expiredAfterFourteenDays, savedPastRetention]);
+app.setActions({});
+app.setPreferences({});
+app.updateEventAction(savedPastRetention, { watchLater: true });
+assert.equal(app.eventIsAutoArchived(autoArchivedAfterSevenDays), true, "unsaved cards must auto-archive after seven days");
+assert.equal(app.getFilteredEvents().some(event => event.id === autoArchivedAfterSevenDays.id), false, "auto-archived cards must leave active feeds");
+assert.equal(app.archivedEvents().some(event => event.id === autoArchivedAfterSevenDays.id), true, "the Archived screen must rebuild automatic seven-day archive entries from canonical events");
+assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === expiredAfterFourteenDays.id), false, "unsaved cards must disappear after fourteen days");
+assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === savedPastRetention.id), true, "saved Catch Up cards must remain available after fourteen days");
+assert.equal(app.getDerivedCardCache().derivedCards.some(card => card.canonicalEventId === savedPastRetention.id && card.retentionExempt), true, "saved cards must remain explicitly exempt in the disposable cache");
+app.updateEventAction(savedPastRetention, { watched: true, watchedAt: new Date().toISOString() });
+assert.equal(app.getEventAction(savedPastRetention).watched, true, "Catch Up watched state must persist with the event action");
 
 const winterTimestamp = app.formatFeedbackTimestamp(new Date("2026-07-16T10:00:00Z"));
 const summerTimestamp = app.formatFeedbackTimestamp(new Date("2026-12-16T10:00:00Z"));

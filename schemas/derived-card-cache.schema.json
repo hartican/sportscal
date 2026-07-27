@@ -25,6 +25,7 @@
           "renderPayload": { "type": "object" },
           "generatedAt": { "type": "string", "format": "date-time" },
           "expiresAt": { "type": "string", "format": "date-time" },
+          "retentionExempt": { "type": "boolean" },
           "isArchived": { "const": false }
         }
       }

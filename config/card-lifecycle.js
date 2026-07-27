@@ -6,7 +6,9 @@
   "use strict";
 
   const SCHEMA_VERSION = "derived-card-cache.v1";
+  const ARCHIVE_DAYS = 7;
   const RETENTION_DAYS = 14;
+  const ARCHIVE_MS = ARCHIVE_DAYS * 24 * 60 * 60 * 1000;
   const RETENTION_MS = RETENTION_DAYS * 24 * 60 * 60 * 1000;
   const SURFACES = new Set(["homeMustWatch", "topStorylines", "sportFeed", "teamFeed", "saved", "recent"]);
 
@@ -47,11 +49,56 @@
     return end ? new Date(end.getTime() + RETENTION_MS) : null;
   }
 
-  function isWithinRetention(event, reference = new Date()){
+  function archivesAtForEvent(event){
     const end = eventEnd(event);
-    if (!end) return true;
-    const now = reference instanceof Date ? reference : new Date(reference);
-    return now.getTime() <= end.getTime() + RETENTION_MS;
+    return end ? new Date(end.getTime() + ARCHIVE_MS) : null;
+  }
+
+  function isSavedAction(action = {}){
+    return Boolean(action.watchLater || action.mustWatch || action.saved);
+  }
+
+  function lifecycleState(event, {
+    action = {},
+    saved = isSavedAction(action),
+    now = new Date(),
+  } = {}){
+    const end = eventEnd(event);
+    const reference = now instanceof Date ? now : new Date(now);
+    if (!end || Number.isNaN(reference.getTime())){
+      return {
+        state: "active",
+        saved: Boolean(saved),
+        archivesAt: archivesAtForEvent(event)?.toISOString() || null,
+        expiresAt: expiresAtForEvent(event)?.toISOString() || null,
+      };
+    }
+    const ageMs = reference.getTime() - end.getTime();
+    const state = saved
+      ? "saved"
+      : ageMs > RETENTION_MS
+        ? "expired"
+        : ageMs > ARCHIVE_MS
+          ? "archived"
+          : "active";
+    return {
+      state,
+      saved: Boolean(saved),
+      archivesAt: new Date(end.getTime() + ARCHIVE_MS).toISOString(),
+      expiresAt: new Date(end.getTime() + RETENTION_MS).toISOString(),
+    };
+  }
+
+  function isWithinRetention(event, reference = new Date(), options = {}){
+    const state = lifecycleState(event, {
+      ...options,
+      now: reference,
+    }).state;
+    return state !== "expired";
+  }
+
+  function shouldAutoArchive(event, reference = new Date(), action = {}){
+    return lifecycleState(event, { action, now: reference }).state === "archived";
   }
 
   function emptyCache(now = new Date()){
@@ -77,6 +124,7 @@
     surface = "sportFeed",
     rank = 0,
     generatedAt = new Date(),
+    retentionExempt = false,
   } = {}){
     const canonicalEventId = eventId(event);
     if (!canonicalEventId) throw new Error("Derived cards require a canonical event id");
@@ -100,6 +148,7 @@
       },
       generatedAt: generated.toISOString(),
       expiresAt: expiry.toISOString(),
+      retentionExempt: Boolean(retentionExempt),
       isArchived: false,
     };
   }
@@ -122,8 +171,16 @@
     if (typeof enrich !== "function") throw new Error("materialize requires an enrichment function");
     const reference = now instanceof Date ? now : new Date(now);
     const ranked = events
-      .filter(event => isWithinRetention(event, reference))
-      .map(event => ({ event, enrichment: enrich(event) }))
+      .map(event => {
+        const action = actionFor(event);
+        return {
+          event,
+          action,
+          retention: lifecycleState(event, { action, now: reference }),
+        };
+      })
+      .filter(item => item.retention.state === "active" || item.retention.state === "saved")
+      .map(item => ({ ...item, enrichment: enrich(item.event) }))
       .sort((first, second) => {
         const score = second.enrichment.mustWatchScore - first.enrichment.mustWatchScore;
         return score || eventId(first.event).localeCompare(eventId(second.event));
@@ -131,11 +188,12 @@
     return {
       schemaVersion: SCHEMA_VERSION,
       generatedAt: reference.toISOString(),
-      derivedCards: ranked.map(({ event, enrichment }, index) => createDerivedCard(event, enrichment, {
+      derivedCards: ranked.map(({ event, enrichment, action }, index) => createDerivedCard(event, enrichment, {
         profileId,
-        surface: surfaceFor(event, enrichment, actionFor(event)),
+        surface: surfaceFor(event, enrichment, action),
         rank: index + 1,
         generatedAt: reference,
+        retentionExempt: isSavedAction(action),
       })),
     };
   }
@@ -144,6 +202,7 @@
     const reference = now instanceof Date ? now : new Date(now);
     const normalized = normalizeCache(cache, reference);
     const derivedCards = normalized.derivedCards.filter(card => {
+      if (card.retentionExempt) return true;
       const expires = new Date(card.expiresAt);
       return !Number.isNaN(expires.getTime()) && expires > reference;
     });
@@ -191,12 +250,18 @@
 
   return Object.freeze({
     SCHEMA_VERSION,
+    ARCHIVE_DAYS,
     RETENTION_DAYS,
+    ARCHIVE_MS,
     RETENTION_MS,
     emptyCache,
     normalizeCache,
+    archivesAtForEvent,
     expiresAtForEvent,
+    isSavedAction,
+    lifecycleState,
     isWithinRetention,
+    shouldAutoArchive,
     createDerivedCard,
     materialize,
     purgeExpired,
