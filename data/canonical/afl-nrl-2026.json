@@ -29,7 +29,7 @@
       "supportsAllFixtures": true,
       "supportsNarrative": true,
       "supportsTeams": true,
-      "supportsAthletes": false,
+      "supportsCompetitors": false,
       "defaultTemplateId": "template:like",
       "metadata": {
         "governingBody": "Australian Football League",
@@ -47,7 +47,7 @@
       "supportsAllFixtures": true,
       "supportsNarrative": true,
       "supportsTeams": true,
-      "supportsAthletes": false,
+      "supportsCompetitors": false,
       "defaultTemplateId": "template:like",
       "metadata": {
         "governingBody": "National Rugby League",
@@ -88,7 +88,7 @@
       "gender": "mens",
       "supportsLadder": true,
       "supportsTeams": true,
-      "supportsAthletes": false,
+      "supportsCompetitors": false,
       "isSpecialEvent": false,
       "source": {
         "provider": "AFL",
@@ -108,7 +108,7 @@
       "gender": "mens",
       "supportsLadder": true,
       "supportsTeams": true,
-      "supportsAthletes": false,
+      "supportsCompetitors": false,
       "isSpecialEvent": false,
       "source": {
         "provider": "NRL Match Centre / Champion Data",

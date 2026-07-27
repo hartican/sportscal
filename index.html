@@ -1576,6 +1576,43 @@ main{
   margin-top:5px;
 }
 
+.selector-entity-card{
+  transition:opacity 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+
+.selector-entity-card.followed{
+  order:-1;
+}
+
+.selector-entity-card.unfollowed{
+  opacity:0.62;
+}
+
+.selector-entity-card.unfollowed:hover,
+.selector-entity-card.unfollowed:focus-visible{
+  opacity:1;
+}
+
+.follow-state{
+  display:inline-flex;
+  align-items:center;
+  min-height:20px;
+  margin-left:auto;
+  padding:3px 7px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--text-faint);
+  font-size:0.62rem;
+  font-weight:850;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+}
+
+.selector-entity-card.followed .follow-state{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
 .commonwealth-filter-list{
   display:flex;
   flex-direction:column;
@@ -1791,6 +1828,84 @@ main{
   color:var(--text-dim);
   font-size:0.7rem;
   line-height:1.35;
+}
+
+.froth-control{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+}
+
+.froth-control-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+.froth-control-head strong{
+  font-size:0.76rem;
+}
+
+.froth-value{
+  color:var(--accent);
+  font-size:0.72rem;
+  font-weight:850;
+}
+
+.froth-range{
+  width:100%;
+  margin:8px 0 4px;
+  accent-color:var(--accent);
+}
+
+.froth-scale{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  color:var(--text-faint);
+  font-size:0.65rem;
+  font-weight:750;
+}
+
+.froth-scale span:nth-child(2){ text-align:center; }
+.froth-scale span:last-child{ text-align:right; }
+
+.custom-mode{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  margin-top:14px;
+  padding:11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text-dim);
+  font-size:0.72rem;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.custom-mode.selected{
+  border-color:var(--accent);
+  background:var(--soft-fill-strong);
+  color:var(--text);
+}
+
+.custom-mode input{
+  margin-top:1px;
+  accent-color:var(--accent);
+}
+
+.nested-settings-menu{
+  margin-top:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.nested-settings-menu .settings-menu-item{
+  padding-left:10px;
+  padding-right:10px;
 }
 
 .viewing-window-grid{
@@ -2741,16 +2856,52 @@ const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
 const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
 
-const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY).map(([key, sport], index) => ({
+const SPECIAL_EVENT_ONLY_SPORT_KEYS = new Set(["wimbledon", "fifa", "tdf", "masters", "lemans", "nfl", "cwg"]);
+const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
+  "sport:wimbledon": "special:wimbledon",
+  "sport:fifa": "special:fifa-world-cup",
+  "sport:tdf": "special:tour-de-france",
+  "sport:masters": "special:masters-tournament",
+  "sport:lemans": "special:le-mans-24-hours",
+  "sport:nfl": "special:super-bowl",
+  "sport:cwg": "special:commonwealth-games",
+});
+const BASE_SPORT_SELECTOR_OVERRIDES = Object.freeze({
+  nba: {
+    label: "Basketball",
+    detail: "NBA games, Finals, and potential deciders.",
+  },
+});
+const EVENT_LOCATION_BY_VENUE = [
+  [/\b(SCG|Sydney Cricket Ground|Accor Stadium|Allianz Stadium|CommBank Stadium|4 Pines Park|Netstrata Jubilee Stadium|Ocean Protect Stadium|ENGIE Stadium)\b/i, "Sydney"],
+  [/\b(MCG|Melbourne Cricket Ground|Marvel Stadium|AAMI Park|Albert Park Grand Prix Circuit)\b/i, "Melbourne"],
+  [/\b(GIO Stadium|Manuka Oval|Corroboree Group Oval)\b/i, "Canberra"],
+  [/\b(Suncorp Stadium|Brisbane Stadium|Brisbane Cricket Ground|Gabba)\b/i, "Brisbane"],
+  [/\b(Optus Stadium|Perth Stadium|HBF Park)\b/i, "Perth"],
+  [/\bAdelaide Oval\b/i, "Adelaide"],
+  [/\b(Cbus Super Stadium|People First Stadium)\b/i, "Gold Coast"],
+  [/\bQueensland Country Bank Stadium\b/i, "Townsville"],
+  [/\b(GMHBA Stadium)\b/i, "Geelong"],
+  [/\b(McDonald Jones Stadium)\b/i, "Newcastle"],
+  [/\b(WIN Stadium)\b/i, "Wollongong"],
+  [/\b(Scottish Event Campus|SEC Armadillo|The Arena|The Hydro|Tollcross International Swimming Centre|Scotstoun Stadium|Sir Chris Hoy Velodrome)\b/i, "Glasgow"],
+  [/\bAugusta National Golf Club\b/i, "Augusta"],
+  [/\bAll England Club\b/i, "Wimbledon"],
+  [/\bSilverstone Circuit\b/i, "Silverstone"],
+];
+
+const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY)
+  .filter(([key]) => !SPECIAL_EVENT_ONLY_SPORT_KEYS.has(key))
+  .map(([key, sport], index) => ({
   id: `sport:${key}`,
   level: 2,
-  label: sport.label,
+  label: BASE_SPORT_SELECTOR_OVERRIDES[key]?.label || sport.label,
   parentId: "category:sports",
-  path: ["Sports", sport.label],
+  path: ["Sports", BASE_SPORT_SELECTOR_OVERRIDES[key]?.label || sport.label],
   categoryType: "sport",
   canonicalSportKeys: [key],
   glyph: sport.glyph,
-  detail: sport.detail,
+  detail: BASE_SPORT_SELECTOR_OVERRIDES[key]?.detail || sport.detail,
   color: sport.color,
   isNew: false,
   editorialOrder: index + 1,
@@ -2994,9 +3145,16 @@ function orderSelectorEntities(entities){
   });
 }
 
+function orderSelectorEntitiesForDisplay(entities, preferences){
+  return orderSelectorEntities(entities).sort((first, second) => (
+    Number(selectorEntityIsEffectivelySelected(second.id, preferences))
+    - Number(selectorEntityIsEffectivelySelected(first.id, preferences))
+  ));
+}
+
 function selectorEntityCanonicalSportKeys(entity){
   if (!entity) return [];
-  if (entity.id === "category:sports") return Object.keys(SPORTS_LIBRARY);
+  if (entity.id === "category:sports") return BASE_SPORT_SELECTOR_ENTITIES.flatMap(item => item.canonicalSportKeys);
   if (entity.id === "category:special-events"){
     return uniqueArray((SELECTOR_TAXONOMY.specialEvents || []).flatMap(item => item.canonicalSportKeys || []));
   }
@@ -3006,14 +3164,16 @@ function selectorEntityCanonicalSportKeys(entity){
 
 function normalizeSelectorEntityIds(values){
   const validIds = new Set(allSelectorEntities().map(entity => entity.id));
-  return uniqueArray(Array.isArray(values) ? values : []).filter(id => validIds.has(id));
+  return uniqueArray((Array.isArray(values) ? values : []).map(id => LEGACY_SELECTOR_ID_ALIASES[id] || id))
+    .filter(id => validIds.has(id));
 }
 
 function legacySelectorIdsForFollowedSports(keys){
   return uniqueArray(Array.isArray(keys) ? keys : [])
     .filter(key => SPORT_META[key])
     .map(key => {
-      if (SPORTS_LIBRARY[key]) return `sport:${key}`;
+      const baseEntity = BASE_SPORT_SELECTOR_ENTITIES.find(entity => entity.canonicalSportKeys.includes(key));
+      if (baseEntity) return baseEntity.id;
       return (SELECTOR_TAXONOMY.specialEvents || []).find(entity => (entity.canonicalSportKeys || []).includes(key))?.id;
     })
     .filter(Boolean);
@@ -4319,10 +4479,29 @@ function eventDateLabel(ev){
   return ev.displayDateLabel || dayDateLabel(ev.date);
 }
 
+function eventLocationLabel(ev){
+  const explicit = String(ev?.venueCity || ev?.city || ev?.location || "").trim();
+  if (explicit) return explicit;
+  const venue = String(ev?.venue || "").trim();
+  if (!venue) return "Location TBC";
+  if (/^(2026 NBA Finals|Tour de France 2026)$/i.test(venue)){
+    return /^Tour/i.test(venue) ? "Location varies" : "Location TBC";
+  }
+  const commaParts = venue.split(",").map(part => part.trim()).filter(Boolean);
+  if (commaParts.length > 1) return commaParts.at(-1);
+  const mapped = EVENT_LOCATION_BY_VENUE.find(([pattern]) => pattern.test(venue));
+  if (mapped) return mapped[1];
+  const namedArea = venue.match(/\b(Atlanta|Boston|Dallas|Houston|Kansas City|Los Angeles|Mexico City|Miami|New York New Jersey|Philadelphia|San Francisco Bay Area|Seattle|Vancouver)\b/i);
+  if (namedArea) return namedArea[1];
+  return venue
+    .replace(/\b(Stadium|Oval|Circuit|Cricket Ground|Grand Prix Circuit)\b.*$/i, "")
+    .trim() || venue;
+}
+
 function eventTimeLabel(ev){
   if (ev.displayTimeLabel) return ev.displayTimeLabel;
   if (ev.timeTbc) return "Time TBC";
-  return `${fmtTime12(ev.time)} Sydney`;
+  return `${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
 }
 
 function buildEventActionPanel(ev, options = {}){
@@ -6419,7 +6598,7 @@ function applyQuickAdd(customise = false){
   closeQuickAddPrompt();
   if (customise){
     settingsFocusedDomainId = domainId;
-    settingsSection = "coverage";
+    settingsSection = "templates";
   }
   renderSettingsScreen();
 }
@@ -6509,21 +6688,8 @@ function bindSelectionActions(body, group, selectAll, deselectAll){
   });
 }
 
-function renderSettingsMenu(body){
-  const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
-  const domainCount = selectedPreferenceDomainIds(draftPreferences).length;
-  body.innerHTML = `<div class="settings-menu">
-    ${settingsMenuItem("sports", "ui:filter", "Sports Selector", `${draftPreferences.selectedSelectorEntityIds.length} selector choices · Sports and Special Events`)}
-    ${settingsMenuItem("templates", "ui:settings", "Templates", `${domainCount} domain${domainCount === 1 ? "" : "s"} · Froth, Like, Casual, or Custom`)}
-    ${settingsMenuItem("coverage", "ui:filter", "Coverage overrides", "Fixtures, competitions, teams, and competitors")}
-    ${settingsMenuItem("standings", "ui:filter", "Ladder & Standings", "Sport-calibrated tables · may reveal results")}
-    ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · optional time window`)}
-    ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
-    ${settingsMenuItem("soundtrack", "ui:music", "Soundtrack", `${draftPreferences.soundtrack?.enabled ? SOUNDTRACK?.styleFor(draftPreferences.soundtrack.styleId).label : "Off"} · original procedural audio`)}
-    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
-  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; saved Catch Up items remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
-  body.querySelectorAll("[data-settings-section]").forEach(button => {
+function bindSettingsMenuNavigation(root){
+  root.querySelectorAll("[data-settings-section]").forEach(button => {
     button.addEventListener("click", () => {
       const openSection = () => {
         settingsFocusedDomainId = null;
@@ -6534,6 +6700,19 @@ function renderSettingsMenu(body){
       else openSection();
     });
   });
+}
+
+function renderSettingsMenu(body){
+  const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
+  body.innerHTML = `<div class="settings-menu">
+    ${settingsMenuItem("sports", "ui:filter", "Events Selector", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Special Events`)}
+    ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · optional time window`)}
+    ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
+    ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
+    ${settingsMenuItem("soundtrack", "ui:music", "Soundtrack", `${draftPreferences.soundtrack?.enabled ? SOUNDTRACK?.styleFor(draftPreferences.soundtrack.styleId).label : "Off"} · original procedural audio`)}
+    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
+  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; saved Catch Up items remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
+  bindSettingsMenuNavigation(body);
   document.getElementById("rebuildFeedCacheBtn").addEventListener("click", () => {
     clearAndRebuildDerivedCardCache();
     renderAll();
@@ -6545,13 +6724,17 @@ function renderSettingsMenu(body){
 function renderSportsSettings(body){
   body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
     <div class="filter-panel">
-      <h3>Sports Selector</h3>
-      <p class="preference-help">Choose a top-level category, then follow its event groups or filters. Every selector choice is opt-in.</p>
+      <h3>Events Selector</h3>
+      <p class="preference-help">Follow broad sports or special events here. Followed choices stay prominent; deeper preferences live one level down.</p>
       <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
     </div>
     <div class="filter-panel" id="selectorChildrenPanel"></div>
-    <div class="preference-stack" id="sportDetailSettings"></div>
+    ${settingsFirstRun ? "" : `<div class="nested-settings-menu">
+      ${settingsMenuItem("templates", "ui:settings", "Froth knobs", "Set Casual, Like, Froth, or Custom for followed events")}
+      ${settingsMenuItem("coverage", "ui:filter", "Teams, Ladders & Competitor Coverage", "Detailed controls for followed events marked Froth")}
+    </div>`}
   </div>`;
+  bindSettingsMenuNavigation(body);
 
   const categoryList = document.getElementById("selectorCategoryList");
   orderSelectorEntities(SELECTOR_TAXONOMY.categories || []).forEach(category => {
@@ -6581,15 +6764,15 @@ function renderSportsSettings(body){
   if (settingsSelectorCategory === "category:special-events"){
     childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Special Events</h3><div class="selector-path">Level 1 › Level 2 event groups</div></div>${selectionActionsMarkup("special-events", "Special Events")}</div><p class="preference-help">Marquee event groups map back to canonical events; no fixture is copied to appear here.</p><div class="choice-grid" id="specialEventGrid"></div><div class="filter-panel" id="commonwealthFilters"><div class="selector-section-heading"><div><h4>Commonwealth Games sport filters</h4><div class="selector-path">Special Events › Commonwealth Games › Level 3</div></div></div><p class="preference-help">Fixed Australian broadcast-priority order. Miscellaneous is permanently reserved at slot 10.</p><div class="commonwealth-filter-list" id="commonwealthFilterList"></div></div>`;
     const specialGrid = document.getElementById("specialEventGrid");
-    orderSelectorEntities(SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => {
+    orderSelectorEntitiesForDisplay(SELECTOR_TAXONOMY.specialEvents || [], draftPreferences).forEach(entity => {
       const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = `choice-card selector-entity-card${selected ? " selected" : ""}`;
+      btn.className = `choice-card selector-entity-card ${selected ? "selected followed" : "unfollowed"}`;
       btn.dataset.selectorEntity = entity.id;
       btn.style.setProperty("--choice-color", SPORT_META[entity.canonicalSportKeys?.[0]]?.color || "var(--accent)");
       btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}${glyphMarkup(entity.glyph)}<span>${entity.label}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
+      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}${glyphMarkup(entity.glyph)}<span>${entity.label}</span><span class="follow-state">${selected ? "Following" : "Follow"}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
       btn.addEventListener("click", () => {
         handleSelectorDomainToggle(entity.id);
         renderSettingsScreen();
@@ -6620,15 +6803,15 @@ function renderSportsSettings(body){
   } else {
     childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Sports</h3><div class="selector-path">Level 1 › Level 2 sports and competitions</div></div>${selectionActionsMarkup("sports", "Sports")}</div><p class="preference-help">Choose the sports and competitions that belong in your feeds.</p><div class="choice-grid" id="sportsChoiceGrid"></div>`;
     const grid = document.getElementById("sportsChoiceGrid");
-    orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES).forEach(entity => {
+    orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES, draftPreferences).forEach(entity => {
       const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = `choice-card selector-entity-card${selected ? " selected" : ""}`;
+      btn.className = `choice-card selector-entity-card ${selected ? "selected followed" : "unfollowed"}`;
       btn.dataset.selectorEntity = entity.id;
       btn.style.setProperty("--choice-color", entity.color);
       btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}${glyphMarkup(entity.glyph)}<span>${entity.label}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
+      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}${glyphMarkup(entity.glyph)}<span>${entity.label}</span><span class="follow-state">${selected ? "Following" : "Follow"}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
       btn.addEventListener("click", () => {
         handleSelectorDomainToggle(entity.id);
         renderSettingsScreen();
@@ -6651,34 +6834,42 @@ function renderSportsSettings(body){
     );
   }
 
-  const details = document.getElementById("sportDetailSettings");
-  const detailPanels = [];
-  if (draftPreferences.followedSports.includes("wimbledon")){
-    const tennis = draftPreferences.tennis;
-    detailPanels.push(`<div class="filter-panel"><h3>Tennis detail</h3><div class="choice-detail">Tune tour, event type, and round coverage.</div><div class="choice-grid" id="tennisEnthusiasmGrid"></div><div id="manualTennisFilters" style="${tennis.enthusiasm === "choose" ? "" : "display:none;"}"><div class="choice-detail">Gender</div><div class="segmented-row" data-filter="gender"></div><div class="choice-detail">Event type</div><div class="segmented-row" data-filter="eventType"></div><div class="choice-detail">Round focus</div><div class="segmented-row" data-filter="round"></div></div></div>`);
-  }
-  if (draftPreferences.followedSports.includes("fifa")){
-    const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
-    detailPanels.push(`<div class="filter-panel"><h3>World Cup detail</h3><div class="choice-detail">Tune stage and contender coverage.</div><div class="choice-grid" id="fifaEnthusiasmGrid"></div><div id="manualFifaFilters" style="${fifa.enthusiasm === "choose" ? "" : "display:none;"}"><div class="choice-detail">Stage focus</div><div class="segmented-row" data-filter="fifaStage"></div><div class="choice-detail">Team focus</div><div class="segmented-row" data-filter="fifaContenders"></div></div></div>`);
-  }
-  details.innerHTML = detailPanels.join("");
-  if (document.getElementById("tennisEnthusiasmGrid")){
-    const tennis = draftPreferences.tennis;
-    renderTennisEnthusiasmChoices(tennis.enthusiasm || "froth");
-    if (tennis.enthusiasm === "choose"){
-      renderSegments("gender", [["both","Both"],["men","Men"],["women","Women"]], tennis.gender);
-      renderSegments("eventType", [["both","Both"],["singles","Singles"],["doubles","Doubles"]], tennis.eventType);
-      renderSegments("round", [["all","All"],["early","Early rounds"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Finals"]], tennis.round);
+}
+
+const FROTH_TEMPLATE_STEPS = ["template:casual", "template:like", "template:froth"];
+
+function syncLegacySportDetailForTemplate(domainId, templateId){
+  const sportKeys = selectorEntityCanonicalSportKeys(selectorEntityById(domainId));
+  if (sportKeys.includes("wimbledon")){
+    if (templateId === "template:froth"){
+      draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: "froth", gender: "both", eventType: "both", round: "all" };
+    } else if (templateId === "template:custom"){
+      draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: "choose" };
+    } else {
+      draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: "like", gender: "both", eventType: "singles", round: "quarterfinal" };
     }
   }
-  if (document.getElementById("fifaEnthusiasmGrid")){
-    const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
-    renderFifaEnthusiasmChoices(fifa.enthusiasm || "froth");
-    if (fifa.enthusiasm === "choose"){
-      renderFifaSegments("stage", [["all","All"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Final"]], fifa.stage);
-      renderFifaSegments("contenders", [["all","All"],["title","Title contenders"],["australia","Australia"]], fifa.contenders);
+  if (sportKeys.includes("fifa")){
+    if (templateId === "template:froth"){
+      draftPreferences.fifa = { enthusiasm: "froth", stage: "quarterfinal", contenders: "all" };
+    } else if (templateId === "template:custom"){
+      draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), enthusiasm: "choose" };
+    } else {
+      draftPreferences.fifa = { enthusiasm: "like", stage: "semifinal", contenders: "title" };
     }
   }
+}
+
+function sportSpecificFrothDetailMarkup(domainId, templateId){
+  if (templateId !== "template:custom") return "";
+  const sportKeys = selectorEntityCanonicalSportKeys(selectorEntityById(domainId));
+  if (sportKeys.includes("wimbledon")){
+    return `<div class="froth-control"><div class="froth-control-head"><strong>Custom tennis detail</strong><span class="froth-value">Manual</span></div><div class="choice-detail">Tune tour, event type, and round coverage.</div><div class="choice-detail">Gender</div><div class="segmented-row" data-filter="gender"></div><div class="choice-detail">Event type</div><div class="segmented-row" data-filter="eventType"></div><div class="choice-detail">Round focus</div><div class="segmented-row" data-filter="round"></div></div>`;
+  }
+  if (sportKeys.includes("fifa")){
+    return `<div class="froth-control"><div class="froth-control-head"><strong>Custom World Cup detail</strong><span class="froth-value">Manual</span></div><div class="choice-detail">Tune stage and contender coverage.</div><div class="choice-detail">Stage focus</div><div class="segmented-row" data-filter="fifaStage"></div><div class="choice-detail">Team focus</div><div class="segmented-row" data-filter="fifaContenders"></div></div>`;
+  }
+  return "";
 }
 
 function renderTemplateSettings(body){
@@ -6688,38 +6879,108 @@ function renderTemplateSettings(body){
     ? [settingsFocusedDomainId]
     : selectedDomainIds;
   body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
-    <p class="preference-help">Apply one reusable template to each selected sport or special event. You can override the expanded settings next.</p>
+    <p class="preference-help">Set how much of each followed sport or event reaches your feeds. Custom is a separate mode for deeper controls.</p>
     <div class="template-domain-list" id="templateDomainList"></div>
   </div>`;
   const list = document.getElementById("templateDomainList");
   if (!domainIds.length){
-    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Choose at least one sport or special event first.</div>`;
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Follow at least one sport or special event in Events Selector first.</div>`;
     return;
   }
   domainIds.forEach(domainId => {
-    const preference = preferenceDomainById(domainId);
+    const preference = preferenceDomainById(domainId) || { templateId: "template:like" };
+    const isCustom = preference.templateId === "template:custom";
+    const sliderIndex = Math.max(0, FROTH_TEMPLATE_STEPS.indexOf(preference.templateId));
+    const sliderTemplate = PREFERENCE_SYSTEM.templates.find(template => template.id === FROTH_TEMPLATE_STEPS[sliderIndex]);
     const panel = document.createElement("section");
     panel.className = "template-domain";
     panel.dataset.preferenceDomain = domainId;
-    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3><p class="preference-help">Template defaults expand into fixtures, ladders, narrative, must-watch, and reminders.</p><div class="template-grid">${PREFERENCE_SYSTEM.templates.map(template => `<button class="template-option${preference?.templateId === template.id ? " selected" : ""}" type="button" data-domain-template="${domainId}" data-template-id="${template.id}" aria-pressed="${preference?.templateId === template.id ? "true" : "false"}"><strong>${template.name}</strong><span>${template.description}</span></button>`).join("")}</div>`;
+    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3><p class="preference-help">This level expands into fixtures, standings context, must-watch sensitivity, and reminders.</p>
+      <div class="froth-control">
+        <div class="froth-control-head"><strong>Froth level</strong><span class="froth-value">${isCustom ? "Custom" : sliderTemplate.name}</span></div>
+        <input class="froth-range" type="range" min="0" max="2" step="1" value="${sliderIndex}" data-domain-froth="${domainId}" aria-label="${preferenceDomainLabel(domainId)} froth level">
+        <div class="froth-scale" aria-hidden="true"><span>Casual</span><span>Like</span><span>Froth</span></div>
+      </div>
+      <label class="custom-mode${isCustom ? " selected" : ""}"><input type="radio" name="custom-${domainId}" data-domain-custom="${domainId}" ${isCustom ? "checked" : ""}><span><strong>Custom</strong><br>Choose sport-specific coverage yourself.</span></label>
+      ${sportSpecificFrothDetailMarkup(domainId, preference.templateId)}`;
     list.appendChild(panel);
   });
-  list.querySelectorAll("[data-domain-template]").forEach(button => {
-    button.addEventListener("click", () => {
+  list.querySelectorAll("[data-domain-froth]").forEach(input => {
+    input.addEventListener("change", () => {
+      const templateId = FROTH_TEMPLATE_STEPS[Number(input.value)] || "template:like";
       draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(
         draftPreferences.preferenceGraph,
-        button.dataset.domainTemplate,
-        button.dataset.templateId
+        input.dataset.domainFroth,
+        templateId
       );
+      syncLegacySportDetailForTemplate(input.dataset.domainFroth, templateId);
       renderSettingsScreen();
     });
   });
+  list.querySelectorAll("[data-domain-custom]").forEach(input => {
+    input.addEventListener("change", () => {
+      const domainId = input.dataset.domainCustom;
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.customiseDomain(draftPreferences.preferenceGraph, domainId);
+      syncLegacySportDetailForTemplate(domainId, "template:custom");
+      renderSettingsScreen();
+    });
+  });
+  const tennis = draftPreferences.tennis;
+  if (document.querySelector('.segmented-row[data-filter="gender"]')){
+    renderSegments("gender", [["both","Both"],["men","Men"],["women","Women"]], tennis.gender);
+    renderSegments("eventType", [["both","Both"],["singles","Singles"],["doubles","Doubles"]], tennis.eventType);
+    renderSegments("round", [["all","All"],["early","Early rounds"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Finals"]], tennis.round);
+  }
+  const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
+  if (document.querySelector('.segmented-row[data-filter="fifaStage"]')){
+    renderFifaSegments("stage", [["all","All"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Final"]], fifa.stage);
+    renderFifaSegments("contenders", [["all","All"],["title","Title contenders"],["australia","Australia"]], fifa.contenders);
+  }
 }
 
 function coverageModeFor(preference){
   if (preference?.includeAllFixtures) return "all";
   if (preference?.includeFollowedTeams) return "majorFollowed";
   return "majorOnly";
+}
+
+const PREFERENCE_TO_CANONICAL_DOMAIN = Object.freeze({
+  "sport:f1": "sport:motorsport",
+  "sport:rugby": "sport:rugby-union",
+  "sport:cricket": "sport:cricket",
+  "sport:nba": "sport:basketball",
+  "sport:nfl": "sport:american-football",
+  "sport:skiing": "sport:skiing",
+  "special:wimbledon": "sport:tennis",
+  "special:fifa-world-cup": "sport:football",
+  "special:tour-de-france": "sport:cycling",
+  "special:masters-tournament": "sport:golf",
+  "special:le-mans-24-hours": "sport:motorsport",
+});
+
+function canonicalDomainIdForPreferenceDomain(domainId){
+  return PREFERENCE_TO_CANONICAL_DOMAIN[domainId] || domainId;
+}
+
+function competitionsForPreferenceDomain(domainId){
+  const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
+  return (CANONICAL_TAXONOMY.competitions || []).filter(competition => competition.sportDomainId === canonicalDomainId);
+}
+
+function participantsForPreferenceDomain(domainId){
+  const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
+  return canonicalPreferenceParticipants.filter(participant => participant.sportDomainId === canonicalDomainId);
+}
+
+function detailedCoverageDomainIds(preferences){
+  return selectedPreferenceDomainIds(preferences).filter(domainId => {
+    const preference = preferences?.preferenceGraph?.domainPreferences?.find(item => item.sportDomainId === domainId);
+    if (preference?.templateId !== "template:froth" || preference.enabled === false) return false;
+    const competitions = competitionsForPreferenceDomain(domainId);
+    const participants = participantsForPreferenceDomain(domainId);
+    return competitions.some(competition => competition.supportsLadder || competition.supportsTeams || competition.supportsCompetitors)
+      || participants.some(participant => ["team", "nationalSide", "competitor", "pair"].includes(participant.type));
+  });
 }
 
 async function loadCanonicalSportsData(){
@@ -6749,25 +7010,36 @@ async function loadCanonicalPreferenceParticipants(){
 
 function renderCoverageSettings(body){
   syncDraftPreferenceGraph();
-  const selectedDomainIds = selectedPreferenceDomainIds(draftPreferences);
-  const domainIds = settingsFocusedDomainId && selectedDomainIds.includes(settingsFocusedDomainId)
+  const supportedDomainIds = detailedCoverageDomainIds(draftPreferences);
+  const domainIds = settingsFocusedDomainId && supportedDomainIds.includes(settingsFocusedDomainId)
     ? [settingsFocusedDomainId]
-    : selectedDomainIds;
+    : supportedDomainIds;
   const graph = draftPreferences.preferenceGraph;
   body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
-    <p class="preference-help">Detailed choices override template defaults. Competition and team controls appear where canonical data supports them.</p>
+    <p class="preference-help">Only followed events marked Froth appear here, and only where team, competitor, or standings controls add unique value.</p>
+    <div class="nested-settings-menu" id="coverageStandingsMenu"></div>
     <div class="template-domain-list" id="coverageDomainList"></div>
   </div>`;
+  const standingsMenu = document.getElementById("coverageStandingsMenu");
+  const standingsCompetitions = supportedStandingsCompetitions(draftPreferences);
+  standingsMenu.innerHTML = standingsCompetitions.length
+    ? settingsMenuItem("standings", "ui:filter", "Ladder & Standings", `${standingsCompetitions.length} supported competition${standingsCompetitions.length === 1 ? "" : "s"} · may reveal results`)
+    : "";
+  standingsMenu.hidden = !standingsCompetitions.length;
+  bindSettingsMenuNavigation(standingsMenu);
   const list = document.getElementById("coverageDomainList");
   if (!domainIds.length){
-    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Choose at least one sport or special event first.</div>`;
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Mark a followed sport as Froth in Froth knobs. Sports without a team, competitor, or standings model stay hidden.</div>`;
+    if (!canonicalSportsData && !canonicalSportsDataLoading) loadCanonicalPreferenceParticipants();
     return;
   }
   domainIds.forEach(domainId => {
     const preference = preferenceDomainById(domainId);
     const mode = coverageModeFor(preference);
-    const competitions = (CANONICAL_TAXONOMY.competitions || []).filter(competition => competition.sportDomainId === domainId);
-    const participants = canonicalPreferenceParticipants.filter(participant => participant.sportDomainId === domainId);
+    const competitions = competitionsForPreferenceDomain(domainId);
+    const participants = participantsForPreferenceDomain(domainId);
+    const teams = participants.filter(participant => ["team", "nationalSide"].includes(participant.type));
+    const competitors = participants.filter(participant => ["competitor", "pair"].includes(participant.type));
     const panel = document.createElement("section");
     panel.className = "template-domain";
     panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3>
@@ -6780,10 +7052,15 @@ function renderCoverageSettings(body){
         const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);
         return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label></div>`;
       }).join("")}
-      ${participants.length ? `<div class="entity-follow-list"><h4>Team follows</h4>${participants.map(participant => {
+      ${teams.length ? `<div class="entity-follow-list"><h4>Team follows</h4>${teams.map(participant => {
         const follow = graph.entityFollows.find(item => item.participantId === participant.id)?.followLevel || "none";
         return `<label><span>${participant.displayName}</span><select data-entity-follow="${participant.id}"><option value="none" ${follow === "none" ? "selected" : ""}>Not followed</option><option value="follow" ${follow === "follow" ? "selected" : ""}>Follow</option><option value="priority" ${follow === "priority" ? "selected" : ""}>Priority</option><option value="mute" ${follow === "mute" ? "selected" : ""}>Mute</option></select></label>`;
-      }).join("")}</div>` : competitions.length ? `<p class="preference-help">Loading canonical teams…</p>` : ""}`;
+      }).join("")}</div>` : ""}
+      ${competitors.length ? `<div class="entity-follow-list"><h4>Competitor follows</h4>${competitors.map(participant => {
+        const follow = graph.entityFollows.find(item => item.participantId === participant.id)?.followLevel || "none";
+        return `<label><span>${participant.displayName}</span><select data-entity-follow="${participant.id}"><option value="none" ${follow === "none" ? "selected" : ""}>Not followed</option><option value="follow" ${follow === "follow" ? "selected" : ""}>Follow</option><option value="priority" ${follow === "priority" ? "selected" : ""}>Priority</option><option value="mute" ${follow === "mute" ? "selected" : ""}>Mute</option></select></label>`;
+      }).join("")}</div>` : ""}
+      ${!participants.length && competitions.length ? `<p class="preference-help">Loading canonical team and competitor choices…</p>` : ""}`;
     list.appendChild(panel);
   });
 
@@ -6810,7 +7087,7 @@ function renderCoverageSettings(body){
       draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(draftPreferences.preferenceGraph, select.dataset.entityFollow, select.value);
     });
   });
-  if (domainIds.some(domainId => (CANONICAL_TAXONOMY.competitions || []).some(competition => competition.sportDomainId === domainId))){
+  if (domainIds.some(domainId => competitionsForPreferenceDomain(domainId).length)){
     loadCanonicalPreferenceParticipants();
   }
 }
@@ -6824,7 +7101,7 @@ function standingsVisibilityForCompetition(preferences, competition){
 }
 
 function supportedStandingsCompetitions(preferences = userPreferences){
-  const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
+  const selectedDomains = new Set(detailedCoverageDomainIds(preferences).map(canonicalDomainIdForPreferenceDomain));
   return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
     competition.supportsLadder
     && selectedDomains.has(competition.sportDomainId)
@@ -7046,9 +7323,9 @@ function renderSettingsScreen(){
 
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
-    sports: [settingsFirstRun ? "Set up nothingSports · 1 of 4" : "Sports Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Choose between Sports and Special Events, then tune event groups and subcategory filters."],
-    templates: [settingsFirstRun ? "Choose your level · 2 of 4" : "Templates & detail", "Apply Froth, Like, Casual, or Custom after selecting each domain."],
-    coverage: [settingsFirstRun ? "Tune coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Coverage overrides", "Choose all fixtures, major events plus follows, or major events only."],
+    sports: [settingsFirstRun ? "Events Selector · 1 of 4" : "Events Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Follow broad sports and special events, then open deeper controls only when you need them."],
+    templates: [settingsFirstRun ? "Froth knobs · 2 of 4" : "Froth knobs", "Move from Casual to Like to Froth, or switch a followed event to Custom."],
+    coverage: [settingsFirstRun ? "Teams, Ladders & Competitor Coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Teams, Ladders & Competitor Coverage", "Detailed controls appear only for followed events marked Froth."],
     standings: ["Ladder & Standings", "Choose sport-calibrated standings context. This information may reveal results."],
     viewing: [settingsFirstRun ? "Viewing preferences · 4 of 4" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     providers: ["TV & streaming", "Choose the services available to you."],
@@ -7194,12 +7471,16 @@ function advanceOnboardingOrSave(){
 
 document.getElementById("settingsBtn").addEventListener("click", () => openSettings());
 document.getElementById("settingsBackBtn").addEventListener("click", () => {
-  if (settingsFirstRun && settingsWizardStep > 0){
+  if (settingsFirstRun && settingsSection === "standings"){
+    settingsSection = "coverage";
+  } else if (settingsFirstRun && settingsWizardStep > 0){
     settingsWizardStep -= 1;
     settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
   } else {
     settingsFocusedDomainId = null;
-    settingsSection = "main";
+    settingsSection = settingsSection === "standings"
+      ? "coverage"
+      : ["templates", "coverage"].includes(settingsSection) ? "sports" : "main";
   }
   renderSettingsScreen();
 });

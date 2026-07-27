@@ -22,6 +22,7 @@ const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "u
 const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
 const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
 const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
+const serviceWorkerSource = fs.readFileSync("service-worker.js", "utf8");
 const eventsBundlePath = "data/events.js";
 assert(fs.existsSync(eventsBundlePath), "direct-file mode must have a generated published-feed fallback");
 const eventsBundleSource = fs.readFileSync(eventsBundlePath, "utf8");
@@ -89,7 +90,7 @@ assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["fr
 assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "templates", "coverage", "viewing"]'), "first login must use the short four-step wizard");
-assert(html.includes("data-domain-template"), "templates must be applied per selected domain");
+assert(html.includes("data-domain-froth") && html.includes("data-domain-custom"), "followed events must use a Casual-to-Froth slider with a separate Custom mode");
 assert(html.includes("data-standings-visibility"), "competition-level ladder and standings visibility must have one dedicated settings home");
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
 assert(html.includes('id="standingsContext"'), "supported standings must resolve into a visible feed module");
@@ -109,6 +110,14 @@ assert(html.includes('"Local venues", `${draftPreferences.localVenueIds.length} 
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
 assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
+const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Events Selector as the single top-level home for event preferences");
+assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
+assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
+assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v31"'), "Phase 2 must advance the served shell cache");
+const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(preferences\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
 assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");
 assert(!html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must preserve its seeded league choices");
 assert(html.includes('id="selectorCategoryList"'), "Settings must expose top-level selector categories");
@@ -176,6 +185,9 @@ assert.deepEqual(
   "direct-file fallback must mirror every published feed event"
 );
 assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sports.v1", "canonical sports schema must be explicitly versioned");
+assert(canonicalSportsSchema.$defs.sportDomain.required.includes("supportsCompetitors"), "canonical sport domains must declare competitor support");
+assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("competitor"), "canonical participants must use the Competitor type");
+assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${JSON.stringify(canonicalSportsSchema)}`), "canonical taxonomy and schemas must use Competitor as the single participant term");
 assert.equal(profileStorageSchema.properties.schemaVersion.const, 2, "profile storage schema must be explicitly versioned");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
@@ -347,6 +359,7 @@ globalThis.__test = {
   CARD_LIFECYCLE,
   REMINDER_ENGINE,
   SOUNDTRACK,
+  BASE_SPORT_SELECTOR_ENTITIES,
   mergePreferences,
   getActiveEventIds(){ return activeEvents.map(event => event.id); },
   getActiveProfileId(){ return activeProfileBundle?.profile?.id || null; },
@@ -431,6 +444,7 @@ globalThis.__test = {
   sortUpcomingFirst,
   calendarTimelineEvents,
   eventDateLabel,
+  eventLocationLabel,
   eventTimeLabel,
   standingsColumnsForCompetition,
 };`;
@@ -527,9 +541,11 @@ const currentExplicitEmptyProfile = app.mergePreferences({
 assert.deepEqual(Array.from(currentExplicitEmptyProfile.followedSports), [], "current-version explicit empty profiles must remain empty");
 assert.deepEqual(
   Array.from(app.mergePreferences({ followedSports: ["wimbledon", "fifa"] }).selectedSelectorEntityIds),
-  ["sport:wimbledon", "sport:fifa"],
-  "legacy sport preferences must migrate into the selector layer without following new entities"
+  ["special:wimbledon", "special:fifa-world-cup"],
+  "legacy event-brand preferences must migrate into Special Events without creating Sports duplicates"
 );
+assert(!Array.from(app.BASE_SPORT_SELECTOR_ENTITIES, entity => entity.id).some(id => ["sport:wimbledon", "sport:fifa", "sport:tdf", "sport:masters", "sport:lemans", "sport:nfl", "sport:cwg"].includes(id)), "event brands must not also appear under Sports");
+assert.equal(Array.from(app.BASE_SPORT_SELECTOR_ENTITIES).find(entity => entity.id === "sport:nba")?.label, "Basketball", "Sports must use the broad Basketball label rather than an NBA Finals event label");
 
 const existingProfileBeforeCwg = app.mergePreferences({
   version: 4,
@@ -876,6 +892,12 @@ assert.equal(app.isSpoilerVisible(nextRound), false, "per-event protection must 
 assert.equal(app.eventDateLabel({ date: "2027-03-07", displayDateLabel: "Date TBC - 2027" }), "Date TBC - 2027");
 assert.equal(app.eventTimeLabel({ time: "15:00", timeTbc: true }), "Time TBC");
 assert.equal(app.eventTimeLabel({ time: "20:00", displayTimeLabel: "Order of play; session from 8:00pm AEST" }), "Order of play; session from 8:00pm AEST");
+assert.equal(app.eventLocationLabel({ venue: "Optus Stadium, Perth" }), "Perth");
+assert.equal(app.eventLocationLabel({ venue: "Melbourne Cricket Ground" }), "Melbourne");
+assert.equal(app.eventLocationLabel({ venue: "Scottish Event Campus" }), "Glasgow");
+assert.equal(app.eventLocationLabel({}), "Location TBC");
+assert.equal(app.eventTimeLabel({ time: "20:00", venue: "Optus Stadium, Perth" }), "8:00pm · Perth");
+assert(!app.eventTimeLabel({ time: "20:00", venue: "Optus Stadium, Perth" }).includes("Sydney"), "event cards must show the event location rather than the viewer timezone");
 
 app.setPreferences({ showSpoilers: true });
 assert.equal(app.isSpoilerVisible(pastB), true, "global spoiler-on must reveal inherited events");
