@@ -2135,52 +2135,77 @@ main{
   gap: 16px;
 }
 
-.section-choice-list{
+.calendar-sync-status{
   display:flex;
-  flex-direction:column;
-  gap: 9px;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--border);
 }
 
-.section-choice{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  background: var(--soft-fill);
-  cursor:pointer;
-}
-
-.section-choice input{
-  width: 18px;
-  height: 18px;
-  accent-color: var(--accent);
-}
-
-.section-choice-copy{
-  min-width:0;
-  flex:1;
-}
-
-.section-choice-copy strong{
+.calendar-sync-status strong{
   display:block;
-  font-size: 0.84rem;
-  margin-bottom: 3px;
+  margin-bottom:4px;
+  font-size:0.86rem;
 }
 
-.section-choice-copy span,
+.calendar-sync-status span,
 .utility-help{
   color: var(--text-dim);
   font-size: 0.75rem;
   line-height:1.4;
 }
 
-.section-count{
+.calendar-sync-state{
+  flex:0 0 auto;
+  padding:5px 8px;
+  border:1px solid var(--border);
+  border-radius:999px;
   color: var(--accent);
-  font-size: 0.76rem;
-  font-weight: 900;
+  font-size:0.68rem;
+  font-weight:850;
   white-space:nowrap;
+}
+
+.calendar-sync-field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:16px;
+  color:var(--text-dim);
+  font-size:0.74rem;
+  font-weight:800;
+}
+
+.calendar-sync-url{
+  width:100%;
+  min-height:88px;
+  resize:none;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:650 0.72rem/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  overflow-wrap:anywhere;
+}
+
+.calendar-sync-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.calendar-sync-actions .btn{
+  text-decoration:none;
+}
+
+@media (max-width:620px){
+  .calendar-sync-status{ flex-direction:column; gap:10px; }
+  .calendar-sync-actions{ align-items:stretch; flex-direction:column-reverse; }
+  .calendar-sync-actions .btn{ width:100%; justify-content:center; }
 }
 
 .field-label{
@@ -2628,7 +2653,7 @@ footer.app-footer{
       <button class="btn ghost" id="aboutBtn"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="refreshBtn"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh</span></button>
-      <button class="btn primary" id="exportBtn"><span data-vector-glyph="ui:download"></span> <span class="full-label">Export Never Miss</span></button>
+      <button class="btn primary" id="calendarSyncBtn"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
     </div>
   </div>
 
@@ -2763,24 +2788,29 @@ footer.app-footer{
   </div>
 </div>
 
-<div class="modal-backdrop" id="exportModal" aria-hidden="true">
-  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
+<div class="modal-backdrop" id="calendarSyncModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="calendarSyncTitle">
     <div class="onboarding-head">
       <div>
-        <h2 id="exportTitle">Export Never Miss</h2>
-        <p>Choose exactly which recommendation sections to include in the calendar file.</p>
+        <h2 id="calendarSyncTitle">Calendar sync</h2>
+        <p>Subscribe once. Your followed events and future fixture updates stay connected.</p>
       </div>
     </div>
-    <form id="exportForm">
-      <div class="utility-form">
-        <div class="section-choice-list" id="exportSectionChoices"></div>
-        <p class="utility-help" id="exportSummary" aria-live="polite"></p>
+    <div class="utility-form">
+      <div class="calendar-sync-status">
+        <div><strong>Your customised feed</strong><span id="calendarSyncSummary">Built from your followed events, Froth depth, and providers.</span></div>
+        <span class="calendar-sync-state" id="calendarSyncState">Ready</span>
       </div>
-      <div class="about-actions">
-        <button class="btn ghost" type="button" id="closeExportBtn">Cancel</button>
-        <button class="btn primary" type="submit" id="confirmExportBtn">Export selected</button>
+      <label class="calendar-sync-field" for="calendarSyncUrl">Subscription URL
+        <textarea class="calendar-sync-url" id="calendarSyncUrl" readonly rows="3"></textarea>
+      </label>
+      <p class="utility-help">Calendar apps poll this address for changes. Reopen Calendar sync after changing your nothingSports preferences to get the updated filter path.</p>
+      <div class="calendar-sync-actions">
+        <button class="btn ghost" type="button" id="closeCalendarSyncBtn">Close</button>
+        <button class="btn ghost" type="button" id="copyCalendarSyncBtn"><span id="copyCalendarSyncLabel">Copy link</span></button>
+        <a class="btn primary" id="subscribeCalendarSyncBtn" href="#"><span data-vector-glyph="ui:calendar"></span> Subscribe in calendar</a>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 
@@ -2990,13 +3020,8 @@ const APP_CONTRACT = {
   enthusiasm: ["like", "froth", "choose"],
 };
 
-const EXPORT_SECTIONS = [
-  { key: "topStorylines", label: APP_CONTRACT.rails.topStorylines, detail: "4/5 and 5/5 events in the next seven days." },
-  { key: "worthCheckingOut", label: APP_CONTRACT.rails.worthCheckingOut, detail: "Exactly 3/5 events in the next seven days." },
-  { key: "aroundTheCorner", label: APP_CONTRACT.rails.aroundTheCorner, detail: "4/5 and 5/5 events 8-30 days away." },
-];
-
 const FEEDBACK_RECIPIENT = "0437041326";
+const CALENDAR_SYNC_FALLBACK_ORIGIN = "https://nothingsport.vercel.app";
 
 const SCORE_BANDS = {
   minimumStakes: 3,
@@ -6236,24 +6261,46 @@ function renderArchived(){
   });
 }
 
-function getNeverMissExportSections(){
-  return neverMissBuckets();
+function calendarSyncConfigForPreferences(preferences = userPreferences){
+  const sports = canonicalSportKeysForSelectorIds(preferences?.selectedSelectorEntityIds || []).sort();
+  const domainPreferences = preferences?.preferenceGraph?.domainPreferences || [];
+  const allFixtures = uniqueArray(domainPreferences
+    .filter(preference => preference.enabled !== false && preference.includeAllFixtures)
+    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId))))
+    .filter(key => sports.includes(key))
+    .sort();
+  const reminderMinutes = Number(preferences?.preferenceGraph?.viewing?.reminderLeadMinutes?.[0] || 60);
+  return {
+    sports,
+    providers: uniqueArray(preferences?.selectedBroadcasters || []).sort(),
+    allFixtures,
+    minStakes: SCORE_BANDS.minimumStakes,
+    reminderMinutes,
+  };
 }
 
-function selectedNeverMissExportEvents(selection, sections = getNeverMissExportSections()){
-  const seen = new Set();
-  const selected = [];
-  EXPORT_SECTIONS.forEach(({ key }) => {
-    if (!selection[key]) return;
-    (sections[key] || []).forEach(ev => {
-      if (ev.calendarExportEligible === false) return;
-      const id = ev.eventId || ev.id;
-      if (seen.has(id)) return;
-      seen.add(id);
-      selected.push(ev);
-    });
-  });
-  return selected.sort((first, second) => eventDateTime(first) - eventDateTime(second));
+function calendarSyncOrigin(locationLike = globalThis.location){
+  const protocol = String(locationLike?.protocol || "");
+  const hostname = String(locationLike?.hostname || "");
+  if (!/^https?:$/.test(protocol) || ["localhost", "127.0.0.1", "::1"].includes(hostname)){
+    return CALENDAR_SYNC_FALLBACK_ORIGIN;
+  }
+  return String(locationLike.origin || CALENDAR_SYNC_FALLBACK_ORIGIN).replace(/\/$/, "");
+}
+
+function buildCalendarSyncUrl(preferences = userPreferences, locationLike = globalThis.location){
+  const config = calendarSyncConfigForPreferences(preferences);
+  const params = new URLSearchParams();
+  params.set("sports", config.sports.join(","));
+  if (config.providers.length) params.set("providers", config.providers.join(","));
+  if (config.allFixtures.length) params.set("all", config.allFixtures.join(","));
+  params.set("min", String(config.minStakes));
+  params.set("reminder", String(config.reminderMinutes));
+  return `${calendarSyncOrigin(locationLike)}/api/calendar?${params.toString()}`;
+}
+
+function buildCalendarWebcalUrl(preferences = userPreferences, locationLike = globalThis.location){
+  return buildCalendarSyncUrl(preferences, locationLike).replace(/^https?:/, "webcal:");
 }
 
 function formatFeedbackTimestamp(date = new Date()){
@@ -7174,7 +7221,7 @@ function renderViewingSettings(body, { providersOnly = false } = {}){
   body.innerHTML = `${providersOnly ? "" : wizardProgressMarkup()}<div class="preference-stack">
     <div class="filter-panel"><h3>TV & streaming</h3><p class="preference-help">Every available provider starts selected. Opt out only of services you cannot use; newly added providers will also start selected.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>
     ${providersOnly ? "" : `<div class="filter-panel"><h3>Optional viewing window</h3><p class="preference-help">AEST/AEDT is the default basis. High-stakes events may override the window when you allow it.</p><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour">${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour">${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
-    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar exports can sync across devices. Browser alerts are opt-in and scheduled while nothingSports is open.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep calendar sync enabled for selected recommendations</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span>Enable browser alerts for Must Watch events</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
+    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar sync keeps your followed recommendations current across devices. Browser alerts are opt-in and scheduled while nothingSports is open.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep Calendar sync enabled for this preference profile</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span>Enable browser alerts for Must Watch events</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
   </div>`;
   const grid = document.getElementById("providerChoiceGrid");
   Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
@@ -7626,60 +7673,76 @@ document.getElementById("standingsSpoilerModal").addEventListener("click", event
   setStandingsSpoilerModalOpen(false);
 });
 
-/* ============ EXPORT + FEEDBACK MODALS ============ */
-let exportSelection = Object.fromEntries(EXPORT_SECTIONS.map(section => [section.key, true]));
-
+/* ============ CALENDAR SYNC + FEEDBACK ============ */
 function setUtilityModalOpen(id, open){
   const modal = document.getElementById(id);
   modal.classList.toggle("show", open);
   modal.setAttribute("aria-hidden", open ? "false" : "true");
 }
 
-function renderExportSectionChoices(){
-  const sections = getNeverMissExportSections();
-  const container = document.getElementById("exportSectionChoices");
-  container.innerHTML = "";
-
-  EXPORT_SECTIONS.forEach(section => {
-    const label = document.createElement("label");
-    label.className = "section-choice";
-
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.name = section.key;
-    input.checked = Boolean(exportSelection[section.key]);
-    input.addEventListener("change", () => {
-      exportSelection = { ...exportSelection, [section.key]: input.checked };
-      renderExportSectionChoices();
-    });
-
-    const copy = document.createElement("span");
-    copy.className = "section-choice-copy";
-    const title = document.createElement("strong");
-    title.textContent = section.label;
-    const detail = document.createElement("span");
-    detail.textContent = section.detail;
-    copy.append(title, detail);
-
-    const count = document.createElement("span");
-    count.className = "section-count";
-    count.textContent = `${sections[section.key].length} event${sections[section.key].length === 1 ? "" : "s"}`;
-
-    label.append(input, copy, count);
-    container.appendChild(label);
-  });
-
-  const selected = selectedNeverMissExportEvents(exportSelection, sections);
-  document.getElementById("exportSummary").textContent = selected.length
-    ? `${selected.length} event${selected.length === 1 ? "" : "s"} will be included in chronological order.`
-    : "Choose at least one section containing events.";
-  document.getElementById("confirmExportBtn").disabled = selected.length === 0;
+function calendarSyncSummaryText(config = calendarSyncConfigForPreferences()){
+  const sportsCount = config.sports.length;
+  const providerCount = config.providers.length;
+  const parts = [
+    `${sportsCount} followed sport${sportsCount === 1 ? "" : "s"}`,
+    `${providerCount} provider${providerCount === 1 ? "" : "s"}`,
+  ];
+  if (config.allFixtures.length){
+    const allFixturesLabels = config.allFixtures.map(key => SPORT_META[key]?.label || key.toUpperCase());
+    parts.push(`All fixtures for ${allFixturesLabels.join(", ")}`);
+  }
+  return parts.join(" · ");
 }
 
-function openExportModal(){
-  exportSelection = Object.fromEntries(EXPORT_SECTIONS.map(section => [section.key, true]));
-  renderExportSectionChoices();
-  setUtilityModalOpen("exportModal", true);
+function renderCalendarSyncModal(){
+  const config = calendarSyncConfigForPreferences();
+  const subscriptionUrl = buildCalendarSyncUrl();
+  const enabled = Boolean(userPreferences.preferenceGraph?.viewing?.calendarSyncEnabled);
+  document.getElementById("calendarSyncSummary").textContent = calendarSyncSummaryText(config);
+  document.getElementById("calendarSyncState").textContent = enabled ? "Enabled" : "Ready";
+  document.getElementById("calendarSyncUrl").value = subscriptionUrl;
+  document.getElementById("subscribeCalendarSyncBtn").href = buildCalendarWebcalUrl();
+}
+
+function enableCalendarSyncPreference(){
+  if (userPreferences.preferenceGraph?.viewing?.calendarSyncEnabled) return;
+  const next = clonePreferences(userPreferences);
+  next.preferenceGraph = PREFERENCE_SYSTEM.updateViewingPreference(
+    next.preferenceGraph,
+    {
+      calendarSyncEnabled: true,
+      selectedBroadcasterIds: next.selectedBroadcasters,
+    },
+    Object.keys(BROADCASTER_LIBRARY)
+  );
+  savePreferences(next);
+}
+
+function openCalendarSyncModal(){
+  renderCalendarSyncModal();
+  document.getElementById("copyCalendarSyncLabel").textContent = "Copy link";
+  setUtilityModalOpen("calendarSyncModal", true);
+}
+
+async function copyCalendarSyncLink(){
+  const field = document.getElementById("calendarSyncUrl");
+  let copied = false;
+  try {
+    await navigator.clipboard.writeText(field.value);
+    copied = true;
+  } catch {
+    field.focus();
+    field.select();
+    copied = Boolean(document.execCommand?.("copy"));
+  }
+  if (!copied){
+    showToast("Could not copy automatically. Select the subscription URL and copy it manually.");
+    return;
+  }
+  enableCalendarSyncPreference();
+  renderCalendarSyncModal();
+  document.getElementById("copyCalendarSyncLabel").textContent = "Copied";
+  showToast("Calendar sync link copied.");
 }
 
 function updateFeedbackPreview(){
@@ -7701,13 +7764,18 @@ function submitFeedbackForm(evt){
   window.location.href = buildFeedbackSmsUrl(category, message);
 }
 
-document.getElementById("exportBtn").addEventListener("click", openExportModal);
-document.getElementById("closeExportBtn").addEventListener("click", () => setUtilityModalOpen("exportModal", false));
-document.getElementById("exportModal").addEventListener("click", evt => {
-  if (evt.target.id === "exportModal") setUtilityModalOpen("exportModal", false);
+document.getElementById("calendarSyncBtn").addEventListener("click", openCalendarSyncModal);
+document.getElementById("closeCalendarSyncBtn").addEventListener("click", () => setUtilityModalOpen("calendarSyncModal", false));
+document.getElementById("calendarSyncModal").addEventListener("click", evt => {
+  if (evt.target.id === "calendarSyncModal") setUtilityModalOpen("calendarSyncModal", false);
+});
+document.getElementById("copyCalendarSyncBtn").addEventListener("click", copyCalendarSyncLink);
+document.getElementById("subscribeCalendarSyncBtn").addEventListener("click", () => {
+  enableCalendarSyncPreference();
+  renderCalendarSyncModal();
 });
 
-/* ============ ICS EXPORT ============ */
+/* ============ SINGLE-EVENT CALENDAR FILES ============ */
 function pad2(n){ return String(n).padStart(2,"0"); }
 
 function toICSDateUTC(dt){
@@ -7788,7 +7856,7 @@ function generateICS(events = getFilteredEvents()){
       `Sport: ${meta.label}`,
       `Broadcaster: ${ev.broadcaster}`,
       `Stakes: ${ev.stakesScore}/5`,
-      `Never Miss: ${mustWatch ? "YES" : "No"}`
+      `Don’t Miss: ${mustWatch ? "YES" : "No"}`
     ];
     if (ev.venue) descParts.push(`Venue: ${ev.venue}`);
     if (actual !== null) descParts.push(`Actual spectacle: ${actual}/10`);
@@ -7835,19 +7903,6 @@ function downloadEventICS(ev){
   downloadICS(filename, generateICS([ev]));
   showToast(`Calendar file created for ${ev.name}.`);
 }
-
-document.getElementById("exportForm").addEventListener("submit", evt => {
-  evt.preventDefault();
-  const exportEvents = selectedNeverMissExportEvents(exportSelection);
-  if (!exportEvents.length){
-    showToast("Choose at least one Never Miss section to export.");
-    return;
-  }
-  const icsContent = generateICS(exportEvents);
-  downloadICS("nothingsport-never-miss.ics", icsContent);
-  setUtilityModalOpen("exportModal", false);
-  showToast(`Exported ${exportEvents.length} Never Miss event${exportEvents.length === 1 ? "" : "s"}.`);
-});
 
 /* ============ INIT ============ */
 applyThemePreference(userPreferences.theme);

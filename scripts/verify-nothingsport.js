@@ -115,7 +115,7 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v31"'), "Phase 2 must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v32"'), "Phase 3 must advance the served shell cache");
 const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(preferences\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
 assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");
@@ -153,7 +153,12 @@ const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\
 assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
 assert(!/textContent\s*=\s*["']NEW["']/.test(eventCardSource), "the freshness treatment must not add a NEW text badge");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
-assert(html.includes('id="exportSectionChoices"'), "Never Miss export must expose section choices");
+assert(html.includes('id="calendarSyncBtn"'), "the header must expose Calendar sync as the primary calendar action");
+assert(html.includes('id="calendarSyncModal"'), "Calendar sync must reveal a dedicated subscription surface");
+assert(html.includes('id="calendarSyncUrl"'), "Calendar sync must reveal the customised subscription URL");
+assert(html.includes('id="copyCalendarSyncBtn"') && html.includes('id="subscribeCalendarSyncBtn"'), "Calendar sync must support copy and calendar-app subscription actions");
+assert(!html.includes("Export Never Miss"), "the obsolete one-off Never Miss export language must be removed");
+assert(!html.includes('id="exportModal"') && !html.includes('id="exportForm"'), "the one-off batch export form must be removed");
 assert(html.includes('className = "catchup-watched"'), "each Catch Up card must expose a Watched control");
 assert(html.includes('title.textContent = "Optional rating"'), "Catch Up rating must be introduced as optional");
 assert(html.includes('if (action.watched)'), "the Catch Up rating prompt must remain hidden until Watched is selected");
@@ -329,6 +334,7 @@ storage.set("ns_feed_cache_v1", JSON.stringify({
 const sandbox = {
   console,
   structuredClone,
+  URLSearchParams,
   localStorage: {
     getItem: key => storage.has(key) ? storage.get(key) : null,
     setItem: (key, value) => storage.set(key, String(value)),
@@ -436,8 +442,9 @@ globalThis.__test = {
   eventSpielForDisplay,
   retrospectiveSignificanceForEvent,
   shouldSuggestWatchLater,
-  getNeverMissExportSections,
-  selectedNeverMissExportEvents,
+  calendarSyncConfigForPreferences,
+  buildCalendarSyncUrl,
+  buildCalendarWebcalUrl,
   formatFeedbackTimestamp,
   buildFeedbackMessage,
   buildFeedbackSmsUrl,
@@ -771,28 +778,33 @@ assert.deepEqual(
 );
 app.setPreferences({});
 
-const exportedTopOnly = app.selectedNeverMissExportEvents({
-  topStorylines: true,
-  worthCheckingOut: false,
-  aroundTheCorner: false,
+const calendarSyncPreferences = {
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  selectedBroadcasters: ["kayo", "foxtel"],
+  preferenceGraph: allLeagueFixturesGraph,
+};
+const calendarSyncConfig = app.calendarSyncConfigForPreferences(calendarSyncPreferences);
+assert.deepEqual(Array.from(calendarSyncConfig.sports), ["afl", "nrl"], "Calendar sync must encode followed sports");
+assert.deepEqual(Array.from(calendarSyncConfig.providers), ["foxtel", "kayo"], "Calendar sync must encode selected providers");
+assert.deepEqual(Array.from(calendarSyncConfig.allFixtures), ["afl", "nrl"], "Calendar sync must encode Froth or All-fixtures depth");
+const calendarSyncUrl = app.buildCalendarSyncUrl(calendarSyncPreferences, {
+  protocol: "http:",
+  hostname: "127.0.0.1",
+  origin: "http://127.0.0.1:8000",
 });
-assert.deepEqual(Array.from(exportedTopOnly, ev => ev.id), ["top-week"], "export must include only selected Never Miss sections");
-const exportedWorthAndAround = app.selectedNeverMissExportEvents({
-  topStorylines: false,
-  worthCheckingOut: true,
-  aroundTheCorner: true,
-});
-assert.deepEqual(Array.from(exportedWorthAndAround, ev => ev.id), ["worth-week", "around"], "calendar export must omit a date-TBC horizon exception");
-const globallyChronologicalExport = app.selectedNeverMissExportEvents(
-  { topStorylines: true, worthCheckingOut: true, aroundTheCorner: false },
-  {
-    topStorylines: [event("late-top", 5, 5)],
-    worthCheckingOut: [event("early-worth", 1, 3)],
-    aroundTheCorner: [],
-  }
-);
-assert.deepEqual(Array.from(globallyChronologicalExport, ev => ev.id), ["early-worth", "late-top"], "selected export events must be globally chronological");
-const selectedIcs = app.generateICS(exportedWorthAndAround);
+assert.match(calendarSyncUrl, /^https:\/\/nothingsport\.vercel\.app\/api\/calendar\?/);
+const calendarSyncParams = new URL(calendarSyncUrl).searchParams;
+assert.equal(calendarSyncParams.get("sports"), "afl,nrl");
+assert.equal(calendarSyncParams.get("providers"), "foxtel,kayo");
+assert.equal(calendarSyncParams.get("all"), "afl,nrl");
+assert.equal(calendarSyncParams.get("min"), "3");
+assert.equal(app.buildCalendarWebcalUrl(calendarSyncPreferences, {
+  protocol: "https:",
+  hostname: "nothingsport.vercel.app",
+  origin: "https://nothingsport.vercel.app",
+}).startsWith("webcal://nothingsport.vercel.app/api/calendar?"), true, "calendar-app subscription must use the webcal scheme");
+
+const selectedIcs = app.generateICS([phaseOneEvents[4], phaseOneEvents[5]]);
 assert.equal((selectedIcs.match(/BEGIN:VEVENT/g) || []).length, 2, "calendar file must contain only the selected events");
 assert.match(selectedIcs, /^BEGIN:VCALENDAR/);
 assert.match(selectedIcs, /TZID:Australia\/Sydney/);
@@ -801,6 +813,8 @@ assert.match(selectedIcs, /UID:worth-week@sportscal/);
 assert.match(selectedIcs, /UID:around@sportscal/);
 assert.doesNotMatch(selectedIcs, /UID:horizon-exception@sportscal/);
 assert.doesNotMatch(selectedIcs, /UID:top-week@sportscal/);
+assert.match(selectedIcs, /Don’t Miss:/);
+assert.doesNotMatch(selectedIcs, /Never Miss:/);
 
 const archived = phaseOneEvents[0];
 app.updateEventAction(archived, { archived: true });
