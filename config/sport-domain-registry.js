@@ -25,7 +25,7 @@
   // Adding a surfaced sport starts here. Rendering, filters, and selector choices
   // derive from these records instead of requiring a bespoke UI branch.
   const domains = [
-    { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying and race sessions in Sydney time.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: false, supportsNarrative: true },
+    { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying, races, driver and constructor standings.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "rugby", domainId: "sport:rugby-union", label: "Rugby", selectorLabel: "Rugby", detail: "Wallabies Tests and major international windows.", color: "var(--c-rugby)", glyph: "sport:rugby", sortOrder: 20, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "wimbledon", domainId: "sport:tennis", label: "Wimbledon", selectorLabel: "Tennis", detail: "Grand Slam rounds, finals, and Australian contenders.", color: "var(--c-tennis)", glyph: "sport:tennis", sortOrder: 30, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "fifa", domainId: "sport:football", label: "FIFA World Cup", selectorLabel: "Football / World Cup", detail: "Socceroos and knockout-stage World Cup matches.", color: "var(--c-football)", glyph: "sport:football", sortOrder: 40, selector: true, supportsLadders: false, supportsNarrative: true },

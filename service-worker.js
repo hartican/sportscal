@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v37";
+const CACHE_NAME = "nothingSports-shell-v38";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,6 +7,7 @@ const APP_SHELL = [
   "/config/vector-assets.js",
   "/config/sport-domain-registry.js",
   "/config/canonical-sports-taxonomy.js",
+  "/config/sport-context.js",
   "/config/profile-storage.js",
   "/config/server-sync.js",
   "/config/preference-system.js",
@@ -20,9 +21,11 @@ const APP_SHELL = [
   "/data/feed-meta.json",
   "/data/events.json",
   "/data/canonical/afl-nrl-2026.json",
+  "/data/canonical/f1-context-2026.json",
   "/schemas/preference-graph.schema.json",
   "/schemas/enriched-event.schema.json",
   "/schemas/derived-card-cache.schema.json",
+  "/schemas/sport-context.schema.json",
   "/manifest.webmanifest",
   "/assets/brand/web/nothingsport-logo-day.png",
   "/assets/brand/web/nothingsport-logo-night.png",

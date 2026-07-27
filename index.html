@@ -2639,6 +2639,23 @@ footer.app-footer{
 @media (max-width: 640px){
   .header-brand-logo{ width:178px; }
   .brand .slogan{ font-size: 0.66rem; }
+  .standings-context{ padding:0 12px; }
+  .standings-module{ padding:12px; }
+  .standings-table{ font-size:0.68rem; }
+  .standings-table th,
+  .standings-table td{ padding:6px 4px; }
+  .standings-table th:nth-child(2),
+  .standings-table td:nth-child(2){
+    width:auto;
+    min-width:0;
+    white-space:normal;
+  }
+  .standings-followed-tag{
+    display:block;
+    width:max-content;
+    margin:3px 0 0;
+    font-size:0.52rem;
+  }
   .tabs{
     padding: 0 16px;
     gap: 4px;
@@ -2787,11 +2804,11 @@ footer.app-footer{
     </div>
     <div class="header-actions">
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
-      <button class="btn ghost" id="aboutBtn"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
-      <button class="btn ghost" id="settingsBtn"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
+      <button class="btn ghost" id="aboutBtn" aria-label="About"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
+      <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
-      <button class="btn ghost" id="refreshBtn"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh</span></button>
-      <button class="btn primary" id="calendarSyncBtn"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
+      <button class="btn ghost" id="refreshBtn" aria-label="Refresh"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh</span></button>
+      <button class="btn primary" id="calendarSyncBtn" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
     </div>
   </div>
 
@@ -7851,7 +7868,10 @@ function standingsVisibilityForCompetition(preferences, competition){
   const domainPreference = graph?.domainPreferences?.find(item => item.sportDomainId === domainPreferenceId);
   const competitionPreference = graph?.competitionPreferences?.find(item => item.competitionId === competition.id);
   if (domainPreference?.enabled === false || competitionPreference?.enabled === false) return "hidden";
-  return competitionPreference?.showLadder || domainPreference?.showLadder || "hidden";
+  if (competitionPreference?.showLadder) return competitionPreference.showLadder;
+  const inheritedVisibility = domainPreference?.showLadder || "hidden";
+  if (inheritedVisibility === "hidden") return "hidden";
+  return competition.defaultStandingsVisibility || inheritedVisibility;
 }
 
 function supportedStandingsCompetitions(preferences = userPreferences){

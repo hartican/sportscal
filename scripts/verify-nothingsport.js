@@ -7,6 +7,7 @@ const { classifyCalendarEvent, classifyCommonwealthDiscipline } = require("./imp
 const profileStorage = require("../config/profile-storage.js");
 const brand = require("../config/brand-copy.js");
 const preferenceSystem = require("../config/preference-system.js");
+const sportContext = require("../config/sport-context.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
@@ -16,6 +17,7 @@ const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "u
 const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
 const vectorAssetsSource = fs.readFileSync("config/vector-assets.js", "utf8");
 const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.js", "utf8");
+const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
@@ -69,6 +71,7 @@ assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation s
 assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned Australian broadcast config must load in hosted and direct-file modes");
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
+assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
@@ -132,8 +135,10 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v37"'), "the soundtrack header change must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v38"'), "the F1 context phase must advance the served shell cache");
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
+assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
+assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
 assert(html.includes('"Account & sync"'), "Settings must expose magic-link identity and sync status");
@@ -216,6 +221,8 @@ const canonicalSportsSchema = JSON.parse(fs.readFileSync("schemas/canonical-spor
 const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage.schema.json", "utf8"));
 const enrichedEventSchema = JSON.parse(fs.readFileSync("schemas/enriched-event.schema.json", "utf8"));
 const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
+const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
+const sportContextSchema = JSON.parse(fs.readFileSync("schemas/sport-context.schema.json", "utf8"));
 const eventsBundleSandbox = { globalThis: {} };
 vm.runInNewContext(eventsBundleSource, eventsBundleSandbox, { filename: eventsBundlePath });
 const bundledPublishedEvents = eventsBundleSandbox.globalThis.NOTHINGSPORTS_EVENTS;
@@ -233,6 +240,14 @@ assert.equal(profileStorageSchema.properties.schemaVersion.const, 2, "profile st
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
 assert(enrichedEventSchema.required.includes("followContext"), "derived enrichment must require resolved follow context");
 assert(enrichedEventSchema.properties.followContext.items.properties.participantType.enum.includes("competitor"), "follow context must use Competitor as the canonical individual participant term");
+assert.equal(sportContextSchema.properties.schemaVersion.const, "sport-context.v1", "modular sport context must be explicitly versioned");
+assert.equal(f1Context.participants.filter(participant => participant.type === "team").length, 11, "F1 context must expose all 11 team follows");
+assert.equal(f1Context.participants.filter(participant => participant.type === "competitor").length, 22, "F1 context must expose all 22 driver follows");
+assert.equal(f1Context.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:f1-drivers-2026")?.entries.length, 22, "F1 driver standings must contain the whole grid");
+assert.equal(f1Context.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:f1-constructors-2026")?.entries.length, 11, "F1 constructor standings must contain every team");
+const contextualF1Events = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "f1"), f1Context);
+assert(contextualF1Events.filter(event => /\b(?:Qualifying|Race)\b/i.test(event.name)).every(event => event.participantIds.length === 33), "F1 session cards must resolve active drivers and teams");
+assert(contextualF1Events.filter(event => /watch/i.test(event.name)).every(event => !event.participantIds?.length), "F1 ticket/date watches must remain free of sporting follow context");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
@@ -365,6 +380,8 @@ assert(melbourneCards.every(event => event.ticketSaleStatus === "waitlist-open-d
 assert.equal(melbourneCards.find(event => event.timeTbc)?.calendarExportEligible, false, "the date-TBC Melbourne card must not create a false calendar appointment");
 
 const appPrelude = scriptMatch[1].split("/* ============ LIVE CLOCK ============ */")[0];
+const standingsVisibilitySource = scriptMatch[1].match(/function standingsVisibilityForCompetition\(preferences, competition\)\{[\s\S]*?(?=\nfunction supportedStandingsCompetitions)/);
+assert(standingsVisibilitySource, "standings visibility must support sport-calibrated competition defaults");
 const storage = new Map();
 storage.set("ns_feed_cache_v1", JSON.stringify({
   events: [{ id: "stale-cache-card", eventId: "stale-cache-card", key: "nrl", sport: "NRL", name: "Stale cached fixture", date: "2026-07-24", time: "19:00", broadcaster: "Kayo Sports", expected: 5 }],
@@ -382,6 +399,7 @@ vm.createContext(sandbox);
 vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.js" });
 vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-domain-registry.js" });
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
+vm.runInContext(sportContextSource, sandbox, { filename: "config/sport-context.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
 vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-engine.js" });
@@ -399,6 +417,7 @@ globalThis.__test = {
   AU_BROADCAST_CONFIG,
   SELECTOR_TAXONOMY,
   PREFERENCE_SYSTEM,
+  SPORT_CONTEXT,
   ENRICHMENT_ENGINE,
   CARD_LIFECYCLE,
   REMINDER_ENGINE,
@@ -494,8 +513,9 @@ globalThis.__test = {
   eventTimeLabel,
   standingsEntriesForVisibility,
   standingsColumnsForCompetition,
+  standingsVisibilityForCompetition,
 };`;
-vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
+vm.runInContext(`${appPrelude}\n${standingsVisibilitySource[0]}\n${expose}`, sandbox, { filename: "index.html" });
 const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
@@ -509,6 +529,31 @@ assert.deepEqual(
   Array.from(app.standingsColumnsForCompetition({ sportDomainId: "sport:nrl" }), column => column[0]),
   ["rank", "participant", "played", "won", "lost", "pointsDifference", "ladderPoints"],
   "NRL ladders must use played, win/loss, points difference and competition-point columns"
+);
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ standingsType: "drivers", sportDomainId: "sport:motorsport" }), column => column[0]),
+  ["rank", "participant", "team", "points"],
+  "F1 driver standings must use rank, driver, team and points columns"
+);
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ standingsType: "constructors", sportDomainId: "sport:motorsport" }), column => column[0]),
+  ["rank", "participant", "points"],
+  "F1 constructor standings must use rank, team and points columns"
+);
+assert.equal(
+  app.standingsVisibilityForCompetition({
+    preferenceGraph: {
+      domainPreferences: [{ sportDomainId: "sport:f1", enabled: true, showLadder: "full" }],
+      competitionPreferences: [],
+    },
+  }, {
+    id: "competition:f1-drivers-2026",
+    sportDomainId: "sport:motorsport",
+    preferenceDomainId: "sport:f1",
+    defaultStandingsVisibility: "summary",
+  }),
+  "summary",
+  "F1 standings must default to the calibrated top-three-plus-followed view"
 );
 const summaryStandings = app.standingsEntriesForVisibility({
   entries: [

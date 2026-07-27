@@ -189,6 +189,12 @@ async function run(){
     assert.equal(response.body.derivedCardCache.buildOrigin, "server");
     assert.equal(response.headers["Cache-Control"], "private, no-store, max-age=0");
     assert.equal(response.headers.Vary, "Authorization");
+    const f1Session = response.body.events.find(item => item.key === "f1" && /\b(?:Qualifying|Race)\b/i.test(item.name));
+    assert(f1Session, "the authenticated feed must retain an F1 session card");
+    assert.equal(f1Session.sportDomainId, "sport:f1", "central F1 cards must use the F1 preference domain");
+    assert.equal(f1Session.participantIds.length, 33, "central F1 cards must resolve the active driver and team field");
+    const f1Watch = response.body.events.find(item => item.key === "f1" && /watch/i.test(item.name));
+    assert(!f1Watch || !f1Watch.participantIds?.length, "central ticket/date watches must not inherit sporting follow context");
 
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);
