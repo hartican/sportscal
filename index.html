@@ -1030,6 +1030,36 @@ main{
   font-weight: 700;
 }
 
+.follow-context{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:9px;
+  font-size:0.7rem;
+}
+
+.follow-context-label{
+  color:var(--text-faint);
+  font-weight:800;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+
+.follow-context-chip{
+  padding:4px 7px;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 34%, var(--border));
+  border-radius:999px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 8%, transparent);
+  color:var(--text-dim);
+  font-weight:750;
+}
+
+.follow-context-chip.priority{
+  border-color:color-mix(in srgb, var(--accent) 52%, var(--border));
+  color:var(--accent);
+}
+
 .compact-result{
   display:grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -2435,6 +2465,20 @@ main{
 
 .standings-table tbody tr.followed{
   background:rgba(0,229,255,0.055);
+}
+
+.standings-followed-tag{
+  display:inline-block;
+  margin-left:7px;
+  padding:2px 5px;
+  border-radius:999px;
+  background:rgba(0,229,255,0.09);
+  color:var(--accent);
+  font-size:0.58rem;
+  font-weight:850;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  vertical-align:middle;
 }
 
 .standings-withheld{
@@ -4096,6 +4140,7 @@ function enrichmentContextForEvent(ev){
     preferenceGraph: userPreferences.preferenceGraph,
     followedSports: userPreferences.followedSports,
     selectedBroadcasterIds: userPreferences.selectedBroadcasters,
+    participants: canonicalPreferenceParticipants,
     explicitMustWatch: getEventAction(ev).mustWatch,
     narrativeProfile: SPORT_DOMAIN_REGISTRY.byKey[ev.key]?.narrativeProfile,
   };
@@ -4109,10 +4154,31 @@ function eventEnrichment(ev){
       mustWatchScore: intensity * 12,
       intensity,
       cardVariant: intensity >= 5 ? "marquee" : intensity >= 3 ? "standard" : intensity === 2 ? "compact" : "plain",
+      followContext: [],
       storyline: { scoreReasons: [] },
     };
   }
   return ENRICHMENT_ENGINE.enrichEvent(ev, enrichmentContextForEvent(ev));
+}
+
+function buildFollowContext(contextItems){
+  if (!Array.isArray(contextItems) || !contextItems.length) return null;
+  const context = document.createElement("div");
+  context.className = "follow-context";
+  context.setAttribute("aria-label", "Follow context");
+  const label = document.createElement("span");
+  label.className = "follow-context-label";
+  label.textContent = "Following";
+  context.appendChild(label);
+  contextItems.forEach(item => {
+    const chip = document.createElement("span");
+    chip.className = `follow-context-chip${item.followLevel === "priority" ? " priority" : ""}`;
+    chip.textContent = item.followLevel === "priority"
+      ? `${item.displayName} · priority`
+      : item.displayName;
+    context.appendChild(chip);
+  });
+  return context;
 }
 
 function updateEventAction(ev, patch){
@@ -5434,6 +5500,8 @@ function buildEventCard(ev, options = {}){
     metaRow.appendChild(broadcaster);
   }
   mainDiv.appendChild(metaRow);
+  const followContext = buildFollowContext(enrichment.followContext);
+  if (followContext) mainDiv.appendChild(followContext);
 
   if (state !== "opened"){
     const compactResult = buildCompactResult(ev);
@@ -5861,6 +5929,20 @@ function followedStandingsParticipantIds(){
     .map(item => item.participantId));
 }
 
+function standingsEntriesForVisibility(snapshot, visibility, followedParticipantIds = followedStandingsParticipantIds()){
+  const entries = Array.isArray(snapshot?.entries) ? snapshot.entries : [];
+  if (visibility !== "summary") return entries.slice();
+  const selected = entries.slice(0, 3);
+  const selectedIds = new Set(selected.map(entry => entry.participantId));
+  entries.forEach(entry => {
+    if (followedParticipantIds.has(entry.participantId) && !selectedIds.has(entry.participantId)){
+      selected.push(entry);
+      selectedIds.add(entry.participantId);
+    }
+  });
+  return selected.sort((first, second) => Number(first.rank || 0) - Number(second.rank || 0));
+}
+
 function standingsColumnsForCompetition(competition){
   if (competition.sportDomainId === "sport:afl"){
     return [
@@ -5886,9 +5968,9 @@ function standingsColumnsForCompetition(competition){
 }
 
 function appendStandingsTable(module, competition, snapshot, visibility){
-  const entries = visibility === "summary" ? snapshot.entries.slice(0, 3) : snapshot.entries;
   const columns = standingsColumnsForCompetition(competition);
   const followed = followedStandingsParticipantIds();
+  const entries = standingsEntriesForVisibility(snapshot, visibility, followed);
   const wrap = document.createElement("div");
   wrap.className = "standings-table-wrap";
   const table = document.createElement("table");
@@ -5909,9 +5991,17 @@ function appendStandingsTable(module, competition, snapshot, visibility){
     row.classList.toggle("followed", followed.has(entry.participantId));
     columns.forEach(([key]) => {
       const cell = document.createElement("td");
-      cell.textContent = key === "participant"
-        ? standingsParticipantName(entry.participantId)
-        : entry[key] ?? "—";
+      if (key === "participant"){
+        cell.textContent = standingsParticipantName(entry.participantId);
+        if (followed.has(entry.participantId)){
+          const marker = document.createElement("span");
+          marker.className = "standings-followed-tag";
+          marker.textContent = "Following";
+          cell.appendChild(marker);
+        }
+      } else {
+        cell.textContent = entry[key] ?? "—";
+      }
       row.appendChild(cell);
     });
     tbody.appendChild(row);
@@ -6751,9 +6841,14 @@ function bindSettingsMenuNavigation(root){
 
 function renderSettingsMenu(body){
   const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
+  const viewing = draftPreferences.preferenceGraph?.viewing;
+  const viewingHourLabel = hour => `${Number(hour) % 12 || 12}${Number(hour) < 12 ? "am" : "pm"}`;
+  const viewingWindowLabel = viewing?.viewingWindowEnabled
+    ? `${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window`
+    : "Any time";
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("sports", "ui:filter", "Events Selector", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Special Events`)}
-    ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · optional time window`)}
+    ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("soundtrack", "ui:music", "Soundtrack", `${draftPreferences.soundtrack?.enabled ? SOUNDTRACK?.styleFor(draftPreferences.soundtrack.styleId).label : "Off"} · original procedural audio`)}
@@ -7046,6 +7141,10 @@ async function loadCanonicalSportsData(){
     canonicalSportsDataLoading = false;
     if (draftPreferences && settingsSection === "coverage") renderSettingsScreen();
     if (draftPreferences && settingsSection === "standings") renderSettingsScreen();
+    if (canonicalSportsData){
+      rebuildDerivedCardCache(activeEvents);
+      renderCurrentSection();
+    }
     renderStandingsContext();
   }
   return canonicalSportsData;
@@ -7176,7 +7275,7 @@ function renderStandingsSettings(body){
       <label class="field-label">Ladder visibility
         <select data-standings-visibility="${competition.id}">
           <option value="hidden" ${visibility === "hidden" ? "selected" : ""}>Hidden</option>
-          <option value="summary" ${visibility === "summary" ? "selected" : ""}>Top 3 summary</option>
+          <option value="summary" ${visibility === "summary" ? "selected" : ""}>Top 3 + followed</option>
           <option value="full" ${visibility === "full" ? "selected" : ""}>Full ladder</option>
         </select>
       </label>`;
@@ -7198,7 +7297,7 @@ function renderStandingsSettings(body){
 }
 
 function hourOptions(selected){
-  const options = [`<option value="" ${selected === undefined ? "selected" : ""}>Any time</option>`];
+  const options = [];
   for (let hour = 0; hour < 24; hour += 1){
     const label = new Intl.DateTimeFormat("en-AU", { hour: "numeric", hour12: true }).format(new Date(2026, 0, 1, hour));
     options.push(`<option value="${hour}" ${selected === hour ? "selected" : ""}>${label}</option>`);
@@ -7220,8 +7319,8 @@ function renderViewingSettings(body, { providersOnly = false } = {}){
   const viewing = draftPreferences.preferenceGraph.viewing;
   body.innerHTML = `${providersOnly ? "" : wizardProgressMarkup()}<div class="preference-stack">
     <div class="filter-panel"><h3>TV & streaming</h3><p class="preference-help">Every available provider starts selected. Opt out only of services you cannot use; newly added providers will also start selected.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>
-    ${providersOnly ? "" : `<div class="filter-panel"><h3>Optional viewing window</h3><p class="preference-help">AEST/AEDT is the default basis. High-stakes events may override the window when you allow it.</p><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour">${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour">${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
-    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar sync keeps your followed recommendations current across devices. Browser alerts are opt-in and scheduled while nothingSports is open.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep Calendar sync enabled for this preference profile</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span>Enable browser alerts for Must Watch events</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
+    ${providersOnly ? "" : `<div class="filter-panel"><h3>Viewing window</h3><p class="preference-help">The recommended default is 7am–10pm AEST/AEDT. Turn the window off for Any time; 4/5 and 5/5 events can still use the high-stakes override.</p><label class="viewing-toggle"><input type="checkbox" id="viewingWindowEnabled" ${viewing.viewingWindowEnabled ? "checked" : ""}><span><strong>Use a viewing window</strong><br>${viewing.viewingWindowEnabled ? "Events inside these hours receive the strongest time fit." : "Any time — no viewing-window filter is applied."}</span></label><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour" ${viewing.viewingWindowEnabled ? "" : "disabled"}>${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour" ${viewing.viewingWindowEnabled ? "" : "disabled"}>${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
+    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar sync starts enabled for new profiles. Browser alerts are recommended, but remain off until you enable them and grant permission.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep Calendar sync enabled for this preference profile</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span><strong>Enable browser alerts for Must Watch events</strong><br>Recommended · asks permission only when you enable it</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
   </div>`;
   const grid = document.getElementById("providerChoiceGrid");
   Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
@@ -7245,8 +7344,12 @@ function renderViewingSettings(body, { providersOnly = false } = {}){
     () => { updateDraftViewing({ selectedBroadcasterIds: [] }); }
   );
   if (providersOnly) return;
-  document.getElementById("viewingStartHour").addEventListener("change", event => updateDraftViewing({ startHourLocal: event.target.value === "" ? undefined : Number(event.target.value) }));
-  document.getElementById("viewingEndHour").addEventListener("change", event => updateDraftViewing({ endHourLocal: event.target.value === "" ? undefined : Number(event.target.value) }));
+  document.getElementById("viewingWindowEnabled").addEventListener("change", event => {
+    updateDraftViewing({ viewingWindowEnabled: event.target.checked });
+    renderSettingsScreen();
+  });
+  document.getElementById("viewingStartHour").addEventListener("change", event => updateDraftViewing({ startHourLocal: Number(event.target.value) }));
+  document.getElementById("viewingEndHour").addEventListener("change", event => updateDraftViewing({ endHourLocal: Number(event.target.value) }));
   document.getElementById("lateNightOverride").addEventListener("change", event => updateDraftViewing({ allowLateNightOverrides: event.target.checked }));
   document.getElementById("calendarSyncEnabled").addEventListener("change", event => updateDraftViewing({ calendarSyncEnabled: event.target.checked }));
   document.getElementById("browserAlertsEnabled").addEventListener("change", async event => {

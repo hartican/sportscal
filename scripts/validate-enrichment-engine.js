@@ -47,17 +47,71 @@ const defining = engine.enrichEvent({
   participantIds: ["participant:australia"],
   broadcasterIds: ["stan"],
   storyline: { intensity: 5 },
-}, { preferenceGraph: graph });
+}, {
+  preferenceGraph: graph,
+  participants: [{
+    id: "participant:australia",
+    type: "nationalSide",
+    displayName: "Australia",
+    canonicalName: "Australia",
+  }],
+});
 
 assert.equal(routine.cardVariant, "plain", "routine fixtures must derive a plain card");
 assert.equal(defining.cardVariant, "marquee", "defining events must derive a marquee card");
 assert(defining.mustWatchScore > routine.mustWatchScore, "high stakes and follows must outrank routine fixtures");
 assert.equal(defining.followBoost, 5, "priority follows must produce an explainable boost");
+assert.deepEqual(defining.followContext, [{
+  participantId: "participant:australia",
+  participantType: "nationalSide",
+  displayName: "Australia",
+  followLevel: "priority",
+}], "enrichment must carry resolved followed-entity context into derived presentation");
 assert.equal(defining.timeWindowFitScore, 3, "critical events may use the late-night override");
 assert.equal(defining.storyline.visibleLabel, "Title Decider");
 assert.equal(defining.storyline.arcStage, "climax");
 assert.equal(defining.storyline.intensitySource, "manual");
 assert.equal(defining.storyline.scoreReasons.length, 5);
+
+const competitorGraph = preferences.setEntityFollow(
+  preferences.createPreferenceGraph({
+    profileId: "profile:competitor",
+    domainIds: ["sport:motorsport"],
+    broadcasterIds: ["kayo"],
+  }),
+  "competitor:f1:test-driver",
+  "follow"
+);
+assert.deepEqual(engine.followContextForEvent({
+  id: "f1-round",
+  participantIds: ["competitor:f1:test-driver"],
+}, {
+  preferenceGraph: competitorGraph,
+  participants: [{
+    id: "competitor:f1:test-driver",
+    type: "competitor",
+    displayName: "Test Driver",
+    canonicalName: "Test Driver",
+  }],
+}), [{
+  participantId: "competitor:f1:test-driver",
+  participantType: "competitor",
+  displayName: "Test Driver",
+  followLevel: "follow",
+}], "team and Competitor follows must resolve through the same sport-aware enrichment path");
+
+const anyTimeGraph = preferences.updateViewingPreference(graph, {
+  viewingWindowEnabled: false,
+}, ["stan", "kayo"]);
+const anyTimeEvent = engine.enrichEvent({
+  id: "any-time-event",
+  key: "rugby",
+  name: "Routine overnight fixture",
+  time: "02:00",
+  expected: 3,
+  storyline: { intensity: 2 },
+}, { preferenceGraph: anyTimeGraph });
+assert.equal(anyTimeEvent.timeWindowFitScore, 5, "an explicit Any time preference must disable time-window filtering");
 
 const source = {
   id: "quarterfinal",

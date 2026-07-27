@@ -95,7 +95,16 @@ assert(html.includes("data-standings-visibility"), "competition-level ladder and
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
 assert(html.includes('id="standingsContext"'), "supported standings must resolve into a visible feed module");
 assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
+assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
+assert(html.includes(">Top 3 + followed<"), "summary standings must promise to retain followed entities outside the top three");
 assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
+assert(html.includes('id="viewingWindowEnabled"'), "Any time must be represented as an explicit durable viewing-window preference");
+assert(html.includes("The recommended default is 7am–10pm AEST/AEDT"), "Settings must explain the recommended default viewing window");
+assert(html.includes('${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window'), "the Settings menu must summarise the active viewing window");
+assert(html.includes("Calendar sync starts enabled for new profiles"), "Settings must explain the Calendar sync default");
+assert(html.includes("asks permission only when you enable it"), "browser alert permission must remain deferred until explicit enablement");
+assert.equal(preferenceSystem.DEFAULT_VIEWING_WINDOW.startHourLocal, 7, "the preference graph default must start at 7am");
+assert.equal(preferenceSystem.DEFAULT_VIEWING_WINDOW.endHourLocal, 22, "the preference graph default must end at 10pm");
 assert(html.includes("Every available provider starts selected"), "provider selection must be opt-out");
 assert(!html.includes("loadCachedFeedEvents"), "a stale saved feed must not override the generated published-feed fallback");
 assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
@@ -115,7 +124,7 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v32"'), "Phase 3 must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v34"'), "Phase 5 must advance the served shell cache");
 const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(preferences\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
 assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");
@@ -195,6 +204,8 @@ assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("co
 assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${JSON.stringify(canonicalSportsSchema)}`), "canonical taxonomy and schemas must use Competitor as the single participant term");
 assert.equal(profileStorageSchema.properties.schemaVersion.const, 2, "profile storage schema must be explicitly versioned");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
+assert(enrichedEventSchema.required.includes("followContext"), "derived enrichment must require resolved follow context");
+assert(enrichedEventSchema.properties.followContext.items.properties.participantType.enum.includes("competitor"), "follow context must use Competitor as the canonical individual participant term");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
@@ -386,6 +397,7 @@ globalThis.__test = {
   getSpoilerStateSnapshot(){ return structuredClone(eventSpoilerState); },
   setRatings(next){ ratings = next; },
   setPreferences(next){ userPreferences = mergePreferences({ followedSports: Object.keys(SPORTS_LIBRARY), selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY), ...next }); },
+  setCanonicalParticipants(participants){ canonicalPreferenceParticipants = structuredClone(participants); },
   setFilter(filter){ activeFilter = filter; },
   eventActionKey,
   surfacePresentationKey,
@@ -453,6 +465,7 @@ globalThis.__test = {
   eventDateLabel,
   eventLocationLabel,
   eventTimeLabel,
+  standingsEntriesForVisibility,
   standingsColumnsForCompetition,
 };`;
 vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
@@ -470,6 +483,62 @@ assert.deepEqual(
   ["rank", "participant", "played", "won", "lost", "pointsDifference", "ladderPoints"],
   "NRL ladders must use played, win/loss, points difference and competition-point columns"
 );
+const summaryStandings = app.standingsEntriesForVisibility({
+  entries: [
+    { participantId: "team:first", rank: 1 },
+    { participantId: "team:second", rank: 2 },
+    { participantId: "team:third", rank: 3 },
+    { participantId: "team:fourth", rank: 4 },
+    { participantId: "team:eighth", rank: 8 },
+  ],
+}, "summary", new Set(["team:second", "team:eighth"]));
+assert.deepEqual(
+  Array.from(summaryStandings, entry => entry.participantId),
+  ["team:first", "team:second", "team:third", "team:eighth"],
+  "summary standings must include top three plus every followed participant without duplicates"
+);
+let cardFollowGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:follow-card",
+  domainIds: ["sport:afl"],
+  broadcasterIds: ["kayo"],
+});
+cardFollowGraph = app.PREFERENCE_SYSTEM.setEntityFollow(cardFollowGraph, "team:afl:test", "priority");
+app.setCanonicalParticipants([{
+  id: "team:afl:test",
+  type: "team",
+  sportDomainId: "sport:afl",
+  displayName: "Test Magpies",
+  canonicalName: "Test Magpies",
+}]);
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl"],
+  selectedBroadcasters: ["kayo"],
+  preferenceGraph: cardFollowGraph,
+});
+assert.deepEqual(
+  Array.from(app.eventEnrichment({
+    id: "follow-card",
+    eventId: "follow-card",
+    key: "afl",
+    sport: "AFL",
+    name: "Test Magpies v Test Lions",
+    date: "2026-08-01",
+    time: "19:30",
+    broadcaster: "Kayo Sports",
+    broadcasterIds: ["kayo"],
+    participantIds: ["team:afl:test"],
+    stakesScore: 3,
+  }).followContext, item => ({ ...item })),
+  [{
+    participantId: "team:afl:test",
+    participantType: "team",
+    displayName: "Test Magpies",
+    followLevel: "priority",
+  }],
+  "saved follow preferences and canonical participants must resolve into card enrichment"
+);
+app.setCanonicalParticipants([]);
+app.setPreferences({});
 assert.deepEqual(
   Array.from(app.getActiveEventIds()),
   publishedFeed.events.map(event => event.id),

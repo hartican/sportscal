@@ -6,6 +6,10 @@
   "use strict";
 
   const SCHEMA_VERSION = "preference-graph.v2";
+  const DEFAULT_VIEWING_WINDOW = Object.freeze({
+    startHourLocal: 7,
+    endHourLocal: 22,
+  });
 
   const templates = [
     {
@@ -145,15 +149,18 @@
     }
 
     const selectedBroadcasterIds = available.filter(id => !excluded.includes(id));
+    const savedStartHour = normalizeHour(saved.startHourLocal);
+    const savedEndHour = normalizeHour(saved.endHourLocal);
     return {
       profileId,
       selectedBroadcasterIds,
       excludedBroadcasterIds: excluded,
       knownBroadcasterIds: available,
-      startHourLocal: normalizeHour(saved.startHourLocal),
-      endHourLocal: normalizeHour(saved.endHourLocal),
+      viewingWindowEnabled: typeof saved.viewingWindowEnabled === "boolean" ? saved.viewingWindowEnabled : true,
+      startHourLocal: savedStartHour ?? DEFAULT_VIEWING_WINDOW.startHourLocal,
+      endHourLocal: savedEndHour ?? DEFAULT_VIEWING_WINDOW.endHourLocal,
       allowLateNightOverrides: saved.allowLateNightOverrides !== false,
-      calendarSyncEnabled: Boolean(saved.calendarSyncEnabled),
+      calendarSyncEnabled: saved.calendarSyncEnabled !== false,
       browserAlertsEnabled: Boolean(saved.browserAlertsEnabled),
       reminderLeadMinutes: normalizeLeadMinutes(saved.reminderLeadMinutes?.length ? saved.reminderLeadMinutes : [60]),
     };
@@ -332,6 +339,7 @@
 
   return Object.freeze({
     SCHEMA_VERSION,
+    DEFAULT_VIEWING_WINDOW,
     templates: Object.freeze(templates),
     templateById,
     expandTemplate,

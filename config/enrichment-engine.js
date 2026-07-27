@@ -183,6 +183,31 @@
     ].filter(Boolean)));
   }
 
+  function followContextForEvent(event, context = {}){
+    const participantIds = new Set(participantIdsFor(event));
+    const participants = new Map((Array.isArray(context.participants) ? context.participants : [])
+      .filter(participant => participant?.id)
+      .map(participant => [participant.id, participant]));
+    return (context.preferenceGraph?.entityFollows || [])
+      .filter(follow => participantIds.has(follow.participantId))
+      .filter(follow => follow.followLevel === "follow" || follow.followLevel === "priority")
+      .map(follow => {
+        const participant = participants.get(follow.participantId);
+        if (!participant) return null;
+        return {
+          participantId: follow.participantId,
+          participantType: participant.type || "unknown",
+          displayName: participant.displayName || participant.shortName || participant.canonicalName,
+          followLevel: follow.followLevel,
+        };
+      })
+      .filter(contextItem => contextItem?.displayName)
+      .sort((first, second) => {
+        if (first.followLevel !== second.followLevel) return first.followLevel === "priority" ? -1 : 1;
+        return first.displayName.localeCompare(second.displayName);
+      });
+  }
+
   function followBoost(event, graph){
     const participantIds = participantIdsFor(event);
     const follows = (graph?.entityFollows || []).filter(follow => participantIds.includes(follow.participantId));
@@ -207,6 +232,7 @@
 
   function timeWindowFitScore(event, context, intensity){
     const viewing = context.preferenceGraph?.viewing || context.viewing || {};
+    if (viewing.viewingWindowEnabled === false) return 5;
     const start = Number(viewing.startHourLocal);
     const end = Number(viewing.endHourLocal);
     if (!Number.isInteger(start) || !Number.isInteger(end)) return 5;
@@ -283,6 +309,7 @@
     const intensity = numericIntensity(event);
     const interest = clamp(userInterestScore(event, context), 0, 5);
     const follows = clamp(followBoost(event, context.preferenceGraph), 0, 5);
+    const followContext = followContextForEvent(event, context);
     const broadcaster = clamp(broadcasterFitScore(event, context), 0, 5);
     const timeWindow = clamp(timeWindowFitScore(event, context, intensity), 0, 5);
     const mustWatchScore = Math.round(clamp(
@@ -322,6 +349,7 @@
       canonicalEventId,
       userInterestScore: interest,
       followBoost: follows,
+      followContext,
       broadcasterFitScore: broadcaster,
       timeWindowFitScore: timeWindow,
       mustWatchScore,
@@ -348,6 +376,7 @@
     canonicalFixtureTitle,
     shouldHideParticipant,
     spoilerSafeFixtureTitle,
+    followContextForEvent,
     enrichEvent,
     rankEvents,
   });

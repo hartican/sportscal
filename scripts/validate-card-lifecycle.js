@@ -8,7 +8,17 @@ const recent = { id: "recent", status: "completed", startTimeUtc: "2026-07-17T10
 const archived = { id: "archived", status: "completed", startTimeUtc: "2026-07-10T10:00:00.000Z", endTimeUtc: "2026-07-10T12:00:00.000Z", name: "Archived" };
 const expired = { id: "expired", status: "completed", startTimeUtc: "2026-07-01T10:00:00.000Z", endTimeUtc: "2026-07-01T12:00:00.000Z", name: "Expired" };
 const future = { id: "future", status: "scheduled", startTimeUtc: "2026-07-25T10:00:00.000Z", endTimeUtc: "2026-07-25T12:00:00.000Z", name: "Future" };
-const enrich = event => ({ cardVariant: event.id === "future" ? "marquee" : "standard", intensity: event.id === "future" ? 5 : 3, mustWatchScore: event.id === "future" ? 92 : 55 });
+const enrich = event => ({
+  cardVariant: event.id === "future" ? "marquee" : "standard",
+  intensity: event.id === "future" ? 5 : 3,
+  mustWatchScore: event.id === "future" ? 92 : 55,
+  followContext: event.id === "future" ? [{
+    participantId: "team:test",
+    participantType: "team",
+    displayName: "Test Team",
+    followLevel: "priority",
+  }] : [],
+});
 
 assert.equal(lifecycle.ARCHIVE_DAYS, 7);
 assert.equal(lifecycle.RETENTION_DAYS, 14);
@@ -28,6 +38,12 @@ const cache = lifecycle.materialize([expired, archived, recent, future], {
 });
 assert.deepEqual(cache.derivedCards.map(card => card.canonicalEventId), ["future", "expired", "recent"], "only active and saved canonical events may materialise cards");
 assert.equal(cache.derivedCards[0].surface, "homeMustWatch");
+assert.deepEqual(cache.derivedCards[0].renderPayload.followContext, [{
+  participantId: "team:test",
+  participantType: "team",
+  displayName: "Test Team",
+  followLevel: "priority",
+}], "disposable card payloads must carry rebuildable follow context");
 assert.equal(cache.derivedCards[1].surface, "saved");
 assert.equal(cache.derivedCards[1].retentionExempt, true);
 assert.equal(cache.derivedCards[2].surface, "recent");

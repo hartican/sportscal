@@ -17,6 +17,11 @@ const initial = preferences.createPreferenceGraph({
 });
 assert.equal(initial.schemaVersion, "preference-graph.v2");
 assert.deepEqual(initial.viewing.selectedBroadcasterIds, baseProviders, "all available providers must start selected");
+assert.equal(initial.viewing.viewingWindowEnabled, true, "the recommended viewing window must start enabled");
+assert.equal(initial.viewing.startHourLocal, 7, "the default viewing window must start at 7am");
+assert.equal(initial.viewing.endHourLocal, 22, "the default viewing window must end at 10pm");
+assert.equal(initial.viewing.allowLateNightOverrides, true, "high-stakes overrides must start enabled");
+assert.equal(initial.viewing.calendarSyncEnabled, true, "Calendar sync must start enabled for a new profile");
 assert.equal(initial.viewing.browserAlertsEnabled, false, "browser alerts must remain opt-in");
 assert.equal(initial.domainPreferences[0].templateId, "template:like");
 assert.equal(initial.domainPreferences[0].showLadder, "summary");
@@ -44,11 +49,15 @@ assert.equal(withTeam.entityFollows[0].followLevel, "priority");
 
 const optedOut = preferences.updateViewingPreference(withTeam, {
   selectedBroadcasterIds: ["kayo", "sbs"],
+  viewingWindowEnabled: false,
   startHourLocal: 18,
   endHourLocal: 23,
+  calendarSyncEnabled: false,
   reminderLeadMinutes: [30, 60],
 }, baseProviders);
 assert.deepEqual(optedOut.viewing.excludedBroadcasterIds, ["stan"]);
+assert.equal(optedOut.viewing.viewingWindowEnabled, false, "Any time must be an explicit durable preference");
+assert.equal(optedOut.viewing.calendarSyncEnabled, false, "an explicit Calendar sync opt-out must be preserved");
 
 const migratedWithNewProvider = preferences.migratePreferenceGraph(optedOut, {
   profileId,
@@ -57,6 +66,8 @@ const migratedWithNewProvider = preferences.migratePreferenceGraph(optedOut, {
 });
 assert(migratedWithNewProvider.viewing.selectedBroadcasterIds.includes("seven"), "new providers must default to selected");
 assert(!migratedWithNewProvider.viewing.selectedBroadcasterIds.includes("stan"), "an explicit provider opt-out must survive migration");
+assert.equal(migratedWithNewProvider.viewing.viewingWindowEnabled, false, "an explicit Any time choice must survive migration");
+assert.equal(migratedWithNewProvider.viewing.calendarSyncEnabled, false, "an explicit Calendar sync opt-out must survive migration");
 assert.equal(migratedWithNewProvider.domainPreferences.find(item => item.sportDomainId === "sport:nrl").includeFollowedTeams, false);
 assert.equal(migratedWithNewProvider.entityFollows[0].participantId, "team:nrl:canberra");
 

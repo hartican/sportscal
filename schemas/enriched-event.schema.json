@@ -8,6 +8,7 @@
     "canonicalEventId",
     "userInterestScore",
     "followBoost",
+    "followContext",
     "broadcasterFitScore",
     "timeWindowFitScore",
     "mustWatchScore",
@@ -19,6 +20,20 @@
     "canonicalEventId": { "type": "string", "minLength": 1 },
     "userInterestScore": { "type": "number", "minimum": 0, "maximum": 5 },
     "followBoost": { "type": "number", "minimum": 0, "maximum": 5 },
+    "followContext": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participantId", "participantType", "displayName", "followLevel"],
+        "properties": {
+          "participantId": { "type": "string", "minLength": 1 },
+          "participantType": { "enum": ["team", "competitor", "pair", "nationalSide", "unknown"] },
+          "displayName": { "type": "string", "minLength": 1 },
+          "followLevel": { "enum": ["follow", "priority"] }
+        }
+      }
+    },
     "broadcasterFitScore": { "type": "number", "minimum": 0, "maximum": 5 },
     "timeWindowFitScore": { "type": "number", "minimum": 0, "maximum": 5 },
     "mustWatchScore": { "type": "number", "minimum": 0, "maximum": 100 },

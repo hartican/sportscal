@@ -145,6 +145,7 @@
         date: event.date,
         time: event.time,
         mustWatchScore: enrichment.mustWatchScore,
+        followContext: Array.isArray(enrichment.followContext) ? clone(enrichment.followContext) : [],
       },
       generatedAt: generated.toISOString(),
       expiresAt: expiry.toISOString(),
