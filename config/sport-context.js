@@ -84,6 +84,11 @@
     const eligible = (context?.participants || [])
       .filter(participant => participant.sportDomainId === scope.participantSportDomainId)
       .filter(participant => participant.metadata?.active !== false);
+    if (scope.resolutionMode === "explicit"){
+      const eligibleIds = new Set(eligible.map(participant => participant.id));
+      return Array.from(new Set(scope.participantIds || []))
+        .filter(participantId => eligibleIds.has(participantId));
+    }
     if (scope.resolutionMode !== "title-match") return eligible.map(participant => participant.id);
     const normalizedTitle = normalizeMatchText(title);
     return eligible

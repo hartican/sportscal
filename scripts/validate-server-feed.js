@@ -115,6 +115,10 @@ async function run(){
         eventId: "wimbledon-final-noskova-muchova-2026",
         watchLater: true,
       },
+      "evt_75:2026-06-17T09:00": {
+        eventId: "evt_75",
+        watchLater: true,
+      },
     },
   };
   const feed = feedPipeline.buildServerFeed({
@@ -221,6 +225,15 @@ async function run(){
     assert.equal(tourFinal.jerseySnapshot?.close.yellowParticipantId, "competitor:cycling:tdf:tadej-pogacar");
     assert.equal(tourFinal.jerseySnapshot?.close.polkadotParticipantId, "competitor:cycling:tdf:richard-carapaz");
     assert.equal(tourFinal.jerseySnapshot?.close.purpleParticipantId, null, "central context must not fabricate a purple Tour classification");
+    const nbaFinal = response.body.events.find(item => item.id === "evt_75");
+    assert(nbaFinal, "the authenticated feed must retain the saved NBA Finals decider");
+    assert.equal(nbaFinal.sportDomainId, "sport:nba", "central NBA cards must use the NBA preference domain");
+    assert.deepEqual(nbaFinal.participantIds, [
+      "team:nba:new-york-knicks",
+      "team:nba:san-antonio-spurs",
+      "competitor:nba:jalen-brunson",
+      "competitor:nba:victor-wembanyama",
+    ], "central NBA Finals cards must resolve only the two teams and their surfaced All-NBA leaders");
 
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);

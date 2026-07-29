@@ -6531,6 +6531,16 @@ function standingsColumnsForCompetition(competition){
       ["points", "Pts"],
     ];
   }
+  if (competition.standingsType === "conferenceStandings"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["won", "W"],
+      ["lost", "L"],
+      ["winPercentage", "PCT"],
+      ["gamesBehind", "GB"],
+    ];
+  }
   if (competition.sportDomainId === "sport:afl"){
     return [
       ["rank", "#"],
@@ -6588,6 +6598,10 @@ function appendStandingsTable(module, competition, snapshot, visibility){
         }
       } else if (key === "team"){
         cell.textContent = standingsTeamName(entry);
+      } else if (key === "winPercentage" && Number.isFinite(Number(entry[key]))){
+        cell.textContent = Number(entry[key]).toFixed(3).replace(/^0/, "");
+      } else if (key === "gamesBehind" && Number(entry[key]) === 0){
+        cell.textContent = "—";
       } else if (key === "points" && Number.isFinite(Number(entry[key]))){
         cell.textContent = Number(entry[key]).toLocaleString("en-AU");
       } else {
@@ -7873,13 +7887,14 @@ async function loadCanonicalSportsData(){
   canonicalSportsDataError = null;
   try{
     if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
-    const [leagueSports, f1Context, tennisContext, cyclingContext] = await Promise.all([
+    const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext] = await Promise.all([
       fetchJson("data/canonical/afl-nrl-2026.json"),
       fetchJson("data/canonical/f1-context-2026.json"),
       fetchJson("data/canonical/tennis-context-2026.json"),
       fetchJson("data/canonical/cycling-context-2026.json"),
+      fetchJson("data/canonical/nba-context-2026.json"),
     ]);
-    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext);
+    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext, nbaContext);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
     activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);
     normalizeEvents(activeEvents);
@@ -7949,6 +7964,8 @@ function renderCoverageSettings(body){
             ? "Competitor ranking context"
             : competition.standingsType === "stageJerseys"
               ? "Stage jersey context · Yellow and polkadot available; purple withheld because the official Tour publishes no purple classification"
+              : competition.standingsType === "conferenceStandings"
+                ? "Conference standings · W/L, win percentage and games behind"
               : "Championship standings context";
           return `<div class="competition-preference"><strong>${competition.name}</strong><br><span>${contextLabel}</span></div>`;
         }

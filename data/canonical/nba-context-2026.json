@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "sport-context.v1",
+  "taxonomyVersion": "sports-taxonomy.v1",
+  "season": 2026,
+  "generatedAt": "2026-07-29T12:00:00.000Z",
+  "sources": [
+    {
+      "provider": "NBA",
+      "sourceUrl": "https://www.nba.com/standings",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "NBA",
+      "sourceUrl": "https://www.nba.com/news/2025-26-all-nba-teams-announced",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "NBA",
+      "sourceUrl": "https://www.nba.com/news/2026-nba-finals-schedule",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    }
+  ],
+  "sportDomains": [
+    {
+      "id": "sport:basketball",
+      "slug": "basketball",
+      "name": "Basketball",
+      "kind": "sport",
+      "sortOrder": 90,
+      "isActive": true,
+      "supportsLadders": true,
+      "supportsAllFixtures": false,
+      "supportsNarrative": true,
+      "supportsTeams": true,
+      "supportsCompetitors": true,
+      "defaultTemplateId": "template:like",
+      "metadata": {
+        "region": "global",
+        "neutralGlyph": "sport:basketball"
+      }
+    }
+  ],
+  "competitionFamilies": [
+    {
+      "id": "family:nba",
+      "sportDomainId": "sport:basketball",
+      "slug": "nba",
+      "name": "National Basketball Association",
+      "familyType": "championship",
+      "sortOrder": 60,
+      "isActive": true
+    }
+  ],
+  "competitions": [
+    {
+      "id": "competition:nba-eastern-conference-2025-26",
+      "sportDomainId": "sport:basketball",
+      "preferenceDomainId": "sport:nba",
+      "competitionFamilyId": "family:nba",
+      "slug": "nba-eastern-conference-2025-26",
+      "name": "2025–26 NBA Eastern Conference",
+      "competitionType": "seasonLeague",
+      "seasonLabel": "2025–26",
+      "region": "US",
+      "gender": "mens",
+      "supportsLadder": true,
+      "supportsTeams": true,
+      "supportsCompetitors": false,
+      "isSpecialEvent": false,
+      "standingsOnly": true,
+      "standingsType": "conferenceStandings",
+      "defaultStandingsVisibility": "summary"
+    },
+    {
+      "id": "competition:nba-western-conference-2025-26",
+      "sportDomainId": "sport:basketball",
+      "preferenceDomainId": "sport:nba",
+      "competitionFamilyId": "family:nba",
+      "slug": "nba-western-conference-2025-26",
+      "name": "2025–26 NBA Western Conference",
+      "competitionType": "seasonLeague",
+      "seasonLabel": "2025–26",
+      "region": "US",
+      "gender": "mens",
+      "supportsLadder": true,
+      "supportsTeams": true,
+      "supportsCompetitors": false,
+      "isSpecialEvent": false,
+      "standingsOnly": true,
+      "standingsType": "conferenceStandings",
+      "defaultStandingsVisibility": "summary"
+    }
+  ],
+  "participants": [
+    { "id": "team:nba:atlanta-hawks", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Atlanta Hawks", "shortName": "Hawks", "canonicalName": "Atlanta Hawks", "teamCode": "ATL", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:boston-celtics", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Boston Celtics", "shortName": "Celtics", "canonicalName": "Boston Celtics", "teamCode": "BOS", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:brooklyn-nets", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Brooklyn Nets", "shortName": "Nets", "canonicalName": "Brooklyn Nets", "teamCode": "BKN", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:charlotte-hornets", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Charlotte Hornets", "shortName": "Hornets", "canonicalName": "Charlotte Hornets", "teamCode": "CHA", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:chicago-bulls", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Chicago Bulls", "shortName": "Bulls", "canonicalName": "Chicago Bulls", "teamCode": "CHI", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:cleveland-cavaliers", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Cleveland Cavaliers", "shortName": "Cavaliers", "canonicalName": "Cleveland Cavaliers", "teamCode": "CLE", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:detroit-pistons", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Detroit Pistons", "shortName": "Pistons", "canonicalName": "Detroit Pistons", "teamCode": "DET", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:indiana-pacers", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Indiana Pacers", "shortName": "Pacers", "canonicalName": "Indiana Pacers", "teamCode": "IND", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:miami-heat", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Miami Heat", "shortName": "Heat", "canonicalName": "Miami Heat", "teamCode": "MIA", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:milwaukee-bucks", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Milwaukee Bucks", "shortName": "Bucks", "canonicalName": "Milwaukee Bucks", "teamCode": "MIL", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:new-york-knicks", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "New York Knicks", "shortName": "Knicks", "canonicalName": "New York Knicks", "teamCode": "NYK", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:orlando-magic", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Orlando Magic", "shortName": "Magic", "canonicalName": "Orlando Magic", "teamCode": "ORL", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:philadelphia-76ers", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Philadelphia 76ers", "shortName": "76ers", "canonicalName": "Philadelphia 76ers", "teamCode": "PHI", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:toronto-raptors", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Toronto Raptors", "shortName": "Raptors", "canonicalName": "Toronto Raptors", "teamCode": "TOR", "countryCode": "CA", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:washington-wizards", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Washington Wizards", "shortName": "Wizards", "canonicalName": "Washington Wizards", "teamCode": "WAS", "countryCode": "US", "metadata": { "active": true, "conference": "Eastern" } },
+    { "id": "team:nba:dallas-mavericks", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Dallas Mavericks", "shortName": "Mavericks", "canonicalName": "Dallas Mavericks", "teamCode": "DAL", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:denver-nuggets", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Denver Nuggets", "shortName": "Nuggets", "canonicalName": "Denver Nuggets", "teamCode": "DEN", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:golden-state-warriors", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Golden State Warriors", "shortName": "Warriors", "canonicalName": "Golden State Warriors", "teamCode": "GSW", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:houston-rockets", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Houston Rockets", "shortName": "Rockets", "canonicalName": "Houston Rockets", "teamCode": "HOU", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:la-clippers", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "LA Clippers", "shortName": "Clippers", "canonicalName": "LA Clippers", "teamCode": "LAC", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:los-angeles-lakers", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Los Angeles Lakers", "shortName": "Lakers", "canonicalName": "Los Angeles Lakers", "teamCode": "LAL", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:memphis-grizzlies", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Memphis Grizzlies", "shortName": "Grizzlies", "canonicalName": "Memphis Grizzlies", "teamCode": "MEM", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:minnesota-timberwolves", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Minnesota Timberwolves", "shortName": "Timberwolves", "canonicalName": "Minnesota Timberwolves", "teamCode": "MIN", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:new-orleans-pelicans", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "New Orleans Pelicans", "shortName": "Pelicans", "canonicalName": "New Orleans Pelicans", "teamCode": "NOP", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:oklahoma-city-thunder", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Oklahoma City Thunder", "shortName": "Thunder", "canonicalName": "Oklahoma City Thunder", "teamCode": "OKC", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:phoenix-suns", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Phoenix Suns", "shortName": "Suns", "canonicalName": "Phoenix Suns", "teamCode": "PHX", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:portland-trail-blazers", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Portland Trail Blazers", "shortName": "Trail Blazers", "canonicalName": "Portland Trail Blazers", "teamCode": "POR", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:sacramento-kings", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Sacramento Kings", "shortName": "Kings", "canonicalName": "Sacramento Kings", "teamCode": "SAC", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:san-antonio-spurs", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "San Antonio Spurs", "shortName": "Spurs", "canonicalName": "San Antonio Spurs", "teamCode": "SAS", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "team:nba:utah-jazz", "type": "team", "sportDomainId": "sport:basketball:nba", "displayName": "Utah Jazz", "shortName": "Jazz", "canonicalName": "Utah Jazz", "teamCode": "UTA", "countryCode": "US", "metadata": { "active": true, "conference": "Western" } },
+    { "id": "competitor:nba:shai-gilgeous-alexander", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Shai Gilgeous-Alexander", "shortName": "Gilgeous-Alexander", "canonicalName": "Shai Gilgeous-Alexander", "countryCode": "CA", "metadata": { "active": true, "teamParticipantId": "team:nba:oklahoma-city-thunder", "titleAliases": ["Shai Gilgeous-Alexander", "Gilgeous-Alexander", "SGA"], "allNbaTeam": 1 } },
+    { "id": "competitor:nba:nikola-jokic", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Nikola Jokić", "shortName": "Jokić", "canonicalName": "Nikola Jokić", "countryCode": "RS", "metadata": { "active": true, "teamParticipantId": "team:nba:denver-nuggets", "titleAliases": ["Nikola Jokic", "Nikola Jokić", "Jokic", "Jokić"], "allNbaTeam": 1 } },
+    { "id": "competitor:nba:victor-wembanyama", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Victor Wembanyama", "shortName": "Wembanyama", "canonicalName": "Victor Wembanyama", "countryCode": "FR", "metadata": { "active": true, "teamParticipantId": "team:nba:san-antonio-spurs", "titleAliases": ["Victor Wembanyama", "Wembanyama", "Wemby"], "allNbaTeam": 1 } },
+    { "id": "competitor:nba:luka-doncic", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Luka Dončić", "shortName": "Dončić", "canonicalName": "Luka Dončić", "countryCode": "SI", "metadata": { "active": true, "teamParticipantId": "team:nba:los-angeles-lakers", "titleAliases": ["Luka Doncic", "Luka Dončić", "Doncic", "Dončić"], "allNbaTeam": 1 } },
+    { "id": "competitor:nba:cade-cunningham", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Cade Cunningham", "shortName": "Cunningham", "canonicalName": "Cade Cunningham", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:detroit-pistons", "titleAliases": ["Cade Cunningham", "Cunningham"], "allNbaTeam": 1 } },
+    { "id": "competitor:nba:jaylen-brown", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Jaylen Brown", "shortName": "Brown", "canonicalName": "Jaylen Brown", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:boston-celtics", "titleAliases": ["Jaylen Brown"], "allNbaTeam": 2 } },
+    { "id": "competitor:nba:kawhi-leonard", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Kawhi Leonard", "shortName": "Leonard", "canonicalName": "Kawhi Leonard", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:la-clippers", "titleAliases": ["Kawhi Leonard"], "allNbaTeam": 2 } },
+    { "id": "competitor:nba:donovan-mitchell", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Donovan Mitchell", "shortName": "Mitchell", "canonicalName": "Donovan Mitchell", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:cleveland-cavaliers", "titleAliases": ["Donovan Mitchell"], "allNbaTeam": 2 } },
+    { "id": "competitor:nba:kevin-durant", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Kevin Durant", "shortName": "Durant", "canonicalName": "Kevin Durant", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:houston-rockets", "titleAliases": ["Kevin Durant", "Durant"], "allNbaTeam": 2 } },
+    { "id": "competitor:nba:jalen-brunson", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Jalen Brunson", "shortName": "Brunson", "canonicalName": "Jalen Brunson", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:new-york-knicks", "titleAliases": ["Jalen Brunson", "Brunson"], "allNbaTeam": 2 } },
+    { "id": "competitor:nba:tyrese-maxey", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Tyrese Maxey", "shortName": "Maxey", "canonicalName": "Tyrese Maxey", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:philadelphia-76ers", "titleAliases": ["Tyrese Maxey", "Maxey"], "allNbaTeam": 3 } },
+    { "id": "competitor:nba:jamal-murray", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Jamal Murray", "shortName": "Murray", "canonicalName": "Jamal Murray", "countryCode": "CA", "metadata": { "active": true, "teamParticipantId": "team:nba:denver-nuggets", "titleAliases": ["Jamal Murray"], "allNbaTeam": 3 } },
+    { "id": "competitor:nba:jalen-johnson", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Jalen Johnson", "shortName": "Johnson", "canonicalName": "Jalen Johnson", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:atlanta-hawks", "titleAliases": ["Jalen Johnson"], "allNbaTeam": 3 } },
+    { "id": "competitor:nba:jalen-duren", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Jalen Duren", "shortName": "Duren", "canonicalName": "Jalen Duren", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:detroit-pistons", "titleAliases": ["Jalen Duren"], "allNbaTeam": 3 } },
+    { "id": "competitor:nba:chet-holmgren", "type": "competitor", "sportDomainId": "sport:basketball:nba", "displayName": "Chet Holmgren", "shortName": "Holmgren", "canonicalName": "Chet Holmgren", "countryCode": "US", "metadata": { "active": true, "teamParticipantId": "team:nba:oklahoma-city-thunder", "titleAliases": ["Chet Holmgren", "Holmgren"], "allNbaTeam": 3 } }
+  ],
+  "ladderSnapshots": [
+    {
+      "id": "standings:nba-eastern-conference:2025-26:final",
+      "competitionId": "competition:nba-eastern-conference-2025-26",
+      "seasonLabel": "2025–26",
+      "roundLabel": "Final regular season standings",
+      "snapshotTimeUtc": "2026-07-29T12:00:00.000Z",
+      "entries": [
+        { "participantId": "team:nba:detroit-pistons", "rank": 1, "played": 82, "won": 60, "lost": 22, "winPercentage": 0.732, "gamesBehind": 0 },
+        { "participantId": "team:nba:boston-celtics", "rank": 2, "played": 82, "won": 56, "lost": 26, "winPercentage": 0.683, "gamesBehind": 4 },
+        { "participantId": "team:nba:new-york-knicks", "rank": 3, "played": 82, "won": 53, "lost": 29, "winPercentage": 0.646, "gamesBehind": 7 },
+        { "participantId": "team:nba:cleveland-cavaliers", "rank": 4, "played": 82, "won": 52, "lost": 30, "winPercentage": 0.634, "gamesBehind": 8 },
+        { "participantId": "team:nba:toronto-raptors", "rank": 5, "played": 82, "won": 46, "lost": 36, "winPercentage": 0.561, "gamesBehind": 14 },
+        { "participantId": "team:nba:atlanta-hawks", "rank": 6, "played": 82, "won": 46, "lost": 36, "winPercentage": 0.561, "gamesBehind": 14 },
+        { "participantId": "team:nba:philadelphia-76ers", "rank": 7, "played": 82, "won": 45, "lost": 37, "winPercentage": 0.549, "gamesBehind": 15 },
+        { "participantId": "team:nba:orlando-magic", "rank": 8, "played": 82, "won": 45, "lost": 37, "winPercentage": 0.549, "gamesBehind": 15 },
+        { "participantId": "team:nba:charlotte-hornets", "rank": 9, "played": 82, "won": 44, "lost": 38, "winPercentage": 0.537, "gamesBehind": 16 },
+        { "participantId": "team:nba:miami-heat", "rank": 10, "played": 82, "won": 43, "lost": 39, "winPercentage": 0.524, "gamesBehind": 17 },
+        { "participantId": "team:nba:milwaukee-bucks", "rank": 11, "played": 82, "won": 32, "lost": 50, "winPercentage": 0.39, "gamesBehind": 28 },
+        { "participantId": "team:nba:chicago-bulls", "rank": 12, "played": 82, "won": 31, "lost": 51, "winPercentage": 0.378, "gamesBehind": 29 },
+        { "participantId": "team:nba:brooklyn-nets", "rank": 13, "played": 82, "won": 20, "lost": 62, "winPercentage": 0.244, "gamesBehind": 40 },
+        { "participantId": "team:nba:indiana-pacers", "rank": 14, "played": 82, "won": 19, "lost": 63, "winPercentage": 0.232, "gamesBehind": 41 },
+        { "participantId": "team:nba:washington-wizards", "rank": 15, "played": 82, "won": 17, "lost": 65, "winPercentage": 0.207, "gamesBehind": 43 }
+      ],
+      "source": { "provider": "NBA", "sourceUrl": "https://www.nba.com/standings", "sourceType": "official", "checkedAt": "2026-07-29T12:00:00.000Z" },
+      "metadata": { "conference": "Eastern", "playoffCutOff": 6, "playInCutOff": 10 }
+    },
+    {
+      "id": "standings:nba-western-conference:2025-26:final",
+      "competitionId": "competition:nba-western-conference-2025-26",
+      "seasonLabel": "2025–26",
+      "roundLabel": "Final regular season standings",
+      "snapshotTimeUtc": "2026-07-29T12:00:00.000Z",
+      "entries": [
+        { "participantId": "team:nba:oklahoma-city-thunder", "rank": 1, "played": 82, "won": 64, "lost": 18, "winPercentage": 0.78, "gamesBehind": 0 },
+        { "participantId": "team:nba:san-antonio-spurs", "rank": 2, "played": 82, "won": 62, "lost": 20, "winPercentage": 0.756, "gamesBehind": 2 },
+        { "participantId": "team:nba:denver-nuggets", "rank": 3, "played": 82, "won": 54, "lost": 28, "winPercentage": 0.659, "gamesBehind": 10 },
+        { "participantId": "team:nba:los-angeles-lakers", "rank": 4, "played": 82, "won": 53, "lost": 29, "winPercentage": 0.646, "gamesBehind": 11 },
+        { "participantId": "team:nba:houston-rockets", "rank": 5, "played": 82, "won": 52, "lost": 30, "winPercentage": 0.634, "gamesBehind": 12 },
+        { "participantId": "team:nba:minnesota-timberwolves", "rank": 6, "played": 82, "won": 49, "lost": 33, "winPercentage": 0.598, "gamesBehind": 15 },
+        { "participantId": "team:nba:phoenix-suns", "rank": 7, "played": 82, "won": 45, "lost": 37, "winPercentage": 0.549, "gamesBehind": 19 },
+        { "participantId": "team:nba:portland-trail-blazers", "rank": 8, "played": 82, "won": 42, "lost": 40, "winPercentage": 0.512, "gamesBehind": 22 },
+        { "participantId": "team:nba:la-clippers", "rank": 9, "played": 82, "won": 42, "lost": 40, "winPercentage": 0.512, "gamesBehind": 22 },
+        { "participantId": "team:nba:golden-state-warriors", "rank": 10, "played": 82, "won": 37, "lost": 45, "winPercentage": 0.451, "gamesBehind": 27 },
+        { "participantId": "team:nba:new-orleans-pelicans", "rank": 11, "played": 82, "won": 26, "lost": 56, "winPercentage": 0.317, "gamesBehind": 38 },
+        { "participantId": "team:nba:dallas-mavericks", "rank": 12, "played": 82, "won": 26, "lost": 56, "winPercentage": 0.317, "gamesBehind": 38 },
+        { "participantId": "team:nba:memphis-grizzlies", "rank": 13, "played": 82, "won": 25, "lost": 57, "winPercentage": 0.305, "gamesBehind": 39 },
+        { "participantId": "team:nba:sacramento-kings", "rank": 14, "played": 82, "won": 22, "lost": 60, "winPercentage": 0.268, "gamesBehind": 42 },
+        { "participantId": "team:nba:utah-jazz", "rank": 15, "played": 82, "won": 22, "lost": 60, "winPercentage": 0.268, "gamesBehind": 42 }
+      ],
+      "source": { "provider": "NBA", "sourceUrl": "https://www.nba.com/standings", "sourceType": "official", "checkedAt": "2026-07-29T12:00:00.000Z" },
+      "metadata": { "conference": "Western", "playoffCutOff": 6, "playInCutOff": 10 }
+    }
+  ],
+  "eventParticipantScopes": [
+    {
+      "sportKey": "nba",
+      "preferenceDomainId": "sport:nba",
+      "participantSportDomainId": "sport:basketball:nba",
+      "titlePattern": "\\bNBA Finals Game\\b",
+      "resolutionMode": "explicit",
+      "participantIds": [
+        "team:nba:new-york-knicks",
+        "team:nba:san-antonio-spurs",
+        "competitor:nba:jalen-brunson",
+        "competitor:nba:victor-wembanyama"
+      ]
+    }
+  ]
+}

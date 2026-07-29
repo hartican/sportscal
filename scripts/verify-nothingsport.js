@@ -135,11 +135,12 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v40"'), "the Tour context phase must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v41"'), "the NBA context phase must advance the served shell cache");
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/cycling-context-2026.json"'), "Tour rider and jersey context must be available in the offline app shell");
+assert(serviceWorkerSource.includes('"/data/canonical/nba-context-2026.json"'), "NBA follows and conference standings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
@@ -226,6 +227,7 @@ const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.
 const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
 const tennisContext = JSON.parse(fs.readFileSync("data/canonical/tennis-context-2026.json", "utf8"));
 const cyclingContext = JSON.parse(fs.readFileSync("data/canonical/cycling-context-2026.json", "utf8"));
+const nbaContext = JSON.parse(fs.readFileSync("data/canonical/nba-context-2026.json", "utf8"));
 const sportContextSchema = JSON.parse(fs.readFileSync("schemas/sport-context.schema.json", "utf8"));
 const eventsBundleSandbox = { globalThis: {} };
 vm.runInNewContext(eventsBundleSource, eventsBundleSandbox, { filename: eventsBundlePath });
@@ -273,6 +275,17 @@ assert(serverFeedApiSource.includes('require("../data/canonical/cycling-context-
 assert(html.includes("function buildStageJerseyContext(ev)"), "Tour stage cards must render the calibrated jersey context");
 assert(html.includes("Starting and closing holders protected while Results is off."), "Tour jersey changes must respect spoiler protection");
 assert(html.includes("purple withheld because the official Tour publishes no purple classification"), "Tour settings must explain why purple is unavailable rather than silently substituting green");
+assert.equal(nbaContext.participants.filter(participant => participant.type === "team").length, 30, "NBA detail settings must expose all 30 team follows");
+assert.equal(nbaContext.participants.filter(participant => participant.type === "competitor").length, 15, "NBA detail settings must expose the official 15 All-NBA competitors");
+assert(nbaContext.competitions.every(competition => competition.standingsType === "conferenceStandings"), "NBA context must use conference-calibrated standings");
+assert(nbaContext.ladderSnapshots.every(snapshot => snapshot.entries.length === 15), "each NBA conference table must contain all 15 teams");
+const contextualNbaEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "nba"), nbaContext);
+assert.equal(contextualNbaEvents.length, 7, "the published NBA Finals card run must remain intact");
+assert(contextualNbaEvents.every(event => event.participantIds?.length === 4), "NBA Finals cards must resolve the two teams and their surfaced All-NBA leaders");
+assert(contextualNbaEvents.every(event => !event.participantIds.includes("team:nba:detroit-pistons")), "unrelated NBA teams must not leak onto Finals cards");
+assert(html.includes('fetchJson("data/canonical/nba-context-2026.json")'), "the browser must load the NBA context bundle");
+assert(serverFeedApiSource.includes('require("../data/canonical/nba-context-2026.json")'), "the authenticated server feed must load the same NBA context bundle");
+assert(html.includes("Conference standings · W/L, win percentage and games behind"), "NBA settings must describe the calibrated conference tables");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
@@ -569,6 +582,11 @@ assert.deepEqual(
   Array.from(app.standingsColumnsForCompetition({ standingsType: "singlesRanking", sportDomainId: "sport:tennis" }), column => column[0]),
   ["rank", "participant", "points"],
   "ATP singles rankings must use rank, competitor and points columns"
+);
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ standingsType: "conferenceStandings", sportDomainId: "sport:basketball" }), column => column[0]),
+  ["rank", "participant", "won", "lost", "winPercentage", "gamesBehind"],
+  "NBA conference standings must use rank, team, wins, losses, win percentage and games behind"
 );
 assert.equal(
   app.standingsVisibilityForCompetition({

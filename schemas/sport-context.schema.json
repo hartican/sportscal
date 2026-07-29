@@ -135,13 +135,13 @@
         "competitionFamilyId": { "$ref": "#/$defs/id" },
         "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "name": { "type": "string", "minLength": 2 },
-        "competitionType": { "enum": ["seasonChampionship", "ranking", "stageRace"] },
+        "competitionType": { "enum": ["seasonChampionship", "seasonLeague", "ranking", "stageRace"] },
         "seasonLabel": { "type": "string" },
         "supportsLadder": { "type": "boolean" },
         "supportsTeams": { "type": "boolean" },
         "supportsCompetitors": { "type": "boolean" },
         "standingsOnly": { "const": true },
-        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking", "stageJerseys"] },
+        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking", "stageJerseys", "conferenceStandings"] },
         "defaultStandingsVisibility": { "enum": ["summary", "full"] }
       }
     },
@@ -177,11 +177,16 @@
     "standingsEntry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["participantId", "rank", "points"],
+      "required": ["participantId", "rank"],
       "properties": {
         "participantId": { "$ref": "#/$defs/id" },
         "rank": { "type": "integer", "minimum": 1 },
         "points": { "type": "number", "minimum": 0 },
+        "played": { "type": "integer", "minimum": 0 },
+        "won": { "type": "integer", "minimum": 0 },
+        "lost": { "type": "integer", "minimum": 0 },
+        "winPercentage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "gamesBehind": { "type": "number", "minimum": 0 },
         "teamParticipantId": { "$ref": "#/$defs/id" }
       }
     },
@@ -255,7 +260,12 @@
         "preferenceDomainId": { "$ref": "#/$defs/id" },
         "participantSportDomainId": { "$ref": "#/$defs/id" },
         "titlePattern": { "type": "string", "minLength": 3 },
-        "resolutionMode": { "enum": ["all-active", "title-match"] }
+        "resolutionMode": { "enum": ["all-active", "title-match", "explicit"] },
+        "participantIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        }
       }
     }
   }
