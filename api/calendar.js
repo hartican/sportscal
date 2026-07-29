@@ -1,11 +1,28 @@
 "use strict";
 
 const feed = require("../data/events.json");
+const canonicalSports = require("../data/canonical/afl-nrl-2026.json");
+const f1Context = require("../data/canonical/f1-context-2026.json");
+const tennisContext = require("../data/canonical/tennis-context-2026.json");
+const cyclingContext = require("../data/canonical/cycling-context-2026.json");
+const nbaContext = require("../data/canonical/nba-context-2026.json");
+const cwgContext = require("../data/canonical/cwg-context-2026.json");
+const sportContext = require("../config/sport-context");
 const {
   buildCalendarIcs,
   filterCalendarEvents,
   normalizeCalendarSyncQuery,
 } = require("../lib/calendar-sync");
+
+const canonicalSportContext = sportContext.mergeCanonicalBundles(
+  canonicalSports,
+  f1Context,
+  tennisContext,
+  cyclingContext,
+  nbaContext,
+  cwgContext
+);
+const contextualEvents = sportContext.applyContextToEvents(feed.events || feed, canonicalSportContext);
 
 function requestQuery(request){
   if (request.query && typeof request.query === "object") return request.query;
@@ -26,7 +43,7 @@ module.exports = function calendarSyncHandler(request, response){
     return;
   }
 
-  const events = filterCalendarEvents(feed.events || feed, config);
+  const events = filterCalendarEvents(contextualEvents, config);
   const calendar = buildCalendarIcs(events, {
     generatedAt: feed.publishedAt || new Date(),
     reminderMinutes: config.reminderMinutes,

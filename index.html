@@ -6974,11 +6974,45 @@ function calendarSyncConfigForPreferences(preferences = userPreferences){
     .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId))))
     .filter(key => sports.includes(key))
     .sort();
+  const majorFollowedSports = uniqueArray(domainPreferences
+    .filter(preference => preference.enabled !== false && preference.includeFollowedTeams)
+    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId))))
+    .filter(key => sports.includes(key))
+    .sort();
+  const entityFollows = preferences?.preferenceGraph?.entityFollows || [];
+  const followedParticipantIds = uniqueArray(entityFollows
+    .filter(preference => ["follow", "priority"].includes(preference.followLevel))
+    .map(preference => preference.participantId))
+    .sort();
+  const mutedParticipantIds = uniqueArray(entityFollows
+    .filter(preference => preference.followLevel === "mute")
+    .map(preference => preference.participantId))
+    .sort();
+  const excludedCompetitionIds = uniqueArray((preferences?.preferenceGraph?.competitionPreferences || [])
+    .filter(preference => preference.enabled === false)
+    .map(preference => preference.competitionId))
+    .sort();
+  const selectedSelectorIds = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
+  const allCommonwealthDisciplinesSelected = (
+    selectedSelectorIds.has("category:special-events")
+    || selectedSelectorIds.has("special:commonwealth-games")
+  );
+  const cwgDisciplines = sports.includes("cwg") && !allCommonwealthDisciplinesSelected
+    ? uniqueArray((SELECTOR_TAXONOMY.commonwealthDisciplines || [])
+      .filter(entity => selectedSelectorIds.has(entity.id))
+      .map(entity => entity.canonicalDiscipline))
+      .sort()
+    : [];
   const reminderMinutes = Number(preferences?.preferenceGraph?.viewing?.reminderLeadMinutes?.[0] || 60);
   return {
     sports,
     providers: uniqueArray(preferences?.selectedBroadcasters || []).sort(),
     allFixtures,
+    majorFollowedSports,
+    followedParticipantIds,
+    mutedParticipantIds,
+    excludedCompetitionIds,
+    cwgDisciplines,
     minStakes: SCORE_BANDS.minimumStakes,
     reminderMinutes,
   };
@@ -6999,6 +7033,11 @@ function buildCalendarSyncUrl(preferences = userPreferences, locationLike = glob
   params.set("sports", config.sports.join(","));
   if (config.providers.length) params.set("providers", config.providers.join(","));
   if (config.allFixtures.length) params.set("all", config.allFixtures.join(","));
+  if (config.majorFollowedSports.length) params.set("majorFollowed", config.majorFollowedSports.join(","));
+  if (config.followedParticipantIds.length) params.set("follow", config.followedParticipantIds.join(","));
+  if (config.mutedParticipantIds.length) params.set("mute", config.mutedParticipantIds.join(","));
+  if (config.excludedCompetitionIds.length) params.set("excludeCompetition", config.excludedCompetitionIds.join(","));
+  if (config.cwgDisciplines.length) params.set("cwg", config.cwgDisciplines.join(","));
   params.set("min", String(config.minStakes));
   params.set("reminder", String(config.reminderMinutes));
   return `${calendarSyncOrigin(locationLike)}/api/calendar?${params.toString()}`;
@@ -8549,6 +8588,20 @@ function calendarSyncSummaryText(config = calendarSyncConfigForPreferences()){
   if (config.allFixtures.length){
     const allFixturesLabels = config.allFixtures.map(key => SPORT_META[key]?.label || key.toUpperCase());
     parts.push(`All fixtures for ${allFixturesLabels.join(", ")}`);
+  }
+  if (config.followedParticipantIds.length){
+    parts.push(`${config.followedParticipantIds.length} followed ${config.followedParticipantIds.length === 1 ? "team or competitor" : "teams or competitors"}`);
+  }
+  if (config.mutedParticipantIds.length){
+    parts.push(`${config.mutedParticipantIds.length} muted`);
+  }
+  if (config.cwgDisciplines.length){
+    const labels = config.cwgDisciplines.map(discipline => (
+      (SELECTOR_TAXONOMY.commonwealthDisciplines || [])
+        .find(entity => entity.canonicalDiscipline === discipline)?.label
+      || discipline
+    ));
+    parts.push(`CWG ${labels.join(", ")}`);
   }
   return parts.join(" · ");
 }

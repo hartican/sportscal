@@ -135,7 +135,7 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v42"'), "the CWG context phase must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v43"'), "the customised Calendar sync phase must advance the served shell cache");
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
@@ -435,6 +435,8 @@ assert.equal(melbourneCards.find(event => event.timeTbc)?.calendarExportEligible
 const appPrelude = scriptMatch[1].split("/* ============ LIVE CLOCK ============ */")[0];
 const standingsVisibilitySource = scriptMatch[1].match(/function standingsVisibilityForCompetition\(preferences, competition\)\{[\s\S]*?(?=\nfunction supportedStandingsCompetitions)/);
 assert(standingsVisibilitySource, "standings visibility must support sport-calibrated competition defaults");
+const calendarSyncSummarySource = scriptMatch[1].match(/function calendarSyncSummaryText\(config = calendarSyncConfigForPreferences\(\)\)\{[\s\S]*?(?=\nfunction renderCalendarSyncModal)/);
+assert(calendarSyncSummarySource, "Calendar sync must expose a preference-specific subscription summary");
 const storage = new Map();
 storage.set("ns_feed_cache_v1", JSON.stringify({
   events: [{ id: "stale-cache-card", eventId: "stale-cache-card", key: "nrl", sport: "NRL", name: "Stale cached fixture", date: "2026-07-24", time: "19:00", broadcaster: "Kayo Sports", expected: 5 }],
@@ -556,6 +558,7 @@ globalThis.__test = {
   calendarSyncConfigForPreferences,
   buildCalendarSyncUrl,
   buildCalendarWebcalUrl,
+  calendarSyncSummaryText,
   formatFeedbackTimestamp,
   buildFeedbackMessage,
   buildFeedbackSmsUrl,
@@ -568,7 +571,7 @@ globalThis.__test = {
   standingsColumnsForCompetition,
   standingsVisibilityForCompetition,
 };`;
-vm.runInContext(`${appPrelude}\n${standingsVisibilitySource[0]}\n${expose}`, sandbox, { filename: "index.html" });
+vm.runInContext(`${appPrelude}\n${standingsVisibilitySource[0]}\n${calendarSyncSummarySource[0]}\n${expose}`, sandbox, { filename: "index.html" });
 const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
@@ -996,6 +999,11 @@ const calendarSyncConfig = app.calendarSyncConfigForPreferences(calendarSyncPref
 assert.deepEqual(Array.from(calendarSyncConfig.sports), ["afl", "nrl"], "Calendar sync must encode followed sports");
 assert.deepEqual(Array.from(calendarSyncConfig.providers), ["foxtel", "kayo"], "Calendar sync must encode selected providers");
 assert.deepEqual(Array.from(calendarSyncConfig.allFixtures), ["afl", "nrl"], "Calendar sync must encode Froth or All-fixtures depth");
+assert.deepEqual(Array.from(calendarSyncConfig.majorFollowedSports), ["afl", "nrl"], "Calendar sync must encode domains where followed teams or competitors can add routine events");
+assert.deepEqual(Array.from(calendarSyncConfig.followedParticipantIds), []);
+assert.deepEqual(Array.from(calendarSyncConfig.mutedParticipantIds), []);
+assert.deepEqual(Array.from(calendarSyncConfig.excludedCompetitionIds), []);
+assert.deepEqual(Array.from(calendarSyncConfig.cwgDisciplines), []);
 const calendarSyncUrl = app.buildCalendarSyncUrl(calendarSyncPreferences, {
   protocol: "http:",
   hostname: "127.0.0.1",
@@ -1006,12 +1014,56 @@ const calendarSyncParams = new URL(calendarSyncUrl).searchParams;
 assert.equal(calendarSyncParams.get("sports"), "afl,nrl");
 assert.equal(calendarSyncParams.get("providers"), "foxtel,kayo");
 assert.equal(calendarSyncParams.get("all"), "afl,nrl");
+assert.equal(calendarSyncParams.get("majorFollowed"), "afl,nrl");
 assert.equal(calendarSyncParams.get("min"), "3");
 assert.equal(app.buildCalendarWebcalUrl(calendarSyncPreferences, {
   protocol: "https:",
   hostname: "nothingsport.vercel.app",
   origin: "https://nothingsport.vercel.app",
 }).startsWith("webcal://nothingsport.vercel.app/api/calendar?"), true, "calendar-app subscription must use the webcal scheme");
+
+let followedCalendarGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:follow-aware-calendar",
+  domainIds: ["sport:f1", "special:commonwealth-games"],
+  broadcasterIds: ["kayo", "stan"],
+});
+followedCalendarGraph = app.PREFERENCE_SYSTEM.setCoverageMode(followedCalendarGraph, "sport:f1", "majorFollowed");
+followedCalendarGraph = app.PREFERENCE_SYSTEM.setCoverageMode(followedCalendarGraph, "special:commonwealth-games", "majorFollowed");
+followedCalendarGraph = app.PREFERENCE_SYSTEM.setEntityFollow(followedCalendarGraph, "competitor:f1:oscar-piastri", "priority");
+followedCalendarGraph = app.PREFERENCE_SYSTEM.setEntityFollow(followedCalendarGraph, "competitor:cwg:liz-watson", "follow");
+followedCalendarGraph = app.PREFERENCE_SYSTEM.setEntityFollow(followedCalendarGraph, "competitor:f1:muted-driver", "mute");
+followedCalendarGraph = app.PREFERENCE_SYSTEM.upsertCompetitionPreference(
+  followedCalendarGraph,
+  "competition:f1:excluded",
+  { enabled: false }
+);
+const followedCalendarPreferences = {
+  selectedSelectorEntityIds: ["sport:f1", "cwg:swimming"],
+  selectedBroadcasters: ["kayo"],
+  preferenceGraph: followedCalendarGraph,
+};
+const followedCalendarConfig = app.calendarSyncConfigForPreferences(followedCalendarPreferences);
+assert.deepEqual(Array.from(followedCalendarConfig.sports), ["cwg", "f1"]);
+assert.deepEqual(Array.from(followedCalendarConfig.majorFollowedSports), ["cwg", "f1"]);
+assert.deepEqual(Array.from(followedCalendarConfig.followedParticipantIds), [
+  "competitor:cwg:liz-watson",
+  "competitor:f1:oscar-piastri",
+]);
+assert.deepEqual(Array.from(followedCalendarConfig.mutedParticipantIds), ["competitor:f1:muted-driver"]);
+assert.deepEqual(Array.from(followedCalendarConfig.excludedCompetitionIds), ["competition:f1:excluded"]);
+assert.deepEqual(Array.from(followedCalendarConfig.cwgDisciplines), ["swimming"], "a CWG subdiscipline selection must narrow the live calendar feed");
+const followedCalendarUrl = new URL(app.buildCalendarSyncUrl(followedCalendarPreferences, {
+  protocol: "https:",
+  hostname: "nothingsport.vercel.app",
+  origin: "https://nothingsport.vercel.app",
+}));
+assert.equal(followedCalendarUrl.searchParams.get("follow"), "competitor:cwg:liz-watson,competitor:f1:oscar-piastri");
+assert.equal(followedCalendarUrl.searchParams.get("mute"), "competitor:f1:muted-driver");
+assert.equal(followedCalendarUrl.searchParams.get("excludeCompetition"), "competition:f1:excluded");
+assert.equal(followedCalendarUrl.searchParams.get("cwg"), "swimming");
+assert.match(app.calendarSyncSummaryText(followedCalendarConfig), /2 followed teams or competitors/);
+assert.match(app.calendarSyncSummaryText(followedCalendarConfig), /1 muted/);
+assert.match(app.calendarSyncSummaryText(followedCalendarConfig), /CWG Swimming/);
 
 const selectedIcs = app.generateICS([phaseOneEvents[4], phaseOneEvents[5]]);
 assert.equal((selectedIcs.match(/BEGIN:VEVENT/g) || []).length, 2, "calendar file must contain only the selected events");
