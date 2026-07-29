@@ -135,9 +135,10 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v38"'), "the F1 context phase must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v39"'), "the tennis context phase must advance the served shell cache");
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
+assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
@@ -222,6 +223,7 @@ const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage
 const enrichedEventSchema = JSON.parse(fs.readFileSync("schemas/enriched-event.schema.json", "utf8"));
 const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
+const tennisContext = JSON.parse(fs.readFileSync("data/canonical/tennis-context-2026.json", "utf8"));
 const sportContextSchema = JSON.parse(fs.readFileSync("schemas/sport-context.schema.json", "utf8"));
 const eventsBundleSandbox = { globalThis: {} };
 vm.runInNewContext(eventsBundleSource, eventsBundleSandbox, { filename: eventsBundlePath });
@@ -248,6 +250,14 @@ assert.equal(f1Context.ladderSnapshots.find(snapshot => snapshot.competitionId =
 const contextualF1Events = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "f1"), f1Context);
 assert(contextualF1Events.filter(event => /\b(?:Qualifying|Race)\b/i.test(event.name)).every(event => event.participantIds.length === 33), "F1 session cards must resolve active drivers and teams");
 assert(contextualF1Events.filter(event => /watch/i.test(event.name)).every(event => !event.participantIds?.length), "F1 ticket/date watches must remain free of sporting follow context");
+assert.equal(tennisContext.participants.filter(participant => participant.type === "competitor").length, 18, "Wimbledon detail settings must expose the calibrated ATP competitor set");
+assert.equal(tennisContext.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:atp-singles-2026")?.entries.length, 18, "ATP ranking context must cover every surfaced men's competitor plus the official top three");
+const contextualTennisEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "wimbledon"), tennisContext);
+assert(contextualTennisEvents.filter(event => /\bMen(?:'|’)s\b/i.test(event.name)).every(event => event.participantIds?.length === 2), "Wimbledon men's cards must resolve only the two named ATP competitors");
+assert(contextualTennisEvents.filter(event => /\bWomen(?:'|’)s\b/i.test(event.name)).every(event => !event.participantIds?.length), "Wimbledon women's cards must not inherit ATP context");
+assert(html.includes('fetchJson("data/canonical/tennis-context-2026.json")'), "the browser must load the tennis context bundle");
+assert(serverFeedApiSource.includes('require("../data/canonical/tennis-context-2026.json")'), "the authenticated server feed must load the same tennis context bundle");
+assert(html.includes('? "Competitor ranking context"'), "tennis settings must describe ATP data as competitor rankings rather than a generic championship table");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
@@ -539,6 +549,11 @@ assert.deepEqual(
   Array.from(app.standingsColumnsForCompetition({ standingsType: "constructors", sportDomainId: "sport:motorsport" }), column => column[0]),
   ["rank", "participant", "points"],
   "F1 constructor standings must use rank, team and points columns"
+);
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ standingsType: "singlesRanking", sportDomainId: "sport:tennis" }), column => column[0]),
+  ["rank", "participant", "points"],
+  "ATP singles rankings must use rank, competitor and points columns"
 );
 assert.equal(
   app.standingsVisibilityForCompetition({

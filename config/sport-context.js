@@ -48,10 +48,45 @@
     };
   }
 
-  function participantIdsForScope(scope, context){
-    return (context?.participants || [])
+  function normalizeMatchText(value){
+    return String(value || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase("en");
+  }
+
+  function escapeRegExp(value){
+    return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function participantTitleAliases(participant){
+    const configured = Array.isArray(participant?.metadata?.titleAliases)
+      ? participant.metadata.titleAliases
+      : [];
+    return Array.from(new Set([
+      ...configured,
+      participant?.shortName,
+      participant?.displayName,
+      participant?.canonicalName,
+    ].map(normalizeMatchText).filter(Boolean)));
+  }
+
+  function titleContainsAlias(title, alias){
+    try{
+      return new RegExp(`(?:^|[^a-z0-9])${escapeRegExp(alias)}(?:$|[^a-z0-9])`, "i").test(title);
+    }catch{
+      return false;
+    }
+  }
+
+  function matchedParticipantIdsForScope(scope, context, title){
+    const eligible = (context?.participants || [])
       .filter(participant => participant.sportDomainId === scope.participantSportDomainId)
-      .filter(participant => participant.metadata?.active !== false)
+      .filter(participant => participant.metadata?.active !== false);
+    if (scope.resolutionMode !== "title-match") return eligible.map(participant => participant.id);
+    const normalizedTitle = normalizeMatchText(title);
+    return eligible
+      .filter(participant => participantTitleAliases(participant).some(alias => titleContainsAlias(normalizedTitle, alias)))
       .map(participant => participant.id);
   }
 
@@ -68,7 +103,7 @@
     if (!scope) return { ...event };
     const participantIds = Array.from(new Set([
       ...(Array.isArray(event.participantIds) ? event.participantIds : []),
-      ...participantIdsForScope(scope, context),
+      ...matchedParticipantIdsForScope(scope, context, title),
     ]));
     return {
       ...event,

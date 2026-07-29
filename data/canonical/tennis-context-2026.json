@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "sport-context.v1",
+  "taxonomyVersion": "sports-taxonomy.v1",
+  "season": 2026,
+  "generatedAt": "2026-07-27T14:00:00.000Z",
+  "sources": [
+    {
+      "provider": "ATP Tour",
+      "sourceUrl": "https://www.atptour.com/en/rankings/singles?rankRange=0-500",
+      "sourceType": "official",
+      "checkedAt": "2026-07-27T14:00:00.000Z"
+    },
+    {
+      "provider": "The Championships, Wimbledon",
+      "sourceUrl": "https://www.wimbledon.com/en_GB/scores/draws/2026_MS_draw.pdf",
+      "sourceType": "official",
+      "checkedAt": "2026-07-27T14:00:00.000Z"
+    },
+    {
+      "provider": "The Championships, Wimbledon",
+      "sourceUrl": "https://www.wimbledon.com/en_GB/draws/results",
+      "sourceType": "official",
+      "checkedAt": "2026-07-27T14:00:00.000Z"
+    }
+  ],
+  "sportDomains": [
+    {
+      "id": "sport:tennis",
+      "slug": "tennis",
+      "name": "Tennis",
+      "kind": "sport",
+      "sortOrder": 50,
+      "isActive": true,
+      "supportsLadders": true,
+      "supportsAllFixtures": false,
+      "supportsNarrative": true,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "defaultTemplateId": "template:like",
+      "metadata": {
+        "region": "global",
+        "neutralGlyph": "sport:tennis"
+      }
+    }
+  ],
+  "competitionFamilies": [
+    {
+      "id": "family:atp-tour",
+      "sportDomainId": "sport:tennis",
+      "slug": "atp-tour",
+      "name": "ATP Tour",
+      "familyType": "tour",
+      "sortOrder": 40,
+      "isActive": true
+    }
+  ],
+  "competitions": [
+    {
+      "id": "competition:atp-singles-2026",
+      "sportDomainId": "sport:tennis",
+      "preferenceDomainId": "special:wimbledon",
+      "competitionFamilyId": "family:atp-tour",
+      "slug": "atp-singles-2026",
+      "name": "PIF ATP Singles Rankings",
+      "competitionType": "ranking",
+      "seasonLabel": "2026",
+      "region": "global",
+      "gender": "mens",
+      "supportsLadder": true,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "isSpecialEvent": false,
+      "standingsOnly": true,
+      "standingsType": "singlesRanking",
+      "defaultStandingsVisibility": "summary"
+    }
+  ],
+  "participants": [
+    {
+      "id": "competitor:tennis:atp:jannik-sinner",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jannik Sinner",
+      "shortName": "Sinner",
+      "canonicalName": "Jannik Sinner",
+      "countryCode": "IT",
+      "metadata": { "active": true, "titleAliases": ["Sinner"] }
+    },
+    {
+      "id": "competitor:tennis:atp:alexander-zverev",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexander Zverev",
+      "shortName": "Zverev",
+      "canonicalName": "Alexander Zverev",
+      "countryCode": "DE",
+      "metadata": { "active": true, "titleAliases": ["Zverev"] }
+    },
+    {
+      "id": "competitor:tennis:atp:carlos-alcaraz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Carlos Alcaraz",
+      "shortName": "Alcaraz",
+      "canonicalName": "Carlos Alcaraz",
+      "countryCode": "ES",
+      "metadata": { "active": true, "titleAliases": ["Alcaraz"] }
+    },
+    {
+      "id": "competitor:tennis:atp:felix-auger-aliassime",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Felix Auger-Aliassime",
+      "shortName": "Auger-Aliassime",
+      "canonicalName": "Felix Auger-Aliassime",
+      "countryCode": "CA",
+      "metadata": { "active": true, "titleAliases": ["Auger-Aliassime"] }
+    },
+    {
+      "id": "competitor:tennis:atp:novak-djokovic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Novak Djokovic",
+      "shortName": "Djokovic",
+      "canonicalName": "Novak Djokovic",
+      "countryCode": "RS",
+      "metadata": { "active": true, "titleAliases": ["Djokovic"] }
+    },
+    {
+      "id": "competitor:tennis:atp:alex-de-minaur",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alex de Minaur",
+      "shortName": "De Minaur",
+      "canonicalName": "Alex de Minaur",
+      "countryCode": "AU",
+      "metadata": { "active": true, "titleAliases": ["De Minaur"] }
+    },
+    {
+      "id": "competitor:tennis:atp:flavio-cobolli",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Flavio Cobolli",
+      "shortName": "Cobolli",
+      "canonicalName": "Flavio Cobolli",
+      "countryCode": "IT",
+      "metadata": { "active": true, "titleAliases": ["Cobolli"] }
+    },
+    {
+      "id": "competitor:tennis:atp:taylor-fritz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Taylor Fritz",
+      "shortName": "Fritz",
+      "canonicalName": "Taylor Fritz",
+      "countryCode": "US",
+      "metadata": { "active": true, "titleAliases": ["Fritz"] }
+    },
+    {
+      "id": "competitor:tennis:atp:alexander-bublik",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexander Bublik",
+      "shortName": "Bublik",
+      "canonicalName": "Alexander Bublik",
+      "countryCode": "KZ",
+      "metadata": { "active": true, "titleAliases": ["Bublik"] }
+    },
+    {
+      "id": "competitor:tennis:atp:jiri-lehecka",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jiri Lehecka",
+      "shortName": "Lehecka",
+      "canonicalName": "Jiri Lehecka",
+      "countryCode": "CZ",
+      "metadata": { "active": true, "titleAliases": ["Lehecka"] }
+    },
+    {
+      "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alejandro Davidovich Fokina",
+      "shortName": "Davidovich Fokina",
+      "canonicalName": "Alejandro Davidovich Fokina",
+      "countryCode": "ES",
+      "metadata": { "active": true, "titleAliases": ["Davidovich Fokina"] }
+    },
+    {
+      "id": "competitor:tennis:atp:arthur-fery",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Arthur Fery",
+      "shortName": "Fery",
+      "canonicalName": "Arthur Fery",
+      "countryCode": "GB",
+      "metadata": { "active": true, "titleAliases": ["Fery"] }
+    },
+    {
+      "id": "competitor:tennis:atp:jan-lennard-struff",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jan-Lennard Struff",
+      "shortName": "Struff",
+      "canonicalName": "Jan-Lennard Struff",
+      "countryCode": "DE",
+      "metadata": { "active": true, "titleAliases": ["Struff"] }
+    },
+    {
+      "id": "competitor:tennis:atp:hubert-hurkacz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Hubert Hurkacz",
+      "shortName": "Hurkacz",
+      "canonicalName": "Hubert Hurkacz",
+      "countryCode": "PL",
+      "metadata": { "active": true, "titleAliases": ["Hurkacz"] }
+    },
+    {
+      "id": "competitor:tennis:atp:zachary-svajda",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zachary Svajda",
+      "shortName": "Svajda",
+      "canonicalName": "Zachary Svajda",
+      "countryCode": "US",
+      "metadata": { "active": true, "titleAliases": ["Svajda"] }
+    },
+    {
+      "id": "competitor:tennis:atp:roman-safiullin",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Roman Safiullin",
+      "shortName": "Safiullin",
+      "canonicalName": "Roman Safiullin",
+      "countryCode": "RU",
+      "metadata": { "active": true, "titleAliases": ["Safiullin"] }
+    },
+    {
+      "id": "competitor:tennis:atp:shintaro-mochizuki",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Shintaro Mochizuki",
+      "shortName": "Mochizuki",
+      "canonicalName": "Shintaro Mochizuki",
+      "countryCode": "JP",
+      "metadata": { "active": true, "titleAliases": ["Mochizuki"] }
+    },
+    {
+      "id": "competitor:tennis:atp:grigor-dimitrov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Grigor Dimitrov",
+      "shortName": "Dimitrov",
+      "canonicalName": "Grigor Dimitrov",
+      "countryCode": "BG",
+      "metadata": { "active": true, "titleAliases": ["Dimitrov"] }
+    }
+  ],
+  "ladderSnapshots": [
+    {
+      "id": "standings:atp-singles-2026-07-27",
+      "competitionId": "competition:atp-singles-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "PIF ATP Rankings · 27 July 2026",
+      "snapshotTimeUtc": "2026-07-27T00:00:00.000Z",
+      "entries": [
+        { "participantId": "competitor:tennis:atp:jannik-sinner", "rank": 1, "points": 13450 },
+        { "participantId": "competitor:tennis:atp:alexander-zverev", "rank": 2, "points": 8480 },
+        { "participantId": "competitor:tennis:atp:carlos-alcaraz", "rank": 3, "points": 8160 },
+        { "participantId": "competitor:tennis:atp:felix-auger-aliassime", "rank": 4, "points": 4740 },
+        { "participantId": "competitor:tennis:atp:novak-djokovic", "rank": 5, "points": 3760 },
+        { "participantId": "competitor:tennis:atp:alex-de-minaur", "rank": 6, "points": 3660 },
+        { "participantId": "competitor:tennis:atp:flavio-cobolli", "rank": 9, "points": 3420 },
+        { "participantId": "competitor:tennis:atp:taylor-fritz", "rank": 10, "points": 3300 },
+        { "participantId": "competitor:tennis:atp:alexander-bublik", "rank": 11, "points": 2525 },
+        { "participantId": "competitor:tennis:atp:jiri-lehecka", "rank": 12, "points": 2470 },
+        { "participantId": "competitor:tennis:atp:alejandro-davidovich-fokina", "rank": 25, "points": 1880 },
+        { "participantId": "competitor:tennis:atp:arthur-fery", "rank": 37, "points": 1285 },
+        { "participantId": "competitor:tennis:atp:jan-lennard-struff", "rank": 42, "points": 1066 },
+        { "participantId": "competitor:tennis:atp:hubert-hurkacz", "rank": 71, "points": 865 },
+        { "participantId": "competitor:tennis:atp:zachary-svajda", "rank": 76, "points": 781 },
+        { "participantId": "competitor:tennis:atp:roman-safiullin", "rank": 92, "points": 678 },
+        { "participantId": "competitor:tennis:atp:shintaro-mochizuki", "rank": 114, "points": 569 },
+        { "participantId": "competitor:tennis:atp:grigor-dimitrov", "rank": 140, "points": 432 }
+      ],
+      "source": {
+        "provider": "ATP Tour",
+        "sourceUrl": "https://www.atptour.com/en/rankings/singles?rankRange=0-500",
+        "sourceType": "official",
+        "checkedAt": "2026-07-27T14:00:00.000Z"
+      },
+      "metadata": {
+        "scope": "ATP competitors named on published 2026 Wimbledon men's cards, plus the official top three",
+        "withholdingPolicy": "If the official snapshot cannot be loaded, the app withholds the rankings module rather than inferring positions."
+      }
+    }
+  ],
+  "eventParticipantScopes": [
+    {
+      "sportKey": "wimbledon",
+      "preferenceDomainId": "special:wimbledon",
+      "participantSportDomainId": "sport:tennis:atp",
+      "titlePattern": "\\bMen(?:'|’)s\\b",
+      "resolutionMode": "title-match"
+    }
+  ]
+}

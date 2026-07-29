@@ -73,7 +73,7 @@
       kind: "sport",
       sortOrder: 50,
       isActive: true,
-      supportsLadders: false,
+      supportsLadders: true,
       supportsAllFixtures: false,
       supportsNarrative: true,
       supportsTeams: false,
@@ -226,6 +226,15 @@
       sortOrder: 30,
       isActive: true,
     },
+    {
+      id: "family:atp-tour",
+      sportDomainId: "sport:tennis",
+      slug: "atp-tour",
+      name: "ATP Tour",
+      familyType: "tour",
+      sortOrder: 40,
+      isActive: true,
+    },
   ];
 
   const competitions = [
@@ -313,6 +322,29 @@
       source: {
         provider: "Formula 1",
         sourceUrl: "https://www.formula1.com/en/results/2026/team",
+      },
+    },
+    {
+      id: "competition:atp-singles-2026",
+      sportDomainId: "sport:tennis",
+      preferenceDomainId: "special:wimbledon",
+      competitionFamilyId: "family:atp-tour",
+      slug: "atp-singles-2026",
+      name: "PIF ATP Singles Rankings",
+      competitionType: "ranking",
+      seasonLabel: "2026",
+      region: "global",
+      gender: "mens",
+      supportsLadder: true,
+      supportsTeams: false,
+      supportsCompetitors: true,
+      isSpecialEvent: false,
+      standingsOnly: true,
+      standingsType: "singlesRanking",
+      defaultStandingsVisibility: "summary",
+      source: {
+        provider: "ATP Tour",
+        sourceUrl: "https://www.atptour.com/en/rankings/singles?rankRange=0-500",
       },
     },
   ];

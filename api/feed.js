@@ -3,6 +3,7 @@
 const eventFeed = require("../data/events.json");
 const canonicalSports = require("../data/canonical/afl-nrl-2026.json");
 const f1Context = require("../data/canonical/f1-context-2026.json");
+const tennisContext = require("../data/canonical/tennis-context-2026.json");
 const sportContext = require("../config/sport-context");
 const {
   SupabaseRequestError,
@@ -15,7 +16,7 @@ const {
   buildServerFeed,
 } = require("../lib/server-feed-pipeline");
 
-const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context);
+const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext);
 const contextualEvents = sportContext.applyContextToEvents(eventFeed.events, canonicalSportContext);
 
 function setPrivateResponseHeaders(response){

@@ -107,6 +107,14 @@ async function run(){
         eventId: savedEvent.eventId,
         watchLater: true,
       },
+      "wimbledon-final-sinner-zverev-2026:2026-07-13T01:00": {
+        eventId: "wimbledon-final-sinner-zverev-2026",
+        watchLater: true,
+      },
+      "wimbledon-final-noskova-muchova-2026:2026-07-12T01:00": {
+        eventId: "wimbledon-final-noskova-muchova-2026",
+        watchLater: true,
+      },
     },
   };
   const feed = feedPipeline.buildServerFeed({
@@ -195,6 +203,16 @@ async function run(){
     assert.equal(f1Session.participantIds.length, 33, "central F1 cards must resolve the active driver and team field");
     const f1Watch = response.body.events.find(item => item.key === "f1" && /watch/i.test(item.name));
     assert(!f1Watch || !f1Watch.participantIds?.length, "central ticket/date watches must not inherit sporting follow context");
+    const tennisFinal = response.body.events.find(item => item.id === "wimbledon-final-sinner-zverev-2026");
+    assert(tennisFinal, "the authenticated feed must retain the Wimbledon men's final card");
+    assert.equal(tennisFinal.sportDomainId, "special:wimbledon", "central Wimbledon cards must use the Special Event preference domain");
+    assert.deepEqual(tennisFinal.participantIds, [
+      "competitor:tennis:atp:jannik-sinner",
+      "competitor:tennis:atp:alexander-zverev",
+    ], "central Wimbledon men's cards must resolve only named ATP competitors");
+    const womensFinal = response.body.events.find(item => item.id === "wimbledon-final-noskova-muchova-2026");
+    assert(womensFinal, "the authenticated feed must retain the saved Wimbledon women's final card");
+    assert(!womensFinal.participantIds?.length, "central Wimbledon women's cards must not inherit ATP follow context");
 
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);
