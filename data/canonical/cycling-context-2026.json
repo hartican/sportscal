@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "sport-context.v1",
+  "taxonomyVersion": "sports-taxonomy.v1",
+  "season": 2026,
+  "generatedAt": "2026-07-29T00:00:00.000Z",
+  "sources": [
+    {
+      "provider": "Tour de France",
+      "sourceUrl": "https://www.letour.fr/en/rankings/stage-21",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T00:00:00.000Z"
+    },
+    {
+      "provider": "Tour de France",
+      "sourceUrl": "https://www.letour.fr/en/the-jerseys-tour-de-france/the-polka-dot-jersey",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T00:00:00.000Z"
+    }
+  ],
+  "sportDomains": [
+    {
+      "id": "sport:cycling",
+      "slug": "cycling",
+      "name": "Cycling",
+      "kind": "sport",
+      "sortOrder": 70,
+      "isActive": true,
+      "supportsLadders": false,
+      "supportsAllFixtures": false,
+      "supportsNarrative": true,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "defaultTemplateId": "template:like",
+      "metadata": {
+        "region": "global",
+        "neutralGlyph": "sport:cycling"
+      }
+    }
+  ],
+  "competitionFamilies": [
+    {
+      "id": "family:tour-de-france",
+      "sportDomainId": "sport:cycling",
+      "slug": "tour-de-france",
+      "name": "Tour de France",
+      "familyType": "tour",
+      "sortOrder": 50,
+      "isActive": true
+    }
+  ],
+  "competitions": [
+    {
+      "id": "competition:tour-de-france-stage-jerseys-2026",
+      "sportDomainId": "sport:cycling",
+      "preferenceDomainId": "special:tour-de-france",
+      "competitionFamilyId": "family:tour-de-france",
+      "slug": "tour-de-france-stage-jerseys-2026",
+      "name": "2026 Tour de France stage jerseys",
+      "competitionType": "stageRace",
+      "seasonLabel": "2026",
+      "region": "global",
+      "gender": "mens",
+      "supportsLadder": false,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "isSpecialEvent": true,
+      "standingsOnly": true,
+      "standingsType": "stageJerseys",
+      "defaultStandingsVisibility": "summary"
+    }
+  ],
+  "participants": [
+    {
+      "id": "competitor:cycling:tdf:tadej-pogacar",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Tadej Pogačar",
+      "shortName": "Pogačar",
+      "canonicalName": "Tadej Pogačar",
+      "countryCode": "SI",
+      "metadata": { "active": true, "titleAliases": ["Pogacar", "Pogačar"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:remco-evenepoel",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Remco Evenepoel",
+      "shortName": "Evenepoel",
+      "canonicalName": "Remco Evenepoel",
+      "countryCode": "BE",
+      "metadata": { "active": true, "titleAliases": ["Evenepoel"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:isaac-del-toro",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Isaac del Toro",
+      "shortName": "Del Toro",
+      "canonicalName": "Isaac del Toro",
+      "countryCode": "MX",
+      "metadata": { "active": true, "titleAliases": ["Del Toro"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:paul-seixas",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Paul Seixas",
+      "shortName": "Seixas",
+      "canonicalName": "Paul Seixas",
+      "countryCode": "FR",
+      "metadata": { "active": true, "titleAliases": ["Seixas"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:lenny-martinez",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Lenny Martinez",
+      "shortName": "Martinez",
+      "canonicalName": "Lenny Martinez",
+      "countryCode": "FR",
+      "metadata": { "active": true, "titleAliases": ["Martinez"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:mattias-skjelmose",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Mattias Skjelmose",
+      "shortName": "Skjelmose",
+      "canonicalName": "Mattias Skjelmose",
+      "countryCode": "DK",
+      "metadata": { "active": true, "titleAliases": ["Skjelmose"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:juan-ayuso",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Juan Ayuso",
+      "shortName": "Ayuso",
+      "canonicalName": "Juan Ayuso",
+      "countryCode": "ES",
+      "metadata": { "active": true, "titleAliases": ["Ayuso"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:richard-carapaz",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Richard Carapaz",
+      "shortName": "Carapaz",
+      "canonicalName": "Richard Carapaz",
+      "countryCode": "EC",
+      "metadata": { "active": true, "titleAliases": ["Carapaz"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:tom-pidcock",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Tom Pidcock",
+      "shortName": "Pidcock",
+      "canonicalName": "Tom Pidcock",
+      "countryCode": "GB",
+      "metadata": { "active": true, "titleAliases": ["Pidcock"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:jordan-jegat",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Jordan Jegat",
+      "shortName": "Jegat",
+      "canonicalName": "Jordan Jegat",
+      "countryCode": "FR",
+      "metadata": { "active": true, "titleAliases": ["Jegat"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:jonas-vingegaard",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Jonas Vingegaard",
+      "shortName": "Vingegaard",
+      "canonicalName": "Jonas Vingegaard",
+      "countryCode": "DK",
+      "metadata": { "active": true, "titleAliases": ["Vingegaard"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:alex-molenaar",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Alex Molenaar",
+      "shortName": "Molenaar",
+      "canonicalName": "Alex Molenaar",
+      "countryCode": "NL",
+      "metadata": { "active": true, "titleAliases": ["Molenaar"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:alex-baudin",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Alex Baudin",
+      "shortName": "Baudin",
+      "canonicalName": "Alex Baudin",
+      "countryCode": "FR",
+      "metadata": { "active": true, "titleAliases": ["Baudin"] }
+    },
+    {
+      "id": "competitor:cycling:tdf:torstein-traeen",
+      "type": "competitor",
+      "sportDomainId": "sport:cycling:tdf",
+      "displayName": "Torstein Træen",
+      "shortName": "Træen",
+      "canonicalName": "Torstein Træen",
+      "countryCode": "NO",
+      "metadata": { "active": true, "titleAliases": ["Traeen", "Træen"] }
+    }
+  ],
+  "ladderSnapshots": [],
+  "jerseySnapshots": [
+    {
+      "id": "jerseys:tdf:2026:stage-1",
+      "eventId": "evt_46",
+      "stageNumber": 1,
+      "start": { "yellowParticipantId": null, "polkadotParticipantId": null, "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:jonas-vingegaard", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-1", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-2",
+      "eventId": "evt_47",
+      "stageNumber": 2,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:jonas-vingegaard", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:jonas-vingegaard", "polkadotParticipantId": "competitor:cycling:tdf:alex-molenaar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-2", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-3",
+      "eventId": "evt_48",
+      "stageNumber": 3,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:jonas-vingegaard", "polkadotParticipantId": "competitor:cycling:tdf:alex-molenaar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:alex-baudin", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-3", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-4",
+      "eventId": "evt_49",
+      "stageNumber": 4,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:alex-baudin", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:torstein-traeen", "polkadotParticipantId": "competitor:cycling:tdf:alex-baudin", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-4", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-5",
+      "eventId": "evt_50",
+      "stageNumber": 5,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:torstein-traeen", "polkadotParticipantId": "competitor:cycling:tdf:alex-baudin", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:torstein-traeen", "polkadotParticipantId": "competitor:cycling:tdf:alex-baudin", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-5", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-6",
+      "eventId": "evt_51",
+      "stageNumber": 6,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:torstein-traeen", "polkadotParticipantId": "competitor:cycling:tdf:alex-baudin", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-6", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-7",
+      "eventId": "evt_52",
+      "stageNumber": 7,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-7", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-8",
+      "eventId": "evt_53",
+      "stageNumber": 8,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-8", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-9",
+      "eventId": "evt_54",
+      "stageNumber": 9,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-9", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-10",
+      "eventId": "evt_55",
+      "stageNumber": 10,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-10", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-11",
+      "eventId": "evt_56",
+      "stageNumber": 11,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-11", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-12",
+      "eventId": "evt_57",
+      "stageNumber": 12,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-12", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-13",
+      "eventId": "evt_58",
+      "stageNumber": 13,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-13", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-14",
+      "eventId": "evt_59",
+      "stageNumber": 14,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-14", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-15",
+      "eventId": "evt_60",
+      "stageNumber": 15,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-15", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-16",
+      "eventId": "evt_61",
+      "stageNumber": 16,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-16", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-17",
+      "eventId": "evt_62",
+      "stageNumber": 17,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-17", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-18",
+      "eventId": "evt_63",
+      "stageNumber": 18,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-18", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-19",
+      "eventId": "evt_64",
+      "stageNumber": 19,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:tadej-pogacar", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:richard-carapaz", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-19", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-20",
+      "eventId": "evt_65",
+      "stageNumber": 20,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:richard-carapaz", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:richard-carapaz", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-20", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    },
+    {
+      "id": "jerseys:tdf:2026:stage-21",
+      "eventId": "evt_66",
+      "stageNumber": 21,
+      "start": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:richard-carapaz", "purpleParticipantId": null },
+      "close": { "yellowParticipantId": "competitor:cycling:tdf:tadej-pogacar", "polkadotParticipantId": "competitor:cycling:tdf:richard-carapaz", "purpleParticipantId": null },
+      "unavailableClassifications": ["purple"],
+      "source": { "provider": "Tour de France", "sourceUrl": "https://www.letour.fr/en/rankings/stage-21", "sourceType": "official", "checkedAt": "2026-07-29T00:00:00.000Z" }
+    }
+  ],
+  "eventParticipantScopes": [
+    {
+      "sportKey": "tdf",
+      "preferenceDomainId": "special:tour-de-france",
+      "participantSportDomainId": "sport:cycling:tdf",
+      "titlePattern": "^Stage\\s+\\d+",
+      "resolutionMode": "all-active"
+    }
+  ]
+}

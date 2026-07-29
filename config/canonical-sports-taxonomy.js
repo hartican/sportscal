@@ -235,6 +235,15 @@
       sortOrder: 40,
       isActive: true,
     },
+    {
+      id: "family:tour-de-france",
+      sportDomainId: "sport:cycling",
+      slug: "tour-de-france",
+      name: "Tour de France",
+      familyType: "tour",
+      sortOrder: 50,
+      isActive: true,
+    },
   ];
 
   const competitions = [
@@ -345,6 +354,29 @@
       source: {
         provider: "ATP Tour",
         sourceUrl: "https://www.atptour.com/en/rankings/singles?rankRange=0-500",
+      },
+    },
+    {
+      id: "competition:tour-de-france-stage-jerseys-2026",
+      sportDomainId: "sport:cycling",
+      preferenceDomainId: "special:tour-de-france",
+      competitionFamilyId: "family:tour-de-france",
+      slug: "tour-de-france-stage-jerseys-2026",
+      name: "2026 Tour de France stage jerseys",
+      competitionType: "stageRace",
+      seasonLabel: "2026",
+      region: "global",
+      gender: "mens",
+      supportsLadder: false,
+      supportsTeams: false,
+      supportsCompetitors: true,
+      isSpecialEvent: true,
+      standingsOnly: true,
+      standingsType: "stageJerseys",
+      defaultStandingsVisibility: "summary",
+      source: {
+        provider: "Tour de France",
+        sourceUrl: "https://www.letour.fr/en/rankings/stage-21",
       },
     },
   ];

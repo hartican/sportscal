@@ -49,8 +49,13 @@
     },
     "ladderSnapshots": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "items": { "$ref": "#/$defs/standingsSnapshot" }
+    },
+    "jerseySnapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/jerseySnapshot" }
     },
     "eventParticipantScopes": {
       "type": "array",
@@ -130,13 +135,13 @@
         "competitionFamilyId": { "$ref": "#/$defs/id" },
         "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "name": { "type": "string", "minLength": 2 },
-        "competitionType": { "enum": ["seasonChampionship", "ranking"] },
+        "competitionType": { "enum": ["seasonChampionship", "ranking", "stageRace"] },
         "seasonLabel": { "type": "string" },
-        "supportsLadder": { "const": true },
+        "supportsLadder": { "type": "boolean" },
         "supportsTeams": { "type": "boolean" },
         "supportsCompetitors": { "type": "boolean" },
         "standingsOnly": { "const": true },
-        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking"] },
+        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking", "stageJerseys"] },
         "defaultStandingsVisibility": { "enum": ["summary", "full"] }
       }
     },
@@ -197,6 +202,48 @@
         },
         "source": { "$ref": "#/$defs/source" },
         "metadata": { "type": "object" }
+      }
+    },
+    "nullableParticipantId": {
+      "anyOf": [
+        { "$ref": "#/$defs/id" },
+        { "type": "null" }
+      ]
+    },
+    "jerseyState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["yellowParticipantId", "polkadotParticipantId", "purpleParticipantId"],
+      "properties": {
+        "yellowParticipantId": { "$ref": "#/$defs/nullableParticipantId" },
+        "polkadotParticipantId": { "$ref": "#/$defs/nullableParticipantId" },
+        "purpleParticipantId": { "$ref": "#/$defs/nullableParticipantId" }
+      }
+    },
+    "jerseySnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "eventId",
+        "stageNumber",
+        "start",
+        "close",
+        "unavailableClassifications",
+        "source"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "stageNumber": { "type": "integer", "minimum": 1, "maximum": 21 },
+        "start": { "$ref": "#/$defs/jerseyState" },
+        "close": { "$ref": "#/$defs/jerseyState" },
+        "unavailableClassifications": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["yellow", "polkadot", "purple"] }
+        },
+        "source": { "$ref": "#/$defs/source" }
       }
     },
     "eventParticipantScope": {

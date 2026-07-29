@@ -213,6 +213,14 @@ async function run(){
     const womensFinal = response.body.events.find(item => item.id === "wimbledon-final-noskova-muchova-2026");
     assert(womensFinal, "the authenticated feed must retain the saved Wimbledon women's final card");
     assert(!womensFinal.participantIds?.length, "central Wimbledon women's cards must not inherit ATP follow context");
+    const tourFinal = response.body.events.find(item => item.id === "evt_66");
+    assert(tourFinal, "the authenticated feed must retain the recent Tour de France final stage");
+    assert.equal(tourFinal.sportDomainId, "special:tour-de-france", "central Tour cards must use the Special Event preference domain");
+    assert.equal(tourFinal.participantIds.length, 14, "central Tour cards must resolve the calibrated rider-follow field");
+    assert.equal(tourFinal.jerseySnapshot?.stageNumber, 21, "central Tour cards must carry their matching stage-jersey snapshot");
+    assert.equal(tourFinal.jerseySnapshot?.close.yellowParticipantId, "competitor:cycling:tdf:tadej-pogacar");
+    assert.equal(tourFinal.jerseySnapshot?.close.polkadotParticipantId, "competitor:cycling:tdf:richard-carapaz");
+    assert.equal(tourFinal.jerseySnapshot?.close.purpleParticipantId, null, "central context must not fabricate a purple Tour classification");
 
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);

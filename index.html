@@ -1095,6 +1095,62 @@ main{
   color:var(--accent);
 }
 
+.jersey-context{
+  display:grid;
+  gap:6px;
+  margin-top:9px;
+  padding:8px 9px;
+  border:1px solid color-mix(in srgb, var(--c-cycling) 34%, var(--border));
+  border-radius:10px;
+  background:color-mix(in srgb, var(--c-cycling) 6%, transparent);
+  font-size:0.68rem;
+}
+
+.jersey-context-label{
+  color:var(--text-faint);
+  font-size:0.62rem;
+  font-weight:850;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+
+.jersey-context-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+  color:var(--text-dim);
+  line-height:1.35;
+}
+
+.jersey-context-row strong{
+  color:var(--text);
+  min-width:54px;
+}
+
+.jersey-context-swatch{
+  width:9px;
+  height:9px;
+  flex:0 0 9px;
+  border:1px solid rgba(255,255,255,0.28);
+  border-radius:50%;
+}
+
+.jersey-context-swatch.yellow{ background:#f7d000; }
+.jersey-context-swatch.polkadot{
+  background:
+    radial-gradient(circle at 30% 30%, #df1f2d 0 26%, transparent 28%),
+    radial-gradient(circle at 72% 70%, #df1f2d 0 26%, transparent 28%),
+    #f7f7f5;
+}
+
+.jersey-context.protected{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--text-dim);
+}
+
 .compact-result{
   display:grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -4625,6 +4681,58 @@ function buildFollowContext(contextItems){
   return context;
 }
 
+function jerseyHolderName(participantId){
+  if (!participantId) return "No holder";
+  return standingsParticipantName(participantId);
+}
+
+function buildStageJerseyContext(ev){
+  const snapshot = ev?.jerseySnapshot;
+  if (!snapshot) return null;
+  const context = document.createElement("div");
+  context.className = "jersey-context";
+  context.setAttribute("aria-label", `Tour de France Stage ${snapshot.stageNumber} jersey context`);
+  if (snapshot.unavailableClassifications?.length){
+    context.dataset.unavailableClassifications = snapshot.unavailableClassifications.join(",");
+  }
+
+  if (!isSpoilerVisible(ev)){
+    context.classList.add("protected");
+    const label = document.createElement("span");
+    label.className = "jersey-context-label";
+    label.textContent = "Jerseys";
+    const protectedCopy = document.createElement("span");
+    protectedCopy.textContent = "Starting and closing holders protected while Results is off.";
+    context.append(label, protectedCopy);
+    return context;
+  }
+
+  const label = document.createElement("span");
+  label.className = "jersey-context-label";
+  label.textContent = "Starting → closing jerseys";
+  context.appendChild(label);
+  [
+    ["yellow", "Yellow", "yellowParticipantId"],
+    ["polkadot", "Polkadot", "polkadotParticipantId"],
+  ].forEach(([className, classificationLabel, participantKey]) => {
+    const startParticipantId = snapshot.start?.[participantKey] || null;
+    const closeParticipantId = snapshot.close?.[participantKey] || null;
+    if (!startParticipantId && !closeParticipantId) return;
+    const row = document.createElement("div");
+    row.className = "jersey-context-row";
+    const swatch = document.createElement("span");
+    swatch.className = `jersey-context-swatch ${className}`;
+    swatch.setAttribute("aria-hidden", "true");
+    const name = document.createElement("strong");
+    name.textContent = classificationLabel;
+    const change = document.createElement("span");
+    change.textContent = `${jerseyHolderName(startParticipantId)} → ${jerseyHolderName(closeParticipantId)}`;
+    row.append(swatch, name, change);
+    context.appendChild(row);
+  });
+  return context;
+}
+
 function updateEventAction(ev, patch){
   const key = eventActionKey(ev);
   const nextAction = {
@@ -5946,6 +6054,8 @@ function buildEventCard(ev, options = {}){
   mainDiv.appendChild(metaRow);
   const followContext = buildFollowContext(enrichment.followContext);
   if (followContext) mainDiv.appendChild(followContext);
+  const jerseyContext = buildStageJerseyContext(ev);
+  if (jerseyContext) mainDiv.appendChild(jerseyContext);
 
   if (state !== "opened"){
     const compactResult = buildCompactResult(ev);
@@ -7763,12 +7873,13 @@ async function loadCanonicalSportsData(){
   canonicalSportsDataError = null;
   try{
     if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
-    const [leagueSports, f1Context, tennisContext] = await Promise.all([
+    const [leagueSports, f1Context, tennisContext, cyclingContext] = await Promise.all([
       fetchJson("data/canonical/afl-nrl-2026.json"),
       fetchJson("data/canonical/f1-context-2026.json"),
       fetchJson("data/canonical/tennis-context-2026.json"),
+      fetchJson("data/canonical/cycling-context-2026.json"),
     ]);
-    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext);
+    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
     activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);
     normalizeEvents(activeEvents);
@@ -7836,7 +7947,9 @@ function renderCoverageSettings(body){
         if (competition.standingsOnly){
           const contextLabel = competition.standingsType === "singlesRanking"
             ? "Competitor ranking context"
-            : "Championship standings context";
+            : competition.standingsType === "stageJerseys"
+              ? "Stage jersey context · Yellow and polkadot available; purple withheld because the official Tour publishes no purple classification"
+              : "Championship standings context";
           return `<div class="competition-preference"><strong>${competition.name}</strong><br><span>${contextLabel}</span></div>`;
         }
         const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);

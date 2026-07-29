@@ -44,6 +44,7 @@
       participants: mergeById(available.map(bundle => bundle.participants || [])),
       events: mergeById(available.map(bundle => bundle.events || [])),
       ladderSnapshots: mergeById(available.map(bundle => bundle.ladderSnapshots || [])),
+      jerseySnapshots: mergeById(available.map(bundle => bundle.jerseySnapshots || [])),
       eventParticipantScopes: available.flatMap(bundle => clone(bundle.eventParticipantScopes || [])),
     };
   }
@@ -92,6 +93,12 @@
 
   function applyEventContext(event, context){
     const title = `${event?.name || ""} ${event?.displayTitleCompact || ""}`.trim();
+    const eventId = String(event?.eventId || event?.id || "");
+    const jerseySnapshot = (context?.jerseySnapshots || [])
+      .find(candidate => String(candidate.eventId || "") === eventId);
+    const contextualEvent = jerseySnapshot
+      ? { ...event, jerseySnapshot: clone(jerseySnapshot) }
+      : { ...event };
     const scope = (context?.eventParticipantScopes || []).find(candidate => {
       if (candidate.sportKey !== event?.key) return false;
       try{
@@ -100,13 +107,13 @@
         return false;
       }
     });
-    if (!scope) return { ...event };
+    if (!scope) return contextualEvent;
     const participantIds = Array.from(new Set([
       ...(Array.isArray(event.participantIds) ? event.participantIds : []),
       ...matchedParticipantIdsForScope(scope, context, title),
     ]));
     return {
-      ...event,
+      ...contextualEvent,
       sportDomainId: event.sportDomainId || scope.preferenceDomainId || event.key,
       participantIds,
     };
