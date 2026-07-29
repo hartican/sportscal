@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nothingsports.local/schemas/preference-graph.schema.json",
-  "title": "nothingSports profile preference graph",
+  "title": "nothingsport profile preference graph",
   "type": "object",
   "additionalProperties": false,
   "required": [

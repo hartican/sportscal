@@ -36,31 +36,49 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the nothingSports contract");
-assert(html.includes("<title>nothingSports</title>"), "the document title must use the nothingSports brand");
-assert(html.includes(brand.hero), "the canonical nothingSports hero line must be present");
-assert(html.includes(brand.about), "the canonical nothingSports About paragraph must be present verbatim");
+assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the nothingsport contract");
+assert(html.includes(`<title>${brand.title}</title>`), "the document title must use the canonical nothingsport title");
+assert(html.includes(brand.hero), "the canonical nothingsport hero line must be present");
+assert(html.includes(brand.about), "the canonical nothingsport About paragraph must be present verbatim");
+assert.equal(manifest.name, brand.title, "the install manifest must use the canonical nothingsport title");
+assert.equal(manifest.short_name, brand.name, "the installed app label must use the lowercase nothingsport name");
 assert.equal(manifest.description, brand.metadataDescription, "manifest copy must follow the brand source of truth");
 assert(html.includes(`content="${brand.metadataDescription}"`), "page metadata must follow the brand source of truth");
 assert(!/right live games/i.test(html), "superseded right-live-games copy must be removed");
 assert(!brand.about.includes("Sydney"), "core product copy must not be city-bound");
 assert(brand.about.includes("AEST/AEDT by default"), "core product copy must describe its default timezone basis");
 const brandAssets = [
-  "assets/brand/web/nothingsport-logo-day.png",
-  "assets/brand/web/nothingsport-logo-night.png",
-  "assets/brand/web/nothingsport-compact-icon-day.png",
-  "assets/brand/web/nothingsport-compact-icon-night.png",
-  "icons/nothingsport-helm-32.png",
-  "icons/nothingsport-helm-180.png",
-  "icons/nothingsport-helm-192.png",
-  "icons/nothingsport-helm-512.png",
+  "assets/brand/source/nothingsport-logo-master.png",
+  "assets/brand/source/nothingsport-hero-logo-master.png",
+  "assets/brand/source/nothingsport-app-icon-master.png",
+  "assets/brand/source/nothingsport-logo-slogan-master.png",
+  "assets/brand/web/nothingsport-logo.png",
+  "assets/brand/web/nothingsport-hero-logo.png",
+  "assets/brand/web/nothingsport-app-icon.png",
+  "assets/brand/web/nothingsport-logo-slogan.png",
+  "assets/brand/web/nothingsport-social-preview.png",
+  "icons/nothingsport-app-32.png",
+  "icons/nothingsport-app-180.png",
+  "icons/nothingsport-app-192.png",
+  "icons/nothingsport-app-512.png",
+  "icons/nothingsport-app-maskable-512.png",
 ];
 brandAssets.forEach(asset => assert(fs.existsSync(asset), `brand asset must exist: ${asset}`));
-assert(html.includes('data-brand-asset="logo"'), "the full centurion logo must replace the legacy text-and-colosseum lockup");
-assert(html.includes('data-brand-asset="icon"'), "the compact centurion icon must appear in constrained app UI");
+["logo", "hero", "icon", "slogan"].forEach(asset => {
+  assert(html.includes(`data-brand-asset="${asset}"`), `the supplied ${asset} asset must have a visible app placement`);
+});
 assert(html.includes("syncThemeBrandAssets(useDark)"), "brand assets must follow the existing day, night, and system theme selection");
 assert(!html.includes('class="brand-colosseum"'), "the legacy colosseum placeholder must be removed");
-assert.deepEqual(manifest.icons.map(icon => icon.src), ["/icons/nothingsport-helm-192.png", "/icons/nothingsport-helm-512.png"], "the install manifest must use the standalone centurion helm");
+assert(!/nothingsport-(?:logo|compact-icon)-(?:day|night)\.png|nothingsport-helm-\d+\.png/.test(html), "legacy centurion assets must not remain referenced");
+assert.deepEqual(
+  manifest.icons.map(icon => [icon.src, icon.purpose]),
+  [
+    ["/icons/nothingsport-app-192.png", "any"],
+    ["/icons/nothingsport-app-512.png", "any"],
+    ["/icons/nothingsport-app-maskable-512.png", "maskable"],
+  ],
+  "the install manifest must use the supplied skier app icon with normal and maskable safe zones"
+);
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(html.includes('<span class="tab-label">Don’t Miss</span>'), "Never Miss must be renamed Don’t Miss in the primary tabs");
 assert(html.includes('<span class="tab-label">Catch Up</span>'), "Watch Later must be renamed Catch Up in the primary tabs");
@@ -135,7 +153,10 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v43"'), "the customised Calendar sync phase must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v44"'), "the brand refresh must advance the served shell cache");
+brandAssets
+  .filter(asset => asset.startsWith("assets/brand/web/") || asset.startsWith("icons/"))
+  .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
@@ -354,7 +375,7 @@ const expectedCwgProgrammeDisciplines = [
 expectedCwgProgrammeDisciplines.forEach(discipline => {
   assert(publishedCwgCards.some(event => event.commonwealthDiscipline === discipline), `Commonwealth Games feed must cover ${discipline}`);
 });
-assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing nothingSports card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
+assert(!JSON.stringify(publishedFeed).includes("Preserved from the existing nothingsport card set until a newer source supersedes it."), "published cards must not contain legacy placeholder copy");
 publishedFeed.events.forEach(event => {
   [event.name, event.displayTitleCompact, event.spoilerSafeTitle].filter(Boolean).forEach(title => {
     assert.doesNotMatch(title, /\s(?:vs\.?|versus)\s/i, `published fixture title must use v: ${event.id}`);
@@ -1246,9 +1267,9 @@ const summerTimestamp = app.formatFeedbackTimestamp(new Date("2026-12-16T10:00:0
 assert.match(winterTimestamp, /AEST$/, "winter feedback timestamps must use AEST");
 assert.match(summerTimestamp, /AEDT$/, "summer feedback timestamps must use AEDT");
 const feedbackMessage = app.buildFeedbackMessage("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z"));
-assert.match(feedbackMessage, /^NOTHINGSPORTS FEEDBACK/);
+assert.match(feedbackMessage, /^nothingsport feedback/);
 assert.match(feedbackMessage, /Category: Bug report/);
-assert.match(feedbackMessage, /Sent from nothingSports$/);
+assert.match(feedbackMessage, /Sent from nothingsport$/);
 assert.match(app.buildFeedbackSmsUrl("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z")), /^sms:0437041326\?&body=/);
 
-console.log("nothingSports phase rules verified");
+console.log("nothingsport phase rules verified");

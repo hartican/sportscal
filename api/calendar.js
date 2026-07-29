@@ -50,8 +50,9 @@ module.exports = function calendarSyncHandler(request, response){
   });
 
   response.setHeader("Content-Type", "text/calendar; charset=utf-8");
-  response.setHeader("Content-Disposition", 'inline; filename="nothingsports-calendar.ics"');
+  response.setHeader("Content-Disposition", 'inline; filename="nothingsport-calendar.ics"');
   response.setHeader("Cache-Control", "public, max-age=0, s-maxage=300, stale-while-revalidate=900");
+  response.setHeader("X-nothingsport-Events", String(events.length));
   response.setHeader("X-nothingSports-Events", String(events.length));
   response.status(200).send(calendar);
 };

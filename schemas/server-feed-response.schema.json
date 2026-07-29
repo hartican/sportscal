@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nothingsport.vercel.app/schemas/server-feed-response.schema.json",
-  "title": "nothingSports personalised server feed",
+  "title": "nothingsport personalised server feed",
   "type": "object",
   "additionalProperties": false,
   "required": [

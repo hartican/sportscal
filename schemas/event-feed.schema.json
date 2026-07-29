@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sportscal.local/schemas/event-feed.schema.json",
-  "title": "nothingSports event feed",
+  "title": "nothingsport event feed",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "version", "publishedAt", "events"],

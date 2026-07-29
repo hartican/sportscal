@@ -178,7 +178,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
   const output = normalizeFeed({
     ...feed,
-    version: options.version || "nothingsports-afl-nrl-fixtures-2026-v1",
+    version: options.version || "nothingsport-afl-nrl-fixtures-2026-v1",
     publishedAt,
     sourceNote: "Curated event cards plus official confirmed 2026 AFL and NRL regular-season fixtures. Curated cards supersede routine imports for the same event.",
     events,

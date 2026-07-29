@@ -3,9 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>nothingSports</title>
+<title>Nothingsport — Sports feed orchestrator</title>
 <meta name="theme-color" content="#0a0a0f">
-<meta name="description" content="A smart sports streaming filter for high-stakes events, reminders, and where to watch.">
+<meta name="description" content="A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.">
+<meta name="application-name" content="nothingsport">
+<meta name="apple-mobile-web-app-title" content="nothingsport">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nothingsport — Sports feed orchestrator">
+<meta property="og:description" content="A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.">
+<meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nothingsport — Sports feed orchestrator">
+<meta name="twitter:description" content="A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.">
+<meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/nothingsport-app-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/icons/nothingsport-app-180.png" sizes="180x180">
@@ -138,14 +150,27 @@ header.top{
   position: sticky;
   top:0;
   z-index: 50;
-  background: var(--header-bg);
-  backdrop-filter: blur(14px) saturate(150%);
-  border-bottom: 1px solid var(--border);
-  padding: calc(16px + env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 16px max(20px, env(safe-area-inset-left));
+  --text: #f8f5f9;
+  --text-dim: #b9afbd;
+  --text-faint: #776d7b;
+  --border: rgba(239,213,236,0.14);
+  --bg-card: rgba(255,255,255,0.055);
+  --bg-card-hover: rgba(255,255,255,0.095);
+  --soft-fill: rgba(255,255,255,0.045);
+  --accent: #ff4778;
+  background:
+    radial-gradient(circle at 14% -40%, rgba(255,79,126,0.2), transparent 42%),
+    radial-gradient(circle at 88% -70%, rgba(255,191,157,0.13), transparent 46%),
+    rgba(10,10,15,0.94);
+  color:var(--text);
+  backdrop-filter: blur(18px) saturate(145%);
+  border-bottom: 1px solid rgba(255,84,128,0.2);
+  padding: calc(14px + env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 12px max(20px, env(safe-area-inset-left));
+  box-shadow:0 12px 34px rgba(3,3,8,0.18);
 }
 
 .header-inner{
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display:flex;
   align-items:center;
@@ -155,9 +180,11 @@ header.top{
 }
 
 .brand{
+  min-width:214px;
   display:flex;
   flex-direction:column;
-  gap:2px;
+  align-items:flex-start;
+  gap:1px;
 }
 
 .brand-title-row{
@@ -176,37 +203,43 @@ header.top{
   display:block;
   height:auto;
   object-fit:contain;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,0.28));
 }
 
 .header-brand-logo{
-  width:clamp(178px, 18vw, 235px);
-}
-
-.modal-brand-logo{
-  width:min(300px, 76vw);
-  margin-bottom:12px;
+  width:clamp(174px, 15vw, 194px);
+  animation:brand-arrive 520ms cubic-bezier(.2,.8,.2,1) both;
 }
 
 .brand-compact-icon{
   display:block;
-  width:38px;
+  width:42px;
   height:auto;
-  flex:0 0 38px;
+  flex:0 0 42px;
   object-fit:contain;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,0.28));
 }
 
 .brand .clock{
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-dim);
   font-variant-numeric: tabular-nums;
   font-weight: 500;
+  line-height:1.35;
 }
 
 .brand .slogan{
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   color: var(--text);
   font-weight: 800;
-  letter-spacing: 0;
+  letter-spacing: 0.035em;
+  text-transform:uppercase;
+  line-height:1.25;
+}
+
+@keyframes brand-arrive{
+  from{ opacity:0; transform:translateY(-5px) scale(0.985); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
 }
 
 .header-actions{
@@ -334,7 +367,7 @@ header.top{
 
 /* ---------- Tabs ---------- */
 .tabs{
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 16px auto 0;
   padding: 0 20px;
   display:flex;
@@ -1480,7 +1513,18 @@ main{
 }
 
 .about-panel{
-  width: min(760px, 100%);
+  --panel-bg:#0a0a0f;
+  --bg-card:#15141a;
+  --text:#f8f5f9;
+  --text-dim:#b9afbd;
+  --border:rgba(239,213,236,0.14);
+  --accent:#ff4778;
+  width: min(720px, 100%);
+  background:
+    radial-gradient(circle at 78% 6%, rgba(255,83,130,0.12), transparent 34%),
+    var(--panel-bg);
+  color:var(--text);
+  overflow:auto;
 }
 
 .onboarding-head{
@@ -1537,6 +1581,53 @@ main{
   line-height: 1.4;
 }
 
+.about-hero{
+  position:relative;
+  top:auto;
+  display:block;
+  padding:0;
+  overflow:hidden;
+  background:transparent;
+  backdrop-filter:none;
+}
+
+.about-hero-logo{
+  display:block;
+  width:min(100%, 660px);
+  height:auto;
+  margin:0 auto;
+  padding:10px 18px 0;
+  object-fit:contain;
+  filter:drop-shadow(0 24px 36px rgba(0,0,0,0.36));
+}
+
+.about-hero-copy{
+  position:relative;
+  z-index:1;
+  padding:0 24px 22px;
+}
+
+.about-hero-copy h2{
+  margin:0 0 5px;
+  font-size:clamp(1.08rem, 3vw, 1.35rem);
+  letter-spacing:-0.015em;
+}
+
+.about-hero-copy p{
+  color:#d9ccd9;
+  font-size:0.84rem;
+  font-weight:700;
+}
+
+.modal-backdrop.show .about-hero-logo{
+  animation:about-hero-arrive 620ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes about-hero-arrive{
+  from{ opacity:0; transform:translateY(8px) scale(0.975); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+
 .step-indicator{
   color: var(--text-faint);
   font-size: 0.72rem;
@@ -1561,6 +1652,12 @@ main{
   color: var(--text-dim);
   font-size: 0.9rem;
   line-height: 1.55;
+}
+
+.about-body > p:first-child{
+  color:var(--text);
+  font-size:0.95rem;
+  line-height:1.68;
 }
 
 .choice-grid{
@@ -2677,11 +2774,25 @@ main{
 footer.app-footer{
   max-width: 1100px;
   margin: 40px auto 0;
-  padding: 20px;
+  padding: 28px 20px;
   text-align:center;
   color: var(--text-faint);
   font-size: 0.75rem;
   border-top: 1px solid var(--border);
+}
+
+.footer-brand-logo{
+  display:block;
+  width:min(240px, 70vw);
+  height:auto;
+  margin:0 auto 12px;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 24px rgba(0,0,0,0.22));
+  opacity:0.96;
+}
+
+.footer-utility-line{
+  line-height:1.6;
 }
 
 /* ---------- Responsive ---------- */
@@ -2693,8 +2804,59 @@ footer.app-footer{
 }
 
 @media (max-width: 640px){
-  .header-brand-logo{ width:178px; }
-  .brand .slogan{ font-size: 0.66rem; }
+  header.top{
+    padding:
+      calc(10px + env(safe-area-inset-top))
+      max(14px, env(safe-area-inset-right))
+      9px
+      max(14px, env(safe-area-inset-left));
+  }
+  .header-inner{ gap:10px; }
+  .brand{
+    width:100%;
+    min-width:0;
+    display:grid;
+    grid-template-columns:minmax(132px, 150px) minmax(0, 1fr);
+    grid-template-rows:auto auto;
+    align-items:center;
+    column-gap:10px;
+    row-gap:2px;
+  }
+  .brand-title-row{ grid-row:1 / 3; }
+  .header-brand-logo{ width:min(150px, 100%); }
+  .brand .slogan{
+    font-size:0.62rem;
+    letter-spacing:0.045em;
+  }
+  .brand .clock{
+    font-size:0.6rem;
+    line-height:1.3;
+  }
+  .header-actions{
+    width:100%;
+    display:grid;
+    grid-template-columns:minmax(88px, 1fr) repeat(5, 44px);
+    gap:5px;
+  }
+  .header-actions .btn{
+    width:100%;
+    min-width:44px;
+    min-height:44px;
+    padding:0;
+    justify-content:center;
+  }
+  .spoiler-home-toggle{
+    min-width:0;
+    padding:0 7px !important;
+    gap:4px;
+  }
+  .spoiler-home-label{ font-size:0; }
+  .spoiler-home-label::after{
+    content:"Results";
+    font-size:0.61rem;
+    letter-spacing:0.01em;
+  }
+  .soundtrack-toggle-state{ display:none; }
   .standings-context{ padding:0 12px; }
   .standings-module{ padding:12px; }
   .standings-table{ font-size:0.68rem; }
@@ -2713,14 +2875,14 @@ footer.app-footer{
     font-size:0.52rem;
   }
   .tabs{
-    padding: 0 16px;
-    gap: 4px;
+    padding:0;
+    gap:0;
   }
   .tab-btn{
     flex: 1 1 0;
     min-width: 0;
-    padding: 9px 6px;
-    font-size: 0.76rem;
+    padding:9px 3px;
+    font-size:0.69rem;
     text-align:center;
     line-height:1.15;
   }
@@ -2743,6 +2905,18 @@ footer.app-footer{
   }
   .modal-backdrop{ padding:0; }
   .onboarding-body{ padding:16px; }
+  .about-hero-logo{
+    width:100%;
+    padding:8px 8px 0;
+  }
+  .about-hero-copy{ padding:0 18px 18px; }
+  .about-hero-copy h2{ font-size:1rem; }
+  .about-body{ padding:18px; }
+  .about-body > p:first-child{
+    font-size:0.9rem;
+    line-height:1.58;
+  }
+  .footer-brand-logo{ width:min(210px, 72vw); }
   .theme-choice-list{ grid-template-columns:1fr; }
   .choice-grid{
     grid-template-columns: 1fr;
@@ -2829,7 +3003,7 @@ footer.app-footer{
   :where(.btn, .tab-btn, .pill, .view-toggle button, .settings-icon-btn, .card-expand-control){
     min-height: 44px;
   }
-  .header-actions{ gap: 8px; }
+  .header-actions{ gap:5px; }
   .header-actions .btn{ min-width: 44px; }
   .event-name-line{ align-items: flex-start; }
 }
@@ -2853,9 +3027,9 @@ footer.app-footer{
   <div class="header-inner">
     <div class="brand">
       <div class="brand-title-row">
-        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo-night.png" width="1200" height="445" alt="nothingSports"></h1>
+        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
       </div>
-      <div class="slogan">A smart sports streaming filter that knows what to show you — and what to leave out.</div>
+      <div class="slogan">Sports feed orchestrator</div>
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
@@ -2899,7 +3073,8 @@ footer.app-footer{
 </main>
 
 <footer class="app-footer">
-  nothingSports &middot; Spoiler-safe by default &middot; AEST/AEDT by default &middot; Data updates weekly
+  <img class="footer-brand-logo" data-brand-asset="slogan" src="assets/brand/web/nothingsport-logo-slogan.png" width="1200" height="643" alt="nothingsport — Sports feed orchestrator" loading="lazy" decoding="async">
+  <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Data updates weekly</div>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -2908,11 +3083,11 @@ footer.app-footer{
   <div class="onboarding-panel settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="onboarding-head">
       <div class="settings-title-row">
-        <img class="brand-compact-icon" id="settingsBrandIcon" data-brand-asset="icon" src="assets/brand/web/nothingsport-compact-icon-night.png" width="640" height="619" alt="" aria-hidden="true">
+        <img class="brand-compact-icon" id="settingsBrandIcon" data-brand-asset="icon" src="assets/brand/web/nothingsport-app-icon.png" width="720" height="611" alt="" aria-hidden="true">
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
-          <p id="settingsCopy">Choose what you follow once. nothingSports handles the rest.</p>
+          <p id="settingsCopy">Choose what you follow once. nothingsport handles the rest.</p>
         </div>
       </div>
       <button class="settings-icon-btn" id="closeSettingsBtn" type="button" aria-label="Close Settings">×</button>
@@ -2927,15 +3102,15 @@ footer.app-footer{
 
 <div class="modal-backdrop" id="aboutModal" aria-hidden="true">
   <div class="onboarding-panel about-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
-    <div class="onboarding-head">
-      <div>
-        <img class="brand-logo modal-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo-night.png" width="1200" height="445" alt="" aria-hidden="true">
-        <h2 id="aboutTitle">About</h2>
-        <p>A smart sports streaming filter that knows what to show you — and what to leave out.</p>
+    <div class="onboarding-head about-hero">
+      <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true">
+      <div class="about-hero-copy">
+        <h2 id="aboutTitle">Nothingsport — Sports feed orchestrator</h2>
+        <p>Your sports, orchestrated.</p>
       </div>
     </div>
     <div class="about-body">
-      <p>nothingSports is a smart sports streaming filter that knows what to show you and what to leave out. It keeps your most important games in one place, without the back-and-forth of checking websites and streaming services. Set it up once, and it quietly handles the rest. It learns what you follow, surfaces the highest-stakes events, shows where to watch them, and stays quiet when nothing deserves your time. Sync with your calendar for reminders across devices. Built around AEST/AEDT by default, it can easily adapt to other time zones.</p>
+      <p>nothingsport is a sports feed orchestrator: one calm, personalised view of the events that matter to you. It brings fixtures, stakes, spoiler-safe context, where-to-watch details and reminders into a single feed, then filters out the noise. Choose the sports, competitions, teams and competitors you follow once; nothingsport ranks what is worth your attention, keeps your calendar in sync and stays quiet when nothing merits it. Built around AEST/AEDT by default, it adapts to other time zones.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
     </div>
@@ -3018,7 +3193,7 @@ footer.app-footer{
       <label class="calendar-sync-field" for="calendarSyncUrl">Subscription URL
         <textarea class="calendar-sync-url" id="calendarSyncUrl" readonly rows="3"></textarea>
       </label>
-      <p class="utility-help">Calendar apps poll this address for changes. Reopen Calendar sync after changing your nothingSports preferences to get the updated filter path.</p>
+      <p class="utility-help">Calendar apps poll this address for changes. Reopen Calendar sync after changing your nothingsport preferences to get the updated filter path.</p>
       <div class="calendar-sync-actions">
         <button class="btn ghost" type="button" id="closeCalendarSyncBtn">Close</button>
         <button class="btn ghost" type="button" id="copyCalendarSyncBtn"><span id="copyCalendarSyncLabel">Copy link</span></button>
@@ -3860,8 +4035,8 @@ async function deliverBrowserReminder(reminder){
   if (typeof Notification === "undefined" || Notification.permission !== "granted") return false;
   const options = {
     body: reminder.body,
-    icon: "/icons/nothingsport-helm-192.png",
-    badge: "/icons/nothingsport-helm-32.png",
+    icon: "/icons/nothingsport-app-192.png",
+    badge: "/icons/nothingsport-app-32.png",
     tag: reminder.key,
     data: { eventId: reminder.eventId, url: "/" },
   };
@@ -4066,7 +4241,7 @@ async function syncCurrentServerState({ notify = false } = {}){
       lastSyncedAt,
       message: "",
     });
-    if (notify) showToast("Your nothingSports profile is synced.");
+    if (notify) showToast("Your nothingsport profile is synced.");
     return result;
   }catch(error){
     const signedOut = error?.status === 401;
@@ -7071,15 +7246,15 @@ function formatFeedbackTimestamp(date = new Date()){
 
 function buildFeedbackMessage(category, message, date = new Date()){
   return [
-    "NOTHINGSPORTS FEEDBACK",
-    "Meta: nothingSports feedback form",
+    "nothingsport feedback",
+    "Meta: nothingsport feedback form",
     `Timestamp: ${formatFeedbackTimestamp(date)}`,
     `Category: ${category}`,
     "",
     "Message:",
     String(message || "").trim() || "(No message entered)",
     "",
-    "Sent from nothingSports",
+    "Sent from nothingsport",
   ].join("\n");
 }
 
@@ -7617,7 +7792,7 @@ function renderAccountSettings(body){
       const result = await serverSyncClient.requestMagicLink(email);
       setServerPersistence({
         state: "magicLinkSent",
-        message: result.message || "Check your email for your nothingSports sign-in link.",
+        message: result.message || "Check your email for your nothingsport sign-in link.",
       });
     }catch(error){
       setServerPersistence({
@@ -8097,7 +8272,7 @@ function renderStandingsSettings(body){
   syncDraftPreferenceGraph();
   const competitions = supportedStandingsCompetitions(draftPreferences);
   body.innerHTML = `<div class="preference-stack">
-    <p class="standings-warning">Ladders and standings are not spoiler-free by nature. With Results off, nothingSports asks before revealing them.</p>
+    <p class="standings-warning">Ladders and standings are not spoiler-free by nature. With Results off, nothingsport asks before revealing them.</p>
     <div class="template-domain-list" id="standingsSettingsList"></div>
   </div>`;
   const list = document.getElementById("standingsSettingsList");
@@ -8252,7 +8427,7 @@ function renderAppearanceSettings(body){
 }
 
 function renderFeedbackSettings(body){
-  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingSports is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
+  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingsport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
   category.addEventListener("change", updateFeedbackPreview);
@@ -8736,10 +8911,10 @@ function generateICS(events = getFilteredEvents()){
   const lines = [];
   lines.push("BEGIN:VCALENDAR");
   lines.push("VERSION:2.0");
-  lines.push("PRODID:-//nothingSports//EN");
+  lines.push("PRODID:-//nothingsport//EN");
   lines.push("CALSCALE:GREGORIAN");
   lines.push("METHOD:PUBLISH");
-  lines.push("X-WR-CALNAME:nothingSports");
+  lines.push("X-WR-CALNAME:nothingsport");
   lines.push("X-WR-TIMEZONE:Australia/Sydney");
 
   // VTIMEZONE block for Australia/Sydney with fixed AEST(+10)/AEDT(+11) rules

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nothingsports.local/schemas/profile-storage.schema.json",
-  "title": "nothingSports profile storage bundle",
+  "title": "nothingsport profile storage bundle",
   "type": "object",
   "additionalProperties": false,
   "required": [

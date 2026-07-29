@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nothingsports.local/schemas/enriched-event.schema.json",
-  "title": "nothingSports enriched event",
+  "title": "nothingsport enriched event",
   "type": "object",
   "required": [
     "schemaVersion",

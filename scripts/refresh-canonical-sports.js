@@ -66,7 +66,7 @@ async function fetchJson(url, headers = {}){
   const response = await fetch(url, {
     headers: {
       Accept: "application/json",
-      "User-Agent": "nothingSports-canonical-refresh/1.0",
+      "User-Agent": "nothingsport-canonical-refresh/1.0",
       ...headers,
     },
   });

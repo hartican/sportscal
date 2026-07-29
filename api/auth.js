@@ -79,7 +79,7 @@ module.exports = async function authHandler(request, response){
       });
       response.status(200).json({
         sent: true,
-        message: "Check your email for your nothingSports sign-in link.",
+        message: "Check your email for your nothingsport sign-in link.",
       });
       return;
     }

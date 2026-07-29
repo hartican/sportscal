@@ -226,6 +226,11 @@ calendarHandler({
 assert.equal(calendarResponse.statusCode, 200);
 assert.equal(calendarResponse.headers["Content-Type"], "text/calendar; charset=utf-8");
 assert(calendarResponse.body.startsWith("BEGIN:VCALENDAR\r\n"));
-assert(Number(calendarResponse.headers["X-nothingSports-Events"]) >= 1);
+assert(Number(calendarResponse.headers["X-nothingsport-Events"]) >= 1);
+assert.equal(
+  calendarResponse.headers["X-nothingSports-Events"],
+  calendarResponse.headers["X-nothingsport-Events"],
+  "legacy calendar clients must retain the old event-count header during the brand migration"
+);
 
 console.log(`Calendar sync valid: ${selected.length} filtered fixtures, subscription query and Vercel endpoint passed.`);

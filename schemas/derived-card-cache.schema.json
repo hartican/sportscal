@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nothingsports.local/schemas/derived-card-cache.schema.json",
-  "title": "nothingSports disposable derived-card cache",
+  "title": "nothingsport disposable derived-card cache",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "generatedAt", "derivedCards"],

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nothingsports.local/schemas/canonical-sports.schema.json",
-  "title": "nothingSports canonical sports bundle",
+  "title": "nothingsport canonical sports bundle",
   "type": "object",
   "additionalProperties": false,
   "required": [

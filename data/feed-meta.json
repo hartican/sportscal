@@ -1,7 +1,7 @@
 {
-  "version": "nothingsports-afl-nrl-fixtures-2026-v1",
+  "version": "nothingsport-results-2026-07-30-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-24T08:27:54.216Z",
+  "publishedAt": "2026-07-29T15:11:08.000Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -22,7 +22,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-07-24",
+    "basisDate": "2026-07-29",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -30,7 +30,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-03-20",
-    "daysAhead": 239,
+    "daysAhead": 234,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {

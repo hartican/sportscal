@@ -70,7 +70,7 @@
     "brand:app-maskable-512": Object.freeze({ key: "brand:app-maskable-512", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "icons/nothingsport-app-maskable-512.png", permissionBasis: "first-party brand asset" }),
   });
 
-  const custom = Object.freeze(Object.fromEntries(Object.keys(customBodies).map(key => [key, Object.freeze({ key, assetClass: "custom-semantic", rightsStatus: key.startsWith("sport:") ? "fallback" : "official", provenance: "first-party", owner: "nothingSports", render: "inline" })])));
+  const custom = Object.freeze(Object.fromEntries(Object.keys(customBodies).map(key => [key, Object.freeze({ key, assetClass: "custom-semantic", rightsStatus: key.startsWith("sport:") ? "fallback" : "official", provenance: "first-party", owner: "nothingsport", render: "inline" })])));
 
   function escapeAttribute(value){
     return String(value || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sportscal.local/schemas/calendar-events.schema.json",
-  "title": "nothingSports personal calendar import",
+  "title": "nothingsport personal calendar import",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "calendarName", "importedAt", "events"],

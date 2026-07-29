@@ -19,7 +19,7 @@ const bundled = normalizeFeed(readJson("data/events.json")).events
     displayTitleCompact: event.displayTitleCompact || event.name,
     selectedSentence: event.selectedSentence || `${event.name} is retained with its known schedule and broadcast path.`,
     fullSpiel: event.fullSpiel || `${event.name} remains in the calendar with the available schedule, stakes and broadcaster details. Add an official result or refreshed preview when the governing source publishes it.`,
-    sourceName: event.sourceName || "Bundled nothingSports seed data",
+    sourceName: event.sourceName || "Bundled nothingsport seed data",
     sourceUrl: event.sourceUrl || "https://github.com/hartican/sportscal",
     sourceCheckedAt: event.sourceCheckedAt || "2026-07-10T08:30:00+10:00",
   }));
