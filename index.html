@@ -6541,6 +6541,16 @@ function standingsColumnsForCompetition(competition){
       ["gamesBehind", "GB"],
     ];
   }
+  if (competition.standingsType === "medalTable"){
+    return [
+      ["rank", "#"],
+      ["participant", "Team"],
+      ["gold", "G"],
+      ["silver", "S"],
+      ["bronze", "B"],
+      ["total", "Total"],
+    ];
+  }
   if (competition.sportDomainId === "sport:afl"){
     return [
       ["rank", "#"],
@@ -7842,6 +7852,7 @@ const PREFERENCE_TO_CANONICAL_DOMAIN = Object.freeze({
   "special:tour-de-france": "sport:cycling",
   "special:masters-tournament": "sport:golf",
   "special:le-mans-24-hours": "sport:motorsport",
+  "special:commonwealth-games": "sport:multi-sport",
 });
 
 function canonicalDomainIdForPreferenceDomain(domainId){
@@ -7887,14 +7898,15 @@ async function loadCanonicalSportsData(){
   canonicalSportsDataError = null;
   try{
     if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
-    const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext] = await Promise.all([
+    const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext] = await Promise.all([
       fetchJson("data/canonical/afl-nrl-2026.json"),
       fetchJson("data/canonical/f1-context-2026.json"),
       fetchJson("data/canonical/tennis-context-2026.json"),
       fetchJson("data/canonical/cycling-context-2026.json"),
       fetchJson("data/canonical/nba-context-2026.json"),
+      fetchJson("data/canonical/cwg-context-2026.json"),
     ]);
-    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext, nbaContext);
+    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
     activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);
     normalizeEvents(activeEvents);
@@ -7966,6 +7978,8 @@ function renderCoverageSettings(body){
               ? "Stage jersey context · Yellow and polkadot available; purple withheld because the official Tour publishes no purple classification"
               : competition.standingsType === "conferenceStandings"
                 ? "Conference standings · W/L, win percentage and games behind"
+                : competition.standingsType === "medalTable"
+                  ? "Medal table · Gold, silver, bronze and total"
               : "Championship standings context";
           return `<div class="competition-preference"><strong>${competition.name}</strong><br><span>${contextLabel}</span></div>`;
         }

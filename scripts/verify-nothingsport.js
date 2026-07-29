@@ -135,12 +135,13 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v41"'), "the NBA context phase must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingSports-shell-v42"'), "the CWG context phase must advance the served shell cache");
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/cycling-context-2026.json"'), "Tour rider and jersey context must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/nba-context-2026.json"'), "NBA follows and conference standings must be available in the offline app shell");
+assert(serviceWorkerSource.includes('"/data/canonical/cwg-context-2026.json"'), "CWG competitor follows and the medal table must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
@@ -228,6 +229,7 @@ const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.jso
 const tennisContext = JSON.parse(fs.readFileSync("data/canonical/tennis-context-2026.json", "utf8"));
 const cyclingContext = JSON.parse(fs.readFileSync("data/canonical/cycling-context-2026.json", "utf8"));
 const nbaContext = JSON.parse(fs.readFileSync("data/canonical/nba-context-2026.json", "utf8"));
+const cwgContext = JSON.parse(fs.readFileSync("data/canonical/cwg-context-2026.json", "utf8"));
 const sportContextSchema = JSON.parse(fs.readFileSync("schemas/sport-context.schema.json", "utf8"));
 const eventsBundleSandbox = { globalThis: {} };
 vm.runInNewContext(eventsBundleSource, eventsBundleSandbox, { filename: eventsBundlePath });
@@ -286,6 +288,19 @@ assert(contextualNbaEvents.every(event => !event.participantIds.includes("team:n
 assert(html.includes('fetchJson("data/canonical/nba-context-2026.json")'), "the browser must load the NBA context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/nba-context-2026.json")'), "the authenticated server feed must load the same NBA context bundle");
 assert(html.includes("Conference standings · W/L, win percentage and games behind"), "NBA settings must describe the calibrated conference tables");
+assert.equal(cwgContext.participants.filter(participant => participant.sportDomainId === "sport:multi-sport:cwg:competitors").length, 15, "CWG detail settings must expose the calibrated competitor-follow set");
+assert.equal(cwgContext.participants.filter(participant => participant.sportDomainId === "sport:multi-sport:cwg:nations").length, 24, "CWG medal context must resolve every currently medalling nation or territory");
+assert.equal(cwgContext.competitions[0]?.standingsType, "medalTable", "CWG context must use a sport-calibrated medal table");
+assert.equal(cwgContext.ladderSnapshots[0]?.entries.length, 24, "the Glasgow 2026 medal table must contain the full official Day 6 field");
+const contextualCwgEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "cwg"), cwgContext);
+assert.equal(contextualCwgEvents.length, 32, "the published CWG card set must remain intact after competitor resolution");
+assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-swimming-closing-finals")?.participantIds?.length, 6, "CWG swimming cards must resolve only the calibrated swimming follow field");
+assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-netball-gold-medal")?.participantIds?.[0], "competitor:cwg:liz-watson", "CWG netball cards must resolve the surfaced Australian competitor");
+assert(!contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-boxing-finals-one")?.participantIds?.length, "unsupported CWG disciplines must not inherit competitor follows");
+assert(html.includes('fetchJson("data/canonical/cwg-context-2026.json")'), "the browser must load the CWG context bundle");
+assert(serverFeedApiSource.includes('require("../data/canonical/cwg-context-2026.json")'), "the authenticated server feed must load the same CWG context bundle");
+assert(html.includes('"special:commonwealth-games": "sport:multi-sport"'), "Commonwealth Games settings must resolve to the multi-sport canonical domain");
+assert(html.includes("Medal table · Gold, silver, bronze and total"), "CWG settings must describe the calibrated medal table");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
 assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
@@ -587,6 +602,11 @@ assert.deepEqual(
   Array.from(app.standingsColumnsForCompetition({ standingsType: "conferenceStandings", sportDomainId: "sport:basketball" }), column => column[0]),
   ["rank", "participant", "won", "lost", "winPercentage", "gamesBehind"],
   "NBA conference standings must use rank, team, wins, losses, win percentage and games behind"
+);
+assert.deepEqual(
+  Array.from(app.standingsColumnsForCompetition({ standingsType: "medalTable", sportDomainId: "sport:multi-sport" }), column => column[0]),
+  ["rank", "participant", "gold", "silver", "bronze", "total"],
+  "CWG medal standings must use rank, team, gold, silver, bronze and total columns"
 );
 assert.equal(
   app.standingsVisibilityForCompetition({

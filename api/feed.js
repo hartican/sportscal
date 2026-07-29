@@ -6,6 +6,7 @@ const f1Context = require("../data/canonical/f1-context-2026.json");
 const tennisContext = require("../data/canonical/tennis-context-2026.json");
 const cyclingContext = require("../data/canonical/cycling-context-2026.json");
 const nbaContext = require("../data/canonical/nba-context-2026.json");
+const cwgContext = require("../data/canonical/cwg-context-2026.json");
 const sportContext = require("../config/sport-context");
 const {
   SupabaseRequestError,
@@ -18,7 +19,7 @@ const {
   buildServerFeed,
 } = require("../lib/server-feed-pipeline");
 
-const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext);
+const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
 const contextualEvents = sportContext.applyContextToEvents(eventFeed.events, canonicalSportContext);
 
 function setPrivateResponseHeaders(response){

@@ -38,7 +38,7 @@
     { key: "lemans", domainId: "sport:motorsport", label: "Le Mans", selectorLabel: "Le Mans", detail: "24 Hours start and finish windows.", color: "var(--c-lemans)", glyph: "sport:motorsport", sortOrder: 110, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "nfl", domainId: "sport:american-football", label: "Super Bowl", selectorLabel: "Super Bowl", detail: "The NFL championship event.", color: "var(--c-nfl)", glyph: "sport:american-football", sortOrder: 120, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "ski", domainId: "sport:skiing", label: "Ski/Alpine", selectorLabel: "Alpine / Freestyle Skiing", detail: "World Cup and finals events.", color: "var(--c-ski)", glyph: "sport:skiing", sortOrder: 130, selector: true, supportsLadders: false, supportsNarrative: true },
-    { key: "cwg", domainId: "special:commonwealth-games", label: "Commonwealth Games", selectorLabel: "Commonwealth Games", detail: "Curated Glasgow 2026 sessions with Australian relevance.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 140, selector: false, supportsLadders: false, supportsNarrative: true },
+    { key: "cwg", domainId: "special:commonwealth-games", label: "Commonwealth Games", selectorLabel: "Commonwealth Games", detail: "Curated Glasgow 2026 sessions, top-competitor follows, and a spoiler-protected medal table.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 140, selector: false, supportsLadders: true, supportsNarrative: true },
   ].map(domain => Object.freeze({ ...domain, narrativeProfile: narrativeProfiles[domain.key] }));
 
   const byKey = Object.freeze(Object.fromEntries(domains.map(domain => [domain.key, domain])));

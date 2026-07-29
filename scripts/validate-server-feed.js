@@ -119,6 +119,14 @@ async function run(){
         eventId: "evt_75",
         watchLater: true,
       },
+      "cwg-glasgow-2026-swimming-closing-finals:2026-07-30T04:00": {
+        eventId: "cwg-glasgow-2026-swimming-closing-finals",
+        watchLater: true,
+      },
+      "cwg-glasgow-2026-boxing-finals-one:2026-08-01T20:00": {
+        eventId: "cwg-glasgow-2026-boxing-finals-one",
+        watchLater: true,
+      },
     },
   };
   const feed = feedPipeline.buildServerFeed({
@@ -234,6 +242,20 @@ async function run(){
       "competitor:nba:jalen-brunson",
       "competitor:nba:victor-wembanyama",
     ], "central NBA Finals cards must resolve only the two teams and their surfaced All-NBA leaders");
+    const cwgSwimmingFinals = response.body.events.find(item => item.id === "cwg-glasgow-2026-swimming-closing-finals");
+    assert(cwgSwimmingFinals, "the authenticated feed must retain the saved Commonwealth Games swimming finals");
+    assert.equal(cwgSwimmingFinals.sportDomainId, "special:commonwealth-games");
+    assert.deepEqual(cwgSwimmingFinals.participantIds, [
+      "competitor:cwg:kaylee-mckeown",
+      "competitor:cwg:cameron-mcevoy",
+      "competitor:cwg:kyle-chalmers",
+      "competitor:cwg:mollie-ocallaghan",
+      "competitor:cwg:tim-hodge",
+      "competitor:cwg:lakeisha-patterson",
+    ], "central CWG swimming cards must resolve only the calibrated swimming and para-swimming competitors");
+    const cwgBoxingFinals = response.body.events.find(item => item.id === "cwg-glasgow-2026-boxing-finals-one");
+    assert(cwgBoxingFinals, "the authenticated feed must retain the saved Commonwealth Games boxing finals");
+    assert(!cwgBoxingFinals.participantIds?.length, "unsupported CWG disciplines must not inherit competitor context");
 
     const methodResponse = responseStub();
     await feedHandler({ method: "POST", headers: {} }, methodResponse);

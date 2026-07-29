@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v41";
+const CACHE_NAME = "nothingSports-shell-v42";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -25,6 +25,7 @@ const APP_SHELL = [
   "/data/canonical/tennis-context-2026.json",
   "/data/canonical/cycling-context-2026.json",
   "/data/canonical/nba-context-2026.json",
+  "/data/canonical/cwg-context-2026.json",
   "/schemas/preference-graph.schema.json",
   "/schemas/enriched-event.schema.json",
   "/schemas/derived-card-cache.schema.json",

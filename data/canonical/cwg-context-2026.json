@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "sport-context.v1",
+  "taxonomyVersion": "sports-taxonomy.v1",
+  "season": 2026,
+  "generatedAt": "2026-07-29T12:00:00.000Z",
+  "sources": [
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/medals",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4519022/mckeown-and-chalmers-in-all-star-australia-glasgow-2026-line-up",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4517889/glasgow-2026-ones-to-watch-latest-selection-news",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4438379/new-series-generation-glasgow-to-follow-commonwealth-contenders",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4496934/elaine-thompson-herah-targets-title-defence-at-glasgow-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4513887/cycling-superstars-selected-for-glasgow-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4487264/100-days-to-go-star-studded-athletics-line-up-takes-shape-as-just-26-000-tickets-left-for-scotstoun",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    },
+    {
+      "provider": "Glasgow 2026",
+      "sourceUrl": "https://www.glasgow2026.com/news/4488517/10-track-and-field-mega-stars-to-light-up-glasgow-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-07-29T12:00:00.000Z"
+    }
+  ],
+  "sportDomains": [
+    {
+      "id": "sport:multi-sport",
+      "slug": "multi-sport",
+      "name": "Multi-sport Games",
+      "kind": "sport",
+      "sortOrder": 130,
+      "isActive": true,
+      "supportsLadders": true,
+      "supportsAllFixtures": false,
+      "supportsNarrative": true,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "defaultTemplateId": "template:like",
+      "metadata": {
+        "region": "global",
+        "neutralGlyph": "sport:multi-sport"
+      }
+    }
+  ],
+  "competitionFamilies": [
+    {
+      "id": "family:glasgow-2026-commonwealth-games",
+      "sportDomainId": "sport:multi-sport",
+      "slug": "glasgow-2026-commonwealth-games",
+      "name": "Glasgow 2026 Commonwealth Games",
+      "familyType": "championship",
+      "sortOrder": 70,
+      "isActive": true
+    }
+  ],
+  "competitions": [
+    {
+      "id": "competition:glasgow-2026-medal-table",
+      "sportDomainId": "sport:multi-sport",
+      "preferenceDomainId": "special:commonwealth-games",
+      "competitionFamilyId": "family:glasgow-2026-commonwealth-games",
+      "slug": "glasgow-2026-medal-table",
+      "name": "Glasgow 2026 Medal Table",
+      "competitionType": "multiSportEvent",
+      "seasonLabel": "2026",
+      "region": "global",
+      "gender": "open",
+      "supportsLadder": true,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "isSpecialEvent": true,
+      "standingsOnly": true,
+      "standingsType": "medalTable",
+      "defaultStandingsVisibility": "summary"
+    }
+  ],
+  "participants": [
+    { "id": "team:cwg:australia", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Australia", "shortName": "Australia", "canonicalName": "Australia", "teamCode": "AUS", "countryCode": "AU", "metadata": { "active": true, "abbreviation": "AUS" } },
+    { "id": "team:cwg:canada", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Canada", "shortName": "Canada", "canonicalName": "Canada", "teamCode": "CAN", "countryCode": "CA", "metadata": { "active": true, "abbreviation": "CAN" } },
+    { "id": "team:cwg:england", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "England", "shortName": "England", "canonicalName": "England", "teamCode": "ENG", "countryCode": "GB", "metadata": { "active": true, "abbreviation": "ENG" } },
+    { "id": "team:cwg:scotland", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Scotland", "shortName": "Scotland", "canonicalName": "Scotland", "teamCode": "SCO", "countryCode": "GB", "metadata": { "active": true, "abbreviation": "SCO" } },
+    { "id": "team:cwg:nigeria", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Nigeria", "shortName": "Nigeria", "canonicalName": "Nigeria", "teamCode": "NGR", "countryCode": "NG", "metadata": { "active": true, "abbreviation": "NGR" } },
+    { "id": "team:cwg:malaysia", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Malaysia", "shortName": "Malaysia", "canonicalName": "Malaysia", "teamCode": "MAS", "countryCode": "MY", "metadata": { "active": true, "abbreviation": "MAS" } },
+    { "id": "team:cwg:south-africa", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "South Africa", "shortName": "South Africa", "canonicalName": "South Africa", "teamCode": "RSA", "countryCode": "ZA", "metadata": { "active": true, "abbreviation": "RSA" } },
+    { "id": "team:cwg:new-zealand", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "New Zealand", "shortName": "New Zealand", "canonicalName": "New Zealand", "teamCode": "NZL", "countryCode": "NZ", "metadata": { "active": true, "abbreviation": "NZL" } },
+    { "id": "team:cwg:india", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "India", "shortName": "India", "canonicalName": "India", "teamCode": "IND", "countryCode": "IN", "metadata": { "active": true, "abbreviation": "IND" } },
+    { "id": "team:cwg:jamaica", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Jamaica", "shortName": "Jamaica", "canonicalName": "Jamaica", "teamCode": "JAM", "countryCode": "JM", "metadata": { "active": true, "abbreviation": "JAM" } },
+    { "id": "team:cwg:wales", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Wales", "shortName": "Wales", "canonicalName": "Wales", "teamCode": "WAL", "countryCode": "GB", "metadata": { "active": true, "abbreviation": "WAL" } },
+    { "id": "team:cwg:kenya", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Kenya", "shortName": "Kenya", "canonicalName": "Kenya", "teamCode": "KEN", "countryCode": "KE", "metadata": { "active": true, "abbreviation": "KEN" } },
+    { "id": "team:cwg:samoa", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Samoa", "shortName": "Samoa", "canonicalName": "Samoa", "teamCode": "SAM", "countryCode": "WS", "metadata": { "active": true, "abbreviation": "SAM" } },
+    { "id": "team:cwg:jersey", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Jersey", "shortName": "Jersey", "canonicalName": "Jersey", "teamCode": "JEY", "countryCode": "JE", "metadata": { "active": true, "abbreviation": "JEY" } },
+    { "id": "team:cwg:cameroon", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Cameroon", "shortName": "Cameroon", "canonicalName": "Cameroon", "teamCode": "CMR", "countryCode": "CM", "metadata": { "active": true, "abbreviation": "CMR" } },
+    { "id": "team:cwg:cyprus", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Cyprus", "shortName": "Cyprus", "canonicalName": "Cyprus", "teamCode": "CYP", "countryCode": "CY", "metadata": { "active": true, "abbreviation": "CYP" } },
+    { "id": "team:cwg:northern-ireland", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Northern Ireland", "shortName": "Northern Ireland", "canonicalName": "Northern Ireland", "teamCode": "NIR", "countryCode": "GB", "metadata": { "active": true, "abbreviation": "NIR" } },
+    { "id": "team:cwg:singapore", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Singapore", "shortName": "Singapore", "canonicalName": "Singapore", "teamCode": "SGP", "countryCode": "SG", "metadata": { "active": true, "abbreviation": "SGP" } },
+    { "id": "team:cwg:ghana", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Ghana", "shortName": "Ghana", "canonicalName": "Ghana", "teamCode": "GHA", "countryCode": "GH", "metadata": { "active": true, "abbreviation": "GHA" } },
+    { "id": "team:cwg:uganda", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Uganda", "shortName": "Uganda", "canonicalName": "Uganda", "teamCode": "UGA", "countryCode": "UG", "metadata": { "active": true, "abbreviation": "UGA" } },
+    { "id": "team:cwg:nauru", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Nauru", "shortName": "Nauru", "canonicalName": "Nauru", "teamCode": "NRU", "countryCode": "NR", "metadata": { "active": true, "abbreviation": "NRU" } },
+    { "id": "team:cwg:isle-of-man", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Isle of Man", "shortName": "Isle of Man", "canonicalName": "Isle of Man", "teamCode": "IOM", "countryCode": "IM", "metadata": { "active": true, "abbreviation": "IOM" } },
+    { "id": "team:cwg:rwanda", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Rwanda", "shortName": "Rwanda", "canonicalName": "Rwanda", "teamCode": "RWA", "countryCode": "RW", "metadata": { "active": true, "abbreviation": "RWA" } },
+    { "id": "team:cwg:papua-new-guinea", "type": "team", "sportDomainId": "sport:multi-sport:cwg:nations", "displayName": "Papua New Guinea", "shortName": "Papua New Guinea", "canonicalName": "Papua New Guinea", "teamCode": "PNG", "countryCode": "PG", "metadata": { "active": true, "abbreviation": "PNG" } },
+    { "id": "competitor:cwg:kaylee-mckeown", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Kaylee McKeown", "shortName": "McKeown", "canonicalName": "Kaylee McKeown", "countryCode": "AU", "metadata": { "active": true, "discipline": "Swimming", "titleAliases": ["Kaylee McKeown", "McKeown"] } },
+    { "id": "competitor:cwg:cameron-mcevoy", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Cameron McEvoy", "shortName": "McEvoy", "canonicalName": "Cameron McEvoy", "countryCode": "AU", "metadata": { "active": true, "discipline": "Swimming", "titleAliases": ["Cameron McEvoy", "McEvoy"] } },
+    { "id": "competitor:cwg:kyle-chalmers", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Kyle Chalmers", "shortName": "Chalmers", "canonicalName": "Kyle Chalmers", "countryCode": "AU", "metadata": { "active": true, "discipline": "Swimming", "titleAliases": ["Kyle Chalmers", "Chalmers"] } },
+    { "id": "competitor:cwg:mollie-ocallaghan", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Mollie O’Callaghan", "shortName": "O’Callaghan", "canonicalName": "Mollie O’Callaghan", "countryCode": "AU", "metadata": { "active": true, "discipline": "Swimming", "titleAliases": ["Mollie O'Callaghan", "Mollie O’Callaghan", "O'Callaghan", "O’Callaghan"] } },
+    { "id": "competitor:cwg:tim-hodge", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Tim Hodge", "shortName": "Hodge", "canonicalName": "Tim Hodge", "countryCode": "AU", "metadata": { "active": true, "discipline": "Para Swimming", "titleAliases": ["Tim Hodge", "Hodge"] } },
+    { "id": "competitor:cwg:lakeisha-patterson", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Lakeisha Patterson", "shortName": "Patterson", "canonicalName": "Lakeisha Patterson", "countryCode": "AU", "metadata": { "active": true, "discipline": "Para Swimming", "titleAliases": ["Lakeisha Patterson", "Patterson"] } },
+    { "id": "competitor:cwg:julien-alfred", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Julien Alfred", "shortName": "Alfred", "canonicalName": "Julien Alfred", "countryCode": "LC", "metadata": { "active": true, "discipline": "Athletics", "titleAliases": ["Julien Alfred", "Alfred"] } },
+    { "id": "competitor:cwg:elaine-thompson-herah", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Elaine Thompson-Herah", "shortName": "Thompson-Herah", "canonicalName": "Elaine Thompson-Herah", "countryCode": "JM", "metadata": { "active": true, "discipline": "Athletics", "titleAliases": ["Elaine Thompson-Herah", "Thompson-Herah"] } },
+    { "id": "competitor:cwg:camryn-rogers", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Camryn Rogers", "shortName": "Rogers", "canonicalName": "Camryn Rogers", "countryCode": "CA", "metadata": { "active": true, "discipline": "Athletics", "titleAliases": ["Camryn Rogers"] } },
+    { "id": "competitor:cwg:josh-kerr", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Josh Kerr", "shortName": "Kerr", "canonicalName": "Josh Kerr", "countryCode": "GB", "metadata": { "active": true, "discipline": "Athletics", "titleAliases": ["Josh Kerr"] } },
+    { "id": "competitor:cwg:eilish-mccolgan", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Eilish McColgan", "shortName": "McColgan", "canonicalName": "Eilish McColgan", "countryCode": "GB", "metadata": { "active": true, "discipline": "Athletics", "titleAliases": ["Eilish McColgan", "McColgan"] } },
+    { "id": "competitor:cwg:luke-whitehouse", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Luke Whitehouse", "shortName": "Whitehouse", "canonicalName": "Luke Whitehouse", "countryCode": "GB", "metadata": { "active": true, "discipline": "Artistic Gymnastics", "titleAliases": ["Luke Whitehouse", "Whitehouse"] } },
+    { "id": "competitor:cwg:fin-graham", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Fin Graham", "shortName": "Graham", "canonicalName": "Fin Graham", "countryCode": "GB", "metadata": { "active": true, "discipline": "Para Track Cycling", "titleAliases": ["Fin Graham"] } },
+    { "id": "competitor:cwg:ellesse-andrews", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Ellesse Andrews", "shortName": "Andrews", "canonicalName": "Ellesse Andrews", "countryCode": "NZ", "metadata": { "active": true, "discipline": "Track Cycling", "titleAliases": ["Ellesse Andrews"] } },
+    { "id": "competitor:cwg:liz-watson", "type": "competitor", "sportDomainId": "sport:multi-sport:cwg:competitors", "displayName": "Liz Watson", "shortName": "Watson", "canonicalName": "Liz Watson", "countryCode": "AU", "metadata": { "active": true, "discipline": "Netball", "titleAliases": ["Liz Watson"] } }
+  ],
+  "ladderSnapshots": [
+    {
+      "id": "standings:glasgow-2026-medal-table:day-6",
+      "competitionId": "competition:glasgow-2026-medal-table",
+      "seasonLabel": "2026",
+      "roundLabel": "Medal table after Day 6",
+      "snapshotTimeUtc": "2026-07-29T12:00:00.000Z",
+      "entries": [
+        { "participantId": "team:cwg:australia", "rank": 1, "gold": 35, "silver": 18, "bronze": 27, "total": 80 },
+        { "participantId": "team:cwg:canada", "rank": 2, "gold": 13, "silver": 10, "bronze": 12, "total": 35 },
+        { "participantId": "team:cwg:england", "rank": 3, "gold": 10, "silver": 19, "bronze": 15, "total": 44 },
+        { "participantId": "team:cwg:scotland", "rank": 4, "gold": 7, "silver": 4, "bronze": 4, "total": 15 },
+        { "participantId": "team:cwg:nigeria", "rank": 5, "gold": 6, "silver": 4, "bronze": 2, "total": 12 },
+        { "participantId": "team:cwg:malaysia", "rank": 6, "gold": 5, "silver": 2, "bronze": 3, "total": 10 },
+        { "participantId": "team:cwg:south-africa", "rank": 7, "gold": 4, "silver": 7, "bronze": 5, "total": 16 },
+        { "participantId": "team:cwg:new-zealand", "rank": 8, "gold": 3, "silver": 7, "bronze": 3, "total": 13 },
+        { "participantId": "team:cwg:india", "rank": 9, "gold": 2, "silver": 7, "bronze": 3, "total": 12 },
+        { "participantId": "team:cwg:jamaica", "rank": 10, "gold": 2, "silver": 0, "bronze": 0, "total": 2 },
+        { "participantId": "team:cwg:wales", "rank": 11, "gold": 1, "silver": 3, "bronze": 7, "total": 11 },
+        { "participantId": "team:cwg:kenya", "rank": 12, "gold": 1, "silver": 2, "bronze": 2, "total": 5 },
+        { "participantId": "team:cwg:samoa", "rank": 13, "gold": 1, "silver": 1, "bronze": 0, "total": 2 },
+        { "participantId": "team:cwg:jersey", "rank": 13, "gold": 1, "silver": 1, "bronze": 0, "total": 2 },
+        { "participantId": "team:cwg:cameroon", "rank": 15, "gold": 1, "silver": 0, "bronze": 0, "total": 1 },
+        { "participantId": "team:cwg:cyprus", "rank": 16, "gold": 0, "silver": 3, "bronze": 2, "total": 5 },
+        { "participantId": "team:cwg:northern-ireland", "rank": 17, "gold": 0, "silver": 1, "bronze": 3, "total": 4 },
+        { "participantId": "team:cwg:singapore", "rank": 18, "gold": 0, "silver": 1, "bronze": 0, "total": 1 },
+        { "participantId": "team:cwg:ghana", "rank": 18, "gold": 0, "silver": 1, "bronze": 0, "total": 1 },
+        { "participantId": "team:cwg:uganda", "rank": 18, "gold": 0, "silver": 1, "bronze": 0, "total": 1 },
+        { "participantId": "team:cwg:nauru", "rank": 21, "gold": 0, "silver": 0, "bronze": 2, "total": 2 },
+        { "participantId": "team:cwg:isle-of-man", "rank": 22, "gold": 0, "silver": 0, "bronze": 1, "total": 1 },
+        { "participantId": "team:cwg:rwanda", "rank": 22, "gold": 0, "silver": 0, "bronze": 1, "total": 1 },
+        { "participantId": "team:cwg:papua-new-guinea", "rank": 22, "gold": 0, "silver": 0, "bronze": 1, "total": 1 }
+      ],
+      "source": {
+        "provider": "Glasgow 2026",
+        "sourceUrl": "https://www.glasgow2026.com/medals",
+        "sourceType": "official",
+        "checkedAt": "2026-07-29T12:00:00.000Z"
+      },
+      "metadata": {
+        "status": "live",
+        "rankingRule": "Gold, then silver, then bronze medals",
+        "displayScope": "Medal-winning nations and territories"
+      }
+    }
+  ],
+  "eventParticipantScopes": [
+    {
+      "sportKey": "cwg",
+      "preferenceDomainId": "special:commonwealth-games",
+      "participantSportDomainId": "sport:multi-sport:cwg:competitors",
+      "titlePattern": "^Swimming\\b",
+      "resolutionMode": "explicit",
+      "participantIds": [
+        "competitor:cwg:kaylee-mckeown",
+        "competitor:cwg:cameron-mcevoy",
+        "competitor:cwg:kyle-chalmers",
+        "competitor:cwg:mollie-ocallaghan",
+        "competitor:cwg:tim-hodge",
+        "competitor:cwg:lakeisha-patterson"
+      ]
+    },
+    {
+      "sportKey": "cwg",
+      "preferenceDomainId": "special:commonwealth-games",
+      "participantSportDomainId": "sport:multi-sport:cwg:competitors",
+      "titlePattern": "^Athletics\\b",
+      "resolutionMode": "explicit",
+      "participantIds": [
+        "competitor:cwg:julien-alfred",
+        "competitor:cwg:elaine-thompson-herah",
+        "competitor:cwg:camryn-rogers",
+        "competitor:cwg:josh-kerr",
+        "competitor:cwg:eilish-mccolgan"
+      ]
+    },
+    {
+      "sportKey": "cwg",
+      "preferenceDomainId": "special:commonwealth-games",
+      "participantSportDomainId": "sport:multi-sport:cwg:competitors",
+      "titlePattern": "^Artistic Gymnastics\\b",
+      "resolutionMode": "explicit",
+      "participantIds": [
+        "competitor:cwg:luke-whitehouse"
+      ]
+    },
+    {
+      "sportKey": "cwg",
+      "preferenceDomainId": "special:commonwealth-games",
+      "participantSportDomainId": "sport:multi-sport:cwg:competitors",
+      "titlePattern": "^Track Cycling\\b",
+      "resolutionMode": "explicit",
+      "participantIds": [
+        "competitor:cwg:fin-graham",
+        "competitor:cwg:ellesse-andrews"
+      ]
+    },
+    {
+      "sportKey": "cwg",
+      "preferenceDomainId": "special:commonwealth-games",
+      "participantSportDomainId": "sport:multi-sport:cwg:competitors",
+      "titlePattern": "^Netball\\b",
+      "resolutionMode": "explicit",
+      "participantIds": [
+        "competitor:cwg:liz-watson"
+      ]
+    }
+  ]
+}
