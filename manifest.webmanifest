@@ -1,7 +1,7 @@
 {
-  "name": "nothingSports",
-  "short_name": "nothingSports",
-  "description": "A smart sports streaming filter for high-stakes events, reminders, and where to watch.",
+  "name": "Nothingsport — Sports feed orchestrator",
+  "short_name": "nothingsport",
+  "description": "A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,16 +9,22 @@
   "theme_color": "#0a0a0f",
   "icons": [
     {
-      "src": "/icons/nothingsport-helm-192.png",
+      "src": "/icons/nothingsport-app-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/nothingsport-helm-512.png",
+      "src": "/icons/nothingsport-app-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/icons/nothingsport-app-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

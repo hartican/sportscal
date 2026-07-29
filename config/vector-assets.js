@@ -61,12 +61,13 @@
   });
 
   const officialPermitted = Object.freeze({
-    "brand:logo-day": Object.freeze({ key: "brand:logo-day", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingSports", path: "assets/brand/web/nothingsport-logo-day.png", permissionBasis: "first-party brand asset" }),
-    "brand:logo-night": Object.freeze({ key: "brand:logo-night", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingSports", path: "assets/brand/web/nothingsport-logo-night.png", permissionBasis: "first-party brand asset" }),
-    "brand:compact-day": Object.freeze({ key: "brand:compact-day", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingSports", path: "assets/brand/web/nothingsport-compact-icon-day.png", permissionBasis: "first-party brand asset" }),
-    "brand:compact-night": Object.freeze({ key: "brand:compact-night", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingSports", path: "assets/brand/web/nothingsport-compact-icon-night.png", permissionBasis: "first-party brand asset" }),
-    "brand:app-192": Object.freeze({ key: "brand:app-192", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingSports", path: "icons/nothingsport-helm-192.png", permissionBasis: "first-party brand asset" }),
-    "brand:app-512": Object.freeze({ key: "brand:app-512", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingSports", path: "icons/nothingsport-helm-512.png", permissionBasis: "first-party brand asset" }),
+    "brand:logo": Object.freeze({ key: "brand:logo", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "assets/brand/web/nothingsport-logo.png", permissionBasis: "first-party brand asset" }),
+    "brand:hero": Object.freeze({ key: "brand:hero", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "assets/brand/web/nothingsport-hero-logo.png", permissionBasis: "first-party brand asset" }),
+    "brand:icon": Object.freeze({ key: "brand:icon", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "assets/brand/web/nothingsport-app-icon.png", permissionBasis: "first-party brand asset" }),
+    "brand:slogan": Object.freeze({ key: "brand:slogan", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "assets/brand/web/nothingsport-logo-slogan.png", permissionBasis: "first-party brand asset" }),
+    "brand:app-192": Object.freeze({ key: "brand:app-192", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "icons/nothingsport-app-192.png", permissionBasis: "first-party brand asset" }),
+    "brand:app-512": Object.freeze({ key: "brand:app-512", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "icons/nothingsport-app-512.png", permissionBasis: "first-party brand asset" }),
+    "brand:app-maskable-512": Object.freeze({ key: "brand:app-maskable-512", assetClass: "official-permitted", rightsStatus: "official", provenance: "first-party", owner: "nothingsport", path: "icons/nothingsport-app-maskable-512.png", permissionBasis: "first-party brand asset" }),
   });
 
   const custom = Object.freeze(Object.fromEntries(Object.keys(customBodies).map(key => [key, Object.freeze({ key, assetClass: "custom-semantic", rightsStatus: key.startsWith("sport:") ? "fallback" : "official", provenance: "first-party", owner: "nothingSports", render: "inline" })])));

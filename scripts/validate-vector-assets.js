@@ -47,7 +47,7 @@ assert(fs.existsSync("assets/licenses/LUCIDE-ISC.txt"), "Lucide ISC notice must 
 
 Object.values(vectorAssets.officialPermitted).forEach(entry => {
   assert(entry.permissionBasis, `${entry.key} must record a permission basis`);
-  assert.equal(entry.owner, "nothingSports", "no third-party official mark may ship without a separately recorded permission basis");
+  assert.equal(entry.owner, "nothingsport", "no third-party official mark may ship without a separately recorded permission basis");
   assert(fs.existsSync(entry.path), `permitted asset must exist: ${entry.path}`);
 });
 Object.values(vectorAssets.custom).forEach(entry => assert(["official", "fallback"].includes(entry.rightsStatus), `${entry.key} must declare whether it is first-party or a neutral fallback`));

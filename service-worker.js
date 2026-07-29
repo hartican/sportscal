@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingSports-shell-v43";
+const CACHE_NAME = "nothingsport-shell-v44";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -31,10 +31,11 @@ const APP_SHELL = [
   "/schemas/derived-card-cache.schema.json",
   "/schemas/sport-context.schema.json",
   "/manifest.webmanifest",
-  "/assets/brand/web/nothingsport-logo-day.png",
-  "/assets/brand/web/nothingsport-logo-night.png",
-  "/assets/brand/web/nothingsport-compact-icon-day.png",
-  "/assets/brand/web/nothingsport-compact-icon-night.png",
+  "/assets/brand/web/nothingsport-logo.png",
+  "/assets/brand/web/nothingsport-hero-logo.png",
+  "/assets/brand/web/nothingsport-app-icon.png",
+  "/assets/brand/web/nothingsport-logo-slogan.png",
+  "/assets/brand/web/nothingsport-social-preview.png",
   "/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3",
   "/assets/icons/sporticon/motorsports.svg",
   "/assets/icons/sporticon/rugby.svg",
@@ -46,10 +47,11 @@ const APP_SHELL = [
   "/assets/icons/sporticon/american_football.svg",
   "/assets/icons/sporticon/australian_football.svg",
   "/assets/icons/sporticon/basketball.svg",
-  "/icons/nothingsport-helm-32.png",
-  "/icons/nothingsport-helm-180.png",
-  "/icons/nothingsport-helm-192.png",
-  "/icons/nothingsport-helm-512.png"
+  "/icons/nothingsport-app-32.png",
+  "/icons/nothingsport-app-180.png",
+  "/icons/nothingsport-app-192.png",
+  "/icons/nothingsport-app-512.png",
+  "/icons/nothingsport-app-maskable-512.png"
 ];
 
 self.addEventListener("install", event => {
