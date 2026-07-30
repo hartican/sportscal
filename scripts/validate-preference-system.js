@@ -15,7 +15,7 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
-assert.equal(initial.schemaVersion, "preference-graph.v2");
+assert.equal(initial.schemaVersion, "preference-graph.v3");
 assert.deepEqual(initial.viewing.selectedBroadcasterIds, baseProviders, "all available providers must start selected");
 assert.equal(initial.viewing.viewingWindowEnabled, true, "the recommended viewing window must start enabled");
 assert.equal(initial.viewing.startHourLocal, 7, "the default viewing window must start at 7am");
@@ -24,22 +24,16 @@ assert.equal(initial.viewing.allowLateNightOverrides, true, "high-stakes overrid
 assert.equal(initial.viewing.calendarSyncEnabled, true, "Calendar sync must start enabled for a new profile");
 assert.equal(initial.viewing.browserAlertsEnabled, false, "browser alerts must remain opt-in");
 assert.equal(initial.domainPreferences[0].templateId, "template:like");
-assert.equal(initial.domainPreferences[0].showLadder, "summary");
+assert(!("showLadder" in initial.domainPreferences[0]), "standings visibility must not be persisted with Froth preferences");
 
 const froth = preferences.quickAddDomain(initial, "sport:nrl", "template:froth");
 const nrlFroth = froth.domainPreferences.find(item => item.sportDomainId === "sport:nrl");
 assert.equal(nrlFroth.includeAllFixtures, true);
-assert.equal(nrlFroth.showLadder, "full");
+assert(!("showLadder" in nrlFroth), "Froth must not control standings visibility");
 assert.equal(froth.domainPreferences.find(item => item.sportDomainId === "sport:afl").templateId, "template:like", "quick add must not alter an existing sport");
 
 const casual = preferences.quickAddDomain(froth, "sport:nrl", "template:casual");
-assert.equal(casual.domainPreferences.find(item => item.sportDomainId === "sport:nrl").showLadder, "hidden");
-const casualWithLs = preferences.setLadderVisibility(casual, "sport:nrl", "summary");
-const casualNrlWithLs = casualWithLs.domainPreferences.find(item => item.sportDomainId === "sport:nrl");
-assert.equal(casualNrlWithLs.templateId, "template:casual", "enabling L&S must preserve the Casual follow level");
-assert.equal(casualNrlWithLs.showLadder, "summary", "a Casual sport must be able to opt into L&S");
-const casualWithoutLs = preferences.setLadderVisibility(casualWithLs, "sport:nrl", "hidden");
-assert.equal(casualWithoutLs.domainPreferences.find(item => item.sportDomainId === "sport:nrl").showLadder, "hidden", "disabling L&S must remove the Casual sport again");
+assert.equal(casual.domainPreferences.find(item => item.sportDomainId === "sport:nrl").templateId, "template:casual");
 
 const customised = preferences.setCoverageMode(froth, "sport:nrl", "majorOnly");
 const nrlCustom = customised.domainPreferences.find(item => item.sportDomainId === "sport:nrl");
@@ -50,10 +44,9 @@ assert.equal(nrlCustom.includeFollowedTeams, false);
 const withCompetition = preferences.upsertCompetitionPreference(customised, "competition:nrl-premiership-2026", {
   enabled: true,
   templateInheritedFromDomain: false,
-  showLadder: "full",
 });
 const withTeam = preferences.setEntityFollow(withCompetition, "team:nrl:canberra", "priority");
-assert.equal(withTeam.competitionPreferences[0].showLadder, "full");
+assert(!("showLadder" in withTeam.competitionPreferences[0]), "competition preferences must not persist standings visibility");
 assert.equal(withTeam.entityFollows[0].followLevel, "priority");
 
 const optedOut = preferences.updateViewingPreference(withTeam, {
@@ -79,6 +72,19 @@ assert.equal(migratedWithNewProvider.viewing.viewingWindowEnabled, false, "an ex
 assert.equal(migratedWithNewProvider.viewing.calendarSyncEnabled, false, "an explicit Calendar sync opt-out must survive migration");
 assert.equal(migratedWithNewProvider.domainPreferences.find(item => item.sportDomainId === "sport:nrl").includeFollowedTeams, false);
 assert.equal(migratedWithNewProvider.entityFollows[0].participantId, "team:nrl:canberra");
+
+const migratedLegacyVisibility = preferences.migratePreferenceGraph({
+  ...migratedWithNewProvider,
+  schemaVersion: "preference-graph.v2",
+  domainPreferences: migratedWithNewProvider.domainPreferences.map(item => ({ ...item, showLadder: "hidden" })),
+  competitionPreferences: [{ ...migratedWithNewProvider.competitionPreferences[0], showLadder: "full" }],
+}, {
+  profileId,
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: [...baseProviders, "seven"],
+});
+assert(migratedLegacyVisibility.domainPreferences.every(item => !("showLadder" in item)), "legacy domain visibility fields must be removed");
+assert(migratedLegacyVisibility.competitionPreferences.every(item => !("showLadder" in item)), "legacy competition visibility fields must be removed");
 
 const disabledNrl = preferences.disableDomain(migratedWithNewProvider, "sport:nrl");
 assert.equal(disabledNrl.domainPreferences.find(item => item.sportDomainId === "sport:nrl").enabled, false);

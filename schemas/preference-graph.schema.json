@@ -14,7 +14,7 @@
     "viewing"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v2" },
+    "schemaVersion": { "const": "preference-graph.v3" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -43,7 +43,6 @@
         "includeAllFixtures",
         "includeMajorEvents",
         "includeFollowedTeams",
-        "showLadder",
         "narrativeVisibility",
         "narrativeIntensity",
         "mustWatchSensitivity",
@@ -58,7 +57,6 @@
         "includeAllFixtures": { "type": "boolean" },
         "includeMajorEvents": { "type": "boolean" },
         "includeFollowedTeams": { "type": "boolean" },
-        "showLadder": { "enum": ["hidden", "summary", "full"] },
         "narrativeVisibility": { "enum": ["off", "importantOnly", "allEligible"] },
         "narrativeIntensity": { "type": "integer", "minimum": 1, "maximum": 5 },
         "mustWatchSensitivity": { "enum": ["low", "medium", "high"] },
@@ -75,8 +73,7 @@
         "enabled": { "type": "boolean" },
         "templateInheritedFromDomain": { "type": "boolean" },
         "includeAllFixtures": { "type": "boolean" },
-        "includeMajorEvents": { "type": "boolean" },
-        "showLadder": { "enum": ["hidden", "summary", "full"] }
+        "includeMajorEvents": { "type": "boolean" }
       }
     },
     "entityFollow": {

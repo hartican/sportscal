@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v2";
+  const SCHEMA_VERSION = "preference-graph.v3";
   const DEFAULT_VIEWING_WINDOW = Object.freeze({
     startHourLocal: 7,
     endHourLocal: 22,
@@ -16,12 +16,11 @@
       id: "template:froth",
       slug: "froth",
       name: "Froth",
-      description: "More fixtures, full ladders, stronger follow weighting, and high must-watch sensitivity.",
+      description: "More fixtures, stronger follow weighting, and high must-watch sensitivity.",
       rules: {
         includeAllFixturesDefault: true,
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: true,
-        ladderVisibilityDefault: "full",
         narrativeIntensityDefault: 5,
         mustWatchSensitivityDefault: "high",
         reminderDefault: "allFollowed",
@@ -31,12 +30,11 @@
       id: "template:like",
       slug: "like",
       name: "Like",
-      description: "Important events and followed teams, with a compact ladder summary.",
+      description: "Important events and followed teams, with balanced follow weighting.",
       rules: {
         includeAllFixturesDefault: false,
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: true,
-        ladderVisibilityDefault: "summary",
         narrativeIntensityDefault: 3,
         mustWatchSensitivityDefault: "medium",
         reminderDefault: "importantOnly",
@@ -51,7 +49,6 @@
         includeAllFixturesDefault: false,
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: false,
-        ladderVisibilityDefault: "hidden",
         narrativeIntensityDefault: 2,
         mustWatchSensitivityDefault: "low",
         reminderDefault: "importantOnly",
@@ -66,7 +63,6 @@
         includeAllFixturesDefault: false,
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: true,
-        ladderVisibilityDefault: "summary",
         narrativeIntensityDefault: 3,
         mustWatchSensitivityDefault: "medium",
         reminderDefault: "importantOnly",
@@ -96,6 +92,7 @@
 
   function expandTemplate(profileId, sportDomainId, templateId, overrides = {}){
     const template = templateFor(templateId);
+    const { showLadder: _obsoleteShowLadder, ...cleanOverrides } = overrides || {};
     return {
       profileId,
       sportDomainId,
@@ -104,13 +101,12 @@
       includeAllFixtures: template.rules.includeAllFixturesDefault,
       includeMajorEvents: template.rules.includeMajorEventsDefault,
       includeFollowedTeams: template.rules.includeFollowedTeamsDefault,
-      showLadder: template.rules.ladderVisibilityDefault,
       narrativeVisibility: narrativeVisibilityFor(template),
       narrativeIntensity: template.rules.narrativeIntensityDefault,
       mustWatchSensitivity: template.rules.mustWatchSensitivityDefault,
       reminderDefault: template.rules.reminderDefault,
       scopedCompetitionIds: uniqueStrings(overrides.scopedCompetitionIds),
-      ...overrides,
+      ...cleanOverrides,
       profileId,
       sportDomainId,
       templateId: template.id,
@@ -212,7 +208,10 @@
 
     const competitionPreferences = (Array.isArray(raw.competitionPreferences) ? raw.competitionPreferences : [])
       .filter(preference => preference && typeof preference.competitionId === "string")
-      .map(preference => ({ ...preference, profileId: safeProfileId }));
+      .map(preference => {
+        const { showLadder: _obsoleteShowLadder, ...cleanPreference } = preference;
+        return { ...cleanPreference, profileId: safeProfileId };
+      });
     const entityFollows = (Array.isArray(raw.entityFollows) ? raw.entityFollows : [])
       .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "mute"].includes(preference.followLevel))
       .map(preference => ({ ...preference, profileId: safeProfileId }));
@@ -292,14 +291,6 @@
     return applyDomainOverride(graph, domainId, patches[mode] || patches.majorFollowed);
   }
 
-  function setLadderVisibility(graph, domainId, visibility){
-    const next = cloneGraph(graph);
-    const preference = next.domainPreferences.find(item => item.sportDomainId === domainId);
-    if (!preference) return next;
-    preference.showLadder = ["hidden", "summary", "full"].includes(visibility) ? visibility : "hidden";
-    return touch(next);
-  }
-
   function upsertCompetitionPreference(graph, competitionId, patch = {}){
     const next = cloneGraph(graph);
     const index = next.competitionPreferences.findIndex(preference => preference.competitionId === competitionId);
@@ -313,6 +304,7 @@
       profileId: next.profileId,
       competitionId,
     };
+    delete preference.showLadder;
     if (index >= 0) next.competitionPreferences[index] = preference;
     else next.competitionPreferences.push(preference);
     return touch(next);
@@ -358,7 +350,6 @@
     disableDomain,
     applyDomainOverride,
     setCoverageMode,
-    setLadderVisibility,
     upsertCompetitionPreference,
     setEntityFollow,
     updateViewingPreference,
