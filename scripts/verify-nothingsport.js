@@ -36,7 +36,7 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["calendar", "nevermiss", "watchlater", "archived"], "primary tabs must match the nothingsport contract");
+assert.deepEqual(tabOrder, ["ladders", "standings"], "primary navigation must contain only Ladders and Standings");
 assert(html.includes(`<title>${brand.title}</title>`), "the document title must use the canonical nothingsport title");
 assert(html.includes(brand.hero), "the canonical nothingsport hero line must be present");
 assert(html.includes(brand.about), "the canonical nothingsport About paragraph must be present verbatim");
@@ -80,9 +80,10 @@ assert.deepEqual(
   "the install manifest must use the supplied skier app icon with normal and maskable safe zones"
 );
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
-assert(html.includes('<span class="tab-label">Don’t Miss</span>'), "Never Miss must be renamed Don’t Miss in the primary tabs");
-assert(html.includes('<span class="tab-label">Catch Up</span>'), "Watch Later must be renamed Catch Up in the primary tabs");
-assert(html.includes('<span class="tab-label">Archived</span>'), "Archived must retain a visible primary-tab label");
+assert(html.includes('<span class="tab-label">Ladders</span>'), "Ladders must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Standings</span>'), "Standings must be visible in primary navigation");
+assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived)<\/span>/.test(html), "obsolete primary tabs must be removed");
+assert(!/id="(?:neverMissView|watchLaterView|archivedView)"/.test(html), "removed navigation surfaces must not leave orphaned view routes");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
 assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation state must be persisted separately from canonical events");
@@ -123,6 +124,11 @@ assert(html.includes("data-domain-froth") && html.includes("data-domain-custom")
 assert(html.includes("data-standings-visibility"), "competition-level ladder and standings visibility must have one dedicated settings home");
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
 assert(html.includes('id="standingsContext"'), "supported standings must resolve into a visible feed module");
+assert(html.includes('expander.dataset.sportExpander = sportKey') && html.includes('rankingSportExpansion[sportKey] = !expanded'), "visible sport sections must expose manual expanders");
+assert(html.includes('input.dataset.sportFilter = key') && html.includes('input.type = "checkbox"'), "the ranking area must expose basic sport checkboxes");
+assert(html.includes('rankingSportExpansion[key] = false') && html.includes('rankingSportExpansion[key] = true'), "sport filters must retract hidden sections and restore visible sections");
+assert(html.includes("selectedDomains.has(competition.preferenceDomainId || competition.sportDomainId)"), "followed sports with ranking data must remain discoverable even when their saved table visibility starts hidden");
+assert(html.includes('visibility === "hidden"') && html.includes('(competition.defaultStandingsVisibility || "summary")'), "temporarily selected hidden ranking sports must render a safe summary");
 assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
 assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
 assert(html.includes(">Top 3 + followed<"), "summary standings must promise to retain followed entities outside the top three");
@@ -153,7 +159,7 @@ assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Even
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
 assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v44"'), "the brand refresh must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v46"'), "the navigation reorganisation must advance the served shell cache");
 brandAssets
   .filter(asset => asset.startsWith("assets/brand/web/") || asset.startsWith("icons/"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -169,7 +175,7 @@ assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), 
 assert(html.includes('"Account & sync"'), "Settings must expose magic-link identity and sync status");
 assert(html.includes("bootstrapServerPersistence()"), "app startup must hydrate durable user state before opening the profile experience");
 assert(html.includes("queueServerStateSync()"), "durable local changes must queue a server-state write");
-assert(html.includes("eventUserState: eventActions"), "saved cards and Catch Up watched state must be included in server truth");
+assert(html.includes("eventUserState: eventActions"), "archive and saved-card state must be included in server truth");
 assert(serverSyncSource.includes('authenticatedRequest("/api/feed")'), "signed-in Refresh must request the authenticated central feed");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v1"'), "the browser must reject an incompatible central feed response");
 assert(html.includes('cache.buildOrigin !== "server"'), "the browser must require central card-cache provenance");
@@ -194,17 +200,15 @@ assert(html.includes('selectorNewMarkerMarkup(entity)'), "new selector entities 
 assert(html.includes('setTimeout(openSelectorOptInPrompt, 250)'), "existing profiles must receive the batched opt-in prompt on the next app open");
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
-assert(html.includes('class="filing-cabinet-icon"') && !html.includes("🗄️"), "Archived must use a traced filing cabinet glyph rather than emoji");
+assert(settingsMenuSource.includes('settingsMenuItem("archive"') && html.includes("function renderArchiveSettings"), "Archive must be discoverable and render inside Settings");
 assert(html.includes('selectionActionsMarkup("sports"') && html.includes('selectionActionsMarkup("providers"') && html.includes('selectionActionsMarkup("venues"'), "every setup multi-select must expose Select all and Deselect all controls");
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
-assert(html.includes('anchor.id = "neverMissTodayAnchor"'), "Never Miss must render a Today timeline anchor");
-assert(html.includes("scheduleInitialNeverMissJump()"), "Never Miss must default the viewport to Today");
-assert(html.includes('anchorId = archived ? "archivedTodayAnchor" : "catchUpTodayAnchor"'), "Catch Up and Archived must render Today timeline anchors");
-assert(html.includes('jumpTodayBtn.hidden = false'), "Jump to Today must remain available on every primary screen");
+assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports feed must retain its Today anchor");
+assert(html.includes('jumpTodayBtn.hidden = false'), "Jump to Today must remain available beneath both ranking tabs");
 assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
 assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
@@ -225,16 +229,20 @@ assert(html.includes('id="calendarSyncUrl"'), "Calendar sync must reveal the cus
 assert(html.includes('id="copyCalendarSyncBtn"') && html.includes('id="subscribeCalendarSyncBtn"'), "Calendar sync must support copy and calendar-app subscription actions");
 assert(!html.includes("Export Never Miss"), "the obsolete one-off Never Miss export language must be removed");
 assert(!html.includes('id="exportModal"') && !html.includes('id="exportForm"'), "the one-off batch export form must be removed");
-assert(html.includes('className = "catchup-watched"'), "each Catch Up card must expose a Watched control");
-assert(html.includes('title.textContent = "Optional rating"'), "Catch Up rating must be introduced as optional");
-assert(html.includes('if (action.watched)'), "the Catch Up rating prompt must remain hidden until Watched is selected");
+const actionPanelSource = html.match(/function buildEventActionPanel\(ev, options = \{\}\)\{[\s\S]*?\n  return panel;\n\}/)?.[0] || "";
+assert(actionPanelSource.includes('makeActionButton("Archive"'), "cards must retain the Archive action");
+assert(actionPanelSource.includes('getActual(ev.id) !== null') && actionPanelSource.includes('makeActionButton("Save"'), "Save must only render after a card has been rated");
+assert(!/Must Watch|Catch Up|Watch Later/.test(actionPanelSource), "obsolete card actions must be absent from every action-panel branch");
+const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(spoilerControlSource.includes('visible ? "Hide results" : "Show results"'), "per-event result controls must use Show results and Hide results");
+assert(spoilerControlSource.includes('window.confirm("Show results for this event?")'), "the per-event confirmation must use result language");
+assert(!/Protect event details|Reveal event details/.test(html), "obsolete event-detail protection copy must be removed everywhere");
 assert(html.includes("applyFeedEvents(EVENTS.slice(), meta)"), "bundled-feed Refresh must run through the canonical lifecycle rebuild");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
 assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
 assert(html.includes("b.textContent = \"Coming Up\""), "future cards must use the Coming Up status tag");
 assert(html.includes("b.textContent = \"PAST\""), "completed cards must use the PAST status tag");
-const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(spoilerControlSource, "an individual spoiler control must exist");
 assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "individual spoiler controls must not be limited to past events");
 
@@ -355,7 +363,11 @@ assert.deepEqual(
   incomingCwgCards.map(event => event.id).sort(),
   "every incoming Commonwealth Games card must publish with the same canonical id"
 );
-assert(publishedCwgCards.every(event => event.status === "upcoming" && event.storyline?.arcStage === "preview"), "Commonwealth Games cards must remain pre-event and spoiler-safe");
+assert(publishedCwgCards.every(event => (
+  event.status === "completed"
+    ? event.storyline?.arcStage === "recap"
+    : event.status === "upcoming" && event.storyline?.arcStage === "preview"
+)), "Commonwealth Games cards must use lifecycle-correct, spoiler-safe Storyline stages");
 assert(publishedCwgCards.every(event => event.expected >= 5), "Commonwealth Games cards must clear the feed's hard relevance floor");
 assert(publishedCwgCards.every(event => ["final", "semifinal"].includes(event.round) || /Australia|world number one/i.test(`${event.name} ${event.selectedSentence}`)), "every surfaced Commonwealth Games card must be a final/semifinal or carry explicit Australian/top-contender relevance");
 assert(!publishedCwgCards.some(event => /Rugby Sevens|Cricket|Hockey/i.test(event.commonwealthDiscipline)), "the Glasgow 2026 feed must not fabricate cards for sports outside the official programme");
@@ -520,7 +532,7 @@ globalThis.__test = {
   setRatings(next){ ratings = next; },
   setPreferences(next){ userPreferences = mergePreferences({ followedSports: Object.keys(SPORTS_LIBRARY), selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY), ...next }); },
   setCanonicalParticipants(participants){ canonicalPreferenceParticipants = structuredClone(participants); },
-  setFilter(filter){ activeFilter = filter; },
+  migrateEventActionRecords,
   eventActionKey,
   surfacePresentationKey,
   surfacePresentationForEvent,
@@ -549,8 +561,6 @@ globalThis.__test = {
   getPreferenceMatchedEvents,
   getEventAction,
   getEventSpoilerState,
-  neverMissBuckets,
-  neverMissTimelineEvents,
   updateEventAction,
   isSpoilerVisible,
   clearHiddenSpoilerOverrides,
@@ -575,7 +585,6 @@ globalThis.__test = {
   storylineCopyForDisplay,
   eventSpielForDisplay,
   retrospectiveSignificanceForEvent,
-  shouldSuggestWatchLater,
   calendarSyncConfigForPreferences,
   buildCalendarSyncUrl,
   buildCalendarWebcalUrl,
@@ -591,12 +600,56 @@ globalThis.__test = {
   standingsEntriesForVisibility,
   standingsColumnsForCompetition,
   standingsVisibilityForCompetition,
+  competitionNavigationTab,
+  rankingCompetitionsForTab,
+  rankingVisibilityForCompetition,
 };`;
 vm.runInContext(`${appPrelude}\n${standingsVisibilitySource[0]}\n${calendarSyncSummarySource[0]}\n${expose}`, sandbox, { filename: "index.html" });
 const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+assert.equal(app.competitionNavigationTab({ standingsOnly: false }), "ladders", "league tables must resolve to the Ladders tab");
+assert.equal(app.competitionNavigationTab({ standingsOnly: true }), "standings", "ranking-only competitions must resolve to the Standings tab");
+const casualNrlGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:casual-nrl",
+  domainIds: ["sport:nrl"],
+  templateByDomain: { "sport:nrl": "template:casual" },
+});
+const casualNrlPreferences = {
+  selectedSelectorEntityIds: ["sport:nrl"],
+  followedSports: ["nrl"],
+  preferenceGraph: casualNrlGraph,
+};
+assert.equal(
+  app.rankingCompetitionsForTab("ladders", casualNrlPreferences).some(competition => competition.id === "competition:nrl-premiership-2026"),
+  true,
+  "a followed NRL ladder must remain available to the top sport filter when Casual starts it hidden"
+);
+assert.equal(
+  app.rankingVisibilityForCompetition(casualNrlPreferences, {
+    id: "competition:nrl-premiership-2026",
+    sportDomainId: "sport:nrl",
+    preferenceDomainId: "sport:nrl",
+    defaultStandingsVisibility: "full",
+  }),
+  "full",
+  "temporarily selecting a hidden ladder must use its calibrated default visibility"
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(app.migrateEventActionRecords({
+    legacy: { eventId: "legacy", watchLater: true, mustWatch: true, archived: false },
+  }).legacy)),
+  {
+    eventId: "legacy",
+    watchLater: false,
+    mustWatch: false,
+    archived: true,
+    saved: true,
+    lastActionAt: null,
+  },
+  "legacy saved-surface actions must migrate into Archive without leaving obsolete action flags"
+);
 assert.deepEqual(
   Array.from(app.standingsColumnsForCompetition({ sportDomainId: "sport:afl" }), column => column[0]),
   ["rank", "participant", "played", "won", "lost", "drawn", "percentage", "ladderPoints"],
@@ -977,19 +1030,9 @@ const phaseOneEvents = [
 ];
 app.setEvents(phaseOneEvents);
 app.setActions({});
-app.setFilter("all");
 
-const buckets = app.neverMissBuckets();
-assert.deepEqual(Array.from(buckets.topStorylines, ev => ev.id), ["top-week"]);
-assert.deepEqual(Array.from(buckets.worthCheckingOut, ev => ev.id), ["worth-week"]);
-assert.deepEqual(Array.from(buckets.aroundTheCorner, ev => ev.id), ["around", "horizon-exception"]);
-const neverMissTimeline = app.neverMissTimelineEvents();
-assert.deepEqual(Array.from(neverMissTimeline, ev => ev.id), ["recent-top", "recent-worth", "top-week", "worth-week"], "Never Miss must combine Top Storylines and Worth Checking Out across the seven days around Today");
-assert(!neverMissTimeline.some(ev => ev.id === "expired-top"), "Never Miss must exclude events more than seven days in the past");
 assert(!app.getFilteredEvents().some(ev => ev.id === "below-floor"), "events below stakes 3/5 must be excluded");
 assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "routine AFL fixtures must not clutter the selective home feed");
-app.setFilter("afl");
-assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "league filters must still respect selective coverage settings");
 let allLeagueFixturesGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
   profileId: "profile:all-league-fixtures",
   domainIds: ["sport:afl", "sport:nrl"],
@@ -1001,9 +1044,7 @@ app.setPreferences({
   selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
   preferenceGraph: allLeagueFixturesGraph,
 });
-app.setFilter("afl");
-assert(app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "the AFL filter must expose routine fixtures when All fixtures is selected");
-app.setFilter("all");
+assert(app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "AFL All fixtures coverage must expose routine fixtures in the feed");
 assert.deepEqual(
   Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id).sort(),
   ["routine-afl", "routine-nrl"],
@@ -1095,8 +1136,8 @@ assert.match(selectedIcs, /UID:worth-week@sportscal/);
 assert.match(selectedIcs, /UID:around@sportscal/);
 assert.doesNotMatch(selectedIcs, /UID:horizon-exception@sportscal/);
 assert.doesNotMatch(selectedIcs, /UID:top-week@sportscal/);
-assert.match(selectedIcs, /Don’t Miss:/);
-assert.doesNotMatch(selectedIcs, /Never Miss:/);
+assert.match(selectedIcs, /Priority event:/);
+assert.doesNotMatch(selectedIcs, /Don’t Miss:|Never Miss:/);
 
 const archived = phaseOneEvents[0];
 app.updateEventAction(archived, { archived: true });
@@ -1230,14 +1271,17 @@ app.setPreferences({ showSpoilers: false });
 app.setEventRating(pastB, 9);
 assert.equal(app.getActual("past-b"), 9, "rating must be stored");
 assert.equal(app.isSpoilerVisible(pastB), true, "rating a PAST event must reveal it");
-assert.equal(app.shouldSuggestWatchLater(pastB), true, "a completed event rated above 8/10 must be suggested for Watch Later");
 assert.equal(app.retrospectiveSignificanceForEvent(pastB).effectiveStakes, 4, "retrospective quality must raise derived significance without changing canonical stakes");
 const chronologicalPast = app.sortUpcomingFirst([pastB, pastA]).filter(event => event.id.startsWith("past"));
 assert.deepEqual(Array.from(chronologicalPast, event => event.id), ["past-a", "past-b"], "retrospective quality must not reorder past events");
-app.updateEventAction(pastB, { watchLater: true });
-assert.equal(app.shouldSuggestWatchLater(pastB), false, "the retrospective prompt must clear after saving to Watch Later");
+assert.equal(app.archiveEvent(pastB, { preserve: true }), true, "a rated card must be savable to Archive");
+assert.equal(app.getEventAction(pastB).saved, true, "saving a rated card must set its retention exemption");
+assert.equal(app.getArchivedEventRefs().some(reference => reference.canonicalEventId === pastB.id), true, "saving must create an explicit profile-scoped archive reference");
+assert.equal(app.archiveEvent(pastA, { preserve: true }), false, "an unrated card must not be savable");
+assert.equal(app.getEventAction(pastA).archived, false, "a rejected unrated Save must not change archive state");
 app.archiveEvent(pastA);
 assert.equal(app.getEventAction(pastA).archived, true, "archive action must persist");
+assert.equal(app.getEventAction(pastA).saved, false, "plain Archive must not grant indefinite retention");
 assert.equal(app.isSpoilerVisible(pastA), true, "archiving a PAST event must reveal it");
 assert.equal(app.getArchivedEventRefs().some(reference => reference.canonicalEventId === pastA.id), true, "archive must create an explicit profile-scoped reference");
 assert(app.getDerivedCardCache().derivedCards.every(card => card.isArchived === false), "archive state must never leak into disposable cache records");
@@ -1252,15 +1296,14 @@ const savedPastRetention = { ...event("saved-past-retention", -20, 4), status: "
 app.setEvents([autoArchivedAfterSevenDays, expiredAfterFourteenDays, savedPastRetention]);
 app.setActions({});
 app.setPreferences({});
-app.updateEventAction(savedPastRetention, { watchLater: true });
+app.setRatings({ [savedPastRetention.id]: 9 });
+assert.equal(app.archiveEvent(savedPastRetention, { preserve: true }), true, "rated Save must preserve a card beyond normal retention");
 assert.equal(app.eventIsAutoArchived(autoArchivedAfterSevenDays), true, "unsaved cards must auto-archive after seven days");
 assert.equal(app.getFilteredEvents().some(event => event.id === autoArchivedAfterSevenDays.id), false, "auto-archived cards must leave active feeds");
 assert.equal(app.archivedEvents().some(event => event.id === autoArchivedAfterSevenDays.id), true, "the Archived screen must rebuild automatic seven-day archive entries from canonical events");
 assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === expiredAfterFourteenDays.id), false, "unsaved cards must disappear after fourteen days");
-assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === savedPastRetention.id), true, "saved Catch Up cards must remain available after fourteen days");
+assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === savedPastRetention.id), true, "rated cards saved to Archive must remain available after fourteen days");
 assert.equal(app.getDerivedCardCache().derivedCards.some(card => card.canonicalEventId === savedPastRetention.id && card.retentionExempt), true, "saved cards must remain explicitly exempt in the disposable cache");
-app.updateEventAction(savedPastRetention, { watched: true, watchedAt: new Date().toISOString() });
-assert.equal(app.getEventAction(savedPastRetention).watched, true, "Catch Up watched state must persist with the event action");
 
 const winterTimestamp = app.formatFeedbackTimestamp(new Date("2026-07-16T10:00:00Z"));
 const summerTimestamp = app.formatFeedbackTimestamp(new Date("2026-12-16T10:00:00Z"));

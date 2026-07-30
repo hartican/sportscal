@@ -454,6 +454,15 @@ header.top{
   align-items:center;
 }
 
+.filter-row-label{
+  width:100%;
+  color:var(--text-dim);
+  font-size:0.72rem;
+  font-weight:800;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+
 .pill{
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -468,6 +477,13 @@ header.top{
   display:flex;
   align-items:center;
   gap: 6px;
+}
+
+.pill input{
+  width:16px;
+  height:16px;
+  margin:0;
+  accent-color:var(--pill-color, var(--accent));
 }
 
 .pill:hover{
@@ -2572,77 +2588,6 @@ main{
   overflow:auto;
 }
 
-.retrospective-prompt{
-  margin-top: 12px;
-  padding: 12px;
-  border: 1px solid rgba(126,231,135,0.32);
-  border-radius: 10px;
-  background: rgba(126,231,135,0.055);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
-}
-
-.retrospective-prompt strong{
-  display:block;
-  color: #9be9a8;
-  font-size: 0.8rem;
-  margin-bottom: 3px;
-}
-
-.retrospective-prompt span{
-  color: var(--text-dim);
-  font-size: 0.74rem;
-  line-height:1.4;
-}
-
-.catchup-watched{
-  margin-top:12px;
-  padding-top:12px;
-  border-top:1px solid var(--border);
-}
-
-.catchup-watched-label{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  color:var(--text);
-  font-size:0.8rem;
-  font-weight:800;
-}
-
-.catchup-watched-label input{
-  width:18px;
-  height:18px;
-  accent-color:#2ea043;
-}
-
-.catchup-rating-prompt{
-  margin-top:10px;
-  padding:10px 12px;
-  border:1px solid rgba(126,231,135,0.28);
-  border-radius:10px;
-  background:rgba(126,231,135,0.055);
-}
-
-.catchup-rating-prompt strong,
-.catchup-rating-prompt span{
-  display:block;
-}
-
-.catchup-rating-prompt strong{
-  margin-bottom:4px;
-  color:#9be9a8;
-  font-size:0.78rem;
-}
-
-.catchup-rating-prompt > span{
-  margin-bottom:7px;
-  color:var(--text-dim);
-  font-size:0.72rem;
-}
-
 .action-note{
   color:var(--text-dim);
   font-size:0.74rem;
@@ -2663,6 +2608,65 @@ main{
   border-radius:14px;
   background:var(--bg-card);
   overflow:hidden;
+}
+
+.standings-sport-section{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--bg-card);
+  overflow:hidden;
+}
+
+.standings-sport-expander{
+  width:100%;
+  min-height:48px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:0;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  font:inherit;
+  font-weight:850;
+  text-align:left;
+}
+
+.standings-sport-expander:hover{ background:rgba(255,255,255,0.025); }
+
+.standings-sport-expander .vector-glyph{
+  width:16px;
+  height:16px;
+  transition:transform 0.15s ease;
+}
+
+.standings-sport-expander[aria-expanded="true"] .vector-glyph{
+  transform:rotate(90deg);
+}
+
+.standings-sport-content{
+  padding:0 12px 12px;
+}
+
+.standings-sport-content .standings-module{
+  margin-top:0;
+  border-radius:10px;
+}
+
+.standings-sport-content .standings-module + .standings-module{
+  margin-top:10px;
+}
+
+.standings-empty{
+  margin-top:12px;
+  padding:24px 16px;
+  border:1px dashed var(--border);
+  border-radius:14px;
+  color:var(--text-dim);
+  text-align:center;
 }
 
 .standings-head{
@@ -2859,6 +2863,8 @@ footer.app-footer{
   .soundtrack-toggle-state{ display:none; }
   .standings-context{ padding:0 12px; }
   .standings-module{ padding:12px; }
+  .standings-sport-expander{ padding:12px; }
+  .standings-sport-content{ padding:0 8px 8px; }
   .standings-table{ font-size:0.68rem; }
   .standings-table th,
   .standings-table td{ padding:6px 4px; }
@@ -3043,10 +3049,8 @@ footer.app-footer{
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="calendar"><span class="tab-label">Calendar</span><span class="tab-count" id="calendarTabCount">0</span></button>
-    <button class="tab-btn" data-tab="nevermiss"><span class="tab-label">Don’t Miss</span><span class="tab-count" id="neverMissTabCount">0</span></button>
-    <button class="tab-btn" data-tab="watchlater"><span class="tab-label">Catch Up</span><span class="tab-count" id="watchLaterTabCount">0</span></button>
-    <button class="tab-btn" data-tab="archived"><span class="filing-cabinet-icon" data-vector-glyph="ui:archive"></span><span class="tab-label">Archived</span><span class="tab-count" id="archivedTabCount">0</span></button>
+    <button class="tab-btn active" data-tab="ladders"><span class="tab-label">Ladders</span><span class="tab-count" id="laddersTabCount">0</span></button>
+    <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings</span><span class="tab-count" id="standingsTabCount">0</span></button>
   </div>
 </header>
 
@@ -3067,9 +3071,6 @@ footer.app-footer{
   <section class="standings-context" id="standingsContext"></section>
   <section id="listView"></section>
   <section id="monthView" style="display:none;"></section>
-  <section id="neverMissView" style="display:none;"></section>
-  <section id="watchLaterView" style="display:none;"></section>
-  <section id="archivedView" style="display:none;"></section>
 </main>
 
 <footer class="app-footer">
@@ -3226,10 +3227,6 @@ const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
 const SPORT_DOMAIN_REGISTRY = globalThis.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY;
 const SPORT_META = SPORT_DOMAIN_REGISTRY.metaByKey();
 const FILTER_ORDER = SPORT_DOMAIN_REGISTRY.filterOrder;
-const ACTION_FILTERS = {
-  mustwatch: { label: "Must Watch", glyph: "semantic:must-watch" },
-  watchlater: { label: "Catch Up", glyph: "ui:watch" },
-};
 const SPORTS_LIBRARY = SPORT_DOMAIN_REGISTRY.selectorLibrary();
 
 function glyphMarkup(key, options = {}){
@@ -3396,18 +3393,6 @@ const DEFAULT_PREFERENCES = {
   },
 };
 
-const APP_CONTRACT = {
-  schemaVersion: "events.v1",
-  rails: {
-    topStorylines: "Top 9",
-    worthCheckingOut: "Worth Checking Out",
-    aroundTheCorner: "Around the Corner",
-  },
-  cardStates: ["compact", "selected", "opened"],
-  userStates: ["mustWatch", "watchLater", "archived"],
-  enthusiasm: ["like", "froth", "choose"],
-};
-
 const FEEDBACK_RECIPIENT = "0437041326";
 const CALENDAR_SYNC_FALLBACK_ORIGIN = "https://nothingsport.vercel.app";
 
@@ -3484,12 +3469,12 @@ function saveActiveProfileSection(section, value){
 }
 
 /* ============ STATE ============ */
-let activeFilter = "all";
 let activeView = "list";
-let activeTab = "calendar";
+let activeTab = "ladders";
 let calendarInitialJumpPending = true;
-let neverMissInitialJumpPending = true;
-let savedSurfaceInitialJumpPending = { watchlater: true, archived: true };
+let rankingSportFilters = null;
+let rankingKnownSportKeys = new Set();
+let rankingSportExpansion = {};
 let todayMoreReveal = false;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
@@ -3872,8 +3857,10 @@ function loadEventActions(){
   }
   const current = readStorage(STORAGE_KEYS.eventUserState, null);
   if (current && typeof current === "object"){
-    saveActiveProfileSection("eventUserState", current);
-    return current;
+    const migrated = migrateEventActionRecords(current);
+    writeStorage(STORAGE_KEYS.eventUserState, migrated);
+    saveActiveProfileSection("eventUserState", migrated);
+    return migrated;
   }
 
   const legacy = readStorage(STORAGE_KEYS.legacyEventActions, {});
@@ -3887,15 +3874,17 @@ function loadEventActions(){
 function migrateEventActionRecords(records){
   return Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
     if (!action || typeof action !== "object") return [key, action];
-    if (!Object.prototype.hasOwnProperty.call(action, "reminderState") && !Object.prototype.hasOwnProperty.call(action, "savedForCatchup")){
-      return [key, action];
-    }
+    const wasSavedForLater = Boolean(
+      action.watchLater
+      || action.savedForCatchup
+      || action.reminderState === "saved_for_catchup"
+    );
     return [key, {
-      eventId: action.eventId,
-      startTime: action.startTime,
-      mustWatch: ["calendar_added", "watching"].includes(action.reminderState),
-      watchLater: Boolean(action.savedForCatchup || action.reminderState === "saved_for_catchup"),
-      archived: Boolean(action.archived || action.dismissed),
+      ...action,
+      mustWatch: false,
+      watchLater: false,
+      saved: Boolean(action.saved || wasSavedForLater),
+      archived: Boolean(action.archived || action.dismissed || wasSavedForLater),
       lastActionAt: action.lastActionAt || null,
     }];
   }));
@@ -4273,7 +4262,7 @@ function applyServerState(state){
   try{
     userPreferences = mergePreferences(state.preferences);
     eventActions = state.eventUserState && typeof state.eventUserState === "object"
-      ? state.eventUserState
+      ? migrateEventActionRecords(state.eventUserState)
       : {};
     eventSpoilerState = state.eventSpoilerState && typeof state.eventSpoilerState === "object"
       ? state.eventSpoilerState
@@ -4281,6 +4270,7 @@ function applyServerState(state){
     ratings = state.ratings && typeof state.ratings === "object" ? state.ratings : {};
     const localProfileId = activeProfileBundle?.profile?.id || "profile:local";
     archivedEventRefs = normalizeServerArchiveReferences(state.archivedEvents, localProfileId);
+    syncLegacyArchiveReferences(activeEvents);
 
     writeStorage(STORAGE_KEYS.preferences, userPreferences);
     writeStorage(STORAGE_KEYS.eventUserState, eventActions);
@@ -4456,7 +4446,6 @@ function applyFeedEvents(events, meta){
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
   calendarInitialJumpPending = true;
-  neverMissInitialJumpPending = true;
   renderAll();
 }
 
@@ -4482,7 +4471,6 @@ function applyServerFeed(payload){
   if (payload.sourceVersion) writeStorage(STORAGE_KEYS.lastFeedVersion, payload.sourceVersion);
   writeStorage(STORAGE_KEYS.lastRefreshAt, payload.generatedAt || new Date().toISOString());
   calendarInitialJumpPending = true;
-  neverMissInitialJumpPending = true;
   renderAll();
   return {
     source: "server",
@@ -4757,15 +4745,6 @@ function retrospectiveSignificanceForEvent(ev){
   };
 }
 
-function shouldSuggestWatchLater(ev){
-  const action = getEventAction(ev);
-  const retrospective = retrospectiveSignificanceForEvent(ev);
-  return getEventStatus(ev) === "past"
-    && retrospective.perceivedQuality > 8
-    && !action.watchLater
-    && !action.archived;
-}
-
 function isMustWatch(ev){
   return getEventAction(ev).mustWatch
     || isPreFlagged(ev)
@@ -4785,6 +4764,7 @@ function defaultEventAction(ev){
     watchLater: false,
     watched: false,
     watchedAt: null,
+    saved: false,
     archived: false,
     lastActionAt: null,
   };
@@ -5274,7 +5254,8 @@ function setEventRating(ev, value){
   markSpoilerRevealed(ev);
 }
 
-function archiveEvent(ev){
+function archiveEvent(ev, { preserve = false } = {}){
+  if (preserve && getActual(ev.id) === null) return false;
   if (getEventStatus(ev) === "past") markSpoilerRevealed(ev);
   if (CARD_LIFECYCLE){
     saveArchivedEventRefs(CARD_LIFECYCLE.archiveReference(archivedEventRefs, ev, {
@@ -5282,14 +5263,15 @@ function archiveEvent(ev){
       archivedFromCardId: derivedCardIdForEvent(ev),
     }));
   }
-  return updateEventAction(ev, { archived: true, watchLater: false, mustWatch: false });
+  updateEventAction(ev, { archived: true, saved: preserve, watchLater: false, mustWatch: false });
+  return true;
 }
 
 function reinstateArchivedEvent(ev){
   if (CARD_LIFECYCLE){
     saveArchivedEventRefs(CARD_LIFECYCLE.removeArchiveReference(archivedEventRefs, ev.eventId || ev.id));
   }
-  return updateEventAction(ev, { archived: false });
+  return updateEventAction(ev, { archived: false, saved: false });
 }
 
 function dayDateLabel(dateStr){
@@ -5331,7 +5313,6 @@ function eventTimeLabel(ev){
 }
 
 function buildEventActionPanel(ev, options = {}){
-  const action = getEventAction(ev);
   const panel = document.createElement("div");
   panel.className = "event-action-panel";
   const row = document.createElement("div");
@@ -5355,42 +5336,28 @@ function buildEventActionPanel(ev, options = {}){
       note.textContent = "Auto-archived after seven days.";
       row.appendChild(note);
     } else {
-      makeActionButton("Reinstate to Calendar", "restore", () => {
+      makeActionButton("Reinstate to feed", "restore", () => {
         reinstateArchivedEvent(ev);
         renderAll();
-        showToast(`Reinstated ${ev.name} to Calendar.`);
+        if (settingsSection === "archive" && document.getElementById("settingsModal").classList.contains("show")){
+          renderSettingsScreen();
+        }
+        showToast(`Reinstated ${ev.name} to the sports feed.`);
       });
     }
   } else {
-    const systemState = getEventStatus(ev) === "past" ? "past" : "coming-up";
-    if (systemState === "coming-up"){
-      makeActionButton(
-        action.mustWatch ? "Added to Must Watch" : "Add to Must Watch",
-        action.mustWatch ? "active" : "",
-        () => {
-          const mustWatch = !action.mustWatch;
-          updateEventAction(ev, { mustWatch });
+    if (getEventStatus(ev) === "past"){
+      makeActionButton("Rate", "", () => {
+        markSpoilerRevealed(ev);
+        setCardState(ev, "opened");
+        renderCurrentSection();
+        showToast("Choose a rating from 1 to 10.");
+      });
+      if (getActual(ev.id) !== null){
+        makeActionButton("Save", "active", () => {
+          archiveEvent(ev, { preserve: true });
           renderAll();
-          showToast(mustWatch ? "Added to Must Watch." : "Removed from Must Watch.");
-        }
-      );
-    } else {
-      makeActionButton(
-        action.watchLater ? "Saved to Catch Up" : "Catch Up",
-        action.watchLater ? "active" : "",
-        () => {
-          const watchLater = !action.watchLater;
-          updateEventAction(ev, { watchLater });
-          renderAll();
-          showToast(watchLater ? "Saved to Catch Up." : "Removed from Catch Up.");
-        }
-      );
-      if (!options.catchUp){
-        makeActionButton("Rate", "", () => {
-          markSpoilerRevealed(ev);
-          setCardState(ev, "opened");
-          renderCurrentSection();
-          showToast("Choose a rating from 1 to 10.");
+          showToast(`Saved ${ev.name} to Archive.`);
         });
       }
     }
@@ -5410,34 +5377,50 @@ function buildEventActionPanel(ev, options = {}){
 function renderFilters(){
   const container = document.getElementById("sportFilters");
   container.innerHTML = "";
-  const followed = new Set(userPreferences.followedSports);
-  if (activeFilter !== "all" && !followed.has(activeFilter) && !ACTION_FILTERS[activeFilter]){
-    activeFilter = "all";
-  }
-  FILTER_ORDER.filter(key => key === "all" || followed.has(key)).forEach(key => {
-    const btn = document.createElement("button");
-    btn.className = "pill" + (activeFilter === key ? " active" : "");
-    if (key !== "all"){
-      btn.style.setProperty("--pill-color", SPORT_META[key].color);
-    }
-    const glyph = key === "all" ? "ui:calendar" : SPORT_META[key].glyph;
-    const label = key === "all" ? "All" : SPORT_META[key].label;
-    btn.innerHTML = `${glyphMarkup(glyph)}<span>${label}</span>`;
-    btn.addEventListener("click", () => {
-      activeFilter = key;
-      renderAll();
-    });
-    container.appendChild(btn);
+  const availableKeys = rankingSportKeysForTab(activeTab);
+  if (!(rankingSportFilters instanceof Set)) rankingSportFilters = new Set();
+  availableKeys.forEach(key => {
+    if (rankingKnownSportKeys.has(key)) return;
+    rankingKnownSportKeys.add(key);
+    const visibleByPreference = rankingCompetitionsForTab(activeTab)
+      .filter(competition => standingsSportKey(competition) === key)
+      .some(competition => standingsVisibilityForCompetition(userPreferences, competition) !== "hidden");
+    if (visibleByPreference) rankingSportFilters.add(key);
+    rankingSportExpansion[key] = visibleByPreference;
   });
-  Object.entries(ACTION_FILTERS).forEach(([key, filter]) => {
-    const btn = document.createElement("button");
-    btn.className = "pill" + (activeFilter === key ? " active" : "");
-    btn.innerHTML = `${glyphMarkup(filter.glyph)}<span>${filter.label}</span>`;
-    btn.addEventListener("click", () => {
-      activeFilter = key;
+  const label = document.createElement("span");
+  label.className = "filter-row-label";
+  label.textContent = `Filter ${activeTab}`;
+  container.appendChild(label);
+  if (!availableKeys.length){
+    const empty = document.createElement("span");
+    empty.className = "summary-chip";
+    empty.textContent = `No enabled ${activeTab} for followed sports`;
+    container.appendChild(empty);
+  }
+  availableKeys.forEach(key => {
+    const checked = rankingSportFilters.has(key);
+    const control = document.createElement("label");
+    control.className = "pill" + (checked ? " active" : "");
+    control.style.setProperty("--pill-color", SPORT_META[key]?.color || "var(--accent)");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = checked;
+    input.dataset.sportFilter = key;
+    const copy = document.createElement("span");
+    copy.textContent = SPORT_META[key]?.label || key.toUpperCase();
+    control.append(input, copy);
+    input.addEventListener("change", () => {
+      if (input.checked){
+        rankingSportFilters.add(key);
+        rankingSportExpansion[key] = true;
+      } else {
+        rankingSportFilters.delete(key);
+        rankingSportExpansion[key] = false;
+      }
       renderAll();
     });
-    container.appendChild(btn);
+    container.appendChild(control);
   });
   renderPreferenceSummary();
 }
@@ -5496,16 +5479,6 @@ function eventMatchesFifaFilters(ev){
   }
   if (rules.contenders === "title"){
     return ev.expected >= 8 || /france|spain|argentina|england|belgium/i.test(ev.name);
-  }
-  return true;
-}
-
-function eventMatchesActionFilter(ev){
-  if (activeFilter === "mustwatch"){
-    return getEventAction(ev).mustWatch;
-  }
-  if (activeFilter === "watchlater"){
-    return getEventAction(ev).watchLater;
   }
   return true;
 }
@@ -5625,12 +5598,6 @@ function getPreferenceMatchedEvents(){
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
-  list = list.filter(eventMatchesActionFilter);
-  if (activeFilter !== "all"){
-    if (!ACTION_FILTERS[activeFilter]){
-      list = list.filter(e => e.key === activeFilter);
-    }
-  }
   return list;
 }
 
@@ -5721,46 +5688,6 @@ function buildStars(ev, interactive){
   return wrap;
 }
 
-function buildCatchUpWatchedControl(ev){
-  const action = getEventAction(ev);
-  const wrap = document.createElement("div");
-  wrap.className = "catchup-watched";
-
-  const label = document.createElement("label");
-  label.className = "catchup-watched-label";
-  const input = document.createElement("input");
-  input.type = "checkbox";
-  input.checked = Boolean(action.watched);
-  input.setAttribute("aria-label", `Mark ${spoilerSafeDisplayTitle(ev)} as watched`);
-  const copy = document.createElement("span");
-  copy.textContent = "Watched";
-  label.append(input, copy);
-  wrap.appendChild(label);
-
-  input.addEventListener("change", event => {
-    event.stopPropagation();
-    updateEventAction(ev, {
-      watched: input.checked,
-      watchedAt: input.checked ? new Date().toISOString() : null,
-    });
-    renderCurrentSection();
-    showToast(input.checked ? "Marked as watched. Rating is optional." : "Marked as not watched.");
-  });
-
-  if (action.watched){
-    const prompt = document.createElement("div");
-    prompt.className = "catchup-rating-prompt";
-    const title = document.createElement("strong");
-    title.textContent = "Optional rating";
-    const detail = document.createElement("span");
-    detail.textContent = "How good was it? Skip this if you would rather not rate it.";
-    prompt.append(title, detail, buildStars(ev, true));
-    wrap.appendChild(prompt);
-  }
-
-  return wrap;
-}
-
 function buildStakesMeter(ev){
   const wrap = document.createElement("span");
   wrap.className = "stakes-meter";
@@ -5777,24 +5704,24 @@ function buildSpoilerOverrideControl(ev){
 
   const copy = document.createElement("span");
   copy.className = "spoiler-control-copy";
-  copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Global spoilers ${userPreferences.showSpoilers ? "on" : "off"} · ${state.override === "inherit" ? "Uses global setting" : state.override === "show" ? "Details revealed" : "Details protected"}`;
+  copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Global results ${userPreferences.showSpoilers ? "shown" : "hidden"} · ${state.override === "inherit" ? "Uses global setting" : state.override === "show" ? "Results shown" : "Results hidden"}`;
   control.appendChild(copy);
 
   const toggle = document.createElement("button");
   toggle.className = "spoiler-reveal-btn";
-  toggle.textContent = visible ? "Protect event details" : "Reveal event details";
+  toggle.textContent = visible ? "Hide results" : "Show results";
   toggle.addEventListener("click", evt => {
     evt.stopPropagation();
     if (visible){
       hideSpoilersForEvent(ev);
       renderCurrentSection();
-      showToast("Spoilers hidden for this event.");
+      showToast("Results hidden for this event.");
       return;
     }
-    if (window.confirm("Reveal spoiler-sensitive details for this event?")){
+    if (window.confirm("Show results for this event?")){
       revealSpoilerDetails(ev);
       renderCurrentSection();
-      showToast("Spoilers revealed for this event.");
+      showToast("Results shown for this event.");
     }
   });
   control.appendChild(toggle);
@@ -5881,34 +5808,6 @@ function buildCompactResult(ev){
   }
   wrap.appendChild(copy);
   return wrap;
-}
-
-function buildRetrospectivePrompt(ev){
-  if (!isSpoilerVisible(ev) || !shouldSuggestWatchLater(ev)) return null;
-  const retrospective = retrospectiveSignificanceForEvent(ev);
-  const prompt = document.createElement("div");
-  prompt.className = "retrospective-prompt";
-
-  const copy = document.createElement("div");
-  const title = document.createElement("strong");
-  title.textContent = "Worth saving for later";
-  const detail = document.createElement("span");
-  detail.textContent = `Your ${retrospective.perceivedQuality}/10 rating makes this a replay recommendation without changing its place in the past timeline.`;
-  copy.append(title, detail);
-
-  const button = document.createElement("button");
-  button.className = "action-btn active";
-  button.type = "button";
-  button.textContent = "Add to Catch Up";
-  button.addEventListener("click", evt => {
-    evt.stopPropagation();
-    updateEventAction(ev, { watchLater: true });
-    renderAll();
-    showToast("Saved to Catch Up.");
-  });
-
-  prompt.append(copy, button);
-  return prompt;
 }
 
 function nextCardState(current){
@@ -6047,7 +5946,6 @@ function buildEventCard(ev, options = {}){
   const expandable = true;
   const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
-  const action = getEventAction(ev);
   const spoilerVisible = isSpoilerVisible(ev);
   const protectedFacts = spoilerFactsForEvent(ev);
   const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
@@ -6175,9 +6073,12 @@ function buildEventCard(ev, options = {}){
     badges.appendChild(b);
   }
   if (enrichment.storyline?.visibleLabel){
+    const displayLabel = enrichment.storyline.visibleLabel === "Must Watch"
+      ? "Top pick"
+      : enrichment.storyline.visibleLabel;
     const b = document.createElement("span");
     b.className = "badge mustwatch";
-    b.innerHTML = `${VECTOR_ASSETS.editorialMarkup(enrichment.storyline.visibleLabel, { className: "semantic-badge-glyph" })}<span>${enrichment.storyline.visibleLabel}</span>`;
+    b.innerHTML = `${VECTOR_ASSETS.editorialMarkup(enrichment.storyline.visibleLabel, { className: "semantic-badge-glyph", label: displayLabel })}<span>${displayLabel}</span>`;
     badges.appendChild(b);
   }
   if (ev.australianInterest){
@@ -6196,18 +6097,6 @@ function buildEventCard(ev, options = {}){
     const b = document.createElement("span");
     b.className = "badge spoiler-safe";
     b.textContent = "Spoiler safe";
-    badges.appendChild(b);
-  }
-  if (action.mustWatch && status !== "past"){
-    const b = document.createElement("span");
-    b.className = "badge upcoming";
-    b.innerHTML = `${VECTOR_ASSETS.editorialMarkup("Must Watch", { className: "semantic-badge-glyph" })}<span>Must Watch</span>`;
-    badges.appendChild(b);
-  }
-  if (action.watchLater){
-    const b = document.createElement("span");
-    b.className = "badge upcoming";
-    b.textContent = "Catch Up";
     badges.appendChild(b);
   }
   topRow.appendChild(badges);
@@ -6254,7 +6143,7 @@ function buildEventCard(ev, options = {}){
   expectedBlock.appendChild(buildStakesMeter(ev));
   ratingRow.appendChild(expectedBlock);
 
-  if (state === "opened" && status === "past" && spoilerVisible && (mode !== "watchlater" || action.watched)){
+  if (state === "opened" && status === "past" && spoilerVisible){
     const actualBlock = document.createElement("div");
     actualBlock.className = "rating-block";
     const label = document.createElement("span");
@@ -6272,7 +6161,6 @@ function buildEventCard(ev, options = {}){
   }
 
   mainDiv.appendChild(ratingRow);
-  if (mode === "watchlater") mainDiv.appendChild(buildCatchUpWatchedControl(ev));
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
@@ -6294,7 +6182,6 @@ function buildEventCard(ev, options = {}){
     mainDiv.appendChild(buildEventActionPanel(ev, {
       archived: options.archived,
       autoArchived: options.autoArchived,
-      catchUp: mode === "watchlater",
     }));
   }
 
@@ -6323,9 +6210,6 @@ function buildEventCard(ev, options = {}){
     } else {
       const spoilerFacts = buildSpoilerFacts(ev);
       if (spoilerFacts) mainDiv.appendChild(spoilerFacts);
-
-      const retrospectivePrompt = buildRetrospectivePrompt(ev);
-      if (retrospectivePrompt) mainDiv.appendChild(retrospectivePrompt);
     }
 
     const details = document.createElement("div");
@@ -6340,7 +6224,6 @@ function buildEventCard(ev, options = {}){
     mainDiv.appendChild(buildEventActionPanel(ev, {
       archived: options.archived,
       autoArchived: options.autoArchived,
-      catchUp: mode === "watchlater",
     }));
   }
 
@@ -6488,12 +6371,7 @@ function formatDateKey(dt){
 }
 
 function activeTodayAnchorId(){
-  return {
-    calendar: "calendarTodayAnchor",
-    nevermiss: "neverMissTodayAnchor",
-    watchlater: "catchUpTodayAnchor",
-    archived: "archivedTodayAnchor",
-  }[activeTab] || "calendarTodayAnchor";
+  return "calendarTodayAnchor";
 }
 
 function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
@@ -6507,24 +6385,8 @@ function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
 }
 
 function scheduleInitialCalendarJump(){
-  if (!calendarInitialJumpPending || activeTab !== "calendar" || activeView !== "list") return;
+  if (!calendarInitialJumpPending || activeView !== "list") return;
   calendarInitialJumpPending = false;
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
-  });
-}
-
-function scheduleInitialNeverMissJump(){
-  if (!neverMissInitialJumpPending || activeTab !== "nevermiss") return;
-  neverMissInitialJumpPending = false;
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
-  });
-}
-
-function scheduleInitialSavedSurfaceJump(tab){
-  if (!savedSurfaceInitialJumpPending[tab] || activeTab !== tab) return;
-  savedSurfaceInitialJumpPending = { ...savedSurfaceInitialJumpPending, [tab]: false };
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
   });
@@ -6620,7 +6482,7 @@ function renderMonthView(){
       labelCopy.textContent = displayTitle;
       label.appendChild(labelCopy);
       evEl.appendChild(label);
-      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Don’t Miss" : ""}`;
+      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Priority event" : ""}`;
       observeNewSurfaceItem(evEl, ev, presentation);
       cell.appendChild(evEl);
     });
@@ -6638,14 +6500,47 @@ function renderMonthView(){
 }
 
 /* ============ RENDER: LADDER & STANDINGS ============ */
+function competitionNavigationTab(competition){
+  return competition.standingsOnly ? "standings" : "ladders";
+}
+
+function standingsSportKey(competition){
+  return FILTER_ORDER.find(key => key !== "all" && standingsCompetitionMatchesFilter(competition, key))
+    || String(competition.preferenceDomainId || competition.sportDomainId || "")
+      .split(":")
+      .at(-1);
+}
+
+function rankingCompetitionsForTab(tab, preferences = userPreferences){
+  const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
+  const graph = preferences?.preferenceGraph;
+  return (CANONICAL_TAXONOMY.competitions || [])
+    .filter(competition => competition.supportsLadder)
+    .filter(competition => selectedDomains.has(competition.preferenceDomainId || competition.sportDomainId))
+    .filter(competition => {
+      const domainId = competition.preferenceDomainId || competition.sportDomainId;
+      const domainPreference = graph?.domainPreferences?.find(item => item.sportDomainId === domainId);
+      const competitionPreference = graph?.competitionPreferences?.find(item => item.competitionId === competition.id);
+      return domainPreference?.enabled !== false && competitionPreference?.enabled !== false;
+    })
+    .filter(competition => competitionNavigationTab(competition) === tab);
+}
+
+function rankingVisibilityForCompetition(preferences, competition){
+  const visibility = standingsVisibilityForCompetition(preferences, competition);
+  return visibility === "hidden"
+    ? (competition.defaultStandingsVisibility || "summary")
+    : visibility;
+}
+
+function rankingSportKeysForTab(tab){
+  const keys = new Set(rankingCompetitionsForTab(tab).map(standingsSportKey));
+  return FILTER_ORDER.filter(key => key !== "all" && keys.has(key));
+}
+
 function activeStandingsCompetitions(){
-  return supportedStandingsCompetitions(userPreferences)
-    .filter(competition => standingsVisibilityForCompetition(userPreferences, competition) !== "hidden")
-    .filter(competition => (
-      activeFilter === "all"
-      || ACTION_FILTERS[activeFilter]
-      || standingsCompetitionMatchesFilter(competition, activeFilter)
-    ));
+  return rankingCompetitionsForTab(activeTab)
+    .filter(competition => rankingSportFilters?.has(standingsSportKey(competition)));
 }
 
 function standingsCompetitionMatchesFilter(competition, filterKey){
@@ -6813,23 +6708,30 @@ function renderStandingsContext(){
   const container = document.getElementById("standingsContext");
   if (!container) return;
   container.innerHTML = "";
-  if (activeTab !== "calendar") return;
+  if (!["ladders", "standings"].includes(activeTab)) return;
   const competitions = activeStandingsCompetitions();
-  if (!competitions.length) return;
+  const sectionLabel = activeTab === "ladders" ? "Ladders" : "Standings";
+  if (!competitions.length){
+    const empty = document.createElement("div");
+    empty.className = "standings-empty";
+    empty.textContent = `No ${sectionLabel.toLowerCase()} are selected. Use the sport filters above to show one.`;
+    container.appendChild(empty);
+    return;
+  }
 
   if (!userPreferences.showSpoilers && !standingsRevealApproved){
     const module = document.createElement("section");
     module.className = "standings-module standings-withheld";
     const copy = document.createElement("div");
     const title = document.createElement("h2");
-    title.textContent = "Ladder & Standings";
+    title.textContent = sectionLabel;
     const detail = document.createElement("p");
-    detail.textContent = "Hidden while Results is off because positions can reveal recent outcomes.";
+    detail.textContent = `Hidden while Results is off because ${sectionLabel.toLowerCase()} can reveal recent outcomes.`;
     copy.append(title, detail);
     const reveal = document.createElement("button");
     reveal.className = "btn ghost";
     reveal.type = "button";
-    reveal.textContent = "Reveal standings";
+    reveal.textContent = `Show ${sectionLabel.toLowerCase()}`;
     reveal.addEventListener("click", () => requestStandingsAccess(renderAll));
     module.append(copy, reveal);
     container.appendChild(module);
@@ -6840,11 +6742,11 @@ function renderStandingsContext(){
     const module = document.createElement("section");
     module.className = "standings-module";
     const title = document.createElement("h2");
-    title.textContent = "Ladder & Standings";
+    title.textContent = sectionLabel;
     const status = document.createElement("p");
     status.textContent = canonicalSportsDataError
-      ? "Standings data is unavailable, so the module has been withheld."
-      : "Loading current standings…";
+      ? `${sectionLabel} data is unavailable, so this area has been withheld.`
+      : `Loading current ${sectionLabel.toLowerCase()}…`;
     module.append(title, status);
     if (canonicalSportsDataError){
       const retry = document.createElement("button");
@@ -6864,7 +6766,37 @@ function renderStandingsContext(){
     return;
   }
 
+  const competitionsBySport = new Map();
   competitions.forEach(competition => {
+    const sportKey = standingsSportKey(competition);
+    const sportCompetitions = competitionsBySport.get(sportKey) || [];
+    sportCompetitions.push(competition);
+    competitionsBySport.set(sportKey, sportCompetitions);
+  });
+
+  competitionsBySport.forEach((sportCompetitions, sportKey) => {
+    const expanded = rankingSportExpansion[sportKey] !== false;
+    const sportSection = document.createElement("section");
+    sportSection.className = "standings-sport-section";
+    sportSection.dataset.sportSection = sportKey;
+    const expander = document.createElement("button");
+    expander.type = "button";
+    expander.className = "standings-sport-expander";
+    expander.dataset.sportExpander = sportKey;
+    expander.setAttribute("aria-expanded", expanded ? "true" : "false");
+    expander.setAttribute("aria-controls", `ranking-${activeTab}-${sportKey}`);
+    expander.innerHTML = `<span>${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter")} ${SPORT_META[sportKey]?.label || sportKey.toUpperCase()}</span>${glyphMarkup("ui:chevron-right")}`;
+    expander.addEventListener("click", () => {
+      rankingSportExpansion[sportKey] = !expanded;
+      renderStandingsContext();
+    });
+    sportSection.appendChild(expander);
+    const sportContent = document.createElement("div");
+    sportContent.className = "standings-sport-content";
+    sportContent.id = `ranking-${activeTab}-${sportKey}`;
+    sportContent.hidden = !expanded;
+
+    sportCompetitions.forEach(competition => {
     const module = document.createElement("section");
     module.className = "standings-module";
     const head = document.createElement("div");
@@ -6889,157 +6821,14 @@ function renderStandingsContext(){
         module,
         competition,
         snapshot,
-        standingsVisibilityForCompetition(userPreferences, competition)
+        rankingVisibilityForCompetition(userPreferences, competition)
       );
     }
-    container.appendChild(module);
+      sportContent.appendChild(module);
+    });
+    sportSection.appendChild(sportContent);
+    container.appendChild(sportSection);
   });
-}
-
-/* ============ RENDER: PRIMARY SURFACES ============ */
-function neverMissTimelineEvents(reference = nowAEST()){
-  const windowStart = new Date(reference.getTime() - 7 * 24 * 3600 * 1000);
-  const windowEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
-  return getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
-    .filter(ev => {
-      const start = eventDateTime(ev);
-      return start >= windowStart && start <= windowEnd;
-    })
-    .filter(ev => {
-      const band = importanceBandForEvent(ev);
-      return band === "topStorylines" || band === "worthCheckingOut";
-    })
-    .sort((a,b) => eventDateTime(a) - eventDateTime(b));
-}
-
-function neverMissBuckets(reference = nowAEST()){
-  const now = reference;
-  const weekEnd = new Date(now.getTime() + 7 * 24 * 3600 * 1000);
-  const monthEnd = new Date(now.getTime() + 30 * 24 * 3600 * 1000);
-  const upcoming = getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
-    .filter(ev => eventDateTime(ev) >= now)
-    .sort((a,b) => eventDateTime(a) - eventDateTime(b));
-
-  return {
-    topStorylines: topNineEvents(reference),
-    worthCheckingOut: upcoming.filter(ev => eventDateTime(ev) <= weekEnd && ev.stakesScore === SCORE_BANDS.worthCheckingOut.minStakes),
-    aroundTheCorner: upcoming.filter(ev => (
-      (eventDateTime(ev) > weekEnd && eventDateTime(ev) <= monthEnd) || ev.horizonException
-    ) && ev.stakesScore >= SCORE_BANDS.aroundTheCorner.minStakes),
-  };
-}
-
-function renderRecommendationRail(container, title, events, emptyCopy, options = {}){
-  const rail = document.createElement("div");
-  rail.className = "mw-tier";
-  const heading = document.createElement("h3");
-  heading.textContent = title;
-  rail.appendChild(heading);
-
-  if (!events.length){
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.style.padding = "24px 12px";
-    empty.textContent = emptyCopy;
-    rail.appendChild(empty);
-  } else {
-    const grid = document.createElement("div");
-    grid.className = "cards-grid";
-    const ordered = orderSurfacedEvents(events, { topNine: Boolean(options.topNine) });
-    ordered.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "nevermiss" })));
-    rail.appendChild(grid);
-  }
-
-  container.appendChild(rail);
-}
-
-function renderNeverMissTimeline(container, events){
-  const timeline = document.createElement("div");
-  timeline.className = "mw-tier never-miss-timeline";
-
-  const heading = document.createElement("h3");
-  heading.textContent = "This week’s timeline";
-  timeline.appendChild(heading);
-
-  const { newItems, seenItems } = partitionSurfacedEvents(events);
-  appendNewlySurfacedSection(timeline, newItems, { mode: "nevermiss" });
-  const groups = groupEventsByDate(calendarTimelineEvents(seenItems));
-  const dates = Object.keys(groups).sort();
-  const todayStr = formatDateKey(nowAEST());
-  let todayAnchorInserted = false;
-
-  const appendTodayAnchor = () => {
-    if (todayAnchorInserted) return;
-    const anchor = document.createElement("div");
-    anchor.className = "today-anchor";
-    anchor.id = "neverMissTodayAnchor";
-    anchor.setAttribute("role", "separator");
-    anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
-    anchor.textContent = "Today";
-    timeline.appendChild(anchor);
-    todayAnchorInserted = true;
-  };
-
-  dates.forEach(dateStr => {
-    if (!todayAnchorInserted && dateStr >= todayStr) appendTodayAnchor();
-    const group = document.createElement("div");
-    group.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
-
-    const dateHeading = document.createElement("div");
-    dateHeading.className = "date-heading";
-    dateHeading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
-    group.appendChild(dateHeading);
-
-    const grid = document.createElement("div");
-    grid.className = "cards-grid";
-    groups[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "nevermiss" })));
-    group.appendChild(grid);
-    timeline.appendChild(group);
-  });
-
-  appendTodayAnchor();
-  if (!events.length){
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.style.padding = "24px 12px";
-    empty.textContent = "No Top Storyline or Worth Checking Out events in the seven days around Today.";
-    timeline.appendChild(empty);
-  }
-
-  container.appendChild(timeline);
-  scheduleInitialNeverMissJump();
-}
-
-function renderNeverMiss(){
-  const container = document.getElementById("neverMissView");
-  container.innerHTML = "";
-
-  const intro = document.createElement("div");
-  intro.className = "surface-intro";
-  intro.innerHTML = `<h2>Don’t Miss</h2><p>The Top 9 is ranked for Australian viewing access. The timeline keeps the rest of this week’s selective, spoiler-safe picks around Today.</p>`;
-  container.appendChild(intro);
-
-  const { topStorylines, aroundTheCorner } = neverMissBuckets();
-  renderRecommendationRail(
-    container,
-    APP_CONTRACT.rails.topStorylines,
-    topStorylines,
-    "No 4/5-or-higher events are eligible for the Top 9 this week.",
-    { topNine: true }
-  );
-  const topNineIds = new Set(topStorylines.map(ev => surfacePresentationKey(ev)));
-  renderNeverMissTimeline(
-    container,
-    neverMissTimelineEvents().filter(ev => !topNineIds.has(surfacePresentationKey(ev)))
-  );
-  renderRecommendationRail(
-    container,
-    APP_CONTRACT.rails.aroundTheCorner,
-    aroundTheCorner,
-    "No 4/5-or-higher events between 8 and 30 days away."
-  );
 }
 
 function groupEventsByDate(events){
@@ -7055,64 +6844,6 @@ function eventEndDateTime(ev){
   return new Date(start.getTime() + (ev.liveWindow || 3) * 3600 * 1000);
 }
 
-function renderSavedSurface({ containerId, title, copy, events, emptyIcon, emptyCopy, archived = false }){
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-
-  const intro = document.createElement("div");
-  intro.className = "surface-intro";
-  intro.innerHTML = `<h2>${title}</h2><p>${copy}</p>`;
-  container.appendChild(intro);
-
-  const todayStr = formatDateKey(nowAEST());
-  const anchorId = archived ? "archivedTodayAnchor" : "catchUpTodayAnchor";
-  let todayAnchorInserted = false;
-  const appendTodayAnchor = () => {
-    if (todayAnchorInserted) return;
-    const anchor = document.createElement("div");
-    anchor.className = "today-anchor";
-    anchor.id = anchorId;
-    anchor.setAttribute("role", "separator");
-    anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
-    anchor.textContent = "Today";
-    container.appendChild(anchor);
-    todayAnchorInserted = true;
-  };
-
-  const grouped = groupEventsByDate(calendarTimelineEvents(events));
-  Object.keys(grouped).sort().forEach(dateStr => {
-    if (!todayAnchorInserted && dateStr >= todayStr) appendTodayAnchor();
-    const section = document.createElement("div");
-    section.className = "queue-section";
-    const heading = document.createElement("h3");
-    heading.textContent = fmtDateHeading(dateStr);
-    section.appendChild(heading);
-    const grid = document.createElement("div");
-    grid.className = "cards-grid";
-    grouped[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, {
-      mode: archived ? "archived" : "watchlater",
-      archived,
-      autoArchived: archived && eventIsAutoArchived(ev) && !getEventAction(ev).archived,
-    })));
-    section.appendChild(grid);
-    container.appendChild(section);
-  });
-  appendTodayAnchor();
-
-  if (!events.length){
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.innerHTML = `<div class="big">${emptyIcon}</div>${emptyCopy}`;
-    container.appendChild(empty);
-  }
-  scheduleInitialSavedSurfaceJump(archived ? "archived" : "watchlater");
-}
-
-function watchLaterEvents(){
-  return getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived && getEventAction(ev).watchLater);
-}
-
 function archivedEvents(){
   const explicit = CARD_LIFECYCLE
     ? CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events.filter(eventMeetsDerivedRetention)
@@ -7124,29 +6855,6 @@ function archivedEvents(){
   const byId = new Map();
   [...explicit, ...automatic].forEach(ev => byId.set(ev.eventId || ev.id, ev));
   return Array.from(byId.values());
-}
-
-function renderWatchLater(){
-  renderSavedSurface({
-    containerId: "watchLaterView",
-    title: "Catch Up",
-    copy: "Your spoiler-safe queue for events you plan to watch when the timing suits.",
-    events: watchLaterEvents(),
-    emptyIcon: "↺",
-    emptyCopy: "Nothing saved yet. Open a past event and choose Catch Up.",
-  });
-}
-
-function renderArchived(){
-  renderSavedSurface({
-    containerId: "archivedView",
-    title: "Archived",
-    copy: "Past events move here after seven days and disappear after fourteen unless saved.",
-    events: archivedEvents(),
-    emptyIcon: "⌁",
-    emptyCopy: "No archived events.",
-    archived: true,
-  });
 }
 
 function calendarSyncConfigForPreferences(preferences = userPreferences){
@@ -7296,15 +7004,9 @@ window.addEventListener("scroll", () => {
 /* ============ TABS / VIEW SWITCHING ============ */
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    collapseAllCardStates();
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeTab = btn.dataset.tab;
-    if (activeTab === "calendar") calendarInitialJumpPending = true;
-    if (activeTab === "nevermiss") neverMissInitialJumpPending = true;
-    if (activeTab === "watchlater" || activeTab === "archived"){
-      savedSurfaceInitialJumpPending = { ...savedSurfaceInitialJumpPending, [activeTab]: true };
-    }
     renderAll();
   });
 });
@@ -7321,12 +7023,8 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 });
 
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
-  if (activeTab === "calendar") calendarInitialJumpPending = false;
-  if (activeTab === "nevermiss") neverMissInitialJumpPending = false;
-  if (activeTab === "watchlater" || activeTab === "archived"){
-    savedSurfaceInitialJumpPending = { ...savedSurfaceInitialJumpPending, [activeTab]: false };
-  }
-  if (activeTab === "calendar" && activeView !== "list"){
+  calendarInitialJumpPending = false;
+  if (activeView !== "list"){
     activeView = "list";
     document.querySelectorAll(".view-toggle button").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.view === "list");
@@ -7337,26 +7035,12 @@ document.getElementById("jumpTodayBtn").addEventListener("click", () => {
 });
 
 function renderCurrentSection(){
-  if (activeTab === "calendar"){
-    if (activeView === "list") renderListView(); else renderMonthView();
-  } else if (activeTab === "nevermiss"){
-    renderNeverMiss();
-  } else if (activeTab === "watchlater"){
-    renderWatchLater();
-  } else if (activeTab === "archived"){
-    renderArchived();
-  }
+  if (activeView === "list") renderListView(); else renderMonthView();
 }
 
 function renderTabCounts(){
-  const eligible = getPreferenceMatchedEvents();
-  const active = eligible.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
-  const neverMiss = neverMissBuckets();
-  const neverMissTimeline = neverMissTimelineEvents();
-  document.getElementById("calendarTabCount").textContent = active.length;
-  document.getElementById("neverMissTabCount").textContent = neverMissTimeline.length + neverMiss.aroundTheCorner.length;
-  document.getElementById("watchLaterTabCount").textContent = watchLaterEvents().length;
-  document.getElementById("archivedTabCount").textContent = archivedEvents().length;
+  document.getElementById("laddersTabCount").textContent = rankingCompetitionsForTab("ladders").length;
+  document.getElementById("standingsTabCount").textContent = rankingCompetitionsForTab("standings").length;
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
@@ -7369,36 +7053,21 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   const calControls = document.getElementById("calendarControls");
   const listView = document.getElementById("listView");
   const monthView = document.getElementById("monthView");
-  const neverMissView = document.getElementById("neverMissView");
-  const watchLaterView = document.getElementById("watchLaterView");
-  const archivedView = document.getElementById("archivedView");
   const jumpTodayBtn = document.getElementById("jumpTodayBtn");
 
-  [listView, monthView, neverMissView, watchLaterView, archivedView].forEach(view => {
+  [listView, monthView].forEach(view => {
     view.style.display = "none";
   });
+  calControls.style.display = "flex";
   jumpTodayBtn.hidden = false;
-  jumpTodayBtn.setAttribute("aria-label", `Jump to today in ${activeTab === "nevermiss" ? "Don’t Miss" : activeTab === "watchlater" ? "Catch Up" : activeTab === "archived" ? "Archived" : "Calendar"}`);
+  jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
 
-  if (activeTab === "calendar"){
-    calControls.style.display = "flex";
-    if (activeView === "list"){
-      listView.style.display = "block";
-      renderListView();
-    } else {
-      monthView.style.display = "block";
-      renderMonthView();
-    }
+  if (activeView === "list"){
+    listView.style.display = "block";
+    renderListView();
   } else {
-    calControls.style.display = "none";
-    const viewByTab = {
-      nevermiss: neverMissView,
-      watchlater: watchLaterView,
-      archived: archivedView,
-    };
-    const activeSection = viewByTab[activeTab] || neverMissView;
-    activeSection.style.display = "block";
-    renderCurrentSection();
+    monthView.style.display = "block";
+    renderMonthView();
   }
   restoreViewportRenderAnchor(preservedViewportAnchor);
 }
@@ -7731,7 +7400,7 @@ function renderAccountSettings(body){
         <span class="account-sync-dot${dotClass}" aria-hidden="true"></span>
         <div><strong>${heading}</strong><span id="accountSyncDetail"></span></div>
       </div>
-      <p class="preference-help">Preferences, followed teams and competitors, saved cards, Catch Up watched state, results, standings and Calendar sync settings follow your account. Disposable feed cards stay local and rebuild from source data.</p>
+      <p class="preference-help">Preferences, followed teams and competitors, saved Archive cards, results, standings and Calendar sync settings follow your account. Disposable feed cards stay local and rebuild from source data.</p>
       <div id="accountSyncControls"></div>
     </div>
   </div>`;
@@ -7813,12 +7482,13 @@ function renderSettingsMenu(body){
     : "Any time";
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
+    ${settingsMenuItem("archive", "ui:archive", "Archive", `${archivedEvents().length} preserved or recently archived event${archivedEvents().length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("sports", "ui:filter", "Events Selector", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Special Events`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
-  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; saved Catch Up items remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
+  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; rated cards saved to Archive remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
   bindSettingsMenuNavigation(body);
   document.getElementById("rebuildFeedCacheBtn").addEventListener("click", async () => {
     const centralRebuild = Boolean(serverPersistence.user && ["signedIn", "syncing", "error"].includes(serverPersistence.state));
@@ -7836,6 +7506,33 @@ function renderSettingsMenu(body){
         ? "Central rebuild unavailable. Feed cache rebuilt safely on this device."
         : "Feed cache rebuilt from canonical events and your preferences.");
     renderSettingsScreen();
+  });
+}
+
+function renderArchiveSettings(body){
+  const events = archivedEvents();
+  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Past events move here after seven days and disappear after fourteen unless you rate and save them. Archive on a card dismisses it; Save preserves a rated card here.</p><div id="settingsArchiveList"></div></div>`;
+  const list = document.getElementById("settingsArchiveList");
+  if (!events.length){
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">No archived events.</div>`;
+    return;
+  }
+  const grouped = groupEventsByDate(calendarTimelineEvents(events));
+  Object.keys(grouped).sort().forEach(dateStr => {
+    const section = document.createElement("section");
+    section.className = "queue-section";
+    const heading = document.createElement("h3");
+    heading.textContent = fmtDateHeading(dateStr);
+    section.appendChild(heading);
+    const grid = document.createElement("div");
+    grid.className = "cards-grid";
+    grouped[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev, {
+      mode: "archived",
+      archived: true,
+      autoArchived: eventIsAutoArchived(ev) && !getEventAction(ev).archived,
+    })));
+    section.appendChild(grid);
+    list.appendChild(section);
   });
 }
 
@@ -8334,7 +8031,7 @@ function renderViewingSettings(body, { providersOnly = false } = {}){
   body.innerHTML = `${providersOnly ? "" : wizardProgressMarkup()}<div class="preference-stack">
     <div class="filter-panel"><h3>TV & streaming</h3><p class="preference-help">Every available provider starts selected. Opt out only of services you cannot use; newly added providers will also start selected.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>
     ${providersOnly ? "" : `<div class="filter-panel"><h3>Viewing window</h3><p class="preference-help">The recommended default is 7am–10pm AEST/AEDT. Turn the window off for Any time; 4/5 and 5/5 events can still use the high-stakes override.</p><label class="viewing-toggle"><input type="checkbox" id="viewingWindowEnabled" ${viewing.viewingWindowEnabled ? "checked" : ""}><span><strong>Use a viewing window</strong><br>${viewing.viewingWindowEnabled ? "Events inside these hours receive the strongest time fit." : "Any time — no viewing-window filter is applied."}</span></label><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour" ${viewing.viewingWindowEnabled ? "" : "disabled"}>${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour" ${viewing.viewingWindowEnabled ? "" : "disabled"}>${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
-    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar sync starts enabled for new profiles. Browser alerts are recommended, but remain off until you enable them and grant permission.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep Calendar sync enabled for this preference profile</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span><strong>Enable browser alerts for Must Watch events</strong><br>Recommended · asks permission only when you enable it</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
+    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar sync starts enabled for new profiles. Browser alerts are recommended, but remain off until you enable them and grant permission.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep Calendar sync enabled for this preference profile</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span><strong>Enable browser alerts for priority events</strong><br>Recommended · asks permission only when you enable it</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
   </div>`;
   const grid = document.getElementById("providerChoiceGrid");
   Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
@@ -8444,13 +8141,16 @@ function renderSettingsScreen(){
   const brandIcon = document.getElementById("settingsBrandIcon");
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
-  document.getElementById("saveSettingsBtn").textContent = settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
+  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && settingsSection === "archive"
+    ? "Close"
+    : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
     ? "Next"
     : settingsFirstRun ? "Save & start" : "Save & close";
 
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Use a magic link to keep durable choices connected across devices."],
+    archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
     sports: [settingsFirstRun ? "Events Selector · 1 of 4" : "Events Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Follow broad sports and special events, then open deeper controls only when you need them."],
     templates: [settingsFirstRun ? "Froth knobs · 2 of 4" : "Froth knobs", "Move from Casual to Like to Froth, or switch a followed event to Custom."],
     coverage: [settingsFirstRun ? "Teams, Ladders & Competitor Coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Teams, Ladders & Competitor Coverage", "Detailed controls appear only for followed events marked Froth."],
@@ -8463,6 +8163,7 @@ function renderSettingsScreen(){
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
   if (settingsSection === "account") renderAccountSettings(body);
+  else if (settingsSection === "archive") renderArchiveSettings(body);
   else if (settingsSection === "sports") renderSportsSettings(body);
   else if (settingsSection === "templates") renderTemplateSettings(body);
   else if (settingsSection === "coverage") renderCoverageSettings(body);
@@ -8951,7 +8652,7 @@ function generateICS(events = getFilteredEvents()){
       `Sport: ${meta.label}`,
       `Broadcaster: ${ev.broadcaster}`,
       `Stakes: ${ev.stakesScore}/5`,
-      `Don’t Miss: ${mustWatch ? "YES" : "No"}`
+      `Priority event: ${mustWatch ? "YES" : "No"}`
     ];
     if (ev.venue) descParts.push(`Venue: ${ev.venue}`);
     if (actual !== null) descParts.push(`Actual spectacle: ${actual}/10`);
@@ -8962,7 +8663,7 @@ function generateICS(events = getFilteredEvents()){
     lines.push(`DTSTAMP:${dtstamp}`);
     lines.push(`DTSTART;TZID=Australia/Sydney:${dtStart}`);
     lines.push(`DTEND;TZID=Australia/Sydney:${dtEnd}`);
-    lines.push(`SUMMARY:${escapeICS(`${mustWatch ? "[Must Watch] " : ""}${spoilerSafeDisplayTitle(ev)}`)}`);
+    lines.push(`SUMMARY:${escapeICS(`${mustWatch ? "[Priority] " : ""}${spoilerSafeDisplayTitle(ev)}`)}`);
     if (ev.venue) lines.push(`LOCATION:${escapeICS(ev.venue)}`);
     lines.push(`DESCRIPTION:${description}`);
     lines.push(`CATEGORIES:${escapeICS(meta.label)}`);

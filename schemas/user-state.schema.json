@@ -49,6 +49,7 @@
         "watchLater": { "type": "boolean" },
         "watched": { "type": "boolean" },
         "watchedAt": { "type": ["string", "null"], "format": "date-time" },
+        "saved": { "type": "boolean" },
         "archived": { "type": "boolean" },
         "lastActionAt": { "type": ["string", "null"], "format": "date-time" }
       }
