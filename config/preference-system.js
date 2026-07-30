@@ -292,6 +292,14 @@
     return applyDomainOverride(graph, domainId, patches[mode] || patches.majorFollowed);
   }
 
+  function setLadderVisibility(graph, domainId, visibility){
+    const next = cloneGraph(graph);
+    const preference = next.domainPreferences.find(item => item.sportDomainId === domainId);
+    if (!preference) return next;
+    preference.showLadder = ["hidden", "summary", "full"].includes(visibility) ? visibility : "hidden";
+    return touch(next);
+  }
+
   function upsertCompetitionPreference(graph, competitionId, patch = {}){
     const next = cloneGraph(graph);
     const index = next.competitionPreferences.findIndex(preference => preference.competitionId === competitionId);
@@ -350,6 +358,7 @@
     disableDomain,
     applyDomainOverride,
     setCoverageMode,
+    setLadderVisibility,
     upsertCompetitionPreference,
     setEntityFollow,
     updateViewingPreference,

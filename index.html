@@ -3049,8 +3049,8 @@ footer.app-footer{
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="ladders"><span class="tab-label">Ladders</span><span class="tab-count" id="laddersTabCount">0</span></button>
-    <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings</span><span class="tab-count" id="standingsTabCount">0</span></button>
+    <button class="tab-btn active" data-tab="feed"><span class="tab-label">Feed</span><span class="tab-count" id="feedTabCount">0</span></button>
+    <button class="tab-btn" data-tab="ls"><span class="tab-label">L&amp;S</span><span class="tab-count" id="lsTabCount">0</span></button>
   </div>
 </header>
 
@@ -3059,7 +3059,7 @@ footer.app-footer{
 <div class="controls" id="calendarControls">
   <div class="filter-row" id="sportFilters"></div>
   <div class="preference-summary" id="preferenceSummary"></div>
-  <div class="view-toggle">
+  <div class="view-toggle" id="feedViewToggle">
     <button class="active" data-view="list">List View</button>
     <button data-view="month">Month View</button>
   </div>
@@ -3469,8 +3469,9 @@ function saveActiveProfileSection(section, value){
 }
 
 /* ============ STATE ============ */
+let activeFilter = "all";
 let activeView = "list";
-let activeTab = "ladders";
+let activeTab = "feed";
 let calendarInitialJumpPending = true;
 let rankingSportFilters = null;
 let rankingKnownSportKeys = new Set();
@@ -5377,25 +5378,48 @@ function buildEventActionPanel(ev, options = {}){
 function renderFilters(){
   const container = document.getElementById("sportFilters");
   container.innerHTML = "";
-  const availableKeys = rankingSportKeysForTab(activeTab);
+  if (activeTab === "feed"){
+    const followed = new Set(userPreferences.followedSports);
+    if (activeFilter !== "all" && !followed.has(activeFilter)) activeFilter = "all";
+    FILTER_ORDER.filter(key => key === "all" || followed.has(key)).forEach(key => {
+      const btn = document.createElement("button");
+      btn.className = "pill" + (activeFilter === key ? " active" : "");
+      if (key !== "all") btn.style.setProperty("--pill-color", SPORT_META[key]?.color || "var(--accent)");
+      const glyph = key === "all" ? "ui:calendar" : SPORT_META[key]?.glyph || "ui:filter";
+      const label = key === "all" ? "All" : SPORT_META[key]?.label || key.toUpperCase();
+      btn.innerHTML = `${glyphMarkup(glyph)}<span>${label}</span>`;
+      btn.addEventListener("click", () => {
+        activeFilter = key;
+        renderAll();
+      });
+      container.appendChild(btn);
+    });
+    renderPreferenceSummary();
+    return;
+  }
+
+  const availableKeys = rankingSportKeysForLs();
   if (!(rankingSportFilters instanceof Set)) rankingSportFilters = new Set();
+  Array.from(rankingKnownSportKeys).forEach(key => {
+    if (availableKeys.includes(key)) return;
+    rankingKnownSportKeys.delete(key);
+    rankingSportFilters.delete(key);
+    delete rankingSportExpansion[key];
+  });
   availableKeys.forEach(key => {
     if (rankingKnownSportKeys.has(key)) return;
     rankingKnownSportKeys.add(key);
-    const visibleByPreference = rankingCompetitionsForTab(activeTab)
-      .filter(competition => standingsSportKey(competition) === key)
-      .some(competition => standingsVisibilityForCompetition(userPreferences, competition) !== "hidden");
-    if (visibleByPreference) rankingSportFilters.add(key);
-    rankingSportExpansion[key] = visibleByPreference;
+    rankingSportFilters.add(key);
+    rankingSportExpansion[key] = true;
   });
   const label = document.createElement("span");
   label.className = "filter-row-label";
-  label.textContent = `Filter ${activeTab}`;
+  label.textContent = "Filter L&S";
   container.appendChild(label);
   if (!availableKeys.length){
     const empty = document.createElement("span");
     empty.className = "summary-chip";
-    empty.textContent = `No enabled ${activeTab} for followed sports`;
+    empty.textContent = "No sports are enabled for L&S";
     container.appendChild(empty);
   }
   availableKeys.forEach(key => {
@@ -5422,7 +5446,7 @@ function renderFilters(){
     });
     container.appendChild(control);
   });
-  renderPreferenceSummary();
+  document.getElementById("preferenceSummary").innerHTML = "";
 }
 
 function renderPreferenceSummary(){
@@ -5598,6 +5622,7 @@ function getPreferenceMatchedEvents(){
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
+  if (activeFilter !== "all") list = list.filter(ev => ev.key === activeFilter);
   return list;
 }
 
@@ -6500,10 +6525,6 @@ function renderMonthView(){
 }
 
 /* ============ RENDER: LADDER & STANDINGS ============ */
-function competitionNavigationTab(competition){
-  return competition.standingsOnly ? "standings" : "ladders";
-}
-
 function standingsSportKey(competition){
   return FILTER_ORDER.find(key => key !== "all" && standingsCompetitionMatchesFilter(competition, key))
     || String(competition.preferenceDomainId || competition.sportDomainId || "")
@@ -6511,9 +6532,10 @@ function standingsSportKey(competition){
       .at(-1);
 }
 
-function rankingCompetitionsForTab(tab, preferences = userPreferences){
+function rankingCompetitionsForLs(preferences = userPreferences){
   const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
   const graph = preferences?.preferenceGraph;
+  const seenCompetitionIds = new Set();
   return (CANONICAL_TAXONOMY.competitions || [])
     .filter(competition => competition.supportsLadder)
     .filter(competition => selectedDomains.has(competition.preferenceDomainId || competition.sportDomainId))
@@ -6523,23 +6545,21 @@ function rankingCompetitionsForTab(tab, preferences = userPreferences){
       const competitionPreference = graph?.competitionPreferences?.find(item => item.competitionId === competition.id);
       return domainPreference?.enabled !== false && competitionPreference?.enabled !== false;
     })
-    .filter(competition => competitionNavigationTab(competition) === tab);
+    .filter(competition => standingsVisibilityForCompetition(preferences, competition) !== "hidden")
+    .filter(competition => {
+      if (seenCompetitionIds.has(competition.id)) return false;
+      seenCompetitionIds.add(competition.id);
+      return true;
+    });
 }
 
-function rankingVisibilityForCompetition(preferences, competition){
-  const visibility = standingsVisibilityForCompetition(preferences, competition);
-  return visibility === "hidden"
-    ? (competition.defaultStandingsVisibility || "summary")
-    : visibility;
-}
-
-function rankingSportKeysForTab(tab){
-  const keys = new Set(rankingCompetitionsForTab(tab).map(standingsSportKey));
+function rankingSportKeysForLs(preferences = userPreferences){
+  const keys = new Set(rankingCompetitionsForLs(preferences).map(standingsSportKey));
   return FILTER_ORDER.filter(key => key !== "all" && keys.has(key));
 }
 
 function activeStandingsCompetitions(){
-  return rankingCompetitionsForTab(activeTab)
+  return rankingCompetitionsForLs()
     .filter(competition => rankingSportFilters?.has(standingsSportKey(competition)));
 }
 
@@ -6708,13 +6728,13 @@ function renderStandingsContext(){
   const container = document.getElementById("standingsContext");
   if (!container) return;
   container.innerHTML = "";
-  if (!["ladders", "standings"].includes(activeTab)) return;
+  if (activeTab !== "ls") return;
   const competitions = activeStandingsCompetitions();
-  const sectionLabel = activeTab === "ladders" ? "Ladders" : "Standings";
+  const sectionLabel = "L&S";
   if (!competitions.length){
     const empty = document.createElement("div");
     empty.className = "standings-empty";
-    empty.textContent = `No ${sectionLabel.toLowerCase()} are selected. Use the sport filters above to show one.`;
+    empty.textContent = "No L&S sports are selected. Use the filters above or enable Show in L&S from Froth knobs.";
     container.appendChild(empty);
     return;
   }
@@ -6726,12 +6746,12 @@ function renderStandingsContext(){
     const title = document.createElement("h2");
     title.textContent = sectionLabel;
     const detail = document.createElement("p");
-    detail.textContent = `Hidden while Results is off because ${sectionLabel.toLowerCase()} can reveal recent outcomes.`;
+    detail.textContent = "Hidden while Results is off because ladders and standings can reveal recent outcomes.";
     copy.append(title, detail);
     const reveal = document.createElement("button");
     reveal.className = "btn ghost";
     reveal.type = "button";
-    reveal.textContent = `Show ${sectionLabel.toLowerCase()}`;
+    reveal.textContent = "Show L&S";
     reveal.addEventListener("click", () => requestStandingsAccess(renderAll));
     module.append(copy, reveal);
     container.appendChild(module);
@@ -6746,7 +6766,7 @@ function renderStandingsContext(){
     const status = document.createElement("p");
     status.textContent = canonicalSportsDataError
       ? `${sectionLabel} data is unavailable, so this area has been withheld.`
-      : `Loading current ${sectionLabel.toLowerCase()}…`;
+      : "Loading current ladders and standings…";
     module.append(title, status);
     if (canonicalSportsDataError){
       const retry = document.createElement("button");
@@ -6784,7 +6804,7 @@ function renderStandingsContext(){
     expander.className = "standings-sport-expander";
     expander.dataset.sportExpander = sportKey;
     expander.setAttribute("aria-expanded", expanded ? "true" : "false");
-    expander.setAttribute("aria-controls", `ranking-${activeTab}-${sportKey}`);
+    expander.setAttribute("aria-controls", `ranking-ls-${sportKey}`);
     expander.innerHTML = `<span>${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter")} ${SPORT_META[sportKey]?.label || sportKey.toUpperCase()}</span>${glyphMarkup("ui:chevron-right")}`;
     expander.addEventListener("click", () => {
       rankingSportExpansion[sportKey] = !expanded;
@@ -6793,7 +6813,7 @@ function renderStandingsContext(){
     sportSection.appendChild(expander);
     const sportContent = document.createElement("div");
     sportContent.className = "standings-sport-content";
-    sportContent.id = `ranking-${activeTab}-${sportKey}`;
+    sportContent.id = `ranking-ls-${sportKey}`;
     sportContent.hidden = !expanded;
 
     sportCompetitions.forEach(competition => {
@@ -6821,7 +6841,7 @@ function renderStandingsContext(){
         module,
         competition,
         snapshot,
-        rankingVisibilityForCompetition(userPreferences, competition)
+        standingsVisibilityForCompetition(userPreferences, competition)
       );
     }
       sportContent.appendChild(module);
@@ -7004,9 +7024,11 @@ window.addEventListener("scroll", () => {
 /* ============ TABS / VIEW SWITCHING ============ */
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
+    collapseAllCardStates();
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeTab = btn.dataset.tab;
+    if (activeTab === "feed") calendarInitialJumpPending = true;
     renderAll();
   });
 });
@@ -7035,12 +7057,19 @@ document.getElementById("jumpTodayBtn").addEventListener("click", () => {
 });
 
 function renderCurrentSection(){
+  if (activeTab !== "feed"){
+    renderStandingsContext();
+    return;
+  }
   if (activeView === "list") renderListView(); else renderMonthView();
 }
 
 function renderTabCounts(){
-  document.getElementById("laddersTabCount").textContent = rankingCompetitionsForTab("ladders").length;
-  document.getElementById("standingsTabCount").textContent = rankingCompetitionsForTab("standings").length;
+  const feedCount = getPreferenceMatchedEvents()
+    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev))
+    .length;
+  document.getElementById("feedTabCount").textContent = feedCount;
+  document.getElementById("lsTabCount").textContent = rankingCompetitionsForLs().length;
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
@@ -7051,6 +7080,8 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   renderTabCounts();
   renderStandingsContext();
   const calControls = document.getElementById("calendarControls");
+  const preferenceSummary = document.getElementById("preferenceSummary");
+  const feedViewToggle = document.getElementById("feedViewToggle");
   const listView = document.getElementById("listView");
   const monthView = document.getElementById("monthView");
   const jumpTodayBtn = document.getElementById("jumpTodayBtn");
@@ -7059,15 +7090,22 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     view.style.display = "none";
   });
   calControls.style.display = "flex";
-  jumpTodayBtn.hidden = false;
-  jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
-
-  if (activeView === "list"){
-    listView.style.display = "block";
-    renderListView();
+  if (activeTab === "feed"){
+    preferenceSummary.style.display = "";
+    feedViewToggle.style.display = "flex";
+    jumpTodayBtn.hidden = false;
+    jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
+    if (activeView === "list"){
+      listView.style.display = "block";
+      renderListView();
+    } else {
+      monthView.style.display = "block";
+      renderMonthView();
+    }
   } else {
-    monthView.style.display = "block";
-    renderMonthView();
+    preferenceSummary.style.display = "none";
+    feedViewToggle.style.display = "none";
+    jumpTodayBtn.hidden = true;
   }
   restoreViewportRenderAnchor(preservedViewportAnchor);
 }
@@ -7546,7 +7584,7 @@ function renderSportsSettings(body){
     <div class="filter-panel" id="selectorChildrenPanel"></div>
     ${settingsFirstRun ? "" : `<div class="nested-settings-menu">
       ${settingsMenuItem("templates", "ui:settings", "Froth knobs", "Set Casual, Like, Froth, or Custom for followed events")}
-      ${settingsMenuItem("coverage", "ui:filter", "Teams, Ladders & Competitor Coverage", "Detailed controls for followed events marked Froth")}
+      ${settingsMenuItem("coverage", "ui:filter", "Teams, L&S & Competitor Coverage", "Detailed controls for followed events marked Froth")}
     </div>`}
   </div>`;
   bindSettingsMenuNavigation(body);
@@ -7694,7 +7732,7 @@ function renderTemplateSettings(body){
     ? [settingsFocusedDomainId]
     : selectedDomainIds;
   body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
-    <p class="preference-help">Set how much of each followed sport or event reaches your feeds. Custom is a separate mode for deeper controls.</p>
+    <p class="preference-help">Set how much of each followed sport or event reaches your Feed. L&S visibility stays available even at Casual.</p>
     <div class="template-domain-list" id="templateDomainList"></div>
   </div>`;
   const list = document.getElementById("templateDomainList");
@@ -7705,17 +7743,20 @@ function renderTemplateSettings(body){
   domainIds.forEach(domainId => {
     const preference = preferenceDomainById(domainId) || { templateId: "template:like" };
     const isCustom = preference.templateId === "template:custom";
+    const supportsLs = competitionsForPreferenceDomain(domainId).some(competition => competition.supportsLadder);
+    const showInLs = supportsLs && preference.showLadder !== "hidden";
     const sliderIndex = Math.max(0, FROTH_TEMPLATE_STEPS.indexOf(preference.templateId));
     const sliderTemplate = PREFERENCE_SYSTEM.templates.find(template => template.id === FROTH_TEMPLATE_STEPS[sliderIndex]);
     const panel = document.createElement("section");
     panel.className = "template-domain";
     panel.dataset.preferenceDomain = domainId;
-    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3><p class="preference-help">This level expands into fixtures, standings context, must-watch sensitivity, and reminders.</p>
+    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3><p class="preference-help">This level expands into fixtures, table context, must-watch sensitivity, and reminders.</p>
       <div class="froth-control">
         <div class="froth-control-head"><strong>Froth level</strong><span class="froth-value">${isCustom ? "Custom" : sliderTemplate.name}</span></div>
         <input class="froth-range" type="range" min="0" max="2" step="1" value="${sliderIndex}" data-domain-froth="${domainId}" aria-label="${preferenceDomainLabel(domainId)} froth level">
         <div class="froth-scale" aria-hidden="true"><span>Casual</span><span>Like</span><span>Froth</span></div>
       </div>
+      ${supportsLs ? `<label class="viewing-toggle"><input type="checkbox" data-domain-ls="${domainId}" ${showInLs ? "checked" : ""}><span><strong>Show in L&amp;S</strong><br>Add this sport to the L&amp;S filters without changing its Froth level.</span></label>` : ""}
       <label class="custom-mode${isCustom ? " selected" : ""}"><input type="radio" name="custom-${domainId}" data-domain-custom="${domainId}" ${isCustom ? "checked" : ""}><span><strong>Custom</strong><br>Choose sport-specific coverage yourself.</span></label>
       ${sportSpecificFrothDetailMarkup(domainId, preference.templateId)}`;
     list.appendChild(panel);
@@ -7737,6 +7778,16 @@ function renderTemplateSettings(body){
       const domainId = input.dataset.domainCustom;
       draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.customiseDomain(draftPreferences.preferenceGraph, domainId);
       syncLegacySportDetailForTemplate(domainId, "template:custom");
+      renderSettingsScreen();
+    });
+  });
+  list.querySelectorAll("[data-domain-ls]").forEach(input => {
+    input.addEventListener("change", () => {
+      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setLadderVisibility(
+        draftPreferences.preferenceGraph,
+        input.dataset.domainLs,
+        input.checked ? "summary" : "hidden"
+      );
       renderSettingsScreen();
     });
   });
@@ -7857,14 +7908,14 @@ function renderCoverageSettings(body){
     : supportedDomainIds;
   const graph = draftPreferences.preferenceGraph;
   body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
-    <p class="preference-help">Only followed events marked Froth appear here, and only where team, competitor, or standings controls add unique value.</p>
+    <p class="preference-help">Only followed events marked Froth appear in detailed coverage. L&S visibility can also be enabled directly from Froth knobs at Casual.</p>
     <div class="nested-settings-menu" id="coverageStandingsMenu"></div>
     <div class="template-domain-list" id="coverageDomainList"></div>
   </div>`;
   const standingsMenu = document.getElementById("coverageStandingsMenu");
   const standingsCompetitions = supportedStandingsCompetitions(draftPreferences);
   standingsMenu.innerHTML = standingsCompetitions.length
-    ? settingsMenuItem("standings", "ui:filter", "Ladder & Standings", `${standingsCompetitions.length} supported competition${standingsCompetitions.length === 1 ? "" : "s"} · may reveal results`)
+    ? settingsMenuItem("standings", "ui:filter", "L&S visibility", `${standingsCompetitions.length} supported competition${standingsCompetitions.length === 1 ? "" : "s"} · may reveal results`)
     : "";
   standingsMenu.hidden = !standingsCompetitions.length;
   bindSettingsMenuNavigation(standingsMenu);
@@ -7958,7 +8009,7 @@ function standingsVisibilityForCompetition(preferences, competition){
 }
 
 function supportedStandingsCompetitions(preferences = userPreferences){
-  const selectedDomains = new Set(detailedCoverageDomainIds(preferences));
+  const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
   return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
     competition.supportsLadder
     && selectedDomains.has(competition.preferenceDomainId || competition.sportDomainId)
@@ -7982,8 +8033,8 @@ function renderStandingsSettings(body){
     const panel = document.createElement("section");
     panel.className = "template-domain";
     panel.innerHTML = `<h3>${competition.name}</h3>
-      <p class="preference-help">Choose how much context may appear above the calendar feed.</p>
-      <label class="field-label">Ladder visibility
+      <p class="preference-help">Choose how much table context appears inside L&S.</p>
+      <label class="field-label">L&S visibility
         <select data-standings-visibility="${competition.id}">
           <option value="hidden" ${visibility === "hidden" ? "selected" : ""}>Hidden</option>
           <option value="summary" ${visibility === "summary" ? "selected" : ""}>Top 3 + followed</option>
@@ -8153,8 +8204,8 @@ function renderSettingsScreen(){
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
     sports: [settingsFirstRun ? "Events Selector · 1 of 4" : "Events Selector", settingsFirstRun ? "Pick sports and special events. You can change any choice later." : "Follow broad sports and special events, then open deeper controls only when you need them."],
     templates: [settingsFirstRun ? "Froth knobs · 2 of 4" : "Froth knobs", "Move from Casual to Like to Froth, or switch a followed event to Custom."],
-    coverage: [settingsFirstRun ? "Teams, Ladders & Competitor Coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Teams, Ladders & Competitor Coverage", "Detailed controls appear only for followed events marked Froth."],
-    standings: ["Ladder & Standings", "Choose sport-calibrated standings context. This information may reveal results."],
+    coverage: [settingsFirstRun ? "Teams, L&S & Competitor Coverage · 3 of 4" : settingsFocusedDomainId ? `Customise ${preferenceDomainLabel(settingsFocusedDomainId)}` : "Teams, L&S & Competitor Coverage", "Detailed controls appear only for followed events marked Froth."],
+    standings: ["L&S visibility", "Choose sport-calibrated table context. This information may reveal results."],
     viewing: [settingsFirstRun ? "Viewing preferences · 4 of 4" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],

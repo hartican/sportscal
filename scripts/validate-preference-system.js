@@ -32,6 +32,15 @@ assert.equal(nrlFroth.includeAllFixtures, true);
 assert.equal(nrlFroth.showLadder, "full");
 assert.equal(froth.domainPreferences.find(item => item.sportDomainId === "sport:afl").templateId, "template:like", "quick add must not alter an existing sport");
 
+const casual = preferences.quickAddDomain(froth, "sport:nrl", "template:casual");
+assert.equal(casual.domainPreferences.find(item => item.sportDomainId === "sport:nrl").showLadder, "hidden");
+const casualWithLs = preferences.setLadderVisibility(casual, "sport:nrl", "summary");
+const casualNrlWithLs = casualWithLs.domainPreferences.find(item => item.sportDomainId === "sport:nrl");
+assert.equal(casualNrlWithLs.templateId, "template:casual", "enabling L&S must preserve the Casual follow level");
+assert.equal(casualNrlWithLs.showLadder, "summary", "a Casual sport must be able to opt into L&S");
+const casualWithoutLs = preferences.setLadderVisibility(casualWithLs, "sport:nrl", "hidden");
+assert.equal(casualWithoutLs.domainPreferences.find(item => item.sportDomainId === "sport:nrl").showLadder, "hidden", "disabling L&S must remove the Casual sport again");
+
 const customised = preferences.setCoverageMode(froth, "sport:nrl", "majorOnly");
 const nrlCustom = customised.domainPreferences.find(item => item.sportDomainId === "sport:nrl");
 assert.equal(nrlCustom.templateId, "template:custom", "a detailed override must win over the inherited template");

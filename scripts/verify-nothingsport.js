@@ -36,7 +36,7 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["ladders", "standings"], "primary navigation must contain only Ladders and Standings");
+assert.deepEqual(tabOrder, ["feed", "ls"], "primary navigation must contain exactly Feed and L&S");
 assert(html.includes(`<title>${brand.title}</title>`), "the document title must use the canonical nothingsport title");
 assert(html.includes(brand.hero), "the canonical nothingsport hero line must be present");
 assert(html.includes(brand.about), "the canonical nothingsport About paragraph must be present verbatim");
@@ -80,9 +80,9 @@ assert.deepEqual(
   "the install manifest must use the supplied skier app icon with normal and maskable safe zones"
 );
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
-assert(html.includes('<span class="tab-label">Ladders</span>'), "Ladders must be visible in primary navigation");
-assert(html.includes('<span class="tab-label">Standings</span>'), "Standings must be visible in primary navigation");
-assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived)<\/span>/.test(html), "obsolete primary tabs must be removed");
+assert(html.includes('<span class="tab-label">Feed</span>'), "Feed must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">L&amp;S</span>'), "L&S must be visible in primary navigation");
+assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived|Ladders|Standings)<\/span>/.test(html), "obsolete and split primary tabs must be removed");
 assert(!/id="(?:neverMissView|watchLaterView|archivedView)"/.test(html), "removed navigation surfaces must not leave orphaned view routes");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
@@ -121,14 +121,14 @@ assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious 
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "templates", "coverage", "viewing"]'), "first login must use the short four-step wizard");
 assert(html.includes("data-domain-froth") && html.includes("data-domain-custom"), "followed events must use a Casual-to-Froth slider with a separate Custom mode");
+assert(html.includes("data-domain-ls") && html.includes("<strong>Show in L&amp;S</strong>"), "Froth settings must let any supported followed sport opt into L&S");
 assert(html.includes("data-standings-visibility"), "competition-level ladder and standings visibility must have one dedicated settings home");
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
-assert(html.includes('id="standingsContext"'), "supported standings must resolve into a visible feed module");
+assert(html.includes('id="standingsContext"'), "supported table content must resolve into the dedicated L&S destination");
 assert(html.includes('expander.dataset.sportExpander = sportKey') && html.includes('rankingSportExpansion[sportKey] = !expanded'), "visible sport sections must expose manual expanders");
 assert(html.includes('input.dataset.sportFilter = key') && html.includes('input.type = "checkbox"'), "the ranking area must expose basic sport checkboxes");
 assert(html.includes('rankingSportExpansion[key] = false') && html.includes('rankingSportExpansion[key] = true'), "sport filters must retract hidden sections and restore visible sections");
-assert(html.includes("selectedDomains.has(competition.preferenceDomainId || competition.sportDomainId)"), "followed sports with ranking data must remain discoverable even when their saved table visibility starts hidden");
-assert(html.includes('visibility === "hidden"') && html.includes('(competition.defaultStandingsVisibility || "summary")'), "temporarily selected hidden ranking sports must render a safe summary");
+assert(html.includes("standingsVisibilityForCompetition(preferences, competition) !== \"hidden\""), "the L&S filter must exclude followed sports whose saved visibility is hidden");
 assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
 assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
 assert(html.includes(">Top 3 + followed<"), "summary standings must promise to retain followed entities outside the top three");
@@ -157,9 +157,9 @@ assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports
 const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(settingsMenuSource.includes('"Events Selector"'), "Settings must use Events Selector as the single top-level home for event preferences");
 assert(!settingsMenuSource.includes('"Templates"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected top-level Settings homes");
-assert(html.includes('"Froth knobs"') && html.includes('"Teams, Ladders & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
+assert(html.includes('"Froth knobs"') && html.includes('"Teams, L&S & Competitor Coverage"'), "Events Selector must expose the two canonical nested preference homes");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v46"'), "the navigation reorganisation must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v47"'), "the Feed and L&S navigation update must advance the served shell cache");
 brandAssets
   .filter(asset => asset.startsWith("assets/brand/web/") || asset.startsWith("icons/"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -600,17 +600,14 @@ globalThis.__test = {
   standingsEntriesForVisibility,
   standingsColumnsForCompetition,
   standingsVisibilityForCompetition,
-  competitionNavigationTab,
-  rankingCompetitionsForTab,
-  rankingVisibilityForCompetition,
+  rankingCompetitionsForLs,
+  rankingSportKeysForLs,
 };`;
 vm.runInContext(`${appPrelude}\n${standingsVisibilitySource[0]}\n${calendarSyncSummarySource[0]}\n${expose}`, sandbox, { filename: "index.html" });
 const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
-assert.equal(app.competitionNavigationTab({ standingsOnly: false }), "ladders", "league tables must resolve to the Ladders tab");
-assert.equal(app.competitionNavigationTab({ standingsOnly: true }), "standings", "ranking-only competitions must resolve to the Standings tab");
 const casualNrlGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
   profileId: "profile:casual-nrl",
   domainIds: ["sport:nrl"],
@@ -622,19 +619,33 @@ const casualNrlPreferences = {
   preferenceGraph: casualNrlGraph,
 };
 assert.equal(
-  app.rankingCompetitionsForTab("ladders", casualNrlPreferences).some(competition => competition.id === "competition:nrl-premiership-2026"),
-  true,
-  "a followed NRL ladder must remain available to the top sport filter when Casual starts it hidden"
+  app.rankingCompetitionsForLs(casualNrlPreferences).some(competition => competition.id === "competition:nrl-premiership-2026"),
+  false,
+  "a Casual NRL follow must stay out of L&S while its explicit visibility is hidden"
 );
+casualNrlPreferences.preferenceGraph = app.PREFERENCE_SYSTEM.setLadderVisibility(casualNrlGraph, "sport:nrl", "summary");
 assert.equal(
-  app.rankingVisibilityForCompetition(casualNrlPreferences, {
-    id: "competition:nrl-premiership-2026",
-    sportDomainId: "sport:nrl",
-    preferenceDomainId: "sport:nrl",
-    defaultStandingsVisibility: "full",
-  }),
-  "full",
-  "temporarily selecting a hidden ladder must use its calibrated default visibility"
+  app.rankingCompetitionsForLs(casualNrlPreferences).some(competition => competition.id === "competition:nrl-premiership-2026"),
+  true,
+  "a Casual NRL follow explicitly enabled for L&S must become eligible"
+);
+assert.deepEqual(Array.from(app.rankingSportKeysForLs(casualNrlPreferences)), ["nrl"], "L&S sport filters must use stable product ordering");
+casualNrlPreferences.preferenceGraph = app.PREFERENCE_SYSTEM.setLadderVisibility(casualNrlPreferences.preferenceGraph, "sport:nrl", "hidden");
+assert.equal(app.rankingCompetitionsForLs(casualNrlPreferences).length, 0, "disabling Show in L&S must remove the Casual sport cleanly");
+const nbaGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:nba-ls",
+  domainIds: ["sport:nba"],
+  templateByDomain: { "sport:nba": "template:like" },
+});
+const nbaCompetitions = app.rankingCompetitionsForLs({
+  selectedSelectorEntityIds: ["sport:nba"],
+  followedSports: ["nba"],
+  preferenceGraph: nbaGraph,
+});
+assert.deepEqual(
+  Array.from(nbaCompetitions, competition => competition.id),
+  ["competition:nba-eastern-conference-2025-26", "competition:nba-western-conference-2025-26"],
+  "both NBA conference tables must live in the combined L&S destination without duplication"
 );
 assert.deepEqual(
   JSON.parse(JSON.stringify(app.migrateEventActionRecords({
