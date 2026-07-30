@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "nothingsport-results-2026-07-30-v1",
-  "publishedAt": "2026-07-29T15:11:08.000Z",
+  "version": "nothingsport-results-2026-07-30-v2",
+  "publishedAt": "2026-07-30T03:41:01.000Z",
   "sourceNote": "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 30 July 2026. Curated cards supersede routine imports for the same event.",
   "events": [
     {
@@ -7376,11 +7376,11 @@
       "id": "cwg-glasgow-2026-3x3-medal-finals",
       "eventId": "cwg-glasgow-2026-3x3-medal-finals",
       "displayTitleCompact": "3x3 Basketball — medal finals",
-      "selectedSentence": "Four compact gold-medal matches close the 3x3 and wheelchair basketball programme.",
-      "fullSpiel": "3x3 Basketball — medal finals is scheduled at Scottish Event Campus from 01:30 Sydney time. The session contains the men's and women's medal matches in both 3x3 disciplines. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-      "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
+      "selectedSentence": "3x3 Basketball — medal finals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "3x3 Basketball — medal finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Glasgow 2026 official results",
+      "sourceUrl": "https://www.glasgow2026.com/results",
+      "sourceCheckedAt": "2026-07-30T13:41:01+10:00",
       "sourceType": "official",
       "broadcastOptions": [
         "Seven / 7plus"
@@ -7391,31 +7391,26 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Four compact gold-medal matches close the 3x3 and wheelchair basketball programme.",
-        "hookSpoilerOn": "Four compact gold-medal matches close the 3x3 and wheelchair basketball programme.",
-        "synopsisSpoilerOff": "3x3 Basketball — medal finals is scheduled at Scottish Event Campus from 01:30 Sydney time. The session contains the men's and women's medal matches in both 3x3 disciplines. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "3x3 Basketball — medal finals is scheduled at Scottish Event Campus from 01:30 Sydney time. The session contains the men's and women's medal matches in both 3x3 disciplines. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "hookSpoilerOff": "3x3 Basketball — medal finals is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Australia won two golds, one silver and one bronze across the four 3x3 medal events.",
+        "synopsisSpoilerOff": "3x3 Basketball — medal finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Australia won the women's 3x3 and men's wheelchair 3x3 titles. The men's team took silver and the women's wheelchair team claimed bronze."
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Four compact gold-medal matches close the 3x3 and wheelchair basketball programme.",
-        "contextSignals": [
-          "The session contains the men's and women's medal matches in both 3x3 disciplines.",
-          "Official Glasgow 2026 session timing converted to Sydney time."
-        ],
-        "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-        "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-        "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
-        "needsPreviewRefresh": false,
-        "editorialWindowDays": 10
-      },
-      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
+      "lastReviewedAt": "2026-07-30T03:41:40.430Z",
+      "score": "Australia: women gold; wheelchair men gold; men silver; wheelchair women bronze",
+      "outcomeText": "Australia won two golds, one silver and one bronze across the four 3x3 medal events.",
+      "recapText": "Australia won the women's 3x3 and men's wheelchair 3x3 titles. The men's team took silver and the women's wheelchair team claimed bronze.",
+      "resultLabels": [
+        "3x3 medal finals",
+        "Australia two golds",
+        "Four Australia medals"
+      ]
     },
     {
       "sport": "Commonwealth Games",
@@ -7431,11 +7426,11 @@
       "id": "cwg-glasgow-2026-athletics-medal-night-two",
       "eventId": "cwg-glasgow-2026-athletics-medal-night-two",
       "displayTitleCompact": "Athletics — heptathlon and stadium finals",
-      "selectedSentence": "The heptathlon reaches its final event amid a dense programme of track and field medals.",
-      "fullSpiel": "Athletics — heptathlon and stadium finals is scheduled at Scotstoun Stadium from 03:30 Sydney time. Long jump, shot put, steeplechase and para finals add depth to the evening. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-      "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
+      "selectedSentence": "Athletics — heptathlon and stadium finals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Athletics — heptathlon and stadium finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Glasgow 2026 official results",
+      "sourceUrl": "https://www.glasgow2026.com/results",
+      "sourceCheckedAt": "2026-07-30T13:41:01+10:00",
       "sourceType": "official",
       "broadcastOptions": [
         "Seven / 7plus"
@@ -7446,31 +7441,31 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "The heptathlon reaches its final event amid a dense programme of track and field medals.",
-        "hookSpoilerOn": "The heptathlon reaches its final event amid a dense programme of track and field medals.",
-        "synopsisSpoilerOff": "Athletics — heptathlon and stadium finals is scheduled at Scotstoun Stadium from 03:30 Sydney time. Long jump, shot put, steeplechase and para finals add depth to the evening. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Athletics — heptathlon and stadium finals is scheduled at Scotstoun Stadium from 03:30 Sydney time. Long jump, shot put, steeplechase and para finals add depth to the evening. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "hookSpoilerOff": "Athletics — heptathlon and stadium finals is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Northern Ireland's Kate O'Connor won the heptathlon, with Australia's Tori West taking bronze.",
+        "synopsisSpoilerOff": "Athletics — heptathlon and stadium finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "O'Connor sealed the Commonwealth heptathlon title after winning the closing 800m. England's Jade O'Dowda finished second and West earned Australia's bronze."
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "The heptathlon reaches its final event amid a dense programme of track and field medals.",
-        "contextSignals": [
-          "Long jump, shot put, steeplechase and para finals add depth to the evening.",
-          "Official Glasgow 2026 session timing converted to Sydney time."
-        ],
-        "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-        "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-        "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
-        "needsPreviewRefresh": false,
-        "editorialWindowDays": 10
-      },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-30T03:41:40.430Z",
+      "score": "Heptathlon: Kate O'Connor gold; Jade O'Dowda silver; Tori West bronze",
+      "outcomeText": "Northern Ireland's Kate O'Connor won the heptathlon, with Australia's Tori West taking bronze.",
+      "recapText": "O'Connor sealed the Commonwealth heptathlon title after winning the closing 800m. England's Jade O'Dowda finished second and West earned Australia's bronze.",
+      "resultLabels": [
+        "Heptathlon final",
+        "O'Connor gold",
+        "Australia bronze"
+      ],
+      "consensusResult": {
+        "winner": "Kate O'Connor",
+        "summary": "O'Connor won the Commonwealth heptathlon title.",
+        "marginText": "O'Dowda silver; West bronze"
+      }
     },
     {
       "sport": "Commonwealth Games",
@@ -7486,11 +7481,11 @@
       "id": "cwg-glasgow-2026-netball-australia-south-africa",
       "eventId": "cwg-glasgow-2026-netball-australia-south-africa",
       "displayTitleCompact": "Netball — Australia v South Africa 🇦🇺",
-      "selectedSentence": "Australia meets South Africa in a high-value Pool A fixture at The Hydro.",
-      "fullSpiel": "Netball — Australia v South Africa 🇦🇺 is scheduled at The Hydro from 04:00 Sydney time. The match sits in the same session as New Zealand v Wales and can shape semifinal positioning. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-      "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
+      "selectedSentence": "Netball — Australia v South Africa 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Netball — Australia v South Africa 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "World Netball Commonwealth Games results",
+      "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/",
+      "sourceCheckedAt": "2026-07-30T13:41:01+10:00",
       "sourceType": "official",
       "broadcastOptions": [
         "Seven / 7plus"
@@ -7501,7 +7496,7 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "participants": [
         {
           "name": "Australia"
@@ -7513,27 +7508,28 @@
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Australia meets South Africa in a high-value Pool A fixture at The Hydro.",
-        "hookSpoilerOn": "Australia meets South Africa in a high-value Pool A fixture at The Hydro.",
-        "synopsisSpoilerOff": "Netball — Australia v South Africa 🇦🇺 is scheduled at The Hydro from 04:00 Sydney time. The match sits in the same session as New Zealand v Wales and can shape semifinal positioning. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Netball — Australia v South Africa 🇦🇺 is scheduled at The Hydro from 04:00 Sydney time. The match sits in the same session as New Zealand v Wales and can shape semifinal positioning. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "hookSpoilerOff": "Netball — Australia v South Africa 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Australia defeated South Africa 57-47 in the netball pool stage.",
+        "synopsisSpoilerOff": "Netball — Australia v South Africa 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "The Diamonds completed a 10-goal win over South Africa to remain unbeaten through five pool matches."
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Australia meets South Africa in a high-value Pool A fixture at The Hydro.",
-        "contextSignals": [
-          "The match sits in the same session as New Zealand v Wales and can shape semifinal positioning.",
-          "Official Glasgow 2026 session timing converted to Sydney time."
-        ],
-        "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-        "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-        "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
-        "needsPreviewRefresh": false,
-        "editorialWindowDays": 10
-      },
-      "lastReviewedAt": "2026-07-19T12:00:00+10:00"
+      "lastReviewedAt": "2026-07-30T03:41:40.430Z",
+      "score": "Australia 57-47 South Africa",
+      "outcomeText": "Australia defeated South Africa 57-47 in the netball pool stage.",
+      "recapText": "The Diamonds completed a 10-goal win over South Africa to remain unbeaten through five pool matches.",
+      "resultLabels": [
+        "Netball pool stage",
+        "Australia by 10",
+        "Official result"
+      ],
+      "consensusResult": {
+        "winner": "Australia",
+        "loser": "South Africa",
+        "summary": "Australia defeated South Africa 57-47.",
+        "marginText": "Australia by 10"
+      }
     },
     {
       "sport": "Commonwealth Games",
@@ -7549,11 +7545,11 @@
       "id": "cwg-glasgow-2026-swimming-closing-finals",
       "eventId": "cwg-glasgow-2026-swimming-closing-finals",
       "displayTitleCompact": "Swimming — closing finals and medley relays",
-      "selectedSentence": "The final swimming night builds towards the medley relays after six days at Tollcross.",
-      "fullSpiel": "Swimming — closing finals and medley relays is scheduled at Tollcross International Swimming Centre from 04:00 Sydney time. Individual and para finals lead into the women's and men's 4x100m medley relays. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-      "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
+      "selectedSentence": "Swimming — closing finals and medley relays is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Swimming — closing finals and medley relays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Glasgow 2026 official results",
+      "sourceUrl": "https://www.glasgow2026.com/results",
+      "sourceCheckedAt": "2026-07-30T13:41:01+10:00",
       "sourceType": "official",
       "broadcastOptions": [
         "Seven / 7plus"
@@ -7564,31 +7560,26 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "The final swimming night builds towards the medley relays after six days at Tollcross.",
-        "hookSpoilerOn": "The final swimming night builds towards the medley relays after six days at Tollcross.",
-        "synopsisSpoilerOff": "Swimming — closing finals and medley relays is scheduled at Tollcross International Swimming Centre from 04:00 Sydney time. Individual and para finals lead into the women's and men's 4x100m medley relays. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change.",
-        "synopsisSpoilerOn": "Swimming — closing finals and medley relays is scheduled at Tollcross International Swimming Centre from 04:00 Sydney time. Individual and para finals lead into the women's and men's 4x100m medley relays. Seven and 7plus are the Australian broadcast home; the official session order remains subject to change."
+        "hookSpoilerOff": "Swimming — closing finals and medley relays is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Australia closed the swimming programme with nine gold medals and victories in both 4x100m medley relays.",
+        "synopsisSpoilerOff": "Swimming — closing finals and medley relays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Australia won six individual events, including a shared men's 50m butterfly title, then capped the programme with gold in both the women's and men's 4x100m medley relays."
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "The final swimming night builds towards the medley relays after six days at Tollcross.",
-        "contextSignals": [
-          "Individual and para finals lead into the women's and men's 4x100m medley relays.",
-          "Official Glasgow 2026 session timing converted to Sydney time."
-        ],
-        "sourceName": "Glasgow 2026 official event schedule (13 July 2026)",
-        "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-        "sourceCheckedAt": "2026-07-19T12:00:00+10:00",
-        "needsPreviewRefresh": false,
-        "editorialWindowDays": 10
-      },
-      "lastReviewedAt": "2026-07-20T06:29:24.569Z"
+      "lastReviewedAt": "2026-07-30T03:41:40.430Z",
+      "score": "Australia won nine closing-session gold medals, including both 4x100m medley relays",
+      "outcomeText": "Australia closed the swimming programme with nine gold medals and victories in both 4x100m medley relays.",
+      "recapText": "Australia won six individual events, including a shared men's 50m butterfly title, then capped the programme with gold in both the women's and men's 4x100m medley relays.",
+      "resultLabels": [
+        "Swimming closing finals",
+        "Australia nine golds",
+        "Medley relay double"
+      ]
     },
     {
       "id": "afl-collingwood-geelong-2026-07-30",

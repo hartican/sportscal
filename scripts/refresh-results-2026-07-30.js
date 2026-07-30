@@ -6,6 +6,8 @@ const path = require("node:path");
 const inputPath = path.resolve(process.argv[2] || "feeds/incoming/events.json");
 const sourceCheckedAt = "2026-07-30T01:11:08+10:00";
 const lastReviewedAt = "2026-07-29T15:11:08.000Z";
+const latestSourceCheckedAt = "2026-07-30T13:41:01+10:00";
+const latestReviewedAt = "2026-07-30T03:41:01.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -14,6 +16,15 @@ const official = (sourceName, sourceUrl, result) => ({
   sourceCheckedAt,
   sourceType: "official",
   lastReviewedAt,
+});
+
+const latestOfficial = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: latestSourceCheckedAt,
+  sourceType: "official",
+  lastReviewedAt: latestReviewedAt,
 });
 
 const results = {
@@ -539,6 +550,57 @@ const results = {
       },
     }
   ),
+  "cwg-glasgow-2026-3x3-medal-finals": latestOfficial(
+    "Glasgow 2026 official results",
+    "https://www.glasgow2026.com/results",
+    {
+      score: "Australia: women gold; wheelchair men gold; men silver; wheelchair women bronze",
+      outcomeText: "Australia won two golds, one silver and one bronze across the four 3x3 medal events.",
+      recapText: "Australia won the women's 3x3 and men's wheelchair 3x3 titles. The men's team took silver and the women's wheelchair team claimed bronze.",
+      resultLabels: ["3x3 medal finals", "Australia two golds", "Four Australia medals"],
+    }
+  ),
+  "cwg-glasgow-2026-athletics-medal-night-two": latestOfficial(
+    "Glasgow 2026 official results",
+    "https://www.glasgow2026.com/results",
+    {
+      score: "Heptathlon: Kate O'Connor gold; Jade O'Dowda silver; Tori West bronze",
+      outcomeText: "Northern Ireland's Kate O'Connor won the heptathlon, with Australia's Tori West taking bronze.",
+      recapText: "O'Connor sealed the Commonwealth heptathlon title after winning the closing 800m. England's Jade O'Dowda finished second and West earned Australia's bronze.",
+      resultLabels: ["Heptathlon final", "O'Connor gold", "Australia bronze"],
+      consensusResult: {
+        winner: "Kate O'Connor",
+        summary: "O'Connor won the Commonwealth heptathlon title.",
+        marginText: "O'Dowda silver; West bronze",
+      },
+    }
+  ),
+  "cwg-glasgow-2026-netball-australia-south-africa": latestOfficial(
+    "World Netball Commonwealth Games results",
+    "https://netball.sport/events-and-results/commonwealth-games/",
+    {
+      score: "Australia 57-47 South Africa",
+      outcomeText: "Australia defeated South Africa 57-47 in the netball pool stage.",
+      recapText: "The Diamonds completed a 10-goal win over South Africa to remain unbeaten through five pool matches.",
+      resultLabels: ["Netball pool stage", "Australia by 10", "Official result"],
+      consensusResult: {
+        winner: "Australia",
+        loser: "South Africa",
+        summary: "Australia defeated South Africa 57-47.",
+        marginText: "Australia by 10",
+      },
+    }
+  ),
+  "cwg-glasgow-2026-swimming-closing-finals": latestOfficial(
+    "Glasgow 2026 official results",
+    "https://www.glasgow2026.com/results",
+    {
+      score: "Australia won nine closing-session gold medals, including both 4x100m medley relays",
+      outcomeText: "Australia closed the swimming programme with nine gold medals and victories in both 4x100m medley relays.",
+      recapText: "Australia won six individual events, including a shared men's 50m butterfly title, then capped the programme with gold in both the women's and men's 4x100m medley relays.",
+      resultLabels: ["Swimming closing finals", "Australia nine golds", "Medley relay double"],
+    }
+  ),
 };
 
 const feed = JSON.parse(fs.readFileSync(inputPath, "utf8"));
@@ -562,8 +624,8 @@ if (missing.length) {
   throw new Error(`Result refresh targets not found: ${missing.join(", ")}`);
 }
 
-feed.version = "nothingsport-results-2026-07-30-v1";
-feed.publishedAt = "2026-07-29T15:11:08.000Z";
+feed.version = "nothingsport-results-2026-07-30-v2";
+feed.publishedAt = latestReviewedAt;
 feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 30 July 2026. Curated cards supersede routine imports for the same event.";
 
 fs.writeFileSync(inputPath, `${JSON.stringify(feed, null, 2)}\n`);
