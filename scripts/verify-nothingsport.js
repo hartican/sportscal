@@ -30,6 +30,7 @@ const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8"
 const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
 const serviceWorkerSource = fs.readFileSync("service-worker.js", "utf8");
 const cardUpdateSource = fs.readFileSync("scripts/update-cards.js", "utf8");
+const australianMarqueePolicy = JSON.parse(fs.readFileSync("data/canonical/australian-marquee-events-2026.json", "utf8"));
 const eventsBundlePath = "data/events.js";
 assert(fs.existsSync(eventsBundlePath), "direct-file mode must have a generated published-feed fallback");
 const eventsBundleSource = fs.readFileSync(eventsBundlePath, "utf8");
@@ -197,6 +198,9 @@ assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "supersed
 assert(cardUpdateSource.includes('["scripts/refresh-canonical-sports.js"]'), "the canonical cards update must refresh ladders and standings through the existing loader");
 assert(cardUpdateSource.indexOf('["scripts/refresh-canonical-sports.js"]') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "ladders and standings must refresh before card derivation begins");
 assert.equal((cardUpdateSource.match(/\["scripts\/sync-canonical-fixtures-to-feed\.js"/g) || []).length, 2, "the canonical cards update must sync refreshed fixtures into both incoming and published card feeds");
+assert(cardUpdateSource.includes('["scripts/reconcile-australian-marquee-events.js"'), "the canonical cards update must reconcile the named Australian-marquee event list");
+assert(cardUpdateSource.includes('["scripts/verify-marquee-coverage.js"'), "the canonical cards update must enforce Australian-marquee coverage");
+assert(cardUpdateSource.indexOf('["scripts/verify-marquee-coverage.js"') < cardUpdateSource.indexOf('["scripts/publish-feed.js"'), "Australian-marquee coverage must pass before publication begins");
 assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSource.indexOf('["scripts/publish-feed.js"') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "the canonical cards update must publish the refreshed JSON and direct-file fallback before card QA");
 [
   "validate-canonical-sports.js",
@@ -371,9 +375,9 @@ assert.equal(cwgContext.participants.filter(participant => participant.sportDoma
 assert.equal(cwgContext.competitions[0]?.standingsType, "medalTable", "CWG context must use a sport-calibrated medal table");
 assert.equal(cwgContext.ladderSnapshots[0]?.entries.length, 24, "the Glasgow 2026 medal table must contain the full official Day 6 field");
 const contextualCwgEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "cwg"), cwgContext);
-assert.equal(contextualCwgEvents.length, 32, "the published CWG card set must remain intact after competitor resolution");
+assert.equal(contextualCwgEvents.length, 34, "the repaired CWG card set must remain intact after competitor resolution");
 assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-swimming-closing-finals")?.participantIds?.length, 6, "CWG swimming cards must resolve only the calibrated swimming follow field");
-assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-netball-gold-medal")?.participantIds?.[0], "competitor:cwg:liz-watson", "CWG netball cards must resolve the surfaced Australian competitor");
+assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-netball-australia-england-bronze")?.participantIds?.[0], "competitor:cwg:liz-watson", "Australian CWG netball cards must resolve the surfaced Australian competitor");
 assert(!contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-boxing-finals-one")?.participantIds?.length, "unsupported CWG disciplines must not inherit competitor follows");
 assert(html.includes('fetchJson("data/canonical/cwg-context-2026.json")'), "the browser must load the CWG context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/cwg-context-2026.json")'), "the authenticated server feed must load the same CWG context bundle");
@@ -405,8 +409,17 @@ assert.equal(classifyCommonwealthDiscipline("Commonwealth Games Badminton Final"
 assert.equal(new Set(publishedFeed.events.map(event => event.id)).size, publishedFeed.events.length, "selector views must not require duplicated canonical events");
 const incomingCwgCards = incomingFeed.events.filter(event => event.key === "cwg");
 const publishedCwgCards = publishedFeed.events.filter(event => event.key === "cwg");
-assert.equal(incomingCwgCards.length, 32, "incoming feed must contain the curated Glasgow 2026 Commonwealth Games card set");
-assert.equal(publishedCwgCards.length, 32, "published feed must contain the curated Glasgow 2026 Commonwealth Games card set");
+assert.equal(incomingCwgCards.length, 34, "incoming feed must contain the repaired Glasgow 2026 Commonwealth Games card set");
+assert.equal(publishedCwgCards.length, 34, "published feed must contain the repaired Glasgow 2026 Commonwealth Games card set");
+const requiredMarqueeIds = australianMarqueePolicy.events.map(event => event.id);
+[incomingFeed, publishedFeed].forEach(feed => {
+  requiredMarqueeIds.forEach(id => {
+    assert.equal(feed.events.filter(event => event.id === id).length, 1, `${feed === incomingFeed ? "incoming" : "published"} feed must contain exactly one ${id} card`);
+  });
+  australianMarqueePolicy.forbiddenEventIds.forEach(id => {
+    assert(!feed.events.some(event => event.id === id), `${feed === incomingFeed ? "incoming" : "published"} feed must not retain superseded placeholder ${id}`);
+  });
+});
 assert.deepEqual(
   publishedCwgCards.map(event => event.id).sort(),
   incomingCwgCards.map(event => event.id).sort(),
@@ -925,7 +938,7 @@ assert(existingProfileBeforeCwg.selectedSelectorEntityIds.includes("special:comm
 assert(existingProfileBeforeCwg.selectedBroadcasters.includes("seven"), "existing profiles must receive Seven when the Commonwealth Games broadcaster is introduced");
 app.setEvents(publishedCwgCards);
 app.setPreferences(existingProfileBeforeCwg);
-assert.equal(app.getPreferenceMatchedEvents().filter(event => event.key === "cwg").length, 32, "existing profiles must retain every Commonwealth Games card after the selector taxonomy updates");
+assert.equal(app.getPreferenceMatchedEvents().filter(event => event.key === "cwg").length, 34, "existing profiles must retain every Commonwealth Games card after the selector taxonomy updates");
 const cwgOptOut = app.mergePreferences({
   ...existingProfileBeforeCwg,
   version: 5,

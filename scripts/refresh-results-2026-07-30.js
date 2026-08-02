@@ -666,16 +666,6 @@ const results = {
       resultLabels: ["Athletics Friday finals", "Victor decathlon gold", "Hunter Bell 800m gold"],
     }
   ),
-  "cwg-glasgow-2026-netball-semifinals": currentOfficial(
-    "World Netball Commonwealth Games results",
-    "https://netball.sport/events-and-results/commonwealth-games/",
-    {
-      score: "New Zealand 61-54 England; Australia 45-46 Jamaica",
-      outcomeText: "New Zealand and Jamaica advanced to the Commonwealth Games netball final.",
-      recapText: "New Zealand beat England 61-54 before Jamaica edged defending champion Australia 46-45 in the second semifinal.",
-      resultLabels: ["Netball semifinals", "New Zealand through", "Jamaica through"],
-    }
-  ),
   "cwg-glasgow-2026-boxing-finals-one": currentOfficial(
     "Glasgow 2026 boxing finals report",
     "https://www.glasgow2026.com/news/4551847/india-win-seven-golds-the-best-ever-boxing-haul-at-a-commonwealth-games",

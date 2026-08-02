@@ -90,7 +90,7 @@ assert.equal(scopedCompetitorIds.length, 15, "competitors must not leak across d
 
 const cwgEvents = feed.events.filter(event => event.key === "cwg");
 const contextualEvents = sportContext.applyContextToEvents(cwgEvents, context);
-assert.equal(contextualEvents.length, 32, "the curated Glasgow 2026 card set must remain intact");
+assert.equal(contextualEvents.length, 34, "the repaired Glasgow 2026 card set must retain one card per resolved netball finals matchup");
 const expectedScopeSizes = new Map([
   ["Swimming", 6],
   ["Athletics", 5],

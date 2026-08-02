@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "australian-marquee-events.v1",
+  "reviewedAt": "2026-08-02T11:55:36Z",
+  "policy": {
+    "name": "Australian marquee coverage",
+    "description": "Require one card per confirmed Australian national or representative match, every medal or elimination match involving Australia, and every resolved match represented by an existing selected-tournament finals placeholder.",
+    "sourceRule": "Every expected event must be backed by an official governing-body, organising-committee, league or broadcaster source."
+  },
+  "forbiddenEventIds": [
+    "cwg-glasgow-2026-netball-semifinals",
+    "cwg-glasgow-2026-netball-gold-medal"
+  ],
+  "events": [
+    {
+      "id": "cwg-glasgow-2026-netball-new-zealand-england-semifinal",
+      "key": "cwg",
+      "name": "Netball — New Zealand v England",
+      "date": "2026-08-01",
+      "time": "18:00",
+      "participants": ["New Zealand", "England"],
+      "coverageReason": "Resolved selected-tournament semifinal placeholder",
+      "resultRequiredAfter": "2026-08-01T12:00:00Z",
+      "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/"
+    },
+    {
+      "id": "cwg-glasgow-2026-netball-australia-jamaica-semifinal",
+      "key": "cwg",
+      "name": "Netball — Australia v Jamaica 🇦🇺",
+      "date": "2026-08-01",
+      "time": "22:00",
+      "participants": ["Australia", "Jamaica"],
+      "coverageReason": "Australian elimination match",
+      "resultRequiredAfter": "2026-08-01T16:00:00Z",
+      "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/"
+    },
+    {
+      "id": "cwg-glasgow-2026-netball-australia-england-bronze",
+      "key": "cwg",
+      "name": "Netball — Australia v England bronze medal 🇦🇺",
+      "date": "2026-08-02",
+      "time": "18:00",
+      "participants": ["Australia", "England"],
+      "coverageReason": "Australian medal match",
+      "resultRequiredAfter": "2026-08-02T12:00:00Z",
+      "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/"
+    },
+    {
+      "id": "cwg-glasgow-2026-netball-jamaica-new-zealand-gold",
+      "key": "cwg",
+      "name": "Netball — Jamaica v New Zealand gold medal",
+      "date": "2026-08-02",
+      "time": "22:00",
+      "participants": ["Jamaica", "New Zealand"],
+      "coverageReason": "Resolved selected-tournament gold-medal placeholder",
+      "resultRequiredAfter": "2026-08-02T16:00:00Z",
+      "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/"
+    },
+    {
+      "id": "aflw-australia-ireland-2026-08-01",
+      "key": "afl",
+      "name": "AFLW — Australia v Ireland 🇦🇺",
+      "date": "2026-08-01",
+      "time": "16:15",
+      "participants": ["Australia", "Ireland"],
+      "coverageReason": "Australian national representative match",
+      "resultRequiredAfter": "2026-08-01T09:15:00Z",
+      "sourceUrl": "https://www.afl.com.au/aflw/news/1573333/match-report-australia-v-ireland"
+    }
+  ]
+}
