@@ -2,12 +2,18 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const {
+  spoilerSafeRootCopy,
+  storylineFor,
+} = require("./lib/storyline-card-rules");
 
 const inputPath = path.resolve(process.argv[2] || "feeds/incoming/events.json");
 const sourceCheckedAt = "2026-07-30T01:11:08+10:00";
 const lastReviewedAt = "2026-07-29T15:11:08.000Z";
 const latestSourceCheckedAt = "2026-07-30T13:41:01+10:00";
 const latestReviewedAt = "2026-07-30T03:41:01.000Z";
+const currentSourceCheckedAt = "2026-08-02T22:12:18+10:00";
+const currentReviewedAt = "2026-08-02T12:12:18.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -25,6 +31,15 @@ const latestOfficial = (sourceName, sourceUrl, result) => ({
   sourceCheckedAt: latestSourceCheckedAt,
   sourceType: "official",
   lastReviewedAt: latestReviewedAt,
+});
+
+const currentOfficial = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: currentSourceCheckedAt,
+  sourceType: "official",
+  lastReviewedAt: currentReviewedAt,
 });
 
 const results = {
@@ -601,6 +616,116 @@ const results = {
       resultLabels: ["Swimming closing finals", "Australia nine golds", "Medley relay double"],
     }
   ),
+  "cwg-glasgow-2026-cycling-opening-finals": currentOfficial(
+    "Glasgow 2026 opening track finals report",
+    "https://www.glasgow2026.com/news/4551128/australia-s-women-s-4000m-team-pursuit-break-their-own-commonwealth-games-record-with-gold",
+    {
+      score: "Women's team pursuit: Australia 4:10.658 (Games record)",
+      outcomeText: "Australia defended the women's 4000m team pursuit title in a Commonwealth Games record.",
+      recapText: "Alyssa Polites, Claudia Marcks, Georgia Baker and Felicity Wilson-Haffenden overhauled New Zealand to win in 4:10.658, with New Zealand second in 4:12.775.",
+      resultLabels: ["Track opening finals", "Australia gold", "Games record"],
+    }
+  ),
+  "cwg-glasgow-2026-weightlifting-closing-finals": currentOfficial(
+    "Glasgow 2026 official results",
+    "https://www.glasgow2026.com/results",
+    {
+      score: "Three closing-session weightlifting titles decided",
+      outcomeText: "The women's +86kg, men's 110kg and men's +110kg medal competitions are complete.",
+      recapText: "The final three weightlifting divisions closed the Glasgow programme, with the verified event classifications published in the official Games result book.",
+      resultLabels: ["Weightlifting closing finals", "Three titles decided", "Official classifications"],
+    }
+  ),
+  "cwg-glasgow-2026-cycling-friday-finals": currentOfficial(
+    "Glasgow 2026 track cycling day-two report",
+    "https://www.glasgow2026.com/news/4551390/welsh-women-enjoy-golden-double-while-awang-ends-16-year-wait-for-redemption",
+    {
+      score: "Gold: Morris; Finucane; Baker; Awang",
+      outcomeText: "Anna Morris, Emma Finucane, Georgia Baker and Mohd Azizulhasni Awang won the featured day-two track finals.",
+      recapText: "Morris won the women's individual pursuit, Finucane the sprint, Baker the scratch race and Awang the men's keirin.",
+      resultLabels: ["Track Friday finals", "Four verified winners", "Official result"],
+    }
+  ),
+  "cwg-glasgow-2026-judo-lightweight-medals": currentOfficial(
+    "Glasgow 2026 opening judo finals report",
+    "https://www.glasgow2026.com/news/4551352/dey-sure-she-would-win-as-india-claim-first-judo-golds",
+    {
+      score: "Gold: Dey; Beaton; Toprak; Singh; Frascadore",
+      outcomeText: "India and Canada each won two golds across the five opening lightweight judo finals.",
+      recapText: "Asmita Dey won women's -48kg, Evelyn Beaton -52kg, Acelya Toprak -57kg, Harsh Singh men's -60kg and Julien Frascadore -66kg.",
+      resultLabels: ["Judo lightweight finals", "Five golds decided", "India two golds"],
+    }
+  ),
+  "cwg-glasgow-2026-athletics-medal-night-four": currentOfficial(
+    "Glasgow 2026 day-eight highlights",
+    "https://www.glasgow2026.com/news/4551268/highlights-from-day-8-of-the-commonwealth-games-at-glasgow-2026",
+    {
+      score: "Gold: Lindon Victor (decathlon); Georgia Hunter Bell (800m)",
+      outcomeText: "Lindon Victor won a third straight decathlon title and Georgia Hunter Bell won the women's 800m.",
+      recapText: "Victor completed a hat-trick of Commonwealth decathlon titles for Grenada, while Hunter Bell claimed her first major outdoor 800m title for England.",
+      resultLabels: ["Athletics Friday finals", "Victor decathlon gold", "Hunter Bell 800m gold"],
+    }
+  ),
+  "cwg-glasgow-2026-netball-semifinals": currentOfficial(
+    "World Netball Commonwealth Games results",
+    "https://netball.sport/events-and-results/commonwealth-games/",
+    {
+      score: "New Zealand 61-54 England; Australia 45-46 Jamaica",
+      outcomeText: "New Zealand and Jamaica advanced to the Commonwealth Games netball final.",
+      recapText: "New Zealand beat England 61-54 before Jamaica edged defending champion Australia 46-45 in the second semifinal.",
+      resultLabels: ["Netball semifinals", "New Zealand through", "Jamaica through"],
+    }
+  ),
+  "cwg-glasgow-2026-boxing-finals-one": currentOfficial(
+    "Glasgow 2026 boxing finals report",
+    "https://www.glasgow2026.com/news/4551847/india-win-seven-golds-the-best-ever-boxing-haul-at-a-commonwealth-games",
+    {
+      score: "Seven first-session boxing titles decided",
+      outcomeText: "The first seven-bout block of Glasgow 2026 boxing medal finals is complete.",
+      recapText: "The opening finals block awarded seven Commonwealth titles; the official Games report and result book carry the verified bout classifications.",
+      resultLabels: ["Boxing finals session 1", "Seven titles decided", "Official classifications"],
+    }
+  ),
+  "cwg-glasgow-2026-cycling-saturday-finals": currentOfficial(
+    "Glasgow 2026 Saturday track finals report",
+    "https://www.glasgow2026.com/news/4551840/foy-and-fachie-complete-commonwealth-comebacks-with-second-golds",
+    {
+      score: "Gold: Emma Foy; Neil Fachie; Anna Morris",
+      outcomeText: "Emma Foy and Neil Fachie each won a second tandem title, while Anna Morris won the women's points race.",
+      recapText: "Foy won the women's tandem B 1000m time trial, Fachie the men's tandem B sprint and Morris led a Welsh one-two in the women's 25km points race.",
+      resultLabels: ["Track Saturday finals", "Foy second gold", "Fachie seventh Games gold"],
+    }
+  ),
+  "cwg-glasgow-2026-judo-middleweight-medals": currentOfficial(
+    "Glasgow 2026 middleweight judo finals report",
+    "https://www.glasgow2026.com/news/4551854/malaysia-mauritius-win-first-judo-golds-as-family-ties-fuel-medallists",
+    {
+      score: "Gold: Biron; Petersen-Pollard; Nairne; Abdul Majeed; Feuillet",
+      outcomeText: "Canada, England, Malaysia and Mauritius shared the five middleweight judo titles.",
+      recapText: "Laurence Biron won women's -63kg, Kelly Petersen-Pollard -70kg, Ethan Nairne men's -73kg, Amir Daniel Bin Abdul Majeed -81kg and Remi Feuillet -90kg.",
+      resultLabels: ["Judo middleweight finals", "Five golds decided", "Official result"],
+    }
+  ),
+  "cwg-glasgow-2026-boxing-finals-two": currentOfficial(
+    "Glasgow 2026 boxing finals report",
+    "https://www.glasgow2026.com/news/4551847/india-win-seven-golds-the-best-ever-boxing-haul-at-a-commonwealth-games",
+    {
+      score: "Seven closing-session boxing titles decided",
+      outcomeText: "The second seven-bout block completed the Glasgow 2026 boxing medal programme.",
+      recapText: "India finished the programme with seven golds overall, while Australia's Jye Dixon and Emma-Sue Greentree were among the other champions crowned across the finals day.",
+      resultLabels: ["Boxing finals session 2", "Programme complete", "India seven golds overall"],
+    }
+  ),
+  "cwg-glasgow-2026-athletics-closing-finals": currentOfficial(
+    "Glasgow 2026 closing athletics report",
+    "https://www.glasgow2026.com/news/4551876/kerr-emulates-bannister-72-years-on-to-win-commonwealth-mile",
+    {
+      score: "Gold: Josh Kerr; Abbey Caldwell; Kurtis Marschall",
+      outcomeText: "Josh Kerr won the men's mile as Australia closed with the women's mile and men's pole-vault titles.",
+      recapText: "Kerr won the revived Commonwealth mile, Abbey Caldwell led an Australian sweep of the women's mile and Kurtis Marschall set a Games record for his third straight pole-vault title.",
+      resultLabels: ["Athletics closing finals", "Kerr mile gold", "Australia two closing golds"],
+    }
+  ),
 };
 
 const feed = JSON.parse(fs.readFileSync(inputPath, "utf8"));
@@ -616,6 +741,12 @@ feed.events = feed.events.map((event) => {
     ...result,
   };
   delete next.editorialPreview;
+  if (next.storyline) {
+    next.storyline = storylineFor(next);
+    const rootCopy = spoilerSafeRootCopy(next, next.storyline);
+    next.selectedSentence = rootCopy.hook;
+    next.fullSpiel = rootCopy.synopsis;
+  }
   return next;
 });
 
@@ -624,9 +755,9 @@ if (missing.length) {
   throw new Error(`Result refresh targets not found: ${missing.join(", ")}`);
 }
 
-feed.version = "nothingsport-results-2026-07-30-v2";
-feed.publishedAt = latestReviewedAt;
-feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 30 July 2026. Curated cards supersede routine imports for the same event.";
+feed.version = "nothingsport-results-2026-08-02-v1";
+feed.publishedAt = currentReviewedAt;
+feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 2 August 2026. Curated cards supersede routine imports for the same event.";
 
 fs.writeFileSync(inputPath, `${JSON.stringify(feed, null, 2)}\n`);
 console.log(`Updated ${found.size} result cards in ${path.relative(process.cwd(), inputPath)}.`);

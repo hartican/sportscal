@@ -1,70 +1,14 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-02T08:01:01.733Z",
+  "generatedAt": "2026-08-02T12:26:59.008Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 8,
-    "passed": 8,
+    "due": 4,
+    "passed": 4,
     "failed": 0
   },
   "cards": [
-    {
-      "id": "cwg-glasgow-2026-cycling-saturday-finals",
-      "name": "Track Cycling — Saturday finals",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-02",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "The session includes men's sprint racing plus women's time trial and points-race finals.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
-      ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "issues": []
-    },
-    {
-      "id": "cwg-glasgow-2026-judo-middleweight-medals",
-      "name": "Judo — middleweight medal contests",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-02",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "Women's -63kg and -70kg join men's -73kg, -81kg and -90kg medal contests.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
-      ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "issues": []
-    },
-    {
-      "id": "cwg-glasgow-2026-boxing-finals-two",
-      "name": "Boxing — medal finals session 2",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-02",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "Flyweight, lightweight, middleweight and super-heavyweight contests headline the closing block.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
-      ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "issues": []
-    },
-    {
-      "id": "cwg-glasgow-2026-athletics-closing-finals",
-      "name": "Athletics — closing finals and relays",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-02",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "The final stadium session includes relay and individual medal decisions.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
-      ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "issues": []
-    },
     {
       "id": "cwg-glasgow-2026-bowls-medal-finals",
       "name": "Bowls and Para Bowls — medal finals",

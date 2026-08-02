@@ -6,6 +6,10 @@ const {
   validateFeed,
   writeJson,
 } = require("./lib/feed-utils");
+const {
+  spoilerSafeRootCopy,
+  storylineFor,
+} = require("./lib/storyline-card-rules");
 
 const SPORT_DETAILS = Object.freeze({
   "sport:afl": Object.freeze({ key: "afl", label: "AFL" }),
@@ -94,7 +98,93 @@ function canonicalMetadata(fixture){
     awayParticipantId: fixture.awayParticipantId,
     broadcasterIds: fixture.broadcasters.map(item => item.broadcasterId.replace(/^broadcaster:/, "")),
     scheduleStatus: fixture.scheduleStatus,
+    ...(fixture.status === "completed" && fixture.result?.scorelineText
+      ? { canonicalResultScoreline: fixture.result.scorelineText }
+      : {}),
   };
+}
+
+function completedCanonicalResult(fixture, participantsById){
+  if (fixture.status !== "completed" || !fixture.result?.scorelineText) return null;
+  const scoreMatch = fixture.result.scorelineText.match(/—\s*(\d+)-(\d+)$/);
+  if (!scoreMatch) return null;
+  const homeScore = Number(scoreMatch[1]);
+  const awayScore = Number(scoreMatch[2]);
+  const homeName = participantsById.get(fixture.homeParticipantId)?.displayName
+    || participantsById.get(fixture.homeParticipantId)?.canonicalName
+    || fixture.homeParticipantId;
+  const awayName = participantsById.get(fixture.awayParticipantId)?.displayName
+    || participantsById.get(fixture.awayParticipantId)?.canonicalName
+    || fixture.awayParticipantId;
+  const draw = homeScore === awayScore;
+  const homeWon = homeScore > awayScore;
+  const winner = draw ? null : homeWon ? homeName : awayName;
+  const loser = draw ? null : homeWon ? awayName : homeName;
+  const winnerScore = homeWon ? homeScore : awayScore;
+  const loserScore = homeWon ? awayScore : homeScore;
+  const margin = Math.abs(homeScore - awayScore);
+  const source = fixture.result.source || fixture.source || {};
+  const sourceCheckedAt = source.checkedAt || fixture.updatedAt;
+  const outcomeText = draw
+    ? `${homeName} and ${awayName} drew ${homeScore}-${awayScore}.`
+    : `${winner} defeated ${loser} ${winnerScore}-${loserScore}.`;
+  const recapText = draw
+    ? `${fixture.displayName} finished level at ${homeScore}-${awayScore} in ${fixture.roundLabel}.`
+    : `${fixture.displayName} finished ${homeScore}-${awayScore} in ${fixture.roundLabel}, with ${winner} winning by ${margin} points.`;
+  const consensusResult = draw
+    ? { summary: outcomeText, marginText: "Draw" }
+    : { winner, loser, summary: outcomeText, marginText: `${winner} by ${margin}` };
+  return {
+    status: "completed",
+    selectedSentence: `${fixture.displayName} is complete; the key moments are protected until you choose to reveal them.`,
+    fullSpiel: `${fixture.displayName} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`,
+    score: fixture.result.scorelineText,
+    outcomeText,
+    recapText,
+    resultLabels: [fixture.roundLabel, draw ? "Draw" : `${winner} by ${margin}`, "Verified result"],
+    consensusResult,
+    sourceName: source.provider || fixture.source?.provider || "Official match centre",
+    sourceUrl: source.sourceUrl || fixture.source?.sourceUrl,
+    sourceCheckedAt,
+    sourceType: source.sourceType === "reputable" ? "reputable" : "official",
+    lastReviewedAt: sourceCheckedAt,
+  };
+}
+
+function normalizeCompletedStoryline(card){
+  if (!card.storyline) return card;
+  const storyline = storylineFor(card);
+  const rootCopy = spoilerSafeRootCopy(card, storyline);
+  return {
+    ...card,
+    selectedSentence: rootCopy.hook,
+    fullSpiel: rootCopy.synopsis,
+    storyline,
+  };
+}
+
+function applyCompletedCanonicalResult(card, fixture, participantsById){
+  const result = completedCanonicalResult(fixture, participantsById);
+  if (!result) return { ...card, ...canonicalMetadata(fixture) };
+  const cardHasResult = card.status === "completed"
+    && card.score
+    && card.outcomeText
+    && card.recapText
+    && card.sourceName
+    && card.sourceUrl
+    && card.sourceCheckedAt;
+  const canonicalResultChanged = card.canonicalResultScoreline
+    && card.canonicalResultScoreline !== fixture.result.scorelineText;
+  if (cardHasResult && !canonicalResultChanged){
+    return normalizeCompletedStoryline({ ...card, ...canonicalMetadata(fixture) });
+  }
+  const next = {
+    ...card,
+    ...result,
+    ...canonicalMetadata(fixture),
+  };
+  delete next.editorialPreview;
+  return normalizeCompletedStoryline(next);
 }
 
 function fixtureToCard(fixture, participantsById){
@@ -145,6 +235,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
   const publishedAt = options.publishedAt || new Date().toISOString();
   const basisTime = Date.parse(publishedAt);
   const participantsById = new Map(canonicalBundle.participants.map(item => [item.id, item]));
+  const canonicalById = new Map(canonicalBundle.events.map(event => [event.id, event]));
   const fixtures = canonicalBundle.events.filter(event =>
     SPORT_DETAILS[event.sportDomainId]
     && event.status === "scheduled"
@@ -161,7 +252,14 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     || activeFixtureIds.has(card.canonicalEventId)
   );
   const matchedCanonicalIds = new Set();
+  let completedResultsUpdated = 0;
   const preservedEvents = currentFeedEvents.map(card => {
+    const exactFixture = canonicalById.get(card.canonicalEventId);
+    if (exactFixture?.status === "completed"){
+      const next = applyCompletedCanonicalResult(card, exactFixture, participantsById);
+      if (next.status === "completed" && card.status !== "completed") completedResultsUpdated += 1;
+      return next;
+    }
     const fixture = fixtures.find(candidate => !matchedCanonicalIds.has(candidate.id) && isSameFixture(card, candidate));
     if (!fixture) return card;
     matchedCanonicalIds.add(fixture.id);
@@ -192,6 +290,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       generated: generatedEvents.length,
       afl: output.events.filter(event => event.key === "afl").length,
       nrl: output.events.filter(event => event.key === "nrl").length,
+      completedResultsUpdated,
     },
   };
 }
@@ -211,6 +310,7 @@ function main(){
   }
   writeJson(outputPath, output);
   console.log(`Synced ${summary.eligible} confirmed scheduled fixtures: ${summary.existingMatches} existing cards retained, ${summary.generated} routine cards added.`);
+  console.log(`Projected ${summary.completedResultsUpdated} newly completed canonical results into existing cards.`);
   console.log(`Feed totals: AFL ${summary.afl}; NRL ${summary.nrl}; all sports ${output.events.length}.`);
   console.log(outputPath);
 }
@@ -218,8 +318,11 @@ function main(){
 if (require.main === module) main();
 
 module.exports = {
+  applyCompletedCanonicalResult,
+  completedCanonicalResult,
   fixtureToCard,
   isSameFixture,
+  normalizeCompletedStoryline,
   syncCanonicalFixtures,
   sydneyDateTime,
 };

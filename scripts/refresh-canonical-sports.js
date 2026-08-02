@@ -102,13 +102,36 @@ async function mapWithConcurrency(values, limit, worker){
   return results;
 }
 
-function existingCreatedAtById(){
+function readExistingCanonicalBundle(){
   try{
-    const current = JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8"));
-    return new Map((current.events || []).map(event => [event.id, event.createdAt]));
+    return JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8"));
   }catch(_error){
-    return new Map();
+    return null;
   }
+}
+
+function existingCreatedAtById(bundle = readExistingCanonicalBundle()){
+  return new Map((bundle?.events || []).map(event => [event.id, event.createdAt]));
+}
+
+function ladderRoundNumber(snapshot){
+  const match = String(snapshot?.id || "").match(/:round-(\d+)$/);
+  return match ? Number(match[1]) : NaN;
+}
+
+function selectFreshestLadderSnapshot(candidate, stored){
+  if (!stored || stored.competitionId !== candidate.competitionId) return candidate;
+  const candidateRound = ladderRoundNumber(candidate);
+  const storedRound = ladderRoundNumber(stored);
+  if (Number.isFinite(candidateRound) && Number.isFinite(storedRound)){
+    if (candidateRound > storedRound) return candidate;
+    if (candidateRound < storedRound) return stored;
+  }
+  const candidateTime = Date.parse(candidate.snapshotTimeUtc || "");
+  const storedTime = Date.parse(stored.snapshotTimeUtc || "");
+  if (!Number.isFinite(candidateTime)) return Number.isFinite(storedTime) ? stored : candidate;
+  if (Number.isFinite(storedTime) && candidateTime < storedTime) return stored;
+  return candidate;
 }
 
 function aflParticipantId(team){
@@ -747,7 +770,8 @@ function sortedEvents(events){
 
 async function main(){
   const checkedAt = new Date().toISOString();
-  const createdAtById = existingCreatedAtById();
+  const existingBundle = readExistingCanonicalBundle();
+  const createdAtById = existingCreatedAtById(existingBundle);
   const aflHeaders = { Origin: "https://www.afl.com.au", Referer: "https://www.afl.com.au/" };
   const compSeasons = await fetchJson(`${AFL_API}/competitions/1/compseasons?pageSize=20`, aflHeaders);
   const aflSeason = (compSeasons.compSeasons || []).find(item => item.name.startsWith(String(SEASON)));
@@ -793,10 +817,12 @@ async function main(){
     participants,
     independentNrlStandings
   );
-  const ladderSnapshots = [
-    buildAflLadder(aflLadderRaw, checkedAt),
-    nrlLadder,
-  ];
+  const fetchedAflLadder = buildAflLadder(aflLadderRaw, checkedAt);
+  const storedAflLadder = existingBundle?.ladderSnapshots?.find(snapshot =>
+    snapshot.competitionId === fetchedAflLadder.competitionId
+  );
+  const aflLadder = selectFreshestLadderSnapshot(fetchedAflLadder, storedAflLadder);
+  const ladderSnapshots = [aflLadder, nrlLadder];
   const bundle = {
     schemaVersion: "canonical-sports.v1",
     taxonomyVersion: taxonomy.schemaVersion,
@@ -820,6 +846,9 @@ async function main(){
   console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} teams.`);
   console.log(`NRL result reconciliation: ${officialNrlCorrections.correctedMatchIds.length} direct-official corrections, ${nrlReconciliation.verifiedMatchIds.length} independently verified, ${nrlReconciliation.promotedMatchIds.length} supplemented, ${supplementalNrl.failedDates.length} scoreboard fetch failures.`);
   console.log(`NRL independent standings check: ${nrlLadder.metadata.independentValidation.status}.`);
+  if (aflLadder === storedAflLadder){
+    console.log(`AFL ladder freshness guard: retained newer stored ${storedAflLadder.roundLabel} snapshot from ${storedAflLadder.snapshotTimeUtc}.`);
+  }
   console.log(`Ladders: ${ladderSnapshots.map(snapshot => `${snapshot.competitionId} (${snapshot.entries.length})`).join(", ")}.`);
   console.log(path.relative(process.cwd(), OUTPUT_PATH));
 }
@@ -840,6 +869,7 @@ module.exports = {
   parseEspnNrlResults,
   parseEspnNrlStandings,
   reconcileNrlResults,
+  selectFreshestLadderSnapshot,
   validateNrlLadderAgainstIndependentTable,
   nrlVenueTimezone,
 };

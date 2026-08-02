@@ -10,6 +10,7 @@ const steps = [
   ["scripts/validate-nba-context.js"],
   ["scripts/validate-cwg-context.js"],
   ["scripts/validate-cycling-context.js"],
+  ["scripts/refresh-results-2026-07-30.js", "feeds/incoming/events.json"],
   ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "data/events.json", "data/events.json"],
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
@@ -21,6 +22,8 @@ const steps = [
   ["scripts/qa-storyline-spoilers.js", "data/events.json"],
   ["scripts/validate-feed.js", "feeds/incoming/events.json"],
   ["scripts/validate-feed.js", "data/events.json"],
+  ["scripts/validate-canonical-feed-coverage.js", "data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json"],
+  ["scripts/validate-canonical-feed-coverage.js", "data/canonical/afl-nrl-2026.json", "data/events.json"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
 ];

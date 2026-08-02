@@ -7,6 +7,7 @@ const canonicalPath = process.argv[2] || "data/canonical/afl-nrl-2026.json";
 const feedPath = process.argv[3] || "data/events.json";
 const canonical = readJson(canonicalPath);
 const feed = readJson(feedPath);
+const canonicalById = new Map(canonical.events.map(event => [event.id, event]));
 const basisTime = Date.parse(feed.publishedAt);
 const liveWindowMs = 3 * 60 * 60 * 1000;
 const eligible = canonical.events.filter(event =>
@@ -31,6 +32,23 @@ assert(
   "canonical fixture cards must retain official schedule provenance"
 );
 assert(publishedCards.every(event => !/\s(?:vs\.?|versus)\s/i.test(event.name)), "canonical fixture cards must use v");
+const completedLinkedCards = feed.events.filter(event =>
+  canonicalById.get(event.canonicalEventId)?.status === "completed"
+);
+const incompleteCanonicalResults = completedLinkedCards.filter(event =>
+  event.status !== "completed"
+  || !event.score
+  || !event.outcomeText
+  || !event.recapText
+  || !event.sourceName
+  || !event.sourceUrl
+  || !event.sourceCheckedAt
+);
+assert.equal(
+  incompleteCanonicalResults.length,
+  0,
+  `completed canonical cards must publish result fields: ${incompleteCanonicalResults.map(event => event.id).join(", ")}`
+);
 const staleRoutineCards = feed.events.filter(event =>
   event.narrativeType === "regular-season-fixture"
   && eligibleIds.has(event.canonicalEventId) === false
@@ -49,4 +67,5 @@ const tbcCount = canonical.events.filter(event =>
 ).length;
 
 console.log(`Canonical feed coverage valid: AFL ${counts.afl || 0}; NRL ${counts.nrl || 0}; ${publishedCards.length} confirmed scheduled cards.`);
+console.log(`${completedLinkedCards.length} linked completed AFL/NRL cards retain source-backed results.`);
 console.log(`${tbcCount} official fixtures remain excluded until their start times are confirmed.`);

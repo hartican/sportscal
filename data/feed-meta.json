@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-results-2026-07-30-v2",
+  "version": "nothingsport-results-2026-08-02-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-02T08:01:01.172Z",
+  "publishedAt": "2026-08-02T12:26:58.251Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -84,7 +84,7 @@
         "lastEventDate": "2026-10-31"
       },
       "afl": {
-        "count": 47,
+        "count": 46,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-09-26"
       },

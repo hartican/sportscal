@@ -8,6 +8,7 @@ const {
   applyOfficialNrlResultCorrections,
   parseEspnNrlResults,
   reconcileNrlResults,
+  selectFreshestLadderSnapshot,
 } = require("./refresh-canonical-sports");
 
 const inputPath = path.resolve(process.argv[2] || "data/canonical/afl-nrl-2026.json");
@@ -172,6 +173,31 @@ assert.throws(
   ], supplementalResults, "2026-08-02T08:00:00.000Z"),
   /conflicts with official-provider score/,
   "conflicting final scores must fail closed instead of silently changing the table"
+);
+
+const newerStoredAflLadder = {
+  id: "ladder:afl-premiership-2026:round-20",
+  competitionId: aflCompetitionId,
+  snapshotTimeUtc: "2026-08-02T07:57:59.000Z",
+  entries: [{ participantId: "newer" }],
+};
+const staleFetchedAflLadder = {
+  ...newerStoredAflLadder,
+  snapshotTimeUtc: "2026-08-02T06:35:02.000Z",
+  entries: [{ participantId: "stale" }],
+};
+assert.strictEqual(
+  selectFreshestLadderSnapshot(staleFetchedAflLadder, newerStoredAflLadder),
+  newerStoredAflLadder,
+  "an older snapshot for the same ladder round must never replace newer stored standings"
+);
+assert.strictEqual(
+  selectFreshestLadderSnapshot(
+    { ...staleFetchedAflLadder, id: "ladder:afl-premiership-2026:round-21" },
+    newerStoredAflLadder
+  ).id,
+  "ladder:afl-premiership-2026:round-21",
+  "a genuinely newer completed round must be accepted even when the provider timestamp is unusual"
 );
 
 console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${nrlFixtures.length} NRL fixtures.`);
