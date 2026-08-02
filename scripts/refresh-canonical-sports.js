@@ -8,6 +8,21 @@ const SEASON = 2026;
 const OUTPUT_PATH = path.resolve(__dirname, "../data/canonical/afl-nrl-2026.json");
 const AFL_API = "https://aflapi.afl.com.au/afl/v2";
 const NRL_FIXTURE_URL = "https://mc.championdata.com/data/12999/fixture.json";
+const ESPN_NRL_SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard";
+const ESPN_NRL_STANDINGS_URL = "https://site.api.espn.com/apis/v2/sports/rugby-league/3/standings?season=2026";
+const NRL_RESULT_GRACE_MS = 4 * 60 * 60 * 1000;
+const NRL_MATCH_TIME_TOLERANCE_MS = 12 * 60 * 60 * 1000;
+const NRL_OFFICIAL_RESULT_CORRECTIONS = Object.freeze({
+  // Champion Data still reports 44-18. The NRL match centre and play-by-play both confirm 44-16.
+  "129991007": Object.freeze({
+    roundNumber: 10,
+    homeTeam: "Storm",
+    awayTeam: "Wests Tigers",
+    homeScore: 44,
+    awayScore: 16,
+    sourceUrl: "https://www.nrl.com/draw/nrl-premiership/2026/round-10/storm-v-wests-tigers/",
+  }),
+});
 
 const AU_BROADCASTERS = Object.freeze({
   afl: [
@@ -155,6 +170,271 @@ function nrlStatus(sourceStatus){
   return "scheduled";
 }
 
+function nrlTeamKey(value){
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "")
+    .trim();
+}
+
+function parseEspnNrlResults(payload, checkedAt){
+  return (payload?.events || []).flatMap(scoreboardEvent => {
+    const competition = scoreboardEvent.competitions?.[0];
+    const status = scoreboardEvent.status?.type || competition?.status?.type || {};
+    if (status.completed !== true || status.state !== "post") return [];
+    const home = competition?.competitors?.find(competitor => competitor.homeAway === "home");
+    const away = competition?.competitors?.find(competitor => competitor.homeAway === "away");
+    const homeScore = Number(home?.score);
+    const awayScore = Number(away?.score);
+    const homeName = home?.team?.displayName || home?.team?.shortDisplayName || home?.team?.name;
+    const awayName = away?.team?.displayName || away?.team?.shortDisplayName || away?.team?.name;
+    const startTimeUtc = normalizeIso(scoreboardEvent.date || competition?.date);
+    if (
+      !homeName
+      || !awayName
+      || !startTimeUtc
+      || !Number.isFinite(homeScore)
+      || !Number.isFinite(awayScore)
+      || homeScore < 0
+      || awayScore < 0
+      || homeScore > 200
+      || awayScore > 200
+    ) return [];
+    const sourceId = String(scoreboardEvent.id || competition?.id || "");
+    return [{
+      sourceId,
+      homeName,
+      awayName,
+      homeTeamKey: nrlTeamKey(homeName),
+      awayTeamKey: nrlTeamKey(awayName),
+      homeScore,
+      awayScore,
+      startTimeUtc,
+      source: eventSource(
+        "ESPN",
+        sourceId ? `https://www.espn.com.au/nrl/match/_/gameId/${sourceId}/league/3` : "https://www.espn.com.au/nrl/",
+        "reputable",
+        checkedAt
+      ),
+    }];
+  });
+}
+
+function applyOfficialNrlResultCorrections(matches, checkedAt){
+  const correctedMatchIds = [];
+  const correctedMatches = matches.map(match => {
+    const correction = NRL_OFFICIAL_RESULT_CORRECTIONS[String(match.matchId)];
+    if (!correction) return match;
+    if (
+      Number(match.roundNumber) !== correction.roundNumber
+      || nrlTeamKey(match.homeSquadNickname || match.homeSquadName) !== nrlTeamKey(correction.homeTeam)
+      || nrlTeamKey(match.awaySquadNickname || match.awaySquadName) !== nrlTeamKey(correction.awayTeam)
+    ){
+      throw new Error(`NRL official result correction identity mismatch for match ${match.matchId}`);
+    }
+    correctedMatchIds.push(match.matchId);
+    return {
+      ...match,
+      matchStatus: "complete",
+      homeSquadScore: correction.homeScore,
+      awaySquadScore: correction.awayScore,
+      resultSource: eventSource("NRL", correction.sourceUrl, "official", checkedAt),
+    };
+  });
+  return { matches: correctedMatches, correctedMatchIds };
+}
+
+function nrlSupplementalMatchCandidates(match, supplementalResults){
+  const homeTeamKey = nrlTeamKey(match.homeSquadNickname || match.homeSquadName);
+  const awayTeamKey = nrlTeamKey(match.awaySquadNickname || match.awaySquadName);
+  const startTime = Date.parse(match.utcStartTime || match.localStartTime || "");
+  if (!homeTeamKey || !awayTeamKey || !Number.isFinite(startTime)) return [];
+  return supplementalResults.filter(result =>
+    result.homeTeamKey === homeTeamKey
+    && result.awayTeamKey === awayTeamKey
+    && Math.abs(Date.parse(result.startTimeUtc) - startTime) <= NRL_MATCH_TIME_TOLERANCE_MS
+  );
+}
+
+function reconcileNrlResults(matches, supplementalResults, checkedAt){
+  const promotedMatchIds = [];
+  const verifiedMatchIds = [];
+  const usedSupplementalSourceIds = new Set();
+  const reconciledMatches = matches.map(match => {
+    const candidates = nrlSupplementalMatchCandidates(match, supplementalResults);
+    if (candidates.length > 1){
+      throw new Error(`NRL supplemental result is ambiguous for match ${match.matchId}`);
+    }
+    if (!candidates.length) return match;
+    const candidate = candidates[0];
+    if (usedSupplementalSourceIds.has(candidate.sourceId)){
+      throw new Error(`NRL supplemental result ${candidate.sourceId} matched more than one official-provider fixture`);
+    }
+    usedSupplementalSourceIds.add(candidate.sourceId);
+    const officialStatus = nrlStatus(match.matchStatus);
+    if (["postponed", "cancelled"].includes(officialStatus)){
+      throw new Error(`NRL supplemental final conflicts with official-provider ${officialStatus} status for match ${match.matchId}`);
+    }
+    if (officialStatus === "completed"){
+      const officialHomeScore = Number(match.homeSquadScore);
+      const officialAwayScore = Number(match.awaySquadScore);
+      if (officialHomeScore !== candidate.homeScore || officialAwayScore !== candidate.awayScore){
+        throw new Error(
+          `NRL supplemental result ${candidate.homeScore}-${candidate.awayScore} conflicts with official-provider score ${officialHomeScore}-${officialAwayScore} for match ${match.matchId}`
+        );
+      }
+      verifiedMatchIds.push(match.matchId);
+      return match;
+    }
+    promotedMatchIds.push(match.matchId);
+    return {
+      ...match,
+      matchStatus: "complete",
+      homeSquadScore: candidate.homeScore,
+      awaySquadScore: candidate.awayScore,
+      resultSource: { ...candidate.source, checkedAt },
+    };
+  });
+  return { matches: reconciledMatches, promotedMatchIds, verifiedMatchIds };
+}
+
+function espnStatValue(entry, name){
+  const stat = (entry?.stats || []).find(item => item.name === name);
+  return stat ? Number(stat.value) : NaN;
+}
+
+function parseEspnNrlStandings(payload, checkedAt){
+  const entries = (payload?.children || []).flatMap(child => child?.standings?.entries || []).map(entry => ({
+    teamName: entry.team?.displayName || entry.team?.shortDisplayName || entry.team?.name,
+    teamKey: nrlTeamKey(entry.team?.displayName || entry.team?.shortDisplayName || entry.team?.name),
+    rank: espnStatValue(entry, "rank"),
+    played: espnStatValue(entry, "gamesPlayed"),
+    won: espnStatValue(entry, "gamesWon"),
+    drawn: espnStatValue(entry, "gamesDrawn"),
+    lost: espnStatValue(entry, "gamesLost"),
+    byes: espnStatValue(entry, "gamesBye"),
+    pointsFor: espnStatValue(entry, "pointsFor"),
+    pointsAgainst: espnStatValue(entry, "pointsAgainst"),
+    pointsDifference: espnStatValue(entry, "pointsDifference"),
+    ladderPoints: espnStatValue(entry, "points"),
+  })).filter(entry => entry.teamName && [
+    entry.rank,
+    entry.played,
+    entry.won,
+    entry.drawn,
+    entry.lost,
+    entry.byes,
+    entry.pointsFor,
+    entry.pointsAgainst,
+    entry.pointsDifference,
+    entry.ladderPoints,
+  ].every(Number.isFinite));
+  return {
+    entries,
+    source: eventSource("ESPN", "https://www.espn.com.au/rugby-league/table", "reputable", checkedAt),
+  };
+}
+
+function validateNrlLadderAgainstIndependentTable(ladder, participants, independentTable){
+  if (independentTable.entries.length < 17){
+    throw new Error(`Independent NRL standings returned ${independentTable.entries.length} complete rows; expected at least 17`);
+  }
+  const participantsById = new Map(participants.map(participant => [participant.id, participant]));
+  const localByTeam = new Map(ladder.entries.map(entry => {
+    const participant = participantsById.get(entry.participantId);
+    return [nrlTeamKey(participant?.displayName || participant?.canonicalName), entry];
+  }));
+  const independentCompletedMatches = independentTable.entries.reduce((total, entry) => total + entry.played, 0) / 2;
+  const localCompletedMatches = Number(ladder.metadata?.completedMatches || 0);
+  if (independentCompletedMatches < localCompletedMatches){
+    return {
+      status: "independent-source-lagging",
+      localCompletedMatches,
+      independentCompletedMatches,
+      checkedAt: independentTable.source.checkedAt,
+    };
+  }
+  if (independentCompletedMatches > localCompletedMatches){
+    throw new Error(
+      `Independent NRL standings include ${independentCompletedMatches} matches but the reconciled official fixture includes ${localCompletedMatches}`
+    );
+  }
+  const fields = ["rank", "played", "won", "drawn", "lost", "byes", "pointsFor", "pointsAgainst", "pointsDifference", "ladderPoints"];
+  const differences = [];
+  independentTable.entries.forEach(independentEntry => {
+    const localEntry = localByTeam.get(independentEntry.teamKey);
+    if (!localEntry){
+      differences.push(`${independentEntry.teamName}: missing local team`);
+      return;
+    }
+    const mismatches = fields
+      .filter(field => localEntry[field] !== independentEntry[field])
+      .map(field => `${field} ${localEntry[field]} != ${independentEntry[field]}`);
+    if (mismatches.length) differences.push(`${independentEntry.teamName}: ${mismatches.join(", ")}`);
+  });
+  if (differences.length){
+    throw new Error(`Recalculated NRL ladder differs from the independent standings: ${differences.join("; ")}`);
+  }
+  return {
+    status: "matched",
+    localCompletedMatches,
+    independentCompletedMatches,
+    checkedAt: independentTable.source.checkedAt,
+  };
+}
+
+function nrlScoreboardDate(match){
+  const localDate = String(match.localStartTime || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (localDate) return `${localDate[1]}${localDate[2]}${localDate[3]}`;
+  const start = new Date(match.utcStartTime || "");
+  if (Number.isNaN(start.getTime())) return null;
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Australia/Sydney",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(start).filter(part => part.type !== "literal").map(part => [part.type, part.value]));
+  return `${parts.year}${parts.month}${parts.day}`;
+}
+
+async function fetchNrlSupplementalResults(matches, checkedAt){
+  const checkedTime = Date.parse(checkedAt);
+  const startedMatches = matches.filter(match => {
+    const startTime = Date.parse(match.utcStartTime || match.localStartTime || "");
+    return Number.isFinite(startTime) && startTime <= checkedTime;
+  });
+  const activeRound = Math.max(0, ...startedMatches.map(match => Number(match.roundNumber || 0)));
+  const dates = Array.from(new Set(startedMatches
+    .filter(match => Number(match.roundNumber) === activeRound)
+    .map(nrlScoreboardDate)
+    .filter(Boolean)))
+    .sort();
+  const responses = await Promise.allSettled(dates.map(date => fetchJson(`${ESPN_NRL_SCOREBOARD_URL}?dates=${date}`)));
+  const failedDates = [];
+  const results = [];
+  responses.forEach((response, index) => {
+    if (response.status === "rejected"){
+      failedDates.push(dates[index]);
+      return;
+    }
+    results.push(...parseEspnNrlResults(response.value, checkedAt));
+  });
+  const uniqueResults = Array.from(new Map(results.map(result => [
+    result.sourceId || `${result.homeTeamKey}:${result.awayTeamKey}:${result.startTimeUtc}`,
+    result,
+  ])).values());
+  return { activeRound, dates, failedDates, results: uniqueResults };
+}
+
+function overdueUnresolvedNrlMatches(matches, checkedAt){
+  const checkedTime = Date.parse(checkedAt);
+  return matches.filter(match => {
+    if (["completed", "postponed", "cancelled"].includes(nrlStatus(match.matchStatus))) return false;
+    const startTime = Date.parse(match.utcStartTime || match.localStartTime || "");
+    return Number.isFinite(startTime) && startTime + NRL_RESULT_GRACE_MS <= checkedTime;
+  });
+}
+
 function resultSummary(event, homeScore, awayScore){
   if (event.status !== "completed" || !Number.isFinite(homeScore) || !Number.isFinite(awayScore)) return undefined;
   const winnerParticipantId = homeScore === awayScore
@@ -274,7 +554,10 @@ function buildNrlEvent(match, checkedAt, createdAtById){
     ),
   };
   const result = resultSummary(event, Number(match.homeSquadScore), Number(match.awaySquadScore));
-  if (result) event.result = result;
+  if (result){
+    if (match.resultSource) result.source = match.resultSource;
+    event.result = result;
+  }
   return { event, participants: [home, away] };
 }
 
@@ -322,8 +605,13 @@ function buildNrlLadder(events, participants, checkedAt){
   const latestResultRound = Math.max(0, ...Array.from(rounds.entries())
     .filter(([, matches]) => matches.some(match => match.status === "completed"))
     .map(([round]) => round));
+  const checkedTime = Date.parse(checkedAt);
   const latestStartedRound = Math.max(latestResultRound, ...Array.from(rounds.entries())
-    .filter(([, matches]) => matches.some(match => match.status === "live"))
+    .filter(([, matches]) => matches.some(match =>
+      match.status === "live"
+      || match.status === "completed"
+      || (Number.isFinite(Date.parse(match.startTimeUtc || "")) && Date.parse(match.startTimeUtc) <= checkedTime)
+    ))
     .map(([round]) => round));
   const completedRound = Math.max(0, ...Array.from(rounds.entries())
     .filter(([, matches]) => matches.length > 0 && matches.every(match => match.status === "completed"))
@@ -344,15 +632,16 @@ function buildNrlLadder(events, participants, checkedAt){
     ladderPoints: 0,
   }]));
 
-  for (let round = 1; round <= completedRound; round += 1){
+  for (let round = 1; round <= latestResultRound; round += 1){
     const matches = rounds.get(round) || [];
-    if (!matches.length) continue;
+    const completedMatches = matches.filter(match => match.status === "completed");
+    if (!matches.length || !completedMatches.length) continue;
     const scheduledIds = new Set();
     matches.forEach(match => {
       scheduledIds.add(match.homeParticipantId);
       scheduledIds.add(match.awayParticipantId);
     });
-    matches.filter(match => match.status === "completed").forEach(match => {
+    completedMatches.forEach(match => {
       const home = rows.get(match.homeParticipantId);
       const away = rows.get(match.awayParticipantId);
       const scoreMatch = match.result?.scorelineText?.match(/—\s*(\d+)-(\d+)$/);
@@ -397,11 +686,22 @@ function buildNrlLadder(events, participants, checkedAt){
     )
     .map((row, index) => ({ ...row, rank: index + 1 }));
 
+  const partialResultRound = latestResultRound > completedRound;
+  const representedCompletedMatches = events.filter(event =>
+    event.roundNumber <= latestResultRound && event.status === "completed"
+  );
+  const pendingCompletedMatches = events.filter(event =>
+    event.roundNumber > latestResultRound && event.status === "completed"
+  );
+  const supplementedMatches = representedCompletedMatches.filter(event => event.result?.source?.provider === "ESPN").length;
+
   return {
-    id: `ladder:nrl-premiership-2026:round-${completedRound}`,
+    id: `ladder:nrl-premiership-2026:round-${latestResultRound}`,
     competitionId: "competition:nrl-premiership-2026",
     seasonLabel: String(SEASON),
-    roundLabel: `Up to date through completed Round ${completedRound}`,
+    roundLabel: partialResultRound
+      ? `Updated through completed matches in Round ${latestResultRound}`
+      : `Up to date through completed Round ${completedRound}`,
     snapshotTimeUtc: checkedAt,
     entries,
     source: eventSource(
@@ -411,11 +711,17 @@ function buildNrlLadder(events, participants, checkedAt){
       checkedAt
     ),
     metadata: {
-      calculation: "Completed official-provider match results through the latest fully completed round, with byes derived from the full fixture; ranked by points then differential",
+      calculation: "Every confirmed completed match through the latest result-bearing round, with independently verified finals used only when the official-provider status lags; byes come from the full fixture and ranking uses points then differential",
       roundStatus: roundInProgress ? "in-progress" : "completed",
       activeRound: latestStartedRound,
-      completedMatches: events.filter(event => event.roundNumber <= completedRound && event.status === "completed").length,
-      pendingCompletedMatches: events.filter(event => event.roundNumber > completedRound && event.status === "completed").length,
+      lastFullyCompletedRound: completedRound,
+      representedThroughRound: latestResultRound,
+      completedMatches: representedCompletedMatches.length,
+      pendingCompletedMatches: pendingCompletedMatches.length,
+      ongoingRoundCompletedMatches: partialResultRound
+        ? representedCompletedMatches.filter(event => event.roundNumber === latestResultRound).length
+        : 0,
+      supplementedMatches,
     },
   };
 }
@@ -458,15 +764,38 @@ async function main(){
     aflHeaders
   );
   const nrlFixture = await fetchJson(NRL_FIXTURE_URL);
-  const nrlMatches = nrlFixture.fixture?.match || [];
+  const officialNrlMatches = nrlFixture.fixture?.match || [];
+  const officialNrlCorrections = applyOfficialNrlResultCorrections(officialNrlMatches, checkedAt);
+  const supplementalNrl = await fetchNrlSupplementalResults(officialNrlCorrections.matches, checkedAt);
+  const nrlReconciliation = reconcileNrlResults(officialNrlCorrections.matches, supplementalNrl.results, checkedAt);
+  const nrlMatches = nrlReconciliation.matches;
+  const unresolvedNrlMatches = overdueUnresolvedNrlMatches(nrlMatches, checkedAt);
+  if (unresolvedNrlMatches.length){
+    const failures = supplementalNrl.failedDates.length
+      ? `; supplemental fetch failed for ${supplementalNrl.failedDates.join(", ")}`
+      : "";
+    throw new Error(
+      `NRL result reconciliation could not confirm overdue match(es): ${unresolvedNrlMatches.map(match => match.matchId).join(", ")}${failures}`
+    );
+  }
 
   const aflRecords = aflMatches.map(match => buildAflEvent(match, checkedAt, createdAtById));
   const nrlRecords = nrlMatches.map(match => buildNrlEvent(match, checkedAt, createdAtById));
   const participants = uniqueParticipants([...aflRecords, ...nrlRecords].map(record => record.participants));
   const events = sortedEvents([...aflRecords, ...nrlRecords].map(record => record.event));
+  const nrlLadder = buildNrlLadder(nrlRecords.map(record => record.event), participants, checkedAt);
+  const independentNrlStandings = parseEspnNrlStandings(
+    await fetchJson(ESPN_NRL_STANDINGS_URL),
+    checkedAt
+  );
+  nrlLadder.metadata.independentValidation = validateNrlLadderAgainstIndependentTable(
+    nrlLadder,
+    participants,
+    independentNrlStandings
+  );
   const ladderSnapshots = [
     buildAflLadder(aflLadderRaw, checkedAt),
-    buildNrlLadder(nrlRecords.map(record => record.event), participants, checkedAt),
+    nrlLadder,
   ];
   const bundle = {
     schemaVersion: "canonical-sports.v1",
@@ -476,6 +805,7 @@ async function main(){
     sources: [
       eventSource("AFL", "https://www.afl.com.au/fixture", "official", checkedAt),
       eventSource("NRL Match Centre / Champion Data", "https://www.nrl.com/draw", "official-provider", checkedAt),
+      independentNrlStandings.source,
     ],
     sportDomains: taxonomy.sportDomains,
     competitionFamilies: taxonomy.competitionFamilies,
@@ -488,6 +818,8 @@ async function main(){
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(bundle, null, 2)}\n`);
   console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} teams.`);
+  console.log(`NRL result reconciliation: ${officialNrlCorrections.correctedMatchIds.length} direct-official corrections, ${nrlReconciliation.verifiedMatchIds.length} independently verified, ${nrlReconciliation.promotedMatchIds.length} supplemented, ${supplementalNrl.failedDates.length} scoreboard fetch failures.`);
+  console.log(`NRL independent standings check: ${nrlLadder.metadata.independentValidation.status}.`);
   console.log(`Ladders: ${ladderSnapshots.map(snapshot => `${snapshot.competitionId} (${snapshot.entries.length})`).join(", ")}.`);
   console.log(path.relative(process.cwd(), OUTPUT_PATH));
 }
@@ -504,5 +836,10 @@ module.exports = {
   buildNrlEvent,
   buildAflLadder,
   buildNrlLadder,
+  applyOfficialNrlResultCorrections,
+  parseEspnNrlResults,
+  parseEspnNrlStandings,
+  reconcileNrlResults,
+  validateNrlLadderAgainstIndependentTable,
   nrlVenueTimezone,
 };

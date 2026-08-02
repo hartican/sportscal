@@ -3,7 +3,12 @@
 const assert = require("node:assert/strict");
 const path = require("node:path");
 const { loadCanonicalBundle, createCanonicalSportsIndex } = require("./lib/canonical-sports");
-const { buildNrlLadder } = require("./refresh-canonical-sports");
+const {
+  buildNrlLadder,
+  applyOfficialNrlResultCorrections,
+  parseEspnNrlResults,
+  reconcileNrlResults,
+} = require("./refresh-canonical-sports");
 
 const inputPath = path.resolve(process.argv[2] || "data/canonical/afl-nrl-2026.json");
 const bundle = loadCanonicalBundle(inputPath);
@@ -67,15 +72,28 @@ nrlFixtures.forEach(event => {
   matches.push(event);
   nrlRounds.set(event.roundNumber, matches);
 });
-const latestCompletedNrlRound = Math.max(0, ...Array.from(nrlRounds.entries())
-  .filter(([, matches]) => matches.length > 0 && matches.every(event => event.status === "completed"))
+const latestNrlResultRound = Math.max(0, ...Array.from(nrlRounds.entries())
+  .filter(([, matches]) => matches.some(event => event.status === "completed"))
   .map(([roundNumber]) => roundNumber));
 const expectedNrlPlayed = nrlFixtures.filter(event =>
-  event.roundNumber <= latestCompletedNrlRound && event.status === "completed"
+  event.roundNumber <= latestNrlResultRound && event.status === "completed"
 ).length;
 const actualNrlPlayed = nrlLadder.entries.reduce((total, entry) => total + entry.played, 0) / 2;
-assert.equal(actualNrlPlayed, expectedNrlPlayed, "NRL ladder must include every match through the latest fully completed round");
-assert.equal(nrlLadder.metadata.completedMatches, expectedNrlPlayed, "NRL ladder metadata must report the represented completed-match boundary");
+assert.equal(actualNrlPlayed, expectedNrlPlayed, "NRL ladder must include every confirmed result through the latest round with a completed match");
+assert.equal(nrlLadder.metadata.completedMatches, expectedNrlPlayed, "NRL ladder metadata must report every represented completed match");
+assert.equal(nrlLadder.metadata.pendingCompletedMatches, 0, "NRL ladder must never leave a confirmed result outside the published table");
+assert(
+  ["matched", "independent-source-lagging"].includes(nrlLadder.metadata.independentValidation?.status),
+  "the published NRL ladder must record a successful independent aggregate check or an explicit independent-source delay"
+);
+if (nrlLadder.metadata.independentValidation?.localCompletedMatches === nrlLadder.metadata.independentValidation?.independentCompletedMatches){
+  assert.equal(nrlLadder.metadata.independentValidation.status, "matched", "equal completed-match boundaries must produce an exact independent standings match");
+}
+
+const correctedStormTigers = nrlFixtures.find(event => event.sourceId === "129991007");
+assert(correctedStormTigers, "the Round 10 Storm v Wests Tigers fixture must exist");
+assert.match(correctedStormTigers.result?.scorelineText || "", /44-16$/, "the direct official NRL correction must override the stale 44-18 provider score");
+assert.equal(correctedStormTigers.result?.source?.provider, "NRL", "a corrected provider score must retain direct official NRL provenance");
 
 const regressionParticipants = ["a", "b", "c", "d", "e"].map(id => ({
   id: `team:nrl:${id}`,
@@ -95,13 +113,66 @@ const partialRoundLadder = buildNrlLadder([
   regressionEvent(2, "b", "d", "live"),
 ], regressionParticipants, "2026-08-02T08:00:00.000Z");
 const partialRoundRows = new Map(partialRoundLadder.entries.map(entry => [entry.participantId, entry]));
-assert.equal(partialRoundRows.get("team:nrl:a").played, 1, "a partial current NRL round must not create a hybrid published ladder");
+assert.equal(partialRoundRows.get("team:nrl:a").played, 2, "a confirmed current-round NRL result must enter the ladder immediately");
 assert.equal(partialRoundRows.get("team:nrl:b").byes, 0, "a team with a live current-round match must not receive bye points");
-assert.equal(partialRoundRows.get("team:nrl:e").byes, 1, "current-round bye points must wait until the round is fully completed");
+assert.equal(partialRoundRows.get("team:nrl:e").byes, 2, "a genuine current-round bye must be derived from the full fixture once the round has a result");
 assert.equal(partialRoundLadder.metadata.roundStatus, "in-progress", "a partial NRL round must be marked as ongoing");
 assert.equal(partialRoundLadder.metadata.activeRound, 2, "a partial NRL round must retain the active-round warning context");
-assert.equal(partialRoundLadder.metadata.pendingCompletedMatches, 1, "completed matches beyond the published boundary must be disclosed");
-assert.match(partialRoundLadder.roundLabel, /completed Round 1/, "a partial NRL round must state its conservative completed-round boundary");
+assert.equal(partialRoundLadder.metadata.completedMatches, 3, "a partial NRL round must report every result represented in the table");
+assert.equal(partialRoundLadder.metadata.pendingCompletedMatches, 0, "a partial NRL round must not hold completed matches outside the table");
+assert.equal(partialRoundLadder.metadata.ongoingRoundCompletedMatches, 1, "current-round result coverage must be explicit");
+assert.match(partialRoundLadder.roundLabel, /completed matches in Round 2/, "a partial NRL round must state its live completed-match boundary");
+
+const supplementalPayload = {
+  events: [{
+    id: "603417",
+    date: "2026-08-02T06:05:00Z",
+    status: { type: { state: "post", completed: true } },
+    competitions: [{ competitors: [
+      { homeAway: "home", score: "13", team: { displayName: "Wests Tigers" } },
+      { homeAway: "away", score: "16", team: { displayName: "Eels" } },
+    ] }],
+  }],
+};
+const correctedMatches = applyOfficialNrlResultCorrections([{
+  matchId: 129991007,
+  roundNumber: 10,
+  matchStatus: "complete",
+  utcStartTime: "2026-05-10T04:00:00Z",
+  homeSquadNickname: "Storm",
+  awaySquadNickname: "Wests Tigers",
+  homeSquadScore: 44,
+  awaySquadScore: 18,
+}], "2026-08-02T08:00:00.000Z");
+assert.equal(correctedMatches.matches[0].homeSquadScore, 44);
+assert.equal(correctedMatches.matches[0].awaySquadScore, 16);
+assert.equal(correctedMatches.matches[0].resultSource.provider, "NRL");
+assert.deepEqual(correctedMatches.correctedMatchIds, [129991007]);
+const supplementalResults = parseEspnNrlResults(supplementalPayload, "2026-08-02T08:00:00.000Z");
+assert.equal(supplementalResults.length, 1, "only final supplemental scorecards may be considered");
+const laggingOfficialMatch = {
+  matchId: 129992208,
+  roundNumber: 22,
+  matchStatus: "scheduled",
+  utcStartTime: "2026-08-02T06:05:00Z",
+  homeSquadNickname: "Wests Tigers",
+  awaySquadNickname: "Eels",
+  homeSquadScore: 0,
+  awaySquadScore: 0,
+};
+const reconciled = reconcileNrlResults([laggingOfficialMatch], supplementalResults, "2026-08-02T08:00:00.000Z");
+assert.equal(reconciled.matches[0].matchStatus, "complete", "an unambiguous independent final must safely promote a lagging official-provider status");
+assert.equal(reconciled.matches[0].homeSquadScore, 13);
+assert.equal(reconciled.matches[0].awaySquadScore, 16);
+assert.equal(reconciled.promotedMatchIds[0], 129992208);
+assert.equal(reconciled.matches[0].resultSource.provider, "ESPN");
+assert.throws(
+  () => reconcileNrlResults([
+    { ...laggingOfficialMatch, matchStatus: "complete", homeSquadScore: 12, awaySquadScore: 16 },
+  ], supplementalResults, "2026-08-02T08:00:00.000Z"),
+  /conflicts with official-provider score/,
+  "conflicting final scores must fail closed instead of silently changing the table"
+);
 
 console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${nrlFixtures.length} NRL fixtures.`);
 console.log(`Queryable ladders: AFL ${aflLadder.entries.length} teams; NRL ${nrlLadder.entries.length} teams.`);
