@@ -12,6 +12,7 @@ const steps = [
   ["scripts/validate-cycling-context.js"],
   ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "data/events.json", "data/events.json"],
+  ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
   ["scripts/audit-editorial-previews.js", "data/events.json", "data/editorial-preview-audit.json"],

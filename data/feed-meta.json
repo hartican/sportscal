@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-results-2026-07-30-v2",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-07-30T03:41:01.000Z",
+  "publishedAt": "2026-08-02T07:37:44.714Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -22,7 +22,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-07-30",
+    "basisDate": "2026-08-02",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -30,7 +30,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-03-20",
-    "daysAhead": 233,
+    "daysAhead": 230,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {
@@ -84,9 +84,9 @@
         "lastEventDate": "2026-10-31"
       },
       "afl": {
-        "count": 28,
+        "count": 47,
         "firstEventDate": "2026-07-18",
-        "lastEventDate": "2026-08-09"
+        "lastEventDate": "2026-09-26"
       },
       "cwg": {
         "count": 32,

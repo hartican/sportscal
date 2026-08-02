@@ -194,6 +194,7 @@ assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "supersed
 assert(cardUpdateSource.includes('["scripts/refresh-canonical-sports.js"]'), "the canonical cards update must refresh ladders and standings through the existing loader");
 assert(cardUpdateSource.indexOf('["scripts/refresh-canonical-sports.js"]') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "ladders and standings must refresh before card derivation begins");
 assert.equal((cardUpdateSource.match(/\["scripts\/sync-canonical-fixtures-to-feed\.js"/g) || []).length, 2, "the canonical cards update must sync refreshed fixtures into both incoming and published card feeds");
+assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSource.indexOf('["scripts/publish-feed.js"') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "the canonical cards update must publish the refreshed JSON and direct-file fallback before card QA");
 [
   "validate-canonical-sports.js",
   "validate-f1-context.js",
