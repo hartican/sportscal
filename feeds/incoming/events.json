@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
   "version": "nothingsport-results-2026-07-30-v2",
-  "publishedAt": "2026-07-30T03:41:01.000Z",
+  "publishedAt": "2026-08-02T07:29:43.301Z",
   "sourceNote": "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 30 July 2026. Curated cards supersede routine imports for the same event.",
   "events": [
     {
@@ -9126,7 +9126,7 @@
       "canonicalSourceId": "CD_M20260142105",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T04:54:33.550Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -9188,7 +9188,7 @@
       "canonicalSourceId": "129992208",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T04:54:33.550Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -9250,7 +9250,7 @@
       "canonicalSourceId": "CD_M20260142103",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8211",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T04:54:33.550Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -9531,7 +9531,7 @@
       "canonicalSourceId": "CD_M20260142209",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -9593,7 +9593,7 @@
       "canonicalSourceId": "129992301",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -9655,7 +9655,7 @@
       "canonicalSourceId": "129992302",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -9717,7 +9717,7 @@
       "canonicalSourceId": "CD_M20260142202",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -9779,7 +9779,7 @@
       "canonicalSourceId": "129992303",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -9841,7 +9841,7 @@
       "canonicalSourceId": "CD_M20260142205",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -9903,7 +9903,7 @@
       "canonicalSourceId": "129992304",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -9965,7 +9965,7 @@
       "canonicalSourceId": "CD_M20260142207",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -10027,7 +10027,7 @@
       "canonicalSourceId": "CD_M20260142203",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -10089,7 +10089,7 @@
       "canonicalSourceId": "129992305",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10151,7 +10151,7 @@
       "canonicalSourceId": "129992306",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10213,7 +10213,7 @@
       "canonicalSourceId": "CD_M20260142201",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -10330,7 +10330,7 @@
       "canonicalSourceId": "CD_M20260142204",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -10390,7 +10390,7 @@
       "canonicalSourceId": "129992307",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10452,7 +10452,7 @@
       "canonicalSourceId": "129992308",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10514,7 +10514,7 @@
       "canonicalSourceId": "CD_M20260142208",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -10576,7 +10576,7 @@
       "canonicalSourceId": "CD_M20260142206",
       "canonicalSourceName": "AFL",
       "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
@@ -10728,7 +10728,7 @@
       "canonicalSourceId": "129992401",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10790,7 +10790,7 @@
       "canonicalSourceId": "129992402",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10852,7 +10852,7 @@
       "canonicalSourceId": "129992403",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10862,6 +10862,130 @@
       ],
       "homeParticipantId": "team:nrl:332",
       "awayParticipantId": "team:nrl:335",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142303",
+      "eventId": "event-afl-cd_m20260142303",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Fremantle v Adelaide Crows",
+      "displayTitleCompact": "Fremantle v Adelaide Crows",
+      "date": "2026-08-14",
+      "time": "20:10",
+      "startTimeUtc": "2026-08-14T10:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Optus Stadium, Perth",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Fremantle",
+          "role": "home"
+        },
+        {
+          "name": "Adelaide Crows",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Fremantle v Adelaide Crows is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Fremantle v Adelaide Crows is an upcoming AFL fixture at Optus Stadium, Perth. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8237",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142303",
+      "canonicalSourceId": "CD_M20260142303",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t10"
+      ],
+      "homeParticipantId": "team:afl:cd_t60",
+      "awayParticipantId": "team:afl:cd_t10",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142308",
+      "eventId": "event-afl-cd_m20260142308",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Richmond v St Kilda",
+      "displayTitleCompact": "Richmond v St Kilda",
+      "date": "2026-08-15",
+      "time": "12:35",
+      "startTimeUtc": "2026-08-15T02:35:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Richmond",
+          "role": "home"
+        },
+        {
+          "name": "St Kilda",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Richmond v St Kilda is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Richmond v St Kilda is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8238",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142308",
+      "canonicalSourceId": "CD_M20260142308",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t120",
+        "team:afl:cd_t130"
+      ],
+      "homeParticipantId": "team:afl:cd_t120",
+      "awayParticipantId": "team:afl:cd_t130",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -10914,7 +11038,7 @@
       "canonicalSourceId": "129992404",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -10988,6 +11112,130 @@
       }
     },
     {
+      "id": "event-afl-cd_m20260142306",
+      "eventId": "event-afl-cd_m20260142306",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "North Melbourne v Geelong Cats",
+      "displayTitleCompact": "North Melbourne v Geelong Cats",
+      "date": "2026-08-15",
+      "time": "15:45",
+      "startTimeUtc": "2026-08-15T05:45:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "North Melbourne",
+          "role": "home"
+        },
+        {
+          "name": "Geelong Cats",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "North Melbourne v Geelong Cats is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "North Melbourne v Geelong Cats is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8231",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142306",
+      "canonicalSourceId": "CD_M20260142306",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t100",
+        "team:afl:cd_t70"
+      ],
+      "homeParticipantId": "team:afl:cd_t100",
+      "awayParticipantId": "team:afl:cd_t70",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142301",
+      "eventId": "event-afl-cd_m20260142301",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Brisbane Lions v Gold Coast SUNS",
+      "displayTitleCompact": "Brisbane Lions v Gold Coast SUNS",
+      "date": "2026-08-15",
+      "time": "16:15",
+      "startTimeUtc": "2026-08-15T06:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Gabba, Brisbane",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Brisbane Lions",
+          "role": "home"
+        },
+        {
+          "name": "Gold Coast SUNS",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Brisbane Lions v Gold Coast SUNS is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Brisbane Lions v Gold Coast SUNS is an upcoming AFL fixture at Gabba, Brisbane. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8229",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142301",
+      "canonicalSourceId": "CD_M20260142301",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t20",
+        "team:afl:cd_t1000"
+      ],
+      "homeParticipantId": "team:afl:cd_t20",
+      "awayParticipantId": "team:afl:cd_t1000",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "id": "event-nrl-129992405",
       "eventId": "event-nrl-129992405",
       "sport": "NRL",
@@ -11033,7 +11281,7 @@
       "canonicalSourceId": "129992405",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11095,7 +11343,7 @@
       "canonicalSourceId": "129992406",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11105,6 +11353,192 @@
       ],
       "homeParticipantId": "team:nrl:322",
       "awayParticipantId": "team:nrl:321",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142305",
+      "eventId": "event-afl-cd_m20260142305",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Hawthorn v Collingwood",
+      "displayTitleCompact": "Hawthorn v Collingwood",
+      "date": "2026-08-15",
+      "time": "19:40",
+      "startTimeUtc": "2026-08-15T09:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Hawthorn",
+          "role": "home"
+        },
+        {
+          "name": "Collingwood",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Hawthorn v Collingwood is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Hawthorn v Collingwood is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8244",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142305",
+      "canonicalSourceId": "CD_M20260142305",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t80",
+        "team:afl:cd_t40"
+      ],
+      "homeParticipantId": "team:afl:cd_t80",
+      "awayParticipantId": "team:afl:cd_t40",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142307",
+      "eventId": "event-afl-cd_m20260142307",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Port Adelaide v Melbourne",
+      "displayTitleCompact": "Port Adelaide v Melbourne",
+      "date": "2026-08-15",
+      "time": "20:10",
+      "startTimeUtc": "2026-08-15T10:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Adelaide Oval, Adelaide",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Port Adelaide",
+          "role": "home"
+        },
+        {
+          "name": "Melbourne",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Port Adelaide v Melbourne is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Port Adelaide v Melbourne is an upcoming AFL fixture at Adelaide Oval, Adelaide. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8234",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142307",
+      "canonicalSourceId": "CD_M20260142307",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t110",
+        "team:afl:cd_t90"
+      ],
+      "homeParticipantId": "team:afl:cd_t110",
+      "awayParticipantId": "team:afl:cd_t90",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142304",
+      "eventId": "event-afl-cd_m20260142304",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "GWS GIANTS v West Coast Eagles",
+      "displayTitleCompact": "GWS GIANTS v West Coast Eagles",
+      "date": "2026-08-16",
+      "time": "13:40",
+      "startTimeUtc": "2026-08-16T03:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "ENGIE Stadium, Sydney",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "GWS GIANTS",
+          "role": "home"
+        },
+        {
+          "name": "West Coast Eagles",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "GWS GIANTS v West Coast Eagles is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "GWS GIANTS v West Coast Eagles is an upcoming AFL fixture at ENGIE Stadium, Sydney. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8233",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142304",
+      "canonicalSourceId": "CD_M20260142304",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t1010",
+        "team:afl:cd_t150"
+      ],
+      "homeParticipantId": "team:afl:cd_t1010",
+      "awayParticipantId": "team:afl:cd_t150",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11157,7 +11591,7 @@
       "canonicalSourceId": "129992407",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11167,6 +11601,68 @@
       ],
       "homeParticipantId": "team:nrl:325",
       "awayParticipantId": "team:nrl:337",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142309",
+      "eventId": "event-afl-cd_m20260142309",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Western Bulldogs v Carlton",
+      "displayTitleCompact": "Western Bulldogs v Carlton",
+      "date": "2026-08-16",
+      "time": "15:15",
+      "startTimeUtc": "2026-08-16T05:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Western Bulldogs",
+          "role": "home"
+        },
+        {
+          "name": "Carlton",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Western Bulldogs v Carlton is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Western Bulldogs v Carlton is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8232",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142309",
+      "canonicalSourceId": "CD_M20260142309",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t140",
+        "team:afl:cd_t30"
+      ],
+      "homeParticipantId": "team:afl:cd_t140",
+      "awayParticipantId": "team:afl:cd_t30",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11219,7 +11715,7 @@
       "canonicalSourceId": "129992408",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11229,6 +11725,130 @@
       ],
       "homeParticipantId": "team:nrl:334",
       "awayParticipantId": "team:nrl:330",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142302",
+      "eventId": "event-afl-cd_m20260142302",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Essendon v Sydney Swans",
+      "displayTitleCompact": "Essendon v Sydney Swans",
+      "date": "2026-08-16",
+      "time": "16:40",
+      "startTimeUtc": "2026-08-16T06:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Essendon",
+          "role": "home"
+        },
+        {
+          "name": "Sydney Swans",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Essendon v Sydney Swans is scheduled for Round 23 of the 2026 AFL season.",
+      "fullSpiel": "Essendon v Sydney Swans is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8226",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142302",
+      "canonicalSourceId": "CD_M20260142302",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t50",
+        "team:afl:cd_t160"
+      ],
+      "homeParticipantId": "team:afl:cd_t50",
+      "awayParticipantId": "team:afl:cd_t160",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142407",
+      "eventId": "event-afl-cd_m20260142407",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "St Kilda v Gold Coast SUNS",
+      "displayTitleCompact": "St Kilda v Gold Coast SUNS",
+      "date": "2026-08-20",
+      "time": "19:30",
+      "startTimeUtc": "2026-08-20T09:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "St Kilda",
+          "role": "home"
+        },
+        {
+          "name": "Gold Coast SUNS",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "St Kilda v Gold Coast SUNS is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "St Kilda v Gold Coast SUNS is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8242",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142407",
+      "canonicalSourceId": "CD_M20260142407",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t130",
+        "team:afl:cd_t1000"
+      ],
+      "homeParticipantId": "team:afl:cd_t130",
+      "awayParticipantId": "team:afl:cd_t1000",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11281,7 +11901,7 @@
       "canonicalSourceId": "129992501",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11358,7 +11978,7 @@
       "canonicalSourceId": "129992502",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11368,6 +11988,68 @@
       ],
       "homeParticipantId": "team:nrl:323",
       "awayParticipantId": "team:nrl:322",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142402",
+      "eventId": "event-afl-cd_m20260142402",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Collingwood v Brisbane Lions",
+      "displayTitleCompact": "Collingwood v Brisbane Lions",
+      "date": "2026-08-21",
+      "time": "19:40",
+      "startTimeUtc": "2026-08-21T09:40:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Collingwood",
+          "role": "home"
+        },
+        {
+          "name": "Brisbane Lions",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Collingwood v Brisbane Lions is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Collingwood v Brisbane Lions is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8239",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142402",
+      "canonicalSourceId": "CD_M20260142402",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t40",
+        "team:afl:cd_t20"
+      ],
+      "homeParticipantId": "team:afl:cd_t40",
+      "awayParticipantId": "team:afl:cd_t20",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11420,7 +12102,7 @@
       "canonicalSourceId": "129992503",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11499,6 +12181,68 @@
       "status": "upcoming"
     },
     {
+      "id": "event-afl-cd_m20260142403",
+      "eventId": "event-afl-cd_m20260142403",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Carlton v Fremantle",
+      "displayTitleCompact": "Carlton v Fremantle",
+      "date": "2026-08-22",
+      "time": "13:15",
+      "startTimeUtc": "2026-08-22T03:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Carlton",
+          "role": "home"
+        },
+        {
+          "name": "Fremantle",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Carlton v Fremantle is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Carlton v Fremantle is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8240",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142403",
+      "canonicalSourceId": "CD_M20260142403",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t30",
+        "team:afl:cd_t60"
+      ],
+      "homeParticipantId": "team:afl:cd_t30",
+      "awayParticipantId": "team:afl:cd_t60",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
       "id": "event-nrl-129992504",
       "eventId": "event-nrl-129992504",
       "sport": "NRL",
@@ -11544,7 +12288,7 @@
       "canonicalSourceId": "129992504",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11554,6 +12298,68 @@
       ],
       "homeParticipantId": "team:nrl:325",
       "awayParticipantId": "team:nrl:336",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142406",
+      "eventId": "event-afl-cd_m20260142406",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Melbourne v Western Bulldogs",
+      "displayTitleCompact": "Melbourne v Western Bulldogs",
+      "date": "2026-08-22",
+      "time": "16:15",
+      "startTimeUtc": "2026-08-22T06:15:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Melbourne",
+          "role": "home"
+        },
+        {
+          "name": "Western Bulldogs",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Melbourne v Western Bulldogs is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Melbourne v Western Bulldogs is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8236",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142406",
+      "canonicalSourceId": "CD_M20260142406",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t90",
+        "team:afl:cd_t140"
+      ],
+      "homeParticipantId": "team:afl:cd_t90",
+      "awayParticipantId": "team:afl:cd_t140",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11606,7 +12412,7 @@
       "canonicalSourceId": "129992505",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11668,7 +12474,7 @@
       "canonicalSourceId": "129992506",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11678,6 +12484,130 @@
       ],
       "homeParticipantId": "team:nrl:330",
       "awayParticipantId": "team:nrl:332",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142405",
+      "eventId": "event-afl-cd_m20260142405",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Geelong Cats v Richmond",
+      "displayTitleCompact": "Geelong Cats v Richmond",
+      "date": "2026-08-22",
+      "time": "19:45",
+      "startTimeUtc": "2026-08-22T09:45:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "GMHBA Stadium, Geelong",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Geelong Cats",
+          "role": "home"
+        },
+        {
+          "name": "Richmond",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Geelong Cats v Richmond is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Geelong Cats v Richmond is an upcoming AFL fixture at GMHBA Stadium, Geelong. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8246",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142405",
+      "canonicalSourceId": "CD_M20260142405",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t70",
+        "team:afl:cd_t120"
+      ],
+      "homeParticipantId": "team:afl:cd_t70",
+      "awayParticipantId": "team:afl:cd_t120",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142401",
+      "eventId": "event-afl-cd_m20260142401",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Adelaide Crows v GWS GIANTS",
+      "displayTitleCompact": "Adelaide Crows v GWS GIANTS",
+      "date": "2026-08-22",
+      "time": "20:10",
+      "startTimeUtc": "2026-08-22T10:10:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Adelaide Oval, Adelaide",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Adelaide Crows",
+          "role": "home"
+        },
+        {
+          "name": "GWS GIANTS",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Adelaide Crows v GWS GIANTS is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Adelaide Crows v GWS GIANTS is an upcoming AFL fixture at Adelaide Oval, Adelaide. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8243",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142401",
+      "canonicalSourceId": "CD_M20260142401",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t10",
+        "team:afl:cd_t1010"
+      ],
+      "homeParticipantId": "team:afl:cd_t10",
+      "awayParticipantId": "team:afl:cd_t1010",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11712,6 +12642,68 @@
       "briefingEligible": true,
       "catchupEligible": true,
       "status": "upcoming"
+    },
+    {
+      "id": "event-afl-cd_m20260142404",
+      "eventId": "event-afl-cd_m20260142404",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Essendon v Port Adelaide",
+      "displayTitleCompact": "Essendon v Port Adelaide",
+      "date": "2026-08-23",
+      "time": "12:20",
+      "startTimeUtc": "2026-08-23T02:20:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Marvel Stadium, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Essendon",
+          "role": "home"
+        },
+        {
+          "name": "Port Adelaide",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Essendon v Port Adelaide is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Essendon v Port Adelaide is an upcoming AFL fixture at Marvel Stadium, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8235",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142404",
+      "canonicalSourceId": "CD_M20260142404",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t50",
+        "team:afl:cd_t110"
+      ],
+      "homeParticipantId": "team:afl:cd_t50",
+      "awayParticipantId": "team:afl:cd_t110",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "id": "event-nrl-129992507",
@@ -11759,7 +12751,7 @@
       "canonicalSourceId": "129992507",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11769,6 +12761,68 @@
       ],
       "homeParticipantId": "team:nrl:337",
       "awayParticipantId": "team:nrl:333",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142408",
+      "eventId": "event-afl-cd_m20260142408",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Sydney Swans v North Melbourne",
+      "displayTitleCompact": "Sydney Swans v North Melbourne",
+      "date": "2026-08-23",
+      "time": "15:20",
+      "startTimeUtc": "2026-08-23T05:20:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "SCG, Sydney",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Sydney Swans",
+          "role": "home"
+        },
+        {
+          "name": "North Melbourne",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Sydney Swans v North Melbourne is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "Sydney Swans v North Melbourne is an upcoming AFL fixture at SCG, Sydney. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8245",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142408",
+      "canonicalSourceId": "CD_M20260142408",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t160",
+        "team:afl:cd_t100"
+      ],
+      "homeParticipantId": "team:afl:cd_t160",
+      "awayParticipantId": "team:afl:cd_t100",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11821,7 +12875,7 @@
       "canonicalSourceId": "129992508",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11831,6 +12885,68 @@
       ],
       "homeParticipantId": "team:nrl:331",
       "awayParticipantId": "team:nrl:334",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "event-afl-cd_m20260142409",
+      "eventId": "event-afl-cd_m20260142409",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "West Coast Eagles v Hawthorn",
+      "displayTitleCompact": "West Coast Eagles v Hawthorn",
+      "date": "2026-08-23",
+      "time": "19:20",
+      "startTimeUtc": "2026-08-23T09:20:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "Optus Stadium, Perth",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "West Coast Eagles",
+          "role": "home"
+        },
+        {
+          "name": "Hawthorn",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "West Coast Eagles v Hawthorn is scheduled for Round 24 of the 2026 AFL season.",
+      "fullSpiel": "West Coast Eagles v Hawthorn is an upcoming AFL fixture at Optus Stadium, Perth. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/8241",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142409",
+      "canonicalSourceId": "CD_M20260142409",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t150",
+        "team:afl:cd_t80"
+      ],
+      "homeParticipantId": "team:afl:cd_t150",
+      "awayParticipantId": "team:afl:cd_t80",
       "broadcasterIds": [
         "kayo",
         "foxtel"
@@ -11929,7 +13045,7 @@
       "canonicalSourceId": "129992601",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -11991,7 +13107,7 @@
       "canonicalSourceId": "129992602",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12053,7 +13169,7 @@
       "canonicalSourceId": "129992603",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12115,7 +13231,7 @@
       "canonicalSourceId": "129992604",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12177,7 +13293,7 @@
       "canonicalSourceId": "129992605",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12239,7 +13355,7 @@
       "canonicalSourceId": "129992606",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12358,7 +13474,7 @@
       "canonicalSourceId": "129992607",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12420,7 +13536,7 @@
       "canonicalSourceId": "129992608",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12482,7 +13598,7 @@
       "canonicalSourceId": "129992701",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12544,7 +13660,7 @@
       "canonicalSourceId": "129992702",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12606,7 +13722,7 @@
       "canonicalSourceId": "129992703",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12668,7 +13784,7 @@
       "canonicalSourceId": "129992704",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12730,7 +13846,7 @@
       "canonicalSourceId": "129992705",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12792,7 +13908,7 @@
       "canonicalSourceId": "129992706",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -12940,7 +14056,7 @@
       "canonicalSourceId": "129992707",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -13002,7 +14118,7 @@
       "canonicalSourceId": "129992708",
       "canonicalSourceName": "NRL Match Centre / Champion Data",
       "canonicalSourceUrl": "https://www.nrl.com/draw",
-      "canonicalSourceCheckedAt": "2026-07-20T13:28:12.879Z",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
       "canonicalSourceType": "official",
       "sportDomainId": "sport:nrl",
       "competitionId": "competition:nrl-premiership-2026",
@@ -13242,6 +14358,68 @@
         "editorialWindowDays": 10,
         "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
       }
+    },
+    {
+      "id": "event-afl-cd_m20260142901",
+      "eventId": "event-afl-cd_m20260142901",
+      "sport": "AFL",
+      "key": "afl",
+      "name": "Winner of PF1 v Winner of PF2",
+      "displayTitleCompact": "Winner of PF1 v Winner of PF2",
+      "date": "2026-09-26",
+      "time": "14:30",
+      "startTimeUtc": "2026-09-26T04:30:00.000Z",
+      "broadcaster": "Kayo Sports / Foxtel",
+      "broadcastOptions": [
+        "Kayo Sports",
+        "Foxtel"
+      ],
+      "expected": 4,
+      "venue": "MCG, Melbourne",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Winner of PF1",
+          "role": "home"
+        },
+        {
+          "name": "Winner of PF2",
+          "role": "away"
+        }
+      ],
+      "selectedSentence": "Winner of PF1 v Winner of PF2 is scheduled for Grand Final of the 2026 AFL season.",
+      "fullSpiel": "Winner of PF1 v Winner of PF2 is an upcoming AFL fixture at MCG, Melbourne. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/9028",
+      "sourceCheckedAt": "2026-08-02T04:54:33.550Z",
+      "sourceType": "official",
+      "lastReviewedAt": "2026-08-02T04:54:33.550Z",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": false,
+      "catchupEligible": true,
+      "canonicalEventId": "event:afl:cd_m20260142901",
+      "canonicalSourceId": "CD_M20260142901",
+      "canonicalSourceName": "AFL",
+      "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
+      "canonicalSourceCheckedAt": "2026-08-02T07:29:40.905Z",
+      "canonicalSourceType": "official",
+      "sportDomainId": "sport:afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "participantIds": [
+        "team:afl:cd_t3020",
+        "team:afl:cd_t3021"
+      ],
+      "homeParticipantId": "team:afl:cd_t3020",
+      "awayParticipantId": "team:afl:cd_t3021",
+      "broadcasterIds": [
+        "kayo",
+        "foxtel"
+      ],
+      "scheduleStatus": "confirmed"
     },
     {
       "sport": "NRL",

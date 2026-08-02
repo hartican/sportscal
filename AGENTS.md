@@ -24,6 +24,13 @@ Start snippet (script provided at scripts/claude_resume_tmux.sh):
 Attach to the running session:
    tmux attach -t Codex-sportscal
 
+Canonical cards, ladders and standings refresh
+-----------------------------------------------
+- `node scripts/update-cards.js` is the single source of truth for refreshing cards, ladders, standings, and their derived editorial and Storyline metadata.
+- Always use that command for scheduled, maintenance, or manual refreshes. It invokes the existing canonical sports loader and validates every standings context before completing the card QA pipeline.
+- Never run a ladders-only or standings-only loader as a refresh path, and do not call league ladder loaders directly in isolation.
+- Any future ladder or standings loader must be added to `scripts/update-cards.js`; do not create a parallel cron job, maintenance command, or refresh script.
+
 Notes
 -----
 - AGENTS.md is project-shared; commit if the team should inherit this resume behavior.

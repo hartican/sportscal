@@ -26,7 +26,9 @@ Refresh process:
 node scripts/update-cards.js
 ```
 
-This command keeps completed result facts in `score`, `outcomeText` and `recapText`, keeps `selectedSentence` and `fullSpiel` safe for spoiler-OFF fallbacks, derives `storyline.arcStage` from lifecycle, and checks both incoming and published feeds. Do not bypass this step for result updates.
+This command is the single source of truth for refreshing cards, ladders, standings, and their derived metadata. It runs the existing canonical sports loader first, validates every standings context, keeps completed result facts in `score`, `outcomeText` and `recapText`, keeps `selectedSentence` and `fullSpiel` safe for spoiler-OFF fallbacks, derives `storyline.arcStage` from lifecycle, and checks both incoming and published feeds.
+
+Do not bypass this command for result updates. Do not run league ladder or standings loaders directly in isolation, and do not add a ladders-only or standings-only cron job or maintenance command. Any future ladder or standings loader must be wired into `scripts/update-cards.js` so the cards and ranking data cannot drift apart.
 
 Result-close policy: `liveWindow` (or `endTimeUtc` where supplied) is the expected close time. Once that time has passed, publish the official result if it is available. If the official score is still delayed but reputable reports agree, publish that media consensus immediately with `sourceType: "reputable"`, clear consensus wording in the source/result labels, and exact source timestamps. Do not leave a completed card pending solely for an official score.
 

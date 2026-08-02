@@ -3,6 +3,15 @@
 const { spawnSync } = require("child_process");
 
 const steps = [
+  ["scripts/refresh-canonical-sports.js"],
+  ["scripts/validate-canonical-sports.js"],
+  ["scripts/validate-f1-context.js"],
+  ["scripts/validate-tennis-context.js"],
+  ["scripts/validate-nba-context.js"],
+  ["scripts/validate-cwg-context.js"],
+  ["scripts/validate-cycling-context.js"],
+  ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "data/events.json", "data/events.json"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
   ["scripts/audit-editorial-previews.js", "data/events.json", "data/editorial-preview-audit.json"],
@@ -21,4 +30,4 @@ for (const args of steps) {
   if (result.status !== 0) process.exit(result.status || 1);
 }
 
-console.log("\nCard update complete: curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.");
+console.log("\nCards, ladders and standings update complete: canonical ranking data refreshed and validated, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.");

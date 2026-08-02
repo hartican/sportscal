@@ -28,6 +28,7 @@ const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
 const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
 const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
 const serviceWorkerSource = fs.readFileSync("service-worker.js", "utf8");
+const cardUpdateSource = fs.readFileSync("scripts/update-cards.js", "utf8");
 const eventsBundlePath = "data/events.js";
 assert(fs.existsSync(eventsBundlePath), "direct-file mode must have a generated published-feed fallback");
 const eventsBundleSource = fs.readFileSync(eventsBundlePath, "utf8");
@@ -160,6 +161,17 @@ const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\
 assert(settingsMenuSource.includes('"Sports Followed"'), "Settings must use Sports Followed as the single top-level home for follow preferences");
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
+assert(cardUpdateSource.includes('["scripts/refresh-canonical-sports.js"]'), "the canonical cards update must refresh ladders and standings through the existing loader");
+assert(cardUpdateSource.indexOf('["scripts/refresh-canonical-sports.js"]') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "ladders and standings must refresh before card derivation begins");
+assert.equal((cardUpdateSource.match(/\["scripts\/sync-canonical-fixtures-to-feed\.js"/g) || []).length, 2, "the canonical cards update must sync refreshed fixtures into both incoming and published card feeds");
+[
+  "validate-canonical-sports.js",
+  "validate-f1-context.js",
+  "validate-tennis-context.js",
+  "validate-nba-context.js",
+  "validate-cwg-context.js",
+  "validate-cycling-context.js",
+].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v48"'), "the Sports Followed and Standings update must advance the served shell cache");
 brandAssets
@@ -333,8 +345,8 @@ assert(serverFeedApiSource.includes('require("../data/canonical/cwg-context-2026
 assert(html.includes('"special:commonwealth-games": "sport:multi-sport"'), "Commonwealth Games settings must resolve to the multi-sport canonical domain");
 assert(html.includes("Medal table · Gold, silver, bronze and total"), "CWG settings must describe the calibrated medal table");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
-assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length, 207, "canonical store must contain the complete 2026 AFL fixture");
-assert.equal(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length, 204, "canonical store must contain the complete 2026 NRL fixture");
+assert(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length >= 207, "canonical store must contain the complete 2026 AFL home-and-away fixture plus any published finals");
+assert(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length >= 204, "canonical store must contain the complete 2026 NRL premiership fixture plus any published finals");
 assert.equal(canonicalIndex.getLatestLadder("competition:afl-premiership-2026").entries.length, 18, "AFL ladder must be queryable by competition");
 assert.equal(canonicalIndex.getLatestLadder("competition:nrl-premiership-2026").entries.length, 17, "NRL ladder must be queryable by competition");
 const confirmedScheduledCanonicalFixtures = canonicalSports.events.filter(event =>
