@@ -148,6 +148,7 @@
     const savedStartHour = normalizeHour(saved.startHourLocal);
     const savedEndHour = normalizeHour(saved.endHourLocal);
     return {
+      ...saved,
       profileId,
       selectedBroadcasterIds,
       excludedBroadcasterIds: excluded,
@@ -217,9 +218,10 @@
       .map(preference => ({ ...preference, profileId: safeProfileId }));
 
     return {
+      ...raw,
       schemaVersion: SCHEMA_VERSION,
       profileId: safeProfileId,
-      updatedAt: new Date().toISOString(),
+      updatedAt: raw.updatedAt || new Date().toISOString(),
       domainPreferences,
       competitionPreferences,
       entityFollows,

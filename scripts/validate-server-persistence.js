@@ -68,6 +68,25 @@ async function run(){
   assert.equal(normalized.user_id, "11111111-1111-4111-8111-111111111111");
   assert.equal(normalized.event_user_state.event.watchLater, true, "saved cards must be part of durable server state");
   assert.equal(normalized.event_user_state.event.watched, true, "Catch Up watched state must be part of durable server state");
+  const mergedState = server.mergeUserState({
+    profile: { timezone: "Australia/Sydney", futureProfileField: "keep" },
+    preferences: {
+      theme: "night",
+      viewing: { viewingWindowEnabled: true, startHourLocal: 7 },
+    },
+    event_user_state: { old: { watched: true } },
+  }, {
+    preferences: {
+      showSpoilers: false,
+      viewing: { startHourLocal: 8 },
+    },
+  });
+  assert.equal(mergedState.profile.futureProfileField, "keep", "an omitted profile field must survive a partial server commit");
+  assert.equal(mergedState.preferences.theme, "night", "an omitted setting must survive a partial server commit");
+  assert.equal(mergedState.preferences.viewing.viewingWindowEnabled, true, "nested settings must merge without resetting sibling values");
+  assert.equal(mergedState.preferences.viewing.startHourLocal, 8, "the newly committed nested setting must win");
+  assert.equal(mergedState.preferences.showSpoilers, false, "explicit false settings must be retained");
+  assert.equal(mergedState.eventUserState.old.watched, true, "omitted non-preference state must remain intact");
 
   const sql = fs.readFileSync("supabase/nothingsports-user-state.sql", "utf8");
   assert.match(sql, /enable row level security/i);
@@ -99,6 +118,12 @@ async function run(){
   };
   const databaseRow = {
     ...normalized,
+    profile: { timezone: "Australia/Sydney", futureProfileField: "keep" },
+    preferences: {
+      showSpoilers: false,
+      theme: "night",
+      viewing: { viewingWindowEnabled: true, startHourLocal: 7 },
+    },
     updated_at: "2026-07-27T10:00:00.000Z",
   };
   global.fetch = async (url, options = {}) => {
@@ -155,6 +180,23 @@ async function run(){
     const stateLookup = requests.find(request => request.url.includes("/rest/v1/nothingsports_user_state"));
     assert.equal(stateLookup.options.headers.Authorization, "Bearer access-token", "RLS requests must run as the signed-in user");
 
+    const postCountBeforeNoop = requests.filter(request => (
+      request.url.includes("/rest/v1/nothingsports_user_state")
+      && request.options.method === "POST"
+    )).length;
+    const noopResponse = responseStub();
+    await userStateHandler({
+      method: "PUT",
+      headers: { authorization: "Bearer access-token" },
+      body: { state: server.userStateFromRow(databaseRow) },
+    }, noopResponse);
+    assert.equal(noopResponse.statusCode, 200);
+    assert.equal(noopResponse.body.state.updated_at, databaseRow.updated_at, "an identical server commit must retain its existing write timestamp");
+    assert.equal(requests.filter(request => (
+      request.url.includes("/rest/v1/nothingsports_user_state")
+      && request.options.method === "POST"
+    )).length, postCountBeforeNoop, "an identical server commit must skip the database upsert");
+
     const savedResponse = responseStub();
     await userStateHandler({
       method: "PUT",
@@ -162,7 +204,7 @@ async function run(){
       body: {
         state: {
           profile: { timezone: "Australia/Sydney" },
-          preferences: { showSpoilers: true },
+          preferences: { showSpoilers: true, viewing: { startHourLocal: 8 } },
           eventUserState: { event: { watchLater: true, watched: false } },
           eventSpoilerState: {},
           archivedEvents: [],
@@ -176,7 +218,12 @@ async function run(){
       && request.options.method === "POST"
     ));
     assert.match(upsertRequest.options.headers.Prefer, /resolution=merge-duplicates/);
-    assert.equal(JSON.parse(upsertRequest.options.body).user_id, authUser.id, "the verified magic-link user id must own the row");
+    const upsertedState = JSON.parse(upsertRequest.options.body);
+    assert.equal(upsertedState.user_id, authUser.id, "the verified magic-link user id must own the row");
+    assert.equal(upsertedState.profile.futureProfileField, "keep", "server upserts must preserve earlier profile fields");
+    assert.equal(upsertedState.preferences.theme, "night", "server upserts must preserve earlier settings omitted by the client");
+    assert.equal(upsertedState.preferences.viewing.viewingWindowEnabled, true, "server upserts must preserve nested sibling settings");
+    assert.equal(upsertedState.preferences.viewing.startHourLocal, 8, "server upserts must apply the incoming nested setting");
   }finally{
     if (originalUrl === undefined) delete process.env.SUPABASE_URL;
     else process.env.SUPABASE_URL = originalUrl;
@@ -248,6 +295,17 @@ async function run(){
   });
   assert.equal(snapshot.schemaVersion, "user-state.v1");
   assert.equal(snapshot.eventUserState.event.watchLater, true);
+  const browserMergedSettings = serverSync.mergeSettings({
+    theme: "night",
+    viewing: { viewingWindowEnabled: false, startHourLocal: 7 },
+  }, {
+    viewing: { startHourLocal: 9 },
+    selectedBroadcasters: [],
+  });
+  assert.equal(browserMergedSettings.theme, "night", "browser hydration must preserve local settings omitted by the server");
+  assert.equal(browserMergedSettings.viewing.viewingWindowEnabled, false, "browser hydration must preserve nested local settings omitted by the server");
+  assert.equal(browserMergedSettings.viewing.startHourLocal, 9, "browser hydration must prefer the incoming server value");
+  assert.deepEqual(browserMergedSettings.selectedBroadcasters, [], "explicit empty selections must remain explicit");
 
   console.log("Server persistence valid: magic-link auth, RLS ownership, saved-state upsert and browser session handling passed.");
 }

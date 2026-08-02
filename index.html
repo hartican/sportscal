@@ -3968,13 +3968,13 @@ function loadPreferences(){
   const scoped = activeProfileSection("preferences", null);
   if (scoped && typeof scoped === "object"){
     const migrated = mergePreferences(scoped);
-    if (migrated.version !== scoped.version) saveActiveProfileSection("preferences", migrated);
+    saveActiveProfileSection("preferences", migrated);
     return migrated;
   }
   const current = readStorage(STORAGE_KEYS.preferences, null);
   if (current && typeof current === "object"){
     const migrated = mergePreferences(current);
-    if (migrated.version !== current.version) writeStorage(STORAGE_KEYS.preferences, migrated);
+    writeStorage(STORAGE_KEYS.preferences, migrated);
     saveActiveProfileSection("preferences", migrated);
     return migrated;
   }
@@ -3991,7 +3991,10 @@ function loadPreferences(){
 }
 
 function savePreferences(next){
-  const clean = mergePreferences(next);
+  const mergedInput = SERVER_SYNC?.mergeSettings
+    ? SERVER_SYNC.mergeSettings(userPreferences || {}, next)
+    : { ...(userPreferences || {}), ...(next || {}) };
+  const clean = mergePreferences(mergedInput);
   const legacySaved = writeStorage(STORAGE_KEYS.preferences, clean);
   const profilePreferences = { ...clean };
   delete profilePreferences.preferenceGraph;
@@ -4457,7 +4460,10 @@ function applyServerState(state){
   if (!state) return false;
   serverSyncApplying = true;
   try{
-    userPreferences = mergePreferences(state.preferences);
+    const mergedPreferences = SERVER_SYNC?.mergeSettings
+      ? SERVER_SYNC.mergeSettings(userPreferences, state.preferences)
+      : { ...userPreferences, ...(state.preferences || {}) };
+    userPreferences = mergePreferences(mergedPreferences);
     eventActions = state.eventUserState && typeof state.eventUserState === "object"
       ? migrateEventActionRecords(state.eventUserState)
       : {};
@@ -5279,7 +5285,7 @@ function partitionSurfacedEvents(events, options = {}){
 
 function topNineEvents(reference = nowAEST()){
   const weekEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
-  const candidates = getPreferenceMatchedEvents()
+  const candidates = getPreferenceMatchedEvents(reference)
     .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
     .filter(ev => eventDateTime(ev) >= reference && eventDateTime(ev) <= weekEnd)
     .filter(ev => eventEnrichment(ev).intensity >= SCORE_BANDS.topStorylines.minStakes);
@@ -5880,9 +5886,9 @@ function eventIsAutoArchived(ev, reference = nowAEST()){
     : false;
 }
 
-function getPreferenceMatchedEvents(){
+function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = activeEvents.slice();
-  list = list.filter(eventMeetsDerivedRetention);
+  list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
   list = list.filter(eventMeetsCoveragePreference);
   list = list.filter(eventMatchesSportPreferences);
   list = list.filter(eventMatchesBroadcasterPreferences);

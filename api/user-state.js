@@ -5,8 +5,10 @@ const {
   authenticatedUser,
   bearerToken,
   loadUserState,
+  mergeUserState,
   normalizeUserState,
   publicError,
+  sameUserState,
   supabaseRequest,
 } = require("../lib/supabase-server");
 
@@ -55,7 +57,16 @@ module.exports = async function userStateHandler(request, response){
     }
 
     const body = requestBody(request);
-    const state = normalizeUserState(body.state, user.id);
+    const existing = await loadUserState(user.id, accessToken);
+    const merged = mergeUserState(existing, body.state);
+    if (existing && sameUserState(existing, merged)){
+      response.status(200).json({
+        user: publicUser(user),
+        state: existing,
+      });
+      return;
+    }
+    const state = normalizeUserState(merged, user.id);
     const rows = await supabaseRequest(`/rest/v1/${USER_STATE_TABLE}?on_conflict=user_id`, {
       method: "POST",
       accessToken,

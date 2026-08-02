@@ -18,6 +18,20 @@
     return value && typeof value === "object" && !Array.isArray(value) ? value : fallback;
   }
 
+  function mergeSettings(base, incoming){
+    const previous = plainObject(base);
+    const patch = plainObject(incoming);
+    const merged = clone(previous);
+    Object.entries(patch).forEach(([key, value]) => {
+      if (plainObject(value, null) && plainObject(previous[key], null)){
+        merged[key] = mergeSettings(previous[key], value);
+      } else {
+        merged[key] = clone(value);
+      }
+    });
+    return merged;
+  }
+
   function parseSession(input, now = Date.now()){
     const source = plainObject(input, null);
     if (!source) return null;
@@ -263,6 +277,7 @@
     USER_STATE_SCHEMA_VERSION,
     buildUserState,
     createClient,
+    mergeSettings,
     parseSession,
     sessionFromHash,
     stateFromDatabaseRow,

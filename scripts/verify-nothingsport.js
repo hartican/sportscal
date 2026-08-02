@@ -207,7 +207,7 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v51"'), "the slogan and About update must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v53"'), "profile persistence changes must advance the served shell cache");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -800,10 +800,15 @@ assert.deepEqual(
 
 function memoryStorage(seed = {}){
   const values = new Map(Object.entries(seed));
+  let writeCount = 0;
   return {
     getItem: key => values.has(key) ? values.get(key) : null,
-    setItem: (key, value) => values.set(key, String(value)),
+    setItem(key, value){
+      writeCount += 1;
+      values.set(key, String(value));
+    },
     snapshot: () => Object.fromEntries(values),
+    writeCount: () => writeCount,
   };
 }
 
@@ -823,6 +828,38 @@ assert.equal(renamedProfile.profile.id, migratedProfile.profile.id, "changing th
 const reloadedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:02:00Z") });
 assert.equal(reloadedProfile.profile.id, migratedProfile.profile.id, "profile id must survive a simulated app update and reload");
 assert.equal(reloadedProfile.preferences.theme, "day", "settings must survive a simulated app update and reload");
+const themeUpdatedProfile = profileStorage.saveSection(
+  legacyProfileStorage,
+  reloadedProfile,
+  "preferences",
+  { ...reloadedProfile.preferences, theme: "night" },
+  { now: new Date("2026-07-20T00:03:00Z") }
+);
+const staleBundleUpdate = profileStorage.saveSection(
+  legacyProfileStorage,
+  reloadedProfile,
+  "ratings",
+  { ...reloadedProfile.ratings, "new-event": 8 },
+  { now: new Date("2026-07-20T00:04:00Z") }
+);
+assert.equal(staleBundleUpdate.preferences.theme, "night", "a stale bundle write must preserve newer settings already committed for the profile");
+assert.equal(staleBundleUpdate.profile.usernameLabel, "Changed display name", "section writes must preserve the latest profile metadata");
+const writesBeforeRepeat = legacyProfileStorage.writeCount();
+const repeatedProfile = profileStorage.saveSection(
+  legacyProfileStorage,
+  staleBundleUpdate,
+  "ratings",
+  staleBundleUpdate.ratings,
+  { now: new Date("2026-07-20T00:05:00Z") }
+);
+assert.equal(repeatedProfile.profile.updatedAt, staleBundleUpdate.profile.updatedAt, "repeating the same profile update must not create a new write timestamp");
+assert.equal(legacyProfileStorage.writeCount(), writesBeforeRepeat, "repeating the same profile update must be a storage no-op");
+const partialBundleUpdate = profileStorage.saveBundle(legacyProfileStorage, {
+  profile: { id: reloadedProfile.profile.id, usernameLabel: "Latest label" },
+  preferences: themeUpdatedProfile.preferences,
+}, { now: new Date("2026-07-20T00:06:00Z") });
+assert.equal(partialBundleUpdate.ratings["new-event"], 8, "partial profile commits must preserve previously stored sections");
+assert.equal(partialBundleUpdate.eventUserState["legacy-event"].archived, true, "partial profile commits must preserve earlier event state");
 assert.match(app.getActiveProfileId(), /^profile:/, "the app runtime must load state through a stable profile id");
 
 app.setEvents([thirdPlace]);

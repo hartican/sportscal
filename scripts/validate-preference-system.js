@@ -73,6 +73,28 @@ assert.equal(migratedWithNewProvider.viewing.calendarSyncEnabled, false, "an exp
 assert.equal(migratedWithNewProvider.domainPreferences.find(item => item.sportDomainId === "sport:nrl").includeFollowedTeams, false);
 assert.equal(migratedWithNewProvider.entityFollows[0].participantId, "team:nrl:canberra");
 
+const forwardCompatibleGraph = {
+  ...migratedWithNewProvider,
+  futureProfileSetting: { compactCards: true },
+  viewing: {
+    ...migratedWithNewProvider.viewing,
+    futureViewingSetting: "preserve-me",
+  },
+};
+const migratedOnce = preferences.migratePreferenceGraph(forwardCompatibleGraph, {
+  profileId,
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: [...baseProviders, "seven"],
+});
+const migratedTwice = preferences.migratePreferenceGraph(migratedOnce, {
+  profileId,
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: [...baseProviders, "seven"],
+});
+assert.deepEqual(migratedTwice, migratedOnce, "reapplying the same preference migration must be idempotent");
+assert.equal(migratedOnce.futureProfileSetting.compactCards, true, "unknown profile settings must survive app migrations");
+assert.equal(migratedOnce.viewing.futureViewingSetting, "preserve-me", "unknown viewing settings must survive app migrations");
+
 const migratedLegacyVisibility = preferences.migratePreferenceGraph({
   ...migratedWithNewProvider,
   schemaVersion: "preference-graph.v2",

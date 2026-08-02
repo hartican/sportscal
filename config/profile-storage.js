@@ -41,6 +41,28 @@
     return JSON.parse(JSON.stringify(value));
   }
 
+  function canonicalValue(value){
+    if (Array.isArray(value)) return value.map(canonicalValue);
+    if (!value || typeof value !== "object") return value;
+    return Object.keys(value).sort().reduce((result, key) => {
+      result[key] = canonicalValue(value[key]);
+      return result;
+    }, {});
+  }
+
+  function sameBundleState(first, second){
+    if (!first || !second) return false;
+    const withoutWriteTime = bundle => ({
+      ...bundle,
+      profile: {
+        ...(bundle.profile || {}),
+        updatedAt: null,
+      },
+    });
+    return JSON.stringify(canonicalValue(withoutWriteTime(first)))
+      === JSON.stringify(canonicalValue(withoutWriteTime(second)));
+  }
+
   function makeId(prefix){
     const uuid = typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
       ? crypto.randomUUID()
@@ -161,9 +183,21 @@
 
   function saveBundle(storage, bundle, { now } = {}){
     if (!bundle?.profile?.id) throw new Error("A stable profile id is required");
-    const migrated = migrateBundle(bundle, bundle.profile.id, now);
+    const key = profileKey(bundle.profile.id);
+    const stored = parseStored(storage, key, null);
+    const current = stored ? migrateBundle(stored, bundle.profile.id, now) : null;
+    const nextInput = current ? {
+      ...current,
+      ...bundle,
+      profile: {
+        ...current.profile,
+        ...(bundle.profile || {}),
+      },
+    } : bundle;
+    const migrated = migrateBundle(nextInput, bundle.profile.id, now);
+    if (current && sameBundleState(current, migrated)) return clone(current);
     migrated.profile.updatedAt = nowIso(now);
-    writeStored(storage, profileKey(migrated.profile.id), migrated);
+    writeStored(storage, key, migrated);
     return clone(migrated);
   }
 
@@ -171,10 +205,13 @@
     if (!Object.prototype.hasOwnProperty.call(emptyBundle(bundle?.profile?.id || "profile:invalid"), section)){
       throw new Error(`Unknown profile section: ${section}`);
     }
-    const next = { ...bundle, [section]: clone(value) };
+    const profileId = bundle?.profile?.id;
+    const stored = profileId ? parseStored(storage, profileKey(profileId), null) : null;
+    const latest = stored ? migrateBundle(stored, profileId, options?.now) : bundle;
+    const next = { ...latest, [section]: clone(value) };
     if (section === "preferences"){
       next.profile = {
-        ...bundle.profile,
+        ...latest.profile,
         onboardingCompleted: Boolean(value?.onboardingComplete),
       };
     }
