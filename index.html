@@ -438,6 +438,78 @@ header.top{
 }
 
 /* ---------- Controls bar ---------- */
+.feed-filter-dock{
+  position:sticky;
+  top:var(--sticky-top-bar-height, 0px);
+  z-index:45;
+  width:100%;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  border-bottom:1px solid color-mix(in srgb, var(--border) 78%, transparent);
+  backdrop-filter:blur(14px) saturate(135%);
+  box-shadow:0 10px 24px rgba(3,3,8,0.12);
+  overflow-anchor:none;
+}
+
+.feed-filter-dock.is-standings{
+  position:static;
+  margin-top:14px;
+  background:transparent;
+  border-bottom:0;
+  backdrop-filter:none;
+  box-shadow:none;
+}
+
+.feed-filter-dock-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:10px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.feed-filter-toolbar{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+}
+
+.feed-filter-visibility-btn{
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 13px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:800 0.75rem/1 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.feed-filter-visibility-btn.is-expanded{
+  border-color:color-mix(in srgb, var(--accent) 62%, var(--border));
+  background:color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+}
+
+.feed-filter-selection{
+  min-width:0;
+  overflow:hidden;
+  color:var(--text-dim);
+  font-size:0.74rem;
+  font-weight:700;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.feed-filter-toolbar[hidden],
+.filter-row[hidden]{
+  display:none;
+}
+
 .controls{
   max-width: 1100px;
   margin: 14px auto 0;
@@ -3074,6 +3146,16 @@ footer.app-footer{
 }
 
 @media (max-width: 640px){
+  .feed-filter-dock-inner{
+    padding:8px 12px;
+  }
+  .feed-filter-visibility-btn{
+    min-height:44px;
+    padding:9px 13px;
+  }
+  .feed-filter-selection{
+    font-size:0.7rem;
+  }
   :where(.btn, .tab-btn, .pill, .view-toggle button, .settings-icon-btn, .card-expand-control){
     min-height: 44px;
   }
@@ -3124,8 +3206,17 @@ footer.app-footer{
 
 <audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="metadata" loop></audio>
 
+<section class="feed-filter-dock" id="feedFilterDock" aria-label="Feed filter controls">
+  <div class="feed-filter-dock-inner">
+    <div class="feed-filter-toolbar" id="feedFilterToolbar">
+      <button class="feed-filter-visibility-btn is-expanded" id="feedFilterVisibilityBtn" type="button" aria-expanded="true" aria-controls="sportFilters">Hide filter</button>
+      <span class="feed-filter-selection" id="feedFilterSelection" aria-live="polite">All sports selected</span>
+    </div>
+    <div class="filter-row" id="sportFilters" role="group" aria-label="Filter feed by sport"></div>
+  </div>
+</section>
+
 <div class="controls" id="calendarControls">
-  <div class="filter-row" id="sportFilters"></div>
   <div class="preference-summary" id="preferenceSummary"></div>
   <div class="view-toggle" id="feedViewToggle">
     <button class="active" data-view="list">List View</button>
@@ -3540,6 +3631,7 @@ function saveActiveProfileSection(section, value){
 let activeFilter = "all";
 let feedFilterRefreshInFlight = null;
 let feedFilterRefreshQueued = false;
+let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
 let calendarInitialJumpPending = true;
@@ -5473,6 +5565,48 @@ function buildEventActionPanel(ev, options = {}){
 }
 
 /* ============ RENDER: SPORT FILTERS ============ */
+function syncFeedFilterDockOffset(){
+  const stickyHeader = document.querySelector("header.top");
+  const headerHeight = stickyHeader ? Math.ceil(stickyHeader.getBoundingClientRect().height) : 0;
+  document.documentElement.style.setProperty("--sticky-top-bar-height", `${headerHeight}px`);
+}
+
+function stickyFeedChromeHeight(){
+  const stickyHeader = document.querySelector("header.top");
+  const headerHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
+  const filterDock = document.getElementById("feedFilterDock");
+  const filterHeight = activeTab === "feed" && filterDock ? filterDock.getBoundingClientRect().height : 0;
+  return headerHeight + filterHeight;
+}
+
+function renderFeedFilterDock(){
+  const isFeed = activeTab === "feed";
+  const dock = document.getElementById("feedFilterDock");
+  const toolbar = document.getElementById("feedFilterToolbar");
+  const toggle = document.getElementById("feedFilterVisibilityBtn");
+  const selection = document.getElementById("feedFilterSelection");
+  const filterRow = document.getElementById("sportFilters");
+  const selectedLabel = activeFilter === "all" ? "All sports" : SPORT_META[activeFilter]?.label || activeFilter.toUpperCase();
+
+  dock.classList.toggle("is-standings", !isFeed);
+  dock.setAttribute("aria-label", isFeed ? "Feed filter controls" : "Standings filters");
+  toolbar.hidden = !isFeed;
+  filterRow.hidden = isFeed && !feedFilterVisible;
+  filterRow.setAttribute("aria-label", isFeed ? "Filter feed by sport" : "Filter standings by sport");
+  toggle.classList.toggle("is-expanded", feedFilterVisible);
+  toggle.setAttribute("aria-expanded", String(feedFilterVisible));
+  toggle.textContent = feedFilterVisible ? "Hide filter" : "Show filter";
+  selection.textContent = feedFilterVisible ? `${selectedLabel} selected` : `${selectedLabel} remains active`;
+}
+
+function setFeedFilterVisible(nextVisible){
+  if (activeTab !== "feed") return;
+  const normalizedVisible = Boolean(nextVisible);
+  if (feedFilterVisible === normalizedVisible) return;
+  feedFilterVisible = normalizedVisible;
+  renderFeedFilterDock();
+}
+
 function renderFilters(){
   const container = document.getElementById("sportFilters");
   container.innerHTML = "";
@@ -5481,7 +5615,9 @@ function renderFilters(){
     if (activeFilter !== "all" && !followed.has(activeFilter)) activeFilter = "all";
     FILTER_ORDER.filter(key => key === "all" || followed.has(key)).forEach(key => {
       const btn = document.createElement("button");
+      btn.type = "button";
       btn.className = "pill" + (activeFilter === key ? " active" : "");
+      btn.setAttribute("aria-pressed", String(activeFilter === key));
       if (key !== "all") btn.style.setProperty("--pill-color", SPORT_META[key]?.color || "var(--accent)");
       const glyph = key === "all" ? "ui:calendar" : SPORT_META[key]?.glyph || "ui:filter";
       const label = key === "all" ? "All" : SPORT_META[key]?.label || key.toUpperCase();
@@ -6016,8 +6152,7 @@ function restoreViewportRetractionAnchor(anchor){
 }
 
 function captureViewportRenderAnchor(){
-  const stickyHeader = document.querySelector("header.top");
-  const viewportTop = (stickyHeader ? stickyHeader.getBoundingClientRect().height : 0) + 12;
+  const viewportTop = stickyFeedChromeHeight() + 12;
   const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
     .find(card => card.getBoundingClientRect().bottom > viewportTop);
   return {
@@ -6045,8 +6180,7 @@ function restoreViewportRenderAnchor(anchor){
 function collapseCardsOutsideActiveViewport(){
   const expandedCards = Array.from(document.querySelectorAll(".event-card.is-selected, .event-card.is-opened"));
   if (!expandedCards.length) return false;
-  const stickyHeader = document.querySelector("header.top");
-  const viewportTop = (stickyHeader ? stickyHeader.getBoundingClientRect().height : 0) + 12;
+  const viewportTop = stickyFeedChromeHeight() + 12;
   const viewportBottom = window.innerHeight - 12;
   const collapsingCards = expandedCards
     .map(card => ({ card, rect: card.getBoundingClientRect() }))
@@ -6505,9 +6639,7 @@ function activeTodayAnchorId(){
 function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
   const anchor = document.getElementById(activeTodayAnchorId());
   if (!anchor) return false;
-  const stickyHeader = document.querySelector("header.top");
-  const headerOffset = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
-  const top = window.scrollY + anchor.getBoundingClientRect().top - headerOffset - 14;
+  const top = window.scrollY + anchor.getBoundingClientRect().top - stickyFeedChromeHeight() - 14;
   window.scrollTo({ top: Math.max(0, top), behavior });
   return true;
 }
@@ -7130,6 +7262,10 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 /* ============ TABS / VIEW SWITCHING ============ */
+document.getElementById("feedFilterVisibilityBtn").addEventListener("click", () => {
+  setFeedFilterVisible(!feedFilterVisible);
+});
+
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     collapseAllCardStates();
@@ -7185,6 +7321,8 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();
   renderFilters();
+  renderFeedFilterDock();
+  syncFeedFilterDockOffset();
   renderTabCounts();
   renderStandingsContext();
   const calControls = document.getElementById("calendarControls");
@@ -8777,6 +8915,11 @@ window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change",
   if (normalizeThemePreference(userPreferences.theme) === "system" && !draftPreferences) applyThemePreference("system");
 });
 document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive: false });
+window.addEventListener("resize", syncFeedFilterDockOffset, { passive: true });
+if (typeof ResizeObserver === "function"){
+  const stickyHeaderResizeObserver = new ResizeObserver(syncFeedFilterDockOffset);
+  stickyHeaderResizeObserver.observe(document.querySelector("header.top"));
+}
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();

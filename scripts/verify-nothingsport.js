@@ -122,6 +122,16 @@ assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.
 assert(html.includes("function setActiveFeedFilter(nextFilter") && html.includes("setActiveFeedFilter(key)"), "sport filter changes must use one state transition path");
 assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
 assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
+assert(html.includes('id="feedFilterVisibilityBtn"') && html.includes('aria-controls="sportFilters"'), "the feed must expose an always-available show-hide filter control");
+assert(html.includes('let feedFilterVisible = true;') && html.includes('let activeFilter = "all";'), "each app open must start with the filter visible and All sports selected");
+assert(html.includes('filterRow.hidden = isFeed && !feedFilterVisible') && html.includes('`${selectedLabel} remains active`'), "hiding the filter UI must keep the selected sport active and visible in status copy");
+assert(html.includes('.filter-row[hidden]') && html.includes('display:none;'), "the hidden filter row must be visually collapsed despite its flex layout");
+assert(html.includes('toggle.setAttribute("aria-expanded", String(feedFilterVisible))') && html.includes('btn.setAttribute("aria-pressed", String(activeFilter === key))'), "filter controls must expose expanded and selected accessibility states");
+assert(html.includes("function stickyFeedChromeHeight()") && html.includes("stickyFeedChromeHeight() + 12"), "pinned filter height must be included in viewport and card-collapse offsets");
+const feedFilterVisibilitySource = html.match(/function setFeedFilterVisible\(nextVisible\)\{[\s\S]*?(?=\nfunction renderFilters)/)?.[0] || "";
+assert(feedFilterVisibilitySource && !/activeFilter\s*=/.test(feedFilterVisibilitySource), "showing or hiding the filter must not change the selected feed filter");
+assert(/\.feed-filter-dock\{[\s\S]*?position:sticky;[\s\S]*?top:var\(--sticky-top-bar-height/.test(html), "the visible feed filter must pin directly beneath the measured top bar");
+assert(/@media \(max-width: 640px\)\{[\s\S]*?\.feed-filter-visibility-btn\{[\s\S]*?min-height:44px/.test(html), "the mobile show-hide control must keep a 44px tap target");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "first login must keep Sports Followed and viewing as the short setup flow");
 assert(html.includes('data-sports-followed-tab="sports"') && html.includes('data-sports-followed-tab="events"'), "Sports Followed must expose Sports and Events tabs");
@@ -165,7 +175,7 @@ assert(settingsMenuSource.includes('"Sports Followed"'), "Settings must use Spor
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v49"'), "the focused-sport Froth update must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v50"'), "the pinned feed-filter update must advance the served shell cache");
 brandAssets
   .filter(asset => asset.startsWith("assets/brand/web/") || asset.startsWith("icons/"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
