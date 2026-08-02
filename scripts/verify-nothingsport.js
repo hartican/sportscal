@@ -162,6 +162,9 @@ assert(html.includes('expander.dataset.standingsExpander = competition.id') && h
 assert(html.includes('input.dataset.sportFilter = key') && html.includes('input.type = "checkbox"'), "the ranking area must expose basic sport checkboxes");
 assert(html.includes('standingsCompetitionExpansion[competition.id] = false'), "filtering out a sport must retract its expanded standings tables");
 assert(html.includes('expanded ? "full" : "summary"'), "followed standings must default to Top 3 plus followed and expand only in direct view state");
+assert(html.includes('className = "standings-freshness-note"'), "standings must expose a visible freshness and source-delay notice");
+assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
+assert(html.includes("Standings refresh periodically and may briefly differ from official sources due to update delays."), "standings must disclose periodic update latency against official sources");
 assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
 assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
 assert(html.includes('"Top 3 + followed"'), "summary standings must promise to retain followed entities outside the top three");

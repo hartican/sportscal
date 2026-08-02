@@ -3,6 +3,7 @@
 const assert = require("node:assert/strict");
 const path = require("node:path");
 const { loadCanonicalBundle, createCanonicalSportsIndex } = require("./lib/canonical-sports");
+const { buildNrlLadder } = require("./refresh-canonical-sports");
 
 const inputPath = path.resolve(process.argv[2] || "data/canonical/afl-nrl-2026.json");
 const bundle = loadCanonicalBundle(inputPath);
@@ -59,6 +60,48 @@ assert.deepEqual(aflLadder.entries.map(entry => entry.rank), Array.from({ length
 assert.deepEqual(nrlLadder.entries.map(entry => entry.rank), Array.from({ length: 17 }, (_, index) => index + 1), "NRL ladder ranks must be contiguous");
 assert.equal(nrlLadder.entries[0].ladderPoints, Math.max(...nrlLadder.entries.map(entry => entry.ladderPoints)), "NRL ladder leader must have the highest calculated competition points");
 assert(nrlLadder.entries.every(entry => Number.isInteger(entry.byes) && entry.byes >= 0), "NRL ladder calculation must retain non-negative scheduled bye counts");
+
+const nrlRounds = new Map();
+nrlFixtures.forEach(event => {
+  const matches = nrlRounds.get(event.roundNumber) || [];
+  matches.push(event);
+  nrlRounds.set(event.roundNumber, matches);
+});
+const latestCompletedNrlRound = Math.max(0, ...Array.from(nrlRounds.entries())
+  .filter(([, matches]) => matches.length > 0 && matches.every(event => event.status === "completed"))
+  .map(([roundNumber]) => roundNumber));
+const expectedNrlPlayed = nrlFixtures.filter(event =>
+  event.roundNumber <= latestCompletedNrlRound && event.status === "completed"
+).length;
+const actualNrlPlayed = nrlLadder.entries.reduce((total, entry) => total + entry.played, 0) / 2;
+assert.equal(actualNrlPlayed, expectedNrlPlayed, "NRL ladder must include every match through the latest fully completed round");
+assert.equal(nrlLadder.metadata.completedMatches, expectedNrlPlayed, "NRL ladder metadata must report the represented completed-match boundary");
+
+const regressionParticipants = ["a", "b", "c", "d", "e"].map(id => ({
+  id: `team:nrl:${id}`,
+  sportDomainId: "sport:nrl",
+}));
+const regressionEvent = (roundNumber, home, away, status, scoreline) => ({
+  roundNumber,
+  homeParticipantId: `team:nrl:${home}`,
+  awayParticipantId: `team:nrl:${away}`,
+  status,
+  ...(scoreline ? { result: { scorelineText: `${home} v ${away} — ${scoreline}` } } : {}),
+});
+const partialRoundLadder = buildNrlLadder([
+  regressionEvent(1, "a", "b", "completed", "10-4"),
+  regressionEvent(1, "c", "d", "completed", "8-6"),
+  regressionEvent(2, "a", "c", "completed", "12-10"),
+  regressionEvent(2, "b", "d", "live"),
+], regressionParticipants, "2026-08-02T08:00:00.000Z");
+const partialRoundRows = new Map(partialRoundLadder.entries.map(entry => [entry.participantId, entry]));
+assert.equal(partialRoundRows.get("team:nrl:a").played, 1, "a partial current NRL round must not create a hybrid published ladder");
+assert.equal(partialRoundRows.get("team:nrl:b").byes, 0, "a team with a live current-round match must not receive bye points");
+assert.equal(partialRoundRows.get("team:nrl:e").byes, 1, "current-round bye points must wait until the round is fully completed");
+assert.equal(partialRoundLadder.metadata.roundStatus, "in-progress", "a partial NRL round must be marked as ongoing");
+assert.equal(partialRoundLadder.metadata.activeRound, 2, "a partial NRL round must retain the active-round warning context");
+assert.equal(partialRoundLadder.metadata.pendingCompletedMatches, 1, "completed matches beyond the published boundary must be disclosed");
+assert.match(partialRoundLadder.roundLabel, /completed Round 1/, "a partial NRL round must state its conservative completed-round boundary");
 
 console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${nrlFixtures.length} NRL fixtures.`);
 console.log(`Queryable ladders: AFL ${aflLadder.entries.length} teams; NRL ${nrlLadder.entries.length} teams.`);

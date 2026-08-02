@@ -2800,6 +2800,16 @@ main{
 
 .standings-table-wrap{ overflow-x:auto; }
 
+.standings-freshness-note{
+  margin:10px 0 0;
+  padding:9px 10px;
+  border-left:3px solid var(--accent);
+  background:rgba(0,229,255,0.045);
+  color:var(--text-dim);
+  font-size:0.7rem;
+  line-height:1.45;
+}
+
 .standings-table{
   width:100%;
   border-collapse:collapse;
@@ -7087,6 +7097,12 @@ function renderStandingsContext(){
         const expanded = standingsCompetitionExpansion[competition.id] === true;
         const summaryEntries = standingsEntriesForVisibility(snapshot, "summary");
         appendStandingsTable(module, competition, snapshot, expanded ? "full" : "summary");
+        const freshness = document.createElement("p");
+        freshness.className = "standings-freshness-note";
+        freshness.textContent = snapshot.metadata?.roundStatus === "in-progress"
+          ? "This round is ongoing, so positions may change after the next completed match. Standings refresh periodically and may briefly differ from official sources due to update delays."
+          : "Standings refresh periodically and may briefly differ from official sources due to update delays.";
+        module.appendChild(freshness);
         if (summaryEntries.length < snapshot.entries.length){
           const expander = document.createElement("button");
           expander.type = "button";

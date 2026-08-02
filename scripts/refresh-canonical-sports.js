@@ -313,15 +313,22 @@ function buildAflLadder(raw, checkedAt){
 }
 
 function buildNrlLadder(events, participants, checkedAt){
-  const completedRounds = new Map();
+  const rounds = new Map();
   events.forEach(event => {
-    const list = completedRounds.get(event.roundNumber) || [];
+    const list = rounds.get(event.roundNumber) || [];
     list.push(event);
-    completedRounds.set(event.roundNumber, list);
+    rounds.set(event.roundNumber, list);
   });
-  const completedRound = Math.max(0, ...Array.from(completedRounds.entries())
-    .filter(([, matches]) => matches.length && matches.every(match => match.status === "completed"))
+  const latestResultRound = Math.max(0, ...Array.from(rounds.entries())
+    .filter(([, matches]) => matches.some(match => match.status === "completed"))
     .map(([round]) => round));
+  const latestStartedRound = Math.max(latestResultRound, ...Array.from(rounds.entries())
+    .filter(([, matches]) => matches.some(match => match.status === "live"))
+    .map(([round]) => round));
+  const completedRound = Math.max(0, ...Array.from(rounds.entries())
+    .filter(([, matches]) => matches.length > 0 && matches.every(match => match.status === "completed"))
+    .map(([round]) => round));
+  const roundInProgress = latestStartedRound > completedRound;
   const nrlParticipants = participants.filter(participant => participant.sportDomainId === "sport:nrl");
   const rows = new Map(nrlParticipants.map(participant => [participant.id, {
     participantId: participant.id,
@@ -338,8 +345,13 @@ function buildNrlLadder(events, participants, checkedAt){
   }]));
 
   for (let round = 1; round <= completedRound; round += 1){
-    const matches = completedRounds.get(round) || [];
-    const playedIds = new Set();
+    const matches = rounds.get(round) || [];
+    if (!matches.length) continue;
+    const scheduledIds = new Set();
+    matches.forEach(match => {
+      scheduledIds.add(match.homeParticipantId);
+      scheduledIds.add(match.awayParticipantId);
+    });
     matches.filter(match => match.status === "completed").forEach(match => {
       const home = rows.get(match.homeParticipantId);
       const away = rows.get(match.awayParticipantId);
@@ -347,8 +359,6 @@ function buildNrlLadder(events, participants, checkedAt){
       if (!home || !away || !scoreMatch) return;
       const homeScore = Number(scoreMatch[1]);
       const awayScore = Number(scoreMatch[2]);
-      playedIds.add(home.participantId);
-      playedIds.add(away.participantId);
       home.played += 1;
       away.played += 1;
       home.pointsFor += homeScore;
@@ -371,7 +381,7 @@ function buildNrlLadder(events, participants, checkedAt){
       }
     });
     rows.forEach(row => {
-      if (playedIds.has(row.participantId)) return;
+      if (scheduledIds.has(row.participantId)) return;
       row.byes += 1;
       row.ladderPoints += 2;
     });
@@ -391,7 +401,7 @@ function buildNrlLadder(events, participants, checkedAt){
     id: `ladder:nrl-premiership-2026:round-${completedRound}`,
     competitionId: "competition:nrl-premiership-2026",
     seasonLabel: String(SEASON),
-    roundLabel: `After Round ${completedRound}`,
+    roundLabel: `Up to date through completed Round ${completedRound}`,
     snapshotTimeUtc: checkedAt,
     entries,
     source: eventSource(
@@ -400,7 +410,13 @@ function buildNrlLadder(events, participants, checkedAt){
       "official-provider",
       checkedAt
     ),
-    metadata: { calculation: "Official match results plus scheduled byes; ranked by points then differential" },
+    metadata: {
+      calculation: "Completed official-provider match results through the latest fully completed round, with byes derived from the full fixture; ranked by points then differential",
+      roundStatus: roundInProgress ? "in-progress" : "completed",
+      activeRound: latestStartedRound,
+      completedMatches: events.filter(event => event.roundNumber <= completedRound && event.status === "completed").length,
+      pendingCompletedMatches: events.filter(event => event.roundNumber > completedRound && event.status === "completed").length,
+    },
   };
 }
 
