@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Nothingsport — Sports feed orchestrator</title>
+<title data-brand-copy="title">Nothingsport — Smart sports feed</title>
 <meta name="theme-color" content="#0a0a0f">
-<meta name="description" content="A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.">
+<meta name="description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
 <meta name="application-name" content="nothingsport">
 <meta name="apple-mobile-web-app-title" content="nothingsport">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nothingsport — Sports feed orchestrator">
-<meta property="og:description" content="A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.">
+<meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
+<meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
 <meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nothingsport — Sports feed orchestrator">
-<meta name="twitter:description" content="A personalised, spoiler-safe sports feed for what matters, when it matters, and where to watch.">
+<meta name="twitter:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
+<meta name="twitter:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
 <meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/nothingsport-app-32.png" sizes="32x32" type="image/png">
@@ -180,7 +180,9 @@ header.top{
 }
 
 .brand{
-  min-width:214px;
+  flex:0 1 340px;
+  min-width:280px;
+  max-width:340px;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -229,12 +231,12 @@ header.top{
 }
 
 .brand .slogan{
-  font-size: 0.76rem;
+  max-width:460px;
+  font-size: 0.72rem;
   color: var(--text);
   font-weight: 800;
-  letter-spacing: 0.035em;
-  text-transform:uppercase;
-  line-height:1.25;
+  letter-spacing: 0.015em;
+  line-height:1.35;
 }
 
 @keyframes brand-arrive{
@@ -2935,6 +2937,15 @@ footer.app-footer{
   opacity:0.96;
 }
 
+.footer-slogan{
+  max-width:640px;
+  margin:0 auto 12px;
+  color:var(--text);
+  font-size:clamp(0.78rem, 2vw, 0.92rem);
+  font-weight:800;
+  line-height:1.45;
+}
+
 .footer-utility-line{
   line-height:1.6;
 }
@@ -2957,8 +2968,10 @@ footer.app-footer{
   }
   .header-inner{ gap:10px; }
   .brand{
+    flex:1 0 100%;
     width:100%;
     min-width:0;
+    max-width:none;
     display:grid;
     grid-template-columns:minmax(132px, 150px) minmax(0, 1fr);
     grid-template-rows:auto auto;
@@ -2969,8 +2982,8 @@ footer.app-footer{
   .brand-title-row{ grid-row:1 / 3; }
   .header-brand-logo{ width:min(150px, 100%); }
   .brand .slogan{
-    font-size:0.62rem;
-    letter-spacing:0.045em;
+    font-size:0.61rem;
+    letter-spacing:0.01em;
   }
   .brand .clock{
     font-size:0.6rem;
@@ -3185,7 +3198,7 @@ footer.app-footer{
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
       </div>
-      <div class="slogan">Sports feed orchestrator</div>
+      <div class="slogan" data-brand-copy="descriptor">Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.</div>
       <div class="clock" id="liveClock">—</div>
     </div>
     <div class="header-actions">
@@ -3233,7 +3246,8 @@ footer.app-footer{
 </main>
 
 <footer class="app-footer">
-  <img class="footer-brand-logo" data-brand-asset="slogan" src="assets/brand/web/nothingsport-logo-slogan.png" width="1200" height="643" alt="nothingsport — Sports feed orchestrator" loading="lazy" decoding="async">
+  <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" loading="lazy" decoding="async">
+  <div class="footer-slogan" data-brand-copy="descriptor">Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Data updates weekly</div>
 </footer>
 
@@ -3247,7 +3261,7 @@ footer.app-footer{
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
-          <p id="settingsCopy">Choose what you follow once. nothingsport handles the rest.</p>
+          <p id="settingsCopy" data-brand-copy="onboardingDescription">Choose what you follow once. nothingsport keeps the feed smart, spoiler-safe and focused on moments worth your attention.</p>
         </div>
       </div>
       <button class="settings-icon-btn" id="closeSettingsBtn" type="button" aria-label="Close Settings">×</button>
@@ -3265,12 +3279,12 @@ footer.app-footer{
     <div class="onboarding-head about-hero">
       <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true">
       <div class="about-hero-copy">
-        <h2 id="aboutTitle">Nothingsport — Sports feed orchestrator</h2>
-        <p>Your sports, orchestrated.</p>
+        <h2 id="aboutTitle" data-brand-copy="title">Nothingsport — Smart sports feed</h2>
+        <p data-brand-copy="hero">Follow live sport without the clutter.</p>
       </div>
     </div>
     <div class="about-body">
-      <p>nothingsport is a sports feed orchestrator: one calm, personalised view of the events that matter to you. It brings fixtures, stakes, spoiler-safe context, where-to-watch details and reminders into a single feed, then filters out the noise. Choose the sports, competitions, teams and competitors you follow once; nothingsport ranks what is worth your attention, keeps your calendar in sync and stays quiet when nothing merits it. Built around AEST/AEDT by default, it adapts to other time zones.</p>
+      <p data-brand-copy="about">nothingsport is a smarter way to follow live sport without wading through low-value fixtures. Its personalised feed surfaces the matches and events worth your attention, keeps browsing spoiler-safe, and helps you catch major live moments without the clutter. Choose Froth when you want every eligible fixture, or focus on one sport for its full fixture view; the pinned filter can stay visible as you scroll or tuck away while your selection remains active. Built around AEST/AEDT by default, it adapts to other time zones.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
     </div>
@@ -3841,11 +3855,20 @@ const BRAND_ASSETS = Object.freeze({
     day: "assets/brand/web/nothingsport-hero-logo.png",
     night: "assets/brand/web/nothingsport-hero-logo.png",
   }),
-  slogan: Object.freeze({
-    day: "assets/brand/web/nothingsport-logo-slogan.png",
-    night: "assets/brand/web/nothingsport-logo-slogan.png",
-  }),
 });
+
+const BRAND_COPY = globalThis.NOTHINGSPORTS_BRAND || Object.freeze({});
+
+function syncBrandCopy(){
+  document.querySelectorAll("[data-brand-copy]").forEach(element => {
+    const nextCopy = BRAND_COPY[element.dataset.brandCopy];
+    if (typeof nextCopy === "string" && nextCopy) element.textContent = nextCopy;
+  });
+  document.querySelectorAll("[data-brand-copy-content]").forEach(element => {
+    const nextCopy = BRAND_COPY[element.dataset.brandCopyContent];
+    if (typeof nextCopy === "string" && nextCopy) element.setAttribute("content", nextCopy);
+  });
+}
 
 function syncThemeBrandAssets(useDark){
   const mode = useDark ? "night" : "day";
@@ -8915,6 +8938,7 @@ window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change",
   if (normalizeThemePreference(userPreferences.theme) === "system" && !draftPreferences) applyThemePreference("system");
 });
 document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive: false });
+syncBrandCopy();
 window.addEventListener("resize", syncFeedFilterDockOffset, { passive: true });
 if (typeof ResizeObserver === "function"){
   const stickyHeaderResizeObserver = new ResizeObserver(syncFeedFilterDockOffset);
