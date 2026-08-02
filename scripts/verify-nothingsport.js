@@ -118,6 +118,10 @@ assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the s
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
 assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
+assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes('activeFilter !== "all" && ev.key === activeFilter'), "a focused sport filter must apply an ephemeral Froth coverage override");
+assert(html.includes("function setActiveFeedFilter(nextFilter") && html.includes("setActiveFeedFilter(key)"), "sport filter changes must use one state transition path");
+assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
+assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "first login must keep Sports Followed and viewing as the short setup flow");
 assert(html.includes('data-sports-followed-tab="sports"') && html.includes('data-sports-followed-tab="events"'), "Sports Followed must expose Sports and Events tabs");
@@ -161,7 +165,7 @@ assert(settingsMenuSource.includes('"Sports Followed"'), "Settings must use Spor
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v48"'), "the Sports Followed and Standings update must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v49"'), "the focused-sport Froth update must advance the served shell cache");
 brandAssets
   .filter(asset => asset.startsWith("assets/brand/web/") || asset.startsWith("icons/"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -531,6 +535,8 @@ globalThis.__test = {
   getSpoilerStateSnapshot(){ return structuredClone(eventSpoilerState); },
   setRatings(next){ ratings = next; },
   setPreferences(next){ userPreferences = mergePreferences({ followedSports: Object.keys(SPORTS_LIBRARY), selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY), ...next }); },
+  setActiveFilter(next){ activeFilter = next; },
+  getActiveFilter(){ return activeFilter; },
   setCanonicalParticipants(participants){ canonicalPreferenceParticipants = structuredClone(participants); },
   migrateEventActionRecords,
   eventActionKey,
@@ -1037,6 +1043,33 @@ assert.deepEqual(
   ["routine-afl", "routine-nrl"],
   "All fixtures coverage must expose routine AFL and NRL cards in the All calendar"
 );
+app.setPreferences({});
+
+let focusedSportGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:focused-sport-froth",
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: ["kayo", "foxtel"],
+});
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  preferenceGraph: focusedSportGraph,
+});
+app.setActiveFilter("nrl");
+assert.deepEqual(
+  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
+  ["routine-nrl"],
+  "focused NRL must temporarily expose its routine fixtures under non-Froth saved settings"
+);
+app.setActiveFilter("afl");
+assert.deepEqual(
+  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
+  ["routine-afl"],
+  "focused AFL must temporarily expose its routine fixtures under non-Froth saved settings"
+);
+assert(focusedSportGraph.domainPreferences.every(preference => preference.includeAllFixtures === false), "focused sport Froth must not mutate saved coverage preferences");
+app.setActiveFilter("all");
+assert.equal(app.getFilteredEvents().some(ev => ev.id.startsWith("routine-")), false, "returning to All must restore the saved selective coverage behavior");
+assert.equal(new Set(app.getFilteredEvents().map(ev => ev.id)).size, app.getFilteredEvents().length, "focused sport switching must not duplicate cards");
 app.setPreferences({});
 
 const calendarSyncPreferences = {

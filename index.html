@@ -3538,6 +3538,8 @@ function saveActiveProfileSection(section, value){
 
 /* ============ STATE ============ */
 let activeFilter = "all";
+let feedFilterRefreshInFlight = null;
+let feedFilterRefreshQueued = false;
 let activeView = "list";
 let activeTab = "feed";
 let calendarInitialJumpPending = true;
@@ -4601,6 +4603,33 @@ async function refreshRemoteFeed({ quiet = false } = {}){
   }
 }
 
+function requestFeedRefreshForFilterChange(){
+  feedFilterRefreshQueued = true;
+  if (feedFilterRefreshInFlight) return feedFilterRefreshInFlight;
+
+  const runQueuedRefreshes = async () => {
+    do {
+      feedFilterRefreshQueued = false;
+      await refreshRemoteFeed({ quiet: true });
+    } while (feedFilterRefreshQueued);
+  };
+  feedFilterRefreshInFlight = runQueuedRefreshes().finally(() => {
+    feedFilterRefreshInFlight = null;
+  });
+  return feedFilterRefreshInFlight;
+}
+
+function setActiveFeedFilter(nextFilter, { refresh = true } = {}){
+  const normalizedFilter = FILTER_ORDER.includes(nextFilter) ? nextFilter : "all";
+  if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
+  activeFilter = normalizedFilter;
+  collapseAllCardStates();
+  todayMoreReveal = false;
+  calendarInitialJumpPending = true;
+  renderAll();
+  return refresh ? requestFeedRefreshForFilterChange() : Promise.resolve();
+}
+
 /* ============ METADATA NORMALIZATION ============ */
 function inferBroadcasterIds(label){
   const text = String(label || "").toLowerCase();
@@ -5458,8 +5487,7 @@ function renderFilters(){
       const label = key === "all" ? "All" : SPORT_META[key]?.label || key.toUpperCase();
       btn.innerHTML = `${glyphMarkup(glyph)}<span>${label}</span>`;
       btn.addEventListener("click", () => {
-        activeFilter = key;
-        renderAll();
+        setActiveFeedFilter(key);
       });
       container.appendChild(btn);
     });
@@ -5642,6 +5670,10 @@ function eventParticipantFollowLevels(ev){
     .map(preference => preference.followLevel);
 }
 
+function eventUsesFocusedSportFrothOverride(ev){
+  return activeTab === "feed" && activeFilter !== "all" && ev.key === activeFilter;
+}
+
 function eventMeetsCoveragePreference(ev){
   const domainPreference = eventDomainPreference(ev);
   if (!domainPreference) return eventMeetsGlobalThreshold(ev);
@@ -5652,6 +5684,7 @@ function eventMeetsCoveragePreference(ev){
 
   const followLevels = eventParticipantFollowLevels(ev);
   if (followLevels.includes("mute")) return false;
+  if (eventUsesFocusedSportFrothOverride(ev)) return true;
 
   const includeAllFixtures = competitionPreference?.includeAllFixtures ?? domainPreference.includeAllFixtures;
   const includeMajorEvents = competitionPreference?.includeMajorEvents ?? domainPreference.includeMajorEvents;
