@@ -11,6 +11,7 @@ const sportContext = require("../config/sport-context.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
+const notFoundHtml = fs.readFileSync("404.html", "utf8");
 const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", "utf8");
 const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
@@ -37,13 +38,27 @@ assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app scr
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["feed", "standings"], "primary navigation must contain exactly Feed and Standings");
-assert(html.includes(`<title>${brand.title}</title>`), "the document title must use the canonical nothingsport title");
+const requiredSlogan = "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.";
+assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
+assert.equal(brand.metadataDescription, requiredSlogan, "metadata must use the supplied slogan exactly");
+assert(html.includes(`<title data-brand-copy="title">${brand.title}</title>`), "the document title must use the canonical nothingsport title");
 assert(html.includes(brand.hero), "the canonical nothingsport hero line must be present");
 assert(html.includes(brand.about), "the canonical nothingsport About paragraph must be present verbatim");
 assert.equal(manifest.name, brand.title, "the install manifest must use the canonical nothingsport title");
 assert.equal(manifest.short_name, brand.name, "the installed app label must use the lowercase nothingsport name");
 assert.equal(manifest.description, brand.metadataDescription, "manifest copy must follow the brand source of truth");
 assert(html.includes(`content="${brand.metadataDescription}"`), "page metadata must follow the brand source of truth");
+assert(html.includes(`class="slogan" data-brand-copy="descriptor">${requiredSlogan}</div>`), "the compact header must show the exact slogan");
+assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requiredSlogan}</div>`), "the footer must show the exact slogan as live text");
+assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
+assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
+assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
+["smarter", "low-value fixtures", "spoiler-safe", "major live moments", "Froth", "focus on one sport", "pinned filter"].forEach(phrase => {
+  assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
+});
+assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
+assert(!notFoundHtml.includes("nothingsport-logo-slogan.png"), "the not-found route must not render the stale slogan raster");
+assert(!html.includes("Sports feed orchestrator") && !html.includes("Your sports, orchestrated."), "superseded slogan copy must be removed from app and share surfaces");
 assert(!/right live games/i.test(html), "superseded right-live-games copy must be removed");
 assert(!brand.about.includes("Sydney"), "core product copy must not be city-bound");
 assert(brand.about.includes("AEST/AEDT by default"), "core product copy must describe its default timezone basis");
@@ -64,9 +79,10 @@ const brandAssets = [
   "icons/nothingsport-app-maskable-512.png",
 ];
 brandAssets.forEach(asset => assert(fs.existsSync(asset), `brand asset must exist: ${asset}`));
-["logo", "hero", "icon", "slogan"].forEach(asset => {
+["logo", "hero", "icon"].forEach(asset => {
   assert(html.includes(`data-brand-asset="${asset}"`), `the supplied ${asset} asset must have a visible app placement`);
 });
+assert(!html.includes('data-brand-asset="slogan"'), "the stale slogan raster must be replaced by live canonical text");
 assert(html.includes("syncThemeBrandAssets(useDark)"), "brand assets must follow the existing day, night, and system theme selection");
 assert(!html.includes('class="brand-colosseum"'), "the legacy colosseum placeholder must be removed");
 assert(!/nothingsport-(?:logo|compact-icon)-(?:day|night)\.png|nothingsport-helm-\d+\.png/.test(html), "legacy centurion assets must not remain referenced");
@@ -118,6 +134,20 @@ assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the s
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
 assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
+assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes('activeFilter !== "all" && ev.key === activeFilter'), "a focused sport filter must apply an ephemeral Froth coverage override");
+assert(html.includes("function setActiveFeedFilter(nextFilter") && html.includes("setActiveFeedFilter(key)"), "sport filter changes must use one state transition path");
+assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
+assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
+assert(html.includes('id="feedFilterVisibilityBtn"') && html.includes('aria-controls="sportFilters"'), "the feed must expose an always-available show-hide filter control");
+assert(html.includes('let feedFilterVisible = true;') && html.includes('let activeFilter = "all";'), "each app open must start with the filter visible and All sports selected");
+assert(html.includes('filterRow.hidden = isFeed && !feedFilterVisible') && html.includes('`${selectedLabel} remains active`'), "hiding the filter UI must keep the selected sport active and visible in status copy");
+assert(html.includes('.filter-row[hidden]') && html.includes('display:none;'), "the hidden filter row must be visually collapsed despite its flex layout");
+assert(html.includes('toggle.setAttribute("aria-expanded", String(feedFilterVisible))') && html.includes('btn.setAttribute("aria-pressed", String(activeFilter === key))'), "filter controls must expose expanded and selected accessibility states");
+assert(html.includes("function stickyFeedChromeHeight()") && html.includes("stickyFeedChromeHeight() + 12"), "pinned filter height must be included in viewport and card-collapse offsets");
+const feedFilterVisibilitySource = html.match(/function setFeedFilterVisible\(nextVisible\)\{[\s\S]*?(?=\nfunction renderFilters)/)?.[0] || "";
+assert(feedFilterVisibilitySource && !/activeFilter\s*=/.test(feedFilterVisibilitySource), "showing or hiding the filter must not change the selected feed filter");
+assert(/\.feed-filter-dock\{[\s\S]*?position:sticky;[\s\S]*?top:var\(--sticky-top-bar-height/.test(html), "the visible feed filter must pin directly beneath the measured top bar");
+assert(/@media \(max-width: 640px\)\{[\s\S]*?\.feed-filter-visibility-btn\{[\s\S]*?min-height:44px/.test(html), "the mobile show-hide control must keep a 44px tap target");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "first login must keep Sports Followed and viewing as the short setup flow");
 assert(html.includes('data-sports-followed-tab="sports"') && html.includes('data-sports-followed-tab="events"'), "Sports Followed must expose Sports and Events tabs");
@@ -161,10 +191,11 @@ assert(settingsMenuSource.includes('"Sports Followed"'), "Settings must use Spor
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v48"'), "the Sports Followed and Standings update must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v51"'), "the slogan and About update must advance the served shell cache");
 brandAssets
-  .filter(asset => asset.startsWith("assets/brand/web/") || asset.startsWith("icons/"))
+  .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
+assert(!serviceWorkerSource.includes("/assets/brand/web/nothingsport-logo-slogan.png"), "the offline shell must stop caching the stale slogan raster");
 assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
@@ -531,6 +562,8 @@ globalThis.__test = {
   getSpoilerStateSnapshot(){ return structuredClone(eventSpoilerState); },
   setRatings(next){ ratings = next; },
   setPreferences(next){ userPreferences = mergePreferences({ followedSports: Object.keys(SPORTS_LIBRARY), selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY), ...next }); },
+  setActiveFilter(next){ activeFilter = next; },
+  getActiveFilter(){ return activeFilter; },
   setCanonicalParticipants(participants){ canonicalPreferenceParticipants = structuredClone(participants); },
   migrateEventActionRecords,
   eventActionKey,
@@ -1037,6 +1070,33 @@ assert.deepEqual(
   ["routine-afl", "routine-nrl"],
   "All fixtures coverage must expose routine AFL and NRL cards in the All calendar"
 );
+app.setPreferences({});
+
+let focusedSportGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:focused-sport-froth",
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: ["kayo", "foxtel"],
+});
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  preferenceGraph: focusedSportGraph,
+});
+app.setActiveFilter("nrl");
+assert.deepEqual(
+  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
+  ["routine-nrl"],
+  "focused NRL must temporarily expose its routine fixtures under non-Froth saved settings"
+);
+app.setActiveFilter("afl");
+assert.deepEqual(
+  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
+  ["routine-afl"],
+  "focused AFL must temporarily expose its routine fixtures under non-Froth saved settings"
+);
+assert(focusedSportGraph.domainPreferences.every(preference => preference.includeAllFixtures === false), "focused sport Froth must not mutate saved coverage preferences");
+app.setActiveFilter("all");
+assert.equal(app.getFilteredEvents().some(ev => ev.id.startsWith("routine-")), false, "returning to All must restore the saved selective coverage behavior");
+assert.equal(new Set(app.getFilteredEvents().map(ev => ev.id)).size, app.getFilteredEvents().length, "focused sport switching must not duplicate cards");
 app.setPreferences({});
 
 const calendarSyncPreferences = {
