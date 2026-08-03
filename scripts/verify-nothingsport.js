@@ -211,7 +211,8 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v58"'), "interaction changes must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v59"'), "interaction changes must advance the served shell cache");
+assert(html.includes("4/5 and 5/5 editorial picks appear in Feed even when you do not follow their sport or broadcaster."), "Sports Followed must explain the editorial must-show override");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -614,6 +615,11 @@ globalThis.__test = {
   auBroadcastWeightScoreForEvent,
   eventEnrichment,
   eventMeetsDerivedRetention,
+  eventIsEditorialMustShow,
+  eventMeetsCoveragePreference,
+  eventMatchesSportPreferences,
+  eventMatchesExplicitSubfilters,
+  eventMatchesBroadcasterPreferences,
   eventIsAutoArchived,
   rebuildDerivedCardCache,
   purgeDerivedCardCache,
@@ -1016,6 +1022,43 @@ function event(id, days, stakes){
     liveWindow: 3,
   };
 }
+
+const publishedAustraliaIreland = publishedFeed.events.find(item => item.id === "aflw-australia-ireland-2026-08-01");
+assert(publishedAustraliaIreland, "the published feed must contain Australia v Ireland at North Sydney Oval");
+assert.equal(publishedAustraliaIreland.key, "afl", "AFLW representative cards must inherit the AFL sport key");
+app.setEvents([publishedAustraliaIreland]);
+app.setActions({});
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:nrl"],
+  followedSports: ["nrl"],
+  selectedBroadcasters: ["nine"],
+});
+assert.equal(app.eventIsEditorialMustShow(publishedAustraliaIreland), true, "Australia v Ireland must qualify as an editorial must-show card at 4/5 stakes");
+assert.deepEqual(
+  Array.from(app.getPreferenceMatchedEvents(new Date("2026-08-03T05:00:00Z")), item => item.id),
+  ["aflw-australia-ireland-2026-08-01"],
+  "a 4/5 Australia v Ireland AFLW card must appear regardless of followed sports or selected broadcasters"
+);
+const lowerStakesAflwFixture = {
+  ...publishedAustraliaIreland,
+  id: "aflw-under-afl-preference",
+  eventId: "aflw-under-afl-preference",
+  date: "2026-08-04",
+  status: "upcoming",
+  stakesScore: 3,
+  storyline: { ...publishedAustraliaIreland.storyline, stakes: 3, intensity: 3 },
+};
+app.setEvents([lowerStakesAflwFixture]);
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl"],
+  followedSports: ["afl"],
+  selectedBroadcasters: ["kayo"],
+});
+assert.deepEqual(
+  Array.from(app.getPreferenceMatchedEvents(new Date("2026-08-03T05:00:00Z")), item => item.id),
+  ["aflw-under-afl-preference"],
+  "a lower-stakes AFLW fixture must inherit the ordinary AFL follow setting"
+);
 
 const canonicalWimbledon = { ...event("canonical-wimbledon", 2, 4), sport: "Tennis", key: "wimbledon" };
 app.setEvents([canonicalWimbledon]);

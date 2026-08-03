@@ -4822,6 +4822,9 @@ function selectedSentenceForEvent(ev){
 }
 
 function inclusionExplanationForEvent(ev){
+  if (eventIsEditorialMustShow(ev)){
+    return `Included because its ${ev.stakesScore}/5 stakes rating makes it an editorial must-show event.`;
+  }
   if (ev.key === "wimbledon"){
     const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
     if (tennis.round === "all") return "Included because your tennis settings keep this Wimbledon event in scope.";
@@ -5756,6 +5759,14 @@ function eventMatchesSportPreferences(ev){
   return (userPreferences.selectedSelectorEntityIds || []).some(entityId => selectorEntityMatchesEvent(entityId, ev));
 }
 
+function eventMatchesExplicitSubfilters(ev){
+  if (ev.key !== "cwg") return true;
+  const selectedDisciplines = (userPreferences.selectedSelectorEntityIds || [])
+    .filter(entityId => entityId.startsWith("cwg:"));
+  if (!selectedDisciplines.length) return true;
+  return selectedDisciplines.some(entityId => selectorEntityMatchesEvent(entityId, ev));
+}
+
 function eventMatchesBroadcasterPreferences(ev){
   if (!userPreferences.selectedBroadcasters.length) return false;
   if (!ev.broadcasterIds || !ev.broadcasterIds.length) return true;
@@ -5827,6 +5838,10 @@ function eventMeetsGlobalThreshold(ev){
   return Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes;
 }
 
+function eventIsEditorialMustShow(ev){
+  return Number(ev.stakesScore) >= SCORE_BANDS.topStorylines.minStakes;
+}
+
 function eventDomainPreference(ev){
   const domainId = ev.sportDomainId
     || SPORT_DOMAIN_REGISTRY?.byKey?.[ev.key]?.domainId
@@ -5895,11 +5910,16 @@ function eventIsAutoArchived(ev, reference = nowAEST()){
 function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = activeEvents.slice();
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
-  list = list.filter(eventMeetsCoveragePreference);
-  list = list.filter(eventMatchesSportPreferences);
-  list = list.filter(eventMatchesBroadcasterPreferences);
-  list = list.filter(eventMatchesTennisFilters);
-  list = list.filter(eventMatchesFifaFilters);
+  list = list.filter(ev => (
+    eventMeetsCoveragePreference(ev)
+    && eventMatchesExplicitSubfilters(ev)
+    && eventMatchesTennisFilters(ev)
+    && eventMatchesFifaFilters(ev)
+    && (
+      eventIsEditorialMustShow(ev)
+      || (eventMatchesSportPreferences(ev) && eventMatchesBroadcasterPreferences(ev))
+    )
+  ));
   return list;
 }
 
@@ -8013,7 +8033,7 @@ function renderSportsSettings(body){
   content.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
       <h3>Sports Followed</h3>
-      <p class="preference-help">Follow broad sports or special events here. Selected choices keep their Froth control directly beneath them.</p>
+      <p class="preference-help">Follow broad sports or special events here. Selected choices keep their Froth control directly beneath them. 4/5 and 5/5 editorial picks appear in Feed even when you do not follow their sport or broadcaster.</p>
       <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
     </div>
     <div class="filter-panel" id="selectorChildrenPanel"></div>
