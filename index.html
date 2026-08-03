@@ -6218,6 +6218,7 @@ function clearPendingCardRetractionSpace(){
   const anchor = captureViewportRenderAnchor();
   cards.forEach(card => {
     card.style.marginBottom = "";
+    card.style.transform = "";
     delete card.dataset.retractionSpace;
   });
   restoreViewportRenderAnchor(anchor);
@@ -6239,6 +6240,10 @@ function cardRetractionSpaceForHeights(previousHeight, compactHeight){
   return Math.max(0, Number(previousHeight || 0) - Number(compactHeight || 0));
 }
 
+function cardRetractionVisualOffset(retainedHeight){
+  return Math.max(0, Number(retainedHeight || 0));
+}
+
 function cardScrollDirection(previousScrollY, currentScrollY){
   if (currentScrollY < previousScrollY) return "up";
   if (currentScrollY > previousScrollY) return "down";
@@ -6251,7 +6256,9 @@ function retainCollapsedCardSpace(retractionAnchor, replacementCards){
   retainedCards.forEach(({ card, previousHeight }) => {
     const retainedHeight = cardRetractionSpaceForHeights(previousHeight, card.getBoundingClientRect().height);
     if (retainedHeight < 0.5) return;
+    const visualOffset = cardRetractionVisualOffset(retainedHeight);
     card.style.marginBottom = `${retainedHeight}px`;
+    card.style.transform = `translateY(${visualOffset}px)`;
     card.dataset.retractionSpace = String(retainedHeight);
     pendingCardRetractionSpaceCards.add(card);
   });
@@ -6265,6 +6272,7 @@ function retainCollapsedCardSpace(retractionAnchor, replacementCards){
     const retainedHeight = Number(spacingCard.dataset.retractionSpace || 0);
     const correctedHeight = Math.max(0, retainedHeight + correction);
     spacingCard.style.marginBottom = `${correctedHeight}px`;
+    spacingCard.style.transform = `translateY(${cardRetractionVisualOffset(correctedHeight)}px)`;
     spacingCard.dataset.retractionSpace = String(correctedHeight);
   }
   scheduleCardRetractionSpaceCleanup();
@@ -6276,6 +6284,7 @@ function captureViewportRenderAnchor(){
   const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
     .find(card => card.getBoundingClientRect().bottom > viewportTop);
   return {
+    card: anchorCard || null,
     eventId: anchorCard?.dataset.eventId || null,
     top: anchorCard?.getBoundingClientRect().top || null,
     scrollY: window.scrollY,
@@ -6284,7 +6293,9 @@ function captureViewportRenderAnchor(){
 
 function restoreViewportRenderAnchor(anchor){
   if (!anchor) return;
-  const anchorCard = anchor.eventId
+  const anchorCard = anchor.card?.isConnected
+    ? anchor.card
+    : anchor.eventId
     ? Array.from(document.querySelectorAll(".event-card[data-event-id]"))
       .find(card => card.dataset.eventId === anchor.eventId)
     : null;

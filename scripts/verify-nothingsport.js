@@ -211,7 +211,7 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v57"'), "interaction changes must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v58"'), "interaction changes must advance the served shell cache");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -275,6 +275,9 @@ assert(viewportRetractionSource.includes("replaceCollapsedCardsInPlace(collapsin
 assert(viewportRetractionSource.includes("retainCollapsedCardSpace(retractionAnchor, replacementCards)") && !viewportRetractionSource.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "active-scroll retraction must preserve lower-card geometry without a mid-gesture scroll correction");
 assert(html.includes("function clearPendingCardRetractionSpace()") && html.includes("scheduleCardRetractionSpaceCleanup()"), "temporary retraction space must be removed after scrolling settles");
 assert(html.includes('if (scrollDirection === "up" && pendingCardRetractionSpaceCards.size)') && html.includes("clearPendingCardRetractionSpace();"), "upward scrolling must clear temporary retraction space immediately");
+assert(html.includes("function cardRetractionVisualOffset(retainedHeight)") && html.includes("card.style.transform = `translateY(${visualOffset}px)`"), "a compact card must visually occupy its retained space before upward cleanup");
+assert(html.includes('card.style.transform = "";'), "temporary card translation must clear with retained retraction space");
+assert(html.includes("anchor.card?.isConnected") && html.includes("card: anchorCard || null"), "viewport restoration must retain the exact anchored card when it remains connected");
 assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
@@ -627,6 +630,7 @@ globalThis.__test = {
   isCardActivelyViewed,
   scrollOffsetToPreserveAnchor,
   cardRetractionSpaceForHeights,
+  cardRetractionVisualOffset,
   cardScrollDirection,
   getFilteredEvents,
   getPreferenceMatchedEvents,
@@ -1331,6 +1335,7 @@ assert.equal(app.isCardActivelyViewed({ top: 700, bottom: 900, height: 200 }, 10
 assert.equal(app.isCardActivelyViewed({ top: -400, bottom: 30, height: 430 }, 100, 700), false, "a card scrolled above the active viewport must retract");
 assert.equal(app.scrollOffsetToPreserveAnchor(330, -210), -540, "retraction above the viewport must offset the removed height rather than jump the feed");
 assert.equal(app.cardRetractionSpaceForHeights(727.25, 198.265625), 528.984375, "collapsed cards must retain their removed height while a downward scroll is active");
+assert.equal(app.cardRetractionVisualOffset(528.984375), 528.984375, "the compact card must occupy the retained height before it is reclaimed");
 assert.equal(app.cardScrollDirection(1200, 1100), "up", "upward reversal must be detected while temporary card space is retained");
 assert.equal(app.cardScrollDirection(1100, 1200), "down", "continued downward scrolling must keep temporary card space until it settles");
 assert.equal(app.cardScrollDirection(1200, 1200), "still", "unchanged scroll positions must not be treated as a direction reversal");
