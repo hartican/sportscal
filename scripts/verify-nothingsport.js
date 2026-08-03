@@ -211,7 +211,7 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v53"'), "profile persistence changes must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v54"'), "interaction changes must advance the served shell cache");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -268,6 +268,9 @@ assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-da
 assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
 assert(html.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "above-viewport card retraction must preserve the visible feed position");
+assert(html.includes("const CARD_RETRACTION_SCROLL_IDLE_MS = 120") && html.includes("scheduleCardRetractionAfterScroll()"), "card retraction must wait for mobile scroll momentum to settle");
+const viewportRetractionSource = html.match(/function collapseCardsOutsideActiveViewport\(\)\{[\s\S]*?(?=\nfunction buildEventCard)/)?.[0] || "";
+assert(viewportRetractionSource.includes("replaceCollapsedCardsInPlace(collapsingCards)") && !viewportRetractionSource.includes("renderCurrentSection()"), "scroll retraction must replace only collapsed cards instead of rebuilding the whole feed");
 assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");

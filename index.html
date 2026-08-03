@@ -6180,6 +6180,20 @@ function captureViewportRetractionAnchor(collapsingCards, viewportTop){
   };
 }
 
+function replaceCollapsedCardsInPlace(collapsingCards){
+  collapsingCards.forEach(({ card }) => {
+    const eventId = card.dataset.eventId;
+    const ev = activeEvents.find(candidate => String(candidate.eventId || candidate.id) === eventId);
+    if (!ev || !card.isConnected) return;
+    const mode = card.dataset.cardMode || "calendar";
+    const seenTimer = surfaceSeenTimers.get(card);
+    if (seenTimer) clearTimeout(seenTimer);
+    surfaceSeenTimers.delete(card);
+    surfaceSeenObserver?.unobserve(card);
+    card.replaceWith(buildEventCard(ev, { mode }));
+  });
+}
+
 function restoreViewportRetractionAnchor(anchor){
   if (!anchor) return;
   const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
@@ -6229,7 +6243,7 @@ function collapseCardsOutsideActiveViewport(){
     .map(({ card }) => card.dataset.eventId)
     .filter(Boolean);
   if (!collapseCardStates(eventIds)) return false;
-  renderCurrentSection();
+  replaceCollapsedCardsInPlace(collapsingCards);
   restoreViewportRetractionAnchor(retractionAnchor);
   return true;
 }
@@ -6267,6 +6281,7 @@ function buildEventCard(ev, options = {}){
     status === "past" ? "is-past" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
+  card.dataset.cardMode = mode;
   card.dataset.feedBucket = presentation.feedBucket;
   card.dataset.cardVariant = enrichment.cardVariant;
   card.dataset.intensity = String(enrichment.intensity);
@@ -7297,14 +7312,16 @@ setInterval(() => {
   renderCurrentSection(true);
 }, 30000);
 
-let cardScrollFrame = null;
-window.addEventListener("scroll", () => {
-  if (cardScrollFrame !== null) return;
-  cardScrollFrame = window.requestAnimationFrame(() => {
-    cardScrollFrame = null;
-    collapseCardsOutsideActiveViewport();
-  });
-}, { passive: true });
+const CARD_RETRACTION_SCROLL_IDLE_MS = 120;
+let cardRetractionTimer = null;
+function scheduleCardRetractionAfterScroll(){
+  if (cardRetractionTimer !== null) window.clearTimeout(cardRetractionTimer);
+  cardRetractionTimer = window.setTimeout(() => {
+    cardRetractionTimer = null;
+    window.requestAnimationFrame(collapseCardsOutsideActiveViewport);
+  }, CARD_RETRACTION_SCROLL_IDLE_MS);
+}
+window.addEventListener("scroll", scheduleCardRetractionAfterScroll, { passive: true });
 
 /* ============ TABS / VIEW SWITCHING ============ */
 document.getElementById("feedFilterVisibilityBtn").addEventListener("click", () => {
