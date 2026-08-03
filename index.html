@@ -6180,8 +6180,13 @@ function captureViewportRetractionAnchor(collapsingCards, viewportTop){
   };
 }
 
+const CARD_RETRACTION_SPACE_SETTLE_MS = 140;
+const pendingCardRetractionSpaceCards = new Set();
+let cardRetractionSpaceTimer = null;
+
 function replaceCollapsedCardsInPlace(collapsingCards){
-  collapsingCards.forEach(({ card }) => {
+  const replacementCards = [];
+  collapsingCards.forEach(({ card, rect }) => {
     const eventId = card.dataset.eventId;
     const ev = activeEvents.find(candidate => String(candidate.eventId || candidate.id) === eventId);
     if (!ev || !card.isConnected) return;
@@ -6190,18 +6195,74 @@ function replaceCollapsedCardsInPlace(collapsingCards){
     if (seenTimer) clearTimeout(seenTimer);
     surfaceSeenTimers.delete(card);
     surfaceSeenObserver?.unobserve(card);
-    card.replaceWith(buildEventCard(ev, { mode }));
+    const replacementCard = buildEventCard(ev, { mode });
+    replacementCard.style.transition = "none";
+    card.replaceWith(replacementCard);
+    replacementCards.push({
+      card: replacementCard,
+      previousHeight: rect.height,
+      preserveSpace: rect.bottom <= stickyFeedChromeHeight() + 12,
+    });
   });
+  return replacementCards;
 }
 
-function restoreViewportRetractionAnchor(anchor){
-  if (!anchor) return;
+function clearPendingCardRetractionSpace(){
+  if (cardRetractionSpaceTimer !== null){
+    window.clearTimeout(cardRetractionSpaceTimer);
+    cardRetractionSpaceTimer = null;
+  }
+  const cards = Array.from(pendingCardRetractionSpaceCards).filter(card => card.isConnected);
+  pendingCardRetractionSpaceCards.clear();
+  if (!cards.length) return false;
+  const anchor = captureViewportRenderAnchor();
+  cards.forEach(card => {
+    card.style.marginBottom = "";
+    delete card.dataset.retractionSpace;
+  });
+  restoreViewportRenderAnchor(anchor);
+  window.requestAnimationFrame(() => {
+    cards.filter(card => card.isConnected).forEach(card => {
+      card.style.transition = "";
+    });
+  });
+  return true;
+}
+
+function scheduleCardRetractionSpaceCleanup(){
+  if (!pendingCardRetractionSpaceCards.size) return;
+  if (cardRetractionSpaceTimer !== null) window.clearTimeout(cardRetractionSpaceTimer);
+  cardRetractionSpaceTimer = window.setTimeout(clearPendingCardRetractionSpace, CARD_RETRACTION_SPACE_SETTLE_MS);
+}
+
+function cardRetractionSpaceForHeights(previousHeight, compactHeight){
+  return Math.max(0, Number(previousHeight || 0) - Number(compactHeight || 0));
+}
+
+function retainCollapsedCardSpace(retractionAnchor, replacementCards){
+  if (!retractionAnchor) return false;
+  const retainedCards = replacementCards.filter(({ preserveSpace }) => preserveSpace);
+  retainedCards.forEach(({ card, previousHeight }) => {
+    const retainedHeight = cardRetractionSpaceForHeights(previousHeight, card.getBoundingClientRect().height);
+    if (retainedHeight < 0.5) return;
+    card.style.marginBottom = `${retainedHeight}px`;
+    card.dataset.retractionSpace = String(retainedHeight);
+    pendingCardRetractionSpaceCards.add(card);
+  });
+  if (!retainedCards.length || !pendingCardRetractionSpaceCards.size) return false;
+
   const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
-    .find(card => card.dataset.eventId === anchor.eventId);
-  if (!anchorCard) return;
-  const offset = scrollOffsetToPreserveAnchor(anchor.top, anchorCard.getBoundingClientRect().top);
-  if (Math.abs(offset) < 0.5) return;
-  window.scrollBy(0, offset);
+    .find(card => card.dataset.eventId === retractionAnchor.eventId);
+  const spacingCard = retainedCards[retainedCards.length - 1].card;
+  if (anchorCard){
+    const correction = retractionAnchor.top - anchorCard.getBoundingClientRect().top;
+    const retainedHeight = Number(spacingCard.dataset.retractionSpace || 0);
+    const correctedHeight = Math.max(0, retainedHeight + correction);
+    spacingCard.style.marginBottom = `${correctedHeight}px`;
+    spacingCard.dataset.retractionSpace = String(correctedHeight);
+  }
+  scheduleCardRetractionSpaceCleanup();
+  return true;
 }
 
 function captureViewportRenderAnchor(){
@@ -6243,8 +6304,8 @@ function collapseCardsOutsideActiveViewport(){
     .map(({ card }) => card.dataset.eventId)
     .filter(Boolean);
   if (!collapseCardStates(eventIds)) return false;
-  replaceCollapsedCardsInPlace(collapsingCards);
-  restoreViewportRetractionAnchor(retractionAnchor);
+  const replacementCards = replaceCollapsedCardsInPlace(collapsingCards);
+  retainCollapsedCardSpace(retractionAnchor, replacementCards);
   return true;
 }
 
@@ -7314,6 +7375,7 @@ setInterval(() => {
 
 let cardRetractionFrame = null;
 function scheduleCardRetractionDuringScroll(){
+  scheduleCardRetractionSpaceCleanup();
   if (cardRetractionFrame !== null) return;
   cardRetractionFrame = window.requestAnimationFrame(() => {
     cardRetractionFrame = null;
@@ -7362,6 +7424,7 @@ document.getElementById("jumpTodayBtn").addEventListener("click", () => {
 });
 
 function renderCurrentSection(){
+  clearPendingCardRetractionSpace();
   if (activeTab !== "feed"){
     renderStandingsContext();
     return;
@@ -7378,6 +7441,7 @@ function renderTabCounts(){
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
+  clearPendingCardRetractionSpace();
   const preservedViewportAnchor = viewportAnchor || (preserveViewport ? captureViewportRenderAnchor() : null);
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();

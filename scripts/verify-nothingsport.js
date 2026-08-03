@@ -211,7 +211,7 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v55"'), "interaction changes must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v56"'), "interaction changes must advance the served shell cache");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
   .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
@@ -267,11 +267,13 @@ assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
-assert(html.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "above-viewport card retraction must preserve the visible feed position");
+assert(html.includes("retainCollapsedCardSpace(retractionAnchor, replacementCards)"), "above-viewport card retraction must preserve the visible feed position");
 assert(html.includes("function scheduleCardRetractionDuringScroll()") && html.includes("cardRetractionFrame = window.requestAnimationFrame(() => {") && html.includes("collapseCardsOutsideActiveViewport();"), "cards must retract during continuous scrolling once they leave the active viewport");
 assert(!html.includes("CARD_RETRACTION_SCROLL_IDLE_MS"), "card retraction must not wait indefinitely for continuous scrolling to stop");
 const viewportRetractionSource = html.match(/function collapseCardsOutsideActiveViewport\(\)\{[\s\S]*?(?=\nfunction buildEventCard)/)?.[0] || "";
 assert(viewportRetractionSource.includes("replaceCollapsedCardsInPlace(collapsingCards)") && !viewportRetractionSource.includes("renderCurrentSection()"), "scroll retraction must replace only collapsed cards instead of rebuilding the whole feed");
+assert(viewportRetractionSource.includes("retainCollapsedCardSpace(retractionAnchor, replacementCards)") && !viewportRetractionSource.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "active-scroll retraction must preserve lower-card geometry without a mid-gesture scroll correction");
+assert(html.includes("function clearPendingCardRetractionSpace()") && html.includes("scheduleCardRetractionSpaceCleanup()"), "temporary retraction space must be removed after scrolling settles");
 assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
@@ -623,6 +625,7 @@ globalThis.__test = {
   collapseAllCardStates,
   isCardActivelyViewed,
   scrollOffsetToPreserveAnchor,
+  cardRetractionSpaceForHeights,
   getFilteredEvents,
   getPreferenceMatchedEvents,
   getEventAction,
@@ -1325,6 +1328,7 @@ assert.equal(app.isCardActivelyViewed({ top: 699, bottom: 900, height: 201 }, 10
 assert.equal(app.isCardActivelyViewed({ top: 700, bottom: 900, height: 200 }, 100, 700), false, "a card may retract once it has completely left below the active viewport");
 assert.equal(app.isCardActivelyViewed({ top: -400, bottom: 30, height: 430 }, 100, 700), false, "a card scrolled above the active viewport must retract");
 assert.equal(app.scrollOffsetToPreserveAnchor(330, -210), -540, "retraction above the viewport must offset the removed height rather than jump the feed");
+assert.equal(app.cardRetractionSpaceForHeights(727.25, 198.265625), 528.984375, "collapsed cards must retain their removed height while a downward scroll is active");
 assert.equal(app.collapseCardStates([pastB.eventId]), true, "scroll retraction must clear the expanded card state");
 assert.equal(app.cardStateForEvent(pastB), "compact", "a retracted card must return to compact");
 assert.equal(app.isSpoilerVisible(pastA), false, "PAST events must be spoiler-protected by default");
