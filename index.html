@@ -8,6 +8,7 @@
 <meta name="description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
 <meta name="application-name" content="nothingsport">
 <meta name="apple-mobile-web-app-title" content="nothingsport">
+<meta name="app-shell-version" content="60">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -9126,9 +9127,11 @@ bootstrapServerPersistence().then(() => refreshRemoteFeed({ quiet: true })).fina
 });
 if ("serviceWorker" in navigator){
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js").catch(err => {
-      console.warn("Service worker registration failed", err);
-    });
+    navigator.serviceWorker.register("/service-worker.js")
+      .then(registration => registration.update())
+      .catch(err => {
+        console.warn("Service worker registration failed", err);
+      });
   });
 }
 

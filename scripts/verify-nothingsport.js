@@ -211,7 +211,14 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v59"'), "interaction changes must advance the served shell cache");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v60"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="60">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
+assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
+assert(serviceWorkerSource.includes('key.startsWith("nothingsport-shell-") && key !== CACHE_NAME'), "the worker must distinguish an upgrade from a first install");
+assert(serviceWorkerSource.includes('self.clients.matchAll({ type: "window", includeUncontrolled: true })'), "an updated worker must find already-open home-screen app windows");
+assert(serviceWorkerSource.includes("client.navigate(client.url)"), "an updated worker must reload already-open home-screen app windows");
+assert(html.includes("registration.update()"), "the installed app must check for a new worker whenever it launches");
 assert(html.includes("4/5 and 5/5 editorial picks appear in Feed even when you do not follow their sport or broadcaster."), "Sports Followed must explain the editorial must-show override");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
