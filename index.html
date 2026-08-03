@@ -7312,16 +7312,15 @@ setInterval(() => {
   renderCurrentSection(true);
 }, 30000);
 
-const CARD_RETRACTION_SCROLL_IDLE_MS = 120;
-let cardRetractionTimer = null;
-function scheduleCardRetractionAfterScroll(){
-  if (cardRetractionTimer !== null) window.clearTimeout(cardRetractionTimer);
-  cardRetractionTimer = window.setTimeout(() => {
-    cardRetractionTimer = null;
-    window.requestAnimationFrame(collapseCardsOutsideActiveViewport);
-  }, CARD_RETRACTION_SCROLL_IDLE_MS);
+let cardRetractionFrame = null;
+function scheduleCardRetractionDuringScroll(){
+  if (cardRetractionFrame !== null) return;
+  cardRetractionFrame = window.requestAnimationFrame(() => {
+    cardRetractionFrame = null;
+    collapseCardsOutsideActiveViewport();
+  });
 }
-window.addEventListener("scroll", scheduleCardRetractionAfterScroll, { passive: true });
+window.addEventListener("scroll", scheduleCardRetractionDuringScroll, { passive: true });
 
 /* ============ TABS / VIEW SWITCHING ============ */
 document.getElementById("feedFilterVisibilityBtn").addEventListener("click", () => {
