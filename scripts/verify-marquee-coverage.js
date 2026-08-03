@@ -33,6 +33,9 @@ for (const expected of policy.events) {
   for (const field of ["key", "name", "date", "time", "sourceUrl"]) {
     if (event[field] !== expected[field]) failures.push(`${expected.id}: ${field} must be ${JSON.stringify(expected[field])}`);
   }
+  if (expected.surfacePinnedUntil && event.surfacePinnedUntil !== expected.surfacePinnedUntil) {
+    failures.push(`${expected.id}: surfacePinnedUntil must be ${JSON.stringify(expected.surfacePinnedUntil)}`);
+  }
   const actualParticipants = normalizedParticipants(event);
   const requiredParticipants = expected.participants.map(value => value.toLocaleLowerCase("en")).sort();
   if (JSON.stringify(actualParticipants) !== JSON.stringify(requiredParticipants)) {

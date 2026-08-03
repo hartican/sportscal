@@ -2,6 +2,23 @@
   "schemaVersion": "sportscal.editorial-previews.v1",
   "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
   "events": {
+    "cricket-australia-bangladesh-first-test-2026": {
+      "selectedSentence": "Test cricket returns to the Northern Territory for the first time since 2004 as Australia opens a two-Test Top End series against Bangladesh.",
+      "fullSpiel": "Darwin hosts the first Test from 13 August before the series moves to Mackay. Marrara's return ends a 22-year wait for Test cricket in the Northern Territory, while Mackay is set to become Australia's 12th Test venue.",
+      "sourceName": "Cricket Australia 2026 international schedule",
+      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+      "sourceCheckedAt": "2026-08-03T04:58:28Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "A historic Top End return gives the Bangladesh series opener significance beyond the result.",
+        "contextSignals": ["venue-history", "series-opener", "new-test-venue"],
+        "sourceName": "Cricket Australia 2026 international schedule",
+        "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+        "sourceCheckedAt": "2026-08-03T04:58:28Z",
+        "needsPreviewRefresh": false
+      }
+    },
     "fifa-third-place-2026": {
       "selectedSentence": "Redemption has a Golden Boot edge: Mbappé chases Messi while England try to turn semifinal pain into a podium finish.",
       "fullSpiel": "France and England arrive bruised but with something tangible left to win. Mbappé starts on eight tournament goals, while Kane and Bellingham sit on six; England are also chasing their first bronze-medal win after defeats in 1990 and 2018.",

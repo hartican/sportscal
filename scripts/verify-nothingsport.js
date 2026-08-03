@@ -1065,6 +1065,36 @@ assert.deepEqual(
   ["seen-marquee", "new-lower-importance"],
   "seen items must return to importance ordering"
 );
+const seenRecentAustralianMarquee = {
+  ...eventFromReference("seen-recent-australian-marquee", rankingReference, -20, 5, "Kayo Freebies", 5),
+  status: "completed",
+  australianInterest: true,
+  surfacePinnedUntil: new Date(rankingReference.getTime() + 24 * 3600 * 1000).toISOString(),
+};
+const regularNewCard = eventFromReference("regular-new-card", rankingReference, 1, 5, "SBS On Demand", 5);
+app.setEvents([regularNewCard, seenRecentAustralianMarquee]);
+app.setSurfacePresentation({
+  [app.surfacePresentationKey(regularNewCard)]: {
+    firstSurfacedAt: new Date(rankingReference.getTime() - 30 * 60 * 1000).toISOString(),
+    seenAt: null,
+  },
+  [app.surfacePresentationKey(seenRecentAustralianMarquee)]: {
+    firstSurfacedAt: new Date(rankingReference.getTime() - 2 * 24 * 3600 * 1000).toISOString(),
+    seenAt: new Date(rankingReference.getTime() - 60 * 60 * 1000).toISOString(),
+  },
+});
+assert.deepEqual(
+  Array.from(app.partitionSurfacedEvents([regularNewCard, seenRecentAustralianMarquee], { reference: rankingReference }).newItems, ev => ev.id),
+  ["seen-recent-australian-marquee", "regular-new-card"],
+  "a seen recent Australian marquee card must remain first above the initial Today jump until its explicit pin expires"
+);
+assert.deepEqual(
+  Array.from(app.partitionSurfacedEvents([seenRecentAustralianMarquee], {
+    reference: new Date(rankingReference.getTime() + 25 * 3600 * 1000),
+  }).seenItems, ev => ev.id),
+  ["seen-recent-australian-marquee"],
+  "an Australian marquee card must return to its chronological date group after its explicit pin expires"
+);
 const tieBreakEvents = [
   eventFromReference("later-high-intensity", rankingReference, 6, 4, "Stan Sport", 5),
   eventFromReference("earlier-low-intensity", rankingReference, 5, 4, "Stan Sport", 3),

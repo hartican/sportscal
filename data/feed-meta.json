@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-marquee-repair-2026-08-02-v1",
+  "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-02T12:44:42.769Z",
+  "publishedAt": "2026-08-03T05:13:05.309Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -22,7 +22,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-08-02",
+    "basisDate": "2026-08-03",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -30,7 +30,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-03-20",
-    "daysAhead": 230,
+    "daysAhead": 229,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {

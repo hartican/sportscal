@@ -1,68 +1,27 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-02T12:44:43.852Z",
+  "generatedAt": "2026-08-03T05:13:06.067Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 4,
-    "passed": 4,
+    "due": 1,
+    "passed": 1,
     "failed": 0
   },
   "cards": [
     {
-      "id": "cwg-glasgow-2026-bowls-medal-finals",
-      "name": "Bowls and Para Bowls — medal finals",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-02",
+      "id": "cricket-australia-bangladesh-first-test-2026",
+      "name": "Australia v Bangladesh — First Test",
+      "sport": "Cricket",
+      "date": "2026-08-13",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "Men's pairs, women's singles and para pairs medals are all decided.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
+        "venue-history",
+        "series-opener",
+        "new-test-venue"
       ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "issues": []
-    },
-    {
-      "id": "cwg-glasgow-2026-netball-jamaica-new-zealand-gold",
-      "name": "Netball — Jamaica v New Zealand gold medal",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-02",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "Jamaica defeated Australia by one goal in the second semifinal.",
-        "New Zealand defeated England by seven goals in the first semifinal."
-      ],
-      "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/",
-      "issues": []
-    },
-    {
-      "id": "cwg-glasgow-2026-cycling-closing-finals",
-      "name": "Track Cycling — closing finals",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-03",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "The last session includes women's keirin and men's 40km points-race finals.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
-      ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
-      "issues": []
-    },
-    {
-      "id": "cwg-glasgow-2026-judo-heavyweight-medals",
-      "name": "Judo — heavyweight medal contests",
-      "sport": "Commonwealth Games",
-      "date": "2026-08-03",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "Women's -78kg and +78kg join men's -100kg and +100kg medal contests.",
-        "Official Glasgow 2026 session timing converted to Sydney time."
-      ],
-      "sourceUrl": "https://resources.cwg-qbr.pulselive.com/qbr-commonwealth-games/document/2026/07/13/8d784373-7f4e-45ba-8f94-3341a0e209da/CWG26-Event-ALL-SPORTS_V15.pdf",
+      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
       "issues": []
     }
   ]

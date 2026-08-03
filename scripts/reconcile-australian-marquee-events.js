@@ -32,6 +32,12 @@ const resultById = Object.freeze({
     recapText: "The Diamonds rebounded from their one-goal semifinal defeat with an 18-goal victory over England in the Glasgow 2026 bronze-medal match.",
     resultLabels: ["Netball bronze medal", "Australia by 18", "Official result"],
   },
+  "cwg-glasgow-2026-netball-jamaica-new-zealand-gold": {
+    score: "Jamaica 48-56 New Zealand",
+    outcomeText: "New Zealand defeated Jamaica 56-48 to win Commonwealth Games netball gold.",
+    recapText: "New Zealand beat Jamaica by eight goals in the Glasgow 2026 gold-medal match to win the Commonwealth title.",
+    resultLabels: ["Netball gold medal", "New Zealand by 8", "Official result"],
+  },
   "aflw-australia-ireland-2026-08-01": {
     score: "Australia 91-41 Ireland",
     outcomeText: "Australia defeated Ireland by 50 points in the inaugural AFLW international representative match.",
@@ -77,6 +83,7 @@ function eventShape(expected) {
     sourceCheckedAt: reviewedAt,
     sourceType: "official",
     lastReviewedAt: reviewedAt,
+    ...(expected.surfacePinnedUntil ? { surfacePinnedUntil: expected.surfacePinnedUntil } : {}),
     replayEligible: true,
     highlightEligible: true,
     briefingEligible: true,
@@ -112,7 +119,7 @@ const replacedIds = new Set([
 const marqueeCards = policy.events.map(eventShape);
 const output = normalizeFeed({
   ...feed,
-  version: "nothingsport-marquee-repair-2026-08-02-v1",
+  version: "nothingsport-marquee-visibility-2026-08-03-v1",
   publishedAt: reviewedAt,
   sourceNote: "Curated cards plus official AFL/NRL fixtures, reconciled with the Australian-marquee policy and source-backed Glasgow 2026 netball finals.",
   events: [

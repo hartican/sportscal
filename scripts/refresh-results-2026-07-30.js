@@ -14,6 +14,8 @@ const latestSourceCheckedAt = "2026-07-30T13:41:01+10:00";
 const latestReviewedAt = "2026-07-30T03:41:01.000Z";
 const currentSourceCheckedAt = "2026-08-02T22:12:18+10:00";
 const currentReviewedAt = "2026-08-02T12:12:18.000Z";
+const finalDaySourceCheckedAt = "2026-08-03T15:07:00+10:00";
+const finalDayReviewedAt = "2026-08-03T05:07:00.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -40,6 +42,15 @@ const currentOfficial = (sourceName, sourceUrl, result) => ({
   sourceCheckedAt: currentSourceCheckedAt,
   sourceType: "official",
   lastReviewedAt: currentReviewedAt,
+});
+
+const finalDayOfficial = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: finalDaySourceCheckedAt,
+  sourceType: "official",
+  lastReviewedAt: finalDayReviewedAt,
 });
 
 const results = {
@@ -714,6 +725,36 @@ const results = {
       outcomeText: "Josh Kerr won the men's mile as Australia closed with the women's mile and men's pole-vault titles.",
       recapText: "Kerr won the revived Commonwealth mile, Abbey Caldwell led an Australian sweep of the women's mile and Kurtis Marschall set a Games record for his third straight pole-vault title.",
       resultLabels: ["Athletics closing finals", "Kerr mile gold", "Australia two closing golds"],
+    }
+  ),
+  "cwg-glasgow-2026-bowls-medal-finals": finalDayOfficial(
+    "Glasgow 2026 official detailed bowls results",
+    "https://www.glasgow2026.com/results/detailed#/h2h-sports-schedule/LBO/2026-08-02",
+    {
+      score: "Australia: Para Women's Pairs gold; Para Men's Pairs gold",
+      outcomeText: "Australia won both B6-B8 para pairs titles in the final bowls session.",
+      recapText: "Australia defeated New Zealand in both the Para Women's Pairs and Para Men's Pairs gold-medal matches. England's Katherine Rednall won the women's singles as four medal programmes closed the bowls competition.",
+      resultLabels: ["Bowls closing finals", "Australia two para golds", "Official result"],
+    }
+  ),
+  "cwg-glasgow-2026-cycling-closing-finals": finalDayOfficial(
+    "Glasgow 2026 official detailed track cycling results",
+    "https://www.glasgow2026.com/results/detailed#/athletic-sports-schedule/CTR/2026-08-02",
+    {
+      score: "Australia: 3 gold, 2 silver, 3 bronze",
+      outcomeText: "Australia won three titles in the final track-cycling programme.",
+      recapText: "Leigh Hoffman won the men's kilometre, Alyssa Polites the women's elimination race and Tara Neyland the women's C4-C5 kilometre for Australia. Emma Finucane won the women's keirin for Wales and Matthew Bostock the men's points race for the Isle of Man.",
+      resultLabels: ["Track cycling closing finals", "Australia three golds", "Official result"],
+    }
+  ),
+  "cwg-glasgow-2026-judo-heavyweight-medals": finalDayOfficial(
+    "Glasgow 2026 official detailed judo results",
+    "https://www.glasgow2026.com/results/detailed#/combat-sports-schedule/JUD/2026-08-02",
+    {
+      score: "Australia: 2 silver medals",
+      outcomeText: "Australia won silver in the women's -78kg and men's +100kg divisions as four heavyweight judo titles were decided.",
+      recapText: "Maria Swan and Kayhan Ozcicek-Takagi took silver for Australia. Emma Reid, Kyle Reyes, Sydnee Andrews and Giannis Antoniou won the four final-day Commonwealth judo titles.",
+      resultLabels: ["Judo heavyweight finals", "Australia two silvers", "Official result"],
     }
   ),
 };

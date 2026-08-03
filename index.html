@@ -5221,12 +5221,16 @@ function surfacePresentationForEvent(ev, reference = nowAEST()){
     && Number.isFinite(ageMs)
     && ageMs >= 0
     && ageMs <= SURFACE_CONFIG.freshnessWindowMs;
+  const surfacePinnedUntilMs = Date.parse(ev.surfacePinnedUntil || "");
+  const isPinned = Number.isFinite(surfacePinnedUntilMs)
+    && referenceMs <= surfacePinnedUntilMs;
   return {
     isNew,
+    isPinned,
     firstSurfacedAt,
     seenAt: saved.seenAt || null,
     auBroadcastWeightScore: auBroadcastWeightScoreForEvent(ev),
-    feedBucket: isNew ? "new" : "seen",
+    feedBucket: isNew ? "new" : isPinned ? "pinned" : "seen",
   };
 }
 
@@ -5252,6 +5256,7 @@ function compareStableEventIds(first, second){
 function compareSurfacedEvents(first, second, { topNine = false, reference = nowAEST() } = {}){
   const firstPresentation = surfacePresentationForEvent(first, reference);
   const secondPresentation = surfacePresentationForEvent(second, reference);
+  if (firstPresentation.isPinned !== secondPresentation.isPinned) return firstPresentation.isPinned ? -1 : 1;
   if (firstPresentation.isNew !== secondPresentation.isNew) return firstPresentation.isNew ? -1 : 1;
   if (topNine){
     const scoreDifference = eventEnrichment(second).mustWatchScore - eventEnrichment(first).mustWatchScore;
@@ -5277,9 +5282,10 @@ function orderSurfacedEvents(events, options = {}){
 
 function partitionSurfacedEvents(events, options = {}){
   const ordered = orderSurfacedEvents(events, options);
+  const presentation = ev => surfacePresentationForEvent(ev, options.reference || nowAEST());
   return {
-    newItems: ordered.filter(ev => surfacePresentationForEvent(ev, options.reference || nowAEST()).isNew),
-    seenItems: ordered.filter(ev => !surfacePresentationForEvent(ev, options.reference || nowAEST()).isNew),
+    newItems: ordered.filter(ev => presentation(ev).isNew || presentation(ev).isPinned),
+    seenItems: ordered.filter(ev => !presentation(ev).isNew && !presentation(ev).isPinned),
   };
 }
 
@@ -6631,9 +6637,10 @@ function appendNewlySurfacedSection(container, events, { mode = "calendar" } = {
   if (!events.length) return false;
   const section = document.createElement("section");
   section.className = "queue-section surfaced-new-section";
-  section.setAttribute("aria-label", "Newly surfaced events");
+  section.id = "calendarPriorityAnchor";
+  section.setAttribute("aria-label", "Events not to miss");
   const heading = document.createElement("h3");
-  heading.textContent = "Newly surfaced";
+  heading.textContent = "Don't miss";
   section.appendChild(heading);
   const grid = document.createElement("div");
   grid.className = "cards-grid";
@@ -6768,6 +6775,20 @@ function activeTodayAnchorId(){
   return "calendarTodayAnchor";
 }
 
+function activeInitialFeedAnchorId(){
+  return document.getElementById("calendarPriorityAnchor")
+    ? "calendarPriorityAnchor"
+    : activeTodayAnchorId();
+}
+
+function scrollActiveFeedToInitialAnchor({ behavior = "auto" } = {}){
+  const anchor = document.getElementById(activeInitialFeedAnchorId());
+  if (!anchor) return false;
+  const top = window.scrollY + anchor.getBoundingClientRect().top - stickyFeedChromeHeight() - 14;
+  window.scrollTo({ top: Math.max(0, top), behavior });
+  return true;
+}
+
 function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
   const anchor = document.getElementById(activeTodayAnchorId());
   if (!anchor) return false;
@@ -6780,7 +6801,7 @@ function scheduleInitialCalendarJump(){
   if (!calendarInitialJumpPending || activeView !== "list") return;
   calendarInitialJumpPending = false;
   window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "auto" }));
+    window.requestAnimationFrame(() => scrollActiveFeedToInitialAnchor({ behavior: "auto" }));
   });
 }
 

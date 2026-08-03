@@ -1,6 +1,6 @@
 {
   "schemaVersion": "australian-marquee-events.v1",
-  "reviewedAt": "2026-08-02T11:55:36Z",
+  "reviewedAt": "2026-08-03T04:58:28Z",
   "policy": {
     "name": "Australian marquee coverage",
     "description": "Require one card per confirmed Australian national or representative match, every medal or elimination match involving Australia, and every resolved match represented by an existing selected-tournament finals placeholder.",
@@ -31,6 +31,7 @@
       "participants": ["Australia", "Jamaica"],
       "coverageReason": "Australian elimination match",
       "resultRequiredAfter": "2026-08-01T16:00:00Z",
+      "surfacePinnedUntil": "2026-08-04T16:00:00Z",
       "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/"
     },
     {
@@ -42,6 +43,7 @@
       "participants": ["Australia", "England"],
       "coverageReason": "Australian medal match",
       "resultRequiredAfter": "2026-08-02T12:00:00Z",
+      "surfacePinnedUntil": "2026-08-05T12:00:00Z",
       "sourceUrl": "https://netball.sport/events-and-results/commonwealth-games/"
     },
     {
@@ -64,6 +66,7 @@
       "participants": ["Australia", "Ireland"],
       "coverageReason": "Australian national representative match",
       "resultRequiredAfter": "2026-08-01T09:15:00Z",
+      "surfacePinnedUntil": "2026-08-04T09:15:00Z",
       "sourceUrl": "https://www.afl.com.au/aflw/news/1573333/match-report-australia-v-ireland"
     }
   ]
