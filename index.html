@@ -6239,6 +6239,12 @@ function cardRetractionSpaceForHeights(previousHeight, compactHeight){
   return Math.max(0, Number(previousHeight || 0) - Number(compactHeight || 0));
 }
 
+function cardScrollDirection(previousScrollY, currentScrollY){
+  if (currentScrollY < previousScrollY) return "up";
+  if (currentScrollY > previousScrollY) return "down";
+  return "still";
+}
+
 function retainCollapsedCardSpace(retractionAnchor, replacementCards){
   if (!retractionAnchor) return false;
   const retainedCards = replacementCards.filter(({ preserveSpace }) => preserveSpace);
@@ -7374,8 +7380,16 @@ setInterval(() => {
 }, 30000);
 
 let cardRetractionFrame = null;
+let lastCardRetractionScrollY = window.scrollY;
 function scheduleCardRetractionDuringScroll(){
-  scheduleCardRetractionSpaceCleanup();
+  const currentScrollY = window.scrollY;
+  const scrollDirection = cardScrollDirection(lastCardRetractionScrollY, currentScrollY);
+  lastCardRetractionScrollY = currentScrollY;
+  if (scrollDirection === "up" && pendingCardRetractionSpaceCards.size){
+    clearPendingCardRetractionSpace();
+  } else {
+    scheduleCardRetractionSpaceCleanup();
+  }
   if (cardRetractionFrame !== null) return;
   cardRetractionFrame = window.requestAnimationFrame(() => {
     cardRetractionFrame = null;
