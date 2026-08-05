@@ -10,12 +10,65 @@ const {
   spoilerSafeRootCopy,
   storylineFor,
 } = require("./lib/storyline-card-rules");
+const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
 
-const SPORT_DETAILS = Object.freeze({
-  "sport:afl": Object.freeze({ key: "afl", label: "AFL" }),
-  "sport:nrl": Object.freeze({ key: "nrl", label: "NRL" }),
-});
 const DEFAULT_LIVE_WINDOW_MS = 3 * 60 * 60 * 1000;
+
+function sanitizeSportKey(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9._-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function deriveSportDomainLabel(value, fallback) {
+  return String(value || fallback || "").trim() || fallback || "Sport";
+}
+
+function buildTaxonomySportDetails() {
+  const details = new Map();
+  (canonicalSportsTaxonomy?.sportDomains || []).forEach(domain => {
+    if (!domain?.id) return;
+    details.set(domain.id, {
+      key: sanitizeSportKey(domain.slug || domain.id),
+      label: deriveSportDomainLabel(domain.name, domain.slug || domain.id),
+    });
+  });
+  (canonicalSportsTaxonomy?.specialEventDomains || []).forEach(domain => {
+    if (!domain?.id) return;
+    const label = deriveSportDomainLabel(domain.name, domain.id);
+    const key = sanitizeSportKey((domain.canonicalSportKeys || [])[0] || domain.slug || label);
+    details.set(domain.id, { key, label });
+  });
+  return details;
+}
+
+const TAXONOMY_SPORT_DETAILS = buildTaxonomySportDetails();
+
+function buildSportDetails(canonicalBundle) {
+  const details = new Map();
+  (canonicalBundle?.sportDomains || []).forEach(domain => {
+    if (!domain?.id) return;
+    const key = sanitizeSportKey(domain.slug || domain.id);
+    details.set(domain.id, {
+      key,
+      label: deriveSportDomainLabel(domain.name, domain.slug || key),
+    });
+  });
+  TAXONOMY_SPORT_DETAILS.forEach((item, domainId) => {
+    if (!details.has(domainId)) details.set(domainId, item);
+  });
+  return details;
+}
+
+function getSportDetailsForFixture(fixture, sportDetailsByDomainId) {
+  return sportDetailsByDomainId.get(fixture.sportDomainId)
+    || {
+      key: sanitizeSportKey(fixture.sportDomainId),
+      label: deriveSportDomainLabel(fixture.sportDomainId, "Sport"),
+    };
+}
 
 function fixtureTokens(value){
   return new Set(String(value || "")
@@ -62,9 +115,9 @@ function sydneyDateTime(startTimeUtc){
   };
 }
 
-function isSameFixture(card, fixture){
-  const sport = SPORT_DETAILS[fixture.sportDomainId];
-  if (!sport || card.key !== sport.key) return false;
+function isSameFixture(card, fixture, sportDetailsByDomainId){
+  const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
+  if (card.key && card.key !== sport.key) return false;
   if (card.canonicalEventId === fixture.id) return true;
   if (card.startTimeUtc && Math.abs(Date.parse(card.startTimeUtc) - Date.parse(fixture.startTimeUtc)) < 5 * 60 * 1000) {
     return true;
@@ -187,8 +240,8 @@ function applyCompletedCanonicalResult(card, fixture, participantsById){
   return normalizeCompletedStoryline(next);
 }
 
-function fixtureToCard(fixture, participantsById){
-  const sport = SPORT_DETAILS[fixture.sportDomainId];
+function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
+  const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
   const { date, time } = sydneyDateTime(fixture.startTimeUtc);
   const broadcastOptions = fixture.broadcasters.map(item => item.broadcasterName);
   const venue = [fixture.venueName, fixture.venueCity].filter(Boolean).join(", ") || null;
@@ -232,19 +285,20 @@ function fixtureToCard(fixture, participantsById){
 }
 
 function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
+  const sportDetailsByDomainId = buildSportDetails(canonicalBundle);
   const publishedAt = options.publishedAt || new Date().toISOString();
   const basisTime = Date.parse(publishedAt);
   const participantsById = new Map(canonicalBundle.participants.map(item => [item.id, item]));
   const canonicalById = new Map(canonicalBundle.events.map(event => [event.id, event]));
   const fixtures = canonicalBundle.events.filter(event =>
-    SPORT_DETAILS[event.sportDomainId]
+    sportDetailsByDomainId.has(event.sportDomainId)
     && event.status === "scheduled"
     && event.startTimeUtc
     && Date.parse(event.startTimeUtc) + DEFAULT_LIVE_WINDOW_MS >= basisTime
   );
   const activeFixtureIds = new Set(fixtures.map(event => event.id));
   const scheduledCanonicalIds = new Set(canonicalBundle.events
-    .filter(event => SPORT_DETAILS[event.sportDomainId] && event.status === "scheduled")
+    .filter(event => sportDetailsByDomainId.has(event.sportDomainId) && event.status === "scheduled")
     .map(event => event.id));
   const currentFeedEvents = feed.events.filter(card =>
     card.narrativeType !== "regular-season-fixture"
@@ -260,25 +314,31 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       if (next.status === "completed" && card.status !== "completed") completedResultsUpdated += 1;
       return next;
     }
-    const fixture = fixtures.find(candidate => !matchedCanonicalIds.has(candidate.id) && isSameFixture(card, candidate));
+    const fixture = fixtures.find(candidate => {
+      if (matchedCanonicalIds.has(candidate.id)) return false;
+      return isSameFixture(card, candidate, sportDetailsByDomainId);
+    });
     if (!fixture) return card;
     matchedCanonicalIds.add(fixture.id);
+    const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
     return {
       ...card,
       participants: card.participants || participantRefs(fixture, participantsById),
+      sport: sport.label,
+      key: sport.key,
       ...canonicalMetadata(fixture),
     };
   });
   const generatedEvents = fixtures
     .filter(fixture => !matchedCanonicalIds.has(fixture.id))
-    .map(fixture => fixtureToCard(fixture, participantsById));
+    .map(fixture => fixtureToCard(fixture, participantsById, sportDetailsByDomainId));
   const events = [...preservedEvents, ...generatedEvents]
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
   const output = normalizeFeed({
     ...feed,
     version: options.version || feed.version || "nothingsport-afl-nrl-fixtures-2026-v1",
     publishedAt,
-    sourceNote: options.sourceNote || feed.sourceNote || "Curated event cards plus official confirmed 2026 AFL and NRL regular-season fixtures. Curated cards supersede routine imports for the same event.",
+    sourceNote: options.sourceNote || feed.sourceNote || "Curated event cards plus official confirmed 2026 routine fixtures. Curated cards supersede routine imports for the same event.",
     events,
   });
 
@@ -288,9 +348,12 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       eligible: fixtures.length,
       existingMatches: matchedCanonicalIds.size,
       generated: generatedEvents.length,
-      afl: output.events.filter(event => event.key === "afl").length,
-      nrl: output.events.filter(event => event.key === "nrl").length,
+      byKey: output.events.reduce((acc, event) => {
+        if (event.key) acc[event.key] = (acc[event.key] || 0) + 1;
+        return acc;
+      }, {}),
       completedResultsUpdated,
+      supportedSportDomains: Array.from(sportDetailsByDomainId.keys()),
     },
   };
 }
@@ -311,7 +374,11 @@ function main(){
   writeJson(outputPath, output);
   console.log(`Synced ${summary.eligible} confirmed scheduled fixtures: ${summary.existingMatches} existing cards retained, ${summary.generated} routine cards added.`);
   console.log(`Projected ${summary.completedResultsUpdated} newly completed canonical results into existing cards.`);
-  console.log(`Feed totals: AFL ${summary.afl}; NRL ${summary.nrl}; all sports ${output.events.length}.`);
+  const keyTotals = Object.entries(summary.byKey)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([key, count]) => `${key}:${count}`)
+    .join(", ");
+  console.log(`Feed totals: ${keyTotals || "none"}; all sports ${output.events.length}.`);
   console.log(outputPath);
 }
 

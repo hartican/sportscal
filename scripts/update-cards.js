@@ -2,6 +2,19 @@
 
 const { spawnSync } = require("child_process");
 
+function runStep(args) {
+  const command = args[0];
+  const isNodeScript = command.endsWith(".js");
+  const runner = isNodeScript ? process.execPath : command;
+  const commandArgs = isNodeScript ? args : args.slice(1);
+  const commandLabel = isNodeScript ? `node ${args.join(" ")}` : args.join(" ");
+  const display = commandLabel || command;
+
+  console.log(`\n> ${display}`);
+  const result = spawnSync(runner, commandArgs, { stdio: "inherit" });
+  if (result.status !== 0) process.exit(result.status || 1);
+}
+
 const steps = [
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/validate-canonical-sports.js"],
@@ -33,9 +46,7 @@ const steps = [
 ];
 
 for (const args of steps) {
-  console.log(`\n> node ${args.join(" ")}`);
-  const result = spawnSync(process.execPath, args, { stdio: "inherit" });
-  if (result.status !== 0) process.exit(result.status || 1);
+  runStep(args);
 }
 
 console.log("\nCards, ladders and standings update complete: canonical ranking data refreshed and validated, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.");

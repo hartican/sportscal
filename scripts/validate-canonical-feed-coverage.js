@@ -2,6 +2,7 @@
 
 const assert = require("assert/strict");
 const { readJson } = require("./lib/feed-utils");
+const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
 
 const canonicalPath = process.argv[2] || "data/canonical/afl-nrl-2026.json";
 const feedPath = process.argv[3] || "data/events.json";
@@ -10,8 +11,35 @@ const feed = readJson(feedPath);
 const canonicalById = new Map(canonical.events.map(event => [event.id, event]));
 const basisTime = Date.parse(feed.publishedAt);
 const liveWindowMs = 3 * 60 * 60 * 1000;
+const canonicalDomainIndex = new Map(canonical.sportDomains.map(item => [item.id, item]));
+
+canonicalSportsTaxonomy?.sportDomains?.forEach(item => {
+  if (item?.id && !canonicalDomainIndex.has(item.id)) canonicalDomainIndex.set(item.id, item);
+});
+canonicalSportsTaxonomy?.specialEventDomains?.forEach(item => {
+  if (item?.id && !canonicalDomainIndex.has(item.id)) {
+    canonicalDomainIndex.set(item.id, {
+      id: item.id,
+      slug: item.canonicalSportKeys?.[0],
+      name: item.name,
+    });
+  }
+});
+
+const canonicalDomainIds = new Set(canonicalDomainIndex.keys());
+
+function isCanonicalFixtureDomain(sportDomainId){
+  return canonicalDomainIds.has(sportDomainId);
+}
+
+const scheduledCanonicalIds = new Set(
+  canonical.events
+    .filter(event => isCanonicalFixtureDomain(event.sportDomainId) && event.status === "scheduled")
+    .map(event => event.id),
+);
+
 const eligible = canonical.events.filter(event =>
-  ["sport:afl", "sport:nrl"].includes(event.sportDomainId)
+  isCanonicalFixtureDomain(event.sportDomainId)
   && event.status === "scheduled"
   && event.startTimeUtc
   && Date.parse(event.startTimeUtc) + liveWindowMs >= basisTime
@@ -61,11 +89,16 @@ const counts = publishedCards.reduce((result, event) => {
   return result;
 }, {});
 const tbcCount = canonical.events.filter(event =>
-  ["sport:afl", "sport:nrl"].includes(event.sportDomainId)
+  isCanonicalFixtureDomain(event.sportDomainId)
   && event.status === "scheduled"
   && !event.startTimeUtc
 ).length;
 
-console.log(`Canonical feed coverage valid: AFL ${counts.afl || 0}; NRL ${counts.nrl || 0}; ${publishedCards.length} confirmed scheduled cards.`);
-console.log(`${completedLinkedCards.length} linked completed AFL/NRL cards retain source-backed results.`);
+const keyTotals = Object.entries(counts)
+  .sort(([left], [right]) => left.localeCompare(right))
+  .map(([key, count]) => `${key}:${count}`)
+  .join(", ");
+
+console.log(`Canonical feed coverage valid: ${keyTotals || "no confirmed scheduled cards"}; ${publishedCards.length} confirmed scheduled cards.`);
+console.log(`${completedLinkedCards.length} linked completed cards retain source-backed results.`);
 console.log(`${tbcCount} official fixtures remain excluded until their start times are confirmed.`);
