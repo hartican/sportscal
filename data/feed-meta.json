@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-05T23:18:00.262Z",
+  "publishedAt": "2026-08-05T23:47:39.542Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -17,7 +17,14 @@
     "afl",
     "cwg",
     "cricket",
-    "ski"
+    "skateboard",
+    "wsl",
+    "downhill-mtb",
+    "telemark",
+    "rally",
+    "big-wave",
+    "ski",
+    "goodwood"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -29,8 +36,8 @@
     },
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
-    "lastEventDate": "2027-03-20",
-    "daysAhead": 227,
+    "lastEventDate": "2027-07-10",
+    "daysAhead": 339,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {
@@ -98,10 +105,45 @@
         "firstEventDate": "2026-08-13",
         "lastEventDate": "2027-01-02"
       },
+      "skateboard": {
+        "count": 1,
+        "firstEventDate": "2026-09-11",
+        "lastEventDate": "2026-09-11"
+      },
+      "wsl": {
+        "count": 1,
+        "firstEventDate": "2026-10-02",
+        "lastEventDate": "2026-10-02"
+      },
+      "downhill-mtb": {
+        "count": 1,
+        "firstEventDate": "2026-11-05",
+        "lastEventDate": "2026-11-05"
+      },
+      "telemark": {
+        "count": 1,
+        "firstEventDate": "2026-11-20",
+        "lastEventDate": "2026-11-20"
+      },
+      "rally": {
+        "count": 2,
+        "firstEventDate": "2026-12-20",
+        "lastEventDate": "2027-06-17"
+      },
+      "big-wave": {
+        "count": 2,
+        "firstEventDate": "2027-01-22",
+        "lastEventDate": "2027-02-07"
+      },
       "ski": {
         "count": 4,
         "firstEventDate": "2027-03-06",
         "lastEventDate": "2027-03-20"
+      },
+      "goodwood": {
+        "count": 1,
+        "firstEventDate": "2027-07-10",
+        "lastEventDate": "2027-07-10"
       }
     }
   }
