@@ -16,7 +16,8 @@
   },
   "$defs": {
     "sportKey": {
-      "enum": ["wimbledon", "rugby", "fifa", "f1", "tdf", "nrl", "afl", "cricket", "nba", "masters", "lemans", "nfl", "ski", "cwg"]
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
     },
     "calendarEvent": {
       "type": "object",

@@ -419,8 +419,20 @@ const confirmedScheduledCanonicalFixtures = canonicalSports.events.filter(event 
     assert(canonicalIds.includes(event.id), `${feed === incomingFeed ? "incoming" : "published"} feed must contain ${event.id}`);
   });
 });
-assert(eventFeedSchema.$defs.event.properties.key.enum.includes("cwg"), "published feeds must accept Commonwealth Games canonical events");
-assert(calendarEventSchema.$defs.sportKey.enum.includes("cwg"), "calendar imports must accept Commonwealth Games canonical events");
+const eventKeySchema = eventFeedSchema?.$defs?.event?.properties?.key || {};
+const calendarSportKeySchema = calendarEventSchema?.$defs?.sportKey || {};
+if (Array.isArray(eventKeySchema.enum)) {
+  assert(eventKeySchema.enum.includes("cwg"), "published feeds must accept Commonwealth Games canonical events");
+} else {
+  assert.equal(eventKeySchema.type, "string", "published feed sport keys must remain string-based");
+  assert((eventKeySchema.pattern || "").includes("^[a-z0-9]"), "published feed sport keys must remain slug-style");
+}
+if (Array.isArray(calendarSportKeySchema.enum)) {
+  assert(calendarSportKeySchema.enum.includes("cwg"), "calendar imports must accept Commonwealth Games canonical events");
+} else {
+  assert.equal(calendarSportKeySchema.type, "string", "calendar import sport keys must remain string-based");
+  assert((calendarSportKeySchema.pattern || "").includes("^[a-z0-9]"), "calendar import sport keys must remain slug-style");
+}
 assert.equal(classifyCalendarEvent({ title: "Commonwealth Games Rugby Sevens Final" }).key, "cwg", "Commonwealth Games tagging must win before its underlying sport classification");
 assert.equal(classifyCommonwealthDiscipline("Commonwealth Games Rugby Sevens Final"), "rugby-sevens", "Commonwealth discipline mapping must be deterministic");
 assert.equal(classifyCommonwealthDiscipline("Commonwealth Games Badminton Final"), "miscellaneous", "unlisted Commonwealth disciplines must map to Miscellaneous");

@@ -8,22 +8,56 @@ const {
   writeJson,
 } = require("./lib/feed-utils");
 
-const SPORT_META = {
-  wimbledon: { sport: "Tennis", label: "Tennis" },
-  rugby: { sport: "Rugby Union", label: "Rugby Union" },
-  fifa: { sport: "Football", label: "Football" },
-  f1: { sport: "F1", label: "F1" },
-  tdf: { sport: "Cycling", label: "Cycling" },
-  nrl: { sport: "Rugby League", label: "Rugby League" },
-  afl: { sport: "AFL", label: "AFL" },
-  cricket: { sport: "Cricket", label: "Cricket" },
-  nba: { sport: "NBA", label: "NBA" },
-  masters: { sport: "Golf", label: "Golf" },
-  lemans: { sport: "Le Mans", label: "Le Mans" },
-  nfl: { sport: "NFL", label: "NFL" },
-  ski: { sport: "Ski/Alpine", label: "Ski/Alpine" },
-  cwg: { sport: "Commonwealth Games", label: "Commonwealth Games" },
-};
+const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
+
+const SPORT_META = (() => {
+  const derivedSportMeta = Object.create(null);
+
+  (canonicalSportsTaxonomy?.sportDomains || []).forEach(domain => {
+    if (!domain?.slug) return;
+    derivedSportMeta[domain.slug] = {
+      sport: domain.name || domain.slug,
+      label: domain.name || domain.slug,
+    };
+  });
+
+  (canonicalSportsTaxonomy?.specialEventDomains || []).forEach(domain => {
+    const label = domain?.name || domain?.id || "";
+    (domain?.canonicalSportKeys || []).forEach(key => {
+      if (!key) return;
+      derivedSportMeta[key] = {
+        sport: label || key,
+        label: label || key,
+      };
+    });
+  });
+
+  return Object.freeze({
+    wimbledon: { sport: "Tennis", label: "Tennis" },
+    rugby: { sport: "Rugby Union", label: "Rugby Union" },
+    fifa: { sport: "Football", label: "Football" },
+    f1: { sport: "F1", label: "F1" },
+    cycling: { sport: "Cycling", label: "Cycling" },
+    tdf: { sport: "Cycling", label: "Cycling" },
+    rally: { sport: "Rally", label: "Rally" },
+    goodwood: { sport: "Goodwood Festival of Speed", label: "Goodwood Festival of Speed" },
+    skateboard: { sport: "Skateboarding", label: "Skateboarding" },
+    "downhill-mtb": { sport: "Downhill MTB", label: "Downhill MTB" },
+    wsl: { sport: "Surfing", label: "Surfing" },
+    "big-wave": { sport: "Big-wave Surfing", label: "Surfing" },
+    telemark: { sport: "Telemark", label: "Telemark" },
+    nrl: { sport: "Rugby League", label: "Rugby League" },
+    afl: { sport: "AFL", label: "AFL" },
+    cricket: { sport: "Cricket", label: "Cricket" },
+    nba: { sport: "NBA", label: "NBA" },
+    masters: { sport: "Golf", label: "Golf" },
+    lemans: { sport: "Le Mans", label: "Le Mans" },
+    nfl: { sport: "NFL", label: "NFL" },
+    ski: { sport: "Ski/Alpine", label: "Ski/Alpine" },
+    cwg: { sport: "Commonwealth Games", label: "Commonwealth Games" },
+    ...derivedSportMeta,
+  });
+})();
 
 // First match wins. Keep this list ordered and versioned: it is the deterministic
 // fallback when a calendar record does not state sportKey explicitly.
@@ -34,8 +68,16 @@ const SPORT_RULES = [
   { id: "rugby.union", key: "rugby", pattern: /\b(rugby union|wallabies|brumbies|super rugby|bledisloe|six nations)\b/i },
   { id: "cricket", key: "cricket", pattern: /\b(cricket|test match|odi|one day international|t20)\b/i },
   { id: "tennis", key: "wimbledon", pattern: /\b(tennis|australian open|roland garros|french open|wimbledon|us open)\b/i },
+  { id: "rally", key: "rally", pattern: /\b(paris[- ]dakar|wrc|rally|rally-raid)\b/i },
+  { id: "goodwood", key: "goodwood", pattern: /\b(goodwood|festival of speed)\b/i },
+  { id: "downhill-mtb", key: "downhill-mtb", pattern: /\b(downhill|downhill mtb|mountain bike|dh)\b/i },
+  { id: "skateboard", key: "skateboard", pattern: /\b(skateboard|skateboarding|x games|xgames)\b/i },
+  { id: "big-wave", key: "big-wave", pattern: /\b(nazar[eé]|pipe masters|mavericks|big wave|big-wave)\b/i },
+  { id: "wsl", key: "wsl", pattern: /\b(world surf league|wsl|surf)\b/i },
+  { id: "telemark", key: "telemark", pattern: /\btelemark\b/i },
   { id: "formula-one", key: "f1", pattern: /\b(formula 1|formula one|f1|grand prix)\b/i },
-  { id: "cycling", key: "tdf", pattern: /\b(cycling|tour de france|giro d['’]italia|la vuelta|vuelta)\b/i },
+  { id: "tour-de-france", key: "tdf", pattern: /\b(grand tour|tour de france|giro d['’]italia|la vuelta|vuelta)\b/i },
+  { id: "cycling", key: "cycling", pattern: /\b(cycling|bmx|bike|mountain bike|road race|criterium|road cycling)\b/i },
   { id: "golf", key: "masters", pattern: /\b(golf|pga|lpga|masters tournament)\b/i },
   { id: "football", key: "fifa", pattern: /\b(football|soccer|fifa|world cup)\b/i },
   { id: "basketball", key: "nba", pattern: /\b(nba|basketball)\b/i },

@@ -1,23 +1,46 @@
 const fs = require("fs");
 const path = require("path");
 const { spoilerContractIssues } = require("./storyline-card-rules");
+const canonicalSportsTaxonomy = require(path.resolve(__dirname, "../../config/canonical-sports-taxonomy.js"));
 
-const SPORT_KEYS = new Set([
+const LEGACY_SPORT_KEYS = new Set([
   "wimbledon",
   "rugby",
   "fifa",
   "f1",
+  "rally",
+  "goodwood",
+  "cycling",
   "tdf",
+  "skateboard",
+  "downhill-mtb",
+  "wsl",
+  "big-wave",
   "nrl",
   "afl",
   "cricket",
   "nba",
   "masters",
+  "telemark",
   "lemans",
   "nfl",
   "ski",
   "cwg",
 ]);
+const SPORT_KEYS = new Set(LEGACY_SPORT_KEYS);
+
+function mergeCanonicalSportKeys() {
+  if (!canonicalSportsTaxonomy?.sportDomains) return;
+  canonicalSportsTaxonomy.sportDomains.forEach(domain => {
+    if (domain?.slug) SPORT_KEYS.add(domain.slug);
+  });
+  canonicalSportsTaxonomy.specialEventDomains?.forEach(domain => {
+    (domain?.canonicalSportKeys || []).forEach(key => SPORT_KEYS.add(key));
+  });
+}
+
+mergeCanonicalSportKeys();
+const SPORT_KEY_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;
 
 const ROUNDS = new Set(["all", "early", "knockout", "quarterfinal", "semifinal", "final"]);
 const SOURCE_TYPES = new Set(["official", "broadcaster", "reputable", "personal-calendar"]);
@@ -116,6 +139,7 @@ function validateFeed(feed) {
     required.forEach(field => {
       if (event[field] === undefined || event[field] === null || event[field] === "") errors.push(`${prefix}.${field} is required.`);
     });
+    if (!SPORT_KEY_PATTERN.test(event.key)) errors.push(`${prefix}.key must be a lowercase key (lowercase slug with . _ -).`);
     if (!SPORT_KEYS.has(event.key)) errors.push(`${prefix}.key is not a supported sport key: ${event.key}`);
     if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
     if (!isDate(event.date)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
@@ -300,7 +324,7 @@ function mergeFeedEvents(primaryEvents, retainedEvents) {
 }
 
 function activeSportsFor(feed) {
-  return Array.from(new Set(feed.events.map(event => event.key))).filter(key => SPORT_KEYS.has(key));
+  return Array.from(new Set(feed.events.map(event => event.key)));
 }
 
 function dateOnly(value) {
@@ -322,7 +346,7 @@ function summarizeFeedHorizon(feed, options = {}) {
   const firstEventDate = dates[0] || null;
   const sports = {};
   events.forEach(event => {
-    if (!SPORT_KEYS.has(event.key) || !isDate(event.date)) return;
+    if (!isDate(event.date)) return;
     if (!sports[event.key]) {
       sports[event.key] = {
         count: 0,
