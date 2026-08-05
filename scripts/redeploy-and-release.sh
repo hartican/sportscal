@@ -31,4 +31,19 @@ else
   echo "No staged release files to commit; skipping push."
 fi
 
-vercel --prod --yes
+STAGING_ROOT="$(mktemp -d)"
+cleanup() {
+  rm -rf "$STAGING_ROOT"
+}
+trap cleanup EXIT
+
+rsync -a \
+  --exclude '.git' \
+  --exclude 'planning-sportscal/Archive/supabase_keys.txt' \
+  . \
+  "$STAGING_ROOT"
+
+(
+  cd "$STAGING_ROOT"
+  HOME=/tmp XDG_CACHE_HOME=/tmp VERCEL_SKIP_AUTO_UPDATE=1 vercel --prod --yes
+)
