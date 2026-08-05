@@ -4752,7 +4752,7 @@ function requestFeedRefreshForFilterChange(){
 }
 
 function setActiveFeedFilter(nextFilter, { refresh = true } = {}){
-  const normalizedFilter = FILTER_ORDER.includes(nextFilter) ? nextFilter : "all";
+  const normalizedFilter = feedFilterOptions(userPreferences).includes(nextFilter) ? nextFilter : "all";
   if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
   activeFilter = normalizedFilter;
   collapseAllCardStates();
@@ -5628,6 +5628,99 @@ function stickyFeedChromeHeight(){
   return headerHeight + filterHeight;
 }
 
+function feedFilterCandidateEntities(preferences = userPreferences){
+  const selected = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
+  const candidates = new Set(selected);
+  if (selected.has("category:sports")){
+    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => candidates.delete(entity.id));
+  }
+  if (selected.has("category:special-events")){
+    (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => candidates.delete(entity.id));
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => candidates.delete(entity.id));
+  }else if (selected.has("special:commonwealth-games")){
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => candidates.delete(entity.id));
+  }
+  return Array.from(candidates);
+}
+
+function feedFilterOptions(preferences = userPreferences){
+  const candidates = new Set(feedFilterCandidateEntities(preferences));
+  const ordered = [];
+  const orderedAdd = (value) => {
+    if (candidates.has(value) && !ordered.includes(value)) ordered.push(value);
+  };
+  const orderedSports = orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES || []);
+  const orderedSpecialEvents = orderSelectorEntities(SELECTOR_TAXONOMY.specialEvents || []);
+  const orderedCommonwealth = (SELECTOR_TAXONOMY.commonwealthDisciplines || []).slice().sort((a, b) => (a.lockedSlot || 0) - (b.lockedSlot || 0));
+
+  orderSelectorEntities(SELECTOR_TAXONOMY.categories || []).forEach(category => {
+    orderedAdd(category.id);
+    if (category.id === "category:sports"){
+      orderedSports.forEach(entity => orderedAdd(entity.id));
+    }
+    if (category.id === "category:special-events"){
+      orderedSpecialEvents.forEach(entity => {
+        orderedAdd(entity.id);
+        if (entity.id === "special:commonwealth-games"){
+          orderedCommonwealth.forEach(item => orderedAdd(item.id));
+        }
+      });
+    }
+  });
+
+  if (!ordered.length){
+    return ["all", ...canonicalSportKeysForSelectorIds(preferences?.selectedSelectorEntityIds || [])
+      .filter(key => FILTER_ORDER.includes(key))];
+  }
+  return ["all", ...ordered];
+}
+
+function feedFilterDisplayMetadata(filterKey){
+  if (filterKey === "all"){
+    return {
+      label: "All sports",
+      glyph: "ui:calendar",
+      color: "var(--accent)",
+    };
+  }
+  const selectorEntity = selectorEntityById(filterKey);
+  if (selectorEntity){
+    return {
+      label: selectorEntity.label,
+      glyph: selectorEntity.glyph || "ui:filter",
+      color: selectorEntity.color || "var(--accent)",
+    };
+  }
+  if (SPORT_META[filterKey]){
+    return {
+      label: SPORT_META[filterKey].label,
+      glyph: SPORT_META[filterKey].glyph || "ui:filter",
+      color: SPORT_META[filterKey].color || "var(--accent)",
+    };
+  }
+  return {
+    label: String(filterKey || "").toUpperCase(),
+    glyph: "ui:filter",
+    color: "var(--accent)",
+  };
+}
+
+function feedFilterMatchesEvent(filterValue, event){
+  if (!filterValue || filterValue === "all") return true;
+  if (filterValue === "category:sports"){
+    return BASE_SPORT_SELECTOR_ENTITIES.some(entity => selectorEntityMatchesEvent(entity.id, event));
+  }
+  if (filterValue === "category:special-events"){
+    const specialSportKeys = (SELECTOR_TAXONOMY.specialEvents || [])
+      .flatMap(entity => entity.canonicalSportKeys || [])
+      .filter(Boolean);
+    return specialSportKeys.includes(event.sportId || event.key);
+  }
+  const selectorEntity = selectorEntityById(filterValue);
+  if (selectorEntity) return selectorEntityMatchesEvent(filterValue, event);
+  return event.key === filterValue;
+}
+
 function renderFeedFilterDock(){
   const isFeed = activeTab === "feed";
   const dock = document.getElementById("feedFilterDock");
@@ -5635,7 +5728,7 @@ function renderFeedFilterDock(){
   const toggle = document.getElementById("feedFilterVisibilityBtn");
   const selection = document.getElementById("feedFilterSelection");
   const filterRow = document.getElementById("sportFilters");
-  const selectedLabel = activeFilter === "all" ? "All sports" : SPORT_META[activeFilter]?.label || activeFilter.toUpperCase();
+  const selectedLabel = feedFilterDisplayMetadata(activeFilter).label;
 
   dock.classList.toggle("is-standings", !isFeed);
   dock.setAttribute("aria-label", isFeed ? "Feed filter controls" : "Standings filters");
@@ -5660,17 +5753,16 @@ function renderFilters(){
   const container = document.getElementById("sportFilters");
   container.innerHTML = "";
   if (activeTab === "feed"){
-    const followed = new Set(userPreferences.followedSports);
-    if (activeFilter !== "all" && !followed.has(activeFilter)) activeFilter = "all";
-    FILTER_ORDER.filter(key => key === "all" || followed.has(key)).forEach(key => {
+    const options = feedFilterOptions(userPreferences);
+    if (activeFilter !== "all" && !options.includes(activeFilter)) activeFilter = "all";
+    options.forEach(key => {
+      const metadata = feedFilterDisplayMetadata(key);
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "pill" + (activeFilter === key ? " active" : "");
       btn.setAttribute("aria-pressed", String(activeFilter === key));
-      if (key !== "all") btn.style.setProperty("--pill-color", SPORT_META[key]?.color || "var(--accent)");
-      const glyph = key === "all" ? "ui:calendar" : SPORT_META[key]?.glyph || "ui:filter";
-      const label = key === "all" ? "All" : SPORT_META[key]?.label || key.toUpperCase();
-      btn.innerHTML = `${glyphMarkup(glyph)}<span>${label}</span>`;
+      btn.style.setProperty("--pill-color", metadata.color);
+      btn.innerHTML = `${glyphMarkup(metadata.glyph)}<span>${metadata.label}</span>`;
       btn.addEventListener("click", () => {
         setActiveFeedFilter(key);
       });
@@ -5868,7 +5960,7 @@ function eventParticipantFollowLevels(ev){
 }
 
 function eventUsesFocusedSportFrothOverride(ev){
-  return activeTab === "feed" && activeFilter !== "all" && ev.key === activeFilter;
+  return activeTab === "feed" && activeFilter !== "all" && feedFilterMatchesEvent(activeFilter, ev);
 }
 
 function eventMeetsCoveragePreference(ev){
@@ -5927,7 +6019,7 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
-  if (activeFilter !== "all") list = list.filter(ev => ev.key === activeFilter);
+  if (activeFilter !== "all") list = list.filter(ev => feedFilterMatchesEvent(activeFilter, ev));
   return list;
 }
 
