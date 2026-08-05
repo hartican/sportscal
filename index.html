@@ -5630,16 +5630,27 @@ function stickyFeedChromeHeight(){
 
 function feedFilterCandidateEntities(preferences = userPreferences){
   const selected = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
-  const candidates = new Set(selected);
+  const candidates = new Set();
+
   if (selected.has("category:sports")){
-    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => candidates.delete(entity.id));
+    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => candidates.add(entity.id));
+  } else {
+    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => {
+      if (selected.has(entity.id)) candidates.add(entity.id);
+    });
   }
-  if (selected.has("category:special-events")){
-    (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => candidates.delete(entity.id));
-    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => candidates.delete(entity.id));
-  }else if (selected.has("special:commonwealth-games")){
-    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).forEach(entity => candidates.delete(entity.id));
-  }
+
+  const hasSpecialEventSelection = selected.has("category:special-events")
+    || selected.has("special:commonwealth-games")
+    || (SELECTOR_TAXONOMY.specialEvents || []).some(entity => selected.has(entity.id))
+    || (SELECTOR_TAXONOMY.commonwealthDisciplines || []).some(entity => selected.has(entity.id));
+  if (hasSpecialEventSelection) candidates.add("category:special-events");
+
+  selected.forEach(id => {
+    if (id.startsWith("sport:") || id.startsWith("special:") || id.startsWith("cwg:")) return;
+    if (id !== "category:sports" && id !== "category:special-events") candidates.add(id);
+  });
+
   return Array.from(candidates);
 }
 
