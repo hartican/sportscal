@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-03T05:13:05.309Z",
+  "publishedAt": "2026-08-05T09:06:13.487Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -22,7 +22,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-08-03",
+    "basisDate": "2026-08-05",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -30,7 +30,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-03-20",
-    "daysAhead": 229,
+    "daysAhead": 227,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {

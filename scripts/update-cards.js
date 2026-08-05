@@ -29,6 +29,7 @@ const steps = [
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
+  ["scripts/redeploy-and-release.sh"],
 ];
 
 for (const args of steps) {
