@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-05T13:26:05.026Z",
+  "publishedAt": "2026-08-05T23:18:00.262Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -94,7 +94,7 @@
         "lastEventDate": "2026-08-03"
       },
       "cricket": {
-        "count": 18,
+        "count": 16,
         "firstEventDate": "2026-08-13",
         "lastEventDate": "2027-01-02"
       },
