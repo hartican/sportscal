@@ -12,6 +12,9 @@ const ESPN_NRL_SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/r
 const ESPN_NRL_STANDINGS_URL = "https://site.api.espn.com/apis/v2/sports/rugby-league/3/standings?season=2026";
 const NRL_RESULT_GRACE_MS = 4 * 60 * 60 * 1000;
 const NRL_MATCH_TIME_TOLERANCE_MS = 12 * 60 * 60 * 1000;
+const CANONICAL_FETCH_RETRIES = Math.max(2, Number.parseInt(process.env.CANONICAL_FETCH_RETRIES || "3", 10));
+const CANONICAL_FETCH_RETRY_DELAY_MS = Math.max(250, Number.parseInt(process.env.CANONICAL_FETCH_RETRY_DELAY_MS || "1000", 10));
+const CANONICAL_FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.CANONICAL_FETCH_TIMEOUT_MS || "15000", 10));
 const NRL_OFFICIAL_RESULT_CORRECTIONS = Object.freeze({
   // Champion Data still reports 44-18. The NRL match centre and play-by-play both confirm 44-16.
   "129991007": Object.freeze({
@@ -78,15 +81,34 @@ function normalizeIso(value){
 }
 
 async function fetchJson(url, headers = {}){
-  const response = await fetch(url, {
-    headers: {
-      Accept: "application/json",
-      "User-Agent": "nothingsport-canonical-refresh/1.0",
-      ...headers,
-    },
-  });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
-  return response.json();
+  const requestHeaders = {
+    Accept: "application/json",
+    "User-Agent": "nothingsport-canonical-refresh/1.0",
+    ...headers,
+  };
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= CANONICAL_FETCH_RETRIES; attempt += 1){
+    const abortController = new AbortController();
+    const timeout = setTimeout(() => abortController.abort(), CANONICAL_FETCH_TIMEOUT_MS);
+    try {
+      const response = await fetch(url, {
+        headers: requestHeaders,
+        signal: abortController.signal,
+      });
+      clearTimeout(timeout);
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
+      return response.json();
+    } catch (error){
+      clearTimeout(timeout);
+      lastError = error;
+      if (attempt >= CANONICAL_FETCH_RETRIES) break;
+      const backoffMs = CANONICAL_FETCH_RETRY_DELAY_MS * Math.pow(2, attempt - 1);
+      console.error(`Fetch failed for ${url} (${attempt}/${CANONICAL_FETCH_RETRIES}); retrying in ${backoffMs}ms`);
+      await new Promise(resolve => setTimeout(resolve, backoffMs));
+    }
+  }
+  throw lastError;
 }
 
 async function mapWithConcurrency(values, limit, worker){

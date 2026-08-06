@@ -38,7 +38,7 @@ ensure_origin_main() {
 }
 
 run_push() {
-  local refspec="$1"
+  local refspec="${1:-HEAD:main}"
   local push_output
   push_output="$(mktemp)"
 
@@ -143,7 +143,7 @@ if (( HAS_RELEASE_OUTPUT_CHANGES == 1 )); then
     fi
   else
     set +e
-    run_push main
+    run_push HEAD:main
     push_status=$?
     set -e
     if (( push_status == 2 )); then

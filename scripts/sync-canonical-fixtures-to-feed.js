@@ -95,6 +95,116 @@ function sharedFixtureTokens(first, second){
   return shared;
 }
 
+function canonicalFixtureCardPriority(card){
+  let score = 0;
+  if (card.status === "completed") score += 12;
+  if (card.sourceType === "official") score += 6;
+  if (card.sourceType === "reputable") score += 3;
+  if (card.sourceCheckedAt && Number.isFinite(Date.parse(card.sourceCheckedAt))) score += 2;
+  if (card.canonicalSourceCheckedAt && Number.isFinite(Date.parse(card.canonicalSourceCheckedAt))) score += 2;
+  if (card.score) score += 2;
+  if (card.outcomeText) score += 1;
+  if (card.recapText) score += 1;
+  if (card.sourceName) score += 1;
+  if (card.sourceUrl) score += 1;
+  return score;
+}
+
+function betterCanonicalFixtureCard(left, right){
+  const leftScore = canonicalFixtureCardPriority(left);
+  const rightScore = canonicalFixtureCardPriority(right);
+  if (leftScore !== rightScore) return leftScore >= rightScore ? left : right;
+
+  const leftChecked = Date.parse(left.lastReviewedAt || left.sourceCheckedAt || left.canonicalSourceCheckedAt || "");
+  const rightChecked = Date.parse(right.lastReviewedAt || right.sourceCheckedAt || right.canonicalSourceCheckedAt || "");
+  if (Number.isFinite(rightChecked) && Number.isFinite(leftChecked) && rightChecked !== leftChecked) {
+    return rightChecked > leftChecked ? right : left;
+  }
+
+  return `${left.id}`.localeCompare(`${right.id}`) <= 0 ? left : right;
+}
+
+function routineFixtureIdentity(card){
+  const venue = String(card.venue || "").toLowerCase().replace(/\s+/g, " ").trim();
+  const fallbackParticipants = Array.isArray(card.participants)
+    ? card.participants.map(participant => String(participant.name || "").toLowerCase().replace(/\s+/g, " ").trim())
+    : [];
+  const participants = Array.isArray(card.matchupParticipants)
+    ? card.matchupParticipants.map(participant => String(participant.name || "").toLowerCase().replace(/\s+/g, " ").trim())
+    : fallbackParticipants;
+  const normalizedName = String(card.name || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  const cleanedName = normalizedName
+    .split(/\s+/)
+    .filter(token => token && token.length <= 35)
+    .join(" ");
+  return [
+    card.key || "",
+    card.date || "",
+    card.time || "",
+    venue,
+    participants.filter(Boolean).sort().join("|"),
+    cleanedName,
+  ].join("|");
+}
+
+function dedupeRegularSeasonFixtureCards(events){
+  const retained = new Map();
+  const removed = [];
+  const noMatchOrder = [];
+
+  events.forEach(card => {
+    if (!card || card.narrativeType !== "regular-season-fixture") {
+      noMatchOrder.push(card);
+      return;
+    }
+
+    const key = card.canonicalEventId
+      ? `canonical:${card.canonicalEventId}`
+      : `signature:${routineFixtureIdentity(card)}`;
+
+    const existing = retained.get(key);
+    if (!existing) {
+      retained.set(key, card);
+      return;
+    }
+
+    const next = betterCanonicalFixtureCard(existing, card);
+    if (next === existing) {
+      removed.push({ retained: existing.id, removed: card.id, key: card.canonicalEventId || key });
+      return;
+    }
+
+    retained.set(key, card);
+    removed.push({ retained: card.id, removed: existing.id, key: card.canonicalEventId || key });
+  });
+
+  const dedupedRoutineCards = new Map();
+  retained.forEach((event, key) => {
+    if (!key.startsWith("canonical:")) {
+      const signature = key.replace(/^signature:/, "");
+      dedupedRoutineCards.set(signature, event);
+      return;
+    }
+    dedupedRoutineCards.set(key, event);
+  });
+
+  const deduped = [...noMatchOrder];
+  events.forEach(card => {
+    if (!card || card.narrativeType !== "regular-season-fixture") return;
+    if (card.canonicalEventId) {
+      if (dedupedRoutineCards.get(`canonical:${card.canonicalEventId}`) === card) deduped.push(card);
+      return;
+    }
+    const signature = routineFixtureIdentity(card);
+    if (dedupedRoutineCards.get(signature) === card) deduped.push(card);
+  });
+
+  return { events: deduped, removed };
+}
+
 function sydneyDateTime(startTimeUtc){
   const parts = Object.fromEntries(
     new Intl.DateTimeFormat("en-CA", {
@@ -332,7 +442,8 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
   const generatedEvents = fixtures
     .filter(fixture => !matchedCanonicalIds.has(fixture.id))
     .map(fixture => fixtureToCard(fixture, participantsById, sportDetailsByDomainId));
-  const events = [...preservedEvents, ...generatedEvents]
+  const { events: rawEvents, removed: duplicateRemoved } = dedupeRegularSeasonFixtureCards([...preservedEvents, ...generatedEvents]);
+  const events = rawEvents
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
   const output = normalizeFeed({
     ...feed,
@@ -344,10 +455,12 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
 
   return {
     output,
+    duplicateRemoved,
     summary: {
       eligible: fixtures.length,
       existingMatches: matchedCanonicalIds.size,
       generated: generatedEvents.length,
+      duplicateRemoved: duplicateRemoved.length,
       byKey: output.events.reduce((acc, event) => {
         if (event.key) acc[event.key] = (acc[event.key] || 0) + 1;
         return acc;
@@ -365,6 +478,9 @@ function main(){
   const canonicalBundle = readJson(canonicalPath);
   const feed = readJson(inputPath);
   const { output, summary } = syncCanonicalFixtures(feed, canonicalBundle);
+  if (summary.duplicateRemoved > 0) {
+    console.log(`Deduped ${summary.duplicateRemoved} routine fixture duplicates while syncing ${canonicalPath}.`);
+  }
   const errors = validateFeed(output);
   if (errors.length){
     console.error("Refusing to write invalid canonical fixture cards:");

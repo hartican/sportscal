@@ -1,6 +1,37 @@
 #!/usr/bin/env node
 
 const { spawnSync } = require("child_process");
+const fs = require("node:fs");
+const path = require("node:path");
+
+function discoverCanonicalFixtureBundles() {
+  const canonicalDir = path.resolve(__dirname, "../data/canonical");
+  const fallback = ["data/canonical/afl-nrl-2026.json"];
+  try {
+    const files = fs.readdirSync(canonicalDir)
+      .filter(name => name.endsWith(".json"))
+      .map(name => path.join("data/canonical", name))
+      .filter(filePath => {
+        try {
+          const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
+          return payload?.schemaVersion === "canonical-sports.v1"
+            && Array.isArray(payload?.events)
+            && Array.isArray(payload?.participants)
+            && payload.events.length > 0;
+        } catch {
+          return false;
+        }
+      });
+    return files.length ? files : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function canonicalStepSet(stepBuilder, canonicalBundlePaths) {
+  const list = canonicalBundlePaths.length ? canonicalBundlePaths : ["data/canonical/afl-nrl-2026.json"];
+  return list.flatMap(canonicalBundle => stepBuilder(canonicalBundle));
+}
 
 function runStep(args) {
   const command = args[0];
@@ -24,9 +55,13 @@ const steps = [
   ["scripts/validate-cycling-context.js"],
   ["scripts/refresh-results-2026-07-30.js", "feeds/incoming/events.json"],
   ["scripts/reconcile-australian-marquee-events.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
-  ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ...canonicalStepSet(canonicalBundlePath => (
+    [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
+  ), discoverCanonicalFixtureBundles()),
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json"],
-  ["scripts/sync-canonical-fixtures-to-feed.js", "data/canonical/afl-nrl-2026.json", "data/events.json", "data/events.json"],
+  ...canonicalStepSet(canonicalBundlePath => (
+    [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
+  ), discoverCanonicalFixtureBundles()),
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
@@ -37,8 +72,12 @@ const steps = [
   ["scripts/qa-storyline-spoilers.js", "data/events.json"],
   ["scripts/validate-feed.js", "feeds/incoming/events.json"],
   ["scripts/validate-feed.js", "data/events.json"],
-  ["scripts/validate-canonical-feed-coverage.js", "data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json"],
-  ["scripts/validate-canonical-feed-coverage.js", "data/canonical/afl-nrl-2026.json", "data/events.json"],
+  ...canonicalStepSet(canonicalBundlePath => (
+    [
+      ["scripts/validate-canonical-feed-coverage.js", canonicalBundlePath, "feeds/incoming/events.json"],
+      ["scripts/validate-canonical-feed-coverage.js", canonicalBundlePath, "data/events.json"],
+    ]
+  ), discoverCanonicalFixtureBundles()),
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
