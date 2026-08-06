@@ -5,6 +5,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 WEBSITE_URL="${WEBSITE_URL:-https://nothingsport.vercel.app}"
 NODE_BIN="${NODE_BIN:-node}"
+PROJECT_ROOT="$(pwd)"
 
 read_feed_meta_fields() {
   local json_path="$1"
@@ -31,6 +32,51 @@ read_file_sha256() {
     const hash = crypto.createHash("sha256").update(fs.readFileSync(process.argv[1])).digest("hex");
     process.stdout.write(hash);
   ' "$file_path"
+}
+
+load_token_file() {
+  local token_file="$1"
+  local token_value=""
+
+  if [[ -r "$token_file" ]]; then
+    token_value="$(tr -d '[:space:]' < "$token_file")"
+  else
+    return 1
+  fi
+
+  if [[ -z "$token_value" ]]; then
+    return 1
+  fi
+
+  printf '%s' "$token_value"
+}
+
+resolve_vercel_token() {
+  local token_file=""
+
+  if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+    printf '%s' "${VERCEL_TOKEN}"
+    return
+  fi
+
+  local candidate_files=(
+    "${VERCEL_TOKEN_FILE:-}"
+    "$HOME/.nothingsport/vercel-token"
+    "$PROJECT_ROOT/.nothingsport/vercel-token"
+    "$PROJECT_ROOT/scripts/.nothingsport/vercel-token"
+  )
+
+  for token_file in "${candidate_files[@]}"; do
+    if [[ -z "$token_file" ]]; then
+      continue
+    fi
+
+    if resolved_token="$(load_token_file "$token_file")"; then
+      VERCEL_TOKEN="$resolved_token"
+      echo "Loaded VERCEL_TOKEN from: ${token_file}" >&2
+      return
+    fi
+  done
 }
 
 ensure_release_head_on_main_line() {
@@ -113,17 +159,20 @@ IFS='|' read -r \
   < <(read_feed_meta_fields "data/feed-meta.json")
 
 if [[ "${SKIP_RELEASE:-0}" != "1" ]]; then
-  VERCEL_TOKEN_FILE="${VERCEL_TOKEN_FILE:-$HOME/.nothingsport/vercel-token}"
+  resolve_vercel_token
 
-  if [[ -z "${VERCEL_TOKEN:-}" ]]; then
-    if [[ -f "$VERCEL_TOKEN_FILE" ]]; then
-      VERCEL_TOKEN="$(cat "$VERCEL_TOKEN_FILE" | tr -d '[:space:]')"
-    fi
-  fi
+  VERCEL_TOKEN="$(printf '%s' "${VERCEL_TOKEN:-}")"
+  VERCEL_TOKEN="${VERCEL_TOKEN//$'\r'/}"
+  VERCEL_TOKEN="${VERCEL_TOKEN//[[:space:]]/}"
 
   if [[ -z "${VERCEL_TOKEN:-}" ]]; then
     echo "Error: VERCEL_TOKEN is required when SKIP_RELEASE is not set to 1." >&2
-    echo "Set VERCEL_TOKEN in the environment, or store it in ${VERCEL_TOKEN_FILE} (single line), or use SKIP_RELEASE=1 for offline update runs." >&2
+    echo "Set VERCEL_TOKEN in the environment, or store it in one of: " >&2
+    echo "  - $HOME/.nothingsport/vercel-token" >&2
+    echo "  - ./.nothingsport/vercel-token" >&2
+    echo "  - ./scripts/.nothingsport/vercel-token" >&2
+    echo "  - file path in VERCEL_TOKEN_FILE, then retry." >&2
+    echo "Or use SKIP_RELEASE=1 for offline update runs." >&2
     exit 1
   fi
 
