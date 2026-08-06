@@ -23,6 +23,58 @@ log() {
   echo "$line"
 }
 
+PROJECT_ROOT="$(pwd)"
+
+load_token_file() {
+  local token_file="$1"
+  local token_value=""
+
+  if [[ -r "$token_file" ]]; then
+    token_value="$(tr -d '[:space:]' < "$token_file")"
+  else
+    return 1
+  fi
+
+  if [[ -z "$token_value" ]]; then
+    return 1
+  fi
+
+  printf '%s' "$token_value"
+}
+
+resolve_vercel_token() {
+  local token_file=""
+  local resolved_token=""
+
+  if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+    VERCEL_TOKEN="${VERCEL_TOKEN//$'\\r'/}"
+    VERCEL_TOKEN="${VERCEL_TOKEN//[[:space:]]/}"
+    return
+  fi
+
+  local candidate_files=(
+    "${VERCEL_TOKEN_FILE:-}"
+    "$HOME/.nothingsport/vercel-token"
+    "$PROJECT_ROOT/.nothingsport/vercel-token"
+    "$PROJECT_ROOT/scripts/.nothingsport/vercel-token"
+  )
+
+  for token_file in "${candidate_files[@]}"; do
+    if [[ -z "$token_file" ]]; then
+      continue
+    fi
+
+    if resolved_token="$(load_token_file "$token_file")"; then
+      VERCEL_TOKEN="$resolved_token"
+      VERCEL_TOKEN="${VERCEL_TOKEN//$'\\r'/}"
+      VERCEL_TOKEN="${VERCEL_TOKEN//[[:space:]]/}"
+      export VERCEL_TOKEN
+      echo "Loaded VERCEL_TOKEN from: ${token_file}" >&2
+      return
+    fi
+  done
+}
+
 ensure_origin_main() {
   if ! git show-ref --verify --quiet refs/remotes/origin/main; then
     git fetch --quiet --no-tags origin main
@@ -170,6 +222,14 @@ cleanup() {
   rm -rf "$STAGING_ROOT"
 }
 trap cleanup EXIT
+
+if [[ -z "${VERCEL_TOKEN:-}" ]]; then
+  resolve_vercel_token
+fi
+
+if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+  export VERCEL_TOKEN
+fi
 
 rsync -a \
   --exclude '.git' \
