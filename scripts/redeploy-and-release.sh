@@ -4,14 +4,6 @@ set -euo pipefail
 
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-if [[ "${SKIP_BRANCH_CHECK:-0}" != "1" ]]; then
-  BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-  if [[ "$BRANCH" != "main" ]]; then
-    echo "Error: release script must run on main (current branch: $BRANCH)." >&2
-    exit 1
-  fi
-fi
-
 CARD_OUTPUT_FILES=(
   "data/canonical/afl-nrl-2026.json"
   "data/card-audit.json"
@@ -34,6 +26,14 @@ log() {
 ensure_origin_main() {
   if ! git show-ref --verify --quiet refs/remotes/origin/main; then
     git fetch --quiet --no-tags origin main
+  fi
+}
+
+ensure_release_head_on_main_line() {
+  ensure_origin_main
+  if ! git merge-base --is-ancestor origin/main HEAD; then
+    echo "Error: local HEAD is not descended from origin/main. Rebase/cherry-pick onto origin/main first." >&2
+    exit 1
   fi
 }
 
@@ -117,6 +117,7 @@ RELEASE_COMMIT_MESSAGE="${1:-Automated card refresh and redeploy}"
 HAS_RELEASE_OUTPUT_CHANGES=0
 
 run_start_head="$INITIAL_HEAD"
+ensure_release_head_on_main_line
 
 if ! git diff --quiet HEAD -- "${CARD_OUTPUT_FILES[@]}"; then
   git add "${CARD_OUTPUT_FILES[@]}"

@@ -33,6 +33,17 @@ read_file_sha256() {
   ' "$file_path"
 }
 
+ensure_release_head_on_main_line() {
+  if ! git show-ref --verify --quiet refs/remotes/origin/main; then
+    git fetch --quiet --no-tags origin main
+  fi
+
+  if ! git merge-base --is-ancestor origin/main HEAD; then
+    echo "Error: local HEAD is not descended from origin/main. Rebase/cherry-pick onto origin/main first." >&2
+    exit 1
+  fi
+}
+
 extract_header() {
   local headers_file="$1"
   local header_name="$2"
@@ -119,13 +130,7 @@ if [[ "${SKIP_RELEASE:-0}" != "1" ]]; then
   export VERCEL_TOKEN
 fi
 
-if [[ "${SKIP_BRANCH_CHECK:-0}" != "1" ]]; then
-  BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-  if [[ "$BRANCH" != "main" ]]; then
-    echo "Error: scheduled update must run on main (current branch: $BRANCH)." >&2
-    exit 1
-  fi
-fi
+ensure_release_head_on_main_line
 
 "$NODE_BIN" scripts/update-cards.js -p
 LOCAL_EVENTS_HASH_AFTER="$(read_file_sha256 data/events.json)"
