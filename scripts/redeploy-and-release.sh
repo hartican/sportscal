@@ -239,5 +239,5 @@ rsync -a \
 
 (
   cd "$STAGING_ROOT"
-  HOME=/tmp XDG_CACHE_HOME=/tmp VERCEL_SKIP_AUTO_UPDATE=1 vercel --prod --yes
+  HOME=/tmp XDG_CACHE_HOME=/tmp vercel --prod --yes
 )

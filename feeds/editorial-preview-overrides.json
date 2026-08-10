@@ -2,6 +2,23 @@
   "schemaVersion": "sportscal.editorial-previews.v1",
   "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
   "events": {
+    "nrl-raiders-broncos-2026-08-21": {
+      "selectedSentence": "Round 25 puts 15th-placed Canberra against 11th-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
+      "fullSpiel": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The official NRL match centre has Canberra 15th and Brisbane 11th, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
+      "sourceName": "Official NRL Raiders v Broncos match centre",
+      "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/raiders-v-broncos/",
+      "sourceCheckedAt": "2026-08-11T04:20:00+10:00",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Two bottom-half sides reach a late-season pressure game with Brisbane carrying the stronger head-to-head record.",
+        "contextSignals": ["current-ladder-position", "head-to-head-record", "late-season-stakes"],
+        "sourceName": "Official NRL Raiders v Broncos match centre",
+        "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/raiders-v-broncos/",
+        "sourceCheckedAt": "2026-08-11T04:20:00+10:00",
+        "needsPreviewRefresh": false
+      }
+    },
     "cricket-australia-bangladesh-first-test-2026": {
       "selectedSentence": "Test cricket returns to the Northern Territory for the first time since 2004 as Australia opens a two-Test Top End series against Bangladesh.",
       "fullSpiel": "Darwin hosts the first Test from 13 August before the series moves to Mackay. Marrara's return ends a 22-year wait for Test cricket in the Northern Territory, while Mackay is set to become Australia's 12th Test venue.",

@@ -48,6 +48,8 @@
   const customBodies = {
     "sport:cricket": '<path d="m7 3 4 4-5 5-4-4z"/><path d="m9 5 10 10-4 4L5 9M17 4v8M21 4v8M15 4h8M15 12h8"/>',
     "sport:multi-sport": '<path d="M8 3h8v4a4 4 0 0 1-8 0zM12 11v4M8 21h8M9 15h6v6H9z"/><path d="M8 5H4v1a4 4 0 0 0 4 4M16 5h4v1a4 4 0 0 1-4 4"/>',
+    "sport:extreme": '<path d="M2 20h20"/><path d="M3 17h4l2-5 3.5 2 2.5-6 3 10 3.5-4 2.5 3h3.5"/><path d="M4 17l1.5-3M7.5 18l1-4M18 18l1.5-3"/>',
+    "sport:surf": '<path d="M2.5 13.5c3-2.5 6-2 8 0.5s6 2.8 8.5 1"/><path d="M4 17.5c1.8-1.2 4-1 5.5 0.4s4.8 2 7.6 0"/><circle cx="6" cy="17.8" r="1.2" fill="none" stroke="currentColor"/><circle cx="17" cy="16" r="1.2" fill="none" stroke="currentColor"/><path d="M9.5 16.5l1.4-2.2M13 15.2l1.1-1.7"/>',
     "semantic:must-watch": '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
     "semantic:rivalry": '<path d="M4 19 19 4M5 4l15 15M4 4h5v5M20 20h-5v-5"/>',
     "semantic:record-chase": '<path d="M4 20V14h4v6M10 20V9h4v11M16 20V4h4v16M3 20h18"/>',

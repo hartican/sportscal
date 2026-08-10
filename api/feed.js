@@ -51,6 +51,7 @@ module.exports = async function feedHandler(request, response){
       userState,
       participants: canonicalSportContext.participants,
       sourceVersion: eventFeed.version,
+      sourcePublishedAt: eventFeed.publishedAt,
     });
     response.status(200).json(feed);
   }catch(error){

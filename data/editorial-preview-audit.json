@@ -1,11 +1,11 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-08T03:33:44.899Z",
+  "generatedAt": "2026-08-10T18:30:40.003Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 1,
-    "passed": 1,
+    "due": 2,
+    "passed": 2,
     "failed": 0
   },
   "cards": [
@@ -22,6 +22,21 @@
         "new-test-venue"
       ],
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+      "issues": []
+    },
+    {
+      "id": "nrl-raiders-broncos-2026-08-21",
+      "name": "Canberra Raiders v Brisbane Broncos",
+      "sport": "NRL",
+      "date": "2026-08-21",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "current-ladder-position",
+        "head-to-head-record",
+        "late-season-stakes"
+      ],
+      "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/raiders-v-broncos/",
       "issues": []
     }
   ]

@@ -40,6 +40,25 @@
     return Math.min(max, Math.max(min, Number(value) || 0));
   }
 
+  function eventDomainIdentifiers(event){
+    const key = String(event?.key || "").trim();
+    const sportId = String(event?.sportId || "").trim();
+    const registryDomainId = key ? `sport:${key.toLowerCase()}` : "";
+    const sportIdDomainId = sportId ? `sport:${sportId.toLowerCase()}` : "";
+    const ids = [];
+    const add = value => {
+      const normalized = String(value || "").trim();
+      if (normalized) ids.push(normalized);
+    };
+    add(event?.sportDomainId);
+    if (Array.isArray(event?.sportDomainIds)) event.sportDomainIds.forEach(item => add(item));
+    add(key);
+    add(sportId);
+    add(registryDomainId);
+    add(sportIdDomainId);
+    return Array.from(new Set(ids.filter(Boolean)));
+  }
+
   function canonicalSideName(value, sportKey){
     let side = String(value || "").trim();
     if (!INTERNATIONAL_DOMAIN_KEYS.has(String(sportKey || "").toLowerCase())) return side;
@@ -147,8 +166,13 @@
   }
 
   function domainPreferenceFor(event, graph){
-    const domainId = event.sportDomainId || event.sportId || event.key;
-    return graph?.domainPreferences?.find(preference => preference.sportDomainId === domainId) || null;
+    const domainPreferences = graph?.domainPreferences || [];
+    const domainIds = new Set(eventDomainIdentifiers(event));
+    for (const domainId of domainIds){
+      const found = domainPreferences.find(preference => preference?.sportDomainId === domainId);
+      if (found) return found;
+    }
+    return null;
   }
 
   function competitionPreferenceFor(event, graph){

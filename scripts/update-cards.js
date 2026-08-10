@@ -46,7 +46,14 @@ function runStep(args) {
   if (result.status !== 0) process.exit(result.status || 1);
 }
 
-const steps = [
+function parseOptions(argv = process.argv.slice(2)) {
+  return {
+    localOnly: argv.includes("--local-only"),
+  };
+}
+
+function buildSteps({ localOnly = false } = {}) {
+  const steps = [
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-f1-context.js"],
@@ -81,11 +88,28 @@ const steps = [
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
-  ["scripts/redeploy-and-release.sh"],
-];
-
-for (const args of steps) {
-  runStep(args);
+  ];
+  if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);
+  return steps;
 }
 
-console.log("\nCards, ladders and standings update complete: canonical ranking data refreshed and validated, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.");
+function main() {
+  const options = parseOptions();
+  const steps = buildSteps(options);
+  if (options.localOnly) {
+    console.log("Local-only update selected: refresh and validation will run without commit, push, or deployment.");
+  }
+  for (const args of steps) {
+    runStep(args);
+  }
+
+  console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.`);
+}
+
+if (require.main === module) main();
+
+module.exports = {
+  buildSteps,
+  discoverCanonicalFixtureBundles,
+  parseOptions,
+};

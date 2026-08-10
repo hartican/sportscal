@@ -8,6 +8,7 @@
     "schemaVersion",
     "generatedAt",
     "sourceVersion",
+    "sourcePublishedAt",
     "events",
     "derivedCardCache",
     "retention"
@@ -22,6 +23,10 @@
     },
     "sourceVersion": {
       "type": "string"
+    },
+    "sourcePublishedAt": {
+      "type": "string",
+      "format": "date-time"
     },
     "events": {
       "type": "array",

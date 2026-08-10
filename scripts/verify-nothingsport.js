@@ -202,6 +202,9 @@ assert(cardUpdateSource.includes('["scripts/reconcile-australian-marquee-events.
 assert(cardUpdateSource.includes('["scripts/verify-marquee-coverage.js"'), "the canonical cards update must enforce Australian-marquee coverage");
 assert(cardUpdateSource.indexOf('["scripts/verify-marquee-coverage.js"') < cardUpdateSource.indexOf('["scripts/publish-feed.js"'), "Australian-marquee coverage must pass before publication begins");
 assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSource.indexOf('["scripts/publish-feed.js"') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "the canonical cards update must publish the refreshed JSON and direct-file fallback before card QA");
+assert(cardUpdateSource.includes('localOnly: argv.includes("--local-only")'), "the canonical cards update must expose an explicit local-only mode");
+assert(cardUpdateSource.includes('if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"])'), "local-only updates must skip the release boundary without creating a second refresh path");
+assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VERCEL_SKIP_AUTO_UPDATE"), "production releases must not suppress Vercel CLI auto-updates");
 [
   "validate-canonical-sports.js",
   "validate-f1-context.js",
@@ -211,14 +214,19 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v60"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="60">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v61"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="61">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
 assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
 assert(serviceWorkerSource.includes('key.startsWith("nothingsport-shell-") && key !== CACHE_NAME'), "the worker must distinguish an upgrade from a first install");
 assert(serviceWorkerSource.includes('self.clients.matchAll({ type: "window", includeUncontrolled: true })'), "an updated worker must find already-open home-screen app windows");
 assert(serviceWorkerSource.includes("client.navigate(client.url)"), "an updated worker must reload already-open home-screen app windows");
 assert(html.includes("registration.update()"), "the installed app must check for a new worker whenever it launches");
+assert(html.includes('lastFeedPublishedAt: "ns_last_feed_published_at_v1"'), "feed status must persist the canonical publication time separately from a browser check");
+assert(html.includes("Feed generated ${publishedCopy}"), "feed status must label the actual generation time explicitly");
+assert(html.includes("This is when the published feed was generated, not when this browser last checked it."), "feed status must not imply that a browser refresh contacts sporting sources");
+assert(serverFeedSource.includes("sourcePublishedAt") && serverFeedApiSource.includes("sourcePublishedAt: eventFeed.publishedAt"), "signed-in feeds must retain the same canonical publication timestamp");
+assert(html.includes('if (event.key !== "Enter" && event.key !== " ") return;') && html.includes("activateFilter();"), "feed filters must expose explicit Enter and Space keyboard activation");
 assert(html.includes("4/5 and 5/5 editorial picks appear in Feed even when you do not follow their sport or broadcaster."), "Sports Followed must explain the editorial must-show override");
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
@@ -976,7 +984,8 @@ assert(existingProfileBeforeCwg.selectedSelectorEntityIds.includes("special:comm
 assert(existingProfileBeforeCwg.selectedBroadcasters.includes("seven"), "existing profiles must receive Seven when the Commonwealth Games broadcaster is introduced");
 app.setEvents(publishedCwgCards);
 app.setPreferences(existingProfileBeforeCwg);
-assert.equal(app.getPreferenceMatchedEvents().filter(event => event.key === "cwg").length, 34, "existing profiles must retain every Commonwealth Games card after the selector taxonomy updates");
+assert(publishedCwgCards.every(event => app.selectorEntityMatchesEvent("special:commonwealth-games", event)), "every Commonwealth Games card must map to the Special Events preference domain");
+assert.equal(app.getPreferenceMatchedEvents(new Date("2026-07-24T00:00:00Z")).filter(event => event.key === "cwg").length, 34, "existing profiles must retain every Commonwealth Games card after the selector taxonomy updates");
 const cwgOptOut = app.mergePreferences({
   ...existingProfileBeforeCwg,
   version: 5,
@@ -1217,7 +1226,7 @@ const phaseOneEvents = [
   event("too-far", 31, 5),
   event("below-floor", 4, 2),
   { ...event("routine-afl", 4, 2), key: "afl", sport: "AFL", canonicalEventId: "event:afl:routine", sportDomainId: "sport:afl", competitionId: "competition:afl-premiership-2026" },
-  { ...event("routine-nrl", 4, 2), key: "nrl", sport: "NRL", canonicalEventId: "event:nrl:routine", sportDomainId: "sport:nrl", competitionId: "competition:nrl-premiership-2026" },
+  { ...event("routine-nrl", 4, 2), key: "nrl", sport: "NRL", canonicalEventId: "event:nrl:routine", sportDomainId: "sport:nrl", competitionId: "competition:nrl-premiership-2026", participantIds: ["team:nrl:hidden"] },
 ];
 app.setEvents(phaseOneEvents);
 app.setActions({});
@@ -1250,24 +1259,58 @@ let focusedSportGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
 });
 app.setPreferences({
   selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  selectedBroadcasters: ["nine"],
   preferenceGraph: focusedSportGraph,
 });
-app.setActiveFilter("nrl");
+app.setActiveFilter("sport:nrl");
 assert.deepEqual(
   Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
   ["routine-nrl"],
   "focused NRL must temporarily expose its routine fixtures under non-Froth saved settings"
 );
-app.setActiveFilter("afl");
+app.setActiveFilter("sport:afl");
 assert.deepEqual(
   Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
   ["routine-afl"],
   "focused AFL must temporarily expose its routine fixtures under non-Froth saved settings"
 );
 assert(focusedSportGraph.domainPreferences.every(preference => preference.includeAllFixtures === false), "focused sport Froth must not mutate saved coverage preferences");
+let mutedFocusedSportGraph = app.PREFERENCE_SYSTEM.setEntityFollow(focusedSportGraph, "team:nrl:hidden", "mute");
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  selectedBroadcasters: ["nine"],
+  preferenceGraph: mutedFocusedSportGraph,
+});
+app.setActiveFilter("sport:nrl");
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-nrl"), "focused sport completeness must continue to respect an explicit participant mute");
 app.setActiveFilter("all");
 assert.equal(app.getFilteredEvents().some(ev => ev.id.startsWith("routine-")), false, "returning to All must restore the saved selective coverage behavior");
 assert.equal(new Set(app.getFilteredEvents().map(ev => ev.id)).size, app.getFilteredEvents().length, "focused sport switching must not duplicate cards");
+
+const futureConfirmedLeagueFixtures = publishedFeed.events.filter(event => {
+  if (!["afl", "nrl"].includes(event.key) || event.scheduleStatus !== "confirmed") return false;
+  const start = new Date(event.startTimeUtc || `${event.date}T${event.time}:00+10:00`);
+  return !Number.isNaN(start.getTime()) && start.getTime() > Date.now();
+});
+const publishedLeagueGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:published-league-completeness",
+  domainIds: ["sport:afl", "sport:nrl"],
+  broadcasterIds: ["nine"],
+});
+app.setEvents(futureConfirmedLeagueFixtures);
+app.setActions({});
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  selectedBroadcasters: ["nine"],
+  preferenceGraph: publishedLeagueGraph,
+});
+for (const sportKey of ["nrl", "afl"]){
+  app.setActiveFilter(`sport:${sportKey}`);
+  const expectedIds = futureConfirmedLeagueFixtures.filter(event => event.key === sportKey).map(event => event.id).sort();
+  const actualIds = Array.from(app.getFilteredEvents(), event => event.id).sort();
+  assert.deepEqual(actualIds, expectedIds, `focused ${sportKey.toUpperCase()} must contain every eligible published fixture regardless of broadcaster selection`);
+}
+app.setActiveFilter("all");
 app.setPreferences({});
 
 const calendarSyncPreferences = {

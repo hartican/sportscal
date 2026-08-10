@@ -55,6 +55,7 @@ async function run(){
   const schema = JSON.parse(fs.readFileSync("schemas/server-feed-response.schema.json", "utf8"));
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v1");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
+  assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
 
   assert.equal(
     feedPipeline.sydneyLocalDateToUtc("2026-07-27", "09:00").toISOString(),
@@ -119,6 +120,10 @@ async function run(){
         eventId: "evt_75",
         watchLater: true,
       },
+      "evt_66:2026-07-27T00:00": {
+        eventId: "evt_66",
+        watchLater: true,
+      },
       "cwg-glasgow-2026-swimming-closing-finals:2026-07-30T04:00": {
         eventId: "cwg-glasgow-2026-swimming-closing-finals",
         watchLater: true,
@@ -139,10 +144,12 @@ async function run(){
       displayName: "Followed Football Club",
     }],
     sourceVersion: "test-events-v1",
+    sourcePublishedAt: "2026-07-27T08:00:00.000Z",
     now,
   });
 
   assert.equal(feed.schemaVersion, "server-feed.v1");
+  assert.equal(feed.sourcePublishedAt, "2026-07-27T08:00:00.000Z", "server feeds must retain the canonical publication time separately from per-user generation");
   assert.equal(feed.derivedCardCache.buildOrigin, "server");
   assert.equal(feed.retention.archiveDays, 7);
   assert.equal(feed.retention.retentionDays, 14);
@@ -206,6 +213,7 @@ async function run(){
     }, response);
     assert.equal(response.statusCode, 200);
     assert.equal(response.body.schemaVersion, "server-feed.v1");
+    assert.equal(response.body.sourcePublishedAt, require("../data/events.json").publishedAt, "authenticated feeds must expose the canonical publication time");
     assert.equal(response.body.derivedCardCache.buildOrigin, "server");
     assert.equal(response.headers["Cache-Control"], "private, no-store, max-age=0");
     assert.equal(response.headers.Vary, "Authorization");

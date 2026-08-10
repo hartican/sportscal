@@ -16,6 +16,8 @@ const currentSourceCheckedAt = "2026-08-02T22:12:18+10:00";
 const currentReviewedAt = "2026-08-02T12:12:18.000Z";
 const finalDaySourceCheckedAt = "2026-08-03T15:07:00+10:00";
 const finalDayReviewedAt = "2026-08-03T05:07:00.000Z";
+const latestResultSourceCheckedAt = "2026-08-11T04:20:00+10:00";
+const latestResultReviewedAt = "2026-08-10T18:20:00.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -53,7 +55,42 @@ const finalDayOfficial = (sourceName, sourceUrl, result) => ({
   lastReviewedAt: finalDayReviewedAt,
 });
 
+const reputable = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: latestResultSourceCheckedAt,
+  sourceType: "reputable",
+  lastReviewedAt: latestResultReviewedAt,
+});
+
 const results = {
+  "rugby-japan-australia-2026-08-08": reputable(
+    "Sydney Morning Herald match report and Superbru result listing",
+    "https://www.superbru.com/tournaments/rugby-union/nations-championship-rugby/2026",
+    {
+      score: "Japan 32-35 Australia",
+      outcomeText: "Australia held off Japan 35-32 in Osaka despite playing a 20-minute period with 14 men.",
+      recapText: "The Wallabies opened the Les Kiss era with a three-point win in oppressive heat. Japan stayed within reach after Miles Amatosero's upgraded red card, but Australia's defence protected the 35-32 lead through the final attack.",
+      resultLabels: ["Wallabies by 3", "Les Kiss first Test", "Media-confirmed result"],
+      resultSources: [
+        {
+          name: "Sydney Morning Herald match report archived on r/Wallabies",
+          url: "https://www.reddit.com/r/Wallabies/comments/1vjby87/we_found_a_way_wallabies_defy_heat_red_card_to/",
+        },
+        {
+          name: "Superbru 2026 rugby results",
+          url: "https://www.superbru.com/tournaments/rugby-union/nations-championship-rugby/2026",
+        },
+      ],
+      consensusResult: {
+        winner: "Australia",
+        loser: "Japan",
+        summary: "Australia defeated Japan 35-32.",
+        marginText: "Australia by 3",
+      },
+    }
+  ),
   "f1-australian-gp-2027-ticket-watch": official(
     "Formula 1 Australian Grand Prix ticket waitlist",
     "https://www.grandprix.com.au/tickets",
@@ -786,9 +823,9 @@ if (missing.length) {
   throw new Error(`Result refresh targets not found: ${missing.join(", ")}`);
 }
 
-feed.version = "nothingsport-results-2026-08-02-v1";
-feed.publishedAt = currentReviewedAt;
-feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 2 August 2026. Curated cards supersede routine imports for the same event.";
+feed.version = "nothingsport-results-2026-08-10-v1";
+feed.publishedAt = latestResultReviewedAt;
+feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 10 August 2026. Curated cards supersede routine imports for the same event.";
 
 fs.writeFileSync(inputPath, `${JSON.stringify(feed, null, 2)}\n`);
 console.log(`Updated ${found.size} result cards in ${path.relative(process.cwd(), inputPath)}.`);

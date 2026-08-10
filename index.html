@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="60">
+<meta name="app-shell-version" content="61">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -71,6 +71,9 @@
   --c-nfl: #1a237e;
   --c-afl: #8b1d2c;
   --c-cwg: #6f4cc3;
+  --c-motorsport: #7f57c2;
+  --c-extreme: #ff7a18;
+  --c-surf: #0bb3d9;
 }
 
 :root[data-theme="day"]{
@@ -3268,7 +3271,7 @@ footer.app-footer{
 <footer class="app-footer">
   <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" loading="lazy" decoding="async">
   <div class="footer-slogan" data-brand-copy="descriptor">Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.</div>
-  <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Data updates weekly</div>
+  <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -3625,6 +3628,7 @@ const STORAGE_KEYS = {
   derivedCardCache: "ns_derived_card_cache_v1",
   reminderDelivery: "ns_reminder_delivery_v1",
   lastFeedVersion: "ns_last_feed_version_v1",
+  lastFeedPublishedAt: "ns_last_feed_published_at_v1",
   lastRefreshAt: "ns_last_refresh_at_v1",
   ratings: "ns_ratings_v1",
   legacySpoilerReveals: "ns_spoiler_reveals_v1",
@@ -3771,6 +3775,28 @@ function selectorEntityCanonicalSportKeys(entity){
   return uniqueArray(entity.canonicalSportKeys || []);
 }
 
+function eventDomainIdentifiers(ev){
+  const key = String(ev?.key || "").trim();
+  const sportId = String(ev?.sportId || "").trim();
+  const registryRecord = key ? SPORT_DOMAIN_REGISTRY?.byKey?.[key.toLowerCase()] : null;
+  const sportIdRecord = sportId ? SPORT_DOMAIN_REGISTRY?.byKey?.[sportId.toLowerCase()] : null;
+  const ids = [];
+  const add = value => {
+    const normalized = String(value || "").trim();
+    if (normalized) ids.push(normalized);
+  };
+
+  add(ev?.sportDomainId);
+  if (Array.isArray(ev?.sportDomainIds)) ev.sportDomainIds.forEach(item => add(item));
+  add(key);
+  add(sportId);
+  if (key) add(`sport:${key.toLowerCase()}`);
+  if (sportId) add(`sport:${sportId.toLowerCase()}`);
+  if (registryRecord?.domainId) add(registryRecord.domainId);
+  if (sportIdRecord?.domainId && sportIdRecord?.domainId !== registryRecord?.domainId) add(sportIdRecord.domainId);
+  return uniqueArray(ids);
+}
+
 function normalizeSelectorEntityIds(values){
   const validIds = new Set(allSelectorEntities().map(entity => entity.id));
   return uniqueArray((Array.isArray(values) ? values : []).map(id => LEGACY_SELECTOR_ID_ALIASES[id] || id))
@@ -3839,7 +3865,8 @@ function selectorEntityMatchesEvent(entityId, ev){
   if (entity.id.startsWith("cwg:")){
     return ev.key === "cwg" && commonwealthDisciplineForEvent(ev) === entity.canonicalDiscipline;
   }
-  return selectorEntityCanonicalSportKeys(entity).includes(ev.sportId || ev.key);
+  const eventDomainIds = eventDomainIdentifiers(ev);
+  return selectorEntityCanonicalSportKeys(entity).some(key => eventDomainIds.includes(key));
 }
 
 function selectorNewPromptEntities(){
@@ -4657,6 +4684,7 @@ function applyFeedEvents(events, meta){
   rebuildDerivedCardCache(activeEvents);
   scheduleBrowserReminders();
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
+  if (meta?.publishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, meta.publishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
   calendarInitialJumpPending = true;
   renderAll();
@@ -4682,7 +4710,8 @@ function applyServerFeed(payload){
   syncLegacyArchiveReferences(activeEvents);
   scheduleBrowserReminders();
   if (payload.sourceVersion) writeStorage(STORAGE_KEYS.lastFeedVersion, payload.sourceVersion);
-  writeStorage(STORAGE_KEYS.lastRefreshAt, payload.generatedAt || new Date().toISOString());
+  if (payload.sourcePublishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, payload.sourcePublishedAt);
+  writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
   calendarInitialJumpPending = true;
   renderAll();
   return {
@@ -4699,7 +4728,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     && ["signedIn", "syncing", "error"].includes(serverPersistence.state)
   );
   try{
-    if (!quiet) showToast(centralRebuildRequested ? "Rebuilding your feed…" : "Checking feed updates...");
+    if (!quiet) showToast(centralRebuildRequested ? "Rebuilding your feed…" : "Loading the published feed…");
     if (centralRebuildRequested){
       const result = applyServerFeed(await serverSyncClient.loadFeed());
       if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
@@ -4709,7 +4738,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     const eventsPath = meta.eventsPath || meta.eventsUrl;
     if (!eventsPath && meta.usesBundledEvents){
       applyFeedEvents(EVENTS.slice(), meta);
-      if (!quiet) showToast("Feed refreshed from canonical events and current retention rules.");
+      if (!quiet) showToast("Published feed loaded with current retention rules.");
       return { source: "bundled", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length };
     }
     const payload = await fetchJson(eventsPath || FEED_CONFIG.eventsUrl);
@@ -4718,7 +4747,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
       throw new Error("Remote feed did not contain usable events");
     }
     applyFeedEvents(events, meta);
-    if (!quiet) showToast(`Feed refreshed: ${events.length} events loaded.`);
+    if (!quiet) showToast(`Published feed loaded: ${events.length} events.`);
     return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length };
   }catch(err){
     console.warn("Feed refresh failed", err);
@@ -4738,7 +4767,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     if (!quiet){
       showToast(centralRebuildRequested
         ? "Central rebuild unavailable. Rebuilt safely on this device."
-        : "No remote feed update found. Rebuilt from the bundled canonical schedule.");
+        : "Published feed unavailable. Rebuilt from the bundled canonical schedule.");
     }
     return { source: "fallback", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length };
   }
@@ -5783,8 +5812,12 @@ function renderFilters(){
       btn.setAttribute("aria-pressed", String(activeFilter === key));
       btn.style.setProperty("--pill-color", metadata.color);
       btn.innerHTML = `${glyphMarkup(metadata.glyph)}<span>${metadata.label}</span>`;
-      btn.addEventListener("click", () => {
-        setActiveFeedFilter(key);
+      const activateFilter = () => setActiveFeedFilter(key);
+      btn.addEventListener("click", activateFilter);
+      btn.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateFilter();
       });
       container.appendChild(btn);
     });
@@ -5853,16 +5886,16 @@ function renderPreferenceSummary(){
     .slice(0, 3);
   const providerCopy = providers.length ? providers.join(", ") : "No providers selected";
   const feedVersion = readStorage(STORAGE_KEYS.lastFeedVersion, null) || "bundled";
-  const lastRefresh = readStorage(STORAGE_KEYS.lastRefreshAt, null);
-  const refreshCopy = lastRefresh
-    ? new Date(lastRefresh).toLocaleString("en-AU", { timeZone: "Australia/Sydney", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
-    : "not checked";
+  const publishedAt = readStorage(STORAGE_KEYS.lastFeedPublishedAt, null);
+  const publishedCopy = publishedAt
+    ? new Date(publishedAt).toLocaleString("en-AU", { timeZone: "Australia/Sydney", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
+    : "bundled copy";
   container.innerHTML = `
     <span class="summary-chip">${sportCount} sports followed</span>
     <span class="summary-chip">${providerCopy}${userPreferences.selectedBroadcasters.length > 3 ? " +" + (userPreferences.selectedBroadcasters.length - 3) : ""}</span>
     <span class="summary-chip">Spoilers ${userPreferences.showSpoilers ? "shown" : "protected"}</span>
     <span class="summary-chip">${userPreferences.localVenueIds.length} local venues</span>
-    <span class="summary-chip">Feed ${feedVersion} · ${refreshCopy}</span>
+    <span class="summary-chip" title="This is when the published feed was generated, not when this browser last checked it.">Feed generated ${publishedCopy} · ${feedVersion}</span>
     <button class="refine-filter-btn" id="refineFiltersBtn" type="button">Refine filters</button>
   `;
   document.getElementById("refineFiltersBtn")?.addEventListener("click", () => openSettings({ section: "sports" }));
@@ -5951,16 +5984,18 @@ function eventMeetsGlobalThreshold(ev){
   return Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes;
 }
 
+function eventDomainPreferences(ev){
+  const domainIdSet = new Set(eventDomainIdentifiers(ev));
+  const allPreferences = userPreferences?.preferenceGraph?.domainPreferences || [];
+  return allPreferences.filter(preference => domainIdSet.has(preference?.sportDomainId));
+}
+
 function eventIsEditorialMustShow(ev){
   return Number(ev.stakesScore) >= SCORE_BANDS.topStorylines.minStakes;
 }
 
 function eventDomainPreference(ev){
-  const domainId = ev.sportDomainId
-    || SPORT_DOMAIN_REGISTRY?.byKey?.[ev.key]?.domainId
-    || (SPORTS_LIBRARY[ev.key] ? `sport:${ev.key}` : null);
-  if (!domainId) return null;
-  return userPreferences.preferenceGraph?.domainPreferences?.find(preference => preference.sportDomainId === domainId) || null;
+  return eventDomainPreferences(ev)[0] || null;
 }
 
 function eventCompetitionPreference(ev){
@@ -5980,13 +6015,16 @@ function eventParticipantFollowLevels(ev){
 }
 
 function eventUsesFocusedSportFrothOverride(ev){
-  return activeTab === "feed" && activeFilter !== "all" && feedFilterMatchesEvent(activeFilter, ev);
+  if (activeTab !== "feed") return false;
+  const filterOverride = activeFilter !== "all" && ev.key === activeFilter;
+  return filterOverride || (activeFilter !== "all" && feedFilterMatchesEvent(activeFilter, ev));
 }
 
 function eventMeetsCoveragePreference(ev){
-  const domainPreference = eventDomainPreference(ev);
-  if (!domainPreference) return eventMeetsGlobalThreshold(ev);
-  if (domainPreference.enabled === false) return false;
+  const domainPreferences = eventDomainPreferences(ev);
+  const enabledDomainPreferences = domainPreferences.filter(preference => preference?.enabled !== false);
+  if (!domainPreferences.length) return eventMeetsGlobalThreshold(ev);
+  if (!enabledDomainPreferences.length) return false;
 
   const competitionPreference = eventCompetitionPreference(ev);
   if (competitionPreference?.enabled === false) return false;
@@ -5995,11 +6033,12 @@ function eventMeetsCoveragePreference(ev){
   if (followLevels.includes("mute")) return false;
   if (eventUsesFocusedSportFrothOverride(ev)) return true;
 
-  const includeAllFixtures = competitionPreference?.includeAllFixtures ?? domainPreference.includeAllFixtures;
-  const includeMajorEvents = competitionPreference?.includeMajorEvents ?? domainPreference.includeMajorEvents;
+  const includeAllFixtures = enabledDomainPreferences.some(preference => preference.includeAllFixtures);
+  const includeMajorEvents = enabledDomainPreferences.some(preference => preference.includeMajorEvents !== false);
+  const includeFollowedTeams = enabledDomainPreferences.some(preference => preference.includeFollowedTeams);
   if (includeAllFixtures) return true;
-  if (includeMajorEvents !== false && eventMeetsGlobalThreshold(ev)) return true;
-  return Boolean(domainPreference.includeFollowedTeams && followLevels.some(level => level === "follow" || level === "priority"));
+  if (includeMajorEvents && eventMeetsGlobalThreshold(ev)) return true;
+  return Boolean(includeFollowedTeams && followLevels.some(level => level === "follow" || level === "priority"));
 }
 
 function eventMeetsDerivedRetention(ev, reference = nowAEST()){
@@ -6030,6 +6069,7 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
     && eventMatchesFifaFilters(ev)
     && (
       eventIsEditorialMustShow(ev)
+      || eventUsesFocusedSportFrothOverride(ev)
       || (eventMatchesSportPreferences(ev) && eventMatchesBroadcasterPreferences(ev))
     )
   ));

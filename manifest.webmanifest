@@ -1,6 +1,6 @@
 {
   "name": "Nothingsport — Smart sports feed",
-  "short_name": "NS",
+  "short_name": "nothingsport",
   "description": "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.",
   "start_url": "/",
   "scope": "/",
@@ -8,12 +8,6 @@
   "background_color": "#0a0a0f",
   "theme_color": "#0a0a0f",
   "icons": [
-    {
-      "src": "/icons/nothingsport-app-180.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any"
-    },
     {
       "src": "/icons/nothingsport-app-192.png",
       "sizes": "192x192",
