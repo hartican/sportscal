@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="69">
+<meta name="app-shell-version" content="71">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -1287,6 +1287,19 @@ main{
     var(--bg-card);
 }
 
+.event-card.is-swipe-eligible{
+  touch-action: pan-y;
+  transform:translateX(var(--calibration-x, 0px));
+}
+
+.event-card.swipe-positive{
+  border-color: color-mix(in srgb, #64d79d 70%, var(--border));
+}
+
+.event-card.swipe-negative{
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
+}
+
 .event-card.mode-calendar{
   cursor: pointer;
 }
@@ -1792,19 +1805,37 @@ main{
 
 .stars{
   display:inline-flex;
-  gap: 1px;
+  gap: 3px;
 }
 
 .star{
-  cursor:pointer;
-  font-size: 0.95rem;
+  width:28px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:default;
+  font:inherit;
+  font-size: 1.05rem;
   color: #3a3a45;
   transition: color 0.1s, transform 0.1s;
 }
 
-.star.filled{
+.star.filled,
+.star.half-filled{
   color: #ffb300;
 }
+
+.star.half-filled{
+  background:linear-gradient(90deg, #ffb300 50%, #3a3a45 50%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.star.interactive{ cursor:pointer; }
 
 .star.interactive:hover{
   transform: scale(1.2);
@@ -2272,6 +2303,266 @@ main{
 .choice-card.disabled{
   cursor:not-allowed;
   opacity: 0.45;
+}
+
+.calibration-shell{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.calibration-progress-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  color:var(--text-dim);
+  font-size:0.76rem;
+  font-weight:800;
+}
+
+.calibration-card{
+  --calibration-x:0px;
+  min-height:250px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:28px 22px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 50% 16%, color-mix(in srgb, var(--sport-color, var(--accent)) 18%, transparent), transparent 54%),
+    var(--bg-card);
+  text-align:center;
+  touch-action:pan-y;
+  transform:translateX(var(--calibration-x));
+  transition:transform 130ms ease, border-color 130ms ease, background 130ms ease;
+  outline:none;
+}
+
+.calibration-card:focus-visible{
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.calibration-card.swipe-positive{
+  border-color:#64d79d;
+  background:color-mix(in srgb, #64d79d 9%, var(--bg-card));
+}
+
+.calibration-card.swipe-negative{
+  border-color:var(--accent);
+  background:color-mix(in srgb, var(--accent) 9%, var(--bg-card));
+}
+
+.calibration-glyph{
+  width:72px;
+  height:72px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 18%, transparent);
+}
+
+.calibration-glyph .vector-glyph{
+  width:40px;
+  height:40px;
+}
+
+.calibration-card h3{
+  margin:0;
+  font-size:1.3rem;
+}
+
+.calibration-card p{
+  max-width:440px;
+  margin:0;
+  color:var(--text-dim);
+  font-size:0.84rem;
+  line-height:1.5;
+}
+
+.calibration-actions{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:8px;
+}
+
+.calibration-actions .btn{
+  min-height:46px;
+  padding-inline:10px;
+}
+
+.calibration-key-help{
+  text-align:center;
+  color:var(--text-faint);
+  font-size:0.7rem;
+}
+
+.calibration-complete{
+  padding:30px 18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--bg-card);
+  text-align:center;
+}
+
+.calibration-complete strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:1rem;
+}
+
+.tune-shell{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.tune-summary{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:13px 14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--soft-fill);
+}
+
+.tune-summary strong,
+.tune-summary span{ display:block; }
+
+.tune-summary span{
+  margin-top:4px;
+  color:var(--text-dim);
+  font-size:0.73rem;
+  line-height:1.4;
+}
+
+.tune-section-nav{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:6px;
+}
+
+.tune-section-tab{
+  min-height:42px;
+  padding:8px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--bg-card);
+  color:var(--text-dim);
+  font:800 0.71rem/1.2 inherit;
+  cursor:pointer;
+}
+
+.tune-section-tab.active{
+  border-color:var(--accent);
+  color:var(--text);
+  box-shadow:0 0 0 1px var(--accent) inset;
+}
+
+.tune-section-copy h3{ margin-bottom:4px; }
+
+.tune-card-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:9px;
+}
+
+.tune-card{
+  min-width:0;
+  display:grid;
+  grid-template-columns:36px minmax(0, 1fr);
+  grid-template-rows:auto auto;
+  gap:4px 10px;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg-card);
+}
+
+.tune-card-glyph{
+  grid-row:1 / 3;
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:var(--soft-fill-strong);
+}
+
+.tune-card-glyph .vector-glyph{ width:24px; height:24px; }
+.tune-card strong{ min-width:0; font-size:0.82rem; }
+.tune-card-copy{ color:var(--text-dim); font-size:0.69rem; line-height:1.35; }
+
+.tune-card-actions{
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-top:7px;
+}
+
+.tune-choice{
+  min-height:38px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:transparent;
+  color:var(--text-dim);
+  font:800 0.71rem/1 inherit;
+  cursor:pointer;
+}
+
+.tune-choice.selected[data-tune-value="-1"]{
+  border-color:var(--accent);
+  color:var(--accent);
+  background:color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.tune-choice.selected[data-tune-value="1"]{
+  border-color:var(--positive);
+  color:var(--positive);
+  background:color-mix(in srgb, var(--positive) 8%, transparent);
+}
+
+.tune-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.post-event-rating-prompt{
+  margin-top:11px;
+  padding:12px;
+  border:1px solid color-mix(in srgb, #ffb300 45%, var(--border));
+  border-radius:11px;
+  background:color-mix(in srgb, #ffb300 6%, var(--bg-card));
+}
+
+.post-event-rating-prompt-copy{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.post-event-rating-prompt-copy strong,
+.post-event-rating-prompt-copy span{ display:block; }
+.post-event-rating-prompt-copy span{ margin-top:3px; color:var(--text-dim); font-size:0.71rem; }
+.rating-prompt-dismiss{ border:0; background:transparent; color:var(--text-dim); font:800 0.7rem/1 inherit; cursor:pointer; }
+
+@media (max-width: 640px){
+  .tune-card-grid{ grid-template-columns:1fr; }
+  .tune-section-tab{ min-height:46px; font-size:0.67rem; }
+  .tune-choice{ min-height:44px; }
+  .tune-summary,
+  .tune-footer{ align-items:stretch; flex-direction:column; }
+  .tune-footer .btn{ width:100%; justify-content:center; }
+  .post-event-rating-prompt .star{ width:36px; height:44px; font-size:1.25rem; }
 }
 
 .choice-title{
@@ -3966,6 +4257,24 @@ footer.app-footer{
   </div>
 </div>
 
+<div class="modal-backdrop" id="tunePromptModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel tune-prompt-panel" role="dialog" aria-modal="true" aria-labelledby="tunePromptTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="tunePromptTitle">Want to tune that further?</h2>
+        <p>Your feed already learned from the swipe. Tune can deepen that signal from broad sports into teams, players and event families.</p>
+      </div>
+    </div>
+    <div class="onboarding-body">
+      <p class="preference-help">This prompt appears less often as nothingsport learns. It never blocks the feed.</p>
+    </div>
+    <div class="onboarding-actions">
+      <button class="btn ghost" type="button" id="dismissTunePromptBtn">Not now</button>
+      <button class="btn primary" type="button" id="reviewSportsFromTuneBtn">Tune now</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-backdrop" id="standingsSpoilerModal" aria-hidden="true">
   <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="standingsSpoilerTitle">
     <div class="onboarding-head">
@@ -4021,6 +4330,9 @@ footer.app-footer{
 <script src="config/product-events.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
+<script src="config/swipe-calibration.js"></script>
+<script src="config/fine-tuning.js"></script>
+<script src="config/rating-system.js"></script>
 <script src="config/enrichment-engine.js"></script>
 <script src="config/card-lifecycle.js"></script>
 <script src="config/reminder-engine.js"></script>
@@ -4091,6 +4403,9 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
 };
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
+const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
+const FINE_TUNING = globalThis.NOTHINGSPORTS_FINE_TUNING || null;
+const RATING_SYSTEM = globalThis.NOTHINGSPORTS_RATING_SYSTEM || null;
 const SPORT_CONTEXT = globalThis.NOTHINGSPORTS_SPORT_CONTEXT || null;
 const SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
 const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
@@ -4208,6 +4523,13 @@ const DEFAULT_PREFERENCES = {
     enabled: false,
     acknowledgedAt: null,
     lastPulseWeek: null,
+  },
+  ratingPromptState: RATING_SYSTEM?.emptyPromptState?.() || {
+    schemaVersion: "rating-prompts.v1",
+    sessionCount: 0,
+    lastSessionId: null,
+    lastPromptSessionId: null,
+    prompts: [],
   },
   tennis: {
     enthusiasm: "froth",
@@ -4357,6 +4679,12 @@ let canonicalSportsDataError = null;
 let standingsRevealApproved = false;
 let pendingStandingsReveal = null;
 let pendingSelectorPromptIds = new Set();
+let pendingTunePromptDislikeCount = null;
+let tuneSectionIndex = 0;
+let tuneSessionRuntime = null;
+let sessionRatingPromptEventId = null;
+let sessionRatingPromptSuppressed = false;
+let sessionRatingPromptSelectionFinalized = false;
 let settingsViewportAnchor = null;
 let selectorOptInViewportAnchor = null;
 let cardViewStates = {};
@@ -4373,6 +4701,7 @@ let productEventOwnerId = null;
 let productExposureObserver = null;
 const productExposureTargets = new WeakMap();
 const productExposureTimers = new WeakMap();
+const sessionDismissedEventIds = new Set();
 const productExposureKeys = new Set();
 
 function readStorage(key, fallback){
@@ -4623,6 +4952,7 @@ function mergePreferences(saved){
     || activeProfileBundle.competitionPreferences?.length
     || activeProfileBundle.entityFollows?.length
     || activeProfileBundle.viewingPreference
+    || activeProfileBundle.learningPreference
   ) ? {
     schemaVersion: PREFERENCE_SYSTEM?.SCHEMA_VERSION,
     profileId: activeProfileBundle.profile?.id,
@@ -4630,6 +4960,7 @@ function mergePreferences(saved){
     competitionPreferences: activeProfileBundle.competitionPreferences || [],
     entityFollows: activeProfileBundle.entityFollows || [],
     viewing: activeProfileBundle.viewingPreference || null,
+    learning: activeProfileBundle.learningPreference || null,
   } : null;
   const preferenceGraph = PREFERENCE_SYSTEM?.migratePreferenceGraph(saved.preferenceGraph || profileGraph, {
     profileId: activeProfileBundle?.profile?.id || "profile:local",
@@ -4662,6 +4993,9 @@ function mergePreferences(saved){
         ? saved.pilotMeasurement.lastPulseWeek
         : null,
     },
+    ratingPromptState: RATING_SYSTEM?.normalizePromptState?.(
+      saved.ratingPromptState || merged.ratingPromptState
+    ) || merged.ratingPromptState,
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
@@ -4676,6 +5010,7 @@ function saveActivePreferenceGraph(graph){
     activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "competitionPreferences", graph.competitionPreferences || []);
     activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "entityFollows", graph.entityFollows || []);
     activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "viewingPreference", graph.viewing || null);
+    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "learningPreference", graph.learning || null);
     return true;
   }catch(error){
     console.warn("Profile preference graph write failed", error);
@@ -5086,6 +5421,13 @@ let reminderDeliveryState = readStorage(STORAGE_KEYS.reminderDelivery, {});
 let reminderTimers = [];
 if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
 let activeEvents = EVENTS.slice();
+if (RATING_SYSTEM){
+  const startedRatingPromptState = RATING_SYSTEM.startSession(
+    userPreferences.ratingPromptState,
+    productEventSessionId
+  );
+  savePreferences({ ...userPreferences, ratingPromptState: startedRatingPromptState });
+}
 
 function bootstrapExistingSurfaceHistory(events, reference = nowAEST()){
   if (Object.keys(surfacePresentationState).length || !userPreferences.onboardingComplete) return;
@@ -5274,6 +5616,21 @@ function applyServerState(state){
     const mergedPreferences = SERVER_SYNC?.mergeSettings
       ? SERVER_SYNC.mergeSettings(userPreferences, state.preferences)
       : { ...userPreferences, ...(state.preferences || {}) };
+    if (mergedPreferences.preferenceGraph && PREFERENCE_SYSTEM?.mergeLearning){
+      mergedPreferences.preferenceGraph.learning = PREFERENCE_SYSTEM.mergeLearning(
+        userPreferences?.preferenceGraph?.learning,
+        state.preferences?.preferenceGraph?.learning
+      );
+    }
+    if (RATING_SYSTEM){
+      mergedPreferences.ratingPromptState = RATING_SYSTEM.startSession(
+        RATING_SYSTEM.mergePromptState(
+          userPreferences?.ratingPromptState,
+          state.preferences?.ratingPromptState
+        ),
+        productEventSessionId
+      );
+    }
     userPreferences = mergePreferences(mergedPreferences);
     eventActions = state.eventUserState && typeof state.eventUserState === "object"
       ? migrateEventActionRecords(state.eventUserState)
@@ -5310,6 +5667,7 @@ function applyServerState(state){
         competitionPreferences: graph?.competitionPreferences || [],
         entityFollows: graph?.entityFollows || [],
         viewingPreference: graph?.viewing || null,
+        learningPreference: graph?.learning || null,
         ratings,
         eventUserState: eventActions,
         eventSpoilerState,
@@ -5944,6 +6302,56 @@ function getActual(id){
   return ratings[id] !== undefined ? ratings[id] : null;
 }
 
+function actualStarValue(id){
+  return RATING_SYSTEM?.storedScoreToStars?.(getActual(id)) ?? null;
+}
+
+function actualRatingLabel(score){
+  const stars = RATING_SYSTEM?.storedScoreToStars?.(score);
+  return stars === null || stars === undefined ? null : `${stars}/5 stars`;
+}
+
+function ensureSessionRatingPrompt(events){
+  if (
+    sessionRatingPromptSelectionFinalized
+    || sessionRatingPromptSuppressed
+    || !RATING_SYSTEM
+    || activeTab !== "feed"
+    || activeView !== "list"
+    || activeFilter !== "all"
+    || document.getElementById("tunePromptModal")?.classList.contains("show")
+  ) return sessionRatingPromptEventId;
+  const candidates = (Array.isArray(events) ? events : [])
+    .filter(event => getEventStatus(event) === "past")
+    .filter(event => getActual(event.id) === null)
+    .filter(event => !getEventAction(event).archived && !eventIsAutoArchived(event))
+    .sort((first, second) => eventDateTime(second) - eventDateTime(first));
+  const state = userPreferences.ratingPromptState;
+  const selected = candidates.find(event => RATING_SYSTEM.canPrompt(state, event.eventId || event.id, {
+    sessionId: productEventSessionId,
+    rated: false,
+  })) || null;
+  sessionRatingPromptSelectionFinalized = true;
+  if (!selected) return null;
+  sessionRatingPromptEventId = String(selected.eventId || selected.id);
+  const nextState = RATING_SYSTEM.recordPrompt(state, sessionRatingPromptEventId, {
+    sessionId: productEventSessionId,
+  });
+  savePreferences({ ...userPreferences, ratingPromptState: nextState });
+  return sessionRatingPromptEventId;
+}
+
+function isSessionRatingPromptEvent(ev){
+  return !sessionRatingPromptSuppressed
+    && getActual(ev.id) === null
+    && sessionRatingPromptEventId === String(ev.eventId || ev.id);
+}
+
+function suppressSessionRatingPrompt(){
+  sessionRatingPromptSuppressed = true;
+  sessionRatingPromptEventId = null;
+}
+
 function isPreFlagged(ev){
   return ev.stakesScore >= SCORE_BANDS.topStorylines.minStakes;
 }
@@ -6039,8 +6447,22 @@ function calculateEventEnrichment(ev){
   return ENRICHMENT_ENGINE.enrichEvent(ev, enrichmentContextForEvent(ev));
 }
 
+function eventLearningReferences(ev){
+  return SWIPE_CALIBRATION?.targetReferencesForEvent?.(ev) || [];
+}
+
+function eventLearningScore(ev){
+  return PREFERENCE_SYSTEM?.learningScore?.(userPreferences?.preferenceGraph, eventLearningReferences(ev)) || 0;
+}
+
 function eventEnrichment(ev){
-  return cachedEventEnrichment(ev) || calculateEventEnrichment(ev);
+  const base = cachedEventEnrichment(ev) || calculateEventEnrichment(ev);
+  const learningScore = eventLearningScore(ev);
+  return {
+    ...base,
+    mustWatchScore: Math.max(0, Math.min(100, Number(base.mustWatchScore || 0) + learningScore)),
+    learningScore,
+  };
 }
 
 function buildFollowContext(contextItems){
@@ -6247,6 +6669,8 @@ function compareSurfacedEvents(first, second, { topNine = false, reference = now
   const secondPresentation = surfacePresentationForEvent(second, reference);
   if (firstPresentation.isPinned !== secondPresentation.isPinned) return firstPresentation.isPinned ? -1 : 1;
   if (firstPresentation.isNew !== secondPresentation.isNew) return firstPresentation.isNew ? -1 : 1;
+  const learningDifference = eventLearningScore(second) - eventLearningScore(first);
+  if (learningDifference) return learningDifference;
   if (topNine){
     const scoreDifference = eventEnrichment(second).mustWatchScore - eventEnrichment(first).mustWatchScore;
     if (scoreDifference) return scoreDifference;
@@ -6267,6 +6691,16 @@ function orderSurfacedEvents(events, options = {}){
   const eligible = events.slice();
   ensureSurfacePresentations(eligible, options.reference || nowAEST());
   return eligible.slice().sort((first, second) => compareSurfacedEvents(first, second, options));
+}
+
+function orderCuratedDayEvents(events){
+  return events
+    .map((event, index) => ({ event, index }))
+    .sort((first, second) => (
+      eventLearningScore(second.event) - eventLearningScore(first.event)
+      || first.index - second.index
+    ))
+    .map(item => item.event);
 }
 
 function partitionSurfacedEvents(events, options = {}){
@@ -6468,7 +6902,7 @@ function eventSpielForDisplay(ev){
   return fullSpiel || (recap ? String(recap) : "") || ev.selectedSentence || "";
 }
 
-function setEventRating(ev, value){
+function setEventRating(ev, value, { revealSpoilers = true } = {}){
   const current = getActual(ev.id);
   if (current === value){
     delete ratings[ev.id];
@@ -6476,7 +6910,8 @@ function setEventRating(ev, value){
     ratings[ev.id] = value;
   }
   saveRatings(ratings);
-  markSpoilerRevealed(ev);
+  if (revealSpoilers) markSpoilerRevealed(ev);
+  return current === value;
 }
 
 function archiveEvent(ev, { preserve = false } = {}){
@@ -6576,7 +7011,7 @@ function buildEventActionPanel(ev, options = {}){
         markSpoilerRevealed(ev);
         setCardState(ev, "opened");
         renderCurrentSection();
-        showToast("Choose a rating from 1 to 10.");
+        showToast("Choose one to five stars for actual spectacle.");
       });
       if (getActual(ev.id) !== null){
         makeActionButton("Save", "active", () => {
@@ -7030,6 +7465,9 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
+  if (activeTab === "feed" && activeFilter === "all"){
+    list = list.filter(ev => !sessionDismissedEventIds.has(String(ev.eventId || ev.id)));
+  }
   if (activeFilter !== "all") list = list.filter(ev => feedFilterMatchesEvent(activeFilter, ev));
   return list;
 }
@@ -7142,27 +7580,67 @@ function observeNewSurfaceItem(element, ev, presentation = surfacePresentationFo
 }
 
 /* ============ CARD BUILDER ============ */
-function buildStars(ev, interactive){
+function buildStars(ev, interactive, { prompt = false } = {}){
   const actual = getActual(ev.id);
+  const actualStars = actualStarValue(ev.id);
   const wrap = document.createElement("span");
   wrap.className = "stars";
-  for (let i=1;i<=10;i++){
-    const s = document.createElement("span");
-    s.className = "star" + (interactive ? " interactive" : "") + (actual !== null && i <= actual ? " filled" : "");
+  wrap.setAttribute("aria-label", actualStars === null ? "Not rated" : `Rated ${actualStars} out of 5 stars`);
+  for (let i=1;i<=5;i++){
+    const s = document.createElement(interactive ? "button" : "span");
+    const fillClass = actualStars !== null && actualStars >= i
+      ? " filled"
+      : actualStars !== null && actualStars === i - 0.5
+        ? " half-filled"
+        : "";
+    s.className = "star" + (interactive ? " interactive" : "") + fillClass;
     s.textContent = "★";
-    s.title = `Rate ${i}/10`;
+    s.title = `${i} star${i === 1 ? "" : "s"} · stores ${RATING_SYSTEM?.starToStoredScore?.(i) || i * 2}/10`;
     if (interactive){
+      s.type = "button";
+      s.setAttribute("aria-label", `Rate ${i} out of 5 stars`);
       s.addEventListener("click", (evt) => {
         evt.stopPropagation();
-        const removing = getActual(ev.id) === i;
-        setEventRating(ev, i);
+        const storedScore = RATING_SYSTEM?.starToStoredScore?.(i) || i * 2;
+        const removing = setEventRating(ev, storedScore, { revealSpoilers: !prompt });
+        if (!removing){
+          recordProductEvent({
+            eventName: "rating",
+            surface: prompt ? "curated_feed" : "event_card",
+            ...productEventContextForEvent(ev),
+            properties: { score: i },
+          });
+        }
+        if (prompt) suppressSessionRatingPrompt();
         renderAll();
-        showToast(removing ? `Rating removed for "${ev.name}".` : `Actual spectacle for "${ev.name}" set to ${i}/10`);
+        showToast(removing ? `Rating removed for "${ev.name}".` : `Actual spectacle for "${ev.name}" set to ${i}/5 stars.`);
       });
     }
     wrap.appendChild(s);
   }
   return wrap;
+}
+
+function buildPostEventRatingPrompt(ev){
+  const prompt = document.createElement("div");
+  prompt.className = "post-event-rating-prompt";
+  prompt.dataset.ratingPrompt = String(ev.eventId || ev.id);
+  const copy = document.createElement("div");
+  copy.className = "post-event-rating-prompt-copy";
+  const text = document.createElement("div");
+  text.innerHTML = "<strong>Did it deliver?</strong><span>Rate actual spectacle. This is separate from expected interest.</span>";
+  const dismiss = document.createElement("button");
+  dismiss.type = "button";
+  dismiss.className = "rating-prompt-dismiss";
+  dismiss.textContent = "Not now";
+  dismiss.addEventListener("click", event => {
+    event.stopPropagation();
+    suppressSessionRatingPrompt();
+    renderCurrentSection();
+  });
+  copy.append(text, dismiss);
+  prompt.append(copy, buildStars(ev, true, { prompt: true }));
+  return prompt;
 }
 
 function buildStakesMeter(ev){
@@ -7242,7 +7720,7 @@ function buildSpoilerFacts(ev){
   const displayedSpiel = eventSpielForDisplay(ev).trim();
   const recapCopy = facts.recap === null || facts.recap === undefined ? "" : String(facts.recap).trim();
   addFact("Recap", recapCopy && recapCopy !== displayedSpiel ? recapCopy : null);
-  addFact("Rating", facts.rating !== null ? `${facts.rating}/10` : null);
+  addFact("Rating", facts.rating !== null ? actualRatingLabel(facts.rating) : null);
   addFact("Labels", facts.labels.length ? facts.labels.join(" · ") : null);
 
   if (facts.thumbnail){
@@ -7500,6 +7978,116 @@ function collapseCardsOutsideActiveViewport(){
   return true;
 }
 
+function bindHorizontalLearningSwipe(element, onDirection, { threshold = 68 } = {}){
+  if (!element || typeof onDirection !== "function") return;
+  let pointerId = null;
+  let startX = 0;
+  let startY = 0;
+  let deltaX = 0;
+  let horizontal = false;
+
+  const reset = () => {
+    element.style.setProperty("--calibration-x", "0px");
+    element.classList.remove("swipe-positive", "swipe-negative");
+    pointerId = null;
+    deltaX = 0;
+    horizontal = false;
+  };
+
+  element.addEventListener("pointerdown", event => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    if (event.target.closest("button, a, input, select, textarea")) return;
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startY = event.clientY;
+    deltaX = 0;
+    horizontal = false;
+    element.setPointerCapture?.(pointerId);
+  });
+  element.addEventListener("pointermove", event => {
+    if (event.pointerId !== pointerId) return;
+    const nextX = event.clientX - startX;
+    const nextY = event.clientY - startY;
+    if (!horizontal && Math.abs(nextX) > 10 && Math.abs(nextX) > Math.abs(nextY) * 1.25) horizontal = true;
+    if (!horizontal) return;
+    deltaX = Math.max(-110, Math.min(110, nextX));
+    element.style.setProperty("--calibration-x", `${deltaX * 0.42}px`);
+    element.classList.toggle("swipe-positive", deltaX > 18);
+    element.classList.toggle("swipe-negative", deltaX < -18);
+  });
+  element.addEventListener("pointerup", event => {
+    if (event.pointerId !== pointerId) return;
+    const direction = horizontal && Math.abs(deltaX) >= threshold
+      ? (deltaX > 0 ? "positive" : "negative")
+      : null;
+    if (direction){
+      element.dataset.swipeHandled = "true";
+      onDirection(direction);
+      window.setTimeout(() => delete element.dataset.swipeHandled, 0);
+    }
+    reset();
+  });
+  element.addEventListener("pointercancel", reset);
+}
+
+function setTunePromptOpen(open, dislikeCount = pendingTunePromptDislikeCount){
+  const modal = document.getElementById("tunePromptModal");
+  pendingTunePromptDislikeCount = open ? Number(dislikeCount) || 0 : null;
+  modal.classList.toggle("show", open);
+  modal.setAttribute("aria-hidden", open ? "false" : "true");
+  if (open) document.getElementById("dismissTunePromptBtn")?.focus({ preventScroll: true });
+}
+
+function recordTunePromptAction(action){
+  if (!pendingTunePromptDislikeCount) return;
+  recordProductEvent({
+    eventName: "tune_prompt",
+    surface: "curated_feed",
+    properties: { action, dislikeCount: pendingTunePromptDislikeCount },
+  });
+}
+
+function applyCuratedEventSwipe(ev, direction){
+  if (!PREFERENCE_SYSTEM || !["positive", "negative"].includes(direction)) return;
+  const target = SWIPE_CALIBRATION?.primaryTargetForEvent?.(ev) || {
+    targetType: "event",
+    targetId: String(ev.eventId || ev.id),
+    label: spoilerSafeDisplayTitle(ev),
+  };
+  let graph = PREFERENCE_SYSTEM.applyLearningSignal(userPreferences.preferenceGraph, {
+    targetType: target.targetType,
+    targetId: target.targetId,
+    value: direction === "positive" ? 1 : -1,
+    source: "feed",
+  });
+  const dislikeCount = graph.learning.dislikeCount;
+  const showTunePrompt = direction === "negative" && PREFERENCE_SYSTEM.shouldPromptTune(graph, { now: nowAEST() });
+  if (showTunePrompt) graph = PREFERENCE_SYSTEM.recordTunePrompt(graph, { dislikeCount });
+  const next = clonePreferences(userPreferences);
+  next.preferenceGraph = graph;
+  savePreferences(next);
+  recordProductEvent({
+    eventName: "swipe",
+    surface: "curated_feed",
+    ...productEventContextForEvent(ev),
+    properties: { direction, targetType: target.targetType },
+  });
+  if (direction === "negative") sessionDismissedEventIds.add(String(ev.eventId || ev.id));
+  if (showTunePrompt) suppressSessionRatingPrompt();
+  renderCurrentSection();
+  showToast(direction === "positive"
+    ? `More like ${target.label}. Feed adjusted.`
+    : `${target.label} hidden for this session. Feed adjusted.`);
+  if (showTunePrompt){
+    recordProductEvent({
+      eventName: "tune_prompt",
+      surface: "curated_feed",
+      properties: { action: "shown", dislikeCount },
+    });
+    window.requestAnimationFrame(() => setTunePromptOpen(true, dislikeCount));
+  }
+}
+
 function buildEventCard(ev, options = {}){
   const meta = SPORT_META[ev.key];
   const status = getEventStatus(ev);
@@ -7518,6 +8106,11 @@ function buildEventCard(ev, options = {}){
   const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
+  const swipeEligible = !options.archived
+    && activeTab === "feed"
+    && activeView === "list"
+    && activeFilter === "all"
+    && !activeSportHubKey();
 
   const card = document.createElement("article");
   card.className = [
@@ -7531,6 +8124,7 @@ function buildEventCard(ev, options = {}){
     spoilerProtected ? "is-spoiler-protected" : "",
     presentation.isNew ? "is-new" : "",
     status === "past" ? "is-past" : "",
+    swipeEligible ? "is-swipe-eligible" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.cardMode = mode;
@@ -7547,9 +8141,20 @@ function buildEventCard(ev, options = {}){
   };
   if (expandable){
     card.addEventListener("click", event => {
+      if (card.dataset.swipeHandled === "true") return;
       if (event.target.closest("button, a, input, select, textarea")) return;
       advanceCardState();
     });
+  }
+  if (swipeEligible){
+    card.tabIndex = 0;
+    card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight");
+    card.addEventListener("keydown", event => {
+      if (event.target !== card || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+      event.preventDefault();
+      applyCuratedEventSwipe(ev, event.key === "ArrowRight" ? "positive" : "negative");
+    });
+    bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(ev, direction));
   }
 
   const icon = document.createElement("div");
@@ -7702,6 +8307,10 @@ function buildEventCard(ev, options = {}){
     if (compactResult) mainDiv.appendChild(compactResult);
   }
 
+  if (isSessionRatingPromptEvent(ev)){
+    mainDiv.appendChild(buildPostEventRatingPrompt(ev));
+  }
+
   const ratingRow = document.createElement("div");
   ratingRow.className = "rating-row";
 
@@ -7722,7 +8331,7 @@ function buildEventCard(ev, options = {}){
       const num = document.createElement("span");
       num.className = "expected-num";
       num.style.marginLeft = "4px";
-      num.textContent = `${actual}/10`;
+      num.textContent = actualRatingLabel(actual);
       actualBlock.appendChild(num);
     }
     ratingRow.appendChild(actualBlock);
@@ -7911,6 +8520,7 @@ function renderListView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
   const filtered = getFilteredEvents();
+  ensureSessionRatingPrompt(filtered);
   const focusedArchived = focusedArchivedEvents();
   appendFocusedArchiveRecovery(container, focusedArchived);
   const { newItems, seenItems } = partitionSurfacedEvents(filtered);
@@ -7961,7 +8571,7 @@ function renderListView(){
 
     const grid = document.createElement("div");
     grid.className = "cards-grid";
-    groupMap[dateStr].forEach(ev => grid.appendChild(buildEventCard(ev)));
+    orderCuratedDayEvents(groupMap[dateStr]).forEach(ev => grid.appendChild(buildEventCard(ev)));
     groupDiv.appendChild(grid);
 
     container.appendChild(groupDiv);
@@ -9470,7 +10080,251 @@ function toggleSelectorEntityInDraft(entityId){
   syncDraftSelectorSports();
 }
 
-const ONBOARDING_SECTIONS = ["sports", "viewing"];
+const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"];
+
+function calibrationProcessedTargetKeys(graph){
+  const learning = graph?.learning || {};
+  const processed = new Set((learning.signals || [])
+    .filter(signal => signal.source === "calibration")
+    .map(signal => `${signal.targetType}:${signal.targetId}`));
+  (learning.calibrationSkippedTargetIds || []).forEach(targetId => processed.add(`skip:${targetId}`));
+  return processed;
+}
+
+function remainingCalibrationAnchors(graph){
+  const anchors = (SWIPE_CALIBRATION?.anchors || []).slice(0, 10);
+  const processed = calibrationProcessedTargetKeys(graph);
+  return anchors.filter(anchor => (
+    !processed.has(`${anchor.targetType}:${anchor.targetId}`)
+    && !processed.has(`skip:${anchor.targetId}`)
+  ));
+}
+
+function persistCalibrationGraph(graph){
+  const next = clonePreferences(draftPreferences || userPreferences);
+  next.preferenceGraph = graph;
+  savePreferences(next);
+  draftPreferences = clonePreferences(userPreferences);
+}
+
+function applyCalibrationChoice(anchor, direction){
+  if (!anchor || !PREFERENCE_SYSTEM) return;
+  let graph = draftPreferences.preferenceGraph;
+  if (direction === "skip"){
+    graph = PREFERENCE_SYSTEM.skipCalibrationTarget(graph, anchor.targetId);
+  } else {
+    graph = PREFERENCE_SYSTEM.applyLearningSignal(graph, {
+      targetType: anchor.targetType,
+      targetId: anchor.targetId,
+      value: direction === "positive" ? 1 : -1,
+      source: "calibration",
+    });
+  }
+  if (!remainingCalibrationAnchors(graph).length){
+    graph = PREFERENCE_SYSTEM.completeCalibration(graph);
+  }
+  persistCalibrationGraph(graph);
+  recordProductEvent({
+    eventName: "swipe",
+    surface: "calibration",
+    properties: { direction, targetType: anchor.targetType },
+  });
+  renderSettingsScreen();
+}
+
+function skipRemainingCalibration(){
+  if (!PREFERENCE_SYSTEM) return;
+  const graph = PREFERENCE_SYSTEM.completeCalibration(draftPreferences.preferenceGraph, { skipped: true });
+  persistCalibrationGraph(graph);
+  if (settingsFirstRun) saveSettingsPreferences();
+  else renderSettingsScreen();
+}
+
+function renderCalibrationSettings(body){
+  syncDraftPreferenceGraph();
+  const anchors = (SWIPE_CALIBRATION?.anchors || []).slice(0, 10);
+  const learning = draftPreferences.preferenceGraph?.learning || {};
+  const remaining = remainingCalibrationAnchors(draftPreferences.preferenceGraph);
+  const completedCount = anchors.length - remaining.length;
+  if (learning.calibrationCompletedAt || !remaining.length){
+    body.innerHTML = `${wizardProgressMarkup()}<div class="calibration-shell">
+      <div class="calibration-complete"><strong>Calibration saved</strong><p class="preference-help">${completedCount} recognisable anchors have shaped the curated feed. Every signal autosaved; complete fixture lists remain unchanged.</p></div>
+      ${settingsFirstRun ? "" : `<button class="btn ghost" type="button" id="closeCalibrationBtn">Back to Settings</button>`}
+    </div>`;
+    document.getElementById("closeCalibrationBtn")?.addEventListener("click", () => {
+      settingsSection = "main";
+      renderSettingsScreen();
+    });
+    return;
+  }
+
+  const anchor = remaining[0];
+  const sportKey = anchor.match?.sportKeys?.[0];
+  const sportColor = SPORT_META[sportKey]?.color || "var(--accent)";
+  body.innerHTML = `${wizardProgressMarkup()}<div class="calibration-shell">
+    <div class="calibration-progress-row"><span>${completedCount} of ${anchors.length} answered</span><span>${remaining.length} left</span></div>
+    <div class="calibration-card" id="calibrationCard" tabindex="0" aria-label="${anchor.label}. Swipe right for more like this, left for less like this, or press S to skip." style="--sport-color:${sportColor}">
+      <span class="calibration-glyph" aria-hidden="true">${glyphMarkup(anchor.glyph, { preferImage: true })}</span>
+      <h3>${anchor.label}</h3>
+      <p>${anchor.detail}</p>
+    </div>
+    <div class="calibration-actions" aria-label="Calibrate ${anchor.label}">
+      <button class="btn ghost" type="button" id="calibrationLessBtn">Less like this</button>
+      <button class="btn ghost" type="button" id="calibrationSkipBtn">Skip</button>
+      <button class="btn primary" type="button" id="calibrationMoreBtn">More like this</button>
+    </div>
+    <div class="calibration-key-help">Keyboard: ← less · → more · S skip</div>
+    <button class="btn ghost" type="button" id="skipCalibrationBtn">Skip calibration for now</button>
+  </div>`;
+  const card = document.getElementById("calibrationCard");
+  const choose = direction => applyCalibrationChoice(anchor, direction);
+  bindHorizontalLearningSwipe(card, choose);
+  card.addEventListener("keydown", event => {
+    const direction = event.key === "ArrowRight"
+      ? "positive"
+      : event.key === "ArrowLeft"
+        ? "negative"
+        : event.key.toLowerCase() === "s"
+          ? "skip"
+          : null;
+    if (!direction) return;
+    event.preventDefault();
+    choose(direction);
+  });
+  document.getElementById("calibrationLessBtn").addEventListener("click", () => choose("negative"));
+  document.getElementById("calibrationSkipBtn").addEventListener("click", () => choose("skip"));
+  document.getElementById("calibrationMoreBtn").addEventListener("click", () => choose("positive"));
+  document.getElementById("skipCalibrationBtn").addEventListener("click", skipRemainingCalibration);
+}
+
+function tuningInteractionDelta(){
+  const current = userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0;
+  return Math.max(0, current - (tuneSessionRuntime?.interactionCountAtStart || current));
+}
+
+function startTuneSession(){
+  if (tuneSessionRuntime) return tuneSessionRuntime;
+  tuneSessionRuntime = {
+    interactionCountAtStart: userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0,
+    closed: false,
+  };
+  recordProductEvent({
+    eventName: "tune_session",
+    surface: "tune",
+    properties: { action: "started", interactionCount: 0 },
+  });
+  return tuneSessionRuntime;
+}
+
+function closeTuneSession(action = "exited"){
+  if (!tuneSessionRuntime || tuneSessionRuntime.closed) return;
+  tuneSessionRuntime.closed = true;
+  recordProductEvent({
+    eventName: "tune_session",
+    surface: "tune",
+    properties: { action, interactionCount: tuningInteractionDelta() },
+  });
+  tuneSessionRuntime = null;
+}
+
+function persistTuningGraph(graph){
+  const next = clonePreferences(userPreferences);
+  next.preferenceGraph = graph;
+  savePreferences(next);
+  draftPreferences = clonePreferences(userPreferences);
+}
+
+function applyFineTuneChoice(target, value){
+  if (!target || !PREFERENCE_SYSTEM || ![-1, 1].includes(value)) return;
+  startTuneSession();
+  const currentValue = FINE_TUNING?.selectedValue?.(userPreferences.preferenceGraph, target) || 0;
+  if (currentValue === value){
+    showToast(`${target.label} is already saved.`);
+    return;
+  }
+  const graph = PREFERENCE_SYSTEM.applyTuningSignal(userPreferences.preferenceGraph, {
+    targetType: target.targetType,
+    targetId: target.targetId,
+    value,
+  }, { domainId: target.domainId });
+  persistTuningGraph(graph);
+  recordProductEvent({
+    eventName: "swipe",
+    surface: "tune",
+    properties: {
+      direction: value > 0 ? "positive" : "negative",
+      targetType: target.targetType,
+    },
+  });
+  renderSettingsScreen();
+  showToast(`${target.label}: ${value > 0 ? "more" : "less"} like this saved.`);
+}
+
+function completeFineTuneSession(){
+  startTuneSession();
+  const graph = PREFERENCE_SYSTEM.completeTuningSession(userPreferences.preferenceGraph);
+  persistTuningGraph(graph);
+  closeTuneSession("completed");
+  settingsSection = "main";
+  tuneSectionIndex = 0;
+  renderSettingsScreen();
+  showToast("Tune session saved. Your curated ranking is already updated.");
+}
+
+function tuningSummaryCopy(learning){
+  const interactions = learning?.tuningInteractionCount || 0;
+  const domains = learning?.tuningDomainIds?.length || 0;
+  const sessions = learning?.completedTuningSessionCount || 0;
+  return `${interactions} interaction${interactions === 1 ? "" : "s"} · ${domains} domain${domains === 1 ? "" : "s"} · ${sessions} completed session${sessions === 1 ? "" : "s"}`;
+}
+
+function renderFineTuningSettings(body){
+  startTuneSession();
+  const sections = FINE_TUNING?.sections || [];
+  if (!sections.length){
+    body.innerHTML = '<div class="empty-state">Tune options are temporarily unavailable.</div>';
+    return;
+  }
+  tuneSectionIndex = Math.max(0, Math.min(sections.length - 1, tuneSectionIndex));
+  const section = sections[tuneSectionIndex];
+  const graph = userPreferences.preferenceGraph;
+  const learning = graph?.learning || {};
+  const meaningful = Boolean(PREFERENCE_SYSTEM?.isMeaningfullyTuned?.(graph));
+  body.innerHTML = `<div class="tune-shell">
+    <div class="tune-summary"><div><strong>${meaningful ? "Meaningful tuning reached" : "Tune autosaves continuously"}</strong><span>${tuningSummaryCopy(learning)}</span></div><span>${meaningful ? "Automatic Tune prompts now wait for 100 more dislikes and at least 30 days." : "Reach 8 interactions across 2 domains, or complete 2 sessions."}</span></div>
+    <div class="tune-section-nav" role="tablist" aria-label="Tune levels">${sections.map((item, index) => `<button class="tune-section-tab${index === tuneSectionIndex ? " active" : ""}" type="button" role="tab" aria-selected="${index === tuneSectionIndex}" data-tune-section="${index}">${index + 1}. ${item.title}</button>`).join("")}</div>
+    <div class="tune-section-copy"><h3>${section.title}</h3><p class="preference-help">${section.detail} Every choice changes curated ranking only; complete fixture lists stay complete.</p></div>
+    <div class="tune-card-grid" id="tuneCardGrid"></div>
+    <div class="tune-footer"><span class="preference-help">Step ${tuneSectionIndex + 1} of ${sections.length} · leaving now loses nothing.</span><span>${tuneSectionIndex > 0 ? '<button class="btn ghost" type="button" id="previousTuneSectionBtn">Previous</button>' : ""} ${tuneSectionIndex < sections.length - 1 ? '<button class="btn primary" type="button" id="nextTuneSectionBtn">Next</button>' : '<button class="btn primary" type="button" id="completeTuneSessionBtn">Finish session</button>'}</span></div>
+  </div>`;
+  const grid = document.getElementById("tuneCardGrid");
+  section.targets.forEach(target => {
+    const value = FINE_TUNING.selectedValue(graph, target);
+    const card = document.createElement("article");
+    card.className = "tune-card";
+    card.dataset.tuneTarget = FINE_TUNING.targetKey(target);
+    card.innerHTML = `<span class="tune-card-glyph" aria-hidden="true">${glyphMarkup(target.glyph, { preferImage: true })}</span><strong>${target.label}</strong><span class="tune-card-copy">${target.detail}</span><span class="tune-card-actions"><button class="tune-choice${value === -1 ? " selected" : ""}" type="button" data-tune-value="-1" aria-pressed="${value === -1}">Less</button><button class="tune-choice${value === 1 ? " selected" : ""}" type="button" data-tune-value="1" aria-pressed="${value === 1}">More</button></span>`;
+    card.querySelectorAll("[data-tune-value]").forEach(button => {
+      button.addEventListener("click", () => applyFineTuneChoice(target, Number(button.dataset.tuneValue)));
+    });
+    grid.appendChild(card);
+  });
+  body.querySelectorAll("[data-tune-section]").forEach(button => {
+    button.addEventListener("click", () => {
+      tuneSectionIndex = Number(button.dataset.tuneSection);
+      renderSettingsScreen();
+    });
+  });
+  document.getElementById("previousTuneSectionBtn")?.addEventListener("click", () => {
+    tuneSectionIndex -= 1;
+    renderSettingsScreen();
+  });
+  document.getElementById("nextTuneSectionBtn")?.addEventListener("click", () => {
+    tuneSectionIndex += 1;
+    renderSettingsScreen();
+  });
+  document.getElementById("completeTuneSessionBtn")?.addEventListener("click", completeFineTuneSession);
+}
 
 function preferenceDomainLabel(domainId){
   return selectorEntityById(domainId)?.label
@@ -9537,6 +10391,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   settingsWizardStep = firstRun ? 0 : settingsWizardStep;
   settingsFocusedDomainId = null;
   sportsFollowedTab = "sports";
+  if (!firstRun && section === "tune") tuneSectionIndex = 0;
   settingsSection = firstRun ? ONBOARDING_SECTIONS[settingsWizardStep] : section;
   draftPreferences = clonePreferences(userPreferences);
   if (firstRun){
@@ -9554,6 +10409,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
 
 function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   const viewportAnchor = settingsViewportAnchor;
+  if (settingsSection === "tune") closeTuneSession("exited");
   const modal = document.getElementById("settingsModal");
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
@@ -9887,12 +10743,18 @@ function renderSettingsMenu(body){
   const viewingWindowLabel = viewing?.viewingWindowEnabled
     ? `${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window`
     : "Any time";
+  const learning = draftPreferences.preferenceGraph?.learning || {};
+  const tuningSummary = PREFERENCE_SYSTEM?.isMeaningfullyTuned?.(draftPreferences.preferenceGraph)
+    ? `Meaningfully tuned · ${learning.tuningInteractionCount || 0} interactions`
+    : `${learning.tuningInteractionCount || 0} interactions · autosaves`;
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
     ${settingsMenuItem("pilot", "ui:watch", "Trust pilot", pilotMeasurementSummary())}
     ${settingsMenuItem("archive", "ui:archive", "Archive", `${archivedEvents().length} preserved or recently archived event${archivedEvents().length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("sports", "ui:filter", "Sports Followed", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Events`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
+    ${settingsMenuItem("tune", "ui:settings", "Tune", tuningSummary)}
+    ${settingsMenuItem("calibration", "ui:settings", "Swipe calibration", `${draftPreferences.preferenceGraph?.learning?.signals?.filter(signal => signal.source === "calibration").length || 0} learned anchors · optional`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
@@ -10485,21 +11347,29 @@ function renderSettingsScreen(){
   const copy = document.getElementById("settingsCopy");
   const back = document.getElementById("settingsBackBtn");
   const brandIcon = document.getElementById("settingsBrandIcon");
+  const calibrationComplete = Boolean(draftPreferences?.preferenceGraph?.learning?.calibrationCompletedAt);
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
+  document.getElementById("resetPreferencesBtn").hidden = ["calibration", "tune"].includes(settingsSection);
   document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && settingsSection === "archive"
     ? "Close"
+    : !settingsFirstRun && settingsSection === "tune"
+      ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
     ? "Next"
-    : settingsFirstRun ? "Save & start" : "Save & close";
+    : settingsFirstRun && settingsSection === "calibration" && !calibrationComplete
+      ? "Skip & start"
+      : settingsFirstRun ? "Save & start" : "Save & close";
 
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Use a magic link to keep durable choices connected across devices."],
     pilot: ["Trust pilot", "Optional, disclosed measurement for the signed-in fourteen-day pilot."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
-    sports: [settingsFirstRun ? "Sports Followed · 1 of 2" : "Sports Followed", settingsFirstRun ? "Pick sports and special events, then tune selected sports inline." : "Follow sports and special events, tune Froth inline, and use Events for detailed follow controls."],
-    viewing: [settingsFirstRun ? "Viewing preferences · 2 of 2" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
+    sports: [settingsFirstRun ? "Sports Followed · 1 of 3" : "Sports Followed", settingsFirstRun ? "Pick sports and special events, then tune selected sports inline." : "Follow sports and special events, tune Froth inline, and use Events for detailed follow controls."],
+    viewing: [settingsFirstRun ? "Viewing preferences · 2 of 3" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
+    calibration: [settingsFirstRun ? "Swipe calibration · 3 of 3" : "Swipe calibration", "Optional recognisable anchors teach the curated feed without changing complete fixture lists."],
+    tune: ["Tune", "Move from broad sports and events into competitions, teams, players and event families. Every choice autosaves."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
@@ -10511,6 +11381,8 @@ function renderSettingsScreen(){
   else if (settingsSection === "archive") renderArchiveSettings(body);
   else if (settingsSection === "sports") renderSportsSettings(body);
   else if (settingsSection === "viewing") renderViewingSettings(body);
+  else if (settingsSection === "calibration") renderCalibrationSettings(body);
+  else if (settingsSection === "tune") renderFineTuningSettings(body);
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
@@ -10623,6 +11495,10 @@ function saveSettingsPreferences(){
 
 function advanceOnboardingOrSave(){
   if (!settingsFirstRun){
+    if (settingsSection === "tune"){
+      closeSettings();
+      return;
+    }
     saveSettingsPreferences();
     return;
   }
@@ -10636,6 +11512,9 @@ function advanceOnboardingOrSave(){
     renderSettingsScreen();
     return;
   }
+  if (settingsSection === "calibration" && !draftPreferences.preferenceGraph?.learning?.calibrationCompletedAt){
+    draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.completeCalibration(draftPreferences.preferenceGraph, { skipped: true });
+  }
   saveSettingsPreferences();
 }
 
@@ -10645,6 +11524,7 @@ document.getElementById("settingsBackBtn").addEventListener("click", () => {
     settingsWizardStep -= 1;
     settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
   } else {
+    if (settingsSection === "tune") closeTuneSession("exited");
     settingsFocusedDomainId = null;
     settingsSection = "main";
   }
@@ -10660,6 +11540,20 @@ document.getElementById("confirmQuickAddBtn").addEventListener("click", () => ap
 document.getElementById("customiseQuickAddBtn").addEventListener("click", () => applyQuickAdd(true));
 document.getElementById("quickAddModal").addEventListener("click", event => {
   if (event.target.id === "quickAddModal") closeQuickAddPrompt();
+});
+document.getElementById("dismissTunePromptBtn").addEventListener("click", () => {
+  recordTunePromptAction("dismissed");
+  setTunePromptOpen(false);
+});
+document.getElementById("reviewSportsFromTuneBtn").addEventListener("click", () => {
+  recordTunePromptAction("accepted");
+  setTunePromptOpen(false);
+  openSettings({ section: "tune" });
+});
+document.getElementById("tunePromptModal").addEventListener("click", event => {
+  if (event.target.id !== "tunePromptModal") return;
+  recordTunePromptAction("dismissed");
+  setTunePromptOpen(false);
 });
 document.getElementById("aboutBtn").addEventListener("click", () => {
   const modal = document.getElementById("aboutModal");
@@ -10686,6 +11580,7 @@ document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
 document.addEventListener("keydown", evt => {
   if (evt.key !== "Escape" || !document.getElementById("settingsModal").classList.contains("show")) return;
   if (settingsSection !== "main"){
+    if (settingsSection === "tune") closeTuneSession("exited");
     settingsSection = "main";
     renderSettingsScreen();
   } else {

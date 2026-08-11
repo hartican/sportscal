@@ -12,6 +12,7 @@
     "competitionPreferences",
     "entityFollows",
     "viewingPreference",
+    "learningPreference",
     "ratings",
     "eventUserState",
     "eventSpoilerState",
@@ -19,7 +20,7 @@
     "archivedEvents"
   ],
   "properties": {
-    "schemaVersion": { "const": 2 },
+    "schemaVersion": { "const": 3 },
     "profile": {
       "type": "object",
       "additionalProperties": false,
@@ -29,7 +30,7 @@
         "usernameLabel": { "type": "string", "minLength": 1 },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" },
-        "schemaVersion": { "const": 2 },
+        "schemaVersion": { "const": 3 },
         "onboardingCompleted": { "type": "boolean" },
         "timezone": { "type": "string", "minLength": 3 }
       }
@@ -39,6 +40,7 @@
     "competitionPreferences": { "type": "array", "items": { "type": "object" } },
     "entityFollows": { "type": "array", "items": { "type": "object" } },
     "viewingPreference": { "type": ["object", "null"] },
+    "learningPreference": { "type": ["object", "null"] },
     "ratings": { "type": "object" },
     "eventUserState": { "type": "object" },
     "eventSpoilerState": { "type": "object" },

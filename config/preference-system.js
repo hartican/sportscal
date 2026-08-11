@@ -5,7 +5,17 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v3";
+  const SCHEMA_VERSION = "preference-graph.v4";
+  const MAX_LEARNING_SIGNALS = 120;
+  const MAX_CALIBRATION_SKIPS = 10;
+  const MAX_TUNING_DOMAINS = 24;
+  const MEANINGFUL_TUNING_INTERACTIONS = 8;
+  const MEANINGFUL_TUNING_DOMAINS = 2;
+  const MEANINGFUL_TUNING_SESSIONS = 2;
+  const POST_TUNING_DISLIKE_GAP = 100;
+  const POST_TUNING_DAY_GAP = 30;
+  const LEARNING_TARGET_TYPES = Object.freeze(["sport", "competition", "team", "player", "event", "event_family"]);
+  const LEARNING_SOURCES = Object.freeze(["calibration", "feed", "tune"]);
   const DEFAULT_VIEWING_WINDOW = Object.freeze({
     startHourLocal: 7,
     endHourLocal: 22,
@@ -126,6 +136,75 @@
     return Array.from(new Set(valid)).sort((a, b) => a - b);
   }
 
+  function normalizeTimestamp(value, fallback = null){
+    if (value === null) return null;
+    const date = new Date(value || "");
+    return Number.isNaN(date.getTime()) ? fallback : date.toISOString();
+  }
+
+  function emptyLearning(){
+    return {
+      signals: [],
+      dislikeCount: 0,
+      tuningPromptCount: 0,
+      lastTunePromptDislikeCount: null,
+      calibrationSkippedTargetIds: [],
+      calibrationCompletedAt: null,
+      calibrationSkippedAt: null,
+      tuningInteractionCount: 0,
+      tuningDomainIds: [],
+      completedTuningSessionCount: 0,
+      lastTuningSessionCompletedAt: null,
+      meaningfulTuningAt: null,
+      meaningfulTuningDislikeCount: null,
+    };
+  }
+
+  function normalizeLearningSignal(signal){
+    if (!signal || typeof signal !== "object") return null;
+    const targetType = LEARNING_TARGET_TYPES.includes(signal.targetType) ? signal.targetType : null;
+    const targetId = typeof signal.targetId === "string" ? signal.targetId.trim().slice(0, 160) : "";
+    const value = Number(signal.value) === 1 ? 1 : Number(signal.value) === -1 ? -1 : null;
+    const source = LEARNING_SOURCES.includes(signal.source) ? signal.source : null;
+    const recordedAt = normalizeTimestamp(signal.recordedAt);
+    if (!targetType || !targetId || value === null || !source || !recordedAt) return null;
+    return { targetType, targetId, value, source, recordedAt };
+  }
+
+  function normalizeLearning(input){
+    const saved = input && typeof input === "object" && !Array.isArray(input) ? input : {};
+    const byTarget = new Map();
+    (Array.isArray(saved.signals) ? saved.signals : []).forEach(candidate => {
+      const signal = normalizeLearningSignal(candidate);
+      if (!signal) return;
+      const key = `${signal.targetType}:${signal.targetId}`;
+      const previous = byTarget.get(key);
+      if (!previous || previous.recordedAt <= signal.recordedAt) byTarget.set(key, signal);
+    });
+    const signals = Array.from(byTarget.values())
+      .sort((first, second) => first.recordedAt.localeCompare(second.recordedAt))
+      .slice(-MAX_LEARNING_SIGNALS);
+    return {
+      signals,
+      dislikeCount: Math.max(0, Math.floor(Number(saved.dislikeCount) || 0)),
+      tuningPromptCount: Math.max(0, Math.floor(Number(saved.tuningPromptCount) || 0)),
+      lastTunePromptDislikeCount: saved.lastTunePromptDislikeCount === null || saved.lastTunePromptDislikeCount === undefined
+        ? null
+        : Math.max(0, Math.floor(Number(saved.lastTunePromptDislikeCount) || 0)),
+      calibrationSkippedTargetIds: uniqueStrings(saved.calibrationSkippedTargetIds).slice(-MAX_CALIBRATION_SKIPS),
+      calibrationCompletedAt: normalizeTimestamp(saved.calibrationCompletedAt),
+      calibrationSkippedAt: normalizeTimestamp(saved.calibrationSkippedAt),
+      tuningInteractionCount: Math.max(0, Math.floor(Number(saved.tuningInteractionCount) || 0)),
+      tuningDomainIds: uniqueStrings(saved.tuningDomainIds).slice(-MAX_TUNING_DOMAINS),
+      completedTuningSessionCount: Math.max(0, Math.floor(Number(saved.completedTuningSessionCount) || 0)),
+      lastTuningSessionCompletedAt: normalizeTimestamp(saved.lastTuningSessionCompletedAt),
+      meaningfulTuningAt: normalizeTimestamp(saved.meaningfulTuningAt),
+      meaningfulTuningDislikeCount: saved.meaningfulTuningDislikeCount === null || saved.meaningfulTuningDislikeCount === undefined
+        ? null
+        : Math.max(0, Math.floor(Number(saved.meaningfulTuningDislikeCount) || 0)),
+    };
+  }
+
   function buildViewingPreference(profileId, broadcasterIds, saved = {}, legacySelectedBroadcasterIds){
     const available = uniqueStrings(broadcasterIds);
     const known = uniqueStrings(saved.knownBroadcasterIds);
@@ -180,6 +259,7 @@
       competitionPreferences: [],
       entityFollows: [],
       viewing: buildViewingPreference(safeProfileId, broadcasterIds, {}, legacySelectedBroadcasterIds),
+      learning: emptyLearning(),
     };
   }
 
@@ -226,6 +306,7 @@
       competitionPreferences,
       entityFollows,
       viewing: buildViewingPreference(safeProfileId, broadcasterIds, raw.viewing || {}, legacySelectedBroadcasterIds),
+      learning: normalizeLearning(raw.learning),
     };
   }
 
@@ -339,8 +420,171 @@
     return touch(next);
   }
 
+  function applyLearningSignal(graph, signal, { recordedAt } = {}){
+    const next = cloneGraph(graph);
+    const learning = normalizeLearning(next.learning);
+    const normalized = normalizeLearningSignal({
+      ...(signal || {}),
+      recordedAt: recordedAt || signal?.recordedAt || new Date().toISOString(),
+    });
+    if (!normalized) return touch({ ...next, learning });
+    const key = `${normalized.targetType}:${normalized.targetId}`;
+    learning.signals = learning.signals.filter(item => `${item.targetType}:${item.targetId}` !== key);
+    learning.signals.push(normalized);
+    learning.signals = learning.signals.slice(-MAX_LEARNING_SIGNALS);
+    if (normalized.value < 0 && normalized.source === "feed") learning.dislikeCount += 1;
+    next.learning = learning;
+    return touch(next);
+  }
+
+  function isMeaningfullyTuned(input){
+    const learning = normalizeLearning(input?.learning || input);
+    return (
+      learning.tuningInteractionCount >= MEANINGFUL_TUNING_INTERACTIONS
+      && learning.tuningDomainIds.length >= MEANINGFUL_TUNING_DOMAINS
+    ) || learning.completedTuningSessionCount >= MEANINGFUL_TUNING_SESSIONS;
+  }
+
+  function markMeaningfulTuning(learning, recordedAt){
+    learning.meaningfulTuningAt = normalizeTimestamp(recordedAt || new Date().toISOString());
+    learning.meaningfulTuningDislikeCount = learning.dislikeCount;
+    return learning;
+  }
+
+  function applyTuningSignal(graph, signal, { domainId, recordedAt } = {}){
+    const wasMeaningful = isMeaningfullyTuned(graph);
+    const next = applyLearningSignal(graph, { ...(signal || {}), source: "tune" }, { recordedAt });
+    const learning = normalizeLearning(next.learning);
+    learning.tuningInteractionCount += 1;
+    learning.tuningDomainIds = uniqueStrings([
+      ...learning.tuningDomainIds,
+      String(domainId || ""),
+    ]).slice(-MAX_TUNING_DOMAINS);
+    if (!wasMeaningful && isMeaningfullyTuned(learning)) markMeaningfulTuning(learning, recordedAt);
+    next.learning = learning;
+    return touch(next);
+  }
+
+  function completeTuningSession(graph, { recordedAt } = {}){
+    const next = cloneGraph(graph);
+    const learning = normalizeLearning(next.learning);
+    const timestamp = normalizeTimestamp(recordedAt || new Date().toISOString());
+    learning.completedTuningSessionCount += 1;
+    learning.lastTuningSessionCompletedAt = timestamp;
+    if (isMeaningfullyTuned(learning)) markMeaningfulTuning(learning, timestamp);
+    next.learning = learning;
+    return touch(next);
+  }
+
+  function skipCalibrationTarget(graph, targetId){
+    const next = cloneGraph(graph);
+    const learning = normalizeLearning(next.learning);
+    learning.calibrationSkippedTargetIds = uniqueStrings([
+      ...learning.calibrationSkippedTargetIds,
+      String(targetId || ""),
+    ]).slice(-MAX_CALIBRATION_SKIPS);
+    next.learning = learning;
+    return touch(next);
+  }
+
+  function completeCalibration(graph, { skipped = false, recordedAt } = {}){
+    const next = cloneGraph(graph);
+    const learning = normalizeLearning(next.learning);
+    const timestamp = normalizeTimestamp(recordedAt || new Date().toISOString());
+    learning.calibrationCompletedAt = timestamp;
+    learning.calibrationSkippedAt = skipped ? timestamp : null;
+    next.learning = learning;
+    return touch(next);
+  }
+
+  function mergeLearning(base, incoming){
+    const previous = normalizeLearning(base);
+    const patch = normalizeLearning(incoming);
+    const latestTimestamp = (first, second) => {
+      const values = [first, second].filter(Boolean).sort();
+      return values.length ? values[values.length - 1] : null;
+    };
+    return normalizeLearning({
+      signals: [...previous.signals, ...patch.signals],
+      dislikeCount: Math.max(previous.dislikeCount, patch.dislikeCount),
+      tuningPromptCount: Math.max(previous.tuningPromptCount, patch.tuningPromptCount),
+      lastTunePromptDislikeCount: Math.max(
+        previous.lastTunePromptDislikeCount ?? 0,
+        patch.lastTunePromptDislikeCount ?? 0
+      ) || null,
+      calibrationSkippedTargetIds: uniqueStrings([
+        ...previous.calibrationSkippedTargetIds,
+        ...patch.calibrationSkippedTargetIds,
+      ]),
+      calibrationCompletedAt: latestTimestamp(previous.calibrationCompletedAt, patch.calibrationCompletedAt),
+      calibrationSkippedAt: latestTimestamp(previous.calibrationSkippedAt, patch.calibrationSkippedAt),
+      tuningInteractionCount: Math.max(previous.tuningInteractionCount, patch.tuningInteractionCount),
+      tuningDomainIds: uniqueStrings([...previous.tuningDomainIds, ...patch.tuningDomainIds]),
+      completedTuningSessionCount: Math.max(previous.completedTuningSessionCount, patch.completedTuningSessionCount),
+      lastTuningSessionCompletedAt: latestTimestamp(
+        previous.lastTuningSessionCompletedAt,
+        patch.lastTuningSessionCompletedAt
+      ),
+      meaningfulTuningAt: latestTimestamp(previous.meaningfulTuningAt, patch.meaningfulTuningAt),
+      meaningfulTuningDislikeCount: (() => {
+        const latest = [previous, patch]
+          .filter(candidate => candidate.meaningfulTuningAt)
+          .sort((first, second) => first.meaningfulTuningAt.localeCompare(second.meaningfulTuningAt))
+          .at(-1);
+        return latest?.meaningfulTuningDislikeCount ?? null;
+      })(),
+    });
+  }
+
+  function shouldPromptTune(input, { now = new Date() } = {}){
+    const numericInput = typeof input === "number";
+    const learning = numericInput ? null : normalizeLearning(input?.learning || input);
+    const count = Math.max(0, Math.floor(Number(numericInput ? input : learning.dislikeCount) || 0));
+    const standardCadence = count === 1 || count === 4 || count === 10 || count === 25 || count === 50 || (count > 50 && count % 50 === 0);
+    if (!learning?.meaningfulTuningAt) return standardCadence;
+    const tunedAt = new Date(learning.meaningfulTuningAt);
+    const reference = now instanceof Date ? now : new Date(now);
+    const elapsedDays = (reference.getTime() - tunedAt.getTime()) / (24 * 3600 * 1000);
+    const baseline = learning.meaningfulTuningDislikeCount ?? learning.dislikeCount;
+    if (elapsedDays < POST_TUNING_DAY_GAP || count - baseline < POST_TUNING_DISLIKE_GAP) return false;
+    const lastPrompt = learning.lastTunePromptDislikeCount ?? baseline;
+    return lastPrompt <= baseline || count - lastPrompt >= 50;
+  }
+
+  function recordTunePrompt(graph, { dislikeCount, recordedAt } = {}){
+    const next = cloneGraph(graph);
+    const learning = normalizeLearning(next.learning);
+    learning.tuningPromptCount += 1;
+    learning.lastTunePromptDislikeCount = Math.max(0, Math.floor(Number(dislikeCount ?? learning.dislikeCount) || 0));
+    next.learning = learning;
+    return touch(next);
+  }
+
+  function learningScore(graph, targetReferences){
+    const references = Array.isArray(targetReferences) ? targetReferences : [];
+    const referenceKeys = new Set(references
+      .filter(reference => reference && LEARNING_TARGET_TYPES.includes(reference.targetType) && typeof reference.targetId === "string")
+      .map(reference => `${reference.targetType}:${reference.targetId}`));
+    const weights = { event: 20, player: 14, team: 14, competition: 12, event_family: 10, sport: 8 };
+    const score = normalizeLearning(graph?.learning).signals.reduce((total, signal) => {
+      if (!referenceKeys.has(`${signal.targetType}:${signal.targetId}`)) return total;
+      return total + signal.value * (weights[signal.targetType] || 0);
+    }, 0);
+    return Math.max(-30, Math.min(30, score));
+  }
+
   return Object.freeze({
     SCHEMA_VERSION,
+    MAX_LEARNING_SIGNALS,
+    MAX_CALIBRATION_SKIPS,
+    MAX_TUNING_DOMAINS,
+    MEANINGFUL_TUNING_INTERACTIONS,
+    MEANINGFUL_TUNING_DOMAINS,
+    MEANINGFUL_TUNING_SESSIONS,
+    POST_TUNING_DISLIKE_GAP,
+    POST_TUNING_DAY_GAP,
+    LEARNING_TARGET_TYPES,
+    LEARNING_SOURCES,
     DEFAULT_VIEWING_WINDOW,
     templates: Object.freeze(templates),
     templateById,
@@ -355,5 +599,15 @@
     upsertCompetitionPreference,
     setEntityFollow,
     updateViewingPreference,
+    applyLearningSignal,
+    applyTuningSignal,
+    completeTuningSession,
+    isMeaningfullyTuned,
+    skipCalibrationTarget,
+    completeCalibration,
+    mergeLearning,
+    shouldPromptTune,
+    recordTunePrompt,
+    learningScore,
   });
 });

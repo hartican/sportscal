@@ -27,6 +27,9 @@ const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
 const serverFeedApiSource = fs.readFileSync("api/feed.js", "utf8");
 const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
+const swipeCalibrationSource = fs.readFileSync("config/swipe-calibration.js", "utf8");
+const fineTuningSource = fs.readFileSync("config/fine-tuning.js", "utf8");
+const ratingSystemSource = fs.readFileSync("config/rating-system.js", "utf8");
 const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "utf8");
 const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
 const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
@@ -123,6 +126,7 @@ assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage
 assert(html.includes('src="config/product-events.js"'), "the fixed pilot-measurement contract must load before app state");
 assert(html.includes('src="config/server-sync.js"'), "magic-link sessions and server-state sync must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
+assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
 assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
 assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
@@ -187,7 +191,7 @@ assert(feedFilterVisibilitySource && !/activeFilter\s*=/.test(feedFilterVisibili
 assert(/\.feed-filter-dock\{[\s\S]*?position:sticky;[\s\S]*?top:var\(--sticky-top-bar-height/.test(html), "the visible feed filter must pin directly beneath the measured top bar");
 assert(/@media \(max-width: 640px\)\{[\s\S]*?\.feed-filter-visibility-btn\{[\s\S]*?min-height:44px/.test(html), "the mobile show-hide control must keep a 44px tap target");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "first login must keep Sports Followed and viewing as the short setup flow");
+assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"]'), "first login must keep Sports Followed and viewing first, followed by optional calibration");
 assert(html.includes('data-sports-followed-tab="sports"') && html.includes('data-sports-followed-tab="events"'), "Sports Followed must expose Sports and Events tabs");
 assert(html.includes("data-domain-froth") && html.includes("data-domain-custom"), "followed events must use a Casual-to-Froth slider with a separate Custom mode");
 assert(html.includes("data-inline-froth") && html.includes("selector-choice-stack"), "selected sports must render Froth controls inline with their selector rows");
@@ -235,6 +239,25 @@ assert.equal(JSON.parse(fs.readFileSync("schemas/product-events.schema.json", "u
 assert(productEventsSource.includes("const MAX_BATCH_SIZE = 20"), "product event requests must stay bounded to twenty events");
 assert(productEventsSource.includes('"opportunity_exposed"') && productEventsSource.includes('"fixture_check"') && productEventsSource.includes('"watch_decision"'), "TSDR events must use a fixed allowlist");
 assert(productEventsSource.includes('"weekly_pulse"') && productEventsSource.includes("crossCheck") && productEventsSource.includes("missedFixtures") && productEventsSource.includes("feedClutter"), "weekly trust pulses must use fixed-choice properties");
+assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v4"'), "swipe learning must use the v4 preference graph");
+assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
+assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
+assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
+assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"]'), "optional swipe calibration must be the final onboarding step");
+assert(html.includes("applyCuratedEventSwipe") && html.includes("sessionDismissedEventIds.add"), "curated event swipes must learn immediately and dismiss dislikes only for the session");
+assert(html.includes('source: "calibration"') && html.includes('source: "feed"') && preferenceSystemSource.includes('"tune"'), "learning signals must retain their calibration, feed, or Tune source");
+assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
+assert(html.includes('saveSection(localStorage, activeProfileBundle, "learningPreference"'), "local profile reloads must retain learning separately from canonical truth");
+assert(html.includes("PREFERENCE_SYSTEM.mergeLearning") && preferenceSystemSource.includes("function mergeLearning"), "sign-in must merge learning from local and server graphs without dropping newer targets");
+assert(fineTuningSource.includes('id: "broad"') && fineTuningSource.includes('id: "teams"') && fineTuningSource.includes('id: "people"'), "Tune must progress from sports and marquee events through teams to players and event families");
+assert(html.includes('settingsMenuItem("tune"') && html.includes("renderFineTuningSettings"), "Tune must remain persistently reachable from Settings");
+assert(html.includes("PREFERENCE_SYSTEM.applyTuningSignal") && html.includes("PREFERENCE_SYSTEM.completeTuningSession"), "Tune interactions and completed sessions must autosave into the preference graph");
+assert(preferenceSystemSource.includes("MEANINGFUL_TUNING_INTERACTIONS = 8") && preferenceSystemSource.includes("MEANINGFUL_TUNING_SESSIONS = 2"), "meaningful tuning must use the canonical interaction or completed-session thresholds");
+assert(preferenceSystemSource.includes("POST_TUNING_DISLIKE_GAP = 100") && preferenceSystemSource.includes("POST_TUNING_DAY_GAP = 30"), "meaningful tuning must suppress prompts until both fatigue gates pass");
+assert(ratingSystemSource.includes("return value * 2") && ratingSystemSource.includes("value / 2"), "five-star ratings must preserve 1-10 storage and render odd scores as half stars");
+assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i<=10;i++)"), "actual spectacle input must use five one-tap stars");
+assert(html.includes("ensureSessionRatingPrompt(filtered)") && ratingSystemSource.includes("LATER_SESSION_LIMIT = 3"), "eligible rating prompts must be limited to one per session and expire after three later sessions");
+assert(html.includes("if (showTunePrompt) suppressSessionRatingPrompt()"), "Tune and rating prompts must never stack in one interaction");
 assert(html.includes('settingsMenuItem("pilot"') && html.includes('id="pilotMeasurementEnabled"'), "signed-in users must receive an explicit trust-pilot acknowledgement control");
 assert(html.includes("The normal app works without measurement") && html.includes("if (!pilotMeasurementEligible()) return null"), "the normal app must remain usable with telemetry disabled");
 assert(html.includes('eventName: "opportunity_exposed"') && html.includes('eventName: "fixture_check"'), "curated opportunities and fixture checks must be measured only after pilot opt-in");
@@ -262,10 +285,11 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v69"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="69">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v71"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="71">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
+assert(serviceWorkerSource.includes('"/config/swipe-calibration.js"'), "recognisable swipe anchors must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/data/canonical/contexts.js"'), "the generated direct-file canonical transport must ship with the app shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
@@ -342,7 +366,7 @@ const scrollRetractionSchedulerSource = html.match(/function scheduleCardRetract
 assert(scrollRetractionSchedulerSource.includes("CARD_RETRACTION_SCROLL_IDLE_MS") && scrollRetractionSchedulerSource.includes("window.setTimeout"), "cards must retract after the bounded scroll-idle delay");
 assert(!scrollRetractionSchedulerSource.includes("requestAnimationFrame"), "active scrolling must not rebuild card icon DOM on animation frames");
 assert(!/setInterval\(\(\) => \{[\s\S]*?renderCurrentSection\(true\);[\s\S]*?\}, 30000\)/.test(html), "the live clock must not rebuild every card and icon on a repeating timer");
-const viewportRetractionSource = html.match(/function collapseCardsOutsideActiveViewport\(\)\{[\s\S]*?(?=\nfunction buildEventCard)/)?.[0] || "";
+const viewportRetractionSource = html.match(/function collapseCardsOutsideActiveViewport\(\)\{[\s\S]*?(?=\nfunction bindHorizontalLearningSwipe)/)?.[0] || "";
 assert(viewportRetractionSource.includes("replaceCollapsedCardsInPlace(collapsingCards)") && !viewportRetractionSource.includes("renderCurrentSection()"), "scroll retraction must replace only collapsed cards instead of rebuilding the whole feed");
 assert(viewportRetractionSource.includes("retainCollapsedCardSpace(retractionAnchor, replacementCards)") && !viewportRetractionSource.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "active-scroll retraction must preserve lower-card geometry without a mid-gesture scroll correction");
 assert(html.includes("function clearPendingCardRetractionSpace()") && html.includes("scheduleCardRetractionSpaceCleanup()"), "temporary retraction space must be removed after scrolling settles");
@@ -422,7 +446,8 @@ assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sp
 assert(canonicalSportsSchema.$defs.sportDomain.required.includes("supportsCompetitors"), "canonical sport domains must declare competitor support");
 assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("competitor"), "canonical participants must use the Competitor type");
 assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${JSON.stringify(canonicalSportsSchema)}`), "canonical taxonomy and schemas must use Competitor as the single participant term");
-assert.equal(profileStorageSchema.properties.schemaVersion.const, 2, "profile storage schema must be explicitly versioned");
+assert.equal(profileStorageSchema.properties.schemaVersion.const, 3, "profile storage schema must be explicitly versioned");
+assert(profileStorageSchema.required.includes("learningPreference"), "profile storage must preserve the v4 learning section across reloads");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
 assert(enrichedEventSchema.required.includes("followContext"), "derived enrichment must require resolved follow context");
 assert(enrichedEventSchema.properties.followContext.items.properties.participantType.enum.includes("competitor"), "follow context must use Competitor as the canonical individual participant term");
@@ -954,7 +979,7 @@ const legacyProfileStorage = memoryStorage({
 });
 const migratedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:00:00Z") });
 assert.match(migratedProfile.profile.id, /^profile:/, "legacy settings must migrate under a stable internal profile id");
-assert.equal(migratedProfile.schemaVersion, 2, "profile migration must land on the current schema version");
+assert.equal(migratedProfile.schemaVersion, 3, "profile migration must land on the current schema version");
 assert.equal(migratedProfile.preferences.theme, "day", "existing preference fields must survive the profile migration");
 assert.equal(migratedProfile.ratings["legacy-event"], 9, "existing ratings must survive the profile migration");
 assert.equal(migratedProfile.eventUserState["legacy-event"].archived, true, "existing event state must survive the profile migration");
@@ -963,9 +988,21 @@ assert.equal(renamedProfile.profile.id, migratedProfile.profile.id, "changing th
 const reloadedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:02:00Z") });
 assert.equal(reloadedProfile.profile.id, migratedProfile.profile.id, "profile id must survive a simulated app update and reload");
 assert.equal(reloadedProfile.preferences.theme, "day", "settings must survive a simulated app update and reload");
-const themeUpdatedProfile = profileStorage.saveSection(
+const learningUpdatedProfile = profileStorage.saveSection(
   legacyProfileStorage,
   reloadedProfile,
+  "learningPreference",
+  {
+    signals: [{ targetType: "sport", targetId: "sport:afl", value: 1, source: "feed", recordedAt: "2026-07-20T00:02:30.000Z" }],
+    dislikeCount: 0,
+    tuningPromptCount: 0,
+  },
+  { now: new Date("2026-07-20T00:02:30Z") }
+);
+assert.equal(profileStorage.loadActiveProfile(legacyProfileStorage).learningPreference.signals[0].targetId, "sport:afl", "learning signals must survive a simulated app update and reload");
+const themeUpdatedProfile = profileStorage.saveSection(
+  legacyProfileStorage,
+  learningUpdatedProfile,
   "preferences",
   { ...reloadedProfile.preferences, theme: "night" },
   { now: new Date("2026-07-20T00:03:00Z") }

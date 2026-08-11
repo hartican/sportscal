@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildProfileStorage(){
   "use strict";
 
-  const PROFILE_SCHEMA_VERSION = 2;
+  const PROFILE_SCHEMA_VERSION = 3;
   const INSTALL_SCHEMA_VERSION = 1;
   const CACHE_SCHEMA_VERSION = 2;
   const KEYS = Object.freeze({
@@ -122,6 +122,7 @@
       competitionPreferences: [],
       entityFollows: [],
       viewingPreference: null,
+      learningPreference: null,
       ratings: {},
       eventUserState: {},
       eventSpoilerState: {},
@@ -158,6 +159,9 @@
       domainPreferences: Array.isArray(input.domainPreferences) ? input.domainPreferences : [],
       competitionPreferences: Array.isArray(input.competitionPreferences) ? input.competitionPreferences : [],
       entityFollows: Array.isArray(input.entityFollows) ? input.entityFollows : [],
+      learningPreference: input.learningPreference && typeof input.learningPreference === "object" && !Array.isArray(input.learningPreference)
+        ? input.learningPreference
+        : null,
       archivedEvents: Array.isArray(input.archivedEvents) ? input.archivedEvents : [],
       ratings: input.ratings && typeof input.ratings === "object" ? input.ratings : {},
       eventUserState: input.eventUserState && typeof input.eventUserState === "object" ? input.eventUserState : {},

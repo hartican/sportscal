@@ -11,10 +11,11 @@
     "domainPreferences",
     "competitionPreferences",
     "entityFollows",
-    "viewing"
+    "viewing",
+    "learning"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v3" },
+    "schemaVersion": { "const": "preference-graph.v4" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -29,7 +30,8 @@
       "type": "array",
       "items": { "$ref": "#/$defs/entityFollow" }
     },
-    "viewing": { "$ref": "#/$defs/viewingPreference" }
+    "viewing": { "$ref": "#/$defs/viewingPreference" },
+    "learning": { "$ref": "#/$defs/learningPreference" }
   },
   "$defs": {
     "domainPreference": {
@@ -114,6 +116,52 @@
         "calendarSyncEnabled": { "type": "boolean" },
         "browserAlertsEnabled": { "type": "boolean" },
         "reminderLeadMinutes": { "type": "array", "items": { "type": "integer", "minimum": 0, "maximum": 10080 }, "uniqueItems": true }
+      }
+    },
+    "learningSignal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targetType", "targetId", "value", "source", "recordedAt"],
+      "properties": {
+        "targetType": { "enum": ["sport", "competition", "team", "player", "event", "event_family"] },
+        "targetId": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "value": { "enum": [-1, 1] },
+        "source": { "enum": ["calibration", "feed", "tune"] },
+        "recordedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "learningPreference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signals",
+        "dislikeCount",
+        "tuningPromptCount",
+        "lastTunePromptDislikeCount",
+        "calibrationSkippedTargetIds",
+        "calibrationCompletedAt",
+        "calibrationSkippedAt",
+        "tuningInteractionCount",
+        "tuningDomainIds",
+        "completedTuningSessionCount",
+        "lastTuningSessionCompletedAt",
+        "meaningfulTuningAt",
+        "meaningfulTuningDislikeCount"
+      ],
+      "properties": {
+        "signals": { "type": "array", "maxItems": 120, "items": { "$ref": "#/$defs/learningSignal" } },
+        "dislikeCount": { "type": "integer", "minimum": 0 },
+        "tuningPromptCount": { "type": "integer", "minimum": 0 },
+        "lastTunePromptDislikeCount": { "type": ["integer", "null"], "minimum": 0 },
+        "calibrationSkippedTargetIds": { "type": "array", "maxItems": 10, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 160 } },
+        "calibrationCompletedAt": { "type": ["string", "null"], "format": "date-time" },
+        "calibrationSkippedAt": { "type": ["string", "null"], "format": "date-time" },
+        "tuningInteractionCount": { "type": "integer", "minimum": 0 },
+        "tuningDomainIds": { "type": "array", "maxItems": 24, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 160 } },
+        "completedTuningSessionCount": { "type": "integer", "minimum": 0 },
+        "lastTuningSessionCompletedAt": { "type": ["string", "null"], "format": "date-time" },
+        "meaningfulTuningAt": { "type": ["string", "null"], "format": "date-time" },
+        "meaningfulTuningDislikeCount": { "type": ["integer", "null"], "minimum": 0 }
       }
     }
   }

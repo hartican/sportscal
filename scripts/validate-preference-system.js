@@ -15,7 +15,22 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
-assert.equal(initial.schemaVersion, "preference-graph.v3");
+assert.equal(initial.schemaVersion, "preference-graph.v4");
+assert.deepEqual(initial.learning, {
+  signals: [],
+  dislikeCount: 0,
+  tuningPromptCount: 0,
+  lastTunePromptDislikeCount: null,
+  calibrationSkippedTargetIds: [],
+  calibrationCompletedAt: null,
+  calibrationSkippedAt: null,
+  tuningInteractionCount: 0,
+  tuningDomainIds: [],
+  completedTuningSessionCount: 0,
+  lastTuningSessionCompletedAt: null,
+  meaningfulTuningAt: null,
+  meaningfulTuningDislikeCount: null,
+});
 assert.deepEqual(initial.viewing.selectedBroadcasterIds, baseProviders, "all available providers must start selected");
 assert.equal(initial.viewing.viewingWindowEnabled, true, "the recommended viewing window must start enabled");
 assert.equal(initial.viewing.startHourLocal, 7, "the default viewing window must start at 7am");
@@ -112,4 +127,102 @@ const disabledNrl = preferences.disableDomain(migratedWithNewProvider, "sport:nr
 assert.equal(disabledNrl.domainPreferences.find(item => item.sportDomainId === "sport:nrl").enabled, false);
 assert.equal(disabledNrl.domainPreferences.find(item => item.sportDomainId === "sport:afl").enabled, true);
 
-console.log("Preference system valid: templates, overrides, quick add, entity follows, and provider migrations passed.");
+const likedWimbledon = preferences.applyLearningSignal(disabledNrl, {
+  targetType: "event_family",
+  targetId: "special:wimbledon",
+  value: 1,
+  source: "calibration",
+}, { recordedAt: "2026-08-11T08:00:00.000Z" });
+assert.equal(likedWimbledon.learning.signals.length, 1, "calibration choices must persist immediately in the graph");
+assert.equal(preferences.learningScore(likedWimbledon, [{ targetType: "event_family", targetId: "special:wimbledon" }]), 10, "positive learning must lift a matching curated event");
+
+const dislikedWimbledon = preferences.applyLearningSignal(likedWimbledon, {
+  targetType: "event_family",
+  targetId: "special:wimbledon",
+  value: -1,
+  source: "feed",
+}, { recordedAt: "2026-08-11T08:01:00.000Z" });
+assert.equal(dislikedWimbledon.learning.signals.length, 1, "the latest signal for one target must replace its earlier value");
+assert.equal(dislikedWimbledon.learning.dislikeCount, 1, "qualifying dislikes must increment the durable counter");
+assert.equal(preferences.learningScore(dislikedWimbledon, [{ targetType: "event_family", targetId: "special:wimbledon" }]), -10, "negative learning must lower matching curated ranking without deleting truth");
+
+const promptCadence = [1, 4, 10, 25, 50, 100, 150];
+assert.deepEqual(
+  Array.from({ length: 160 }, (_value, index) => index + 1).filter(preferences.shouldPromptTune),
+  promptCadence,
+  "Tune prompts must use the deterministic decaying cadence"
+);
+assert.equal(preferences.shouldPromptTune(2), false, "the second dislike must never show a Tune prompt");
+const prompted = preferences.recordTunePrompt(dislikedWimbledon, { dislikeCount: 1 });
+assert.equal(prompted.learning.tuningPromptCount, 1);
+assert.equal(prompted.learning.lastTunePromptDislikeCount, 1);
+
+let tuned = dislikedWimbledon;
+for (let index = 0; index < 8; index += 1){
+  tuned = preferences.applyTuningSignal(tuned, {
+    targetType: "team",
+    targetId: `team:tune:${index}`,
+    value: index % 2 ? -1 : 1,
+  }, {
+    domainId: index < 4 ? "sport:nrl" : "sport:afl",
+    recordedAt: new Date(Date.UTC(2026, 7, 12, 0, index)).toISOString(),
+  });
+}
+assert.equal(tuned.learning.tuningInteractionCount, 8, "fine-tuning interactions must be durable");
+assert.deepEqual(tuned.learning.tuningDomainIds, ["sport:nrl", "sport:afl"], "fine-tuning must retain distinct domains");
+assert.equal(tuned.learning.dislikeCount, 1, "negative Tune choices must not count as qualifying feed dislikes");
+assert.equal(preferences.isMeaningfullyTuned(tuned), true, "eight interactions across two domains must be meaningful");
+assert.equal(tuned.learning.meaningfulTuningDislikeCount, 1, "meaningful tuning must capture its dislike baseline");
+const postTuneLearning = {
+  ...tuned.learning,
+  dislikeCount: 101,
+  lastTunePromptDislikeCount: 1,
+};
+assert.equal(
+  preferences.shouldPromptTune(postTuneLearning, { now: new Date("2026-09-10T23:59:59.000Z") }),
+  false,
+  "meaningful tuning must suppress prompts until thirty complete days have passed"
+);
+assert.equal(
+  preferences.shouldPromptTune(postTuneLearning, { now: new Date("2026-09-11T00:07:00.000Z") }),
+  true,
+  "meaningful tuning may prompt after both thirty days and one hundred additional dislikes"
+);
+assert.equal(
+  preferences.shouldPromptTune({ ...postTuneLearning, dislikeCount: 100 }, { now: new Date("2026-09-20T00:00:00.000Z") }),
+  false,
+  "ninety-nine additional dislikes must remain suppressed"
+);
+const oneSession = preferences.completeTuningSession(initial, { recordedAt: "2026-08-12T01:00:00.000Z" });
+const twoSessions = preferences.completeTuningSession(oneSession, { recordedAt: "2026-08-13T01:00:00.000Z" });
+assert.equal(preferences.isMeaningfullyTuned(oneSession), false, "one completed Tune session is not meaningful by itself");
+assert.equal(preferences.isMeaningfullyTuned(twoSessions), true, "two completed Tune sessions must be meaningful");
+
+let bounded = initial;
+for (let index = 0; index < preferences.MAX_LEARNING_SIGNALS + 25; index += 1){
+  bounded = preferences.applyLearningSignal(bounded, {
+    targetType: "event",
+    targetId: `event:${index}`,
+    value: index % 2 ? 1 : -1,
+    source: "feed",
+  }, { recordedAt: new Date(Date.UTC(2026, 7, 11, 9, index)).toISOString() });
+}
+assert.equal(bounded.learning.signals.length, preferences.MAX_LEARNING_SIGNALS, "learning history must remain bounded");
+
+let skipped = initial;
+for (let index = 0; index < preferences.MAX_CALIBRATION_SKIPS + 4; index += 1){
+  skipped = preferences.skipCalibrationTarget(skipped, `target:${index}`);
+}
+assert.equal(skipped.learning.calibrationSkippedTargetIds.length, preferences.MAX_CALIBRATION_SKIPS, "skipped calibration progress must remain bounded");
+const completed = preferences.completeCalibration(skipped, { skipped: true, recordedAt: "2026-08-11T10:00:00Z" });
+assert.equal(completed.learning.calibrationCompletedAt, "2026-08-11T10:00:00.000Z");
+assert.equal(completed.learning.calibrationSkippedAt, "2026-08-11T10:00:00.000Z");
+const mergedLearning = preferences.mergeLearning(dislikedWimbledon.learning, {
+  signals: [{ targetType: "sport", targetId: "sport:afl", value: 1, source: "feed", recordedAt: "2026-08-11T11:00:00.000Z" }],
+  dislikeCount: 0,
+  tuningPromptCount: 0,
+});
+assert.equal(mergedLearning.signals.length, 2, "sign-in must merge local and server learning targets instead of replacing the local graph");
+assert.equal(mergedLearning.dislikeCount, 1, "sign-in must preserve the higher durable dislike counter");
+
+console.log("Preference system valid: v4 migration, bounded learning, meaningful Tune suppression, templates, follows and viewing preferences passed.");
