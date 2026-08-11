@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="62">
+<meta name="app-shell-version" content="63">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -3574,7 +3574,6 @@ footer.app-footer{
       <button class="btn ghost" id="aboutBtn" aria-label="About"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
-      <button class="btn ghost" id="refreshBtn" aria-label="Refresh"><span data-vector-glyph="ui:refresh"></span> <span class="full-label">Refresh</span></button>
       <button class="btn primary" id="calendarSyncBtn" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
     </div>
   </div>
@@ -3751,6 +3750,7 @@ footer.app-footer{
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
+<script src="config/feed-refresh-lifecycle.js"></script>
 <script src="config/profile-storage.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
@@ -3766,6 +3766,7 @@ footer.app-footer{
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
+const FEED_REFRESH_LIFECYCLE = globalThis.NOTHINGSPORTS_FEED_REFRESH_LIFECYCLE;
 const SPORT_DOMAIN_REGISTRY = globalThis.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY;
 const SPORT_META = SPORT_DOMAIN_REGISTRY.metaByKey();
 const FILTER_ORDER = SPORT_DOMAIN_REGISTRY.filterOrder;
@@ -4016,6 +4017,7 @@ function saveActiveProfileSection(section, value){
 let activeFilter = "all";
 let feedFilterRefreshInFlight = null;
 let feedFilterRefreshQueued = false;
+let committedFeedPresentationFingerprint = null;
 let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
@@ -5041,8 +5043,8 @@ function applyFeedEvents(events, meta){
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   if (meta?.publishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, meta.publishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
-  calendarInitialJumpPending = true;
-  renderAll();
+  if (!activeSportHubKey()) renderPreferenceSummary();
+  return renderFeedIfPresentationChanged({ preserveViewport: true });
 }
 
 function applyServerFeed(payload){
@@ -5067,12 +5069,13 @@ function applyServerFeed(payload){
   if (payload.sourceVersion) writeStorage(STORAGE_KEYS.lastFeedVersion, payload.sourceVersion);
   if (payload.sourcePublishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, payload.sourcePublishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
-  calendarInitialJumpPending = true;
-  renderAll();
+  if (!activeSportHubKey()) renderPreferenceSummary();
+  const rendered = renderFeedIfPresentationChanged({ preserveViewport: true });
   return {
     source: "server",
     eventCount: events.length,
     cardCount: cache.derivedCards.length,
+    rendered,
   };
 }
 
@@ -5092,18 +5095,18 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     const meta = await fetchJson(FEED_CONFIG.metaUrl);
     const eventsPath = meta.eventsPath || meta.eventsUrl;
     if (!eventsPath && meta.usesBundledEvents){
-      applyFeedEvents(EVENTS.slice(), meta);
+      const rendered = applyFeedEvents(EVENTS.slice(), meta);
       if (!quiet) showToast("Published feed loaded with current retention rules.");
-      return { source: "bundled", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length };
+      return { source: "bundled", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length, rendered };
     }
     const payload = await fetchJson(eventsPath || FEED_CONFIG.eventsUrl);
     const events = coerceEventList(payload);
     if (!events.length){
       throw new Error("Remote feed did not contain usable events");
     }
-    applyFeedEvents(events, meta);
+    const rendered = applyFeedEvents(events, meta);
     if (!quiet) showToast(`Published feed loaded: ${events.length} events.`);
-    return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length };
+    return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
   }catch(err){
     console.warn("Feed refresh failed", err);
     if (centralRebuildRequested && err?.status === 401){
@@ -5118,14 +5121,23 @@ async function refreshRemoteFeed({ quiet = false } = {}){
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
     }
-    applyFeedEvents(EVENTS.slice());
+    const rendered = applyFeedEvents(EVENTS.slice());
     if (!quiet){
       showToast(centralRebuildRequested
         ? "Central rebuild unavailable. Rebuilt safely on this device."
         : "Published feed unavailable. Rebuilt from the bundled canonical schedule.");
     }
-    return { source: "fallback", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length };
+    return { source: "fallback", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length, rendered };
   }
+}
+
+async function refreshFeedOnFirstLoad(){
+  try{
+    await bootstrapServerPersistence();
+  }catch(error){
+    console.warn("Account bootstrap unavailable; continuing with automatic feed refresh", error);
+  }
+  return refreshRemoteFeed({ quiet: true });
 }
 
 function requestFeedRefreshForFilterChange(){
@@ -8479,6 +8491,33 @@ document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   window.requestAnimationFrame(() => scrollActiveFeedToToday({ behavior: "smooth" }));
 });
 
+function feedEventsForPresentationFingerprint(){
+  const hubSportKey = activeSportHubKey();
+  return hubSportKey
+    ? activeEvents.filter(event => event.key === hubSportKey)
+    : getFilteredEvents();
+}
+
+function currentFeedPresentationFingerprint(){
+  if (!FEED_REFRESH_LIFECYCLE) return null;
+  return FEED_REFRESH_LIFECYCLE.presentationFingerprint({
+    events: feedEventsForPresentationFingerprint(),
+    derivedCards: derivedCardCache?.derivedCards || [],
+  });
+}
+
+function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
+  const nextFingerprint = currentFeedPresentationFingerprint();
+  const shouldRender = !FEED_REFRESH_LIFECYCLE
+    || FEED_REFRESH_LIFECYCLE.shouldRenderUpdate(committedFeedPresentationFingerprint, nextFingerprint);
+  if (
+    FEED_REFRESH_LIFECYCLE
+    && !shouldRender
+  ) return false;
+  renderAll({ preserveViewport });
+  return true;
+}
+
 function renderCurrentSection(){
   clearPendingCardRetractionSpace();
   if (activeTab !== "feed"){
@@ -8545,6 +8584,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = true;
   }
   restoreViewportRenderAnchor(preservedViewportAnchor);
+  committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
 }
 
 /* ============ SETTINGS ============ */
@@ -8964,24 +9004,29 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
-  </div><div class="filter-panel"><h3>Disposable feed cache</h3><p class="preference-help">${derivedCardCache?.derivedCards?.length || 0} derived cards. Unsaved past cards archive after 7 days and disappear after 14; rated cards saved to Archive remain available.</p><button class="btn ghost" type="button" id="rebuildFeedCacheBtn">Clear and rebuild feed cache</button></div>`;
+  </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Unsaved past cards archive after 7 days and disappear after 14; rated cards saved to Archive remain available.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   bindSettingsMenuNavigation(body);
-  document.getElementById("rebuildFeedCacheBtn").addEventListener("click", async () => {
-    const centralRebuild = Boolean(serverPersistence.user && ["signedIn", "syncing", "error"].includes(serverPersistence.state));
-    let result;
-    if (centralRebuild){
-      result = await refreshRemoteFeed({ quiet: true });
-    } else {
-      clearAndRebuildDerivedCardCache();
-      renderAll();
-      result = { source: "local" };
-    }
-    showToast(result.source === "server"
-      ? "Feed cache rebuilt centrally from your synced preferences."
+  document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
+    const button = document.getElementById("refreshAndRebuildFeedBtn");
+    const status = document.getElementById("refreshAndRebuildFeedStatus");
+    button.disabled = true;
+    button.textContent = "Refreshing…";
+    status.textContent = "Checking the latest published feed and rebuilding this device’s disposable card cache…";
+    if (CARD_LIFECYCLE) saveDerivedCardCache(CARD_LIFECYCLE.emptyCache(nowAEST()));
+    const result = await refreshRemoteFeed({ quiet: true });
+    const sourceCopy = result.source === "server"
+      ? "The synced feed and cache were rebuilt centrally."
       : result.source === "fallback"
-        ? "Central rebuild unavailable. Feed cache rebuilt safely on this device."
-        : "Feed cache rebuilt from canonical events and your preferences.");
-    renderSettingsScreen();
+        ? "The published feed could not be reached, so the bundled feed and local cache were rebuilt safely."
+        : "The latest published feed and local cache were rebuilt.";
+    const changeCopy = result.rendered
+      ? " Visible cards were updated."
+      : " The visible feed was already current, so it was left in place.";
+    status.textContent = `${sourceCopy}${changeCopy}`;
+    document.getElementById("derivedFeedCacheSummary").textContent = `${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Unsaved past cards archive after 7 days and disappear after 14; rated cards saved to Archive remain available.`;
+    button.textContent = "Refresh and rebuild feed";
+    button.disabled = false;
+    showToast(status.textContent);
   });
 }
 
@@ -9316,11 +9361,17 @@ async function loadCanonicalSportsData(){
   }finally{
     canonicalSportsDataLoading = false;
     if (draftPreferences && settingsSection === "sports" && sportsFollowedTab === "events") renderSettingsScreen();
+    let visibleFeedRendered = false;
     if (canonicalSportsData && derivedCardCache?.buildOrigin !== "server"){
       rebuildDerivedCardCache(activeEvents);
-      renderCurrentSection();
+      if (activeSportHubKey()){
+        renderSportHub();
+      } else if (activeTab === "feed"){
+        visibleFeedRendered = renderFeedIfPresentationChanged({ preserveViewport: true });
+      }
     }
-    renderStandingsContext();
+    renderTabCounts();
+    if (!visibleFeedRendered) renderStandingsContext();
   }
   return canonicalSportsData;
 }
@@ -9831,9 +9882,6 @@ document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () 
   showToast(`${selectionCount === 1 ? "New feed choice" : "New feed choices"} added.`);
 });
 
-document.getElementById("refreshBtn").addEventListener("click", () => {
-  refreshRemoteFeed();
-});
 document.getElementById("soundtrackToggle").addEventListener("click", toggleSoundtrack);
 document.getElementById("homeSpoilerToggle").addEventListener("click", () => {
   setGlobalSpoilerPreference(!userPreferences.showSpoilers, { notify: true });
@@ -10117,7 +10165,7 @@ setInterval(updateClock, 1000);
 renderAll();
 loadCanonicalSportsData();
 scheduleBrowserReminders();
-bootstrapServerPersistence().then(() => refreshRemoteFeed({ quiet: true })).finally(() => {
+refreshFeedOnFirstLoad().finally(() => {
   if (!userPreferences.onboardingComplete){
     openSettings({ firstRun: true });
   } else {

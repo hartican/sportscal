@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v62";
+const CACHE_NAME = "nothingsport-shell-v63";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -9,6 +9,7 @@ const APP_SHELL = [
   "/config/canonical-sports-taxonomy.js",
   "/config/sport-context.js",
   "/config/sport-hubs.js",
+  "/config/feed-refresh-lifecycle.js",
   "/config/profile-storage.js",
   "/config/server-sync.js",
   "/config/preference-system.js",
