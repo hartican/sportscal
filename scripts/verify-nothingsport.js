@@ -23,6 +23,7 @@ const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
 const sportHubsSource = fs.readFileSync("config/sport-hubs.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const productEventsSource = fs.readFileSync("config/product-events.js", "utf8");
+const pilotReadoutSource = fs.readFileSync("config/pilot-readout.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
 const serverFeedApiSource = fs.readFileSync("api/feed.js", "utf8");
@@ -238,7 +239,11 @@ assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "supersed
 assert.equal(JSON.parse(fs.readFileSync("schemas/product-events.schema.json", "utf8")).properties.schemaVersion.const, "product-events.v1", "pilot measurement must expose one versioned request contract");
 assert(productEventsSource.includes("const MAX_BATCH_SIZE = 20"), "product event requests must stay bounded to twenty events");
 assert(productEventsSource.includes('"opportunity_exposed"') && productEventsSource.includes('"fixture_check"') && productEventsSource.includes('"watch_decision"'), "TSDR events must use a fixed allowlist");
+assert(productEventsSource.includes('pilotVersion: enumRule(["trust-pilot.v1"])') && html.includes('pilotVersion: "trust-pilot.v1"'), "the fourteen-day clock must start only from Phase 6 versioned opportunities");
 assert(productEventsSource.includes('"weekly_pulse"') && productEventsSource.includes("crossCheck") && productEventsSource.includes("missedFixtures") && productEventsSource.includes("feedClutter"), "weekly trust pulses must use fixed-choice properties");
+assert(productEventsSource.includes("pilotCohort") && productEventsSource.includes("trustConfidence"), "the weekly pulse must support fixed cohort and fixture-confidence segmentation");
+assert(html.includes('properties: { action: "shown" }') && html.includes('properties: { action: "dismissed" }') && html.includes('properties: { action: "rated", score: i }'), "rating prompt burden and completed spectacle ratings must remain measurable separately");
+assert(pilotReadoutSource.includes('const PILOT_DURATION_DAYS = 14') && pilotReadoutSource.includes('WATCHING_NOW: "watching_now_candidate"'), "the pilot decision gate must require fourteen days before considering social");
 assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v4"'), "swipe learning must use the v4 preference graph");
 assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
@@ -266,6 +271,9 @@ const productEventsSql = fs.readFileSync("supabase/nothingsports-product-events.
 assert(productEventsSql.includes("force row level security") && productEventsSql.includes("grant insert on table public.product_events to authenticated"), "the append-only pilot table must force RLS and grant authenticated insert only");
 assert(productEventsSql.includes("with check ((select auth.uid()) = user_id)"), "the insert policy must enforce the signed-in owner");
 assert(fs.readFileSync("supabase/nothingsports-tsdr.sql", "utf8").includes("had_opportunity and made_decision"), "the operational TSDR query must require opportunity exposure in the same user-week");
+const pilotReadoutSql = fs.readFileSync("supabase/nothingsports-pilot-readout.sql", "utf8");
+assert(pilotReadoutSql.includes("full_fixture_adoption_percent") && pilotReadoutSql.includes("prompt_dismissal_percent") && pilotReadoutSql.includes("positive_trust_percent"), "the administrator readout must cover adoption, prompt burden and qualitative trust");
+assert(!/create\s+(?:or replace\s+)?view/i.test(pilotReadoutSql), "pilot reporting must not create a client-readable view over append-only events");
 assert(cardUpdateSource.includes('["scripts/refresh-canonical-sports.js"]'), "the canonical cards update must refresh ladders and standings through the existing loader");
 assert(cardUpdateSource.indexOf('["scripts/refresh-canonical-sports.js"]') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "ladders and standings must refresh before card derivation begins");
 assert.equal((cardUpdateSource.match(/\["scripts\/sync-canonical-fixtures-to-feed\.js"/g) || []).length, 2, "the canonical cards update must sync refreshed fixtures into both incoming and published card feeds");
@@ -275,6 +283,7 @@ assert(cardUpdateSource.indexOf('["scripts/verify-marquee-coverage.js"') < cardU
 assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSource.indexOf('["scripts/publish-feed.js"') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "the canonical cards update must publish the refreshed JSON and direct-file fallback before card QA");
 assert(cardUpdateSource.includes('localOnly: argv.includes("--local-only")'), "the canonical cards update must expose an explicit local-only mode");
 assert(cardUpdateSource.includes('if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"])'), "local-only updates must skip the release boundary without creating a second refresh path");
+assert(cardUpdateSource.includes('["scripts/verify-pilot-readiness.js"]') && cardUpdateSource.includes('["scripts/validate-pilot-readout.js"]'), "every canonical update must gate releases on fresh complete supported coverage and the pilot decision contract");
 assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VERCEL_SKIP_AUTO_UPDATE"), "production releases must not suppress Vercel CLI auto-updates");
 [
   "validate-canonical-sports.js",
@@ -285,8 +294,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v71"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="71">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v72"'), "pilot interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="72">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/swipe-calibration.js"'), "recognisable swipe anchors must be available in the offline shell");

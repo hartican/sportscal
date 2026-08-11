@@ -13,6 +13,8 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step.length === 1), "every canonical update must rebuild the direct-file context transport from authoritative JSON");
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step[1] === "--check"), "every canonical update must reject a stale direct-file context transport");
 assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"), "local-only updates must still enforce published result completeness");
+assert(localSteps.some(step => step[0] === "scripts/verify-pilot-readiness.js"), "every canonical update must enforce fresh complete current/next-round pilot coverage");
+assert(localSteps.some(step => step[0] === "scripts/validate-pilot-readout.js"), "every canonical update must enforce the fourteen-day cohort readout and decision gate");
 assert(localSteps.some(step => step[0] === "scripts/validate-product-events.js"), "every canonical update must enforce the authenticated pilot event contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-swipe-learning.js"), "every canonical update must enforce bounded swipe learning and complete-fixture isolation");
 assert(localSteps.some(step => step[0] === "scripts/validate-tuning-ratings.js"), "every canonical update must enforce fine-tuning, compatible five-star ratings, and prompt fatigue controls");
@@ -21,6 +23,11 @@ assert(
   localSteps.findIndex(step => step[0] === "scripts/verify-nothingsport.js")
     > localSteps.findIndex(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"),
   "the interface regression gate must inspect the fully published and result-complete feed"
+);
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/verify-pilot-readiness.js")
+    > localSteps.findIndex(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"),
+  "pilot readiness must run only after the published feed is result complete"
 );
 assert.deepEqual(
   localSteps,

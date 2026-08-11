@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="71">
+<meta name="app-shell-version" content="72">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4683,6 +4683,7 @@ let pendingTunePromptDislikeCount = null;
 let tuneSectionIndex = 0;
 let tuneSessionRuntime = null;
 let sessionRatingPromptEventId = null;
+let sessionRatingPromptTelemetryContext = null;
 let sessionRatingPromptSuppressed = false;
 let sessionRatingPromptSelectionFinalized = false;
 let settingsViewportAnchor = null;
@@ -6334,10 +6335,17 @@ function ensureSessionRatingPrompt(events){
   sessionRatingPromptSelectionFinalized = true;
   if (!selected) return null;
   sessionRatingPromptEventId = String(selected.eventId || selected.id);
+  sessionRatingPromptTelemetryContext = productEventContextForEvent(selected);
   const nextState = RATING_SYSTEM.recordPrompt(state, sessionRatingPromptEventId, {
     sessionId: productEventSessionId,
   });
   savePreferences({ ...userPreferences, ratingPromptState: nextState });
+  recordProductEvent({
+    eventName: "rating",
+    surface: "curated_feed",
+    ...sessionRatingPromptTelemetryContext,
+    properties: { action: "shown" },
+  });
   return sessionRatingPromptEventId;
 }
 
@@ -6347,9 +6355,18 @@ function isSessionRatingPromptEvent(ev){
     && sessionRatingPromptEventId === String(ev.eventId || ev.id);
 }
 
-function suppressSessionRatingPrompt(){
+function suppressSessionRatingPrompt({ recordDismissal = false } = {}){
+  if (recordDismissal && sessionRatingPromptEventId){
+    recordProductEvent({
+      eventName: "rating",
+      surface: "curated_feed",
+      ...(sessionRatingPromptTelemetryContext || {}),
+      properties: { action: "dismissed" },
+    });
+  }
   sessionRatingPromptSuppressed = true;
   sessionRatingPromptEventId = null;
+  sessionRatingPromptTelemetryContext = null;
 }
 
 function isPreFlagged(ev){
@@ -7608,7 +7625,7 @@ function buildStars(ev, interactive, { prompt = false } = {}){
             eventName: "rating",
             surface: prompt ? "curated_feed" : "event_card",
             ...productEventContextForEvent(ev),
-            properties: { score: i },
+            properties: { action: "rated", score: i },
           });
         }
         if (prompt) suppressSessionRatingPrompt();
@@ -7635,7 +7652,7 @@ function buildPostEventRatingPrompt(ev){
   dismiss.textContent = "Not now";
   dismiss.addEventListener("click", event => {
     event.stopPropagation();
-    suppressSessionRatingPrompt();
+    suppressSessionRatingPrompt({ recordDismissal: true });
     renderCurrentSection();
   });
   copy.append(text, dismiss);
@@ -8413,6 +8430,7 @@ function buildEventCard(ev, options = {}){
       surface: "curated_feed",
       ...productEventContextForEvent(ev),
       properties: {
+        pilotVersion: "trust-pilot.v1",
         presentation: "card",
         feedBucket: presentation.feedBucket,
       },
@@ -8870,6 +8888,7 @@ function buildSportRoundSummaryCard(summary){
     sport: summary.sportKey,
     competitionId: SPORT_HUBS.sportConfig(summary.sportKey)?.competitionId,
     properties: {
+      pilotVersion: "trust-pilot.v1",
       presentation: "round_summary",
       position: summary.sportKey === "nrl" ? 0 : 1,
     },
@@ -10655,8 +10674,13 @@ function renderPilotSettings(body){
     ${enabled ? `<div class="filter-panel"><h3>This week’s trust pulse</h3>
       ${pilot.lastPulseWeek === currentWeek
         ? `<p class="preference-help">Pulse complete for the week starting ${new Date(`${currentWeek}T12:00:00`).toLocaleDateString("en-AU", { day: "numeric", month: "short" })}. Thanks.</p>`
-        : `<p class="preference-help">Three fixed choices, once a week. There is no free-text response.</p>
+        : `<p class="preference-help">Five fixed choices, once a week. There is no free-text response.</p>
           <form class="pilot-pulse" id="pilotPulseForm">
+            <fieldset><legend>Which best matches how you usually use nothingsport?</legend><div class="pilot-choice-grid">
+              <label><input type="radio" name="pilotCohort" value="curator" required>Only the best events</label>
+              <label><input type="radio" name="pilotCohort" value="hybrid">Curation plus fixture checks</label>
+              <label><input type="radio" name="pilotCohort" value="completist">Every fixture in followed sports</label>
+            </div></fieldset>
             <fieldset><legend>Did you cross-check another sports app before deciding?</legend><div class="pilot-choice-grid">
               <label><input type="radio" name="crossCheck" value="never" required>Never</label>
               <label><input type="radio" name="crossCheck" value="once">Once</label>
@@ -10671,6 +10695,11 @@ function renderPilotSettings(body){
               <label><input type="radio" name="feedClutter" value="too_sparse" required>Too sparse</label>
               <label><input type="radio" name="feedClutter" value="about_right">About right</label>
               <label><input type="radio" name="feedClutter" value="too_busy">Too busy</label>
+            </div></fieldset>
+            <fieldset><legend>How confident are you that every NRL and AFL fixture is available here?</legend><div class="pilot-choice-grid">
+              <label><input type="radio" name="trustConfidence" value="low" required>Not confident</label>
+              <label><input type="radio" name="trustConfidence" value="medium">Somewhat confident</label>
+              <label><input type="radio" name="trustConfidence" value="high">Very confident</label>
             </div></fieldset>
             <button class="btn primary" type="submit" id="pilotPulseSubmitBtn">Send weekly pulse</button>
             <p class="preference-help" id="pilotPulseStatus" role="status" aria-live="polite"></p>
@@ -10708,9 +10737,11 @@ function renderPilotSettings(body){
       eventName: "weekly_pulse",
       surface: "weekly_pulse",
       properties: {
+        pilotCohort: form.get("pilotCohort"),
         crossCheck: form.get("crossCheck"),
         missedFixtures: form.get("missedFixtures"),
         feedClutter: form.get("feedClutter"),
+        trustConfidence: form.get("trustConfidence"),
       },
     });
     if (!recorded){

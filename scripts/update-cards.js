@@ -91,6 +91,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
+  ["scripts/verify-pilot-readiness.js"],
+  ["scripts/validate-pilot-readout.js"],
   ["scripts/validate-swipe-learning.js"],
   ["scripts/validate-tuning-ratings.js"],
   ["scripts/validate-product-events.js"],

@@ -45,6 +45,7 @@
   const BODY_KEYS = Object.freeze(["schemaVersion", "events"]);
   const PROPERTY_RULES = Object.freeze({
     opportunity_exposed: Object.freeze({
+      pilotVersion: enumRule(["trust-pilot.v1"]),
       presentation: enumRule(["card", "round_summary"]),
       position: integerRule(0, 999),
       feedBucket: enumRule(["new", "pinned", "seen", "upcoming", "past"]),
@@ -61,6 +62,7 @@
       targetType: enumRule(["sport", "competition", "team", "player", "event", "event_family"]),
     }),
     rating: Object.freeze({
+      action: enumRule(["shown", "dismissed", "rated"]),
       score: integerRule(1, 5),
     }),
     tune_prompt: Object.freeze({
@@ -72,9 +74,11 @@
       interactionCount: integerRule(0, 1_000_000),
     }),
     weekly_pulse: Object.freeze({
+      pilotCohort: enumRule(["curator", "hybrid", "completist"]),
       crossCheck: enumRule(["never", "once", "multiple"]),
       missedFixtures: enumRule(["none", "one", "multiple"]),
       feedClutter: enumRule(["too_sparse", "about_right", "too_busy"]),
+      trustConfidence: enumRule(["low", "medium", "high"]),
     }),
   });
 

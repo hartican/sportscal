@@ -29,15 +29,19 @@ order by week_start desc;
 -- Fixed-choice weekly pulse cross-check.
 select
   date_trunc('week', occurred_at at time zone 'Australia/Sydney')::date as week_start,
+  properties ->> 'pilotCohort' as pilot_cohort,
   properties ->> 'crossCheck' as cross_check,
   properties ->> 'missedFixtures' as missed_fixtures,
   properties ->> 'feedClutter' as feed_clutter,
+  properties ->> 'trustConfidence' as trust_confidence,
   count(distinct user_id) as users
 from public.product_events
 where event_name = 'weekly_pulse'
 group by
   date_trunc('week', occurred_at at time zone 'Australia/Sydney')::date,
+  properties ->> 'pilotCohort',
   properties ->> 'crossCheck',
   properties ->> 'missedFixtures',
-  properties ->> 'feedClutter'
+  properties ->> 'feedClutter',
+  properties ->> 'trustConfidence'
 order by week_start desc, users desc;
