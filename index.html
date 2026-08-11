@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="67">
+<meta name="app-shell-version" content="68">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -662,6 +662,99 @@ header.top{
   border-radius: 999px;
   padding: 6px 10px;
   background: rgba(255,255,255,0.03);
+}
+
+/* ---------- Curated-to-complete round bridge ---------- */
+.sport-round-summaries{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:12px;
+  margin:0 0 24px;
+}
+
+.sport-round-summary-card{
+  width:100%;
+  min-width:0;
+  min-height:128px;
+  padding:17px 18px;
+  display:grid;
+  grid-template-columns:auto minmax(0, 1fr) auto;
+  align-items:center;
+  gap:14px;
+  border:1px solid var(--border);
+  border-left:4px solid var(--sport-color);
+  border-radius:15px;
+  background:linear-gradient(130deg, color-mix(in srgb, var(--sport-color) 10%, var(--bg-card)), var(--bg-card) 72%);
+  color:var(--text);
+  cursor:pointer;
+  font-family:inherit;
+  text-align:left;
+  box-shadow:0 10px 28px rgba(0,0,0,0.09);
+}
+
+.sport-round-summary-card:hover{
+  border-color:color-mix(in srgb, var(--sport-color) 56%, var(--border));
+  background:linear-gradient(130deg, color-mix(in srgb, var(--sport-color) 15%, var(--bg-card)), var(--bg-card) 72%);
+}
+
+.sport-round-summary-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  color:var(--sport-color);
+}
+
+.sport-round-summary-icon .vector-glyph{
+  width:34px;
+  height:34px;
+}
+
+.sport-round-summary-content{ min-width:0; }
+
+.sport-round-summary-eyebrow{
+  display:block;
+  margin:0 0 3px;
+  color:var(--text-dim);
+  font-size:0.64rem;
+  font-weight:850;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+}
+
+.sport-round-summary-title{
+  display:block;
+  margin:0;
+  color:var(--text);
+  font:900 1rem/1.2 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sport-round-summary-counts{
+  margin:8px 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px 9px;
+  color:var(--text-dim);
+  font-size:0.72rem;
+  font-weight:750;
+  line-height:1.35;
+}
+
+.sport-round-summary-counts span + span::before{
+  content:"·";
+  margin-right:9px;
+  color:var(--text-faint);
+}
+
+.sport-round-summary-arrow{
+  display:flex;
+  align-items:center;
+  color:var(--text-dim);
+}
+
+.sport-round-summary-arrow .vector-glyph{
+  width:18px;
+  height:18px;
 }
 
 /* ---------- Complete sport hubs ---------- */
@@ -3555,6 +3648,23 @@ footer.app-footer{
 
 @media (max-width: 640px){
   main{ padding:0 12px; }
+  .sport-round-summaries{
+    grid-template-columns:1fr;
+    gap:10px;
+    margin-bottom:20px;
+  }
+  .sport-round-summary-card{
+    min-height:112px;
+    padding:14px;
+  }
+  .sport-round-summary-icon{
+    width:36px;
+    height:36px;
+  }
+  .sport-round-summary-icon .vector-glyph{
+    width:30px;
+    height:30px;
+  }
   .feed-filter-dock-inner{
     padding:8px 12px;
   }
@@ -4045,6 +4155,18 @@ const FEED_CONFIG = {
   eventsUrl: "data/events.json",
   eventsScriptUrl: "data/events.js",
 };
+
+const CANONICAL_CONTEXT_CONFIG = Object.freeze({
+  scriptUrl: "data/canonical/contexts.js",
+  sources: Object.freeze([
+    ["leagueSports", "data/canonical/afl-nrl-2026.json"],
+    ["f1Context", "data/canonical/f1-context-2026.json"],
+    ["tennisContext", "data/canonical/tennis-context-2026.json"],
+    ["cyclingContext", "data/canonical/cycling-context-2026.json"],
+    ["nbaContext", "data/canonical/nba-context-2026.json"],
+    ["cwgContext", "data/canonical/cwg-context-2026.json"],
+  ]),
+});
 
 const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
   defaultWeight: 0,
@@ -5159,6 +5281,41 @@ async function fetchJson(url){
   return response.json();
 }
 
+function reloadBundledCanonicalContextsScript(){
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    const scriptUrl = new URL(CANONICAL_CONTEXT_CONFIG.scriptUrl, globalThis.location.href);
+    scriptUrl.searchParams.set("refresh", String(Date.now()));
+    script.src = scriptUrl.href;
+    script.async = true;
+    script.onload = () => {
+      script.remove();
+      const contexts = globalThis.NOTHINGSPORTS_CANONICAL_CONTEXTS;
+      if (!contexts || typeof contexts !== "object"){
+        reject(new Error("Bundled canonical contexts were unavailable"));
+        return;
+      }
+      resolve(contexts);
+    };
+    script.onerror = () => {
+      script.remove();
+      reject(new Error("Bundled canonical contexts could not be loaded"));
+    };
+    document.head.appendChild(script);
+  });
+}
+
+async function loadCanonicalContextBundles(){
+  if (globalThis.location?.protocol === "file:"){
+    const bundled = await reloadBundledCanonicalContextsScript();
+    return CANONICAL_CONTEXT_CONFIG.sources.map(([key]) => {
+      if (!bundled[key]) throw new Error(`Bundled canonical context ${key} was missing`);
+      return bundled[key];
+    });
+  }
+  return Promise.all(CANONICAL_CONTEXT_CONFIG.sources.map(([, url]) => fetchJson(url)));
+}
+
 function applyFeedEvents(events, meta){
   activeEvents = SPORT_CONTEXT && canonicalSportsData
     ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
@@ -5335,7 +5492,7 @@ function focusSportHubViewport(){
   window.requestAnimationFrame(() => window.requestAnimationFrame(focusHub));
 }
 
-function setActiveFeedFilter(nextFilter, { refresh = true } = {}){
+function setActiveFeedFilter(nextFilter, { refresh = true, roundNumber = null } = {}){
   const normalizedFilter = feedFilterOptions(userPreferences).includes(nextFilter) ? nextFilter : "all";
   if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
   const previousHubKey = sportHubKeyForFilter(activeFilter);
@@ -5347,7 +5504,13 @@ function setActiveFeedFilter(nextFilter, { refresh = true } = {}){
     };
   }
   activeFilter = normalizedFilter;
-  if (nextHubKey && nextHubKey !== previousHubKey) resetSportHubState(nextHubKey);
+  if (nextHubKey && nextHubKey !== previousHubKey){
+    resetSportHubState(nextHubKey);
+    if (Number.isInteger(roundNumber)){
+      sportHubState.activeTab = "all-fixtures";
+      sportHubState.selectedRoundNumber = roundNumber;
+    }
+  }
   collapseAllCardStates();
   todayMoreReveal = false;
   calendarInitialJumpPending = !previousHubKey && !nextHubKey;
@@ -7391,7 +7554,7 @@ function appendNewlySurfacedSection(container, events, { mode = "calendar", anch
   if (!events.length) return false;
   const section = document.createElement("section");
   section.className = "queue-section surfaced-new-section";
-  section.id = "calendarPriorityAnchor";
+  if (!document.getElementById("calendarPriorityAnchor")) section.id = "calendarPriorityAnchor";
   section.setAttribute("aria-label", "Events not to miss");
   const heading = document.createElement("h3");
   heading.textContent = "Don't miss";
@@ -7491,6 +7654,7 @@ function renderListView(){
   const todayStr = formatDateKey(nowAEST());
   const recentPastDateKey = focusedRecentPastDateKey(filtered.map(event => event.date), todayStr, activeFilter);
   const recentPastNewItem = newItems.find(event => event.date === recentPastDateKey) || null;
+  appendSportRoundSummaries(container);
   appendNewlySurfacedSection(container, newItems, {
     anchorEventId: recentPastNewItem ? recentPastNewItem.eventId || recentPastNewItem.id : null,
   });
@@ -7730,11 +7894,110 @@ function sportHubMutedParticipantIds(){
     .map(preference => preference.participantId));
 }
 
-function sportHubCuratedCanonicalIds(sportKey){
-  return new Set(getPreferenceMatchedEvents()
+function sportHubCuratedCanonicalIds(sportKey, reference = nowAEST()){
+  return new Set(getPreferenceMatchedEvents(reference)
     .filter(event => event.key === sportKey)
     .map(event => event.canonicalEventId)
     .filter(Boolean));
+}
+
+function followedSupportedSportKeys(preferences = userPreferences){
+  if (!SPORT_HUBS) return [];
+  const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
+  return ["nrl", "afl"].filter(sportKey => {
+    const sport = SPORT_HUBS.sportConfig(sportKey);
+    if (!sport || !selectedDomains.has(sport.domainId)) return false;
+    const domainPreference = preferences?.preferenceGraph?.domainPreferences
+      ?.find(preference => preference.sportDomainId === sport.domainId);
+    return domainPreference?.enabled !== false;
+  });
+}
+
+function sportRoundSummaryData(reference = nowAEST()){
+  if (!SPORT_HUBS || !canonicalSportsData || activeFilter !== "all" || activeView !== "list") return [];
+  const mutedParticipantIds = sportHubMutedParticipantIds();
+  return followedSupportedSportKeys().map(sportKey => {
+    const sport = SPORT_HUBS.sportConfig(sportKey);
+    const summary = SPORT_HUBS.roundSummary(sportHubCanonicalFixtures(sportKey), {
+      curatedCanonicalIds: sportHubCuratedCanonicalIds(sportKey, reference),
+      mutedParticipantIds,
+      now: reference,
+    });
+    return summary ? { ...summary, sportKey, sportLabel: sport.label } : null;
+  }).filter(Boolean);
+}
+
+function roundSummaryCountCopy(count, singular, plural = `${singular}s`){
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
+function openSportRoundSummary(sportKey, roundNumber){
+  const sport = SPORT_HUBS?.sportConfig(sportKey);
+  if (!sport) return Promise.resolve();
+  return setActiveFeedFilter(sport.domainId, { roundNumber });
+}
+
+function buildSportRoundSummaryCard(summary){
+  const sportMeta = SPORT_META[summary.sportKey] || {};
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "sport-round-summary-card";
+  card.dataset.sportRoundSummary = summary.sportKey;
+  card.dataset.roundNumber = String(summary.roundNumber);
+  card.style.setProperty("--sport-color", sportMeta.color || "var(--accent)");
+  card.setAttribute(
+    "aria-label",
+    `Open ${summary.sportLabel} All Fixtures for ${summary.roundLabel} and the following round`
+  );
+
+  const icon = document.createElement("span");
+  icon.className = "sport-round-summary-icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.innerHTML = glyphMarkup(sportMeta.glyph || "ui:filter");
+
+  const content = document.createElement("span");
+  content.className = "sport-round-summary-content";
+  const eyebrow = document.createElement("span");
+  eyebrow.className = "sport-round-summary-eyebrow";
+  eyebrow.textContent = `${summary.roundLabel} · Complete coverage`;
+  const title = document.createElement("span");
+  title.className = "sport-round-summary-title";
+  title.textContent = `${summary.sportLabel} ${summary.timingLabel}`;
+  const counts = document.createElement("span");
+  counts.className = "sport-round-summary-counts";
+  const countCopy = [
+    roundSummaryCountCopy(summary.worthWatchingCount, "worth watching", "worth watching"),
+    roundSummaryCountCopy(summary.otherVisibleCount, "other fixture"),
+  ];
+  if (summary.hiddenCount){
+    countCopy.push(`${roundSummaryCountCopy(summary.hiddenCount, "fixture")} hidden by you`);
+  }
+  countCopy.forEach(copy => {
+    const item = document.createElement("span");
+    item.textContent = copy;
+    counts.appendChild(item);
+  });
+  content.append(eyebrow, title, counts);
+
+  const arrow = document.createElement("span");
+  arrow.className = "sport-round-summary-arrow";
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.innerHTML = glyphMarkup("ui:chevron-right");
+  card.append(icon, content, arrow);
+  card.addEventListener("click", () => openSportRoundSummary(summary.sportKey, summary.roundNumber));
+  return card;
+}
+
+function appendSportRoundSummaries(container){
+  const summaries = sportRoundSummaryData();
+  if (!summaries.length) return false;
+  const section = document.createElement("section");
+  section.className = "sport-round-summaries";
+  section.id = "calendarPriorityAnchor";
+  section.setAttribute("aria-label", "Complete fixture coverage for followed sports");
+  summaries.forEach(summary => section.appendChild(buildSportRoundSummaryCard(summary)));
+  container.appendChild(section);
+  return true;
 }
 
 function sportHubRoundLabel(round){
@@ -9563,14 +9826,7 @@ async function loadCanonicalSportsData(){
   canonicalSportsDataError = null;
   try{
     if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
-    const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext] = await Promise.all([
-      fetchJson("data/canonical/afl-nrl-2026.json"),
-      fetchJson("data/canonical/f1-context-2026.json"),
-      fetchJson("data/canonical/tennis-context-2026.json"),
-      fetchJson("data/canonical/cycling-context-2026.json"),
-      fetchJson("data/canonical/nba-context-2026.json"),
-      fetchJson("data/canonical/cwg-context-2026.json"),
-    ]);
+    const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext] = await loadCanonicalContextBundles();
     canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
     activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);

@@ -31,6 +31,35 @@ assert.equal(hub.moveRoundNumber(syntheticRounds, 2, -1), 1, "previous-round nav
 assert.equal(hub.moveRoundNumber(syntheticRounds, 2, 1), 3, "next-round navigation must move within the supported season");
 assert.equal(hub.latestCompletedRoundNumber(syntheticRounds), 2, "results must default to the latest round containing a completed fixture");
 
+const summaryFixtures = [
+  { id: "summary-completed", roundNumber: 1, roundLabel: "Round 1", status: "completed", startTimeUtc: "2026-03-01T01:00:00Z", participantIds: ["team:one"] },
+  { id: "summary-curated", roundNumber: 2, roundLabel: "Round 2", status: "scheduled", startTimeUtc: "2026-03-15T01:00:00Z", participantIds: ["team:two"] },
+  { id: "summary-other", roundNumber: 2, roundLabel: "Round 2", status: "scheduled", startTimeUtc: "2026-03-15T03:00:00Z", participantIds: ["team:three"] },
+  { id: "summary-muted", roundNumber: 2, roundLabel: "Round 2", status: "scheduled", startTimeUtc: "2026-03-16T01:00:00Z", participantIds: ["team:muted"] },
+];
+const offWeekSummary = hub.roundSummary(summaryFixtures, {
+  curatedCanonicalIds: ["summary-curated", "summary-muted"],
+  mutedParticipantIds: ["team:muted"],
+  now: new Date("2026-03-10T01:00:00Z"),
+});
+assert.deepEqual(offWeekSummary, {
+  roundNumber: 2,
+  roundLabel: "Round 2",
+  timingLabel: "next round",
+  totalFixtureCount: 3,
+  worthWatchingCount: 1,
+  otherVisibleCount: 1,
+  hiddenCount: 1,
+}, "off-week round summaries must count curated, other visible, and explicitly muted fixtures separately");
+assert.equal(
+  hub.roundSummary(summaryFixtures, {
+    curatedCanonicalIds: ["summary-curated"],
+    now: new Date("2026-03-15T00:30:00Z"),
+  }).timingLabel,
+  "this round",
+  "a round becomes this round on its first Sydney calendar day"
+);
+
 for (const [sportKey, fixtures] of [["afl", aflFixtures], ["nrl", nrlFixtures]]){
   const currentRound = hub.currentRoundNumber(fixtures);
   const initialWindow = hub.fixturesForRoundWindow(fixtures, currentRound);
@@ -39,6 +68,21 @@ for (const [sportKey, fixtures] of [["afl", aflFixtures], ["nrl", nrlFixtures]])
     .map(event => event.id));
   assert.equal(initialWindow.length, expectedWindowIds.size, `${sportKey.toUpperCase()} initial hub window must contain every canonical fixture in both rounds`);
   assert(initialWindow.every(event => expectedWindowIds.has(event.id)), `${sportKey.toUpperCase()} initial hub window cannot contain a non-canonical fixture`);
+  const publishedIds = feedEvents
+    .filter(event => event.key === sportKey)
+    .map(event => event.canonicalEventId)
+    .filter(Boolean);
+  const summary = hub.roundSummary(fixtures, {
+    curatedCanonicalIds: publishedIds,
+    now: new Date("2026-08-11T02:00:00Z"),
+  });
+  const expectedSummaryCount = fixtures.filter(event => Number(event.roundNumber) === currentRound).length;
+  assert.equal(summary.totalFixtureCount, expectedSummaryCount, `${sportKey.toUpperCase()} summary must count every canonical current-round fixture`);
+  assert.equal(
+    summary.worthWatchingCount + summary.otherVisibleCount + summary.hiddenCount,
+    summary.totalFixtureCount,
+    `${sportKey.toUpperCase()} summary buckets must account for the complete current round`
+  );
 }
 
 const canonicalFixture = nrlFixtures.find(event => feedEvents.some(card => card.canonicalEventId === event.id));

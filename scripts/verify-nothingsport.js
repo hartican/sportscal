@@ -36,6 +36,9 @@ const australianMarqueePolicy = JSON.parse(fs.readFileSync("data/canonical/austr
 const eventsBundlePath = "data/events.js";
 assert(fs.existsSync(eventsBundlePath), "direct-file mode must have a generated published-feed fallback");
 const eventsBundleSource = fs.readFileSync(eventsBundlePath, "utf8");
+const canonicalContextBundlePath = "data/canonical/contexts.js";
+assert(fs.existsSync(canonicalContextBundlePath), "direct-file mode must have a generated canonical context fallback");
+const canonicalContextBundleSource = fs.readFileSync(canonicalContextBundlePath, "utf8");
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
@@ -123,6 +126,12 @@ assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 1
 assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
 assert(html.includes('src="config/soundtrack.js"'), "the top-bar soundtrack controller must load before app state");
 assert(html.includes('src="data/events.js"'), "direct-file mode must load the generated published-feed fallback");
+assert(
+  html.includes("reloadBundledCanonicalContextsScript")
+    && html.includes('scriptUrl: "data/canonical/contexts.js"')
+    && html.includes('globalThis.location?.protocol === "file:"'),
+  "direct-file mode must load complete canonical sport contexts without browser JSON fetch"
+);
 assert(html.includes("eventEnrichment(ev).mustWatchScore"), "must-watch decisions must use the derived explainable score");
 assert(html.includes('`variant-${enrichment.cardVariant}`'), "cards must receive their derived plain, compact, standard, or marquee variant");
 assert(html.includes("Why it ranked ·"), "opened cards must explain their ranking score");
@@ -156,6 +165,12 @@ assert(html.includes("SPORT_HUBS.partitionMutedFixtures") && html.includes('togg
 assert(html.includes("renderStandingsContext({") && html.includes("competitions,"), "sport hubs must reuse the existing standings renderer with a scoped competition set");
 assert(html.includes("userPreferences.showSpoilers && event.canonicalResultScoreline") && html.includes("Results are off. Scores stay hidden; source-backed replay providers remain visible."), "hub results must stay spoiler-safe while naming source-backed replay providers");
 assert(html.includes("restoreCuratedFeedViewport(returnState)") && html.includes("curatedFeedReturnState"), "All sports must restore the curated feed viewport after leaving a sport hub");
+assert(html.includes("function sportRoundSummaryData") && html.includes("function buildSportRoundSummaryCard"), "the all-sports list must derive NRL/AFL round summaries at render time");
+assert(html.includes('activeFilter !== "all" || activeView !== "list"'), "round summaries must stay out of focused feeds and Month View");
+assert(html.includes("SPORT_HUBS.roundSummary") && html.includes("sportHubCuratedCanonicalIds"), "round summary counts must reuse canonical fixtures and the existing curated-feed rules");
+assert(html.includes('sportHubState.activeTab = "all-fixtures"') && html.includes("sportHubState.selectedRoundNumber = roundNumber"), "summary-card entry must focus All Fixtures on the matching round and its following round");
+assert(html.includes("appendSportRoundSummaries(container)"), "the all-sports List View must render its trust bridge without adding canonical events");
+assert(!html.includes("summaryCardEventAction"), "derived round summaries must never enter archive, swipe, or rating state");
 assert(html.includes("function focusSportHubViewport()") && html.includes("stickyFeedChromeHeight() - 12"), "sport-hub entry must bring the in-place hub heading below the pinned app chrome");
 assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
 assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
@@ -233,10 +248,11 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v67"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="67">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v68"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="68">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
+assert(serviceWorkerSource.includes('"/data/canonical/contexts.js"'), "the generated direct-file canonical transport must ship with the app shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
 assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
 assert(serviceWorkerSource.includes("keys.filter(key => key !== CACHE_NAME)"), "the worker must remove superseded shell caches during activation");
@@ -376,6 +392,17 @@ assert.deepEqual(
   publishedFeed.events.map(event => event.id),
   "direct-file fallback must mirror every published feed event"
 );
+const contextBundleSandbox = { globalThis: {} };
+vm.runInNewContext(canonicalContextBundleSource, contextBundleSandbox, { filename: canonicalContextBundlePath });
+const bundledContexts = JSON.parse(JSON.stringify(contextBundleSandbox.globalThis.NOTHINGSPORTS_CANONICAL_CONTEXTS));
+assert.deepEqual(bundledContexts, {
+  leagueSports: canonicalSports,
+  f1Context,
+  tennisContext,
+  cyclingContext,
+  nbaContext,
+  cwgContext,
+}, "direct-file canonical transport must mirror every authoritative context without changing truth");
 assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sports.v1", "canonical sports schema must be explicitly versioned");
 assert(canonicalSportsSchema.$defs.sportDomain.required.includes("supportsCompetitors"), "canonical sport domains must declare competitor support");
 assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("competitor"), "canonical participants must use the Competitor type");
@@ -397,7 +424,7 @@ assert.equal(tennisContext.ladderSnapshots.find(snapshot => snapshot.competition
 const contextualTennisEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "wimbledon"), tennisContext);
 assert(contextualTennisEvents.filter(event => /\bMen(?:'|’)s\b/i.test(event.name)).every(event => event.participantIds?.length === 2), "Wimbledon men's cards must resolve only the two named ATP competitors");
 assert(contextualTennisEvents.filter(event => /\bWomen(?:'|’)s\b/i.test(event.name)).every(event => !event.participantIds?.length), "Wimbledon women's cards must not inherit ATP context");
-assert(html.includes('fetchJson("data/canonical/tennis-context-2026.json")'), "the browser must load the tennis context bundle");
+assert(html.includes('["tennisContext", "data/canonical/tennis-context-2026.json"]') && html.includes("loadCanonicalContextBundles()"), "the browser must load the tennis context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/tennis-context-2026.json")'), "the authenticated server feed must load the same tennis context bundle");
 assert(html.includes('? "Competitor ranking context"'), "tennis settings must describe ATP data as competitor rankings rather than a generic championship table");
 assert.equal(cyclingContext.participants.length, 14, "Tour detail settings must expose the calibrated rider-follow set");
@@ -408,7 +435,7 @@ const contextualTourEvents = sportContext.applyContextToEvents(publishedFeed.eve
 assert.equal(contextualTourEvents.length, 21, "the published Tour stage run must remain intact");
 assert(contextualTourEvents.every(event => event.participantIds?.length === 14), "Tour cards must resolve the rider-follow field");
 assert(contextualTourEvents.every(event => event.jerseySnapshot?.eventId === event.id), "Tour cards must receive their matching stage-jersey snapshot");
-assert(html.includes('fetchJson("data/canonical/cycling-context-2026.json")'), "the browser must load the cycling context bundle");
+assert(html.includes('["cyclingContext", "data/canonical/cycling-context-2026.json"]'), "the browser must load the cycling context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/cycling-context-2026.json")'), "the authenticated server feed must load the same cycling context bundle");
 assert(html.includes("function buildStageJerseyContext(ev)"), "Tour stage cards must render the calibrated jersey context");
 assert(html.includes("Starting and closing holders protected while Results is off."), "Tour jersey changes must respect spoiler protection");
@@ -421,7 +448,7 @@ const contextualNbaEvents = sportContext.applyContextToEvents(publishedFeed.even
 assert.equal(contextualNbaEvents.length, 7, "the published NBA Finals card run must remain intact");
 assert(contextualNbaEvents.every(event => event.participantIds?.length === 4), "NBA Finals cards must resolve the two teams and their surfaced All-NBA leaders");
 assert(contextualNbaEvents.every(event => !event.participantIds.includes("team:nba:detroit-pistons")), "unrelated NBA teams must not leak onto Finals cards");
-assert(html.includes('fetchJson("data/canonical/nba-context-2026.json")'), "the browser must load the NBA context bundle");
+assert(html.includes('["nbaContext", "data/canonical/nba-context-2026.json"]'), "the browser must load the NBA context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/nba-context-2026.json")'), "the authenticated server feed must load the same NBA context bundle");
 assert(html.includes("Conference standings · W/L, win percentage and games behind"), "NBA settings must describe the calibrated conference tables");
 assert.equal(cwgContext.participants.filter(participant => participant.sportDomainId === "sport:multi-sport:cwg:competitors").length, 15, "CWG detail settings must expose the calibrated competitor-follow set");
@@ -433,7 +460,7 @@ assert.equal(contextualCwgEvents.length, 34, "the repaired CWG card set must rem
 assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-swimming-closing-finals")?.participantIds?.length, 6, "CWG swimming cards must resolve only the calibrated swimming follow field");
 assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-netball-australia-england-bronze")?.participantIds?.[0], "competitor:cwg:liz-watson", "Australian CWG netball cards must resolve the surfaced Australian competitor");
 assert(!contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-boxing-finals-one")?.participantIds?.length, "unsupported CWG disciplines must not inherit competitor follows");
-assert(html.includes('fetchJson("data/canonical/cwg-context-2026.json")'), "the browser must load the CWG context bundle");
+assert(html.includes('["cwgContext", "data/canonical/cwg-context-2026.json"]'), "the browser must load the CWG context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/cwg-context-2026.json")'), "the authenticated server feed must load the same CWG context bundle");
 assert(html.includes('"special:commonwealth-games": "sport:multi-sport"'), "Commonwealth Games settings must resolve to the multi-sport canonical domain");
 assert(html.includes("Medal table · Gold, silver, bronze and total"), "CWG settings must describe the calibrated medal table");

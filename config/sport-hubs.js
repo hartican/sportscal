@@ -252,6 +252,65 @@
     };
   }
 
+  function sydneyDateKey(value){
+    const date = value instanceof Date ? value : new Date(value);
+    if (!Number.isFinite(date.getTime())) return null;
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Australia/Sydney",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(date).reduce((result, part) => {
+      result[part.type] = part.value;
+      return result;
+    }, {});
+    return `${parts.year}-${parts.month}-${parts.day}`;
+  }
+
+  function roundSummary(fixtures, {
+    curatedCanonicalIds = [],
+    mutedParticipantIds = [],
+    now = new Date(),
+  } = {}){
+    const source = Array.isArray(fixtures) ? fixtures : [];
+    const roundNumber = currentRoundNumber(source);
+    if (roundNumber === null) return null;
+
+    const roundFixtures = source
+      .filter(fixture => Number(fixture?.roundNumber) === roundNumber)
+      .slice()
+      .sort(compareFixtures);
+    if (!roundFixtures.length) return null;
+
+    const curated = curatedCanonicalIds instanceof Set
+      ? curatedCanonicalIds
+      : new Set(curatedCanonicalIds || []);
+    const muted = mutedParticipantIds instanceof Set
+      ? mutedParticipantIds
+      : new Set(mutedParticipantIds || []);
+    const hidden = roundFixtures.filter(fixture => fixtureIsMuted(fixture, muted));
+    const visible = roundFixtures.filter(fixture => !fixtureIsMuted(fixture, muted));
+    const worthWatching = visible.filter(fixture => curated.has(fixture.id));
+    const firstStart = roundFixtures
+      .map(fixture => new Date(fixture?.startTimeUtc || ""))
+      .filter(date => Number.isFinite(date.getTime()))
+      .sort((first, second) => first - second)[0] || null;
+    const referenceDateKey = sydneyDateKey(now);
+    const firstStartDateKey = firstStart ? sydneyDateKey(firstStart) : null;
+
+    return {
+      roundNumber,
+      roundLabel: roundFixtures[0]?.roundLabel || `Round ${roundNumber}`,
+      timingLabel: referenceDateKey && firstStartDateKey && referenceDateKey < firstStartDateKey
+        ? "next round"
+        : "this round",
+      totalFixtureCount: roundFixtures.length,
+      worthWatchingCount: worthWatching.length,
+      otherVisibleCount: visible.length - worthWatching.length,
+      hiddenCount: hidden.length,
+    };
+  }
+
   return Object.freeze({
     SUPPORTED_SPORTS,
     broadcasterNames,
@@ -267,7 +326,9 @@
     moveRoundNumber,
     normalizeSelectedRound,
     partitionMutedFixtures,
+    roundSummary,
     roundWindow,
+    sydneyDateKey,
     sportConfig,
     supportedRounds,
   });

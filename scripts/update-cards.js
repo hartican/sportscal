@@ -60,6 +60,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-tennis-context.js"],
   ["scripts/validate-nba-context.js"],
   ["scripts/validate-cycling-context.js"],
+  ["scripts/build-canonical-context-bundle.js"],
+  ["scripts/build-canonical-context-bundle.js", "--check"],
   ["scripts/refresh-results-2026-07-30.js", "feeds/incoming/events.json"],
   ["scripts/reconcile-australian-marquee-events.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ...canonicalStepSet(canonicalBundlePath => (
