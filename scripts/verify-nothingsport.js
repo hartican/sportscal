@@ -233,8 +233,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v66"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="66">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v67"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="67">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
@@ -322,9 +322,11 @@ assert(html.includes("anchor.card?.isConnected") && html.includes("card: anchorC
 assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
 assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
-assert(html.includes('glyphMarkup("ui:ticket")'), "local games must expose a vector-labelled Tickets link");
+assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
+assert((eventCardSource.match(/preferImage: true/g) || []).length >= 9, "every large and small scrolling-card glyph must use the stable image-backed path");
+assert(html.includes('intensityMarkup(ev.stakesScore, { className: "stakes-vector", label: `Stakes ${ev.stakesScore} out of 5`, preferImage: true })'), "the repeated card stakes meter must avoid a live inline-SVG repaint layer");
 assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
 assert(!/textContent\s*=\s*["']NEW["']/.test(eventCardSource), "the freshness treatment must not add a NEW text badge");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
@@ -651,6 +653,7 @@ globalThis.__test = {
   normalizeThemePreference,
   setEvents(events){ activeEvents = events; normalizeEvents(activeEvents); },
   setActions(actions){ eventActions = actions; },
+  setArchivedEventRefs(references){ archivedEventRefs = references; },
   setSpoilerState(state){ eventSpoilerState = state; },
   setSurfacePresentation(state){ surfacePresentationState = state; },
   getSurfacePresentationSnapshot(){ return structuredClone(surfacePresentationState); },
@@ -696,6 +699,7 @@ globalThis.__test = {
   cardRetractionVisualOffset,
   cardScrollDirection,
   getFilteredEvents,
+  focusedArchivedEvents,
   getPreferenceMatchedEvents,
   getEventAction,
   getEventSpoilerState,
@@ -1158,6 +1162,18 @@ assert.deepEqual(
   ["rugby-japan-australia-2026-08-08"],
   "the focused Rugby view must retain Japan v Australia on 11 August even without a selected provider"
 );
+app.setArchivedEventRefs([{
+  id: "archive:profile:existing:rugby-japan-australia-2026-08-08",
+  profileId: "profile:existing",
+  canonicalEventId: "rugby-japan-australia-2026-08-08",
+  archivedAt: "2026-08-09T00:00:00.000Z",
+}]);
+assert.deepEqual(
+  Array.from(app.focusedArchivedEvents(recentRugbyReference), item => item.id),
+  ["rugby-japan-australia-2026-08-08"],
+  "an existing profile archive must keep a retained Rugby result discoverable inside the focused Rugby view"
+);
+app.setArchivedEventRefs([]);
 app.setActiveFilter("all");
 app.setPreferences({});
 

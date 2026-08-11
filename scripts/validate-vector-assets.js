@@ -64,6 +64,15 @@ const stableCardSportIcon = vectorAssets.glyphMarkup("sport:rugby", { label: "Ru
 assert.match(stableCardSportIcon, /<img\b/, "card sport icons must avoid Safari's scroll-sensitive CSS mask rendering path");
 assert.match(stableCardSportIcon, /assets\/icons\/sporticon\/rugby\.svg/, "stable card sport icons must retain the licensed local Sporticon asset");
 assert.doesNotMatch(stableCardSportIcon, /vector-mask/, "stable card sport icons must not use CSS masks");
+const stableCardClockIcon = vectorAssets.glyphMarkup("ui:clock", { label: "Start time", preferImage: true });
+assert.match(stableCardClockIcon, /<img\b/, "small card controls must use an image-backed glyph on Safari");
+assert.doesNotMatch(stableCardClockIcon, /<svg\b|vector-mask/, "small card controls must not leave live inline vectors or CSS masks in scrolling cards");
+const stableCardEditorialIcon = vectorAssets.editorialMarkup("Must Watch", { label: "Top pick", preferImage: true });
+assert.match(stableCardEditorialIcon, /<img\b/, "small editorial card glyphs must use the stable image path");
+const stableCardBroadcastIcon = vectorAssets.broadcastMarkup("live", { label: "Live broadcast", preferImage: true });
+assert.match(stableCardBroadcastIcon, /<img\b/, "small broadcast card glyphs must use the stable image path");
+const stableCardIntensityIcon = vectorAssets.intensityMarkup(4, { label: "Stakes 4 out of 5", preferImage: true });
+assert.match(stableCardIntensityIcon, /<img\b/, "small stakes card glyphs must use the stable image path");
 
 [...(selectorTaxonomy.categories || []), ...(selectorTaxonomy.specialEvents || [])].forEach(entity => {
   assert(entity.glyph, `${entity.id} must use a vector glyph key`);

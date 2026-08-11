@@ -78,7 +78,13 @@
     return String(value || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
-  function inlineSvg(body, { label = "", className = "" } = {}){
+  function inlineSvg(body, { label = "", className = "", preferImage = false } = {}){
+    if (preferImage){
+      const imageBody = String(body || "").replace(/currentColor/g, "#000000");
+      const source = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${imageBody}</svg>`;
+      const alternative = label ? `alt="${escapeAttribute(label)}"` : 'alt="" aria-hidden="true"';
+      return `<img class="vector-glyph vector-image ${escapeAttribute(className)}" src="data:image/svg+xml,${encodeURIComponent(source)}" ${alternative} decoding="sync" draggable="false">`;
+    }
     const accessibility = label ? `role="img" aria-label="${escapeAttribute(label)}"` : 'aria-hidden="true"';
     return `<svg class="vector-glyph vector-svg ${escapeAttribute(className)}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ${accessibility}>${body}</svg>`;
   }

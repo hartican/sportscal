@@ -101,7 +101,7 @@ async function validateServiceWorkerActivation(){
     fetch: async () => ({ clone(){ return this; } }),
     caches: {
       open: async () => ({ addAll: async () => {}, put: async () => {} }),
-      keys: async () => ["nothingsport-shell-v65", "nothingsport-shell-v66"],
+      keys: async () => ["nothingsport-shell-v66", "nothingsport-shell-v67"],
       delete: async () => true,
       match: async () => null,
     },
