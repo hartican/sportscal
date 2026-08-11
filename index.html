@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="61">
+<meta name="app-shell-version" content="62">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -625,6 +625,303 @@ header.top{
   border-radius: 999px;
   padding: 6px 10px;
   background: rgba(255,255,255,0.03);
+}
+
+/* ---------- Complete sport hubs ---------- */
+.sport-hub{
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:color-mix(in srgb, var(--bg-card) 92%, transparent);
+  box-shadow:0 18px 52px rgba(0,0,0,0.14);
+  overflow:hidden;
+}
+
+.sport-hub-heading{
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(120deg, color-mix(in srgb, var(--sport-color) 19%, var(--bg-card)), var(--bg-card) 64%);
+}
+
+.sport-hub-identity{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.sport-hub-identity .vector-glyph{
+  width:2.25rem;
+  height:2.25rem;
+  color:var(--sport-color);
+}
+
+.sport-hub-identity p,
+.sport-hub-identity h2,
+.sport-hub-promise{
+  margin:0;
+}
+
+.sport-hub-identity p{
+  color:var(--text-dim);
+  font-size:0.68rem;
+  font-weight:850;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.sport-hub-identity h2{
+  margin-top:2px;
+  color:var(--text);
+  font:900 clamp(1.4rem, 3vw, 2rem)/1 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sport-hub-promise{
+  max-width:440px;
+  color:var(--text-dim);
+  font-size:0.82rem;
+  line-height:1.5;
+  text-align:right;
+}
+
+.sport-hub-tabs{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  border-bottom:1px solid var(--border);
+  background:var(--soft-fill);
+}
+
+.sport-hub-tab{
+  min-width:0;
+  min-height:48px;
+  padding:10px 8px;
+  border:0;
+  border-right:1px solid var(--border);
+  border-bottom:3px solid transparent;
+  background:transparent;
+  color:var(--text-dim);
+  cursor:pointer;
+  font:800 0.76rem/1.2 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sport-hub-tab:last-child{ border-right:0; }
+
+.sport-hub-tab:hover{
+  color:var(--text);
+  background:color-mix(in srgb, var(--sport-color) 7%, transparent);
+}
+
+.sport-hub-tab.active{
+  border-bottom-color:var(--sport-color);
+  background:color-mix(in srgb, var(--sport-color) 11%, var(--bg-card));
+  color:var(--text);
+}
+
+.sport-hub-panel{
+  min-width:0;
+  padding:18px;
+}
+
+.sport-hub-round-nav{
+  display:grid;
+  grid-template-columns:auto minmax(150px, 220px) auto minmax(0, 1fr);
+  align-items:end;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.sport-hub-round-step,
+.sport-hub-round-picker select{
+  min-height:44px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:800 0.74rem/1 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sport-hub-round-step{
+  padding:0 14px;
+  cursor:pointer;
+}
+
+.sport-hub-round-step:disabled{
+  cursor:not-allowed;
+  opacity:0.42;
+}
+
+.sport-hub-round-picker{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  color:var(--text-dim);
+  font-size:0.66rem;
+  font-weight:800;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+
+.sport-hub-round-picker select{
+  width:100%;
+  padding:0 34px 0 11px;
+}
+
+.sport-hub-round-window-copy{
+  min-width:0;
+  padding:0 2px 11px;
+  overflow:hidden;
+  color:var(--text-dim);
+  font-size:0.73rem;
+  font-weight:750;
+  text-align:right;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.sport-hub-hidden-summary{
+  min-height:48px;
+  margin-bottom:14px;
+  padding:8px 10px 8px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--soft-fill);
+  color:var(--text-dim);
+  font-size:0.74rem;
+  font-weight:750;
+}
+
+.sport-hub-hidden-summary .btn{ flex:0 0 auto; }
+
+.sport-hub-round-group + .sport-hub-round-group{ margin-top:20px; }
+
+.sport-hub-round-group > h2{
+  margin:0 0 9px;
+  color:var(--text);
+  font-size:0.9rem;
+}
+
+.sport-hub-fixture-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.sport-hub-fixture{
+  min-width:0;
+  padding:13px 14px;
+  display:grid;
+  grid-template-columns:minmax(130px, 0.75fr) minmax(230px, 2fr) minmax(120px, 1fr);
+  align-items:center;
+  gap:14px;
+  border:1px solid var(--border);
+  border-left:3px solid var(--sport-color);
+  border-radius:11px;
+  background:var(--bg-card);
+}
+
+.sport-hub-fixture.is-completed{ opacity:0.82; }
+
+.sport-hub-fixture.is-hidden-by-user{
+  border-style:dashed;
+  opacity:0.68;
+}
+
+.sport-hub-fixture-time{
+  color:var(--text-dim);
+  font-size:0.72rem;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+
+.sport-hub-fixture-main{ min-width:0; }
+
+.sport-hub-fixture-title-line{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.sport-hub-fixture-title-line h3{
+  min-width:0;
+  margin:0;
+  color:var(--text);
+  font-size:0.88rem;
+  overflow-wrap:anywhere;
+}
+
+.sport-hub-worth-badge,
+.sport-hub-hidden-badge{
+  padding:3px 7px;
+  border-radius:999px;
+  font-size:0.59rem;
+  font-weight:900;
+  line-height:1.2;
+  white-space:nowrap;
+}
+
+.sport-hub-worth-badge{
+  background:color-mix(in srgb, var(--sport-color) 20%, var(--bg-card));
+  color:var(--text);
+}
+
+.sport-hub-hidden-badge{
+  border:1px dashed var(--border);
+  color:var(--text-dim);
+}
+
+.sport-hub-fixture-detail{
+  margin:4px 0 0;
+  color:var(--text-dim);
+  font-size:0.7rem;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+
+.sport-hub-fixture-status{
+  min-width:0;
+  color:var(--text-dim);
+  font-size:0.7rem;
+  font-weight:800;
+  text-align:right;
+  overflow-wrap:anywhere;
+}
+
+.sport-hub-fixture-status.has-result{ color:var(--text); }
+
+.sport-hub-spoiler-notice{
+  margin:0 0 14px;
+  padding:11px 12px;
+  border-left:3px solid var(--accent);
+  border-radius:6px;
+  background:rgba(0,229,255,0.045);
+  color:var(--text-dim);
+  font-size:0.74rem;
+}
+
+.sport-hub-empty{
+  padding:34px 18px;
+  border:1px dashed var(--border);
+  border-radius:12px;
+  color:var(--text-dim);
+  text-align:center;
+  line-height:1.5;
+}
+
+.sport-hub-panel > .standings-sport-section:first-child,
+.sport-hub-panel > .standings-module:first-child,
+.sport-hub-panel > .standings-empty:first-child{
+  margin-top:0;
 }
 
 /* ---------- Main content ---------- */
@@ -3182,6 +3479,7 @@ footer.app-footer{
 }
 
 @media (max-width: 640px){
+  main{ padding:0 12px; }
   .feed-filter-dock-inner{
     padding:8px 12px;
   }
@@ -3198,6 +3496,53 @@ footer.app-footer{
   .header-actions{ gap:5px; }
   .header-actions .btn{ min-width: 44px; }
   .event-name-line{ align-items: flex-start; }
+  .sport-hub{ border-radius:14px; }
+  .sport-hub-heading{
+    padding:16px;
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+  }
+  .sport-hub-identity .vector-glyph{
+    width:1.8rem;
+    height:1.8rem;
+  }
+  .sport-hub-promise{
+    max-width:none;
+    font-size:0.75rem;
+    text-align:left;
+  }
+  .sport-hub-tabs{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .sport-hub-tab:nth-child(2){ border-right:0; }
+  .sport-hub-tab:nth-child(-n+2){ border-bottom-color:var(--border); }
+  .sport-hub-tab.active{ border-bottom-color:var(--sport-color); }
+  .sport-hub-panel{ padding:12px; }
+  .sport-hub-round-nav{
+    grid-template-columns:1fr 1fr;
+    align-items:stretch;
+  }
+  .sport-hub-round-picker{
+    grid-column:1 / -1;
+    grid-row:1;
+  }
+  .sport-hub-round-step{ grid-row:2; }
+  .sport-hub-round-window-copy{
+    grid-column:1 / -1;
+    grid-row:3;
+    padding:2px 0 0;
+    text-align:left;
+  }
+  .sport-hub-hidden-summary{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .sport-hub-hidden-summary .btn{ width:100%; }
+  .sport-hub-fixture{
+    padding:12px;
+    grid-template-columns:minmax(0, 1fr);
+    gap:6px;
+  }
+  .sport-hub-fixture-status{ text-align:left; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -3405,6 +3750,7 @@ footer.app-footer{
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/sport-context.js"></script>
+<script src="config/sport-hubs.js"></script>
 <script src="config/profile-storage.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
@@ -3466,6 +3812,7 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
 const SPORT_CONTEXT = globalThis.NOTHINGSPORTS_SPORT_CONTEXT || null;
+const SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
 const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
 const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
@@ -3672,6 +4019,14 @@ let feedFilterRefreshQueued = false;
 let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
+let sportHubState = {
+  sportKey: null,
+  activeTab: "all-fixtures",
+  selectedRoundNumber: null,
+  resultsRoundNumber: null,
+  showHidden: false,
+};
+let curatedFeedReturnState = null;
 let calendarInitialJumpPending = true;
 let rankingSportFilters = null;
 let rankingKnownSportKeys = new Set();
@@ -4789,15 +5144,83 @@ function requestFeedRefreshForFilterChange(){
   return feedFilterRefreshInFlight;
 }
 
+function sportHubKeyForFilter(filterValue = activeFilter){
+  if (!SPORT_HUBS) return null;
+  const selectorEntity = selectorEntityById(filterValue);
+  const sportKeys = selectorEntity
+    ? selectorEntityCanonicalSportKeys(selectorEntity)
+    : [String(filterValue || "").replace(/^sport:/, "")];
+  return sportKeys.find(key => SPORT_HUBS.isSupportedSport(key)) || null;
+}
+
+function activeSportHubKey(){
+  return activeTab === "feed" ? sportHubKeyForFilter(activeFilter) : null;
+}
+
+function resetSportHubState(sportKey){
+  sportHubState = {
+    sportKey,
+    activeTab: "all-fixtures",
+    selectedRoundNumber: null,
+    resultsRoundNumber: null,
+    showHidden: false,
+  };
+}
+
+function restoreCuratedFeedViewport(returnState){
+  if (!returnState) return;
+  const restore = () => {
+    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({ top: Math.min(returnState.scrollY, maxScrollY), behavior: "auto" });
+  };
+  window.requestAnimationFrame(() => window.requestAnimationFrame(restore));
+}
+
+function focusSportHubViewport(){
+  const focusHub = () => {
+    const hub = document.querySelector(".sport-hub");
+    if (!hub) return;
+    const top = window.scrollY + hub.getBoundingClientRect().top - stickyFeedChromeHeight() - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+  };
+  window.requestAnimationFrame(() => window.requestAnimationFrame(focusHub));
+}
+
 function setActiveFeedFilter(nextFilter, { refresh = true } = {}){
   const normalizedFilter = feedFilterOptions(userPreferences).includes(nextFilter) ? nextFilter : "all";
   if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
+  const previousHubKey = sportHubKeyForFilter(activeFilter);
+  const nextHubKey = sportHubKeyForFilter(normalizedFilter);
+  if (!previousHubKey && nextHubKey){
+    curatedFeedReturnState = {
+      scrollY: window.scrollY,
+      activeView,
+    };
+  }
   activeFilter = normalizedFilter;
+  if (nextHubKey && nextHubKey !== previousHubKey) resetSportHubState(nextHubKey);
   collapseAllCardStates();
   todayMoreReveal = false;
-  calendarInitialJumpPending = true;
+  calendarInitialJumpPending = !previousHubKey && !nextHubKey;
   renderAll();
-  return refresh ? requestFeedRefreshForFilterChange() : Promise.resolve();
+  if (nextHubKey && nextHubKey !== previousHubKey) focusSportHubViewport();
+  const refreshPromise = refresh ? requestFeedRefreshForFilterChange() : Promise.resolve();
+  if (previousHubKey && !nextHubKey){
+    const returnState = curatedFeedReturnState || { scrollY: 0, activeView };
+    activeView = returnState.activeView || activeView;
+    calendarInitialJumpPending = false;
+    renderAll();
+    restoreCuratedFeedViewport(returnState);
+    return refreshPromise.finally(() => {
+      calendarInitialJumpPending = false;
+      restoreCuratedFeedViewport(returnState);
+      curatedFeedReturnState = null;
+    });
+  }
+  if (nextHubKey){
+    return refreshPromise.finally(focusSportHubViewport);
+  }
+  return refreshPromise;
 }
 
 /* ============ METADATA NORMALIZATION ============ */
@@ -5787,7 +6210,8 @@ function renderFeedFilterDock(){
   toggle.classList.toggle("is-expanded", feedFilterVisible);
   toggle.setAttribute("aria-expanded", String(feedFilterVisible));
   toggle.textContent = feedFilterVisible ? "Hide filter" : "Show filter";
-  selection.textContent = feedFilterVisible ? `${selectedLabel} selected` : `${selectedLabel} remains active`;
+  const hubCopy = activeSportHubKey() ? " hub" : "";
+  selection.textContent = feedFilterVisible ? `${selectedLabel}${hubCopy} selected` : `${selectedLabel}${hubCopy} remains active`;
 }
 
 function setFeedFilterVisible(nextVisible){
@@ -6016,6 +6440,7 @@ function eventParticipantFollowLevels(ev){
 
 function eventUsesFocusedSportFrothOverride(ev){
   if (activeTab !== "feed") return false;
+  if (activeSportHubKey()) return false;
   const filterOverride = activeFilter !== "all" && ev.key === activeFilter;
   return filterOverride || (activeFilter !== "all" && feedFilterMatchesEvent(activeFilter, ev));
 }
@@ -7085,6 +7510,417 @@ function renderMonthView(){
   container.appendChild(grid);
 }
 
+/* ============ RENDER: SPORT HUBS ============ */
+function sportHubCanonicalFixtures(sportKey = activeSportHubKey()){
+  return SPORT_HUBS?.canonicalFixturesForSport(canonicalSportsData, sportKey) || [];
+}
+
+function sportHubMutedParticipantIds(){
+  return new Set((userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(preference => preference.followLevel === "mute")
+    .map(preference => preference.participantId));
+}
+
+function sportHubCuratedCanonicalIds(sportKey){
+  return new Set(getPreferenceMatchedEvents()
+    .filter(event => event.key === sportKey)
+    .map(event => event.canonicalEventId)
+    .filter(Boolean));
+}
+
+function sportHubRoundLabel(round){
+  return round?.roundLabel || (Number.isInteger(round?.roundNumber) ? `Round ${round.roundNumber}` : "Round");
+}
+
+function sportHubDateTimeLabel(view){
+  if (!view?.event?.date || !view?.event?.time) return "Date and time TBC";
+  return `${dayDateLabel(view.event.date)} · ${fmtTime12(view.event.time)}`;
+}
+
+function sportHubVenueLabel(view){
+  return view?.event?.venue || "Venue TBC";
+}
+
+function sportHubProviderCopy(providers, emptyCopy){
+  return providers?.length ? providers.join(" · ") : emptyCopy;
+}
+
+function buildSportHubFixtureRow(view, {
+  worthWatching = false,
+  hiddenByUser = false,
+  resultsMode = false,
+} = {}){
+  const event = view.event;
+  const row = document.createElement("article");
+  row.className = `sport-hub-fixture${view.isFinished ? " is-completed" : ""}${hiddenByUser ? " is-hidden-by-user" : ""}`;
+  row.dataset.canonicalEventId = event.canonicalEventId;
+
+  const timing = document.createElement("div");
+  timing.className = "sport-hub-fixture-time";
+  timing.textContent = sportHubDateTimeLabel(view);
+
+  const main = document.createElement("div");
+  main.className = "sport-hub-fixture-main";
+  const titleLine = document.createElement("div");
+  titleLine.className = "sport-hub-fixture-title-line";
+  const title = document.createElement("h3");
+  title.textContent = event.displayTitleCompact || event.name;
+  titleLine.appendChild(title);
+  if (worthWatching){
+    const badge = document.createElement("span");
+    badge.className = "sport-hub-worth-badge";
+    badge.textContent = "Worth watching";
+    titleLine.appendChild(badge);
+  }
+  if (hiddenByUser){
+    const badge = document.createElement("span");
+    badge.className = "sport-hub-hidden-badge";
+    badge.textContent = "Hidden by you";
+    titleLine.appendChild(badge);
+  }
+  const details = document.createElement("p");
+  details.className = "sport-hub-fixture-detail";
+  details.textContent = `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(
+    resultsMode ? view.replayProviders : view.liveProviders,
+    resultsMode ? "Replay provider not confirmed" : "Broadcaster TBC"
+  )}`;
+  main.append(titleLine, details);
+
+  const status = document.createElement("div");
+  status.className = "sport-hub-fixture-status";
+  if (view.isFinished){
+    if (userPreferences.showSpoilers && event.canonicalResultScoreline){
+      status.textContent = event.canonicalResultScoreline;
+      status.classList.add("has-result");
+    } else {
+      status.textContent = "Completed · Result hidden";
+    }
+  } else if (event.scheduleStatus === "tbc"){
+    status.textContent = "Time TBC";
+  } else {
+    status.textContent = "Scheduled";
+  }
+
+  row.append(timing, main, status);
+  return row;
+}
+
+function buildSportHubRoundNavigation(fixtures, selectedRoundNumber, {
+  size = 2,
+  onChange,
+  label = "Browse season rounds",
+} = {}){
+  const rounds = SPORT_HUBS.supportedRounds(fixtures);
+  const selected = SPORT_HUBS.normalizeSelectedRound(fixtures, selectedRoundNumber);
+  const selectedIndex = rounds.findIndex(round => round.roundNumber === selected);
+  const nav = document.createElement("div");
+  nav.className = "sport-hub-round-nav";
+  nav.setAttribute("aria-label", label);
+
+  const previous = document.createElement("button");
+  previous.type = "button";
+  previous.className = "sport-hub-round-step";
+  previous.textContent = "Previous";
+  previous.disabled = selectedIndex <= 0;
+  previous.addEventListener("click", () => onChange(SPORT_HUBS.moveRoundNumber(fixtures, selected, -1)));
+
+  const field = document.createElement("label");
+  field.className = "sport-hub-round-picker";
+  const fieldLabel = document.createElement("span");
+  fieldLabel.textContent = size > 1 ? "Starting round" : "Round";
+  const picker = document.createElement("select");
+  picker.setAttribute("aria-label", size > 1 ? "Starting round" : "Results round");
+  rounds.forEach(round => {
+    const option = document.createElement("option");
+    option.value = String(round.roundNumber);
+    option.textContent = sportHubRoundLabel(round);
+    option.selected = round.roundNumber === selected;
+    picker.appendChild(option);
+  });
+  picker.addEventListener("change", () => onChange(Number(picker.value)));
+  field.append(fieldLabel, picker);
+
+  const next = document.createElement("button");
+  next.type = "button";
+  next.className = "sport-hub-round-step";
+  next.textContent = "Next";
+  next.disabled = selectedIndex < 0 || selectedIndex >= rounds.length - 1;
+  next.addEventListener("click", () => onChange(SPORT_HUBS.moveRoundNumber(fixtures, selected, 1)));
+
+  const windowCopy = document.createElement("span");
+  windowCopy.className = "sport-hub-round-window-copy";
+  const visibleRounds = SPORT_HUBS.roundWindow(fixtures, selected, size);
+  windowCopy.textContent = size > 1 && visibleRounds.length > 1
+    ? `${sportHubRoundLabel(visibleRounds[0])} + ${sportHubRoundLabel(visibleRounds[1])}`
+    : sportHubRoundLabel(visibleRounds[0]);
+
+  nav.append(previous, field, next, windowCopy);
+  return nav;
+}
+
+function appendSportHubHiddenSummary(container, partition){
+  const summary = document.createElement("div");
+  summary.className = "sport-hub-hidden-summary";
+  const copy = document.createElement("span");
+  const visibleCount = partition.visible.length - (sportHubState.showHidden ? partition.hiddenCount : 0);
+  copy.textContent = `${visibleCount} visible fixture${visibleCount === 1 ? "" : "s"} · ${partition.hiddenCount} hidden by you`;
+  summary.appendChild(copy);
+  if (partition.hiddenCount){
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "btn ghost";
+    toggle.setAttribute("aria-pressed", String(sportHubState.showHidden));
+    toggle.textContent = sportHubState.showHidden ? "Hide muted" : "Show hidden";
+    toggle.addEventListener("click", () => {
+      sportHubState.showHidden = !sportHubState.showHidden;
+      renderCurrentSection();
+    });
+    summary.appendChild(toggle);
+  }
+  container.appendChild(summary);
+}
+
+function appendSportHubRoundGroups(container, views, {
+  curatedCanonicalIds = new Set(),
+  resultsMode = false,
+  mutedParticipantIds = sportHubMutedParticipantIds(),
+} = {}){
+  const roundGroups = new Map();
+  views.forEach(view => {
+    const roundNumber = view.event.roundNumber;
+    const group = roundGroups.get(roundNumber) || [];
+    group.push(view);
+    roundGroups.set(roundNumber, group);
+  });
+  roundGroups.forEach(groupViews => {
+    const section = document.createElement("section");
+    section.className = "sport-hub-round-group";
+    const heading = document.createElement("h2");
+    heading.textContent = groupViews[0]?.event?.roundLabel || `Round ${groupViews[0]?.event?.roundNumber}`;
+    const list = document.createElement("div");
+    list.className = "sport-hub-fixture-list";
+    groupViews.forEach(view => list.appendChild(buildSportHubFixtureRow(view, {
+      worthWatching: curatedCanonicalIds.has(view.event.canonicalEventId),
+      hiddenByUser: SPORT_HUBS.fixtureIsMuted(view, mutedParticipantIds),
+      resultsMode,
+    })));
+    section.append(heading, list);
+    container.appendChild(section);
+  });
+}
+
+function sportHubEmptyState(copy){
+  const empty = document.createElement("div");
+  empty.className = "sport-hub-empty";
+  empty.textContent = copy;
+  return empty;
+}
+
+function renderSportHubAllFixtures(panel, fixtures, sportKey){
+  const currentRound = SPORT_HUBS.currentRoundNumber(fixtures);
+  sportHubState.selectedRoundNumber = SPORT_HUBS.normalizeSelectedRound(
+    fixtures,
+    sportHubState.selectedRoundNumber,
+    currentRound
+  );
+  panel.appendChild(buildSportHubRoundNavigation(fixtures, sportHubState.selectedRoundNumber, {
+    size: 2,
+    onChange(roundNumber){
+      sportHubState.selectedRoundNumber = roundNumber;
+      sportHubState.showHidden = false;
+      renderCurrentSection();
+    },
+  }));
+  const windowFixtures = SPORT_HUBS.fixturesForRoundWindow(fixtures, sportHubState.selectedRoundNumber, 2);
+  const views = SPORT_HUBS.buildFixtureViews(windowFixtures, {
+    feedCards: activeEvents,
+    participants: canonicalSportsData.participants,
+  });
+  const mutedIds = sportHubMutedParticipantIds();
+  const partition = SPORT_HUBS.partitionMutedFixtures(views, mutedIds, { showHidden: sportHubState.showHidden });
+  appendSportHubHiddenSummary(panel, partition);
+  appendSportHubRoundGroups(panel, partition.visible, {
+    curatedCanonicalIds: sportHubCuratedCanonicalIds(sportKey),
+    mutedParticipantIds: mutedIds,
+  });
+  if (!partition.visible.length) panel.appendChild(sportHubEmptyState("Every fixture in these rounds is hidden by your team mutes."));
+}
+
+function renderSportHubWorthWatching(panel, fixtures, sportKey){
+  const currentRound = SPORT_HUBS.currentRoundNumber(fixtures);
+  sportHubState.selectedRoundNumber = SPORT_HUBS.normalizeSelectedRound(
+    fixtures,
+    sportHubState.selectedRoundNumber,
+    currentRound
+  );
+  panel.appendChild(buildSportHubRoundNavigation(fixtures, sportHubState.selectedRoundNumber, {
+    size: 2,
+    onChange(roundNumber){
+      sportHubState.selectedRoundNumber = roundNumber;
+      renderCurrentSection();
+    },
+    label: "Browse worth-watching rounds",
+  }));
+  const curatedIds = sportHubCuratedCanonicalIds(sportKey);
+  const views = SPORT_HUBS.buildFixtureViews(
+    SPORT_HUBS.fixturesForRoundWindow(fixtures, sportHubState.selectedRoundNumber, 2)
+      .filter(fixture => curatedIds.has(fixture.id)),
+    { feedCards: activeEvents, participants: canonicalSportsData.participants }
+  );
+  const mutedIds = sportHubMutedParticipantIds();
+  const partition = SPORT_HUBS.partitionMutedFixtures(views, mutedIds);
+  appendSportHubRoundGroups(panel, partition.visible, {
+    curatedCanonicalIds: curatedIds,
+    mutedParticipantIds: mutedIds,
+  });
+  if (!partition.visible.length){
+    panel.appendChild(sportHubEmptyState("Nothing in these rounds clears your curated-feed threshold. All Fixtures still has the complete schedule."));
+  }
+}
+
+function renderSportHubResults(panel, fixtures, sportKey){
+  const latestCompleted = SPORT_HUBS.latestCompletedRoundNumber(fixtures);
+  sportHubState.resultsRoundNumber = SPORT_HUBS.normalizeSelectedRound(
+    fixtures,
+    sportHubState.resultsRoundNumber,
+    latestCompleted
+  );
+  panel.appendChild(buildSportHubRoundNavigation(fixtures, sportHubState.resultsRoundNumber, {
+    size: 1,
+    onChange(roundNumber){
+      sportHubState.resultsRoundNumber = roundNumber;
+      sportHubState.showHidden = false;
+      renderCurrentSection();
+    },
+    label: "Browse results by round",
+  }));
+  if (!userPreferences.showSpoilers){
+    const notice = document.createElement("p");
+    notice.className = "sport-hub-spoiler-notice";
+    notice.textContent = "Results are off. Scores stay hidden; source-backed replay providers remain visible.";
+    panel.appendChild(notice);
+  }
+  const selectedFixtures = SPORT_HUBS.fixturesForRoundWindow(fixtures, sportHubState.resultsRoundNumber, 1)
+    .filter(SPORT_HUBS.fixtureIsFinished);
+  const views = SPORT_HUBS.buildFixtureViews(selectedFixtures, {
+    feedCards: activeEvents,
+    participants: canonicalSportsData.participants,
+  });
+  const mutedIds = sportHubMutedParticipantIds();
+  const partition = SPORT_HUBS.partitionMutedFixtures(views, mutedIds, { showHidden: sportHubState.showHidden });
+  appendSportHubHiddenSummary(panel, partition);
+  appendSportHubRoundGroups(panel, partition.visible, {
+    curatedCanonicalIds: sportHubCuratedCanonicalIds(sportKey),
+    resultsMode: true,
+    mutedParticipantIds: mutedIds,
+  });
+  if (!partition.visible.length) panel.appendChild(sportHubEmptyState("No completed fixtures are available for this round yet."));
+}
+
+function renderSportHubStandings(panel, sportKey){
+  const competitions = rankingCompetitionsForStandings()
+    .filter(competition => standingsSportKey(competition) === sportKey);
+  renderStandingsContext({
+    container: panel,
+    competitions,
+    sectionLabel: `${SPORT_HUBS.sportConfig(sportKey).label} standings`,
+  });
+}
+
+function renderSportHub(){
+  const container = document.getElementById("listView");
+  container.innerHTML = "";
+  const sportKey = activeSportHubKey();
+  if (!sportKey || !SPORT_HUBS) return;
+  if (sportHubState.sportKey !== sportKey) resetSportHubState(sportKey);
+
+  const sport = SPORT_HUBS.sportConfig(sportKey);
+  const hub = document.createElement("section");
+  hub.className = "sport-hub";
+  hub.dataset.sportHub = sportKey;
+  hub.style.setProperty("--sport-color", SPORT_META[sportKey]?.color || "var(--accent)");
+
+  const heading = document.createElement("header");
+  heading.className = "sport-hub-heading";
+  const identity = document.createElement("div");
+  identity.className = "sport-hub-identity";
+  identity.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter", { label: sport.label })}<div><p>Complete 2026 coverage</p><h2>${sport.label}</h2></div>`;
+  const promise = document.createElement("p");
+  promise.className = "sport-hub-promise";
+  promise.textContent = "Curated when you want judgement. Complete when you want to check every fixture.";
+  heading.append(identity, promise);
+  hub.appendChild(heading);
+
+  const tabs = [
+    ["worth-watching", "Worth Watching"],
+    ["all-fixtures", "All Fixtures"],
+    ["standings", "Standings"],
+    ["results-replays", "Results/Replays"],
+  ];
+  const tablist = document.createElement("div");
+  tablist.className = "sport-hub-tabs";
+  tablist.setAttribute("role", "tablist");
+  tablist.setAttribute("aria-label", `${sport.label} hub sections`);
+  const tabButtons = tabs.map(([id, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `sport-hub-tab${sportHubState.activeTab === id ? " active" : ""}`;
+    button.id = `sport-hub-tab-${id}`;
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", String(sportHubState.activeTab === id));
+    button.setAttribute("aria-controls", "sportHubPanel");
+    button.tabIndex = sportHubState.activeTab === id ? 0 : -1;
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      sportHubState.activeTab = id;
+      sportHubState.showHidden = false;
+      renderCurrentSection();
+    });
+    tablist.appendChild(button);
+    return button;
+  });
+  tabButtons.forEach((button, index) => {
+    button.addEventListener("keydown", event => {
+      const moves = { ArrowLeft: -1, ArrowRight: 1 };
+      if (!(event.key in moves) && event.key !== "Home" && event.key !== "End") return;
+      event.preventDefault();
+      const nextIndex = event.key === "Home"
+        ? 0
+        : event.key === "End"
+        ? tabButtons.length - 1
+        : (index + moves[event.key] + tabButtons.length) % tabButtons.length;
+      tabButtons[nextIndex].click();
+      document.getElementById(tabButtons[nextIndex].id)?.focus();
+    });
+  });
+  hub.appendChild(tablist);
+
+  const panel = document.createElement("div");
+  panel.className = "sport-hub-panel";
+  panel.id = "sportHubPanel";
+  panel.setAttribute("role", "tabpanel");
+  panel.setAttribute("aria-labelledby", `sport-hub-tab-${sportHubState.activeTab}`);
+  hub.appendChild(panel);
+  container.appendChild(hub);
+
+  if (!canonicalSportsData){
+    panel.appendChild(sportHubEmptyState(canonicalSportsDataError
+      ? "Complete fixture data is temporarily unavailable. The curated feed remains available under All sports."
+      : "Loading the complete canonical fixture schedule…"));
+    if (!canonicalSportsDataLoading) loadCanonicalSportsData();
+    return;
+  }
+  const fixtures = sportHubCanonicalFixtures(sportKey);
+  if (!fixtures.length){
+    panel.appendChild(sportHubEmptyState("No canonical fixtures are available for this supported season."));
+    return;
+  }
+  if (sportHubState.activeTab === "worth-watching") renderSportHubWorthWatching(panel, fixtures, sportKey);
+  else if (sportHubState.activeTab === "standings") renderSportHubStandings(panel, sportKey);
+  else if (sportHubState.activeTab === "results-replays") renderSportHubResults(panel, fixtures, sportKey);
+  else renderSportHubAllFixtures(panel, fixtures, sportKey);
+}
+
 /* ============ RENDER: STANDINGS ============ */
 function standingsSportKey(competition){
   return FILTER_ORDER.find(key => key !== "all" && standingsCompetitionMatchesFilter(competition, key))
@@ -7284,13 +8120,14 @@ function appendStandingsTable(module, competition, snapshot, visibility){
   module.appendChild(wrap);
 }
 
-function renderStandingsContext(){
-  const container = document.getElementById("standingsContext");
+function renderStandingsContext(options = {}){
+  const embedded = Boolean(options.container);
+  const container = options.container || document.getElementById("standingsContext");
   if (!container) return;
   container.innerHTML = "";
-  if (activeTab !== "standings") return;
-  const competitions = activeStandingsCompetitions();
-  const sectionLabel = "Standings";
+  if (!embedded && activeTab !== "standings") return;
+  const competitions = options.competitions || activeStandingsCompetitions();
+  const sectionLabel = options.sectionLabel || "Standings";
   if (!competitions.length){
     const empty = document.createElement("div");
     empty.className = "standings-empty";
@@ -7336,7 +8173,7 @@ function renderStandingsContext(){
       retry.addEventListener("click", () => {
         canonicalSportsDataError = null;
         loadCanonicalSportsData();
-        renderStandingsContext();
+        renderStandingsContext(options);
       });
       module.appendChild(retry);
     } else {
@@ -7411,7 +8248,7 @@ function renderStandingsContext(){
           expander.innerHTML = `<span>${expanded ? "Full standings" : "Top 3 + followed"}</span>${glyphMarkup("ui:chevron-right")}`;
           expander.addEventListener("click", () => {
             standingsCompetitionExpansion[competition.id] = !expanded;
-            renderStandingsContext();
+            renderStandingsContext(options);
           });
           module.appendChild(expander);
         }
@@ -7648,6 +8485,10 @@ function renderCurrentSection(){
     renderStandingsContext();
     return;
   }
+  if (activeSportHubKey()){
+    renderSportHub();
+    return;
+  }
   if (activeView === "list") renderListView(); else renderMonthView();
 }
 
@@ -7681,14 +8522,20 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   });
   calControls.style.display = "flex";
   if (activeTab === "feed"){
-    preferenceSummary.style.display = "";
-    feedViewToggle.style.display = "flex";
-    jumpTodayBtn.hidden = false;
-    jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
-    if (activeView === "list"){
+    const hubActive = Boolean(activeSportHubKey());
+    calControls.style.display = hubActive ? "none" : "flex";
+    preferenceSummary.style.display = hubActive ? "none" : "";
+    feedViewToggle.style.display = hubActive ? "none" : "flex";
+    jumpTodayBtn.hidden = hubActive;
+    if (hubActive){
+      listView.style.display = "block";
+      renderSportHub();
+    } else if (activeView === "list"){
+      jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
       listView.style.display = "block";
       renderListView();
     } else {
+      jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
       monthView.style.display = "block";
       renderMonthView();
     }

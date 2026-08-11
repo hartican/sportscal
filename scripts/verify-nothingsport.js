@@ -8,6 +8,7 @@ const profileStorage = require("../config/profile-storage.js");
 const brand = require("../config/brand-copy.js");
 const preferenceSystem = require("../config/preference-system.js");
 const sportContext = require("../config/sport-context.js");
+const sportHubs = require("../config/sport-hubs.js");
 const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
@@ -19,6 +20,7 @@ const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonom
 const vectorAssetsSource = fs.readFileSync("config/vector-assets.js", "utf8");
 const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.js", "utf8");
 const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
+const sportHubsSource = fs.readFileSync("config/sport-hubs.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
@@ -109,6 +111,7 @@ assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
+assert(html.includes('src="config/sport-hubs.js"'), "the complete NRL/AFL hub adapter must load before app rendering");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
@@ -136,13 +139,21 @@ assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the s
 assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
 assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
-assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes('activeFilter !== "all" && ev.key === activeFilter'), "a focused sport filter must apply an ephemeral Froth coverage override");
+assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
 assert(html.includes("function setActiveFeedFilter(nextFilter") && html.includes("setActiveFeedFilter(key)"), "sport filter changes must use one state transition path");
+assert(html.includes('activeTab: "all-fixtures"') && html.includes("resetSportHubState(nextHubKey)"), "direct NRL/AFL filter entry must default to All Fixtures");
+assert(html.includes('["worth-watching", "Worth Watching"]') && html.includes('["all-fixtures", "All Fixtures"]') && html.includes('["standings", "Standings"]') && html.includes('["results-replays", "Results/Replays"]'), "supported sport hubs must expose the four canonical internal tabs");
+assert(html.includes("SPORT_HUBS.buildFixtureViews") && html.includes("feedCards: activeEvents"), "fixture rows must derive from canonical truth and merge published card enrichment only at render time");
+assert(html.includes("SPORT_HUBS.partitionMutedFixtures") && html.includes('toggle.textContent = sportHubState.showHidden ? "Hide muted" : "Show hidden"'), "sport hubs must count explicit mutes and provide a temporary Show hidden control");
+assert(html.includes("renderStandingsContext({") && html.includes("competitions,"), "sport hubs must reuse the existing standings renderer with a scoped competition set");
+assert(html.includes("userPreferences.showSpoilers && event.canonicalResultScoreline") && html.includes("Results are off. Scores stay hidden; source-backed replay providers remain visible."), "hub results must stay spoiler-safe while naming source-backed replay providers");
+assert(html.includes("restoreCuratedFeedViewport(returnState)") && html.includes("curatedFeedReturnState"), "All sports must restore the curated feed viewport after leaving a sport hub");
+assert(html.includes("function focusSportHubViewport()") && html.includes("stickyFeedChromeHeight() - 12"), "sport-hub entry must bring the in-place hub heading below the pinned app chrome");
 assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
 assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
 assert(html.includes('id="feedFilterVisibilityBtn"') && html.includes('aria-controls="sportFilters"'), "the feed must expose an always-available show-hide filter control");
 assert(html.includes('let feedFilterVisible = true;') && html.includes('let activeFilter = "all";'), "each app open must start with the filter visible and All sports selected");
-assert(html.includes('filterRow.hidden = isFeed && !feedFilterVisible') && html.includes('`${selectedLabel} remains active`'), "hiding the filter UI must keep the selected sport active and visible in status copy");
+assert(html.includes('filterRow.hidden = isFeed && !feedFilterVisible') && html.includes('`${selectedLabel}${hubCopy} remains active`'), "hiding the filter UI must keep the selected sport or hub active and visible in status copy");
 assert(html.includes('.filter-row[hidden]') && html.includes('display:none;'), "the hidden filter row must be visually collapsed despite its flex layout");
 assert(html.includes('toggle.setAttribute("aria-expanded", String(feedFilterVisible))') && html.includes('btn.setAttribute("aria-pressed", String(activeFilter === key))'), "filter controls must expose expanded and selected accessibility states");
 assert(html.includes("function stickyFeedChromeHeight()") && html.includes("stickyFeedChromeHeight() + 12"), "pinned filter height must be included in viewport and card-collapse offsets");
@@ -214,8 +225,9 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v61"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="61">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v62"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="62">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
 assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
 assert(serviceWorkerSource.includes('key.startsWith("nothingsport-shell-") && key !== CACHE_NAME'), "the worker must distinguish an upgrade from a first install");
@@ -277,7 +289,7 @@ assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports feed must retain its Today anchor");
-assert(html.includes('jumpTodayBtn.hidden = false'), "Jump to Today must remain available beneath both ranking tabs");
+assert(html.includes("jumpTodayBtn.hidden = hubActive"), "Jump to Today must remain available in curated Feed views and stay out of complete sport hubs");
 assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
 assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
@@ -586,6 +598,7 @@ vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.j
 vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-domain-registry.js" });
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
 vm.runInContext(sportContextSource, sandbox, { filename: "config/sport-context.js" });
+vm.runInContext(sportHubsSource, sandbox, { filename: "config/sport-hubs.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
 vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-engine.js" });
@@ -604,6 +617,7 @@ globalThis.__test = {
   SELECTOR_TAXONOMY,
   PREFERENCE_SYSTEM,
   SPORT_CONTEXT,
+  SPORT_HUBS,
   ENRICHMENT_ENGINE,
   CARD_LIFECYCLE,
   REMINDER_ENGINE,
@@ -1263,18 +1277,10 @@ app.setPreferences({
   preferenceGraph: focusedSportGraph,
 });
 app.setActiveFilter("sport:nrl");
-assert.deepEqual(
-  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
-  ["routine-nrl"],
-  "focused NRL must temporarily expose its routine fixtures under non-Froth saved settings"
-);
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-nrl"), "the NRL Worth Watching query must remain curated while All Fixtures reads canonical truth");
 app.setActiveFilter("sport:afl");
-assert.deepEqual(
-  Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id),
-  ["routine-afl"],
-  "focused AFL must temporarily expose its routine fixtures under non-Froth saved settings"
-);
-assert(focusedSportGraph.domainPreferences.every(preference => preference.includeAllFixtures === false), "focused sport Froth must not mutate saved coverage preferences");
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "the AFL Worth Watching query must remain curated while All Fixtures reads canonical truth");
+assert(focusedSportGraph.domainPreferences.every(preference => preference.includeAllFixtures === false), "sport-hub entry must not mutate saved coverage preferences");
 let mutedFocusedSportGraph = app.PREFERENCE_SYSTEM.setEntityFollow(focusedSportGraph, "team:nrl:hidden", "mute");
 app.setPreferences({
   selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
@@ -1282,35 +1288,21 @@ app.setPreferences({
   preferenceGraph: mutedFocusedSportGraph,
 });
 app.setActiveFilter("sport:nrl");
-assert(!app.getFilteredEvents().some(ev => ev.id === "routine-nrl"), "focused sport completeness must continue to respect an explicit participant mute");
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-nrl"), "curated sport-hub events must continue to respect an explicit participant mute");
 app.setActiveFilter("all");
 assert.equal(app.getFilteredEvents().some(ev => ev.id.startsWith("routine-")), false, "returning to All must restore the saved selective coverage behavior");
 assert.equal(new Set(app.getFilteredEvents().map(ev => ev.id)).size, app.getFilteredEvents().length, "focused sport switching must not duplicate cards");
 
-const futureConfirmedLeagueFixtures = publishedFeed.events.filter(event => {
-  if (!["afl", "nrl"].includes(event.key) || event.scheduleStatus !== "confirmed") return false;
-  const start = new Date(event.startTimeUtc || `${event.date}T${event.time}:00+10:00`);
-  return !Number.isNaN(start.getTime()) && start.getTime() > Date.now();
-});
-const publishedLeagueGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
-  profileId: "profile:published-league-completeness",
-  domainIds: ["sport:afl", "sport:nrl"],
-  broadcasterIds: ["nine"],
-});
-app.setEvents(futureConfirmedLeagueFixtures);
-app.setActions({});
-app.setPreferences({
-  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
-  selectedBroadcasters: ["nine"],
-  preferenceGraph: publishedLeagueGraph,
-});
 for (const sportKey of ["nrl", "afl"]){
-  app.setActiveFilter(`sport:${sportKey}`);
-  const expectedIds = futureConfirmedLeagueFixtures.filter(event => event.key === sportKey).map(event => event.id).sort();
-  const actualIds = Array.from(app.getFilteredEvents(), event => event.id).sort();
-  assert.deepEqual(actualIds, expectedIds, `focused ${sportKey.toUpperCase()} must contain every eligible published fixture regardless of broadcaster selection`);
+  const canonicalFixtures = sportHubs.canonicalFixturesForSport(canonicalSports, sportKey);
+  const currentRound = sportHubs.currentRoundNumber(canonicalFixtures);
+  const initialWindow = sportHubs.fixturesForRoundWindow(canonicalFixtures, currentRound, 2);
+  const expectedRoundNumbers = new Set(sportHubs.roundWindow(canonicalFixtures, currentRound, 2).map(round => round.roundNumber));
+  const expectedIds = canonicalFixtures.filter(event => expectedRoundNumbers.has(event.roundNumber)).map(event => event.id).sort();
+  assert.deepEqual(initialWindow.map(event => event.id).sort(), expectedIds, `${sportKey.toUpperCase()} All Fixtures must contain every canonical fixture in its current and next rounds`);
+  const views = sportHubs.buildFixtureViews(initialWindow, { feedCards: publishedFeed.events, participants: canonicalSports.participants });
+  assert.equal(views.length, initialWindow.length, `${sportKey.toUpperCase()} fixture rendering must never depend on a published enrichment card existing`);
 }
-app.setActiveFilter("all");
 app.setPreferences({});
 
 const calendarSyncPreferences = {
