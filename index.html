@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="64">
+<meta name="app-shell-version" content="65">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -3950,6 +3950,7 @@ const SCORE_BANDS = {
 const FEED_CONFIG = {
   metaUrl: "data/feed-meta.json",
   eventsUrl: "data/events.json",
+  eventsScriptUrl: "data/events.js",
 };
 
 const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
@@ -5024,6 +5025,37 @@ function coerceEventList(payload){
   return rawEvents.map(coerceEventRecord).filter(Boolean);
 }
 
+function reloadBundledEventsScript(){
+  if (typeof document === "undefined") return Promise.resolve(EVENTS.slice());
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    const source = new URL(FEED_CONFIG.eventsScriptUrl, document.baseURI);
+    source.searchParams.set("refresh", String(Date.now()));
+    script.src = source.href;
+    script.async = true;
+    script.onload = () => {
+      script.remove();
+      const events = coerceEventList(globalThis.NOTHINGSPORTS_EVENTS || []);
+      if (!events.length){
+        reject(new Error("Bundled feed did not contain usable events"));
+        return;
+      }
+      resolve(events);
+    };
+    script.onerror = () => {
+      script.remove();
+      reject(new Error("Bundled feed could not be reloaded"));
+    };
+    document.head.appendChild(script);
+  });
+}
+
+function loadLatestBundledEvents(){
+  return globalThis.location?.protocol === "file:"
+    ? reloadBundledEventsScript()
+    : Promise.resolve(EVENTS.slice());
+}
+
 async function fetchJson(url){
   const response = await fetch(url, { cache: "no-store" });
   if (!response.ok){
@@ -5087,6 +5119,12 @@ async function refreshRemoteFeed({ quiet = false } = {}){
   );
   try{
     if (!quiet) showToast(centralRebuildRequested ? "Rebuilding your feed…" : "Loading the published feed…");
+    if (globalThis.location?.protocol === "file:"){
+      const events = await loadLatestBundledEvents();
+      const rendered = applyFeedEvents(events);
+      if (!quiet) showToast(`Bundled feed reloaded: ${events.length} events.`);
+      return { source: "bundled", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
+    }
     if (centralRebuildRequested){
       const result = applyServerFeed(await serverSyncClient.loadFeed());
       if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
@@ -5121,7 +5159,11 @@ async function refreshRemoteFeed({ quiet = false } = {}){
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
     }
-    const rendered = applyFeedEvents(EVENTS.slice());
+    const lastBundledEvents = globalThis.location?.protocol === "file:"
+      ? coerceEventList(globalThis.NOTHINGSPORTS_EVENTS || [])
+      : [];
+    const fallbackEvents = lastBundledEvents.length ? lastBundledEvents : EVENTS.slice();
+    const rendered = applyFeedEvents(fallbackEvents);
     if (!quiet){
       showToast(centralRebuildRequested
         ? "Central rebuild unavailable. Rebuilt safely on this device."

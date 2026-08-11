@@ -128,6 +128,13 @@ assert(html.includes('`variant-${enrichment.cardVariant}`'), "cards must receive
 assert(html.includes("Why it ranked ·"), "opened cards must explain their ranking score");
 assert(html.includes('id="refreshAndRebuildFeedBtn"') && html.includes("refreshFeedOnFirstLoad()"), "feed refresh must run automatically on first load and expose manual recovery only in Settings");
 assert(html.includes("renderFeedIfPresentationChanged") && html.includes('id="refreshAndRebuildFeedStatus"'), "unchanged hydration must be render-gated while Settings reports recovery progress");
+assert(
+  html.includes("loadLatestBundledEvents")
+    && html.includes("reloadBundledEventsScript")
+    && html.includes('globalThis.location?.protocol === "file:"')
+    && html.includes("FEED_CONFIG.eventsScriptUrl"),
+  "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
+);
 assert(html.includes('id="browserAlertsEnabled"'), "browser reminders must require an explicit settings toggle");
 assert(html.includes('id="soundtrackToggle"'), "background audio must use an explicit top-bar toggle");
 assert(html.includes('class="soundtrack-toggle-state">OFF</span>'), "the soundtrack toggle must expose an ON/OFF state");
@@ -226,8 +233,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v64"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="64">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v65"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="65">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");

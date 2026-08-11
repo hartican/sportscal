@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const vm = require("node:vm");
 
 const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
@@ -62,6 +63,58 @@ assert(html.includes('id="refreshAndRebuildFeedBtn"'), "Settings must expose the
 assert(html.includes('id="refreshAndRebuildFeedStatus"') && html.includes('aria-live="polite"'), "the Settings recovery action must expose progress and completion status");
 assert(html.includes("renderFeedIfPresentationChanged"), "background hydration must pass through the visible-change render gate");
 assert(html.includes("refreshFeedOnFirstLoad()"), "the published feed must refresh automatically on first load");
+assert(html.includes("lastBundledEvents.length ? lastBundledEvents : EVENTS.slice()"), "a failed direct-file reload must preserve the last successfully loaded bundle instead of reverting to the tab's stale snapshot");
 assert(worker.includes("/config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
 
-console.log("Refresh lifecycle valid: first load is automatic, unchanged hydration is render-gated, and Settings owns observable recovery.");
+async function validateDirectFileBundleReload(){
+  const loaderSource = html.match(/function reloadBundledEventsScript\(\)\{[\s\S]*?\n\}\n\nfunction loadLatestBundledEvents\(\)\{[\s\S]*?\n\}/);
+  assert(loaderSource, "the direct-file generated-bundle loader must remain independently testable");
+
+  const freshEvents = [
+    { id: "rugby-japan-australia-2026-08-08" },
+    { id: "rugby-australia-japan-2026-08-15" },
+  ];
+  let appendedSource = "";
+  let removed = false;
+  const sandbox = {
+    URL,
+    Date,
+    Promise,
+    EVENTS: [{ id: "stale-tab-snapshot" }],
+    FEED_CONFIG: { eventsScriptUrl: "data/events.js" },
+    location: { protocol: "file:" },
+    coerceEventList(payload){ return Array.isArray(payload) ? payload : []; },
+  };
+  sandbox.globalThis = sandbox;
+  sandbox.document = {
+    baseURI: "file:///tmp/nothingsport/index.html",
+    createElement(tagName){
+      assert.equal(tagName, "script");
+      return {
+        async: false,
+        remove(){ removed = true; },
+      };
+    },
+    head: {
+      appendChild(script){
+        appendedSource = script.src;
+        sandbox.NOTHINGSPORTS_EVENTS = freshEvents;
+        script.onload();
+      },
+    },
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(`${loaderSource[0]}\nglobalThis.__loadLatestBundledEvents = loadLatestBundledEvents;`, sandbox, { filename: "index.html" });
+
+  const reloaded = await sandbox.__loadLatestBundledEvents();
+  assert.deepEqual(Array.from(reloaded, event => event.id), freshEvents.map(event => event.id), "direct-file recovery must replace the stale tab snapshot with every event in the regenerated bundle");
+  assert.match(appendedSource, /^file:\/\/\/tmp\/nothingsport\/data\/events\.js\?refresh=\d+$/, "direct-file recovery must bypass the browser's cached script copy");
+  assert.equal(removed, true, "the one-shot recovery script must be removed after loading");
+}
+
+validateDirectFileBundleReload()
+  .then(() => console.log("Refresh lifecycle valid: first load is automatic, unchanged hydration is render-gated, and direct-file recovery reloads the generated feed."))
+  .catch(error => {
+    console.error(error);
+    process.exitCode = 1;
+  });
