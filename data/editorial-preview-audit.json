@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-11T03:45:08.019Z",
+  "generatedAt": "2026-08-11T03:54:06.956Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
@@ -36,7 +36,7 @@
         "head-to-head-record",
         "late-season-stakes"
       ],
-      "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/raiders-v-broncos/",
+      "sourceUrl": "https://www.nrl.com/ladder",
       "issues": []
     }
   ]

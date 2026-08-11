@@ -72,6 +72,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
+  ["scripts/validate-editorial-preview-standings.js"],
   ["scripts/validate-cwg-context.js"],
   ["scripts/audit-editorial-previews.js", "data/events.json", "data/editorial-preview-audit.json"],
   ["scripts/audit-storyline-cards.js", "data/events.json", "data/card-audit.json"],

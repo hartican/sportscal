@@ -4,10 +4,15 @@ const path = require("path");
 const { readJson, writeJson } = require("./lib/feed-utils");
 const { stakesFor, lifecycleFor } = require("./lib/storyline-card-rules");
 const { previewState } = require("./lib/editorial-preview-quality");
+const {
+  buildStandingsIndex,
+  resolveStandingsAwareOverride,
+} = require("./lib/editorial-preview-standings");
 
 const overridesPath = path.resolve(process.argv[2] || "feeds/editorial-preview-overrides.json");
 const inputs = ["feeds/incoming/events.json", "data/events.json"];
 const overrides = readJson(overridesPath);
+const standingsIndex = buildStandingsIndex();
 
 if (!overrides || overrides.schemaVersion !== "sportscal.editorial-previews.v1" || !overrides.events || typeof overrides.events !== "object") {
   throw new Error(`${overridesPath} must contain sportscal.editorial-previews.v1 with an events object.`);
@@ -27,7 +32,7 @@ inputs.forEach(input => {
       foundIds.add(event.id);
       if (lifecycleFor(event) === "completed") return event;
       applied += 1;
-      return { ...event, ...override };
+      return { ...event, ...resolveStandingsAwareOverride(event, override, standingsIndex) };
     }
     const status = lifecycleFor(event);
     const state = previewState({ ...event, status }, stakesFor(event));

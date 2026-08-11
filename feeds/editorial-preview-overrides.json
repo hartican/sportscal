@@ -3,19 +3,19 @@
   "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
-      "selectedSentence": "Round 25 puts 15th-placed Canberra against 11th-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
-      "fullSpiel": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The official NRL match centre has Canberra 15th and Brisbane 11th, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
-      "sourceName": "Official NRL Raiders v Broncos match centre",
-      "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/raiders-v-broncos/",
-      "sourceCheckedAt": "2026-08-11T04:20:00+10:00",
+      "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
+      "fullSpiel": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The current official NRL ladder has Canberra {{homeRankOrdinal}} and Brisbane {{awayRankOrdinal}}, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
+      "sourceName": "Official NRL ladder",
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "sourceCheckedAt": "{{ladderSourceCheckedAt}}",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Two bottom-half sides reach a late-season pressure game with Brisbane carrying the stronger head-to-head record.",
         "contextSignals": ["current-ladder-position", "head-to-head-record", "late-season-stakes"],
-        "sourceName": "Official NRL Raiders v Broncos match centre",
-        "sourceUrl": "https://www.nrl.com/draw/nrl-premiership/2026/round-25/raiders-v-broncos/",
-        "sourceCheckedAt": "2026-08-11T04:20:00+10:00",
+        "sourceName": "Official NRL ladder",
+        "sourceUrl": "https://www.nrl.com/ladder",
+        "sourceCheckedAt": "{{ladderSourceCheckedAt}}",
         "needsPreviewRefresh": false
       }
     },
