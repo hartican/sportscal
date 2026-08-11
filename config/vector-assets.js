@@ -88,6 +88,10 @@
     if (!entry) return inlineSvg('<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>', options);
     if (entry.render === "mask"){
       const accessibility = options.label ? `role="img" aria-label="${escapeAttribute(options.label)}"` : 'aria-hidden="true"';
+      if (options.preferImage){
+        const alternative = options.label ? `alt="${escapeAttribute(options.label)}"` : 'alt="" aria-hidden="true"';
+        return `<img class="vector-glyph vector-image ${escapeAttribute(options.className || "")}" src="${escapeAttribute(entry.path)}" ${alternative} decoding="async" draggable="false">`;
+      }
       return `<span class="vector-glyph vector-mask ${escapeAttribute(options.className || "")}" style="--glyph-url:url('${escapeAttribute(entry.path)}')" ${accessibility}></span>`;
     }
     return inlineSvg(lucideBodies[key] || customBodies[key], options);

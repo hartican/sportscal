@@ -58,13 +58,108 @@ assert.equal(lifecycle.shouldRenderUpdate(null, first), true, "the first stable 
 assert.equal(lifecycle.shouldRenderUpdate(first, first), false, "an unchanged refresh must not rerender the visible feed");
 assert.equal(lifecycle.shouldRenderUpdate(first, changed), true, "changed visible content must rerender");
 
+let controlledUpdateReloads = 0;
+const controlledUpdate = lifecycle.createStartupCoordinator({
+  hadControllerAtStartup: true,
+  reloadForUpdate(){ controlledUpdateReloads += 1; },
+});
+assert.equal(controlledUpdate.isHydrating(), true, "the framework must expose a loading card surface while startup data settles");
+assert.equal(controlledUpdate.controllerChanged(), false, "a worker update during startup must wait instead of interrupting the live app");
+assert.equal(controlledUpdateReloads, 0, "controller changes must not reload an app that is still hydrating");
+assert.equal(controlledUpdate.markHydrationComplete(), true, "startup completion must release one pending controlled update");
+assert.equal(controlledUpdateReloads, 1, "a pending installed-app update must reload exactly once after startup is safe");
+controlledUpdate.controllerChanged();
+controlledUpdate.markHydrationComplete();
+assert.equal(controlledUpdateReloads, 1, "repeated lifecycle signals must not create an update reload loop");
+
+let firstInstallReloads = 0;
+const firstInstall = lifecycle.createStartupCoordinator({
+  hadControllerAtStartup: false,
+  reloadForUpdate(){ firstInstallReloads += 1; },
+});
+firstInstall.controllerChanged();
+firstInstall.markHydrationComplete();
+assert.equal(firstInstallReloads, 0, "first-time service-worker control must not reload a fresh install");
+
 assert(!html.includes('id="refreshBtn"'), "manual refresh must not remain in the primary top-bar UI");
 assert(html.includes('id="refreshAndRebuildFeedBtn"'), "Settings must expose the combined refresh and cache rebuild recovery action");
 assert(html.includes('id="refreshAndRebuildFeedStatus"') && html.includes('aria-live="polite"'), "the Settings recovery action must expose progress and completion status");
 assert(html.includes("renderFeedIfPresentationChanged"), "background hydration must pass through the visible-change render gate");
 assert(html.includes("refreshFeedOnFirstLoad()"), "the published feed must refresh automatically on first load");
+assert(html.includes('id="startupFeedLoading"') && html.includes("Loading your sports feed"), "startup must render the interactive framework with a dedicated card-loading surface");
+assert(html.includes('id="startupProgress"') && html.includes('id="startupProgressValue"'), "the top bar must expose non-blocking startup progress");
+assert(html.includes("setStartupProgress(100)"), "startup progress must reach 100 only when background data work has settled");
+assert(html.includes("Promise.allSettled([") && html.includes("startupCoordinator.markHydrationComplete()"), "canonical context and feed refresh must settle before cards are committed once");
 assert(html.includes("lastBundledEvents.length ? lastBundledEvents : EVENTS.slice()"), "a failed direct-file reload must preserve the last successfully loaded bundle instead of reverting to the tab's stale snapshot");
 assert(worker.includes("/config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
+
+async function validateServiceWorkerActivation(){
+  const handlers = {};
+  let navigations = 0;
+  const sandbox = {
+    URL,
+    fetch: async () => ({ clone(){ return this; } }),
+    caches: {
+      open: async () => ({ addAll: async () => {}, put: async () => {} }),
+      keys: async () => ["nothingsport-shell-v65", "nothingsport-shell-v66"],
+      delete: async () => true,
+      match: async () => null,
+    },
+    self: {
+      location: { origin: "https://nothingsport.vercel.app" },
+      addEventListener(type, handler){ handlers[type] = handler; },
+      skipWaiting(){},
+      clients: {
+        claim: async () => {},
+        matchAll: async () => [{
+          url: "https://nothingsport.vercel.app/",
+          async navigate(){ navigations += 1; },
+        }],
+      },
+    },
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(worker, sandbox, { filename: "service-worker.js" });
+  let activation;
+  handlers.activate({ waitUntil(promise){ activation = promise; } });
+  await activation;
+  assert.equal(navigations, 0, "worker activation must never navigate a live Home Screen app during startup");
+}
+
+function validateScrollIdleRetraction(){
+  const schedulerSource = html.match(/function scheduleCardRetractionDuringScroll\(\)\{[\s\S]*?\n\}/);
+  assert(schedulerSource, "the card retraction scheduler must remain independently testable");
+  let idleTask = null;
+  let collapses = 0;
+  const sandbox = {
+    CARD_RETRACTION_SCROLL_IDLE_MS: 180,
+    cardRetractionFrame: null,
+    cardRetractionScrollTimer: null,
+    lastCardRetractionScrollY: 0,
+    pendingCardRetractionSpaceCards: new Set(),
+    cardScrollDirection(){ return "down"; },
+    clearPendingCardRetractionSpace(){},
+    scheduleCardRetractionSpaceCleanup(){},
+    collapseCardsOutsideActiveViewport(){ collapses += 1; },
+    window: {
+      scrollY: 120,
+      requestAnimationFrame(callback){ callback(); return 1; },
+      clearTimeout(){ idleTask = null; },
+      setTimeout(callback, delay){
+        assert.equal(delay, 180, "card retraction must use the bounded scroll-idle delay");
+        idleTask = callback;
+        return 1;
+      },
+    },
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(`${schedulerSource[0]}\nglobalThis.__scheduleRetraction = scheduleCardRetractionDuringScroll;`, sandbox, { filename: "index.html" });
+  sandbox.__scheduleRetraction();
+  assert.equal(collapses, 0, "active scrolling must not destroy and rebuild card icons");
+  assert.equal(typeof idleTask, "function", "card retraction must be queued until scrolling settles");
+  idleTask();
+  assert.equal(collapses, 1, "expanded cards must still retract once scrolling is idle");
+}
 
 async function validateDirectFileBundleReload(){
   const loaderSource = html.match(/function reloadBundledEventsScript\(\)\{[\s\S]*?\n\}\n\nfunction loadLatestBundledEvents\(\)\{[\s\S]*?\n\}/);
@@ -112,7 +207,11 @@ async function validateDirectFileBundleReload(){
   assert.equal(removed, true, "the one-shot recovery script must be removed after loading");
 }
 
-validateDirectFileBundleReload()
+Promise.all([
+  validateServiceWorkerActivation(),
+  validateDirectFileBundleReload(),
+  Promise.resolve().then(validateScrollIdleRetraction),
+])
   .then(() => console.log("Refresh lifecycle valid: first load is automatic, unchanged hydration is render-gated, and direct-file recovery reloads the generated feed."))
   .catch(error => {
     console.error(error);

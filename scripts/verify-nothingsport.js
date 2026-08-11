@@ -233,16 +233,16 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v65"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="65">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v66"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="66">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
 assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
-assert(serviceWorkerSource.includes('key.startsWith("nothingsport-shell-") && key !== CACHE_NAME'), "the worker must distinguish an upgrade from a first install");
-assert(serviceWorkerSource.includes('self.clients.matchAll({ type: "window", includeUncontrolled: true })'), "an updated worker must find already-open home-screen app windows");
-assert(serviceWorkerSource.includes("client.navigate(client.url)"), "an updated worker must reload already-open home-screen app windows");
-assert(html.includes("registration.update()"), "the installed app must check for a new worker whenever it launches");
+assert(serviceWorkerSource.includes("keys.filter(key => key !== CACHE_NAME)"), "the worker must remove superseded shell caches during activation");
+assert(!serviceWorkerSource.includes("client.navigate(client.url)"), "worker activation must not navigate a live Home Screen app during startup");
+assert(html.includes("controllerchange") && html.includes("registration.update()"), "the installed app must detect a new controller while checking for a worker update");
+assert(html.includes('id="startupFeedLoading"') && html.includes("startupCoordinator.isHydrating()"), "the interactive framework must use a stable loading surface until card hydration completes");
 assert(html.includes('lastFeedPublishedAt: "ns_last_feed_published_at_v1"'), "feed status must persist the canonical publication time separately from a browser check");
 assert(html.includes("Feed generated ${publishedCopy}"), "feed status must label the actual generation time explicitly");
 assert(html.includes("This is when the published feed was generated, not when this browser last checked it."), "feed status must not imply that a browser refresh contacts sporting sources");
@@ -307,8 +307,10 @@ assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-da
 assert(html.includes('window.addEventListener("scroll"'), "expanded cards must respond to viewport scrolling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
 assert(html.includes("retainCollapsedCardSpace(retractionAnchor, replacementCards)"), "above-viewport card retraction must preserve the visible feed position");
-assert(html.includes("function scheduleCardRetractionDuringScroll()") && html.includes("cardRetractionFrame = window.requestAnimationFrame(() => {") && html.includes("collapseCardsOutsideActiveViewport();"), "cards must retract during continuous scrolling once they leave the active viewport");
-assert(!html.includes("CARD_RETRACTION_SCROLL_IDLE_MS"), "card retraction must not wait indefinitely for continuous scrolling to stop");
+const scrollRetractionSchedulerSource = html.match(/function scheduleCardRetractionDuringScroll\(\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(scrollRetractionSchedulerSource.includes("CARD_RETRACTION_SCROLL_IDLE_MS") && scrollRetractionSchedulerSource.includes("window.setTimeout"), "cards must retract after the bounded scroll-idle delay");
+assert(!scrollRetractionSchedulerSource.includes("requestAnimationFrame"), "active scrolling must not rebuild card icon DOM on animation frames");
+assert(!/setInterval\(\(\) => \{[\s\S]*?renderCurrentSection\(true\);[\s\S]*?\}, 30000\)/.test(html), "the live clock must not rebuild every card and icon on a repeating timer");
 const viewportRetractionSource = html.match(/function collapseCardsOutsideActiveViewport\(\)\{[\s\S]*?(?=\nfunction buildEventCard)/)?.[0] || "";
 assert(viewportRetractionSource.includes("replaceCollapsedCardsInPlace(collapsingCards)") && !viewportRetractionSource.includes("renderCurrentSection()"), "scroll retraction must replace only collapsed cards instead of rebuilding the whole feed");
 assert(viewportRetractionSource.includes("retainCollapsedCardSpace(retractionAnchor, replacementCards)") && !viewportRetractionSource.includes("restoreViewportRetractionAnchor(retractionAnchor)"), "active-scroll retraction must preserve lower-card geometry without a mid-gesture scroll correction");
@@ -322,6 +324,7 @@ assert(html.includes('if (state !== "opened")'), "compact results must hand off 
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes('glyphMarkup("ui:ticket")'), "local games must expose a vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
 assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
 assert(!/textContent\s*=\s*["']NEW["']/.test(eventCardSource), "the freshness treatment must not add a NEW text badge");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");

@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v65";
+const CACHE_NAME = "nothingsport-shell-v66";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -65,14 +65,8 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(async keys => {
-      const isUpgrade = keys.some(key => key.startsWith("nothingsport-shell-") && key !== CACHE_NAME);
       await Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)));
       await self.clients.claim();
-      if (!isUpgrade) return;
-      const windows = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
-      await Promise.all(windows.map(client => (
-        "navigate" in client ? client.navigate(client.url).catch(() => undefined) : Promise.resolve()
-      )));
     })
   );
 });

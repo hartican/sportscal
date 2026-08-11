@@ -43,7 +43,45 @@
     return committedFingerprint === null || committedFingerprint === undefined || committedFingerprint !== nextFingerprint;
   }
 
+  function createStartupCoordinator({
+    hadControllerAtStartup = false,
+    reloadForUpdate = () => {},
+  } = {}){
+    let hydrating = true;
+    let controllerUpdatePending = false;
+    let reloadCommitted = false;
+
+    function releasePendingUpdate(){
+      if (
+        hydrating
+        || !hadControllerAtStartup
+        || !controllerUpdatePending
+        || reloadCommitted
+      ) return false;
+      controllerUpdatePending = false;
+      reloadCommitted = true;
+      reloadForUpdate();
+      return true;
+    }
+
+    return Object.freeze({
+      isHydrating(){
+        return hydrating;
+      },
+      controllerChanged(){
+        if (!hadControllerAtStartup || reloadCommitted) return false;
+        controllerUpdatePending = true;
+        return releasePendingUpdate();
+      },
+      markHydrationComplete(){
+        hydrating = false;
+        return releasePendingUpdate();
+      },
+    });
+  }
+
   return Object.freeze({
+    createStartupCoordinator,
     presentationFingerprint,
     shouldRenderUpdate,
   });

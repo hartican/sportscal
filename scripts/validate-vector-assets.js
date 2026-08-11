@@ -60,6 +60,10 @@ editorialLabels.forEach(label => assert.match(vectorAssets.editorialMarkup(label
 ["low", "medium", "high", "critical"].forEach(level => assert.match(vectorAssets.stakesMarkup(level), /<svg\b/, `${level} stakes must render`));
 ["live", "replay", "highlights", "free-to-air", "subscription", "geo-restricted"].forEach(state => assert.match(vectorAssets.broadcastMarkup(state), /<svg\b/, `${state} broadcast state must render`));
 ["off", "on", "synced", "missed"].forEach(state => assert.match(vectorAssets.reminderMarkup(state), /<svg\b/, `${state} reminder state must render`));
+const stableCardSportIcon = vectorAssets.glyphMarkup("sport:rugby", { label: "Rugby", preferImage: true });
+assert.match(stableCardSportIcon, /<img\b/, "card sport icons must avoid Safari's scroll-sensitive CSS mask rendering path");
+assert.match(stableCardSportIcon, /assets\/icons\/sporticon\/rugby\.svg/, "stable card sport icons must retain the licensed local Sporticon asset");
+assert.doesNotMatch(stableCardSportIcon, /vector-mask/, "stable card sport icons must not use CSS masks");
 
 [...(selectorTaxonomy.categories || []), ...(selectorTaxonomy.specialEvents || [])].forEach(entity => {
   assert(entity.glyph, `${entity.id} must use a vector glyph key`);
