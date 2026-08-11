@@ -13,6 +13,7 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step.length === 1), "every canonical update must rebuild the direct-file context transport from authoritative JSON");
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step[1] === "--check"), "every canonical update must reject a stale direct-file context transport");
 assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"), "local-only updates must still enforce published result completeness");
+assert(localSteps.some(step => step[0] === "scripts/validate-product-events.js"), "every canonical update must enforce the authenticated pilot event contract");
 assert(localSteps.some(step => step[0] === "scripts/verify-nothingsport.js"), "every canonical update must enforce focused-sport retention and interface regressions");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/verify-nothingsport.js")

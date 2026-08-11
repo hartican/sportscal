@@ -7,6 +7,7 @@
 
   const SESSION_STORAGE_KEY = "ns_auth_session_v1";
   const USER_STATE_SCHEMA_VERSION = "user-state.v1";
+  const PRODUCT_EVENTS_SCHEMA_VERSION = "product-events.v1";
   const REFRESH_EARLY_MS = 60 * 1000;
 
   function clone(value){
@@ -242,6 +243,15 @@
       async loadFeed(){
         return authenticatedRequest("/api/feed");
       },
+      async sendProductEvents(events){
+        return authenticatedRequest("/api/product-events", {
+          method: "POST",
+          body: JSON.stringify({
+            schemaVersion: PRODUCT_EVENTS_SCHEMA_VERSION,
+            events,
+          }),
+        });
+      },
       async saveState(state){
         const payload = await authenticatedRequest("/api/user-state", {
           method: "PUT",
@@ -273,6 +283,7 @@
 
   return Object.freeze({
     REFRESH_EARLY_MS,
+    PRODUCT_EVENTS_SCHEMA_VERSION,
     SESSION_STORAGE_KEY,
     USER_STATE_SCHEMA_VERSION,
     buildUserState,

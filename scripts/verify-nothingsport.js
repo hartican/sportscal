@@ -22,6 +22,7 @@ const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.
 const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
 const sportHubsSource = fs.readFileSync("config/sport-hubs.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
+const productEventsSource = fs.readFileSync("config/product-events.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
 const serverFeedApiSource = fs.readFileSync("api/feed.js", "utf8");
@@ -119,6 +120,7 @@ assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must l
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
+assert(html.includes('src="config/product-events.js"'), "the fixed pilot-measurement contract must load before app state");
 assert(html.includes('src="config/server-sync.js"'), "magic-link sessions and server-state sync must load before app state");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
@@ -157,7 +159,7 @@ assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBun
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
 assert(html.includes('id="refineFiltersBtn"'), "the feed must expose an obvious Refine filters entry point");
 assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
-assert(html.includes("function setActiveFeedFilter(nextFilter") && html.includes("setActiveFeedFilter(key)"), "sport filter changes must use one state transition path");
+assert(html.includes("function setActiveFeedFilter(nextFilter") && html.includes("setActiveFeedFilter(key, {"), "sport filter changes must use one state transition path");
 assert(html.includes('activeTab: "all-fixtures"') && html.includes("resetSportHubState(nextHubKey)"), "direct NRL/AFL filter entry must default to All Fixtures");
 assert(html.includes('["worth-watching", "Worth Watching"]') && html.includes('["all-fixtures", "All Fixtures"]') && html.includes('["standings", "Standings"]') && html.includes('["results-replays", "Results/Replays"]'), "supported sport hubs must expose the four canonical internal tabs");
 assert(html.includes("SPORT_HUBS.buildFixtureViews") && html.includes("feedCards: activeEvents"), "fixture rows must derive from canonical truth and merge published card enrichment only at render time");
@@ -229,6 +231,18 @@ const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\
 assert(settingsMenuSource.includes('"Sports Followed"'), "Settings must use Sports Followed as the single top-level home for follow preferences");
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
+assert.equal(JSON.parse(fs.readFileSync("schemas/product-events.schema.json", "utf8")).properties.schemaVersion.const, "product-events.v1", "pilot measurement must expose one versioned request contract");
+assert(productEventsSource.includes("const MAX_BATCH_SIZE = 20"), "product event requests must stay bounded to twenty events");
+assert(productEventsSource.includes('"opportunity_exposed"') && productEventsSource.includes('"fixture_check"') && productEventsSource.includes('"watch_decision"'), "TSDR events must use a fixed allowlist");
+assert(productEventsSource.includes('"weekly_pulse"') && productEventsSource.includes("crossCheck") && productEventsSource.includes("missedFixtures") && productEventsSource.includes("feedClutter"), "weekly trust pulses must use fixed-choice properties");
+assert(html.includes('settingsMenuItem("pilot"') && html.includes('id="pilotMeasurementEnabled"'), "signed-in users must receive an explicit trust-pilot acknowledgement control");
+assert(html.includes("The normal app works without measurement") && html.includes("if (!pilotMeasurementEligible()) return null"), "the normal app must remain usable with telemetry disabled");
+assert(html.includes('eventName: "opportunity_exposed"') && html.includes('eventName: "fixture_check"'), "curated opportunities and fixture checks must be measured only after pilot opt-in");
+assert(fs.readFileSync("api/product-events.js", "utf8").includes("PRODUCT_EVENTS.rowsForUser(events, user.id)"), "the product-events API must derive row ownership from the authenticated user");
+const productEventsSql = fs.readFileSync("supabase/nothingsports-product-events.sql", "utf8");
+assert(productEventsSql.includes("force row level security") && productEventsSql.includes("grant insert on table public.product_events to authenticated"), "the append-only pilot table must force RLS and grant authenticated insert only");
+assert(productEventsSql.includes("with check ((select auth.uid()) = user_id)"), "the insert policy must enforce the signed-in owner");
+assert(fs.readFileSync("supabase/nothingsports-tsdr.sql", "utf8").includes("had_opportunity and made_decision"), "the operational TSDR query must require opportunity exposure in the same user-week");
 assert(cardUpdateSource.includes('["scripts/refresh-canonical-sports.js"]'), "the canonical cards update must refresh ladders and standings through the existing loader");
 assert(cardUpdateSource.indexOf('["scripts/refresh-canonical-sports.js"]') < cardUpdateSource.indexOf('["scripts/apply-editorial-previews.js"]'), "ladders and standings must refresh before card derivation begins");
 assert.equal((cardUpdateSource.match(/\["scripts\/sync-canonical-fixtures-to-feed\.js"/g) || []).length, 2, "the canonical cards update must sync refreshed fixtures into both incoming and published card feeds");
@@ -248,9 +262,10 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v68"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="68">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v69"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="69">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
+assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/data/canonical/contexts.js"'), "the generated direct-file canonical transport must ship with the app shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
@@ -1001,7 +1016,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 9, "the seeded league defaults must use the current preference migration");
+assert.equal(app.mergePreferences(null).version, 10, "the seeded league defaults must use the current preference migration");
 assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), ["nrl", "afl"], "new profiles must surface Rugby League and AFL immediately");
 assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl"], "new profiles must seed the two complete league selectors");
 const incompleteEmptyProfile = app.mergePreferences({
@@ -1019,7 +1034,7 @@ const completedEmptyProfile = app.mergePreferences({
 });
 assert.deepEqual(Array.from(completedEmptyProfile.followedSports), ["nrl", "afl"], "completed empty v8 profiles must migrate to the seeded league defaults");
 const currentExplicitEmptyProfile = app.mergePreferences({
-  version: 9,
+  version: 10,
   onboardingComplete: true,
   selectedSelectorEntityIds: [],
   followedSports: [],

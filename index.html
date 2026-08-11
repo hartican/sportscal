@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="68">
+<meta name="app-shell-version" content="69">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -2826,6 +2826,81 @@ main{
   margin-top:12px;
 }
 
+.pilot-disclosure{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px;
+  border:1px solid color-mix(in srgb, var(--accent) 32%, var(--border));
+  border-radius:12px;
+  background:color-mix(in srgb, var(--accent) 6%, var(--panel));
+  color:var(--text-dim);
+  font-size:0.76rem;
+  line-height:1.5;
+}
+
+.pilot-disclosure input{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  margin-top:2px;
+  accent-color:var(--accent);
+}
+
+.pilot-disclosure strong{
+  display:block;
+  margin-bottom:3px;
+  color:var(--text);
+}
+
+.pilot-pulse{
+  display:grid;
+  gap:14px;
+  margin-top:14px;
+}
+
+.pilot-pulse fieldset{
+  display:grid;
+  gap:7px;
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+.pilot-pulse legend{
+  margin-bottom:3px;
+  color:var(--text);
+  font-size:0.78rem;
+  font-weight:800;
+  line-height:1.35;
+}
+
+.pilot-choice-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:7px;
+}
+
+.pilot-choice-grid label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-width:0;
+  padding:9px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--soft-fill);
+  color:var(--text-dim);
+  font-size:0.71rem;
+  line-height:1.25;
+}
+
+.pilot-choice-grid input{ accent-color:var(--accent); }
+
+@media (max-width:620px){
+  .pilot-choice-grid{ grid-template-columns:1fr; }
+}
+
 .refine-filter-btn{
   border:1px solid var(--accent);
   border-radius:999px;
@@ -3943,6 +4018,7 @@ footer.app-footer{
 <script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
 <script src="config/profile-storage.js"></script>
+<script src="config/product-events.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
 <script src="config/enrichment-engine.js"></script>
@@ -4021,6 +4097,7 @@ const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
 const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
 const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
+const PRODUCT_EVENTS = globalThis.NOTHINGSPORTS_PRODUCT_EVENTS || null;
 
 const SPECIAL_EVENT_ONLY_SPORT_KEYS = new Set(["wimbledon", "fifa", "tdf", "masters", "lemans", "nfl", "cwg"]);
 const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
@@ -4118,7 +4195,7 @@ const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"];
 const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 
 const DEFAULT_PREFERENCES = {
-  version: 9,
+  version: 10,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
@@ -4127,6 +4204,11 @@ const DEFAULT_PREFERENCES = {
   followedSports: DEFAULT_FIRST_RUN_SPORT_KEYS,
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
+  pilotMeasurement: {
+    enabled: false,
+    acknowledgedAt: null,
+    lastPulseWeek: null,
+  },
   tennis: {
     enthusiasm: "froth",
     gender: "both",
@@ -4206,6 +4288,13 @@ const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.createClient()
   : null;
+const productEventSessionId = globalThis.crypto?.randomUUID?.()
+  || `session_${Date.now().toString(36)}_${Math.random().toString(36).slice(2).padEnd(12, "0")}`;
+const productEventsQueue = PRODUCT_EVENTS && serverSyncClient
+  ? PRODUCT_EVENTS.createQueue({
+      sendBatch(events){ return serverSyncClient.sendProductEvents(events); },
+    })
+  : null;
 let activeProfileBundle = null;
 try{
   activeProfileBundle = PROFILE_STORAGE?.loadActiveProfile(localStorage) || null;
@@ -4280,6 +4369,11 @@ let serverPersistence = {
   lastSyncedAt: null,
   message: "",
 };
+let productEventOwnerId = null;
+let productExposureObserver = null;
+const productExposureTargets = new WeakMap();
+const productExposureTimers = new WeakMap();
+const productExposureKeys = new Set();
 
 function readStorage(key, fallback){
   try{
@@ -4555,6 +4649,19 @@ function mergePreferences(saved){
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
     selectedBroadcasters: migratedBroadcasters,
     preferenceGraph,
+    pilotMeasurement: {
+      ...merged.pilotMeasurement,
+      ...(saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
+        ? saved.pilotMeasurement
+        : {}),
+      enabled: Boolean(saved.pilotMeasurement?.enabled ?? merged.pilotMeasurement.enabled),
+      acknowledgedAt: typeof saved.pilotMeasurement?.acknowledgedAt === "string"
+        ? saved.pilotMeasurement.acknowledgedAt
+        : null,
+      lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(saved.pilotMeasurement?.lastPulseWeek || ""))
+        ? saved.pilotMeasurement.lastPulseWeek
+        : null,
+    },
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
@@ -4991,11 +5098,103 @@ function bootstrapExistingSurfaceHistory(events, reference = nowAEST()){
 
 bootstrapExistingSurfaceHistory(activeEvents);
 
+function pilotMeasurementPreferences(preferences = userPreferences){
+  const source = preferences?.pilotMeasurement;
+  return source && typeof source === "object" && !Array.isArray(source)
+    ? source
+    : DEFAULT_PREFERENCES.pilotMeasurement;
+}
+
+function pilotMeasurementEligible(){
+  const pilot = pilotMeasurementPreferences();
+  return Boolean(
+    PRODUCT_EVENTS
+    && productEventsQueue
+    && serverPersistence.user?.id
+    && pilot.enabled
+    && typeof pilot.acknowledgedAt === "string"
+    && pilot.acknowledgedAt
+  );
+}
+
+function pilotWeekStart(reference = new Date()){
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Australia/Sydney",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  const parts = Object.fromEntries(formatter.formatToParts(reference)
+    .filter(part => part.type !== "literal")
+    .map(part => [part.type, Number(part.value)]));
+  const date = new Date(Date.UTC(parts.year, parts.month - 1, parts.day));
+  const day = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() - day + 1);
+  return date.toISOString().slice(0, 10);
+}
+
+function productEventContextForEvent(event){
+  if (!event) return {};
+  return {
+    ...(event.key ? { sport: String(event.key).toLowerCase() } : {}),
+    ...((event.competitionId || event.canonicalCompetitionId)
+      ? { competitionId: event.competitionId || event.canonicalCompetitionId }
+      : {}),
+    ...((event.canonicalEventId || event.eventId || event.id)
+      ? { canonicalEventId: event.canonicalEventId || event.eventId || event.id }
+      : {}),
+  };
+}
+
+function recordProductEvent(input){
+  if (!pilotMeasurementEligible()) return null;
+  try{
+    const event = PRODUCT_EVENTS.createEvent(input, { sessionId: productEventSessionId });
+    productEventsQueue.enqueue(event);
+    return event;
+  }catch(error){
+    console.warn("Product event rejected locally", error);
+    return null;
+  }
+}
+
+async function flushProductEvents(){
+  if (!pilotMeasurementEligible()) return { sent: 0 };
+  return productEventsQueue.flush();
+}
+
+function recordFixtureCheck(sportKey, {
+  entry,
+  roundNumber = null,
+  canonicalEventId = null,
+} = {}){
+  const sport = SPORT_HUBS?.sportConfig(sportKey);
+  if (!sport) return null;
+  return recordProductEvent({
+    eventName: "fixture_check",
+    surface: entry === "round_summary" ? "round_summary" : "sport_hub",
+    sport: sportKey,
+    competitionId: sport.competitionId,
+    ...(canonicalEventId ? { canonicalEventId } : {}),
+    properties: {
+      entry,
+      ...(Number.isInteger(roundNumber) ? { roundNumber } : {}),
+    },
+  });
+}
+
 function setServerPersistence(patch){
+  const previousOwnerId = serverPersistence.user?.id || null;
   serverPersistence = { ...serverPersistence, ...(patch || {}) };
+  const nextOwnerId = serverPersistence.user?.id || null;
+  if (previousOwnerId !== nextOwnerId || productEventOwnerId !== nextOwnerId){
+    productEventsQueue?.clear();
+    productExposureKeys.clear();
+    productEventOwnerId = nextOwnerId;
+  }
   const settingsOpen = typeof document !== "undefined"
     && document.getElementById("settingsModal")?.classList.contains("show");
-  if (settingsOpen && settingsSection === "account" && draftPreferences){
+  if (settingsOpen && ["account", "pilot"].includes(settingsSection) && draftPreferences){
     renderSettingsScreen();
   }
   return serverPersistence;
@@ -5492,7 +5691,11 @@ function focusSportHubViewport(){
   window.requestAnimationFrame(() => window.requestAnimationFrame(focusHub));
 }
 
-function setActiveFeedFilter(nextFilter, { refresh = true, roundNumber = null } = {}){
+function setActiveFeedFilter(nextFilter, {
+  refresh = true,
+  roundNumber = null,
+  measurementEntry = null,
+} = {}){
   const normalizedFilter = feedFilterOptions(userPreferences).includes(nextFilter) ? nextFilter : "all";
   if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
   const previousHubKey = sportHubKeyForFilter(activeFilter);
@@ -5515,6 +5718,15 @@ function setActiveFeedFilter(nextFilter, { refresh = true, roundNumber = null } 
   todayMoreReveal = false;
   calendarInitialJumpPending = !previousHubKey && !nextHubKey;
   renderAll();
+  if (nextHubKey && nextHubKey !== previousHubKey && measurementEntry){
+    const selectedRound = Number.isInteger(roundNumber)
+      ? roundNumber
+      : SPORT_HUBS.currentRoundNumber(sportHubCanonicalFixtures(nextHubKey));
+    recordFixtureCheck(nextHubKey, {
+      entry: measurementEntry,
+      roundNumber: selectedRound,
+    });
+  }
   if (nextHubKey && nextHubKey !== previousHubKey) focusSportHubViewport();
   const refreshPromise = refresh ? requestFeedRefreshForFilterChange() : Promise.resolve();
   if (previousHubKey && !nextHubKey){
@@ -6548,7 +6760,9 @@ function renderFilters(){
       btn.setAttribute("aria-pressed", String(activeFilter === key));
       btn.style.setProperty("--pill-color", metadata.color);
       btn.innerHTML = `${glyphMarkup(metadata.glyph)}<span>${metadata.label}</span>`;
-      const activateFilter = () => setActiveFeedFilter(key);
+      const activateFilter = () => setActiveFeedFilter(key, {
+        measurementEntry: sportHubKeyForFilter(key) ? "sport_filter" : null,
+      });
       btn.addEventListener("click", activateFilter);
       btn.addEventListener("keydown", event => {
         if (event.key !== "Enter" && event.key !== " ") return;
@@ -6852,6 +7066,43 @@ function sortUpcomingFirst(list){
 let surfaceSeenObserver = null;
 const surfaceSeenEvents = new WeakMap();
 const surfaceSeenTimers = new WeakMap();
+
+function getProductExposureObserver(){
+  if (productExposureObserver || typeof IntersectionObserver !== "function") return productExposureObserver;
+  productExposureObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const existingTimer = productExposureTimers.get(entry.target);
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.55){
+        if (existingTimer) clearTimeout(existingTimer);
+        productExposureTimers.delete(entry.target);
+        return;
+      }
+      if (existingTimer) return;
+      const recordWhenUnobscured = () => {
+        productExposureTimers.delete(entry.target);
+        const exposure = productExposureTargets.get(entry.target);
+        if (!exposure || !entry.target.isConnected || productExposureKeys.has(exposure.key)) return;
+        if (document.getElementById("settingsModal")?.classList.contains("show")){
+          const retry = setTimeout(recordWhenUnobscured, 500);
+          productExposureTimers.set(entry.target, retry);
+          return;
+        }
+        const recorded = recordProductEvent(exposure.event);
+        if (recorded) productExposureKeys.add(exposure.key);
+        productExposureObserver?.unobserve(entry.target);
+      };
+      const timer = setTimeout(recordWhenUnobscured, 700);
+      productExposureTimers.set(entry.target, timer);
+    });
+  }, { threshold: [0.55] });
+  return productExposureObserver;
+}
+
+function observeProductOpportunity(element, key, event){
+  if (!pilotMeasurementEligible() || !element || !key || productExposureKeys.has(key)) return;
+  productExposureTargets.set(element, { key, event });
+  getProductExposureObserver()?.observe(element);
+}
 
 function removeNewMarker(card){
   card.classList.remove("is-new");
@@ -7546,6 +7797,18 @@ function buildEventCard(ev, options = {}){
 
   card.appendChild(mainDiv);
   observeNewSurfaceItem(card, ev, presentation);
+  if (!options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
+    const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
+    observeProductOpportunity(card, `card:${canonicalId}`, {
+      eventName: "opportunity_exposed",
+      surface: "curated_feed",
+      ...productEventContextForEvent(ev),
+      properties: {
+        presentation: "card",
+        feedBucket: presentation.feedBucket,
+      },
+    });
+  }
   return card;
 }
 
@@ -7984,7 +8247,23 @@ function buildSportRoundSummaryCard(summary){
   arrow.setAttribute("aria-hidden", "true");
   arrow.innerHTML = glyphMarkup("ui:chevron-right");
   card.append(icon, content, arrow);
-  card.addEventListener("click", () => openSportRoundSummary(summary.sportKey, summary.roundNumber));
+  card.addEventListener("click", () => {
+    recordFixtureCheck(summary.sportKey, {
+      entry: "round_summary",
+      roundNumber: summary.roundNumber,
+    });
+    openSportRoundSummary(summary.sportKey, summary.roundNumber);
+  });
+  observeProductOpportunity(card, `summary:${summary.sportKey}:${summary.roundNumber}`, {
+    eventName: "opportunity_exposed",
+    surface: "round_summary",
+    sport: summary.sportKey,
+    competitionId: SPORT_HUBS.sportConfig(summary.sportKey)?.competitionId,
+    properties: {
+      presentation: "round_summary",
+      position: summary.sportKey === "nrl" ? 0 : 1,
+    },
+  });
   return card;
 }
 
@@ -8198,6 +8477,7 @@ function renderSportHubAllFixtures(panel, fixtures, sportKey){
   panel.appendChild(buildSportHubRoundNavigation(fixtures, sportHubState.selectedRoundNumber, {
     size: 2,
     onChange(roundNumber){
+      recordFixtureCheck(sportKey, { entry: "round_picker", roundNumber });
       sportHubState.selectedRoundNumber = roundNumber;
       sportHubState.showHidden = false;
       renderCurrentSection();
@@ -8344,6 +8624,12 @@ function renderSportHub(){
     button.tabIndex = sportHubState.activeTab === id ? 0 : -1;
     button.textContent = label;
     button.addEventListener("click", () => {
+      if (id === "all-fixtures" && sportHubState.activeTab !== id){
+        recordFixtureCheck(sportKey, {
+          entry: "hub_tab",
+          roundNumber: sportHubState.selectedRoundNumber,
+        });
+      }
       sportHubState.activeTab = id;
       sportHubState.showHidden = false;
       renderCurrentSection();
@@ -9356,6 +9642,15 @@ function accountSettingsSummary(){
   return email ? `${email} · local copy active` : "Local copy active";
 }
 
+function pilotMeasurementSummary(){
+  const pilot = pilotMeasurementPreferences();
+  if (!serverPersistence.user) return "Sign in to join the closed pilot";
+  if (!pilot.enabled || !pilot.acknowledgedAt) return "Optional · fixed-choice measurement is off";
+  return pilot.lastPulseWeek === pilotWeekStart()
+    ? "Measurement on · this week’s pulse complete"
+    : "Measurement on · weekly pulse ready";
+}
+
 function accountSyncTimeLabel(value){
   const parsed = new Date(value || "");
   if (Number.isNaN(parsed.getTime())) return "Not synced yet";
@@ -9472,6 +9767,119 @@ function renderAccountSettings(body){
   });
 }
 
+function renderPilotSettings(body){
+  const signedIn = Boolean(serverPersistence.user);
+  const pilot = pilotMeasurementPreferences();
+  const enabled = signedIn && Boolean(pilot.enabled && pilot.acknowledgedAt);
+  const currentWeek = pilotWeekStart();
+
+  if (!signedIn){
+    body.innerHTML = `<div class="preference-stack"><div class="filter-panel">
+      <h3>Closed trust pilot</h3>
+      <p class="preference-help">The normal app works without measurement. Pilot participation requires a signed-in account and an explicit acknowledgement of the fixed data collected.</p>
+      <button class="btn primary" type="button" id="pilotOpenAccountBtn">Sign in to join</button>
+    </div></div>`;
+    document.getElementById("pilotOpenAccountBtn").addEventListener("click", () => {
+      settingsSection = "account";
+      renderSettingsScreen();
+    });
+    return;
+  }
+
+  body.innerHTML = `<div class="preference-stack">
+    <div class="filter-panel">
+      <h3>Closed trust pilot</h3>
+      <p class="preference-help">Participation helps test whether nothingsport becomes the place you check before deciding what to watch. Turning this off stops future measurement; the app remains fully usable.</p>
+      <label class="pilot-disclosure" for="pilotMeasurementEnabled">
+        <input id="pilotMeasurementEnabled" type="checkbox" ${enabled ? "checked" : ""}>
+        <span><strong>I agree to pilot measurement</strong>Share fixed interaction events for viewed opportunities, fixture checks, watch decisions, swipes, ratings, tune prompts and the weekly pulse. No free text, messages, precise location or contact information is stored in product events.</span>
+      </label>
+      <p class="preference-help" id="pilotMeasurementStatus" role="status" aria-live="polite">${enabled ? `Acknowledged ${new Date(pilot.acknowledgedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}. Events are attached to your signed-in pilot account.` : "Measurement is off."}</p>
+    </div>
+    ${enabled ? `<div class="filter-panel"><h3>This week’s trust pulse</h3>
+      ${pilot.lastPulseWeek === currentWeek
+        ? `<p class="preference-help">Pulse complete for the week starting ${new Date(`${currentWeek}T12:00:00`).toLocaleDateString("en-AU", { day: "numeric", month: "short" })}. Thanks.</p>`
+        : `<p class="preference-help">Three fixed choices, once a week. There is no free-text response.</p>
+          <form class="pilot-pulse" id="pilotPulseForm">
+            <fieldset><legend>Did you cross-check another sports app before deciding?</legend><div class="pilot-choice-grid">
+              <label><input type="radio" name="crossCheck" value="never" required>Never</label>
+              <label><input type="radio" name="crossCheck" value="once">Once</label>
+              <label><input type="radio" name="crossCheck" value="multiple">Multiple times</label>
+            </div></fieldset>
+            <fieldset><legend>Did nothingsport miss a fixture you cared about?</legend><div class="pilot-choice-grid">
+              <label><input type="radio" name="missedFixtures" value="none" required>None</label>
+              <label><input type="radio" name="missedFixtures" value="one">One</label>
+              <label><input type="radio" name="missedFixtures" value="multiple">Multiple</label>
+            </div></fieldset>
+            <fieldset><legend>How did the feed density feel?</legend><div class="pilot-choice-grid">
+              <label><input type="radio" name="feedClutter" value="too_sparse" required>Too sparse</label>
+              <label><input type="radio" name="feedClutter" value="about_right">About right</label>
+              <label><input type="radio" name="feedClutter" value="too_busy">Too busy</label>
+            </div></fieldset>
+            <button class="btn primary" type="submit" id="pilotPulseSubmitBtn">Send weekly pulse</button>
+            <p class="preference-help" id="pilotPulseStatus" role="status" aria-live="polite"></p>
+          </form>`}
+    </div>` : ""}
+  </div>`;
+
+  document.getElementById("pilotMeasurementEnabled").addEventListener("change", event => {
+    const next = clonePreferences(userPreferences);
+    const nextEnabled = event.target.checked;
+    next.pilotMeasurement = {
+      ...pilotMeasurementPreferences(next),
+      enabled: nextEnabled,
+      acknowledgedAt: nextEnabled ? new Date().toISOString() : null,
+      ...(nextEnabled ? {} : { lastPulseWeek: null }),
+    };
+    if (!nextEnabled){
+      productEventsQueue?.clear();
+      productExposureKeys.clear();
+    }
+    savePreferences(next);
+    renderAll({ preserveViewport: true });
+    draftPreferences = clonePreferences(userPreferences);
+    renderSettingsScreen();
+  });
+
+  document.getElementById("pilotPulseForm")?.addEventListener("submit", async event => {
+    event.preventDefault();
+    const button = document.getElementById("pilotPulseSubmitBtn");
+    const status = document.getElementById("pilotPulseStatus");
+    const form = new FormData(event.currentTarget);
+    button.disabled = true;
+    status.textContent = "Sending your fixed-choice pulse…";
+    const recorded = recordProductEvent({
+      eventName: "weekly_pulse",
+      surface: "weekly_pulse",
+      properties: {
+        crossCheck: form.get("crossCheck"),
+        missedFixtures: form.get("missedFixtures"),
+        feedClutter: form.get("feedClutter"),
+      },
+    });
+    if (!recorded){
+      button.disabled = false;
+      status.textContent = "The pulse could not be prepared. Confirm measurement is still enabled.";
+      return;
+    }
+    try{
+      await flushProductEvents();
+      const next = clonePreferences(userPreferences);
+      next.pilotMeasurement = {
+        ...pilotMeasurementPreferences(next),
+        lastPulseWeek: currentWeek,
+      };
+      savePreferences(next);
+      draftPreferences = clonePreferences(userPreferences);
+      renderSettingsScreen();
+    }catch(error){
+      console.warn("Weekly pilot pulse failed", error);
+      button.disabled = false;
+      status.textContent = "The pulse could not be sent. Your app is unaffected; try again when sync is available.";
+    }
+  });
+}
+
 function renderSettingsMenu(body){
   const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
   const viewing = draftPreferences.preferenceGraph?.viewing;
@@ -9481,6 +9889,7 @@ function renderSettingsMenu(body){
     : "Any time";
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
+    ${settingsMenuItem("pilot", "ui:watch", "Trust pilot", pilotMeasurementSummary())}
     ${settingsMenuItem("archive", "ui:archive", "Archive", `${archivedEvents().length} preserved or recently archived event${archivedEvents().length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("sports", "ui:filter", "Sports Followed", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Events`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
@@ -10087,6 +10496,7 @@ function renderSettingsScreen(){
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Use a magic link to keep durable choices connected across devices."],
+    pilot: ["Trust pilot", "Optional, disclosed measurement for the signed-in fourteen-day pilot."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
     sports: [settingsFirstRun ? "Sports Followed · 1 of 2" : "Sports Followed", settingsFirstRun ? "Pick sports and special events, then tune selected sports inline." : "Follow sports and special events, tune Froth inline, and use Events for detailed follow controls."],
     viewing: [settingsFirstRun ? "Viewing preferences · 2 of 2" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
@@ -10097,6 +10507,7 @@ function renderSettingsScreen(){
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
   if (settingsSection === "account") renderAccountSettings(body);
+  else if (settingsSection === "pilot") renderPilotSettings(body);
   else if (settingsSection === "archive") renderArchiveSettings(body);
   else if (settingsSection === "sports") renderSportsSettings(body);
   else if (settingsSection === "viewing") renderViewingSettings(body);
