@@ -226,8 +226,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v63"'), "interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="63">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v64"'), "interaction changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="64">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
@@ -291,6 +291,8 @@ assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports feed must retain its Today anchor");
+assert(html.includes("function focusedRecentPastDateKey"), "focused sport entry must be able to anchor retained recent results before Today");
+assert(html.includes("focusedRecentPastDateKey(filtered.map(event => event.date)"), "focused sport entry must inspect both new and previously seen retained cards");
 assert(html.includes("jumpTodayBtn.hidden = hubActive"), "Jump to Today must remain available in curated Feed views and stay out of complete sport hubs");
 assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
 assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
@@ -661,6 +663,8 @@ globalThis.__test = {
   eventIsEditorialMustShow,
   eventMeetsCoveragePreference,
   eventMatchesSportPreferences,
+  feedFilterMatchesEvent,
+  focusedRecentPastDateKey,
   eventMatchesExplicitSubfilters,
   eventMatchesBroadcasterPreferences,
   eventIsAutoArchived,
@@ -1103,6 +1107,49 @@ assert.deepEqual(
   ["aflw-under-afl-preference"],
   "a lower-stakes AFLW fixture must inherit the ordinary AFL follow setting"
 );
+
+const recentWallabiesJapan = publishedFeed.events.find(item => item.id === "rugby-japan-australia-2026-08-08");
+const recentRugbyReference = new Date("2026-08-11T02:00:00.000Z");
+assert(recentWallabiesJapan, "the published feed must retain Japan v Australia from 8 August");
+app.setEvents([recentWallabiesJapan]);
+app.setActions({});
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:rugby"],
+  followedSports: ["rugby"],
+  selectedBroadcasters: [],
+});
+app.setActiveFilter("sport:rugby");
+assert.equal(app.eventMeetsDerivedRetention(recentWallabiesJapan, recentRugbyReference), true, "Japan v Australia must remain inside the 14-day retained-card window on 11 August");
+assert.equal(app.eventIsAutoArchived(recentWallabiesJapan, recentRugbyReference), false, "Japan v Australia must remain in the active feed until seven days after it finishes");
+assert.equal(app.feedFilterMatchesEvent("sport:rugby", recentWallabiesJapan), true, "Japan v Australia must match the focused Rugby filter");
+assert.equal(
+  app.focusedRecentPastDateKey([recentWallabiesJapan.date, "2026-08-11", "2026-08-15"], "2026-08-11", "sport:rugby"),
+  "2026-08-08",
+  "focused Rugby entry must anchor the latest retained result before Today"
+);
+assert.equal(
+  app.focusedRecentPastDateKey([recentWallabiesJapan.date, "2026-08-15"], "2026-08-11", "all"),
+  null,
+  "the all-sports feed must keep its existing priority-or-Today entry anchor"
+);
+const focusedSportFilterIds = app.allSelectorEntities()
+  .filter(entity => entity.categoryType === "sport")
+  .map(entity => entity.id);
+assert(focusedSportFilterIds.length >= 5, "the cross-sport entry regression must cover the surfaced sport taxonomy");
+focusedSportFilterIds.forEach(filterId => {
+  assert.equal(
+    app.focusedRecentPastDateKey([recentWallabiesJapan.date, "2026-08-15"], "2026-08-11", filterId),
+    "2026-08-08",
+    `${filterId} must enter at its latest retained past date when one exists`
+  );
+});
+assert.deepEqual(
+  Array.from(app.getPreferenceMatchedEvents(recentRugbyReference), item => item.id),
+  ["rugby-japan-australia-2026-08-08"],
+  "the focused Rugby view must retain Japan v Australia on 11 August even without a selected provider"
+);
+app.setActiveFilter("all");
+app.setPreferences({});
 
 const canonicalWimbledon = { ...event("canonical-wimbledon", 2, 4), sport: "Tennis", key: "wimbledon" };
 app.setEvents([canonicalWimbledon]);

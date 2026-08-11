@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="63">
+<meta name="app-shell-version" content="64">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -7243,7 +7243,7 @@ function buildEventCard(ev, options = {}){
 }
 
 /* ============ RENDER: LIST VIEW ============ */
-function appendNewlySurfacedSection(container, events, { mode = "calendar" } = {}){
+function appendNewlySurfacedSection(container, events, { mode = "calendar", anchorEventId = null } = {}){
   if (!events.length) return false;
   const section = document.createElement("section");
   section.className = "queue-section surfaced-new-section";
@@ -7254,7 +7254,11 @@ function appendNewlySurfacedSection(container, events, { mode = "calendar" } = {
   section.appendChild(heading);
   const grid = document.createElement("div");
   grid.className = "cards-grid";
-  events.forEach(ev => grid.appendChild(buildEventCard(ev, { mode })));
+  events.forEach(ev => {
+    const card = buildEventCard(ev, { mode });
+    if (anchorEventId && (ev.eventId || ev.id) === anchorEventId) card.id = "calendarRecentResultAnchor";
+    grid.appendChild(card);
+  });
   section.appendChild(grid);
   container.appendChild(section);
   return true;
@@ -7315,7 +7319,12 @@ function renderListView(){
   container.innerHTML = "";
   const filtered = getFilteredEvents();
   const { newItems, seenItems } = partitionSurfacedEvents(filtered);
-  appendNewlySurfacedSection(container, newItems);
+  const todayStr = formatDateKey(nowAEST());
+  const recentPastDateKey = focusedRecentPastDateKey(filtered.map(event => event.date), todayStr, activeFilter);
+  const recentPastNewItem = newItems.find(event => event.date === recentPastDateKey) || null;
+  appendNewlySurfacedSection(container, newItems, {
+    anchorEventId: recentPastNewItem ? recentPastNewItem.eventId || recentPastNewItem.id : null,
+  });
   const ordered = calendarTimelineEvents(seenItems);
 
   // group by date, preserving order
@@ -7328,8 +7337,6 @@ function renderListView(){
     }
     groupMap[ev.date].push(ev);
   });
-
-  const todayStr = formatDateKey(nowAEST());
 
   let todayAnchorInserted = false;
   const appendTodayAnchor = () => {
@@ -7349,6 +7356,7 @@ function renderListView(){
     if (!todayAnchorInserted && dateStr >= todayStr) appendTodayAnchor();
     const groupDiv = document.createElement("div");
     groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
+    if (!recentPastNewItem && dateStr === recentPastDateKey) groupDiv.id = "calendarRecentResultAnchor";
 
     const heading = document.createElement("div");
     heading.className = "date-heading";
@@ -7385,8 +7393,18 @@ function activeTodayAnchorId(){
   return "calendarTodayAnchor";
 }
 
+function focusedRecentPastDateKey(dateKeys, todayKey, filterValue = activeFilter){
+  if (filterValue === "all") return null;
+  return (dateKeys || []).reduce((latest, dateKey) => {
+    if (!dateKey || dateKey >= todayKey) return latest;
+    return !latest || dateKey > latest ? dateKey : latest;
+  }, null);
+}
+
 function activeInitialFeedAnchorId(){
-  return document.getElementById("calendarPriorityAnchor")
+  return document.getElementById("calendarRecentResultAnchor")
+    ? "calendarRecentResultAnchor"
+    : document.getElementById("calendarPriorityAnchor")
     ? "calendarPriorityAnchor"
     : activeTodayAnchorId();
 }

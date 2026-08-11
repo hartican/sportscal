@@ -11,6 +11,12 @@ assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canoni
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"), "local-only updates must still refresh canonical sports data");
 assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"), "local-only updates must still enforce published result completeness");
+assert(localSteps.some(step => step[0] === "scripts/verify-nothingsport.js"), "every canonical update must enforce focused-sport retention and interface regressions");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/verify-nothingsport.js")
+    > localSteps.findIndex(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"),
+  "the interface regression gate must inspect the fully published and result-complete feed"
+);
 assert.deepEqual(
   localSteps,
   defaultSteps.filter(step => step[0] !== releaseStep),
