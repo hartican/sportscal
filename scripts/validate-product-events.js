@@ -304,19 +304,21 @@ async function run(){
   const client = SERVER_SYNC.createClient({
     storage: memoryStorage(),
     now: () => Date.parse("2026-08-11T01:00:00.000Z"),
-    locationLike: {
-      origin: "https://nothingsport.vercel.app",
-      pathname: "/",
-      search: "",
-      hash: "#access_token=access&refresh_token=refresh&expires_in=3600",
-    },
-    historyLike: { replaceState(){} },
     fetchImpl: async (url, options = {}) => {
       browserRequests.push({ url, options });
+      if (url === "/api/auth"){
+        return browserResponse({
+          session: {
+            access_token: "access",
+            refresh_token: "refresh",
+            expires_in: 3600,
+          },
+        });
+      }
       return browserResponse({ accepted: 1, schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION }, 202);
     },
   });
-  await client.restoreSession();
+  await client.signIn("pilot@example.com", "correct horse battery staple");
   await client.sendProductEvents([event()]);
   const browserInsert = browserRequests.find(request => request.url === "/api/product-events");
   assert(browserInsert);

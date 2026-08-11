@@ -91,7 +91,7 @@ assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i
 assert(html.includes("starToStoredScore") && html.includes("half-filled"), "five-star input must retain 1-10 storage compatibility and half-star display");
 assert(html.includes("ensureSessionRatingPrompt(filtered)") && html.includes("sessionRatingPromptSelectionFinalized"), "the feed must select at most one post-event rating prompt per session");
 assert(html.includes("suppressSessionRatingPrompt();") && html.includes("if (showTunePrompt) suppressSessionRatingPrompt()"), "Tune and rating prompts must never stack");
-assert(worker.includes('const CACHE_NAME = "nothingsport-shell-v72"'));
+assert(worker.includes('const CACHE_NAME = "nothingsport-shell-v73"'));
 assert(worker.includes('"/config/fine-tuning.js"') && worker.includes('"/config/rating-system.js"'));
 
 console.log("Fine-tuning and ratings valid: canonical three-stage Tune, meaningful suppression, compatible five-star ratings, and bounded session prompts passed.");

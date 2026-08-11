@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="72">
+<meta name="app-shell-version" content="73">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -3102,13 +3102,18 @@ main{
 
 .account-sync-form{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) auto;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:9px;
   align-items:end;
   margin-top:10px;
 }
 
 .account-sync-form .field-label{ margin:0; }
+
+.account-sync-form .btn{
+  grid-column:1 / -1;
+  justify-self:start;
+}
 
 .account-sync-actions{
   display:flex;
@@ -3207,6 +3212,7 @@ main{
   .coverage-grid,
   .viewing-window-grid,
   .account-sync-form{ grid-template-columns:1fr; }
+  .account-sync-form .btn{ grid-column:auto; justify-self:stretch; }
 }
 
 .settings-menu{
@@ -3465,6 +3471,7 @@ main{
 }
 
 .field-label select,
+.field-label input,
 .field-label textarea{
   width:100%;
   border: 1px solid var(--border);
@@ -10510,8 +10517,7 @@ function accountSettingsSummary(){
   if (serverPersistence.state === "checking") return "Checking server sync";
   if (serverPersistence.state === "local") return "Local only · this device";
   if (serverPersistence.state === "signedOut") return "Sign in to sync across devices";
-  if (serverPersistence.state === "magicLinkSent") return "Magic link sent · check your email";
-  if (serverPersistence.state === "requesting") return "Sending magic link";
+  if (serverPersistence.state === "requesting") return "Signing in";
   if (serverPersistence.state === "syncing") return `${email || "Signed in"} · syncing`;
   if (serverPersistence.state === "signedIn") return `${email || "Signed in"} · synced`;
   return email ? `${email} · local copy active` : "Local copy active";
@@ -10540,28 +10546,24 @@ function accountSyncTimeLabel(value){
 function renderAccountSettings(body){
   const state = serverPersistence.state;
   const signedIn = Boolean(serverPersistence.user) && ["signedIn", "syncing", "error"].includes(state);
-  const pending = ["checking", "requesting", "magicLinkSent", "syncing"].includes(state);
+  const pending = ["checking", "requesting", "syncing"].includes(state);
   const dotClass = signedIn && state === "signedIn" ? " connected" : pending ? " pending" : "";
   const heading = state === "local"
     ? "Local profile"
     : signedIn
       ? "Profile sync"
-      : state === "magicLinkSent"
-        ? "Check your email"
-        : "Sign in with email";
+      : "Sign in";
   const detail = state === "local"
     ? "Your choices remain saved on this device. Server sync becomes available when the Supabase project is connected."
     : state === "checking"
       ? "Checking whether server sync is available."
       : state === "requesting"
-        ? "Sending a secure, one-time sign-in link."
-        : state === "magicLinkSent"
-          ? (serverPersistence.message || "Open the one-time link on this device to connect your profile.")
-      : signedIn
+        ? "Checking your email and password securely."
+        : signedIn
             ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
             : state === "error"
               ? (serverPersistence.message || "Your local copy is active while sync recovers.")
-              : (serverPersistence.message || "Use a one-time magic link. No password is required.");
+              : (serverPersistence.message || "Sign in with one of the accounts approved for the closed pilot.");
 
   body.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
@@ -10579,7 +10581,7 @@ function renderAccountSettings(body){
   if (signedIn){
     const identity = document.createElement("p");
     identity.className = "preference-help";
-    identity.textContent = `Signed in as ${serverPersistence.user.email || "your magic-link account"}.`;
+    identity.textContent = `Signed in as ${serverPersistence.user.email || "your account"}.`;
     controls.appendChild(identity);
     const actions = document.createElement("div");
     actions.className = "account-sync-actions";
@@ -10607,35 +10609,32 @@ function renderAccountSettings(body){
     return;
   }
 
-  if (state === "magicLinkSent"){
-    controls.innerHTML = `<div class="account-sync-actions"><button class="btn ghost" type="button" id="retryMagicLinkBtn">Use another email</button></div>`;
-    document.getElementById("retryMagicLinkBtn").addEventListener("click", () => {
-      setServerPersistence({ state: "signedOut", message: "" });
-    });
-    return;
-  }
   if (!serverPersistence.configured || ["checking", "requesting"].includes(state)) return;
 
   controls.innerHTML = `<form class="account-sync-form" id="accountSignInForm">
     <label class="field-label" for="accountEmail">Email
-      <input id="accountEmail" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com">
+      <input id="accountEmail" type="email" autocomplete="username" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required placeholder="you@example.com">
     </label>
-    <button class="btn primary" type="submit">Send magic link</button>
+    <label class="field-label" for="accountPassword">Password
+      <input id="accountPassword" type="password" autocomplete="current-password" maxlength="1024" required>
+    </label>
+    <button class="btn primary" type="submit">Sign in</button>
   </form>`;
   document.getElementById("accountSignInForm").addEventListener("submit", async event => {
     event.preventDefault();
     const email = document.getElementById("accountEmail").value.trim();
+    const password = document.getElementById("accountPassword").value;
     setServerPersistence({ state: "requesting", message: "" });
     try{
-      const result = await serverSyncClient.requestMagicLink(email);
-      setServerPersistence({
-        state: "magicLinkSent",
-        message: result.message || "Check your email for your nothingsport sign-in link.",
-      });
+      await serverSyncClient.signIn(email, password);
+      await bootstrapServerPersistence();
+      showToast(serverPersistence.user
+        ? "Signed in. Your nothingsport profile is connected."
+        : (serverPersistence.message || "Sign-in could not be completed."));
     }catch(error){
       setServerPersistence({
         state: "signedOut",
-        message: error.message || "The magic link could not be sent.",
+        message: error.message || "Email or password not recognised.",
       });
       showToast(serverPersistence.message);
     }
@@ -11394,7 +11393,7 @@ function renderSettingsScreen(){
 
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
-    account: ["Account & sync", "Use a magic link to keep durable choices connected across devices."],
+    account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
     pilot: ["Trust pilot", "Optional, disclosed measurement for the signed-in fourteen-day pilot."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
     sports: [settingsFirstRun ? "Sports Followed · 1 of 3" : "Sports Followed", settingsFirstRun ? "Pick sports and special events, then tune selected sports inline." : "Follow sports and special events, tune Froth inline, and use Events for detailed follow controls."],

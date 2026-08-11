@@ -126,9 +126,15 @@ async function run(){
     },
     updated_at: "2026-07-27T10:00:00.000Z",
   };
+  const passwordSession = {
+    access_token: "access",
+    refresh_token: "refresh",
+    expires_in: 3600,
+    user: authUser,
+  };
   global.fetch = async (url, options = {}) => {
     requests.push({ url: String(url), options });
-    if (String(url).includes("/auth/v1/otp")) return fetchResponse({});
+    if (String(url).includes("/auth/v1/token?grant_type=password")) return fetchResponse(passwordSession);
     if (String(url).endsWith("/auth/v1/user")) return fetchResponse(authUser);
     if (String(url).includes("/rest/v1/nothingsports_user_state") && options.method === "POST"){
       return fetchResponse([{ ...JSON.parse(options.body), updated_at: "2026-07-27T10:01:00.000Z" }]);
@@ -144,28 +150,32 @@ async function run(){
     assert.deepEqual(statusResponse.body, { configured: true, provider: "supabase" });
     assert.equal(statusResponse.headers["Cache-Control"], "private, no-store, max-age=0");
 
-    const magicLinkResponse = responseStub();
+    const passwordResponse = responseStub();
     await authHandler({
       method: "POST",
-      headers: {
-        origin: "https://malicious.example",
-        host: "nothingsport.vercel.app",
-        "x-forwarded-proto": "https",
-      },
       body: {
-        action: "magic-link",
+        action: "password-sign-in",
         email: "fan@example.com",
-        redirectTo: "https://malicious.example/steal",
+        password: "correct horse battery staple",
       },
-    }, magicLinkResponse);
-    assert.equal(magicLinkResponse.statusCode, 200);
-    const otpRequest = requests.find(request => request.url.includes("/auth/v1/otp"));
-    assert(otpRequest, "magic-link requests must use the Supabase OTP endpoint");
-    assert.match(
-      otpRequest.url,
-      /redirect_to=https%3A%2F%2Fnothingsport\.vercel\.app%2F/,
-      "magic-link redirects must remain on the deployed host rather than trusting the Origin header"
-    );
+    }, passwordResponse);
+    assert.equal(passwordResponse.statusCode, 200);
+    assert.equal(passwordResponse.body.session.access_token, "access");
+    const passwordRequest = requests.find(request => request.url.includes("/auth/v1/token?grant_type=password"));
+    assert(passwordRequest, "password sign-in must use the Supabase password grant");
+    assert.deepEqual(JSON.parse(passwordRequest.options.body), {
+      email: "fan@example.com",
+      password: "correct horse battery staple",
+    });
+    assert.equal(passwordRequest.options.headers.apikey, "sb_publishable_test");
+
+    const missingPasswordResponse = responseStub();
+    await authHandler({
+      method: "POST",
+      body: { action: "password-sign-in", email: "fan@example.com", password: "" },
+    }, missingPasswordResponse);
+    assert.equal(missingPasswordResponse.statusCode, 400);
+    assert.equal(missingPasswordResponse.body.code, "invalid_password");
 
     const loadedResponse = responseStub();
     await userStateHandler({
@@ -219,7 +229,7 @@ async function run(){
     ));
     assert.match(upsertRequest.options.headers.Prefer, /resolution=merge-duplicates/);
     const upsertedState = JSON.parse(upsertRequest.options.body);
-    assert.equal(upsertedState.user_id, authUser.id, "the verified magic-link user id must own the row");
+    assert.equal(upsertedState.user_id, authUser.id, "the verified password user id must own the row");
     assert.equal(upsertedState.profile.futureProfileField, "keep", "server upserts must preserve earlier profile fields");
     assert.equal(upsertedState.preferences.theme, "night", "server upserts must preserve earlier settings omitted by the client");
     assert.equal(upsertedState.preferences.viewing.viewingWindowEnabled, true, "server upserts must preserve nested sibling settings");
@@ -234,30 +244,23 @@ async function run(){
     global.fetch = originalFetch;
   }
 
-  const callbackSession = serverSync.sessionFromHash(
-    "#access_token=access&refresh_token=refresh&expires_in=3600",
+  const parsedPasswordSession = serverSync.parseSession(
+    passwordSession,
     Date.parse("2026-07-27T10:00:00.000Z")
   );
-  assert.equal(callbackSession.accessToken, "access");
-  assert.equal(callbackSession.expiresAt, Date.parse("2026-07-27T11:00:00.000Z"));
+  assert.equal(parsedPasswordSession.accessToken, "access");
+  assert.equal(parsedPasswordSession.expiresAt, Date.parse("2026-07-27T11:00:00.000Z"));
 
   const storage = memoryStorage();
-  let replacedUrl = "";
   const browserRequests = [];
   const client = serverSync.createClient({
     storage,
     now: () => Date.parse("2026-07-27T10:00:00.000Z"),
-    locationLike: {
-      origin: "https://nothingsport.vercel.app",
-      pathname: "/",
-      search: "?from=email",
-      hash: "#access_token=access&refresh_token=refresh&expires_in=3600",
-    },
-    historyLike: {
-      replaceState(_state, _title, url){ replacedUrl = url; },
-    },
     fetchImpl: async (url, options = {}) => {
       browserRequests.push({ url, options });
+      if (url === "/api/auth" && options.method === "POST" && !options.headers?.Authorization){
+        return browserResponse({ session: passwordSession });
+      }
       if (url === "/api/auth" && options.headers?.Authorization){
         return browserResponse({ user: { id: authUser.id, email: authUser.email } });
       }
@@ -282,8 +285,15 @@ async function run(){
       return browserResponse({ configured: true, provider: "supabase" });
     },
   });
+  await client.signIn("fan@example.com", "correct horse battery staple");
   await client.restoreSession();
-  assert.equal(replacedUrl, "/?from=email", "magic-link credentials must be removed from the URL after capture");
+  const browserPasswordRequest = browserRequests.find(request => {
+    const body = JSON.parse(request.options.body || "{}");
+    return body.action === "password-sign-in";
+  });
+  assert(browserPasswordRequest, "the browser client must request password sign-in");
+  assert.equal(JSON.parse(browserPasswordRequest.options.body).password, "correct horse battery staple");
+  assert.equal(client.getSession().accessToken, "access");
   assert.equal((await client.user()).id, authUser.id);
   assert.equal((await client.loadState()).state.eventUserState.event.watchLater, true);
   assert.equal((await client.loadFeed()).derivedCardCache.buildOrigin, "server");
@@ -307,7 +317,7 @@ async function run(){
   assert.equal(browserMergedSettings.viewing.startHourLocal, 9, "browser hydration must prefer the incoming server value");
   assert.deepEqual(browserMergedSettings.selectedBroadcasters, [], "explicit empty selections must remain explicit");
 
-  console.log("Server persistence valid: magic-link auth, RLS ownership, saved-state upsert and browser session handling passed.");
+  console.log("Server persistence valid: closed-pilot password auth, RLS ownership, saved-state upsert and browser session handling passed.");
 }
 
 run().catch(error => {

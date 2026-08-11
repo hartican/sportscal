@@ -47,17 +47,6 @@
     return { accessToken, refreshToken, expiresAt };
   }
 
-  function sessionFromHash(hash, now = Date.now()){
-    const params = new URLSearchParams(String(hash || "").replace(/^#/, ""));
-    if (!params.get("access_token") || !params.get("refresh_token")) return null;
-    return parseSession({
-      access_token: params.get("access_token"),
-      refresh_token: params.get("refresh_token"),
-      expires_at: params.get("expires_at"),
-      expires_in: params.get("expires_in"),
-    }, now);
-  }
-
   function stateFromDatabaseRow(row){
     if (!row || typeof row !== "object") return null;
     return {
@@ -112,8 +101,6 @@
   function createClient({
     fetchImpl = globalThis.fetch?.bind(globalThis),
     storage = globalThis.sessionStorage,
-    locationLike = globalThis.location,
-    historyLike = globalThis.history,
     now = () => Date.now(),
   } = {}){
     let session = null;
@@ -201,33 +188,25 @@
       }
     }
 
-    function captureMagicLinkSession(){
-      const callbackSession = sessionFromHash(locationLike?.hash, now());
-      if (!callbackSession) return null;
-      saveSession(callbackSession);
-      try{
-        const cleanPath = `${locationLike.pathname || "/"}${locationLike.search || ""}`;
-        historyLike?.replaceState?.({}, "", cleanPath);
-      }catch(_error){
-        // The session is already captured; URL clean-up is best effort.
-      }
-      return callbackSession;
-    }
-
     return Object.freeze({
       async status(){
         return jsonRequest("/api/auth");
       },
       async restoreSession(){
-        captureMagicLinkSession();
         return currentSession();
       },
-      async requestMagicLink(email){
-        const redirectTo = `${locationLike?.origin || ""}${locationLike?.pathname || "/"}`;
-        return jsonRequest("/api/auth", {
+      async signIn(email, password){
+        const payload = await jsonRequest("/api/auth", {
           method: "POST",
-          body: JSON.stringify({ action: "magic-link", email, redirectTo }),
+          body: JSON.stringify({ action: "password-sign-in", email, password }),
         });
+        const saved = saveSession(payload.session);
+        if (!saved){
+          const error = new Error("The sign-in response did not contain a valid session.");
+          error.code = "invalid_auth_session";
+          throw error;
+        }
+        return { ...saved };
       },
       async user(){
         const payload = await authenticatedRequest("/api/auth");
@@ -290,7 +269,6 @@
     createClient,
     mergeSettings,
     parseSession,
-    sessionFromHash,
     stateFromDatabaseRow,
   });
 });

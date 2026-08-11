@@ -25,6 +25,7 @@ const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8"
 const productEventsSource = fs.readFileSync("config/product-events.js", "utf8");
 const pilotReadoutSource = fs.readFileSync("config/pilot-readout.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
+const authApiSource = fs.readFileSync("api/auth.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
 const serverFeedApiSource = fs.readFileSync("api/feed.js", "utf8");
 const preferenceSystemSource = fs.readFileSync("config/preference-system.js", "utf8");
@@ -125,7 +126,11 @@ assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asse
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('src="config/product-events.js"'), "the fixed pilot-measurement contract must load before app state");
-assert(html.includes('src="config/server-sync.js"'), "magic-link sessions and server-state sync must load before app state");
+assert(html.includes('src="config/server-sync.js"'), "password sessions and server-state sync must load before app state");
+assert(html.includes('autocomplete="current-password"') && html.includes('id="accountSignInForm"'), "Account settings must expose accessible email/password sign-in");
+assert(serverSyncSource.includes('action: "password-sign-in"') && serverSyncSource.includes("async signIn(email, password)"), "the browser sync client must use the password sign-in contract");
+assert(authApiSource.includes('"/auth/v1/token?grant_type=password"'), "the Auth API must exchange credentials through Supabase password Auth");
+assert(!authApiSource.includes("/auth/v1/otp") && !html.includes("magic link"), "the closed pilot must not expose magic-link or public account-creation paths");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
@@ -294,8 +299,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v72"'), "pilot interaction changes must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="72">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v73"'), "password sign-in changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="73">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/swipe-calibration.js"'), "recognisable swipe anchors must be available in the offline shell");
@@ -326,7 +331,7 @@ assert(serviceWorkerSource.includes('"/data/canonical/cwg-context-2026.json"'), 
 assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
-assert(html.includes('"Account & sync"'), "Settings must expose magic-link identity and sync status");
+assert(html.includes('"Account & sync"'), "Settings must expose password identity and sync status");
 assert(html.includes("bootstrapServerPersistence()"), "app startup must hydrate durable user state before opening the profile experience");
 assert(html.includes("queueServerStateSync()"), "durable local changes must queue a server-state write");
 assert(html.includes("eventUserState: eventActions"), "archive and saved-card state must be included in server truth");

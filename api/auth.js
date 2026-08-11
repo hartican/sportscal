@@ -4,7 +4,6 @@ const {
   authenticatedUser,
   bearerToken,
   publicError,
-  safeRedirectUrl,
   supabaseConfig,
   supabaseRequest,
 } = require("../lib/supabase-server");
@@ -27,6 +26,11 @@ function requestBody(request){
 function validEmail(value){
   const email = String(value || "").trim().toLowerCase();
   return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : "";
+}
+
+function validPassword(value){
+  const password = typeof value === "string" ? value : "";
+  return password.length > 0 && password.length <= 1024 ? password : "";
 }
 
 function publicUser(user){
@@ -63,24 +67,25 @@ module.exports = async function authHandler(request, response){
     }
 
     const body = requestBody(request);
-    if (body.action === "magic-link"){
+    if (body.action === "password-sign-in"){
       const email = validEmail(body.email);
       if (!email){
         response.status(400).json({ error: "Enter a valid email address.", code: "invalid_email" });
         return;
       }
-      const redirectTo = safeRedirectUrl(request, body.redirectTo);
-      await supabaseRequest(`/auth/v1/otp?redirect_to=${encodeURIComponent(redirectTo)}`, {
+      const password = validPassword(body.password);
+      if (!password){
+        response.status(400).json({ error: "Enter your password.", code: "invalid_password" });
+        return;
+      }
+      const session = await supabaseRequest("/auth/v1/token?grant_type=password", {
         method: "POST",
         body: {
           email,
-          create_user: true,
+          password,
         },
       });
-      response.status(200).json({
-        sent: true,
-        message: "Check your email for your nothingsport sign-in link.",
-      });
+      response.status(200).json({ session });
       return;
     }
 
