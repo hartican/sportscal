@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/preference-taxonomy.schema.json",
+  "title": "nothingsport selector-to-taxonomy translation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "taxonomyVersion", "sourceSelectorEntityIds", "mappings"],
+  "properties": {
+    "schemaVersion": { "const": "preference-taxonomy.v1" },
+    "taxonomyVersion": { "const": "sport-hierarchy.v1" },
+    "sourceSelectorEntityIds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3 },
+      "uniqueItems": true
+    },
+    "mappings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/mapping" }
+    }
+  },
+  "$defs": {
+    "mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selectorEntityId", "taxonomyNodeId", "hierarchyLevel", "canonicalSportKeys"],
+      "properties": {
+        "selectorEntityId": { "type": "string", "minLength": 3 },
+        "taxonomyNodeId": { "type": "string", "pattern": "^(sport|discipline|competition|event-series):" },
+        "hierarchyLevel": { "enum": ["sport", "discipline", "competition", "event_series"] },
+        "canonicalSportKeys": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "qualifier": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value"],
+          "properties": {
+            "type": { "const": "commonwealth_discipline" },
+            "value": { "type": "string", "minLength": 2 }
+          }
+        }
+      }
+    }
+  }
+}

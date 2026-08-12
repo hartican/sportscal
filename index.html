@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="80">
+<meta name="app-shell-version" content="81">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4355,6 +4355,7 @@ footer.app-footer{
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/sport-hierarchy.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
+<script src="config/preference-taxonomy.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -4435,6 +4436,7 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
   competitions: [],
 };
 const EVENT_TAXONOMY_COMPAT = globalThis.NOTHINGSPORTS_EVENT_TAXONOMY_COMPAT || null;
+const PREFERENCE_TAXONOMY = globalThis.NOTHINGSPORTS_PREFERENCE_TAXONOMY || null;
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
 const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
@@ -4542,15 +4544,17 @@ const SPOILER_FIELDS = {
 
 const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"];
 const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
+const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 10,
+  version: 11,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
   localVenueIds: ["gio-stadium", "manuka-oval"],
   selectedSelectorEntityIds: DEFAULT_FIRST_RUN_SELECTOR_IDS,
   followedSports: DEFAULT_FIRST_RUN_SPORT_KEYS,
+  taxonomySelection: null,
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
   pilotMeasurement: {
@@ -4860,6 +4864,50 @@ function canonicalSportKeysForSelectorIds(entityIds){
     .filter(key => SPORT_META[key]);
 }
 
+function effectiveSelectorEntitiesForIds(entityIds){
+  const selected = new Set(normalizeSelectorEntityIds(entityIds));
+  const selectors = [];
+  const add = (entity, qualifier) => {
+    if (!entity) return;
+    selectors.push({
+      id: entity.id,
+      canonicalSportKeys: selectorEntityCanonicalSportKeys(entity),
+      ...(qualifier ? { qualifier } : {}),
+    });
+  };
+
+  if (selected.has("category:sports")){
+    BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => add(entity));
+  } else {
+    BASE_SPORT_SELECTOR_ENTITIES.filter(entity => selected.has(entity.id)).forEach(entity => add(entity));
+  }
+
+  if (selected.has("category:special-events")){
+    (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => add(entity));
+  } else {
+    (SELECTOR_TAXONOMY.specialEvents || []).filter(entity => selected.has(entity.id)).forEach(entity => add(entity));
+  }
+
+  const allCwgDisciplinesSelected = selected.has("category:special-events")
+    || selected.has("special:commonwealth-games");
+  if (!allCwgDisciplinesSelected){
+    (SELECTOR_TAXONOMY.commonwealthDisciplines || [])
+      .filter(entity => selected.has(entity.id))
+      .forEach(entity => add(
+        (SELECTOR_TAXONOMY.specialEvents || []).find(candidate => candidate.id === "special:commonwealth-games"),
+        { type: "commonwealth_discipline", value: entity.canonicalDiscipline }
+      ));
+  }
+  return selectors;
+}
+
+function taxonomySelectionForSelectorIds(entityIds){
+  return PREFERENCE_TAXONOMY?.translateSelection?.({
+    sourceSelectorEntityIds: normalizeSelectorEntityIds(entityIds),
+    effectiveSelectors: effectiveSelectorEntitiesForIds(entityIds),
+  }) || null;
+}
+
 function selectorEntityIsEffectivelySelected(entityId, preferences){
   const selected = new Set(preferences?.selectedSelectorEntityIds || []);
   if (selected.has(entityId)) return true;
@@ -4907,7 +4955,15 @@ function selectorEntityMatchesEvent(entityId, ev){
     return ev.key === "cwg" && commonwealthDisciplineForEvent(ev) === entity.canonicalDiscipline;
   }
   const eventDomainIds = eventDomainIdentifiers(ev);
-  return selectorEntityCanonicalSportKeys(entity).some(key => eventDomainIds.includes(key));
+  if (selectorEntityCanonicalSportKeys(entity).some(key => eventDomainIds.includes(key))) return true;
+  const translation = PREFERENCE_TAXONOMY?.translateSelection?.({
+    sourceSelectorEntityIds: [entityId],
+    effectiveSelectors: [{ id: entity.id, canonicalSportKeys: selectorEntityCanonicalSportKeys(entity) }],
+  });
+  const resolvedEvent = EVENT_TAXONOMY_COMPAT?.resolveEvent?.(ev);
+  return Boolean(resolvedEvent && translation?.mappings?.some(mapping => (
+    PREFERENCE_TAXONOMY.mappingMatchesResolvedEvent(mapping, resolvedEvent)
+  )));
 }
 
 function selectorNewPromptEntities(){
@@ -4968,7 +5024,10 @@ function syncThemeBrandAssets(useDark){
 
 function mergePreferences(saved){
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
-  if (!saved || typeof saved !== "object") return merged;
+  if (!saved || typeof saved !== "object"){
+    merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
+    return merged;
+  }
   const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
     ? saved.pilotMeasurement
     : {};
@@ -4979,7 +5038,7 @@ function mergePreferences(saved){
   const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
-  const shouldSeedEmptyLegacyProfile = Number(saved.version || 0) < DEFAULT_PREFERENCES.version
+  const shouldSeedEmptyLegacyProfile = Number(saved.version || 0) < LEGACY_SEEDED_DEFAULTS_VERSION
     && !savedSelectorEntityIds.length;
   const selectedSelectorEntityIds = shouldSeedEmptyLegacyProfile
     ? DEFAULT_FIRST_RUN_SELECTOR_IDS.slice()
@@ -4993,7 +5052,7 @@ function mergePreferences(saved){
   const legacySelectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
   const priorDefaultBroadcasters = ["kayo", "stan", "sbs", "nine", "foxtel", "fis"];
   const priorCwgDefaultBroadcasters = [...priorDefaultBroadcasters, "seven"];
-  const legacySelectionWasDefault = Number(saved.version || 0) < DEFAULT_PREFERENCES.version
+  const legacySelectionWasDefault = Number(saved.version || 0) < LEGACY_SEEDED_DEFAULTS_VERSION
     && [priorDefaultBroadcasters, priorCwgDefaultBroadcasters].some(defaults =>
       defaults.length === legacySelectedBroadcasters.length && defaults.every(id => legacySelectedBroadcasters.includes(id))
     );
@@ -5028,6 +5087,7 @@ function mergePreferences(saved){
     localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
+    taxonomySelection: taxonomySelectionForSelectorIds(migratedSelectorEntityIds),
     selectedBroadcasters: migratedBroadcasters,
     preferenceGraph,
     pilotMeasurement: {
@@ -10204,6 +10264,7 @@ function selectorNewMarkerMarkup(entity){
 function syncDraftSelectorSports(){
   draftPreferences.selectedSelectorEntityIds = normalizeSelectorEntityIds(draftPreferences.selectedSelectorEntityIds);
   draftPreferences.followedSports = canonicalSportKeysForSelectorIds(draftPreferences.selectedSelectorEntityIds);
+  draftPreferences.taxonomySelection = taxonomySelectionForSelectorIds(draftPreferences.selectedSelectorEntityIds);
   syncDraftPreferenceGraph();
 }
 
@@ -11925,6 +11986,7 @@ document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () 
   }
   next.selectedSelectorEntityIds = Array.from(combined);
   next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+  next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
   savePreferences(next);
   acknowledgeSelectorRelease();
   closeSelectorOptInPrompt({ restoreViewport: false });

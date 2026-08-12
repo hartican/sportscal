@@ -95,8 +95,10 @@ assert.equal(shellVersion, workerVersion, "HTML and service-worker shell version
 [
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
+  "/config/preference-taxonomy.js",
   "/schemas/sport-hierarchy.schema.json",
   "/schemas/catalog-event.schema.json",
+  "/schemas/preference-taxonomy.schema.json",
 ].forEach(asset => assert(serviceWorker.includes(`"${asset}"`), `${asset} must ship in the offline shell`));
 
 console.log(`Sport hierarchy valid: ${hierarchy.nodes.length} nodes; ${feed.events.length} published cards resolve without identity changes.`);

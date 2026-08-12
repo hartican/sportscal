@@ -17,6 +17,9 @@ const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", "utf8");
 const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
 const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
+const sportHierarchySource = fs.readFileSync("config/sport-hierarchy.js", "utf8");
+const eventTaxonomyCompatSource = fs.readFileSync("config/event-taxonomy-compat.js", "utf8");
+const preferenceTaxonomySource = fs.readFileSync("config/preference-taxonomy.js", "utf8");
 const vectorAssetsSource = fs.readFileSync("config/vector-assets.js", "utf8");
 const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.js", "utf8");
 const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
@@ -255,7 +258,7 @@ assert(productEventsSource.includes('"weekly_pulse"') && productEventsSource.inc
 assert(productEventsSource.includes("pilotCohort") && productEventsSource.includes("trustConfidence"), "the weekly pulse must support fixed cohort and fixture-confidence segmentation");
 assert(html.includes('properties: { action: "shown" }') && html.includes('properties: { action: "dismissed" }') && html.includes('properties: { action: "rated", score: i }'), "rating prompt burden and completed spectacle ratings must remain measurable separately");
 assert(pilotReadoutSource.includes('const SCHEMA_VERSION = "measurement-readout.v2"') && pilotReadoutSource.includes('recommendation: null'), "the measurement report must be on demand and must not automatically recommend social investment");
-assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v4"'), "swipe learning must use the v4 preference graph");
+assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v5"'), "hierarchy translation must use the v5 preference graph");
 assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
@@ -310,10 +313,10 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v80"'), "the sport hierarchy release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="80">'), "the served page must expose its shell version for installed-app diagnostics");
-assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"'), "the canonical hierarchy and compatibility adapter must be available in the offline shell");
-assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"'), "the hierarchy compatibility layer must load before event normalization");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v81"'), "the preference translation release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="81">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
+assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/user-state-sync.js"'), "the field-level user-state contract must be available in the offline shell");
@@ -714,6 +717,9 @@ vm.createContext(sandbox);
 vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.js" });
 vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-domain-registry.js" });
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
+vm.runInContext(sportHierarchySource, sandbox, { filename: "config/sport-hierarchy.js" });
+vm.runInContext(eventTaxonomyCompatSource, sandbox, { filename: "config/event-taxonomy-compat.js" });
+vm.runInContext(preferenceTaxonomySource, sandbox, { filename: "config/preference-taxonomy.js" });
 vm.runInContext(sportContextSource, sandbox, { filename: "config/sport-context.js" });
 vm.runInContext(sportHubsSource, sandbox, { filename: "config/sport-hubs.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
@@ -734,6 +740,8 @@ globalThis.__test = {
   AU_BROADCAST_CONFIG,
   SELECTOR_TAXONOMY,
   PREFERENCE_SYSTEM,
+  PREFERENCE_TAXONOMY,
+  EVENT_TAXONOMY_COMPAT,
   SPORT_CONTEXT,
   SPORT_HUBS,
   ENRICHMENT_ENGINE,
@@ -749,6 +757,8 @@ globalThis.__test = {
   orderSelectorEntities,
   selectorNewPromptEntities,
   canonicalSportKeysForSelectorIds,
+  effectiveSelectorEntitiesForIds,
+  taxonomySelectionForSelectorIds,
   selectedPreferenceDomainIds,
   selectorEntityMatchesEvent,
   commonwealthDisciplineForEvent,
@@ -1088,7 +1098,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 10, "the seeded league defaults must use the current preference migration");
+assert.equal(app.mergePreferences(null).version, 11, "the seeded league defaults must use the current preference migration");
 assert.equal(app.mergePreferences(null).pilotMeasurement.enabled, true, "signed-in measurement must participate by default");
 assert.equal(app.mergePreferences(null).pilotMeasurement.participationStartedAt, null, "participation must start only after a signed-in account is present");
 assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: false, participationVersion: "pilot-participation.v1" } }).pilotMeasurement.enabled, false, "an explicit opt-out must remain off");
@@ -1120,6 +1130,44 @@ assert.deepEqual(
   Array.from(app.mergePreferences({ followedSports: ["wimbledon", "fifa"] }).selectedSelectorEntityIds),
   ["special:wimbledon", "special:fifa-world-cup"],
   "legacy event-brand preferences must migrate into Special Events without creating Sports duplicates"
+);
+const taxonomyMigratedSpecials = app.mergePreferences({
+  version: 10,
+  onboardingComplete: true,
+  selectedSelectorEntityIds: ["special:wimbledon", "special:le-mans-24-hours"],
+  followedSports: ["wimbledon", "lemans"],
+});
+assert.deepEqual(
+  Array.from(taxonomyMigratedSpecials.taxonomySelection.mappings, mapping => mapping.taxonomyNodeId),
+  ["event-series:wimbledon", "event-series:le-mans-24-hours"],
+  "saved Special Events must gain exact event-series taxonomy targets without broadening to their parent sports"
+);
+assert.deepEqual(
+  Array.from(taxonomyMigratedSpecials.selectedSelectorEntityIds),
+  ["special:wimbledon", "special:le-mans-24-hours"],
+  "taxonomy translation must retain the compatibility selectors used by the current UI"
+);
+assert.deepEqual(
+  Array.from(taxonomyMigratedSpecials.followedSports),
+  ["wimbledon", "lemans"],
+  "taxonomy translation must retain the legacy sport keys used by existing feed and calendar clients"
+);
+assert.deepEqual(
+  app.mergePreferences(taxonomyMigratedSpecials),
+  taxonomyMigratedSpecials,
+  "reloading an already translated profile must be idempotent"
+);
+const taxonomyMigratedCwgDiscipline = app.mergePreferences({
+  version: 10,
+  onboardingComplete: true,
+  selectedSelectorEntityIds: ["cwg:athletics"],
+  followedSports: ["cwg"],
+});
+assert.equal(taxonomyMigratedCwgDiscipline.taxonomySelection.mappings[0].qualifier.type, "commonwealth_discipline");
+assert.equal(
+  taxonomyMigratedCwgDiscipline.taxonomySelection.mappings[0].qualifier.value,
+  "athletics",
+  "a saved Commonwealth discipline must retain its narrow coverage qualifier"
 );
 assert(!Array.from(app.BASE_SPORT_SELECTOR_ENTITIES, entity => entity.id).some(id => ["sport:wimbledon", "sport:fifa", "sport:tdf", "sport:masters", "sport:lemans", "sport:nfl", "sport:cwg"].includes(id)), "event brands must not also appear under Sports");
 assert.equal(Array.from(app.BASE_SPORT_SELECTOR_ENTITIES).find(entity => entity.id === "sport:nba")?.label, "Basketball", "Sports must use the broad Basketball label rather than an NBA Finals event label");

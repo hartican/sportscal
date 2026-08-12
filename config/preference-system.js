@@ -1,11 +1,13 @@
 (function attachNothingSportsPreferenceSystem(root, factory){
-  const api = factory();
+  const hierarchy = root.NOTHINGSPORTS_SPORT_HIERARCHY
+    || (typeof require === "function" ? require("./sport-hierarchy.js") : null);
+  const api = factory(hierarchy);
   root.NOTHINGSPORTS_PREFERENCE_SYSTEM = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(hierarchy){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v4";
+  const SCHEMA_VERSION = "preference-graph.v5";
   const MAX_LEARNING_SIGNALS = 120;
   const MAX_CALIBRATION_SKIPS = 10;
   const MAX_TUNING_DOMAINS = 24;
@@ -94,6 +96,14 @@
     return templateById[value] || templateBySlug[value] || templateById["template:like"];
   }
 
+  function taxonomyNodeId(value){
+    return hierarchy?.canonicalNodeId?.(value) || null;
+  }
+
+  function taxonomyNodeIds(values){
+    return uniqueStrings((Array.isArray(values) ? values : []).map(taxonomyNodeId));
+  }
+
   function narrativeVisibilityFor(template){
     if (template.rules.narrativeIntensityDefault <= 1) return "off";
     if (template.rules.narrativeIntensityDefault >= 4) return "allEligible";
@@ -103,9 +113,11 @@
   function expandTemplate(profileId, sportDomainId, templateId, overrides = {}){
     const template = templateFor(templateId);
     const { showLadder: _obsoleteShowLadder, ...cleanOverrides } = overrides || {};
+    const scopedCompetitionIds = uniqueStrings(overrides.scopedCompetitionIds);
     return {
       profileId,
       sportDomainId,
+      taxonomyNodeId: taxonomyNodeId(sportDomainId),
       enabled: overrides.enabled !== false,
       templateId: template.id,
       includeAllFixtures: template.rules.includeAllFixturesDefault,
@@ -115,11 +127,13 @@
       narrativeIntensity: template.rules.narrativeIntensityDefault,
       mustWatchSensitivity: template.rules.mustWatchSensitivityDefault,
       reminderDefault: template.rules.reminderDefault,
-      scopedCompetitionIds: uniqueStrings(overrides.scopedCompetitionIds),
       ...cleanOverrides,
       profileId,
       sportDomainId,
+      taxonomyNodeId: taxonomyNodeId(sportDomainId) || overrides.taxonomyNodeId || null,
       templateId: template.id,
+      scopedCompetitionIds,
+      scopedTaxonomyNodeIds: taxonomyNodeIds(scopedCompetitionIds),
     };
   }
 
@@ -291,7 +305,13 @@
       .filter(preference => preference && typeof preference.competitionId === "string")
       .map(preference => {
         const { showLadder: _obsoleteShowLadder, ...cleanPreference } = preference;
-        return { ...cleanPreference, profileId: safeProfileId };
+        return {
+          ...cleanPreference,
+          profileId: safeProfileId,
+          taxonomyCompetitionId: taxonomyNodeId(cleanPreference.competitionId)
+            || cleanPreference.taxonomyCompetitionId
+            || null,
+        };
       });
     const entityFollows = (Array.isArray(raw.entityFollows) ? raw.entityFollows : [])
       .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "mute"].includes(preference.followLevel))
@@ -380,12 +400,14 @@
     const preference = {
       profileId: next.profileId,
       competitionId,
+      taxonomyCompetitionId: taxonomyNodeId(competitionId),
       enabled: patch.enabled !== false,
       templateInheritedFromDomain: patch.templateInheritedFromDomain !== false,
       ...(index >= 0 ? next.competitionPreferences[index] : {}),
       ...patch,
       profileId: next.profileId,
       competitionId,
+      taxonomyCompetitionId: taxonomyNodeId(competitionId),
     };
     delete preference.showLadder;
     if (index >= 0) next.competitionPreferences[index] = preference;
@@ -575,6 +597,7 @@
 
   return Object.freeze({
     SCHEMA_VERSION,
+    TAXONOMY_VERSION: hierarchy?.schemaVersion || "sport-hierarchy-unavailable",
     MAX_LEARNING_SIGNALS,
     MAX_CALIBRATION_SKIPS,
     MAX_TUNING_DOMAINS,
@@ -588,6 +611,7 @@
     DEFAULT_VIEWING_WINDOW,
     templates: Object.freeze(templates),
     templateById,
+    taxonomyNodeId,
     expandTemplate,
     createPreferenceGraph,
     migratePreferenceGraph,

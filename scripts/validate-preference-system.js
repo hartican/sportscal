@@ -15,7 +15,8 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
-assert.equal(initial.schemaVersion, "preference-graph.v4");
+assert.equal(initial.schemaVersion, "preference-graph.v5");
+assert.equal(initial.domainPreferences[0].taxonomyNodeId, "sport:australian-football", "legacy AFL preference domains must retain their UI ID and gain a canonical taxonomy target");
 assert.deepEqual(initial.learning, {
   signals: [],
   dislikeCount: 0,
@@ -44,6 +45,7 @@ assert(!("showLadder" in initial.domainPreferences[0]), "standings visibility mu
 const froth = preferences.quickAddDomain(initial, "sport:nrl", "template:froth");
 const nrlFroth = froth.domainPreferences.find(item => item.sportDomainId === "sport:nrl");
 assert.equal(nrlFroth.includeAllFixtures, true);
+assert.equal(nrlFroth.taxonomyNodeId, "sport:rugby-league");
 assert(!("showLadder" in nrlFroth), "Froth must not control standings visibility");
 assert.equal(froth.domainPreferences.find(item => item.sportDomainId === "sport:afl").templateId, "template:like", "quick add must not alter an existing sport");
 
@@ -60,6 +62,7 @@ const withCompetition = preferences.upsertCompetitionPreference(customised, "com
   enabled: true,
   templateInheritedFromDomain: false,
 });
+assert.equal(withCompetition.competitionPreferences[0].taxonomyCompetitionId, "competition:nrl-premiership", "season-specific competition preferences must gain their reusable taxonomy target");
 const withTeam = preferences.setEntityFollow(withCompetition, "team:nrl:canberra", "priority");
 assert(!("showLadder" in withTeam.competitionPreferences[0]), "competition preferences must not persist standings visibility");
 assert.equal(withTeam.entityFollows[0].followLevel, "priority");
@@ -225,4 +228,4 @@ const mergedLearning = preferences.mergeLearning(dislikedWimbledon.learning, {
 assert.equal(mergedLearning.signals.length, 2, "sign-in must merge local and server learning targets instead of replacing the local graph");
 assert.equal(mergedLearning.dislikeCount, 1, "sign-in must preserve the higher durable dislike counter");
 
-console.log("Preference system valid: v4 migration, bounded learning, meaningful Tune suppression, templates, follows and viewing preferences passed.");
+console.log("Preference system valid: v5 hierarchy migration, bounded learning, meaningful Tune suppression, templates, follows and viewing preferences passed.");

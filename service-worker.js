@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v80";
+const CACHE_NAME = "nothingsport-shell-v81";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -9,6 +9,7 @@ const APP_SHELL = [
   "/config/canonical-sports-taxonomy.js",
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
+  "/config/preference-taxonomy.js",
   "/config/sport-context.js",
   "/config/sport-hubs.js",
   "/config/feed-refresh-lifecycle.js",
@@ -37,6 +38,7 @@ const APP_SHELL = [
   "/data/canonical/nba-context-2026.json",
   "/data/canonical/cwg-context-2026.json",
   "/schemas/preference-graph.schema.json",
+  "/schemas/preference-taxonomy.schema.json",
   "/schemas/product-events.schema.json",
   "/schemas/user-state-patch.schema.json",
   "/schemas/enriched-event.schema.json",

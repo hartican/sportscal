@@ -15,7 +15,7 @@
     "learning"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v4" },
+    "schemaVersion": { "const": "preference-graph.v5" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -40,6 +40,7 @@
       "required": [
         "profileId",
         "sportDomainId",
+        "taxonomyNodeId",
         "enabled",
         "templateId",
         "includeAllFixtures",
@@ -49,11 +50,13 @@
         "narrativeIntensity",
         "mustWatchSensitivity",
         "reminderDefault",
-        "scopedCompetitionIds"
+        "scopedCompetitionIds",
+        "scopedTaxonomyNodeIds"
       ],
       "properties": {
         "profileId": { "type": "string", "pattern": "^profile:" },
         "sportDomainId": { "type": "string", "minLength": 3 },
+        "taxonomyNodeId": { "type": ["string", "null"], "pattern": "^(sport|discipline|competition|event-series):" },
         "enabled": { "type": "boolean" },
         "templateId": { "enum": ["template:froth", "template:like", "template:casual", "template:custom"] },
         "includeAllFixtures": { "type": "boolean" },
@@ -63,15 +66,17 @@
         "narrativeIntensity": { "type": "integer", "minimum": 1, "maximum": 5 },
         "mustWatchSensitivity": { "enum": ["low", "medium", "high"] },
         "reminderDefault": { "enum": ["off", "importantOnly", "allFollowed"] },
-        "scopedCompetitionIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+        "scopedCompetitionIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "scopedTaxonomyNodeIds": { "type": "array", "items": { "type": "string", "pattern": "^(sport|discipline|competition|event-series):" }, "uniqueItems": true }
       }
     },
     "competitionPreference": {
       "type": "object",
-      "required": ["profileId", "competitionId", "enabled", "templateInheritedFromDomain"],
+      "required": ["profileId", "competitionId", "taxonomyCompetitionId", "enabled", "templateInheritedFromDomain"],
       "properties": {
         "profileId": { "type": "string", "pattern": "^profile:" },
         "competitionId": { "type": "string", "minLength": 3 },
+        "taxonomyCompetitionId": { "type": ["string", "null"], "pattern": "^(sport|discipline|competition|event-series):" },
         "enabled": { "type": "boolean" },
         "templateInheritedFromDomain": { "type": "boolean" },
         "includeAllFixtures": { "type": "boolean" },

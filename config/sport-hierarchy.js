@@ -155,6 +155,14 @@
   const legacyIds = Object.freeze({
     "sport:afl": "sport:australian-football",
     "sport:nrl": "sport:rugby-league",
+    "sport:f1": "competition:formula-one",
+    "sport:rally": "competition:world-rally",
+    "sport:goodwood": "event-series:goodwood-festival-of-speed",
+    "sport:wsl": "competition:world-surf-league",
+    "sport:big-wave": "competition:big-wave-events",
+    "sport:downhill-mtb": "competition:uci-mountain-bike",
+    "sport:rugby": "sport:rugby-union",
+    "sport:nba": "competition:nba",
     "sport:skiing": "sport:winter-sports",
     "sport:extreme": "sport:extreme-sports",
     "sport:surf": "sport:surfing",
@@ -209,7 +217,8 @@
   function canonicalNodeId(value){
     const id = String(value || "");
     if (byId.has(id)) return id;
-    return legacyIds[id] || legacySportKeys[id] || null;
+    const legacySportKey = id.startsWith("sport:") ? id.slice("sport:".length) : id;
+    return legacyIds[id] || legacySportKeys[id] || legacySportKeys[legacySportKey] || null;
   }
 
   function lineageFor(value){
