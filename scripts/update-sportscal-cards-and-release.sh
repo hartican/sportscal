@@ -165,18 +165,19 @@ if [[ "${SKIP_RELEASE:-0}" != "1" ]]; then
   VERCEL_TOKEN="${VERCEL_TOKEN//$'\r'/}"
   VERCEL_TOKEN="${VERCEL_TOKEN//[[:space:]]/}"
 
-  if [[ -z "${VERCEL_TOKEN:-}" ]]; then
-    echo "Error: VERCEL_TOKEN is required when SKIP_RELEASE is not set to 1." >&2
-    echo "Set VERCEL_TOKEN in the environment, or store it in one of: " >&2
-    echo "  - $HOME/.nothingsport/vercel-token" >&2
-    echo "  - ./.nothingsport/vercel-token" >&2
-    echo "  - ./scripts/.nothingsport/vercel-token" >&2
-    echo "  - file path in VERCEL_TOKEN_FILE, then retry." >&2
-    echo "Or use SKIP_RELEASE=1 for offline update runs." >&2
-    exit 1
+  if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+    export VERCEL_TOKEN
+    if ! vercel whoami >/dev/null 2>&1; then
+      echo "Saved VERCEL_TOKEN is not authorized; falling back to the authenticated Vercel CLI session." >&2
+      unset VERCEL_TOKEN
+    fi
   fi
 
-  export VERCEL_TOKEN
+  if [[ -z "${VERCEL_TOKEN:-}" ]] && ! vercel whoami >/dev/null 2>&1; then
+    echo "Error: neither VERCEL_TOKEN nor the Vercel CLI session is authorized." >&2
+    echo "Run 'vercel login' once on this machine or provide a valid account token, then retry." >&2
+    exit 1
+  fi
 fi
 
 ensure_release_head_on_main_line

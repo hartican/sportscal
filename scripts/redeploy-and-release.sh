@@ -91,11 +91,31 @@ ensure_release_head_on_main_line() {
 
 run_push() {
   local refspec="${1:-HEAD:main}"
+  local source_ref="${refspec%%:*}"
+  local target_ref="${refspec#*:}"
+  local source_sha origin_url original_objects push_git_dir
   local push_output
+
+  if [[ "$target_ref" == "$refspec" ]]; then
+    target_ref="$source_ref"
+  fi
+  if [[ "$target_ref" != refs/* ]]; then
+    target_ref="refs/heads/$target_ref"
+  fi
+
+  source_sha="$(git rev-parse "$source_ref")"
+  origin_url="$(git remote get-url origin)"
+  original_objects="$(cd "$(git rev-parse --git-path objects)" && pwd)"
+  push_git_dir="$(mktemp -d)"
   push_output="$(mktemp)"
 
+  git init --bare --quiet "$push_git_dir"
+  printf '%s\n' "$original_objects" > "$push_git_dir/objects/info/alternates"
+  git --git-dir="$push_git_dir" remote add origin "$origin_url"
+  git --git-dir="$push_git_dir" update-ref refs/heads/release "$source_sha"
+
   set +e
-  git push origin "$refspec" >"$push_output" 2>&1
+  git --git-dir="$push_git_dir" push origin "refs/heads/release:$target_ref" >"$push_output" 2>&1
   local status=$?
   local push_log
   push_log="$(cat "$push_output")"
@@ -103,6 +123,7 @@ run_push() {
 
   printf '%s\n' "$push_log"
   rm -f "$push_output"
+  rm -rf "$push_git_dir"
 
   if (( status == 0 )); then
     return 0
@@ -112,6 +133,25 @@ run_push() {
     return 2
   fi
 
+  return 1
+}
+
+ensure_vercel_auth() {
+  if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+    export VERCEL_TOKEN
+    if vercel whoami >/dev/null 2>&1; then
+      return
+    fi
+    echo "Saved VERCEL_TOKEN is not authorized; falling back to the authenticated Vercel CLI session." >&2
+    unset VERCEL_TOKEN
+  fi
+
+  if vercel whoami >/dev/null 2>&1; then
+    echo "Using authenticated Vercel CLI session." >&2
+    return
+  fi
+
+  echo "Error: neither VERCEL_TOKEN nor the Vercel CLI session is authorized." >&2
   return 1
 }
 
@@ -230,6 +270,7 @@ fi
 if [[ -n "${VERCEL_TOKEN:-}" ]]; then
   export VERCEL_TOKEN
 fi
+ensure_vercel_auth
 
 rsync -a \
   --exclude '.git' \
@@ -239,5 +280,5 @@ rsync -a \
 
 (
   cd "$STAGING_ROOT"
-  HOME=/tmp XDG_CACHE_HOME=/tmp vercel --prod --yes
+  XDG_CACHE_HOME=/tmp vercel --prod --yes
 )
