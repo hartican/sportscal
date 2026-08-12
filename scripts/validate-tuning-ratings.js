@@ -83,6 +83,8 @@ assert.equal(ratingSystem.canPrompt(promptState, "event:one", { sessionId: "sess
 
 const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
+const shellVersion = html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
+const workerVersion = worker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+)"/)?.[1];
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "Tune and rating contracts must load before app state");
 assert(html.includes('settingsMenuItem("tune"') && html.includes("renderFineTuningSettings"), "Tune must remain reachable from Settings");
 assert(html.includes("applyTuningSignal") && html.includes("completeTuningSession"), "every Tune choice and completed session must persist through the v4 graph");
@@ -91,7 +93,8 @@ assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i
 assert(html.includes("starToStoredScore") && html.includes("half-filled"), "five-star input must retain 1-10 storage compatibility and half-star display");
 assert(html.includes("ensureSessionRatingPrompt(filtered)") && html.includes("sessionRatingPromptSelectionFinalized"), "the feed must select at most one post-event rating prompt per session");
 assert(html.includes("suppressSessionRatingPrompt();") && html.includes("if (showTunePrompt) suppressSessionRatingPrompt()"), "Tune and rating prompts must never stack");
-assert(worker.includes('const CACHE_NAME = "nothingsport-shell-v75"'));
+assert(shellVersion, "the HTML shell version must be declared");
+assert.equal(workerVersion, shellVersion, "the service-worker cache must match the HTML shell version");
 assert(worker.includes('"/config/fine-tuning.js"') && worker.includes('"/config/rating-system.js"'));
 
 console.log("Fine-tuning and ratings valid: canonical three-stage Tune, meaningful suppression, compatible five-star ratings, and bounded session prompts passed.");

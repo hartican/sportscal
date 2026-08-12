@@ -250,11 +250,11 @@ assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "supersed
 assert.equal(JSON.parse(fs.readFileSync("schemas/product-events.schema.json", "utf8")).properties.schemaVersion.const, "product-events.v1", "pilot measurement must expose one versioned request contract");
 assert(productEventsSource.includes("const MAX_BATCH_SIZE = 20"), "product event requests must stay bounded to twenty events");
 assert(productEventsSource.includes('"opportunity_exposed"') && productEventsSource.includes('"fixture_check"') && productEventsSource.includes('"watch_decision"'), "TSDR events must use a fixed allowlist");
-assert(productEventsSource.includes('pilotVersion: enumRule(["trust-pilot.v1"])') && html.includes('pilotVersion: "trust-pilot.v1"'), "the fourteen-day clock must start only from Phase 6 versioned opportunities");
+assert(productEventsSource.includes('pilotVersion: enumRule(["trust-pilot.v1"])') && html.includes('pilotVersion: "trust-pilot.v1"'), "opportunity exposures must retain their versioned measurement provenance");
 assert(productEventsSource.includes('"weekly_pulse"') && productEventsSource.includes("crossCheck") && productEventsSource.includes("missedFixtures") && productEventsSource.includes("feedClutter"), "weekly trust pulses must use fixed-choice properties");
 assert(productEventsSource.includes("pilotCohort") && productEventsSource.includes("trustConfidence"), "the weekly pulse must support fixed cohort and fixture-confidence segmentation");
 assert(html.includes('properties: { action: "shown" }') && html.includes('properties: { action: "dismissed" }') && html.includes('properties: { action: "rated", score: i }'), "rating prompt burden and completed spectacle ratings must remain measurable separately");
-assert(pilotReadoutSource.includes('const PILOT_DURATION_DAYS = 14') && pilotReadoutSource.includes('WATCHING_NOW: "watching_now_candidate"'), "the pilot decision gate must require fourteen days before considering social");
+assert(pilotReadoutSource.includes('const SCHEMA_VERSION = "measurement-readout.v2"') && pilotReadoutSource.includes('recommendation: null'), "the measurement report must be on demand and must not automatically recommend social investment");
 assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v4"'), "swipe learning must use the v4 preference graph");
 assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
@@ -310,8 +310,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v78"'), "weekly pulse reminders must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="78">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v79"'), "the corrected measurement and archive lifecycle must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="79">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/user-state-sync.js"'), "the field-level user-state contract must be available in the offline shell");
@@ -715,6 +715,7 @@ vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-
 vm.runInContext(sportContextSource, sandbox, { filename: "config/sport-context.js" });
 vm.runInContext(sportHubsSource, sandbox, { filename: "config/sport-hubs.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
+vm.runInContext(productEventsSource, sandbox, { filename: "config/product-events.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
 vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-engine.js" });
 vm.runInContext(cardLifecycleSource, sandbox, { filename: "config/card-lifecycle.js" });
@@ -1086,9 +1087,10 @@ assert.equal(app.normalizeThemePreference("system"), "system", "System must be a
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
 assert.equal(app.mergePreferences(null).version, 10, "the seeded league defaults must use the current preference migration");
-assert.equal(app.mergePreferences(null).pilotMeasurement.enabled, true, "pilot measurement must opt in by default");
-assert.match(app.mergePreferences(null).pilotMeasurement.acknowledgedAt, /^\d{4}-\d{2}-\d{2}T/, "default pilot measurement must start its bounded collection period");
-assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: false, optInVersion: "pilot-opt-in.v1" } }).pilotMeasurement.enabled, false, "an explicit opt-out after the default migration must remain off");
+assert.equal(app.mergePreferences(null).pilotMeasurement.enabled, true, "signed-in measurement must participate by default");
+assert.equal(app.mergePreferences(null).pilotMeasurement.participationStartedAt, null, "participation must start only after a signed-in account is present");
+assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: false, participationVersion: "pilot-participation.v1" } }).pilotMeasurement.enabled, false, "an explicit opt-out must remain off");
+assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: true, acknowledgedAt: "2026-08-10T00:00:00.000Z" } }).pilotMeasurement.participationStartedAt, "2026-08-10T00:00:00.000Z", "legacy acknowledgement state must migrate without loss");
 assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), ["nrl", "afl"], "new profiles must surface Rugby League and AFL immediately");
 assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl"], "new profiles must seed the two complete league selectors");
 const incompleteEmptyProfile = app.mergePreferences({
@@ -1728,9 +1730,10 @@ assert.equal(app.archiveEvent(pastA, { preserve: true }), false, "an unrated car
 assert.equal(app.getEventAction(pastA).archived, false, "a rejected unrated Save must not change archive state");
 app.archiveEvent(pastA);
 assert.equal(app.getEventAction(pastA).archived, true, "archive action must persist");
-assert.equal(app.getEventAction(pastA).saved, false, "plain Archive must not grant indefinite retention");
+assert.equal(app.getEventAction(pastA).saved, false, "plain Archive must remain distinguishable from rated Save");
 assert.equal(app.isSpoilerVisible(pastA), true, "archiving a PAST event must reveal it");
 assert.equal(app.getArchivedEventRefs().some(reference => reference.canonicalEventId === pastA.id), true, "archive must create an explicit profile-scoped reference");
+assert.equal(app.eventMeetsDerivedRetention(pastA, new Date("2036-08-12T00:00:00.000Z")), true, "plain Archive must grant indefinite retention until reinstated");
 assert(app.getDerivedCardCache().derivedCards.every(card => card.isArchived === false), "archive state must never leak into disposable cache records");
 app.clearAndRebuildDerivedCardCache();
 assert.equal(app.archivedEvents().some(event => event.id === pastA.id), true, "archive view must rebuild from canonical events after a full cache purge");

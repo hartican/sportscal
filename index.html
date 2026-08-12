@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="78">
+<meta name="app-shell-version" content="79">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4444,7 +4444,6 @@ const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
 const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
 const PRODUCT_EVENTS = globalThis.NOTHINGSPORTS_PRODUCT_EVENTS || null;
-const PILOT_MEASUREMENT_OPT_IN_VERSION = PRODUCT_EVENTS?.PILOT_MEASUREMENT_OPT_IN_VERSION || "pilot-opt-in.v1";
 
 const SPECIAL_EVENT_ONLY_SPORT_KEYS = new Set(["wimbledon", "fifa", "tdf", "masters", "lemans", "nfl", "cwg"]);
 const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
@@ -4553,8 +4552,8 @@ const DEFAULT_PREFERENCES = {
   preferenceGraph: null,
   pilotMeasurement: {
     enabled: true,
-    optInVersion: "pilot-opt-in.v1",
-    acknowledgedAt: null,
+    participationVersion: "pilot-participation.v1",
+    participationStartedAt: null,
     lastPulseWeek: null,
     lastPulseSurveyId: null,
   },
@@ -4966,17 +4965,14 @@ function syncThemeBrandAssets(useDark){
 
 function mergePreferences(saved){
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
-  if (!saved || typeof saved !== "object"){
-    merged.pilotMeasurement = {
-      ...merged.pilotMeasurement,
-      acknowledgedAt: new Date().toISOString(),
-    };
-    return merged;
-  }
+  if (!saved || typeof saved !== "object") return merged;
   const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
     ? saved.pilotMeasurement
     : {};
-  const pilotDefaultApplied = savedPilotMeasurement.optInVersion !== PILOT_MEASUREMENT_OPT_IN_VERSION;
+  const legacyParticipationStartedAt = PRODUCT_EVENTS?.participationStartedAt?.(savedPilotMeasurement)
+    || null;
+  const lastPulseSurveyId = PRODUCT_EVENTS?.normalizeWeeklyPulseSurveyId?.(savedPilotMeasurement.lastPulseSurveyId)
+    || null;
   const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
@@ -5033,17 +5029,14 @@ function mergePreferences(saved){
     preferenceGraph,
     pilotMeasurement: {
       ...merged.pilotMeasurement,
-      ...savedPilotMeasurement,
-      enabled: pilotDefaultApplied ? true : Boolean(savedPilotMeasurement.enabled),
-      optInVersion: PILOT_MEASUREMENT_OPT_IN_VERSION,
-      acknowledgedAt: typeof savedPilotMeasurement.acknowledgedAt === "string"
-        ? savedPilotMeasurement.acknowledgedAt
-        : pilotDefaultApplied ? new Date().toISOString() : null,
+      enabled: savedPilotMeasurement.enabled !== false,
+      participationVersion: PRODUCT_EVENTS?.PILOT_MEASUREMENT_PARTICIPATION_VERSION || "pilot-participation.v1",
+      participationStartedAt: legacyParticipationStartedAt,
       lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(savedPilotMeasurement.lastPulseWeek || ""))
         ? savedPilotMeasurement.lastPulseWeek
         : null,
-      lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(savedPilotMeasurement.lastPulseSurveyId || ""))
-        ? savedPilotMeasurement.lastPulseSurveyId
+      lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(lastPulseSurveyId || ""))
+        ? lastPulseSurveyId
         : null,
     },
     ratingPromptState: RATING_SYSTEM?.normalizePromptState?.(
@@ -5502,51 +5495,34 @@ function pilotMeasurementPreferences(preferences = userPreferences){
 }
 
 function pilotMeasurementEligible(){
+  ensureDefaultPilotMeasurementParticipation();
   const pilot = pilotMeasurementPreferences();
   return Boolean(
     PRODUCT_EVENTS
     && productEventsQueue
     && serverPersistence.user?.id
     && pilot.enabled
-    && typeof pilot.acknowledgedAt === "string"
-    && pilot.acknowledgedAt
+    && typeof pilot.participationStartedAt === "string"
+    && pilot.participationStartedAt
   );
 }
 
-function ensureDefaultPilotMeasurementAcknowledgement(reference = new Date()){
+function ensureDefaultPilotMeasurementParticipation(reference = new Date()){
   const pilot = pilotMeasurementPreferences();
-  if (!serverPersistence.user || !pilot.enabled || pilot.acknowledgedAt) return false;
+  if (!serverPersistence.user || !pilot.enabled || pilot.participationStartedAt) return false;
   const next = clonePreferences(userPreferences);
   next.pilotMeasurement = {
     ...pilotMeasurementPreferences(next),
     enabled: true,
-    acknowledgedAt: reference.toISOString(),
+    participationStartedAt: reference.toISOString(),
   };
   savePreferences(next);
   return true;
 }
 
-function pilotWeekStart(reference = new Date()){
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Australia/Sydney",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-  const parts = Object.fromEntries(formatter.formatToParts(reference)
-    .filter(part => part.type !== "literal")
-    .map(part => [part.type, Number(part.value)]));
-  const date = new Date(Date.UTC(parts.year, parts.month - 1, parts.day));
-  const day = date.getUTCDay() || 7;
-  date.setUTCDate(date.getUTCDate() - day + 1);
-  return date.toISOString().slice(0, 10);
-}
-
-function currentWeeklyPulseSurvey(reference = new Date()){
-  const weekStart = pilotWeekStart(reference);
+function currentWeeklyPulseSurvey(){
   return {
-    weekStart,
-    surveyId: PRODUCT_EVENTS?.weeklyPulseSurveyId?.(weekStart) || `weekly-pulse.v1:${weekStart}`,
+    surveyId: PRODUCT_EVENTS?.weeklyPulseSurveyId?.() || "weekly-pulse.v1",
   };
 }
 
@@ -5560,10 +5536,10 @@ function setPilotPulsePromptOpen(open){
 
 function registerWeeklyPulseAppOpen(reference = new Date()){
   if (!PRODUCT_EVENTS || !serverPersistence.user) return false;
-  ensureDefaultPilotMeasurementAcknowledgement(reference);
+  ensureDefaultPilotMeasurementParticipation(reference);
   const pilot = pilotMeasurementPreferences();
   if (!PRODUCT_EVENTS.pilotSurveyActive(pilot, reference)) return false;
-  const { weekStart, surveyId } = currentWeeklyPulseSurvey(reference);
+  const { surveyId } = currentWeeklyPulseSurvey(reference);
   const dayKey = PRODUCT_EVENTS.sydneyDateKey(reference);
   const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user.id}`;
   const promptState = PRODUCT_EVENTS.nextWeeklyPulsePromptState(
@@ -5571,7 +5547,7 @@ function registerWeeklyPulseAppOpen(reference = new Date()){
     { surveyId, dayKey }
   );
   writeStorage(promptStorageKey, promptState);
-  if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, weekStart, reference })) return false;
+  if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, reference })) return false;
   window.setTimeout(() => {
     if (!document.querySelector(".modal-backdrop.show")) setPilotPulsePromptOpen(true);
   }, 250);
@@ -8736,7 +8712,7 @@ function appendFocusedArchiveRecovery(container, events){
   heading.textContent = `Archived in ${filterLabel}`;
   const note = document.createElement("p");
   note.className = "preference-help";
-  note.textContent = "Still inside the 14-day result window. Open a card to reinstate it to your feed.";
+  note.textContent = "Automatic archive entries remain here through day 14. Cards you chose to Archive stay here until you reinstate them.";
   const grid = document.createElement("div");
   grid.className = "cards-grid";
   events.forEach(ev => grid.appendChild(buildEventCard(ev, {
@@ -9876,7 +9852,7 @@ function eventEndDateTime(ev){
 
 function archivedEvents(){
   const explicit = CARD_LIFECYCLE
-    ? CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events.filter(eventMeetsDerivedRetention)
+    ? CARD_LIFECYCLE.rebuildArchive(archivedEventRefs, activeEvents).events
     : activeEvents.filter(ev => getEventAction(ev).archived && eventMeetsDerivedRetention(ev));
   const automatic = getPreferenceMatchedEvents().filter(ev => (
     !getEventAction(ev).archived
@@ -10734,13 +10710,12 @@ function accountSettingsSummary(){
 
 function pilotMeasurementSummary(){
   const pilot = pilotMeasurementPreferences();
-  if (!serverPersistence.user) return "Sign in to join the closed pilot";
-  if (!pilot.enabled || !pilot.acknowledgedAt) return "Optional · fixed-choice measurement is off";
-  const { weekStart, surveyId } = currentWeeklyPulseSurvey();
-  if (!PRODUCT_EVENTS?.pilotSurveyActive?.(pilot)) return "Measurement on · pilot period complete";
-  return PRODUCT_EVENTS.weeklyPulseComplete(pilot, { surveyId, weekStart })
-    ? "Measurement on · this week’s pulse complete"
-    : "Measurement on · weekly pulse ready";
+  if (!serverPersistence.user) return "Sign in to participate in product measurement";
+  if (!pilot.enabled || !pilot.participationStartedAt) return "Measurement off";
+  const { surveyId } = currentWeeklyPulseSurvey();
+  return PRODUCT_EVENTS.weeklyPulseComplete(pilot, { surveyId })
+    ? "Measurement on · current pulse complete"
+    : "Measurement on · current pulse ready";
 }
 
 function accountSyncTimeLabel(value){
@@ -10877,19 +10852,18 @@ function renderAccountSettings(body){
 function renderPilotSettings(body){
   const signedIn = Boolean(serverPersistence.user);
   const pilot = pilotMeasurementPreferences();
-  const enabled = signedIn && Boolean(pilot.enabled && pilot.acknowledgedAt);
-  const { weekStart: currentWeek, surveyId: currentSurveyId } = currentWeeklyPulseSurvey();
+  const enabled = signedIn && Boolean(pilot.enabled && pilot.participationStartedAt);
+  const { surveyId: currentSurveyId } = currentWeeklyPulseSurvey();
   const surveyActive = enabled && Boolean(PRODUCT_EVENTS?.pilotSurveyActive?.(pilot));
   const pulseComplete = PRODUCT_EVENTS?.weeklyPulseComplete?.(pilot, {
     surveyId: currentSurveyId,
-    weekStart: currentWeek,
   }) || false;
 
   if (!signedIn){
     body.innerHTML = `<div class="preference-stack"><div class="filter-panel">
       <h3>Closed trust pilot</h3>
-      <p class="preference-help">The normal app works without measurement. Pilot participation requires a signed-in account and an explicit acknowledgement of the fixed data collected.</p>
-      <button class="btn primary" type="button" id="pilotOpenAccountBtn">Sign in to join</button>
+      <p class="preference-help">The normal app works without measurement. Signed-in accounts participate automatically and can turn measurement off at any time.</p>
+      <button class="btn primary" type="button" id="pilotOpenAccountBtn">Sign in</button>
     </div></div>`;
     document.getElementById("pilotOpenAccountBtn").addEventListener("click", () => {
       settingsSection = "account";
@@ -10901,19 +10875,19 @@ function renderPilotSettings(body){
   body.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
       <h3>Closed trust pilot</h3>
-      <p class="preference-help">Participation helps test whether nothingsport becomes the place you check before deciding what to watch. Turning this off stops future measurement; the app remains fully usable.</p>
+      <p class="preference-help">Signed-in measurement is active automatically to help test whether nothingsport becomes the place you check before deciding what to watch. Turning it off stops future measurement and clears anything waiting to send; the app remains fully usable.</p>
       <label class="pilot-disclosure" for="pilotMeasurementEnabled">
         <input id="pilotMeasurementEnabled" type="checkbox" ${enabled ? "checked" : ""}>
-        <span><strong>I agree to pilot measurement</strong>Share fixed interaction events for viewed opportunities, fixture checks, watch decisions, swipes, ratings, tune prompts and the weekly pulse. No free text, messages, precise location or contact information is stored in product events.</span>
+        <span><strong>Product measurement active</strong>Share fixed interaction events for viewed opportunities, fixture checks, genuine watch decisions, swipes, ratings, tune prompts and the current pulse. No free text, messages, precise location or contact information is stored in product events.</span>
       </label>
-      <p class="preference-help" id="pilotMeasurementStatus" role="status" aria-live="polite">${enabled ? `Acknowledged ${new Date(pilot.acknowledgedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}. Events are attached to your signed-in pilot account.` : "Measurement is off."}</p>
+      <p class="preference-help" id="pilotMeasurementStatus" role="status" aria-live="polite">${enabled ? `Participating since ${new Date(pilot.participationStartedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}. Events are attached to your signed-in account.` : "Measurement is off."}</p>
     </div>
-    ${enabled ? `<div class="filter-panel"><h3>This week’s trust pulse</h3>
+    ${enabled ? `<div class="filter-panel"><h3>Current trust pulse</h3>
       ${!surveyActive
-        ? `<p class="preference-help">This pilot’s 14-day survey period is complete. Thanks for taking part.</p>`
+        ? `<p class="preference-help">Pulse collection is not currently active.</p>`
         : pulseComplete
-        ? `<p class="preference-help">Pulse complete for the week starting ${new Date(`${currentWeek}T12:00:00`).toLocaleDateString("en-AU", { day: "numeric", month: "short" })}. Thanks.</p>`
-        : `<p class="preference-help">Five fixed choices, once a week. There is no free-text response.</p>
+        ? `<p class="preference-help">Pulse complete for ${currentSurveyId}. Thanks.</p>`
+        : `<p class="preference-help">Five fixed choices for this survey release. There is no free-text response.</p>
           <form class="pilot-pulse" id="pilotPulseForm">
             <fieldset><legend>Which best matches how you usually use nothingsport?</legend><div class="pilot-choice-grid">
               <label><input type="radio" name="pilotCohort" value="curator" required>Only the best events</label>
@@ -10952,8 +10926,7 @@ function renderPilotSettings(body){
     next.pilotMeasurement = {
       ...pilotMeasurementPreferences(next),
       enabled: nextEnabled,
-      acknowledgedAt: nextEnabled ? new Date().toISOString() : null,
-      ...(nextEnabled ? {} : { lastPulseWeek: null, lastPulseSurveyId: null }),
+      participationStartedAt: nextEnabled ? new Date().toISOString() : null,
     };
     if (!nextEnabled){
       productEventsQueue?.clear();
@@ -10977,6 +10950,7 @@ function renderPilotSettings(body){
       eventName: "weekly_pulse",
       surface: "weekly_pulse",
       properties: {
+        surveyVersion: currentSurveyId,
         pilotCohort: form.get("pilotCohort"),
         crossCheck: form.get("crossCheck"),
         missedFixtures: form.get("missedFixtures"),
@@ -10995,7 +10969,6 @@ function renderPilotSettings(body){
       const next = clonePreferences(userPreferences);
       next.pilotMeasurement = {
         ...pilotMeasurementPreferences(next),
-        lastPulseWeek: currentWeek,
         lastPulseSurveyId: currentSurveyId,
       };
       savePreferences(next);
@@ -11031,7 +11004,7 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
-  </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Unsaved past cards archive after 7 days and disappear after 14; rated cards saved to Archive remain available.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
+  </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   bindSettingsMenuNavigation(body);
   document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
     const button = document.getElementById("refreshAndRebuildFeedBtn");
@@ -11050,7 +11023,7 @@ function renderSettingsMenu(body){
       ? " Visible cards were updated."
       : " The visible feed was already current, so it was left in place.";
     status.textContent = `${sourceCopy}${changeCopy}`;
-    document.getElementById("derivedFeedCacheSummary").textContent = `${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Unsaved past cards archive after 7 days and disappear after 14; rated cards saved to Archive remain available.`;
+    document.getElementById("derivedFeedCacheSummary").textContent = `${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.`;
     button.textContent = "Refresh and rebuild feed";
     button.disabled = false;
     showToast(status.textContent);
@@ -11059,7 +11032,7 @@ function renderSettingsMenu(body){
 
 function renderArchiveSettings(body){
   const events = archivedEvents();
-  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Past events move here after seven days and disappear after fourteen unless you rate and save them. Archive on a card dismisses it; Save preserves a rated card here.</p><div id="settingsArchiveList"></div></div>`;
+  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Completed cards move here automatically after seven days and disappear after fourteen. Choosing Archive or Save on a card keeps it here until you reinstate it.</p><div id="settingsArchiveList"></div></div>`;
   const list = document.getElementById("settingsArchiveList");
   if (!events.length){
     list.innerHTML = `<div class="empty-state" style="padding:24px 12px">No archived events.</div>`;
@@ -11637,7 +11610,7 @@ function renderSettingsScreen(){
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
-    pilot: ["Trust pilot", "Optional, disclosed measurement for the signed-in fourteen-day pilot."],
+    pilot: ["Trust pilot", "Automatic, disclosed measurement for signed-in users, with opt-out."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
     sports: [settingsFirstRun ? "Sports Followed · 1 of 3" : "Sports Followed", settingsFirstRun ? "Pick sports and special events, then tune selected sports inline." : "Follow sports and special events, tune Froth inline, and use Events for detailed follow controls."],
     viewing: [settingsFirstRun ? "Viewing preferences · 2 of 3" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
@@ -12262,6 +12235,7 @@ Promise.allSettled([
   }
 });
 let weeklyPulseWasHidden = document.visibilityState === "hidden";
+let installedServiceWorkerRegistration = null;
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden"){
     weeklyPulseWasHidden = true;
@@ -12269,7 +12243,11 @@ document.addEventListener("visibilitychange", () => {
   }
   if (!weeklyPulseWasHidden) return;
   weeklyPulseWasHidden = false;
+  installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   registerWeeklyPulseAppOpen();
+});
+window.addEventListener("online", () => {
+  installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
 });
 if ("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("controllerchange", () => {
@@ -12277,7 +12255,10 @@ if ("serviceWorker" in navigator){
   });
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/service-worker.js")
-      .then(registration => registration.update())
+      .then(registration => {
+        installedServiceWorkerRegistration = registration;
+        return registration.update();
+      })
       .catch(err => {
         console.warn("Service worker registration failed", err);
       });

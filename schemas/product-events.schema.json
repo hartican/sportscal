@@ -28,7 +28,7 @@
           "sport": { "type": "string", "minLength": 1, "maxLength": 32, "pattern": "^[a-z0-9][a-z0-9-]*$" },
           "competitionId": { "type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9][A-Za-z0-9:._/-]*$" },
           "canonicalEventId": { "type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9][A-Za-z0-9:._/-]*$" },
-          "properties": { "type": "object", "maxProperties": 5 }
+          "properties": { "type": "object", "maxProperties": 6 }
         }
       }
     }

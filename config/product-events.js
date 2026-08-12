@@ -8,8 +8,7 @@
   const SCHEMA_VERSION = "product-events.v1";
   const MAX_BATCH_SIZE = 20;
   const MAX_PROPERTIES_BYTES = 512;
-  const PILOT_DURATION_DAYS = 14;
-  const PILOT_MEASUREMENT_OPT_IN_VERSION = "pilot-opt-in.v1";
+  const PILOT_MEASUREMENT_PARTICIPATION_VERSION = "pilot-participation.v1";
   const WEEKLY_PULSE_DATA_GATHERING_ACTIVE = true;
   const WEEKLY_PULSE_OPEN_THRESHOLD = 3;
   const WEEKLY_PULSE_SURVEY_VERSION = "weekly-pulse.v1";
@@ -80,6 +79,7 @@
       interactionCount: integerRule(0, 1_000_000),
     }),
     weekly_pulse: Object.freeze({
+      surveyVersion: enumRule([WEEKLY_PULSE_SURVEY_VERSION]),
       pilotCohort: enumRule(["curator", "hybrid", "completist"]),
       crossCheck: enumRule(["never", "once", "multiple"]),
       missedFixtures: enumRule(["none", "one", "multiple"]),
@@ -326,12 +326,24 @@
     return `${parts.year}-${parts.month}-${parts.day}`;
   }
 
-  function weeklyPulseSurveyId(weekStart){
-    const week = /^\d{4}-\d{2}-\d{2}$/.test(String(weekStart || ""))
-      ? String(weekStart)
-      : null;
-    if (!week) throw new TypeError("A valid weekly pulse week start is required.");
-    return `${WEEKLY_PULSE_SURVEY_VERSION}:${week}`;
+  function weeklyPulseSurveyId(){
+    return WEEKLY_PULSE_SURVEY_VERSION;
+  }
+
+  function normalizeWeeklyPulseSurveyId(value){
+    const surveyId = String(value || "");
+    if (surveyId === WEEKLY_PULSE_SURVEY_VERSION) return surveyId;
+    if (new RegExp(`^${WEEKLY_PULSE_SURVEY_VERSION.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}:\\d{4}-\\d{2}-\\d{2}$`).test(surveyId)){
+      return WEEKLY_PULSE_SURVEY_VERSION;
+    }
+    return surveyId || null;
+  }
+
+  function participationStartedAt(pilot){
+    if (!plainObject(pilot)) return null;
+    const value = pilot.participationStartedAt || pilot.acknowledgedAt;
+    const parsed = new Date(value || "");
+    return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
   }
 
   function nextWeeklyPulsePromptState(current, { surveyId, dayKey } = {}){
@@ -340,46 +352,41 @@
       ? String(dayKey)
       : null;
     if (!nextDayKey) throw new TypeError("A valid Sydney day key is required.");
-    const sameCounter = plainObject(current)
+    const sameSurvey = plainObject(current)
       && current.schemaVersion === WEEKLY_PULSE_PROMPT_STATE_VERSION
-      && current.surveyId === nextSurveyId
-      && current.dayKey === nextDayKey;
+      && current.surveyId === nextSurveyId;
     return {
       schemaVersion: WEEKLY_PULSE_PROMPT_STATE_VERSION,
       surveyId: nextSurveyId,
       dayKey: nextDayKey,
-      openCount: sameCounter
+      openCount: sameSurvey
         ? Math.min(1_000, Math.max(0, Number(current.openCount) || 0) + 1)
         : 1,
     };
   }
 
-  function pilotSurveyActive(pilot, reference = new Date(), {
+  function pilotSurveyActive(pilot, _reference = new Date(), {
     dataGatheringActive = WEEKLY_PULSE_DATA_GATHERING_ACTIVE,
   } = {}){
     if (!dataGatheringActive || !plainObject(pilot) || !pilot.enabled) return false;
-    const startedAt = new Date(pilot.acknowledgedAt || "");
-    const now = reference instanceof Date ? reference : new Date(reference);
-    if (Number.isNaN(startedAt.getTime()) || Number.isNaN(now.getTime())) return false;
-    const elapsed = now.getTime() - startedAt.getTime();
-    return elapsed >= 0 && elapsed < PILOT_DURATION_DAYS * 24 * 60 * 60 * 1_000;
+    return Boolean(participationStartedAt(pilot));
   }
 
-  function weeklyPulseComplete(pilot, { surveyId, weekStart } = {}){
+  function weeklyPulseComplete(pilot, { surveyId = weeklyPulseSurveyId() } = {}){
     if (!plainObject(pilot)) return false;
     if (typeof pilot.lastPulseSurveyId === "string" && pilot.lastPulseSurveyId){
-      return pilot.lastPulseSurveyId === surveyId;
+      return normalizeWeeklyPulseSurveyId(pilot.lastPulseSurveyId) === surveyId;
     }
-    return pilot.lastPulseWeek === weekStart;
+    return false;
   }
 
-  function shouldPromptWeeklyPulse({ pilot, promptState, surveyId, weekStart, reference = new Date() } = {}){
+  function shouldPromptWeeklyPulse({ pilot, promptState, surveyId, reference = new Date() } = {}){
     return Boolean(
       pilotSurveyActive(pilot, reference)
       && plainObject(promptState)
       && promptState.surveyId === surveyId
       && Number(promptState.openCount) >= WEEKLY_PULSE_OPEN_THRESHOLD
-      && !weeklyPulseComplete(pilot, { surveyId, weekStart })
+      && !weeklyPulseComplete(pilot, { surveyId })
     );
   }
 
@@ -428,8 +435,7 @@
     EVENT_NAMES,
     MAX_BATCH_SIZE,
     MAX_PROPERTIES_BYTES,
-    PILOT_DURATION_DAYS,
-    PILOT_MEASUREMENT_OPT_IN_VERSION,
+    PILOT_MEASUREMENT_PARTICIPATION_VERSION,
     PROPERTY_RULES,
     ProductEventValidationError,
     SCHEMA_VERSION,
@@ -442,9 +448,11 @@
     createEvent,
     createQueue,
     nextWeeklyPulsePromptState,
+    normalizeWeeklyPulseSurveyId,
     normalizeBatch,
     normalizeEvent,
     pilotSurveyActive,
+    participationStartedAt,
     rowsForUser,
     shouldPromptWeeklyPulse,
     sydneyDateKey,

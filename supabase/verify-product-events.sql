@@ -70,7 +70,7 @@ insert into public.product_events (
   now(),
   'verify-session-a',
   'weekly_pulse',
-  '{"pilotCohort":"hybrid","crossCheck":"once","missedFixtures":"none","feedClutter":"about_right","trustConfidence":"high"}'::jsonb
+  '{"pilotCohort":"hybrid","crossCheck":"once","missedFixtures":"none","feedClutter":"about_right","trustConfidence":"high","surveyVersion":"weekly-pulse.v1"}'::jsonb
 );
 
 do $$
