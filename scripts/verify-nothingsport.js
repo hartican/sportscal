@@ -306,8 +306,10 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
   "validate-cycling-context.js",
 ].forEach(script => assert(cardUpdateSource.includes(`["scripts/${script}"]`), `the canonical cards update must validate ${script}`));
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v75"'), "persistent trusted-device sessions must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="75">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
+assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v76"'), "mobile safe-area changes must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="76">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/user-state-sync.js"'), "the field-level user-state contract must be available in the offline shell");
