@@ -56,6 +56,7 @@ function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/validate-canonical-sports.js"],
+  ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-f1-context.js"],
   ["scripts/validate-tennis-context.js"],
   ["scripts/validate-nba-context.js"],

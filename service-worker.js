@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v79";
+const CACHE_NAME = "nothingsport-shell-v80";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,6 +7,8 @@ const APP_SHELL = [
   "/config/vector-assets.js",
   "/config/sport-domain-registry.js",
   "/config/canonical-sports-taxonomy.js",
+  "/config/sport-hierarchy.js",
+  "/config/event-taxonomy-compat.js",
   "/config/sport-context.js",
   "/config/sport-hubs.js",
   "/config/feed-refresh-lifecycle.js",
@@ -40,6 +42,8 @@ const APP_SHELL = [
   "/schemas/enriched-event.schema.json",
   "/schemas/derived-card-cache.schema.json",
   "/schemas/sport-context.schema.json",
+  "/schemas/sport-hierarchy.schema.json",
+  "/schemas/catalog-event.schema.json",
   "/manifest.webmanifest",
   "/assets/brand/web/nothingsport-logo.png",
   "/assets/brand/web/nothingsport-hero-logo.png",

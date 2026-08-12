@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/catalog-event.schema.json",
+  "title": "nothingsport canonical catalogue event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "sourceIds",
+    "sportId",
+    "disciplineId",
+    "competitionId",
+    "title",
+    "participants",
+    "startTimeUtc",
+    "status",
+    "broadcasts",
+    "auViewing",
+    "updatedAt",
+    "source",
+    "legacyCompatibility"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "catalog-event.v1" },
+    "id": { "type": "string", "minLength": 1 },
+    "sourceIds": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "sportId": { "$ref": "#/$defs/taxonomyId" },
+    "disciplineId": { "$ref": "#/$defs/taxonomyId" },
+    "competitionId": { "$ref": "#/$defs/taxonomyId" },
+    "eventSeriesId": { "$ref": "#/$defs/taxonomyId" },
+    "title": { "type": "string", "minLength": 2 },
+    "subtitle": { "type": "string" },
+    "season": { "type": "string" },
+    "round": { "type": "string" },
+    "stage": { "type": "string" },
+    "participants": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/participant" }
+    },
+    "startTimeUtc": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "endTimeUtc": { "type": "string", "format": "date-time" },
+    "venue": { "$ref": "#/$defs/venue" },
+    "status": { "enum": ["scheduled", "live", "postponed", "cancelled", "finished"] },
+    "countryFocus": { "enum": ["AU", "INTL"] },
+    "australianInterestScore": { "type": "number", "minimum": 0 },
+    "broadcasts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/broadcast" }
+    },
+    "auViewing": { "$ref": "#/$defs/auViewing" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "storyline": { "$ref": "#/$defs/storyline" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "source": { "$ref": "#/$defs/source" },
+    "legacyCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "sportDomainId", "competitionId"],
+      "properties": {
+        "key": { "type": ["string", "null"] },
+        "sportDomainId": { "type": ["string", "null"] },
+        "competitionId": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "$defs": {
+    "taxonomyId": {
+      "type": "string",
+      "pattern": "^(sport|discipline|competition|event-series):[a-z0-9][a-z0-9:-]*$"
+    },
+    "participant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "shortName": { "type": "string" },
+        "type": { "enum": ["team", "athlete", "driver", "fighter", "pair"] },
+        "countryCode": { "type": "string" },
+        "role": { "type": "string" }
+      }
+    },
+    "venue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "countryCode", "tz"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "countryCode": { "type": "string", "minLength": 2 },
+        "tz": { "type": "string", "minLength": 3 }
+      }
+    },
+    "broadcast": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "type", "region"],
+      "properties": {
+        "platform": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["free", "included", "ppv", "radio", "highlights"] },
+        "channel": { "type": "string" },
+        "region": { "const": "AU" },
+        "deeplink": { "type": "string", "format": "uri" },
+        "notes": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "auViewing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "friendlyWindow",
+        "availability",
+        "isFreeToWatchAu",
+        "isIncludedWithSubscriptionAu",
+        "isPpvAu",
+        "primaryPlatformAu",
+        "platformsAu"
+      ],
+      "properties": {
+        "friendlyWindow": { "enum": ["breakfast", "daytime", "primetime", "late_night", "overnight", "unknown"] },
+        "availability": { "enum": ["free", "included", "ppv", "unknown"] },
+        "isFreeToWatchAu": { "type": "boolean" },
+        "isIncludedWithSubscriptionAu": { "type": "boolean" },
+        "isPpvAu": { "type": "boolean" },
+        "primaryPlatformAu": { "type": ["string", "null"] },
+        "platformsAu": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "storyline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stakes": { "enum": ["low", "medium", "high", "critical"] },
+        "arcStage": { "enum": ["inciting", "rising", "climax", "resolution"] },
+        "intensity": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "archetype": { "type": "string" },
+        "narrativeHook": { "type": "string" },
+        "intensitySource": { "enum": ["computed", "manual"] },
+        "lastReviewedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "checkedAt"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^(https?|calendar)://" },
+        "checkedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

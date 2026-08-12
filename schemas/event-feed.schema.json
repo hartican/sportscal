@@ -73,6 +73,33 @@
           "minLength": 2,
           "maxLength": 80
         },
+        "taxonomyVersion": {
+          "const": "sport-hierarchy.v1"
+        },
+        "taxonomyNodeId": {
+          "type": ["string", "null"],
+          "pattern": "^(sport|discipline|competition|event-series):[a-z0-9][a-z0-9:-]*$"
+        },
+        "sportId": {
+          "type": ["string", "null"],
+          "minLength": 1
+        },
+        "taxonomySportId": {
+          "type": ["string", "null"],
+          "pattern": "^sport:[a-z0-9][a-z0-9:-]*$"
+        },
+        "disciplineId": {
+          "type": ["string", "null"],
+          "pattern": "^discipline:[a-z0-9][a-z0-9:-]*$"
+        },
+        "taxonomyCompetitionId": {
+          "type": "string",
+          "pattern": "^competition:[a-z0-9][a-z0-9:-]*$"
+        },
+        "eventSeriesId": {
+          "type": "string",
+          "pattern": "^event-series:[a-z0-9][a-z0-9:-]*$"
+        },
         "name": {
           "type": "string",
           "minLength": 4
@@ -106,6 +133,20 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        },
+        "auViewing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["friendlyWindow", "availability", "isFreeToWatchAu", "isIncludedWithSubscriptionAu", "isPpvAu", "primaryPlatformAu", "platformsAu"],
+          "properties": {
+            "friendlyWindow": { "enum": ["breakfast", "daytime", "primetime", "late_night", "overnight", "unknown"] },
+            "availability": { "enum": ["free", "included", "ppv", "unknown"] },
+            "isFreeToWatchAu": { "type": "boolean" },
+            "isIncludedWithSubscriptionAu": { "type": "boolean" },
+            "isPpvAu": { "type": "boolean" },
+            "primaryPlatformAu": { "type": ["string", "null"] },
+            "platformsAu": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
           }
         },
         "expected": {

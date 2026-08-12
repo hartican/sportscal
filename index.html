@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="79">
+<meta name="app-shell-version" content="80">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4353,6 +4353,8 @@ footer.app-footer{
 <script src="config/vector-assets.js"></script>
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
+<script src="config/sport-hierarchy.js"></script>
+<script src="config/event-taxonomy-compat.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -4432,6 +4434,7 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
   sportDomains: [],
   competitions: [],
 };
+const EVENT_TAXONOMY_COMPAT = globalThis.NOTHINGSPORTS_EVENT_TAXONOMY_COMPAT || null;
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
 const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
@@ -6392,6 +6395,9 @@ function importanceColorForEvent(ev){
 
 function normalizeEvents(events = activeEvents){
   events.forEach(ev => {
+    if (EVENT_TAXONOMY_COMPAT){
+      Object.assign(ev, EVENT_TAXONOMY_COMPAT.enrichEvent(ev));
+    }
     ev.australianInterest = Boolean(ev.australianInterest || /\u{1F1E6}\u{1F1FA}/u.test(`${ev.name || ""} ${ev.displayTitleCompact || ""} ${ev.fullSpiel || ""}`));
     if (ENRICHMENT_ENGINE){
       ev.name = ENRICHMENT_ENGINE.canonicalFixtureTitle(ev.name, { sportKey: ev.key });
@@ -6409,7 +6415,7 @@ function normalizeEvents(events = activeEvents){
       if (typeof ev.storyline?.[field] === "string") ev.storyline[field] = stripDecorativeGlyphs(ev.storyline[field]);
     });
     ev.eventId = ev.eventId || ev.id;
-    ev.sportId = ev.key;
+    ev.sportId = ev.sportId || ev.key;
     ev.competitionId = ev.competitionId || ev.key;
     ev.startTimeUtc = ev.startTimeUtc || null;
     ev.endTimeUtc = ev.endTimeUtc || null;
