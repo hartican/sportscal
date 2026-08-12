@@ -20,15 +20,15 @@ function overallRow(payload){
 }
 
 function inputFromReadout(payload, readiness){
-  if (payload?.pilot && payload?.metrics && payload?.readiness) return payload;
+  if (payload?.sample && payload?.metrics && payload?.readiness) return payload;
   const row = overallRow(payload);
   if (!row) throw new TypeError("The readout export must contain an overall row.");
   return {
-    pilot: {
-      startedAt: row.pilot_started_at || null,
-      endedAt: row.pilot_ended_at || null,
-      daysObserved: numberFrom(row, "days_observed"),
-      distinctPilotUsers: numberFrom(row, "exposed_users"),
+    sample: {
+      firstObservedAt: row.measurement_started_at || null,
+      generatedAt: row.measurement_generated_at || null,
+      surveyVersion: row.survey_version || null,
+      distinctUsers: numberFrom(row, "exposed_users"),
       weeklyPulseUsers: numberFrom(row, "pulse_users"),
     },
     readiness: {
@@ -45,6 +45,7 @@ function inputFromReadout(payload, readiness){
       meaningfulActionRatePercent: numberFrom(row, "meaningful_action_rate_percent"),
       promptDismissalPercent: numberFrom(row, "prompt_dismissal_percent"),
       spectacleRatingCompletionPercent: numberFrom(row, "spectacle_rating_completion_percent"),
+      weeklyTsdr: Array.isArray(row.weekly_tsdr) ? row.weekly_tsdr : [],
     },
   };
 }
@@ -74,13 +75,9 @@ function main(){
   const options = parseOptions();
   const readout = readJson(options.readoutPath);
   const readiness = options.readinessPath ? readJson(options.readinessPath) : localReadiness(options.now);
-  const evaluation = PILOT_READOUT.evaluatePilotDecision(inputFromReadout(readout, readiness));
-  process.stdout.write(`${JSON.stringify(evaluation, null, 2)}\n`);
-  if (!evaluation.evidenceComplete){
-    process.stdout.write("Decision deferred: the fourteen-day evidence gate is not complete.\n");
-  }else{
-    process.stdout.write(`Next investment: ${evaluation.recommendation}.\n`);
-  }
+  const report = PILOT_READOUT.buildMeasurementReport(inputFromReadout(readout, readiness));
+  process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
+  process.stdout.write(`Measurement report ready. Operational readiness: ${report.operationalReady ? "ready" : "attention required"}.\n`);
 }
 
 if (require.main === module) main();

@@ -78,8 +78,9 @@ async function run(){
     event("archived", "2026-07-18T09:00:00.000Z"),
     event("expired", "2026-07-10T09:00:00.000Z"),
     event("saved-expired", "2026-07-01T09:00:00.000Z"),
+    event("manual-archive-expired", "2026-06-20T09:00:00.000Z"),
   ];
-  const savedEvent = canonicalEvents.at(-1);
+  const savedEvent = canonicalEvents.find(item => item.eventId === "saved-expired");
   const userState = {
     preferences: {
       followedSports: ["afl"],
@@ -133,6 +134,10 @@ async function run(){
         watchLater: true,
       },
     },
+    archivedEvents: [{
+      canonicalEventId: "manual-archive-expired",
+      archivedAt: "2026-06-21T09:00:00.000Z",
+    }],
   };
   const feed = feedPipeline.buildServerFeed({
     events: canonicalEvents,
@@ -156,18 +161,20 @@ async function run(){
   assert.deepEqual(feed.retention, {
     archiveDays: 7,
     retentionDays: 14,
-    inputEvents: 5,
-    retainedEvents: 4,
-    enrichedEvents: 2,
-    derivedCards: 2,
+    inputEvents: 6,
+    retainedEvents: 5,
+    enrichedEvents: 3,
+    derivedCards: 3,
     active: 2,
     archived: 1,
-    saved: 1,
+    saved: 2,
     expired: 1,
   });
   assert(!feed.events.some(item => item.eventId === "expired"), "expired unsaved facts must not return to the client");
   assert(feed.events.some(item => item.eventId === "archived"), "7-14 day facts must remain available to Archived");
   assert(feed.events.some(item => item.eventId === "saved-expired"), "saved facts must survive the retention boundary");
+  assert(feed.events.some(item => item.eventId === "manual-archive-expired"), "legacy archive references must preserve facts indefinitely even without a matching action record");
+  assert(feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "manual-archive-expired"), "manual Archive must remain materialized for recovery after the normal window");
   assert(!feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "archived"), "auto-archived events must not rematerialize as feed cards");
   assert(!feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "active-muted"), "muted participants must not receive selective enrichment");
   const followedCard = feed.derivedCardCache.derivedCards.find(card => card.canonicalEventId === "active-followed");
@@ -276,7 +283,7 @@ async function run(){
     global.fetch = originalFetch;
   }
 
-  console.log("Server feed valid: authenticated central rebuild, selective enrichment, saved exemptions, and 7/14-day retention passed.");
+  console.log("Server feed valid: authenticated central rebuild, selective enrichment, explicit archive exemptions, and 7/14-day retention passed.");
 }
 
 run().catch(error => {

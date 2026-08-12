@@ -58,9 +58,13 @@
     return Boolean(action.watchLater || action.mustWatch || action.saved);
   }
 
+  function isRetentionExemptAction(action = {}){
+    return Boolean(isSavedAction(action) || action.archived);
+  }
+
   function lifecycleState(event, {
     action = {},
-    saved = isSavedAction(action),
+    saved = isRetentionExemptAction(action),
     now = new Date(),
   } = {}){
     const end = eventEnd(event);
@@ -204,7 +208,7 @@
         surface: surfaceFor(event, enrichment, action),
         rank: index + 1,
         generatedAt: reference,
-        retentionExempt: isSavedAction(action),
+        retentionExempt: isRetentionExemptAction(action),
       })),
     };
   }
@@ -270,6 +274,7 @@
     archivesAtForEvent,
     expiresAtForEvent,
     isSavedAction,
+    isRetentionExemptAction,
     lifecycleState,
     isWithinRetention,
     shouldAutoArchive,

@@ -62,9 +62,9 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, PRODUCT_EVENTS.SCHEMA_VERSION);
   assert.equal(schema.properties.events.maxItems, 20);
   assert.equal(schema.properties.events.items.additionalProperties, false);
-  assert.equal(schema.properties.events.items.properties.properties.maxProperties, 5);
+  assert.equal(schema.properties.events.items.properties.properties.maxProperties, 6);
   assert.equal(PRODUCT_EVENTS.MAX_BATCH_SIZE, 20);
-  assert.equal(PRODUCT_EVENTS.PILOT_MEASUREMENT_OPT_IN_VERSION, "pilot-opt-in.v1");
+  assert.equal(PRODUCT_EVENTS.PILOT_MEASUREMENT_PARTICIPATION_VERSION, "pilot-participation.v1");
   assert.deepEqual(PRODUCT_EVENTS.EVENT_NAMES, [
     "opportunity_exposed",
     "fixture_check",
@@ -124,6 +124,7 @@ async function run(){
     competitionId: undefined,
     canonicalEventId: undefined,
     properties: {
+      surveyVersion: "weekly-pulse.v1",
       pilotCohort: "hybrid",
       crossCheck: "once",
       missedFixtures: "none",
@@ -132,6 +133,7 @@ async function run(){
     },
   }));
   assert.equal(phaseSixPulse.properties.pilotCohort, "hybrid");
+  assert.equal(phaseSixPulse.properties.surveyVersion, "weekly-pulse.v1");
   assert.equal(phaseSixPulse.properties.trustConfidence, "high");
   assert.throws(() => PRODUCT_EVENTS.normalizeEvent(event({
     eventName: "weekly_pulse",
@@ -168,32 +170,33 @@ async function run(){
     tsdrPercent: 50,
   }]);
 
-  const pulseWeek = "2026-08-10";
-  const pulseSurveyId = PRODUCT_EVENTS.weeklyPulseSurveyId(pulseWeek);
-  assert.equal(pulseSurveyId, "weekly-pulse.v1:2026-08-10");
+  const pulseSurveyId = PRODUCT_EVENTS.weeklyPulseSurveyId();
+  assert.equal(pulseSurveyId, "weekly-pulse.v1");
+  assert.equal(PRODUCT_EVENTS.normalizeWeeklyPulseSurveyId("weekly-pulse.v1:2026-08-10"), pulseSurveyId, "dated v1 completions must migrate to the explicit survey release");
   assert.equal(PRODUCT_EVENTS.sydneyDateKey(new Date("2026-08-11T23:30:00.000Z")), "2026-08-12");
-  const pilot = { enabled: true, acknowledgedAt: "2026-08-11T00:00:00.000Z", lastPulseWeek: null, lastPulseSurveyId: null };
+  const pilot = { enabled: true, participationStartedAt: "2026-08-11T00:00:00.000Z", lastPulseSurveyId: null };
+  assert.equal(PRODUCT_EVENTS.participationStartedAt({ acknowledgedAt: "2026-08-10T00:00:00.000Z" }), "2026-08-10T00:00:00.000Z", "legacy acknowledgement must migrate to participationStartedAt");
   const promptReference = new Date("2026-08-12T00:00:00.000Z");
   const promptDay = PRODUCT_EVENTS.sydneyDateKey(promptReference);
   const firstOpen = PRODUCT_EVENTS.nextWeeklyPulsePromptState(null, { surveyId: pulseSurveyId, dayKey: promptDay });
   const secondOpen = PRODUCT_EVENTS.nextWeeklyPulsePromptState(firstOpen, { surveyId: pulseSurveyId, dayKey: promptDay });
   const thirdOpen = PRODUCT_EVENTS.nextWeeklyPulsePromptState(secondOpen, { surveyId: pulseSurveyId, dayKey: promptDay });
-  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: firstOpen, surveyId: pulseSurveyId, weekStart: pulseWeek, reference: promptReference }), false);
-  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: secondOpen, surveyId: pulseSurveyId, weekStart: pulseWeek, reference: promptReference }), false);
-  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: thirdOpen, surveyId: pulseSurveyId, weekStart: pulseWeek, reference: promptReference }), true, "the third app open of the Sydney day must prompt");
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: firstOpen, surveyId: pulseSurveyId, reference: promptReference }), false);
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: secondOpen, surveyId: pulseSurveyId, reference: promptReference }), false);
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: thirdOpen, surveyId: pulseSurveyId, reference: promptReference }), true, "the third app open for the current survey must prompt");
   assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({
     pilot: { ...pilot, lastPulseSurveyId: pulseSurveyId },
     promptState: thirdOpen,
     surveyId: pulseSurveyId,
-    weekStart: pulseWeek,
     reference: promptReference,
   }), false, "a completed survey must stop reminders");
-  assert.equal(PRODUCT_EVENTS.pilotSurveyActive(pilot, "2026-08-25T00:00:00.000Z"), false, "the pilot survey must stop after fourteen days");
-  const nextSurveyId = PRODUCT_EVENTS.weeklyPulseSurveyId("2026-08-17");
+  assert.equal(PRODUCT_EVENTS.pilotSurveyActive(pilot, "2036-08-25T00:00:00.000Z"), true, "measurement must not expire on elapsed time");
+  assert.equal(PRODUCT_EVENTS.pilotSurveyActive({ ...pilot, enabled: false }, promptReference), false, "an opt-out must stop measurement");
+  const nextSurveyId = "weekly-pulse.v2";
   const resetForNextSurvey = PRODUCT_EVENTS.nextWeeklyPulsePromptState(thirdOpen, { surveyId: nextSurveyId, dayKey: promptDay });
   assert.equal(resetForNextSurvey.openCount, 1, "a newly released weekly pulse must reset the open counter");
   const resetForNextDay = PRODUCT_EVENTS.nextWeeklyPulsePromptState(thirdOpen, { surveyId: pulseSurveyId, dayKey: "2026-08-13" });
-  assert.equal(resetForNextDay.openCount, 1, "each Sydney day must start a fresh open counter");
+  assert.equal(resetForNextDay.openCount, 4, "the open counter must persist across Sydney days until this survey version is complete");
 
   const queuedBatches = [];
   const queue = PRODUCT_EVENTS.createQueue({
@@ -227,6 +230,7 @@ async function run(){
     eventName: "weekly_pulse",
     surface: "weekly_pulse",
     properties: {
+      surveyVersion: "weekly-pulse.v1",
       pilotCohort: "hybrid",
       crossCheck: "once",
       missedFixtures: "none",
@@ -262,7 +266,13 @@ async function run(){
   assert.match(rlsVerification, /set local role authenticated/i);
   assert.match(rlsVerification, /RLS isolation failed/i);
   assert.match(rlsVerification, /'verify-weekly-pulse'[\s\S]+'weekly_pulse'[\s\S]+'weekly_pulse'/i, "the live database verification must exercise the weekly pulse event and surface");
+  assert.match(rlsVerification, /"surveyVersion":"weekly-pulse\.v1"/i, "the live pulse verification must exercise explicit survey-version reporting");
   assert.match(rlsVerification, /rollback;/i, "RLS verification must leave no test row behind");
+  const hardeningSql = fs.readFileSync("supabase/harden-nothingsports-security.sql", "utf8");
+  assert.match(hardeningSql, /to_regprocedure\('public\.rls_auto_enable\(\)'\)/i, "security hardening must be idempotent when the helper is absent");
+  assert.match(hardeningSql, /revoke execute on function public\.rls_auto_enable\(\) from public/i);
+  assert.match(hardeningSql, /revoke execute on function public\.rls_auto_enable\(\) from anon/i);
+  assert.match(hardeningSql, /revoke execute on function public\.rls_auto_enable\(\) from authenticated/i);
   const tsdrSql = fs.readFileSync("supabase/nothingsports-tsdr.sql", "utf8");
   assert.match(tsdrSql, /bool_or\(event_name = 'opportunity_exposed'\)/i);
   assert.match(tsdrSql, /bool_or\(event_name in \('fixture_check', 'watch_decision'\)\)/i);
@@ -271,8 +281,8 @@ async function run(){
   assert.match(tsdrSql, /properties ->> 'pilotCohort' as pilot_cohort/i);
   assert.match(tsdrSql, /properties ->> 'trustConfidence' as trust_confidence/i);
   const pilotReadoutSql = fs.readFileSync("supabase/nothingsports-pilot-readout.sql", "utf8");
-  assert.match(pilotReadoutSql, /interval '14 days'/i);
-  assert.match(pilotReadoutSql, /properties ->> 'pilotVersion' = 'trust-pilot\.v1'/i);
+  assert.doesNotMatch(pilotReadoutSql, /interval '14 days'/i);
+  assert.match(pilotReadoutSql, /properties ->> 'surveyVersion'/i);
   assert.match(pilotReadoutSql, /\('all'\), \('curator'\), \('hybrid'\), \('completist'\), \('unclassified'\)/i);
   assert.match(pilotReadoutSql, /full_fixture_adoption_percent/i);
   assert.match(pilotReadoutSql, /multiple_cross_check_percent/i);
@@ -285,12 +295,14 @@ async function run(){
   assert(html.includes('settingsMenuItem("pilot"'));
   assert(html.includes('id="pilotMeasurementEnabled"'));
   assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");
-  assert(html.includes('optInVersion: "pilot-opt-in.v1"'), "existing profiles must receive the new default once while later explicit opt-outs remain stable");
+  assert(html.includes('participationVersion: "pilot-participation.v1"'), "signed-in measurement must use the explicit automatic-participation state");
+  assert(html.includes("participationStartedAt") && PRODUCT_EVENTS.participationStartedAt({ acknowledgedAt: "2026-08-10T00:00:00.000Z" }), "legacy acknowledgements must migrate to participationStartedAt");
   assert(html.includes('Fill out this 2-minute survey'));
   assert(html.includes('registerWeeklyPulseAppOpen()'), "app startup must advance the versioned survey counter");
   assert(html.includes("No free text, messages, precise location or contact information"));
   assert(html.includes('eventName: "opportunity_exposed"'));
   assert(html.includes('eventName: "fixture_check"'));
+  assert(!html.includes('eventName: "watch_decision"'), "passive card opens and swipes must not fabricate watch decisions");
   assert(html.includes('eventName: "weekly_pulse"'));
   assert(html.includes('clientEventId: `weekly_pulse_${currentSurveyId.replace(/[^A-Za-z0-9:_-]/g, "_")}`'), "weekly pulse retries must deduplicate per pilot user and survey release");
   assert(html.includes('if (!result?.sent) throw new Error("The weekly pulse was not confirmed.")'), "the pulse UI must wait for a confirmed queue drain before marking the week complete");
@@ -299,7 +311,7 @@ async function run(){
   assert(html.includes('properties: { action: "shown" }'), "rating prompt exposure must be measurable");
   assert(html.includes('properties: { action: "dismissed" }'), "rating prompt dismissal must be measurable");
   assert(html.includes('properties: { action: "rated", score: i }'), "rating completion must remain separate from prompt exposure");
-  assert(html.includes("if (!pilotMeasurementEligible()) return null"), "telemetry must be inert without sign-in and acknowledgement");
+  assert(html.includes("if (!pilotMeasurementEligible()) return null"), "telemetry must be inert without sign-in or after opt-out");
   assert(html.includes("The normal app works without measurement"));
 
   const originalUrl = process.env.SUPABASE_URL;
@@ -454,7 +466,7 @@ async function run(){
     "the client must reject a 202 response that does not confirm the whole batch"
   );
 
-  console.log("Product event contract, API ownership, opt-in UI, RLS SQL and TSDR query validated.");
+  console.log("Product event contract, API ownership, automatic participation, opt-out, RLS SQL and TSDR query validated.");
 }
 
 run().catch(error => {
