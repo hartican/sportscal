@@ -167,6 +167,33 @@ async function run(){
     tsdrPercent: 50,
   }]);
 
+  const pulseWeek = "2026-08-10";
+  const pulseSurveyId = PRODUCT_EVENTS.weeklyPulseSurveyId(pulseWeek);
+  assert.equal(pulseSurveyId, "weekly-pulse.v1:2026-08-10");
+  assert.equal(PRODUCT_EVENTS.sydneyDateKey(new Date("2026-08-11T23:30:00.000Z")), "2026-08-12");
+  const pilot = { enabled: true, acknowledgedAt: "2026-08-11T00:00:00.000Z", lastPulseWeek: null, lastPulseSurveyId: null };
+  const promptReference = new Date("2026-08-12T00:00:00.000Z");
+  const promptDay = PRODUCT_EVENTS.sydneyDateKey(promptReference);
+  const firstOpen = PRODUCT_EVENTS.nextWeeklyPulsePromptState(null, { surveyId: pulseSurveyId, dayKey: promptDay });
+  const secondOpen = PRODUCT_EVENTS.nextWeeklyPulsePromptState(firstOpen, { surveyId: pulseSurveyId, dayKey: promptDay });
+  const thirdOpen = PRODUCT_EVENTS.nextWeeklyPulsePromptState(secondOpen, { surveyId: pulseSurveyId, dayKey: promptDay });
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: firstOpen, surveyId: pulseSurveyId, weekStart: pulseWeek, reference: promptReference }), false);
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: secondOpen, surveyId: pulseSurveyId, weekStart: pulseWeek, reference: promptReference }), false);
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState: thirdOpen, surveyId: pulseSurveyId, weekStart: pulseWeek, reference: promptReference }), true, "the third app open of the Sydney day must prompt");
+  assert.equal(PRODUCT_EVENTS.shouldPromptWeeklyPulse({
+    pilot: { ...pilot, lastPulseSurveyId: pulseSurveyId },
+    promptState: thirdOpen,
+    surveyId: pulseSurveyId,
+    weekStart: pulseWeek,
+    reference: promptReference,
+  }), false, "a completed survey must stop reminders");
+  assert.equal(PRODUCT_EVENTS.pilotSurveyActive(pilot, "2026-08-25T00:00:00.000Z"), false, "the pilot survey must stop after fourteen days");
+  const nextSurveyId = PRODUCT_EVENTS.weeklyPulseSurveyId("2026-08-17");
+  const resetForNextSurvey = PRODUCT_EVENTS.nextWeeklyPulsePromptState(thirdOpen, { surveyId: nextSurveyId, dayKey: promptDay });
+  assert.equal(resetForNextSurvey.openCount, 1, "a newly released weekly pulse must reset the open counter");
+  const resetForNextDay = PRODUCT_EVENTS.nextWeeklyPulsePromptState(thirdOpen, { surveyId: pulseSurveyId, dayKey: "2026-08-13" });
+  assert.equal(resetForNextDay.openCount, 1, "each Sydney day must start a fresh open counter");
+
   const queuedBatches = [];
   const queue = PRODUCT_EVENTS.createQueue({
     delayMs: 60_000,
@@ -249,11 +276,14 @@ async function run(){
   assert(html.includes('src="config/product-events.js"'));
   assert(html.includes('settingsMenuItem("pilot"'));
   assert(html.includes('id="pilotMeasurementEnabled"'));
+  assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");
+  assert(html.includes('Fill out this 2-minute survey'));
+  assert(html.includes('registerWeeklyPulseAppOpen()'), "app startup must advance the versioned survey counter");
   assert(html.includes("No free text, messages, precise location or contact information"));
   assert(html.includes('eventName: "opportunity_exposed"'));
   assert(html.includes('eventName: "fixture_check"'));
   assert(html.includes('eventName: "weekly_pulse"'));
-  assert(html.includes('clientEventId: `weekly_pulse_${currentWeek}`'), "weekly pulse retries must deduplicate per pilot user and week");
+  assert(html.includes('clientEventId: `weekly_pulse_${currentSurveyId.replace(/[^A-Za-z0-9:_-]/g, "_")}`'), "weekly pulse retries must deduplicate per pilot user and survey release");
   assert(html.includes('if (!result?.sent) throw new Error("The weekly pulse was not confirmed.")'), "the pulse UI must wait for a confirmed queue drain before marking the week complete");
   assert(html.includes('name="pilotCohort"') && html.includes('value="curator"') && html.includes('value="hybrid"') && html.includes('value="completist"'));
   assert(html.includes('name="trustConfidence"') && html.includes('value="high"'));

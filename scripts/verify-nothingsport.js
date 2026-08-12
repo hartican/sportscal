@@ -276,6 +276,8 @@ assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i
 assert(html.includes("ensureSessionRatingPrompt(filtered)") && ratingSystemSource.includes("LATER_SESSION_LIMIT = 3"), "eligible rating prompts must be limited to one per session and expire after three later sessions");
 assert(html.includes("if (showTunePrompt) suppressSessionRatingPrompt()"), "Tune and rating prompts must never stack in one interaction");
 assert(html.includes('settingsMenuItem("pilot"') && html.includes('id="pilotMeasurementEnabled"'), "signed-in users must receive an explicit trust-pilot acknowledgement control");
+assert(productEventsSource.includes('const WEEKLY_PULSE_OPEN_THRESHOLD = 3') && html.includes('Fill out this 2-minute survey'), "the active weekly pulse must prompt from the third app open of each Sydney day");
+assert(productEventsSource.includes('const WEEKLY_PULSE_SURVEY_VERSION = "weekly-pulse.v1"') && productEventsSource.includes("nextWeeklyPulsePromptState"), "new weekly pulse releases must reset their device-local open count");
 assert(html.includes("The normal app works without measurement") && html.includes("if (!pilotMeasurementEligible()) return null"), "the normal app must remain usable with telemetry disabled");
 assert(html.includes('eventName: "opportunity_exposed"') && html.includes('eventName: "fixture_check"'), "curated opportunities and fixture checks must be measured only after pilot opt-in");
 assert(fs.readFileSync("api/product-events.js", "utf8").includes("PRODUCT_EVENTS.rowsForUser(events, user.id)"), "the product-events API must derive row ownership from the authenticated user");
