@@ -9,7 +9,7 @@ The closed trust pilot has a separate append-only `product_events` table. It acc
 ## Project setup
 
 1. Open the existing Supabase project and run `nothingsports-user-state.sql` in the SQL editor.
-2. Run `nothingsports-product-events.sql` to create the append-only pilot table, its indexes, grants, and forced RLS policy.
+2. Run `nothingsports-product-events.sql` to create or upgrade the append-only pilot table, its fixed-contract constraints, indexes, grants, and forced RLS policy. Rerun it whenever the product-event allowlist changes.
 3. Ensure at least two test Auth users exist, then run `verify-product-events.sql`. It verifies INSERT access for the signed-in owner, rejects cross-user ownership, checks the absence of SELECT/UPDATE/DELETE privileges, and rolls back its test row.
 4. Run `nothingsports-tsdr.sql` to verify the weekly TSDR and fixed-choice pulse queries. Product users cannot run these administrative read queries.
 5. At the fourteen-day gate, run `nothingsports-pilot-readout.sql` as an administrator and pass its JSON export through `scripts/evaluate-pilot-readout.js`. The query creates no view or client-readable object.

@@ -55,6 +55,24 @@ insert into public.product_events (
   '{"presentation":"card","position":0}'::jsonb
 );
 
+insert into public.product_events (
+  user_id,
+  client_event_id,
+  event_name,
+  occurred_at,
+  session_id,
+  surface,
+  properties
+) values (
+  current_setting('nothingsports.verify_user_a')::uuid,
+  'verify-weekly-pulse',
+  'weekly_pulse',
+  now(),
+  'verify-session-a',
+  'weekly_pulse',
+  '{"pilotCohort":"hybrid","crossCheck":"once","missedFixtures":"none","feedClutter":"about_right","trustConfidence":"high"}'::jsonb
+);
+
 do $$
 begin
   begin

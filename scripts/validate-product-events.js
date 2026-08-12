@@ -250,11 +250,18 @@ async function run(){
   assert.doesNotMatch(sql, /grant\s+(?:select|update|delete)[\s\S]+to authenticated/i);
   assert.match(sql, /for insert[\s\S]+to authenticated[\s\S]+with check \(\(select auth\.uid\(\)\) = user_id\)/i);
   assert.match(sql, /event_name in \([\s\S]+'weekly_pulse'/i);
+  assert.match(sql, /create table if not exists[\s\S]+drop constraint[\s\S]+product_events_event_name_check/is, "rerunning the setup must replace stale generated event-name constraints");
+  assert.match(sql, /product_events_surface_check[\s\S]+'weekly_pulse'/is, "rerunning the setup must replace stale generated surface constraints");
+  const originalCreateEnd = sql.indexOf("\n);", sql.indexOf("create table if not exists public.product_events"));
+  const eventConstraintUpgrade = sql.indexOf("add constraint product_events_event_name_check");
+  const surfaceConstraintUpgrade = sql.indexOf("add constraint product_events_surface_check");
+  assert(eventConstraintUpgrade > originalCreateEnd && surfaceConstraintUpgrade > originalCreateEnd, "existing tables must receive explicit post-create contract upgrades");
   assert.match(sql, /octet_length\(properties::text\) <= 512/i);
   const rlsVerification = fs.readFileSync("supabase/verify-product-events.sql", "utf8");
   assert.match(rlsVerification, /offset 1 limit 1/i, "RLS verification must use two different Auth users");
   assert.match(rlsVerification, /set local role authenticated/i);
   assert.match(rlsVerification, /RLS isolation failed/i);
+  assert.match(rlsVerification, /'verify-weekly-pulse'[\s\S]+'weekly_pulse'[\s\S]+'weekly_pulse'/i, "the live database verification must exercise the weekly pulse event and surface");
   assert.match(rlsVerification, /rollback;/i, "RLS verification must leave no test row behind");
   const tsdrSql = fs.readFileSync("supabase/nothingsports-tsdr.sql", "utf8");
   assert.match(tsdrSql, /bool_or\(event_name = 'opportunity_exposed'\)/i);

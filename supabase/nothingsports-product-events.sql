@@ -1,5 +1,6 @@
 -- nothingSports closed-pilot product measurement.
--- Run once in the existing Supabase project's SQL editor before enabling the pilot.
+-- Rerun in the existing Supabase project's SQL editor whenever the fixed
+-- product-event allowlist changes.
 
 create table if not exists public.product_events (
   id bigint generated always as identity primary key,
@@ -50,6 +51,69 @@ create table if not exists public.product_events (
   constraint product_events_canonical_event_id_length
     check (canonical_event_id is null or char_length(canonical_event_id) between 1 and 160)
 );
+
+-- CREATE TABLE IF NOT EXISTS leaves older generated CHECK constraints unchanged.
+-- Replace only the two fixed-contract constraints so this script is safe to
+-- rerun when new allowlisted event names or surfaces are introduced.
+do $$
+declare
+  constraint_name text;
+begin
+  for constraint_name in
+    select con.conname
+    from pg_constraint con
+    join pg_attribute att
+      on att.attrelid = con.conrelid
+     and att.attnum = any(con.conkey)
+    where con.conrelid = 'public.product_events'::regclass
+      and con.contype = 'c'
+      and att.attname = 'event_name'
+  loop
+    execute format('alter table public.product_events drop constraint %I', constraint_name);
+  end loop;
+
+  for constraint_name in
+    select con.conname
+    from pg_constraint con
+    join pg_attribute att
+      on att.attrelid = con.conrelid
+     and att.attnum = any(con.conkey)
+    where con.conrelid = 'public.product_events'::regclass
+      and con.contype = 'c'
+      and att.attname = 'surface'
+  loop
+    execute format('alter table public.product_events drop constraint %I', constraint_name);
+  end loop;
+end $$;
+
+alter table public.product_events
+  add constraint product_events_event_name_check
+  check (event_name in (
+    'opportunity_exposed',
+    'fixture_check',
+    'watch_decision',
+    'swipe',
+    'rating',
+    'tune_prompt',
+    'tune_session',
+    'weekly_pulse'
+  ));
+
+alter table public.product_events
+  add constraint product_events_surface_check
+  check (surface in (
+    'curated_feed',
+    'round_summary',
+    'sport_hub',
+    'fixture_list',
+    'event_card',
+    'settings',
+    'weekly_pulse',
+    'onboarding',
+    'calibration',
+    'tune',
+    'archive'
+  ));
 
 create index if not exists product_events_user_occurred_at_idx
   on public.product_events (user_id, occurred_at desc);
