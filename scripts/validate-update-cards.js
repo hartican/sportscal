@@ -18,6 +18,21 @@ assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js
 assert(localSteps.some(step => step[0] === "scripts/sync-tennis-tournaments-to-feed.js" && step.includes("--from-exports")), "the canonical update must project active marquee tennis from the reviewed provider exports");
 assert(localSteps.some(step => step[0] === "scripts/validate-sport-hierarchy.js"), "every canonical update must validate hierarchy compatibility for every published card");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-taxonomy.js"), "every canonical update must validate exact idempotent preference translation into the hierarchy");
+assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must regenerate the broadcaster-led weekly and next-seven-day coverage report from approved inputs");
+assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--check") && step.includes("--enforce-freshness")), "every canonical update must reject stale broadcaster inputs and report artifacts");
+assert(localSteps.some(step => step[0] === "scripts/validate-broadcaster-discovery.js"), "every canonical update must enforce source-adapter, matching, AU availability and editorial queue contracts");
+assert(localSteps.some(step => step[0] === "scripts/apply-approved-coverage.js" && step.includes("--write")), "every canonical update must apply explicitly approved availability changes and canonical additions to the incoming feed");
+assert(localSteps.some(step => step[0] === "scripts/apply-approved-coverage.js" && step.includes("--check")), "every canonical update must verify that approved coverage is present before publication");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/apply-approved-coverage.js" && step.includes("--write"))
+    < localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
+  "approved coverage must enter the incoming feed before canonical publication"
+);
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/scan-broadcaster-coverage.js" && !step.includes("--check"))
+    > localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
+  "the next editorial report must compare broadcaster inputs against the fully published catalogue"
+);
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step.length === 1), "every canonical update must rebuild the direct-file context transport from authoritative JSON");
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step[1] === "--check"), "every canonical update must reject a stale direct-file context transport");
 assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"), "local-only updates must still enforce published result completeness");

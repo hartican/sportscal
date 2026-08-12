@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "approved-coverage.v1",
+  "reportId": "coverage-report:2026-08-13",
+  "generatedAt": "2026-08-13T02:05:00.000Z",
+  "summary": {
+    "decisionCount": 0,
+    "publish": 0,
+    "review": 0,
+    "ignore": 0,
+    "pending": 5
+  },
+  "published": []
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/coverage-review-decisions.schema.json",
+  "title": "Editorial coverage decisions",
+  "type": "object",
+  "required": ["schemaVersion", "reportId", "decisions"],
+  "properties": {
+    "schemaVersion": { "const": "coverage-review-decisions.v1" },
+    "reportId": { "type": "string", "pattern": "^coverage-report:" },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidateId", "decision", "reviewedBy", "reviewedAt"],
+        "properties": {
+          "candidateId": { "type": "string", "pattern": "^coverage:[a-z0-9]+$" },
+          "decision": { "enum": ["publish", "review", "ignore"] },
+          "reviewedBy": { "type": "string", "minLength": 2 },
+          "reviewedAt": { "type": "string", "format": "date-time" },
+          "note": { "type": ["string", "null"], "maxLength": 1000 },
+          "canonicalEvent": {
+            "description": "Required only when publishing a new broadcaster-discovered event. It must be a fully reviewed event backed by an official fixture source.",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

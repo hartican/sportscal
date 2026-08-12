@@ -1,0 +1,794 @@
+{
+  "schemaVersion": "coverage-report.v1",
+  "reportId": "coverage-report:2026-08-13",
+  "referenceDate": "2026-08-13",
+  "generatedAt": "2026-08-13T02:05:00.000Z",
+  "refreshPolicy": {
+    "weeklyBreadth": true,
+    "dailyWindowDays": 7,
+    "maximumSnapshotAgeDays": 9,
+    "failureMode": "retain_last_good_and_fail_closed",
+    "canonicalRefreshPath": "node scripts/update-cards.js"
+  },
+  "commercialSourceOptions": [
+    {
+      "id": "yuvu",
+      "label": "YuVu",
+      "role": "Australian linear EPG",
+      "auFit": "verified_fta",
+      "delivery": "Commercial API/feed; sample and approved test feeds available",
+      "evaluation": "sample_or_test_feed",
+      "pricing": "contact_sales",
+      "recommendation": "shortlist_first",
+      "limitations": "No Foxtel Pay TV; excludes several datacast, religious and horse-racing channels",
+      "sourceUrl": "https://yuvu.tv/syndication/"
+    },
+    {
+      "id": "gracenote_on",
+      "label": "Gracenote On API",
+      "role": "Enterprise linear and streaming availability plus sports identity",
+      "auFit": "verified_platform_capability_inventory_requires_quote",
+      "delivery": "Entitled APIs, schemas and delta updates",
+      "evaluation": "small_public_plan_then_sales_sample",
+      "pricing": "contact_sales",
+      "recommendation": "shortlist_enterprise",
+      "limitations": "Exact AU channel and OTT inventory is entitlement-specific; general VOD availability must not be assumed to cover sport",
+      "sourceUrl": "https://documentation.gracenote.com/on-api/index.html"
+    },
+    {
+      "id": "justwatch_sports",
+      "label": "JustWatch Sports Widget",
+      "role": "Event-level streaming and broadcast offers",
+      "auFit": "au_locale_verified_competition_inventory_unverified",
+      "delivery": "Branded JavaScript widget with partner API key",
+      "evaluation": "partner_discussion",
+      "pricing": "contact_sales",
+      "recommendation": "shortlist_streaming",
+      "limitations": "No public raw sports export; verify AU competition coverage and branding constraints",
+      "sourceUrl": "https://apis.justwatch.com/docs/sports_widget/"
+    },
+    {
+      "id": "sportradar",
+      "label": "Sportradar Media APIs",
+      "role": "Canonical multi-sport fixtures, IDs and reschedules",
+      "auFit": "afl_verified_other_competitions_contract_specific",
+      "delivery": "REST JSON/XML and supported push feeds",
+      "evaluation": "30_day_trial",
+      "pricing": "contact_sales",
+      "recommendation": "shortlist_fixture_truth",
+      "limitations": "Does not by itself establish Australian viewing availability or access type",
+      "sourceUrl": "https://sportradar.com/media-tech/data-content/sports-data-api/?lang=en-us"
+    },
+    {
+      "id": "stats_perform",
+      "label": "Stats Perform / Opta",
+      "role": "Official competition fixture and live data",
+      "auFit": "nrl_rugby_a_leagues_verified",
+      "delivery": "REST, WebSocket, push/pull and S3 in JSON/XML",
+      "evaluation": "sales_demo",
+      "pricing": "contact_sales",
+      "recommendation": "quote_for_official_au_competitions",
+      "limitations": "No verified all-sport AU availability layer; exact competition and display entitlements are contractual",
+      "sourceUrl": "https://www.statsperform.com/products/opta-data-feeds/"
+    },
+    {
+      "id": "simply_tv",
+      "label": "Simply.TV",
+      "role": "Linear EPG, streaming metadata and sports identity",
+      "auFit": "unverified",
+      "delivery": "API/push in JSON, XML or custom formats",
+      "evaluation": "small_self_service_trial",
+      "pricing": "contact_sales",
+      "recommendation": "request_inventory_before_integration",
+      "limitations": "Public material does not enumerate Australian channels or services",
+      "sourceUrl": "https://www.simply.tv/products/video-metadata"
+    },
+    {
+      "id": "epg_service",
+      "label": "EPG Service",
+      "role": "EPG and sports metadata benchmark",
+      "auFit": "unverified",
+      "delivery": "REST/OpenAPI JSON, XMLTV, webhooks and exports",
+      "evaluation": "free_sandbox_and_seven_day_pilot",
+      "pricing": "public_starting_prices_plus_quote",
+      "recommendation": "benchmark_only_until_au_inventory_proven",
+      "limitations": "Australia is not identified in public coverage material",
+      "sourceUrl": "https://epgservice.tv/en/"
+    },
+    {
+      "id": "sportsdataio",
+      "label": "SportsDataIO Global Sports API",
+      "role": "Broad schedules and scores across long-tail sports",
+      "auFit": "fixture_only",
+      "delivery": "Commercial API with one consistent global schema",
+      "evaluation": "no_self_service_trial",
+      "pricing": "contact_sales",
+      "recommendation": "compare_fixture_breadth_only",
+      "limitations": "No Australian broadcaster or streaming availability layer",
+      "sourceUrl": "https://sportsdata.io/developers"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "kayo",
+      "sourceLabel": "Kayo Sports",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "foxtel",
+      "sourceLabel": "Foxtel",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "stan_sport",
+      "sourceLabel": "Stan Sport",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "loaded",
+      "sourceMode": "reviewed_export",
+      "observedAt": "2026-08-13T02:00:00.000Z",
+      "ageDays": 0,
+      "windowStart": "2026-08-13",
+      "windowEnd": "2027-05-02",
+      "itemCount": 6,
+      "fixturePath": "feeds/provider-exports/broadcasters/stan-sport-2026-08-13.json",
+      "reason": null
+    },
+    {
+      "sourceId": "espn_au",
+      "sourceLabel": "ESPN Australia",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "sbs",
+      "sourceLabel": "SBS",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "9now",
+      "sourceLabel": "9Now",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "7plus",
+      "sourceLabel": "Seven / 7plus",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "paramount_plus_au",
+      "sourceLabel": "Paramount+ Australia",
+      "priorityAu": true,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "eurosport",
+      "sourceLabel": "Eurosport",
+      "priorityAu": false,
+      "territory": "EU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "canal_plus_fr",
+      "sourceLabel": "CANAL+ France",
+      "priorityAu": false,
+      "territory": "FR",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "tnt_sports_uk",
+      "sourceLabel": "TNT Sports UK",
+      "priorityAu": false,
+      "territory": "GB",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "dazn",
+      "sourceLabel": "DAZN",
+      "priorityAu": false,
+      "territory": "MULTI",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    },
+    {
+      "sourceId": "bein_sports_au",
+      "sourceLabel": "beIN SPORTS Australia",
+      "priorityAu": false,
+      "territory": "AU",
+      "status": "no_approved_input",
+      "sourceMode": "unavailable",
+      "observedAt": null,
+      "ageDays": null,
+      "windowStart": null,
+      "windowEnd": null,
+      "itemCount": 0,
+      "fixturePath": null,
+      "reason": "No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates."
+    }
+  ],
+  "summary": {
+    "canonicalEventsCompared": 307,
+    "priorityAuSources": 8,
+    "priorityAuSourcesLoaded": 1,
+    "sourceListingsLoaded": 6,
+    "liveOrDelayedListingsEvaluated": 5,
+    "nonEventProgrammesExcluded": 1,
+    "matched": 0,
+    "newCatalogueGaps": 4,
+    "ambiguous": 1,
+    "publish": 0,
+    "review": 5,
+    "ignore": 0,
+    "highPriorityRecommendations": 5,
+    "auAvailabilityChanges": 0
+  },
+  "candidates": [
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:xokppx",
+      "candidateId": "coverage:xokppx",
+      "reportId": "coverage-report:2026-08-13",
+      "title": "UEFA Super Cup",
+      "eventTitle": "UEFA Super Cup",
+      "source": "stan_sport",
+      "sport": "sport:football",
+      "competition": "competition:uefa",
+      "startsAt": "2026-08-12T19:00:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:uefa",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa",
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "UEFA competitions"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-13",
+        "eventStartsAtUtc": "2026-08-12T19:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-12T18:54:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:uefa-super-cup-2026-08-13",
+          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z",
+          "territory": "AU",
+          "rawTitle": "UEFA Super Cup"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:xokppx",
+        "title": "UEFA Super Cup",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa",
+        "eventSeriesId": null,
+        "rawCompetition": "UEFA competitions",
+        "startTimeUtc": "2026-08-12T19:00:00.000Z",
+        "sourceLocalDate": "2026-08-13",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:iutxl9",
+      "candidateId": "coverage:iutxl9",
+      "reportId": "coverage-report:2026-08-13",
+      "title": "WTA 1000",
+      "eventTitle": "WTA 1000",
+      "source": "stan_sport",
+      "sport": "sport:tennis",
+      "competition": "competition:wta-tour",
+      "startsAt": "2026-08-12T23:00:00.000Z",
+      "matchStatus": "ambiguous",
+      "catalogueStatus": "ambiguous",
+      "matchConfidence": 0.58,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:wta-tour",
+        "sportId": "sport:tennis",
+        "disciplineId": "discipline:tennis:professional",
+        "competitionId": "competition:wta-tour",
+        "eventSeriesId": null,
+        "rawSport": "Tennis",
+        "rawCompetition": "WTA Tour"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-13",
+        "eventStartsAtUtc": "2026-08-12T23:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-12T23:00:00.000Z",
+        "timeConfidence": "date_only"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0.58,
+        "reasonCodes": [
+          "competition_match",
+          "same_calendar_date",
+          "title_tokens_match"
+        ],
+        "alternatives": [
+          {
+            "canonicalEventId": "tennis-tournament-wta-cincinnati-2026-2026-08-13",
+            "title": "Cincinnati Open — WTA 1000",
+            "confidence": 0.58
+          },
+          {
+            "canonicalEventId": "tennis-tournament-wta-toronto-806-2026-2026-08-13",
+            "title": "National Bank Open presented by Rogers — WTA 1000",
+            "confidence": 0.58
+          },
+          {
+            "canonicalEventId": "tennis-tournament-atp-cincinnati-2026-2026-08-13",
+            "title": "Cincinnati Open — ATP Masters 1000",
+            "confidence": 0.08
+          }
+        ]
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:wta-1000-2026-08-13",
+          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z",
+          "territory": "AU",
+          "rawTitle": "WTA 1000"
+        }
+      ],
+      "provisionalEvent": null,
+      "availabilityChange": null,
+      "blockers": [
+        "ambiguous_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:v8q8w5",
+      "candidateId": "coverage:v8q8w5",
+      "reportId": "coverage-report:2026-08-13",
+      "title": "Formula E",
+      "eventTitle": "Formula E",
+      "source": "stan_sport",
+      "sport": "sport:motorsport",
+      "competition": "Formula E",
+      "startsAt": "2026-08-14T14:55:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:motorsport",
+        "sportId": "sport:motorsport",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawSport": "Motorsport",
+        "rawCompetition": "Formula E"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-15",
+        "eventStartsAtUtc": "2026-08-14T14:55:00.000Z",
+        "programmeStartsAtUtc": "2026-08-14T14:50:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:formula-e-2026-08-15",
+          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z",
+          "territory": "AU",
+          "rawTitle": "Formula E"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:v8q8w5",
+        "title": "Formula E",
+        "sportId": "sport:motorsport",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawCompetition": "Formula E",
+        "startTimeUtc": "2026-08-14T14:55:00.000Z",
+        "sourceLocalDate": "2026-08-15",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "competition_needs_review",
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:1cbygja",
+      "candidateId": "coverage:1cbygja",
+      "reportId": "coverage-report:2026-08-13",
+      "title": "FA Community Shield",
+      "eventTitle": "FA Community Shield",
+      "source": "stan_sport",
+      "sport": "sport:football",
+      "competition": "FA Community Shield",
+      "startsAt": "2026-08-16T14:00:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:football",
+        "sportId": "sport:football",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "FA Community Shield"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-16",
+        "eventStartsAtUtc": "2026-08-16T14:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-16T13:45:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:fa-community-shield-2026-08-16",
+          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z",
+          "territory": "AU",
+          "rawTitle": "FA Community Shield"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:1cbygja",
+        "title": "FA Community Shield",
+        "sportId": "sport:football",
+        "disciplineId": null,
+        "competitionId": null,
+        "eventSeriesId": null,
+        "rawCompetition": "FA Community Shield",
+        "startTimeUtc": "2026-08-16T14:00:00.000Z",
+        "sourceLocalDate": "2026-08-16",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "competition_needs_review",
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:ef6gxf",
+      "candidateId": "coverage:ef6gxf",
+      "reportId": "coverage-report:2026-08-13",
+      "title": "Premier League",
+      "eventTitle": "Premier League",
+      "source": "stan_sport",
+      "sport": "sport:football",
+      "competition": "competition:premier-league",
+      "startsAt": "2026-08-21T19:00:00.000Z",
+      "matchStatus": "new",
+      "catalogueStatus": "new",
+      "matchConfidence": 0,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:premier-league",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:premier-league",
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "Premier League"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-22",
+        "eventStartsAtUtc": "2026-08-21T19:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-21T18:00:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": null,
+        "confidence": 0,
+        "reasonCodes": [
+          "no_catalogue_match"
+        ],
+        "alternatives": []
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:premier-league-2026-08-22",
+          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport",
+          "observedAt": "2026-08-13T02:00:00.000Z",
+          "territory": "AU",
+          "rawTitle": "Premier League"
+        }
+      ],
+      "provisionalEvent": {
+        "schemaVersion": "provisional-catalog-event.v1",
+        "id": "provisional:ef6gxf",
+        "title": "Premier League",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:premier-league",
+        "eventSeriesId": null,
+        "rawCompetition": "Premier League",
+        "startTimeUtc": "2026-08-21T19:00:00.000Z",
+        "sourceLocalDate": "2026-08-22",
+        "status": "provisional"
+      },
+      "availabilityChange": null,
+      "blockers": [
+        "new_catalogue_identity"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "weekly_breadth"
+    }
+  ]
+}

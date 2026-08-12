@@ -1,14 +1,62 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-12T12:11:57.714Z",
+  "generatedAt": "2026-08-12T21:44:07.014Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 2,
-    "passed": 2,
+    "due": 5,
+    "passed": 5,
     "failed": 0
   },
   "cards": [
+    {
+      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-13",
+      "name": "Cincinnati Open — ATP Masters 1000",
+      "sport": "Tennis",
+      "date": "2026-08-13",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "atp-tour",
+        "atp_masters_1000",
+        "opening-day",
+        "hard-surface"
+      ],
+      "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-13",
+      "name": "Cincinnati Open — WTA 1000",
+      "sport": "Tennis",
+      "date": "2026-08-13",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "wta-tour",
+        "wta_1000",
+        "active-tournament-window",
+        "hard-surface"
+      ],
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-wta-toronto-806-2026-2026-08-13",
+      "name": "National Bank Open presented by Rogers — WTA 1000",
+      "sport": "Tennis",
+      "date": "2026-08-13",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "wta-tour",
+        "wta_1000",
+        "closing-day",
+        "hard-surface"
+      ],
+      "sourceUrl": "https://www.wtatennis.com/tournaments/806/toronto/2026",
+      "issues": []
+    },
     {
       "id": "cricket-australia-bangladesh-first-test-2026",
       "name": "Australia v Bangladesh — First Test",

@@ -8,6 +8,8 @@ The closed trust pilot has a separate append-only `product_events` table. It acc
 
 The Phase 2 tennis catalogue has separate public-reference tables in `nothingsports-tennis-catalogue.sql`. Clients receive read-only access; only a trusted server-side ingestion job may write reviewed or licensed provider snapshots. Do not apply that migration until the provider contract and deployment environment are approved.
 
+The Phase 3 broadcaster-discovery queue has private service-role-only tables in `nothingsports-coverage-candidates.sql`. Both tables use forced RLS and revoke every privilege from `anon` and `authenticated`; the browser never needs direct access. Do not apply the migration until a licensed provider and server-side ingestion environment are approved. Repository reports remain the operational MVP.
+
 ## Project setup
 
 1. Open the existing Supabase project and run `nothingsports-user-state.sql` in the SQL editor.

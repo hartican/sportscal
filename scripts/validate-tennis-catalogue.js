@@ -68,6 +68,11 @@ assert.equal(torontoCards[0].key, "tennis");
 assert.equal(torontoCards[0].taxonomySportId, "sport:tennis");
 assert.equal(torontoCards[0].taxonomyCompetitionId, "competition:wta-tour");
 assert.equal(torontoCards[0].sourceUrl, "https://www.wtatennis.com/tournaments/806/toronto/2026");
+assert.equal(torontoCards[0].editorialPreview.status, "journalistic", "active tournament overview cards inside the editorial window need source-backed preview metadata");
+assert(torontoCards[0].editorialPreview.contextSignals.includes("closing-day"));
+assert.match(torontoCards[0].selectedSentence, /women's WTA 1000 reaches the final day/, "Toronto must have event-specific closing-day copy rather than a generic active-tournament hook");
+const cincinnatiCards = torontoSync.generated.filter(event => /cincinnati/i.test(event.name));
+assert.equal(new Set(cincinnatiCards.map(event => event.selectedSentence)).size, cincinnatiCards.length, "simultaneous ATP and WTA tournaments must not share duplicate hooks");
 
 const registry = require("../config/sport-domain-registry.js");
 const hierarchy = require("../config/sport-hierarchy.js");

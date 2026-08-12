@@ -75,6 +75,8 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),
+  ["scripts/apply-approved-coverage.js", "--write"],
+  ["scripts/apply-approved-coverage.js", "--check"],
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json"],
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
@@ -82,6 +84,9 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
+  ["scripts/scan-broadcaster-coverage.js", "--enforce-freshness"],
+  ["scripts/scan-broadcaster-coverage.js", "--check", "--enforce-freshness"],
+  ["scripts/validate-broadcaster-discovery.js"],
   ["scripts/validate-editorial-preview-standings.js"],
   ["scripts/validate-cwg-context.js"],
   ["scripts/audit-editorial-previews.js", "data/events.json", "data/editorial-preview-audit.json"],

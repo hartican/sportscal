@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/broadcaster-schedule-export.schema.json",
+  "title": "Reviewed or licensed broadcaster schedule export",
+  "type": "object",
+  "required": ["schemaVersion", "snapshotId", "sourceId", "sourceMode", "territory", "sourceUrl", "observedAt", "windowStart", "windowEnd", "items"],
+  "properties": {
+    "schemaVersion": { "const": "broadcaster-schedule-export.v1" },
+    "snapshotId": { "type": "string", "minLength": 3 },
+    "sourceId": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "sourceMode": { "enum": ["licensed_api", "reviewed_export", "manual_fixture"] },
+    "territory": { "type": "string", "minLength": 2 },
+    "sourceUrl": { "type": "string", "pattern": "^https://" },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "reviewedAt": { "type": "string", "format": "date-time" },
+    "reviewedBy": { "type": "string", "minLength": 2 },
+    "windowStart": { "type": "string", "format": "date" },
+    "windowEnd": { "type": "string", "format": "date" },
+    "checksum": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sourceListingId", "rawTitle", "rawSport", "territory", "accessType", "liveOrReplay", "timeConfidence"],
+        "properties": {
+          "sourceListingId": { "type": "string", "minLength": 1 },
+          "rawTitle": { "type": "string", "minLength": 1 },
+          "rawSport": { "type": "string", "minLength": 1 },
+          "rawCompetition": { "type": ["string", "null"] },
+          "rawParticipants": { "type": "array", "items": { "type": "string" } },
+          "roundOrSession": { "type": ["string", "null"] },
+          "venue": { "type": ["string", "null"] },
+          "channelBrand": { "type": ["string", "null"] },
+          "territory": { "type": "string", "minLength": 2 },
+          "serviceId": { "type": "string", "minLength": 1 },
+          "accessType": { "enum": ["free", "included", "ppv", "unknown"] },
+          "liveOrReplay": { "enum": ["live", "delayed", "replay", "highlights", "studio", "unknown"] },
+          "timeConfidence": { "enum": ["exact", "approximate", "date_only", "unknown"] },
+          "localDate": { "type": "string", "format": "date" },
+          "programmeStartsAtUtc": { "type": ["string", "null"], "format": "date-time" },
+          "eventStartsAtUtc": { "type": ["string", "null"], "format": "date-time" },
+          "scheduleTimeText": { "type": ["string", "null"] },
+          "scheduleTimeZone": { "type": ["string", "null"] },
+          "sourceUrl": { "type": "string", "pattern": "^https://" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "sourceMode": { "const": "reviewed_export" } } },
+      "then": { "required": ["reviewedAt", "reviewedBy"] }
+    }
+  ],
+  "additionalProperties": false
+}

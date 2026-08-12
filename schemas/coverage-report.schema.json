@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/coverage-report.schema.json",
+  "title": "Weekly broadcaster coverage report",
+  "type": "object",
+  "required": ["schemaVersion", "reportId", "referenceDate", "generatedAt", "refreshPolicy", "commercialSourceOptions", "sources", "summary", "candidates"],
+  "properties": {
+    "schemaVersion": { "const": "coverage-report.v1" },
+    "reportId": { "type": "string", "pattern": "^coverage-report:" },
+    "referenceDate": { "type": "string", "format": "date" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "refreshPolicy": { "type": "object" },
+    "commercialSourceOptions": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "sources": { "type": "array", "items": { "type": "object" } },
+    "summary": { "type": "object" },
+    "candidates": { "type": "array", "items": { "$ref": "coverage-candidate.schema.json" } }
+  },
+  "additionalProperties": false
+}

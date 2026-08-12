@@ -40,7 +40,19 @@ function tournamentToCard(tournament, referenceDate){
   const tourLabel = tournament.tour === "BOTH" || tournament.tour === "TEAM" ? levelLabel : `${tournament.tour} ${levelLabel.replace(/^ATP |^WTA /, "")}`;
   const compactTitle = `${tournament.name} — ${tourLabel}`;
   const id = `tennis-tournament-${tournament.tournamentId.replace(/^tournament:tennis:/, "")}-${referenceDate}`;
-  const activeCopy = `${tournament.name} is active in ${tournament.city}, with its official daily schedule eligible for the Tennis feed.`;
+  const tourName = tournament.tour === "ATP" ? "men's" : tournament.tour === "WTA" ? "women's" : "combined";
+  const surfaceLabel = tournament.surface === "hard" ? "hard-court" : `${tournament.surface}-court`;
+  const activeCopy = tournament.endDate === referenceDate
+    ? `${tournament.name}'s ${tourName} ${levelLabel} reaches the final day of its ${surfaceLabel} window in ${tournament.city}.`
+    : tournament.startDate === referenceDate
+      ? `${tournament.name}'s ${tourName} ${levelLabel} opens its ${surfaceLabel} window in ${tournament.city}.`
+      : `${tournament.name}'s ${tourName} ${levelLabel} is inside its official ${surfaceLabel} tournament window in ${tournament.city}.`;
+  const contextSignals = [
+    tournament.tour === "ATP" ? "atp-tour" : tournament.tour === "WTA" ? "wta-tour" : "combined-tours",
+    tournament.level,
+    tournament.endDate === referenceDate ? "closing-day" : tournament.startDate === referenceDate ? "opening-day" : "active-tournament-window",
+    `${tournament.surface}-surface`,
+  ];
   return {
     id,
     eventId: id,
@@ -79,6 +91,15 @@ function tournamentToCard(tournament, referenceDate){
     sourceCheckedAt: tournament.reviewedAt || "2026-08-13T02:00:00.000Z",
     sourceType: "official",
     lastReviewedAt: tournament.reviewedAt || "2026-08-13T02:00:00.000Z",
+    editorialPreview: {
+      status: "journalistic",
+      angle: activeCopy,
+      contextSignals,
+      sourceName: `${tournament.tour === "WTA" ? "WTA" : tournament.tour === "ATP" ? "ATP Tour" : "Official tennis competition"} tournament calendar`,
+      sourceUrl: tournament.sourceUrl,
+      sourceCheckedAt: tournament.reviewedAt || "2026-08-13T02:00:00.000Z",
+      needsPreviewRefresh: false,
+    },
     replayEligible: false,
     highlightEligible: true,
     briefingEligible: true,

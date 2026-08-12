@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/coverage-candidate.schema.json",
+  "title": "Broadcaster coverage candidate",
+  "type": "object",
+  "required": ["schemaVersion", "id", "candidateId", "reportId", "title", "eventTitle", "source", "sport", "startsAt", "matchStatus", "catalogueStatus", "matchConfidence", "coverageReason", "suggestedAction", "priority", "taxonomy", "eventTiming", "match", "broadcastsAu", "sourceEvidence", "blockers", "editorial"],
+  "properties": {
+    "schemaVersion": { "const": "coverage-candidate.v1" },
+    "id": { "type": "string", "pattern": "^coverage:[a-z0-9]+$" },
+    "candidateId": { "type": "string", "pattern": "^coverage:[a-z0-9]+$" },
+    "reportId": { "type": "string", "pattern": "^coverage-report:" },
+    "title": { "type": "string", "minLength": 1 },
+    "eventTitle": { "type": "string", "minLength": 1 },
+    "source": { "type": "string", "minLength": 1 },
+    "sport": { "type": "string", "minLength": 1 },
+    "competition": { "type": ["string", "null"] },
+    "startsAt": { "type": "string", "format": "date-time" },
+    "matchStatus": { "enum": ["matched", "new", "ambiguous"] },
+    "catalogueStatus": { "enum": ["matched", "new", "ambiguous"] },
+    "matchConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "coverageReason": { "enum": ["existing_followed_sport", "major_event", "australian_participant", "top_50_tennis", "broadcaster_featured", "community_signal"] },
+    "suggestedAction": { "enum": ["publish", "review", "ignore"] },
+    "priority": { "enum": ["high", "normal", "low"] },
+    "taxonomy": { "type": "object" },
+    "eventTiming": { "type": "object" },
+    "match": {
+      "type": "object",
+      "required": ["canonicalEventId", "confidence", "reasonCodes", "alternatives"],
+      "properties": {
+        "canonicalEventId": { "type": ["string", "null"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "reasonCodes": { "type": "array", "items": { "type": "string" } },
+        "alternatives": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": false
+    },
+    "broadcastsAu": { "type": "array", "items": { "type": "object" } },
+    "sourceEvidence": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "provisionalEvent": { "type": ["object", "null"] },
+    "availabilityChange": { "type": ["string", "null"] },
+    "scanScope": { "enum": ["daily_next_seven_days", "weekly_breadth"] },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "editorial": { "type": "object" }
+  },
+  "additionalProperties": false
+}
