@@ -135,7 +135,7 @@ push_without_history_leak() {
   if git diff --cached --quiet; then
     log "No output file delta needed for sanitized push branch."
   else
-    git commit -m "$RELEASE_COMMIT_MESSAGE"
+    git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"
   fi
 
   if ! run_push "$target_branch:main"; then
@@ -173,7 +173,7 @@ ensure_release_head_on_main_line
 
 if ! git diff --quiet HEAD -- "${CARD_OUTPUT_FILES[@]}"; then
   git add "${CARD_OUTPUT_FILES[@]}"
-  git commit -m "$RELEASE_COMMIT_MESSAGE"
+  git commit --only -m "$RELEASE_COMMIT_MESSAGE" -- "${CARD_OUTPUT_FILES[@]}"
   run_end_head="$(git rev-parse HEAD)"
   HAS_RELEASE_OUTPUT_CHANGES=1
 else
