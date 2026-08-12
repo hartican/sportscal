@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v83";
+const CACHE_NAME = "nothingsport-shell-v84";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -23,6 +23,7 @@ const APP_SHELL = [
   "/config/swipe-calibration.js",
   "/config/fine-tuning.js",
   "/config/rating-system.js",
+  "/config/storyline-overrides.js",
   "/config/enrichment-engine.js",
   "/config/card-lifecycle.js",
   "/config/reminder-engine.js",

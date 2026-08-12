@@ -5,18 +5,26 @@
   "type": "object",
   "required": [
     "schemaVersion",
+    "rankingVersion",
     "canonicalEventId",
     "userInterestScore",
     "followBoost",
     "followContext",
     "broadcasterFitScore",
+    "stakesScore",
+    "australiaRelevanceScore",
+    "availabilityScore",
     "timeWindowFitScore",
+    "editorialBoost",
     "mustWatchScore",
     "intensity",
-    "cardVariant"
+    "cardVariant",
+    "premiumSurface",
+    "editorialOverride"
   ],
   "properties": {
-    "schemaVersion": { "const": "enriched-event.v1" },
+    "schemaVersion": { "const": "enriched-event.v2" },
+    "rankingVersion": { "const": "premium-ranking.v1" },
     "canonicalEventId": { "type": "string", "minLength": 1 },
     "userInterestScore": { "type": "number", "minimum": 0, "maximum": 5 },
     "followBoost": { "type": "number", "minimum": 0, "maximum": 5 },
@@ -35,10 +43,30 @@
       }
     },
     "broadcasterFitScore": { "type": "number", "minimum": 0, "maximum": 5 },
+    "stakesScore": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "australiaRelevanceScore": { "type": "number", "minimum": 0, "maximum": 5 },
+    "availabilityScore": { "type": "number", "minimum": 0, "maximum": 5 },
     "timeWindowFitScore": { "type": "number", "minimum": 0, "maximum": 5 },
+    "editorialBoost": { "type": "number", "minimum": 0, "maximum": 5 },
     "mustWatchScore": { "type": "number", "minimum": 0, "maximum": 100 },
     "intensity": { "type": "integer", "minimum": 1, "maximum": 5 },
     "cardVariant": { "enum": ["plain", "compact", "standard", "marquee"] },
+    "premiumSurface": { "enum": ["homeMustWatch", "topStorylines", "sportFeed"] },
+    "editorialOverride": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reviewedAt", "reviewedBy", "note"],
+          "properties": {
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "reviewedBy": { "type": "string", "minLength": 1 },
+            "note": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
     "storyline": {
       "type": "object",
       "properties": {

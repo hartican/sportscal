@@ -313,8 +313,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v83"'), "the Phase 4 feed-control release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="83">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v84"'), "the Phase 5 premium-ranking release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="84">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
@@ -485,7 +485,10 @@ assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("co
 assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${JSON.stringify(canonicalSportsSchema)}`), "canonical taxonomy and schemas must use Competitor as the single participant term");
 assert.equal(profileStorageSchema.properties.schemaVersion.const, 3, "profile storage schema must be explicitly versioned");
 assert(profileStorageSchema.required.includes("learningPreference"), "profile storage must preserve the v4 learning section across reloads");
-assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v1", "enrichment must use an explicitly versioned disposable schema");
+assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v2", "enrichment must use an explicitly versioned disposable schema");
+assert(html.includes('<script src="config/storyline-overrides.js"></script>'), "the editorial override registry must load before the enrichment engine");
+assert(html.includes('title: "Must Watch"') && html.includes('title: "Top Storylines This Week"'), "the curated feed must expose separate premium surfaces");
+assert(html.includes("premiumEventIds"), "premium selections must be removed from the ordinary chronological stream");
 assert(enrichedEventSchema.required.includes("followContext"), "derived enrichment must require resolved follow context");
 assert(enrichedEventSchema.properties.followContext.items.properties.participantType.enum.includes("competitor"), "follow context must use Competitor as the canonical individual participant term");
 assert.equal(sportContextSchema.properties.schemaVersion.const, "sport-context.v1", "modular sport context must be explicitly versioned");

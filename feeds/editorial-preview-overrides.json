@@ -36,6 +36,23 @@
         "needsPreviewRefresh": false
       }
     },
+    "cricket-australia-bangladesh-second-test-2026": {
+      "selectedSentence": "Mackay becomes Australia's 12th Test venue as the two-match Top End series moves to its second stop.",
+      "fullSpiel": "The Australia-Bangladesh series moves from Darwin to Great Barrier Reef Arena in Mackay for the second Test. Cricket Australia's published schedule makes this Mackay's first Test and Australia's 12th venue to host the format.",
+      "sourceName": "Cricket Australia 2026 international schedule",
+      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+      "sourceCheckedAt": "2026-08-03T04:58:28Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "A new Test venue gives the two-match northern series a second historic setting.",
+        "contextSignals": ["new-test-venue", "series-second-test", "venue-history"],
+        "sourceName": "Cricket Australia 2026 international schedule",
+        "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+        "sourceCheckedAt": "2026-08-03T04:58:28Z",
+        "needsPreviewRefresh": false
+      }
+    },
     "fifa-third-place-2026": {
       "selectedSentence": "Redemption has a Golden Boot edge: Mbappé chases Messi while England try to turn semifinal pain into a podium finish.",
       "fullSpiel": "France and England arrive bruised but with something tangible left to win. Mbappé starts on eight tournament goals, while Kane and Bellingham sit on six; England are also chasing their first bronze-medal win after defeats in 1990 and 2018.",

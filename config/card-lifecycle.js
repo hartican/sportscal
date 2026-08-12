@@ -151,7 +151,14 @@
         displayTitle: event.displayTitleCompact || event.name,
         date: event.date,
         time: event.time,
+        rankingVersion: enrichment.rankingVersion,
         mustWatchScore: enrichment.mustWatchScore,
+        stakesScore: enrichment.stakesScore,
+        australiaRelevanceScore: enrichment.australiaRelevanceScore,
+        availabilityScore: enrichment.availabilityScore,
+        editorialBoost: enrichment.editorialBoost,
+        premiumSurface: enrichment.premiumSurface,
+        editorialOverride: enrichment.editorialOverride || null,
         followContext: Array.isArray(enrichment.followContext) ? clone(enrichment.followContext) : [],
         storyline: enrichment.storyline && typeof enrichment.storyline === "object"
           ? clone(enrichment.storyline)
@@ -168,7 +175,9 @@
     if (action.watchLater) return "saved";
     const status = String(event.status || "").toLowerCase();
     if (["past", "completed"].includes(status)) return "recent";
-    if (action.mustWatch || enrichment.mustWatchScore >= 70) return "homeMustWatch";
+    if (action.mustWatch) return "homeMustWatch";
+    if (["homeMustWatch", "topStorylines", "sportFeed"].includes(enrichment.premiumSurface)) return enrichment.premiumSurface;
+    if (enrichment.mustWatchScore >= 70) return "homeMustWatch";
     if (enrichment.intensity >= 4) return "topStorylines";
     return "sportFeed";
   }

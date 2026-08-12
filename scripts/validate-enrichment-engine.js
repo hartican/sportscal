@@ -12,6 +12,7 @@ const graph = preferences.createPreferenceGraph({
   broadcasterIds: ["stan", "kayo"],
 });
 graph.entityFollows.push({ profileId: graph.profileId, participantId: "participant:australia", followLevel: "priority" });
+graph.domainPreferences.push({ profileId: graph.profileId, sportDomainId: "sport:tennis", templateId: "template:casual", enabled: true });
 graph.viewing.startHourLocal = 18;
 graph.viewing.endHourLocal = 23;
 
@@ -71,7 +72,55 @@ assert.equal(defining.timeWindowFitScore, 3, "critical events may use the late-n
 assert.equal(defining.storyline.visibleLabel, "Title Decider");
 assert.equal(defining.storyline.arcStage, "climax");
 assert.equal(defining.storyline.intensitySource, "manual");
-assert.equal(defining.storyline.scoreReasons.length, 5);
+assert.equal(defining.schemaVersion, "enriched-event.v2");
+assert.equal(defining.rankingVersion, "premium-ranking.v1");
+assert.equal(defining.stakesScore, 5);
+assert.equal(defining.australiaRelevanceScore, 5);
+assert.equal(defining.premiumSurface, "homeMustWatch");
+assert(defining.storyline.scoreReasons.length >= 7);
+
+const similarStakesFollowed = engine.enrichEvent({
+  id: "followed-similar-stakes",
+  key: "rugby",
+  name: "Australia v Japan — World Cup Semifinal",
+  date: "2026-08-16",
+  time: "20:00",
+  expected: 8,
+  participantIds: ["participant:australia"],
+  broadcasterIds: ["stan"],
+  storyline: { stakes: 4, intensity: 4 },
+}, {
+  preferenceGraph: graph,
+  participants: [{
+    id: "participant:australia",
+    type: "nationalSide",
+    displayName: "Australia",
+    canonicalName: "Australia",
+  }],
+});
+const similarStakesDiscovery = engine.enrichEvent({
+  id: "discovery-similar-stakes",
+  key: "tennis",
+  sportId: "tennis",
+  name: "WTA 1000 Semifinal",
+  date: "2026-08-16",
+  time: "20:00",
+  expected: 8,
+  storyline: { stakes: 4, intensity: 4 },
+}, { preferenceGraph: graph });
+assert(similarStakesFollowed.mustWatchScore > similarStakesDiscovery.mustWatchScore, "followed events must outrank discovery at similar stakes");
+
+const toronto = engine.enrichEvent({
+  id: "tennis-tournament-wta-toronto-806-2026-2026-08-13",
+  key: "wimbledon",
+  name: "National Bank Open presented by Rogers — WTA 1000",
+  date: "2026-08-13",
+  time: "09:00",
+  expected: 8,
+}, { preferenceGraph: graph });
+assert.equal(toronto.cardVariant, "marquee", "editorial overrides must support flagship card treatment");
+assert.equal(toronto.premiumSurface, "homeMustWatch");
+assert.equal(toronto.editorialOverride.reviewedBy, "nothingSport editorial");
 
 const competitorGraph = preferences.setEntityFollow(
   preferences.createPreferenceGraph({
@@ -153,5 +202,15 @@ const ranked = engine.rankEvents([
   { id: "a", key: "rugby", name: "World Cup Final", expected: 10, time: "20:00", broadcasterIds: ["stan"] },
 ], { preferenceGraph: graph });
 assert.equal(ranked[0].event.id, "a", "ranking must deterministically surface the highest score first");
+
+const surfaces = engine.selectPremiumSurfaces([
+  { id: "routine-1", key: "fifa", name: "Routine fixture", date: "2026-08-15", time: "20:00", expected: 3 },
+  { id: "story-1", key: "golf", name: "Major Championship Semifinal", date: "2026-08-15", time: "20:00", expected: 8, storyline: { stakes: 4, intensity: 4 } },
+  { id: "must-1", key: "rugby", name: "World Cup Final", date: "2026-08-16", time: "20:00", expected: 10, storyline: { stakes: 5, intensity: 5 } },
+  { id: "outside-horizon", key: "rugby", name: "Later World Cup Final", date: "2026-08-25", time: "20:00", expected: 10, storyline: { stakes: 5, intensity: 5 } },
+], { preferenceGraph: graph, now: new Date("2026-08-13T00:00:00+10:00") });
+assert.deepEqual(surfaces.mustWatch.map(item => item.event.id), ["must-1"]);
+assert.deepEqual(surfaces.topStorylines.map(item => item.event.id), ["story-1"]);
+assert(!surfaces.mustWatch.some(item => item.event.id === "routine-1"), "routine breadth must not enter premium rails");
 
 console.log("Enrichment engine validation passed.");

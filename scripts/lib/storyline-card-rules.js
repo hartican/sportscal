@@ -1,29 +1,9 @@
 const RESULT_LEAK = /\b(?:won|lost|beat|defeated|winner|loser|score|margin|advanced|reached|eliminated|victory|champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|\b\d{1,3}\s*[-–]\s*\d{1,3}\b/i;
 const PREVIEW_LEAK = /\b(?:won|beat|defeated|completed|final score)\b|\blost\b(?!\s+time)/i;
 const PREVIEW_TENSE = /\b(?:will|awaits|host|upcoming)\b/i;
-const MANUAL_STORYLINE_OVERRIDES = {
-  "fifa-third-place-2026": {
-    stakes: 4,
-    intensity: 4,
-    archetype: "podium decider",
-    expectedSpectacle: 6,
-  },
-  "nrl-raiders-rabbitohs-2026-07-18": {
-    stakes: 4,
-    intensity: 4,
-    archetype: "finals push",
-    arcStage: "recap",
-    hookSpoilerOff: "A fast start, a late Souths surge and a desperate final stand in Canberra.",
-    hookSpoilerOn: "Canberra held off Souths 34–24 to make it three wins in a row.",
-    synopsisSpoilerOff: "The contest swung sharply after half-time before a tense late finish at GIO Stadium. Canberra's season-defining urgency was tested to the last set.",
-    synopsisSpoilerOn: "The Raiders built the platform early, absorbed a second-half Rabbitohs surge and closed out a valuable home win. The result kept their late finals push alive, though Hudson Young left injured.",
-    expectedSpectacle: 8,
-    actualSpectacle: 8,
-  },
-  "rugby-australia-italy-2026-07-18": {
-    stakes: 4,
-  },
-};
+const STORYLINE_OVERRIDES = require("../../config/storyline-overrides.js");
+const ENRICHMENT_ENGINE = require("../../config/enrichment-engine.js");
+const MANUAL_STORYLINE_OVERRIDES = STORYLINE_OVERRIDES.overrides;
 
 function wordCount(value) {
   return String(value || "").trim().split(/\s+/).filter(Boolean).length;
@@ -46,24 +26,11 @@ function lifecycleFor(event, now = new Date()) {
 }
 
 function stakesFor(event) {
-  if (Number.isInteger(MANUAL_STORYLINE_OVERRIDES[event.id]?.stakes)) return MANUAL_STORYLINE_OVERRIDES[event.id].stakes;
-  const name = String(event.name || "");
-  const expected = Number(event.expected || 0);
-  if (/Super Bowl|Grand Final|FIFA World Cup Final|NBA Finals|Wimbledon.*Final|NRL Preliminary Finals/i.test(name)) return 5;
-  if (expected >= 10) return 5;
-  if (/Wallabies|Le Mans|Masters|World Cup.*(?:Quarterfinal|Semifinal)|Wimbledon.*(?:Quarterfinal|Semifinal)|Rugby League World Cup/i.test(name)) return 4;
-  if (expected >= 8) return 4;
-  if (expected >= 6) return 3;
-  if (expected >= 4) return 2;
-  return 1;
+  return ENRICHMENT_ENGINE.stakesScoreFor(event);
 }
 
 function intensityFor(event, stakes) {
-  const expected = Number(event.expected || 0);
-  if (stakes === 5 || expected >= 10) return 5;
-  if (stakes === 4 || expected >= 8) return 4;
-  if (stakes === 3) return 3;
-  return Math.max(1, stakes);
+  return ENRICHMENT_ENGINE.intensityFor(event, stakes);
 }
 
 function archetypeFor(event, stakes) {
@@ -73,6 +40,23 @@ function archetypeFor(event, stakes) {
   if (/Wallabies|Test/i.test(name) && stakes >= 4) return "international test";
   if (/Le Mans|Masters/i.test(name) && stakes >= 4) return "major test";
   return undefined;
+}
+
+function storylineOverrideFor(event) {
+  const override = MANUAL_STORYLINE_OVERRIDES[event.id];
+  if (!override) return null;
+  return Object.fromEntries([
+    "stakes",
+    "intensity",
+    "archetype",
+    "arcStage",
+    "hookSpoilerOff",
+    "hookSpoilerOn",
+    "synopsisSpoilerOff",
+    "synopsisSpoilerOn",
+    "expectedSpectacle",
+    "actualSpectacle",
+  ].filter(field => override[field] !== undefined).map(field => [field, override[field]]));
 }
 
 function participantsFor(event) {
@@ -115,7 +99,15 @@ function storylineFor(event, now = new Date()) {
   const stakes = stakesFor(event);
   const intensity = intensityFor(event, stakes);
   const archetype = archetypeFor(event, stakes);
-  const base = { ...(event.storyline || {}), stakes, intensity, arcStage: status === "completed" ? "recap" : "preview", expectedSpectacle: Number(event.expected || 1) };
+  const manualOverride = storylineOverrideFor(event);
+  const base = {
+    ...(event.storyline || {}),
+    stakes,
+    intensity,
+    arcStage: status === "completed" ? "recap" : "preview",
+    expectedSpectacle: Number(event.expected || 1),
+    intensitySource: manualOverride?.intensity ? "manual" : "computed",
+  };
   if (archetype) base.archetype = archetype;
   else delete base.archetype;
   if (status === "completed") {
@@ -135,7 +127,8 @@ function storylineFor(event, now = new Date()) {
   }
   return {
     ...base,
-    ...(MANUAL_STORYLINE_OVERRIDES[event.id] || {}),
+    ...(manualOverride || {}),
+    ...(MANUAL_STORYLINE_OVERRIDES[event.id] ? { lastReviewedAt: MANUAL_STORYLINE_OVERRIDES[event.id].reviewedAt } : {}),
     // Lifecycle is canonical. A stale manual override must never turn a
     // completed recap back into preview copy (or vice versa).
     arcStage: status === "completed" ? "recap" : "preview",

@@ -9,6 +9,7 @@ const archived = { id: "archived", status: "completed", startTimeUtc: "2026-07-1
 const expired = { id: "expired", status: "completed", startTimeUtc: "2026-07-01T10:00:00.000Z", endTimeUtc: "2026-07-01T12:00:00.000Z", name: "Expired" };
 const future = { id: "future", status: "scheduled", startTimeUtc: "2026-07-25T10:00:00.000Z", endTimeUtc: "2026-07-25T12:00:00.000Z", name: "Future" };
 const enrich = event => ({
+  rankingVersion: "premium-ranking.v1",
   cardVariant: event.id === "future" ? "marquee" : "standard",
   intensity: event.id === "future" ? 5 : 3,
   mustWatchScore: event.id === "future" ? 92 : 55,
@@ -18,6 +19,12 @@ const enrich = event => ({
     displayName: "Test Team",
     followLevel: "priority",
   }] : [],
+  stakesScore: event.id === "future" ? 5 : 3,
+  australiaRelevanceScore: 0,
+  availabilityScore: 4,
+  editorialBoost: 0,
+  premiumSurface: event.id === "future" ? "homeMustWatch" : "sportFeed",
+  editorialOverride: null,
 });
 
 assert.equal(lifecycle.ARCHIVE_DAYS, 7);

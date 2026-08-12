@@ -1,12 +1,22 @@
 (function attachNothingSportsEnrichmentEngine(root, factory){
-  const api = factory();
+  const api = factory(root);
   root.NOTHINGSPORTS_ENRICHMENT_ENGINE = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildEnrichmentEngine(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildEnrichmentEngine(root){
   "use strict";
 
-  const SCHEMA_VERSION = "enriched-event.v1";
+  const SCHEMA_VERSION = "enriched-event.v2";
+  const RANKING_VERSION = "premium-ranking.v1";
   const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+  const PREMIUM_SURFACE_POLICY = Object.freeze({
+    mustWatchThreshold: 78,
+    topStorylineMinimumStakes: 4,
+    mustWatchLimit: 3,
+    topStorylineLimit: 5,
+    horizonDays: 7,
+  });
+  const STORYLINE_OVERRIDES = root.NOTHINGSPORTS_STORYLINE_OVERRIDES
+    || (typeof require === "function" ? require("./storyline-overrides.js") : null);
   const ALLOWED_ARCHETYPES = new Set([
     "monster",
     "ragsToRiches",
@@ -152,17 +162,36 @@
     return fixtureLabel ? `${matchup} — ${fixtureLabel}` : matchup;
   }
 
-  function numericIntensity(event){
-    const storyline = Number(event.storyline?.intensity ?? event.storyline?.stakes);
-    if (Number.isFinite(storyline)) return Math.round(clamp(storyline, 1, 5));
-    const stakes = Number(event.stakesScore);
-    if (Number.isFinite(stakes)) return Math.round(clamp(stakes, 1, 5));
+  function editorialOverrideFor(event){
+    return STORYLINE_OVERRIDES?.forEvent?.(event) || null;
+  }
+
+  function inferredStakesScore(event){
+    const name = String(event.name || "");
+    const round = String(event.round || "").toLowerCase();
     const expected = Number(event.expected || event.recommendationScore || 0);
-    if (expected >= 9) return 5;
+    if (/grand final|super bowl|world cup final|gold medal|title decider|championship decider/i.test(name)) return 5;
+    if (round === "final" || /\bfinals?\b|semi-?final|preliminary final|quarter-?final|playoffs?|test match|\btest\b|masters 1000|wta 1000|grand prix race/i.test(name)) return 4;
+    if (/derby|rival|round of (?:16|32)|knockout|qualifying|major|world cup/i.test(name)) return 3;
+    if (expected >= 10) return 5;
     if (expected >= 8) return 4;
     if (expected >= 6) return 3;
     if (expected >= 4) return 2;
     return 1;
+  }
+
+  function numericStakes(event, override = editorialOverrideFor(event)){
+    const supplied = Number(override?.stakes ?? event.storyline?.stakes ?? event.stakesScore);
+    if (Number.isFinite(supplied)) return Math.round(clamp(supplied, 1, 5));
+    return inferredStakesScore(event);
+  }
+
+  function numericIntensity(event, stakes = numericStakes(event), override = editorialOverrideFor(event)){
+    const supplied = Number(override?.intensity ?? event.storyline?.intensity);
+    if (Number.isFinite(supplied)) return Math.round(clamp(supplied, 1, 5));
+    const expected = Number(event.expected || event.recommendationScore || 0);
+    const spectacle = expected >= 9 ? 5 : expected >= 7 ? 4 : expected >= 5 ? 3 : expected >= 4 ? 2 : 1;
+    return Math.round(clamp(Math.max(stakes, spectacle), 1, 5));
   }
 
   function domainPreferenceFor(event, graph){
@@ -196,6 +225,13 @@
     if (domain) return templateScores[domain.templateId] ?? 3;
     const followed = context.followedSports || [];
     return followed.includes(event.sportId || event.key) ? 3 : 0;
+  }
+
+  function australianRelevanceScore(event){
+    if (event.australianInterest === true || Number(event.australianInterestScore) > 0) return 5;
+    const text = `${event.name || ""} ${event.displayTitleCompact || ""} ${event.storyline?.narrativeHook || ""}`;
+    if (/\b(?:Australia|Australian|Wallabies|Socceroos|Matildas|Diamonds|Kangaroos|Boomers|Opals)\b/i.test(text)) return 5;
+    return 0;
   }
 
   function participantIdsFor(event){
@@ -248,6 +284,15 @@
     return available.some(id => selected.includes(id)) ? 5 : 0;
   }
 
+  function availabilityScore(event, context){
+    const fit = broadcasterFitScore(event, context);
+    const availability = String(event.auViewing?.availability || "").toLowerCase();
+    if (availability === "free") return Math.max(5, fit);
+    if (availability === "included") return Math.max(4, fit);
+    if (availability === "ppv") return fit ? 2 : 1;
+    return fit || 2;
+  }
+
   function localEventHour(event){
     if (event.time && /^\d{2}:\d{2}$/.test(event.time)) return Number(event.time.slice(0, 2));
     const start = eventDate(event);
@@ -267,18 +312,21 @@
     return viewing.allowLateNightOverrides !== false && intensity >= 4 ? 3 : 0;
   }
 
-  function stakesLabel(intensity){
-    if (intensity >= 4) return "critical";
-    if (intensity === 3) return "high";
-    if (intensity === 2) return "medium";
+  function stakesLabel(stakes){
+    if (stakes >= 5) return "critical";
+    if (stakes >= 4) return "high";
+    if (stakes >= 2) return "medium";
     return "low";
   }
 
-  function arcStage(event, intensity){
+  function arcStage(event, stakes, override = editorialOverrideFor(event)){
     const status = String(event.status || "").toLowerCase();
     if (["completed", "past"].includes(status)) return "resolution";
-    if (intensity >= 5 || /\b(?:final|decider|gold medal|super bowl)\b/i.test(event.name || "")) return "climax";
-    if (intensity >= 3) return "rising";
+    const supplied = String(override?.arcStage || event.storyline?.arcStage || "");
+    if (["inciting", "rising", "climax"].includes(supplied)) return supplied;
+    if (supplied === "preview") return stakes >= 4 ? "rising" : "inciting";
+    if (stakes >= 5 || /\b(?:final|decider|gold medal|super bowl)\b/i.test(event.name || "")) return "climax";
+    if (stakes >= 3) return "rising";
     return "inciting";
   }
 
@@ -294,8 +342,14 @@
     });
   }
 
-  function archetypeFor(event, context = {}){
-    const supplied = event.storyline?.archetype;
+  function archetypeFor(event, context = {}, override = editorialOverrideFor(event)){
+    const supplied = override?.archetype || event.storyline?.archetype;
+    const aliases = {
+      derby: "rivalry",
+      record_chase: "quest",
+      title_decider: "quest",
+    };
+    if (aliases[supplied]) return aliases[supplied];
     if (ALLOWED_ARCHETYPES.has(supplied)) return supplied;
     const sportSpecific = sportSpecificNarrative(event, context);
     if (ALLOWED_ARCHETYPES.has(sportSpecific?.archetype)) return sportSpecific.archetype;
@@ -307,8 +361,8 @@
     return undefined;
   }
 
-  function visibleLabelFor(event, mustWatchScore, context = {}){
-    const supplied = event.storyline?.visibleLabel;
+  function visibleLabelFor(event, mustWatchScore, context = {}, override = editorialOverrideFor(event)){
+    const supplied = override?.visibleLabel || event.storyline?.visibleLabel;
     if (ALLOWED_LABELS.has(supplied)) return supplied;
     const sportSpecific = sportSpecificNarrative(event, context);
     if (ALLOWED_LABELS.has(sportSpecific?.label)) return sportSpecific.label;
@@ -317,91 +371,155 @@
     if (/record/i.test(text)) return "Record Chase";
     if (/upset|underdog/i.test(text)) return "Upset Watch";
     if (/\b(?:final|decider|gold medal|super bowl)\b/i.test(text)) return "Title Decider";
-    return mustWatchScore >= 70 ? "Must Watch" : undefined;
+    return mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "Must Watch" : undefined;
   }
 
-  function variantForIntensity(intensity){
-    if (intensity >= 5) return "marquee";
-    if (intensity >= 3) return "standard";
-    if (intensity === 2) return "compact";
+  function variantForSignificance(stakes, intensity, mustWatchScore, override = null){
+    if (["plain", "compact", "standard", "marquee"].includes(override?.cardVariant)) return override.cardVariant;
+    if (stakes >= 5 || mustWatchScore >= 82) return "marquee";
+    if (stakes >= 3 || intensity >= 3) return "standard";
+    if (stakes === 2 || intensity === 2) return "compact";
     return "plain";
   }
 
   function enrichEvent(event, context = {}){
     const canonicalEventId = String(event.canonicalEventId || event.eventId || event.id || "");
     if (!canonicalEventId) throw new Error("enrichEvent requires a canonical event id");
-    const intensity = numericIntensity(event);
+    const override = editorialOverrideFor(event);
+    const stakes = numericStakes(event, override);
+    const intensity = numericIntensity(event, stakes, override);
     const interest = clamp(userInterestScore(event, context), 0, 5);
     const follows = clamp(followBoost(event, context.preferenceGraph), 0, 5);
     const followContext = followContextForEvent(event, context);
     const broadcaster = clamp(broadcasterFitScore(event, context), 0, 5);
-    const timeWindow = clamp(timeWindowFitScore(event, context, intensity), 0, 5);
+    const availability = clamp(availabilityScore(event, context), 0, 5);
+    const australia = clamp(australianRelevanceScore(event), 0, 5);
+    const timeWindow = clamp(timeWindowFitScore(event, context, stakes), 0, 5);
+    const editorialBoost = override ? 5 : 0;
+    const explicitBoost = context.explicitMustWatch ? 10 : 0;
     const mustWatchScore = Math.round(clamp(
-      intensity * 12
-      + interest * 5
-      + follows
-      + broadcaster
+      stakes * 12
+      + intensity * 4
+      + interest * 4
+      + follows * 2
+      + australia * 2
+      + availability
       + timeWindow
-      + (context.explicitMustWatch ? 10 : 0),
+      + editorialBoost
+      + explicitBoost,
       0,
       100
     ));
     const scoreReasons = [
-      `Storyline intensity ${intensity}/5 contributed ${intensity * 12} points.`,
-      `Your interest contributed ${interest * 5} points.`,
-      follows ? `A followed participant added ${follows} points.` : "No followed-participant boost applied.",
-      broadcaster === 5 ? "Available on a selected provider." : broadcaster === 0 ? "No selected provider match." : "Broadcaster availability is still being confirmed.",
+      `Stakes ${stakes}/5 contributed ${stakes * 12} points.`,
+      `Storyline intensity ${intensity}/5 contributed ${intensity * 4} points.`,
+      interest ? `Your sport or competition interest added ${interest * 4} points.` : "No explicit sport or competition interest boost applied.",
+      follows ? `A followed participant added ${follows * 2} points.` : "No followed-participant boost applied.",
+      australia ? `Australian relevance added ${australia * 2} points.` : "No Australian-relevance boost applied.",
+      availability === 5 ? "Free or selected-provider availability added 5 points." : availability === 4 ? "Included subscription availability added 4 points." : availability <= 1 ? "Premium access limits the availability boost." : "Availability is still being confirmed.",
       timeWindow === 5 ? "Fits your viewing window." : timeWindow === 3 ? "High stakes triggered your late-night override." : "Falls outside your viewing window.",
     ];
+    if (override) scoreReasons.push(`Editorial review added ${editorialBoost} points.`);
+    if (explicitBoost) scoreReasons.push(`Your Must Watch choice added ${explicitBoost} points.`);
     const storyline = {
-      stakes: stakesLabel(intensity),
-      arcStage: arcStage(event, intensity),
+      stakes: stakesLabel(stakes),
+      arcStage: arcStage(event, stakes, override),
       narrativeHook: event.storyline?.narrativeHook || event.storyline?.hookSpoilerOff || event.selectedSentence || undefined,
       intensity,
-      intensitySource: Number.isFinite(Number(event.storyline?.intensity)) ? "manual" : "computed",
+      intensitySource: Number.isFinite(Number(override?.intensity ?? event.storyline?.intensity)) ? "manual" : "computed",
       scoreReasons,
     };
-    const archetype = archetypeFor(event, context);
+    const archetype = archetypeFor(event, context, override);
     if (archetype) storyline.archetype = archetype;
-    const visibleLabel = visibleLabelFor(event, mustWatchScore, context);
+    const visibleLabel = visibleLabelFor(event, mustWatchScore, context, override);
     if (visibleLabel) storyline.visibleLabel = visibleLabel;
     if (Array.isArray(event.storyline?.characterRoles)) storyline.characterRoles = event.storyline.characterRoles.slice();
-    if (event.updatedAt) storyline.lastReviewedAt = event.updatedAt;
+    if (override?.reviewedAt || event.updatedAt) storyline.lastReviewedAt = override?.reviewedAt || event.updatedAt;
 
     return {
       schemaVersion: SCHEMA_VERSION,
+      rankingVersion: RANKING_VERSION,
       canonicalEventId,
       userInterestScore: interest,
       followBoost: follows,
       followContext,
       broadcasterFitScore: broadcaster,
+      stakesScore: stakes,
+      australiaRelevanceScore: australia,
+      availabilityScore: availability,
       timeWindowFitScore: timeWindow,
+      editorialBoost,
       mustWatchScore,
       intensity,
-      cardVariant: variantForIntensity(intensity),
+      cardVariant: variantForSignificance(stakes, intensity, mustWatchScore, override),
+      premiumSurface: override?.forceSurface || (context.explicitMustWatch || mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "homeMustWatch" : stakes >= 4 ? "topStorylines" : "sportFeed"),
+      editorialOverride: override ? {
+        reviewedAt: override.reviewedAt,
+        reviewedBy: override.reviewedBy,
+        note: override.note,
+      } : null,
       storyline,
     };
   }
 
   function rankEvents(events, context = {}){
-    return events.map(event => ({ event, enrichment: enrichEvent(event, context) }))
+    return events.map(event => ({
+      event,
+      enrichment: enrichEvent(event, typeof context.contextForEvent === "function" ? context.contextForEvent(event) : context),
+    }))
       .sort((first, second) => {
         const scoreDifference = second.enrichment.mustWatchScore - first.enrichment.mustWatchScore;
         if (scoreDifference) return scoreDifference;
+        const affinityDifference = (second.enrichment.userInterestScore + second.enrichment.followBoost)
+          - (first.enrichment.userInterestScore + first.enrichment.followBoost);
+        if (affinityDifference) return affinityDifference;
         const timeDifference = (eventDate(first.event)?.getTime() || 0) - (eventDate(second.event)?.getTime() || 0);
         if (timeDifference) return timeDifference;
         return first.enrichment.canonicalEventId.localeCompare(second.enrichment.canonicalEventId);
       });
   }
 
+  function selectPremiumSurfaces(events, context = {}, options = {}){
+    const now = context.now instanceof Date ? context.now : new Date(context.now || Date.now());
+    const horizonDays = Number(options.horizonDays ?? PREMIUM_SURFACE_POLICY.horizonDays);
+    const horizon = new Date(now.getTime() + horizonDays * 24 * 60 * 60 * 1000);
+    const ranked = rankEvents((Array.isArray(events) ? events : []).filter(event => {
+      const start = eventDate(event);
+      const status = eventStatus(event, now);
+      return start
+        && start <= horizon
+        && (start >= now || status === "live")
+        && !["completed", "past", "cancelled", "abandoned"].includes(status);
+    }), context);
+    const mustWatchLimit = Number(options.mustWatchLimit ?? PREMIUM_SURFACE_POLICY.mustWatchLimit);
+    const topStorylineLimit = Number(options.topStorylineLimit ?? PREMIUM_SURFACE_POLICY.topStorylineLimit);
+    const mustWatch = ranked.filter(item => (
+      item.enrichment.premiumSurface === "homeMustWatch"
+      || item.enrichment.mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold
+    )).slice(0, mustWatchLimit);
+    const selectedIds = new Set(mustWatch.map(item => item.enrichment.canonicalEventId));
+    const topStorylines = ranked.filter(item => (
+      !selectedIds.has(item.enrichment.canonicalEventId)
+      && item.enrichment.stakesScore >= PREMIUM_SURFACE_POLICY.topStorylineMinimumStakes
+    )).slice(0, topStorylineLimit);
+    return { mustWatch, topStorylines };
+  }
+
   return Object.freeze({
     SCHEMA_VERSION,
+    RANKING_VERSION,
+    PREMIUM_SURFACE_POLICY,
     THREE_DAYS_MS,
     canonicalFixtureTitle,
     shouldHideParticipant,
     spoilerSafeFixtureTitle,
     followContextForEvent,
+    editorialOverrideFor,
+    stakesScoreFor: numericStakes,
+    intensityFor: numericIntensity,
+    arcStageFor: arcStage,
     enrichEvent,
     rankEvents,
+    selectPremiumSurfaces,
   });
 });

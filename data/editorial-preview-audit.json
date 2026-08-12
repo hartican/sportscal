@@ -1,11 +1,11 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-12T22:30:34.438Z",
+  "generatedAt": "2026-08-12T23:09:41.698Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 5,
-    "passed": 5,
+    "due": 6,
+    "passed": 6,
     "failed": 0
   },
   "cards": [
@@ -85,6 +85,21 @@
         "late-season-stakes"
       ],
       "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "cricket-australia-bangladesh-second-test-2026",
+      "name": "Australia v Bangladesh — Second Test",
+      "sport": "Cricket",
+      "date": "2026-08-22",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "new-test-venue",
+        "series-second-test",
+        "venue-history"
+      ],
+      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
       "issues": []
     }
   ]

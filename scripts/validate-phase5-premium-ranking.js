@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const engine = require("../config/enrichment-engine.js");
+const overrides = require("../config/storyline-overrides.js");
+
+const root = path.resolve(__dirname, "..");
+const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const feed = JSON.parse(fs.readFileSync(path.join(root, "data/events.json"), "utf8"));
+const reference = new Date("2026-08-13T00:00:00+10:00");
+const events = feed.events.map(event => ({ ...event, status: event.date >= "2026-08-13" ? "upcoming" : "completed" }));
+const neutralContext = {
+  now: reference,
+  followedSports: [],
+  selectedBroadcasterIds: [],
+};
+
+assert.equal(engine.SCHEMA_VERSION, "enriched-event.v2");
+assert.equal(engine.RANKING_VERSION, "premium-ranking.v1");
+assert.equal(overrides.SCHEMA_VERSION, "storyline-overrides.v1");
+assert(Object.values(overrides.overrides).every(override => override.reviewedAt && override.reviewedBy && override.note), "every editorial override needs review provenance");
+
+const routine = engine.enrichEvent({
+  id: "phase5-routine",
+  key: "nrl",
+  name: "Routine fixture",
+  date: "2026-08-15",
+  time: "15:00",
+  expected: 3,
+}, neutralContext);
+const defining = engine.enrichEvent({
+  id: "phase5-defining",
+  key: "fifa",
+  name: "World Cup Final",
+  date: "2026-08-15",
+  time: "20:00",
+  expected: 10,
+}, neutralContext);
+assert(defining.mustWatchScore > routine.mustWatchScore, "high stakes must outrank routine fixtures without explicit follows");
+assert.equal(routine.cardVariant, "plain", "routine catalogue breadth must remain visually quiet");
+assert.equal(defining.cardVariant, "marquee", "defining events need marquee treatment");
+
+const surfaces = engine.selectPremiumSurfaces(events, neutralContext);
+const mustWatchIds = surfaces.mustWatch.map(item => item.enrichment.canonicalEventId);
+const storylineIds = surfaces.topStorylines.map(item => item.enrichment.canonicalEventId);
+assert(mustWatchIds.includes("tennis-tournament-wta-toronto-806-2026-2026-08-13"), "the reviewed Toronto WTA 1000 flagship must enter Must Watch");
+assert(mustWatchIds.length <= engine.PREMIUM_SURFACE_POLICY.mustWatchLimit, "Must Watch must stay capped");
+assert(storylineIds.length <= engine.PREMIUM_SURFACE_POLICY.topStorylineLimit, "weekly storylines must stay capped");
+assert(!mustWatchIds.some(id => storylineIds.includes(id)), "premium surfaces must not duplicate events");
+assert([...surfaces.mustWatch, ...surfaces.topStorylines].every(item => item.enrichment.stakesScore >= 4), "routine fixtures must stay out of premium surfaces");
+
+assert(html.includes('title: "Must Watch"'));
+assert(html.includes('title: "Top Storylines This Week"'));
+assert(html.includes("premiumEventIds"), "premium cards must be removed from the ordinary chronological stream");
+assert(html.includes('document.getElementById("mustWatchRail")'), "the initial feed jump must land on the premium surface rather than skip past it");
+assert(html.includes('${enrichment.stakesScore}/5'), "visible stakes must not be mislabeled storyline intensity");
+assert(html.includes("Editorially reviewed ·"), "opened flagship cards must disclose editorial review without exposing internal notes");
+
+console.log(`Phase 5 premium ranking valid: ${mustWatchIds.length} Must Watch and ${storylineIds.length} Top Storylines events selected from the reviewed week.`);

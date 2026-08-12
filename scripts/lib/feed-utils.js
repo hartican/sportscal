@@ -171,6 +171,8 @@ function validateFeed(feed) {
         ["stakes", "intensity"].forEach(field => {
           if (storyline[field] !== undefined && (!Number.isInteger(storyline[field]) || storyline[field] < 1 || storyline[field] > 5)) errors.push(`${prefix}.storyline.${field} must be an integer from 1 to 5.`);
         });
+        if (storyline.intensitySource !== undefined && !["computed", "manual"].includes(storyline.intensitySource)) errors.push(`${prefix}.storyline.intensitySource must be computed or manual.`);
+        if (storyline.lastReviewedAt !== undefined && !isDateTime(storyline.lastReviewedAt)) errors.push(`${prefix}.storyline.lastReviewedAt must be an ISO date-time.`);
         ["expectedSpectacle", "actualSpectacle"].forEach(field => {
           if (storyline[field] !== undefined && (!Number.isFinite(Number(storyline[field])) || storyline[field] < 1 || storyline[field] > 10)) errors.push(`${prefix}.storyline.${field} must be a number from 1 to 10.`);
         });

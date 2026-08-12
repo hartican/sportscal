@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="83">
+<meta name="app-shell-version" content="84">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -1225,6 +1225,70 @@ main{
   display:flex;
   flex-direction:column;
   gap: 10px;
+}
+
+.premium-surface{
+  margin:0 0 22px;
+  padding:0 0 20px;
+  border-bottom:1px solid var(--border);
+}
+
+.premium-surface-header{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:16px;
+  margin:0 0 11px;
+}
+
+.premium-surface-header h2{
+  margin:0;
+  color:var(--text);
+  font-size:0.98rem;
+  letter-spacing:-0.01em;
+}
+
+.premium-surface-header p{
+  margin:3px 0 0;
+  color:var(--text-dim);
+  font-size:0.72rem;
+  line-height:1.4;
+}
+
+.premium-surface-count{
+  flex:0 0 auto;
+  color:var(--text-dim);
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+}
+
+.premium-rail-track{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:minmax(min(86vw, 470px), 470px);
+  gap:10px;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scroll-snap-type:inline mandatory;
+  scrollbar-width:thin;
+  padding:1px 1px 7px;
+}
+
+.premium-rail-track .event-card{
+  scroll-snap-align:start;
+  min-height:100%;
+}
+
+.premium-surface-must-watch .premium-surface-header h2{
+  color:var(--attention);
+}
+
+.editorial-review-note{
+  margin:9px 0 0;
+  color:var(--text-dim);
+  font-size:0.7rem;
+  line-height:1.4;
 }
 
 .startup-feed-loading{
@@ -4460,6 +4524,7 @@ footer.app-footer{
 <script src="config/swipe-calibration.js"></script>
 <script src="config/fine-tuning.js"></script>
 <script src="config/rating-system.js"></script>
+<script src="config/storyline-overrides.js"></script>
 <script src="config/enrichment-engine.js"></script>
 <script src="config/card-lifecycle.js"></script>
 <script src="config/reminder-engine.js"></script>
@@ -6837,9 +6902,16 @@ function cachedEventEnrichment(ev){
   const payload = card?.renderPayload;
   if (!payload || !Number.isFinite(Number(payload.mustWatchScore))) return null;
   return {
-    schemaVersion: "enriched-event.v1",
+    schemaVersion: "enriched-event.v2",
+    rankingVersion: payload.rankingVersion || "premium-ranking.v1",
     canonicalEventId,
     mustWatchScore: Number(payload.mustWatchScore),
+    stakesScore: Number(payload.stakesScore || storylineIntensityForEvent(ev)),
+    australiaRelevanceScore: Number(payload.australiaRelevanceScore || 0),
+    availabilityScore: Number(payload.availabilityScore || 0),
+    editorialBoost: Number(payload.editorialBoost || 0),
+    premiumSurface: payload.premiumSurface || "sportFeed",
+    editorialOverride: payload.editorialOverride || null,
     intensity: Number(card.intensity || storylineIntensityForEvent(ev)),
     cardVariant: card.cardVariant || "standard",
     followContext: Array.isArray(payload.followContext) ? payload.followContext : [],
@@ -6855,6 +6927,7 @@ function calculateEventEnrichment(ev){
     return {
       canonicalEventId: ev.eventId || ev.id,
       mustWatchScore: intensity * 12,
+      stakesScore: stakesScoreForEvent(ev),
       intensity,
       cardVariant: intensity >= 5 ? "marquee" : intensity >= 3 ? "standard" : intensity === 2 ? "compact" : "plain",
       followContext: [],
@@ -8956,7 +9029,7 @@ function buildEventCard(ev, options = {}){
 
   const expectedBlock = document.createElement("div");
   expectedBlock.className = "rating-block";
-  expectedBlock.innerHTML = `${VECTOR_ASSETS.stakesMarkup(enrichment.storyline?.stakes || "medium", { className: "stakes-tier-vector", preferImage: true })}<span>Stakes: <span class="expected-num">${enrichment.intensity}/5</span></span>`;
+  expectedBlock.innerHTML = `${VECTOR_ASSETS.stakesMarkup(enrichment.storyline?.stakes || "medium", { className: "stakes-tier-vector", preferImage: true })}<span>Stakes: <span class="expected-num">${enrichment.stakesScore}/5</span></span>`;
   expectedBlock.appendChild(buildStakesMeter(ev));
   ratingRow.appendChild(expectedBlock);
 
@@ -9015,6 +9088,14 @@ function buildEventCard(ev, options = {}){
       <ul>${(enrichment.storyline?.scoreReasons || []).map(reason => `<li>${reason}</li>`).join("")}</ul>
     `;
     mainDiv.appendChild(explanation);
+    if (enrichment.editorialOverride){
+      const editorialNote = document.createElement("p");
+      editorialNote.className = "editorial-review-note";
+      const reviewedAt = new Date(enrichment.editorialOverride.reviewedAt);
+      const reviewedLabel = Number.isNaN(reviewedAt.getTime()) ? "reviewed" : `reviewed ${reviewedAt.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`;
+      editorialNote.textContent = `Editorially reviewed · ${reviewedLabel}`;
+      mainDiv.appendChild(editorialNote);
+    }
 
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
@@ -9157,6 +9238,60 @@ function appendFocusedArchiveRecovery(container, events){
   return true;
 }
 
+function premiumSurfaceContext(){
+  return {
+    now: nowAEST(),
+    contextForEvent: enrichmentContextForEvent,
+  };
+}
+
+function appendPremiumRail(container, items, { id, title, description, className }){
+  if (!items.length) return false;
+  const section = document.createElement("section");
+  section.className = `premium-surface ${className}`;
+  section.id = id;
+  section.setAttribute("aria-labelledby", `${id}-title`);
+
+  const header = document.createElement("div");
+  header.className = "premium-surface-header";
+  const headingWrap = document.createElement("div");
+  const heading = document.createElement("h2");
+  heading.id = `${id}-title`;
+  heading.textContent = title;
+  const detail = document.createElement("p");
+  detail.textContent = description;
+  headingWrap.append(heading, detail);
+  const count = document.createElement("span");
+  count.className = "premium-surface-count";
+  count.textContent = `${items.length} ${items.length === 1 ? "event" : "events"}`;
+  header.append(headingWrap, count);
+
+  const track = document.createElement("div");
+  track.className = "premium-rail-track";
+  items.forEach(({ event }) => track.appendChild(buildEventCard(event, { mode: "premium-rail" })));
+  section.append(header, track);
+  container.appendChild(section);
+  return true;
+}
+
+function appendPremiumSurfaces(container, events){
+  if (!ENRICHMENT_ENGINE?.selectPremiumSurfaces || activeTab !== "feed" || activeView !== "list" || activeFilter !== "all") return new Set();
+  const surfaces = ENRICHMENT_ENGINE.selectPremiumSurfaces(events, premiumSurfaceContext());
+  appendPremiumRail(container, surfaces.mustWatch, {
+    id: "mustWatchRail",
+    title: "Must Watch",
+    description: "The clearest appointment-viewing picks in the next seven days.",
+    className: "premium-surface-must-watch",
+  });
+  appendPremiumRail(container, surfaces.topStorylines, {
+    id: "topStorylinesRail",
+    title: "Top Storylines This Week",
+    description: "High-stakes arcs worth tracking without turning the feed into a fixture dump.",
+    className: "premium-surface-storylines",
+  });
+  return new Set([...surfaces.mustWatch, ...surfaces.topStorylines].map(item => String(item.event.eventId || item.event.id)));
+}
+
 function renderListView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
@@ -9165,14 +9300,15 @@ function renderListView(){
   const focusedArchived = focusedArchivedEvents();
   appendFocusedArchiveRecovery(container, focusedArchived);
   const { newItems, seenItems } = partitionSurfacedEvents(filtered);
+  const premiumEventIds = appendPremiumSurfaces(container, filtered);
   const todayStr = formatDateKey(nowAEST());
   const recentPastDateKey = focusedRecentPastDateKey(filtered.map(event => event.date), todayStr, activeFilter);
   const recentPastNewItem = newItems.find(event => event.date === recentPastDateKey) || null;
   appendSportRoundSummaries(container);
-  appendNewlySurfacedSection(container, newItems, {
+  appendNewlySurfacedSection(container, newItems.filter(event => !premiumEventIds.has(String(event.eventId || event.id))), {
     anchorEventId: recentPastNewItem ? recentPastNewItem.eventId || recentPastNewItem.id : null,
   });
-  const ordered = calendarTimelineEvents(seenItems);
+  const ordered = calendarTimelineEvents(seenItems.filter(event => !premiumEventIds.has(String(event.eventId || event.id))));
 
   // group by date, preserving order
   const groups = [];
@@ -9261,6 +9397,8 @@ function activeInitialFeedAnchorId(){
     ? "calendarArchivedRecoveryAnchor"
     : document.getElementById("calendarRecentResultAnchor")
     ? "calendarRecentResultAnchor"
+    : document.getElementById("mustWatchRail")
+    ? "mustWatchRail"
     : document.getElementById("calendarPriorityAnchor")
     ? "calendarPriorityAnchor"
     : activeTodayAnchorId();
