@@ -64,6 +64,7 @@ async function run(){
   assert.equal(schema.properties.events.items.additionalProperties, false);
   assert.equal(schema.properties.events.items.properties.properties.maxProperties, 5);
   assert.equal(PRODUCT_EVENTS.MAX_BATCH_SIZE, 20);
+  assert.equal(PRODUCT_EVENTS.PILOT_MEASUREMENT_OPT_IN_VERSION, "pilot-opt-in.v1");
   assert.deepEqual(PRODUCT_EVENTS.EVENT_NAMES, [
     "opportunity_exposed",
     "fixture_check",
@@ -277,6 +278,7 @@ async function run(){
   assert(html.includes('settingsMenuItem("pilot"'));
   assert(html.includes('id="pilotMeasurementEnabled"'));
   assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");
+  assert(html.includes('optInVersion: "pilot-opt-in.v1"'), "existing profiles must receive the new default once while later explicit opt-outs remain stable");
   assert(html.includes('Fill out this 2-minute survey'));
   assert(html.includes('registerWeeklyPulseAppOpen()'), "app startup must advance the versioned survey counter");
   assert(html.includes("No free text, messages, precise location or contact information"));

@@ -4444,6 +4444,7 @@ const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
 const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
 const PRODUCT_EVENTS = globalThis.NOTHINGSPORTS_PRODUCT_EVENTS || null;
+const PILOT_MEASUREMENT_OPT_IN_VERSION = PRODUCT_EVENTS?.PILOT_MEASUREMENT_OPT_IN_VERSION || "pilot-opt-in.v1";
 
 const SPECIAL_EVENT_ONLY_SPORT_KEYS = new Set(["wimbledon", "fifa", "tdf", "masters", "lemans", "nfl", "cwg"]);
 const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
@@ -4552,6 +4553,7 @@ const DEFAULT_PREFERENCES = {
   preferenceGraph: null,
   pilotMeasurement: {
     enabled: true,
+    optInVersion: "pilot-opt-in.v1",
     acknowledgedAt: null,
     lastPulseWeek: null,
     lastPulseSurveyId: null,
@@ -4964,7 +4966,17 @@ function syncThemeBrandAssets(useDark){
 
 function mergePreferences(saved){
   const merged = typeof structuredClone === "function" ? structuredClone(DEFAULT_PREFERENCES) : JSON.parse(JSON.stringify(DEFAULT_PREFERENCES));
-  if (!saved || typeof saved !== "object") return merged;
+  if (!saved || typeof saved !== "object"){
+    merged.pilotMeasurement = {
+      ...merged.pilotMeasurement,
+      acknowledgedAt: new Date().toISOString(),
+    };
+    return merged;
+  }
+  const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
+    ? saved.pilotMeasurement
+    : {};
+  const pilotDefaultApplied = savedPilotMeasurement.optInVersion !== PILOT_MEASUREMENT_OPT_IN_VERSION;
   const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
@@ -5021,18 +5033,17 @@ function mergePreferences(saved){
     preferenceGraph,
     pilotMeasurement: {
       ...merged.pilotMeasurement,
-      ...(saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
-        ? saved.pilotMeasurement
-        : {}),
-      enabled: Boolean(saved.pilotMeasurement?.enabled ?? merged.pilotMeasurement.enabled),
-      acknowledgedAt: typeof saved.pilotMeasurement?.acknowledgedAt === "string"
-        ? saved.pilotMeasurement.acknowledgedAt
+      ...savedPilotMeasurement,
+      enabled: pilotDefaultApplied ? true : Boolean(savedPilotMeasurement.enabled),
+      optInVersion: PILOT_MEASUREMENT_OPT_IN_VERSION,
+      acknowledgedAt: typeof savedPilotMeasurement.acknowledgedAt === "string"
+        ? savedPilotMeasurement.acknowledgedAt
+        : pilotDefaultApplied ? new Date().toISOString() : null,
+      lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(savedPilotMeasurement.lastPulseWeek || ""))
+        ? savedPilotMeasurement.lastPulseWeek
         : null,
-      lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(saved.pilotMeasurement?.lastPulseWeek || ""))
-        ? saved.pilotMeasurement.lastPulseWeek
-        : null,
-      lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(saved.pilotMeasurement?.lastPulseSurveyId || ""))
-        ? saved.pilotMeasurement.lastPulseSurveyId
+      lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(savedPilotMeasurement.lastPulseSurveyId || ""))
+        ? savedPilotMeasurement.lastPulseSurveyId
         : null,
     },
     ratingPromptState: RATING_SYSTEM?.normalizePromptState?.(
@@ -5554,11 +5565,12 @@ function registerWeeklyPulseAppOpen(reference = new Date()){
   if (!PRODUCT_EVENTS.pilotSurveyActive(pilot, reference)) return false;
   const { weekStart, surveyId } = currentWeeklyPulseSurvey(reference);
   const dayKey = PRODUCT_EVENTS.sydneyDateKey(reference);
+  const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user.id}`;
   const promptState = PRODUCT_EVENTS.nextWeeklyPulsePromptState(
-    readStorage(STORAGE_KEYS.weeklyPulsePrompt, null),
+    readStorage(promptStorageKey, null),
     { surveyId, dayKey }
   );
-  writeStorage(STORAGE_KEYS.weeklyPulsePrompt, promptState);
+  writeStorage(promptStorageKey, promptState);
   if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, weekStart, reference })) return false;
   window.setTimeout(() => {
     if (!document.querySelector(".modal-backdrop.show")) setPilotPulsePromptOpen(true);
@@ -12245,7 +12257,7 @@ Promise.allSettled([
   if (!userPreferences.onboardingComplete){
     openSettings({ firstRun: true });
   } else {
-    const weeklyPulsePromptScheduled = registerWeeklyPulseAppOpen();
+    const weeklyPulsePromptScheduled = document.visibilityState === "visible" && registerWeeklyPulseAppOpen();
     if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
   }
 });

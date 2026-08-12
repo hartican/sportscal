@@ -1086,6 +1086,9 @@ assert.equal(app.normalizeThemePreference("system"), "system", "System must be a
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
 assert.equal(app.mergePreferences(null).version, 10, "the seeded league defaults must use the current preference migration");
+assert.equal(app.mergePreferences(null).pilotMeasurement.enabled, true, "pilot measurement must opt in by default");
+assert.match(app.mergePreferences(null).pilotMeasurement.acknowledgedAt, /^\d{4}-\d{2}-\d{2}T/, "default pilot measurement must start its bounded collection period");
+assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: false, optInVersion: "pilot-opt-in.v1" } }).pilotMeasurement.enabled, false, "an explicit opt-out after the default migration must remain off");
 assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), ["nrl", "afl"], "new profiles must surface Rugby League and AFL immediately");
 assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl"], "new profiles must seed the two complete league selectors");
 const incompleteEmptyProfile = app.mergePreferences({
