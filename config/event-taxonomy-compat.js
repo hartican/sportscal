@@ -64,7 +64,7 @@
 
   function platformName(option){
     if (typeof option === "string") return option.trim();
-    return String(option?.broadcasterName || option?.platform || "").trim();
+    return String(option?.broadcasterName || option?.serviceLabel || option?.platform || "").trim();
   }
 
   function broadcastOptionsFor(event){
@@ -74,8 +74,9 @@
   }
 
   function broadcastType(option){
-    const declaredType = typeof option === "string" ? "" : String(option?.platformType || "").toLowerCase();
-    if (declaredType === "fta") return "free";
+    const declaredType = typeof option === "string" ? "" : String(option?.accessType || option?.platformType || "").toLowerCase();
+    if (["free", "fta"].includes(declaredType)) return "free";
+    if (declaredType === "included") return "included";
     if (["subscription", "streaming"].includes(declaredType)) return "included";
     if (["ppv", "radio", "highlights"].includes(declaredType)) return declaredType;
     const label = platformName(option).toLowerCase();

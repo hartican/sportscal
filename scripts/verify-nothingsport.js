@@ -195,9 +195,9 @@ assert(!html.includes("summaryCardEventAction"), "derived round summaries must n
 assert(html.includes("function focusSportHubViewport()") && html.includes("stickyFeedChromeHeight() - 12"), "sport-hub entry must bring the in-place hub heading below the pinned app chrome");
 assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
 assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
-assert(html.includes('id="feedFilterVisibilityBtn"') && html.includes('aria-controls="sportFilters"'), "the feed must expose an always-available show-hide filter control");
+assert(html.includes('id="feedFilterVisibilityBtn"') && html.includes('aria-controls="feedFilterContent"'), "the feed must expose an always-available show-hide control for navigation and intent");
 assert(html.includes('let feedFilterVisible = true;') && html.includes('let activeFilter = "all";'), "each app open must start with the filter visible and All sports selected");
-assert(html.includes('filterRow.hidden = isFeed && !feedFilterVisible') && html.includes('`${selectedLabel}${hubCopy} remains active`'), "hiding the filter UI must keep the selected sport or hub active and visible in status copy");
+assert(html.includes('filterContent.hidden = isFeed && !feedFilterVisible') && html.includes('`${selectedLabel}${hubCopy} · ${scopeCopy} · ${frothCopy}`'), "hiding the controls must keep the selected sport, scope and Froth visible in status copy");
 assert(html.includes('.filter-row[hidden]') && html.includes('display:none;'), "the hidden filter row must be visually collapsed despite its flex layout");
 assert(html.includes('toggle.setAttribute("aria-expanded", String(feedFilterVisible))') && html.includes('btn.setAttribute("aria-pressed", String(activeFilter === key))'), "filter controls must expose expanded and selected accessibility states");
 assert(html.includes("function stickyFeedChromeHeight()") && html.includes("stickyFeedChromeHeight() + 12"), "pinned filter height must be included in viewport and card-collapse offsets");
@@ -258,7 +258,7 @@ assert(productEventsSource.includes('"weekly_pulse"') && productEventsSource.inc
 assert(productEventsSource.includes("pilotCohort") && productEventsSource.includes("trustConfidence"), "the weekly pulse must support fixed cohort and fixture-confidence segmentation");
 assert(html.includes('properties: { action: "shown" }') && html.includes('properties: { action: "dismissed" }') && html.includes('properties: { action: "rated", score: i }'), "rating prompt burden and completed spectacle ratings must remain measurable separately");
 assert(pilotReadoutSource.includes('const SCHEMA_VERSION = "measurement-readout.v2"') && pilotReadoutSource.includes('recommendation: null'), "the measurement report must be on demand and must not automatically recommend social investment");
-assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v5"'), "hierarchy translation must use the v5 preference graph");
+assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph.v6"'), "hierarchy translation and negative-context suppression must use the v6 preference graph");
 assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
@@ -313,8 +313,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v82"'), "the tennis catalogue release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="82">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v83"'), "the Phase 4 feed-control release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="83">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
@@ -1099,7 +1099,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 11, "the seeded league defaults must use the current preference migration");
+assert.equal(app.mergePreferences(null).version, 12, "the seeded league defaults must use the current feed-control preference migration");
 assert.equal(app.mergePreferences(null).pilotMeasurement.enabled, true, "signed-in measurement must participate by default");
 assert.equal(app.mergePreferences(null).pilotMeasurement.participationStartedAt, null, "participation must start only after a signed-in account is present");
 assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: false, participationVersion: "pilot-participation.v1" } }).pilotMeasurement.enabled, false, "an explicit opt-out must remain off");

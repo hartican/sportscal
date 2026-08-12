@@ -15,7 +15,7 @@
     "learning"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v5" },
+    "schemaVersion": { "const": "preference-graph.v6" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -151,7 +151,8 @@
         "completedTuningSessionCount",
         "lastTuningSessionCompletedAt",
         "meaningfulTuningAt",
-        "meaningfulTuningDislikeCount"
+        "meaningfulTuningDislikeCount",
+        "negativeContextCounts"
       ],
       "properties": {
         "signals": { "type": "array", "maxItems": 120, "items": { "$ref": "#/$defs/learningSignal" } },
@@ -166,7 +167,13 @@
         "completedTuningSessionCount": { "type": "integer", "minimum": 0 },
         "lastTuningSessionCompletedAt": { "type": ["string", "null"], "format": "date-time" },
         "meaningfulTuningAt": { "type": ["string", "null"], "format": "date-time" },
-        "meaningfulTuningDislikeCount": { "type": ["integer", "null"], "minimum": 0 }
+        "meaningfulTuningDislikeCount": { "type": ["integer", "null"], "minimum": 0 },
+        "negativeContextCounts": {
+          "type": "object",
+          "maxProperties": 120,
+          "propertyNames": { "type": "string", "minLength": 3, "maxLength": 180 },
+          "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 1000000 }
+        }
       }
     }
   }

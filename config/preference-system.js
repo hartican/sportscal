@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(hierarchy){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v5";
+  const SCHEMA_VERSION = "preference-graph.v6";
   const MAX_LEARNING_SIGNALS = 120;
   const MAX_CALIBRATION_SKIPS = 10;
   const MAX_TUNING_DOMAINS = 24;
@@ -16,6 +16,7 @@
   const MEANINGFUL_TUNING_SESSIONS = 2;
   const POST_TUNING_DISLIKE_GAP = 100;
   const POST_TUNING_DAY_GAP = 30;
+  const MAX_NEGATIVE_CONTEXTS = 120;
   const LEARNING_TARGET_TYPES = Object.freeze(["sport", "competition", "team", "player", "event", "event_family"]);
   const LEARNING_SOURCES = Object.freeze(["calibration", "feed", "tune"]);
   const DEFAULT_VIEWING_WINDOW = Object.freeze({
@@ -171,6 +172,7 @@
       lastTuningSessionCompletedAt: null,
       meaningfulTuningAt: null,
       meaningfulTuningDislikeCount: null,
+      negativeContextCounts: {},
     };
   }
 
@@ -198,6 +200,10 @@
     const signals = Array.from(byTarget.values())
       .sort((first, second) => first.recordedAt.localeCompare(second.recordedAt))
       .slice(-MAX_LEARNING_SIGNALS);
+    const negativeContextCounts = Object.fromEntries(Object.entries(saved.negativeContextCounts || {})
+      .filter(([key, value]) => key && key.length <= 180 && Number.isFinite(Number(value)) && Number(value) > 0)
+      .slice(-MAX_NEGATIVE_CONTEXTS)
+      .map(([key, value]) => [key, Math.min(1000000, Math.floor(Number(value)))]));
     return {
       signals,
       dislikeCount: Math.max(0, Math.floor(Number(saved.dislikeCount) || 0)),
@@ -216,6 +222,7 @@
       meaningfulTuningDislikeCount: saved.meaningfulTuningDislikeCount === null || saved.meaningfulTuningDislikeCount === undefined
         ? null
         : Math.max(0, Math.floor(Number(saved.meaningfulTuningDislikeCount) || 0)),
+      negativeContextCounts,
     };
   }
 
@@ -442,7 +449,7 @@
     return touch(next);
   }
 
-  function applyLearningSignal(graph, signal, { recordedAt } = {}){
+  function applyLearningSignal(graph, signal, { recordedAt, contextReferences = [] } = {}){
     const next = cloneGraph(graph);
     const learning = normalizeLearning(next.learning);
     const normalized = normalizeLearningSignal({
@@ -454,7 +461,19 @@
     learning.signals = learning.signals.filter(item => `${item.targetType}:${item.targetId}` !== key);
     learning.signals.push(normalized);
     learning.signals = learning.signals.slice(-MAX_LEARNING_SIGNALS);
-    if (normalized.value < 0 && normalized.source === "feed") learning.dislikeCount += 1;
+    if (normalized.value < 0 && normalized.source === "feed"){
+      learning.dislikeCount += 1;
+      const contextKeys = uniqueStrings([
+        `${normalized.targetType}:${normalized.targetId}`,
+        ...(Array.isArray(contextReferences) ? contextReferences : []).map(reference => (
+          reference?.targetType && reference?.targetId ? `${reference.targetType}:${reference.targetId}` : ""
+        )),
+      ]).slice(-MAX_NEGATIVE_CONTEXTS);
+      contextKeys.forEach(key => {
+        learning.negativeContextCounts[key] = Math.min(1000000, Number(learning.negativeContextCounts[key] || 0) + 1);
+      });
+      learning.negativeContextCounts = Object.fromEntries(Object.entries(learning.negativeContextCounts).slice(-MAX_NEGATIVE_CONTEXTS));
+    }
     next.learning = learning;
     return touch(next);
   }
@@ -555,6 +574,13 @@
           .at(-1);
         return latest?.meaningfulTuningDislikeCount ?? null;
       })(),
+      negativeContextCounts: Object.fromEntries(uniqueStrings([
+        ...Object.keys(previous.negativeContextCounts),
+        ...Object.keys(patch.negativeContextCounts),
+      ]).map(key => [key, Math.max(
+        Number(previous.negativeContextCounts[key] || 0),
+        Number(patch.negativeContextCounts[key] || 0)
+      )])),
     });
   }
 
@@ -595,10 +621,19 @@
     return Math.max(-30, Math.min(30, score));
   }
 
+  function negativeContextCount(graph, targetReferences){
+    const counts = normalizeLearning(graph?.learning).negativeContextCounts;
+    return (Array.isArray(targetReferences) ? targetReferences : []).reduce((maximum, reference) => {
+      if (!reference?.targetType || !reference?.targetId) return maximum;
+      return Math.max(maximum, Number(counts[`${reference.targetType}:${reference.targetId}`] || 0));
+    }, 0);
+  }
+
   return Object.freeze({
     SCHEMA_VERSION,
     TAXONOMY_VERSION: hierarchy?.schemaVersion || "sport-hierarchy-unavailable",
     MAX_LEARNING_SIGNALS,
+    MAX_NEGATIVE_CONTEXTS,
     MAX_CALIBRATION_SKIPS,
     MAX_TUNING_DOMAINS,
     MEANINGFUL_TUNING_INTERACTIONS,
@@ -633,5 +668,6 @@
     shouldPromptTune,
     recordTunePrompt,
     learningScore,
+    negativeContextCount,
   });
 });

@@ -49,4 +49,4 @@ assert(html.includes("orderCuratedDayEvents(groupMap[dateStr])"), "learned signa
 assert(html.includes("sessionDismissedEventIds.add") && html.includes("sessionDismissedEventIds.has"), "a left swipe must dismiss only from the current curated-feed session");
 assert(!html.match(/function renderSportHubAllFixtures[\s\S]*?sessionDismissedEventIds/), "complete fixture rendering must ignore session swipe dismissals");
 
-console.log("Swipe learning valid: canonical anchors, accessible controls, bounded v5 signals, session dismissal and complete-fixture isolation passed.");
+console.log("Swipe learning valid: canonical anchors, accessible controls, bounded v6 signals, session dismissal and complete-fixture isolation passed.");

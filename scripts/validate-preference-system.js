@@ -15,7 +15,7 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
-assert.equal(initial.schemaVersion, "preference-graph.v5");
+assert.equal(initial.schemaVersion, "preference-graph.v6");
 assert.equal(initial.domainPreferences[0].taxonomyNodeId, "sport:australian-football", "legacy AFL preference domains must retain their UI ID and gain a canonical taxonomy target");
 assert.deepEqual(initial.learning, {
   signals: [],
@@ -31,6 +31,7 @@ assert.deepEqual(initial.learning, {
   lastTuningSessionCompletedAt: null,
   meaningfulTuningAt: null,
   meaningfulTuningDislikeCount: null,
+  negativeContextCounts: {},
 });
 assert.deepEqual(initial.viewing.selectedBroadcasterIds, baseProviders, "all available providers must start selected");
 assert.equal(initial.viewing.viewingWindowEnabled, true, "the recommended viewing window must start enabled");
@@ -144,10 +145,24 @@ const dislikedWimbledon = preferences.applyLearningSignal(likedWimbledon, {
   targetId: "special:wimbledon",
   value: -1,
   source: "feed",
-}, { recordedAt: "2026-08-11T08:01:00.000Z" });
+}, {
+  recordedAt: "2026-08-11T08:01:00.000Z",
+  contextReferences: [{ targetType: "sport", targetId: "sport:tennis" }],
+});
 assert.equal(dislikedWimbledon.learning.signals.length, 1, "the latest signal for one target must replace its earlier value");
 assert.equal(dislikedWimbledon.learning.dislikeCount, 1, "qualifying dislikes must increment the durable counter");
 assert.equal(preferences.learningScore(dislikedWimbledon, [{ targetType: "event_family", targetId: "special:wimbledon" }]), -10, "negative learning must lower matching curated ranking without deleting truth");
+assert.equal(preferences.negativeContextCount(dislikedWimbledon, [{ targetType: "sport", targetId: "sport:tennis" }]), 1, "feed dislikes must retain bounded negative context beyond the latest signal");
+const twiceDislikedWimbledon = preferences.applyLearningSignal(dislikedWimbledon, {
+  targetType: "event_family",
+  targetId: "special:wimbledon",
+  value: -1,
+  source: "feed",
+}, {
+  recordedAt: "2026-08-11T08:02:00.000Z",
+  contextReferences: [{ targetType: "sport", targetId: "sport:tennis" }],
+});
+assert.equal(preferences.negativeContextCount(twiceDislikedWimbledon, [{ targetType: "sport", targetId: "sport:tennis" }]), 2, "repeated feed dislikes must accumulate for suppression");
 
 const promptCadence = [1, 4, 10, 25, 50, 100, 150];
 assert.deepEqual(
@@ -228,4 +243,4 @@ const mergedLearning = preferences.mergeLearning(dislikedWimbledon.learning, {
 assert.equal(mergedLearning.signals.length, 2, "sign-in must merge local and server learning targets instead of replacing the local graph");
 assert.equal(mergedLearning.dislikeCount, 1, "sign-in must preserve the higher durable dislike counter");
 
-console.log("Preference system valid: v5 hierarchy migration, bounded learning, meaningful Tune suppression, templates, follows and viewing preferences passed.");
+console.log("Preference system valid: v6 hierarchy migration, bounded negative context, meaningful Tune suppression, templates, follows and viewing preferences passed.");

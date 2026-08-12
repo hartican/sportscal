@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="82">
+<meta name="app-shell-version" content="83">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -558,8 +558,67 @@ header.top{
 }
 
 .feed-filter-toolbar[hidden],
-.filter-row[hidden]{
+.feed-filter-content[hidden],
+.filter-row[hidden],
+.feed-control-grid[hidden]{
   display:none;
+}
+
+.feed-filter-content{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.feed-navigation-label{
+  color:var(--text-dim);
+  font-size:0.66rem;
+  font-weight:800;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+}
+
+.feed-control-grid{
+  display:grid;
+  grid-template-columns:repeat(7, minmax(112px, 1fr));
+  gap:8px;
+  padding-top:9px;
+  border-top:1px solid color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.feed-control{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  min-width:0;
+}
+
+.feed-control > span{
+  color:var(--text-dim);
+  font-size:0.64rem;
+  font-weight:800;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+.feed-control select,
+.feed-control-manage{
+  min-height:38px;
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--bg-card);
+  color:var(--text);
+  padding:7px 9px;
+  font:700 0.72rem/1.2 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.feed-control select{ cursor:pointer; }
+.feed-control-manage{ cursor:pointer; text-align:left; }
+
+.feed-control select:hover,
+.feed-control-manage:hover{
+  border-color:color-mix(in srgb, var(--accent) 55%, var(--border));
 }
 
 .controls{
@@ -1771,6 +1830,19 @@ main{
   font-weight: 900;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+}
+
+.badge.discovery{
+  color:var(--accent);
+  border:1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
+  background:color-mix(in srgb, var(--accent) 9%, var(--bg-card));
+  text-transform:none;
+}
+
+.badge.availability{
+  color:var(--text-dim);
+  border:1px solid var(--border);
+  background:var(--soft-fill);
 }
 
 .compact-result-copy{
@@ -4053,6 +4125,21 @@ footer.app-footer{
   .feed-filter-selection{
     font-size:0.7rem;
   }
+  .feed-filter-content{
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:thin;
+  }
+  .feed-filter-content .filter-row{
+    flex-wrap:nowrap;
+    width:max-content;
+  }
+  .feed-control-grid{
+    display:flex;
+    width:max-content;
+    min-width:100%;
+  }
+  .feed-control{ width:132px; }
   :where(.btn, .tab-btn, .pill, .view-toggle button, .settings-icon-btn, .card-expand-control){
     min-height: 44px;
   }
@@ -4158,10 +4245,14 @@ footer.app-footer{
 <section class="feed-filter-dock" id="feedFilterDock" aria-label="Feed filter controls">
   <div class="feed-filter-dock-inner">
     <div class="feed-filter-toolbar" id="feedFilterToolbar">
-      <button class="feed-filter-visibility-btn is-expanded" id="feedFilterVisibilityBtn" type="button" aria-expanded="true" aria-controls="sportFilters">Hide filter</button>
+      <button class="feed-filter-visibility-btn is-expanded" id="feedFilterVisibilityBtn" type="button" aria-expanded="true" aria-controls="feedFilterContent">Hide controls</button>
       <span class="feed-filter-selection" id="feedFilterSelection" aria-live="polite">All sports selected</span>
     </div>
-    <div class="filter-row" id="sportFilters" role="group" aria-label="Filter feed by sport"></div>
+    <div class="feed-filter-content" id="feedFilterContent">
+      <span class="feed-navigation-label" id="feedNavigationLabel">Browse</span>
+      <div class="filter-row" id="sportFilters" role="group" aria-label="Filter feed by sport"></div>
+      <div class="feed-control-grid" id="feedControlGrid" aria-label="Feed intent controls"></div>
+    </div>
   </div>
 </section>
 
@@ -4364,6 +4455,7 @@ footer.app-footer{
 <script src="config/product-events.js"></script>
 <script src="config/user-state-sync.js"></script>
 <script src="config/server-sync.js"></script>
+<script src="config/feed-controls.js"></script>
 <script src="config/preference-system.js"></script>
 <script src="config/swipe-calibration.js"></script>
 <script src="config/fine-tuning.js"></script>
@@ -4441,6 +4533,7 @@ const PREFERENCE_TAXONOMY = globalThis.NOTHINGSPORTS_PREFERENCE_TAXONOMY || null
 const TENNIS_COVERAGE = globalThis.NOTHINGSPORTS_TENNIS_COVERAGE || null;
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
+const FEED_CONTROLS = globalThis.NOTHINGSPORTS_FEED_CONTROLS || null;
 const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
 const FINE_TUNING = globalThis.NOTHINGSPORTS_FINE_TUNING || null;
 const RATING_SYSTEM = globalThis.NOTHINGSPORTS_RATING_SYSTEM || null;
@@ -4549,7 +4642,7 @@ const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 11,
+  version: 12,
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
@@ -4559,6 +4652,16 @@ const DEFAULT_PREFERENCES = {
   taxonomySelection: null,
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
+  feedControls: FEED_CONTROLS?.normalize?.() || {
+    schemaVersion: "feed-controls.v1",
+    froth: "balanced",
+    scope: "for_you",
+    availability: "any",
+    timing: "any",
+    stakes: "everything",
+    spoilers: "standard",
+    expanded: true,
+  },
   pilotMeasurement: {
     enabled: true,
     participationVersion: "pilot-participation.v1",
@@ -4734,6 +4837,7 @@ let sessionRatingPromptSelectionFinalized = false;
 let settingsViewportAnchor = null;
 let selectorOptInViewportAnchor = null;
 let cardViewStates = {};
+const sessionOpenedEventIds = new Set();
 let serverSyncApplying = false;
 let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
@@ -5086,6 +5190,11 @@ function mergePreferences(saved){
     version: DEFAULT_PREFERENCES.version,
     theme: normalizeThemePreference(saved.theme ?? merged.theme),
     showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
+    feedControls: FEED_CONTROLS?.normalize?.(saved.feedControls || {
+      spoilers: saved.showSpoilers ? "results_visible" : "standard",
+    }, {
+      showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
+    }) || merged.feedControls,
     localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
@@ -5110,6 +5219,13 @@ function mergePreferences(saved){
     tennis: { ...merged.tennis, ...(saved.tennis || {}) },
     fifa: { ...merged.fifa, ...(saved.fifa || {}) },
   };
+  if (saved.feedControls && typeof saved.feedControls === "object"){
+    preferences.showSpoilers = preferences.feedControls?.spoilers === "results_visible";
+  }
+  preferences.feedControls = FEED_CONTROLS?.normalize?.({
+    ...preferences.feedControls,
+    spoilers: preferences.showSpoilers ? "results_visible" : preferences.feedControls?.spoilers,
+  }, { showSpoilers: preferences.showSpoilers }) || preferences.feedControls;
   delete preferences.soundtrack;
   return preferences;
 }
@@ -5512,7 +5628,14 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
   const previousShowSpoilers = Boolean(userPreferences.showSpoilers);
   const next = Boolean(nextShowSpoilers);
   if (!next) standingsRevealApproved = false;
-  savePreferences({ ...userPreferences, showSpoilers: next });
+  savePreferences({
+    ...userPreferences,
+    showSpoilers: next,
+    feedControls: FEED_CONTROLS?.normalize?.({
+      ...userPreferences.feedControls,
+      spoilers: next ? "results_visible" : "standard",
+    }) || userPreferences.feedControls,
+  });
   const resetCount = applyGlobalSpoilerPolicy(next, previousShowSpoilers);
   renderAll({ preserveViewport: true });
   if (notify){
@@ -6362,11 +6485,29 @@ function setActiveFeedFilter(nextFilter, {
 }
 
 /* ============ METADATA NORMALIZATION ============ */
-function inferBroadcasterIds(label){
-  const text = String(label || "").toLowerCase();
-  return Object.entries(BROADCASTER_LIBRARY)
+function inferBroadcasterIds(input){
+  const options = Array.isArray(input) ? input : [input];
+  const serviceAliases = {
+    kayo_sports: "kayo",
+    stan_sport: "stan",
+    sbs_on_demand: "sbs",
+    nine_9now: "nine",
+    foxtel: "foxtel",
+    abc: "abc",
+    seven_7plus: "seven",
+    ten_paramount: "ten",
+  };
+  const identifiers = new Set();
+  const text = options.map(option => {
+    if (!option || typeof option === "string") return String(option || "");
+    const serviceId = String(option.serviceId || "").toLowerCase();
+    if (serviceAliases[serviceId]) identifiers.add(serviceAliases[serviceId]);
+    return [option.broadcasterName, option.serviceLabel, option.platform, option.channelBrand].filter(Boolean).join(" ");
+  }).join(" ").toLowerCase();
+  Object.entries(BROADCASTER_LIBRARY)
     .filter(([, provider]) => provider.aliases.some(alias => text.includes(alias.trim().toLowerCase())))
-    .map(([id]) => id);
+    .forEach(([id]) => identifiers.add(id));
+  return Array.from(identifiers);
 }
 
 function inferTennisGender(name){
@@ -6490,8 +6631,8 @@ function normalizeEvents(events = activeEvents){
     ev.recommendationScore = ev.recommendationScore || ev.expected;
     ev.importanceBand = ev.importanceBand || importanceBandForEvent(ev);
     ev.narrativeType = ev.narrativeType || inferRound(ev.name);
-    ev.broadcasterIds = inferBroadcasterIds(ev.broadcaster);
     ev.broadcastOptions = ev.broadcastOptions || [ev.broadcaster].filter(Boolean);
+    ev.broadcasterIds = inferBroadcasterIds([ev.broadcaster, ...ev.broadcastOptions, ...(ev.broadcasts || [])]);
     ev.venueId = ev.venueId || (ev.venue ? ev.venue.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : null);
     ev.replayEligible = ev.replayEligible ?? ev.expected >= 7;
     ev.highlightEligible = ev.highlightEligible ?? ev.expected >= 6;
@@ -6526,7 +6667,8 @@ function nowAEST(){
 }
 
 function eventDateTime(ev){
-  // date "YYYY-MM-DD", time "HH:MM" -> local Date object for simple static sorting and status checks.
+  const normalized = FEED_CONTROLS?.eventStart?.(ev);
+  if (normalized) return normalized;
   const [y,m,d] = ev.date.split("-").map(Number);
   const [hh,mm] = ev.time.split(":").map(Number);
   return new Date(y, m-1, d, hh, mm, 0);
@@ -6727,7 +6869,15 @@ function eventLearningReferences(ev){
 }
 
 function eventLearningScore(ev){
-  return PREFERENCE_SYSTEM?.learningScore?.(userPreferences?.preferenceGraph, eventLearningReferences(ev)) || 0;
+  const swipeScore = PREFERENCE_SYSTEM?.learningScore?.(userPreferences?.preferenceGraph, eventLearningReferences(ev)) || 0;
+  const action = getEventAction(ev);
+  const eventId = String(ev.eventId || ev.id);
+  const openedSignal = sessionOpenedEventIds.has(eventId) && !cardViewStates[eventId] ? 2 : 0;
+  const localSignals = openedSignal
+    + (action.mustWatch ? 12 : 0)
+    + (action.saved ? 10 : 0)
+    + (action.watched ? 6 : 0);
+  return Math.max(-30, Math.min(30, swipeScore + localSignals));
 }
 
 function eventEnrichment(ev){
@@ -6942,6 +7092,10 @@ function compareStableEventIds(first, second){
 function compareSurfacedEvents(first, second, { topNine = false, reference = nowAEST() } = {}){
   const firstPresentation = surfacePresentationForEvent(first, reference);
   const secondPresentation = surfacePresentationForEvent(second, reference);
+  const recommendationOrder = { direct: 0, adjacent: 1, discovery: 2, ineligible: 3, suppressed: 4 };
+  const recommendationDifference = (recommendationOrder[eventRecommendationClassification(first)] ?? 3)
+    - (recommendationOrder[eventRecommendationClassification(second)] ?? 3);
+  if (recommendationDifference) return recommendationDifference;
   if (firstPresentation.isPinned !== secondPresentation.isPinned) return firstPresentation.isPinned ? -1 : 1;
   if (firstPresentation.isNew !== secondPresentation.isNew) return firstPresentation.isNew ? -1 : 1;
   const learningDifference = eventLearningScore(second) - eventLearningScore(first);
@@ -6972,7 +7126,9 @@ function orderCuratedDayEvents(events){
   return events
     .map((event, index) => ({ event, index }))
     .sort((first, second) => (
-      eventLearningScore(second.event) - eventLearningScore(first.event)
+      ({ direct: 0, adjacent: 1, discovery: 2 }[eventRecommendationClassification(first.event)] ?? 3)
+      - ({ direct: 0, adjacent: 1, discovery: 2 }[eventRecommendationClassification(second.event)] ?? 3)
+      || eventLearningScore(second.event) - eventLearningScore(first.event)
       || first.index - second.index
     ))
     .map(item => item.event);
@@ -7023,6 +7179,7 @@ function updateEventSpoilerState(ev, patch){
 }
 
 function isSpoilerVisible(ev){
+  if (userPreferences.feedControls?.spoilers === "strict") return false;
   const override = getEventSpoilerState(ev).override;
   if (override === "show") return true;
   if (override === "hide") return false;
@@ -7281,6 +7438,16 @@ function buildEventActionPanel(ev, options = {}){
       });
     }
   } else {
+    makeActionButton("More like this", "", () => applyCuratedEventSwipe(ev, "positive"));
+    makeActionButton("Less like this", "", () => applyCuratedEventSwipe(ev, "negative"));
+    if (getEventStatus(ev) !== "past"){
+      const reminderOn = Boolean(getEventAction(ev).mustWatch);
+      makeActionButton(reminderOn ? "Reminder on" : "Remind me", reminderOn ? "active" : "", () => {
+        updateEventAction(ev, { mustWatch: !reminderOn, reminderRequested: !reminderOn });
+        renderCurrentSection();
+        showToast(!reminderOn ? `Reminder set for ${ev.name}.` : `Reminder removed for ${ev.name}.`);
+      });
+    }
     if (getEventStatus(ev) === "past"){
       makeActionButton("Rate", "", () => {
         markSpoilerRevealed(ev);
@@ -7293,6 +7460,13 @@ function buildEventActionPanel(ev, options = {}){
           archiveEvent(ev, { preserve: true });
           renderAll();
           showToast(`Saved ${ev.name} to Archive.`);
+        });
+      }
+      if (!getEventAction(ev).watched){
+        makeActionButton("Mark watched", "", () => {
+          updateEventAction(ev, { watched: true, watchedAt: new Date().toISOString() });
+          renderCurrentSection();
+          showToast(`Marked ${ev.name} as watched.`);
         });
       }
     }
@@ -7434,18 +7608,27 @@ function renderFeedFilterDock(){
   const toggle = document.getElementById("feedFilterVisibilityBtn");
   const selection = document.getElementById("feedFilterSelection");
   const filterRow = document.getElementById("sportFilters");
+  const filterContent = document.getElementById("feedFilterContent");
+  const controlGrid = document.getElementById("feedControlGrid");
+  const navigationLabel = document.getElementById("feedNavigationLabel");
   const selectedLabel = feedFilterDisplayMetadata(activeFilter).label;
+  const controls = FEED_CONTROLS?.normalize?.(userPreferences.feedControls) || userPreferences.feedControls;
 
   dock.classList.toggle("is-standings", !isFeed);
   dock.setAttribute("aria-label", isFeed ? "Feed filter controls" : "Standings filters");
   toolbar.hidden = !isFeed;
-  filterRow.hidden = isFeed && !feedFilterVisible;
+  filterContent.hidden = isFeed && !feedFilterVisible;
+  filterRow.hidden = false;
+  controlGrid.hidden = !isFeed;
+  navigationLabel.textContent = isFeed ? "Browse" : "Standings";
   filterRow.setAttribute("aria-label", isFeed ? "Filter feed by sport" : "Filter standings by sport");
   toggle.classList.toggle("is-expanded", feedFilterVisible);
   toggle.setAttribute("aria-expanded", String(feedFilterVisible));
-  toggle.textContent = feedFilterVisible ? "Hide filter" : "Show filter";
+  toggle.textContent = feedFilterVisible ? "Hide controls" : "Show controls";
   const hubCopy = activeSportHubKey() ? " hub" : "";
-  selection.textContent = feedFilterVisible ? `${selectedLabel}${hubCopy} selected` : `${selectedLabel}${hubCopy} remains active`;
+  const scopeCopy = { following: "Following", for_you: "For You", explore: "Explore" }[controls?.scope] || "For You";
+  const frothCopy = { low: "Low froth", balanced: "Balanced", high: "High froth", maximum: "Maximum froth" }[controls?.froth] || "Balanced";
+  selection.textContent = `${selectedLabel}${hubCopy} · ${scopeCopy} · ${frothCopy}`;
 }
 
 function setFeedFilterVisible(nextVisible){
@@ -7481,6 +7664,7 @@ function renderFilters(){
       });
       container.appendChild(btn);
     });
+    renderFeedControls();
     renderPreferenceSummary();
     return;
   }
@@ -7535,6 +7719,61 @@ function renderFilters(){
     container.appendChild(control);
   });
   document.getElementById("preferenceSummary").innerHTML = "";
+}
+
+function updateFeedControl(key, value){
+  if (!FEED_CONTROLS) return;
+  const previousSpoilers = userPreferences.feedControls?.spoilers;
+  const controls = FEED_CONTROLS.normalize({ ...userPreferences.feedControls, [key]: value });
+  const showSpoilers = controls.spoilers === "results_visible";
+  if (key === "spoilers" && controls.spoilers === "strict") clearShownSpoilerOverrides();
+  savePreferences({ ...userPreferences, feedControls: controls, showSpoilers });
+  if (key === "spoilers") applyGlobalSpoilerPolicy(showSpoilers, previousSpoilers === "results_visible");
+  renderAll({ preserveViewport: true });
+}
+
+function renderFeedControls(){
+  const grid = document.getElementById("feedControlGrid");
+  if (!grid || !FEED_CONTROLS) return;
+  const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
+  const definitions = [
+    ["froth", "Froth", [["low", "Low"], ["balanced", "Balanced"], ["high", "High"], ["maximum", "Maximum"]]],
+    ["scope", "Scope", [["following", "Following"], ["for_you", "For You"], ["explore", "Explore"]]],
+    ["availability", "Availability", [["any", "Any"], ["free", "Free"], ["included", "Included"], ["ppv", "PPV"]]],
+    ["timing", "Timing", [["any", "Any time"], ["live_now", "Live now"], ["tonight", "Tonight"], ["this_week", "This week"], ["overnight", "Overnight OK"]]],
+    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["must_watch", "Must watch"]]],
+    ["spoilers", "Spoilers", [["strict", "Strict"], ["standard", "Standard"], ["results_visible", "Results visible"]]],
+  ];
+  grid.innerHTML = "";
+  definitions.forEach(([key, label, values]) => {
+    const control = document.createElement("label");
+    control.className = "feed-control";
+    const copy = document.createElement("span");
+    copy.textContent = label;
+    const select = document.createElement("select");
+    select.dataset.feedControl = key;
+    select.setAttribute("aria-label", `${label} feed control`);
+    values.forEach(([optionValue, optionLabel]) => {
+      const option = document.createElement("option");
+      option.value = optionValue;
+      option.textContent = optionLabel;
+      option.selected = controls[key] === optionValue;
+      select.appendChild(option);
+    });
+    select.addEventListener("change", () => updateFeedControl(key, select.value));
+    control.append(copy, select);
+    grid.appendChild(control);
+  });
+  const services = document.createElement("div");
+  services.className = "feed-control";
+  services.innerHTML = `<span>Services owned</span>`;
+  const manage = document.createElement("button");
+  manage.type = "button";
+  manage.className = "feed-control-manage";
+  manage.textContent = `${userPreferences.selectedBroadcasters.length} selected · Manage`;
+  manage.addEventListener("click", () => openSettings({ section: "providers" }));
+  services.appendChild(manage);
+  grid.appendChild(services);
 }
 
 function renderPreferenceSummary(){
@@ -7696,6 +7935,56 @@ function eventParticipantFollowLevels(ev){
     .map(preference => preference.followLevel);
 }
 
+function eventHasExplicitUnfollow(ev){
+  return eventDomainPreferences(ev).some(preference => preference?.enabled === false);
+}
+
+function eventHasExplicitCoverage(ev){
+  const enabledDomains = eventDomainPreferences(ev).filter(preference => preference?.enabled !== false);
+  const follows = eventParticipantFollowLevels(ev);
+  return enabledDomains.some(preference => preference.includeAllFixtures)
+    || follows.some(level => level === "follow" || level === "priority")
+    || getEventAction(ev).mustWatch;
+}
+
+function eventRecommendationProfile(ev){
+  if (!FEED_CONTROLS){
+    return { classification: "direct", eligible: true, label: null, reasons: ["legacy_fallback"] };
+  }
+  const followLevels = eventParticipantFollowLevels(ev);
+  const competitionDisabled = eventCompetitionPreference(ev)?.enabled === false;
+  const providerEligible = eventMatchesBroadcasterPreferences(ev);
+  const directInterest = providerEligible && (
+    eventUsesFocusedSportFrothOverride(ev)
+    || (eventMatchesSportPreferences(ev) && eventMeetsCoveragePreference(ev))
+    || followLevels.some(level => level === "follow" || level === "priority")
+  );
+  const accessTypes = FEED_CONTROLS.accessTypes(ev);
+  const availability = accessTypes.includes("free") ? "free"
+    : accessTypes.includes("included") ? "included"
+      : accessTypes.includes("ppv") ? "ppv"
+        : "unknown";
+  return FEED_CONTROLS.classifyRecommendation({
+    directInterest,
+    explicitUnfollow: eventHasExplicitUnfollow(ev),
+    competitionDisabled,
+    mutedParticipant: followLevels.includes("mute"),
+    negativeContextCount: PREFERENCE_SYSTEM?.negativeContextCount?.(
+      userPreferences.preferenceGraph,
+      eventLearningReferences(ev)
+    ) || 0,
+    learningScore: eventLearningScore(ev),
+    stakes: Number(ev.stakesScore || stakesScoreForEvent(ev)),
+    australianInterest: Boolean(ev.australianInterest),
+    availability,
+    friendlyWindow: FEED_CONTROLS.friendlyWindow(ev),
+  });
+}
+
+function eventRecommendationClassification(ev){
+  return eventRecommendationProfile(ev).classification;
+}
+
 function eventUsesFocusedSportFrothOverride(ev){
   if (activeTab !== "feed") return false;
   if (activeSportHubKey()) return false;
@@ -7746,17 +8035,35 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = activeEvents.slice();
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
   list = list.filter(ev => (
-    eventMeetsCoveragePreference(ev)
-    && eventMatchesExplicitSubfilters(ev)
+    eventMatchesExplicitSubfilters(ev)
     && eventMatchesTennisFilters(ev)
     && eventMatchesFifaFilters(ev)
-    && (
-      eventIsEditorialMustShow(ev)
-      || eventUsesFocusedSportFrothOverride(ev)
-      || (eventMatchesSportPreferences(ev) && eventMatchesBroadcasterPreferences(ev))
-    )
   ));
-  return list;
+  if (!FEED_CONTROLS) return list.filter(ev => eventMeetsCoveragePreference(ev));
+  const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
+  const focused = activeFilter !== "all";
+  const candidates = list.map(ev => ({
+    event: ev,
+    profile: eventRecommendationProfile(ev),
+  })).filter(({ event, profile }) => (
+    profile.eligible
+    && eventMatchesBroadcasterPreferences(event)
+    && FEED_CONTROLS.matchesEvent(event, controls, {
+      now: reference,
+      mustWatch: getEventAction(event).mustWatch,
+      explicitCoverage: eventHasExplicitCoverage(event),
+    })
+  ));
+  if (focused) return candidates.map(candidate => candidate.event);
+  const selectedIds = FEED_CONTROLS.selectRecommendationMix(candidates.map(({ event, profile }) => ({
+    id: String(event.eventId || event.id),
+    classification: profile.classification,
+    score: eventEnrichment(event).mustWatchScore,
+    startsAt: eventDateTime(event).getTime(),
+  })), controls);
+  return candidates
+    .filter(({ event }) => selectedIds.has(String(event.eventId || event.id)))
+    .map(candidate => candidate.event);
 }
 
 function getFilteredEvents(){
@@ -7764,6 +8071,16 @@ function getFilteredEvents(){
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
   if (activeTab === "feed" && activeFilter === "all"){
     list = list.filter(ev => !sessionDismissedEventIds.has(String(ev.eventId || ev.id)));
+    if (FEED_CONTROLS){
+      const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
+      const selectedIds = FEED_CONTROLS.selectRecommendationMix(list.map(event => ({
+        id: String(event.eventId || event.id),
+        classification: eventRecommendationClassification(event),
+        score: eventEnrichment(event).mustWatchScore,
+        startsAt: eventDateTime(event).getTime(),
+      })), controls);
+      list = list.filter(event => selectedIds.has(String(event.eventId || event.id)));
+    }
   }
   if (activeFilter !== "all") list = list.filter(ev => feedFilterMatchesEvent(activeFilter, ev));
   return list;
@@ -7958,6 +8275,11 @@ function buildSpoilerOverrideControl(ev){
   copy.className = "spoiler-control-copy";
   copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Global results ${userPreferences.showSpoilers ? "shown" : "hidden"} · ${state.override === "inherit" ? "Uses global setting" : state.override === "show" ? "Results shown" : "Results hidden"}`;
   control.appendChild(copy);
+
+  if (userPreferences.feedControls?.spoilers === "strict"){
+    copy.textContent = `${status === "past" ? "Past" : status === "live" ? "Live" : "Upcoming"} event · Strict spoiler protection is active`;
+    return control;
+  }
 
   const toggle = document.createElement("button");
   toggle.className = "spoiler-reveal-btn";
@@ -8356,7 +8678,7 @@ function applyCuratedEventSwipe(ev, direction){
     targetId: target.targetId,
     value: direction === "positive" ? 1 : -1,
     source: "feed",
-  });
+  }, { contextReferences: eventLearningReferences(ev) });
   const dislikeCount = graph.learning.dislikeCount;
   const showTunePrompt = direction === "negative" && PREFERENCE_SYSTEM.shouldPromptTune(graph, { now: nowAEST() });
   if (showTunePrompt) graph = PREFERENCE_SYSTEM.recordTunePrompt(graph, { dislikeCount });
@@ -8403,6 +8725,7 @@ function buildEventCard(ev, options = {}){
   const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
+  const recommendationProfile = eventRecommendationProfile(ev);
   const swipeEligible = !options.archived
     && activeTab === "feed"
     && activeView === "list"
@@ -8421,6 +8744,7 @@ function buildEventCard(ev, options = {}){
     spoilerProtected ? "is-spoiler-protected" : "",
     presentation.isNew ? "is-new" : "",
     status === "past" ? "is-past" : "",
+    ["adjacent", "discovery"].includes(recommendationProfile.classification) ? "is-discovery" : "",
     swipeEligible ? "is-swipe-eligible" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
@@ -8429,10 +8753,12 @@ function buildEventCard(ev, options = {}){
   card.dataset.cardVariant = enrichment.cardVariant;
   card.dataset.intensity = String(enrichment.intensity);
   card.dataset.mustWatchScore = String(enrichment.mustWatchScore);
+  card.dataset.recommendationClassification = recommendationProfile.classification;
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
   const advanceCardState = () => {
+    if (state === "compact") sessionOpenedEventIds.add(String(ev.eventId || ev.id));
     setCardState(ev, nextCardState(state));
     renderCurrentSection();
   };
@@ -8555,6 +8881,23 @@ function buildEventCard(ev, options = {}){
     const b = document.createElement("span");
     b.className = "badge local-game";
     b.innerHTML = `${glyphMarkup("ui:map-pin", { className: "semantic-badge-glyph", preferImage: true })}<span>AU interest</span>`;
+    badges.appendChild(b);
+  }
+  if (recommendationProfile.label){
+    const b = document.createElement("span");
+    b.className = "badge discovery";
+    b.textContent = recommendationProfile.label;
+    badges.appendChild(b);
+  }
+  if (FEED_CONTROLS){
+    const accessTypes = FEED_CONTROLS.accessTypes(ev);
+    const accessLabel = accessTypes.includes("free") ? "Free"
+      : accessTypes.includes("included") ? "Included"
+        : accessTypes.includes("ppv") ? "PPV"
+          : "Availability TBC";
+    const b = document.createElement("span");
+    b.className = "badge availability";
+    b.textContent = accessLabel;
     badges.appendChild(b);
   }
   if (upgraded){

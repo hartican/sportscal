@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v82";
+const CACHE_NAME = "nothingsport-shell-v83";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -18,6 +18,7 @@ const APP_SHELL = [
   "/config/product-events.js",
   "/config/user-state-sync.js",
   "/config/server-sync.js",
+  "/config/feed-controls.js",
   "/config/preference-system.js",
   "/config/swipe-calibration.js",
   "/config/fine-tuning.js",
@@ -40,6 +41,7 @@ const APP_SHELL = [
   "/data/canonical/cwg-context-2026.json",
   "/data/canonical/tennis-catalogue-2026.json",
   "/schemas/preference-graph.schema.json",
+  "/schemas/feed-controls.schema.json",
   "/schemas/preference-taxonomy.schema.json",
   "/schemas/tennis-ranking-export.schema.json",
   "/schemas/tennis-tournament-export.schema.json",

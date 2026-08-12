@@ -87,7 +87,7 @@ const shellVersion = html.match(/<meta name="app-shell-version" content="(\d+)">
 const workerVersion = worker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+)"/)?.[1];
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "Tune and rating contracts must load before app state");
 assert(html.includes('settingsMenuItem("tune"') && html.includes("renderFineTuningSettings"), "Tune must remain reachable from Settings");
-assert(html.includes("applyTuningSignal") && html.includes("completeTuningSession"), "every Tune choice and completed session must persist through the v5 graph");
+assert(html.includes("applyTuningSignal") && html.includes("completeTuningSession"), "every Tune choice and completed session must persist through the v6 graph");
 assert(html.includes('eventName: "tune_session"') && html.includes('surface: "tune"'), "Tune sessions must use the fixed pilot event contract");
 assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i<=10;i++)"), "actual spectacle must use five one-tap stars");
 assert(html.includes("starToStoredScore") && html.includes("half-filled"), "five-star input must retain 1-10 storage compatibility and half-star display");

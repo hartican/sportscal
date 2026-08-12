@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsport.vercel.app/schemas/feed-controls.schema.json",
+  "title": "nothingSport feed controls",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "froth", "scope", "availability", "timing", "stakes", "spoilers", "expanded"],
+  "properties": {
+    "schemaVersion": { "const": "feed-controls.v1" },
+    "froth": { "enum": ["low", "balanced", "high", "maximum"] },
+    "scope": { "enum": ["following", "for_you", "explore"] },
+    "availability": { "enum": ["any", "free", "included", "ppv"] },
+    "timing": { "enum": ["any", "live_now", "tonight", "this_week", "overnight"] },
+    "stakes": { "enum": ["everything", "important", "must_watch"] },
+    "spoilers": { "enum": ["strict", "standard", "results_visible"] },
+    "expanded": { "type": "boolean" }
+  }
+}
