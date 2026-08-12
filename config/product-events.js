@@ -8,6 +8,11 @@
   const SCHEMA_VERSION = "product-events.v1";
   const MAX_BATCH_SIZE = 20;
   const MAX_PROPERTIES_BYTES = 512;
+  const PILOT_DURATION_DAYS = 14;
+  const WEEKLY_PULSE_DATA_GATHERING_ACTIVE = true;
+  const WEEKLY_PULSE_OPEN_THRESHOLD = 3;
+  const WEEKLY_PULSE_SURVEY_VERSION = "weekly-pulse.v1";
+  const WEEKLY_PULSE_PROMPT_STATE_VERSION = "weekly-pulse-prompt.v1";
   const EVENT_NAMES = Object.freeze([
     "opportunity_exposed",
     "fixture_check",
@@ -259,21 +264,32 @@
     }
 
     async function flush(){
-      if (inFlight) return inFlight;
       if (timer) clearTimeout(timer);
       timer = null;
+      if (inFlight){
+        const activeResult = await inFlight;
+        if (!pending.length) return activeResult;
+        const pendingResult = await flush();
+        return { sent: (activeResult?.sent || 0) + (pendingResult?.sent || 0) };
+      }
       if (!pending.length) return { sent: 0 };
-      const batch = pending.splice(0, MAX_BATCH_SIZE);
-      inFlight = Promise.resolve(sendBatch(batch))
-        .then(result => {
-          if (pending.length) schedule();
-          return result || { sent: batch.length };
-        })
-        .catch(error => {
-          pending = batch.concat(pending).slice(0, MAX_BATCH_SIZE * 5);
-          throw error;
-        })
-        .finally(() => { inFlight = null; });
+      inFlight = (async () => {
+        let sent = 0;
+        while (pending.length){
+          const batch = pending.splice(0, MAX_BATCH_SIZE);
+          try{
+            const result = await sendBatch(batch);
+            sent += Number(result?.accepted ?? result?.sent ?? batch.length) || 0;
+          }catch(error){
+            pending = batch.concat(pending).slice(0, MAX_BATCH_SIZE * 5);
+            throw error;
+          }
+        }
+        return { sent };
+      })().finally(() => {
+        inFlight = null;
+        if (pending.length) schedule();
+      });
       return inFlight;
     }
 
@@ -292,6 +308,78 @@
       },
       size(){ return pending.length; },
     });
+  }
+
+  function sydneyDateKey(reference = new Date()){
+    const date = reference instanceof Date ? reference : new Date(reference);
+    if (Number.isNaN(date.getTime())) return null;
+    const formatter = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Australia/Sydney",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    const parts = Object.fromEntries(formatter.formatToParts(date)
+      .filter(part => part.type !== "literal")
+      .map(part => [part.type, part.value]));
+    return `${parts.year}-${parts.month}-${parts.day}`;
+  }
+
+  function weeklyPulseSurveyId(weekStart){
+    const week = /^\d{4}-\d{2}-\d{2}$/.test(String(weekStart || ""))
+      ? String(weekStart)
+      : null;
+    if (!week) throw new TypeError("A valid weekly pulse week start is required.");
+    return `${WEEKLY_PULSE_SURVEY_VERSION}:${week}`;
+  }
+
+  function nextWeeklyPulsePromptState(current, { surveyId, dayKey } = {}){
+    const nextSurveyId = requiredString(surveyId, "surveyId", { max: 96 });
+    const nextDayKey = /^\d{4}-\d{2}-\d{2}$/.test(String(dayKey || ""))
+      ? String(dayKey)
+      : null;
+    if (!nextDayKey) throw new TypeError("A valid Sydney day key is required.");
+    const sameCounter = plainObject(current)
+      && current.schemaVersion === WEEKLY_PULSE_PROMPT_STATE_VERSION
+      && current.surveyId === nextSurveyId
+      && current.dayKey === nextDayKey;
+    return {
+      schemaVersion: WEEKLY_PULSE_PROMPT_STATE_VERSION,
+      surveyId: nextSurveyId,
+      dayKey: nextDayKey,
+      openCount: sameCounter
+        ? Math.min(1_000, Math.max(0, Number(current.openCount) || 0) + 1)
+        : 1,
+    };
+  }
+
+  function pilotSurveyActive(pilot, reference = new Date(), {
+    dataGatheringActive = WEEKLY_PULSE_DATA_GATHERING_ACTIVE,
+  } = {}){
+    if (!dataGatheringActive || !plainObject(pilot) || !pilot.enabled) return false;
+    const startedAt = new Date(pilot.acknowledgedAt || "");
+    const now = reference instanceof Date ? reference : new Date(reference);
+    if (Number.isNaN(startedAt.getTime()) || Number.isNaN(now.getTime())) return false;
+    const elapsed = now.getTime() - startedAt.getTime();
+    return elapsed >= 0 && elapsed < PILOT_DURATION_DAYS * 24 * 60 * 60 * 1_000;
+  }
+
+  function weeklyPulseComplete(pilot, { surveyId, weekStart } = {}){
+    if (!plainObject(pilot)) return false;
+    if (typeof pilot.lastPulseSurveyId === "string" && pilot.lastPulseSurveyId){
+      return pilot.lastPulseSurveyId === surveyId;
+    }
+    return pilot.lastPulseWeek === weekStart;
+  }
+
+  function shouldPromptWeeklyPulse({ pilot, promptState, surveyId, weekStart, reference = new Date() } = {}){
+    return Boolean(
+      pilotSurveyActive(pilot, reference)
+      && plainObject(promptState)
+      && promptState.surveyId === surveyId
+      && Number(promptState.openCount) >= WEEKLY_PULSE_OPEN_THRESHOLD
+      && !weeklyPulseComplete(pilot, { surveyId, weekStart })
+    );
   }
 
   function calculateWeeklyTsdr(events, timeZone = "Australia/Sydney"){
@@ -339,15 +427,26 @@
     EVENT_NAMES,
     MAX_BATCH_SIZE,
     MAX_PROPERTIES_BYTES,
+    PILOT_DURATION_DAYS,
     PROPERTY_RULES,
     ProductEventValidationError,
     SCHEMA_VERSION,
     SURFACES,
+    WEEKLY_PULSE_DATA_GATHERING_ACTIVE,
+    WEEKLY_PULSE_OPEN_THRESHOLD,
+    WEEKLY_PULSE_PROMPT_STATE_VERSION,
+    WEEKLY_PULSE_SURVEY_VERSION,
     calculateWeeklyTsdr,
     createEvent,
     createQueue,
+    nextWeeklyPulsePromptState,
     normalizeBatch,
     normalizeEvent,
+    pilotSurveyActive,
     rowsForUser,
+    shouldPromptWeeklyPulse,
+    sydneyDateKey,
+    weeklyPulseComplete,
+    weeklyPulseSurveyId,
   });
 });

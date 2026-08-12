@@ -273,13 +273,19 @@
         return authenticatedRequest("/api/feed");
       },
       async sendProductEvents(events){
-        return authenticatedRequest("/api/product-events", {
+        const payload = await authenticatedRequest("/api/product-events", {
           method: "POST",
           body: JSON.stringify({
             schemaVersion: PRODUCT_EVENTS_SCHEMA_VERSION,
             events,
           }),
         });
+        if (payload?.schemaVersion !== PRODUCT_EVENTS_SCHEMA_VERSION || payload?.accepted !== events.length){
+          const error = new Error("The server did not confirm every product event.");
+          error.code = "product_events_not_confirmed";
+          throw error;
+        }
+        return payload;
       },
       async savePatch(patch){
         const payload = await authenticatedRequest("/api/user-state", {

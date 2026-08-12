@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="76">
+<meta name="app-shell-version" content="77">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4287,6 +4287,24 @@ footer.app-footer{
   </div>
 </div>
 
+<div class="modal-backdrop" id="pilotPulsePromptModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="pilotPulsePromptTitle">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="pilotPulsePromptTitle">Weekly trust pulse</h2>
+        <p>Help us check whether nothingsport is earning your trust before you decide what to watch.</p>
+      </div>
+    </div>
+    <div class="onboarding-body">
+      <p class="preference-help">Five fixed choices. No free text. It takes about two minutes.</p>
+    </div>
+    <div class="onboarding-actions">
+      <button class="btn ghost" type="button" id="dismissPilotPulsePromptBtn">Not now</button>
+      <button class="btn primary" type="button" id="openPilotPulseSurveyBtn">Fill out this 2-minute survey</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-backdrop" id="standingsSpoilerModal" aria-hidden="true">
   <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="standingsSpoilerTitle">
     <div class="onboarding-head">
@@ -4533,9 +4551,10 @@ const DEFAULT_PREFERENCES = {
   selectedBroadcasters: Object.keys(BROADCASTER_LIBRARY),
   preferenceGraph: null,
   pilotMeasurement: {
-    enabled: false,
+    enabled: true,
     acknowledgedAt: null,
     lastPulseWeek: null,
+    lastPulseSurveyId: null,
   },
   ratingPromptState: RATING_SYSTEM?.emptyPromptState?.() || {
     schemaVersion: "rating-prompts.v1",
@@ -4604,6 +4623,7 @@ const STORAGE_KEYS = {
   eventSpoilerState: "ns_event_spoiler_state_v1",
   surfacePresentation: "ns_surface_presentation_v1",
   selectorReleaseAcknowledgement: "ns_selector_release_ack_v1",
+  weeklyPulsePrompt: "ns_weekly_pulse_prompt_v1",
   legacyEventActions: "ns_event_actions_v1",
   hiddenItems: "ns_hidden_items_v1",
   derivedCardCache: "ns_derived_card_cache_v1",
@@ -5010,6 +5030,9 @@ function mergePreferences(saved){
         : null,
       lastPulseWeek: /^\d{4}-\d{2}-\d{2}$/.test(String(saved.pilotMeasurement?.lastPulseWeek || ""))
         ? saved.pilotMeasurement.lastPulseWeek
+        : null,
+      lastPulseSurveyId: /^[A-Za-z0-9][A-Za-z0-9:._-]{7,95}$/.test(String(saved.pilotMeasurement?.lastPulseSurveyId || ""))
+        ? saved.pilotMeasurement.lastPulseSurveyId
         : null,
     },
     ratingPromptState: RATING_SYSTEM?.normalizePromptState?.(
@@ -5479,6 +5502,19 @@ function pilotMeasurementEligible(){
   );
 }
 
+function ensureDefaultPilotMeasurementAcknowledgement(reference = new Date()){
+  const pilot = pilotMeasurementPreferences();
+  if (!serverPersistence.user || !pilot.enabled || pilot.acknowledgedAt) return false;
+  const next = clonePreferences(userPreferences);
+  next.pilotMeasurement = {
+    ...pilotMeasurementPreferences(next),
+    enabled: true,
+    acknowledgedAt: reference.toISOString(),
+  };
+  savePreferences(next);
+  return true;
+}
+
 function pilotWeekStart(reference = new Date()){
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Australia/Sydney",
@@ -5493,6 +5529,41 @@ function pilotWeekStart(reference = new Date()){
   const day = date.getUTCDay() || 7;
   date.setUTCDate(date.getUTCDate() - day + 1);
   return date.toISOString().slice(0, 10);
+}
+
+function currentWeeklyPulseSurvey(reference = new Date()){
+  const weekStart = pilotWeekStart(reference);
+  return {
+    weekStart,
+    surveyId: PRODUCT_EVENTS?.weeklyPulseSurveyId?.(weekStart) || `weekly-pulse.v1:${weekStart}`,
+  };
+}
+
+function setPilotPulsePromptOpen(open){
+  const modal = document.getElementById("pilotPulsePromptModal");
+  modal.classList.toggle("show", open);
+  modal.setAttribute("aria-hidden", open ? "false" : "true");
+  document.body.classList.toggle("modal-open", open);
+  if (open) document.getElementById("openPilotPulseSurveyBtn")?.focus({ preventScroll: true });
+}
+
+function registerWeeklyPulseAppOpen(reference = new Date()){
+  if (!PRODUCT_EVENTS || !serverPersistence.user) return false;
+  ensureDefaultPilotMeasurementAcknowledgement(reference);
+  const pilot = pilotMeasurementPreferences();
+  if (!PRODUCT_EVENTS.pilotSurveyActive(pilot, reference)) return false;
+  const { weekStart, surveyId } = currentWeeklyPulseSurvey(reference);
+  const dayKey = PRODUCT_EVENTS.sydneyDateKey(reference);
+  const promptState = PRODUCT_EVENTS.nextWeeklyPulsePromptState(
+    readStorage(STORAGE_KEYS.weeklyPulsePrompt, null),
+    { surveyId, dayKey }
+  );
+  writeStorage(STORAGE_KEYS.weeklyPulsePrompt, promptState);
+  if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, weekStart, reference })) return false;
+  window.setTimeout(() => {
+    if (!document.querySelector(".modal-backdrop.show")) setPilotPulsePromptOpen(true);
+  }, 250);
+  return true;
 }
 
 function productEventContextForEvent(event){
@@ -7342,7 +7413,7 @@ function renderFilters(){
       btn.className = "pill" + (activeFilter === key ? " active" : "");
       btn.setAttribute("aria-pressed", String(activeFilter === key));
       btn.style.setProperty("--pill-color", metadata.color);
-      btn.innerHTML = `${glyphMarkup(metadata.glyph)}<span>${metadata.label}</span>`;
+      btn.innerHTML = `${glyphMarkup(metadata.glyph, { preferImage: true })}<span>${metadata.label}</span>`;
       const activateFilter = () => setActiveFeedFilter(key, {
         measurementEntry: sportHubKeyForFilter(key) ? "sport_filter" : null,
       });
@@ -10653,7 +10724,9 @@ function pilotMeasurementSummary(){
   const pilot = pilotMeasurementPreferences();
   if (!serverPersistence.user) return "Sign in to join the closed pilot";
   if (!pilot.enabled || !pilot.acknowledgedAt) return "Optional · fixed-choice measurement is off";
-  return pilot.lastPulseWeek === pilotWeekStart()
+  const { weekStart, surveyId } = currentWeeklyPulseSurvey();
+  if (!PRODUCT_EVENTS?.pilotSurveyActive?.(pilot)) return "Measurement on · pilot period complete";
+  return PRODUCT_EVENTS.weeklyPulseComplete(pilot, { surveyId, weekStart })
     ? "Measurement on · this week’s pulse complete"
     : "Measurement on · weekly pulse ready";
 }
@@ -10793,7 +10866,12 @@ function renderPilotSettings(body){
   const signedIn = Boolean(serverPersistence.user);
   const pilot = pilotMeasurementPreferences();
   const enabled = signedIn && Boolean(pilot.enabled && pilot.acknowledgedAt);
-  const currentWeek = pilotWeekStart();
+  const { weekStart: currentWeek, surveyId: currentSurveyId } = currentWeeklyPulseSurvey();
+  const surveyActive = enabled && Boolean(PRODUCT_EVENTS?.pilotSurveyActive?.(pilot));
+  const pulseComplete = PRODUCT_EVENTS?.weeklyPulseComplete?.(pilot, {
+    surveyId: currentSurveyId,
+    weekStart: currentWeek,
+  }) || false;
 
   if (!signedIn){
     body.innerHTML = `<div class="preference-stack"><div class="filter-panel">
@@ -10819,7 +10897,9 @@ function renderPilotSettings(body){
       <p class="preference-help" id="pilotMeasurementStatus" role="status" aria-live="polite">${enabled ? `Acknowledged ${new Date(pilot.acknowledgedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}. Events are attached to your signed-in pilot account.` : "Measurement is off."}</p>
     </div>
     ${enabled ? `<div class="filter-panel"><h3>This week’s trust pulse</h3>
-      ${pilot.lastPulseWeek === currentWeek
+      ${!surveyActive
+        ? `<p class="preference-help">This pilot’s 14-day survey period is complete. Thanks for taking part.</p>`
+        : pulseComplete
         ? `<p class="preference-help">Pulse complete for the week starting ${new Date(`${currentWeek}T12:00:00`).toLocaleDateString("en-AU", { day: "numeric", month: "short" })}. Thanks.</p>`
         : `<p class="preference-help">Five fixed choices, once a week. There is no free-text response.</p>
           <form class="pilot-pulse" id="pilotPulseForm">
@@ -10861,7 +10941,7 @@ function renderPilotSettings(body){
       ...pilotMeasurementPreferences(next),
       enabled: nextEnabled,
       acknowledgedAt: nextEnabled ? new Date().toISOString() : null,
-      ...(nextEnabled ? {} : { lastPulseWeek: null }),
+      ...(nextEnabled ? {} : { lastPulseWeek: null, lastPulseSurveyId: null }),
     };
     if (!nextEnabled){
       productEventsQueue?.clear();
@@ -10881,6 +10961,7 @@ function renderPilotSettings(body){
     button.disabled = true;
     status.textContent = "Sending your fixed-choice pulse…";
     const recorded = recordProductEvent({
+      clientEventId: `weekly_pulse_${currentSurveyId.replace(/[^A-Za-z0-9:_-]/g, "_")}`,
       eventName: "weekly_pulse",
       surface: "weekly_pulse",
       properties: {
@@ -10897,11 +10978,13 @@ function renderPilotSettings(body){
       return;
     }
     try{
-      await flushProductEvents();
+      const result = await flushProductEvents();
+      if (!result?.sent) throw new Error("The weekly pulse was not confirmed.");
       const next = clonePreferences(userPreferences);
       next.pilotMeasurement = {
         ...pilotMeasurementPreferences(next),
         lastPulseWeek: currentWeek,
+        lastPulseSurveyId: currentSurveyId,
       };
       savePreferences(next);
       draftPreferences = clonePreferences(userPreferences);
@@ -11741,6 +11824,14 @@ document.getElementById("tunePromptModal").addEventListener("click", event => {
   recordTunePromptAction("dismissed");
   setTunePromptOpen(false);
 });
+document.getElementById("dismissPilotPulsePromptBtn").addEventListener("click", () => setPilotPulsePromptOpen(false));
+document.getElementById("openPilotPulseSurveyBtn").addEventListener("click", () => {
+  setPilotPulsePromptOpen(false);
+  openSettings({ section: "pilot" });
+});
+document.getElementById("pilotPulsePromptModal").addEventListener("click", event => {
+  if (event.target.id === "pilotPulsePromptModal") setPilotPulsePromptOpen(false);
+});
 document.getElementById("aboutBtn").addEventListener("click", () => {
   const modal = document.getElementById("aboutModal");
   modal.classList.add("show");
@@ -12154,8 +12245,19 @@ Promise.allSettled([
   if (!userPreferences.onboardingComplete){
     openSettings({ firstRun: true });
   } else {
-    setTimeout(openSelectorOptInPrompt, 250);
+    const weeklyPulsePromptScheduled = registerWeeklyPulseAppOpen();
+    if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
   }
+});
+let weeklyPulseWasHidden = document.visibilityState === "hidden";
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden"){
+    weeklyPulseWasHidden = true;
+    return;
+  }
+  if (!weeklyPulseWasHidden) return;
+  weeklyPulseWasHidden = false;
+  registerWeeklyPulseAppOpen();
 });
 if ("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("controllerchange", () => {

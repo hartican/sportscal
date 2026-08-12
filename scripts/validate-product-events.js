@@ -179,6 +179,40 @@ async function run(){
   assert.equal(queuedBatches[0][0].clientEventId, "event-00000001");
   assert.equal(queue.size(), 0);
 
+  let releaseFirstBatch;
+  const overlappingBatches = [];
+  const overlappingQueue = PRODUCT_EVENTS.createQueue({
+    delayMs: 60_000,
+    async sendBatch(batch){
+      overlappingBatches.push(batch);
+      if (overlappingBatches.length === 1){
+        await new Promise(resolve => { releaseFirstBatch = resolve; });
+      }
+      return { accepted: batch.length };
+    },
+  });
+  overlappingQueue.enqueue(event({ clientEventId: "event-overlap-0001" }));
+  const firstFlush = overlappingQueue.flush();
+  await Promise.resolve();
+  overlappingQueue.enqueue(event({
+    clientEventId: "weekly-pulse-0001",
+    eventName: "weekly_pulse",
+    surface: "weekly_pulse",
+    properties: {
+      pilotCohort: "hybrid",
+      crossCheck: "once",
+      missedFixtures: "none",
+      feedClutter: "about_right",
+      trustConfidence: "high",
+    },
+  }));
+  const pulseFlush = overlappingQueue.flush();
+  releaseFirstBatch();
+  await Promise.all([firstFlush, pulseFlush]);
+  assert.equal(overlappingBatches.length, 2, "an explicit pulse flush must drain events queued during an in-flight batch");
+  assert.equal(overlappingBatches[1][0].eventName, "weekly_pulse");
+  assert.equal(overlappingQueue.size(), 0, "a successfully submitted pulse must not remain stranded in memory");
+
   const sql = fs.readFileSync("supabase/nothingsports-product-events.sql", "utf8");
   assert.match(sql, /create table if not exists public\.product_events/i);
   assert.match(sql, /unique \(user_id, client_event_id\)/i);
@@ -219,6 +253,8 @@ async function run(){
   assert(html.includes('eventName: "opportunity_exposed"'));
   assert(html.includes('eventName: "fixture_check"'));
   assert(html.includes('eventName: "weekly_pulse"'));
+  assert(html.includes('clientEventId: `weekly_pulse_${currentWeek}`'), "weekly pulse retries must deduplicate per pilot user and week");
+  assert(html.includes('if (!result?.sent) throw new Error("The weekly pulse was not confirmed.")'), "the pulse UI must wait for a confirmed queue drain before marking the week complete");
   assert(html.includes('name="pilotCohort"') && html.includes('value="curator"') && html.includes('value="hybrid"') && html.includes('value="completist"'));
   assert(html.includes('name="trustConfidence"') && html.includes('value="high"'));
   assert(html.includes('properties: { action: "shown" }'), "rating prompt exposure must be measurable");
@@ -327,6 +363,21 @@ async function run(){
     schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION,
     events: [event()],
   });
+
+  const unconfirmedClient = SERVER_SYNC.createClient({
+    storage: memoryStorage(),
+    persistentStorage: memoryStorage(),
+    now: () => Date.parse("2026-08-11T01:00:00.000Z"),
+    fetchImpl: async (url) => url === "/api/auth"
+      ? browserResponse({ session: { access_token: "access", refresh_token: "refresh", expires_in: 3600 } })
+      : browserResponse({ accepted: 0, schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION }, 202),
+  });
+  await unconfirmedClient.signIn("pilot@example.com", "correct horse battery staple");
+  await assert.rejects(
+    () => unconfirmedClient.sendProductEvents([event()]),
+    error => error?.code === "product_events_not_confirmed",
+    "the client must reject a 202 response that does not confirm the whole batch"
+  );
 
   console.log("Product event contract, API ownership, opt-in UI, RLS SQL and TSDR query validated.");
 }
