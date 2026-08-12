@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "tennis-published-participants.v1",
+  "season": 2026,
+  "participants": [
+    {
+      "id": "competitor:tennis:atp:jannik-sinner",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jannik Sinner",
+      "shortName": "Sinner",
+      "canonicalName": "Jannik Sinner",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sinner"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alexander-zverev",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexander Zverev",
+      "shortName": "Zverev",
+      "canonicalName": "Alexander Zverev",
+      "countryCode": "DE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Zverev"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:carlos-alcaraz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Carlos Alcaraz",
+      "shortName": "Alcaraz",
+      "canonicalName": "Carlos Alcaraz",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Alcaraz"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:felix-auger-aliassime",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Felix Auger-Aliassime",
+      "shortName": "Auger-Aliassime",
+      "canonicalName": "Felix Auger-Aliassime",
+      "countryCode": "CA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Auger-Aliassime"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:novak-djokovic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Novak Djokovic",
+      "shortName": "Djokovic",
+      "canonicalName": "Novak Djokovic",
+      "countryCode": "RS",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Djokovic"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alex-de-minaur",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alex de Minaur",
+      "shortName": "De Minaur",
+      "canonicalName": "Alex de Minaur",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "De Minaur"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:flavio-cobolli",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Flavio Cobolli",
+      "shortName": "Cobolli",
+      "canonicalName": "Flavio Cobolli",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cobolli"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:taylor-fritz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Taylor Fritz",
+      "shortName": "Fritz",
+      "canonicalName": "Taylor Fritz",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fritz"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alexander-bublik",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexander Bublik",
+      "shortName": "Bublik",
+      "canonicalName": "Alexander Bublik",
+      "countryCode": "KZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bublik"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jiri-lehecka",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jiri Lehecka",
+      "shortName": "Lehecka",
+      "canonicalName": "Jiri Lehecka",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Lehecka"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alejandro Davidovich Fokina",
+      "shortName": "Davidovich Fokina",
+      "canonicalName": "Alejandro Davidovich Fokina",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Davidovich Fokina"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:arthur-fery",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Arthur Fery",
+      "shortName": "Fery",
+      "canonicalName": "Arthur Fery",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fery"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jan-lennard-struff",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jan-Lennard Struff",
+      "shortName": "Struff",
+      "canonicalName": "Jan-Lennard Struff",
+      "countryCode": "DE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Struff"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:hubert-hurkacz",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Hubert Hurkacz",
+      "shortName": "Hurkacz",
+      "canonicalName": "Hubert Hurkacz",
+      "countryCode": "PL",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hurkacz"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zachary-svajda",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zachary Svajda",
+      "shortName": "Svajda",
+      "canonicalName": "Zachary Svajda",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Svajda"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:roman-safiullin",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Roman Safiullin",
+      "shortName": "Safiullin",
+      "canonicalName": "Roman Safiullin",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Safiullin"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:shintaro-mochizuki",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Shintaro Mochizuki",
+      "shortName": "Mochizuki",
+      "canonicalName": "Shintaro Mochizuki",
+      "countryCode": "JP",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mochizuki"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:grigor-dimitrov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Grigor Dimitrov",
+      "shortName": "Dimitrov",
+      "canonicalName": "Grigor Dimitrov",
+      "countryCode": "BG",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Dimitrov"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ashlyn-krueger",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ashlyn Krueger",
+      "shortName": "Krueger",
+      "canonicalName": "Ashlyn Krueger",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Krueger"
+        ]
+      }
+    }
+  ]
+}

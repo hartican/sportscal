@@ -313,8 +313,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v81"'), "the preference translation release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="81">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v82"'), "the tennis catalogue release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="82">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
@@ -496,11 +496,12 @@ assert.equal(f1Context.ladderSnapshots.find(snapshot => snapshot.competitionId =
 const contextualF1Events = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "f1"), f1Context);
 assert(contextualF1Events.filter(event => /\b(?:Qualifying|Race)\b/i.test(event.name)).every(event => event.participantIds.length === 33), "F1 session cards must resolve active drivers and teams");
 assert(contextualF1Events.filter(event => /watch/i.test(event.name)).every(event => !event.participantIds?.length), "F1 ticket/date watches must remain free of sporting follow context");
-assert.equal(tennisContext.participants.filter(participant => participant.type === "competitor").length, 18, "Wimbledon detail settings must expose the calibrated ATP competitor set");
-assert.equal(tennisContext.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:atp-singles-2026")?.entries.length, 18, "ATP ranking context must cover every surfaced men's competitor plus the official top three");
+assert(tennisContext.participants.filter(participant => participant.type === "competitor").length >= 225, "Tennis detail settings must expose the complete ATP/WTA Top 50 plus Australian universe");
+assert.equal(tennisContext.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:atp-singles-2026")?.entries.filter(entry => entry.rank <= 50).length, 50, "ATP ranking context must contain the complete Top 50");
+assert.equal(tennisContext.ladderSnapshots.find(snapshot => snapshot.competitionId === "competition:wta-singles-2026")?.entries.filter(entry => entry.rank <= 50).length, 50, "WTA ranking context must contain the complete Top 50");
 const contextualTennisEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "wimbledon"), tennisContext);
 assert(contextualTennisEvents.filter(event => /\bMen(?:'|’)s\b/i.test(event.name)).every(event => event.participantIds?.length === 2), "Wimbledon men's cards must resolve only the two named ATP competitors");
-assert(contextualTennisEvents.filter(event => /\bWomen(?:'|’)s\b/i.test(event.name)).every(event => !event.participantIds?.length), "Wimbledon women's cards must not inherit ATP context");
+assert(contextualTennisEvents.filter(event => /\bWomen(?:'|’)s\b/i.test(event.name)).every(event => event.participantIds?.length === 2), "Wimbledon women's cards must resolve only the two named WTA competitors");
 assert(html.includes('["tennisContext", "data/canonical/tennis-context-2026.json"]') && html.includes("loadCanonicalContextBundles()"), "the browser must load the tennis context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/tennis-context-2026.json")'), "the authenticated server feed must load the same tennis context bundle");
 assert(html.includes('? "Competitor ranking context"'), "tennis settings must describe ATP data as competitor rankings rather than a generic championship table");

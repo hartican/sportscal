@@ -55,6 +55,11 @@ function parseOptions(argv = process.argv.slice(2)) {
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/refresh-canonical-sports.js"],
+  ["scripts/refresh-tennis-catalogue.js", "--enforce-freshness"],
+  ["scripts/refresh-tennis-catalogue.js", "--check", "--enforce-freshness"],
+  ["scripts/build-tennis-context.js"],
+  ["scripts/build-tennis-context.js", "--check"],
+  ["scripts/validate-tennis-catalogue.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-preference-taxonomy.js"],
@@ -66,6 +71,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-canonical-context-bundle.js", "--check"],
   ["scripts/refresh-results-2026-07-30.js", "feeds/incoming/events.json"],
   ["scripts/reconcile-australian-marquee-events.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ["scripts/sync-tennis-tournaments-to-feed.js", "--from-exports", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),

@@ -16,7 +16,7 @@ const selectorTaxonomy = selectorSandbox.globalThis.NOTHINGSPORTS_SELECTOR_TAXON
 assert.equal(vectorAssets.schemaVersion, "vector-assets.v1");
 assert.deepEqual(vectorAssets.rightsMetadataKinds, ["licensed", "user-supplied", "official", "open-use", "fallback"], "asset metadata must support every required rights origin");
 assert.equal(sportRegistry.schemaVersion, "sport-domain-registry.v1");
-assert.equal(sportRegistry.domains.length, 25, "all currently surfaced sport keys must be registry-driven");
+assert.equal(sportRegistry.domains.length, 26, "all currently surfaced sport keys must be registry-driven");
 assert.equal(new Set(sportRegistry.domains.map(domain => domain.key)).size, sportRegistry.domains.length, "sport keys must be unique");
 
 const canonicalDomainIds = new Set(canonicalTaxonomy.sportDomains.map(domain => domain.id));

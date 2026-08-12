@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/tennis-catalogue.schema.json",
+  "title": "nothingSport canonical tennis catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "season", "generatedAt", "ingestionMode", "refreshPolicy", "sources", "athletes", "tournaments"],
+  "properties": {
+    "schemaVersion": { "const": "tennis-catalogue.v1" },
+    "season": { "type": "integer", "minimum": 2026 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "ingestionMode": { "enum": ["manual_reviewed_export", "licensed_api"] },
+    "refreshPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rankingsCadence", "maximumRankingAgeDays", "parityRequired", "failureMode"],
+      "properties": {
+        "rankingsCadence": { "const": "weekly" },
+        "maximumRankingAgeDays": { "type": "integer", "minimum": 7, "maximum": 14 },
+        "parityRequired": { "const": true },
+        "failureMode": { "const": "retain_last_good_and_fail_closed" }
+      }
+    },
+    "sources": { "type": "array", "minItems": 3, "items": { "type": "object" } },
+    "athletes": {
+      "type": "array",
+      "minItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["athleteId", "providerAlias", "displayName", "tour", "rankingSingles", "rankingPoints", "rankingSnapshotDate", "nationalityCode", "isAustralian", "active", "selectionReasons"],
+        "properties": {
+          "athleteId": { "type": "string", "pattern": "^competitor:tennis:(atp|wta):[a-z0-9-]+$" },
+          "providerAlias": { "type": "string", "pattern": "^(atp|wta):player:.+$" },
+          "displayName": { "type": "string", "minLength": 2 },
+          "tour": { "enum": ["ATP", "WTA"] },
+          "rankingSingles": { "type": "integer", "minimum": 1 },
+          "rankingPoints": { "type": ["integer", "null"], "minimum": 0 },
+          "rankingSnapshotDate": { "type": "string", "format": "date" },
+          "nationalityCode": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "isAustralian": { "type": "boolean" },
+          "active": { "const": true },
+          "selectionReasons": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["top_50", "australian"] } }
+        }
+      }
+    },
+    "tournaments": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["tournamentId", "providerAlias", "name", "tour", "representedTours", "level", "competitionId", "startDate", "endDate", "sourceUrl"],
+        "properties": {
+          "tournamentId": { "type": "string", "pattern": "^tournament:tennis:[a-z0-9-]+$" },
+          "providerAlias": { "type": "string", "minLength": 3 },
+          "name": { "type": "string", "minLength": 3 },
+          "tour": { "enum": ["ATP", "WTA", "BOTH", "TEAM"] },
+          "representedTours": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["ATP", "WTA"] } },
+          "level": { "type": "string" },
+          "competitionId": { "type": "string", "pattern": "^competition:[a-z0-9-]+$" },
+          "startDate": { "type": "string", "format": "date" },
+          "endDate": { "type": "string", "format": "date" },
+          "sourceUrl": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}

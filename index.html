@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="81">
+<meta name="app-shell-version" content="82">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4356,6 +4356,7 @@ footer.app-footer{
 <script src="config/sport-hierarchy.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
+<script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -4437,6 +4438,7 @@ const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
 };
 const EVENT_TAXONOMY_COMPAT = globalThis.NOTHINGSPORTS_EVENT_TAXONOMY_COMPAT || null;
 const PREFERENCE_TAXONOMY = globalThis.NOTHINGSPORTS_PREFERENCE_TAXONOMY || null;
+const TENNIS_COVERAGE = globalThis.NOTHINGSPORTS_TENNIS_COVERAGE || null;
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
 const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
@@ -7578,12 +7580,34 @@ function eventMatchesBroadcasterPreferences(ev){
 }
 
 function eventMatchesTennisFilters(ev){
-  if (ev.sportId !== "wimbledon") return true;
+  if (!["tennis", "wimbledon"].includes(ev.sportId)) return true;
   const tennis = userPreferences.tennis || DEFAULT_PREFERENCES.tennis;
   const rules = tennisRulesForPreference(tennis);
   if (rules.gender !== "both" && ev.gender !== "unknown" && ev.gender !== rules.gender) return false;
   if (rules.eventType !== "both" && ev.eventType && ev.eventType !== rules.eventType) return false;
   if (rules.round !== "all" && ev.round !== "all" && !roundMeetsMinimum(ev.round, rules.round)) return false;
+  if (ev.sportId === "tennis" && TENNIS_COVERAGE){
+    const templateId = eventDomainPreferences(ev).find(preference => preference?.enabled !== false)?.templateId;
+    const froth = templateId === "template:casual" ? "low"
+      : templateId === "template:froth" ? "high"
+        : tennis.enthusiasm === "froth" ? "high" : "balanced";
+    return TENNIS_COVERAGE.isVisibleAtFroth({
+      ...ev,
+      level: ev.tennisLevel,
+      tour: ev.tour,
+      cardType: ev.cardType,
+      participants: (ev.participants || []).map(participant => ({
+        ...participant,
+        athleteId: participant.id,
+        rankingSingles: participant.rankingSingles,
+        isAustralian: participant.isAustralian,
+      })),
+    }, froth, {
+      followedParticipantIds: (userPreferences.preferenceGraph?.entityFollows || [])
+        .filter(follow => ["follow", "priority"].includes(follow.followLevel))
+        .map(follow => follow.participantId),
+    });
+  }
   return true;
 }
 

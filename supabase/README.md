@@ -6,6 +6,8 @@ Cross-device writes use the versioned `user-state-patch.v1` contract. Each clien
 
 The closed trust pilot has a separate append-only `product_events` table. It accepts only the versioned fixed-choice contract in `config/product-events.js`; it stores no free text, social content, precise location, or contact information.
 
+The Phase 2 tennis catalogue has separate public-reference tables in `nothingsports-tennis-catalogue.sql`. Clients receive read-only access; only a trusted server-side ingestion job may write reviewed or licensed provider snapshots. Do not apply that migration until the provider contract and deployment environment are approved.
+
 ## Project setup
 
 1. Open the existing Supabase project and run `nothingsports-user-state.sql` in the SQL editor.

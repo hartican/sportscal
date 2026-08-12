@@ -1,0 +1,1018 @@
+{
+  "schemaVersion": "tennis-ranking-export.v1",
+  "provider": "WTA",
+  "tour": "WTA",
+  "rankingSnapshotDate": "2026-08-10",
+  "extractedAt": "2026-08-12T15:00:00.000Z",
+  "ingestionMode": "manual_reviewed_export",
+  "sourceUrl": "https://www.wtatennis.com/rankings/singles",
+  "scope": {
+    "topN": 50,
+    "nationalityCodes": [
+      "AUS"
+    ],
+    "complete": true
+  },
+  "athletes": [
+    {
+      "name": "Aryna Sabalenka",
+      "nationalityCode": "BLR",
+      "points": 8550,
+      "providerId": "320760",
+      "rank": 1,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Elena Rybakina",
+      "nationalityCode": "KAZ",
+      "points": 8056,
+      "providerId": "324166",
+      "rank": 2,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Jessica Pegula",
+      "nationalityCode": "USA",
+      "points": 6625,
+      "providerId": "316956",
+      "rank": 3,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Coco Gauff",
+      "nationalityCode": "USA",
+      "points": 5649,
+      "providerId": "328560",
+      "rank": 4,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Mirra Andreeva",
+      "nationalityCode": "RUS",
+      "points": 5293,
+      "providerId": "331809",
+      "rank": 5,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Karolina Muchova",
+      "nationalityCode": "CZE",
+      "points": 5168,
+      "providerId": "322191",
+      "rank": 6,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Linda Noskova",
+      "nationalityCode": "CZE",
+      "points": 5016,
+      "providerId": "329668",
+      "rank": 7,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Iga Swiatek",
+      "nationalityCode": "POL",
+      "points": 4539,
+      "providerId": "326408",
+      "rank": 8,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Elina Svitolina",
+      "nationalityCode": "UKR",
+      "points": 4459,
+      "providerId": "316738",
+      "rank": 9,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Amanda Anisimova",
+      "nationalityCode": "USA",
+      "points": 4353,
+      "providerId": "326384",
+      "rank": 10,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Marta Kostyuk",
+      "nationalityCode": "UKR",
+      "points": 3925,
+      "providerId": "326482",
+      "rank": 11,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Victoria Mboko",
+      "nationalityCode": "CAN",
+      "points": 3520,
+      "providerId": "331006",
+      "rank": 12,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Naomi Osaka",
+      "nationalityCode": "JPN",
+      "points": 3281,
+      "providerId": "319998",
+      "rank": 13,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Belinda Bencic",
+      "nationalityCode": "SUI",
+      "points": 2845,
+      "providerId": "319001",
+      "rank": 14,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Jasmine Paolini",
+      "nationalityCode": "ITA",
+      "points": 2783,
+      "providerId": "319280",
+      "rank": 15,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Iva Jovic",
+      "nationalityCode": "USA",
+      "points": 2636,
+      "providerId": "332285",
+      "rank": 16,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Diana Shnaider",
+      "nationalityCode": "RUS",
+      "points": 2593,
+      "providerId": "330482",
+      "rank": 17,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Sorana Cirstea",
+      "nationalityCode": "ROU",
+      "points": 2502,
+      "providerId": "312469",
+      "rank": 18,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Ekaterina Alexandrova",
+      "nationalityCode": "RUS",
+      "points": 2301,
+      "providerId": "319007",
+      "rank": 19,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alexandra Eala",
+      "nationalityCode": "PHI",
+      "points": 2106,
+      "providerId": "330332",
+      "rank": 20,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Anna Kalinskaya",
+      "nationalityCode": "RUS",
+      "points": 2083,
+      "providerId": "323942",
+      "rank": 21,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Maja Chwalinska",
+      "nationalityCode": "POL",
+      "points": 1975,
+      "providerId": "325639",
+      "rank": 22,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Madison Keys",
+      "nationalityCode": "USA",
+      "points": 1964,
+      "providerId": "316959",
+      "rank": 23,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Elise Mertens",
+      "nationalityCode": "BEL",
+      "points": 1948,
+      "providerId": "317964",
+      "rank": 24,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Marie Bouzkova",
+      "nationalityCode": "CZE",
+      "points": 1829,
+      "providerId": "320983",
+      "rank": 25,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Barbora Krejcikova",
+      "nationalityCode": "CZE",
+      "points": 1776,
+      "providerId": "318314",
+      "rank": 26,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Anastasia Potapova",
+      "nationalityCode": "AUT",
+      "points": 1726,
+      "providerId": "325601",
+      "rank": 27,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Emma Navarro",
+      "nationalityCode": "USA",
+      "points": 1724,
+      "providerId": "325410",
+      "rank": 28,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Jelena Ostapenko",
+      "nationalityCode": "LAT",
+      "points": 1592,
+      "providerId": "319939",
+      "rank": 29,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Clara Tauson",
+      "nationalityCode": "DEN",
+      "points": 1564,
+      "providerId": "327793",
+      "rank": 30,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Ann Li",
+      "nationalityCode": "USA",
+      "points": 1541,
+      "providerId": "326096",
+      "rank": 31,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Hailey Baptiste",
+      "nationalityCode": "USA",
+      "points": 1372,
+      "providerId": "327101",
+      "rank": 32,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Maria Sakkari",
+      "nationalityCode": "GRE",
+      "points": 1355,
+      "providerId": "318312",
+      "rank": 33,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Leylah Fernandez",
+      "nationalityCode": "CAN",
+      "points": 1344,
+      "providerId": "326735",
+      "rank": 34,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Donna Vekic",
+      "nationalityCode": "CRO",
+      "points": 1326,
+      "providerId": "318516",
+      "rank": 35,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Janice Tjen",
+      "nationalityCode": "INA",
+      "points": 1312,
+      "providerId": "328818",
+      "rank": 36,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Katerina Siniakova",
+      "nationalityCode": "CZE",
+      "points": 1285,
+      "providerId": "320301",
+      "rank": 37,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Sara Bejlek",
+      "nationalityCode": "CZE",
+      "points": 1269,
+      "providerId": "330375",
+      "rank": 38,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Jaqueline  Cristian",
+      "nationalityCode": "ROU",
+      "points": 1256,
+      "providerId": "320319",
+      "rank": 39,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Cristina Bucsa",
+      "nationalityCode": "ESP",
+      "points": 1244,
+      "providerId": "321158",
+      "rank": 40,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Xinyu Wang",
+      "nationalityCode": "CHN",
+      "points": 1238,
+      "providerId": "326376",
+      "rank": 41,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Nikola Bartunkova",
+      "nationalityCode": "CZE",
+      "points": 1231,
+      "providerId": "330364",
+      "rank": 42,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Daria Snigur",
+      "nationalityCode": "UKR",
+      "points": 1172,
+      "providerId": "327845",
+      "rank": 43,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Oleksandra Oliynykova",
+      "nationalityCode": "UKR",
+      "points": 1171,
+      "providerId": "327182",
+      "rank": 44,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Magdalena Frech",
+      "nationalityCode": "POL",
+      "points": 1160,
+      "providerId": "320277",
+      "rank": 45,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Lilli Tagger",
+      "nationalityCode": "AUT",
+      "points": 1160,
+      "providerId": "332150",
+      "rank": 46,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Tamara Korpatsch",
+      "nationalityCode": "GER",
+      "points": 1134,
+      "providerId": "319571",
+      "rank": 47,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Mccartney Kessler",
+      "nationalityCode": "USA",
+      "points": 1125,
+      "providerId": "326678",
+      "rank": 48,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Emma Raducanu",
+      "nationalityCode": "GBR",
+      "points": 1105,
+      "providerId": "328366",
+      "rank": 49,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Mayar Sherif",
+      "nationalityCode": "EGY",
+      "points": 1105,
+      "providerId": "318711",
+      "rank": 50,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Daria Kasatkina",
+      "nationalityCode": "AUS",
+      "points": 1033,
+      "providerId": "322082",
+      "rank": 61,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Kimberly Birrell",
+      "nationalityCode": "AUS",
+      "points": 999,
+      "providerId": "320728",
+      "rank": 69,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Talia Gibson",
+      "nationalityCode": "AUS",
+      "points": 958,
+      "providerId": "329393",
+      "rank": 74,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Maya Joint",
+      "nationalityCode": "AUS",
+      "points": 956,
+      "providerId": "330544",
+      "rank": 75,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ajla Tomljanovic",
+      "nationalityCode": "AUS",
+      "points": 815,
+      "providerId": "315232",
+      "rank": 95,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Taylah Preston",
+      "nationalityCode": "AUS",
+      "points": 762,
+      "providerId": "330291",
+      "rank": 106,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Maddison Inglis",
+      "nationalityCode": "AUS",
+      "points": 596,
+      "providerId": "321179",
+      "rank": 130,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Emerson Jones",
+      "nationalityCode": "AUS",
+      "points": 583,
+      "providerId": "333111",
+      "rank": 134,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Priscilla Hon",
+      "nationalityCode": "AUS",
+      "points": 502,
+      "providerId": "320543",
+      "rank": 158,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Storm Hunter",
+      "nationalityCode": "AUS",
+      "points": 450,
+      "providerId": "317810",
+      "rank": 175,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Olivia Gadecki",
+      "nationalityCode": "AUS",
+      "points": 293,
+      "providerId": "326653",
+      "rank": 255,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Elena Micic",
+      "nationalityCode": "AUS",
+      "points": 267,
+      "providerId": "330920",
+      "rank": 275,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Lizette Cabrera",
+      "nationalityCode": "AUS",
+      "points": 238,
+      "providerId": "320013",
+      "rank": 300,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Tina Smith",
+      "nationalityCode": "AUS",
+      "points": 153,
+      "providerId": "326908",
+      "rank": 419,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Alana Subasic",
+      "nationalityCode": "AUS",
+      "points": 141,
+      "providerId": "333011",
+      "rank": 444,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Arina Rodionova",
+      "nationalityCode": "AUS",
+      "points": 134,
+      "providerId": "312413",
+      "rank": 451,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Tahlia Kokkinis",
+      "nationalityCode": "AUS",
+      "points": 96,
+      "providerId": "332661",
+      "rank": 545,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Sarah Rokusek",
+      "nationalityCode": "AUS",
+      "points": 82,
+      "providerId": "331634",
+      "rank": 596,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Melisa Ercan",
+      "nationalityCode": "AUS",
+      "points": 67,
+      "providerId": "330075",
+      "rank": 659,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Belle Thompson",
+      "nationalityCode": "AUS",
+      "points": 65,
+      "providerId": "325430",
+      "rank": 672,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Gabriella Da Silva Fick",
+      "nationalityCode": "AUS",
+      "points": 64,
+      "providerId": "325827",
+      "rank": 674,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Stefani Webb",
+      "nationalityCode": "AUS",
+      "points": 49,
+      "providerId": "331645",
+      "rank": 754,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Amy Stevens",
+      "nationalityCode": "AUS",
+      "points": 40,
+      "providerId": "329185",
+      "rank": 831,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Laquisa Khan",
+      "nationalityCode": "AUS",
+      "points": 36,
+      "providerId": "332736",
+      "rank": 863,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Astra Sharma",
+      "nationalityCode": "AUS",
+      "points": 33,
+      "providerId": "319696",
+      "rank": 890,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jizelle Sibai",
+      "nationalityCode": "AUS",
+      "points": 32,
+      "providerId": "335473",
+      "rank": 899,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ashleigh Simes",
+      "nationalityCode": "AUS",
+      "points": 27,
+      "providerId": "328327",
+      "rank": 954,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Alicia Smith",
+      "nationalityCode": "AUS",
+      "points": 22,
+      "providerId": "321903",
+      "rank": 1007,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Catherine Aulia",
+      "nationalityCode": "AUS",
+      "points": 19,
+      "providerId": "330269",
+      "rank": 1035,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Cara Korhonen",
+      "nationalityCode": "AUS",
+      "points": 18,
+      "providerId": "332380",
+      "rank": 1060,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Giselle Isabell Guillen",
+      "nationalityCode": "AUS",
+      "points": 17,
+      "providerId": "335550",
+      "rank": 1065,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Eva Lopez",
+      "nationalityCode": "AUS",
+      "points": 14,
+      "providerId": "335810",
+      "rank": 1133,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Alexandra Osborne",
+      "nationalityCode": "AUS",
+      "points": 13,
+      "providerId": "320585",
+      "rank": 1148,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ava Beck",
+      "nationalityCode": "AUS",
+      "points": 13,
+      "providerId": "335471",
+      "rank": 1153,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ava Monet Sycamore",
+      "nationalityCode": "AUS",
+      "points": 13,
+      "providerId": "333885",
+      "rank": 1161,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Tori Russell",
+      "nationalityCode": "AUS",
+      "points": 12,
+      "providerId": "336364",
+      "rank": 1179,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Renee Alame",
+      "nationalityCode": "AUS",
+      "points": 10,
+      "providerId": "334185",
+      "rank": 1242,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Sarah Mildren",
+      "nationalityCode": "AUS",
+      "points": 10,
+      "providerId": "332865",
+      "rank": 1247,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Naomi Mckenzie",
+      "nationalityCode": "AUS",
+      "points": 9,
+      "providerId": "334992",
+      "rank": 1292,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Rianna Alame",
+      "nationalityCode": "AUS",
+      "points": 9,
+      "providerId": "334184",
+      "rank": 1307,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Tenika Mcgiffin",
+      "nationalityCode": "AUS",
+      "points": 9,
+      "providerId": "325489",
+      "rank": 1323,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Lily Taylor",
+      "nationalityCode": "AUS",
+      "points": 8,
+      "providerId": "331640",
+      "rank": 1345,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Elizabeth Ivanov",
+      "nationalityCode": "AUS",
+      "points": 8,
+      "providerId": "332375",
+      "rank": 1356,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Audrey Aulia",
+      "nationalityCode": "AUS",
+      "points": 7,
+      "providerId": "333882",
+      "rank": 1366,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Angela Cui",
+      "nationalityCode": "AUS",
+      "points": 6,
+      "providerId": "332384",
+      "rank": 1429,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Gurmanat Kaur Sandhu ",
+      "nationalityCode": "AUS",
+      "points": 4,
+      "providerId": "332645",
+      "rank": 1490,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Caitlin Baker",
+      "nationalityCode": "AUS",
+      "points": 3,
+      "providerId": "333234",
+      "rank": 1531,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Lily Fairclough",
+      "nationalityCode": "AUS",
+      "points": 3,
+      "providerId": "330301",
+      "rank": 1531,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Petra Hule",
+      "nationalityCode": "AUS",
+      "points": 3,
+      "providerId": "322579",
+      "rank": 1531,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Larisa Arnautovic",
+      "nationalityCode": "AUS",
+      "points": 3,
+      "providerId": "335370",
+      "rank": 1531,
+      "selectionReasons": [
+        "australian"
+      ]
+    }
+  ]
+}

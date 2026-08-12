@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/tennis-tournament-export.schema.json",
+  "title": "nothingSport reviewed tennis tournament export",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "season", "reviewedAt", "ingestionMode", "sources", "tournaments"],
+  "properties": {
+    "schemaVersion": { "const": "tennis-tournament-export.v1" },
+    "season": { "type": "integer", "minimum": 2026 },
+    "reviewedAt": { "type": "string", "format": "date-time" },
+    "ingestionMode": { "enum": ["manual_reviewed_export", "licensed_api"] },
+    "sources": { "type": "array", "minItems": 2, "items": { "type": "object", "required": ["provider", "sourceUrl"], "properties": { "provider": { "type": "string" }, "sourceUrl": { "type": "string", "format": "uri" } } } },
+    "tournaments": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["providerId", "name", "tour", "representedTours", "level", "startDate", "endDate", "city", "countryCode", "surface", "sourceUrl"],
+        "properties": {
+          "providerId": { "type": "string", "minLength": 2 },
+          "name": { "type": "string", "minLength": 3 },
+          "tour": { "enum": ["ATP", "WTA", "BOTH", "TEAM"] },
+          "representedTours": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["ATP", "WTA"] } },
+          "level": { "enum": ["grand_slam", "atp_masters_1000", "wta_1000", "atp_500", "wta_500", "atp_250", "wta_250", "atp_finals", "wta_finals", "team_competition", "challenger"] },
+          "startDate": { "type": "string", "format": "date" },
+          "endDate": { "type": "string", "format": "date" },
+          "city": { "type": "string", "minLength": 2 },
+          "countryCode": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "surface": { "enum": ["hard", "clay", "grass", "mixed"] },
+          "sourceUrl": { "type": "string", "format": "uri" },
+          "eventSeriesId": { "type": "string", "pattern": "^event-series:[a-z0-9-]+$" }
+        }
+      }
+    }
+  }
+}

@@ -2,25 +2,25 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-07-27T14:00:00.000Z",
+  "generatedAt": "2026-08-13T02:00:00.000Z",
   "sources": [
     {
       "provider": "ATP Tour",
-      "sourceUrl": "https://www.atptour.com/en/rankings/singles?rankRange=0-500",
+      "sourceUrl": "https://www.atptour.com/en/rankings/singles/",
       "sourceType": "official",
-      "checkedAt": "2026-07-27T14:00:00.000Z"
+      "checkedAt": "2026-08-12T15:00:00.000Z"
     },
     {
-      "provider": "The Championships, Wimbledon",
-      "sourceUrl": "https://www.wimbledon.com/en_GB/scores/draws/2026_MS_draw.pdf",
+      "provider": "WTA",
+      "sourceUrl": "https://www.wtatennis.com/rankings/singles",
       "sourceType": "official",
-      "checkedAt": "2026-07-27T14:00:00.000Z"
+      "checkedAt": "2026-08-12T15:00:00.000Z"
     },
     {
-      "provider": "The Championships, Wimbledon",
-      "sourceUrl": "https://www.wimbledon.com/en_GB/draws/results",
+      "provider": "ATP Tour",
+      "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
       "sourceType": "official",
-      "checkedAt": "2026-07-27T14:00:00.000Z"
+      "checkedAt": "2026-08-13T02:00:00.000Z"
     }
   ],
   "sportDomains": [
@@ -52,13 +52,22 @@
       "familyType": "tour",
       "sortOrder": 40,
       "isActive": true
+    },
+    {
+      "id": "family:wta-tour",
+      "sportDomainId": "sport:tennis",
+      "slug": "wta-tour",
+      "name": "WTA Tour",
+      "familyType": "tour",
+      "sortOrder": 41,
+      "isActive": true
     }
   ],
   "competitions": [
     {
       "id": "competition:atp-singles-2026",
       "sportDomainId": "sport:tennis",
-      "preferenceDomainId": "special:wimbledon",
+      "preferenceDomainId": "sport:tennis",
       "competitionFamilyId": "family:atp-tour",
       "slug": "atp-singles-2026",
       "name": "PIF ATP Singles Rankings",
@@ -66,6 +75,25 @@
       "seasonLabel": "2026",
       "region": "global",
       "gender": "mens",
+      "supportsLadder": true,
+      "supportsTeams": false,
+      "supportsCompetitors": true,
+      "isSpecialEvent": false,
+      "standingsOnly": true,
+      "standingsType": "singlesRanking",
+      "defaultStandingsVisibility": "summary"
+    },
+    {
+      "id": "competition:wta-singles-2026",
+      "sportDomainId": "sport:tennis",
+      "preferenceDomainId": "sport:tennis",
+      "competitionFamilyId": "family:wta-tour",
+      "slug": "wta-singles-2026",
+      "name": "PIF WTA Singles Rankings",
+      "competitionType": "ranking",
+      "seasonLabel": "2026",
+      "region": "global",
+      "gender": "womens",
       "supportsLadder": true,
       "supportsTeams": false,
       "supportsCompetitors": true,
@@ -84,17 +112,21 @@
       "shortName": "Sinner",
       "canonicalName": "Jannik Sinner",
       "countryCode": "IT",
-      "metadata": { "active": true, "titleAliases": ["Sinner"] }
-    },
-    {
-      "id": "competitor:tennis:atp:alexander-zverev",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Alexander Zverev",
-      "shortName": "Zverev",
-      "canonicalName": "Alexander Zverev",
-      "countryCode": "DE",
-      "metadata": { "active": true, "titleAliases": ["Zverev"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sinner"
+        ],
+        "rankingSingles": 1,
+        "rankingPoints": 13450,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:s0ag",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:carlos-alcaraz",
@@ -104,17 +136,69 @@
       "shortName": "Alcaraz",
       "canonicalName": "Carlos Alcaraz",
       "countryCode": "ES",
-      "metadata": { "active": true, "titleAliases": ["Alcaraz"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Alcaraz"
+        ],
+        "rankingSingles": 2,
+        "rankingPoints": 8160,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ESP",
+        "isAustralian": false,
+        "providerAlias": "atp:player:a0e2",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alexander-zverev",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexander Zverev",
+      "shortName": "Zverev",
+      "canonicalName": "Alexander Zverev",
+      "countryCode": "DE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Zverev"
+        ],
+        "rankingSingles": 3,
+        "rankingPoints": 8120,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GER",
+        "isAustralian": false,
+        "providerAlias": "atp:player:z355",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:felix-auger-aliassime",
       "type": "competitor",
       "sportDomainId": "sport:tennis:atp",
-      "displayName": "Felix Auger-Aliassime",
-      "shortName": "Auger-Aliassime",
-      "canonicalName": "Felix Auger-Aliassime",
+      "displayName": "Felix Auger Aliassime",
+      "shortName": "Aliassime",
+      "canonicalName": "Felix Auger Aliassime",
       "countryCode": "CA",
-      "metadata": { "active": true, "titleAliases": ["Auger-Aliassime"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Aliassime"
+        ],
+        "rankingSingles": 4,
+        "rankingPoints": 4740,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CAN",
+        "isAustralian": false,
+        "providerAlias": "atp:player:ag37",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:novak-djokovic",
@@ -124,27 +208,70 @@
       "shortName": "Djokovic",
       "canonicalName": "Novak Djokovic",
       "countryCode": "RS",
-      "metadata": { "active": true, "titleAliases": ["Djokovic"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Djokovic"
+        ],
+        "rankingSingles": 5,
+        "rankingPoints": 3760,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "SRB",
+        "isAustralian": false,
+        "providerAlias": "atp:player:d643",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:daniil-medvedev",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Daniil Medvedev",
+      "shortName": "Medvedev",
+      "canonicalName": "Daniil Medvedev",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Medvedev"
+        ],
+        "rankingSingles": 6,
+        "rankingPoints": 3620,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "atp:player:mm58",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:alex-de-minaur",
       "type": "competitor",
       "sportDomainId": "sport:tennis:atp",
-      "displayName": "Alex de Minaur",
-      "shortName": "De Minaur",
-      "canonicalName": "Alex de Minaur",
+      "displayName": "Alex De Minaur",
+      "shortName": "Minaur",
+      "canonicalName": "Alex De Minaur",
       "countryCode": "AU",
-      "metadata": { "active": true, "titleAliases": ["De Minaur"] }
-    },
-    {
-      "id": "competitor:tennis:atp:flavio-cobolli",
-      "type": "competitor",
-      "sportDomainId": "sport:tennis:atp",
-      "displayName": "Flavio Cobolli",
-      "shortName": "Cobolli",
-      "canonicalName": "Flavio Cobolli",
-      "countryCode": "IT",
-      "metadata": { "active": true, "titleAliases": ["Cobolli"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Minaur"
+        ],
+        "rankingSingles": 7,
+        "rankingPoints": 3560,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:dh58",
+        "selectionReasons": [
+          "australian",
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:taylor-fritz",
@@ -154,7 +281,69 @@
       "shortName": "Fritz",
       "canonicalName": "Taylor Fritz",
       "countryCode": "US",
-      "metadata": { "active": true, "titleAliases": ["Fritz"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fritz"
+        ],
+        "rankingSingles": 8,
+        "rankingPoints": 3400,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:fb98",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:flavio-cobolli",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Flavio Cobolli",
+      "shortName": "Cobolli",
+      "canonicalName": "Flavio Cobolli",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cobolli"
+        ],
+        "rankingSingles": 9,
+        "rankingPoints": 3330,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:c0e9",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ben-shelton",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ben Shelton",
+      "shortName": "Shelton",
+      "canonicalName": "Ben Shelton",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Shelton"
+        ],
+        "rankingSingles": 10,
+        "rankingPoints": 2680,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:s0s1",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:alexander-bublik",
@@ -164,7 +353,21 @@
       "shortName": "Bublik",
       "canonicalName": "Alexander Bublik",
       "countryCode": "KZ",
-      "metadata": { "active": true, "titleAliases": ["Bublik"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bublik"
+        ],
+        "rankingSingles": 11,
+        "rankingPoints": 2535,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "KAZ",
+        "isAustralian": false,
+        "providerAlias": "atp:player:bk92",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:jiri-lehecka",
@@ -174,17 +377,573 @@
       "shortName": "Lehecka",
       "canonicalName": "Jiri Lehecka",
       "countryCode": "CZ",
-      "metadata": { "active": true, "titleAliases": ["Lehecka"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Lehecka"
+        ],
+        "rankingSingles": 12,
+        "rankingPoints": 2380,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "atp:player:l0bv",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:lorenzo-musetti",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Lorenzo Musetti",
+      "shortName": "Musetti",
+      "canonicalName": "Lorenzo Musetti",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Musetti"
+        ],
+        "rankingSingles": 13,
+        "rankingPoints": 2375,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:m0ej",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:casper-ruud",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Casper Ruud",
+      "shortName": "Ruud",
+      "canonicalName": "Casper Ruud",
+      "countryCode": "NO",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ruud"
+        ],
+        "rankingSingles": 14,
+        "rankingPoints": 2345,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "NOR",
+        "isAustralian": false,
+        "providerAlias": "atp:player:rh16",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:rafael-jodar",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Rafael Jodar",
+      "shortName": "Jodar",
+      "canonicalName": "Rafael Jodar",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jodar"
+        ],
+        "rankingSingles": 15,
+        "rankingPoints": 2243,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ESP",
+        "isAustralian": false,
+        "providerAlias": "atp:player:j0dz",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:andrey-rublev",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Andrey Rublev",
+      "shortName": "Rublev",
+      "canonicalName": "Andrey Rublev",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Rublev"
+        ],
+        "rankingSingles": 16,
+        "rankingPoints": 2230,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "atp:player:re44",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jakub-mensik",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jakub Mensik",
+      "shortName": "Mensik",
+      "canonicalName": "Jakub Mensik",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mensik"
+        ],
+        "rankingSingles": 17,
+        "rankingPoints": 2205,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "atp:player:m0ni",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:valentin-vacherot",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Valentin Vacherot",
+      "shortName": "Vacherot",
+      "canonicalName": "Valentin Vacherot",
+      "countryCode": "MC",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Vacherot"
+        ],
+        "rankingSingles": 18,
+        "rankingPoints": 2176,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "MON",
+        "isAustralian": false,
+        "providerAlias": "atp:player:va25",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:learner-tien",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Learner Tien",
+      "shortName": "Tien",
+      "canonicalName": "Learner Tien",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tien"
+        ],
+        "rankingSingles": 19,
+        "rankingPoints": 2155,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:t0ha",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:frances-tiafoe",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Frances Tiafoe",
+      "shortName": "Tiafoe",
+      "canonicalName": "Frances Tiafoe",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tiafoe"
+        ],
+        "rankingSingles": 20,
+        "rankingPoints": 2105,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:td51",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:tommy-paul",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Tommy Paul",
+      "shortName": "Paul",
+      "canonicalName": "Tommy Paul",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Paul"
+        ],
+        "rankingSingles": 21,
+        "rankingPoints": 2075,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:pl56",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:luciano-darderi",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Luciano Darderi",
+      "shortName": "Darderi",
+      "canonicalName": "Luciano Darderi",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Darderi"
+        ],
+        "rankingSingles": 22,
+        "rankingPoints": 2025,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:d0fj",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:francisco-cerundolo",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Francisco Cerundolo",
+      "shortName": "Cerundolo",
+      "canonicalName": "Francisco Cerundolo",
+      "countryCode": "AR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cerundolo"
+        ],
+        "rankingSingles": 23,
+        "rankingPoints": 2010,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ARG",
+        "isAustralian": false,
+        "providerAlias": "atp:player:c0au",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:arthur-fils",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Arthur Fils",
+      "shortName": "Fils",
+      "canonicalName": "Arthur Fils",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fils"
+        ],
+        "rankingSingles": 24,
+        "rankingPoints": 1940,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "FRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:f0f1",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
       "type": "competitor",
       "sportDomainId": "sport:tennis:atp",
       "displayName": "Alejandro Davidovich Fokina",
-      "shortName": "Davidovich Fokina",
+      "shortName": "Fokina",
       "canonicalName": "Alejandro Davidovich Fokina",
       "countryCode": "ES",
-      "metadata": { "active": true, "titleAliases": ["Davidovich Fokina"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fokina"
+        ],
+        "rankingSingles": 25,
+        "rankingPoints": 1830,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ESP",
+        "isAustralian": false,
+        "providerAlias": "atp:player:dh50",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alejandro-tabilo",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alejandro Tabilo",
+      "shortName": "Tabilo",
+      "canonicalName": "Alejandro Tabilo",
+      "countryCode": "CL",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tabilo"
+        ],
+        "rankingSingles": 26,
+        "rankingPoints": 1728,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CHI",
+        "isAustralian": false,
+        "providerAlias": "atp:player:te30",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:joao-fonseca",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Joao Fonseca",
+      "shortName": "Fonseca",
+      "canonicalName": "Joao Fonseca",
+      "countryCode": "BR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fonseca"
+        ],
+        "rankingSingles": 27,
+        "rankingPoints": 1700,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "BRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:f0fv",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ugo-humbert",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ugo Humbert",
+      "shortName": "Humbert",
+      "canonicalName": "Ugo Humbert",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Humbert"
+        ],
+        "rankingSingles": 28,
+        "rankingPoints": 1625,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "FRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:hh26",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:arthur-rinderknech",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Arthur Rinderknech",
+      "shortName": "Rinderknech",
+      "canonicalName": "Arthur Rinderknech",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Rinderknech"
+        ],
+        "rankingSingles": 29,
+        "rankingPoints": 1623,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "FRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:rc91",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:tomas-martin-etcheverry",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Tomas Martin Etcheverry",
+      "shortName": "Etcheverry",
+      "canonicalName": "Tomas Martin Etcheverry",
+      "countryCode": "AR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Etcheverry"
+        ],
+        "rankingSingles": 30,
+        "rankingPoints": 1510,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ARG",
+        "isAustralian": false,
+        "providerAlias": "atp:player:ea24",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:brandon-nakashima",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Brandon Nakashima",
+      "shortName": "Nakashima",
+      "canonicalName": "Brandon Nakashima",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Nakashima"
+        ],
+        "rankingSingles": 31,
+        "rankingPoints": 1510,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:n0ae",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alexander-blockx",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexander Blockx",
+      "shortName": "Blockx",
+      "canonicalName": "Alexander Blockx",
+      "countryCode": "BE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Blockx"
+        ],
+        "rankingSingles": 32,
+        "rankingPoints": 1353,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "BEL",
+        "isAustralian": false,
+        "providerAlias": "atp:player:b0pg",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ignacio-buse",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ignacio Buse",
+      "shortName": "Buse",
+      "canonicalName": "Ignacio Buse",
+      "countryCode": "PE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Buse"
+        ],
+        "rankingSingles": 33,
+        "rankingPoints": 1350,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "PER",
+        "isAustralian": false,
+        "providerAlias": "atp:player:b0id",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zizou-bergs",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zizou Bergs",
+      "shortName": "Bergs",
+      "canonicalName": "Zizou Bergs",
+      "countryCode": "BE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bergs"
+        ],
+        "rankingSingles": 34,
+        "rankingPoints": 1340,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "BEL",
+        "isAustralian": false,
+        "providerAlias": "atp:player:bu13",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:matteo-arnaldi",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Matteo Arnaldi",
+      "shortName": "Arnaldi",
+      "canonicalName": "Matteo Arnaldi",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Arnaldi"
+        ],
+        "rankingSingles": 35,
+        "rankingPoints": 1299,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:a0fc",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:arthur-fery",
@@ -194,17 +953,4557 @@
       "shortName": "Fery",
       "canonicalName": "Arthur Fery",
       "countryCode": "GB",
-      "metadata": { "active": true, "titleAliases": ["Fery"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fery"
+        ],
+        "rankingSingles": 36,
+        "rankingPoints": 1285,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GBR",
+        "isAustralian": false,
+        "providerAlias": "atp:player:f0dm",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:cameron-norrie",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Cameron Norrie",
+      "shortName": "Norrie",
+      "canonicalName": "Cameron Norrie",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Norrie"
+        ],
+        "rankingSingles": 37,
+        "rankingPoints": 1255,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GBR",
+        "isAustralian": false,
+        "providerAlias": "atp:player:n771",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:raphael-collignon",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Raphael Collignon",
+      "shortName": "Collignon",
+      "canonicalName": "Raphael Collignon",
+      "countryCode": "BE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Collignon"
+        ],
+        "rankingSingles": 38,
+        "rankingPoints": 1234,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "BEL",
+        "isAustralian": false,
+        "providerAlias": "atp:player:c0jp",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:karen-khachanov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Karen Khachanov",
+      "shortName": "Khachanov",
+      "canonicalName": "Karen Khachanov",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Khachanov"
+        ],
+        "rankingSingles": 39,
+        "rankingPoints": 1130,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "atp:player:ke29",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:matteo-berrettini",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Matteo Berrettini",
+      "shortName": "Berrettini",
+      "canonicalName": "Matteo Berrettini",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Berrettini"
+        ],
+        "rankingSingles": 40,
+        "rankingPoints": 1088,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:bk40",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:jan-lennard-struff",
       "type": "competitor",
       "sportDomainId": "sport:tennis:atp",
-      "displayName": "Jan-Lennard Struff",
+      "displayName": "Jan Lennard Struff",
       "shortName": "Struff",
-      "canonicalName": "Jan-Lennard Struff",
+      "canonicalName": "Jan Lennard Struff",
       "countryCode": "DE",
-      "metadata": { "active": true, "titleAliases": ["Struff"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Struff"
+        ],
+        "rankingSingles": 41,
+        "rankingPoints": 1066,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GER",
+        "isAustralian": false,
+        "providerAlias": "atp:player:sl28",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alex-michelsen",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alex Michelsen",
+      "shortName": "Michelsen",
+      "canonicalName": "Alex Michelsen",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Michelsen"
+        ],
+        "rankingSingles": 42,
+        "rankingPoints": 1065,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:m0qi",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:denis-shapovalov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Denis Shapovalov",
+      "shortName": "Shapovalov",
+      "canonicalName": "Denis Shapovalov",
+      "countryCode": "CA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Shapovalov"
+        ],
+        "rankingSingles": 43,
+        "rankingPoints": 1045,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CAN",
+        "isAustralian": false,
+        "providerAlias": "atp:player:su55",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:mariano-navone",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Mariano Navone",
+      "shortName": "Navone",
+      "canonicalName": "Mariano Navone",
+      "countryCode": "AR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Navone"
+        ],
+        "rankingSingles": 44,
+        "rankingPoints": 1030,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ARG",
+        "isAustralian": false,
+        "providerAlias": "atp:player:n0bs",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jaume-munar",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jaume Munar",
+      "shortName": "Munar",
+      "canonicalName": "Jaume Munar",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Munar"
+        ],
+        "rankingSingles": 45,
+        "rankingPoints": 1020,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ESP",
+        "isAustralian": false,
+        "providerAlias": "atp:player:mu94",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:terence-atmane",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Terence Atmane",
+      "shortName": "Atmane",
+      "canonicalName": "Terence Atmane",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Atmane"
+        ],
+        "rankingSingles": 46,
+        "rankingPoints": 1007,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "FRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:a0gc",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:adrian-mannarino",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Adrian Mannarino",
+      "shortName": "Mannarino",
+      "canonicalName": "Adrian Mannarino",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mannarino"
+        ],
+        "rankingSingles": 47,
+        "rankingPoints": 1005,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "FRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:me82",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:sebastian-baez",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Sebastian Baez",
+      "shortName": "Baez",
+      "canonicalName": "Sebastian Baez",
+      "countryCode": "AR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Baez"
+        ],
+        "rankingSingles": 48,
+        "rankingPoints": 1000,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ARG",
+        "isAustralian": false,
+        "providerAlias": "atp:player:b0bi",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:luca-van-assche",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Luca Van Assche",
+      "shortName": "Assche",
+      "canonicalName": "Luca Van Assche",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Assche"
+        ],
+        "rankingSingles": 49,
+        "rankingPoints": 998,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "FRA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:v0dz",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:sebastian-korda",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Sebastian Korda",
+      "shortName": "Korda",
+      "canonicalName": "Sebastian Korda",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Korda"
+        ],
+        "rankingSingles": 50,
+        "rankingPoints": 990,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "atp:player:k0ah",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:james-duckworth",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "James Duckworth",
+      "shortName": "Duckworth",
+      "canonicalName": "James Duckworth",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Duckworth"
+        ],
+        "rankingSingles": 86,
+        "rankingPoints": 721,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:d994",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:rinky-hijikata",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Rinky Hijikata",
+      "shortName": "Hijikata",
+      "canonicalName": "Rinky Hijikata",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hijikata"
+        ],
+        "rankingSingles": 93,
+        "rankingPoints": 677,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:h0bh",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:adam-walton",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Adam Walton",
+      "shortName": "Walton",
+      "canonicalName": "Adam Walton",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Walton"
+        ],
+        "rankingSingles": 97,
+        "rankingPoints": 654,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:w09e",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:aleksandar-vukic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Aleksandar Vukic",
+      "shortName": "Vukic",
+      "canonicalName": "Aleksandar Vukic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Vukic"
+        ],
+        "rankingSingles": 101,
+        "rankingPoints": 649,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:v832",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:dane-sweeny",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Dane Sweeny",
+      "shortName": "Sweeny",
+      "canonicalName": "Dane Sweeny",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sweeny"
+        ],
+        "rankingSingles": 122,
+        "rankingPoints": 518,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s0ia",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:christopher-o-connell",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Christopher O'connell",
+      "shortName": "O'connell",
+      "canonicalName": "Christopher O'connell",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "O'connell"
+        ],
+        "rankingSingles": 133,
+        "rankingPoints": 461,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:o483",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alexei-popyrin",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alexei Popyrin",
+      "shortName": "Popyrin",
+      "canonicalName": "Alexei Popyrin",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Popyrin"
+        ],
+        "rankingSingles": 139,
+        "rankingPoints": 430,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:p09z",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:alex-bolt",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Alex Bolt",
+      "shortName": "Bolt",
+      "canonicalName": "Alex Bolt",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bolt"
+        ],
+        "rankingSingles": 158,
+        "rankingPoints": 354,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:bi81",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:bernard-tomic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Bernard Tomic",
+      "shortName": "Tomic",
+      "canonicalName": "Bernard Tomic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tomic"
+        ],
+        "rankingSingles": 160,
+        "rankingPoints": 352,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:ta46",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:tristan-schoolkate",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Tristan Schoolkate",
+      "shortName": "Schoolkate",
+      "canonicalName": "Tristan Schoolkate",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Schoolkate"
+        ],
+        "rankingSingles": 187,
+        "rankingPoints": 302,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s0n0",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:james-mccabe",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "James Mccabe",
+      "shortName": "Mccabe",
+      "canonicalName": "James Mccabe",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mccabe"
+        ],
+        "rankingSingles": 239,
+        "rankingPoints": 235,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:m0oq",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:philip-sekulic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Philip Sekulic",
+      "shortName": "Sekulic",
+      "canonicalName": "Philip Sekulic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sekulic"
+        ],
+        "rankingSingles": 304,
+        "rankingPoints": 180,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s0ti",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:matthew-dellavedova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Matthew Dellavedova",
+      "shortName": "Dellavedova",
+      "canonicalName": "Matthew Dellavedova",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Dellavedova"
+        ],
+        "rankingSingles": 307,
+        "rankingPoints": 178,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:d0a2",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jordan-thompson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jordan Thompson",
+      "shortName": "Thompson",
+      "canonicalName": "Jordan Thompson",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Thompson"
+        ],
+        "rankingSingles": 311,
+        "rankingPoints": 173,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:tc61",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:edward-winter",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Edward Winter",
+      "shortName": "Winter",
+      "canonicalName": "Edward Winter",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Winter"
+        ],
+        "rankingSingles": 348,
+        "rankingPoints": 149,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:w0c4",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jake-delaney",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jake Delaney",
+      "shortName": "Delaney",
+      "canonicalName": "Jake Delaney",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Delaney"
+        ],
+        "rankingSingles": 354,
+        "rankingPoints": 143,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:dc38",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:marc-polmans",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Marc Polmans",
+      "shortName": "Polmans",
+      "canonicalName": "Marc Polmans",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Polmans"
+        ],
+        "rankingSingles": 356,
+        "rankingPoints": 142,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:pg94",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:cruz-hewitt",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Cruz Hewitt",
+      "shortName": "Hewitt",
+      "canonicalName": "Cruz Hewitt",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hewitt"
+        ],
+        "rankingSingles": 370,
+        "rankingPoints": 136,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:h0k0",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:thanasi-kokkinakis",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Thanasi Kokkinakis",
+      "shortName": "Kokkinakis",
+      "canonicalName": "Thanasi Kokkinakis",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kokkinakis"
+        ],
+        "rankingSingles": 434,
+        "rankingPoints": 108,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:kd46",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jason-kubler",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jason Kubler",
+      "shortName": "Kubler",
+      "canonicalName": "Jason Kubler",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kubler"
+        ],
+        "rankingSingles": 462,
+        "rankingPoints": 97,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:kb95",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:blake-ellis",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Blake Ellis",
+      "shortName": "Ellis",
+      "canonicalName": "Blake Ellis",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ellis"
+        ],
+        "rankingSingles": 465,
+        "rankingPoints": 96,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:ea27",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:moerani-bouzige",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Moerani Bouzige",
+      "shortName": "Bouzige",
+      "canonicalName": "Moerani Bouzige",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bouzige"
+        ],
+        "rankingSingles": 473,
+        "rankingPoints": 95,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:b0ek",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:enzo-aguiard",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Enzo Aguiard",
+      "shortName": "Aguiard",
+      "canonicalName": "Enzo Aguiard",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Aguiard"
+        ],
+        "rankingSingles": 484,
+        "rankingPoints": 92,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:a0ku",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:li-tu",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Li Tu",
+      "shortName": "Tu",
+      "canonicalName": "Li Tu",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tu"
+        ],
+        "rankingSingles": 487,
+        "rankingPoints": 91,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:tc01",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:omar-jasika",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Omar Jasika",
+      "shortName": "Jasika",
+      "canonicalName": "Omar Jasika",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jasika"
+        ],
+        "rankingSingles": 492,
+        "rankingPoints": 91,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:j553",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:tai-sach",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Tai Sach",
+      "shortName": "Sach",
+      "canonicalName": "Tai Sach",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sach"
+        ],
+        "rankingSingles": 512,
+        "rankingPoints": 86,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s0u5",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:pavle-marinkov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Pavle Marinkov",
+      "shortName": "Marinkov",
+      "canonicalName": "Pavle Marinkov",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Marinkov"
+        ],
+        "rankingSingles": 520,
+        "rankingPoints": 81,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:m0te",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jacob-bradshaw",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jacob Bradshaw",
+      "shortName": "Bradshaw",
+      "canonicalName": "Jacob Bradshaw",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bradshaw"
+        ],
+        "rankingSingles": 595,
+        "rankingPoints": 65,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:b0ot",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:chase-ferguson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Chase Ferguson",
+      "shortName": "Ferguson",
+      "canonicalName": "Chase Ferguson",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ferguson"
+        ],
+        "rankingSingles": 641,
+        "rankingPoints": 56,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:f0c0",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:joshua-charlton",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Joshua Charlton",
+      "shortName": "Charlton",
+      "canonicalName": "Joshua Charlton",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Charlton"
+        ],
+        "rankingSingles": 759,
+        "rankingPoints": 41,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:c09y",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:matt-hulme",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Matt Hulme",
+      "shortName": "Hulme",
+      "canonicalName": "Matt Hulme",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hulme"
+        ],
+        "rankingSingles": 762,
+        "rankingPoints": 40,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:h0hs",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:scott-jones",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Scott Jones",
+      "shortName": "Jones",
+      "canonicalName": "Scott Jones",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jones"
+        ],
+        "rankingSingles": 791,
+        "rankingPoints": 36,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:j0a6",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:thomas-fancutt",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Thomas Fancutt",
+      "shortName": "Fancutt",
+      "canonicalName": "Thomas Fancutt",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fancutt"
+        ],
+        "rankingSingles": 802,
+        "rankingPoints": 35,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:fa50",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:sam-ryan-ziegann",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Sam Ryan Ziegann",
+      "shortName": "Ziegann",
+      "canonicalName": "Sam Ryan Ziegann",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ziegann"
+        ],
+        "rankingSingles": 888,
+        "rankingPoints": 27,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:r0dp",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:nick-kyrgios",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Nick Kyrgios",
+      "shortName": "Kyrgios",
+      "canonicalName": "Nick Kyrgios",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kyrgios"
+        ],
+        "rankingSingles": 906,
+        "rankingPoints": 25,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:ke17",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:benjamin-o-connell",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Benjamin O'connell",
+      "shortName": "O'connell",
+      "canonicalName": "Benjamin O'connell",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "O'connell"
+        ],
+        "rankingSingles": 956,
+        "rankingPoints": 23,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:o0a6",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:duje-markovina",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Duje Markovina",
+      "shortName": "Markovina",
+      "canonicalName": "Duje Markovina",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Markovina"
+        ],
+        "rankingSingles": 998,
+        "rankingPoints": 20,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:m0u9",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jesse-delaney",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jesse Delaney",
+      "shortName": "Delaney",
+      "canonicalName": "Jesse Delaney",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Delaney"
+        ],
+        "rankingSingles": 1007,
+        "rankingPoints": 20,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:d0be",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:stefan-vujic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Stefan Vujic",
+      "shortName": "Vujic",
+      "canonicalName": "Stefan Vujic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Vujic"
+        ],
+        "rankingSingles": 1034,
+        "rankingPoints": 18,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:va31",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:max-purcell",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Max Purcell",
+      "shortName": "Purcell",
+      "canonicalName": "Max Purcell",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Purcell"
+        ],
+        "rankingSingles": 1038,
+        "rankingPoints": 17,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:ph71",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:chen-dong",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Chen Dong",
+      "shortName": "Dong",
+      "canonicalName": "Chen Dong",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Dong"
+        ],
+        "rankingSingles": 1093,
+        "rankingPoints": 15,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:d0fn",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:kody-pearson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Kody Pearson",
+      "shortName": "Pearson",
+      "canonicalName": "Kody Pearson",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Pearson"
+        ],
+        "rankingSingles": 1124,
+        "rankingPoints": 13,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:pl69",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:lachlan-james-mcfadzean",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Lachlan James Mcfadzean",
+      "shortName": "Mcfadzean",
+      "canonicalName": "Lachlan James Mcfadzean",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mcfadzean"
+        ],
+        "rankingSingles": 1138,
+        "rankingPoints": 13,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:m0zk",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:derek-pham",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Derek Pham",
+      "shortName": "Pham",
+      "canonicalName": "Derek Pham",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Pham"
+        ],
+        "rankingSingles": 1194,
+        "rankingPoints": 10,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:p0kj",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:mustafa-ege-sik",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Mustafa Ege Sik",
+      "shortName": "Sik",
+      "canonicalName": "Mustafa Ege Sik",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sik"
+        ],
+        "rankingSingles": 1204,
+        "rankingPoints": 10,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s1d0",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:hayden-jones",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Hayden Jones",
+      "shortName": "Jones",
+      "canonicalName": "Hayden Jones",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jones"
+        ],
+        "rankingSingles": 1240,
+        "rankingPoints": 9,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:j0d5",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ethan-cook",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ethan Cook",
+      "shortName": "Cook",
+      "canonicalName": "Ethan Cook",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cook"
+        ],
+        "rankingSingles": 1248,
+        "rankingPoints": 9,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:c0ms",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zack-viiala",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zack Viiala",
+      "shortName": "Viiala",
+      "canonicalName": "Zack Viiala",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Viiala"
+        ],
+        "rankingSingles": 1271,
+        "rankingPoints": 8,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:v0fl",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:oliver-anderson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Oliver Anderson",
+      "shortName": "Anderson",
+      "canonicalName": "Oliver Anderson",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Anderson"
+        ],
+        "rankingSingles": 1288,
+        "rankingPoints": 8,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:ad23",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ashton-mcleod",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ashton Mcleod",
+      "shortName": "Mcleod",
+      "canonicalName": "Ashton Mcleod",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mcleod"
+        ],
+        "rankingSingles": 1303,
+        "rankingPoints": 8,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:m0z0",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ty-host",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ty Host",
+      "shortName": "Host",
+      "canonicalName": "Ty Host",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Host"
+        ],
+        "rankingSingles": 1315,
+        "rankingPoints": 8,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:h0li",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jeremy-zhang",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jeremy Zhang",
+      "shortName": "Zhang",
+      "canonicalName": "Jeremy Zhang",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Zhang"
+        ],
+        "rankingSingles": 1385,
+        "rankingPoints": 6,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:z0cn",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jeremy-jin",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jeremy Jin",
+      "shortName": "Jin",
+      "canonicalName": "Jeremy Jin",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jin"
+        ],
+        "rankingSingles": 1433,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:j0d4",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:ymerali-ibraimi",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Ymerali Ibraimi",
+      "shortName": "Ibraimi",
+      "canonicalName": "Ymerali Ibraimi",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ibraimi"
+        ],
+        "rankingSingles": 1456,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:i0cd",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:daniel-jovanovski",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Daniel Jovanovski",
+      "shortName": "Jovanovski",
+      "canonicalName": "Daniel Jovanovski",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jovanovski"
+        ],
+        "rankingSingles": 1457,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:j0fy",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jake-dembo",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jake Dembo",
+      "shortName": "Dembo",
+      "canonicalName": "Jake Dembo",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Dembo"
+        ],
+        "rankingSingles": 1464,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:d0nq",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:stefan-storch",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Stefan Storch",
+      "shortName": "Storch",
+      "canonicalName": "Stefan Storch",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Storch"
+        ],
+        "rankingSingles": 1486,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s0if",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jack-bruce-smith",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jack Bruce Smith",
+      "shortName": "Smith",
+      "canonicalName": "Jack Bruce Smith",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Smith"
+        ],
+        "rankingSingles": 1490,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:b0v4",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:arjun-mehrotra",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Arjun Mehrotra",
+      "shortName": "Mehrotra",
+      "canonicalName": "Arjun Mehrotra",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mehrotra"
+        ],
+        "rankingSingles": 1490,
+        "rankingPoints": 5,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:m0ce",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zane-stevens",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zane Stevens",
+      "shortName": "Stevens",
+      "canonicalName": "Zane Stevens",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Stevens"
+        ],
+        "rankingSingles": 1550,
+        "rankingPoints": 4,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s19y",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:adrian-arcon",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Adrian Arcon",
+      "shortName": "Arcon",
+      "canonicalName": "Adrian Arcon",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Arcon"
+        ],
+        "rankingSingles": 1572,
+        "rankingPoints": 4,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:a0in",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:jeremy-beale",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Jeremy Beale",
+      "shortName": "Beale",
+      "canonicalName": "Jeremy Beale",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Beale"
+        ],
+        "rankingSingles": 1586,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:bu34",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:blake-mott",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Blake Mott",
+      "shortName": "Mott",
+      "canonicalName": "Blake Mott",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mott"
+        ],
+        "rankingSingles": 1586,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:mm79",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:harrison-satara",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Harrison Satara",
+      "shortName": "Satara",
+      "canonicalName": "Harrison Satara",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Satara"
+        ],
+        "rankingSingles": 1610,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:s1g9",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:nikita-volonski",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Nikita Volonski",
+      "shortName": "Volonski",
+      "canonicalName": "Nikita Volonski",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Volonski"
+        ],
+        "rankingSingles": 1620,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:v0d2",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:noah-brownrigg",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Noah Brownrigg",
+      "shortName": "Brownrigg",
+      "canonicalName": "Noah Brownrigg",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Brownrigg"
+        ],
+        "rankingSingles": 1669,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:b0wt",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:lawrence-bataljin",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Lawrence Bataljin",
+      "shortName": "Bataljin",
+      "canonicalName": "Lawrence Bataljin",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bataljin"
+        ],
+        "rankingSingles": 1716,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:bm09",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:taiki-takizawa",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Taiki Takizawa",
+      "shortName": "Takizawa",
+      "canonicalName": "Taiki Takizawa",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Takizawa"
+        ],
+        "rankingSingles": 1793,
+        "rankingPoints": 2,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:t0km",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:thomas-nicholas-gadecki",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Thomas Nicholas Gadecki",
+      "shortName": "Gadecki",
+      "canonicalName": "Thomas Nicholas Gadecki",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Gadecki"
+        ],
+        "rankingSingles": 2081,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:g0ki",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zac-hamill",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zac Hamill",
+      "shortName": "Hamill",
+      "canonicalName": "Zac Hamill",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hamill"
+        ],
+        "rankingSingles": 2081,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:h0lp",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:charlie-pade",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Charlie Pade",
+      "shortName": "Pade",
+      "canonicalName": "Charlie Pade",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Pade"
+        ],
+        "rankingSingles": 2081,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:p0nf",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:charlie-camus",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Charlie Camus",
+      "shortName": "Camus",
+      "canonicalName": "Charlie Camus",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Camus"
+        ],
+        "rankingSingles": 2153,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:c0lm",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zaharije-zak-talic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zaharije Zak Talic",
+      "shortName": "Talic",
+      "canonicalName": "Zaharije Zak Talic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Talic"
+        ],
+        "rankingSingles": 2153,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:t0h6",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:lachlan-vickery",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Lachlan Vickery",
+      "shortName": "Vickery",
+      "canonicalName": "Lachlan Vickery",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Vickery"
+        ],
+        "rankingSingles": 2203,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:v0hv",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:atp:zachary-adam-gedge",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:atp",
+      "displayName": "Zachary Adam Gedge",
+      "shortName": "Gedge",
+      "canonicalName": "Zachary Adam Gedge",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Gedge"
+        ],
+        "rankingSingles": 2278,
+        "rankingPoints": 1,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "atp:player:a0j4",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:aryna-sabalenka",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Aryna Sabalenka",
+      "shortName": "Sabalenka",
+      "canonicalName": "Aryna Sabalenka",
+      "countryCode": "BY",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sabalenka"
+        ],
+        "rankingSingles": 1,
+        "rankingPoints": 8550,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "BLR",
+        "isAustralian": false,
+        "providerAlias": "wta:player:320760",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:elena-rybakina",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Elena Rybakina",
+      "shortName": "Rybakina",
+      "canonicalName": "Elena Rybakina",
+      "countryCode": "KZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Rybakina"
+        ],
+        "rankingSingles": 2,
+        "rankingPoints": 8056,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "KAZ",
+        "isAustralian": false,
+        "providerAlias": "wta:player:324166",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:jessica-pegula",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Jessica Pegula",
+      "shortName": "Pegula",
+      "canonicalName": "Jessica Pegula",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Pegula"
+        ],
+        "rankingSingles": 3,
+        "rankingPoints": 6625,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:316956",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:coco-gauff",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Coco Gauff",
+      "shortName": "Gauff",
+      "canonicalName": "Coco Gauff",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Gauff"
+        ],
+        "rankingSingles": 4,
+        "rankingPoints": 5649,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:328560",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:mirra-andreeva",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Mirra Andreeva",
+      "shortName": "Andreeva",
+      "canonicalName": "Mirra Andreeva",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Andreeva"
+        ],
+        "rankingSingles": 5,
+        "rankingPoints": 5293,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "wta:player:331809",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:karolina-muchova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Karolina Muchova",
+      "shortName": "Muchova",
+      "canonicalName": "Karolina Muchova",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Muchova"
+        ],
+        "rankingSingles": 6,
+        "rankingPoints": 5168,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:322191",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:linda-noskova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Linda Noskova",
+      "shortName": "Noskova",
+      "canonicalName": "Linda Noskova",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Noskova"
+        ],
+        "rankingSingles": 7,
+        "rankingPoints": 5016,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:329668",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:iga-swiatek",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Iga Swiatek",
+      "shortName": "Swiatek",
+      "canonicalName": "Iga Swiatek",
+      "countryCode": "PL",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Swiatek"
+        ],
+        "rankingSingles": 8,
+        "rankingPoints": 4539,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "POL",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326408",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:elina-svitolina",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Elina Svitolina",
+      "shortName": "Svitolina",
+      "canonicalName": "Elina Svitolina",
+      "countryCode": "UA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Svitolina"
+        ],
+        "rankingSingles": 9,
+        "rankingPoints": 4459,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "UKR",
+        "isAustralian": false,
+        "providerAlias": "wta:player:316738",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:amanda-anisimova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Amanda Anisimova",
+      "shortName": "Anisimova",
+      "canonicalName": "Amanda Anisimova",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Anisimova"
+        ],
+        "rankingSingles": 10,
+        "rankingPoints": 4353,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326384",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:marta-kostyuk",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Marta Kostyuk",
+      "shortName": "Kostyuk",
+      "canonicalName": "Marta Kostyuk",
+      "countryCode": "UA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kostyuk"
+        ],
+        "rankingSingles": 11,
+        "rankingPoints": 3925,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "UKR",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326482",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:victoria-mboko",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Victoria Mboko",
+      "shortName": "Mboko",
+      "canonicalName": "Victoria Mboko",
+      "countryCode": "CA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mboko"
+        ],
+        "rankingSingles": 12,
+        "rankingPoints": 3520,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CAN",
+        "isAustralian": false,
+        "providerAlias": "wta:player:331006",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:naomi-osaka",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Naomi Osaka",
+      "shortName": "Osaka",
+      "canonicalName": "Naomi Osaka",
+      "countryCode": "JP",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Osaka"
+        ],
+        "rankingSingles": 13,
+        "rankingPoints": 3281,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "JPN",
+        "isAustralian": false,
+        "providerAlias": "wta:player:319998",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:belinda-bencic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Belinda Bencic",
+      "shortName": "Bencic",
+      "canonicalName": "Belinda Bencic",
+      "countryCode": "CH",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bencic"
+        ],
+        "rankingSingles": 14,
+        "rankingPoints": 2845,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "SUI",
+        "isAustralian": false,
+        "providerAlias": "wta:player:319001",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:jasmine-paolini",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Jasmine Paolini",
+      "shortName": "Paolini",
+      "canonicalName": "Jasmine Paolini",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Paolini"
+        ],
+        "rankingSingles": 15,
+        "rankingPoints": 2783,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ITA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:319280",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:iva-jovic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Iva Jovic",
+      "shortName": "Jovic",
+      "canonicalName": "Iva Jovic",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jovic"
+        ],
+        "rankingSingles": 16,
+        "rankingPoints": 2636,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:332285",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:diana-shnaider",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Diana Shnaider",
+      "shortName": "Shnaider",
+      "canonicalName": "Diana Shnaider",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Shnaider"
+        ],
+        "rankingSingles": 17,
+        "rankingPoints": 2593,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "wta:player:330482",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:sorana-cirstea",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Sorana Cirstea",
+      "shortName": "Cirstea",
+      "canonicalName": "Sorana Cirstea",
+      "countryCode": "RO",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cirstea"
+        ],
+        "rankingSingles": 18,
+        "rankingPoints": 2502,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ROU",
+        "isAustralian": false,
+        "providerAlias": "wta:player:312469",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ekaterina-alexandrova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ekaterina Alexandrova",
+      "shortName": "Alexandrova",
+      "canonicalName": "Ekaterina Alexandrova",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Alexandrova"
+        ],
+        "rankingSingles": 19,
+        "rankingPoints": 2301,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "wta:player:319007",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:alexandra-eala",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Alexandra Eala",
+      "shortName": "Eala",
+      "canonicalName": "Alexandra Eala",
+      "countryCode": "PH",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Eala"
+        ],
+        "rankingSingles": 20,
+        "rankingPoints": 2106,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "PHI",
+        "isAustralian": false,
+        "providerAlias": "wta:player:330332",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:anna-kalinskaya",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Anna Kalinskaya",
+      "shortName": "Kalinskaya",
+      "canonicalName": "Anna Kalinskaya",
+      "countryCode": "RU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kalinskaya"
+        ],
+        "rankingSingles": 21,
+        "rankingPoints": 2083,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "RUS",
+        "isAustralian": false,
+        "providerAlias": "wta:player:323942",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:maja-chwalinska",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Maja Chwalinska",
+      "shortName": "Chwalinska",
+      "canonicalName": "Maja Chwalinska",
+      "countryCode": "PL",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Chwalinska"
+        ],
+        "rankingSingles": 22,
+        "rankingPoints": 1975,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "POL",
+        "isAustralian": false,
+        "providerAlias": "wta:player:325639",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:madison-keys",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Madison Keys",
+      "shortName": "Keys",
+      "canonicalName": "Madison Keys",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Keys"
+        ],
+        "rankingSingles": 23,
+        "rankingPoints": 1964,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:316959",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:elise-mertens",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Elise Mertens",
+      "shortName": "Mertens",
+      "canonicalName": "Elise Mertens",
+      "countryCode": "BE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mertens"
+        ],
+        "rankingSingles": 24,
+        "rankingPoints": 1948,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "BEL",
+        "isAustralian": false,
+        "providerAlias": "wta:player:317964",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:marie-bouzkova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Marie Bouzkova",
+      "shortName": "Bouzkova",
+      "canonicalName": "Marie Bouzkova",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bouzkova"
+        ],
+        "rankingSingles": 25,
+        "rankingPoints": 1829,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:320983",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:barbora-krejcikova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Barbora Krejcikova",
+      "shortName": "Krejcikova",
+      "canonicalName": "Barbora Krejcikova",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Krejcikova"
+        ],
+        "rankingSingles": 26,
+        "rankingPoints": 1776,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:318314",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:anastasia-potapova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Anastasia Potapova",
+      "shortName": "Potapova",
+      "canonicalName": "Anastasia Potapova",
+      "countryCode": "AT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Potapova"
+        ],
+        "rankingSingles": 27,
+        "rankingPoints": 1726,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUT",
+        "isAustralian": false,
+        "providerAlias": "wta:player:325601",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:emma-navarro",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Emma Navarro",
+      "shortName": "Navarro",
+      "canonicalName": "Emma Navarro",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Navarro"
+        ],
+        "rankingSingles": 28,
+        "rankingPoints": 1724,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:325410",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:jelena-ostapenko",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Jelena Ostapenko",
+      "shortName": "Ostapenko",
+      "canonicalName": "Jelena Ostapenko",
+      "countryCode": "LV",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ostapenko"
+        ],
+        "rankingSingles": 29,
+        "rankingPoints": 1592,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "LAT",
+        "isAustralian": false,
+        "providerAlias": "wta:player:319939",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:clara-tauson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Clara Tauson",
+      "shortName": "Tauson",
+      "canonicalName": "Clara Tauson",
+      "countryCode": "DK",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tauson"
+        ],
+        "rankingSingles": 30,
+        "rankingPoints": 1564,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "DEN",
+        "isAustralian": false,
+        "providerAlias": "wta:player:327793",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ann-li",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ann Li",
+      "shortName": "Li",
+      "canonicalName": "Ann Li",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Li"
+        ],
+        "rankingSingles": 31,
+        "rankingPoints": 1541,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326096",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:hailey-baptiste",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Hailey Baptiste",
+      "shortName": "Baptiste",
+      "canonicalName": "Hailey Baptiste",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Baptiste"
+        ],
+        "rankingSingles": 32,
+        "rankingPoints": 1372,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:327101",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:maria-sakkari",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Maria Sakkari",
+      "shortName": "Sakkari",
+      "canonicalName": "Maria Sakkari",
+      "countryCode": "GR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sakkari"
+        ],
+        "rankingSingles": 33,
+        "rankingPoints": 1355,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GRE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:318312",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:leylah-fernandez",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Leylah Fernandez",
+      "shortName": "Fernandez",
+      "canonicalName": "Leylah Fernandez",
+      "countryCode": "CA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fernandez"
+        ],
+        "rankingSingles": 34,
+        "rankingPoints": 1344,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CAN",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326735",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:donna-vekic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Donna Vekic",
+      "shortName": "Vekic",
+      "canonicalName": "Donna Vekic",
+      "countryCode": "HR",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Vekic"
+        ],
+        "rankingSingles": 35,
+        "rankingPoints": 1326,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CRO",
+        "isAustralian": false,
+        "providerAlias": "wta:player:318516",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:janice-tjen",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Janice Tjen",
+      "shortName": "Tjen",
+      "canonicalName": "Janice Tjen",
+      "countryCode": "ID",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tjen"
+        ],
+        "rankingSingles": 36,
+        "rankingPoints": 1312,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "INA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:328818",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:katerina-siniakova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Katerina Siniakova",
+      "shortName": "Siniakova",
+      "canonicalName": "Katerina Siniakova",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Siniakova"
+        ],
+        "rankingSingles": 37,
+        "rankingPoints": 1285,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:320301",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:sara-bejlek",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Sara Bejlek",
+      "shortName": "Bejlek",
+      "canonicalName": "Sara Bejlek",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bejlek"
+        ],
+        "rankingSingles": 38,
+        "rankingPoints": 1269,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:330375",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:jaqueline-cristian",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Jaqueline  Cristian",
+      "shortName": "Cristian",
+      "canonicalName": "Jaqueline  Cristian",
+      "countryCode": "RO",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cristian"
+        ],
+        "rankingSingles": 39,
+        "rankingPoints": 1256,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ROU",
+        "isAustralian": false,
+        "providerAlias": "wta:player:320319",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:cristina-bucsa",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Cristina Bucsa",
+      "shortName": "Bucsa",
+      "canonicalName": "Cristina Bucsa",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bucsa"
+        ],
+        "rankingSingles": 40,
+        "rankingPoints": 1244,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "ESP",
+        "isAustralian": false,
+        "providerAlias": "wta:player:321158",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:xinyu-wang",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Xinyu Wang",
+      "shortName": "Wang",
+      "canonicalName": "Xinyu Wang",
+      "countryCode": "CN",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Wang"
+        ],
+        "rankingSingles": 41,
+        "rankingPoints": 1238,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CHN",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326376",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:nikola-bartunkova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Nikola Bartunkova",
+      "shortName": "Bartunkova",
+      "canonicalName": "Nikola Bartunkova",
+      "countryCode": "CZ",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Bartunkova"
+        ],
+        "rankingSingles": 42,
+        "rankingPoints": 1231,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "CZE",
+        "isAustralian": false,
+        "providerAlias": "wta:player:330364",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:daria-snigur",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Daria Snigur",
+      "shortName": "Snigur",
+      "canonicalName": "Daria Snigur",
+      "countryCode": "UA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Snigur"
+        ],
+        "rankingSingles": 43,
+        "rankingPoints": 1172,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "UKR",
+        "isAustralian": false,
+        "providerAlias": "wta:player:327845",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:oleksandra-oliynykova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Oleksandra Oliynykova",
+      "shortName": "Oliynykova",
+      "canonicalName": "Oleksandra Oliynykova",
+      "countryCode": "UA",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Oliynykova"
+        ],
+        "rankingSingles": 44,
+        "rankingPoints": 1171,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "UKR",
+        "isAustralian": false,
+        "providerAlias": "wta:player:327182",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:magdalena-frech",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Magdalena Frech",
+      "shortName": "Frech",
+      "canonicalName": "Magdalena Frech",
+      "countryCode": "PL",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Frech"
+        ],
+        "rankingSingles": 45,
+        "rankingPoints": 1160,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "POL",
+        "isAustralian": false,
+        "providerAlias": "wta:player:320277",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:lilli-tagger",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Lilli Tagger",
+      "shortName": "Tagger",
+      "canonicalName": "Lilli Tagger",
+      "countryCode": "AT",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tagger"
+        ],
+        "rankingSingles": 46,
+        "rankingPoints": 1160,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUT",
+        "isAustralian": false,
+        "providerAlias": "wta:player:332150",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:tamara-korpatsch",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Tamara Korpatsch",
+      "shortName": "Korpatsch",
+      "canonicalName": "Tamara Korpatsch",
+      "countryCode": "DE",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Korpatsch"
+        ],
+        "rankingSingles": 47,
+        "rankingPoints": 1134,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GER",
+        "isAustralian": false,
+        "providerAlias": "wta:player:319571",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:mccartney-kessler",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Mccartney Kessler",
+      "shortName": "Kessler",
+      "canonicalName": "Mccartney Kessler",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kessler"
+        ],
+        "rankingSingles": 48,
+        "rankingPoints": 1125,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "USA",
+        "isAustralian": false,
+        "providerAlias": "wta:player:326678",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:emma-raducanu",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Emma Raducanu",
+      "shortName": "Raducanu",
+      "canonicalName": "Emma Raducanu",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Raducanu"
+        ],
+        "rankingSingles": 49,
+        "rankingPoints": 1105,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "GBR",
+        "isAustralian": false,
+        "providerAlias": "wta:player:328366",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:mayar-sherif",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Mayar Sherif",
+      "shortName": "Sherif",
+      "canonicalName": "Mayar Sherif",
+      "countryCode": "EG",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sherif"
+        ],
+        "rankingSingles": 50,
+        "rankingPoints": 1105,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "EGY",
+        "isAustralian": false,
+        "providerAlias": "wta:player:318711",
+        "selectionReasons": [
+          "top_50"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:daria-kasatkina",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Daria Kasatkina",
+      "shortName": "Kasatkina",
+      "canonicalName": "Daria Kasatkina",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kasatkina"
+        ],
+        "rankingSingles": 61,
+        "rankingPoints": 1033,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:322082",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:kimberly-birrell",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Kimberly Birrell",
+      "shortName": "Birrell",
+      "canonicalName": "Kimberly Birrell",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Birrell"
+        ],
+        "rankingSingles": 69,
+        "rankingPoints": 999,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:320728",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:talia-gibson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Talia Gibson",
+      "shortName": "Gibson",
+      "canonicalName": "Talia Gibson",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Gibson"
+        ],
+        "rankingSingles": 74,
+        "rankingPoints": 958,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:329393",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:maya-joint",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Maya Joint",
+      "shortName": "Joint",
+      "canonicalName": "Maya Joint",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Joint"
+        ],
+        "rankingSingles": 75,
+        "rankingPoints": 956,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:330544",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ajla-tomljanovic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ajla Tomljanovic",
+      "shortName": "Tomljanovic",
+      "canonicalName": "Ajla Tomljanovic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Tomljanovic"
+        ],
+        "rankingSingles": 95,
+        "rankingPoints": 815,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:315232",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:taylah-preston",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Taylah Preston",
+      "shortName": "Preston",
+      "canonicalName": "Taylah Preston",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Preston"
+        ],
+        "rankingSingles": 106,
+        "rankingPoints": 762,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:330291",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:maddison-inglis",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Maddison Inglis",
+      "shortName": "Inglis",
+      "canonicalName": "Maddison Inglis",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Inglis"
+        ],
+        "rankingSingles": 130,
+        "rankingPoints": 596,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:321179",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:emerson-jones",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Emerson Jones",
+      "shortName": "Jones",
+      "canonicalName": "Emerson Jones",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Jones"
+        ],
+        "rankingSingles": 134,
+        "rankingPoints": 583,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:333111",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:priscilla-hon",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Priscilla Hon",
+      "shortName": "Hon",
+      "canonicalName": "Priscilla Hon",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hon"
+        ],
+        "rankingSingles": 158,
+        "rankingPoints": 502,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:320543",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:storm-hunter",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Storm Hunter",
+      "shortName": "Hunter",
+      "canonicalName": "Storm Hunter",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hunter"
+        ],
+        "rankingSingles": 175,
+        "rankingPoints": 450,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:317810",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:olivia-gadecki",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Olivia Gadecki",
+      "shortName": "Gadecki",
+      "canonicalName": "Olivia Gadecki",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Gadecki"
+        ],
+        "rankingSingles": 255,
+        "rankingPoints": 293,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:326653",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:elena-micic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Elena Micic",
+      "shortName": "Micic",
+      "canonicalName": "Elena Micic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Micic"
+        ],
+        "rankingSingles": 275,
+        "rankingPoints": 267,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:330920",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:lizette-cabrera",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Lizette Cabrera",
+      "shortName": "Cabrera",
+      "canonicalName": "Lizette Cabrera",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cabrera"
+        ],
+        "rankingSingles": 300,
+        "rankingPoints": 238,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:320013",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:tina-smith",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Tina Smith",
+      "shortName": "Smith",
+      "canonicalName": "Tina Smith",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Smith"
+        ],
+        "rankingSingles": 419,
+        "rankingPoints": 153,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:326908",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:alana-subasic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Alana Subasic",
+      "shortName": "Subasic",
+      "canonicalName": "Alana Subasic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Subasic"
+        ],
+        "rankingSingles": 444,
+        "rankingPoints": 141,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:333011",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:arina-rodionova",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Arina Rodionova",
+      "shortName": "Rodionova",
+      "canonicalName": "Arina Rodionova",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Rodionova"
+        ],
+        "rankingSingles": 451,
+        "rankingPoints": 134,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:312413",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:tahlia-kokkinis",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Tahlia Kokkinis",
+      "shortName": "Kokkinis",
+      "canonicalName": "Tahlia Kokkinis",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Kokkinis"
+        ],
+        "rankingSingles": 545,
+        "rankingPoints": 96,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332661",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:sarah-rokusek",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Sarah Rokusek",
+      "shortName": "Rokusek",
+      "canonicalName": "Sarah Rokusek",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Rokusek"
+        ],
+        "rankingSingles": 596,
+        "rankingPoints": 82,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:331634",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:melisa-ercan",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Melisa Ercan",
+      "shortName": "Ercan",
+      "canonicalName": "Melisa Ercan",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ercan"
+        ],
+        "rankingSingles": 659,
+        "rankingPoints": 67,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:330075",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:belle-thompson",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Belle Thompson",
+      "shortName": "Thompson",
+      "canonicalName": "Belle Thompson",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Thompson"
+        ],
+        "rankingSingles": 672,
+        "rankingPoints": 65,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:325430",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:gabriella-da-silva-fick",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Gabriella Da Silva Fick",
+      "shortName": "Fick",
+      "canonicalName": "Gabriella Da Silva Fick",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fick"
+        ],
+        "rankingSingles": 674,
+        "rankingPoints": 64,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:325827",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:stefani-webb",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Stefani Webb",
+      "shortName": "Webb",
+      "canonicalName": "Stefani Webb",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Webb"
+        ],
+        "rankingSingles": 754,
+        "rankingPoints": 49,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:331645",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:amy-stevens",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Amy Stevens",
+      "shortName": "Stevens",
+      "canonicalName": "Amy Stevens",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Stevens"
+        ],
+        "rankingSingles": 831,
+        "rankingPoints": 40,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:329185",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:laquisa-khan",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Laquisa Khan",
+      "shortName": "Khan",
+      "canonicalName": "Laquisa Khan",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Khan"
+        ],
+        "rankingSingles": 863,
+        "rankingPoints": 36,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332736",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:astra-sharma",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Astra Sharma",
+      "shortName": "Sharma",
+      "canonicalName": "Astra Sharma",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sharma"
+        ],
+        "rankingSingles": 890,
+        "rankingPoints": 33,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:319696",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:jizelle-sibai",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Jizelle Sibai",
+      "shortName": "Sibai",
+      "canonicalName": "Jizelle Sibai",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sibai"
+        ],
+        "rankingSingles": 899,
+        "rankingPoints": 32,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:335473",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ashleigh-simes",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ashleigh Simes",
+      "shortName": "Simes",
+      "canonicalName": "Ashleigh Simes",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Simes"
+        ],
+        "rankingSingles": 954,
+        "rankingPoints": 27,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:328327",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:alicia-smith",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Alicia Smith",
+      "shortName": "Smith",
+      "canonicalName": "Alicia Smith",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Smith"
+        ],
+        "rankingSingles": 1007,
+        "rankingPoints": 22,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:321903",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:catherine-aulia",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Catherine Aulia",
+      "shortName": "Aulia",
+      "canonicalName": "Catherine Aulia",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Aulia"
+        ],
+        "rankingSingles": 1035,
+        "rankingPoints": 19,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:330269",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:cara-korhonen",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Cara Korhonen",
+      "shortName": "Korhonen",
+      "canonicalName": "Cara Korhonen",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Korhonen"
+        ],
+        "rankingSingles": 1060,
+        "rankingPoints": 18,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332380",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:giselle-isabell-guillen",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Giselle Isabell Guillen",
+      "shortName": "Guillen",
+      "canonicalName": "Giselle Isabell Guillen",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Guillen"
+        ],
+        "rankingSingles": 1065,
+        "rankingPoints": 17,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:335550",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:eva-lopez",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Eva Lopez",
+      "shortName": "Lopez",
+      "canonicalName": "Eva Lopez",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Lopez"
+        ],
+        "rankingSingles": 1133,
+        "rankingPoints": 14,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:335810",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:alexandra-osborne",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Alexandra Osborne",
+      "shortName": "Osborne",
+      "canonicalName": "Alexandra Osborne",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Osborne"
+        ],
+        "rankingSingles": 1148,
+        "rankingPoints": 13,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:320585",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ava-beck",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ava Beck",
+      "shortName": "Beck",
+      "canonicalName": "Ava Beck",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Beck"
+        ],
+        "rankingSingles": 1153,
+        "rankingPoints": 13,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:335471",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ava-monet-sycamore",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ava Monet Sycamore",
+      "shortName": "Sycamore",
+      "canonicalName": "Ava Monet Sycamore",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sycamore"
+        ],
+        "rankingSingles": 1161,
+        "rankingPoints": 13,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:333885",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:tori-russell",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Tori Russell",
+      "shortName": "Russell",
+      "canonicalName": "Tori Russell",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Russell"
+        ],
+        "rankingSingles": 1179,
+        "rankingPoints": 12,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:336364",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:renee-alame",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Renee Alame",
+      "shortName": "Alame",
+      "canonicalName": "Renee Alame",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Alame"
+        ],
+        "rankingSingles": 1242,
+        "rankingPoints": 10,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:334185",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:sarah-mildren",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Sarah Mildren",
+      "shortName": "Mildren",
+      "canonicalName": "Sarah Mildren",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mildren"
+        ],
+        "rankingSingles": 1247,
+        "rankingPoints": 10,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332865",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:naomi-mckenzie",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Naomi Mckenzie",
+      "shortName": "Mckenzie",
+      "canonicalName": "Naomi Mckenzie",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mckenzie"
+        ],
+        "rankingSingles": 1292,
+        "rankingPoints": 9,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:334992",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:rianna-alame",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Rianna Alame",
+      "shortName": "Alame",
+      "canonicalName": "Rianna Alame",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Alame"
+        ],
+        "rankingSingles": 1307,
+        "rankingPoints": 9,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:334184",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:tenika-mcgiffin",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Tenika Mcgiffin",
+      "shortName": "Mcgiffin",
+      "canonicalName": "Tenika Mcgiffin",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mcgiffin"
+        ],
+        "rankingSingles": 1323,
+        "rankingPoints": 9,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:325489",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:lily-taylor",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Lily Taylor",
+      "shortName": "Taylor",
+      "canonicalName": "Lily Taylor",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Taylor"
+        ],
+        "rankingSingles": 1345,
+        "rankingPoints": 8,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:331640",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:elizabeth-ivanov",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Elizabeth Ivanov",
+      "shortName": "Ivanov",
+      "canonicalName": "Elizabeth Ivanov",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Ivanov"
+        ],
+        "rankingSingles": 1356,
+        "rankingPoints": 8,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332375",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:audrey-aulia",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Audrey Aulia",
+      "shortName": "Aulia",
+      "canonicalName": "Audrey Aulia",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Aulia"
+        ],
+        "rankingSingles": 1366,
+        "rankingPoints": 7,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:333882",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:angela-cui",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Angela Cui",
+      "shortName": "Cui",
+      "canonicalName": "Angela Cui",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Cui"
+        ],
+        "rankingSingles": 1429,
+        "rankingPoints": 6,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332384",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:gurmanat-kaur-sandhu",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Gurmanat Kaur Sandhu ",
+      "shortName": "Sandhu",
+      "canonicalName": "Gurmanat Kaur Sandhu ",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Sandhu"
+        ],
+        "rankingSingles": 1490,
+        "rankingPoints": 4,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:332645",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:caitlin-baker",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Caitlin Baker",
+      "shortName": "Baker",
+      "canonicalName": "Caitlin Baker",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Baker"
+        ],
+        "rankingSingles": 1531,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:333234",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:lily-fairclough",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Lily Fairclough",
+      "shortName": "Fairclough",
+      "canonicalName": "Lily Fairclough",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Fairclough"
+        ],
+        "rankingSingles": 1531,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:330301",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:petra-hule",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Petra Hule",
+      "shortName": "Hule",
+      "canonicalName": "Petra Hule",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hule"
+        ],
+        "rankingSingles": 1531,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:322579",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:larisa-arnautovic",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Larisa Arnautovic",
+      "shortName": "Arnautovic",
+      "canonicalName": "Larisa Arnautovic",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Arnautovic"
+        ],
+        "rankingSingles": 1531,
+        "rankingPoints": 3,
+        "rankingSnapshotDate": "2026-08-10",
+        "representedCountryCode": "AUS",
+        "isAustralian": true,
+        "providerAlias": "wta:player:335370",
+        "selectionReasons": [
+          "australian"
+        ]
+      }
     },
     {
       "id": "competitor:tennis:atp:hubert-hurkacz",
@@ -214,7 +5513,13 @@
       "shortName": "Hurkacz",
       "canonicalName": "Hubert Hurkacz",
       "countryCode": "PL",
-      "metadata": { "active": true, "titleAliases": ["Hurkacz"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Hurkacz"
+        ],
+        "catalogueRole": "published_event_participant"
+      }
     },
     {
       "id": "competitor:tennis:atp:zachary-svajda",
@@ -224,7 +5529,13 @@
       "shortName": "Svajda",
       "canonicalName": "Zachary Svajda",
       "countryCode": "US",
-      "metadata": { "active": true, "titleAliases": ["Svajda"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Svajda"
+        ],
+        "catalogueRole": "published_event_participant"
+      }
     },
     {
       "id": "competitor:tennis:atp:roman-safiullin",
@@ -234,7 +5545,13 @@
       "shortName": "Safiullin",
       "canonicalName": "Roman Safiullin",
       "countryCode": "RU",
-      "metadata": { "active": true, "titleAliases": ["Safiullin"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Safiullin"
+        ],
+        "catalogueRole": "published_event_participant"
+      }
     },
     {
       "id": "competitor:tennis:atp:shintaro-mochizuki",
@@ -244,7 +5561,13 @@
       "shortName": "Mochizuki",
       "canonicalName": "Shintaro Mochizuki",
       "countryCode": "JP",
-      "metadata": { "active": true, "titleAliases": ["Mochizuki"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Mochizuki"
+        ],
+        "catalogueRole": "published_event_participant"
+      }
     },
     {
       "id": "competitor:tennis:atp:grigor-dimitrov",
@@ -254,54 +5577,1227 @@
       "shortName": "Dimitrov",
       "canonicalName": "Grigor Dimitrov",
       "countryCode": "BG",
-      "metadata": { "active": true, "titleAliases": ["Dimitrov"] }
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Dimitrov"
+        ],
+        "catalogueRole": "published_event_participant"
+      }
+    },
+    {
+      "id": "competitor:tennis:wta:ashlyn-krueger",
+      "type": "competitor",
+      "sportDomainId": "sport:tennis:wta",
+      "displayName": "Ashlyn Krueger",
+      "shortName": "Krueger",
+      "canonicalName": "Ashlyn Krueger",
+      "countryCode": "US",
+      "metadata": {
+        "active": true,
+        "titleAliases": [
+          "Krueger"
+        ],
+        "catalogueRole": "published_event_participant"
+      }
     }
   ],
   "ladderSnapshots": [
     {
-      "id": "standings:atp-singles-2026-07-27",
+      "id": "ranking:atp-singles-2026:2026-08-10",
       "competitionId": "competition:atp-singles-2026",
       "seasonLabel": "2026",
-      "roundLabel": "PIF ATP Rankings · 27 July 2026",
-      "snapshotTimeUtc": "2026-07-27T00:00:00.000Z",
+      "roundLabel": "ATP singles ranking",
+      "snapshotTimeUtc": "2026-08-10T00:00:00.000Z",
       "entries": [
-        { "participantId": "competitor:tennis:atp:jannik-sinner", "rank": 1, "points": 13450 },
-        { "participantId": "competitor:tennis:atp:alexander-zverev", "rank": 2, "points": 8480 },
-        { "participantId": "competitor:tennis:atp:carlos-alcaraz", "rank": 3, "points": 8160 },
-        { "participantId": "competitor:tennis:atp:felix-auger-aliassime", "rank": 4, "points": 4740 },
-        { "participantId": "competitor:tennis:atp:novak-djokovic", "rank": 5, "points": 3760 },
-        { "participantId": "competitor:tennis:atp:alex-de-minaur", "rank": 6, "points": 3660 },
-        { "participantId": "competitor:tennis:atp:flavio-cobolli", "rank": 9, "points": 3420 },
-        { "participantId": "competitor:tennis:atp:taylor-fritz", "rank": 10, "points": 3300 },
-        { "participantId": "competitor:tennis:atp:alexander-bublik", "rank": 11, "points": 2525 },
-        { "participantId": "competitor:tennis:atp:jiri-lehecka", "rank": 12, "points": 2470 },
-        { "participantId": "competitor:tennis:atp:alejandro-davidovich-fokina", "rank": 25, "points": 1880 },
-        { "participantId": "competitor:tennis:atp:arthur-fery", "rank": 37, "points": 1285 },
-        { "participantId": "competitor:tennis:atp:jan-lennard-struff", "rank": 42, "points": 1066 },
-        { "participantId": "competitor:tennis:atp:hubert-hurkacz", "rank": 71, "points": 865 },
-        { "participantId": "competitor:tennis:atp:zachary-svajda", "rank": 76, "points": 781 },
-        { "participantId": "competitor:tennis:atp:roman-safiullin", "rank": 92, "points": 678 },
-        { "participantId": "competitor:tennis:atp:shintaro-mochizuki", "rank": 114, "points": 569 },
-        { "participantId": "competitor:tennis:atp:grigor-dimitrov", "rank": 140, "points": 432 }
+        {
+          "participantId": "competitor:tennis:atp:jannik-sinner",
+          "rank": 1,
+          "points": 13450
+        },
+        {
+          "participantId": "competitor:tennis:atp:carlos-alcaraz",
+          "rank": 2,
+          "points": 8160
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-zverev",
+          "rank": 3,
+          "points": 8120
+        },
+        {
+          "participantId": "competitor:tennis:atp:felix-auger-aliassime",
+          "rank": 4,
+          "points": 4740
+        },
+        {
+          "participantId": "competitor:tennis:atp:novak-djokovic",
+          "rank": 5,
+          "points": 3760
+        },
+        {
+          "participantId": "competitor:tennis:atp:daniil-medvedev",
+          "rank": 6,
+          "points": 3620
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-de-minaur",
+          "rank": 7,
+          "points": 3560
+        },
+        {
+          "participantId": "competitor:tennis:atp:taylor-fritz",
+          "rank": 8,
+          "points": 3400
+        },
+        {
+          "participantId": "competitor:tennis:atp:flavio-cobolli",
+          "rank": 9,
+          "points": 3330
+        },
+        {
+          "participantId": "competitor:tennis:atp:ben-shelton",
+          "rank": 10,
+          "points": 2680
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-bublik",
+          "rank": 11,
+          "points": 2535
+        },
+        {
+          "participantId": "competitor:tennis:atp:jiri-lehecka",
+          "rank": 12,
+          "points": 2380
+        },
+        {
+          "participantId": "competitor:tennis:atp:lorenzo-musetti",
+          "rank": 13,
+          "points": 2375
+        },
+        {
+          "participantId": "competitor:tennis:atp:casper-ruud",
+          "rank": 14,
+          "points": 2345
+        },
+        {
+          "participantId": "competitor:tennis:atp:rafael-jodar",
+          "rank": 15,
+          "points": 2243
+        },
+        {
+          "participantId": "competitor:tennis:atp:andrey-rublev",
+          "rank": 16,
+          "points": 2230
+        },
+        {
+          "participantId": "competitor:tennis:atp:jakub-mensik",
+          "rank": 17,
+          "points": 2205
+        },
+        {
+          "participantId": "competitor:tennis:atp:valentin-vacherot",
+          "rank": 18,
+          "points": 2176
+        },
+        {
+          "participantId": "competitor:tennis:atp:learner-tien",
+          "rank": 19,
+          "points": 2155
+        },
+        {
+          "participantId": "competitor:tennis:atp:frances-tiafoe",
+          "rank": 20,
+          "points": 2105
+        },
+        {
+          "participantId": "competitor:tennis:atp:tommy-paul",
+          "rank": 21,
+          "points": 2075
+        },
+        {
+          "participantId": "competitor:tennis:atp:luciano-darderi",
+          "rank": 22,
+          "points": 2025
+        },
+        {
+          "participantId": "competitor:tennis:atp:francisco-cerundolo",
+          "rank": 23,
+          "points": 2010
+        },
+        {
+          "participantId": "competitor:tennis:atp:arthur-fils",
+          "rank": 24,
+          "points": 1940
+        },
+        {
+          "participantId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+          "rank": 25,
+          "points": 1830
+        },
+        {
+          "participantId": "competitor:tennis:atp:alejandro-tabilo",
+          "rank": 26,
+          "points": 1728
+        },
+        {
+          "participantId": "competitor:tennis:atp:joao-fonseca",
+          "rank": 27,
+          "points": 1700
+        },
+        {
+          "participantId": "competitor:tennis:atp:ugo-humbert",
+          "rank": 28,
+          "points": 1625
+        },
+        {
+          "participantId": "competitor:tennis:atp:arthur-rinderknech",
+          "rank": 29,
+          "points": 1623
+        },
+        {
+          "participantId": "competitor:tennis:atp:tomas-martin-etcheverry",
+          "rank": 30,
+          "points": 1510
+        },
+        {
+          "participantId": "competitor:tennis:atp:brandon-nakashima",
+          "rank": 31,
+          "points": 1510
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexander-blockx",
+          "rank": 32,
+          "points": 1353
+        },
+        {
+          "participantId": "competitor:tennis:atp:ignacio-buse",
+          "rank": 33,
+          "points": 1350
+        },
+        {
+          "participantId": "competitor:tennis:atp:zizou-bergs",
+          "rank": 34,
+          "points": 1340
+        },
+        {
+          "participantId": "competitor:tennis:atp:matteo-arnaldi",
+          "rank": 35,
+          "points": 1299
+        },
+        {
+          "participantId": "competitor:tennis:atp:arthur-fery",
+          "rank": 36,
+          "points": 1285
+        },
+        {
+          "participantId": "competitor:tennis:atp:cameron-norrie",
+          "rank": 37,
+          "points": 1255
+        },
+        {
+          "participantId": "competitor:tennis:atp:raphael-collignon",
+          "rank": 38,
+          "points": 1234
+        },
+        {
+          "participantId": "competitor:tennis:atp:karen-khachanov",
+          "rank": 39,
+          "points": 1130
+        },
+        {
+          "participantId": "competitor:tennis:atp:matteo-berrettini",
+          "rank": 40,
+          "points": 1088
+        },
+        {
+          "participantId": "competitor:tennis:atp:jan-lennard-struff",
+          "rank": 41,
+          "points": 1066
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-michelsen",
+          "rank": 42,
+          "points": 1065
+        },
+        {
+          "participantId": "competitor:tennis:atp:denis-shapovalov",
+          "rank": 43,
+          "points": 1045
+        },
+        {
+          "participantId": "competitor:tennis:atp:mariano-navone",
+          "rank": 44,
+          "points": 1030
+        },
+        {
+          "participantId": "competitor:tennis:atp:jaume-munar",
+          "rank": 45,
+          "points": 1020
+        },
+        {
+          "participantId": "competitor:tennis:atp:terence-atmane",
+          "rank": 46,
+          "points": 1007
+        },
+        {
+          "participantId": "competitor:tennis:atp:adrian-mannarino",
+          "rank": 47,
+          "points": 1005
+        },
+        {
+          "participantId": "competitor:tennis:atp:sebastian-baez",
+          "rank": 48,
+          "points": 1000
+        },
+        {
+          "participantId": "competitor:tennis:atp:luca-van-assche",
+          "rank": 49,
+          "points": 998
+        },
+        {
+          "participantId": "competitor:tennis:atp:sebastian-korda",
+          "rank": 50,
+          "points": 990
+        },
+        {
+          "participantId": "competitor:tennis:atp:james-duckworth",
+          "rank": 86,
+          "points": 721
+        },
+        {
+          "participantId": "competitor:tennis:atp:rinky-hijikata",
+          "rank": 93,
+          "points": 677
+        },
+        {
+          "participantId": "competitor:tennis:atp:adam-walton",
+          "rank": 97,
+          "points": 654
+        },
+        {
+          "participantId": "competitor:tennis:atp:aleksandar-vukic",
+          "rank": 101,
+          "points": 649
+        },
+        {
+          "participantId": "competitor:tennis:atp:dane-sweeny",
+          "rank": 122,
+          "points": 518
+        },
+        {
+          "participantId": "competitor:tennis:atp:christopher-o-connell",
+          "rank": 133,
+          "points": 461
+        },
+        {
+          "participantId": "competitor:tennis:atp:alexei-popyrin",
+          "rank": 139,
+          "points": 430
+        },
+        {
+          "participantId": "competitor:tennis:atp:alex-bolt",
+          "rank": 158,
+          "points": 354
+        },
+        {
+          "participantId": "competitor:tennis:atp:bernard-tomic",
+          "rank": 160,
+          "points": 352
+        },
+        {
+          "participantId": "competitor:tennis:atp:tristan-schoolkate",
+          "rank": 187,
+          "points": 302
+        },
+        {
+          "participantId": "competitor:tennis:atp:james-mccabe",
+          "rank": 239,
+          "points": 235
+        },
+        {
+          "participantId": "competitor:tennis:atp:philip-sekulic",
+          "rank": 304,
+          "points": 180
+        },
+        {
+          "participantId": "competitor:tennis:atp:matthew-dellavedova",
+          "rank": 307,
+          "points": 178
+        },
+        {
+          "participantId": "competitor:tennis:atp:jordan-thompson",
+          "rank": 311,
+          "points": 173
+        },
+        {
+          "participantId": "competitor:tennis:atp:edward-winter",
+          "rank": 348,
+          "points": 149
+        },
+        {
+          "participantId": "competitor:tennis:atp:jake-delaney",
+          "rank": 354,
+          "points": 143
+        },
+        {
+          "participantId": "competitor:tennis:atp:marc-polmans",
+          "rank": 356,
+          "points": 142
+        },
+        {
+          "participantId": "competitor:tennis:atp:cruz-hewitt",
+          "rank": 370,
+          "points": 136
+        },
+        {
+          "participantId": "competitor:tennis:atp:thanasi-kokkinakis",
+          "rank": 434,
+          "points": 108
+        },
+        {
+          "participantId": "competitor:tennis:atp:jason-kubler",
+          "rank": 462,
+          "points": 97
+        },
+        {
+          "participantId": "competitor:tennis:atp:blake-ellis",
+          "rank": 465,
+          "points": 96
+        },
+        {
+          "participantId": "competitor:tennis:atp:moerani-bouzige",
+          "rank": 473,
+          "points": 95
+        },
+        {
+          "participantId": "competitor:tennis:atp:enzo-aguiard",
+          "rank": 484,
+          "points": 92
+        },
+        {
+          "participantId": "competitor:tennis:atp:li-tu",
+          "rank": 487,
+          "points": 91
+        },
+        {
+          "participantId": "competitor:tennis:atp:omar-jasika",
+          "rank": 492,
+          "points": 91
+        },
+        {
+          "participantId": "competitor:tennis:atp:tai-sach",
+          "rank": 512,
+          "points": 86
+        },
+        {
+          "participantId": "competitor:tennis:atp:pavle-marinkov",
+          "rank": 520,
+          "points": 81
+        },
+        {
+          "participantId": "competitor:tennis:atp:jacob-bradshaw",
+          "rank": 595,
+          "points": 65
+        },
+        {
+          "participantId": "competitor:tennis:atp:chase-ferguson",
+          "rank": 641,
+          "points": 56
+        },
+        {
+          "participantId": "competitor:tennis:atp:joshua-charlton",
+          "rank": 759,
+          "points": 41
+        },
+        {
+          "participantId": "competitor:tennis:atp:matt-hulme",
+          "rank": 762,
+          "points": 40
+        },
+        {
+          "participantId": "competitor:tennis:atp:scott-jones",
+          "rank": 791,
+          "points": 36
+        },
+        {
+          "participantId": "competitor:tennis:atp:thomas-fancutt",
+          "rank": 802,
+          "points": 35
+        },
+        {
+          "participantId": "competitor:tennis:atp:sam-ryan-ziegann",
+          "rank": 888,
+          "points": 27
+        },
+        {
+          "participantId": "competitor:tennis:atp:nick-kyrgios",
+          "rank": 906,
+          "points": 25
+        },
+        {
+          "participantId": "competitor:tennis:atp:benjamin-o-connell",
+          "rank": 956,
+          "points": 23
+        },
+        {
+          "participantId": "competitor:tennis:atp:duje-markovina",
+          "rank": 998,
+          "points": 20
+        },
+        {
+          "participantId": "competitor:tennis:atp:jesse-delaney",
+          "rank": 1007,
+          "points": 20
+        },
+        {
+          "participantId": "competitor:tennis:atp:stefan-vujic",
+          "rank": 1034,
+          "points": 18
+        },
+        {
+          "participantId": "competitor:tennis:atp:max-purcell",
+          "rank": 1038,
+          "points": 17
+        },
+        {
+          "participantId": "competitor:tennis:atp:chen-dong",
+          "rank": 1093,
+          "points": 15
+        },
+        {
+          "participantId": "competitor:tennis:atp:kody-pearson",
+          "rank": 1124,
+          "points": 13
+        },
+        {
+          "participantId": "competitor:tennis:atp:lachlan-james-mcfadzean",
+          "rank": 1138,
+          "points": 13
+        },
+        {
+          "participantId": "competitor:tennis:atp:derek-pham",
+          "rank": 1194,
+          "points": 10
+        },
+        {
+          "participantId": "competitor:tennis:atp:mustafa-ege-sik",
+          "rank": 1204,
+          "points": 10
+        },
+        {
+          "participantId": "competitor:tennis:atp:hayden-jones",
+          "rank": 1240,
+          "points": 9
+        },
+        {
+          "participantId": "competitor:tennis:atp:ethan-cook",
+          "rank": 1248,
+          "points": 9
+        },
+        {
+          "participantId": "competitor:tennis:atp:zack-viiala",
+          "rank": 1271,
+          "points": 8
+        },
+        {
+          "participantId": "competitor:tennis:atp:oliver-anderson",
+          "rank": 1288,
+          "points": 8
+        },
+        {
+          "participantId": "competitor:tennis:atp:ashton-mcleod",
+          "rank": 1303,
+          "points": 8
+        },
+        {
+          "participantId": "competitor:tennis:atp:ty-host",
+          "rank": 1315,
+          "points": 8
+        },
+        {
+          "participantId": "competitor:tennis:atp:jeremy-zhang",
+          "rank": 1385,
+          "points": 6
+        },
+        {
+          "participantId": "competitor:tennis:atp:jeremy-jin",
+          "rank": 1433,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:ymerali-ibraimi",
+          "rank": 1456,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:daniel-jovanovski",
+          "rank": 1457,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:jake-dembo",
+          "rank": 1464,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:stefan-storch",
+          "rank": 1486,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:jack-bruce-smith",
+          "rank": 1490,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:arjun-mehrotra",
+          "rank": 1490,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:tennis:atp:zane-stevens",
+          "rank": 1550,
+          "points": 4
+        },
+        {
+          "participantId": "competitor:tennis:atp:adrian-arcon",
+          "rank": 1572,
+          "points": 4
+        },
+        {
+          "participantId": "competitor:tennis:atp:jeremy-beale",
+          "rank": 1586,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:atp:blake-mott",
+          "rank": 1586,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:atp:harrison-satara",
+          "rank": 1610,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:atp:nikita-volonski",
+          "rank": 1620,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:atp:noah-brownrigg",
+          "rank": 1669,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:atp:lawrence-bataljin",
+          "rank": 1716,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:atp:taiki-takizawa",
+          "rank": 1793,
+          "points": 2
+        },
+        {
+          "participantId": "competitor:tennis:atp:thomas-nicholas-gadecki",
+          "rank": 2081,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:tennis:atp:zac-hamill",
+          "rank": 2081,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:tennis:atp:charlie-pade",
+          "rank": 2081,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:tennis:atp:charlie-camus",
+          "rank": 2153,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:tennis:atp:zaharije-zak-talic",
+          "rank": 2153,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:tennis:atp:lachlan-vickery",
+          "rank": 2203,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:tennis:atp:zachary-adam-gedge",
+          "rank": 2278,
+          "points": 1
+        }
       ],
       "source": {
         "provider": "ATP Tour",
-        "sourceUrl": "https://www.atptour.com/en/rankings/singles?rankRange=0-500",
+        "sourceUrl": "https://www.atptour.com/en/rankings/singles/",
         "sourceType": "official",
-        "checkedAt": "2026-07-27T14:00:00.000Z"
+        "checkedAt": "2026-08-12T15:00:00.000Z"
       },
       "metadata": {
-        "scope": "ATP competitors named on published 2026 Wimbledon men's cards, plus the official top three",
-        "withholdingPolicy": "If the official snapshot cannot be loaded, the app withholds the rankings module rather than inferring positions."
+        "scope": "Official Top 50 plus every ranked Australian in the reviewed provider export",
+        "refreshCadence": "weekly",
+        "ingestionMode": "manual_reviewed_export",
+        "withholdingPolicy": "Retain the last good snapshot and fail closed if either tour is stale, truncated, or missing."
+      }
+    },
+    {
+      "id": "ranking:wta-singles-2026:2026-08-10",
+      "competitionId": "competition:wta-singles-2026",
+      "seasonLabel": "2026",
+      "roundLabel": "WTA singles ranking",
+      "snapshotTimeUtc": "2026-08-10T00:00:00.000Z",
+      "entries": [
+        {
+          "participantId": "competitor:tennis:wta:aryna-sabalenka",
+          "rank": 1,
+          "points": 8550
+        },
+        {
+          "participantId": "competitor:tennis:wta:elena-rybakina",
+          "rank": 2,
+          "points": 8056
+        },
+        {
+          "participantId": "competitor:tennis:wta:jessica-pegula",
+          "rank": 3,
+          "points": 6625
+        },
+        {
+          "participantId": "competitor:tennis:wta:coco-gauff",
+          "rank": 4,
+          "points": 5649
+        },
+        {
+          "participantId": "competitor:tennis:wta:mirra-andreeva",
+          "rank": 5,
+          "points": 5293
+        },
+        {
+          "participantId": "competitor:tennis:wta:karolina-muchova",
+          "rank": 6,
+          "points": 5168
+        },
+        {
+          "participantId": "competitor:tennis:wta:linda-noskova",
+          "rank": 7,
+          "points": 5016
+        },
+        {
+          "participantId": "competitor:tennis:wta:iga-swiatek",
+          "rank": 8,
+          "points": 4539
+        },
+        {
+          "participantId": "competitor:tennis:wta:elina-svitolina",
+          "rank": 9,
+          "points": 4459
+        },
+        {
+          "participantId": "competitor:tennis:wta:amanda-anisimova",
+          "rank": 10,
+          "points": 4353
+        },
+        {
+          "participantId": "competitor:tennis:wta:marta-kostyuk",
+          "rank": 11,
+          "points": 3925
+        },
+        {
+          "participantId": "competitor:tennis:wta:victoria-mboko",
+          "rank": 12,
+          "points": 3520
+        },
+        {
+          "participantId": "competitor:tennis:wta:naomi-osaka",
+          "rank": 13,
+          "points": 3281
+        },
+        {
+          "participantId": "competitor:tennis:wta:belinda-bencic",
+          "rank": 14,
+          "points": 2845
+        },
+        {
+          "participantId": "competitor:tennis:wta:jasmine-paolini",
+          "rank": 15,
+          "points": 2783
+        },
+        {
+          "participantId": "competitor:tennis:wta:iva-jovic",
+          "rank": 16,
+          "points": 2636
+        },
+        {
+          "participantId": "competitor:tennis:wta:diana-shnaider",
+          "rank": 17,
+          "points": 2593
+        },
+        {
+          "participantId": "competitor:tennis:wta:sorana-cirstea",
+          "rank": 18,
+          "points": 2502
+        },
+        {
+          "participantId": "competitor:tennis:wta:ekaterina-alexandrova",
+          "rank": 19,
+          "points": 2301
+        },
+        {
+          "participantId": "competitor:tennis:wta:alexandra-eala",
+          "rank": 20,
+          "points": 2106
+        },
+        {
+          "participantId": "competitor:tennis:wta:anna-kalinskaya",
+          "rank": 21,
+          "points": 2083
+        },
+        {
+          "participantId": "competitor:tennis:wta:maja-chwalinska",
+          "rank": 22,
+          "points": 1975
+        },
+        {
+          "participantId": "competitor:tennis:wta:madison-keys",
+          "rank": 23,
+          "points": 1964
+        },
+        {
+          "participantId": "competitor:tennis:wta:elise-mertens",
+          "rank": 24,
+          "points": 1948
+        },
+        {
+          "participantId": "competitor:tennis:wta:marie-bouzkova",
+          "rank": 25,
+          "points": 1829
+        },
+        {
+          "participantId": "competitor:tennis:wta:barbora-krejcikova",
+          "rank": 26,
+          "points": 1776
+        },
+        {
+          "participantId": "competitor:tennis:wta:anastasia-potapova",
+          "rank": 27,
+          "points": 1726
+        },
+        {
+          "participantId": "competitor:tennis:wta:emma-navarro",
+          "rank": 28,
+          "points": 1724
+        },
+        {
+          "participantId": "competitor:tennis:wta:jelena-ostapenko",
+          "rank": 29,
+          "points": 1592
+        },
+        {
+          "participantId": "competitor:tennis:wta:clara-tauson",
+          "rank": 30,
+          "points": 1564
+        },
+        {
+          "participantId": "competitor:tennis:wta:ann-li",
+          "rank": 31,
+          "points": 1541
+        },
+        {
+          "participantId": "competitor:tennis:wta:hailey-baptiste",
+          "rank": 32,
+          "points": 1372
+        },
+        {
+          "participantId": "competitor:tennis:wta:maria-sakkari",
+          "rank": 33,
+          "points": 1355
+        },
+        {
+          "participantId": "competitor:tennis:wta:leylah-fernandez",
+          "rank": 34,
+          "points": 1344
+        },
+        {
+          "participantId": "competitor:tennis:wta:donna-vekic",
+          "rank": 35,
+          "points": 1326
+        },
+        {
+          "participantId": "competitor:tennis:wta:janice-tjen",
+          "rank": 36,
+          "points": 1312
+        },
+        {
+          "participantId": "competitor:tennis:wta:katerina-siniakova",
+          "rank": 37,
+          "points": 1285
+        },
+        {
+          "participantId": "competitor:tennis:wta:sara-bejlek",
+          "rank": 38,
+          "points": 1269
+        },
+        {
+          "participantId": "competitor:tennis:wta:jaqueline-cristian",
+          "rank": 39,
+          "points": 1256
+        },
+        {
+          "participantId": "competitor:tennis:wta:cristina-bucsa",
+          "rank": 40,
+          "points": 1244
+        },
+        {
+          "participantId": "competitor:tennis:wta:xinyu-wang",
+          "rank": 41,
+          "points": 1238
+        },
+        {
+          "participantId": "competitor:tennis:wta:nikola-bartunkova",
+          "rank": 42,
+          "points": 1231
+        },
+        {
+          "participantId": "competitor:tennis:wta:daria-snigur",
+          "rank": 43,
+          "points": 1172
+        },
+        {
+          "participantId": "competitor:tennis:wta:oleksandra-oliynykova",
+          "rank": 44,
+          "points": 1171
+        },
+        {
+          "participantId": "competitor:tennis:wta:magdalena-frech",
+          "rank": 45,
+          "points": 1160
+        },
+        {
+          "participantId": "competitor:tennis:wta:lilli-tagger",
+          "rank": 46,
+          "points": 1160
+        },
+        {
+          "participantId": "competitor:tennis:wta:tamara-korpatsch",
+          "rank": 47,
+          "points": 1134
+        },
+        {
+          "participantId": "competitor:tennis:wta:mccartney-kessler",
+          "rank": 48,
+          "points": 1125
+        },
+        {
+          "participantId": "competitor:tennis:wta:emma-raducanu",
+          "rank": 49,
+          "points": 1105
+        },
+        {
+          "participantId": "competitor:tennis:wta:mayar-sherif",
+          "rank": 50,
+          "points": 1105
+        },
+        {
+          "participantId": "competitor:tennis:wta:daria-kasatkina",
+          "rank": 61,
+          "points": 1033
+        },
+        {
+          "participantId": "competitor:tennis:wta:kimberly-birrell",
+          "rank": 69,
+          "points": 999
+        },
+        {
+          "participantId": "competitor:tennis:wta:talia-gibson",
+          "rank": 74,
+          "points": 958
+        },
+        {
+          "participantId": "competitor:tennis:wta:maya-joint",
+          "rank": 75,
+          "points": 956
+        },
+        {
+          "participantId": "competitor:tennis:wta:ajla-tomljanovic",
+          "rank": 95,
+          "points": 815
+        },
+        {
+          "participantId": "competitor:tennis:wta:taylah-preston",
+          "rank": 106,
+          "points": 762
+        },
+        {
+          "participantId": "competitor:tennis:wta:maddison-inglis",
+          "rank": 130,
+          "points": 596
+        },
+        {
+          "participantId": "competitor:tennis:wta:emerson-jones",
+          "rank": 134,
+          "points": 583
+        },
+        {
+          "participantId": "competitor:tennis:wta:priscilla-hon",
+          "rank": 158,
+          "points": 502
+        },
+        {
+          "participantId": "competitor:tennis:wta:storm-hunter",
+          "rank": 175,
+          "points": 450
+        },
+        {
+          "participantId": "competitor:tennis:wta:olivia-gadecki",
+          "rank": 255,
+          "points": 293
+        },
+        {
+          "participantId": "competitor:tennis:wta:elena-micic",
+          "rank": 275,
+          "points": 267
+        },
+        {
+          "participantId": "competitor:tennis:wta:lizette-cabrera",
+          "rank": 300,
+          "points": 238
+        },
+        {
+          "participantId": "competitor:tennis:wta:tina-smith",
+          "rank": 419,
+          "points": 153
+        },
+        {
+          "participantId": "competitor:tennis:wta:alana-subasic",
+          "rank": 444,
+          "points": 141
+        },
+        {
+          "participantId": "competitor:tennis:wta:arina-rodionova",
+          "rank": 451,
+          "points": 134
+        },
+        {
+          "participantId": "competitor:tennis:wta:tahlia-kokkinis",
+          "rank": 545,
+          "points": 96
+        },
+        {
+          "participantId": "competitor:tennis:wta:sarah-rokusek",
+          "rank": 596,
+          "points": 82
+        },
+        {
+          "participantId": "competitor:tennis:wta:melisa-ercan",
+          "rank": 659,
+          "points": 67
+        },
+        {
+          "participantId": "competitor:tennis:wta:belle-thompson",
+          "rank": 672,
+          "points": 65
+        },
+        {
+          "participantId": "competitor:tennis:wta:gabriella-da-silva-fick",
+          "rank": 674,
+          "points": 64
+        },
+        {
+          "participantId": "competitor:tennis:wta:stefani-webb",
+          "rank": 754,
+          "points": 49
+        },
+        {
+          "participantId": "competitor:tennis:wta:amy-stevens",
+          "rank": 831,
+          "points": 40
+        },
+        {
+          "participantId": "competitor:tennis:wta:laquisa-khan",
+          "rank": 863,
+          "points": 36
+        },
+        {
+          "participantId": "competitor:tennis:wta:astra-sharma",
+          "rank": 890,
+          "points": 33
+        },
+        {
+          "participantId": "competitor:tennis:wta:jizelle-sibai",
+          "rank": 899,
+          "points": 32
+        },
+        {
+          "participantId": "competitor:tennis:wta:ashleigh-simes",
+          "rank": 954,
+          "points": 27
+        },
+        {
+          "participantId": "competitor:tennis:wta:alicia-smith",
+          "rank": 1007,
+          "points": 22
+        },
+        {
+          "participantId": "competitor:tennis:wta:catherine-aulia",
+          "rank": 1035,
+          "points": 19
+        },
+        {
+          "participantId": "competitor:tennis:wta:cara-korhonen",
+          "rank": 1060,
+          "points": 18
+        },
+        {
+          "participantId": "competitor:tennis:wta:giselle-isabell-guillen",
+          "rank": 1065,
+          "points": 17
+        },
+        {
+          "participantId": "competitor:tennis:wta:eva-lopez",
+          "rank": 1133,
+          "points": 14
+        },
+        {
+          "participantId": "competitor:tennis:wta:alexandra-osborne",
+          "rank": 1148,
+          "points": 13
+        },
+        {
+          "participantId": "competitor:tennis:wta:ava-beck",
+          "rank": 1153,
+          "points": 13
+        },
+        {
+          "participantId": "competitor:tennis:wta:ava-monet-sycamore",
+          "rank": 1161,
+          "points": 13
+        },
+        {
+          "participantId": "competitor:tennis:wta:tori-russell",
+          "rank": 1179,
+          "points": 12
+        },
+        {
+          "participantId": "competitor:tennis:wta:renee-alame",
+          "rank": 1242,
+          "points": 10
+        },
+        {
+          "participantId": "competitor:tennis:wta:sarah-mildren",
+          "rank": 1247,
+          "points": 10
+        },
+        {
+          "participantId": "competitor:tennis:wta:naomi-mckenzie",
+          "rank": 1292,
+          "points": 9
+        },
+        {
+          "participantId": "competitor:tennis:wta:rianna-alame",
+          "rank": 1307,
+          "points": 9
+        },
+        {
+          "participantId": "competitor:tennis:wta:tenika-mcgiffin",
+          "rank": 1323,
+          "points": 9
+        },
+        {
+          "participantId": "competitor:tennis:wta:lily-taylor",
+          "rank": 1345,
+          "points": 8
+        },
+        {
+          "participantId": "competitor:tennis:wta:elizabeth-ivanov",
+          "rank": 1356,
+          "points": 8
+        },
+        {
+          "participantId": "competitor:tennis:wta:audrey-aulia",
+          "rank": 1366,
+          "points": 7
+        },
+        {
+          "participantId": "competitor:tennis:wta:angela-cui",
+          "rank": 1429,
+          "points": 6
+        },
+        {
+          "participantId": "competitor:tennis:wta:gurmanat-kaur-sandhu",
+          "rank": 1490,
+          "points": 4
+        },
+        {
+          "participantId": "competitor:tennis:wta:caitlin-baker",
+          "rank": 1531,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:wta:lily-fairclough",
+          "rank": 1531,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:wta:petra-hule",
+          "rank": 1531,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:tennis:wta:larisa-arnautovic",
+          "rank": 1531,
+          "points": 3
+        }
+      ],
+      "source": {
+        "provider": "WTA",
+        "sourceUrl": "https://www.wtatennis.com/rankings/singles",
+        "sourceType": "official",
+        "checkedAt": "2026-08-12T15:00:00.000Z"
+      },
+      "metadata": {
+        "scope": "Official Top 50 plus every ranked Australian in the reviewed provider export",
+        "refreshCadence": "weekly",
+        "ingestionMode": "manual_reviewed_export",
+        "withholdingPolicy": "Retain the last good snapshot and fail closed if either tour is stale, truncated, or missing."
       }
     }
   ],
   "eventParticipantScopes": [
     {
+      "sportKey": "tennis",
+      "preferenceDomainId": "sport:tennis",
+      "participantSportDomainId": "sport:tennis:atp",
+      "titlePattern": "\\bATP\\b",
+      "resolutionMode": "title-match"
+    },
+    {
+      "sportKey": "tennis",
+      "preferenceDomainId": "sport:tennis",
+      "participantSportDomainId": "sport:tennis:wta",
+      "titlePattern": "\\bWTA\\b",
+      "resolutionMode": "title-match"
+    },
+    {
       "sportKey": "wimbledon",
       "preferenceDomainId": "special:wimbledon",
       "participantSportDomainId": "sport:tennis:atp",
       "titlePattern": "\\bMen(?:'|’)s\\b",
+      "resolutionMode": "title-match"
+    },
+    {
+      "sportKey": "wimbledon",
+      "preferenceDomainId": "special:wimbledon",
+      "participantSportDomainId": "sport:tennis:wta",
+      "titlePattern": "\\bWomen(?:'|’)s\\b",
       "resolutionMode": "title-match"
     }
   ]

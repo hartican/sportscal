@@ -198,6 +198,7 @@
     telemark: "competition:telemark-world-cup",
     skateboard: "competition:extreme-world-events",
     rugby: "competition:rugby-union-tests",
+    tennis: "sport:tennis",
     wimbledon: "event-series:wimbledon",
     fifa: "competition:fifa-world-cup",
     tdf: "event-series:tour-de-france",

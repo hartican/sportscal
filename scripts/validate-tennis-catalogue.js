@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const tennisCoverage = require("../config/tennis-coverage.js");
+const { assertFresh, generateCatalogue } = require("./refresh-tennis-catalogue.js");
+const { syncTennisTournaments } = require("./sync-tennis-tournaments-to-feed.js");
+
+const catalogue = generateCatalogue();
+const feed = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
+
+assert.equal(catalogue.schemaVersion, "tennis-catalogue.v1");
+assert.equal(catalogue.refreshPolicy.rankingsCadence, "weekly");
+assert.equal(catalogue.refreshPolicy.parityRequired, true);
+assert.equal(catalogue.refreshPolicy.failureMode, "retain_last_good_and_fail_closed");
+assert.equal(assertFresh(catalogue, "2026-08-13"), 3, "the reviewed snapshot must be inside the weekly refresh gate at implementation time");
+assert.throws(() => assertFresh(catalogue, "2026-08-20"), /refresh before publishing/, "stale rankings must fail closed");
+
+const byTour = tour => catalogue.athletes.filter(athlete => athlete.tour === tour);
+for (const tour of ["ATP", "WTA"]) {
+  const athletes = byTour(tour);
+  assert(athletes.length >= 50, `${tour} must have a complete catalogue universe`);
+  assert.equal(athletes.filter(athlete => athlete.rankingSingles <= 50).length, 50, `${tour} must have exactly the Top 50`);
+  assert(athletes.filter(athlete => athlete.rankingSingles <= 50).every(athlete => Number.isFinite(athlete.rankingPoints)), `${tour} Top 50 must retain ranking points`);
+  assert(athletes.some(athlete => athlete.isAustralian && athlete.rankingSingles > 50), `${tour} must retain Australians outside the Top 50`);
+  assert(athletes.every(athlete => athlete.isAustralian === (athlete.nationalityCode === "AUS")), `${tour} Australian status must derive from represented country`);
+}
+
+const marqueeLevels = new Set(catalogue.tournaments.map(tournament => tournament.level));
+assert.equal(new Set(catalogue.tournaments.map(tournament => tournament.tournamentId)).size, catalogue.tournaments.length, "canonical tournament IDs must stay unique when ATP and WTA share a city and title");
+for (const level of ["grand_slam", "atp_masters_1000", "wta_1000", "atp_finals", "wta_finals", "team_competition"]) {
+  assert(marqueeLevels.has(level), `tournament normalization must cover ${level}`);
+}
+assert(catalogue.tournaments.some(tournament => tournament.representedTours.includes("ATP")));
+assert(catalogue.tournaments.some(tournament => tournament.representedTours.includes("WTA")));
+
+const top50Match = { level: "wta_1000", tour: "WTA", round: "early", participants: [{ rankingSingles: 12 }] };
+const australianMatch = { level: "wta_250", tour: "WTA", round: "early", participants: [{ rankingSingles: 90, isAustralian: true }] };
+assert(tennisCoverage.inclusionReasons(top50Match).includes("top_50"));
+assert(tennisCoverage.inclusionReasons(australianMatch).includes("australian"));
+assert(tennisCoverage.isCatalogueEligible(australianMatch), "an Australian outside the Top 50 remains eligible");
+
+const behaviours = {
+  low: tennisCoverage.isVisibleAtFroth({ ...top50Match, round: "quarterfinal" }, "low"),
+  balanced: tennisCoverage.isVisibleAtFroth({ ...top50Match, cardType: "tournament_overview" }, "balanced"),
+  high: tennisCoverage.isVisibleAtFroth({ level: "wta_250", round: "early", participants: [] }, "high"),
+  maximum: tennisCoverage.isVisibleAtFroth({ level: "challenger", round: "final", participants: [] }, "maximum"),
+};
+assert.deepEqual(behaviours, { low: true, balanced: true, high: true, maximum: true }, "all four tennis froth contracts must retain their defining coverage");
+
+const toronto = catalogue.tournaments.find(tournament => tournament.providerAlias.includes("wta-toronto-806"));
+assert(toronto, "the Toronto WTA 1000 regression fixture must be normalized");
+assert.equal(toronto.level, "wta_1000");
+assert.equal(tennisCoverage.isTournamentActive(toronto, "2026-08-13"), true);
+assert.equal(tennisCoverage.isVisibleAtFroth({ ...toronto, active: true, cardType: "tournament_overview", round: "all", participants: [] }, "balanced"), true, "Toronto must not require a followed player at balanced froth");
+assert(
+  tennisCoverage.rankingScore({ ...toronto, active: true }, { followedTours: ["WTA"] })
+    > tennisCoverage.rankingScore({ level: "challenger", tour: "ATP", active: true }, {}),
+  "an active followed-tour WTA 1000 must outrank long-tail tennis"
+);
+
+const torontoSync = syncTennisTournaments(feed, catalogue, { referenceDate: "2026-08-13", publishedAt: "2026-08-13T02:00:00.000Z" });
+const torontoCards = torontoSync.generated.filter(event => event.tennisTournamentId === toronto.tournamentId);
+assert.equal(torontoCards.length, 1, "Toronto must generate one active tournament card");
+assert.equal(torontoCards[0].key, "tennis");
+assert.equal(torontoCards[0].taxonomySportId, "sport:tennis");
+assert.equal(torontoCards[0].taxonomyCompetitionId, "competition:wta-tour");
+assert.equal(torontoCards[0].sourceUrl, "https://www.wtatennis.com/tournaments/806/toronto/2026");
+
+const registry = require("../config/sport-domain-registry.js");
+const hierarchy = require("../config/sport-hierarchy.js");
+const taxonomy = require("../config/canonical-sports-taxonomy.js");
+assert(registry.selectorLibrary().tennis, "Tennis must be a top-level surfaced sport");
+assert.equal(hierarchy.canonicalNodeId("tennis"), "sport:tennis");
+assert.equal(hierarchy.canonicalNodeId("wimbledon"), "event-series:wimbledon", "the legacy Wimbledon selection must retain exact event-series meaning");
+assert(taxonomy.competitionFamilies.some(family => family.id === "family:atp-tour"));
+assert(taxonomy.competitionFamilies.some(family => family.id === "family:wta-tour"));
+for (const tour of ["atp", "wta"]) {
+  const competition = taxonomy.competitions.find(item => item.id === `competition:${tour}-singles-2026`);
+  assert(competition, `${tour.toUpperCase()} standings must be registered in the browser taxonomy`);
+  assert.equal(competition.preferenceDomainId, "sport:tennis", `${tour.toUpperCase()} standings must follow the top-level Tennis preference`);
+}
+
+const sql = fs.readFileSync("supabase/nothingsports-tennis-catalogue.sql", "utf8");
+assert(sql.includes("create table if not exists public.tennis_athletes"));
+assert(sql.includes("create table if not exists public.tennis_tournaments"));
+assert(sql.includes("force row level security"));
+assert(!/grant\s+(insert|update|delete)/i.test(sql), "browser roles must never receive tennis catalogue writes");
+
+console.log(`Tennis catalogue valid: ${catalogue.athletes.length} athletes, ${catalogue.tournaments.length} tournaments, ATP/WTA parity, four froth levels, and Toronto automatic coverage.`);

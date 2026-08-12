@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-12T12:11:56.849Z",
+  "publishedAt": "2026-08-12T16:19:00.712Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -16,6 +16,7 @@
     "nrl",
     "afl",
     "cwg",
+    "tennis",
     "cricket",
     "skateboard",
     "wsl",
@@ -99,6 +100,11 @@
         "count": 34,
         "firstEventDate": "2026-07-24",
         "lastEventDate": "2026-08-03"
+      },
+      "tennis": {
+        "count": 3,
+        "firstEventDate": "2026-08-13",
+        "lastEventDate": "2026-08-13"
       },
       "cricket": {
         "count": 16,
