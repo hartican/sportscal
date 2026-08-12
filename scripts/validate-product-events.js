@@ -333,13 +333,49 @@ async function run(){
     assert.equal(response.headers.Vary, "Authorization");
     const insert = requests.find(request => request.url.includes("/rest/v1/product_events"));
     assert(insert);
-    assert.match(insert.url, /on_conflict=user_id,client_event_id/);
+    assert.doesNotMatch(insert.url, /on_conflict=/, "append-only writes must not require SELECT privilege through an ON CONFLICT target");
     assert.equal(insert.options.headers.Authorization, "Bearer access-token");
-    assert.equal(insert.options.headers.Prefer, "resolution=ignore-duplicates,return=minimal");
+    assert.equal(insert.options.headers.Prefer, "return=minimal");
     const insertedRows = JSON.parse(insert.options.body);
     assert.equal(insertedRows.length, 1);
     assert.equal(insertedRows[0].user_id, "11111111-1111-4111-8111-111111111111", "server must derive ownership from Auth");
     assert.equal(insertedRows[0].properties.presentation, "card");
+
+    const duplicateRequests = [];
+    let productEventWriteCount = 0;
+    global.fetch = async (url, options = {}) => {
+      duplicateRequests.push({ url: String(url), options });
+      if (String(url).endsWith("/auth/v1/user")){
+        return fetchResponse({ id: "11111111-1111-4111-8111-111111111111", email: "pilot@example.com" });
+      }
+      if (String(url).includes("/rest/v1/product_events")){
+        productEventWriteCount += 1;
+        if (productEventWriteCount === 1){
+          return fetchResponse({ code: "23505", message: "duplicate key value violates unique constraint" }, 409);
+        }
+        const submittedRows = JSON.parse(options.body);
+        if (submittedRows[0].client_event_id === "event-duplicate"){
+          return fetchResponse({ code: "23505", message: "duplicate key value violates unique constraint" }, 409);
+        }
+        return fetchResponse(null, 201);
+      }
+      return fetchResponse({ message: "Unexpected request" }, 500);
+    };
+    const duplicateResponse = responseStub();
+    await productEventsHandler({
+      method: "POST",
+      headers: { authorization: "Bearer access-token" },
+      body: {
+        schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION,
+        events: [
+          event({ clientEventId: "event-duplicate" }),
+          event({ clientEventId: "event-new-entry" }),
+        ],
+      },
+    }, duplicateResponse);
+    assert.equal(duplicateResponse.statusCode, 202, "a duplicate pulse retry must not prevent new queued events from being appended");
+    assert.equal(duplicateResponse.body.accepted, 2);
+    assert.equal(duplicateRequests.filter(request => request.url.includes("/rest/v1/product_events")).length, 3);
 
     const forgedResponse = responseStub();
     await productEventsHandler({

@@ -1,6 +1,7 @@
 "use strict";
 
 const {
+  SupabaseRequestError,
   authenticatedUser,
   bearerToken,
   publicError,
@@ -26,6 +27,35 @@ function requestBody(request){
   return request.body;
 }
 
+function isUniqueViolation(error){
+  return error instanceof SupabaseRequestError
+    && error.status === 409
+    && String(error.payload?.code || error.payload?.error_code || "") === "23505";
+}
+
+async function appendRows(rows, accessToken){
+  const insert = body => supabaseRequest("/rest/v1/product_events", {
+    method: "POST",
+    accessToken,
+    headers: { Prefer: "return=minimal" },
+    body,
+  });
+  try{
+    await insert(rows);
+    return;
+  }catch(error){
+    if (!isUniqueViolation(error)) throw error;
+  }
+
+  for (const row of rows){
+    try{
+      await insert([row]);
+    }catch(error){
+      if (!isUniqueViolation(error)) throw error;
+    }
+  }
+}
+
 module.exports = async function productEventsHandler(request, response){
   setPrivateResponseHeaders(response);
   if (request.method !== "POST"){
@@ -42,14 +72,7 @@ module.exports = async function productEventsHandler(request, response){
     }
     const events = PRODUCT_EVENTS.normalizeBatch(body);
     const rows = PRODUCT_EVENTS.rowsForUser(events, user.id);
-    await supabaseRequest("/rest/v1/product_events?on_conflict=user_id,client_event_id", {
-      method: "POST",
-      accessToken,
-      headers: {
-        Prefer: "resolution=ignore-duplicates,return=minimal",
-      },
-      body: rows,
-    });
+    await appendRows(rows, accessToken);
     return response.status(202).json({
       schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION,
       accepted: events.length,
