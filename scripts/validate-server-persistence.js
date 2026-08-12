@@ -4,6 +4,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const server = require("../lib/supabase-server");
 const serverSync = require("../config/server-sync");
+const userStateSync = require("../config/user-state-sync");
 const authHandler = require("../api/auth");
 const userStateHandler = require("../api/user-state");
 
@@ -111,6 +112,7 @@ async function run(){
   delete process.env.SUPABASE_ANON_KEY;
 
   const requests = [];
+  let forceConditionalConflict = false;
   const authUser = {
     id: "11111111-1111-4111-8111-111111111111",
     email: "fan@example.com",
@@ -136,7 +138,11 @@ async function run(){
     requests.push({ url: String(url), options });
     if (String(url).includes("/auth/v1/token?grant_type=password")) return fetchResponse(passwordSession);
     if (String(url).endsWith("/auth/v1/user")) return fetchResponse(authUser);
-    if (String(url).includes("/rest/v1/nothingsports_user_state") && options.method === "POST"){
+    if (String(url).includes("/rest/v1/nothingsports_user_state") && options.method === "PATCH"){
+      if (forceConditionalConflict){
+        forceConditionalConflict = false;
+        return fetchResponse([]);
+      }
       return fetchResponse([{ ...JSON.parse(options.body), updated_at: "2026-07-27T10:01:00.000Z" }]);
     }
     if (String(url).includes("/rest/v1/nothingsports_user_state")) return fetchResponse([databaseRow]);
@@ -190,50 +196,88 @@ async function run(){
     const stateLookup = requests.find(request => request.url.includes("/rest/v1/nothingsports_user_state"));
     assert.equal(stateLookup.options.headers.Authorization, "Bearer access-token", "RLS requests must run as the signed-in user");
 
-    const postCountBeforeNoop = requests.filter(request => (
+    const legacyResponse = responseStub();
+    await userStateHandler({
+      method: "PUT",
+      headers: { authorization: "Bearer access-token" },
+      body: { state: server.userStateFromRow(databaseRow) },
+    }, legacyResponse);
+    assert.equal(legacyResponse.statusCode, 409, "obsolete full snapshots must not overwrite newer device settings");
+    assert.equal(legacyResponse.body.code, "client_update_required");
+
+    const patchCountBeforeNoop = requests.filter(request => (
       request.url.includes("/rest/v1/nothingsports_user_state")
-      && request.options.method === "POST"
+      && request.options.method === "PATCH"
     )).length;
     const noopResponse = responseStub();
     await userStateHandler({
       method: "PUT",
       headers: { authorization: "Bearer access-token" },
-      body: { state: server.userStateFromRow(databaseRow) },
+      body: {
+        patch: userStateSync.createPatch(
+          server.userStateFromRow(databaseRow),
+          server.userStateFromRow(databaseRow),
+          { baseUpdatedAt: databaseRow.updated_at }
+        ),
+      },
     }, noopResponse);
     assert.equal(noopResponse.statusCode, 200);
     assert.equal(noopResponse.body.state.updated_at, databaseRow.updated_at, "an identical server commit must retain its existing write timestamp");
     assert.equal(requests.filter(request => (
       request.url.includes("/rest/v1/nothingsports_user_state")
-      && request.options.method === "POST"
-    )).length, postCountBeforeNoop, "an identical server commit must skip the database upsert");
+      && request.options.method === "PATCH"
+    )).length, patchCountBeforeNoop, "an identical server commit must skip the database update");
 
     const savedResponse = responseStub();
+    const changedState = {
+      ...server.userStateFromRow(databaseRow),
+      preferences: {
+        ...server.userStateFromRow(databaseRow).preferences,
+        showSpoilers: true,
+        viewing: { viewingWindowEnabled: true, startHourLocal: 8 },
+      },
+      eventUserState: { event: { watchLater: true, watched: false } },
+    };
     await userStateHandler({
       method: "PUT",
       headers: { authorization: "Bearer access-token" },
       body: {
-        state: {
-          profile: { timezone: "Australia/Sydney" },
-          preferences: { showSpoilers: true, viewing: { startHourLocal: 8 } },
-          eventUserState: { event: { watchLater: true, watched: false } },
-          eventSpoilerState: {},
-          archivedEvents: [],
-          ratings: {},
-        },
+        patch: userStateSync.createPatch(
+          server.userStateFromRow(databaseRow),
+          changedState,
+          { baseUpdatedAt: databaseRow.updated_at }
+        ),
       },
     }, savedResponse);
     assert.equal(savedResponse.statusCode, 200);
-    const upsertRequest = requests.find(request => (
+    const updateRequest = requests.find(request => (
       request.url.includes("/rest/v1/nothingsports_user_state")
-      && request.options.method === "POST"
+      && request.options.method === "PATCH"
     ));
-    assert.match(upsertRequest.options.headers.Prefer, /resolution=merge-duplicates/);
-    const upsertedState = JSON.parse(upsertRequest.options.body);
-    assert.equal(upsertedState.user_id, authUser.id, "the verified password user id must own the row");
-    assert.equal(upsertedState.profile.futureProfileField, "keep", "server upserts must preserve earlier profile fields");
-    assert.equal(upsertedState.preferences.theme, "night", "server upserts must preserve earlier settings omitted by the client");
-    assert.equal(upsertedState.preferences.viewing.viewingWindowEnabled, true, "server upserts must preserve nested sibling settings");
-    assert.equal(upsertedState.preferences.viewing.startHourLocal, 8, "server upserts must apply the incoming nested setting");
+    assert.match(updateRequest.url, /updated_at=eq\.2026-07-27T10%3A00%3A00\.000Z/);
+    assert.match(updateRequest.options.headers.Prefer, /return=representation/);
+    const updatedState = JSON.parse(updateRequest.options.body);
+    assert.equal(updatedState.user_id, authUser.id, "the verified password user id must own the row");
+    assert.equal(updatedState.profile.futureProfileField, "keep", "server patches must preserve earlier profile fields");
+    assert.equal(updatedState.preferences.theme, "night", "server patches must preserve settings untouched by this device");
+    assert.equal(updatedState.preferences.viewing.viewingWindowEnabled, true, "server patches must preserve nested sibling settings");
+    assert.equal(updatedState.preferences.viewing.startHourLocal, 8, "server patches must apply the newly changed nested setting");
+
+    forceConditionalConflict = true;
+    const conflictResponse = responseStub();
+    await userStateHandler({
+      method: "PUT",
+      headers: { authorization: "Bearer access-token" },
+      body: {
+        patch: userStateSync.createPatch(
+          server.userStateFromRow(databaseRow),
+          changedState,
+          { baseUpdatedAt: databaseRow.updated_at }
+        ),
+      },
+    }, conflictResponse);
+    assert.equal(conflictResponse.statusCode, 409, "a concurrent device write must make the stale conditional update retryable");
+    assert.equal(conflictResponse.body.code, "user_state_conflict");
   }finally{
     if (originalUrl === undefined) delete process.env.SUPABASE_URL;
     else process.env.SUPABASE_URL = originalUrl;
@@ -252,9 +296,11 @@ async function run(){
   assert.equal(parsedPasswordSession.expiresAt, Date.parse("2026-07-27T11:00:00.000Z"));
 
   const storage = memoryStorage();
+  const persistentStorage = memoryStorage();
   const browserRequests = [];
   const client = serverSync.createClient({
     storage,
+    persistentStorage,
     now: () => Date.parse("2026-07-27T10:00:00.000Z"),
     fetchImpl: async (url, options = {}) => {
       browserRequests.push({ url, options });
@@ -285,7 +331,7 @@ async function run(){
       return browserResponse({ configured: true, provider: "supabase" });
     },
   });
-  await client.signIn("fan@example.com", "correct horse battery staple");
+  await client.signIn("fan@example.com", "correct horse battery staple", { persist: true });
   await client.restoreSession();
   const browserPasswordRequest = browserRequests.find(request => {
     const body = JSON.parse(request.options.body || "{}");
@@ -294,10 +340,90 @@ async function run(){
   assert(browserPasswordRequest, "the browser client must request password sign-in");
   assert.equal(JSON.parse(browserPasswordRequest.options.body).password, "correct horse battery staple");
   assert.equal(client.getSession().accessToken, "access");
+  assert.equal(storage.getItem(serverSync.SESSION_STORAGE_KEY), null, "persistent sign-in must not duplicate the refresh token in session storage");
+  assert(persistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), "persistent sign-in must survive a browser restart without saving the password");
+  assert(!persistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("correct horse battery staple"), "the user's password must never be stored with the persistent session");
+
+  const restartedClient = serverSync.createClient({
+    storage: memoryStorage(),
+    persistentStorage,
+    now: () => Date.parse("2026-07-27T10:00:00.000Z"),
+    fetchImpl: async () => browserResponse({ message: "A fresh unexpired session should restore without a network call." }, 500),
+  });
+  assert.equal((await restartedClient.restoreSession()).accessToken, "access", "a new app process must restore the persistent device session");
+
+  const rotatingStorage = memoryStorage();
+  rotatingStorage.setItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY, JSON.stringify({
+    accessToken: "expired-access",
+    refreshToken: "old-refresh",
+    expiresAt: Date.parse("2026-07-27T09:00:00.000Z"),
+  }));
+  const rotatingClient = serverSync.createClient({
+    storage: memoryStorage(),
+    persistentStorage: rotatingStorage,
+    now: () => Date.parse("2026-07-27T10:00:00.000Z"),
+    fetchImpl: async (url, options = {}) => {
+      const body = JSON.parse(options.body || "{}");
+      if (url === "/api/auth" && body.action === "refresh"){
+        assert.equal(body.refreshToken, "old-refresh");
+        return browserResponse({
+          session: {
+            access_token: "rotated-access",
+            refresh_token: "rotated-refresh",
+            expires_in: 3600,
+          },
+        });
+      }
+      return browserResponse({ message: "Unexpected rotating-session request" }, 500);
+    },
+  });
+  assert.equal((await rotatingClient.restoreSession()).accessToken, "rotated-access", "an expired persistent session must refresh without requesting the password");
+  assert(rotatingStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("rotated-refresh"), "refresh-token rotation must replace the saved device session");
+  assert(!rotatingStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("old-refresh"), "a rotated refresh token must not leave the superseded token behind");
+
+  const sessionOnlyStorage = memoryStorage();
+  const sessionOnlyPersistentStorage = memoryStorage();
+  const sessionOnlyClient = serverSync.createClient({
+    storage: sessionOnlyStorage,
+    persistentStorage: sessionOnlyPersistentStorage,
+    now: () => Date.parse("2026-07-27T10:00:00.000Z"),
+    fetchImpl: async (url, options = {}) => {
+      if (url === "/api/auth" && options.method === "POST") return browserResponse({ session: passwordSession });
+      return browserResponse({ configured: true, provider: "supabase" });
+    },
+  });
+  await sessionOnlyClient.signIn("fan@example.com", "correct horse battery staple", { persist: false });
+  assert(sessionOnlyStorage.getItem(serverSync.SESSION_STORAGE_KEY), "session-only sign-in must remain available in the current app process");
+  assert.equal(sessionOnlyPersistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), null, "session-only sign-in must not survive a browser restart");
+
+  sessionOnlyClient.setSessionPersistence(true);
+  assert.equal(sessionOnlyStorage.getItem(serverSync.SESSION_STORAGE_KEY), null, "enabling trusted-device persistence must remove the temporary session copy");
+  assert(sessionOnlyPersistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), "enabling trusted-device persistence must retain the active session across restarts");
+  sessionOnlyClient.setSessionPersistence(false);
+  assert(sessionOnlyStorage.getItem(serverSync.SESSION_STORAGE_KEY), "disabling trusted-device persistence must retain the active session until this app process ends");
+  assert.equal(sessionOnlyPersistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), null, "disabling trusted-device persistence must clear the long-lived device copy");
+  await sessionOnlyClient.signOut();
+  assert.equal(sessionOnlyStorage.getItem(serverSync.SESSION_STORAGE_KEY), null, "sign out must clear the current-session token");
+  assert.equal(sessionOnlyPersistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), null, "sign out must clear the persistent token");
   assert.equal((await client.user()).id, authUser.id);
   assert.equal((await client.loadState()).state.eventUserState.event.watchLater, true);
   assert.equal((await client.loadFeed()).derivedCardCache.buildOrigin, "server");
   assert(browserRequests.some(request => request.options.headers?.Authorization === "Bearer access"));
+
+  const browserPatch = userStateSync.createPatch(
+    server.userStateFromRow(databaseRow),
+    {
+      ...server.userStateFromRow(databaseRow),
+      preferences: { ...server.userStateFromRow(databaseRow).preferences, theme: "day" },
+    },
+    { baseUpdatedAt: databaseRow.updated_at }
+  );
+  await client.savePatch(browserPatch);
+  const browserPatchRequest = browserRequests.find(request => (
+    request.url === "/api/user-state"
+    && request.options.method === "PUT"
+  ));
+  assert.deepEqual(JSON.parse(browserPatchRequest.options.body), { patch: browserPatch });
 
   const snapshot = serverSync.buildUserState({
     preferences: { showSpoilers: false },
@@ -317,7 +443,7 @@ async function run(){
   assert.equal(browserMergedSettings.viewing.startHourLocal, 9, "browser hydration must prefer the incoming server value");
   assert.deepEqual(browserMergedSettings.selectedBroadcasters, [], "explicit empty selections must remain explicit");
 
-  console.log("Server persistence valid: closed-pilot password auth, RLS ownership, saved-state upsert and browser session handling passed.");
+  console.log("Server persistence valid: password auth, RLS ownership, conditional field patches and browser session handling passed.");
 }
 
 run().catch(error => {

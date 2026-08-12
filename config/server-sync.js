@@ -6,6 +6,8 @@
   "use strict";
 
   const SESSION_STORAGE_KEY = "ns_auth_session_v1";
+  const PERSISTENT_SESSION_STORAGE_KEY = "ns_auth_persistent_session_v1";
+  const SESSION_PERSISTENCE_KEY = "ns_auth_persistence_v1";
   const USER_STATE_SCHEMA_VERSION = "user-state.v1";
   const PRODUCT_EVENTS_SCHEMA_VERSION = "product-events.v1";
   const REFRESH_EARLY_MS = 60 * 1000;
@@ -80,20 +82,20 @@
     };
   }
 
-  function storageRead(storage){
+  function storageRead(storage, key = SESSION_STORAGE_KEY){
     try{
-      return parseSession(JSON.parse(storage?.getItem?.(SESSION_STORAGE_KEY) || "null"));
+      return parseSession(JSON.parse(storage?.getItem?.(key) || "null"));
     }catch(_error){
       return null;
     }
   }
 
-  function storageWrite(storage, session){
+  function storageWrite(storage, key, session){
     try{
-      if (session) storage?.setItem?.(SESSION_STORAGE_KEY, JSON.stringify(session));
-      else storage?.removeItem?.(SESSION_STORAGE_KEY);
+      if (session) storage?.setItem?.(key, JSON.stringify(session));
+      else storage?.removeItem?.(key);
     }catch(_error){
-      // A blocked sessionStorage means the user signs in again next visit.
+      // Blocked browser storage means the user signs in again next visit.
     }
     return session;
   }
@@ -101,9 +103,11 @@
   function createClient({
     fetchImpl = globalThis.fetch?.bind(globalThis),
     storage = globalThis.sessionStorage,
+    persistentStorage = globalThis.localStorage,
     now = () => Date.now(),
   } = {}){
     let session = null;
+    let persistSession = true;
 
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
@@ -125,14 +129,58 @@
       return payload;
     }
 
+    function persistencePreference(){
+      try{
+        return persistentStorage?.getItem?.(SESSION_PERSISTENCE_KEY) === "session"
+          ? "session"
+          : "persistent";
+      }catch(_error){
+        return "persistent";
+      }
+    }
+
+    function savePersistencePreference(persist){
+      try{
+        persistentStorage?.setItem?.(SESSION_PERSISTENCE_KEY, persist ? "persistent" : "session");
+      }catch(_error){
+        // The chosen mode still applies for the current app process.
+      }
+    }
+
     function saveSession(next){
       session = parseSession(next, now());
-      return storageWrite(storage, session);
+      if (persistSession){
+        storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, session);
+        storageWrite(storage, SESSION_STORAGE_KEY, null);
+      } else {
+        storageWrite(storage, SESSION_STORAGE_KEY, session);
+        storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
+      }
+      return session;
     }
 
     function clearSession(){
       session = null;
-      storageWrite(storage, null);
+      storageWrite(storage, SESSION_STORAGE_KEY, null);
+      storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
+    }
+
+    function restoreStoredSession(){
+      const persistent = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+      if (persistent){
+        persistSession = true;
+        storageWrite(storage, SESSION_STORAGE_KEY, null);
+        return persistent;
+      }
+      const temporary = storageRead(storage, SESSION_STORAGE_KEY);
+      if (!temporary) return null;
+      persistSession = persistencePreference() !== "session";
+      if (persistSession){
+        session = temporary;
+        savePersistencePreference(true);
+        return saveSession(temporary);
+      }
+      return temporary;
     }
 
     async function refreshSession(){
@@ -153,7 +201,7 @@
     }
 
     async function currentSession(){
-      if (!session) session = storageRead(storage);
+      if (!session) session = restoreStoredSession();
       if (!session) return null;
       if (session.expiresAt <= now() + REFRESH_EARLY_MS) await refreshSession();
       return session;
@@ -195,11 +243,13 @@
       async restoreSession(){
         return currentSession();
       },
-      async signIn(email, password){
+      async signIn(email, password, { persist = true } = {}){
         const payload = await jsonRequest("/api/auth", {
           method: "POST",
           body: JSON.stringify({ action: "password-sign-in", email, password }),
         });
+        persistSession = persist !== false;
+        savePersistencePreference(persistSession);
         const saved = saveSession(payload.session);
         if (!saved){
           const error = new Error("The sign-in response did not contain a valid session.");
@@ -231,10 +281,10 @@
           }),
         });
       },
-      async saveState(state){
+      async savePatch(patch){
         const payload = await authenticatedRequest("/api/user-state", {
           method: "PUT",
-          body: JSON.stringify({ state }),
+          body: JSON.stringify({ patch }),
         });
         return {
           user: payload.user,
@@ -255,7 +305,20 @@
       },
       clearSession,
       getSession(){
-        return session ? { ...session } : storageRead(storage);
+        return session ? { ...session } : restoreStoredSession();
+      },
+      prefersPersistentSession(){
+        return persistencePreference() !== "session";
+      },
+      isPersistentSession(){
+        return Boolean(session || restoreStoredSession()) && persistSession;
+      },
+      setSessionPersistence(persist){
+        const active = session || restoreStoredSession();
+        persistSession = persist !== false;
+        savePersistencePreference(persistSession);
+        if (active) saveSession(active);
+        return persistSession;
       },
     });
   }
@@ -263,7 +326,9 @@
   return Object.freeze({
     REFRESH_EARLY_MS,
     PRODUCT_EVENTS_SCHEMA_VERSION,
+    PERSISTENT_SESSION_STORAGE_KEY,
     SESSION_STORAGE_KEY,
+    SESSION_PERSISTENCE_KEY,
     USER_STATE_SCHEMA_VERSION,
     buildUserState,
     createClient,

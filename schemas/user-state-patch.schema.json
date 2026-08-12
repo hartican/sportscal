@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/user-state-patch.schema.json",
+  "title": "nothingsport user-state field patch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "baseUpdatedAt", "changes"],
+  "properties": {
+    "schemaVersion": { "const": "user-state-patch.v1" },
+    "baseUpdatedAt": { "type": ["string", "null"], "format": "date-time" },
+    "changes": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path"],
+        "properties": {
+          "path": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "prefixItems": [{
+              "enum": ["profile", "preferences", "eventUserState", "eventSpoilerState", "archivedEvents", "ratings"]
+            }],
+            "items": { "type": "string", "minLength": 1, "maxLength": 256 }
+          },
+          "value": {},
+          "remove": { "const": true }
+        },
+        "oneOf": [
+          { "required": ["value"] },
+          { "required": ["remove"] }
+        ]
+      }
+    }
+  }
+}

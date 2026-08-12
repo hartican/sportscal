@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v73";
+const CACHE_NAME = "nothingsport-shell-v75";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -12,6 +12,7 @@ const APP_SHELL = [
   "/config/feed-refresh-lifecycle.js",
   "/config/profile-storage.js",
   "/config/product-events.js",
+  "/config/user-state-sync.js",
   "/config/server-sync.js",
   "/config/preference-system.js",
   "/config/swipe-calibration.js",
@@ -35,6 +36,7 @@ const APP_SHELL = [
   "/data/canonical/cwg-context-2026.json",
   "/schemas/preference-graph.schema.json",
   "/schemas/product-events.schema.json",
+  "/schemas/user-state-patch.schema.json",
   "/schemas/enriched-event.schema.json",
   "/schemas/derived-card-cache.schema.json",
   "/schemas/sport-context.schema.json",

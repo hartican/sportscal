@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="73">
+<meta name="app-shell-version" content="75">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4335,6 +4335,7 @@ footer.app-footer{
 <script src="config/feed-refresh-lifecycle.js"></script>
 <script src="config/profile-storage.js"></script>
 <script src="config/product-events.js"></script>
+<script src="config/user-state-sync.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/preference-system.js"></script>
 <script src="config/swipe-calibration.js"></script>
@@ -4613,6 +4614,7 @@ const STORAGE_KEYS = {
 };
 
 const PROFILE_STORAGE = globalThis.NOTHINGSPORTS_PROFILE_STORAGE || null;
+const USER_STATE_SYNC = globalThis.NOTHINGSPORTS_USER_STATE_SYNC || null;
 const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.createClient()
@@ -4678,6 +4680,7 @@ let settingsSelectorCategory = "category:special-events";
 let sportsFollowedTab = "sports";
 let settingsFocusedDomainId = null;
 let draftPreferences = null;
+let settingsDraftBaseline = null;
 let pendingQuickAddDomainId = null;
 let canonicalPreferenceParticipants = [];
 let canonicalSportsData = null;
@@ -4698,6 +4701,9 @@ let selectorOptInViewportAnchor = null;
 let cardViewStates = {};
 let serverSyncApplying = false;
 let serverSyncTimer = null;
+let serverSyncSequence = Promise.resolve();
+let serverStateBaseline = null;
+let startupSessionStateBaseline = null;
 let serverPersistence = {
   configured: false,
   state: serverSyncClient ? "checking" : "local",
@@ -5427,6 +5433,7 @@ let archivedEventRefs = Array.isArray(activeProfileSection("archivedEvents", [])
 let derivedCardCache = loadDerivedCardCache();
 let reminderDeliveryState = readStorage(STORAGE_KEYS.reminderDelivery, {});
 let reminderTimers = [];
+startupSessionStateBaseline = currentServerStatePayload();
 if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
 let activeEvents = EVENTS.slice();
 if (RATING_SYSTEM){
@@ -5552,21 +5559,62 @@ function setServerPersistence(patch){
 
 function currentServerStatePayload(){
   if (!SERVER_SYNC) return null;
+  const profile = activeProfileBundle?.profile || {};
+  const baselineProfile = serverStateBaseline?.state?.profile || {};
+  const baselinePreferences = serverStateBaseline?.state?.preferences || {};
   return SERVER_SYNC.buildUserState({
-    profile: activeProfileBundle?.profile || {},
-    preferences: userPreferences,
+    profile: {
+      ...baselineProfile,
+      usernameLabel: profile.usernameLabel || "Local profile",
+      timezone: profile.timezone || "Australia/Sydney",
+      onboardingCompleted: Boolean(userPreferences.onboardingComplete),
+    },
+    preferences: SERVER_SYNC.mergeSettings(baselinePreferences, userPreferences),
     eventUserState: eventActions,
     eventSpoilerState,
-    archivedEvents: archivedEventRefs,
+    archivedEvents: archivedEventRefs.map(reference => ({
+      canonicalEventId: reference.canonicalEventId,
+      archivedAt: reference.archivedAt,
+      ...(reference.archivedFromCardId ? { archivedFromCardId: reference.archivedFromCardId } : {}),
+      ...(reference.note ? { note: reference.note } : {}),
+    })),
     ratings,
   });
+}
+
+function setServerStateBaseline(state){
+  serverStateBaseline = {
+    state: state
+      ? SERVER_SYNC.buildUserState(state)
+      : emptyServerStatePayload(),
+    updatedAt: state?.updatedAt || null,
+  };
+  return serverStateBaseline;
+}
+
+function emptyServerStatePayload(){
+  return SERVER_SYNC?.buildUserState?.() || {};
+}
+
+function applyServerStatePreservingChanges(state, stateAtSyncStart){
+  const inFlightPatch = USER_STATE_SYNC.createPatch(
+    stateAtSyncStart,
+    currentServerStatePayload(),
+    { baseUpdatedAt: state?.updatedAt || null }
+  );
+  const localState = USER_STATE_SYNC.hasChanges(inFlightPatch)
+    ? USER_STATE_SYNC.applyPatch(state, inFlightPatch)
+    : state;
+  applyServerState(localState);
+  return inFlightPatch;
 }
 
 function queueServerStateSync(){
   if (
     serverSyncApplying
     || !serverSyncClient
-    || serverPersistence.state !== "signedIn"
+    || !serverPersistence.user
+    || ["local", "signedOut", "checking", "requesting"].includes(serverPersistence.state)
   ) return false;
   clearTimeout(serverSyncTimer);
   serverSyncTimer = setTimeout(() => {
@@ -5578,11 +5626,61 @@ function queueServerStateSync(){
   return true;
 }
 
-async function syncCurrentServerState({ notify = false } = {}){
+async function reconcileCurrentServerState({ notify = false } = {}){
   if (!serverSyncClient || !serverPersistence.user) return null;
-  setServerPersistence({ state: "syncing", message: "Saving your latest choices…" });
+  clearTimeout(serverSyncTimer);
+  serverSyncTimer = null;
+  setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
   try{
-    const result = await serverSyncClient.saveState(currentServerStatePayload());
+    const currentState = currentServerStatePayload();
+    const baseline = serverStateBaseline || {
+      state: emptyServerStatePayload(),
+      updatedAt: null,
+    };
+    let localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
+      baseUpdatedAt: baseline.updatedAt,
+    });
+    let latest = await serverSyncClient.loadState();
+
+    if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
+      if (latest.state.updatedAt !== baseline.updatedAt){
+        applyServerStatePreservingChanges(latest.state, currentState);
+      }
+      setServerStateBaseline(latest.state);
+      setServerPersistence({
+        configured: true,
+        state: "signedIn",
+        user: latest.user || serverPersistence.user,
+        lastSyncedAt: latest.state.updatedAt,
+        message: "",
+      });
+      if (notify) showToast("Loaded your latest nothingsport settings.");
+      return latest;
+    }
+
+    if (!latest.state && !USER_STATE_SYNC.hasChanges(localPatch)){
+      localPatch = USER_STATE_SYNC.createPatch(emptyServerStatePayload(), currentState, {
+        baseUpdatedAt: null,
+      });
+    }
+
+    let result = null;
+    for (let attempt = 0; attempt < 3; attempt += 1){
+      const rebasedPatch = {
+        ...localPatch,
+        baseUpdatedAt: latest.state?.updatedAt || null,
+      };
+      try{
+        result = await serverSyncClient.savePatch(rebasedPatch);
+        break;
+      }catch(error){
+        if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
+        latest = await serverSyncClient.loadState();
+      }
+    }
+    if (!result?.state) throw new Error("The server did not return the reconciled profile.");
+    applyServerStatePreservingChanges(result.state, currentState);
+    setServerStateBaseline(result.state);
     const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
     setServerPersistence({
       configured: true,
@@ -5591,7 +5689,7 @@ async function syncCurrentServerState({ notify = false } = {}){
       lastSyncedAt,
       message: "",
     });
-    if (notify) showToast("Your nothingsport profile is synced.");
+    if (notify) showToast("Your latest changes are synced across devices.");
     return result;
   }catch(error){
     const signedOut = error?.status === 401;
@@ -5605,6 +5703,14 @@ async function syncCurrentServerState({ notify = false } = {}){
     if (notify) showToast(serverPersistence.message);
     throw error;
   }
+}
+
+function syncCurrentServerState(options = {}){
+  const run = serverSyncSequence
+    .catch(() => null)
+    .then(() => reconcileCurrentServerState(options));
+  serverSyncSequence = run;
+  return run;
 }
 
 function normalizeServerArchiveReferences(references, profileId){
@@ -5621,25 +5727,7 @@ function applyServerState(state){
   if (!state) return false;
   serverSyncApplying = true;
   try{
-    const mergedPreferences = SERVER_SYNC?.mergeSettings
-      ? SERVER_SYNC.mergeSettings(userPreferences, state.preferences)
-      : { ...userPreferences, ...(state.preferences || {}) };
-    if (mergedPreferences.preferenceGraph && PREFERENCE_SYSTEM?.mergeLearning){
-      mergedPreferences.preferenceGraph.learning = PREFERENCE_SYSTEM.mergeLearning(
-        userPreferences?.preferenceGraph?.learning,
-        state.preferences?.preferenceGraph?.learning
-      );
-    }
-    if (RATING_SYSTEM){
-      mergedPreferences.ratingPromptState = RATING_SYSTEM.startSession(
-        RATING_SYSTEM.mergePromptState(
-          userPreferences?.ratingPromptState,
-          state.preferences?.ratingPromptState
-        ),
-        productEventSessionId
-      );
-    }
-    userPreferences = mergePreferences(mergedPreferences);
+    userPreferences = mergePreferences(state.preferences || {});
     eventActions = state.eventUserState && typeof state.eventUserState === "object"
       ? migrateEventActionRecords(state.eventUserState)
       : {};
@@ -5681,6 +5769,20 @@ function applyServerState(state){
         eventSpoilerState,
         archivedEvents: archivedEventRefs,
       });
+    }
+
+    const settingsOpen = document.getElementById("settingsModal")?.classList.contains("show");
+    if (settingsOpen && draftPreferences && settingsDraftBaseline){
+      const draftPatch = USER_STATE_SYNC.createPatch(
+        { preferences: settingsDraftBaseline },
+        { preferences: draftPreferences }
+      );
+      draftPreferences = USER_STATE_SYNC.applyPatch(
+        { preferences: userPreferences },
+        draftPatch
+      ).preferences;
+      settingsDraftBaseline = clonePreferences(userPreferences);
+      syncDraftPreferenceGraph();
     }
 
     applyThemePreference(userPreferences.theme);
@@ -5726,15 +5828,32 @@ async function bootstrapServerPersistence(){
     });
     const result = await serverSyncClient.loadState();
     if (result.state){
-      applyServerState(result.state);
+      const stateBeforeHydration = currentServerStatePayload();
+      const sessionPatch = USER_STATE_SYNC.createPatch(
+        startupSessionStateBaseline || stateBeforeHydration,
+        stateBeforeHydration,
+        { baseUpdatedAt: result.state.updatedAt }
+      );
+      const hydratedState = USER_STATE_SYNC.hasChanges(sessionPatch)
+        ? USER_STATE_SYNC.applyPatch(result.state, sessionPatch)
+        : result.state;
+      applyServerState(hydratedState);
+      setServerStateBaseline(result.state);
       setServerPersistence({
         state: "signedIn",
         user: result.user || user,
         lastSyncedAt: result.state.updatedAt,
         message: "",
       });
+      startupSessionStateBaseline = null;
+      if (USER_STATE_SYNC.hasChanges(sessionPatch)) await syncCurrentServerState();
     } else {
       setServerPersistence({ state: "signedIn", user, message: "" });
+      serverStateBaseline = {
+        state: emptyServerStatePayload(),
+        updatedAt: null,
+      };
+      startupSessionStateBaseline = null;
       await syncCurrentServerState();
     }
   }catch(error){
@@ -10420,6 +10539,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   if (!firstRun && section === "tune") tuneSectionIndex = 0;
   settingsSection = firstRun ? ONBOARDING_SECTIONS[settingsWizardStep] : section;
   draftPreferences = clonePreferences(userPreferences);
+  settingsDraftBaseline = clonePreferences(userPreferences);
   if (firstRun){
     draftPreferences.selectedBroadcasters = Object.keys(BROADCASTER_LIBRARY);
   }
@@ -10449,6 +10569,7 @@ function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   settingsFocusedDomainId = null;
   sportsFollowedTab = "sports";
   draftPreferences = null;
+  settingsDraftBaseline = null;
   settingsViewportAnchor = null;
   if (restoreViewport) restoreViewportAnchorAfterLayout(viewportAnchor);
   setTimeout(openSelectorOptInPrompt, 0);
@@ -10571,7 +10692,7 @@ function renderAccountSettings(body){
         <span class="account-sync-dot${dotClass}" aria-hidden="true"></span>
         <div><strong>${heading}</strong><span id="accountSyncDetail"></span></div>
       </div>
-      <p class="preference-help">Preferences, followed teams and competitors, saved Archive cards, results, standings and Calendar sync settings follow your account. Disposable feed cards stay local and rebuild from source data.</p>
+      <p class="preference-help">Preferences, followed teams and competitors, saved Archive cards, results, standings and Calendar sync settings follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable feed cards stay local and rebuild from source data.</p>
       <div id="accountSyncControls"></div>
     </div>
   </div>`;
@@ -10583,6 +10704,21 @@ function renderAccountSettings(body){
     identity.className = "preference-help";
     identity.textContent = `Signed in as ${serverPersistence.user.email || "your account"}.`;
     controls.appendChild(identity);
+    const persistentSession = Boolean(serverSyncClient?.isPersistentSession?.());
+    const persistenceControl = document.createElement("label");
+    persistenceControl.className = "pilot-disclosure";
+    persistenceControl.htmlFor = "keepAccountSignedIn";
+    persistenceControl.innerHTML = `<input id="keepAccountSignedIn" type="checkbox" ${persistentSession ? "checked" : ""}>
+      <span><strong>Keep me signed in on this device</strong>${persistentSession ? "This device securely retains the Supabase session; your password is never saved by nothingsport." : "Your account remains signed in only until this browser or Home Screen app session ends."}</span>`;
+    controls.appendChild(persistenceControl);
+    document.getElementById("keepAccountSignedIn").addEventListener("change", event => {
+      const persist = event.target.checked;
+      serverSyncClient.setSessionPersistence(persist);
+      showToast(persist
+        ? "This device will keep you signed in."
+        : "This device will forget the session when the app closes.");
+      renderSettingsScreen();
+    });
     const actions = document.createElement("div");
     actions.className = "account-sync-actions";
     actions.innerHTML = `<button class="btn primary" type="button" id="syncAccountNowBtn" ${state === "syncing" ? "disabled" : ""}>${state === "syncing" ? "Syncing…" : "Sync now"}</button>
@@ -10604,6 +10740,8 @@ function renderAccountSettings(body){
         lastSyncedAt: null,
         message: "",
       });
+      serverStateBaseline = null;
+      startupSessionStateBaseline = currentServerStatePayload();
       showToast("Signed out. Your local copy remains on this device.");
     });
     return;
@@ -10618,15 +10756,20 @@ function renderAccountSettings(body){
     <label class="field-label" for="accountPassword">Password
       <input id="accountPassword" type="password" autocomplete="current-password" maxlength="1024" required>
     </label>
+    <label class="pilot-disclosure" for="keepAccountSignedIn">
+      <input id="keepAccountSignedIn" type="checkbox" ${serverSyncClient?.prefersPersistentSession?.() !== false ? "checked" : ""}>
+      <span><strong>Keep me signed in on this device</strong>Stores a rotating Supabase session locally after sign-in. Nothingsport does not save your password.</span>
+    </label>
     <button class="btn primary" type="submit">Sign in</button>
   </form>`;
   document.getElementById("accountSignInForm").addEventListener("submit", async event => {
     event.preventDefault();
     const email = document.getElementById("accountEmail").value.trim();
     const password = document.getElementById("accountPassword").value;
+    const persist = document.getElementById("keepAccountSignedIn").checked;
     setServerPersistence({ state: "requesting", message: "" });
     try{
-      await serverSyncClient.signIn(email, password);
+      await serverSyncClient.signIn(email, password, { persist });
       await bootstrapServerPersistence();
       showToast(serverPersistence.user
         ? "Signed in. Your nothingsport profile is connected."
@@ -11514,8 +11657,16 @@ function saveSettingsPreferences(){
   const viewportAnchor = settingsViewportAnchor;
   draftPreferences.onboardingComplete = true;
   syncDraftSelectorSports();
-  draftPreferences.showSpoilers = userPreferences.showSpoilers;
-  savePreferences(draftPreferences);
+  const settingsPatch = USER_STATE_SYNC?.createPatch
+    ? USER_STATE_SYNC.createPatch(
+        { preferences: settingsDraftBaseline || userPreferences },
+        { preferences: draftPreferences }
+      )
+    : null;
+  const reconciledDraft = settingsPatch
+    ? USER_STATE_SYNC.applyPatch({ preferences: userPreferences }, settingsPatch).preferences
+    : draftPreferences;
+  savePreferences(reconciledDraft);
   writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
   applyThemePreference(userPreferences.theme);
   closeSettings({ restoreTheme: false, restoreViewport: false });
@@ -11525,7 +11676,7 @@ function saveSettingsPreferences(){
 
 function advanceOnboardingOrSave(){
   if (!settingsFirstRun){
-    if (settingsSection === "tune"){
+    if (["tune", "account"].includes(settingsSection)){
       closeSettings();
       return;
     }

@@ -16,6 +16,8 @@ assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.j
 assert(localSteps.some(step => step[0] === "scripts/verify-pilot-readiness.js"), "every canonical update must enforce fresh complete current/next-round pilot coverage");
 assert(localSteps.some(step => step[0] === "scripts/validate-pilot-readout.js"), "every canonical update must enforce the fourteen-day cohort readout and decision gate");
 assert(localSteps.some(step => step[0] === "scripts/validate-product-events.js"), "every canonical update must enforce the authenticated pilot event contract");
+assert(localSteps.some(step => step[0] === "scripts/validate-cross-device-sync.js"), "every canonical update must enforce cross-device field-level reconciliation");
+assert(localSteps.some(step => step[0] === "scripts/validate-server-persistence.js"), "every canonical update must enforce durable trusted-device sessions and session-only opt-out");
 assert(localSteps.some(step => step[0] === "scripts/validate-swipe-learning.js"), "every canonical update must enforce bounded swipe learning and complete-fixture isolation");
 assert(localSteps.some(step => step[0] === "scripts/validate-tuning-ratings.js"), "every canonical update must enforce fine-tuning, compatible five-star ratings, and prompt fatigue controls");
 assert(localSteps.some(step => step[0] === "scripts/verify-nothingsport.js"), "every canonical update must enforce focused-sport retention and interface regressions");

@@ -96,6 +96,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-swipe-learning.js"],
   ["scripts/validate-tuning-ratings.js"],
   ["scripts/validate-product-events.js"],
+  ["scripts/validate-cross-device-sync.js"],
+  ["scripts/validate-server-persistence.js"],
   ["scripts/verify-nothingsport.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);
