@@ -42,7 +42,7 @@ assert(localSteps.some(step => step[0] === "scripts/verify-pilot-readiness.js"),
 assert(localSteps.some(step => step[0] === "scripts/validate-pilot-readout.js"), "every canonical update must validate the on-demand cohort measurement report");
 assert(localSteps.some(step => step[0] === "scripts/build-discovery-dashboard.js" && step.length === 1), "every canonical update must record the current coverage baseline and rebuild the no-user-data discovery dashboard");
 assert(localSteps.some(step => step[0] === "scripts/build-discovery-dashboard.js" && step.includes("--check")), "every canonical update must reject stale Phase 6 measurement artifacts");
-assert(localSteps.some(step => step[0] === "scripts/validate-discovery-measurement.js"), "every canonical update must enforce evidence-gated discovery tuning and keep unapproved action metrics pending");
+assert(localSteps.some(step => step[0] === "scripts/validate-discovery-measurement.js"), "every canonical update must enforce evidence-gated discovery tuning and keep empty action samples insufficient");
 assert(localSteps.some(step => step[0] === "scripts/validate-product-events.js"), "every canonical update must enforce the authenticated pilot event contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-cross-device-sync.js"), "every canonical update must enforce cross-device field-level reconciliation");
 assert(localSteps.some(step => step[0] === "scripts/validate-server-persistence.js"), "every canonical update must enforce durable trusted-device sessions and session-only opt-out");

@@ -69,6 +69,9 @@ async function run(){
     "opportunity_exposed",
     "fixture_check",
     "watch_decision",
+    "feed_action",
+    "preference_change",
+    "feed_control_change",
     "swipe",
     "rating",
     "tune_prompt",
@@ -89,9 +92,35 @@ async function run(){
       presentation: "card",
       position: 1,
       feedBucket: "new",
+      recommendationClass: "discovery",
+      coldStart: true,
     },
   }));
   assert.equal(versionedExposure.properties.pilotVersion, "trust-pilot.v1");
+  assert.equal(versionedExposure.properties.recommendationClass, "discovery");
+  assert.equal(versionedExposure.properties.coldStart, true);
+  assert.equal(PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "feed_action",
+    properties: { action: "open", recommendationClass: "discovery", coldStart: true },
+  })).properties.action, "open");
+  assert.equal(PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "preference_change",
+    surface: "settings",
+    canonicalEventId: undefined,
+    properties: { action: "unfollow", targetType: "competition", coldStart: true },
+  })).properties.targetType, "competition");
+  assert.equal(PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "feed_control_change",
+    properties: { control: "froth", value: "balanced", coldStart: false },
+  })).properties.value, "balanced");
+  assert.throws(() => PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "feed_control_change",
+    properties: { control: "froth", value: "ppv", coldStart: false },
+  })), /value is invalid for properties\.control/i, "feed-control values must match their categorical control");
+  assert.throws(() => PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "feed_action",
+    properties: { action: "open" },
+  })), /recommendationClass is required/i, "approved feed actions must carry recommendation context");
   const rows = PRODUCT_EVENTS.rowsForUser(normalized, "11111111-1111-4111-8111-111111111111");
   assert.equal(rows[0].user_id, "11111111-1111-4111-8111-111111111111");
   assert.equal(rows[0].client_event_id, "event-00000001");
@@ -104,6 +133,10 @@ async function run(){
     schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION,
     events: [event({ properties: { freeText: "call me" } })],
   }), /unsupported field: freeText/i, "properties must reject free text");
+  assert.throws(() => PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "feed_action",
+    properties: { action: "open", recommendationClass: "discovery", coldStart: "yes" },
+  })), /coldStart is invalid/i, "cold-start state must remain categorical");
   assert.throws(() => PRODUCT_EVENTS.normalizeBatch({
     schemaVersion: PRODUCT_EVENTS.SCHEMA_VERSION,
     events: Array.from({ length: 21 }, (_, index) => event({ clientEventId: `event-${String(index).padStart(8, "0")}` })),
@@ -261,12 +294,16 @@ async function run(){
   const surfaceConstraintUpgrade = sql.indexOf("add constraint product_events_surface_check");
   assert(eventConstraintUpgrade > originalCreateEnd && surfaceConstraintUpgrade > originalCreateEnd, "existing tables must receive explicit post-create contract upgrades");
   assert.match(sql, /octet_length\(properties::text\) <= 512/i);
+  assert.match(sql, /drop constraint if exists product_events_properties_contract_check/i, "the database property contract must be safely rerunnable");
+  assert.match(sql, /properties - array\['action', 'recommendationClass', 'coldStart'\] = '\{\}'::jsonb/i, "direct Data API feed actions must reject unknown properties");
   const rlsVerification = fs.readFileSync("supabase/verify-product-events.sql", "utf8");
   assert.match(rlsVerification, /offset 1 limit 1/i, "RLS verification must use two different Auth users");
   assert.match(rlsVerification, /set local role authenticated/i);
   assert.match(rlsVerification, /RLS isolation failed/i);
   assert.match(rlsVerification, /'verify-weekly-pulse'[\s\S]+'weekly_pulse'[\s\S]+'weekly_pulse'/i, "the live database verification must exercise the weekly pulse event and surface");
   assert.match(rlsVerification, /"surveyVersion":"weekly-pulse\.v1"/i, "the live pulse verification must exercise explicit survey-version reporting");
+  assert.match(rlsVerification, /'verify-discovery-open'[\s\S]+'feed_action'[\s\S]+"recommendationClass":"discovery"/i, "the live database verification must exercise an approved categorical discovery action");
+  assert.match(rlsVerification, /'verify-free-text-rejected'[\s\S]+when check_violation then null/i, "the live database verification must prove arbitrary text cannot persist");
   assert.match(rlsVerification, /rollback;/i, "RLS verification must leave no test row behind");
   const hardeningSql = fs.readFileSync("supabase/harden-nothingsports-security.sql", "utf8");
   assert.match(hardeningSql, /to_regprocedure\('public\.rls_auto_enable\(\)'\)/i, "security hardening must be idempotent when the helper is absent");
@@ -299,10 +336,13 @@ async function run(){
   assert(html.includes("participationStartedAt") && PRODUCT_EVENTS.participationStartedAt({ acknowledgedAt: "2026-08-10T00:00:00.000Z" }), "legacy acknowledgements must migrate to participationStartedAt");
   assert(html.includes('Fill out this 2-minute survey'));
   assert(html.includes('registerWeeklyPulseAppOpen()'), "app startup must advance the versioned survey counter");
-  assert(html.includes("No free text, messages, precise location or contact information"));
+  assert(html.includes("No free text, messages, credentials, precise location, contact information or client-supplied user IDs"));
   assert(html.includes('eventName: "opportunity_exposed"'));
   assert(html.includes('eventName: "fixture_check"'));
-  assert(!html.includes('eventName: "watch_decision"'), "passive card opens and swipes must not fabricate watch decisions");
+  assert(html.includes('eventName: "watch_decision"'), "genuine reminder and watched actions must emit watch decisions");
+  assert(html.includes('if (!reminderOn) recordWatchDecision(ev, "remind")'), "removing a reminder must not fabricate a watch decision");
+  assert(html.includes('recordEventFeedAction(ev, "open", options)'), "card expansion must emit a separate categorical open action");
+  assert(html.includes('eventName: "preference_change"') && html.includes('eventName: "feed_control_change"'), "approved preference and feed-control actions must be instrumented");
   assert(html.includes('eventName: "weekly_pulse"'));
   assert(html.includes('clientEventId: `weekly_pulse_${currentSurveyId.replace(/[^A-Za-z0-9:_-]/g, "_")}`'), "weekly pulse retries must deduplicate per pilot user and survey release");
   assert(html.includes('if (!result?.sent) throw new Error("The weekly pulse was not confirmed.")'), "the pulse UI must wait for a confirmed queue drain before marking the week complete");

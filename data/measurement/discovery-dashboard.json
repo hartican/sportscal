@@ -135,8 +135,8 @@
     ]
   },
   "behaviour": {
-    "status": "instrumentation_pending",
-    "instrumentationStatus": "pending_approval",
+    "status": "insufficient_data",
+    "instrumentationStatus": "active",
     "missingAggregateFields": [],
     "minimumDiscoveryExposuresForReview": 20,
     "discovery": {
@@ -154,13 +154,13 @@
       "negativeActionRatePercent": null
     },
     "negativeFeedback": {
-      "status": "partial_existing_swipe_signal",
+      "status": "insufficient_data",
       "bySport": [],
       "byCompetition": [],
-      "note": "Existing left-swipe aggregates are available; explicit hide and unfollow events require the pending contract extension."
+      "note": "Discovery negatives combine left swipes with explicit unfollows; rates use discovery opportunity exposures in the same sport or competition as the denominator."
     },
     "satisfactionProxy": {
-      "status": "instrumentation_pending",
+      "status": "insufficient_data",
       "saves": 0,
       "reminders": 0,
       "watchThroughs": 0,
@@ -168,7 +168,7 @@
       "ratePercent": null
     },
     "coldStartDiversity": {
-      "status": "instrumentation_pending",
+      "status": "insufficient_data",
       "exposureCount": 0,
       "distinctSportCount": 0,
       "ratePercent": null,
@@ -195,13 +195,13 @@
       {
         "area": "froth_default",
         "decision": "hold",
-        "evidenceStatus": "instrumentation_pending",
+        "evidenceStatus": "insufficient_data",
         "rationale": "The discovery action sample is not sufficient to justify changing the balanced mix or first-impression cap."
       },
       {
         "area": "first_impression_discovery_cap",
         "decision": "hold",
-        "evidenceStatus": "instrumentation_pending",
+        "evidenceStatus": "insufficient_data",
         "rationale": "Keep the current cap of 1 in the first 10 until discovery engagement and negative feedback are both measurable."
       },
       {
@@ -226,6 +226,6 @@
   "notes": [
     "A zero current missing-marquee rate is a baseline, not proof of a downward trend.",
     "No tuning recommendation is applied automatically.",
-    "Missing or unapproved action instrumentation is reported explicitly instead of inferred from other events."
+    "Behavioural rates use only approved categorical action events and are never inferred from ratings or passive fixture checks."
   ]
 }

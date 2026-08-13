@@ -18,7 +18,7 @@
         "properties": {
           "clientEventId": { "type": "string", "minLength": 8, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]+$" },
           "eventName": {
-            "enum": ["opportunity_exposed", "fixture_check", "watch_decision", "swipe", "rating", "tune_prompt", "tune_session", "weekly_pulse"]
+            "enum": ["opportunity_exposed", "fixture_check", "watch_decision", "feed_action", "preference_change", "feed_control_change", "swipe", "rating", "tune_prompt", "tune_session", "weekly_pulse"]
           },
           "occurredAt": { "type": "string", "format": "date-time", "maxLength": 40 },
           "sessionId": { "type": "string", "minLength": 8, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]+$" },

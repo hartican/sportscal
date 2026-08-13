@@ -12,6 +12,9 @@ create table if not exists public.product_events (
       'opportunity_exposed',
       'fixture_check',
       'watch_decision',
+      'feed_action',
+      'preference_change',
+      'feed_control_change',
       'swipe',
       'rating',
       'tune_prompt',
@@ -92,6 +95,9 @@ alter table public.product_events
     'opportunity_exposed',
     'fixture_check',
     'watch_decision',
+    'feed_action',
+    'preference_change',
+    'feed_control_change',
     'swipe',
     'rating',
     'tune_prompt',
@@ -114,6 +120,93 @@ alter table public.product_events
     'tune',
     'archive'
   ));
+
+-- Keep direct Data API inserts inside the same categorical contract enforced by
+-- api/product-events.js. Legacy event properties remain optional for backward
+-- compatibility; new action properties are required. Unknown keys and arbitrary
+-- property strings are rejected in Postgres too.
+alter table public.product_events
+  drop constraint if exists product_events_properties_contract_check;
+
+alter table public.product_events
+  add constraint product_events_properties_contract_check
+  check (
+    case event_name
+      when 'opportunity_exposed' then
+        properties - array['pilotVersion', 'presentation', 'position', 'feedBucket', 'recommendationClass', 'coldStart'] = '{}'::jsonb
+        and (not properties ? 'pilotVersion' or properties ->> 'pilotVersion' in ('trust-pilot.v1'))
+        and (not properties ? 'presentation' or properties ->> 'presentation' in ('card', 'round_summary'))
+        and (not properties ? 'position' or jsonb_typeof(properties -> 'position') = 'number')
+        and (not properties ? 'feedBucket' or properties ->> 'feedBucket' in ('new', 'pinned', 'seen', 'upcoming', 'past'))
+        and (not properties ? 'recommendationClass' or properties ->> 'recommendationClass' in ('direct', 'adjacent', 'discovery'))
+        and (not properties ? 'coldStart' or jsonb_typeof(properties -> 'coldStart') = 'boolean')
+      when 'fixture_check' then
+        properties - array['entry', 'roundNumber'] = '{}'::jsonb
+        and (not properties ? 'entry' or properties ->> 'entry' in ('round_summary', 'sport_filter', 'hub_tab', 'round_picker', 'fixture_row'))
+        and (not properties ? 'roundNumber' or jsonb_typeof(properties -> 'roundNumber') = 'number')
+      when 'watch_decision' then
+        properties - array['decision'] = '{}'::jsonb
+        and (not properties ? 'decision' or properties ->> 'decision' in ('watch', 'skip', 'remind', 'calendar'))
+      when 'feed_action' then
+        properties - array['action', 'recommendationClass', 'coldStart'] = '{}'::jsonb
+        and properties ->> 'action' in ('open', 'save', 'reminder', 'reminder_removed', 'watched', 'archive', 'reinstate')
+        and properties ->> 'recommendationClass' in ('direct', 'adjacent', 'discovery')
+        and jsonb_typeof(properties -> 'coldStart') = 'boolean'
+      when 'preference_change' then
+        properties - array['action', 'targetType', 'coldStart'] = '{}'::jsonb
+        and properties ->> 'action' in ('follow', 'unfollow')
+        and properties ->> 'targetType' in ('sport', 'competition', 'team', 'player', 'event_family')
+        and jsonb_typeof(properties -> 'coldStart') = 'boolean'
+      when 'feed_control_change' then
+        properties - array['control', 'value', 'coldStart'] = '{}'::jsonb
+        and properties ->> 'control' in ('froth', 'scope', 'availability', 'timing', 'stakes', 'spoilers')
+        and properties ->> 'value' in (
+          'low', 'balanced', 'high', 'maximum',
+          'following', 'for_you', 'explore',
+          'any', 'free', 'included', 'ppv',
+          'live_now', 'tonight', 'this_week', 'overnight',
+          'everything', 'important', 'must_watch',
+          'strict', 'standard', 'results_visible'
+        )
+        and case properties ->> 'control'
+          when 'froth' then properties ->> 'value' in ('low', 'balanced', 'high', 'maximum')
+          when 'scope' then properties ->> 'value' in ('following', 'for_you', 'explore')
+          when 'availability' then properties ->> 'value' in ('any', 'free', 'included', 'ppv')
+          when 'timing' then properties ->> 'value' in ('any', 'live_now', 'tonight', 'this_week', 'overnight')
+          when 'stakes' then properties ->> 'value' in ('everything', 'important', 'must_watch')
+          when 'spoilers' then properties ->> 'value' in ('strict', 'standard', 'results_visible')
+          else false
+        end
+        and jsonb_typeof(properties -> 'coldStart') = 'boolean'
+      when 'swipe' then
+        properties - array['direction', 'targetType', 'recommendationClass', 'coldStart'] = '{}'::jsonb
+        and (not properties ? 'direction' or properties ->> 'direction' in ('positive', 'negative', 'skip'))
+        and (not properties ? 'targetType' or properties ->> 'targetType' in ('sport', 'competition', 'team', 'player', 'event', 'event_family'))
+        and (not properties ? 'recommendationClass' or properties ->> 'recommendationClass' in ('direct', 'adjacent', 'discovery'))
+        and (not properties ? 'coldStart' or jsonb_typeof(properties -> 'coldStart') = 'boolean')
+      when 'rating' then
+        properties - array['action', 'score'] = '{}'::jsonb
+        and (not properties ? 'action' or properties ->> 'action' in ('shown', 'dismissed', 'rated'))
+        and (not properties ? 'score' or jsonb_typeof(properties -> 'score') = 'number')
+      when 'tune_prompt' then
+        properties - array['action', 'dislikeCount'] = '{}'::jsonb
+        and (not properties ? 'action' or properties ->> 'action' in ('shown', 'accepted', 'dismissed'))
+        and (not properties ? 'dislikeCount' or jsonb_typeof(properties -> 'dislikeCount') = 'number')
+      when 'tune_session' then
+        properties - array['action', 'interactionCount'] = '{}'::jsonb
+        and (not properties ? 'action' or properties ->> 'action' in ('started', 'completed', 'exited'))
+        and (not properties ? 'interactionCount' or jsonb_typeof(properties -> 'interactionCount') = 'number')
+      when 'weekly_pulse' then
+        properties - array['surveyVersion', 'pilotCohort', 'crossCheck', 'missedFixtures', 'feedClutter', 'trustConfidence'] = '{}'::jsonb
+        and (not properties ? 'surveyVersion' or properties ->> 'surveyVersion' in ('weekly-pulse.v1'))
+        and (not properties ? 'pilotCohort' or properties ->> 'pilotCohort' in ('curator', 'hybrid', 'completist'))
+        and (not properties ? 'crossCheck' or properties ->> 'crossCheck' in ('never', 'once', 'multiple'))
+        and (not properties ? 'missedFixtures' or properties ->> 'missedFixtures' in ('none', 'one', 'multiple'))
+        and (not properties ? 'feedClutter' or properties ->> 'feedClutter' in ('too_sparse', 'about_right', 'too_busy'))
+        and (not properties ? 'trustConfidence' or properties ->> 'trustConfidence' in ('low', 'medium', 'high'))
+      else false
+    end
+  );
 
 create index if not exists product_events_user_occurred_at_idx
   on public.product_events (user_id, occurred_at desc);

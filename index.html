@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="84">
+<meta name="app-shell-version" content="85">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -5820,6 +5820,54 @@ function productEventContextForEvent(event){
   };
 }
 
+function productMeasurementIsColdStart(preferences = userPreferences){
+  const signals = preferences?.preferenceGraph?.learning?.signals;
+  const interactionCount = Math.max(
+    Array.isArray(signals) ? signals.length : 0,
+    Number(preferences?.preferenceGraph?.learning?.tuningInteractionCount || 0)
+  );
+  return interactionCount < 10;
+}
+
+function productRecommendationContext(event, options = {}){
+  const recommendationClass = options.recommendationClass || eventRecommendationClassification(event);
+  return {
+    ...(["direct", "adjacent", "discovery"].includes(recommendationClass)
+      ? { recommendationClass }
+      : {}),
+    coldStart: options.coldStart === undefined
+      ? productMeasurementIsColdStart()
+      : Boolean(options.coldStart),
+  };
+}
+
+function eventFeedActionSurface(options = {}){
+  if (options.archived) return "archive";
+  if (activeSportHubKey()) return "sport_hub";
+  return activeTab === "feed" ? "curated_feed" : "event_card";
+}
+
+function recordEventFeedAction(event, action, options = {}){
+  return recordProductEvent({
+    eventName: "feed_action",
+    surface: options.surface || eventFeedActionSurface(options),
+    ...productEventContextForEvent(event),
+    properties: {
+      action,
+      ...productRecommendationContext(event, options),
+    },
+  });
+}
+
+function recordWatchDecision(event, decision, options = {}){
+  return recordProductEvent({
+    eventName: "watch_decision",
+    surface: options.surface || eventFeedActionSurface(options),
+    ...productEventContextForEvent(event),
+    properties: { decision },
+  });
+}
+
 function recordProductEvent(input){
   if (!pilotMeasurementEligible()) return null;
   try{
@@ -7421,6 +7469,7 @@ function setEventRating(ev, value, { revealSpoilers = true } = {}){
 
 function archiveEvent(ev, { preserve = false } = {}){
   if (preserve && getActual(ev.id) === null) return false;
+  const recommendationContext = productRecommendationContext(ev);
   if (getEventStatus(ev) === "past") markSpoilerRevealed(ev);
   if (CARD_LIFECYCLE){
     saveArchivedEventRefs(CARD_LIFECYCLE.archiveReference(archivedEventRefs, ev, {
@@ -7429,14 +7478,18 @@ function archiveEvent(ev, { preserve = false } = {}){
     }));
   }
   updateEventAction(ev, { archived: true, saved: preserve, watchLater: false, mustWatch: false });
+  recordEventFeedAction(ev, preserve ? "save" : "archive", recommendationContext);
   return true;
 }
 
 function reinstateArchivedEvent(ev){
+  const recommendationContext = productRecommendationContext(ev);
   if (CARD_LIFECYCLE){
     saveArchivedEventRefs(CARD_LIFECYCLE.removeArchiveReference(archivedEventRefs, ev.eventId || ev.id));
   }
-  return updateEventAction(ev, { archived: false, saved: false });
+  const updated = updateEventAction(ev, { archived: false, saved: false });
+  recordEventFeedAction(ev, "reinstate", { ...recommendationContext, surface: "archive" });
+  return updated;
 }
 
 function dayDateLabel(dateStr){
@@ -7516,7 +7569,10 @@ function buildEventActionPanel(ev, options = {}){
     if (getEventStatus(ev) !== "past"){
       const reminderOn = Boolean(getEventAction(ev).mustWatch);
       makeActionButton(reminderOn ? "Reminder on" : "Remind me", reminderOn ? "active" : "", () => {
+        const recommendationContext = productRecommendationContext(ev);
         updateEventAction(ev, { mustWatch: !reminderOn, reminderRequested: !reminderOn });
+        recordEventFeedAction(ev, reminderOn ? "reminder_removed" : "reminder", recommendationContext);
+        if (!reminderOn) recordWatchDecision(ev, "remind");
         renderCurrentSection();
         showToast(!reminderOn ? `Reminder set for ${ev.name}.` : `Reminder removed for ${ev.name}.`);
       });
@@ -7537,7 +7593,10 @@ function buildEventActionPanel(ev, options = {}){
       }
       if (!getEventAction(ev).watched){
         makeActionButton("Mark watched", "", () => {
+          const recommendationContext = productRecommendationContext(ev);
           updateEventAction(ev, { watched: true, watchedAt: new Date().toISOString() });
+          recordEventFeedAction(ev, "watched", recommendationContext);
+          recordWatchDecision(ev, "watch");
           renderCurrentSection();
           showToast(`Marked ${ev.name} as watched.`);
         });
@@ -7801,6 +7860,11 @@ function updateFeedControl(key, value){
   const showSpoilers = controls.spoilers === "results_visible";
   if (key === "spoilers" && controls.spoilers === "strict") clearShownSpoilerOverrides();
   savePreferences({ ...userPreferences, feedControls: controls, showSpoilers });
+  recordProductEvent({
+    eventName: "feed_control_change",
+    surface: "curated_feed",
+    properties: { control: key, value: controls[key], coldStart: productMeasurementIsColdStart() },
+  });
   if (key === "spoilers") applyGlobalSpoilerPolicy(showSpoilers, previousSpoilers === "results_visible");
   renderAll({ preserveViewport: true });
 }
@@ -8741,6 +8805,7 @@ function recordTunePromptAction(action){
 
 function applyCuratedEventSwipe(ev, direction){
   if (!PREFERENCE_SYSTEM || !["positive", "negative"].includes(direction)) return;
+  const recommendationContext = productRecommendationContext(ev);
   const target = SWIPE_CALIBRATION?.primaryTargetForEvent?.(ev) || {
     targetType: "event",
     targetId: String(ev.eventId || ev.id),
@@ -8762,7 +8827,7 @@ function applyCuratedEventSwipe(ev, direction){
     eventName: "swipe",
     surface: "curated_feed",
     ...productEventContextForEvent(ev),
-    properties: { direction, targetType: target.targetType },
+    properties: { direction, targetType: target.targetType, ...recommendationContext },
   });
   if (direction === "negative") sessionDismissedEventIds.add(String(ev.eventId || ev.id));
   if (showTunePrompt) suppressSessionRatingPrompt();
@@ -8831,7 +8896,11 @@ function buildEventCard(ev, options = {}){
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
   const advanceCardState = () => {
-    if (state === "compact") sessionOpenedEventIds.add(String(ev.eventId || ev.id));
+    if (state === "compact"){
+      const eventId = String(ev.eventId || ev.id);
+      if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", options);
+      sessionOpenedEventIds.add(eventId);
+    }
     setCardState(ev, nextCardState(state));
     renderCurrentSection();
   };
@@ -9137,6 +9206,7 @@ function buildEventCard(ev, options = {}){
         pilotVersion: "trust-pilot.v1",
         presentation: "card",
         feedBucket: presentation.feedBucket,
+        ...productRecommendationContext(ev),
       },
     });
   }
@@ -11450,7 +11520,7 @@ function renderPilotSettings(body){
       <p class="preference-help">Signed-in measurement is active automatically to help test whether nothingsport becomes the place you check before deciding what to watch. Turning it off stops future measurement and clears anything waiting to send; the app remains fully usable.</p>
       <label class="pilot-disclosure" for="pilotMeasurementEnabled">
         <input id="pilotMeasurementEnabled" type="checkbox" ${enabled ? "checked" : ""}>
-        <span><strong>Product measurement active</strong>Share fixed interaction events for viewed opportunities, fixture checks, genuine watch decisions, swipes, ratings, tune prompts and the current pulse. No free text, messages, precise location or contact information is stored in product events.</span>
+        <span><strong>Product measurement active</strong>Share fixed categorical events for viewed opportunities, fixture checks, card opens, save/archive/reinstate, reminder changes, watched, follow/unfollow, swipes, feed-control changes, ratings, tune prompts and the current pulse. Event context is limited to sport, competition/event IDs, recommendation class and cold-start state. No free text, messages, credentials, precise location, contact information or client-supplied user IDs are stored in product events.</span>
       </label>
       <p class="preference-help" id="pilotMeasurementStatus" role="status" aria-live="polite">${enabled ? `Participating since ${new Date(pilot.participationStartedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}. Events are attached to your signed-in account.` : "Measurement is off."}</p>
     </div>
@@ -12294,6 +12364,71 @@ function renderFifaSegments(filterName, options, activeValue){
   });
 }
 
+function productSportForPreferenceIdentifier(identifier){
+  const selector = selectorEntityById(identifier);
+  const selectorSport = selectorEntityCanonicalSportKeys(selector).find(key => SPORT_META[key]);
+  if (selectorSport) return selectorSport;
+  return String(identifier || "")
+    .split(":")
+    .reverse()
+    .find(key => SPORT_META[key]) || null;
+}
+
+function recordPreferenceChange(action, targetType, context = {}){
+  return recordProductEvent({
+    eventName: "preference_change",
+    surface: "settings",
+    ...(context.sport ? { sport: context.sport } : {}),
+    ...(context.competitionId ? { competitionId: context.competitionId } : {}),
+    properties: { action, targetType, coldStart: productMeasurementIsColdStart() },
+  });
+}
+
+function recordSavedPreferenceChanges(previous, next){
+  const previousDomains = new Set(selectedPreferenceDomainIds(previous));
+  const nextDomains = new Set(selectedPreferenceDomainIds(next));
+  new Set([...previousDomains, ...nextDomains]).forEach(domainId => {
+    const wasFollowed = previousDomains.has(domainId);
+    const isFollowed = nextDomains.has(domainId);
+    if (wasFollowed === isFollowed) return;
+    recordPreferenceChange(isFollowed ? "follow" : "unfollow", domainId.startsWith("sport:") ? "sport" : "event_family", {
+      sport: productSportForPreferenceIdentifier(domainId),
+    });
+  });
+
+  const competitionIds = new Set([
+    ...(previous?.preferenceGraph?.competitionPreferences || []).map(item => item.competitionId),
+    ...(next?.preferenceGraph?.competitionPreferences || []).map(item => item.competitionId),
+  ].filter(Boolean));
+  competitionIds.forEach(competitionId => {
+    const previousPreference = previous?.preferenceGraph?.competitionPreferences?.find(item => item.competitionId === competitionId);
+    const nextPreference = next?.preferenceGraph?.competitionPreferences?.find(item => item.competitionId === competitionId);
+    const wasFollowed = previousPreference?.enabled !== false;
+    const isFollowed = nextPreference?.enabled !== false;
+    if (wasFollowed === isFollowed) return;
+    const competition = canonicalSportsData?.competitions?.find(item => item.id === competitionId);
+    recordPreferenceChange(isFollowed ? "follow" : "unfollow", "competition", {
+      competitionId,
+      sport: productSportForPreferenceIdentifier(competition?.preferenceDomainId || competition?.sportDomainId),
+    });
+  });
+
+  const previousFollows = new Map((previous?.preferenceGraph?.entityFollows || []).map(item => [item.participantId, item.followLevel]));
+  const nextFollows = new Map((next?.preferenceGraph?.entityFollows || []).map(item => [item.participantId, item.followLevel]));
+  new Set([...previousFollows.keys(), ...nextFollows.keys()]).forEach(participantId => {
+    const previousLevel = previousFollows.get(participantId) || "none";
+    const nextLevel = nextFollows.get(participantId) || "none";
+    const wasFollowed = ["follow", "priority"].includes(previousLevel);
+    const isFollowed = ["follow", "priority"].includes(nextLevel);
+    const explicitMute = nextLevel === "mute" && previousLevel !== "mute";
+    if (wasFollowed === isFollowed && !explicitMute) return;
+    const participant = canonicalSportsData?.participants?.find(item => item.id === participantId);
+    recordPreferenceChange(isFollowed && !explicitMute ? "follow" : "unfollow", participant?.type === "team" || participant?.type === "nationalSide" ? "team" : "player", {
+      sport: productSportForPreferenceIdentifier(participant?.sportDomainId),
+    });
+  });
+}
+
 function saveSettingsPreferences(){
   if (!draftPreferences.selectedBroadcasters.length){
     showToast("Choose at least one provider.");
@@ -12311,7 +12446,9 @@ function saveSettingsPreferences(){
   const reconciledDraft = settingsPatch
     ? USER_STATE_SYNC.applyPatch({ preferences: userPreferences }, settingsPatch).preferences
     : draftPreferences;
+  const previousPreferences = clonePreferences(settingsDraftBaseline || userPreferences);
   savePreferences(reconciledDraft);
+  recordSavedPreferenceChanges(previousPreferences, userPreferences);
   writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
   applyThemePreference(userPreferences.theme);
   closeSettings({ restoreTheme: false, restoreViewport: false });

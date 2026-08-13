@@ -73,6 +73,56 @@ insert into public.product_events (
   '{"pilotCohort":"hybrid","crossCheck":"once","missedFixtures":"none","feedClutter":"about_right","trustConfidence":"high","surveyVersion":"weekly-pulse.v1"}'::jsonb
 );
 
+insert into public.product_events (
+  user_id,
+  client_event_id,
+  event_name,
+  occurred_at,
+  session_id,
+  surface,
+  sport,
+  competition_id,
+  canonical_event_id,
+  properties
+) values (
+  current_setting('nothingsports.verify_user_a')::uuid,
+  'verify-discovery-open',
+  'feed_action',
+  now(),
+  'verify-session-a',
+  'curated_feed',
+  'tennis',
+  'competition:wta-1000-toronto-2026',
+  'event:tennis:2026:toronto',
+  '{"action":"open","recommendationClass":"discovery","coldStart":true}'::jsonb
+);
+
+do $$
+begin
+  begin
+    insert into public.product_events (
+      user_id,
+      client_event_id,
+      event_name,
+      occurred_at,
+      session_id,
+      surface,
+      properties
+    ) values (
+      current_setting('nothingsports.verify_user_a')::uuid,
+      'verify-free-text-rejected',
+      'feed_action',
+      now(),
+      'verify-session-a',
+      'curated_feed',
+      '{"action":"open","freeText":"must not persist"}'::jsonb
+    );
+    raise exception 'Property contract failed: arbitrary text was inserted.';
+  exception
+    when check_violation then null;
+  end;
+end $$;
+
 do $$
 begin
   begin

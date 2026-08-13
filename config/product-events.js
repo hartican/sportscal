@@ -17,6 +17,9 @@
     "opportunity_exposed",
     "fixture_check",
     "watch_decision",
+    "feed_action",
+    "preference_change",
+    "feed_control_change",
     "swipe",
     "rating",
     "tune_prompt",
@@ -54,6 +57,8 @@
       presentation: enumRule(["card", "round_summary"]),
       position: integerRule(0, 999),
       feedBucket: enumRule(["new", "pinned", "seen", "upcoming", "past"]),
+      recommendationClass: enumRule(["direct", "adjacent", "discovery"]),
+      coldStart: booleanRule(),
     }),
     fixture_check: Object.freeze({
       entry: enumRule(["round_summary", "sport_filter", "hub_tab", "round_picker", "fixture_row"]),
@@ -62,9 +67,33 @@
     watch_decision: Object.freeze({
       decision: enumRule(["watch", "skip", "remind", "calendar"]),
     }),
+    feed_action: Object.freeze({
+      action: enumRule(["open", "save", "reminder", "reminder_removed", "watched", "archive", "reinstate"]),
+      recommendationClass: enumRule(["direct", "adjacent", "discovery"]),
+      coldStart: booleanRule(),
+    }),
+    preference_change: Object.freeze({
+      action: enumRule(["follow", "unfollow"]),
+      targetType: enumRule(["sport", "competition", "team", "player", "event_family"]),
+      coldStart: booleanRule(),
+    }),
+    feed_control_change: Object.freeze({
+      control: enumRule(["froth", "scope", "availability", "timing", "stakes", "spoilers"]),
+      value: enumRule([
+        "low", "balanced", "high", "maximum",
+        "following", "for_you", "explore",
+        "any", "free", "included", "ppv",
+        "live_now", "tonight", "this_week", "overnight",
+        "everything", "important", "must_watch",
+        "strict", "standard", "results_visible",
+      ]),
+      coldStart: booleanRule(),
+    }),
     swipe: Object.freeze({
       direction: enumRule(["positive", "negative", "skip"]),
       targetType: enumRule(["sport", "competition", "team", "player", "event", "event_family"]),
+      recommendationClass: enumRule(["direct", "adjacent", "discovery"]),
+      coldStart: booleanRule(),
     }),
     rating: Object.freeze({
       action: enumRule(["shown", "dismissed", "rated"]),
@@ -110,6 +139,10 @@
     return value => Number.isInteger(value) && value >= minimum && value <= maximum;
   }
 
+  function booleanRule(){
+    return value => typeof value === "boolean";
+  }
+
   function exactKeys(value, allowed, label){
     const allowedSet = new Set(allowed);
     const unknown = Object.keys(value).find(key => !allowedSet.has(key));
@@ -145,6 +178,28 @@
         throw new ProductEventValidationError(`properties.${key} is invalid.`, "invalid_property_value");
       }
     });
+    const requiredProperties = {
+      feed_action: ["action", "recommendationClass", "coldStart"],
+      preference_change: ["action", "targetType", "coldStart"],
+      feed_control_change: ["control", "value", "coldStart"],
+    }[eventName] || [];
+    const missing = requiredProperties.find(key => !Object.prototype.hasOwnProperty.call(value, key));
+    if (missing){
+      throw new ProductEventValidationError(`properties.${missing} is required.`, "missing_property");
+    }
+    if (eventName === "feed_control_change"){
+      const valuesByControl = {
+        froth: ["low", "balanced", "high", "maximum"],
+        scope: ["following", "for_you", "explore"],
+        availability: ["any", "free", "included", "ppv"],
+        timing: ["any", "live_now", "tonight", "this_week", "overnight"],
+        stakes: ["everything", "important", "must_watch"],
+        spoilers: ["strict", "standard", "results_visible"],
+      };
+      if (!valuesByControl[value.control].includes(value.value)){
+        throw new ProductEventValidationError("properties.value is invalid for properties.control.", "invalid_property_value");
+      }
+    }
     if (JSON.stringify(value).length > MAX_PROPERTIES_BYTES){
       throw new ProductEventValidationError("properties is too large.", "properties_too_large");
     }

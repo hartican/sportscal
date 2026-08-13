@@ -17,14 +17,14 @@ const feed = readJson("data/events.json");
 const marqueePolicy = readJson("data/canonical/australian-marquee-events-2026.json");
 const coverageReport = readJson("data/coverage/latest.json");
 const approvedCoverage = readJson("data/coverage/approved-coverage.json");
-const pendingReadout = readJson("data/measurement/discovery-aggregate.template.json");
+const emptyActiveReadout = readJson("data/measurement/discovery-aggregate.template.json");
 
 const baseline = MEASUREMENT.buildReport({
   feed,
   marqueePolicy,
   coverageReport,
   approvedCoverage,
-  behaviouralReadout: pendingReadout,
+  behaviouralReadout: emptyActiveReadout,
   coverageHistory: { snapshots: [] },
   generatedAt: coverageReport.generatedAt,
 });
@@ -35,7 +35,8 @@ assert.equal(baseline.coverage.missingMarquee.ratePercent, 0);
 assert.equal(baseline.coverage.missingMarqueeTrend.status, "insufficient_history", "one zero-rate snapshot must not be labelled as a downward trend");
 assert.equal(baseline.coverage.candidatePublish.status, "insufficient_reviewed_candidates");
 assert.equal(baseline.coverage.candidatePublish.ratePercent, null, "zero reviewed candidates must not produce a misleading 0% publish rate");
-assert.equal(baseline.behaviour.status, "instrumentation_pending");
+assert.equal(baseline.behaviour.status, "insufficient_data");
+assert.equal(baseline.behaviour.instrumentationStatus, "active");
 assert.equal(baseline.tuning.autoApplied, false);
 assert(baseline.tuning.recommendations.every(item => item.decision === "hold"));
 assert.equal(baseline.acceptance.missingMarqueeRateTrendingDown, "unproven");
@@ -73,6 +74,7 @@ assert.equal(positiveBehaviour.discovery.positiveActionRatePercent, 44);
 assert.equal(positiveBehaviour.discovery.negativeActionRatePercent, 8);
 assert.equal(positiveBehaviour.satisfactionProxy.ratePercent, 20);
 assert.equal(positiveBehaviour.coldStartDiversity.ratePercent, 40);
+assert.deepEqual(positiveBehaviour.negativeFeedback.bySport, [{ sport: "golf", negativeActions: 2, ratePercent: 20 }]);
 
 const broadening = MEASUREMENT.tuningState(positiveBehaviour, {
   status: "measured",
@@ -99,6 +101,9 @@ const noisyBehaviour = MEASUREMENT.behaviouralMetric([{
 }]);
 assert.equal(MEASUREMENT.tuningState(noisyBehaviour, { status: "measured", reviewedCount: 1 }).recommendations[0].decision, "review_tightening");
 
+const partialContract = MEASUREMENT.behaviouralMetric([{ cohort: "all", instrumentation_status: "active" }]);
+assert.equal(partialContract.status, "instrumentation_pending", "missing aggregate columns must remain explicit rather than becoming zeroes");
+
 assert.equal(FEED_CONTROLS.DEFAULT_CONTROLS.froth, "balanced");
 assert.equal(FEED_CONTROLS.MIX_TARGETS.balanced.discovery, 0.05);
 assert.equal(FEED_CONTROLS.FIRST_IMPRESSION_DISCOVERY_CAP, 1);
@@ -113,16 +118,19 @@ const html = fs.readFileSync("data/measurement/discovery-dashboard.html", "utf8"
 assert.match(html, /Discovery success/);
 assert.match(html, /Discovery annoyance/);
 assert.match(html, /Paid-source options/);
-assert.match(html, /instrumentation pending/i);
+assert.match(html, /insufficient data/i);
 assert.doesNotMatch(html, /downward trend/i, "the baseline dashboard must not claim a trend");
 
 const sql = fs.readFileSync("supabase/nothingsports-pilot-readout.sql", "utf8");
-assert.match(sql, /'pending_approval'::text as instrumentation_status/i);
+assert.match(sql, /'active'::text as instrumentation_status/i);
+assert.match(sql, /event\.event_name = 'feed_action'[\s\S]+event\.properties ->> 'recommendationClass' = 'discovery'/i);
+assert.match(sql, /event\.event_name = 'preference_change'[\s\S]+event\.properties ->> 'action' = 'unfollow'/i);
+assert.match(sql, /event\.properties ->> 'coldStart' = 'true'/i);
 assert.match(sql, /negative_feedback_by_sport/i);
 assert.match(sql, /negative_feedback_by_competition/i);
 assert.doesNotMatch(sql, /create\s+(?:or replace\s+)?view/i);
 assert.doesNotMatch(sql, /grant\s+select[\s\S]+to authenticated/i);
 const productSql = fs.readFileSync("supabase/nothingsports-product-events.sql", "utf8");
-assert.doesNotMatch(productSql, /'feed_action'|'preference_change'|'feed_control_change'/i, "Phase 6 must not silently widen the event contract while approval is pending");
+assert.match(productSql, /'feed_action'[\s\S]+'preference_change'[\s\S]+'feed_control_change'/i, "the explicitly approved categorical event names must be part of the database constraint");
 
-console.log("Discovery measurement valid: marquee and coverage baselines, aggregate dashboard, paid sources and evidence-gated tuning are deterministic; unapproved behavioural metrics remain pending.");
+console.log("Discovery measurement valid: marquee and coverage baselines, approved categorical aggregates, paid sources and evidence-gated tuning are deterministic; an empty live sample remains insufficient data.");

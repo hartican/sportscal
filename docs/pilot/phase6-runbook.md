@@ -23,7 +23,7 @@ The report keeps weekly TSDR, full-fixture adoption, external cross-checking, mi
 
 Sample size is descriptive only. It does not block MVP completion. The report does not automatically recommend social or any other investment.
 
-`watch_decision` remains in `product-events.v1` for a future genuine Watch or Remind action. Passive card opens and swipes must not emit it; fixture checks are the currently implemented TSDR action.
+`watch_decision` is emitted only for a genuine Remind or Mark watched action. Passive card opens emit categorical `feed_action: open`, and swipes remain separate; neither fabricates a watch decision.
 
 ## Discovery measurement dashboard
 
@@ -33,9 +33,13 @@ The same administrator export can feed the Phase 6 breadth-versus-precision dash
 
 The command combines aggregate behavioural rows with the current canonical marquee policy, broadcaster coverage queue, reviewed coverage decisions, feed-control defaults and confidence thresholds. Use private output paths for real aggregate exports. The canonical `node scripts/update-cards.js` path rebuilds and validates the checked-in no-user-data baseline at `data/measurement/discovery-dashboard.json` and `data/measurement/discovery-dashboard.html`.
 
-Only aggregate rows belong in the dashboard input. Never commit an administrator export containing user IDs or raw product events. The SQL keeps `product_events` private from browser roles and provides only aggregate left-swipe breakdowns by sport and competition.
+Only aggregate rows belong in the dashboard input. Never commit an administrator export containing user IDs or raw product events. The SQL keeps `product_events` private from browser roles and provides aggregate discovery engagement, satisfaction, cold-start diversity and negative-feedback breakdowns by sport and competition.
 
-The extra discovery action fields currently declare `instrumentation_status: pending_approval`. Therefore open, save, reminder, watch-through, explicit hide/unfollow and cold-start metrics must show `instrumentation_pending`; they must not be inferred from fixture checks, ratings or ordinary opportunity exposures. Extending the server event allowlist requires an explicit privacy decision before implementation.
+The approved additive `product-events.v1` contract records fixed categorical actions for card opens, save/archive/reinstate, reminder changes, watched, follow/unfollow, swipes and feed-control changes. Event context is limited to canonical sport, competition/event IDs, recommendation class and cold-start state. The client cannot supply a user ID; the API derives ownership from the authenticated session. Free text, credentials, messages, contact information and precise location remain outside this contract.
+
+`instrumentation_status: active` means the contract and administrator aggregate are ready. It does not imply a usable sample: until at least 20 discovery exposures exist, the dashboard must report `insufficient_data` and keep every tuning recommendation on hold.
+
+Discovery success counts `feed_action` rows classified as discovery. Discovery annoyance combines negative discovery swipes with explicit unfollows. Sport and competition rates use discovery opportunity exposures in the same segment as the denominator. Archive is measured as feed activity but is not treated as annoyance. Cold-start diversity is the number of distinct sports across opportunities labelled cold-start, capped to the first-ten denominator used by the report.
 
 Each successful canonical scan records one coverage snapshot keyed by the report generation timestamp. One snapshot establishes the current missing-marquee rate; at least two independent snapshots are required for a trend. A zero baseline must never be described as a downward trend.
 

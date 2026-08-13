@@ -71,7 +71,7 @@
       notes: [
         "Sample size is descriptive and does not block MVP completion.",
         "This report does not automatically recommend social or any other investment.",
-        "Watch decisions count only when a genuine Watch or Remind interaction emits watch_decision; fixture checks are the currently implemented TSDR action.",
+        "Watch decisions count only when a genuine Mark watched or Remind interaction emits watch_decision; passive opens and swipes remain separate categorical actions.",
       ],
     };
   }

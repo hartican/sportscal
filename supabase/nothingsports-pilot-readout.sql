@@ -125,36 +125,130 @@ with measurement_events as (
 ), measurement_bounds as (
   select min(occurred_at) as measurement_started_at, now() as measurement_generated_at
   from measurement_events
+), classified_events as (
+  select
+    event.*,
+    coalesce(latest_cohort.cohort, 'unclassified') as cohort
+  from measurement_events event
+  left join latest_cohort using (user_id)
+), discovery_by_cohort as (
+  select
+    cohort_names.cohort,
+    count(*) filter (
+      where event.event_name = 'opportunity_exposed'
+        and event.properties ->> 'recommendationClass' = 'discovery'
+    ) as discovery_exposures,
+    count(*) filter (
+      where event.event_name = 'feed_action'
+        and event.properties ->> 'recommendationClass' = 'discovery'
+        and event.properties ->> 'action' = 'open'
+    ) as discovery_opens,
+    count(*) filter (
+      where event.event_name = 'feed_action'
+        and event.properties ->> 'recommendationClass' = 'discovery'
+        and event.properties ->> 'action' = 'save'
+    ) as discovery_saves,
+    count(*) filter (
+      where event.event_name = 'feed_action'
+        and event.properties ->> 'recommendationClass' = 'discovery'
+        and event.properties ->> 'action' = 'reminder'
+    ) as discovery_reminders,
+    count(*) filter (
+      where event.event_name = 'feed_action'
+        and event.properties ->> 'recommendationClass' = 'discovery'
+        and event.properties ->> 'action' = 'watched'
+    ) as discovery_watch_throughs,
+    count(*) filter (
+      where (
+        event.event_name = 'swipe'
+        and event.properties ->> 'recommendationClass' = 'discovery'
+        and event.properties ->> 'direction' = 'negative'
+      ) or (
+        event.event_name = 'preference_change'
+        and event.properties ->> 'action' = 'unfollow'
+      )
+    ) as discovery_negative_actions,
+    count(*) filter (
+      where event.event_name = 'opportunity_exposed'
+        and event.properties ->> 'coldStart' = 'true'
+    ) as cold_start_exposures,
+    count(distinct event.sport) filter (
+      where event.event_name = 'opportunity_exposed'
+        and event.properties ->> 'coldStart' = 'true'
+        and event.sport is not null
+    ) as cold_start_distinct_sports
+  from cohort_names
+  left join classified_events event
+    on cohort_names.cohort = 'all' or cohort_names.cohort = event.cohort
+  group by cohort_names.cohort
+), discovery_exposure_by_sport as (
+  select
+    sport,
+    count(*) as discovery_exposures
+  from measurement_events
+  where event_name = 'opportunity_exposed'
+    and properties ->> 'recommendationClass' = 'discovery'
+    and sport is not null
+  group by sport
+), negative_actions_by_sport as (
+  select
+    sport,
+    count(*) as negative_actions
+  from measurement_events
+  where sport is not null
+    and (
+      (
+        event_name = 'swipe'
+        and properties ->> 'recommendationClass' = 'discovery'
+        and properties ->> 'direction' = 'negative'
+      ) or (
+        event_name = 'preference_change'
+        and properties ->> 'action' = 'unfollow'
+      )
+    )
+  group by sport
 ), negative_feedback_by_sport as (
   select coalesce(jsonb_agg(jsonb_build_object(
-    'sport', sport,
-    'negativeActions', negative_actions,
-    'ratePercent', round(100.0 * negative_actions / nullif(swipes, 0), 1)
-  ) order by negative_actions desc, sport), '[]'::jsonb) as values
-  from (
-    select
-      coalesce(event.sport, 'unknown') as sport,
-      count(*) as swipes,
-      count(*) filter (where event.properties ->> 'direction' = 'negative') as negative_actions
-    from measurement_events event
-    where event.event_name = 'swipe' and event.surface = 'curated_feed'
-    group by coalesce(event.sport, 'unknown')
-  ) sport_feedback
+    'sport', negative.sport,
+    'negativeActions', negative.negative_actions,
+    'ratePercent', round(100.0 * negative.negative_actions / nullif(exposure.discovery_exposures, 0), 1)
+  ) order by negative.negative_actions desc, negative.sport), '[]'::jsonb) as values
+  from negative_actions_by_sport negative
+  left join discovery_exposure_by_sport exposure using (sport)
+), discovery_exposure_by_competition as (
+  select
+    competition_id,
+    count(*) as discovery_exposures
+  from measurement_events
+  where event_name = 'opportunity_exposed'
+    and properties ->> 'recommendationClass' = 'discovery'
+    and competition_id is not null
+  group by competition_id
+), negative_actions_by_competition as (
+  select
+    competition_id,
+    count(*) as negative_actions
+  from measurement_events
+  where competition_id is not null
+    and (
+      (
+        event_name = 'swipe'
+        and properties ->> 'recommendationClass' = 'discovery'
+        and properties ->> 'direction' = 'negative'
+      ) or (
+        event_name = 'preference_change'
+        and properties ->> 'action' = 'unfollow'
+      )
+    )
+  group by competition_id
 ), negative_feedback_by_competition as (
   select coalesce(jsonb_agg(jsonb_build_object(
-    'competitionId', competition_id,
-    'negativeActions', negative_actions,
-    'ratePercent', round(100.0 * negative_actions / nullif(swipes, 0), 1)
-  ) order by negative_actions desc, competition_id), '[]'::jsonb) as values
-  from (
-    select
-      coalesce(event.competition_id, 'unknown') as competition_id,
-      count(*) as swipes,
-      count(*) filter (where event.properties ->> 'direction' = 'negative') as negative_actions
-    from measurement_events event
-    where event.event_name = 'swipe' and event.surface = 'curated_feed'
-    group by coalesce(event.competition_id, 'unknown')
-  ) competition_feedback
+    'competitionId', negative.competition_id,
+    'negativeActions', negative.negative_actions,
+    'ratePercent', round(100.0 * negative.negative_actions / nullif(exposure.discovery_exposures, 0), 1)
+  ) order by negative.negative_actions desc, negative.competition_id), '[]'::jsonb) as values
+  from negative_actions_by_competition negative
+  left join discovery_exposure_by_competition exposure using (competition_id)
 )
 select
   bounds.measurement_started_at,
@@ -173,19 +267,20 @@ select
   round(100.0 * behaviour.meaningful_actions / nullif(behaviour.opportunity_exposures, 0), 1) as meaningful_action_rate_percent,
   round(100.0 * behaviour.prompts_dismissed / nullif(behaviour.prompts_shown, 0), 1) as prompt_dismissal_percent,
   round(100.0 * behaviour.ratings_completed / nullif(behaviour.rating_prompts_shown, 0), 1) as spectacle_rating_completion_percent,
-  'pending_approval'::text as instrumentation_status,
-  0::bigint as discovery_exposures,
-  0::bigint as discovery_opens,
-  0::bigint as discovery_saves,
-  0::bigint as discovery_reminders,
-  0::bigint as discovery_watch_throughs,
-  0::bigint as discovery_negative_actions,
-  0::bigint as cold_start_exposures,
-  0::bigint as cold_start_distinct_sports,
+  'active'::text as instrumentation_status,
+  discovery.discovery_exposures,
+  discovery.discovery_opens,
+  discovery.discovery_saves,
+  discovery.discovery_reminders,
+  discovery.discovery_watch_throughs,
+  discovery.discovery_negative_actions,
+  discovery.cold_start_exposures,
+  discovery.cold_start_distinct_sports,
   negative_feedback_by_sport.values as negative_feedback_by_sport,
   negative_feedback_by_competition.values as negative_feedback_by_competition
 from behaviour_by_cohort behaviour
 join pulse_by_survey_and_cohort pulse using (cohort)
+join discovery_by_cohort discovery using (cohort)
 cross join measurement_bounds bounds
 cross join weekly_tsdr
 cross join negative_feedback_by_sport

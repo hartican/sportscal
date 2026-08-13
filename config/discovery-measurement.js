@@ -183,10 +183,12 @@
         negativeActionRatePercent: percent(negativeActions, exposures),
       },
       negativeFeedback: {
-        status: row ? "partial_existing_swipe_signal" : "not_available",
+        status: contractReady ? (exposures ? "measured" : "insufficient_data") : "not_available",
         bySport: jsonArray(row?.negative_feedback_by_sport),
         byCompetition: jsonArray(row?.negative_feedback_by_competition),
-        note: "Existing left-swipe aggregates are available; explicit hide and unfollow events require the pending contract extension.",
+        note: contractReady
+          ? "Discovery negatives combine left swipes with explicit unfollows; rates use discovery opportunity exposures in the same sport or competition as the denominator."
+          : "The approved categorical action aggregate is not available in this export.",
       },
       satisfactionProxy: {
         status,
@@ -322,7 +324,7 @@
       notes: [
         "A zero current missing-marquee rate is a baseline, not proof of a downward trend.",
         "No tuning recommendation is applied automatically.",
-        "Missing or unapproved action instrumentation is reported explicitly instead of inferred from other events.",
+        "Behavioural rates use only approved categorical action events and are never inferred from ratings or passive fixture checks.",
       ],
     };
   }
