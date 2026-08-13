@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "coverage-measurement-history.v1",
+  "snapshots": [
+    {
+      "observedAt": "2026-08-13T02:05:00.000Z",
+      "expectedCount": 5,
+      "missingCount": 0,
+      "ratePercent": 0
+    }
+  ]
+}

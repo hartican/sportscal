@@ -125,6 +125,36 @@ with measurement_events as (
 ), measurement_bounds as (
   select min(occurred_at) as measurement_started_at, now() as measurement_generated_at
   from measurement_events
+), negative_feedback_by_sport as (
+  select coalesce(jsonb_agg(jsonb_build_object(
+    'sport', sport,
+    'negativeActions', negative_actions,
+    'ratePercent', round(100.0 * negative_actions / nullif(swipes, 0), 1)
+  ) order by negative_actions desc, sport), '[]'::jsonb) as values
+  from (
+    select
+      coalesce(event.sport, 'unknown') as sport,
+      count(*) as swipes,
+      count(*) filter (where event.properties ->> 'direction' = 'negative') as negative_actions
+    from measurement_events event
+    where event.event_name = 'swipe' and event.surface = 'curated_feed'
+    group by coalesce(event.sport, 'unknown')
+  ) sport_feedback
+), negative_feedback_by_competition as (
+  select coalesce(jsonb_agg(jsonb_build_object(
+    'competitionId', competition_id,
+    'negativeActions', negative_actions,
+    'ratePercent', round(100.0 * negative_actions / nullif(swipes, 0), 1)
+  ) order by negative_actions desc, competition_id), '[]'::jsonb) as values
+  from (
+    select
+      coalesce(event.competition_id, 'unknown') as competition_id,
+      count(*) as swipes,
+      count(*) filter (where event.properties ->> 'direction' = 'negative') as negative_actions
+    from measurement_events event
+    where event.event_name = 'swipe' and event.surface = 'curated_feed'
+    group by coalesce(event.competition_id, 'unknown')
+  ) competition_feedback
 )
 select
   bounds.measurement_started_at,
@@ -142,11 +172,24 @@ select
   round(100.0 * pulse.positive_trust / nullif(pulse.pulse_responses, 0), 1) as positive_trust_percent,
   round(100.0 * behaviour.meaningful_actions / nullif(behaviour.opportunity_exposures, 0), 1) as meaningful_action_rate_percent,
   round(100.0 * behaviour.prompts_dismissed / nullif(behaviour.prompts_shown, 0), 1) as prompt_dismissal_percent,
-  round(100.0 * behaviour.ratings_completed / nullif(behaviour.rating_prompts_shown, 0), 1) as spectacle_rating_completion_percent
+  round(100.0 * behaviour.ratings_completed / nullif(behaviour.rating_prompts_shown, 0), 1) as spectacle_rating_completion_percent,
+  'pending_approval'::text as instrumentation_status,
+  0::bigint as discovery_exposures,
+  0::bigint as discovery_opens,
+  0::bigint as discovery_saves,
+  0::bigint as discovery_reminders,
+  0::bigint as discovery_watch_throughs,
+  0::bigint as discovery_negative_actions,
+  0::bigint as cold_start_exposures,
+  0::bigint as cold_start_distinct_sports,
+  negative_feedback_by_sport.values as negative_feedback_by_sport,
+  negative_feedback_by_competition.values as negative_feedback_by_competition
 from behaviour_by_cohort behaviour
 join pulse_by_survey_and_cohort pulse using (cohort)
 cross join measurement_bounds bounds
 cross join weekly_tsdr
+cross join negative_feedback_by_sport
+cross join negative_feedback_by_competition
 order by pulse.survey_version, case behaviour.cohort
   when 'all' then 0
   when 'curator' then 1

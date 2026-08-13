@@ -1,0 +1,17 @@
+[
+  {
+    "cohort": "all",
+    "measurement_generated_at": "2026-08-13T02:05:00.000Z",
+    "instrumentation_status": "pending_approval",
+    "discovery_exposures": 0,
+    "discovery_opens": 0,
+    "discovery_saves": 0,
+    "discovery_reminders": 0,
+    "discovery_watch_throughs": 0,
+    "discovery_negative_actions": 0,
+    "cold_start_exposures": 0,
+    "cold_start_distinct_sports": 0,
+    "negative_feedback_by_sport": [],
+    "negative_feedback_by_competition": []
+  }
+]

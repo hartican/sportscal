@@ -301,6 +301,7 @@ assert(cardUpdateSource.includes('["scripts/publish-feed.js"') && cardUpdateSour
 assert(cardUpdateSource.includes('localOnly: argv.includes("--local-only")'), "the canonical cards update must expose an explicit local-only mode");
 assert(cardUpdateSource.includes('if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"])'), "local-only updates must skip the release boundary without creating a second refresh path");
 assert(cardUpdateSource.includes('["scripts/verify-pilot-readiness.js"]') && cardUpdateSource.includes('["scripts/validate-pilot-readout.js"]'), "every canonical update must gate releases on fresh complete supported coverage and the pilot decision contract");
+assert(cardUpdateSource.includes('["scripts/build-discovery-dashboard.js"]') && cardUpdateSource.includes('["scripts/validate-discovery-measurement.js"]'), "every canonical update must rebuild and validate the Phase 6 discovery evidence report");
 assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VERCEL_SKIP_AUTO_UPDATE"), "production releases must not suppress Vercel CLI auto-updates");
 [
   "validate-canonical-sports.js",

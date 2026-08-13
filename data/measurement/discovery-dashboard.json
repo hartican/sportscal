@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "discovery-measurement.v1",
+  "generatedAt": "2026-08-13T02:05:00.000Z",
+  "evidenceState": "partial_evidence",
+  "coverage": {
+    "missingMarquee": {
+      "status": "measured",
+      "expectedCount": 5,
+      "presentCount": 5,
+      "missingCount": 0,
+      "missingEventIds": [],
+      "ratePercent": 0
+    },
+    "missingMarqueeTrend": {
+      "status": "insufficient_history",
+      "direction": null,
+      "changePercentagePoints": null,
+      "observationCount": 1,
+      "note": "At least two independently generated coverage snapshots are required before claiming a trend."
+    },
+    "snapshots": [
+      {
+        "observedAt": "2026-08-13T02:05:00.000Z",
+        "expectedCount": 5,
+        "missingCount": 0,
+        "ratePercent": 0
+      }
+    ],
+    "candidatePublish": {
+      "status": "insufficient_reviewed_candidates",
+      "candidateCount": 5,
+      "reviewedCount": 0,
+      "publishCount": 0,
+      "pendingCount": 5,
+      "ratePercent": null,
+      "denominator": "editorially reviewed candidates"
+    },
+    "commercialSourceOptions": [
+      {
+        "id": "yuvu",
+        "label": "YuVu",
+        "role": "Australian linear EPG",
+        "auFit": "verified_fta",
+        "delivery": "Commercial API/feed; sample and approved test feeds available",
+        "evaluation": "sample_or_test_feed",
+        "pricing": "contact_sales",
+        "recommendation": "shortlist_first",
+        "limitations": "No Foxtel Pay TV; excludes several datacast, religious and horse-racing channels",
+        "sourceUrl": "https://yuvu.tv/syndication/"
+      },
+      {
+        "id": "gracenote_on",
+        "label": "Gracenote On API",
+        "role": "Enterprise linear and streaming availability plus sports identity",
+        "auFit": "verified_platform_capability_inventory_requires_quote",
+        "delivery": "Entitled APIs, schemas and delta updates",
+        "evaluation": "small_public_plan_then_sales_sample",
+        "pricing": "contact_sales",
+        "recommendation": "shortlist_enterprise",
+        "limitations": "Exact AU channel and OTT inventory is entitlement-specific; general VOD availability must not be assumed to cover sport",
+        "sourceUrl": "https://documentation.gracenote.com/on-api/index.html"
+      },
+      {
+        "id": "justwatch_sports",
+        "label": "JustWatch Sports Widget",
+        "role": "Event-level streaming and broadcast offers",
+        "auFit": "au_locale_verified_competition_inventory_unverified",
+        "delivery": "Branded JavaScript widget with partner API key",
+        "evaluation": "partner_discussion",
+        "pricing": "contact_sales",
+        "recommendation": "shortlist_streaming",
+        "limitations": "No public raw sports export; verify AU competition coverage and branding constraints",
+        "sourceUrl": "https://apis.justwatch.com/docs/sports_widget/"
+      },
+      {
+        "id": "sportradar",
+        "label": "Sportradar Media APIs",
+        "role": "Canonical multi-sport fixtures, IDs and reschedules",
+        "auFit": "afl_verified_other_competitions_contract_specific",
+        "delivery": "REST JSON/XML and supported push feeds",
+        "evaluation": "30_day_trial",
+        "pricing": "contact_sales",
+        "recommendation": "shortlist_fixture_truth",
+        "limitations": "Does not by itself establish Australian viewing availability or access type",
+        "sourceUrl": "https://sportradar.com/media-tech/data-content/sports-data-api/?lang=en-us"
+      },
+      {
+        "id": "stats_perform",
+        "label": "Stats Perform / Opta",
+        "role": "Official competition fixture and live data",
+        "auFit": "nrl_rugby_a_leagues_verified",
+        "delivery": "REST, WebSocket, push/pull and S3 in JSON/XML",
+        "evaluation": "sales_demo",
+        "pricing": "contact_sales",
+        "recommendation": "quote_for_official_au_competitions",
+        "limitations": "No verified all-sport AU availability layer; exact competition and display entitlements are contractual",
+        "sourceUrl": "https://www.statsperform.com/products/opta-data-feeds/"
+      },
+      {
+        "id": "simply_tv",
+        "label": "Simply.TV",
+        "role": "Linear EPG, streaming metadata and sports identity",
+        "auFit": "unverified",
+        "delivery": "API/push in JSON, XML or custom formats",
+        "evaluation": "small_self_service_trial",
+        "pricing": "contact_sales",
+        "recommendation": "request_inventory_before_integration",
+        "limitations": "Public material does not enumerate Australian channels or services",
+        "sourceUrl": "https://www.simply.tv/products/video-metadata"
+      },
+      {
+        "id": "epg_service",
+        "label": "EPG Service",
+        "role": "EPG and sports metadata benchmark",
+        "auFit": "unverified",
+        "delivery": "REST/OpenAPI JSON, XMLTV, webhooks and exports",
+        "evaluation": "free_sandbox_and_seven_day_pilot",
+        "pricing": "public_starting_prices_plus_quote",
+        "recommendation": "benchmark_only_until_au_inventory_proven",
+        "limitations": "Australia is not identified in public coverage material",
+        "sourceUrl": "https://epgservice.tv/en/"
+      },
+      {
+        "id": "sportsdataio",
+        "label": "SportsDataIO Global Sports API",
+        "role": "Broad schedules and scores across long-tail sports",
+        "auFit": "fixture_only",
+        "delivery": "Commercial API with one consistent global schema",
+        "evaluation": "no_self_service_trial",
+        "pricing": "contact_sales",
+        "recommendation": "compare_fixture_breadth_only",
+        "limitations": "No Australian broadcaster or streaming availability layer",
+        "sourceUrl": "https://sportsdata.io/developers"
+      }
+    ]
+  },
+  "behaviour": {
+    "status": "instrumentation_pending",
+    "instrumentationStatus": "pending_approval",
+    "missingAggregateFields": [],
+    "minimumDiscoveryExposuresForReview": 20,
+    "discovery": {
+      "exposures": 0,
+      "opens": 0,
+      "saves": 0,
+      "reminders": 0,
+      "watchThroughs": 0,
+      "negativeActions": 0,
+      "openRatePercent": null,
+      "saveRatePercent": null,
+      "reminderRatePercent": null,
+      "watchThroughRatePercent": null,
+      "positiveActionRatePercent": null,
+      "negativeActionRatePercent": null
+    },
+    "negativeFeedback": {
+      "status": "partial_existing_swipe_signal",
+      "bySport": [],
+      "byCompetition": [],
+      "note": "Existing left-swipe aggregates are available; explicit hide and unfollow events require the pending contract extension."
+    },
+    "satisfactionProxy": {
+      "status": "instrumentation_pending",
+      "saves": 0,
+      "reminders": 0,
+      "watchThroughs": 0,
+      "totalActions": 0,
+      "ratePercent": null
+    },
+    "coldStartDiversity": {
+      "status": "instrumentation_pending",
+      "exposureCount": 0,
+      "distinctSportCount": 0,
+      "ratePercent": null,
+      "definition": "Distinct sports represented within the first ten cold-start opportunities."
+    }
+  },
+  "tuning": {
+    "policy": "recommend_only_never_auto_apply",
+    "autoApplied": false,
+    "current": {
+      "frothDefault": "balanced",
+      "balancedMix": {
+        "direct": 0.75,
+        "adjacent": 0.2,
+        "discovery": 0.05
+      },
+      "firstImpressionDepth": 10,
+      "firstImpressionDiscoveryCap": 1,
+      "coverageMatchConfidenceThreshold": 0.65,
+      "coverageAutoPublishConfidenceThreshold": 0.92,
+      "coverageAmbiguityMargin": 0.08
+    },
+    "recommendations": [
+      {
+        "area": "froth_default",
+        "decision": "hold",
+        "evidenceStatus": "instrumentation_pending",
+        "rationale": "The discovery action sample is not sufficient to justify changing the balanced mix or first-impression cap."
+      },
+      {
+        "area": "first_impression_discovery_cap",
+        "decision": "hold",
+        "evidenceStatus": "instrumentation_pending",
+        "rationale": "Keep the current cap of 1 in the first 10 until discovery engagement and negative feedback are both measurable."
+      },
+      {
+        "area": "coverage_confidence_thresholds",
+        "decision": "hold",
+        "evidenceStatus": "insufficient_reviewed_candidates",
+        "rationale": "No reviewed coverage decisions exist, so changing match or publication thresholds would be instinct rather than evidence."
+      }
+    ]
+  },
+  "acceptance": {
+    "missingMarqueeRateTrendingDown": "unproven",
+    "positiveDiscoveryWithoutDisproportionateNegatives": "unproven",
+    "balancedFrothBroaderWithoutNoise": "requires_pilot_review"
+  },
+  "privacy": {
+    "readPath": "operator_only_aggregate_export",
+    "clientAccess": "none",
+    "rawUserEventsStoredInRepository": false,
+    "note": "The dashboard consumes aggregate rows only. It does not weaken product_events RLS or add browser read access."
+  },
+  "notes": [
+    "A zero current missing-marquee rate is a baseline, not proof of a downward trend.",
+    "No tuning recommendation is applied automatically.",
+    "Missing or unapproved action instrumentation is reported explicitly instead of inferred from other events."
+  ]
+}

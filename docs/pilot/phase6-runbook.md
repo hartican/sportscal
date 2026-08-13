@@ -25,6 +25,22 @@ Sample size is descriptive only. It does not block MVP completion. The report do
 
 `watch_decision` remains in `product-events.v1` for a future genuine Watch or Remind action. Passive card opens and swipes must not emit it; fixture checks are the currently implemented TSDR action.
 
+## Discovery measurement dashboard
+
+The same administrator export can feed the Phase 6 breadth-versus-precision dashboard:
+
+`node scripts/build-discovery-dashboard.js --readout=/absolute/path/to/readout.json --output-json=/tmp/nothingsport-discovery-dashboard.json --output-html=/tmp/nothingsport-discovery-dashboard.html`
+
+The command combines aggregate behavioural rows with the current canonical marquee policy, broadcaster coverage queue, reviewed coverage decisions, feed-control defaults and confidence thresholds. Use private output paths for real aggregate exports. The canonical `node scripts/update-cards.js` path rebuilds and validates the checked-in no-user-data baseline at `data/measurement/discovery-dashboard.json` and `data/measurement/discovery-dashboard.html`.
+
+Only aggregate rows belong in the dashboard input. Never commit an administrator export containing user IDs or raw product events. The SQL keeps `product_events` private from browser roles and provides only aggregate left-swipe breakdowns by sport and competition.
+
+The extra discovery action fields currently declare `instrumentation_status: pending_approval`. Therefore open, save, reminder, watch-through, explicit hide/unfollow and cold-start metrics must show `instrumentation_pending`; they must not be inferred from fixture checks, ratings or ordinary opportunity exposures. Extending the server event allowlist requires an explicit privacy decision before implementation.
+
+Each successful canonical scan records one coverage snapshot keyed by the report generation timestamp. One snapshot establishes the current missing-marquee rate; at least two independent snapshots are required for a trend. A zero baseline must never be described as a downward trend.
+
+Tuning output is recommendation-only. Keep the current balanced default, 5% discovery mix, one discovery card in the first ten, 0.65 matching threshold and 0.92 auto-publication threshold until observed evidence supports review. Never write a dashboard recommendation back into production configuration automatically.
+
 ## Operations
 
 The existing canonical update process should run at least twice daily during active AFL and NRL rounds and after major match windows. `node scripts/update-cards.js` remains the only cards, fixtures, standings and results refresh path.

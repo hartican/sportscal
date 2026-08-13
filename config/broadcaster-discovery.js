@@ -12,6 +12,9 @@
   const ACCESS_TYPES = Object.freeze(["free", "included", "ppv", "unknown"]);
   const LISTING_TYPES = Object.freeze(["live", "delayed", "replay", "highlights", "studio", "unknown"]);
   const TIME_CONFIDENCE = Object.freeze(["exact", "approximate", "date_only", "unknown"]);
+  const MATCH_CONFIDENCE_THRESHOLD = 0.65;
+  const AUTO_PUBLISH_CONFIDENCE_THRESHOLD = 0.92;
+  const AMBIGUITY_CONFIDENCE_MARGIN = 0.08;
 
   const sourceProfiles = Object.freeze([
     ["kayo", "Kayo Sports", "AU", "kayo", ["licensed_api", "reviewed_export", "manual_fixture"], true, false],
@@ -449,8 +452,8 @@
       .sort((left, right) => right.confidence - left.confidence || String(left.event.id).localeCompare(String(right.event.id)));
     const top = scored[0] || null;
     const second = scored[1] || null;
-    const closeTie = top && second && top.confidence >= 0.45 && top.confidence - second.confidence < 0.08;
-    const matchStatus = closeTie ? "ambiguous" : top && top.confidence >= 0.65 ? "matched" : "new";
+    const closeTie = top && second && top.confidence >= 0.45 && top.confidence - second.confidence < AMBIGUITY_CONFIDENCE_MARGIN;
+    const matchStatus = closeTie ? "ambiguous" : top && top.confidence >= MATCH_CONFIDENCE_THRESHOLD ? "matched" : "new";
     const canonicalEventId = matchStatus === "matched" ? top.event.id : null;
     const confidence = top?.confidence || 0;
     const broadcast = listing.canEstablishAuAvailability ? {
@@ -465,12 +468,12 @@
       observedAt: listing.observedAt,
     } : null;
     const publishable = matchStatus === "matched"
-      && confidence >= 0.92
+      && confidence >= AUTO_PUBLISH_CONFIDENCE_THRESHOLD
       && Boolean(broadcast)
       && broadcast.accessType !== "unknown"
       && ["live", "delayed"].includes(listing.liveOrReplay);
     const suggestedAction = publishable ? "publish"
-      : matchStatus === "new" || matchStatus === "ambiguous" || confidence >= 0.65 ? "review"
+      : matchStatus === "new" || matchStatus === "ambiguous" || confidence >= MATCH_CONFIDENCE_THRESHOLD ? "review"
         : "ignore";
     const existingLabels = top ? currentBroadcastLabels(top.event).map(normalizeText) : [];
     const availabilityChange = broadcast && canonicalEventId && !existingLabels.some(label => label.includes(normalizeText(broadcast.serviceLabel)))
@@ -543,7 +546,7 @@
         !listing.canEstablishAuAvailability ? "au_availability_unproven" : null,
         !["live", "delayed"].includes(listing.liveOrReplay) ? "not_live_event_coverage" : null,
         matchStatus !== "matched" ? `${matchStatus}_catalogue_identity` : null,
-        matchStatus === "matched" && confidence < 0.92 ? "confidence_below_publish_threshold" : null,
+        matchStatus === "matched" && confidence < AUTO_PUBLISH_CONFIDENCE_THRESHOLD ? "confidence_below_publish_threshold" : null,
       ]),
       editorial: { decision: "pending", reviewedBy: null, reviewedAt: null, note: null },
     };
@@ -551,7 +554,7 @@
 
   function canPublishCandidate(candidate){
     return candidate?.matchStatus === "matched"
-      && Number(candidate?.match?.confidence) >= 0.92
+      && Number(candidate?.match?.confidence) >= AUTO_PUBLISH_CONFIDENCE_THRESHOLD
       && Array.isArray(candidate?.broadcastsAu)
       && candidate.broadcastsAu.length > 0
       && candidate.broadcastsAu.every(option => option.accessType !== "unknown" && String(option.territory || "").startsWith("AU"))
@@ -564,6 +567,9 @@
     ACCESS_TYPES,
     LISTING_TYPES,
     TIME_CONFIDENCE,
+    MATCH_CONFIDENCE_THRESHOLD,
+    AUTO_PUBLISH_CONFIDENCE_THRESHOLD,
+    AMBIGUITY_CONFIDENCE_MARGIN,
     sourceProfiles,
     services,
     commercialSourceOptions,
