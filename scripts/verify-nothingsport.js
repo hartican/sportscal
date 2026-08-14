@@ -341,8 +341,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v86"'), "the sports-discovery release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="86">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v87"'), "the selector opt-in repair must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="87">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
@@ -902,6 +902,16 @@ const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction 
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+const newSelectorOptInIds = Array.from(app.selectorNewPromptEntities(), entity => entity.id);
+const expectedNewSelectorOptInIds = Array.from(app.SELECTOR_TAXONOMY.exposedSportNodes || [])
+  .filter(entity => entity.isNew)
+  .map(entity => entity.id);
+assert(expectedNewSelectorOptInIds.length > 0, "selector taxonomy v2 must expose its newly introduced sport choices");
+assert.deepEqual(
+  newSelectorOptInIds,
+  expectedNewSelectorOptInIds,
+  "New feed choices must render every newly introduced exposed sport selector so Add selected can become actionable"
+);
 const casualNrlGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
   profileId: "profile:casual-nrl",
   domainIds: ["sport:nrl"],

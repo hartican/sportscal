@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="86">
+<meta name="app-shell-version" content="87">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -5463,19 +5463,10 @@ function selectorEntityMatchesEvent(entityId, ev){
 }
 
 function selectorNewPromptEntities(){
-  const result = [];
-  orderSelectorEntities((SELECTOR_TAXONOMY.categories || []).filter(entity => entity.isNew)).forEach(category => {
-    result.push(category);
-    if (category.id === "category:special-events"){
-      orderSelectorEntities((SELECTOR_TAXONOMY.specialEvents || []).filter(entity => entity.isNew)).forEach(entity => {
-        result.push(entity);
-        if (entity.id === "special:commonwealth-games"){
-          result.push(...(SELECTOR_TAXONOMY.commonwealthDisciplines || []).filter(item => item.isNew).slice().sort((a, b) => a.lockedSlot - b.lockedSlot));
-        }
-      });
-    }
-  });
-  return result;
+  return orderSelectorEntities(
+    (SELECTOR_TAXONOMY.exposedSportNodes || BASE_SPORT_SELECTOR_ENTITIES)
+      .filter(entity => entity.exposed !== false && entity.selectable !== false && entity.isNew)
+  );
 }
 
 function normalizeThemePreference(value){

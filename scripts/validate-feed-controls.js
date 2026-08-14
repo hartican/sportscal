@@ -81,7 +81,7 @@ assert(html.includes('contextReferences: eventLearningReferences(ev)'), "curated
 assert(html.includes('className = "badge discovery"') && html.includes('className = "badge availability"'), "discovery and access must be labelled on cards");
 assert(html.includes('sessionOpenedEventIds.add(') && html.includes('updateEventAction(ev, { watched: true'), "open signals must remain session-local while watch completion stays in durable user state");
 assert(html.includes("action.mustWatch ? 12") && html.includes("action.saved ? 10") && html.includes("action.watched ? 6"), "reminders, saves, opens and watch completion must influence local recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v86"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v87"'));
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 
 console.log("Feed controls valid: durable UI model, Sydney timing, availability, mix targets, discovery caps and negative suppression passed.");
