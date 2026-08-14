@@ -9,9 +9,11 @@ const { buildSteps, parseOptions } = require("./update-cards");
 const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([]));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"]));
+const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
 
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
+assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
 assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"), "local-only updates must still refresh canonical sports data");
 assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must rebuild the provider-neutral tennis catalogue and fail closed on stale or asymmetric ATP/WTA ranking exports");
 assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js" && step.includes("--check") && step.includes("--enforce-freshness")), "every canonical update must reject a stale generated tennis catalogue");
@@ -73,14 +75,16 @@ const projectRoot = path.resolve(__dirname, "..");
 const wrapperScript = fs.readFileSync(path.join(projectRoot, "scripts/update-sportscal-cards-and-release.sh"), "utf8");
 const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-and-release.sh"), "utf8");
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
+const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 
-assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p/, "the wrapper must suppress update-cards' nested release so each run deploys once");
+assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p --local-only/, "the wrapper must explicitly suppress update-cards' nested release so each run deploys once");
 assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper must require an exact origin\/main starting commit");
 assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
 assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
 assert.match(snapshotScript, /git archive "\$DEPLOY_SHA"/, "the deployment helper must archive the resolved immutable commit");
 assert.match(snapshotScript, /releaseGitSha=\$DEPLOY_SHA/, "the Vercel deployment must record its source commit");
+assert.equal(vercelConfig.git?.deploymentEnabled, false, "Vercel Git auto-deploys must remain disabled so the reviewed immutable CLI release is the only production deployment path");
 
 const stagingCheck = spawnSync("bash", ["scripts/deploy-current-commit.sh"], {
   cwd: projectRoot,
@@ -90,4 +94,4 @@ const stagingCheck = spawnSync("bash", ["scripts/deploy-current-commit.sh"], {
 assert.equal(stagingCheck.status, 0, `immutable deployment staging must pass: ${stagingCheck.stderr || stagingCheck.stdout}`);
 assert.match(stagingCheck.stdout, /Immutable release snapshot verified:/, "the staging check must report the verified commit");
 
-console.log("Canonical update modes valid: default release path retained; --local-only skips only commit, push, and deployment.");
+console.log("Canonical update modes valid: local-only and SKIP_RELEASE suppress nested releases; immutable CLI deployment is the sole production path.");

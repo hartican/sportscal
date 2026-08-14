@@ -186,7 +186,7 @@ fi
 
 ensure_clean_origin_main_checkout
 
-SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js -p
+SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js -p --local-only
 LOCAL_EVENTS_HASH_AFTER="$(read_file_sha256 data/events.json)"
 IFS='|' read -r \
   LOCAL_META_VERSION_AFTER LOCAL_META_GENERATED_AFTER LOCAL_META_PUBLISHED_AFTER LOCAL_META_UPDATED_AFTER LOCAL_META_CARD_COUNT_AFTER LOCAL_META_SOURCE_AFTER \

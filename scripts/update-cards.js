@@ -46,9 +46,9 @@ function runStep(args) {
   if (result.status !== 0) process.exit(result.status || 1);
 }
 
-function parseOptions(argv = process.argv.slice(2)) {
+function parseOptions(argv = process.argv.slice(2), env = process.env) {
   return {
-    localOnly: argv.includes("--local-only"),
+    localOnly: argv.includes("--local-only") || env.SKIP_RELEASE === "1",
   };
 }
 
