@@ -1,7 +1,7 @@
 {
   "name": "Nothingsport — Smart sports feed",
   "short_name": "nothingsport",
-  "description": "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.",
+  "description": "Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

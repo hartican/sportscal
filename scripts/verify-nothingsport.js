@@ -69,7 +69,7 @@ assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app scr
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["feed", "standings"], "Feed and Standings must remain routed destinations");
 assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"'), "the compact primary navigation must expose Tune as a bottom sheet");
-const requiredSlogan = "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.";
+const requiredSlogan = "Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
 assert.equal(brand.metadataDescription, requiredSlogan, "metadata must use the supplied slogan exactly");
 assert(html.includes(`<title data-brand-copy="title">${brand.title}</title>`), "the document title must use the canonical nothingsport title");
@@ -84,11 +84,16 @@ assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requi
 assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["smarter", "low-value fixtures", "spoiler-safe", "major live moments", "Open Tune", "several sports", "focused view"].forEach(phrase => {
+["curates live sport around your tastes", "follow and rate", "results hidden", "major live moments", "Open Tune", "temporarily hide sports", "focused view"].forEach(phrase => {
   assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
 assert(!notFoundHtml.includes("nothingsport-logo-slogan.png"), "the not-found route must not render the stale slogan raster");
+const retiredSlogan = "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.";
+assert(
+  ![html, JSON.stringify(brand), JSON.stringify(manifest), notFoundHtml].some(source => source.includes(retiredSlogan)),
+  "the superseded smart-feed slogan must be removed from every brand surface",
+);
 assert(!html.includes("Sports feed orchestrator") && !html.includes("Your sports, orchestrated."), "superseded slogan copy must be removed from app and share surfaces");
 assert(!/right live games/i.test(html), "superseded right-live-games copy must be removed");
 assert(!brand.about.includes("Sydney"), "core product copy must not be city-bound");
