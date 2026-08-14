@@ -83,6 +83,11 @@ const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-cu
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 
 assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p --local-only/, "the wrapper must explicitly suppress update-cards' nested release so each run deploys once");
+assert.match(wrapperScript, /\$WEBSITE_URL\/service-worker\.js/, "the release wrapper must verify the served service worker");
+assert.match(wrapperScript, /REMOTE_HOME_HASH.*LOCAL_HOME_HASH_AFTER/s, "the release wrapper must compare the live shell with the immutable local snapshot");
+assert.match(wrapperScript, /REMOTE_META_HASH.*LOCAL_META_HASH_AFTER/s, "the release wrapper must compare live feed metadata with the immutable local snapshot");
+assert.match(wrapperScript, /REMOTE_SERVICE_WORKER_HASH.*LOCAL_SERVICE_WORKER_HASH_AFTER/s, "the release wrapper must compare the live service worker with the immutable local snapshot");
+assert.match(wrapperScript, /RELEASE_CONTENT_MATCH="NO"/, "a live-content mismatch must fail closed");
 assert.match(tournamentCheckScript, /NODE_BIN="\$\{NODE_BIN:-node\}"/, "the separate tournament job must honour the approved Node runtime override");
 assert.match(tournamentCheckScript, /PROBE_JSON="\$\("\$NODE_BIN" scripts\/refresh-cincinnati-tournament\.js --probe\)"/, "the tournament probe must run through NODE_BIN");
 assert.match(tournamentCheckScript, /refresh-cincinnati-tournament\.js --probe/, "the separate tournament job must probe the official source without mutating output");
@@ -92,6 +97,8 @@ assert.match(tournamentCheckScript, /output is unchanged/, "an unchanged tournam
 assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper must require an exact origin\/main starting commit");
 assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
 assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
+assert.match(releaseScript, /vercel list sportscal --meta "releaseGitSha=\$DEPLOY_SHA" --status READY --json/, "the release must query READY deployments by immutable source commit");
+assert.match(releaseScript, /item\.target === "production"/, "the release metadata check must require the production target");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
 assert.match(releaseScript, /"data\/canonical\/joint-tennis-tournament-2026\.js"/, "the release commit must include the regenerated direct-file tournament bundle");
 assert.match(snapshotScript, /git archive "\$DEPLOY_SHA"/, "the deployment helper must archive the resolved immutable commit");

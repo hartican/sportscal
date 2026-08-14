@@ -101,27 +101,34 @@ extract_header() {
 }
 
 check_browser_deployment() {
-  local tmp_dir remote_meta_file remote_events_file remote_home remote_headers_meta remote_headers_events remote_headers_home
-  local status_home status_meta status_events
+  local tmp_dir remote_meta_file remote_events_file remote_service_worker_file remote_home
+  local remote_headers_meta remote_headers_events remote_headers_service_worker remote_headers_home
+  local status_home status_meta status_events status_service_worker
 
   tmp_dir="$(mktemp -d)"
   remote_meta_file="$tmp_dir/remote-feed-meta.json"
   remote_events_file="$tmp_dir/remote-events.json"
+  remote_service_worker_file="$tmp_dir/remote-service-worker.js"
   remote_home="$tmp_dir/home.html"
   remote_headers_meta="$tmp_dir/meta.headers"
   remote_headers_events="$tmp_dir/events.headers"
+  remote_headers_service_worker="$tmp_dir/service-worker.headers"
   remote_headers_home="$tmp_dir/home.headers"
 
   BROWSER_CHECK_OK=1
   BROWSER_HOME_STATUS="unavailable"
   BROWSER_HOME_APP_SHELL="unavailable"
+  REMOTE_HOME_HASH="unavailable"
   BROWSER_META_STATUS="unavailable"
   BROWSER_META_VERSION="unavailable"
   BROWSER_META_PUBLISHED="unavailable"
+  REMOTE_META_HASH="unavailable"
   BROWSER_EVENTS_STATUS="unavailable"
   BROWSER_EVENTS_ETAG="unavailable"
   BROWSER_EVENTS_LAST_MODIFIED="unavailable"
   REMOTE_EVENTS_HASH="unavailable"
+  BROWSER_SERVICE_WORKER_STATUS="unavailable"
+  REMOTE_SERVICE_WORKER_HASH="unavailable"
 
   if ! command -v curl >/dev/null 2>&1; then
     BROWSER_CHECK_OK=0
@@ -132,6 +139,7 @@ check_browser_deployment() {
     status_home="$(head -n 1 "$remote_headers_home" | awk "{print \$2}")"
     BROWSER_HOME_STATUS="${status_home:-unavailable}"
     BROWSER_HOME_APP_SHELL="$(grep -o 'name=\"app-shell-version\" content=\"[^\"]\\+\"' "$remote_home" | head -n 1 | sed 's/.*content=\"\\(.*\\)\"/\\1/' || true)"
+    REMOTE_HOME_HASH="$(read_file_sha256 "$remote_home")"
   else
     BROWSER_CHECK_OK=0
   fi
@@ -140,6 +148,7 @@ check_browser_deployment() {
     status_meta="$(head -n 1 "$remote_headers_meta" | awk "{print \$2}")"
     BROWSER_META_STATUS="${status_meta:-unavailable}"
     IFS='|' read -r BROWSER_META_VERSION BROWSER_META_GENERATED BROWSER_META_PUBLISHED BROWSER_META_UPDATED BROWSER_META_CARD_COUNT BROWSER_META_SOURCE < <(read_feed_meta_fields "$remote_meta_file")
+    REMOTE_META_HASH="$(read_file_sha256 "$remote_meta_file")"
   else
     BROWSER_CHECK_OK=0
   fi
@@ -150,6 +159,14 @@ check_browser_deployment() {
     BROWSER_EVENTS_ETAG="$(extract_header "$remote_headers_events" "etag")"
     BROWSER_EVENTS_LAST_MODIFIED="$(extract_header "$remote_headers_events" "last-modified")"
     REMOTE_EVENTS_HASH="$(read_file_sha256 "$remote_events_file")"
+  else
+    BROWSER_CHECK_OK=0
+  fi
+
+  if curl -fsS -o "$remote_service_worker_file" -D "$remote_headers_service_worker" --max-time 45 "$WEBSITE_URL/service-worker.js" >/tmp/curl_service_worker.log 2>&1; then
+    status_service_worker="$(head -n 1 "$remote_headers_service_worker" | awk "{print \$2}")"
+    BROWSER_SERVICE_WORKER_STATUS="${status_service_worker:-unavailable}"
+    REMOTE_SERVICE_WORKER_HASH="$(read_file_sha256 "$remote_service_worker_file")"
   else
     BROWSER_CHECK_OK=0
   fi
@@ -188,6 +205,9 @@ ensure_clean_origin_main_checkout
 
 SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js -p --local-only
 LOCAL_EVENTS_HASH_AFTER="$(read_file_sha256 data/events.json)"
+LOCAL_HOME_HASH_AFTER="$(read_file_sha256 index.html)"
+LOCAL_META_HASH_AFTER="$(read_file_sha256 data/feed-meta.json)"
+LOCAL_SERVICE_WORKER_HASH_AFTER="$(read_file_sha256 service-worker.js)"
 IFS='|' read -r \
   LOCAL_META_VERSION_AFTER LOCAL_META_GENERATED_AFTER LOCAL_META_PUBLISHED_AFTER LOCAL_META_UPDATED_AFTER LOCAL_META_CARD_COUNT_AFTER LOCAL_META_SOURCE_AFTER \
   < <(read_feed_meta_fields "data/feed-meta.json")
@@ -204,14 +224,19 @@ if [[ "${SKIP_RELEASE:-0}" == "1" ]]; then
   DATA_UPDATED_ON_WEBSITE="SKIPPED (SKIP_RELEASE=1)"
   BROWSER_HOME_STATUS="skipped"
   BROWSER_HOME_APP_SHELL="skipped"
+  REMOTE_HOME_HASH="skipped"
   BROWSER_META_STATUS="skipped"
   BROWSER_META_VERSION="skipped"
   BROWSER_META_PUBLISHED="skipped"
+  REMOTE_META_HASH="skipped"
   BROWSER_EVENTS_STATUS="skipped"
   BROWSER_EVENTS_ETAG="skipped"
   BROWSER_EVENTS_LAST_MODIFIED="skipped"
   BROWSER_CHECK_OK=0
   REMOTE_EVENTS_HASH="skipped"
+  BROWSER_SERVICE_WORKER_STATUS="skipped"
+  REMOTE_SERVICE_WORKER_HASH="skipped"
+  RELEASE_CONTENT_MATCH="SKIPPED"
 else
   ./scripts/redeploy-and-release.sh "${RELEASE_COMMIT_MESSAGE:-Automated card refresh and redeploy}"
 
@@ -231,6 +256,15 @@ else
       DATA_UPDATED_ON_WEBSITE="UNCERTAIN"
     fi
   fi
+
+  RELEASE_CONTENT_MATCH="NO"
+  if [[ "$BROWSER_CHECK_OK" == "1" ]] && \
+     [[ "$REMOTE_HOME_HASH" == "$LOCAL_HOME_HASH_AFTER" ]] && \
+     [[ "$REMOTE_META_HASH" == "$LOCAL_META_HASH_AFTER" ]] && \
+     [[ "$REMOTE_EVENTS_HASH" == "$LOCAL_EVENTS_HASH_AFTER" ]] && \
+     [[ "$REMOTE_SERVICE_WORKER_HASH" == "$LOCAL_SERVICE_WORKER_HASH_AFTER" ]]; then
+    RELEASE_CONTENT_MATCH="YES"
+  fi
 fi
 
 echo
@@ -246,4 +280,11 @@ echo "Local feed meta publishedAt after:  ${LOCAL_META_PUBLISHED_AFTER}"
 echo "In-browser checks (homepage): status=${BROWSER_HOME_STATUS}, app-shell-version=${BROWSER_HOME_APP_SHELL}"
 echo "In-browser checks (feed-meta.json): status=${BROWSER_META_STATUS}, version=${BROWSER_META_VERSION}, publishedAt=${BROWSER_META_PUBLISHED}"
 echo "In-browser checks (events.json): status=${BROWSER_EVENTS_STATUS}, etag=${BROWSER_EVENTS_ETAG}, last-modified=${BROWSER_EVENTS_LAST_MODIFIED}, sha256=${REMOTE_EVENTS_HASH}"
+echo "In-browser checks (service-worker.js): status=${BROWSER_SERVICE_WORKER_STATUS}, sha256=${REMOTE_SERVICE_WORKER_HASH}"
+echo "Immutable live-content match: ${RELEASE_CONTENT_MATCH}"
 echo "Data confirmed updated on website: ${DATA_UPDATED_ON_WEBSITE}"
+
+if [[ "$RELEASE_CONTENT_MATCH" == "NO" ]]; then
+  echo "Error: live shell, feed metadata, events or service worker does not match the released origin/main snapshot." >&2
+  exit 1
+fi

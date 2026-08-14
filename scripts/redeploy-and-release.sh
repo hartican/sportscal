@@ -277,3 +277,27 @@ ensure_origin_main
 DEPLOY_SHA="$(git rev-parse origin/main)"
 log "Deploying immutable origin/main snapshot $DEPLOY_SHA."
 NS_DEPLOY_REF=origin/main ./scripts/deploy-current-commit.sh
+
+DEPLOYMENT_LIST_FILE="$(mktemp)"
+if ! vercel list sportscal --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json > "$DEPLOYMENT_LIST_FILE"; then
+  rm -f "$DEPLOYMENT_LIST_FILE"
+  log "Unable to verify the READY deployment metadata for $DEPLOY_SHA."
+  exit 1
+fi
+if ! node -e '
+  const fs = require("fs");
+  const payload = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+  const expectedSha = process.argv[2];
+  const deployment = (payload.deployments || []).find(item =>
+    item.state === "READY"
+      && item.target === "production"
+      && item.meta?.releaseGitSha === expectedSha
+  );
+  if (!deployment) throw new Error(`No READY production deployment records releaseGitSha=${expectedSha}`);
+' "$DEPLOYMENT_LIST_FILE" "$DEPLOY_SHA"; then
+  rm -f "$DEPLOYMENT_LIST_FILE"
+  log "Production deployment metadata does not match origin/main $DEPLOY_SHA."
+  exit 1
+fi
+rm -f "$DEPLOYMENT_LIST_FILE"
+log "Production deployment metadata verified for origin/main $DEPLOY_SHA."
