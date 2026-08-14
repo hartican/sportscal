@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 const { buildSteps, parseOptions } = require("./update-cards");
@@ -22,6 +23,9 @@ assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && 
 assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js"), "every canonical update must enforce ATP/WTA parity, Australian coverage, froth rules, and Toronto regression coverage");
 assert(localSteps.some(step => step[0] === "scripts/sync-tennis-tournaments-to-feed.js" && step.includes("--from-exports")), "the canonical update must project active marquee tennis from the reviewed provider exports");
 assert(localSteps.some(step => step[0] === "scripts/validate-sport-hierarchy.js"), "every canonical update must validate hierarchy compatibility for every published card");
+assert(localSteps.some(step => step[0] === "scripts/validate-discovery-catalogue.js"), "every canonical update must validate discovery hierarchy, event-follow migration, Sydney-window counts and session state");
+assert(localSteps.some(step => step[0] === "scripts/refresh-cincinnati-tournament.js"), "every canonical update must run the official Cincinnati-only tournament check");
+assert(localSteps.some(step => step[0] === "scripts/validate-joint-tennis-tournament.js"), "every canonical update must reject joint-tournament schema, ID, date or spoiler failures");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-taxonomy.js"), "every canonical update must validate exact idempotent preference translation into the hierarchy");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-controls.js"), "every canonical update must enforce feed intent, discovery mix, availability and negative suppression");
 assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must regenerate the broadcaster-led weekly and next-seven-day coverage report from approved inputs");
@@ -73,18 +77,75 @@ assert.deepEqual(
 
 const projectRoot = path.resolve(__dirname, "..");
 const wrapperScript = fs.readFileSync(path.join(projectRoot, "scripts/update-sportscal-cards-and-release.sh"), "utf8");
+const tournamentCheckScript = fs.readFileSync(path.join(projectRoot, "scripts/check-active-tournament-and-release.sh"), "utf8");
 const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-and-release.sh"), "utf8");
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 
 assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p --local-only/, "the wrapper must explicitly suppress update-cards' nested release so each run deploys once");
+assert.match(tournamentCheckScript, /NODE_BIN="\$\{NODE_BIN:-node\}"/, "the separate tournament job must honour the approved Node runtime override");
+assert.match(tournamentCheckScript, /PROBE_JSON="\$\("\$NODE_BIN" scripts\/refresh-cincinnati-tournament\.js --probe\)"/, "the tournament probe must run through NODE_BIN");
+assert.match(tournamentCheckScript, /refresh-cincinnati-tournament\.js --probe/, "the separate tournament job must probe the official source without mutating output");
+assert.match(tournamentCheckScript, /scripts\/update-sportscal-cards-and-release\.sh/, "a changed active tournament must enter the canonical update and immutable release path");
+assert.match(tournamentCheckScript, /No supported tournament is active/, "an inactive tournament check must be an explicit no-op");
+assert.match(tournamentCheckScript, /output is unchanged/, "an unchanged tournament check must be an explicit no-op");
 assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper must require an exact origin\/main starting commit");
 assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
 assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
+assert.match(releaseScript, /"data\/canonical\/joint-tennis-tournament-2026\.js"/, "the release commit must include the regenerated direct-file tournament bundle");
 assert.match(snapshotScript, /git archive "\$DEPLOY_SHA"/, "the deployment helper must archive the resolved immutable commit");
 assert.match(snapshotScript, /releaseGitSha=\$DEPLOY_SHA/, "the Vercel deployment must record its source commit");
 assert.equal(vercelConfig.git?.deploymentEnabled, false, "Vercel Git auto-deploys must remain disabled so the reviewed immutable CLI release is the only production deployment path");
+
+function runTournamentGate(probeJson){
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-tournament-gate-"));
+  const fixtureScripts = path.join(fixtureRoot, "scripts");
+  const nodeArgsPath = path.join(fixtureRoot, "node-args.txt");
+  const releaseMarkerPath = path.join(fixtureRoot, "release-marker.txt");
+  const nodeStubPath = path.join(fixtureRoot, "node-stub.sh");
+  try {
+    fs.mkdirSync(fixtureScripts, { recursive: true });
+    fs.copyFileSync(path.join(projectRoot, "scripts/check-active-tournament-and-release.sh"), path.join(fixtureScripts, "check-active-tournament-and-release.sh"));
+    fs.writeFileSync(nodeStubPath, "#!/usr/bin/env bash\nset -euo pipefail\nprintf '%s\\n' \"$*\" > \"$NODE_ARGS_PATH\"\nprintf '%s\\n' \"$TOURNAMENT_PROBE_JSON\"\n");
+    fs.chmodSync(nodeStubPath, 0o755);
+    fs.writeFileSync(path.join(fixtureScripts, "update-sportscal-cards-and-release.sh"), "#!/usr/bin/env bash\nset -euo pipefail\nprintf '%s\\n' \"${RELEASE_COMMIT_MESSAGE:-}\" > \"$RELEASE_MARKER_PATH\"\n");
+    fs.chmodSync(path.join(fixtureScripts, "update-sportscal-cards-and-release.sh"), 0o755);
+    const result = spawnSync("bash", ["scripts/check-active-tournament-and-release.sh"], {
+      cwd: fixtureRoot,
+      env: {
+        ...process.env,
+        NODE_BIN: nodeStubPath,
+        NODE_ARGS_PATH: nodeArgsPath,
+        RELEASE_MARKER_PATH: releaseMarkerPath,
+        TOURNAMENT_PROBE_JSON: probeJson,
+      },
+      encoding: "utf8",
+    });
+    return {
+      result,
+      nodeArgs: fs.existsSync(nodeArgsPath) ? fs.readFileSync(nodeArgsPath, "utf8").trim() : "",
+      releaseMessage: fs.existsSync(releaseMarkerPath) ? fs.readFileSync(releaseMarkerPath, "utf8").trim() : null,
+    };
+  } finally {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+}
+
+const inactiveTournamentGate = runTournamentGate('{"status":"inactive","changed":false}');
+assert.equal(inactiveTournamentGate.result.status, 0, inactiveTournamentGate.result.stderr);
+assert.match(inactiveTournamentGate.result.stdout, /No supported tournament is active/);
+assert.equal(inactiveTournamentGate.releaseMessage, null, "inactive tournament checks must not call the release wrapper");
+assert.equal(inactiveTournamentGate.nodeArgs, "scripts/refresh-cincinnati-tournament.js --probe", "the gate must use NODE_BIN for only the read-only probe");
+
+const unchangedTournamentGate = runTournamentGate('{"status":"success","changed":false}');
+assert.equal(unchangedTournamentGate.result.status, 0, unchangedTournamentGate.result.stderr);
+assert.match(unchangedTournamentGate.result.stdout, /output is unchanged/);
+assert.equal(unchangedTournamentGate.releaseMessage, null, "unchanged tournament checks must not call the release wrapper");
+
+const changedTournamentGate = runTournamentGate('{"status":"success","changed":true}');
+assert.equal(changedTournamentGate.result.status, 0, changedTournamentGate.result.stderr);
+assert.equal(changedTournamentGate.releaseMessage, "Refresh active tournament schedule", "changed tournament checks must call the canonical wrapper exactly once with the targeted release message");
 
 const stagingCheck = spawnSync("bash", ["scripts/deploy-current-commit.sh"], {
   cwd: projectRoot,

@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v85";
+const CACHE_NAME = "nothingsport-shell-v86";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -28,7 +28,9 @@ const APP_SHELL = [
   "/config/card-lifecycle.js",
   "/config/reminder-engine.js",
   "/config/soundtrack.js",
+  "/config/joint-tennis-tournament.js",
   "/config/selector-taxonomy.js",
+  "/config/discovery-catalogue.js",
   "/config/au-broadcast-weights.js",
   "/data/events.js",
   "/data/feed-meta.json",
@@ -41,12 +43,15 @@ const APP_SHELL = [
   "/data/canonical/nba-context-2026.json",
   "/data/canonical/cwg-context-2026.json",
   "/data/canonical/tennis-catalogue-2026.json",
+  "/data/canonical/joint-tennis-tournament-2026.js",
+  "/data/canonical/joint-tennis-tournament-2026.json",
   "/schemas/preference-graph.schema.json",
   "/schemas/feed-controls.schema.json",
   "/schemas/preference-taxonomy.schema.json",
   "/schemas/tennis-ranking-export.schema.json",
   "/schemas/tennis-tournament-export.schema.json",
   "/schemas/tennis-catalogue.schema.json",
+  "/schemas/joint-tennis-tournament.schema.json",
   "/schemas/product-events.schema.json",
   "/schemas/user-state-patch.schema.json",
   "/schemas/enriched-event.schema.json",

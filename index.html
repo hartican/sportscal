@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="85">
+<meta name="app-shell-version" content="86">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed." data-brand-copy-content="metadataDescription">
@@ -4259,6 +4259,270 @@ footer.app-footer{
   .sport-hub-fixture-status{ text-align:left; }
 }
 
+/* ---------- Supercharged discovery ---------- */
+.tune-sheet-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:220;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  background:rgba(3,3,8,0.68);
+  backdrop-filter:blur(12px);
+}
+
+.tune-sheet-backdrop.show{ display:flex; }
+
+.tune-sheet{
+  width:min(760px, 100%);
+  max-height:min(780px, 90dvh);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-bottom:0;
+  border-radius:22px 22px 0 0;
+  background:var(--panel-bg);
+  box-shadow:0 -28px 80px rgba(0,0,0,0.48);
+  transform:translateY(16px);
+  opacity:0;
+  transition:transform 180ms ease, opacity 180ms ease;
+}
+
+.tune-sheet-backdrop.show .tune-sheet{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.tune-sheet-head{
+  flex:0 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 20px 14px;
+  border-bottom:1px solid var(--border);
+  background:color-mix(in srgb, var(--panel-bg) 94%, transparent);
+}
+
+.tune-sheet-head h2{ font-size:1.05rem; }
+.tune-sheet-head p{ margin-top:4px; color:var(--text-dim); font-size:0.78rem; line-height:1.45; }
+
+.tune-sheet-close{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg-card);
+  color:var(--text);
+  font:800 1.2rem/1 inherit;
+  cursor:pointer;
+}
+
+.tune-sheet-body{
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:16px 20px calc(20px + env(safe-area-inset-bottom));
+}
+
+.tune-section + .tune-section{
+  margin-top:20px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+}
+
+.tune-section-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.tune-section-heading h3{ font-size:0.9rem; }
+.tune-section-heading span{ color:var(--text-dim); font-size:0.7rem; }
+
+.tune-controls-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(110px, 1fr));
+  gap:8px;
+}
+
+.browse-list{ display:flex; flex-direction:column; gap:8px; }
+
+.browse-row{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  gap:10px;
+  align-items:center;
+  min-height:52px;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg-card);
+}
+
+.browse-row.is-child{ margin-left:24px; }
+
+.browse-row-main{
+  min-width:0;
+  display:grid;
+  grid-template-columns:auto minmax(0, 1fr);
+  gap:9px;
+  align-items:center;
+}
+
+.browse-tick,
+.browse-expand,
+.browse-open,
+.browse-follow{
+  min-height:38px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  font:800 0.7rem/1 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.browse-tick{
+  width:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text-dim);
+}
+
+.browse-tick.is-on{
+  border-color:color-mix(in srgb, var(--accent) 62%, var(--border));
+  background:color-mix(in srgb, var(--accent) 14%, var(--bg-card));
+  color:var(--accent);
+}
+
+.browse-tick.is-mixed{ color:var(--attention); }
+
+.browse-copy{ min-width:0; }
+.browse-copy strong{ display:block; font-size:0.8rem; }
+.browse-copy span{ display:block; margin-top:2px; color:var(--text-dim); font-size:0.67rem; }
+
+.browse-actions{ display:flex; gap:6px; }
+.browse-expand{ width:38px; font-size:1rem; }
+.browse-expand[aria-expanded="true"]{ color:var(--accent); }
+.browse-open,
+.browse-follow{ padding:0 11px; }
+.browse-follow{ border-color:color-mix(in srgb, var(--accent) 55%, var(--border)); color:var(--accent); }
+
+.browse-more{
+  margin-top:10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.browse-more summary{
+  padding:12px;
+  cursor:pointer;
+  color:var(--text-dim);
+  font-size:0.75rem;
+  font-weight:800;
+}
+
+.browse-more .browse-list{ padding:0 8px 8px; }
+
+.focused-discovery-banner{
+  margin-bottom:14px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 48%, var(--border));
+  border-radius:14px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 9%, var(--bg-card));
+}
+
+.focused-discovery-banner strong{ display:block; font-size:0.85rem; }
+.focused-discovery-banner p{ margin-top:3px; color:var(--text-dim); font-size:0.73rem; line-height:1.45; }
+.focused-discovery-actions{ flex:0 0 auto; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:7px; }
+
+.joint-tournament-card{
+  margin:0 0 16px;
+  border:1px solid color-mix(in srgb, var(--c-tennis) 52%, var(--border));
+  border-radius:16px;
+  background:linear-gradient(145deg, color-mix(in srgb, var(--c-tennis) 10%, var(--bg-card)), var(--bg-card));
+  overflow:hidden;
+}
+
+.joint-tournament-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  padding:16px;
+  border-bottom:1px solid var(--border);
+}
+
+.joint-tournament-head h2{ font-size:1rem; }
+.joint-tournament-kicker{ color:var(--text-dim); font-size:0.68rem; font-weight:800; letter-spacing:0.07em; text-transform:uppercase; }
+.joint-tournament-source{ margin-top:5px; color:var(--text-dim); font-size:0.7rem; }
+.joint-tournament-source a{ text-decoration:underline; text-underline-offset:2px; }
+.joint-confidence{ flex:0 0 auto; padding:6px 9px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:0.66rem; font-weight:800; }
+.joint-match-list{ display:flex; flex-direction:column; }
+.joint-match{
+  display:grid;
+  grid-template-columns:82px minmax(0, 1fr) auto;
+  gap:12px;
+  align-items:center;
+  padding:13px 16px;
+  border-bottom:1px solid var(--border);
+}
+.joint-match:last-child{ border-bottom:0; }
+.joint-results-note{
+  margin:0;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+  color:var(--text-dim);
+  font-size:0.7rem;
+  line-height:1.45;
+}
+.joint-match-order{ color:var(--text-dim); font-size:0.66rem; line-height:1.45; }
+.joint-match-copy strong{ display:block; font-size:0.8rem; }
+.joint-match-copy span{ display:block; margin-top:3px; color:var(--text-dim); font-size:0.68rem; }
+.joint-tour{ color:var(--accent); font-weight:900; }
+.joint-match-actions{ display:flex; gap:5px; }
+.joint-match-actions button{ min-height:36px; padding:0 9px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text); font:800 0.66rem/1 inherit; cursor:pointer; }
+.joint-saved{ border-top:1px solid var(--border); }
+.joint-saved summary{ padding:12px 16px; cursor:pointer; color:var(--text-dim); font-size:0.72rem; font-weight:800; }
+.joint-overview{ padding:18px 16px; color:var(--text-dim); font-size:0.78rem; line-height:1.5; }
+
+body.header-compact-1 header.top{
+  padding-top:calc(9px + env(safe-area-inset-top));
+  padding-bottom:7px;
+}
+body.header-compact-1 .tabs{ margin-top:8px; }
+body.header-compact-1 .tab-btn{ padding-top:7px; padding-bottom:7px; }
+body.header-compact-2 .header-brand-logo{ width:clamp(142px, 14vw, 164px); }
+body.header-compact-2 .header-actions .btn{ padding-top:7px; padding-bottom:7px; }
+body.header-compact-3 .brand .slogan{ display:none; }
+
+@media (max-width: 640px){
+  .tune-sheet{ max-height:92dvh; }
+  .tune-sheet-head{ padding:15px 14px 12px; }
+  .tune-sheet-body{ padding:14px 12px calc(16px + env(safe-area-inset-bottom)); }
+  .tune-controls-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .tune-controls-grid .feed-control:last-child{ grid-column:1 / -1; }
+  .browse-row{ grid-template-columns:minmax(0, 1fr); }
+  .browse-actions{ justify-content:flex-end; }
+  .browse-row.is-child{ margin-left:14px; }
+  .focused-discovery-banner{ align-items:flex-start; flex-direction:column; }
+  .focused-discovery-actions{ justify-content:flex-start; }
+  .joint-match{ grid-template-columns:64px minmax(0, 1fr); }
+  .joint-match-actions{ grid-column:1 / -1; justify-content:flex-end; }
+  body.header-compact-2 .header-brand-logo{ width:132px; }
+}
+
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{
     scroll-behavior: auto !important;
@@ -4301,24 +4565,11 @@ footer.app-footer{
   <div class="tabs">
     <button class="tab-btn active" data-tab="feed"><span class="tab-label">Feed</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings</span><span class="tab-count" id="standingsTabCount">0</span></button>
+    <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Tune</span></button>
   </div>
 </header>
 
 <audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="metadata" loop></audio>
-
-<section class="feed-filter-dock" id="feedFilterDock" aria-label="Feed filter controls">
-  <div class="feed-filter-dock-inner">
-    <div class="feed-filter-toolbar" id="feedFilterToolbar">
-      <button class="feed-filter-visibility-btn is-expanded" id="feedFilterVisibilityBtn" type="button" aria-expanded="true" aria-controls="feedFilterContent">Hide controls</button>
-      <span class="feed-filter-selection" id="feedFilterSelection" aria-live="polite">All sports selected</span>
-    </div>
-    <div class="feed-filter-content" id="feedFilterContent">
-      <span class="feed-navigation-label" id="feedNavigationLabel">Browse</span>
-      <div class="filter-row" id="sportFilters" role="group" aria-label="Filter feed by sport"></div>
-      <div class="feed-control-grid" id="feedControlGrid" aria-label="Feed intent controls"></div>
-    </div>
-  </div>
-</section>
 
 <div class="controls" id="calendarControls">
   <div class="preference-summary" id="preferenceSummary"></div>
@@ -4343,6 +4594,32 @@ footer.app-footer{
 </footer>
 
 <div class="toast" id="toast"></div>
+
+<div class="tune-sheet-backdrop" id="tuneSheet" aria-hidden="true">
+  <section class="tune-sheet" role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle" aria-describedby="tuneSheetDescription">
+    <header class="tune-sheet-head">
+      <div>
+        <h2 id="tuneSheetTitle">Tune your feed</h2>
+        <p id="tuneSheetDescription">Choose what appears for this visit, then adjust how adventurous the feed should be.</p>
+      </div>
+      <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Tune">×</button>
+    </header>
+    <div class="tune-sheet-body">
+      <section class="tune-section" aria-labelledby="tuneBrowseTitle">
+        <div class="tune-section-heading"><h3 id="tuneBrowseTitle">Browse sports</h3><span id="tuneBrowseSummary">All visible sports included</span></div>
+        <div class="browse-list" id="tuneBrowseList"></div>
+        <details class="browse-more" id="tuneBrowseMore" hidden>
+          <summary>More followed sports</summary>
+          <div class="browse-list" id="tuneBrowseMoreList"></div>
+        </details>
+      </section>
+      <section class="tune-section" aria-labelledby="tuneIntentTitle">
+        <div class="tune-section-heading"><h3 id="tuneIntentTitle">Feed intent</h3><span>Saved normally</span></div>
+        <div class="tune-controls-grid" id="tuneControlGrid"></div>
+      </section>
+    </div>
+  </section>
+</div>
 
 <div class="modal-backdrop" id="settingsModal" aria-hidden="true">
   <div class="onboarding-panel settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
@@ -4375,7 +4652,7 @@ footer.app-footer{
       </div>
     </div>
     <div class="about-body">
-      <p data-brand-copy="about">nothingsport is a smarter way to follow live sport without wading through low-value fixtures. Its personalised feed surfaces the matches and events worth your attention, keeps browsing spoiler-safe, and helps you catch major live moments without the clutter. Choose Froth when you want every eligible fixture, or focus on one sport for its full fixture view; the pinned filter can stay visible as you scroll or tuck away while your selection remains active. Built around AEST/AEDT by default, it adapts to other time zones.</p>
+      <p data-brand-copy="about">nothingsport is a smarter way to follow live sport without wading through low-value fixtures. Its personalised feed surfaces the matches and events worth your attention, keeps browsing spoiler-safe, and helps you catch major live moments without the clutter. Open Tune to include or hide several sports for this visit, or open one sport for a focused view. Built around AEST/AEDT by default, it adapts to other time zones.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
     </div>
@@ -4529,8 +4806,11 @@ footer.app-footer{
 <script src="config/card-lifecycle.js"></script>
 <script src="config/reminder-engine.js"></script>
 <script src="config/soundtrack.js"></script>
+<script src="config/joint-tennis-tournament.js"></script>
 <script src="config/selector-taxonomy.js"></script>
+<script src="config/discovery-catalogue.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
+<script src="data/canonical/joint-tennis-tournament-2026.js"></script>
 <script src="data/events.js"></script>
 <script>
 /* ============ DATA ============ */
@@ -4588,6 +4868,7 @@ const SELECTOR_TAXONOMY = globalThis.NOTHINGSPORTS_SELECTOR_TAXONOMY || {
   specialEvents: [],
   commonwealthDisciplines: [],
 };
+const DISCOVERY_CATALOGUE = globalThis.NOTHINGSPORTS_DISCOVERY_CATALOGUE || null;
 
 const CANONICAL_TAXONOMY = globalThis.NOTHINGSPORTS_CANONICAL_TAXONOMY || {
   sportDomains: [],
@@ -4609,16 +4890,24 @@ const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
 const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
 const PRODUCT_EVENTS = globalThis.NOTHINGSPORTS_PRODUCT_EVENTS || null;
+const JOINT_TENNIS_TOURNAMENT = globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT || null;
 
 const SPECIAL_EVENT_ONLY_SPORT_KEYS = new Set(["wimbledon", "fifa", "tdf", "masters", "lemans", "nfl", "cwg"]);
 const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
-  "sport:wimbledon": "special:wimbledon",
-  "sport:fifa": "special:fifa-world-cup",
-  "sport:tdf": "special:tour-de-france",
-  "sport:masters": "special:masters-tournament",
-  "sport:lemans": "special:le-mans-24-hours",
-  "sport:nfl": "special:super-bowl",
-  "sport:cwg": "special:commonwealth-games",
+  "sport:wimbledon": "sport:tennis",
+  "special:wimbledon": "sport:tennis",
+  "sport:fifa": "sport:football",
+  "special:fifa-world-cup": "sport:football",
+  "sport:tdf": "sport:cycling",
+  "special:tour-de-france": "sport:cycling",
+  "sport:masters": "sport:golf",
+  "special:masters-tournament": "sport:golf",
+  "sport:lemans": "sport:motorsport",
+  "special:le-mans-24-hours": "sport:motorsport",
+  "sport:goodwood": "sport:motorsport",
+  "special:goodwood-festival-of-speed": "sport:motorsport",
+  "sport:nfl": "sport:american-football",
+  "special:super-bowl": "sport:american-football",
 });
 const BASE_SPORT_SELECTOR_OVERRIDES = Object.freeze({
   nba: {
@@ -4644,22 +4933,35 @@ const EVENT_LOCATION_BY_VENUE = [
   [/\bSilverstone Circuit\b/i, "Silverstone"],
 ];
 
-const BASE_SPORT_SELECTOR_ENTITIES = Object.entries(SPORTS_LIBRARY)
-  .filter(([key]) => !SPECIAL_EVENT_ONLY_SPORT_KEYS.has(key))
-  .map(([key, sport], index) => ({
-  id: `sport:${key}`,
-  level: 2,
-  label: BASE_SPORT_SELECTOR_OVERRIDES[key]?.label || sport.label,
-  parentId: "category:sports",
-  path: ["Sports", BASE_SPORT_SELECTOR_OVERRIDES[key]?.label || sport.label],
-  categoryType: "sport",
-  canonicalSportKeys: [key],
-  glyph: sport.glyph,
-  detail: BASE_SPORT_SELECTOR_OVERRIDES[key]?.detail || sport.detail,
-  color: sport.color,
-  isNew: false,
-  editorialOrder: index + 1,
-}));
+const BASE_SPORT_SELECTOR_ENTITIES = (SELECTOR_TAXONOMY.exposedSportNodes?.length
+  ? SELECTOR_TAXONOMY.exposedSportNodes
+  : Object.entries(SPORTS_LIBRARY)
+    .filter(([key]) => !SPECIAL_EVENT_ONLY_SPORT_KEYS.has(key))
+    .map(([key, sport], index) => ({
+      id: `sport:${key}`,
+      level: 2,
+      label: BASE_SPORT_SELECTOR_OVERRIDES[key]?.label || sport.label,
+      parentId: "category:sports",
+      path: ["Sports", BASE_SPORT_SELECTOR_OVERRIDES[key]?.label || sport.label],
+      categoryType: "sport",
+      canonicalSportKeys: [key],
+      glyph: sport.glyph,
+      detail: BASE_SPORT_SELECTOR_OVERRIDES[key]?.detail || sport.detail,
+      color: sport.color,
+      isNew: false,
+      editorialOrder: index + 1,
+    })))
+  .map((entity, index) => {
+    const registry = (entity.canonicalSportKeys || []).map(key => SPORTS_LIBRARY[key] || SPORT_META[key]).find(Boolean) || {};
+    return Object.freeze({
+      ...entity,
+      level: entity.level || (entity.parentId === "category:sports" ? 2 : 3),
+      detail: entity.detail || registry.detail || `Browse ${entity.label} fixtures and highlights.`,
+      color: entity.color || registry.color || "var(--accent)",
+      glyph: entity.glyph || registry.glyph || "ui:filter",
+      editorialOrder: entity.editorialOrder || index + 1,
+    });
+  });
 
 const BROADCASTER_LIBRARY = {
   kayo: { label: "Kayo Sports", aliases: ["kayo", "espn"] },
@@ -4707,7 +5009,8 @@ const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 12,
+  version: 13,
+  discoveryCatalogueVersion: DISCOVERY_CATALOGUE?.SCHEMA_VERSION || "sports-discovery-catalogue.v1",
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
@@ -4769,6 +5072,11 @@ const FEED_CONFIG = {
   eventsUrl: "data/events.json",
   eventsScriptUrl: "data/events.js",
 };
+
+const JOINT_TOURNAMENT_CONFIG = Object.freeze({
+  url: "data/canonical/joint-tennis-tournament-2026.json",
+  tournamentId: "tournament:tennis:joint:cincinnati-open:2026",
+});
 
 const CANONICAL_CONTEXT_CONFIG = Object.freeze({
   scriptUrl: "data/canonical/contexts.js",
@@ -4854,6 +5162,16 @@ function saveActiveProfileSection(section, value){
 
 /* ============ STATE ============ */
 let activeFilter = "all";
+let discoverySessionIncludedSportIds = [];
+let discoverySessionInitialized = false;
+let discoveryExpandedParentIds = new Set();
+let tuneSheetReturnState = null;
+let discoveryTuneInteractionCount = 0;
+let leagueCoveragePromptDismissed = new Set();
+let jointTournamentData = null;
+let jointTournamentLoading = false;
+let jointTournamentError = null;
+let headerCompactionFrame = null;
 let feedFilterRefreshInFlight = null;
 let feedFilterRefreshQueued = false;
 let committedFeedPresentationFingerprint = null;
@@ -4879,7 +5197,7 @@ let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
 let settingsFirstRun = false;
 let settingsWizardStep = 0;
-let settingsSelectorCategory = "category:special-events";
+let settingsSelectorCategory = "category:sports";
 let sportsFollowedTab = "sports";
 let settingsFocusedDomainId = null;
 let draftPreferences = null;
@@ -4949,12 +5267,13 @@ function uniqueArray(values){
 }
 
 function allSelectorEntities(){
-  return [
+  const entities = [
     ...(SELECTOR_TAXONOMY.categories || []),
     ...BASE_SPORT_SELECTOR_ENTITIES,
     ...(SELECTOR_TAXONOMY.specialEvents || []),
     ...(SELECTOR_TAXONOMY.commonwealthDisciplines || []),
   ];
+  return Array.from(new Map(entities.map(entity => [entity.id, entity])).values());
 }
 
 function selectorEntityById(entityId){
@@ -4984,11 +5303,10 @@ function orderSelectorEntitiesForDisplay(entities, preferences){
 function selectorEntityCanonicalSportKeys(entity){
   if (!entity) return [];
   if (entity.id === "category:sports") return BASE_SPORT_SELECTOR_ENTITIES.flatMap(item => item.canonicalSportKeys);
-  if (entity.id === "category:special-events"){
-    return uniqueArray((SELECTOR_TAXONOMY.specialEvents || []).flatMap(item => item.canonicalSportKeys || []));
-  }
-  if (entity.id.startsWith("cwg:")) return ["cwg"];
-  return uniqueArray(entity.canonicalSportKeys || []);
+  if (entity.id === "category:special-events") return [];
+  const descendantKeys = (entity.childIds || [])
+    .flatMap(childId => selectorEntityCanonicalSportKeys(selectorEntityById(childId)));
+  return uniqueArray([...(entity.canonicalSportKeys || []), ...descendantKeys]);
 }
 
 function eventDomainIdentifiers(ev){
@@ -5013,19 +5331,43 @@ function eventDomainIdentifiers(ev){
   return uniqueArray(ids);
 }
 
+function migrateLegacySelectorEntityIds(values){
+  const source = uniqueArray(Array.isArray(values) ? values : []);
+  const selectedDisciplines = source.filter(id => id.startsWith("cwg:"));
+  const migrated = source
+    .filter(id => id !== "category:special-events" && id !== "special:commonwealth-games" && id !== "sport:cwg" && !id.startsWith("cwg:"))
+    .map(id => LEGACY_SELECTOR_ID_ALIASES[id] || id);
+  const cwgRequested = source.some(id => ["category:special-events", "special:commonwealth-games", "sport:cwg"].includes(id))
+    || selectedDisciplines.length > 0;
+  if (cwgRequested){
+    const cwgTag = (SELECTOR_TAXONOMY.internalEventTags || SELECTOR_TAXONOMY.specialEvents || [])
+      .find(entity => entity.id === "special:commonwealth-games");
+    const disciplineSportIds = selectedDisciplines.flatMap(id => (
+      SELECTOR_TAXONOMY.commonwealthDisciplines?.find(entity => entity.id === id)?.underlyingSportIds || []
+    ));
+    migrated.push(...(disciplineSportIds.length ? disciplineSportIds : cwgTag?.underlyingSportIds || []));
+  }
+  if (source.includes("category:special-events")){
+    (SELECTOR_TAXONOMY.internalEventTags || SELECTOR_TAXONOMY.specialEvents || [])
+      .forEach(entity => migrated.push(...(entity.underlyingSportIds || [])));
+  }
+  return uniqueArray(migrated);
+}
+
 function normalizeSelectorEntityIds(values){
   const validIds = new Set(allSelectorEntities().map(entity => entity.id));
-  return uniqueArray((Array.isArray(values) ? values : []).map(id => LEGACY_SELECTOR_ID_ALIASES[id] || id))
+  return migrateLegacySelectorEntityIds(values)
     .filter(id => validIds.has(id));
 }
 
 function legacySelectorIdsForFollowedSports(keys){
   return uniqueArray(Array.isArray(keys) ? keys : [])
-    .filter(key => SPORT_META[key])
     .map(key => {
       const baseEntity = BASE_SPORT_SELECTOR_ENTITIES.find(entity => entity.canonicalSportKeys.includes(key));
       if (baseEntity) return baseEntity.id;
-      return (SELECTOR_TAXONOMY.specialEvents || []).find(entity => (entity.canonicalSportKeys || []).includes(key))?.id;
+      const internalTag = (SELECTOR_TAXONOMY.internalEventTags || SELECTOR_TAXONOMY.specialEvents || [])
+        .find(entity => (entity.canonicalSportKeys || []).includes(key));
+      return internalTag?.underlyingSportIds?.[0] || LEGACY_SELECTOR_ID_ALIASES[`sport:${key}`];
     })
     .filter(Boolean);
 }
@@ -5053,22 +5395,6 @@ function effectiveSelectorEntitiesForIds(entityIds){
     BASE_SPORT_SELECTOR_ENTITIES.filter(entity => selected.has(entity.id)).forEach(entity => add(entity));
   }
 
-  if (selected.has("category:special-events")){
-    (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => add(entity));
-  } else {
-    (SELECTOR_TAXONOMY.specialEvents || []).filter(entity => selected.has(entity.id)).forEach(entity => add(entity));
-  }
-
-  const allCwgDisciplinesSelected = selected.has("category:special-events")
-    || selected.has("special:commonwealth-games");
-  if (!allCwgDisciplinesSelected){
-    (SELECTOR_TAXONOMY.commonwealthDisciplines || [])
-      .filter(entity => selected.has(entity.id))
-      .forEach(entity => add(
-        (SELECTOR_TAXONOMY.specialEvents || []).find(candidate => candidate.id === "special:commonwealth-games"),
-        { type: "commonwealth_discipline", value: entity.canonicalDiscipline }
-      ));
-  }
   return selectors;
 }
 
@@ -5083,8 +5409,8 @@ function selectorEntityIsEffectivelySelected(entityId, preferences){
   const selected = new Set(preferences?.selectedSelectorEntityIds || []);
   if (selected.has(entityId)) return true;
   if (entityId.startsWith("sport:") && selected.has("category:sports")) return true;
-  if (entityId.startsWith("special:") && selected.has("category:special-events")) return true;
-  if (entityId.startsWith("cwg:") && (selected.has("category:special-events") || selected.has("special:commonwealth-games"))) return true;
+  const entity = selectorEntityById(entityId);
+  if (entity?.parentId && selected.has(entity.parentId)) return true;
   return false;
 }
 
@@ -5092,11 +5418,6 @@ function selectedPreferenceDomainIds(preferences){
   const domains = [];
   BASE_SPORT_SELECTOR_ENTITIES.forEach(entity => {
     if (selectorEntityIsEffectivelySelected(entity.id, preferences)) domains.push(entity.id);
-  });
-  (SELECTOR_TAXONOMY.specialEvents || []).forEach(entity => {
-    const hasSelectedDiscipline = entity.id === "special:commonwealth-games"
-      && (SELECTOR_TAXONOMY.commonwealthDisciplines || []).some(item => selectorEntityIsEffectivelySelected(item.id, preferences));
-    if (selectorEntityIsEffectivelySelected(entity.id, preferences) || hasSelectedDiscipline) domains.push(entity.id);
   });
   return uniqueArray(domains);
 }
@@ -5124,6 +5445,10 @@ function selectorEntityMatchesEvent(entityId, ev){
   if (!entity) return false;
   if (entity.id.startsWith("cwg:")){
     return ev.key === "cwg" && commonwealthDisciplineForEvent(ev) === entity.canonicalDiscipline;
+  }
+  const discoveryEventNodeId = DISCOVERY_CATALOGUE?.eventNodeId?.(ev);
+  if (entity.id.startsWith("sport:") && discoveryEventNodeId){
+    return DISCOVERY_CATALOGUE.familyIds(entity.id).includes(discoveryEventNodeId);
   }
   const eventDomainIds = eventDomainIdentifiers(ev);
   if (selectorEntityCanonicalSportKeys(entity).some(key => eventDomainIds.includes(key))) return true;
@@ -5199,6 +5524,8 @@ function mergePreferences(saved){
     merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
     return merged;
   }
+  const savedPreferenceVersion = Number(saved.version || 0);
+  saved = DISCOVERY_CATALOGUE?.migratePreferences?.(saved) || saved;
   const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
     ? saved.pilotMeasurement
     : {};
@@ -5209,21 +5536,16 @@ function mergePreferences(saved){
   const savedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds)
     ? normalizeSelectorEntityIds(saved.selectedSelectorEntityIds)
     : legacySelectorIdsForFollowedSports(saved.followedSports);
-  const shouldSeedEmptyLegacyProfile = Number(saved.version || 0) < LEGACY_SEEDED_DEFAULTS_VERSION
+  const shouldSeedEmptyLegacyProfile = savedPreferenceVersion < LEGACY_SEEDED_DEFAULTS_VERSION
     && !savedSelectorEntityIds.length;
   const selectedSelectorEntityIds = shouldSeedEmptyLegacyProfile
     ? DEFAULT_FIRST_RUN_SELECTOR_IDS.slice()
     : savedSelectorEntityIds;
-  const shouldRestoreCwgForExistingProfile = Number(saved.version || 0) < 5
-    && Boolean(saved.onboardingComplete)
-    && selectedSelectorEntityIds.length > 0;
-  const migratedSelectorEntityIds = shouldRestoreCwgForExistingProfile
-    ? uniqueArray([...selectedSelectorEntityIds, "special:commonwealth-games"])
-    : selectedSelectorEntityIds;
+  const migratedSelectorEntityIds = selectedSelectorEntityIds;
   const legacySelectedBroadcasters = uniqueArray(saved.selectedBroadcasters || merged.selectedBroadcasters).filter(key => BROADCASTER_LIBRARY[key]);
   const priorDefaultBroadcasters = ["kayo", "stan", "sbs", "nine", "foxtel", "fis"];
   const priorCwgDefaultBroadcasters = [...priorDefaultBroadcasters, "seven"];
-  const legacySelectionWasDefault = Number(saved.version || 0) < LEGACY_SEEDED_DEFAULTS_VERSION
+  const legacySelectionWasDefault = savedPreferenceVersion < LEGACY_SEEDED_DEFAULTS_VERSION
     && [priorDefaultBroadcasters, priorCwgDefaultBroadcasters].some(defaults =>
       defaults.length === legacySelectedBroadcasters.length && defaults.every(id => legacySelectedBroadcasters.includes(id))
     );
@@ -5427,7 +5749,7 @@ function migrateEventActionRecords(records){
     );
     return [key, {
       ...action,
-      mustWatch: false,
+      mustWatch: Boolean(action.mustWatch && action.reminderRequested),
       watchLater: false,
       saved: Boolean(action.saved || wasSavedForLater),
       archived: Boolean(action.archived || action.dismissed || wasSavedForLater),
@@ -5596,10 +5918,13 @@ function scheduleBrowserReminders(reference = nowAEST()){
   const viewing = userPreferences?.preferenceGraph?.viewing;
   if (!REMINDER_ENGINE || !viewing?.browserAlertsEnabled) return [];
   if (typeof Notification === "undefined" || Notification.permission !== "granted") return [];
-  const schedule = REMINDER_ENGINE.buildSchedule(getPreferenceMatchedEvents(), {
+  const jointReminderEvents = (jointTournamentData?.schedule?.matches || [])
+    .map(match => jointMatchActionEvent(match, jointTournamentData))
+    .filter(event => event.startTimeUtc);
+  const schedule = REMINDER_ENGINE.buildSchedule([...getPreferenceMatchedEvents(), ...jointReminderEvents], {
     now: reference,
     leadMinutes: viewing.reminderLeadMinutes,
-    shouldRemind: isMustWatch,
+    shouldRemind: event => event.jointTournamentMatch ? getEventAction(event).mustWatch : isMustWatch(event),
     deliveredKeys: Object.keys(reminderDeliveryState),
   });
   REMINDER_ENGINE.schedulableReminders(schedule, reference).forEach(reminder => {
@@ -6365,6 +6690,30 @@ async function loadCanonicalContextBundles(){
   return Promise.all(CANONICAL_CONTEXT_CONFIG.sources.map(([, url]) => fetchJson(url)));
 }
 
+async function loadJointTournamentData(){
+  if (jointTournamentData || jointTournamentLoading) return jointTournamentData;
+  jointTournamentLoading = true;
+  jointTournamentError = null;
+  try{
+    const document = globalThis.location?.protocol === "file:"
+      ? globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT_DOCUMENT
+      : await fetchJson(JOINT_TOURNAMENT_CONFIG.url);
+    if (!document) throw new Error("Bundled joint tournament document was missing");
+    if (document?.schemaVersion !== JOINT_TENNIS_TOURNAMENT?.SCHEMA_VERSION){
+      throw new Error("Unsupported joint tournament document");
+    }
+    jointTournamentData = normalizeJointTournamentFreshness(document);
+    scheduleBrowserReminders();
+  }catch(error){
+    jointTournamentError = error;
+    console.warn("Joint tournament schedule unavailable", error);
+  }finally{
+    jointTournamentLoading = false;
+    renderAll({ preserveViewport: true });
+  }
+  return jointTournamentData;
+}
+
 function applyFeedEvents(events, meta){
   activeEvents = SPORT_CONTEXT && canonicalSportsData
     ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
@@ -6515,11 +6864,17 @@ function activeSportHubKey(){
 function resetSportHubState(sportKey){
   sportHubState = {
     sportKey,
-    activeTab: "all-fixtures",
+    activeTab: sportHubFullCoverageAllowed(sportKey) ? "all-fixtures" : "worth-watching",
     selectedRoundNumber: null,
     resultsRoundNumber: null,
     showHidden: false,
   };
+}
+
+function sportHubFullCoverageAllowed(sportKey){
+  if (!["afl", "nrl"].includes(sportKey)) return true;
+  const nodeId = sportKey === "afl" ? "sport:afl" : "sport:nrl";
+  return discoverySportHasFroth(nodeId);
 }
 
 function restoreCuratedFeedViewport(returnState){
@@ -6910,6 +7265,7 @@ function isMustWatch(ev){
 }
 
 function eventActionKey(ev){
+  if (ev.actionKey) return String(ev.actionKey);
   return `${ev.eventId || ev.id}:${ev.date}T${ev.time}`;
 }
 
@@ -7656,35 +8012,8 @@ function feedFilterCandidateEntities(preferences = userPreferences){
 }
 
 function feedFilterOptions(preferences = userPreferences){
-  const candidates = new Set(feedFilterCandidateEntities(preferences));
-  const ordered = [];
-  const orderedAdd = (value) => {
-    if (candidates.has(value) && !ordered.includes(value)) ordered.push(value);
-  };
-  const orderedSports = orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES || []);
-  const orderedSpecialEvents = orderSelectorEntities(SELECTOR_TAXONOMY.specialEvents || []);
-  const orderedCommonwealth = (SELECTOR_TAXONOMY.commonwealthDisciplines || []).slice().sort((a, b) => (a.lockedSlot || 0) - (b.lockedSlot || 0));
-
-  orderSelectorEntities(SELECTOR_TAXONOMY.categories || []).forEach(category => {
-    orderedAdd(category.id);
-    if (category.id === "category:sports"){
-      orderedSports.forEach(entity => orderedAdd(entity.id));
-    }
-    if (category.id === "category:special-events"){
-      orderedSpecialEvents.forEach(entity => {
-        orderedAdd(entity.id);
-        if (entity.id === "special:commonwealth-games"){
-          orderedCommonwealth.forEach(item => orderedAdd(item.id));
-        }
-      });
-    }
-  });
-
-  if (!ordered.length){
-    return ["all", ...canonicalSportKeysForSelectorIds(preferences?.selectedSelectorEntityIds || [])
-      .filter(key => FILTER_ORDER.includes(key))];
-  }
-  return ["all", ...ordered];
+  void preferences;
+  return ["all", ...(DISCOVERY_CATALOGUE?.sportNodes || BASE_SPORT_SELECTOR_ENTITIES).map(node => node.id)];
 }
 
 function feedFilterDisplayMetadata(filterKey){
@@ -7719,88 +8048,23 @@ function feedFilterDisplayMetadata(filterKey){
 
 function feedFilterMatchesEvent(filterValue, event){
   if (!filterValue || filterValue === "all") return true;
-  if (filterValue === "category:sports"){
-    return BASE_SPORT_SELECTOR_ENTITIES.some(entity => selectorEntityMatchesEvent(entity.id, event));
-  }
-  if (filterValue === "category:special-events"){
-    const specialSportKeys = (SELECTOR_TAXONOMY.specialEvents || [])
-      .flatMap(entity => entity.canonicalSportKeys || [])
-      .filter(Boolean);
-    return specialSportKeys.includes(event.sportId || event.key);
+  if (DISCOVERY_CATALOGUE){
+    const eventNodeId = DISCOVERY_CATALOGUE.eventNodeId(event);
+    return DISCOVERY_CATALOGUE.familyIds(filterValue).includes(eventNodeId);
   }
   const selectorEntity = selectorEntityById(filterValue);
-  if (selectorEntity) return selectorEntityMatchesEvent(filterValue, event);
-  return event.key === filterValue;
+  return selectorEntity ? selectorEntityMatchesEvent(filterValue, event) : event.key === filterValue;
 }
 
 function renderFeedFilterDock(){
-  const isFeed = activeTab === "feed";
-  const dock = document.getElementById("feedFilterDock");
-  const toolbar = document.getElementById("feedFilterToolbar");
-  const toggle = document.getElementById("feedFilterVisibilityBtn");
-  const selection = document.getElementById("feedFilterSelection");
-  const filterRow = document.getElementById("sportFilters");
-  const filterContent = document.getElementById("feedFilterContent");
-  const controlGrid = document.getElementById("feedControlGrid");
-  const navigationLabel = document.getElementById("feedNavigationLabel");
-  const selectedLabel = feedFilterDisplayMetadata(activeFilter).label;
-  const controls = FEED_CONTROLS?.normalize?.(userPreferences.feedControls) || userPreferences.feedControls;
-
-  dock.classList.toggle("is-standings", !isFeed);
-  dock.setAttribute("aria-label", isFeed ? "Feed filter controls" : "Standings filters");
-  toolbar.hidden = !isFeed;
-  filterContent.hidden = isFeed && !feedFilterVisible;
-  filterRow.hidden = false;
-  controlGrid.hidden = !isFeed;
-  navigationLabel.textContent = isFeed ? "Browse" : "Standings";
-  filterRow.setAttribute("aria-label", isFeed ? "Filter feed by sport" : "Filter standings by sport");
-  toggle.classList.toggle("is-expanded", feedFilterVisible);
-  toggle.setAttribute("aria-expanded", String(feedFilterVisible));
-  toggle.textContent = feedFilterVisible ? "Hide controls" : "Show controls";
-  const hubCopy = activeSportHubKey() ? " hub" : "";
-  const scopeCopy = { following: "Following", for_you: "For You", explore: "Explore" }[controls?.scope] || "For You";
-  const frothCopy = { low: "Low froth", balanced: "Balanced", high: "High froth", maximum: "Maximum froth" }[controls?.froth] || "Balanced";
-  selection.textContent = `${selectedLabel}${hubCopy} · ${scopeCopy} · ${frothCopy}`;
+  renderTuneSheetContents();
 }
 
 function setFeedFilterVisible(nextVisible){
-  if (activeTab !== "feed") return;
-  const normalizedVisible = Boolean(nextVisible);
-  if (feedFilterVisible === normalizedVisible) return;
-  feedFilterVisible = normalizedVisible;
-  renderFeedFilterDock();
+  void nextVisible;
 }
 
 function renderFilters(){
-  const container = document.getElementById("sportFilters");
-  container.innerHTML = "";
-  if (activeTab === "feed"){
-    const options = feedFilterOptions(userPreferences);
-    if (activeFilter !== "all" && !options.includes(activeFilter)) activeFilter = "all";
-    options.forEach(key => {
-      const metadata = feedFilterDisplayMetadata(key);
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "pill" + (activeFilter === key ? " active" : "");
-      btn.setAttribute("aria-pressed", String(activeFilter === key));
-      btn.style.setProperty("--pill-color", metadata.color);
-      btn.innerHTML = `${glyphMarkup(metadata.glyph, { preferImage: true })}<span>${metadata.label}</span>`;
-      const activateFilter = () => setActiveFeedFilter(key, {
-        measurementEntry: sportHubKeyForFilter(key) ? "sport_filter" : null,
-      });
-      btn.addEventListener("click", activateFilter);
-      btn.addEventListener("keydown", event => {
-        if (event.key !== "Enter" && event.key !== " ") return;
-        event.preventDefault();
-        activateFilter();
-      });
-      container.appendChild(btn);
-    });
-    renderFeedControls();
-    renderPreferenceSummary();
-    return;
-  }
-
   const availableKeys = rankingSportKeysForStandings();
   if (!(rankingSportFilters instanceof Set)) rankingSportFilters = new Set();
   Array.from(rankingKnownSportKeys).forEach(key => {
@@ -7813,44 +8077,10 @@ function renderFilters(){
     rankingKnownSportKeys.add(key);
     rankingSportFilters.add(key);
   });
-  const label = document.createElement("span");
-  label.className = "filter-row-label";
-  label.textContent = "Filter Standings";
-  container.appendChild(label);
-  if (!availableKeys.length){
-    const empty = document.createElement("span");
-    empty.className = "summary-chip";
-    empty.textContent = "No followed sports have supported standings";
-    container.appendChild(empty);
-  }
-  availableKeys.forEach(key => {
-    const checked = rankingSportFilters.has(key);
-    const control = document.createElement("label");
-    control.className = "pill" + (checked ? " active" : "");
-    control.style.setProperty("--pill-color", SPORT_META[key]?.color || "var(--accent)");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.checked = checked;
-    input.dataset.sportFilter = key;
-    const copy = document.createElement("span");
-    copy.textContent = SPORT_META[key]?.label || key.toUpperCase();
-    control.append(input, copy);
-    input.addEventListener("change", () => {
-      if (input.checked){
-        rankingSportFilters.add(key);
-      } else {
-        rankingSportFilters.delete(key);
-        rankingCompetitionsForStandings()
-          .filter(competition => standingsSportKey(competition) === key)
-          .forEach(competition => {
-            standingsCompetitionExpansion[competition.id] = false;
-          });
-      }
-      renderAll();
-    });
-    container.appendChild(control);
-  });
-  document.getElementById("preferenceSummary").innerHTML = "";
+  if (activeFilter !== "all" && !feedFilterOptions().includes(activeFilter)) activeFilter = "all";
+  renderFeedControls();
+  renderTuneSheetContents();
+  renderPreferenceSummary();
 }
 
 function updateFeedControl(key, value){
@@ -7862,7 +8092,7 @@ function updateFeedControl(key, value){
   savePreferences({ ...userPreferences, feedControls: controls, showSpoilers });
   recordProductEvent({
     eventName: "feed_control_change",
-    surface: "curated_feed",
+    surface: "tune",
     properties: { control: key, value: controls[key], coldStart: productMeasurementIsColdStart() },
   });
   if (key === "spoilers") applyGlobalSpoilerPolicy(showSpoilers, previousSpoilers === "results_visible");
@@ -7870,7 +8100,7 @@ function updateFeedControl(key, value){
 }
 
 function renderFeedControls(){
-  const grid = document.getElementById("feedControlGrid");
+  const grid = document.getElementById("tuneControlGrid");
   if (!grid || !FEED_CONTROLS) return;
   const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
   const definitions = [
@@ -7879,7 +8109,6 @@ function renderFeedControls(){
     ["availability", "Availability", [["any", "Any"], ["free", "Free"], ["included", "Included"], ["ppv", "PPV"]]],
     ["timing", "Timing", [["any", "Any time"], ["live_now", "Live now"], ["tonight", "Tonight"], ["this_week", "This week"], ["overnight", "Overnight OK"]]],
     ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["must_watch", "Must watch"]]],
-    ["spoilers", "Spoilers", [["strict", "Strict"], ["standard", "Standard"], ["results_visible", "Results visible"]]],
   ];
   grid.innerHTML = "";
   definitions.forEach(([key, label, values]) => {
@@ -7901,40 +8130,419 @@ function renderFeedControls(){
     control.append(copy, select);
     grid.appendChild(control);
   });
-  const services = document.createElement("div");
-  services.className = "feed-control";
-  services.innerHTML = `<span>Services owned</span>`;
-  const manage = document.createElement("button");
-  manage.type = "button";
-  manage.className = "feed-control-manage";
-  manage.textContent = `${userPreferences.selectedBroadcasters.length} selected · Manage`;
-  manage.addEventListener("click", () => openSettings({ section: "providers" }));
-  services.appendChild(manage);
-  grid.appendChild(services);
 }
 
 function renderPreferenceSummary(){
   const container = document.getElementById("preferenceSummary");
-  const sportCount = userPreferences.followedSports.length;
-  const providers = userPreferences.selectedBroadcasters
-    .map(key => BROADCASTER_LIBRARY[key]?.label)
-    .filter(Boolean)
-    .slice(0, 3);
-  const providerCopy = providers.length ? providers.join(", ") : "No providers selected";
+  if (!container) return;
   const feedVersion = readStorage(STORAGE_KEYS.lastFeedVersion, null) || "bundled";
   const publishedAt = readStorage(STORAGE_KEYS.lastFeedPublishedAt, null);
-  const publishedCopy = publishedAt
-    ? new Date(publishedAt).toLocaleString("en-AU", { timeZone: "Australia/Sydney", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
+  const publishedDate = publishedAt ? new Date(publishedAt) : null;
+  const publishedCopy = publishedDate && !Number.isNaN(publishedDate.getTime())
+    ? publishedDate.toLocaleString("en-AU", { timeZone: "Australia/Sydney", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
     : "bundled copy";
-  container.innerHTML = `
-    <span class="summary-chip">${sportCount} sports followed</span>
-    <span class="summary-chip">${providerCopy}${userPreferences.selectedBroadcasters.length > 3 ? " +" + (userPreferences.selectedBroadcasters.length - 3) : ""}</span>
-    <span class="summary-chip">Spoilers ${userPreferences.showSpoilers ? "shown" : "protected"}</span>
-    <span class="summary-chip">${userPreferences.localVenueIds.length} local venues</span>
-    <span class="summary-chip" title="This is when the published feed was generated, not when this browser last checked it.">Feed generated ${publishedCopy} · ${feedVersion}</span>
-    <button class="refine-filter-btn" id="refineFiltersBtn" type="button">Refine filters</button>
-  `;
-  document.getElementById("refineFiltersBtn")?.addEventListener("click", () => openSettings({ section: "sports" }));
+  container.innerHTML = `<span class="summary-chip" title="This is when the published feed was generated, not when this browser last checked it.">Feed generated ${publishedCopy} · ${feedVersion}</span>`;
+}
+
+function discoveryNodeById(nodeId){
+  return SELECTOR_TAXONOMY.byId?.[nodeId]
+    || (DISCOVERY_CATALOGUE?.sportNodes || []).find(node => node.id === nodeId)
+    || selectorEntityById(nodeId);
+}
+
+function discoveryFollowedSportIds(preferences = userPreferences){
+  if (!DISCOVERY_CATALOGUE) return normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []);
+  return DISCOVERY_CATALOGUE.migrateEventBrandFollows(
+    preferences?.selectedSelectorEntityIds || []
+  ).sportIds.slice();
+}
+
+function discoveryVisibilityModel(){
+  if (!DISCOVERY_CATALOGUE){
+    const ids = BASE_SPORT_SELECTOR_ENTITIES.map(entity => entity.id);
+    return { mainIds: ids, moreIds: [], visibleSportIds: ids, counts: { aggregateCounts: {} } };
+  }
+  const jointMatches = (jointTournamentData?.schedule?.matches || []).map(match => ({
+    ...match,
+    matchId: match.matchId,
+    date: jointTournamentData.schedule.date,
+    key: "tennis",
+    status: jointTournamentData.resultsByMatchId?.[match.matchId]?.status || "scheduled",
+  }));
+  return DISCOVERY_CATALOGUE.catalogueVisibility([...activeEvents, ...jointMatches], {
+    followedSportIds: discoveryFollowedSportIds(),
+    now: nowAEST(),
+    windowDays: 30,
+    threshold: 5,
+  });
+}
+
+function ensureDiscoverySessionInclusion(){
+  if (discoverySessionInitialized) return discoverySessionIncludedSportIds;
+  const catalogueIds = (DISCOVERY_CATALOGUE?.sportNodes || BASE_SPORT_SELECTOR_ENTITIES).map(node => node.id);
+  discoverySessionIncludedSportIds = DISCOVERY_CATALOGUE
+    ? DISCOVERY_CATALOGUE.createSessionInclusion(catalogueIds)
+    : catalogueIds.slice();
+  discoverySessionInitialized = true;
+  return discoverySessionIncludedSportIds;
+}
+
+function discoverySessionSelectionState(nodeId){
+  ensureDiscoverySessionInclusion();
+  if (DISCOVERY_CATALOGUE) return DISCOVERY_CATALOGUE.selectionState(nodeId, discoverySessionIncludedSportIds);
+  return { checked: discoverySessionIncludedSportIds.includes(nodeId), mixed: false, selectedCount: 0, totalCount: 1 };
+}
+
+function discoveryEventIncludedForSession(event){
+  if (activeFilter !== "all") return true;
+  ensureDiscoverySessionInclusion();
+  const nodeId = DISCOVERY_CATALOGUE?.eventNodeId?.(event);
+  return !nodeId || discoverySessionIncludedSportIds.includes(nodeId);
+}
+
+function setDiscoverySessionNodeIncluded(nodeId, included){
+  ensureDiscoverySessionInclusion();
+  discoverySessionIncludedSportIds = DISCOVERY_CATALOGUE
+    ? DISCOVERY_CATALOGUE.setSessionNodeIncluded(discoverySessionIncludedSportIds, nodeId, included)
+    : included
+      ? uniqueArray([...discoverySessionIncludedSportIds, nodeId])
+      : discoverySessionIncludedSportIds.filter(id => id !== nodeId);
+  if (!(rankingSportFilters instanceof Set)) rankingSportFilters = new Set(rankingSportKeysForStandings());
+  rankingSportKeysForStandings().forEach(key => {
+    const rankingNodeId = DISCOVERY_CATALOGUE?.eventNodeId?.({ key });
+    if (!rankingNodeId || discoverySessionIncludedSportIds.includes(rankingNodeId)) rankingSportFilters.add(key);
+    else {
+      rankingSportFilters.delete(key);
+      rankingCompetitionsForStandings()
+        .filter(competition => standingsSportKey(competition) === key)
+        .forEach(competition => { standingsCompetitionExpansion[competition.id] = false; });
+    }
+  });
+  discoveryTuneInteractionCount += 1;
+  const node = discoveryNodeById(nodeId);
+  recordProductEvent({
+    eventName: "feed_control_change",
+    surface: "tune",
+    ...(productSportForPreferenceIdentifier(nodeId) ? { sport: productSportForPreferenceIdentifier(nodeId) } : {}),
+    properties: {
+      control: "sport_inclusion",
+      value: included ? "included" : "excluded",
+      coldStart: productMeasurementIsColdStart(),
+    },
+  });
+  renderTuneSheetContents();
+  renderAll({ preserveViewport: true });
+}
+
+function discoverySportIsFollowed(nodeId, preferences = userPreferences){
+  const followed = new Set(discoveryFollowedSportIds(preferences));
+  if (followed.has(nodeId)) return true;
+  return Boolean(DISCOVERY_CATALOGUE?.familyIds?.(nodeId).some(id => followed.has(id)));
+}
+
+function discoverySportHasFroth(nodeId, preferences = userPreferences){
+  return (preferences?.preferenceGraph?.domainPreferences || []).some(preference => (
+    preference.enabled !== false
+    && preference.templateId === "template:froth"
+    && (preference.sportDomainId === nodeId || DISCOVERY_CATALOGUE?.familyIds?.(nodeId).includes(preference.sportDomainId))
+  ));
+}
+
+function followDiscoverySport(nodeId){
+  if (discoverySportIsFollowed(nodeId)) return;
+  const next = clonePreferences(userPreferences);
+  next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), nodeId]);
+  next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+  next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
+  if (PREFERENCE_SYSTEM && next.preferenceGraph){
+    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, nodeId, "template:like");
+  }
+  savePreferences(next);
+  recordPreferenceChange("follow", "sport", { sport: productSportForPreferenceIdentifier(nodeId) });
+  discoveryTuneInteractionCount += 1;
+  showToast(`${discoveryNodeById(nodeId)?.label || "Sport"} followed with normal highlights.`);
+  renderAll({ preserveViewport: true });
+}
+
+function upgradeDiscoverySportToFroth(nodeId){
+  const next = clonePreferences(userPreferences);
+  if (!discoverySportIsFollowed(nodeId, next)){
+    next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), nodeId]);
+  }
+  if (PREFERENCE_SYSTEM && next.preferenceGraph){
+    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, nodeId, "template:froth");
+  }
+  next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+  next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
+  savePreferences(next);
+  leagueCoveragePromptDismissed.delete(nodeId);
+  const upgradedHubKey = sportHubKeyForFilter(nodeId);
+  if (activeTab === "feed" && activeFilter === nodeId && upgradedHubKey){
+    sportHubState.sportKey = upgradedHubKey;
+    sportHubState.activeTab = "all-fixtures";
+    sportHubState.showHidden = false;
+  }
+  recordPreferenceChange("froth_upgrade", "sport", { sport: productSportForPreferenceIdentifier(nodeId) });
+  showToast(`${discoveryNodeById(nodeId)?.label || "Sport"} is now set to Froth.`);
+  renderAll({ preserveViewport: true });
+}
+
+function openDiscoverySport(nodeId){
+  const node = discoveryNodeById(nodeId);
+  if (!node) return;
+  const followed = discoverySportIsFollowed(nodeId);
+  recordProductEvent({
+    eventName: "feed_action",
+    surface: "tune",
+    ...(productSportForPreferenceIdentifier(nodeId) ? { sport: productSportForPreferenceIdentifier(nodeId) } : {}),
+    properties: {
+      action: "open",
+      recommendationClass: followed ? "direct" : "discovery",
+      coldStart: productMeasurementIsColdStart(),
+    },
+  });
+  closeTuneSheet();
+  activeTab = "feed";
+  activeView = "list";
+  document.querySelectorAll(".tab-btn[data-tab]").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === "feed");
+  });
+  document.querySelectorAll(".view-toggle button").forEach(button => {
+    button.classList.toggle("active", button.dataset.view === "list");
+  });
+  if (activeFilter === nodeId){
+    renderAll();
+    focusSportHubViewport();
+    return;
+  }
+  setActiveFeedFilter(nodeId, {
+    measurementEntry: sportHubKeyForFilter(nodeId) ? "sport_filter" : null,
+  });
+}
+
+function buildDiscoveryBrowseRow(nodeId, count, { child = false } = {}){
+  const node = discoveryNodeById(nodeId);
+  if (!node) return null;
+  const state = discoverySessionSelectionState(nodeId);
+  const row = document.createElement("div");
+  row.className = `browse-row${child ? " is-child" : ""}`;
+  row.dataset.discoverySportId = nodeId;
+  const main = document.createElement("div");
+  main.className = "browse-row-main";
+  const tick = document.createElement("button");
+  tick.type = "button";
+  tick.className = `browse-tick${state.checked ? " is-on" : ""}${state.mixed ? " is-mixed" : ""}`;
+  tick.setAttribute("role", "checkbox");
+  tick.dataset.discoveryTuneControl = "toggle";
+  tick.setAttribute("aria-checked", state.mixed ? "mixed" : String(state.checked));
+  tick.setAttribute("aria-label", `${state.checked ? "Hide" : "Show"} ${node.label} for this visit`);
+  tick.textContent = state.mixed ? "−" : state.checked ? "✓" : "";
+  tick.addEventListener("click", () => setDiscoverySessionNodeIncluded(nodeId, !state.checked));
+  const copy = document.createElement("div");
+  copy.className = "browse-copy";
+  copy.innerHTML = `<strong>${node.label}</strong><span>${count} upcoming event${count === 1 ? "" : "s"} · ${discoverySportIsFollowed(nodeId) ? "Following" : "Discovery"}</span>`;
+  main.append(tick, copy);
+  const actions = document.createElement("div");
+  actions.className = "browse-actions";
+  if ((node.childIds || []).length){
+    const expand = document.createElement("button");
+    expand.type = "button";
+    expand.className = "browse-expand";
+    expand.dataset.discoveryTuneControl = "expand";
+    const expanded = discoveryExpandedParentIds.has(nodeId);
+    expand.setAttribute("aria-expanded", String(expanded));
+    expand.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} ${node.label}`);
+    expand.textContent = expanded ? "⌃" : "⌄";
+    expand.addEventListener("click", () => {
+      if (expanded) discoveryExpandedParentIds.delete(nodeId);
+      else discoveryExpandedParentIds.add(nodeId);
+      renderTuneSheetContents();
+    });
+    actions.appendChild(expand);
+  }
+  const open = document.createElement("button");
+  open.type = "button";
+  open.className = "browse-open";
+  open.dataset.discoveryTuneControl = "open";
+  open.textContent = "Open";
+  open.setAttribute("aria-label", `Open focused ${node.label} view`);
+  open.addEventListener("click", () => openDiscoverySport(nodeId));
+  actions.appendChild(open);
+  row.append(main, actions);
+  return row;
+}
+
+function discoveryTuneFocusDescriptor(){
+  const active = document.activeElement;
+  const row = active?.closest?.("[data-discovery-sport-id]");
+  const control = active?.dataset?.discoveryTuneControl;
+  if (!row || !control || !document.getElementById("tuneSheet")?.contains(active)) return null;
+  return { nodeId: row.dataset.discoverySportId, control };
+}
+
+function restoreDiscoveryTuneFocus(descriptor){
+  if (!descriptor) return;
+  const rows = Array.from(document.querySelectorAll("#tuneSheet [data-discovery-sport-id]"));
+  const row = rows.find(candidate => candidate.dataset.discoverySportId === descriptor.nodeId);
+  const target = row?.querySelector(`[data-discovery-tune-control="${descriptor.control}"]`);
+  target?.focus?.({ preventScroll: true });
+}
+
+function renderTuneSheetContents(){
+  const focusDescriptor = discoveryTuneFocusDescriptor();
+  const list = document.getElementById("tuneBrowseList");
+  const more = document.getElementById("tuneBrowseMore");
+  const moreList = document.getElementById("tuneBrowseMoreList");
+  if (!list || !more || !moreList) return;
+  const visibility = discoveryVisibilityModel();
+  ensureDiscoverySessionInclusion();
+  list.innerHTML = "";
+  visibility.mainIds.forEach(nodeId => {
+    const row = buildDiscoveryBrowseRow(nodeId, Number(visibility.counts?.aggregateCounts?.[nodeId] || 0));
+    if (row) list.appendChild(row);
+    const node = discoveryNodeById(nodeId);
+    if (!discoveryExpandedParentIds.has(nodeId)) return;
+    (node?.childIds || []).forEach(childId => {
+      const child = buildDiscoveryBrowseRow(childId, Number(visibility.counts?.aggregateCounts?.[childId] || 0), { child: true });
+      if (child) list.appendChild(child);
+    });
+  });
+  if (!visibility.mainIds.length){
+    list.innerHTML = '<div class="empty-state" style="padding:16px">No sport family has five unfinished events in the next 30 Sydney days.</div>';
+  }
+  moreList.innerHTML = "";
+  visibility.moreIds.forEach(nodeId => {
+    const row = buildDiscoveryBrowseRow(nodeId, Number(visibility.counts?.aggregateCounts?.[nodeId] || 0));
+    if (row) moreList.appendChild(row);
+    const node = discoveryNodeById(nodeId);
+    if (!discoveryExpandedParentIds.has(nodeId)) return;
+    (node?.childIds || []).forEach(childId => {
+      const child = buildDiscoveryBrowseRow(childId, Number(visibility.counts?.aggregateCounts?.[childId] || 0), { child: true });
+      if (child) moreList.appendChild(child);
+    });
+  });
+  restoreDiscoveryTuneFocus(focusDescriptor);
+  more.hidden = visibility.moreIds.length === 0;
+  const included = new Set(discoverySessionIncludedSportIds);
+  const visibleLeaves = visibility.visibleSportIds.flatMap(id => DISCOVERY_CATALOGUE?.familyIds?.(id) || [id]);
+  const includedCount = uniqueArray(visibleLeaves).filter(id => included.has(id)).length;
+  const summary = document.getElementById("tuneBrowseSummary");
+  if (summary) summary.textContent = `${includedCount} of ${uniqueArray(visibleLeaves).length} included this visit`;
+  renderFeedControls();
+}
+
+function setTuneSheetModalState(open){
+  const sheet = document.getElementById("tuneSheet");
+  sheet.classList.toggle("show", open);
+  sheet.setAttribute("aria-hidden", open ? "false" : "true");
+  document.getElementById("tuneNavBtn")?.classList.toggle("active", open);
+  document.body.classList.toggle("modal-open", open || Boolean(document.querySelector(".modal-backdrop.show")));
+}
+
+function openTuneSheet(){
+  if (document.getElementById("tuneSheet")?.classList.contains("show")) return;
+  tuneSheetReturnState = { focus: document.activeElement, scrollY: window.scrollY };
+  discoveryTuneInteractionCount = 0;
+  renderTuneSheetContents();
+  setTuneSheetModalState(true);
+  recordProductEvent({
+    eventName: "tune_session",
+    surface: "tune",
+    properties: { action: "started", interactionCount: 0 },
+  });
+  document.getElementById("closeTuneSheetBtn")?.focus({ preventScroll: true });
+}
+
+function closeTuneSheet({ restoreFocus = true } = {}){
+  if (!document.getElementById("tuneSheet")?.classList.contains("show")) return;
+  const returnState = tuneSheetReturnState;
+  setTuneSheetModalState(false);
+  recordProductEvent({
+    eventName: "tune_session",
+    surface: "tune",
+    properties: { action: "exited", interactionCount: discoveryTuneInteractionCount },
+  });
+  tuneSheetReturnState = null;
+  if (!returnState) return;
+  window.scrollTo({ top: returnState.scrollY, behavior: "auto" });
+  if (restoreFocus && returnState.focus?.focus) returnState.focus.focus({ preventScroll: true });
+}
+
+function trapTuneSheetFocus(event){
+  if (event.key === "Escape"){
+    event.preventDefault();
+    closeTuneSheet();
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = Array.from(document.querySelectorAll("#tuneSheet button:not([disabled]), #tuneSheet select:not([disabled]), #tuneSheet summary, #tuneSheet a[href]"))
+    .filter(element => element.offsetParent !== null);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (event.shiftKey && document.activeElement === first){
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last){
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+function buildFocusedDiscoveryBanner(nodeId){
+  if (!nodeId || nodeId === "all") return null;
+  const node = discoveryNodeById(nodeId);
+  if (!node) return null;
+  const followed = discoverySportIsFollowed(nodeId);
+  const sportKey = node.canonicalSportKeys?.[0] || nodeId.replace(/^sport:/, "");
+  const isCoverageLeague = ["afl", "nrl"].includes(sportKey);
+  const hasFroth = discoverySportHasFroth(nodeId);
+  const promptFroth = followed && isCoverageLeague && !hasFroth && !leagueCoveragePromptDismissed.has(nodeId);
+  const banner = document.createElement("aside");
+  banner.className = "focused-discovery-banner";
+  banner.style.setProperty("--sport-color", node.color || SPORT_META[sportKey]?.color || "var(--accent)");
+  const copy = document.createElement("div");
+  const detail = !followed
+    ? "You are previewing Must Watch and top-story highlights. Follow to keep this sport in your feed."
+    : promptFroth
+      ? `Choose whether ${node.label} should show every fixture or keep only Must Watch and top-story cards.`
+      : isCoverageLeague && !hasFroth
+        ? "Highlights mode is active for this visit. Sport-specific Froth is required for every fixture."
+        : "Focused view is open. Your saved follow and feed intent settings still apply.";
+  copy.innerHTML = `<strong>${node.label}</strong><p>${detail}</p>`;
+  const actions = document.createElement("div");
+  actions.className = "focused-discovery-actions";
+  const back = document.createElement("button");
+  back.type = "button";
+  back.className = "btn ghost";
+  back.textContent = "Back to Feed";
+  back.addEventListener("click", () => setActiveFeedFilter("all"));
+  actions.appendChild(back);
+  if (!followed){
+    const follow = document.createElement("button");
+    follow.type = "button";
+    follow.className = "btn primary";
+    follow.textContent = "Follow";
+    follow.addEventListener("click", () => followDiscoverySport(nodeId));
+    actions.appendChild(follow);
+  } else if (promptFroth){
+    const keep = document.createElement("button");
+    keep.type = "button";
+    keep.className = "btn ghost";
+    keep.textContent = "Keep highlights";
+    keep.addEventListener("click", () => {
+      leagueCoveragePromptDismissed.add(nodeId);
+      renderAll({ preserveViewport: true });
+    });
+    const froth = document.createElement("button");
+    froth.type = "button";
+    froth.className = "btn primary";
+    froth.textContent = "Set this sport to Froth";
+    froth.addEventListener("click", () => upgradeDiscoverySportToFroth(nodeId));
+    actions.append(keep, froth);
+  }
+  banner.append(copy, actions);
+  return banner;
 }
 
 function eventMatchesSportPreferences(ev){
@@ -8044,8 +8652,13 @@ function eventMeetsGlobalThreshold(ev){
 
 function eventDomainPreferences(ev){
   const domainIdSet = new Set(eventDomainIdentifiers(ev));
+  const discoveryNodeId = DISCOVERY_CATALOGUE?.eventNodeId?.(ev);
+  if (discoveryNodeId) domainIdSet.add(discoveryNodeId);
   const allPreferences = userPreferences?.preferenceGraph?.domainPreferences || [];
-  return allPreferences.filter(preference => domainIdSet.has(preference?.sportDomainId));
+  return allPreferences.filter(preference => (
+    domainIdSet.has(preference?.sportDomainId)
+    || (discoveryNodeId && DISCOVERY_CATALOGUE?.familyIds?.(preference?.sportDomainId).includes(discoveryNodeId))
+  ));
 }
 
 function eventIsEditorialMustShow(ev){
@@ -8176,6 +8789,23 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
     && eventMatchesTennisFilters(ev)
     && eventMatchesFifaFilters(ev)
   ));
+  if (activeTab === "feed" && activeFilter !== "all"){
+    const focusedNode = discoveryNodeById(activeFilter);
+    const focusedKey = focusedNode?.canonicalSportKeys?.[0] || String(activeFilter).replace(/^sport:/, "");
+    const followed = discoverySportIsFollowed(activeFilter);
+    const completeLeagueCoverage = !["afl", "nrl"].includes(focusedKey) || discoverySportHasFroth(activeFilter);
+    list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
+    if (!followed || !completeLeagueCoverage){
+      list = list.filter(event => eventIsEditorialMustShow(event) || getEventAction(event).mustWatch);
+    }
+    if (!FEED_CONTROLS) return list;
+    const focusedControls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
+    return list.filter(event => (
+      eventMatchesBroadcasterPreferences(event)
+      && FEED_CONTROLS.matchesAvailability(event, focusedControls.availability)
+      && FEED_CONTROLS.matchesTiming(event, focusedControls.timing, reference)
+    ));
+  }
   if (!FEED_CONTROLS) return list.filter(ev => eventMeetsCoveragePreference(ev));
   const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
   const focused = activeFilter !== "all";
@@ -8206,6 +8836,9 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
+  if (activeTab === "feed" && activeFilter === "all"){
+    list = list.filter(discoveryEventIncludedForSession);
+  }
   if (activeTab === "feed" && activeFilter === "all"){
     list = list.filter(ev => !sessionDismissedEventIds.has(String(ev.eventId || ev.id)));
     if (FEED_CONTROLS){
@@ -9213,6 +9846,249 @@ function buildEventCard(ev, options = {}){
   return card;
 }
 
+function jointTournamentIsActive(document = jointTournamentData, reference = nowAEST()){
+  const tournament = document?.tournament;
+  const localDay = JOINT_TENNIS_TOURNAMENT?.zonedDateKey?.(reference, tournament?.timezone);
+  if (!localDay || !tournament?.startDate || !tournament?.endDate) return false;
+  if (localDay > tournament.endDate) return false;
+  if (localDay >= tournament.startDate) return true;
+
+  // The first OOP can be published on Cincinnati's prior evening. Let that
+  // real document pin the card early, but do not pin the empty overview early.
+  const scheduleDate = document?.schedule?.date;
+  const retrievedAt = Date.parse(document?.retrievedAt || "");
+  return Boolean(document?.schedule?.matches?.length
+    && scheduleDate >= tournament.startDate
+    && scheduleDate <= tournament.endDate
+    && Number.isFinite(retrievedAt)
+    && retrievedAt <= new Date(reference).getTime());
+}
+
+function normalizeJointTournamentFreshness(document, reference = new Date()){
+  if (!document?.schedule?.matches?.length) return document;
+  const freshnessTime = Date.parse(document.freshness?.lastSuccessfulAt || document.retrievedAt || "");
+  const ageHours = (new Date(reference).getTime() - freshnessTime) / 3600000;
+  if (!Number.isFinite(ageHours) || ageHours <= 24) return document;
+  const fallback = typeof structuredClone === "function" ? structuredClone(document) : JSON.parse(JSON.stringify(document));
+  fallback.freshness = {
+    ...fallback.freshness,
+    confidence: "Stale",
+    mode: "overview",
+    ageHours: Number(Math.max(0, ageHours).toFixed(2)),
+    failureCode: "schedule_unavailable",
+  };
+  fallback.schedule = {
+    date: null,
+    displayMessage: "Schedule details unavailable",
+    matches: [],
+    promotedMatchIds: [],
+  };
+  fallback.matchHistory = [];
+  delete fallback.resultsByMatchId;
+  return fallback;
+}
+
+function jointMatchActionEvent(match, document = jointTournamentData){
+  const matchScheduleDate = match.scheduleDate || document?.schedule?.date;
+  const scheduledAtUtc = match.scheduledAtUtc
+    || (match.timing?.localTime && matchScheduleDate
+      ? JOINT_TENNIS_TOURNAMENT?.zonedDateTimeToUtc?.(matchScheduleDate, match.timing.localTime, document.tournament.timezone)
+      : null);
+  const scheduledDate = scheduledAtUtc ? new Date(scheduledAtUtc) : null;
+  const sydneyParts = scheduledDate && !Number.isNaN(scheduledDate.getTime())
+    ? Object.fromEntries(new Intl.DateTimeFormat("en-AU", {
+        timeZone: "Australia/Sydney",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+      }).formatToParts(scheduledDate).map(part => [part.type, part.value]))
+    : null;
+  return {
+    id: match.matchId,
+    actionKey: match.matchId,
+    eventId: match.matchId,
+    canonicalEventId: match.matchId,
+    competitionId: document.tournament.tournamentId,
+    key: "tennis",
+    sportId: "tennis",
+    sport: "Tennis",
+    name: match.players.map(player => player.name).join(" v "),
+    date: sydneyParts ? `${sydneyParts.year}-${sydneyParts.month}-${sydneyParts.day}` : matchScheduleDate || document.tournament.startDate,
+    time: sydneyParts ? `${sydneyParts.hour}:${sydneyParts.minute}` : match.timing?.localTime || "00:00",
+    ...(scheduledAtUtc ? { startTimeUtc: scheduledAtUtc } : {}),
+    jointTournamentMatch: true,
+    expected: Math.max(1, Math.min(10, Math.round(Number(match.selection?.score || 50) / 10))),
+    stakesScore: Math.max(1, Math.min(5, Math.ceil(Number(match.selection?.components?.roundImportance || 5) / 7))),
+    status: document.resultsByMatchId?.[match.matchId]?.status === "completed" ? "completed" : "scheduled",
+  };
+}
+
+function jointMatchTimingLabel(match, tournamentDocument = jointTournamentData){
+  const timing = match.timing || {};
+  const matchScheduleDate = match.scheduleDate || tournamentDocument?.schedule?.date;
+  const scheduledAtUtc = match.scheduledAtUtc
+    || (timing.localTime && matchScheduleDate
+      ? JOINT_TENNIS_TOURNAMENT?.zonedDateTimeToUtc?.(matchScheduleDate, timing.localTime, tournamentDocument.tournament.timezone)
+      : null);
+  if (scheduledAtUtc){
+    const instant = new Date(scheduledAtUtc);
+    const formatter = new Intl.DateTimeFormat("en-AU", {
+      timeZone: "Australia/Sydney",
+      weekday: "short",
+      day: "numeric",
+      month: "short",
+      hour: "numeric",
+      minute: "2-digit",
+      timeZoneName: "short",
+    });
+    const prefix = timing.type === "not_before" ? "Not before " : "";
+    return `${prefix}${formatter.format(instant)}`;
+  }
+  return timing.type === "followed_by"
+    ? "Followed by · Ohio order"
+    : timing.type === "session_only"
+      ? "Session only · Ohio schedule"
+      : timing.label || "Time unavailable";
+}
+
+function buildJointTournamentMatch(match, tournamentDocument, { savedSection = false } = {}){
+  const event = jointMatchActionEvent(match, tournamentDocument);
+  const action = getEventAction(event);
+  const result = userPreferences.showSpoilers ? tournamentDocument.resultsByMatchId?.[match.matchId] : null;
+  const row = document.createElement("article");
+  row.className = "joint-match";
+  row.dataset.matchId = match.matchId;
+  const order = tournamentDocument.schedule.matches.findIndex(item => item.matchId === match.matchId) + 1;
+  const orderCopy = document.createElement("div");
+  orderCopy.className = "joint-match-order";
+  orderCopy.textContent = `${match.court || "Court TBC"}\n${savedSection ? "Saved" : `Order ${order || match.scheduledSequence || "—"}`}`;
+  const copy = document.createElement("div");
+  copy.className = "joint-match-copy";
+  const title = document.createElement("strong");
+  title.textContent = match.players.map(player => player.name).join(" v ");
+  const detail = document.createElement("span");
+  const round = String(match.round || "").replace(/_/g, " ");
+  detail.innerHTML = `<span class="joint-tour">${match.tour}</span> · ${round || "Round TBC"} · ${jointMatchTimingLabel(match, tournamentDocument)}`;
+  if (result?.score){
+    const resultCopy = document.createElement("span");
+    resultCopy.textContent = `Completed · ${result.score}`;
+    copy.append(title, detail, resultCopy);
+  } else {
+    copy.append(title, detail);
+  }
+  const actions = document.createElement("div");
+  actions.className = "joint-match-actions";
+  const save = document.createElement("button");
+  save.type = "button";
+  save.textContent = action.saved ? "Saved" : "Save";
+  save.setAttribute("aria-pressed", String(action.saved));
+  save.addEventListener("click", () => {
+    updateEventAction(event, { saved: !action.saved });
+    recordEventFeedAction(event, "save", { surface: "event_card", recommendationClass: "direct" });
+    renderCurrentSection();
+  });
+  const reminder = document.createElement("button");
+  reminder.type = "button";
+  const reminderEligible = Boolean(event.startTimeUtc && Date.parse(event.startTimeUtc) > Date.now());
+  reminder.disabled = !reminderEligible;
+  reminder.textContent = reminderEligible ? (action.mustWatch ? "Reminder on" : "Remind") : "Reminder unavailable";
+  reminder.setAttribute("aria-pressed", String(action.mustWatch));
+  if (!reminderEligible) reminder.title = "A reminder needs an exact or not-before published time.";
+  reminder.addEventListener("click", () => {
+    if (!reminderEligible) return;
+    updateEventAction(event, { mustWatch: !action.mustWatch, reminderRequested: !action.mustWatch });
+    recordEventFeedAction(event, action.mustWatch ? "reminder_removed" : "reminder", { surface: "event_card", recommendationClass: "direct" });
+    renderCurrentSection();
+  });
+  actions.append(save, reminder);
+  row.append(orderCopy, copy, actions);
+  return row;
+}
+
+function buildJointTournamentCard(tournamentDocument = jointTournamentData){
+  const spoilerView = JOINT_TENNIS_TOURNAMENT?.spoilerSafeView?.(tournamentDocument, userPreferences.showSpoilers) || tournamentDocument;
+  const card = tournamentDocument === null ? null : globalThis.document.createElement("section");
+  if (!card) return null;
+  card.className = "joint-tournament-card";
+  card.id = "cincinnatiTournamentCard";
+  card.dataset.tournamentId = spoilerView.tournament.tournamentId;
+  const head = globalThis.document.createElement("header");
+  head.className = "joint-tournament-head";
+  const identity = globalThis.document.createElement("div");
+  identity.innerHTML = `<div class="joint-tournament-kicker">Beta schedule · ATP + WTA</div><h2>${spoilerView.tournament.name}</h2>`;
+  const source = globalThis.document.createElement("p");
+  source.className = "joint-tournament-source";
+  const sourceUrl = spoilerView.sourceDocuments?.find(item => item.kind === "order_of_play")?.sourceUrl
+    || "https://cincinnatiopen.com/score-center/order-of-play/";
+  const sourceLink = globalThis.document.createElement("a");
+  sourceLink.href = sourceUrl;
+  sourceLink.target = "_blank";
+  sourceLink.rel = "noopener noreferrer";
+  sourceLink.textContent = "Official order of play";
+  source.append("Lindner Family Tennis Center · ", sourceLink);
+  identity.appendChild(source);
+  const confidence = globalThis.document.createElement("span");
+  confidence.className = "joint-confidence";
+  confidence.textContent = spoilerView.freshness.confidence;
+  head.append(identity, confidence);
+  card.appendChild(head);
+
+  const matches = spoilerView.schedule?.matches || [];
+  if (!matches.length){
+    const overview = globalThis.document.createElement("p");
+    overview.className = "joint-overview";
+    overview.textContent = `${spoilerView.schedule?.displayMessage || "Schedule details unavailable"}. The joint Cincinnati card stays pinned while the official schedule is checked.`;
+    card.appendChild(overview);
+    return card;
+  }
+  const promoted = (spoilerView.schedule.promotedMatchIds || [])
+    .map(matchId => matches.find(match => match.matchId === matchId))
+    .filter(Boolean);
+  if (userPreferences.showSpoilers && spoilerView.resultAvailability?.status === "unavailable"){
+    const resultNote = globalThis.document.createElement("p");
+    resultNote.className = "joint-results-note";
+    resultNote.textContent = "Completed results unavailable from the approved Cincinnati sources.";
+    card.appendChild(resultNote);
+  }
+  const list = globalThis.document.createElement("div");
+  list.className = "joint-match-list";
+  promoted.forEach(match => list.appendChild(buildJointTournamentMatch(match, spoilerView)));
+  card.appendChild(list);
+  const addressableMatches = [...matches, ...(spoilerView.matchHistory || [])];
+  const savedIds = addressableMatches.filter(match => {
+    const action = getEventAction(jointMatchActionEvent(match, spoilerView));
+    return action.saved || action.mustWatch;
+  }).map(match => match.matchId);
+  const savedOutside = JOINT_TENNIS_TOURNAMENT?.savedMatches?.(spoilerView, savedIds, spoilerView.schedule.promotedMatchIds) || [];
+  if (savedOutside.length){
+    const details = globalThis.document.createElement("details");
+    details.className = "joint-saved";
+    const summary = globalThis.document.createElement("summary");
+    summary.textContent = `Saved matches (${savedOutside.length})`;
+    details.appendChild(summary);
+    savedOutside.forEach(match => details.appendChild(buildJointTournamentMatch(match, spoilerView, { savedSection: true })));
+    card.appendChild(details);
+  }
+  return card;
+}
+
+function appendJointTournamentCard(container){
+  if (!jointTournamentIsActive()) return false;
+  const focused = activeFilter !== "all";
+  if (focused && !feedFilterMatchesEvent(activeFilter, { key: "tennis", sportId: "tennis" })) return false;
+  if (!focused){
+    ensureDiscoverySessionInclusion();
+    if (!discoverySessionIncludedSportIds.includes("sport:tennis")) return false;
+  }
+  const card = buildJointTournamentCard(jointTournamentData);
+  if (!card) return false;
+  container.appendChild(card);
+  return true;
+}
+
 /* ============ RENDER: LIST VIEW ============ */
 function appendNewlySurfacedSection(container, events, { mode = "calendar", anchorEventId = null } = {}){
   if (!events.length) return false;
@@ -9365,6 +10241,9 @@ function appendPremiumSurfaces(container, events){
 function renderListView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
+  const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
+  if (focusedBanner) container.appendChild(focusedBanner);
+  appendJointTournamentCard(container);
   const filtered = getFilteredEvents();
   ensureSessionRatingPrompt(filtered);
   const focusedArchived = focusedArchivedEvents();
@@ -9463,7 +10342,9 @@ function focusedRecentPastDateKey(dateKeys, todayKey, filterValue = activeFilter
 }
 
 function activeInitialFeedAnchorId(){
-  return document.getElementById("calendarArchivedRecoveryAnchor")
+  return document.getElementById("cincinnatiTournamentCard")
+    ? "cincinnatiTournamentCard"
+    : document.getElementById("calendarArchivedRecoveryAnchor")
     ? "calendarArchivedRecoveryAnchor"
     : document.getElementById("calendarRecentResultAnchor")
     ? "calendarRecentResultAnchor"
@@ -9631,7 +10512,7 @@ function followedSupportedSportKeys(preferences = userPreferences){
     if (!sport || !selectedDomains.has(sport.domainId)) return false;
     const domainPreference = preferences?.preferenceGraph?.domainPreferences
       ?.find(preference => preference.sportDomainId === sport.domainId);
-    return domainPreference?.enabled !== false;
+    return domainPreference?.enabled !== false && sportHubFullCoverageAllowed(sportKey);
   });
 }
 
@@ -10052,20 +10933,26 @@ function renderSportHub(){
   hub.dataset.sportHub = sportKey;
   hub.style.setProperty("--sport-color", SPORT_META[sportKey]?.color || "var(--accent)");
 
+  const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
+  if (focusedBanner) hub.appendChild(focusedBanner);
+
   const heading = document.createElement("header");
   heading.className = "sport-hub-heading";
   const identity = document.createElement("div");
   identity.className = "sport-hub-identity";
-  identity.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter", { label: sport.label })}<div><p>Complete 2026 coverage</p><h2>${sport.label}</h2></div>`;
+  const fullCoverage = sportHubFullCoverageAllowed(sportKey);
+  identity.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter", { label: sport.label })}<div><p>${fullCoverage ? "Complete 2026 coverage" : "Must Watch and top stories"}</p><h2>${sport.label}</h2></div>`;
   const promise = document.createElement("p");
   promise.className = "sport-hub-promise";
-  promise.textContent = "Curated when you want judgement. Complete when you want to check every fixture.";
+  promise.textContent = fullCoverage
+    ? "Curated when you want judgement. Complete when you want to check every fixture."
+    : "Set this sport to Froth to unlock every fixture; highlights stay curated until then.";
   heading.append(identity, promise);
   hub.appendChild(heading);
 
   const tabs = [
     ["worth-watching", "Worth Watching"],
-    ["all-fixtures", "All Fixtures"],
+    ...(fullCoverage ? [["all-fixtures", "All Fixtures"]] : []),
     ["standings", "Standings"],
     ["results-replays", "Results/Replays"],
   ];
@@ -10136,7 +11023,8 @@ function renderSportHub(){
   if (sportHubState.activeTab === "worth-watching") renderSportHubWorthWatching(panel, fixtures, sportKey);
   else if (sportHubState.activeTab === "standings") renderSportHubStandings(panel, sportKey);
   else if (sportHubState.activeTab === "results-replays") renderSportHubResults(panel, fixtures, sportKey);
-  else renderSportHubAllFixtures(panel, fixtures, sportKey);
+  else if (fullCoverage) renderSportHubAllFixtures(panel, fixtures, sportKey);
+  else renderSportHubWorthWatching(panel, fixtures, sportKey);
 }
 
 /* ============ RENDER: STANDINGS ============ */
@@ -10505,18 +11393,32 @@ function archivedEvents(){
 }
 
 function calendarSyncConfigForPreferences(preferences = userPreferences){
-  const sports = canonicalSportKeysForSelectorIds(preferences?.selectedSelectorEntityIds || []).sort();
+  const selectedSelectorIds = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
+  const commonwealthMappings = (SELECTOR_TAXONOMY.commonwealthDisciplines || []).filter(entity => (
+    (entity.underlyingSportIds || []).some(id => selectedSelectorIds.has(id))
+  ));
+  const allCommonwealthSportIds = uniqueArray((SELECTOR_TAXONOMY.commonwealthDisciplines || [])
+    .flatMap(entity => entity.underlyingSportIds || []));
+  const allCommonwealthDisciplinesSelected = allCommonwealthSportIds.length > 0
+    && allCommonwealthSportIds.every(id => selectedSelectorIds.has(id));
+  const sports = uniqueArray([
+    ...canonicalSportKeysForSelectorIds(preferences?.selectedSelectorEntityIds || []),
+    ...(commonwealthMappings.length ? ["cwg"] : []),
+  ]).sort();
+  const commonwealthSportKeys = new Set(commonwealthMappings.flatMap(entity => (
+    (entity.underlyingSportIds || []).flatMap(id => selectorEntityCanonicalSportKeys(selectorEntityById(id)))
+  )));
+  const addCommonwealthCoverage = keys => uniqueArray([
+    ...keys,
+    ...(keys.some(key => commonwealthSportKeys.has(key)) ? ["cwg"] : []),
+  ]).filter(key => sports.includes(key)).sort();
   const domainPreferences = preferences?.preferenceGraph?.domainPreferences || [];
-  const allFixtures = uniqueArray(domainPreferences
+  const allFixtures = addCommonwealthCoverage(uniqueArray(domainPreferences
     .filter(preference => preference.enabled !== false && preference.includeAllFixtures)
-    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId))))
-    .filter(key => sports.includes(key))
-    .sort();
-  const majorFollowedSports = uniqueArray(domainPreferences
+    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId)))));
+  const majorFollowedSports = addCommonwealthCoverage(uniqueArray(domainPreferences
     .filter(preference => preference.enabled !== false && preference.includeFollowedTeams)
-    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId))))
-    .filter(key => sports.includes(key))
-    .sort();
+    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId)))));
   const entityFollows = preferences?.preferenceGraph?.entityFollows || [];
   const followedParticipantIds = uniqueArray(entityFollows
     .filter(preference => ["follow", "priority"].includes(preference.followLevel))
@@ -10530,15 +11432,8 @@ function calendarSyncConfigForPreferences(preferences = userPreferences){
     .filter(preference => preference.enabled === false)
     .map(preference => preference.competitionId))
     .sort();
-  const selectedSelectorIds = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
-  const allCommonwealthDisciplinesSelected = (
-    selectedSelectorIds.has("category:special-events")
-    || selectedSelectorIds.has("special:commonwealth-games")
-  );
   const cwgDisciplines = sports.includes("cwg") && !allCommonwealthDisciplinesSelected
-    ? uniqueArray((SELECTOR_TAXONOMY.commonwealthDisciplines || [])
-      .filter(entity => selectedSelectorIds.has(entity.id))
-      .map(entity => entity.canonicalDiscipline))
+    ? uniqueArray(commonwealthMappings.map(entity => entity.canonicalDiscipline))
       .sort()
     : [];
   const reminderMinutes = Number(preferences?.preferenceGraph?.viewing?.reminderLeadMinutes?.[0] || 60);
@@ -10631,7 +11526,7 @@ function showToast(msg){
 function updateClock(){
   const now = nowAEST();
   const opts = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Australia/Sydney' };
-  document.getElementById("liveClock").textContent = now.toLocaleDateString('en-AU', opts) + " Sydney time";
+  document.getElementById("liveClock").textContent = now.toLocaleDateString('en-AU', opts) + " AEST/AEDT";
 }
 
 function renderStartupProgress(){
@@ -10672,20 +11567,22 @@ function scheduleCardRetractionDuringScroll(){
 window.addEventListener("scroll", scheduleCardRetractionDuringScroll, { passive: true });
 
 /* ============ TABS / VIEW SWITCHING ============ */
-document.getElementById("feedFilterVisibilityBtn").addEventListener("click", () => {
-  setFeedFilterVisible(!feedFilterVisible);
-});
-
-document.querySelectorAll(".tab-btn").forEach(btn => {
+document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
   btn.addEventListener("click", () => {
     collapseAllCardStates();
-    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-btn[data-tab]").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeTab = btn.dataset.tab;
     if (activeTab === "feed") calendarInitialJumpPending = true;
     renderAll();
   });
 });
+document.getElementById("tuneNavBtn").addEventListener("click", openTuneSheet);
+document.getElementById("closeTuneSheetBtn").addEventListener("click", () => closeTuneSheet());
+document.getElementById("tuneSheet").addEventListener("click", event => {
+  if (event.target.id === "tuneSheet") closeTuneSheet();
+});
+document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 
 document.querySelectorAll(".view-toggle button").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -10814,6 +11711,43 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   }
   restoreViewportRenderAnchor(preservedViewportAnchor);
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
+  scheduleFirstCardViewportFit();
+}
+
+function firstNormalFeedCard(){
+  return document.querySelector('#listView .joint-tournament-card, #listView .event-card:not(.mode-archived-focused):not(.mode-today-more)');
+}
+
+function firstCardResidualScroll(){
+  const card = firstNormalFeedCard();
+  if (!card) return null;
+  return Math.max(0, Math.ceil(card.getBoundingClientRect().bottom - Math.min(window.innerHeight, 844)));
+}
+
+function scheduleFirstCardViewportFit(){
+  if (headerCompactionFrame !== null) window.cancelAnimationFrame(headerCompactionFrame);
+  headerCompactionFrame = window.requestAnimationFrame(() => {
+    headerCompactionFrame = null;
+    document.body.classList.remove("header-compact-1", "header-compact-2", "header-compact-3");
+    delete document.body.dataset.firstCardResidualScroll;
+    if (activeTab !== "feed" || activeView !== "list" || window.innerWidth > 420 || window.scrollY > 64){
+      syncFeedFilterDockOffset();
+      return;
+    }
+    const levels = ["header-compact-1", "header-compact-2", "header-compact-3"];
+    const applyNext = index => {
+      const residual = firstCardResidualScroll();
+      if (residual === null) return;
+      if (residual <= 0 || index >= levels.length){
+        document.body.dataset.firstCardResidualScroll = String(residual);
+        syncFeedFilterDockOffset();
+        return;
+      }
+      document.body.classList.add(levels[index]);
+      window.requestAnimationFrame(() => applyNext(index + 1));
+    };
+    applyNext(0);
+  });
 }
 
 /* ============ SETTINGS ============ */
@@ -10889,7 +11823,12 @@ function toggleSelectorEntityInDraft(entityId){
     return;
   }
 
-  if (entityId.startsWith("sport:") && selected.has("category:sports")){
+  if (entity.parentId && entity.parentId !== "category:sports" && selected.has(entity.parentId)){
+    selected.delete(entity.parentId);
+    (discoveryNodeById(entity.parentId)?.childIds || []).forEach(childId => {
+      if (childId !== entityId) selected.add(childId);
+    });
+  } else if (entityId.startsWith("sport:") && selected.has("category:sports")){
     selected.delete("category:sports");
     BASE_SPORT_SELECTOR_ENTITIES.forEach(item => {
       if (item.id !== entityId) selected.add(item.id);
@@ -11639,7 +12578,7 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
     ${settingsMenuItem("pilot", "ui:watch", "Trust pilot", pilotMeasurementSummary())}
     ${settingsMenuItem("archive", "ui:archive", "Archive", `${archivedEvents().length} preserved or recently archived event${archivedEvents().length === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("sports", "ui:filter", "Sports Followed", `${draftPreferences.selectedSelectorEntityIds.length} followed choices · Sports and Events`)}
+    ${settingsMenuItem("sports", "ui:filter", "Sports Followed", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("tune", "ui:settings", "Tune", tuningSummary)}
     ${settingsMenuItem("calibration", "ui:settings", "Swipe calibration", `${draftPreferences.preferenceGraph?.learning?.signals?.filter(signal => signal.source === "calibration").length || 0} learned anchors · optional`)}
@@ -11701,26 +12640,14 @@ function renderArchiveSettings(body){
 
 function renderSportsSettings(body){
   syncDraftPreferenceGraph();
-  body.innerHTML = `${wizardProgressMarkup()}<div class="sports-followed-tabs" role="tablist" aria-label="Sports Followed views">
-    <button class="sports-followed-tab${sportsFollowedTab === "sports" ? " active" : ""}" type="button" role="tab" aria-selected="${sportsFollowedTab === "sports" ? "true" : "false"}" data-sports-followed-tab="sports">Sports</button>
-    <button class="sports-followed-tab${sportsFollowedTab === "events" ? " active" : ""}" type="button" role="tab" aria-selected="${sportsFollowedTab === "events" ? "true" : "false"}" data-sports-followed-tab="events">Events</button>
-  </div><div id="sportsFollowedContent"></div>`;
-  body.querySelectorAll("[data-sports-followed-tab]").forEach(button => {
-    button.addEventListener("click", () => {
-      sportsFollowedTab = button.dataset.sportsFollowedTab;
-      renderSettingsScreen();
-    });
-  });
+  body.innerHTML = `${wizardProgressMarkup()}<div id="sportsFollowedContent"></div>`;
   const content = document.getElementById("sportsFollowedContent");
-  if (sportsFollowedTab === "events"){
-    renderCoverageSettings(content, { embedded: true });
-    return;
-  }
 
   content.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
       <h3>Sports Followed</h3>
-      <p class="preference-help">Follow broad sports or special events here. Selected choices keep their Froth control directly beneath them. 4/5 and 5/5 editorial picks appear in Feed even when you do not follow their sport or broadcaster.</p>
+      <p class="preference-help">Follow sports here. Named tournaments and marquee events map to their underlying sport instead of becoming separate follow choices. Selected sports keep their Froth control directly beneath them.</p>
+      <p class="preference-help">Must Watch and top-story discovery picks can still appear when you do not follow their sport; following controls the regular coverage around those highlights.</p>
       <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
     </div>
     <div class="filter-panel" id="selectorChildrenPanel"></div>
@@ -12023,12 +12950,12 @@ function renderCoverageSettings(body, { embedded = false } = {}){
     : supportedDomainIds;
   const graph = draftPreferences.preferenceGraph;
   body.innerHTML = `${embedded ? "" : wizardProgressMarkup()}<div class="preference-stack">
-    <p class="preference-help">Use event-level controls for selected sports and special events marked Froth. Team, competitor, and competition choices keep their existing follow logic.</p>
+    <p class="preference-help">Use detailed controls for selected sports marked Froth. Team, competitor, and competition choices keep their existing follow logic.</p>
     <div class="template-domain-list" id="coverageDomainList"></div>
   </div>`;
   const list = document.getElementById("coverageDomainList");
   if (!domainIds.length){
-    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Set a selected sport or special event to Froth in the Sports tab. Choices without a team, competitor, or event-level model stay hidden here.</div>`;
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Set a selected sport to Froth in Sports Followed. Choices without a team, competitor, or competition model stay hidden here.</div>`;
     if (!canonicalSportsData && !canonicalSportsDataLoading) loadCanonicalPreferenceParticipants();
     return;
   }
@@ -12254,10 +13181,10 @@ function renderSettingsScreen(){
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
     pilot: ["Trust pilot", "Automatic, disclosed measurement for signed-in users, with opt-out."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
-    sports: [settingsFirstRun ? "Sports Followed · 1 of 3" : "Sports Followed", settingsFirstRun ? "Pick sports and special events, then tune selected sports inline." : "Follow sports and special events, tune Froth inline, and use Events for detailed follow controls."],
+    sports: [settingsFirstRun ? "Sports Followed · 1 of 3" : "Sports Followed", settingsFirstRun ? "Pick sports, then tune selected sports inline." : "Follow sports and tune each one from Casual through Froth."],
     viewing: [settingsFirstRun ? "Viewing preferences · 2 of 3" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     calibration: [settingsFirstRun ? "Swipe calibration · 3 of 3" : "Swipe calibration", "Optional recognisable anchors teach the curated feed without changing complete fixture lists."],
-    tune: ["Tune", "Move from broad sports and events into competitions, teams, players and event families. Every choice autosaves."],
+    tune: ["Tune", "Move from broad sports into competitions, teams and players. Every choice autosaves."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
@@ -12909,7 +13836,10 @@ window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change",
 });
 document.addEventListener("gesturestart", evt => evt.preventDefault(), { passive: false });
 syncBrandCopy();
-window.addEventListener("resize", syncFeedFilterDockOffset, { passive: true });
+window.addEventListener("resize", () => {
+  syncFeedFilterDockOffset();
+  scheduleFirstCardViewportFit();
+}, { passive: true });
 if (typeof ResizeObserver === "function"){
   const stickyHeaderResizeObserver = new ResizeObserver(syncFeedFilterDockOffset);
   stickyHeaderResizeObserver.observe(document.querySelector("header.top"));
@@ -12928,6 +13858,7 @@ function trackStartupTask(task){
 Promise.allSettled([
   trackStartupTask(loadCanonicalSportsData()),
   trackStartupTask(refreshFeedOnFirstLoad()),
+  loadJointTournamentData(),
 ]).then(() => {
   setStartupProgress(100);
   const updateReloadScheduled = startupCoordinator.markHydrationComplete();

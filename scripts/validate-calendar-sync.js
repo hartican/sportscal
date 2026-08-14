@@ -3,6 +3,7 @@
 const assert = require("node:assert/strict");
 const {
   buildCalendarIcs,
+  calendarSportSelectionMatchesEvent,
   calendarEventIsCurrent,
   calendarSyncQuery,
   eventCommonwealthDiscipline,
@@ -181,6 +182,71 @@ assert.deepEqual(
   selected.map(event => event.id),
   ["afl-froth", "nrl-like", "f1-followed", "cwg-swimming-followed"],
   "Calendar sync must combine followed sports, coverage depth, entity follows and mutes, competition exclusions, CWG disciplines, providers, stakes, and retention"
+);
+
+const parentMotorsportEvents = [
+  {
+    id: "goodwood-parent-follow",
+    key: "goodwood",
+    sport: "Goodwood Festival of Speed",
+    sportDomainId: "special:goodwood-festival-of-speed",
+    date: "2026-08-08",
+    time: "18:00",
+    broadcaster: "Kayo Sports",
+    expected: 1,
+  },
+  {
+    id: "lemans-parent-follow",
+    key: "lemans",
+    sport: "Le Mans",
+    sportDomainId: "special:le-mans-24-hours",
+    date: "2026-08-09",
+    time: "18:00",
+    broadcaster: "Kayo Sports",
+    expected: 1,
+  },
+  {
+    id: "f1-child-follow",
+    key: "f1",
+    sport: "Formula 1",
+    date: "2026-08-10",
+    time: "18:00",
+    broadcaster: "Kayo Sports",
+    expected: 1,
+  },
+];
+assert.equal(
+  calendarSportSelectionMatchesEvent(new Set(["motorsport"]), parentMotorsportEvents[0]),
+  true,
+  "the parent Motorsport transport key must match internal Goodwood events"
+);
+assert.deepEqual(
+  filterCalendarEvents(parentMotorsportEvents, normalizeCalendarSyncQuery({
+    sports: "motorsport",
+    all: "motorsport",
+    providers: "kayo",
+  }), now).map(event => event.id),
+  ["goodwood-parent-follow", "lemans-parent-follow", "f1-child-follow"],
+  "a parent Motorsport calendar follow must retain F1 plus its Goodwood and Le Mans internal events"
+);
+assert.deepEqual(
+  filterCalendarEvents(parentMotorsportEvents, normalizeCalendarSyncQuery({
+    sports: "f1",
+    all: "f1",
+    providers: "kayo",
+  }), now).map(event => event.id),
+  ["f1-child-follow"],
+  "an F1-only calendar follow must not widen to parent-only Motorsport events"
+);
+assert.deepEqual(
+  filterCalendarEvents(events, normalizeCalendarSyncQuery({
+    sports: "swimming",
+    all: "swimming",
+    providers: "kayo",
+    cwg: "swimming",
+  }), now).map(event => event.id),
+  ["cwg-swimming-followed"],
+  "a migrated Swimming calendar follow must retain its CWG discipline without admitting other Games sports"
 );
 
 const calendar = buildCalendarIcs(selected, {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-14T03:04:34.734Z",
+  "generatedAt": "2026-08-14T07:19:43.159Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,

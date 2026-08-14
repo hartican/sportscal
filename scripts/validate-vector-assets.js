@@ -16,8 +16,10 @@ const selectorTaxonomy = selectorSandbox.globalThis.NOTHINGSPORTS_SELECTOR_TAXON
 assert.equal(vectorAssets.schemaVersion, "vector-assets.v1");
 assert.deepEqual(vectorAssets.rightsMetadataKinds, ["licensed", "user-supplied", "official", "open-use", "fallback"], "asset metadata must support every required rights origin");
 assert.equal(sportRegistry.schemaVersion, "sport-domain-registry.v1");
-assert.equal(sportRegistry.domains.length, 26, "all currently surfaced sport keys must be registry-driven");
+assert(sportRegistry.domains.length >= 26, "the expanded catalogue must retain every established registry domain");
 assert.equal(new Set(sportRegistry.domains.map(domain => domain.key)).size, sportRegistry.domains.length, "sport keys must be unique");
+const exposedSportKeys = new Set((selectorTaxonomy.exposedSportNodes || []).flatMap(node => node.canonicalSportKeys || []));
+exposedSportKeys.forEach(key => assert(sportRegistry.byKey[key], `${key} must be registry-driven before it is exposed in Browse`));
 
 const canonicalDomainIds = new Set(canonicalTaxonomy.sportDomains.map(domain => domain.id));
 const canonicalSpecialEventIds = new Set(canonicalTaxonomy.specialEventDomains.map(domain => domain.id));

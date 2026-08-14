@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/joint-tennis-tournament.schema.json",
+  "title": "nothingSport joint tennis tournament",
+  "description": "Static, spoiler-safe ATP/WTA tournament schedule with optional results stored separately.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tournament", "retrievedAt", "freshness", "sourcePages", "sourceDocuments", "resultAvailability", "schedule"],
+  "properties": {
+    "schemaVersion": { "const": "joint-tennis-tournament.v1" },
+    "tournament": { "$ref": "#/$defs/tournament" },
+    "retrievedAt": { "type": "string", "format": "date-time" },
+    "freshness": { "$ref": "#/$defs/freshness" },
+    "sourcePages": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri", "pattern": "^https://cincinnatiopen\\.com/" }
+    },
+    "sourceDocuments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceDocument" }
+    },
+    "resultAvailability": { "$ref": "#/$defs/resultAvailability" },
+    "schedule": { "$ref": "#/$defs/schedule" },
+    "matchHistory": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/match" }
+    },
+    "resultsByMatchId": {
+      "type": "object",
+      "propertyNames": { "pattern": "^match:tennis:" },
+      "additionalProperties": { "$ref": "#/$defs/result" }
+    }
+  },
+  "$defs": {
+    "tournament": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tournamentId", "name", "season", "sportId", "representedTours", "venue", "location", "timezone", "startDate", "endDate"],
+      "properties": {
+        "tournamentId": { "type": "string", "pattern": "^tournament:tennis:joint:[a-z0-9-]+:[0-9]{4}$" },
+        "name": { "type": "string", "minLength": 3 },
+        "season": { "type": "integer", "minimum": 2026 },
+        "sportId": { "const": "sport:tennis" },
+        "representedTours": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "enum": ["ATP", "WTA"] }
+        },
+        "venue": { "type": "string", "minLength": 3 },
+        "location": { "type": "string", "minLength": 3 },
+        "timezone": { "type": "string", "minLength": 3 },
+        "startDate": { "type": "string", "format": "date" },
+        "endDate": { "type": "string", "format": "date" }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["confidence", "mode", "lastSuccessfulAt", "staleAfterHours"],
+      "properties": {
+        "confidence": { "enum": ["Confirmed", "Provisional", "Session only", "Stale"] },
+        "mode": { "enum": ["schedule", "stale_schedule", "overview"] },
+        "lastSuccessfulAt": { "type": ["string", "null"], "format": "date-time" },
+        "staleAfterHours": { "const": 24 },
+        "ageHours": { "type": "number", "minimum": 0 },
+        "failureCode": { "enum": ["fetch_failed", "document_missing", "parse_failed", "schedule_unavailable"] }
+      }
+    },
+    "sourceDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "publisherPageUrl", "sourceUrl", "retrievedAt"],
+      "properties": {
+        "kind": { "enum": ["tournament_schedule", "order_of_play", "draws"] },
+        "publisherPageUrl": { "type": "string", "format": "uri", "pattern": "^https://cincinnatiopen\\.com/" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "retrievedAt": { "type": "string", "format": "date-time" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "resultAvailability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checkedAt", "sourceUrl", "lastCheck"],
+      "properties": {
+        "status": { "enum": ["available", "unavailable"] },
+        "checkedAt": { "type": "string", "format": "date-time" },
+        "sourceUrl": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "pattern": "^https://cincinnatiopen\\.com/(?:tournament/tournament-schedule|score-center/(?:order-of-play|draws))/$"
+        },
+        "lastCheck": { "enum": ["not_checked", "no_parseable_completed_results", "parsed"] }
+      }
+    },
+    "schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "displayMessage", "matches", "promotedMatchIds"],
+      "properties": {
+        "date": { "type": ["string", "null"], "format": "date" },
+        "displayMessage": { "type": "string", "minLength": 3 },
+        "matches": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/match" }
+        },
+        "promotedMatchIds": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^match:tennis:" }
+        }
+      }
+    },
+    "match": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["matchId", "tour", "round", "venue", "court", "courtSequence", "scheduledSequence", "scheduleDate", "scheduledAtUtc", "players", "timing", "selection"],
+      "properties": {
+        "matchId": { "type": "string", "pattern": "^match:tennis:" },
+        "tour": { "enum": ["ATP", "WTA"] },
+        "round": { "enum": ["final", "semifinal", "quarterfinal", "round_of_16", "round_of_32", "round_of_64", "round_of_128", "qualifying", "unknown"] },
+        "venue": { "type": "string", "minLength": 3 },
+        "court": { "type": "string", "minLength": 2 },
+        "courtSequence": { "type": "integer", "minimum": 1 },
+        "scheduledSequence": { "type": "integer", "minimum": 1 },
+        "scheduleDate": { "type": "string", "format": "date" },
+        "scheduledAtUtc": { "type": ["string", "null"], "format": "date-time" },
+        "players": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/player" }
+        },
+        "timing": { "$ref": "#/$defs/timing" },
+        "narrativeSignals": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/narrativeSignal" }
+        },
+        "selection": { "$ref": "#/$defs/selection" }
+      }
+    },
+    "player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["playerId", "name", "ranking", "nationalityCode", "isAustralian"],
+      "properties": {
+        "playerId": { "type": "string", "pattern": "^competitor:tennis:" },
+        "name": { "type": "string", "minLength": 2 },
+        "ranking": { "type": ["integer", "null"], "minimum": 1 },
+        "nationalityCode": { "type": ["string", "null"], "pattern": "^[A-Z]{3}$" },
+        "isAustralian": { "type": "boolean" }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label", "localTime"],
+      "properties": {
+        "type": { "enum": ["exact", "not_before", "followed_by", "session_only"] },
+        "label": { "type": "string", "minLength": 3 },
+        "localTime": { "type": ["string", "null"], "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$" }
+      }
+    },
+    "narrativeSignal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "label", "trust", "weight"],
+      "properties": {
+        "kind": { "type": "string", "minLength": 2 },
+        "label": { "type": "string", "minLength": 2 },
+        "trust": { "enum": ["official", "licensed_provider", "established_media", "internal_editorial"] },
+        "weight": { "type": "number", "minimum": 0, "maximum": 8 }
+      }
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "components", "reasons"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["roundImportance", "playerRankings", "australianInterest", "narrative"],
+          "properties": {
+            "roundImportance": { "type": "number", "minimum": 0, "maximum": 35 },
+            "playerRankings": { "type": "number", "minimum": 0, "maximum": 30 },
+            "australianInterest": { "type": "number", "minimum": 0, "maximum": 20 },
+            "narrative": { "type": "number", "minimum": 0, "maximum": 15 }
+          }
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 2 }
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "score", "winnerPlayerId", "sourceUrl", "retrievedAt"],
+      "properties": {
+        "status": { "const": "completed" },
+        "score": { "type": "string", "minLength": 1 },
+        "winnerPlayerId": { "type": "string", "pattern": "^competitor:tennis:" },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://cincinnatiopen\\.com/(?:tournament/tournament-schedule|score-center/(?:order-of-play|draws))/$" },
+        "retrievedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

@@ -68,6 +68,96 @@ async function run(){
     "summer Sydney event times must use AEDT"
   );
 
+  const migratedCataloguePreferences = {
+    preferenceGraph: {
+      domainPreferences: [
+        { sportDomainId: "sport:motorsport", enabled: true, includeAllFixtures: true, includeMajorEvents: true },
+        { sportDomainId: "sport:tennis", enabled: true, includeAllFixtures: true, includeMajorEvents: true },
+        { sportDomainId: "sport:swimming", enabled: true, includeAllFixtures: true, includeMajorEvents: true },
+      ],
+      competitionPreferences: [],
+      entityFollows: [],
+    },
+  };
+  const goodwood = event("goodwood-internal", "2026-07-27T13:00:00.000Z", {
+    key: "goodwood",
+    sport: "Goodwood Festival of Speed",
+    sportDomainId: "special:goodwood-festival-of-speed",
+    expected: 2,
+    storyline: { intensity: 1, stakes: 1 },
+  });
+  const wimbledon = event("wimbledon-internal", "2026-07-27T13:30:00.000Z", {
+    key: "wimbledon",
+    sport: "Tennis",
+    sportDomainId: "special:wimbledon",
+    expected: 2,
+    storyline: { intensity: 1, stakes: 1 },
+  });
+  const cwgSwimming = event("cwg-swimming-internal", "2026-07-27T14:00:00.000Z", {
+    key: "cwg",
+    sport: "Swimming",
+    sportDomainId: "special:commonwealth-games",
+    commonwealthDiscipline: "swimming",
+    expected: 2,
+    storyline: { intensity: 1, stakes: 1 },
+  });
+  const cwgAthletics = {
+    ...cwgSwimming,
+    id: "cwg-athletics-internal",
+    eventId: "cwg-athletics-internal",
+    sport: "Athletics",
+    commonwealthDiscipline: "athletics",
+  };
+  assert.deepEqual(
+    feedPipeline.eventDomainPreferences(goodwood, migratedCataloguePreferences).map(preference => preference.sportDomainId),
+    ["sport:motorsport"],
+    "a migrated Motorsport preference must govern Goodwood's internal event domain"
+  );
+  assert.equal(feedPipeline.shouldEnrichEvent(goodwood, migratedCataloguePreferences, {}), true);
+  assert.equal(feedPipeline.shouldEnrichEvent(wimbledon, migratedCataloguePreferences, {}), true);
+  assert.equal(feedPipeline.shouldEnrichEvent(cwgSwimming, migratedCataloguePreferences, {}), true);
+  assert.equal(
+    feedPipeline.shouldEnrichEvent(cwgAthletics, migratedCataloguePreferences, {}),
+    false,
+    "a migrated Swimming preference must not claim a different Commonwealth Games discipline"
+  );
+  assert.equal(
+    feedPipeline.shouldEnrichEvent(goodwood, {
+      preferenceGraph: {
+        ...migratedCataloguePreferences.preferenceGraph,
+        domainPreferences: [{ sportDomainId: "sport:motorsport", enabled: false }],
+      },
+    }, {}),
+    false,
+    "an explicit parent-sport unfollow must suppress its internal event tags"
+  );
+  const legacyEventFollowFeed = feedPipeline.buildServerFeed({
+    events: [goodwood],
+    userId: "22222222-2222-4222-8222-222222222222",
+    userState: {
+      preferences: {
+        version: 12,
+        selectedSelectorEntityIds: ["special:le-mans-24-hours"],
+        followedSports: ["lemans"],
+        preferenceGraph: {
+          domainPreferences: [{
+            sportDomainId: "special:le-mans-24-hours",
+            enabled: true,
+            includeAllFixtures: true,
+            includeMajorEvents: true,
+          }],
+          competitionPreferences: [],
+          entityFollows: [],
+        },
+      },
+    },
+    now: new Date("2026-07-27T12:00:00.000Z"),
+  });
+  assert(
+    legacyEventFollowFeed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === goodwood.eventId),
+    "the signed-in server pipeline must migrate a legacy Le Mans follow before applying it to the Motorsport family"
+  );
+
   const now = new Date("2026-07-27T12:00:00.000Z");
   const canonicalEvents = [
     event("active-followed", "2026-07-27T13:00:00.000Z"),

@@ -7,6 +7,8 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CARD_OUTPUT_FILES=(
   "data/canonical/afl-nrl-2026.json"
   "data/canonical/contexts.js"
+  "data/canonical/joint-tennis-tournament-2026.js"
+  "data/canonical/joint-tennis-tournament-2026.json"
   "data/card-audit.json"
   "data/coverage/latest.html"
   "data/coverage/latest.json"

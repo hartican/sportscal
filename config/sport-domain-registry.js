@@ -35,6 +35,29 @@
     cwg: { id: "narrative:multi-sport-games", signals: [{ match: "gold medal|final", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
   }).map(([key, profile]) => [key, Object.freeze({ ...profile, signals: Object.freeze(profile.signals.map(Object.freeze)) })])));
 
+  const narrativeProfileKeyByDomainId = Object.freeze({
+    "sport:motorsport": "motorsport",
+    "sport:extreme": "extreme",
+    "sport:surf": "surf",
+    "sport:rugby-union": "rugby",
+    "sport:tennis": "tennis",
+    "sport:football": "fifa",
+    "sport:cycling": "cycling",
+    "sport:cricket": "cricket",
+    "sport:basketball": "nba",
+    "sport:golf": "masters",
+    "sport:american-football": "nfl",
+    "sport:skiing": "ski",
+    "sport:athletics": "cwg",
+    "sport:swimming": "cwg",
+    "sport:netball": "cwg",
+    "sport:hockey": "cwg",
+    "sport:gymnastics": "cwg",
+    "sport:boxing": "cwg",
+    "sport:multi-sport": "cwg",
+    "special:commonwealth-games": "cwg",
+  });
+
   // Adding a surfaced sport starts here. Rendering, filters, and selector choices
   // derive from these records instead of requiring a bespoke UI branch.
   const domains = [
@@ -47,6 +70,7 @@
     { key: "big-wave", domainId: "sport:surf", label: "Big Wave", selectorLabel: "Big-wave Surfing", detail: "Big-wave windows and specialist events in deep-ocean conditions.", color: "var(--c-surf)", glyph: "sport:surf", sortOrder: 23, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "surf", domainId: "sport:surf", label: "Surfing", selectorLabel: "Surf", detail: "WSL and major surf events, including Big Wave windows.", color: "var(--c-surf)", sortOrder: 24, supportsLadders: false, supportsNarrative: true, selector: false, glyph: "sport:surf" },
     { key: "downhill-mtb", domainId: "sport:extreme", label: "Downhill MTB", selectorLabel: "Downhill MTB", detail: "High-skill gravity MTB events across major courses.", color: "var(--c-extreme)", glyph: "sport:extreme", sortOrder: 25, selector: true, supportsLadders: false, supportsNarrative: true },
+    { key: "mtb", domainId: "sport:extreme", label: "MTB", selectorLabel: "MTB", detail: "Mountain-bike races and gravity events.", color: "var(--c-extreme)", glyph: "sport:extreme", sortOrder: 25.1, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "cycling", domainId: "sport:cycling", label: "Cycling", selectorLabel: "Cycling", detail: "Key cycling fixtures and select title events.", color: "var(--c-cycling)", glyph: "sport:cycling", sortOrder: 26, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "telemark", domainId: "sport:skiing", label: "Telemark", selectorLabel: "Telemark", detail: "Telemark-specific world cup events and title rounds.", color: "var(--c-ski)", glyph: "sport:skiing", sortOrder: 27, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "skateboard", domainId: "sport:extreme", label: "Skateboarding", selectorLabel: "Skateboarding", detail: "Park, bowl and big audience street competitions.", color: "var(--c-extreme)", glyph: "sport:extreme", sortOrder: 28, selector: false, supportsLadders: false, supportsNarrative: true },
@@ -63,8 +87,24 @@
     { key: "lemans", domainId: "sport:motorsport", label: "Le Mans", selectorLabel: "Le Mans", detail: "24 Hours start and finish windows.", color: "var(--c-lemans)", glyph: "sport:motorsport", sortOrder: 110, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "nfl", domainId: "sport:american-football", label: "Super Bowl", selectorLabel: "Super Bowl", detail: "The NFL championship event.", color: "var(--c-nfl)", glyph: "sport:american-football", sortOrder: 120, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "ski", domainId: "sport:skiing", label: "Ski/Alpine", selectorLabel: "Alpine / Freestyle Skiing", detail: "World Cup and finals events.", color: "var(--c-ski)", glyph: "sport:skiing", sortOrder: 130, selector: true, supportsLadders: false, supportsNarrative: true },
+    { key: "alpine", domainId: "sport:skiing", label: "Alpine", selectorLabel: "Alpine", detail: "Alpine races and title events.", color: "var(--c-ski)", glyph: "sport:skiing", sortOrder: 131, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "freestyle", domainId: "sport:skiing", label: "Freestyle", selectorLabel: "Freestyle", detail: "Freestyle skiing finals and major events.", color: "var(--c-ski)", glyph: "sport:skiing", sortOrder: 132, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "football", domainId: "sport:football", label: "Football", selectorLabel: "Football", detail: "Major football fixtures and tournaments.", color: "var(--c-football)", glyph: "sport:football", sortOrder: 141, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "basketball", domainId: "sport:basketball", label: "Basketball", selectorLabel: "Basketball", detail: "Major basketball fixtures and finals.", color: "var(--c-nba)", glyph: "sport:basketball", sortOrder: 142, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "golf", domainId: "sport:golf", label: "Golf", selectorLabel: "Golf", detail: "Major golf rounds and title events.", color: "var(--c-golf)", glyph: "sport:golf", sortOrder: 143, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "american-football", domainId: "sport:american-football", label: "American Football", selectorLabel: "American Football", detail: "Major American football fixtures and finals.", color: "var(--c-nfl)", glyph: "sport:american-football", sortOrder: 144, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "athletics", domainId: "sport:athletics", label: "Athletics", selectorLabel: "Athletics", detail: "Track and field finals and major sessions.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 150, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "swimming", domainId: "sport:swimming", label: "Swimming", selectorLabel: "Swimming", detail: "Major swimming sessions and finals.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 151, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "netball", domainId: "sport:netball", label: "Netball", selectorLabel: "Netball", detail: "Major netball fixtures and finals.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 152, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "hockey", domainId: "sport:hockey", label: "Hockey", selectorLabel: "Hockey", detail: "Major hockey fixtures and finals.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 153, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "gymnastics", domainId: "sport:gymnastics", label: "Gymnastics", selectorLabel: "Gymnastics", detail: "Major gymnastics sessions and finals.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 154, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "boxing", domainId: "sport:boxing", label: "Boxing", selectorLabel: "Boxing", detail: "Major boxing bouts and medal sessions.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 155, selector: false, supportsLadders: false, supportsNarrative: false },
+    { key: "multi-sport", domainId: "sport:multi-sport", label: "Other Games Sports", selectorLabel: "Other Games Sports", detail: "Supported multi-sport Games sessions.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 156, selector: false, supportsLadders: false, supportsNarrative: false },
     { key: "cwg", domainId: "special:commonwealth-games", label: "Commonwealth Games", selectorLabel: "Commonwealth Games", detail: "Curated Glasgow 2026 sessions, top-competitor follows, and a spoiler-protected medal table.", color: "var(--c-cwg)", glyph: "sport:multi-sport", sortOrder: 140, selector: false, supportsLadders: true, supportsNarrative: true },
-  ].map(domain => Object.freeze({ ...domain, narrativeProfile: narrativeProfiles[domain.key] }));
+  ].map(domain => Object.freeze({
+    ...domain,
+    narrativeProfile: narrativeProfiles[domain.key] || narrativeProfiles[narrativeProfileKeyByDomainId[domain.domainId]],
+  }));
 
   const byKey = Object.freeze(Object.fromEntries(domains.map(domain => [domain.key, domain])));
 

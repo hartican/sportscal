@@ -110,9 +110,21 @@ async function run(){
     properties: { action: "unfollow", targetType: "competition", coldStart: true },
   })).properties.targetType, "competition");
   assert.equal(PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "preference_change",
+    surface: "tune",
+    canonicalEventId: undefined,
+    properties: { action: "froth_upgrade", targetType: "sport", coldStart: false },
+  })).properties.action, "froth_upgrade");
+  assert.equal(PRODUCT_EVENTS.normalizeEvent(event({
     eventName: "feed_control_change",
     properties: { control: "froth", value: "balanced", coldStart: false },
   })).properties.value, "balanced");
+  assert.equal(PRODUCT_EVENTS.normalizeEvent(event({
+    eventName: "feed_control_change",
+    surface: "tune",
+    canonicalEventId: undefined,
+    properties: { control: "sport_inclusion", value: "excluded", coldStart: true },
+  })).properties.value, "excluded");
   assert.throws(() => PRODUCT_EVENTS.normalizeEvent(event({
     eventName: "feed_control_change",
     properties: { control: "froth", value: "ppv", coldStart: false },

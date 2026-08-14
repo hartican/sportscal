@@ -73,12 +73,12 @@
       coldStart: booleanRule(),
     }),
     preference_change: Object.freeze({
-      action: enumRule(["follow", "unfollow"]),
+      action: enumRule(["follow", "unfollow", "froth_upgrade"]),
       targetType: enumRule(["sport", "competition", "team", "player", "event_family"]),
       coldStart: booleanRule(),
     }),
     feed_control_change: Object.freeze({
-      control: enumRule(["froth", "scope", "availability", "timing", "stakes", "spoilers"]),
+      control: enumRule(["froth", "scope", "availability", "timing", "stakes", "spoilers", "sport_inclusion"]),
       value: enumRule([
         "low", "balanced", "high", "maximum",
         "following", "for_you", "explore",
@@ -86,6 +86,7 @@
         "live_now", "tonight", "this_week", "overnight",
         "everything", "important", "must_watch",
         "strict", "standard", "results_visible",
+        "included", "excluded",
       ]),
       coldStart: booleanRule(),
     }),
@@ -195,6 +196,7 @@
         timing: ["any", "live_now", "tonight", "this_week", "overnight"],
         stakes: ["everything", "important", "must_watch"],
         spoilers: ["strict", "standard", "results_visible"],
+        sport_inclusion: ["included", "excluded"],
       };
       if (!valuesByControl[value.control].includes(value.value)){
         throw new ProductEventValidationError("properties.value is invalid for properties.control.", "invalid_property_value");
