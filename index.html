@@ -9488,7 +9488,8 @@ function buildEventCard(ev, options = {}){
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
   const recommendationProfile = eventRecommendationProfile(ev);
-  const swipeEligible = !options.archived
+  const swipeEligible = mode !== "premium-rail"
+    && !options.archived
     && activeTab === "feed"
     && activeView === "list"
     && activeFilter === "all"
