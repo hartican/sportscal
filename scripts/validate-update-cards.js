@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const { spawnSync } = require("node:child_process");
 const { buildSteps, parseOptions } = require("./update-cards");
 
 const releaseStep = "scripts/redeploy-and-release.sh";
@@ -38,6 +41,7 @@ assert(
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step.length === 1), "every canonical update must rebuild the direct-file context transport from authoritative JSON");
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step[1] === "--check"), "every canonical update must reject a stale direct-file context transport");
 assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"), "local-only updates must still enforce published result completeness");
+assert(localSteps.some(step => step[0] === "scripts/validate-result-completeness-timing.js"), "every canonical update must protect multi-day Test timing before checking overdue results");
 assert(localSteps.some(step => step[0] === "scripts/verify-pilot-readiness.js"), "every canonical update must enforce fresh complete current/next-round pilot coverage");
 assert(localSteps.some(step => step[0] === "scripts/validate-pilot-readout.js"), "every canonical update must validate the on-demand cohort measurement report");
 assert(localSteps.some(step => step[0] === "scripts/build-discovery-dashboard.js" && step.length === 1), "every canonical update must record the current coverage baseline and rebuild the no-user-data discovery dashboard");
@@ -64,5 +68,26 @@ assert.deepEqual(
   defaultSteps.filter(step => step[0] !== releaseStep),
   "local-only mode must skip only the release boundary"
 );
+
+const projectRoot = path.resolve(__dirname, "..");
+const wrapperScript = fs.readFileSync(path.join(projectRoot, "scripts/update-sportscal-cards-and-release.sh"), "utf8");
+const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-and-release.sh"), "utf8");
+const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
+
+assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p/, "the wrapper must suppress update-cards' nested release so each run deploys once");
+assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper must require an exact origin\/main starting commit");
+assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
+assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
+assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
+assert.match(snapshotScript, /git archive "\$DEPLOY_SHA"/, "the deployment helper must archive the resolved immutable commit");
+assert.match(snapshotScript, /releaseGitSha=\$DEPLOY_SHA/, "the Vercel deployment must record its source commit");
+
+const stagingCheck = spawnSync("bash", ["scripts/deploy-current-commit.sh"], {
+  cwd: projectRoot,
+  env: { ...process.env, NS_DEPLOY_DRY_RUN: "1", NS_DEPLOY_REF: "HEAD" },
+  encoding: "utf8",
+});
+assert.equal(stagingCheck.status, 0, `immutable deployment staging must pass: ${stagingCheck.stderr || stagingCheck.stdout}`);
+assert.match(stagingCheck.stdout, /Immutable release snapshot verified:/, "the staging check must report the verified commit");
 
 console.log("Canonical update modes valid: default release path retained; --local-only skips only commit, push, and deployment.");

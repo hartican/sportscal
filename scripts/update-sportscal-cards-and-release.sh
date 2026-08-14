@@ -79,13 +79,17 @@ resolve_vercel_token() {
   done
 }
 
-ensure_release_head_on_main_line() {
-  if ! git show-ref --verify --quiet refs/remotes/origin/main; then
-    git fetch --quiet --no-tags origin main
+ensure_clean_origin_main_checkout() {
+  git fetch --quiet --no-tags origin main
+  local local_head origin_head
+  local_head="$(git rev-parse HEAD)"
+  origin_head="$(git rev-parse origin/main)"
+  if [[ "$local_head" != "$origin_head" ]]; then
+    echo "Error: scheduled checkout must start exactly at origin/main (HEAD=$local_head, origin/main=$origin_head)." >&2
+    exit 1
   fi
-
-  if ! git merge-base --is-ancestor origin/main HEAD; then
-    echo "Error: local HEAD is not descended from origin/main. Rebase/cherry-pick onto origin/main first." >&2
+  if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "Error: scheduled checkout has tracked changes before refresh; use the dedicated clean automation checkout." >&2
     exit 1
   fi
 }
@@ -180,9 +184,9 @@ if [[ "${SKIP_RELEASE:-0}" != "1" ]]; then
   fi
 fi
 
-ensure_release_head_on_main_line
+ensure_clean_origin_main_checkout
 
-"$NODE_BIN" scripts/update-cards.js -p
+SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js -p
 LOCAL_EVENTS_HASH_AFTER="$(read_file_sha256 data/events.json)"
 IFS='|' read -r \
   LOCAL_META_VERSION_AFTER LOCAL_META_GENERATED_AFTER LOCAL_META_PUBLISHED_AFTER LOCAL_META_UPDATED_AFTER LOCAL_META_CARD_COUNT_AFTER LOCAL_META_SOURCE_AFTER \

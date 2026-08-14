@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-13T23:31:50.423Z",
+  "publishedAt": "2026-08-14T02:59:24.212Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -17,6 +17,7 @@
     "afl",
     "cwg",
     "cricket",
+    "tennis",
     "skateboard",
     "wsl",
     "downhill-mtb",
@@ -29,7 +30,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-08-13",
+    "basisDate": "2026-08-14",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -37,7 +38,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-07-10",
-    "daysAhead": 331,
+    "daysAhead": 330,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {
@@ -104,6 +105,11 @@
         "count": 16,
         "firstEventDate": "2026-08-13",
         "lastEventDate": "2027-01-02"
+      },
+      "tennis": {
+        "count": 2,
+        "firstEventDate": "2026-08-14",
+        "lastEventDate": "2026-08-14"
       },
       "skateboard": {
         "count": 1,

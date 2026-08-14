@@ -5,7 +5,8 @@ const fs = require("fs");
 const inputPath = process.argv[2] || "feeds/incoming/events.json";
 const feed = JSON.parse(fs.readFileSync(inputPath, "utf8"));
 const events = Array.isArray(feed) ? feed : feed.events;
-const now = new Date();
+const now = process.env.RESULT_CHECK_NOW ? new Date(process.env.RESULT_CHECK_NOW) : new Date();
+if (Number.isNaN(now.getTime())) throw new Error("RESULT_CHECK_NOW must be a valid date-time when provided.");
 
 function expectedCloseAt(event) {
   const explicitEnd = event.endTimeUtc ? new Date(event.endTimeUtc) : null;
@@ -13,7 +14,9 @@ function expectedCloseAt(event) {
   if (!event.date || !event.time) return null;
   const start = new Date(`${event.date}T${event.time}:00+10:00`);
   if (Number.isNaN(start.getTime())) return null;
-  const durationHours = Number(event.liveWindow);
+  const isMultiDayCricketTest = String(event.key || event.sport || "").toLowerCase() === "cricket"
+    && String(event.narrativeType || "").toLowerCase() === "test";
+  const durationHours = isMultiDayCricketTest ? 5 * 24 : Number(event.liveWindow);
   const expectedDurationMs = (Number.isFinite(durationHours) && durationHours > 0 ? durationHours : 3) * 60 * 60 * 1000;
   return new Date(start.getTime() + expectedDurationMs);
 }

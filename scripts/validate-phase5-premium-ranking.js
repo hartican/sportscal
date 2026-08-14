@@ -9,8 +9,16 @@ const overrides = require("../config/storyline-overrides.js");
 const root = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const feed = JSON.parse(fs.readFileSync(path.join(root, "data/events.json"), "utf8"));
-const reference = new Date("2026-08-13T00:00:00+10:00");
-const events = feed.events.map(event => ({ ...event, status: event.date >= "2026-08-13" ? "upcoming" : "completed" }));
+const activeWta1000 = feed.events.find(event => (
+  String(event.key || event.sport || "").toLowerCase() === "tennis"
+  && String(event.tour || "").toUpperCase() === "WTA"
+  && event.tennisLevel === "wta_1000"
+  && event.cardType === "tournament_overview"
+  && event.editorialPreview?.contextSignals?.includes("active-tournament-window")
+));
+const referenceDate = activeWta1000?.date || "2026-08-13";
+const reference = new Date(`${referenceDate}T00:00:00+10:00`);
+const events = feed.events.map(event => ({ ...event, status: event.date >= referenceDate ? "upcoming" : "completed" }));
 const neutralContext = {
   now: reference,
   followedSports: [],
@@ -21,6 +29,7 @@ assert.equal(engine.SCHEMA_VERSION, "enriched-event.v2");
 assert.equal(engine.RANKING_VERSION, "premium-ranking.v1");
 assert.equal(overrides.SCHEMA_VERSION, "storyline-overrides.v1");
 assert(Object.values(overrides.overrides).every(override => override.reviewedAt && override.reviewedBy && override.note), "every editorial override needs review provenance");
+assert(Object.values(overrides.ruleOverrides).every(override => override.reviewedAt && override.reviewedBy && override.note), "every rule-based editorial override needs review provenance");
 
 const routine = engine.enrichEvent({
   id: "phase5-routine",
@@ -45,7 +54,10 @@ assert.equal(defining.cardVariant, "marquee", "defining events need marquee trea
 const surfaces = engine.selectPremiumSurfaces(events, neutralContext);
 const mustWatchIds = surfaces.mustWatch.map(item => item.enrichment.canonicalEventId);
 const storylineIds = surfaces.topStorylines.map(item => item.enrichment.canonicalEventId);
-assert(mustWatchIds.includes("tennis-tournament-wta-toronto-806-2026-2026-08-13"), "the reviewed Toronto WTA 1000 flagship must enter Must Watch");
+if (activeWta1000) {
+  assert(mustWatchIds.includes(activeWta1000.id), "the current reviewed WTA 1000 flagship must enter Must Watch");
+  assert.equal(overrides.forEvent(activeWta1000)?.forceSurface, "homeMustWatch", "the current active WTA 1000 tournament must inherit the reviewed flagship rule");
+}
 assert(mustWatchIds.length <= engine.PREMIUM_SURFACE_POLICY.mustWatchLimit, "Must Watch must stay capped");
 assert(storylineIds.length <= engine.PREMIUM_SURFACE_POLICY.topStorylineLimit, "weekly storylines must stay capped");
 assert(!mustWatchIds.some(id => storylineIds.includes(id)), "premium surfaces must not duplicate events");

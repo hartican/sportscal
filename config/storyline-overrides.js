@@ -37,17 +37,6 @@
       reviewedBy: "nothingSport editorial",
       note: "Manual international-Test significance retained from the reviewed card set.",
     }),
-    "tennis-tournament-wta-toronto-806-2026-2026-08-13": Object.freeze({
-      stakes: 4,
-      intensity: 4,
-      archetype: "quest",
-      visibleLabel: "Must Watch",
-      cardVariant: "marquee",
-      forceSurface: "homeMustWatch",
-      reviewedAt: "2026-08-13T00:00:00.000Z",
-      reviewedBy: "nothingSport editorial",
-      note: "Flagship WTA 1000 coverage guarantee and Toronto regression event.",
-    }),
     "evt_84": Object.freeze({
       stakes: 5,
       intensity: 5,
@@ -61,14 +50,38 @@
     }),
   });
 
+  const RULE_OVERRIDES = Object.freeze({
+    "active-wta-1000-tournament-overview": Object.freeze({
+      stakes: 4,
+      intensity: 4,
+      archetype: "quest",
+      visibleLabel: "Must Watch",
+      cardVariant: "marquee",
+      forceSurface: "homeMustWatch",
+      reviewedAt: "2026-08-14T00:00:00.000Z",
+      reviewedBy: "nothingSport editorial",
+      note: "Current active WTA 1000 tournament overview receives the reviewed flagship coverage guarantee.",
+    }),
+  });
+
   function eventId(eventOrId){
     if (typeof eventOrId === "string") return eventOrId;
     return String(eventOrId?.canonicalEventId || eventOrId?.eventId || eventOrId?.id || "");
   }
 
   function forEvent(eventOrId){
-    const override = OVERRIDES[eventId(eventOrId)];
-    return override ? { ...override } : null;
+    const exactOverride = OVERRIDES[eventId(eventOrId)];
+    if (exactOverride) return { ...exactOverride };
+    if (!eventOrId || typeof eventOrId === "string") return null;
+    const status = String(eventOrId.status || "").toLowerCase();
+    const isActiveWta1000Overview = String(eventOrId.key || eventOrId.sport || "").toLowerCase() === "tennis"
+      && String(eventOrId.tour || "").toUpperCase() === "WTA"
+      && eventOrId.tennisLevel === "wta_1000"
+      && eventOrId.cardType === "tournament_overview"
+      && !["completed", "past", "cancelled", "abandoned"].includes(status);
+    return isActiveWta1000Overview
+      ? { ...RULE_OVERRIDES["active-wta-1000-tournament-overview"] }
+      : null;
   }
 
   function editorialMetadata(eventOrId){
@@ -85,6 +98,7 @@
   return Object.freeze({
     SCHEMA_VERSION,
     overrides: OVERRIDES,
+    ruleOverrides: RULE_OVERRIDES,
     forEvent,
     editorialMetadata,
   });

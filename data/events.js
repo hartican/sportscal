@@ -46,9 +46,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Super Bowl LX is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Super Bowl LX is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Seattle won Super Bowl LX; Kenneth Walker III was named MVP.",
-      "synopsisSpoilerOn": "Seattle's defence controlled the game with six sacks and three takeaways, while Kenneth Walker III supplied 135 rushing yards to keep the Patriots under pressure."
+      "synopsisSpoilerOn": "Seattle's defence controlled the game with six sacks and three takeaways, while Kenneth Walker III supplied 135 rushing yards to keep the Patriots under pressure.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Golf",
@@ -95,9 +96,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Masters Round 1 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Masters Round 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Burns and defending champion McIlroy shared the overnight lead.",
-      "synopsisSpoilerOn": "Both leaders opened with 67s. Burns posted his lowest opening round in a major, while McIlroy began his title defence with an eagle and a share of the lead."
+      "synopsisSpoilerOn": "Both leaders opened with 67s. Burns posted his lowest opening round in a major, while McIlroy began his title defence with an eagle and a share of the lead.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Golf",
@@ -145,9 +147,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Masters Round 2 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Masters Round 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "McIlroy set the largest 36-hole lead in Masters history.",
-      "synopsisSpoilerOn": "A seven-under 65, powered by nine birdies and six in his final seven holes, moved McIlroy six shots clear of Sam Burns and Patrick Reed at the halfway point."
+      "synopsisSpoilerOn": "A seven-under 65, powered by nine birdies and six in his final seven holes, moved McIlroy six shots clear of Sam Burns and Patrick Reed at the halfway point.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Golf",
@@ -194,9 +197,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Masters Round 3 (Moving Day) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Masters Round 3 (Moving Day) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Young's 65 erased an eight-shot halfway deficit and created a tie for the final-round lead.",
-      "synopsisSpoilerOn": "Moving Day lived up to its name: Young surged from eight behind with a career-low Masters round, while McIlroy's 73 brought the field back into the contest."
+      "synopsisSpoilerOn": "Moving Day lived up to its name: Young surged from eight behind with a career-low Masters round, while McIlroy's 73 brought the field back into the contest.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Golf",
@@ -244,9 +248,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Masters Final Round (Sunday) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Masters Final Round (Sunday) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "McIlroy successfully defended the Masters for his sixth major title.",
-      "synopsisSpoilerOn": "McIlroy closed with 71 and held off Scheffler's bogey-free 68 by one. The victory made him only the fourth player to win consecutive Masters titles."
+      "synopsisSpoilerOn": "McIlroy closed with 71 and held off Scheffler's bogey-free 68 by one. The victory made him only the fourth player to win consecutive Masters titles.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NBA",
@@ -293,9 +298,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 1 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New York took a 1-0 series lead.",
-      "synopsisSpoilerOn": "The Knicks controlled the opener and limited San Antonio to 95 points, establishing the defensive shape of the series."
+      "synopsisSpoilerOn": "The Knicks controlled the opener and limited San Antonio to 95 points, establishing the defensive shape of the series.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NBA",
@@ -342,9 +348,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 2 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New York took a 2-0 series lead.",
-      "synopsisSpoilerOn": "A one-point finish gave New York consecutive wins and left San Antonio needing a response when the series shifted venues."
+      "synopsisSpoilerOn": "A one-point finish gave New York consecutive wins and left San Antonio needing a response when the series shifted venues.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NBA",
@@ -391,9 +398,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 3 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New York's series lead narrowed to 2-1.",
-      "synopsisSpoilerOn": "San Antonio produced its best offensive game of the Finals to win by four and keep the series alive."
+      "synopsisSpoilerOn": "San Antonio produced its best offensive game of the Finals to win by four and keep the series alive.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Le Mans",
@@ -441,9 +449,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "24 Hours of Le Mans — Start is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "24 Hours of Le Mans — Start is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "The 94th 24 Hours of Le Mans began with Toyota setting the early pace.",
-      "synopsisSpoilerOn": "Toyota split the opening strategy across its two cars and emerged at the head of the field after hour one, with BMW close enough to keep the Hypercar contest open."
+      "synopsisSpoilerOn": "Toyota split the opening strategy across its two cars and emerged at the head of the field after hour one, with BMW close enough to keep the Hypercar contest open.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NBA",
@@ -490,9 +499,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New York moved within one win of the championship at 3-1.",
-      "synopsisSpoilerOn": "Another one-point game went New York's way, giving the Knicks three wins in four tightly contested Finals games."
+      "synopsisSpoilerOn": "Another one-point game went New York's way, giving the Knicks three wins in four tightly contested Finals games.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Football",
@@ -541,9 +551,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia v Türkiye - Group D is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Australia v Türkiye - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Australia opened its campaign with three points.",
-      "synopsisSpoilerOn": "Australia handled the opening-game pressure, kept Türkiye scoreless and established a strong platform in Group D."
+      "synopsisSpoilerOn": "Australia handled the opening-game pressure, kept Türkiye scoreless and established a strong platform in Group D.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Australia",
@@ -601,9 +612,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "24 Hours of Le Mans — Finish is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "24 Hours of Le Mans — Finish is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Kamui Kobayashi, Nyck de Vries and Mike Conway delivered Toyota's sixth overall Le Mans victory.",
-      "synopsisSpoilerOn": "A disciplined Toyota strategy decided an open Hypercar race. BMW kept the winning #7 car honest to the flag, finishing only 10.9 seconds behind after 24 hours."
+      "synopsisSpoilerOn": "A disciplined Toyota strategy decided an open Hypercar race. BMW kept the winning #7 car honest to the flag, finishing only 10.9 seconds behind after 24 hours.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NBA",
@@ -650,9 +662,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 5 (if needed) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 5 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New York won the NBA Finals 4-1.",
-      "synopsisSpoilerOn": "The Knicks closed the series in a lower-scoring Game 5, securing the franchise's first championship since 1973."
+      "synopsisSpoilerOn": "The Knicks closed the series in a lower-scoring Game 5, securing the franchise's first championship since 1973.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Football",
@@ -701,9 +714,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "USA v Australia - Group D is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "USA v Australia - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "The hosts took the Group D points in Seattle.",
-      "synopsisSpoilerOn": "The United States used home support and a clean sheet to halt Australia's early momentum, leaving qualification to be settled in the final group match."
+      "synopsisSpoilerOn": "The United States used home support and a clean sheet to halt Australia's early momentum, leaving qualification to be settled in the final group match.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "USA",
@@ -760,9 +774,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 6 (if needed) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 6 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Game 6 was not required.",
-      "synopsisSpoilerOn": "New York's 4-1 series victory removed the need for the scheduled sixth game; this card remains as an explicit record of the conditional fixture."
+      "synopsisSpoilerOn": "New York's 4-1 series victory removed the need for the scheduled sixth game; this card remains as an explicit record of the conditional fixture.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NBA",
@@ -809,9 +824,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "NBA Finals Game 7 (if needed) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "NBA Finals Game 7 (if needed) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Game 7 was not required.",
-      "synopsisSpoilerOn": "The Finals ended in five games, so the potential decider was never played. The card is retained to make the original conditional schedule unambiguous."
+      "synopsisSpoilerOn": "The Finals ended in five games, so the potential decider was never played. The card is retained to make the original conditional schedule unambiguous.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Football",
@@ -860,9 +876,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Paraguay v Australia - Group D is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Paraguay v Australia - Group D is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Australia progressed after a scoreless final group match.",
-      "synopsisSpoilerOn": "A disciplined defensive performance delivered the point Australia needed. The goalless draw closed the group stage and sent the Socceroos into the knockouts."
+      "synopsisSpoilerOn": "A disciplined defensive performance delivered the point Australia needed. The goalless draw closed the group stage and sent the Socceroos into the knockouts.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Paraguay",
@@ -920,9 +937,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Kasatkina v Osaka - Women's R3 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Kasatkina v Osaka - Women's R3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Osaka reached the fourth round in straight sets.",
-      "synopsisSpoilerOn": "Osaka imposed the cleaner scoreline throughout, conceding only four games and completing the match without needing a deciding set."
+      "synopsisSpoilerOn": "Osaka imposed the cleaner scoreline throughout, conceding only four games and completing the match without needing a deciding set.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Kasatkina",
@@ -983,9 +1001,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia v Egypt - Round of 32 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Australia v Egypt - Round of 32 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Egypt progressed after the penalty shootout.",
-      "synopsisSpoilerOn": "Australia stayed level through regulation and extra time, but Egypt converted the decisive shootout kicks to end the Socceroos' tournament in the Round of 32."
+      "synopsisSpoilerOn": "Australia stayed level through regulation and extra time, but Egypt converted the decisive shootout kicks to end the Socceroos' tournament in the Round of 32.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Australia",
@@ -1043,9 +1062,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "De Minaur v Svajda - Men's R3 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "De Minaur v Svajda - Men's R3 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "De Minaur reached the fourth round in straight sets.",
-      "synopsisSpoilerOn": "The Australian improved his control after the opening set and conceded only four games across the final two, completing an efficient straight-sets win."
+      "synopsisSpoilerOn": "The Australian improved his control after the opening set and conceded only four games across the final two, completing an efficient straight-sets win.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "De Minaur",
@@ -1101,9 +1121,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia v Ireland is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Australia v Ireland is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Ireland completed a late comeback to win by two points in Sydney.",
-      "synopsisSpoilerOn": "Australia stayed in the contest to the final kick, but Ireland's late pressure and a decisive closing try overturned the Wallabies' lead in a high-scoring Nations Championship opener."
+      "synopsisSpoilerOn": "Australia stayed in the contest to the final kick, but Ireland's late pressure and a decisive closing try overturned the Wallabies' lead in a high-scoring Nations Championship opener.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Wallabies",
@@ -1238,9 +1259,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Canada v Morocco - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Canada v Morocco - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Morocco reached the quarterfinals.",
-      "synopsisSpoilerOn": "Morocco paired a clean sheet with three goals to control the tie, absorbing the hosts' energy before turning the match decisively in their favour."
+      "synopsisSpoilerOn": "Morocco paired a clean sheet with three goals to control the tie, absorbing the hosts' energy before turning the match decisively in their favour.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Canada",
@@ -1300,9 +1322,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Paraguay v France - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Paraguay v France - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "France reached the quarterfinals.",
-      "synopsisSpoilerOn": "France found the only goal in a tight knockout match and protected the lead, ending Paraguay's run without allowing the contest to open up."
+      "synopsisSpoilerOn": "France found the only goal in a tight knockout match and protected the lead, ending Paraguay's run without allowing the contest to open up.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Paraguay",
@@ -1363,9 +1386,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Auger-Aliassime v Davidovich Fokina - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Auger-Aliassime v Davidovich Fokina - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Auger-Aliassime reached the quarterfinals after five sets.",
-      "synopsisSpoilerOn": "Three tie-break sets kept the contest volatile before Auger-Aliassime finally separated himself, conceding only one game in the fifth."
+      "synopsisSpoilerOn": "Three tie-break sets kept the contest volatile before Auger-Aliassime finally separated himself, conceding only one game in the fifth.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Auger-Aliassime",
@@ -1426,9 +1450,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Djokovic v Safiullin - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Djokovic v Safiullin - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Djokovic reached the quarterfinals in four sets.",
-      "synopsisSpoilerOn": "The opening tie-break established Djokovic's advantage. Safiullin forced a fourth set, but Djokovic restored control and closed the match before a decider."
+      "synopsisSpoilerOn": "The opening tie-break established Djokovic's advantage. Safiullin forced a fourth set, but Djokovic restored control and closed the match before a decider.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Djokovic",
@@ -1489,9 +1514,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Gauff v Bencic - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Gauff v Bencic - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Gauff recovered from a set down to reach the quarterfinals.",
-      "synopsisSpoilerOn": "Bencic claimed the opening set, but Gauff steadied the match and found the decisive margin in a close third set."
+      "synopsisSpoilerOn": "Bencic claimed the opening set, but Gauff steadied the match and found the decisive margin in a close third set.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Gauff",
@@ -1552,9 +1578,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Muchova v Krejcikova - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Muchova v Krejcikova - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Muchova reached the quarterfinals in three sets.",
-      "synopsisSpoilerOn": "The first two sets split by identical 7-5 margins before Muchova created the clearer gap in the decider."
+      "synopsisSpoilerOn": "The first two sets split by identical 7-5 margins before Muchova created the clearer gap in the decider.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Muchova",
@@ -1615,9 +1642,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Osaka v Sabalenka - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Osaka v Sabalenka - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Osaka eliminated the top seed in straight sets.",
-      "synopsisSpoilerOn": "Osaka controlled the first set and then dominated the second-set tie-break, turning a marquee fourth-round meeting into a straight-sets result."
+      "synopsisSpoilerOn": "Osaka controlled the first set and then dominated the second-set tie-break, turning a marquee fourth-round meeting into a straight-sets result.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Osaka",
@@ -1678,9 +1706,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Pegula v Jovic - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Pegula v Jovic - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Pegula recovered from a set down to reach the quarterfinals.",
-      "synopsisSpoilerOn": "Jovic took the opener, but Pegula reversed the match across the next two sets and conceded only one game in the decider."
+      "synopsisSpoilerOn": "Jovic took the opener, but Pegula reversed the match across the next two sets and conceded only one game in the decider.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Pegula",
@@ -1741,9 +1770,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Sinner v Mochizuki - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Sinner v Mochizuki - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sinner reached the quarterfinals in straight sets.",
-      "synopsisSpoilerOn": "Sinner allowed no momentum swing: the middle-set tie-break ended without a point conceded and the top seed completed the match in three."
+      "synopsisSpoilerOn": "Sinner allowed no momentum swing: the middle-set tie-break ended without a point conceded and the top seed completed the match in three.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Sinner",
@@ -1804,9 +1834,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Struff v Hurkacz - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Struff v Hurkacz - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Struff progressed after Hurkacz retired in the fifth set.",
-      "synopsisSpoilerOn": "Hurkacz led by two sets, but Struff forced a decider through a tie-break and a late fourth-set break. The match ended by retirement with Struff leading the fifth."
+      "synopsisSpoilerOn": "Hurkacz led by two sets, but Struff forced a decider through a tie-break and a late fourth-set break. The match ended by retirement with Struff leading the fifth.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Struff",
@@ -1900,9 +1931,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "R9 British GP Race is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "R9 British GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Leclerc won the British Grand Prix for Ferrari.",
-      "synopsisSpoilerOn": "Leclerc converted Ferrari's front-row pace into victory in a compressed finish, with Russell and Hamilton both within eight-tenths at the flag. Piastri's recovery was a secondary storyline after starting eighth."
+      "synopsisSpoilerOn": "Leclerc converted Ferrari's front-row pace into victory in a compressed finish, with Russell and Hamilton both within eight-tenths at the flag. Piastri's recovery was a secondary storyline after starting eighth.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Football",
@@ -1952,9 +1984,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Brazil v Norway - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Brazil v Norway - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Norway eliminated Brazil and reached the quarterfinals.",
-      "synopsisSpoilerOn": "Norway delivered one of the round's major upsets, matching Brazil's technical threat and taking the chances that carried them into the last eight."
+      "synopsisSpoilerOn": "Norway delivered one of the round's major upsets, matching Brazil's technical threat and taking the chances that carried them into the last eight.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Brazil",
@@ -2014,9 +2047,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Mexico v England - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Mexico v England - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "England survived a five-goal match to reach the quarterfinals.",
-      "synopsisSpoilerOn": "England came through a volatile knockout game in Mexico City. Mexico kept the hosts in the contest, but England's third goal proved decisive."
+      "synopsisSpoilerOn": "England came through a volatile knockout game in Mexico City. Mexico kept the hosts in the contest, but England's third goal proved decisive.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Mexico",
@@ -2114,9 +2148,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Cobolli v De Minaur - Men's R4 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Cobolli v De Minaur - Men's R4 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Cobolli ended De Minaur's tournament in straight sets.",
-      "synopsisSpoilerOn": "The opening set was decided late and the second in a tie-break. Cobolli then maintained the pressure to prevent an Australian recovery."
+      "synopsisSpoilerOn": "The opening set was decided late and the second in a tie-break. Cobolli then maintained the pressure to prevent an Australian recovery.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Cobolli",
@@ -2177,9 +2212,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Fery v Dimitrov - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Fery v Dimitrov - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fery reached the quarterfinals after a fifth-set tie-break.",
-      "synopsisSpoilerOn": "Fery came back from two sets to one down and held his nerve in the deciding tie-break, extending the home wildcard's run into the last eight."
+      "synopsisSpoilerOn": "Fery came back from two sets to one down and held his nerve in the deciding tie-break, extending the home wildcard's run into the last eight.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Fery",
@@ -2240,9 +2276,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Fritz v Bublik - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Fritz v Bublik - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fritz reached the quarterfinals in straight sets.",
-      "synopsisSpoilerOn": "Fritz dominated the opening tie-break and found one-set margins in each of the next two, denying Bublik a route back into the match."
+      "synopsisSpoilerOn": "Fritz dominated the opening tie-break and found one-set margins in each of the next two, denying Bublik a route back into the match.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Fritz",
@@ -2387,9 +2424,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Noskova v Keys - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Noskova v Keys - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Noskova reached the quarterfinals in straight sets.",
-      "synopsisSpoilerOn": "Noskova protected the first-set margin and dominated the second-set tie-break, closing the match without allowing a decider."
+      "synopsisSpoilerOn": "Noskova protected the first-set margin and dominated the second-set tie-break, closing the match without allowing a decider.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Noskova",
@@ -2450,9 +2488,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Paolini v Eala - Women's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Paolini v Eala - Women's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Paolini reached the quarterfinals in three sets.",
-      "synopsisSpoilerOn": "Eala levelled the match in the second set, but Paolini recovered the initiative and made the decisive break stand in the third."
+      "synopsisSpoilerOn": "Eala levelled the match in the second set, but Paolini recovered the initiative and made the decisive break stand in the third.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Paolini",
@@ -2513,9 +2552,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Zverev v Lehecka - Men's R4 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Zverev v Lehecka - Men's R4 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Zverev completed the suspended match and reached the quarterfinals.",
-      "synopsisSpoilerOn": "Play was suspended at one set in the fourth before completion on 7 July. Lehecka forced the extra session, but Zverev won the closing tie-break."
+      "synopsisSpoilerOn": "Play was suspended at one set in the fourth before completion on 7 July. Lehecka forced the extra session, but Zverev won the closing tie-break.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Zverev",
@@ -2575,9 +2615,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Portugal v Spain - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Portugal v Spain - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Spain reached the quarterfinals with a clean sheet.",
-      "synopsisSpoilerOn": "A single goal separated the Iberian rivals. Spain controlled enough of the match to protect the margin and close out a high-pressure knockout tie."
+      "synopsisSpoilerOn": "A single goal separated the Iberian rivals. Spain controlled enough of the match to protect the margin and close out a high-pressure knockout tie.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Portugal",
@@ -2637,9 +2678,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "USA v Belgium - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "USA v Belgium - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Belgium ended the hosts' campaign and reached the quarterfinals.",
-      "synopsisSpoilerOn": "Belgium's attacking quality produced the round's widest knockout margin, with four goals overcoming the energy of a home crowd in Seattle."
+      "synopsisSpoilerOn": "Belgium's attacking quality produced the round's widest knockout margin, with four goals overcoming the energy of a home crowd in Seattle.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "USA",
@@ -2701,9 +2743,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Djokovic v Auger-Aliassime - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Djokovic v Auger-Aliassime - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Djokovic reached the semifinals after five sets.",
-      "synopsisSpoilerOn": "Two of the five sets required tie-breaks, including the decider. Djokovic survived the extended opening breaker and finally separated the match in the last one."
+      "synopsisSpoilerOn": "Two of the five sets required tie-breaks, including the decider. Djokovic survived the extended opening breaker and finally separated the match in the last one.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Djokovic",
@@ -2765,9 +2808,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Gauff v Pegula - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Gauff v Pegula - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Gauff recovered from a set down to reach the semifinals.",
-      "synopsisSpoilerOn": "Pegula made the stronger start, but Gauff levelled and repeated the 6-3 margin in the decider to complete the comeback."
+      "synopsisSpoilerOn": "Pegula made the stronger start, but Gauff levelled and repeated the 6-3 margin in the decider to complete the comeback.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Gauff",
@@ -2829,9 +2873,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Muchova v Osaka - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Muchova v Osaka - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Muchova reached the semifinals in straight sets.",
-      "synopsisSpoilerOn": "Muchova took the opening tie-break and then protected a single-break margin in the second, ending Osaka's notable run in two sets."
+      "synopsisSpoilerOn": "Muchova took the opening tie-break and then protected a single-break margin in the second, ending Osaka's notable run in two sets.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Muchova",
@@ -2893,9 +2938,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Sinner v Struff - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Sinner v Struff - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sinner reached the semifinals in straight sets.",
-      "synopsisSpoilerOn": "Sinner won the tight points in the first two sets, then created a clearer margin in the third to finish without extending the match."
+      "synopsisSpoilerOn": "Sinner won the tight points in the first two sets, then created a clearer margin in the third to finish without extending the match.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Sinner",
@@ -2992,9 +3038,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Argentina v Egypt - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Argentina v Egypt - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Argentina reached the quarterfinals after a five-goal contest.",
-      "synopsisSpoilerOn": "Egypt continued its knockout run with two goals, but Argentina's third strike settled an open match and secured the reigning champions' place in the last eight."
+      "synopsisSpoilerOn": "Egypt continued its knockout run with two goals, but Argentina's third strike settled an open match and secured the reigning champions' place in the last eight.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Argentina",
@@ -3055,9 +3102,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Switzerland v Colombia - Round of 16 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Switzerland v Colombia - Round of 16 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Switzerland progressed through the penalty shootout.",
-      "synopsisSpoilerOn": "Neither side found a goal through regulation and extra time. Switzerland held their nerve from the spot to claim the final quarterfinal place."
+      "synopsisSpoilerOn": "Neither side found a goal through regulation and extra time. Switzerland held their nerve from the spot to claim the final quarterfinal place.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Switzerland",
@@ -3119,9 +3167,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Fery v Cobolli - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Fery v Cobolli - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fery reached the semifinals in straight sets.",
-      "synopsisSpoilerOn": "Fery won a tight opening set and tie-break before accelerating through a one-sided third, extending the British wildcard's run into the last four."
+      "synopsisSpoilerOn": "Fery won a tight opening set and tie-break before accelerating through a one-sided third, extending the British wildcard's run into the last four.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Fery",
@@ -3183,9 +3232,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Kostyuk v Paolini - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Kostyuk v Paolini - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Kostyuk reached the semifinals in straight sets.",
-      "synopsisSpoilerOn": "Kostyuk increased her control from the first set to the second, conceding only five games across a compact quarterfinal."
+      "synopsisSpoilerOn": "Kostyuk increased her control from the first set to the second, conceding only five games across a compact quarterfinal.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Kostyuk",
@@ -3247,9 +3297,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Noskova v Mertens - Women's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Noskova v Mertens - Women's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Noskova reached the semifinals in straight sets.",
-      "synopsisSpoilerOn": "Noskova established the early advantage and then closed a tighter second set late, completing the quarterfinal without a decider."
+      "synopsisSpoilerOn": "Noskova established the early advantage and then closed a tighter second set late, completing the quarterfinal without a decider.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Noskova",
@@ -3311,9 +3362,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Zverev v Fritz - Men's Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Zverev v Fritz - Men's Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Zverev reached the semifinals in straight sets.",
-      "synopsisSpoilerOn": "Zverev repeated a one-break margin in the first two sets and widened it in the third, completing the most direct men's quarterfinal result."
+      "synopsisSpoilerOn": "Zverev repeated a one-break margin in the first two sets and widened it in the third, completing the most direct men's quarterfinal result.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Zverev",
@@ -3406,9 +3458,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Stage 6 — Pau → Gavarnie-Gèdre (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead.",
-      "synopsisSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead."
+      "synopsisSpoilerOn": "Pogacar won the summit finish at Gavarnie-Gedre and returned to the overall lead.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Tennis",
@@ -3460,9 +3513,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Muchova v Gauff - Women's Semifinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Muchova v Gauff - Women's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Muchova reached the Wimbledon final after a deciding tie-break.",
-      "synopsisSpoilerOn": "The first two sets swung sharply in opposite directions. Muchova then won an extended deciding tie-break to settle the semifinal at its narrowest point."
+      "synopsisSpoilerOn": "The first two sets swung sharply in opposite directions. Muchova then won an extended deciding tie-break to settle the semifinal at its narrowest point.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Muchova",
@@ -3524,9 +3578,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Noskova v Kostyuk - Women's Semifinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Noskova v Kostyuk - Women's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Noskova reached the Wimbledon final in straight sets.",
-      "synopsisSpoilerOn": "Noskova maintained matching margins in both sets, staying composed through the semifinal pressure to book her place in the final."
+      "synopsisSpoilerOn": "Noskova maintained matching margins in both sets, staying composed through the semifinal pressure to book her place in the final.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Noskova",
@@ -3586,9 +3641,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "France v Morocco - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "France v Morocco - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "France reached the semifinals.",
-      "synopsisSpoilerOn": "France combined two goals with a clean sheet to end Morocco's run, controlling the decisive phases and earning the first place in the last four."
+      "synopsisSpoilerOn": "France combined two goals with a clean sheet to end Morocco's run, controlling the decisive phases and earning the first place in the last four.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "France",
@@ -3687,9 +3743,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Sinner v Djokovic - Men's Semifinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Sinner v Djokovic - Men's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sinner reached the Wimbledon final in straight sets.",
-      "synopsisSpoilerOn": "Sinner found the same decisive margin in every set, preventing Djokovic from extending a semifinal that remained competitive but consistently tilted one way."
+      "synopsisSpoilerOn": "Sinner found the same decisive margin in every set, preventing Djokovic from extending a semifinal that remained competitive but consistently tilted one way.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Sinner",
@@ -3751,9 +3808,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Zverev v Fery - Men's Semifinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Zverev v Fery - Men's Semifinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Zverev reached the Wimbledon final in straight sets.",
-      "synopsisSpoilerOn": "Fery reached a tie-break in the opener, but Zverev shut it out and controlled the next two sets to end the wildcard's run."
+      "synopsisSpoilerOn": "Fery reached a tie-break in the opener, but Zverev shut it out and controlled the next two sets to end the wildcard's run.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Zverev",
@@ -3813,9 +3871,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Spain v Belgium - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Spain v Belgium - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Spain reached the semifinals.",
-      "synopsisSpoilerOn": "Spain survived sustained Belgian pressure in a high-quality quarterfinal, making a narrow lead stand to secure a last-four meeting with France."
+      "synopsisSpoilerOn": "Spain survived sustained Belgian pressure in a high-quality quarterfinal, making a narrow lead stand to secure a last-four meeting with France.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Spain",
@@ -3970,9 +4029,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Noskova v Muchova - Women's Final is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Noskova v Muchova - Women's Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Noskova won the 2026 Wimbledon women's singles title.",
-      "synopsisSpoilerOn": "Noskova made the faster start, absorbed Muchova's second-set response and re-established control in the decider to claim the championship."
+      "synopsisSpoilerOn": "Noskova made the faster start, absorbed Muchova's second-set response and re-established control in the decider to claim the championship.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Noskova",
@@ -4033,9 +4093,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Norway v England - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Norway v England - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "England reached the semifinals after extra time.",
-      "synopsisSpoilerOn": "Norway extended its breakthrough run into extra time, where England found the decisive goal and completed another demanding knockout win."
+      "synopsisSpoilerOn": "Norway extended its breakthrough run into extra time, where England found the decisive goal and completed another demanding knockout win.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Norway",
@@ -4096,9 +4157,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Argentina v Switzerland - Quarterfinal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Argentina v Switzerland - Quarterfinal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Argentina reached the semifinals after extra time.",
-      "synopsisSpoilerOn": "Switzerland forced the reigning champions beyond 90 minutes, but Argentina pulled clear in extra time to complete the semifinal line-up."
+      "synopsisSpoilerOn": "Switzerland forced the reigning champions beyond 90 minutes, but Argentina pulled clear in extra time to complete the semifinal line-up.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Argentina",
@@ -4195,9 +4257,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Sinner v Zverev - Men's Final is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Sinner v Zverev - Men's Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sinner won the 2026 Wimbledon men's singles title.",
-      "synopsisSpoilerOn": "After losing the opening tie-break, Sinner dominated the second-set breaker and then created the clearer margins across the final two sets to secure the title."
+      "synopsisSpoilerOn": "After losing the opening tie-break, Sinner dominated the second-set breaker and then created the clearer margins across the final two sets to secure the title.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Sinner",
@@ -4253,9 +4316,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Stage 10 — Aurillac → Le Lioran (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour.",
-      "synopsisSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour."
+      "synopsisSpoilerOn": "Pogacar attacked on the Col de Pertus and won by 32 seconds for his third stage victory of the Tour.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Football",
@@ -4317,9 +4381,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "World Cup Semifinal 1 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "World Cup Semifinal 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Spain reached the World Cup final.",
-      "synopsisSpoilerOn": "Mikel Oyarzabal converted a first-half penalty and Pedro Porro added the second after the break. Spain frustrated France at one end and punished them at the other."
+      "synopsisSpoilerOn": "Mikel Oyarzabal converted a first-half penalty and Pedro Porro added the second after the break. Spain frustrated France at one end and punished them at the other.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "France",
@@ -4427,9 +4492,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "World Cup Semifinal 2 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "World Cup Semifinal 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Argentina reached the World Cup final against Spain; England move to the third-place playoff against France.",
-      "synopsisSpoilerOn": "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals."
+      "synopsisSpoilerOn": "Gordon put England ahead after half-time, but Argentina's late pressure told. Fernandez levelled from distance and Martinez completed the comeback in the 92nd minute, with Messi involved in both goals.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "England",
@@ -4571,9 +4637,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "The Raiders built the platform early, absorbed a second-half Rabbitohs surge and closed out a valuable home win. The result kept their late finals push alive, though Hudson Young left injured.",
       "expectedSpectacle": 8,
       "actualSpectacle": 8,
-      "archetype": "finals push"
+      "intensitySource": "manual",
+      "lastReviewedAt": "2026-07-30T00:00:00.000Z",
+      "archetype": "quest"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -4632,9 +4700,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Collingwood v Carlton is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Collingwood defeated Carlton by 21 points in the MCG clash.",
       "synopsisSpoilerOff": "Collingwood v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Collingwood controlled the contest to win 14.6 (90) to 10.9 (69), keeping Carlton at arm's length through the second half."
+      "synopsisSpoilerOn": "Collingwood controlled the contest to win 14.6 (90) to 10.9 (69), keeping Carlton at arm's length through the second half.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "sourceType": "reputable",
     "score": "Collingwood 14.6 (90) defeated Carlton 10.9 (69)",
     "outcomeText": "Collingwood defeated Carlton by 21 points in the MCG clash.",
@@ -4689,9 +4758,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Australia beat Italy 57-10 in Perth to end Joe Schmidt's Wallabies tenure with a win.",
       "synopsisSpoilerOff": "Australia v Italy is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Australia finished its July Nations Championship home run with a 47-point victory at HBF Park, scoring 57 points and holding Italy to 10 in Joe Schmidt's final Test in charge.",
-      "expectedSpectacle": 7
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-07-30T00:00:00.000Z"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -4741,9 +4812,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 14 — Mulhouse → Le Markstein (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Tadej Pogačar won Stage 14 at Le Markstein and extended his Tour lead.",
       "synopsisSpoilerOff": "Stage 14 — Mulhouse → Le Markstein (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Pogačar attacked on the final climb to claim his fourth stage win of the 2026 Tour, with the mountain finish reshaping the general-classification gaps."
+      "synopsisSpoilerOn": "Pogačar attacked on the final climb to claim his fourth stage win of the 2026 Tour, with the mountain finish reshaping the general-classification gaps.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "sourceType": "reputable",
     "score": "Stage winner: Tadej Pogačar",
     "outcomeText": "Tadej Pogačar won Stage 14 at Le Markstein and extended his Tour lead.",
@@ -4843,9 +4915,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "England finished third after beating France 6-4 in the bronze final (media-reported consensus).",
       "synopsisSpoilerOff": "World Cup Third-Place Playoff is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Two independent mainstream reports agree on England's 6-4 win. Bukayo Saka scored a hat-trick, with Declan Rice, Ezri Konsa and Jude Bellingham also on the scoresheet; France replied through Kylian Mbappe twice, Bradley Barcola and Ousmane Dembele. FIFA's result feed had not caught up at checking time.",
-      "archetype": "podium decider"
+      "intensitySource": "manual",
+      "lastReviewedAt": "2026-07-30T00:00:00.000Z",
+      "archetype": "title_decider"
     },
-    "lastReviewedAt": "2026-07-19T01:10:00.699Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "score": "England 6-4 France",
     "outcomeText": "England finished third after beating France 6-4 in the bronze final (media-reported consensus).",
     "recapText": "Two independent mainstream reports agree on England's 6-4 win. Bukayo Saka scored a hat-trick, with Declan Rice, Ezri Konsa and Jude Bellingham also on the scoresheet; France replied through Kylian Mbappe twice, Bradley Barcola and Ousmane Dembele. FIFA's result feed had not caught up at checking time.",
@@ -4950,9 +5024,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Remco Evenepoel won Stage 15 ahead of Tadej Pogačar, with Isaac del Toro third (media consensus).",
       "synopsisSpoilerOff": "Stage 15 — Champagnole → Plateau de Solaison (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Associated Press and L'Équipe agree that Evenepoel won the Plateau de Solaison finish in 4:23:09, with Pogačar on the same time and Del Toro six seconds back."
+      "synopsisSpoilerOn": "Associated Press and L'Équipe agree that Evenepoel won the Plateau de Solaison finish in 4:23:09, with Pogačar on the same time and Del Toro six seconds back.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-20T06:40:30.081Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "sourceType": "reputable"
   },
   {
@@ -4999,9 +5074,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "R10 Belgian GP Race is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Kimi Antonelli won the Belgian Grand Prix after retaking the lead from Charles Leclerc late on.",
       "synopsisSpoilerOff": "R10 Belgian GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring."
+      "synopsisSpoilerOn": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-20T06:40:30.081Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "startTimeUtc": "2026-07-19T13:00:00Z",
     "endTimeUtc": "2026-07-19T16:00:00Z",
     "sourceType": "official"
@@ -5071,9 +5147,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "FIFA World Cup Final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Spain won the World Cup 1-0 after extra time; Ferran Torres scored the winner (media consensus).",
       "synopsisSpoilerOff": "FIFA World Cup Final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "AP and EFE report that a scoreless final went to extra time before Ferran Torres scored the only goal to give Spain its second World Cup title."
+      "synopsisSpoilerOn": "AP and EFE report that a scoreless final went to extra time before Ferran Torres scored the only goal to give Spain its second World Cup title.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-20T06:40:30.081Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "id": "f1-australian-gp-2027-ticket-watch",
@@ -5115,7 +5192,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Melbourne GP tickets - sale week TBC is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "The watch window closed with no confirmed 2027 Australian Grand Prix ticket on-sale date.",
       "synopsisSpoilerOff": "Melbourne GP tickets - sale week TBC is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "No verified on-sale date emerged during this alert window. The official ticket page continues to offer registration and waitlist updates."
+      "synopsisSpoilerOn": "No verified on-sale date emerged during this alert window. The official ticket page continues to offer registration and waitlist updates.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "2027 ticket on-sale date: not announced",
@@ -5163,7 +5241,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Remco Evenepoel won the Stage 16 time trial, 28 seconds ahead of Tadej Pogačar.",
       "synopsisSpoilerOff": "Stage 16 — Évian-les-Bains → Thonon-les-Bains (ITT) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Evenepoel covered the 26km Lake Geneva time trial in 32:19. Pogačar finished second at 28 seconds and Mattias Skjelmose was third at 1:04."
+      "synopsisSpoilerOn": "Evenepoel covered the 26km Lake Geneva time trial in 32:19. Pogačar finished second at 28 seconds and Mattias Skjelmose was third at 1:04.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "sourceType": "official",
@@ -5261,7 +5340,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 18 — Voiron → Orcières-Merlette (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Richard Carapaz won Stage 18 at Orcières-Merlette, 45 seconds ahead of Mauro Schmid.",
       "synopsisSpoilerOff": "Stage 18 — Voiron → Orcières-Merlette (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Carapaz completed a decisive mountain attack to take the stage. Schmid finished second at 45 seconds and Matteo Jorgenson placed third."
+      "synopsisSpoilerOn": "Carapaz completed a decisive mountain attack to take the stage. Schmid finished second at 45 seconds and Matteo Jorgenson placed third.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "sourceType": "official",
@@ -5325,7 +5405,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -5394,7 +5474,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "3x3 Basketball — Australia opening session 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia's men's and women's 3x3 teams each completed an unbeaten opening session.",
       "synopsisSpoilerOff": "3x3 Basketball — Australia opening session 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The men beat New Zealand 21-15, Nigeria 21-15 and Scotland 21-14. The women defeated Kenya 21-5, Jamaica 21-13 and Fiji 21-3."
+      "synopsisSpoilerOn": "The men beat New Zealand 21-15, Nigeria 21-15 and Scotland 21-14. The women defeated Kenya 21-5, Jamaica 21-13 and Fiji 21-3.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Australia men 3-0; Australia women 3-0",
@@ -5452,7 +5533,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -5529,7 +5610,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -5606,7 +5687,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -5673,7 +5754,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 19 — Gap → Alpe d'Huez (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Tadej Pogačar won Stage 19 on Alpe d'Huez.",
       "synopsisSpoilerOff": "Stage 19 — Gap → Alpe d'Huez (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Pogačar took the first of the Tour's back-to-back Alpe d'Huez summit finishes, adding another mountain-stage victory to his race lead."
+      "synopsisSpoilerOn": "Pogačar took the first of the Tour's back-to-back Alpe d'Huez summit finishes, adding another mountain-stage victory to his race lead.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "sourceType": "official",
@@ -5729,7 +5811,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Para Powerlifting — medal finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Nigeria won three of four Para Powerlifting finals, with England's Mark Swan taking men's lightweight gold.",
       "synopsisSpoilerOff": "Para Powerlifting — medal finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Swan won men's lightweight; Nworgu won women's lightweight; Oluwafemiayo set a 175kg world record in women's heavyweight; and Idris won men's heavyweight with 208kg."
+      "synopsisSpoilerOn": "Swan won men's lightweight; Nworgu won women's lightweight; Oluwafemiayo set a 175kg world record in women's heavyweight; and Idris won men's heavyweight with 208kg.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Gold: Mark Swan; Esther Nworgu; Folashade Oluwafemiayo; Riluwan Idris",
@@ -5779,7 +5862,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Artistic Gymnastics — men's team final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Canada won the men's artistic gymnastics team title ahead of England and Australia.",
       "synopsisSpoilerOff": "Artistic Gymnastics — men's team final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Canada held its focus through the final rotation to score 241.400. England took silver on 238.250 and Australia earned bronze on 235.650."
+      "synopsisSpoilerOn": "Canada held its focus through the final rotation to score 241.400. England took silver on 238.250 and Australia earned bronze on 235.650.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Canada 241.400; England 238.250; Australia 235.650",
@@ -5829,7 +5913,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Swimming — opening finals and 4x100m relays is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia won the opening men's and women's 4x100m freestyle relay titles.",
       "synopsisSpoilerOff": "Swimming — opening finals and 4x100m relays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Australia's women won in 3:31.40 before the men set a Games record of 3:09.49. The opening finals also featured individual golds for Lani Pallister, Jenna Forrester and Duncan Scott."
+      "synopsisSpoilerOn": "Australia's women won in 3:31.40 before the men set a Games record of 3:09.49. The opening finals also featured individual golds for Lani Pallister, Jenna Forrester and Duncan Scott.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Australia won both 4x100m freestyle relays",
@@ -5887,7 +5972,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -5962,7 +6047,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6041,7 +6126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6118,7 +6203,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6195,7 +6280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6272,7 +6357,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6339,7 +6424,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Richard Carapaz won Stage 20 on Alpe d'Huez.",
       "synopsisSpoilerOff": "Stage 20 — Le Bourg d'Oisans → Alpe d'Huez (Mountain) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Carapaz took the second consecutive Alpe d'Huez summit finish, earning his second stage victory of the final week."
+      "synopsisSpoilerOn": "Carapaz took the second consecutive Alpe d'Huez summit finish, earning his second stage victory of the final week.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "sourceType": "official",
@@ -6401,7 +6487,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6472,7 +6558,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Artistic Gymnastics — women's team final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia won the women's artistic gymnastics team title ahead of Canada and England.",
       "synopsisSpoilerOff": "Artistic Gymnastics — women's team final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Georgia Godwin led Australia to 158.400 and its first women's team title since 2010. Canada took silver on 157.300 and England bronze on 154.300."
+      "synopsisSpoilerOn": "Georgia Godwin led Australia to 158.400 and its first women's team title since 2010. Canada took silver on 157.300 and England bronze on 154.300.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Australia 158.400; Canada 157.300; England 154.300",
@@ -6574,7 +6661,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6651,7 +6738,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6728,7 +6815,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6805,7 +6892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6882,7 +6969,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Netball — Australia v England 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia defeated England 66-47 in the netball pool stage.",
       "synopsisSpoilerOff": "Netball — Australia v England 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The Diamonds turned sustained defensive pressure into a 19-goal victory over England in one of the pool stage's major early match-ups."
+      "synopsisSpoilerOn": "The Diamonds turned sustained defensive pressure into a 19-goal victory over England in one of the pool stage's major early match-ups.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Australia 66-47 England",
@@ -6938,7 +7026,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Weightlifting — opening finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Malaysia won two of the opening three weightlifting titles, with India's Mirabai Chanu Saikhom also taking gold.",
       "synopsisSpoilerOff": "Weightlifting — opening finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Kasdan won the men's 60kg, Chanu claimed the women's 48kg and Muhamad took the men's 65kg title in the first weightlifting medal session."
+      "synopsisSpoilerOn": "Kasdan won the men's 60kg, Chanu claimed the women's 48kg and Muhamad took the men's 65kg title in the first weightlifting medal session.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Gold: Mohamad Aniq Bin Kasdan; Mirabai Chanu Saikhom; Aznil Bin Bidin Muhamad",
@@ -6988,7 +7077,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Artistic Gymnastics — men's all-around final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Scotland's Reuben Ward won the men's artistic gymnastics all-around title.",
       "synopsisSpoilerOff": "Artistic Gymnastics — men's all-around final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Ward scored 79.650 to edge Canada's Felix Dolci by 0.200, with Australia's Jesse Moore taking bronze on 79.000."
+      "synopsisSpoilerOn": "Ward scored 79.650 to edge Canada's Felix Dolci by 0.200, with Australia's Jesse Moore taking bronze on 79.000.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Reuben Ward 79.650; Felix Dolci 79.450; Jesse Moore 79.000",
@@ -7085,7 +7175,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial) is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Mathieu van der Poel won Stage 21, while Tadej Pogačar secured the Tour de France title.",
       "synopsisSpoilerOff": "Stage 21 — Thoiry → Paris Champs-Élysées (Flat/Ceremonial) is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Van der Poel won on the Champs-Élysées. Pogačar completed the Tour in 73:56:26, 6:26 ahead of Remco Evenepoel and 9:42 ahead of Isaac del Toro."
+      "synopsisSpoilerOn": "Van der Poel won on the Champs-Élysées. Pogačar completed the Tour in 73:56:26, 6:26 ahead of Remco Evenepoel and 9:42 ahead of Isaac del Toro.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "sourceType": "official",
@@ -7141,7 +7232,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Artistic Gymnastics — women's all-around final is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Canada's Ellie Black won the women's artistic gymnastics all-around title.",
       "synopsisSpoilerOff": "Artistic Gymnastics — women's all-around final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Black scored 53.050 to edge Australia's Breanna Scott by 0.150, with Canada's Lia-Monica Fontaine third on 52.800."
+      "synopsisSpoilerOn": "Black scored 53.050 to edge Australia's Breanna Scott by 0.150, with Canada's Lia-Monica Fontaine third on 52.800.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Ellie Black 53.050; Breanna Scott 52.900; Lia-Monica Fontaine 52.800",
@@ -7196,7 +7288,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Artistic Gymnastics — apparatus finals day 1 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Canada won three of the first five artistic gymnastics apparatus finals.",
       "synopsisSpoilerOff": "Artistic Gymnastics — apparatus finals day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Whitehouse won men's floor, Carroll pommel horse, Dolci rings, Fontaine women's vault and Australia's Kate McDonald uneven bars."
+      "synopsisSpoilerOn": "Whitehouse won men's floor, Carroll pommel horse, Dolci rings, Fontaine women's vault and Australia's Kate McDonald uneven bars.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Gold: Luke Whitehouse; Jordan Carroll; Felix Dolci; Lia-Monica Fontaine; Kate McDonald",
@@ -7246,7 +7339,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Artistic Gymnastics — apparatus finals day 2 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Felix Dolci won two titles and Australia claimed two on the final day of artistic gymnastics.",
       "synopsisSpoilerOff": "Artistic Gymnastics — apparatus finals day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Dolci won men's vault and horizontal bar, Jesse Moore took parallel bars, Breanna Scott won balance beam and Ruby Evans claimed women's floor."
+      "synopsisSpoilerOn": "Dolci won men's vault and horizontal bar, Jesse Moore took parallel bars, Breanna Scott won balance beam and Ruby Evans claimed women's floor.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Gold: Felix Dolci (vault, high bar); Jesse Moore; Breanna Scott; Ruby Evans",
@@ -7296,7 +7390,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Athletics — men's and women's 100m finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Emmanuel Eseme and Zoe Hobbs won the Commonwealth 100m titles in record-setting finals.",
       "synopsisSpoilerOff": "Athletics — men's and women's 100m finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Eseme ran a Games and Cameroon record of 9.83 ahead of Australia's Lachlan Kennedy. Hobbs set an Oceania record of 10.93, with Australia's Torrie Lewis taking bronze."
+      "synopsisSpoilerOn": "Eseme ran a Games and Cameroon record of 9.83 ahead of Australia's Lachlan Kennedy. Hobbs set an Oceania record of 10.93, with Australia's Torrie Lewis taking bronze.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Men: Emmanuel Eseme 9.83; Women: Zoe Hobbs 10.93",
@@ -7355,7 +7450,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Netball — Australia v Malawi 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia defeated Malawi 68-32 in the netball pool stage.",
       "synopsisSpoilerOff": "Netball — Australia v Malawi 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The Diamonds held Malawi to 32 goals and completed a 36-goal victory to continue their unbeaten pool campaign."
+      "synopsisSpoilerOn": "The Diamonds held Malawi to 32 goals and completed a 36-goal victory to continue their unbeaten pool campaign.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-29T15:11:08.000Z",
     "score": "Australia 68-32 Malawi",
@@ -7411,7 +7507,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "3x3 Basketball — medal finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia won two golds, one silver and one bronze across the four 3x3 medal events.",
       "synopsisSpoilerOff": "3x3 Basketball — medal finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Australia won the women's 3x3 and men's wheelchair 3x3 titles. The men's team took silver and the women's wheelchair team claimed bronze."
+      "synopsisSpoilerOn": "Australia won the women's 3x3 and men's wheelchair 3x3 titles. The men's team took silver and the women's wheelchair team claimed bronze.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-30T03:41:01.000Z",
     "score": "Australia: women gold; wheelchair men gold; men silver; wheelchair women bronze",
@@ -7461,7 +7558,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Athletics — heptathlon and stadium finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Northern Ireland's Kate O'Connor won the heptathlon, with Australia's Tori West taking bronze.",
       "synopsisSpoilerOff": "Athletics — heptathlon and stadium finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "O'Connor sealed the Commonwealth heptathlon title after winning the closing 800m. England's Jade O'Dowda finished second and West earned Australia's bronze."
+      "synopsisSpoilerOn": "O'Connor sealed the Commonwealth heptathlon title after winning the closing 800m. England's Jade O'Dowda finished second and West earned Australia's bronze.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-30T03:41:01.000Z",
     "score": "Heptathlon: Kate O'Connor gold; Jade O'Dowda silver; Tori West bronze",
@@ -7524,7 +7622,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Netball — Australia v South Africa 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia defeated South Africa 57-47 in the netball pool stage.",
       "synopsisSpoilerOff": "Netball — Australia v South Africa 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The Diamonds completed a 10-goal win over South Africa to remain unbeaten through five pool matches."
+      "synopsisSpoilerOn": "The Diamonds completed a 10-goal win over South Africa to remain unbeaten through five pool matches.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-30T03:41:01.000Z",
     "score": "Australia 57-47 South Africa",
@@ -7580,7 +7679,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Swimming — closing finals and medley relays is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia closed the swimming programme with nine gold medals and victories in both 4x100m medley relays.",
       "synopsisSpoilerOff": "Swimming — closing finals and medley relays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Australia won six individual events, including a shared men's 50m butterfly title, then capped the programme with gold in both the women's and men's 4x100m medley relays."
+      "synopsisSpoilerOn": "Australia won six individual events, including a shared men's 50m butterfly title, then capped the programme with gold in both the women's and men's 4x100m medley relays.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-07-30T03:41:01.000Z",
     "score": "Australia won nine closing-session gold medals, including both 4x100m medley relays",
@@ -7640,14 +7740,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Collingwood v Geelong is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Geelong Cats defeated Collingwood 97-72.",
       "synopsisSpoilerOff": "Collingwood v Geelong is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Collingwood v Geelong Cats finished 72-97 in Round 21, with Geelong Cats winning by 25 points."
+      "synopsisSpoilerOn": "Collingwood v Geelong Cats finished 72-97 in Round 21, with Geelong Cats winning by 25 points.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:21:26.517Z",
     "canonicalEventId": "event:afl:cd_m20260142102",
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7725,7 +7826,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7794,7 +7895,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Track Cycling — opening finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia defended the women's 4000m team pursuit title in a Commonwealth Games record.",
       "synopsisSpoilerOff": "Track Cycling — opening finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Alyssa Polites, Claudia Marcks, Georgia Baker and Felicity Wilson-Haffenden overhauled New Zealand to win in 4:10.658, with New Zealand second in 4:12.775."
+      "synopsisSpoilerOn": "Alyssa Polites, Claudia Marcks, Georgia Baker and Felicity Wilson-Haffenden overhauled New Zealand to win in 4:10.658, with New Zealand second in 4:12.775.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Women's team pursuit: Australia 4:10.658 (Games record)",
@@ -7844,7 +7946,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Weightlifting — closing finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "The women's +86kg, men's 110kg and men's +110kg medal competitions are complete.",
       "synopsisSpoilerOff": "Weightlifting — closing finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The final three weightlifting divisions closed the Glasgow programme, with the verified event classifications published in the official Games result book."
+      "synopsisSpoilerOn": "The final three weightlifting divisions closed the Glasgow programme, with the verified event classifications published in the official Games result book.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Three closing-session weightlifting titles decided",
@@ -7902,7 +8005,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7979,7 +8082,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8056,7 +8159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8125,7 +8228,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Track Cycling — Friday finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Anna Morris, Emma Finucane, Georgia Baker and Mohd Azizulhasni Awang won the featured day-two track finals.",
       "synopsisSpoilerOff": "Track Cycling — Friday finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Morris won the women's individual pursuit, Finucane the sprint, Baker the scratch race and Awang the men's keirin."
+      "synopsisSpoilerOn": "Morris won the women's individual pursuit, Finucane the sprint, Baker the scratch race and Awang the men's keirin.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Gold: Morris; Finucane; Baker; Awang",
@@ -8176,7 +8280,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "India and Canada each won two golds across the five opening lightweight judo finals.",
       "synopsisSpoilerOff": "Judo — lightweight medal contests is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Asmita Dey won women's -48kg, Evelyn Beaton -52kg, Acelya Toprak -57kg, Harsh Singh men's -60kg and Julien Frascadore -66kg.",
-      "archetype": "international test"
+      "archetype": "international test",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Gold: Dey; Beaton; Toprak; Singh; Frascadore",
@@ -8226,7 +8331,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Athletics — Friday medal night is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Lindon Victor won a third straight decathlon title and Georgia Hunter Bell won the women's 800m.",
       "synopsisSpoilerOff": "Athletics — Friday medal night is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Victor completed a hat-trick of Commonwealth decathlon titles for Grenada, while Hunter Bell claimed her first major outdoor 800m title for England."
+      "synopsisSpoilerOn": "Victor completed a hat-trick of Commonwealth decathlon titles for Grenada, while Hunter Bell claimed her first major outdoor 800m title for England.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Gold: Lindon Victor (decathlon); Georgia Hunter Bell (800m)",
@@ -8284,7 +8390,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8361,7 +8467,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8438,7 +8544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8523,9 +8629,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "storyline": {
       "stakes": 4,
-      "intensity": 4,
+      "intensity": 5,
       "arcStage": "recap",
       "expectedSpectacle": 9,
+      "intensitySource": "computed",
       "hookSpoilerOff": "AFLW — Australia v Ireland 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "AFLW — Australia v Ireland 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Australia defeated Ireland by 50 points in the inaugural AFLW international representative match.",
@@ -8578,7 +8685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8663,6 +8770,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 5,
       "arcStage": "recap",
       "expectedSpectacle": 10,
+      "intensitySource": "computed",
       "hookSpoilerOff": "Netball — New Zealand v England is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Netball — New Zealand v England is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New Zealand defeated England 61-54 in the first netball semifinal.",
@@ -8715,7 +8823,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8792,7 +8900,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8869,7 +8977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8938,7 +9046,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Boxing — medal finals session 1 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "The first seven-bout block of Glasgow 2026 boxing medal finals is complete.",
       "synopsisSpoilerOff": "Boxing — medal finals session 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The opening finals block awarded seven Commonwealth titles; the official Games report and result book carry the verified bout classifications."
+      "synopsisSpoilerOn": "The opening finals block awarded seven Commonwealth titles; the official Games report and result book carry the verified bout classifications.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Seven first-session boxing titles decided",
@@ -9005,6 +9114,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 5,
       "arcStage": "recap",
       "expectedSpectacle": 10,
+      "intensitySource": "computed",
       "hookSpoilerOff": "Netball — Australia v Jamaica 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Netball — Australia v Jamaica 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Jamaica defeated Australia 46-45 in the second netball semifinal.",
@@ -9049,7 +9159,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Track Cycling — Saturday finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Emma Foy and Neil Fachie each won a second tandem title, while Anna Morris won the women's points race.",
       "synopsisSpoilerOff": "Track Cycling — Saturday finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Foy won the women's tandem B 1000m time trial, Fachie the men's tandem B sprint and Morris led a Welsh one-two in the women's 25km points race."
+      "synopsisSpoilerOn": "Foy won the women's tandem B 1000m time trial, Fachie the men's tandem B sprint and Morris led a Welsh one-two in the women's 25km points race.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Gold: Emma Foy; Neil Fachie; Anna Morris",
@@ -9100,7 +9211,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Canada, England, Malaysia and Mauritius shared the five middleweight judo titles.",
       "synopsisSpoilerOff": "Judo — middleweight medal contests is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Laurence Biron won women's -63kg, Kelly Petersen-Pollard -70kg, Ethan Nairne men's -73kg, Amir Daniel Bin Abdul Majeed -81kg and Remi Feuillet -90kg.",
-      "archetype": "international test"
+      "archetype": "international test",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Gold: Biron; Petersen-Pollard; Nairne; Abdul Majeed; Feuillet",
@@ -9150,7 +9262,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Boxing — medal finals session 2 is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "The second seven-bout block completed the Glasgow 2026 boxing medal programme.",
       "synopsisSpoilerOff": "Boxing — medal finals session 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "India finished the programme with seven golds overall, while Australia's Jye Dixon and Emma-Sue Greentree were among the other champions crowned across the finals day."
+      "synopsisSpoilerOn": "India finished the programme with seven golds overall, while Australia's Jye Dixon and Emma-Sue Greentree were among the other champions crowned across the finals day.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Seven closing-session boxing titles decided",
@@ -9200,7 +9313,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Athletics — closing finals and relays is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Josh Kerr won the men's mile as Australia closed with the women's mile and men's pole-vault titles.",
       "synopsisSpoilerOff": "Athletics — closing finals and relays is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Kerr won the revived Commonwealth mile, Abbey Caldwell led an Australian sweep of the women's mile and Kurtis Marschall set a Games record for his third straight pole-vault title."
+      "synopsisSpoilerOn": "Kerr won the revived Commonwealth mile, Abbey Caldwell led an Australian sweep of the women's mile and Kurtis Marschall set a Games record for his third straight pole-vault title.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-02T12:12:18.000Z",
     "score": "Gold: Josh Kerr; Abbey Caldwell; Kurtis Marschall",
@@ -9258,7 +9372,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9335,7 +9449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9412,7 +9526,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9489,7 +9603,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9558,7 +9672,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Bowls and Para Bowls — medal finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia won both B6-B8 para pairs titles in the final bowls session.",
       "synopsisSpoilerOff": "Bowls and Para Bowls — medal finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Australia defeated New Zealand in both the Para Women's Pairs and Para Men's Pairs gold-medal matches. England's Katherine Rednall won the women's singles as four medal programmes closed the bowls competition."
+      "synopsisSpoilerOn": "Australia defeated New Zealand in both the Para Women's Pairs and Para Men's Pairs gold-medal matches. England's Katherine Rednall won the women's singles as four medal programmes closed the bowls competition.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-03T05:07:00.000Z",
     "score": "Australia: Para Women's Pairs gold; Para Men's Pairs gold",
@@ -9621,10 +9736,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "storyline": {
-      "stakes": 5,
+      "stakes": 4,
       "intensity": 5,
       "arcStage": "recap",
       "expectedSpectacle": 10,
+      "intensitySource": "computed",
       "hookSpoilerOff": "Netball — Australia v England bronze medal 🇦🇺 is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Netball — Australia v England bronze medal 🇦🇺 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Australia defeated England 68-50 to win Commonwealth Games netball bronze.",
@@ -9685,6 +9801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 5,
       "arcStage": "recap",
       "expectedSpectacle": 10,
+      "intensitySource": "computed",
       "hookSpoilerOff": "Netball — Jamaica v New Zealand gold medal is complete; the key moments are protected until you choose to reveal them.",
       "synopsisSpoilerOff": "Netball — Jamaica v New Zealand gold medal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "New Zealand defeated Jamaica 56-48 to win Commonwealth Games netball gold.",
@@ -9729,7 +9846,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Track Cycling — closing finals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Australia won three titles in the final track-cycling programme.",
       "synopsisSpoilerOff": "Track Cycling — closing finals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Leigh Hoffman won the men's kilometre, Alyssa Polites the women's elimination race and Tara Neyland the women's C4-C5 kilometre for Australia. Emma Finucane won the women's keirin for Wales and Matthew Bostock the men's points race for the Isle of Man."
+      "synopsisSpoilerOn": "Leigh Hoffman won the men's kilometre, Alyssa Polites the women's elimination race and Tara Neyland the women's C4-C5 kilometre for Australia. Emma Finucane won the women's keirin for Wales and Matthew Bostock the men's points race for the Isle of Man.",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-03T05:07:00.000Z",
     "score": "Australia: 3 gold, 2 silver, 3 bronze",
@@ -9780,7 +9898,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Australia won silver in the women's -78kg and men's +100kg divisions as four heavyweight judo titles were decided.",
       "synopsisSpoilerOff": "Judo — heavyweight medal contests is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Maria Swan and Kayhan Ozcicek-Takagi took silver for Australia. Emma Reid, Kyle Reyes, Sydnee Andrews and Giannis Antoniou won the four final-day Commonwealth judo titles.",
-      "archetype": "international test"
+      "archetype": "international test",
+      "intensitySource": "computed"
     },
     "lastReviewedAt": "2026-08-03T05:07:00.000Z",
     "score": "Australia: 2 silver medals",
@@ -9836,7 +9955,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9915,7 +10034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9992,7 +10111,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10069,7 +10188,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10146,7 +10265,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10223,7 +10342,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10300,7 +10419,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10377,7 +10496,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10454,7 +10573,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10531,7 +10650,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10608,7 +10727,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10685,7 +10804,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10737,9 +10856,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "test",
     "selectedSentence": "Japan v Australia is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Japan v Australia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Rugby Australia match centre",
-    "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949621",
-    "sourceCheckedAt": "2026-08-13T23:31:50.274Z",
+    "sourceName": "Sydney Morning Herald match report and Superbru result listing",
+    "sourceUrl": "https://www.superbru.com/tournaments/rugby-union/nations-championship-rugby/2026",
+    "sourceCheckedAt": "2026-08-11T04:20:00+10:00",
     "replayEligible": false,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -10761,26 +10880,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "hookSpoilerOff": "Japan v Australia is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Australia defeated Japan 35-32 at Hanazono Rugby Stadium.",
+      "hookSpoilerOn": "Australia held off Japan 35-32 in Osaka despite playing a 20-minute period with 14 men.",
       "synopsisSpoilerOff": "Japan v Australia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The Wallabies completed a three-point win in Osaka, holding off Japan in a 67-point Test match."
+      "synopsisSpoilerOn": "The Wallabies opened the Les Kiss era with a three-point win in oppressive heat. Japan stayed within reach after Miles Amatosero's upgraded red card, but Australia's defence protected the 35-32 lead through the final attack.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-13T23:31:50.274Z",
+    "lastReviewedAt": "2026-08-10T18:20:00.000Z",
     "score": "Japan 32-35 Australia",
-    "outcomeText": "Australia defeated Japan 35-32 at Hanazono Rugby Stadium.",
-    "recapText": "The Wallabies completed a three-point win in Osaka, holding off Japan in a 67-point Test match.",
+    "outcomeText": "Australia held off Japan 35-32 in Osaka despite playing a 20-minute period with 14 men.",
+    "recapText": "The Wallabies opened the Les Kiss era with a three-point win in oppressive heat. Japan stayed within reach after Miles Amatosero's upgraded red card, but Australia's defence protected the 35-32 lead through the final attack.",
     "resultLabels": [
-      "International Test",
-      "Australia by 3",
-      "Official result"
+      "Wallabies by 3",
+      "Les Kiss first Test",
+      "Media-confirmed result"
     ],
     "consensusResult": {
       "winner": "Australia",
       "loser": "Japan",
       "summary": "Australia defeated Japan 35-32.",
-      "marginText": "Australia by 3 points"
+      "marginText": "Australia by 3"
     },
-    "sourceType": "official"
+    "sourceType": "reputable",
+    "resultSources": [
+      {
+        "name": "Sydney Morning Herald match report archived on r/Wallabies",
+        "url": "https://www.reddit.com/r/Wallabies/comments/1vjby87/we_found_a_way_wallabies_defy_heat_red_card_to/"
+      },
+      {
+        "name": "Superbru 2026 rugby results",
+        "url": "https://www.superbru.com/tournaments/rugby-union/nations-championship-rugby/2026"
+      }
+    ]
   },
   {
     "id": "afl-gws-gold-coast-2026-08-09",
@@ -10826,7 +10956,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10903,7 +11033,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10982,7 +11112,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11059,7 +11189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11136,7 +11266,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11218,9 +11348,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Test cricket returns to the Northern Territory for the first time since 2004 as Australia opens a two-Test Top End series against Bangladesh.",
       "hookSpoilerOn": "Test cricket returns to the Northern Territory for the first time since 2004 as Australia opens a two-Test Top End series against Bangladesh.",
       "synopsisSpoilerOff": "Darwin hosts the first Test from 13 August before the series moves to Mackay. Marrara's return ends a 22-year wait for Test cricket in the Northern Territory, while Mackay is set to become Australia's 12th Test venue.",
-      "synopsisSpoilerOn": "Darwin hosts the first Test from 13 August before the series moves to Mackay. Marrara's return ends a 22-year wait for Test cricket in the Northern Territory, while Mackay is set to become Australia's 12th Test venue."
+      "synopsisSpoilerOn": "Darwin hosts the first Test from 13 August before the series moves to Mackay. Marrara's return ends a 22-year wait for Test cricket in the Northern Territory, while Mackay is set to become Australia's 12th Test venue.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-03T05:05:39.222Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "A historic Top End return gives the Bangladesh series opener significance beyond the result.",
@@ -11282,7 +11413,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11312,6 +11443,140 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "marginText": "Roosters by 6"
     },
     "canonicalResultScoreline": "Panthers v Roosters — 6-12"
+  },
+  {
+    "id": "tennis-tournament-atp-cincinnati-2026-2026-08-14",
+    "eventId": "tennis-tournament-atp-cincinnati-2026-2026-08-14",
+    "sport": "Tennis",
+    "key": "tennis",
+    "sportId": "tennis",
+    "taxonomyNodeId": "competition:atp-tour",
+    "taxonomySportId": "sport:tennis",
+    "disciplineId": "discipline:tennis:professional",
+    "taxonomyCompetitionId": "competition:atp-tour",
+    "competitionId": "competition:atp-tour",
+    "tennisTournamentId": "tournament:tennis:atp-cincinnati-2026",
+    "tennisLevel": "atp_masters_1000",
+    "tour": "ATP",
+    "representedTours": [
+      "ATP"
+    ],
+    "cardType": "tournament_overview",
+    "name": "Cincinnati Open — ATP Masters 1000",
+    "displayTitleCompact": "Cincinnati Open — ATP Masters 1000",
+    "date": "2026-08-14",
+    "time": "09:00",
+    "timeTbc": true,
+    "displayTimeLabel": "Daily order of play",
+    "broadcaster": "Broadcast TBC",
+    "broadcastOptions": [],
+    "expected": 8,
+    "venue": "Cincinnati, USA",
+    "liveWindow": 12,
+    "round": "all",
+    "narrativeType": "tennis-tournament-overview",
+    "status": "upcoming",
+    "selectedSentence": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati.",
+    "fullSpiel": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati. Match cards require a confirmed draw or order-of-play source; this tournament-level card guarantees that active marquee tennis is not silently omitted while exact court times remain unconfirmed.",
+    "sourceName": "ATP Tour tournament calendar",
+    "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+    "sourceCheckedAt": "2026-08-13T02:00:00.000Z",
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-13T02:00:00.000Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati.",
+      "contextSignals": [
+        "atp-tour",
+        "atp_masters_1000",
+        "active-tournament-window",
+        "hard-surface"
+      ],
+      "sourceName": "ATP Tour tournament calendar",
+      "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+      "sourceCheckedAt": "2026-08-13T02:00:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "replayEligible": false,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "archetype": "marquee tournament window",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati.",
+      "synopsisSpoilerOff": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati. Exact match times will replace this overview only when an authoritative order of play is available."
+    }
+  },
+  {
+    "id": "tennis-tournament-wta-cincinnati-2026-2026-08-14",
+    "eventId": "tennis-tournament-wta-cincinnati-2026-2026-08-14",
+    "sport": "Tennis",
+    "key": "tennis",
+    "sportId": "tennis",
+    "taxonomyNodeId": "competition:wta-tour",
+    "taxonomySportId": "sport:tennis",
+    "disciplineId": "discipline:tennis:professional",
+    "taxonomyCompetitionId": "competition:wta-tour",
+    "competitionId": "competition:wta-tour",
+    "tennisTournamentId": "tournament:tennis:wta-cincinnati-2026",
+    "tennisLevel": "wta_1000",
+    "tour": "WTA",
+    "representedTours": [
+      "WTA"
+    ],
+    "cardType": "tournament_overview",
+    "name": "Cincinnati Open — WTA 1000",
+    "displayTitleCompact": "Cincinnati Open — WTA 1000",
+    "date": "2026-08-14",
+    "time": "09:00",
+    "timeTbc": true,
+    "displayTimeLabel": "Daily order of play",
+    "broadcaster": "Broadcast TBC",
+    "broadcastOptions": [],
+    "expected": 8,
+    "venue": "Cincinnati, USA",
+    "liveWindow": 12,
+    "round": "all",
+    "narrativeType": "tennis-tournament-overview",
+    "status": "upcoming",
+    "selectedSentence": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati.",
+    "fullSpiel": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati. Match cards require a confirmed draw or order-of-play source; this tournament-level card guarantees that active marquee tennis is not silently omitted while exact court times remain unconfirmed.",
+    "sourceName": "WTA tournament calendar",
+    "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
+    "sourceCheckedAt": "2026-08-13T02:00:00.000Z",
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-13T02:00:00.000Z",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati.",
+      "contextSignals": [
+        "wta-tour",
+        "wta_1000",
+        "active-tournament-window",
+        "hard-surface"
+      ],
+      "sourceName": "WTA tournament calendar",
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
+      "sourceCheckedAt": "2026-08-13T02:00:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "replayEligible": false,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "archetype": "marquee tournament window",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati.",
+      "synopsisSpoilerOff": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati. Exact match times will replace this overview only when an authoritative order of play is available."
+    }
   },
   {
     "id": "event-nrl-129992402",
@@ -11359,7 +11624,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11421,7 +11686,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11483,7 +11748,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11545,7 +11810,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11607,7 +11872,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11726,7 +11991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11788,7 +12053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11850,7 +12115,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11912,7 +12177,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11974,7 +12239,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12036,7 +12301,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12098,7 +12363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12160,7 +12425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12222,7 +12487,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12284,7 +12549,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12346,7 +12611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12408,7 +12673,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12470,7 +12735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12506,11 +12771,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "fixture",
-    "selectedSentence": "CR enter this match 12th on the ladder, with BB 16th.",
-    "fullSpiel": "Raiders host Broncos at GIO Stadium Canberra. The latest official ladder places CR 12th and BB 16th, making the standings gap the clearest pre-match thread.",
-    "sourceName": "Official NRL 2026 draw",
-    "sourceUrl": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "Round 25 puts 12th-placed Canberra against 16th-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
+    "fullSpiel": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The current official NRL ladder has Canberra 12th and Brisbane 16th, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
+    "sourceName": "Official NRL ladder",
+    "sourceUrl": "https://www.nrl.com/ladder",
+    "sourceCheckedAt": "2026-08-14T02:58:18.515Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -12531,30 +12796,31 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "CR enter this match 12th on the ladder, with BB 16th.",
-      "hookSpoilerOn": "CR enter this match 12th on the ladder, with BB 16th.",
-      "synopsisSpoilerOff": "Raiders host Broncos at GIO Stadium Canberra. The latest official ladder places CR 12th and BB 16th, making the standings gap the clearest pre-match thread.",
-      "synopsisSpoilerOn": "Raiders host Broncos at GIO Stadium Canberra. The latest official ladder places CR 12th and BB 16th, making the standings gap the clearest pre-match thread."
+      "hookSpoilerOff": "Round 25 puts 12th-placed Canberra against 16th-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
+      "hookSpoilerOn": "Round 25 puts 12th-placed Canberra against 16th-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
+      "synopsisSpoilerOff": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The current official NRL ladder has Canberra 12th and Brisbane 16th, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
+      "synopsisSpoilerOn": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The current official NRL ladder has Canberra 12th and Brisbane 16th, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-13T23:17:09.666Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "journalistic",
-      "needsPreviewRefresh": false,
-      "editorialWindowDays": 10,
-      "angle": "The ladder gap between CR and BB frames the match.",
+      "angle": "Two bottom-half sides reach a late-season pressure game with Brisbane carrying the stronger head-to-head record.",
       "contextSignals": [
-        "CR: 12th on the official ladder",
-        "BB: 16th on the official ladder"
+        "current-ladder-position",
+        "head-to-head-record",
+        "late-season-stakes"
       ],
-      "sourceName": "NRL Match Centre / Champion Data",
+      "sourceName": "Official NRL ladder",
       "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-08-13T23:17:09.666Z"
+      "sourceCheckedAt": "2026-08-14T02:58:18.515Z",
+      "needsPreviewRefresh": false
     },
     "canonicalEventId": "event:nrl:129992502",
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12568,7 +12834,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "kayo",
       "foxtel"
     ],
-    "scheduleStatus": "confirmed"
+    "scheduleStatus": "confirmed",
+    "sourceType": "official"
   },
   {
     "id": "event-afl-cd_m20260142402",
@@ -12616,7 +12883,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12678,7 +12945,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12716,16 +12983,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "The second Bangladesh Test brings Australia's northern series to Mackay.",
-    "fullSpiel": "Australia host Bangladesh in the second Test at Great Barrier Reef Arena in Mackay. Cricket Australia lists a 10:00 am Sydney start with the home international broadcast group available.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
+    "selectedSentence": "Mackay becomes Australia's 12th Test venue as the two-match Top End series moves to its second stop.",
+    "fullSpiel": "The Australia-Bangladesh series moves from Darwin to Great Barrier Reef Arena in Mackay for the second Test. Cricket Australia's published schedule makes this Mackay's first Test and Australia's 12th venue to host the format.",
+    "sourceName": "Cricket Australia 2026 international schedule",
     "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "sourceCheckedAt": "2026-08-03T04:58:28Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
-    "status": "upcoming"
+    "status": "upcoming",
+    "sourceType": "official",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "A new Test venue gives the two-match northern series a second historic setting.",
+      "contextSignals": [
+        "new-test-venue",
+        "series-second-test",
+        "venue-history"
+      ],
+      "sourceName": "Cricket Australia 2026 international schedule",
+      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+      "sourceCheckedAt": "2026-08-03T04:58:28Z",
+      "needsPreviewRefresh": false
+    },
+    "participants": [
+      {
+        "name": "Australia",
+        "role": "home"
+      },
+      {
+        "name": "Bangladesh",
+        "role": "away"
+      }
+    ],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "archetype": "international test",
+      "hookSpoilerOff": "Mackay becomes Australia's 12th Test venue as the two-match Top End series moves to its second stop.",
+      "hookSpoilerOn": "Mackay becomes Australia's 12th Test venue as the two-match Top End series moves to its second stop.",
+      "synopsisSpoilerOff": "The Australia-Bangladesh series moves from Darwin to Great Barrier Reef Arena in Mackay for the second Test. Cricket Australia's published schedule makes this Mackay's first Test and Australia's 12th venue to host the format.",
+      "synopsisSpoilerOn": "The Australia-Bangladesh series moves from Darwin to Great Barrier Reef Arena in Mackay for the second Test. Cricket Australia's published schedule makes this Mackay's first Test and Australia's 12th venue to host the format."
+    },
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "id": "event-afl-cd_m20260142403",
@@ -12773,7 +13077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12835,7 +13139,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12897,7 +13201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12959,7 +13263,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13021,7 +13325,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13083,7 +13387,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13145,7 +13449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13236,7 +13540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13298,7 +13602,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13360,7 +13664,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13422,7 +13726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13484,7 +13788,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13536,9 +13840,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Antonelli leads the championship into the Dutch Grand Prix, while Piastri arrives 7th.",
       "hookSpoilerOn": "Antonelli leads the championship into the Dutch Grand Prix, while Piastri arrives 7th.",
       "synopsisSpoilerOff": "R12 Dutch GP Race resumes the title fight with Kimi Antonelli first in the official drivers' standings on 219 points. Australian Oscar Piastri is 7th on 92 points, giving the race a clear local championship thread.",
-      "synopsisSpoilerOn": "R12 Dutch GP Race resumes the title fight with Kimi Antonelli first in the official drivers' standings on 219 points. Australian Oscar Piastri is 7th on 92 points, giving the race a clear local championship thread."
+      "synopsisSpoilerOn": "R12 Dutch GP Race resumes the title fight with Kimi Antonelli first in the official drivers' standings on 219 points. Australian Oscar Piastri is 7th on 92 points, giving the race a clear local championship thread.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-27T00:30:00.000Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "journalistic",
       "needsPreviewRefresh": false,
@@ -13599,7 +13904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13661,7 +13966,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13723,7 +14028,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13785,7 +14090,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13847,7 +14152,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13909,7 +14214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14028,7 +14333,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14090,7 +14395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14152,7 +14457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14214,7 +14519,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14276,7 +14581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14338,7 +14643,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14400,7 +14705,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14462,7 +14767,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14610,7 +14915,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14672,7 +14977,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14724,9 +15029,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -14785,9 +15091,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Personal calendar event, categorised as Skateboarding by the explicit.sportKey rule.",
       "hookSpoilerOn": "Personal calendar event, categorised as Skateboarding by the explicit.sportKey rule.",
       "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Skateboarding using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Skateboarding using the explicit.sportKey rule and assigned the explicit.eventType event category."
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Skateboarding using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-05T23:39:15.882Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NRL",
@@ -14816,7 +15123,25 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
-    "status": "upcoming"
+    "status": "upcoming",
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
+      "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
+      "synopsisSpoilerOff": "NRL Finals Week 1 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+      "synopsisSpoilerOn": "NRL Finals Week 1 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+    },
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "F1",
@@ -14912,9 +15237,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
       "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
       "synopsisSpoilerOff": "NRL Finals Week 2 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-      "synopsisSpoilerOn": "NRL Finals Week 2 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+      "synopsisSpoilerOn": "NRL Finals Week 2 belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -14958,9 +15284,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
       "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
       "synopsisSpoilerOff": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15014,7 +15341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-08-13T23:31:43.552Z",
+    "canonicalSourceCheckedAt": "2026-08-14T02:59:17.363Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15067,9 +15394,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
       "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
       "synopsisSpoilerOff": "NRL Preliminary Finals belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-      "synopsisSpoilerOn": "NRL Preliminary Finals belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+      "synopsisSpoilerOn": "NRL Preliminary Finals belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15113,9 +15441,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15170,9 +15499,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "South Africa at Optus Stadium is one of the Wallabies' biggest home Tests.",
       "hookSpoilerOn": "South Africa at Optus Stadium is one of the Wallabies' biggest home Tests.",
       "synopsisSpoilerOff": "Australia host South Africa at Optus Stadium in Perth. Rugby Australia lists a 5:30 pm AWST start, which is 7:30 pm Sydney time; Stan Sport carries the Test.",
-      "synopsisSpoilerOn": "Australia host South Africa at Optus Stadium in Perth. Rugby Australia lists a 5:30 pm AWST start, which is 7:30 pm Sydney time; Stan Sport carries the Test."
+      "synopsisSpoilerOn": "Australia host South Africa at Optus Stadium in Perth. Rugby Australia lists a 5:30 pm AWST start, which is 7:30 pm Sydney time; Stan Sport carries the Test.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15231,9 +15561,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "hookSpoilerOn": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category."
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-05T23:39:15.882Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "NRL",
@@ -15268,13 +15599,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 5,
       "arcStage": "preview",
       "expectedSpectacle": 10,
-      "archetype": "championship decider",
+      "archetype": "title_decider",
       "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
       "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
       "synopsisSpoilerOff": "NRL Grand Final belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-      "synopsisSpoilerOn": "NRL Grand Final belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports."
+      "synopsisSpoilerOn": "NRL Grand Final belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+      "intensitySource": "manual",
+      "lastReviewedAt": "2026-08-13T00:00:00.000Z"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15309,7 +15642,36 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
-    "status": "upcoming"
+    "status": "upcoming",
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "participants": [
+      {
+        "name": "1st Test",
+        "role": "home"
+      },
+      {
+        "name": "South Africa (Day 1)",
+        "role": "away"
+      }
+    ],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "archetype": "international test",
+      "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
+      "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
+      "synopsisSpoilerOff": "1st Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+      "synopsisSpoilerOn": "1st Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+    },
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "id": "rugby-new-zealand-australia-2026-10-10",
@@ -15358,9 +15720,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
       "hookSpoilerOn": "The Bledisloe Cup crosses the Tasman for an afternoon Sydney start at Eden Park.",
       "synopsisSpoilerOff": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
-      "synopsisSpoilerOn": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport."
+      "synopsisSpoilerOn": "New Zealand host Australia at Eden Park in Auckland. Rugby Australia lists the 3:10 pm Auckland fixture; daylight-saving conversion places the Sydney start at 1:10 pm on Stan Sport.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15433,9 +15796,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R16 Singapore GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R16 Singapore GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R16 Singapore GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15491,9 +15855,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia and New Zealand open their Rugby League World Cup campaigns in Sydney.",
       "hookSpoilerOn": "Australia and New Zealand open their Rugby League World Cup campaigns in Sydney.",
       "synopsisSpoilerOff": "Australia play New Zealand at Allianz Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
-      "synopsisSpoilerOn": "Australia play New Zealand at Allianz Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage."
+      "synopsisSpoilerOn": "Australia play New Zealand at Allianz Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15548,9 +15913,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "The home Bledisloe Test gives Sydney a major Saturday afternoon Wallabies window.",
       "hookSpoilerOn": "The home Bledisloe Test gives Sydney a major Saturday afternoon Wallabies window.",
       "synopsisSpoilerOff": "Australia host New Zealand at Accor Stadium in Sydney. Rugby Australia lists a 3:45 pm Sydney kick-off for the home Bledisloe Test, with Stan Sport coverage.",
-      "synopsisSpoilerOn": "Australia host New Zealand at Accor Stadium in Sydney. Rugby Australia lists a 3:45 pm Sydney kick-off for the home Bledisloe Test, with Stan Sport coverage."
+      "synopsisSpoilerOn": "Australia host New Zealand at Accor Stadium in Sydney. Rugby Australia lists a 3:45 pm Sydney kick-off for the home Bledisloe Test, with Stan Sport coverage.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15595,9 +15961,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
       "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
       "synopsisSpoilerOff": "2nd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "2nd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      "synopsisSpoilerOn": "2nd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "2nd Test",
@@ -15692,9 +16059,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia meet Fiji in Brisbane in the World Cup group stage.",
       "hookSpoilerOn": "Australia meet Fiji in Brisbane in the World Cup group stage.",
       "synopsisSpoilerOff": "Australia play Fiji at Suncorp Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
-      "synopsisSpoilerOn": "Australia play Fiji at Suncorp Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage."
+      "synopsisSpoilerOn": "Australia play Fiji at Suncorp Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15738,9 +16106,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15785,9 +16154,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
       "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
       "synopsisSpoilerOff": "3rd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "3rd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      "synopsisSpoilerOn": "3rd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "3rd Test",
@@ -15853,9 +16223,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia's final confirmed World Cup group game is a Townsville night fixture.",
       "hookSpoilerOn": "Australia's final confirmed World Cup group game is a Townsville night fixture.",
       "synopsisSpoilerOff": "Australia play Cook Islands at Queensland Country Bank Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
-      "synopsisSpoilerOn": "Australia play Cook Islands at Queensland Country Bank Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage."
+      "synopsisSpoilerOn": "Australia play Cook Islands at Queensland Country Bank Stadium in the Rugby League World Cup. The official NRL match centre lists an 8:05 pm Sydney start and Channel 7 coverage.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -15928,9 +16299,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16012,9 +16384,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
       "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
       "synopsisSpoilerOff": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16069,9 +16442,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "The northern tour opens with an early Sydney-morning Test at Twickenham.",
       "hookSpoilerOn": "The northern tour opens with an early Sydney-morning Test at Twickenham.",
       "synopsisSpoilerOff": "England host Australia at Twickenham Stadium. Rugby Australia lists a 2:10 am Sydney start for the Wallabies' northern tour opener, with Stan Sport coverage.",
-      "synopsisSpoilerOn": "England host Australia at Twickenham Stadium. Rugby Australia lists a 2:10 am Sydney start for the Wallabies' northern tour opener, with Stan Sport coverage."
+      "synopsisSpoilerOn": "England host Australia at Twickenham Stadium. Rugby Australia lists a 2:10 am Sydney start for the Wallabies' northern tour opener, with Stan Sport coverage.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16115,9 +16489,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16317,7 +16692,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": true,
     "briefingEligible": false,
     "catchupEligible": false,
-    "status": "upcoming"
+    "status": "upcoming",
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "preview",
+      "expectedSpectacle": 6,
+      "intensitySource": "computed",
+      "archetype": "championship decider",
+      "hookSpoilerOff": "Personal calendar event, categorised as Telemark by the explicit.sportKey rule.",
+      "hookSpoilerOn": "Personal calendar event, categorised as Telemark by the explicit.sportKey rule.",
+      "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Telemark using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Telemark using the explicit.sportKey rule and assigned the explicit.eventType event category."
+    },
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "F1",
@@ -16474,9 +16868,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16586,9 +16981,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A Wallabies Test with selection, form, and international stakes.",
       "hookSpoilerOn": "A Wallabies Test with selection, form, and international stakes.",
       "synopsisSpoilerOff": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
-      "synopsisSpoilerOn": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport."
+      "synopsisSpoilerOn": "Wallabies v Ireland (Nov tour) is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches. Watch via Stan Sport.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-29T15:15:29.582Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Wallabies",
@@ -16685,9 +17081,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A Sunday-night Brisbane T20 closes the England white-ball run.",
       "hookSpoilerOn": "A Sunday-night Brisbane T20 closes the England white-ball run.",
       "synopsisSpoilerOff": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-      "synopsisSpoilerOn": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule."
+      "synopsisSpoilerOn": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16774,9 +17171,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
       "hookSpoilerOn": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
       "synopsisSpoilerOff": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-      "synopsisSpoilerOn": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule."
+      "synopsisSpoilerOn": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16849,9 +17247,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
       "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
       "synopsisSpoilerOff": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports."
+      "synopsisSpoilerOn": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16910,9 +17309,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Australia's December Test calendar includes a home New Zealand match in Perth.",
       "hookSpoilerOn": "Australia's December Test calendar includes a home New Zealand match in Perth.",
       "synopsisSpoilerOff": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
-      "synopsisSpoilerOn": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule."
+      "synopsisSpoilerOn": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -16971,9 +17371,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
       "hookSpoilerOn": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
       "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category."
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-05T23:39:15.882Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Cricket",
@@ -17012,9 +17413,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
       "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
       "synopsisSpoilerOff": "Boxing Day Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "Boxing Day Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      "synopsisSpoilerOn": "Boxing Day Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "Boxing Day Test",
@@ -17069,9 +17471,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
       "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
       "synopsisSpoilerOff": "New Year's Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "New Year's Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      "synopsisSpoilerOn": "New Year's Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "participants": [
       {
         "name": "New Year's Test",
@@ -17140,9 +17543,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "hookSpoilerOn": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category."
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-05T23:39:15.882Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "id": "calendar-nothingsport-manual-seed-big-wave-pipe-masters-2026",
@@ -17196,9 +17600,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "hookSpoilerOn": "Personal calendar event, categorised as Surfing by the explicit.sportKey rule.",
       "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category."
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Surfing using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-05T23:39:15.882Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Ski",
@@ -17236,9 +17641,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A World Cup race where speed, conditions, and season standings converge.",
       "hookSpoilerOn": "A World Cup race where speed, conditions, and season standings converge.",
       "synopsisSpoilerOff": "Kvitfjell — Men's Downhill World Cup at Kvitfjell, Norway is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
-      "synopsisSpoilerOn": "Kvitfjell — Men's Downhill World Cup at Kvitfjell, Norway is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast."
+      "synopsisSpoilerOn": "Kvitfjell — Men's Downhill World Cup at Kvitfjell, Norway is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -17289,9 +17695,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A deliberate horizon exception for Melbourne's 2027 Formula 1 return; the official race date is still to be confirmed.",
       "hookSpoilerOn": "A deliberate horizon exception for Melbourne's 2027 Formula 1 return; the official race date is still to be confirmed.",
       "synopsisSpoilerOff": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact.",
-      "synopsisSpoilerOn": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact."
+      "synopsisSpoilerOn": "Formula 1 and the Australian Grand Prix Corporation confirm that the championship returns to Albert Park in 2027, but the final 2027 race date is not yet published. This planning card sits beyond the standard feed window on purpose and links directly to the official ticket waitlist instead of presenting an unverified date as fact.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Ski",
@@ -17349,7 +17756,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
-    "status": "upcoming"
+    "status": "upcoming",
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "preview",
+      "expectedSpectacle": 7,
+      "intensitySource": "computed",
+      "archetype": "championship decider",
+      "hookSpoilerOff": "A World Cup race where speed, conditions, and season standings converge.",
+      "hookSpoilerOn": "A World Cup race where speed, conditions, and season standings converge.",
+      "synopsisSpoilerOff": "Shahdag — Moguls World Cup Finals at Shahdag, Azerbaijan is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
+      "synopsisSpoilerOn": "Shahdag — Moguls World Cup Finals at Shahdag, Azerbaijan is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast."
+    },
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "sport": "Ski",
@@ -17387,9 +17813,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "A World Cup race where speed, conditions, and season standings converge.",
       "hookSpoilerOn": "A World Cup race where speed, conditions, and season standings converge.",
       "synopsisSpoilerOff": "Sun Valley — Men's Alpine Finals Downhill at Sun Valley, Idaho is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
-      "synopsisSpoilerOn": "Sun Valley — Men's Alpine Finals Downhill at Sun Valley, Idaho is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast."
+      "synopsisSpoilerOn": "Sun Valley — Men's Alpine Finals Downhill at Sun Valley, Idaho is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day. Watch via FIS broadcast.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-07-18T23:42:29.563Z",
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
@@ -17448,9 +17875,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
       "hookSpoilerOn": "Personal calendar event, categorised as Motorsport by the explicit.sportKey rule.",
       "synopsisSpoilerOff": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
-      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category."
+      "synopsisSpoilerOn": "Imported from nothingsport-manual-seed. nothingsport categorised this event as Motorsport using the explicit.sportKey rule and assigned the explicit.eventType event category.",
+      "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-05T23:39:15.882Z"
+    "lastReviewedAt": "2026-08-14T02:56:19.695Z"
   },
   {
     "id": "calendar-nothingsport-manual-seed-goodwood-festival-of-speed-2027",

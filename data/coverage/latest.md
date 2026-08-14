@@ -1,8 +1,8 @@
 # nothingSport weekly coverage discovery
 
-Reference date: 2026-08-13
+Reference date: 2026-08-14
 
-Compared 5 live/delayed listings with 307 canonical events. Found 4 catalogue gaps, 1 ambiguous listings, 0 possible AU availability changes and 5 high-priority recommendations.
+Compared 5 live/delayed listings with 306 canonical events. Found 5 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 4 high-priority recommendations.
 
 ## Australian source health
 
@@ -10,7 +10,7 @@ Compared 5 live/delayed listings with 307 canonical events. Found 4 catalogue ga
 |---|---|---|
 | Kayo Sports | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | Foxtel | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
-| Stan Sport | loaded | reviewed_export; 6 listings; 0d old |
+| Stan Sport | loaded | reviewed_export; 6 listings; 1d old |
 | ESPN Australia | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | SBS | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | 9Now | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
@@ -24,7 +24,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | Date | Candidate | Match | Confidence | Priority | Suggested action | AU option | Blockers |
 |---|---|---|---:|---|---|---|---|
 | 2026-08-13 | UEFA Super Cup | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
-| 2026-08-13 | WTA 1000 | ambiguous | 0.58 | high | review | Stan Sport (included) | ambiguous_catalogue_identity |
+| 2026-08-13 | WTA 1000 | new | 0.50 | normal | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-08-15 | Formula E | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-08-16 | FA Community Shield | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-08-22 | Premier League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |

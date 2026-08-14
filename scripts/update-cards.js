@@ -104,6 +104,7 @@ function buildSteps({ localOnly = false } = {}) {
     ]
   ), discoverCanonicalFixtureBundles()),
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
+  ["scripts/validate-result-completeness-timing.js"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
   ["scripts/verify-pilot-readiness.js"],
@@ -116,6 +117,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-product-events.js"],
   ["scripts/validate-cross-device-sync.js"],
   ["scripts/validate-server-persistence.js"],
+  ["scripts/validate-update-cards.js"],
   ["scripts/verify-nothingsport.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);

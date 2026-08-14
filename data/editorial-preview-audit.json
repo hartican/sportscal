@@ -1,14 +1,46 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-13T23:31:51.119Z",
+  "generatedAt": "2026-08-14T02:59:25.452Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 2,
-    "passed": 2,
+    "due": 5,
+    "passed": 5,
     "failed": 0
   },
   "cards": [
+    {
+      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-14",
+      "name": "Cincinnati Open — ATP Masters 1000",
+      "sport": "Tennis",
+      "date": "2026-08-14",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "atp-tour",
+        "atp_masters_1000",
+        "active-tournament-window",
+        "hard-surface"
+      ],
+      "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-14",
+      "name": "Cincinnati Open — WTA 1000",
+      "sport": "Tennis",
+      "date": "2026-08-14",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "wta-tour",
+        "wta_1000",
+        "active-tournament-window",
+        "hard-surface"
+      ],
+      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
+      "issues": []
+    },
     {
       "id": "nrl-raiders-broncos-2026-08-21",
       "name": "Canberra Raiders v Brisbane Broncos",
@@ -17,10 +49,26 @@
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "CR: 12th on the official ladder",
-        "BB: 16th on the official ladder"
+        "current-ladder-position",
+        "head-to-head-record",
+        "late-season-stakes"
       ],
       "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "cricket-australia-bangladesh-second-test-2026",
+      "name": "Australia v Bangladesh — Second Test",
+      "sport": "Cricket",
+      "date": "2026-08-22",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "new-test-venue",
+        "series-second-test",
+        "venue-history"
+      ],
+      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
       "issues": []
     },
     {

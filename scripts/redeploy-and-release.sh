@@ -6,6 +6,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 CARD_OUTPUT_FILES=(
   "data/canonical/afl-nrl-2026.json"
+  "data/canonical/contexts.js"
   "data/card-audit.json"
   "data/coverage/latest.html"
   "data/coverage/latest.json"
@@ -79,15 +80,16 @@ resolve_vercel_token() {
 }
 
 ensure_origin_main() {
-  if ! git show-ref --verify --quiet refs/remotes/origin/main; then
-    git fetch --quiet --no-tags origin main
-  fi
+  git fetch --quiet --no-tags origin main
 }
 
-ensure_release_head_on_main_line() {
+ensure_release_head_matches_origin_main() {
   ensure_origin_main
-  if ! git merge-base --is-ancestor origin/main HEAD; then
-    echo "Error: local HEAD is not descended from origin/main. Rebase/cherry-pick onto origin/main first." >&2
+  local local_head origin_head
+  local_head="$(git rev-parse HEAD)"
+  origin_head="$(git rev-parse origin/main)"
+  if [[ "$local_head" != "$origin_head" ]]; then
+    echo "Error: release checkout must start exactly at origin/main (HEAD=$local_head, origin/main=$origin_head)." >&2
     exit 1
   fi
 }
@@ -212,7 +214,7 @@ RELEASE_COMMIT_MESSAGE="${1:-Automated card refresh and redeploy}"
 HAS_RELEASE_OUTPUT_CHANGES=0
 
 run_start_head="$INITIAL_HEAD"
-ensure_release_head_on_main_line
+ensure_release_head_matches_origin_main
 
 if ! git diff --quiet HEAD -- "${CARD_OUTPUT_FILES[@]}"; then
   git add "${CARD_OUTPUT_FILES[@]}"
@@ -260,12 +262,6 @@ else
   log "No updated card output files detected; skipping commit/push."
 fi
 
-STAGING_ROOT="$(mktemp -d)"
-cleanup() {
-  rm -rf "$STAGING_ROOT"
-}
-trap cleanup EXIT
-
 if [[ -z "${VERCEL_TOKEN:-}" ]]; then
   resolve_vercel_token
 fi
@@ -275,13 +271,7 @@ if [[ -n "${VERCEL_TOKEN:-}" ]]; then
 fi
 ensure_vercel_auth
 
-rsync -a \
-  --exclude '.git' \
-  --exclude 'planning-sportscal/Archive/supabase_keys.txt' \
-  . \
-  "$STAGING_ROOT"
-
-(
-  cd "$STAGING_ROOT"
-  XDG_CACHE_HOME=/tmp vercel --prod --yes
-)
+ensure_origin_main
+DEPLOY_SHA="$(git rev-parse origin/main)"
+log "Deploying immutable origin/main snapshot $DEPLOY_SHA."
+NS_DEPLOY_REF=origin/main ./scripts/deploy-current-commit.sh
