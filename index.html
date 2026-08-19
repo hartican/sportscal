@@ -1669,6 +1669,25 @@ main{
   gap: 8px;
 }
 
+.event-quick-must-watch{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:30px;
+  margin-top:10px;
+  padding:5px 8px;
+  border:0;
+  border-top:1px solid var(--border);
+  border-radius:0;
+  background:transparent;
+  color:var(--text-dim);
+  font:800 0.68rem/1 inherit;
+  letter-spacing:0.01em;
+  cursor:pointer;
+}
+.event-quick-must-watch:hover,
+.event-quick-must-watch[aria-pressed="true"]{ color:var(--accent); }
+
 .action-btn{
   background: var(--soft-fill-strong);
   border: 1px solid var(--border);
@@ -9890,6 +9909,21 @@ function buildEventCard(ev, options = {}){
   }
 
   mainDiv.appendChild(ratingRow);
+  if (!options.archived && mode !== "premium-rail"){
+    const quickMustWatch = document.createElement("button");
+    const mustWatch = Boolean(getEventAction(ev).mustWatch);
+    quickMustWatch.type = "button";
+    quickMustWatch.className = "event-quick-must-watch";
+    quickMustWatch.textContent = mustWatch ? "Remove from Must Watch" : "Add to Must Watch";
+    quickMustWatch.setAttribute("aria-pressed", String(mustWatch));
+    quickMustWatch.addEventListener("click", event => {
+      event.stopPropagation();
+      setMustWatch(ev, !mustWatch);
+      renderAll({ preserveViewport: true });
+      showToast(mustWatch ? `${ev.name} removed from Must Watch.` : `${ev.name} added to Must Watch.`);
+    });
+    mainDiv.appendChild(quickMustWatch);
+  }
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
@@ -14295,6 +14329,10 @@ setInterval(updateClock, 1000);
 renderAll();
 scheduleBrowserReminders();
 let startupBackgroundTasksSettled = 0;
+let startupFeedNavigationTouched = false;
+for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
+  window.addEventListener(eventName, () => { startupFeedNavigationTouched = true; }, { passive: true, once: true });
+}
 function trackStartupTask(task){
   return Promise.resolve(task).finally(() => {
     startupBackgroundTasksSettled += 1;
@@ -14314,6 +14352,10 @@ window.requestAnimationFrame(() => {
 });
 Promise.allSettled(startupTasks).then(() => {
   setStartupProgress(100);
+  // Background context can change the sticky header height after the first
+  // static render. Until the person has interacted, re-align Feed at Today
+  // once the initial loading work settles.
+  if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
   renderAll();
   window.setTimeout(() => {
     startupProgressDismissed = true;

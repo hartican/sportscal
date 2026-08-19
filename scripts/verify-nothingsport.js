@@ -432,6 +432,7 @@ assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports feed must retain its Today anchor");
+assert(html.includes("startupFeedNavigationTouched") && html.includes('calendarInitialJumpPending = true;'), "initial Feed alignment must repeat after background loading unless the person has started navigating");
 assert(html.includes("PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST())"), "the curated feed must split past, Must Watch, Today and future cards from one timeline model");
 assert(html.includes("appendManualMustWatchQueue(container, timeline.mustWatch)"), "the manual Must Watch queue must sit between past cards and Today");
 assert(html.includes("jumpTodayBtn.hidden = hubActive"), "Jump to Today must remain available in curated Feed views and stay out of complete sport hubs");
@@ -473,6 +474,7 @@ assert(!html.includes("Export Never Miss"), "the obsolete one-off Never Miss exp
 assert(!html.includes('id="exportModal"') && !html.includes('id="exportForm"'), "the one-off batch export form must be removed");
 const actionPanelSource = html.match(/function buildEventActionPanel\(ev, options = \{\}\)\{[\s\S]*?\n  return panel;\n\}/)?.[0] || "";
 assert(actionPanelSource.includes('setMustWatch(ev, !mustWatch)'), "every card must offer the single manual Must Watch action");
+assert(html.includes('className = "event-quick-must-watch"') && html.includes('quickMustWatch.textContent = mustWatch ? "Remove from Must Watch" : "Add to Must Watch"'), "every compact card must expose a subtle level-zero Must Watch action");
 assert(!/makeActionButton\("Archive"|makeActionButton\("Save"|Mark watched/.test(actionPanelSource), "Archive, Save and Mark watched must be removed from card actions");
 assert(actionPanelSource.includes('thumb-control'), "card feedback must use compact mutually exclusive thumb controls");
 const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
