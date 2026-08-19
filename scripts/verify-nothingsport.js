@@ -191,7 +191,7 @@ assert(
 );
 assert(html.includes("eventEnrichment(ev).mustWatchScore"), "must-watch decisions must use the derived explainable score");
 assert(html.includes('`variant-${enrichment.cardVariant}`'), "cards must receive their derived plain, compact, standard, or marquee variant");
-assert(html.includes("Why it ranked ·"), "opened cards must explain their ranking score");
+assert(!html.includes("Why it ranked ·") && !html.includes("rank-explanation"), "ranking explanations must remain behind-the-scenes rather than user-facing card copy");
 assert(html.includes('id="refreshAndRebuildFeedBtn"') && html.includes("refreshFeedOnFirstLoad()"), "feed refresh must run automatically on first load and expose manual recovery only in Settings");
 assert(html.includes("renderFeedIfPresentationChanged") && html.includes('id="refreshAndRebuildFeedStatus"'), "unchanged hydration must be render-gated while Settings reports recovery progress");
 assert(
@@ -232,6 +232,8 @@ assert(html.includes("function focusSportHubViewport()") && html.includes("stick
 assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
 assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
 assert(html.includes('id="tuneBrowseList"') && html.includes('id="tuneControlGrid"'), "Tune must combine sport browsing and the remaining feed controls");
+assert(html.includes('<h3 id="tuneIntentTitle">Feed intent</h3>') && html.indexOf('tuneIntentTitle') < html.indexOf('tuneBrowseTitle'), "Tune must put persistent Feed intent before the session-only Filter");
+assert(html.includes('<h3 id="tuneBrowseTitle">Filter</h3>') && html.includes('id="tuneSelectAllBtn"') && html.includes('id="tuneDeselectAllBtn"') && html.includes('id="tuneClearFilterBtn"'), "Tune Filter must provide Select all, Deselect all and a reachable Clear filter action");
 assert(html.includes('role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle"') && html.includes("function trapTuneSheetFocus(event)"), "Tune must be an accessible focus-trapped bottom sheet");
 assert(html.includes("tuneSheetReturnState = { focus: document.activeElement, scrollY: window.scrollY }") && html.includes('returnState.focus.focus({ preventScroll: true })'), "Tune must preserve feed position and restore keyboard focus");
 assert(html.includes("let discoverySessionInitialized = false") && html.includes("createSessionInclusion(catalogueIds)"), "sport inclusion must initialise afresh for each app visit without suppressing hidden discovery sports");
@@ -244,13 +246,16 @@ assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibra
 assert(!html.includes('data-sports-followed-tab="events"'), "named events must not remain a follow-choice tab");
 assert(html.includes("data-domain-froth") && html.includes("data-domain-custom"), "followed sports must use a Casual-to-Froth slider with a separate Custom mode");
 assert(html.includes("data-inline-froth") && html.includes("selector-choice-stack"), "selected sports must render Froth controls inline with their selector rows");
+assert(html.includes('.filter(entity => entity.parentId === "category:sports")') && html.includes('const revealChildren = selected && ["template:like", "template:froth", "template:custom"].includes(parentTemplate)'), "Sports Followed must show hierarchy children only beneath their selected parent at Like, Froth or Custom depth");
+assert(html.includes('parentTemplate === "template:custom" && childSelected') && html.includes('inlineFrothControlMarkup(child.id)'), "Custom parent settings must expose independently adjustable child overrides");
 assert(!html.includes("data-domain-ls") && !html.includes("data-standings-visibility"), "standings visibility controls must be removed from Settings and Froth");
 assert(!html.includes("renderStandingsSettings") && !html.includes("renderTemplateSettings"), "standalone standings visibility and Froth screens must be removed");
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
 assert(html.includes('id="standingsContext"'), "supported table content must resolve into the dedicated Standings destination");
 assert(html.includes('expander.dataset.standingsExpander = competition.id') && html.includes('standingsCompetitionExpansion[competition.id] = !expanded'), "each standings component must expose a direct expand and retract control");
-assert(html.includes("rankingSportFilters.delete(key)") && html.includes('DISCOVERY_CATALOGUE?.eventNodeId?.({ key })'), "Tune sport toggles must also filter Standings for the current visit");
-assert(html.includes('standingsCompetitionExpansion[competition.id] = false'), "filtering out a sport must retract its expanded standings tables");
+assert(html.includes("function selectedStandingsSportKeys") && html.includes("function saveStandingsSportKeys"), "Tune filters must remain session-only while Standings keeps its own persistent selections");
+assert(html.includes("function toggleStandingsPin") && html.includes('pin.textContent = pinned ? "Pinned" : "Pin"'), "each Standings card must provide a persistent Pin control");
+assert(html.includes("function orderStandingsCompetitions") && html.includes("standingsFrothRank"), "Standings must order pins first, then Froth level and recent pin time");
 assert(html.includes('expanded ? "full" : "summary"'), "followed standings must default to Top 3 plus followed and expand only in direct view state");
 assert(html.includes('className = "standings-freshness-note"'), "standings must expose a visible freshness and source-delay notice");
 assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
@@ -304,7 +309,7 @@ assert(html.includes('saveSection(localStorage, activeProfileBundle, "learningPr
 assert(preferenceSystemSource.includes("function mergeLearning"), "preference migrations must retain a bounded learning merge helper");
 assert(html.includes("userPreferences = mergePreferences(state.preferences || {})"), "sign-in must hydrate the latest cloud preferences before tracking new session changes");
 assert(fineTuningSource.includes('id: "broad"') && fineTuningSource.includes('id: "teams"') && fineTuningSource.includes('id: "people"'), "Tune must progress from sports and marquee events through teams to players and event families");
-assert(html.includes('settingsMenuItem("tune"') && html.includes("renderFineTuningSettings"), "Tune must remain persistently reachable from Settings");
+assert(!html.includes('settingsMenuItem("tune"') && html.includes('id="tuneNavBtn"'), "Tune must live only in the primary Tune tab, not duplicate Settings");
 assert(html.includes("PREFERENCE_SYSTEM.applyTuningSignal") && html.includes("PREFERENCE_SYSTEM.completeTuningSession"), "Tune interactions and completed sessions must autosave into the preference graph");
 assert(preferenceSystemSource.includes("MEANINGFUL_TUNING_INTERACTIONS = 8") && preferenceSystemSource.includes("MEANINGFUL_TUNING_SESSIONS = 2"), "meaningful tuning must use the canonical interaction or completed-session thresholds");
 assert(preferenceSystemSource.includes("POST_TUNING_DISLIKE_GAP = 100") && preferenceSystemSource.includes("POST_TUNING_DAY_GAP = 30"), "meaningful tuning must suppress prompts until both fatigue gates pass");
@@ -312,7 +317,7 @@ assert(ratingSystemSource.includes("return value * 2") && ratingSystemSource.inc
 assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i<=10;i++)"), "actual spectacle input must use five one-tap stars");
 assert(html.includes("ensureSessionRatingPrompt(filtered)") && ratingSystemSource.includes("LATER_SESSION_LIMIT = 3"), "eligible rating prompts must be limited to one per session and expire after three later sessions");
 assert(html.includes("if (showTunePrompt) suppressSessionRatingPrompt()"), "Tune and rating prompts must never stack in one interaction");
-assert(html.includes('settingsMenuItem("pilot"') && html.includes('id="pilotMeasurementEnabled"'), "signed-in users must receive an explicit trust-pilot acknowledgement control");
+assert(!html.includes('settingsMenuItem("pilot"') && html.includes('Trust pilot details') && html.includes('id="pilotMeasurementEnabled"'), "trust-pilot controls must remain available only inside Feedback & appearance");
 assert(productEventsSource.includes('const WEEKLY_PULSE_OPEN_THRESHOLD = 3') && html.includes('Fill out this 2-minute survey'), "the active weekly pulse must prompt from the third app open of each Sydney day");
 assert(productEventsSource.includes('const WEEKLY_PULSE_SURVEY_VERSION = "weekly-pulse.v1"') && productEventsSource.includes("nextWeeklyPulsePromptState"), "new weekly pulse releases must reset their device-local open count");
 assert(html.includes("The normal app works without measurement") && html.includes("if (!pilotMeasurementEligible()) return null"), "the normal app must remain usable with telemetry disabled");
@@ -419,7 +424,7 @@ assert(html.includes('selectorNewMarkerMarkup(entity)'), "new selector entities 
 assert(html.includes('setTimeout(openSelectorOptInPrompt, 250)'), "existing profiles must receive the batched opt-in prompt on the next app open");
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
-assert(settingsMenuSource.includes('settingsMenuItem("archive"') && html.includes("function renderArchiveSettings"), "Archive must be discoverable and render inside Settings");
+assert(!settingsMenuSource.includes('settingsMenuItem("archive"') && html.includes("function renderArchiveSettings"), "legacy Archive recovery must not be a user-facing Settings destination");
 assert(html.includes('selectionActionsMarkup("sports"') && html.includes('selectionActionsMarkup("providers"') && html.includes('selectionActionsMarkup("venues"'), "every setup multi-select must expose Select all and Deselect all controls");
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");

@@ -1537,29 +1537,6 @@ main{
   color: color-mix(in srgb, var(--text-dim) 82%, var(--text));
 }
 
-.rank-explanation{
-  margin-top: 12px;
-  padding: 10px 11px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: var(--soft-fill);
-}
-
-.rank-explanation strong{
-  display:block;
-  color: var(--text);
-  font-size: 0.78rem;
-  margin-bottom: 6px;
-}
-
-.rank-explanation ul{
-  margin: 0;
-  padding-left: 18px;
-  color: var(--text-faint);
-  font-size: 0.72rem;
-  line-height: 1.45;
-}
-
 .spoiler-panel{
   margin-top: 12px;
   border: 1px solid color-mix(in srgb, #ff8a00 35%, var(--border));
@@ -2438,6 +2415,10 @@ main{
 
 .selector-choice-stack > .choice-card{
   width:100%;
+}
+
+.selector-child-choice{
+  margin-left:16px;
 }
 
 .selector-choice-stack > .froth-control{
@@ -4486,6 +4467,18 @@ footer.app-footer{
 .focused-discovery-banner strong{ display:block; font-size:0.85rem; }
 .focused-discovery-banner p{ margin-top:3px; color:var(--text-dim); font-size:0.73rem; line-height:1.45; }
 .focused-discovery-actions{ flex:0 0 auto; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:7px; }
+.tune-filter-actions{ display:flex; flex-wrap:wrap; gap:7px; margin:0 0 10px; }
+.tune-filter-actions .btn{ min-height:34px; padding:6px 10px; font-size:0.72rem; }
+.standings-filter-panel{ margin:0 0 14px; padding:13px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); }
+.standings-filter-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.standings-filter-head h2{ font-size:0.9rem; }
+.standings-filter-head > div{ display:flex; flex-wrap:wrap; gap:6px; }
+.standings-filter-head .btn{ min-height:32px; padding:5px 8px; font-size:0.68rem; }
+.standings-filter-choices{ display:flex; flex-wrap:wrap; gap:7px; margin-top:11px; }
+.standings-filter-choice{ min-height:32px; padding:5px 9px; border:1px solid var(--border); border-radius:999px; background:transparent; color:var(--text-dim); font:800 0.7rem/1 inherit; cursor:pointer; }
+.standings-filter-choice.active{ color:#05050a; background:var(--accent); border-color:var(--accent); }
+.standings-pin{ flex:0 0 auto; min-height:32px; padding:5px 9px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text-dim); font:800 0.68rem/1 inherit; cursor:pointer; }
+.standings-pin.active{ color:#05050a; background:var(--accent); border-color:var(--accent); }
 
 .joint-tournament-card{
   margin:0 0 16px;
@@ -4645,17 +4638,22 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Tune">×</button>
     </header>
     <div class="tune-sheet-body">
+      <section class="tune-section" aria-labelledby="tuneIntentTitle">
+        <div class="tune-section-heading"><h3 id="tuneIntentTitle">Feed intent</h3><span>Saved normally</span></div>
+        <div class="tune-controls-grid" id="tuneControlGrid"></div>
+      </section>
       <section class="tune-section" aria-labelledby="tuneBrowseTitle">
-        <div class="tune-section-heading"><h3 id="tuneBrowseTitle">Browse sports</h3><span id="tuneBrowseSummary">All visible sports included</span></div>
+        <div class="tune-section-heading"><h3 id="tuneBrowseTitle">Filter</h3><span id="tuneBrowseSummary">All sports included this visit</span></div>
+        <div class="tune-filter-actions" id="tuneFilterActions">
+          <button class="btn ghost" type="button" id="tuneSelectAllBtn">Select all</button>
+          <button class="btn ghost" type="button" id="tuneDeselectAllBtn">Deselect all</button>
+          <button class="btn ghost" type="button" id="tuneClearFilterBtn" hidden>Clear filter</button>
+        </div>
         <div class="browse-list" id="tuneBrowseList"></div>
         <details class="browse-more" id="tuneBrowseMore" hidden>
           <summary>More followed sports</summary>
           <div class="browse-list" id="tuneBrowseMoreList"></div>
         </details>
-      </section>
-      <section class="tune-section" aria-labelledby="tuneIntentTitle">
-        <div class="tune-section-heading"><h3 id="tuneIntentTitle">Feed intent</h3><span>Saved normally</span></div>
-        <div class="tune-controls-grid" id="tuneControlGrid"></div>
       </section>
     </div>
   </section>
@@ -5074,6 +5072,10 @@ const DEFAULT_PREFERENCES = {
     stakes: "everything",
     spoilers: "standard",
     expanded: true,
+  },
+  standings: {
+    selectedSportKeys: null,
+    pinTimestamps: {},
   },
   pilotMeasurement: {
     enabled: true,
@@ -5627,6 +5629,16 @@ function mergePreferences(saved){
     }, {
       showSpoilers: Boolean(saved.showSpoilers ?? merged.showSpoilers),
     }) || merged.feedControls,
+    standings: {
+      selectedSportKeys: Array.isArray(saved.standings?.selectedSportKeys)
+        ? uniqueArray(saved.standings.selectedSportKeys)
+        : null,
+      pinTimestamps: saved.standings?.pinTimestamps && typeof saved.standings.pinTimestamps === "object"
+        ? Object.fromEntries(Object.entries(saved.standings.pinTimestamps)
+          .filter(([competitionId, value]) => String(competitionId).startsWith("competition:") && !Number.isNaN(Date.parse(value)))
+          .map(([competitionId, value]) => [competitionId, new Date(value).toISOString()]))
+        : {},
+    },
     localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
@@ -8261,17 +8273,6 @@ function setDiscoverySessionNodeIncluded(nodeId, included){
     : included
       ? uniqueArray([...discoverySessionIncludedSportIds, nodeId])
       : discoverySessionIncludedSportIds.filter(id => id !== nodeId);
-  if (!(rankingSportFilters instanceof Set)) rankingSportFilters = new Set(rankingSportKeysForStandings());
-  rankingSportKeysForStandings().forEach(key => {
-    const rankingNodeId = DISCOVERY_CATALOGUE?.eventNodeId?.({ key });
-    if (!rankingNodeId || discoverySessionIncludedSportIds.includes(rankingNodeId)) rankingSportFilters.add(key);
-    else {
-      rankingSportFilters.delete(key);
-      rankingCompetitionsForStandings()
-        .filter(competition => standingsSportKey(competition) === key)
-        .forEach(competition => { standingsCompetitionExpansion[competition.id] = false; });
-    }
-  });
   discoveryTuneInteractionCount += 1;
   const node = discoveryNodeById(nodeId);
   recordProductEvent({
@@ -8286,6 +8287,32 @@ function setDiscoverySessionNodeIncluded(nodeId, included){
   });
   renderTuneSheetContents();
   renderAll({ preserveViewport: true });
+}
+
+function setAllDiscoverySessionIncluded(included){
+  const catalogueIds = (DISCOVERY_CATALOGUE?.sportNodes || BASE_SPORT_SELECTOR_ENTITIES).map(node => node.id);
+  discoverySessionIncludedSportIds = DISCOVERY_CATALOGUE
+    ? (included ? DISCOVERY_CATALOGUE.createSessionInclusion(catalogueIds) : [])
+    : (included ? catalogueIds.slice() : []);
+  discoverySessionInitialized = true;
+  discoveryTuneInteractionCount += 1;
+  recordProductEvent({
+    eventName: "feed_control_change",
+    surface: "tune",
+    properties: {
+      control: "sport_inclusion_all",
+      value: included ? "included" : "excluded",
+      coldStart: productMeasurementIsColdStart(),
+    },
+  });
+  renderTuneSheetContents();
+  renderAll({ preserveViewport: true });
+}
+
+function clearDiscoveryFocusedFilter(){
+  if (activeFilter === "all") return;
+  setActiveFeedFilter("all");
+  renderTuneSheetContents();
 }
 
 function discoverySportIsFollowed(nodeId, preferences = userPreferences){
@@ -8450,31 +8477,25 @@ function renderTuneSheetContents(){
   if (!list || !more || !moreList) return;
   const visibility = discoveryVisibilityModel();
   ensureDiscoverySessionInclusion();
-  list.innerHTML = "";
-  visibility.mainIds.forEach(nodeId => {
+  const allCandidateIds = new Set([...visibility.mainIds, ...visibility.moreIds]);
+  const rootIds = ids => ids.filter(nodeId => !allCandidateIds.has(discoveryNodeById(nodeId)?.parentId));
+  const appendRows = (target, ids) => rootIds(ids).forEach(nodeId => {
     const row = buildDiscoveryBrowseRow(nodeId, Number(visibility.counts?.aggregateCounts?.[nodeId] || 0));
-    if (row) list.appendChild(row);
+    if (row) target.appendChild(row);
     const node = discoveryNodeById(nodeId);
     if (!discoveryExpandedParentIds.has(nodeId)) return;
     (node?.childIds || []).forEach(childId => {
       const child = buildDiscoveryBrowseRow(childId, Number(visibility.counts?.aggregateCounts?.[childId] || 0), { child: true });
-      if (child) list.appendChild(child);
+      if (child) target.appendChild(child);
     });
   });
-  if (!visibility.mainIds.length){
+  list.innerHTML = "";
+  appendRows(list, visibility.mainIds);
+  if (!list.children.length){
     list.innerHTML = '<div class="empty-state" style="padding:16px">No sport family has five unfinished events in the next 30 Sydney days.</div>';
   }
   moreList.innerHTML = "";
-  visibility.moreIds.forEach(nodeId => {
-    const row = buildDiscoveryBrowseRow(nodeId, Number(visibility.counts?.aggregateCounts?.[nodeId] || 0));
-    if (row) moreList.appendChild(row);
-    const node = discoveryNodeById(nodeId);
-    if (!discoveryExpandedParentIds.has(nodeId)) return;
-    (node?.childIds || []).forEach(childId => {
-      const child = buildDiscoveryBrowseRow(childId, Number(visibility.counts?.aggregateCounts?.[childId] || 0), { child: true });
-      if (child) moreList.appendChild(child);
-    });
-  });
+  appendRows(moreList, visibility.moreIds);
   restoreDiscoveryTuneFocus(focusDescriptor);
   more.hidden = visibility.moreIds.length === 0;
   const included = new Set(discoverySessionIncludedSportIds);
@@ -8482,6 +8503,13 @@ function renderTuneSheetContents(){
   const includedCount = uniqueArray(visibleLeaves).filter(id => included.has(id)).length;
   const summary = document.getElementById("tuneBrowseSummary");
   if (summary) summary.textContent = `${includedCount} of ${uniqueArray(visibleLeaves).length} included this visit`;
+  document.getElementById("tuneSelectAllBtn")?.addEventListener("click", () => setAllDiscoverySessionIncluded(true), { once: true });
+  document.getElementById("tuneDeselectAllBtn")?.addEventListener("click", () => setAllDiscoverySessionIncluded(false), { once: true });
+  const clear = document.getElementById("tuneClearFilterBtn");
+  if (clear){
+    clear.hidden = activeFilter === "all";
+    clear.addEventListener("click", clearDiscoveryFocusedFilter, { once: true });
+  }
   renderFeedControls();
 }
 
@@ -9866,13 +9894,6 @@ function buildEventCard(ev, options = {}){
     spiel.textContent = eventSpielForDisplay(ev);
     mainDiv.appendChild(spiel);
 
-    const explanation = document.createElement("div");
-    explanation.className = "rank-explanation";
-    explanation.innerHTML = `
-      <strong>Why it ranked · ${enrichment.mustWatchScore}/100</strong>
-      <ul>${(enrichment.storyline?.scoreReasons || []).map(reason => `<li>${reason}</li>`).join("")}</ul>
-    `;
-    mainDiv.appendChild(explanation);
     if (enrichment.editorialOverride){
       const editorialNote = document.createElement("p");
       editorialNote.className = "editorial-review-note";
@@ -9890,9 +9911,6 @@ function buildEventCard(ev, options = {}){
         <p>This ${status} event has a spoiler-safe recap above. Reveal it only when you are ready for the result-aware version.</p>
       `;
       mainDiv.appendChild(spoilerPanel);
-    } else {
-      const spoilerFacts = buildSpoilerFacts(ev);
-      if (spoilerFacts) mainDiv.appendChild(spoilerFacts);
     }
 
     const details = document.createElement("div");
@@ -11194,9 +11212,79 @@ function rankingSportKeysForStandings(preferences = userPreferences){
   return FILTER_ORDER.filter(key => key !== "all" && keys.has(key));
 }
 
+function selectedStandingsSportKeys(preferences = userPreferences){
+  const available = rankingSportKeysForStandings(preferences);
+  const saved = preferences?.standings?.selectedSportKeys;
+  if (!Array.isArray(saved)) return available;
+  return available.filter(key => saved.includes(key));
+}
+
+function saveStandingsSportKeys(keys){
+  const available = rankingSportKeysForStandings();
+  const selected = available.filter(key => keys.includes(key));
+  savePreferences({
+    ...userPreferences,
+    standings: {
+      ...(userPreferences.standings || {}),
+      selectedSportKeys: selected,
+    },
+  });
+}
+
+function setAllStandingsSportKeys(selected){
+  saveStandingsSportKeys(selected ? rankingSportKeysForStandings() : []);
+  renderAll({ preserveViewport: true });
+}
+
+function toggleStandingsSportKey(key){
+  const selected = new Set(selectedStandingsSportKeys());
+  if (selected.has(key)) selected.delete(key);
+  else selected.add(key);
+  saveStandingsSportKeys(Array.from(selected));
+  renderAll({ preserveViewport: true });
+}
+
+function standingsPinTimestamp(competitionId, preferences = userPreferences){
+  return preferences?.standings?.pinTimestamps?.[competitionId] || null;
+}
+
+function toggleStandingsPin(competitionId){
+  const pins = { ...(userPreferences.standings?.pinTimestamps || {}) };
+  if (pins[competitionId]) delete pins[competitionId];
+  else pins[competitionId] = new Date().toISOString();
+  savePreferences({
+    ...userPreferences,
+    standings: { ...(userPreferences.standings || {}), pinTimestamps: pins },
+  });
+  renderAll({ preserveViewport: true });
+}
+
+function standingsFrothRank(competition){
+  const preference = userPreferences.preferenceGraph?.domainPreferences?.find(item => (
+    item.sportDomainId === (competition.preferenceDomainId || competition.sportDomainId)
+  ));
+  return { "template:froth": 3, "template:like": 2, "template:casual": 1, "template:custom": 1 }[preference?.templateId] || 0;
+}
+
+function orderStandingsCompetitions(competitions){
+  return competitions.slice().sort((first, second) => {
+    const firstPin = standingsPinTimestamp(first.id);
+    const secondPin = standingsPinTimestamp(second.id);
+    if (Boolean(firstPin) !== Boolean(secondPin)) return firstPin ? -1 : 1;
+    const frothGap = standingsFrothRank(second) - standingsFrothRank(first);
+    if (frothGap) return frothGap;
+    if (firstPin && secondPin){
+      const pinGap = Date.parse(secondPin) - Date.parse(firstPin);
+      if (pinGap) return pinGap;
+    }
+    return String(first.name).localeCompare(String(second.name));
+  });
+}
+
 function activeStandingsCompetitions(){
-  return rankingCompetitionsForStandings()
-    .filter(competition => rankingSportFilters?.has(standingsSportKey(competition)));
+  const selected = new Set(selectedStandingsSportKeys());
+  return orderStandingsCompetitions(rankingCompetitionsForStandings()
+    .filter(competition => selected.has(standingsSportKey(competition))));
 }
 
 function standingsCompetitionMatchesFilter(competition, filterKey){
@@ -11360,6 +11448,45 @@ function appendStandingsTable(module, competition, snapshot, visibility){
   module.appendChild(wrap);
 }
 
+function buildStandingsFilter(){
+  const available = rankingSportKeysForStandings();
+  const selected = new Set(selectedStandingsSportKeys());
+  const panel = document.createElement("section");
+  panel.className = "standings-filter-panel";
+  panel.setAttribute("aria-label", "Standings filter");
+  const head = document.createElement("div");
+  head.className = "standings-filter-head";
+  const title = document.createElement("h2");
+  title.textContent = "Filter standings";
+  const actions = document.createElement("div");
+  const selectAll = document.createElement("button");
+  selectAll.type = "button";
+  selectAll.className = "btn ghost";
+  selectAll.textContent = "Select all";
+  selectAll.addEventListener("click", () => setAllStandingsSportKeys(true));
+  const deselectAll = document.createElement("button");
+  deselectAll.type = "button";
+  deselectAll.className = "btn ghost";
+  deselectAll.textContent = "Deselect all";
+  deselectAll.addEventListener("click", () => setAllStandingsSportKeys(false));
+  actions.append(selectAll, deselectAll);
+  head.append(title, actions);
+  const choices = document.createElement("div");
+  choices.className = "standings-filter-choices";
+  available.forEach(key => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `standings-filter-choice${selected.has(key) ? " active" : ""}`;
+    button.setAttribute("role", "checkbox");
+    button.setAttribute("aria-checked", String(selected.has(key)));
+    button.textContent = SPORT_META[key]?.label || key.toUpperCase();
+    button.addEventListener("click", () => toggleStandingsSportKey(key));
+    choices.appendChild(button);
+  });
+  panel.append(head, choices);
+  return panel;
+}
+
 function renderStandingsContext(options = {}){
   const embedded = Boolean(options.container);
   const container = options.container || document.getElementById("standingsContext");
@@ -11368,6 +11495,7 @@ function renderStandingsContext(options = {}){
   if (!embedded && activeTab !== "standings") return;
   const competitions = options.competitions || activeStandingsCompetitions();
   const sectionLabel = options.sectionLabel || "Standings";
+  if (!embedded) container.appendChild(buildStandingsFilter());
   if (!competitions.length){
     const empty = document.createElement("div");
     empty.className = "standings-empty";
@@ -11457,7 +11585,14 @@ function renderStandingsContext(options = {}){
         ? `Updated ${new Date(snapshot.snapshotTimeUtc).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}${snapshot.roundLabel ? ` · ${snapshot.roundLabel}` : ""}`
         : "No current standings snapshot is available.";
       copy.append(title, detail);
-      head.appendChild(copy);
+      const pin = document.createElement("button");
+      const pinned = Boolean(standingsPinTimestamp(competition.id));
+      pin.type = "button";
+      pin.className = `standings-pin${pinned ? " active" : ""}`;
+      pin.setAttribute("aria-pressed", String(pinned));
+      pin.textContent = pinned ? "Pinned" : "Pin";
+      pin.addEventListener("click", () => toggleStandingsPin(competition.id));
+      head.append(copy, pin);
       module.appendChild(head);
       if (!snapshot?.entries?.length){
         const withheld = document.createElement("p");
@@ -11710,6 +11845,7 @@ document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
     activeTab = btn.dataset.tab;
     if (activeTab === "feed") calendarInitialJumpPending = true;
     renderAll();
+    if (activeTab === "standings") window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
   });
 });
 document.getElementById("tuneNavBtn").addEventListener("click", openTuneSheet);
@@ -12702,27 +12838,17 @@ function renderPilotSettings(body){
 }
 
 function renderSettingsMenu(body){
-  const themeLabel = { day: "Day", night: "Night", system: "System" }[normalizeThemePreference(draftPreferences.theme)];
   const viewing = draftPreferences.preferenceGraph?.viewing;
   const viewingHourLabel = hour => `${Number(hour) % 12 || 12}${Number(hour) < 12 ? "am" : "pm"}`;
   const viewingWindowLabel = viewing?.viewingWindowEnabled
     ? `${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window`
     : "Any time";
-  const learning = draftPreferences.preferenceGraph?.learning || {};
-  const tuningSummary = PREFERENCE_SYSTEM?.isMeaningfullyTuned?.(draftPreferences.preferenceGraph)
-    ? `Meaningfully tuned · ${learning.tuningInteractionCount || 0} interactions`
-    : `${learning.tuningInteractionCount || 0} interactions · autosaves`;
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
-    ${settingsMenuItem("pilot", "ui:watch", "Trust pilot", pilotMeasurementSummary())}
-    ${settingsMenuItem("archive", "ui:archive", "Archive", `${archivedEvents().length} preserved or recently archived event${archivedEvents().length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("sports", "ui:filter", "Sports Followed", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
-    ${settingsMenuItem("tune", "ui:settings", "Tune", tuningSummary)}
-    ${settingsMenuItem("calibration", "ui:settings", "Swipe calibration", `${draftPreferences.preferenceGraph?.learning?.signals?.filter(signal => signal.source === "calibration").length || 0} learned anchors · optional`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("appearance", "ui:palette", "Appearance", `${themeLabel} theme`)}
-    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send an idea, request, or bug report from Settings")}
+    ${settingsMenuItem("feedback", "ui:message", "Feedback & appearance", "Feedback, app appearance and optional pilot details")}
   </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   bindSettingsMenuNavigation(body);
   document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
@@ -12906,7 +13032,9 @@ function renderSportsSettings(body){
   } else {
     childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Sports</h3><div class="selector-path">Level 1 › Level 2 sports and competitions</div></div>${selectionActionsMarkup("sports", "Sports")}</div><p class="preference-help">Choose the sports and competitions that belong in your feeds.</p><div class="choice-grid" id="sportsChoiceGrid"></div>`;
     const grid = document.getElementById("sportsChoiceGrid");
-    orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES, draftPreferences).forEach(entity => {
+    orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES, draftPreferences)
+      .filter(entity => entity.parentId === "category:sports")
+      .forEach(entity => {
       const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
       const wrapper = document.createElement("div");
       wrapper.className = "selector-choice-stack";
@@ -12925,6 +13053,31 @@ function renderSportsSettings(body){
       wrapper.appendChild(btn);
       if (selected) wrapper.insertAdjacentHTML("beforeend", inlineFrothControlMarkup(entity.id));
       grid.appendChild(wrapper);
+      const parentTemplate = preferenceDomainById(entity.id)?.templateId;
+      const revealChildren = selected && ["template:like", "template:froth", "template:custom"].includes(parentTemplate);
+      if (revealChildren){
+        (entity.childIds || []).forEach(childId => {
+          const child = selectorEntityById(childId);
+          if (!child) return;
+          const childSelected = selectorEntityIsEffectivelySelected(child.id, draftPreferences);
+          const childWrapper = document.createElement("div");
+          childWrapper.className = "selector-choice-stack selector-child-choice";
+          childWrapper.style.setProperty("--choice-color", child.color || entity.color);
+          const childButton = document.createElement("button");
+          childButton.type = "button";
+          childButton.className = `choice-card selector-entity-card ${childSelected ? "selected followed" : "unfollowed"}`;
+          childButton.dataset.selectorEntity = child.id;
+          childButton.setAttribute("aria-pressed", childSelected ? "true" : "false");
+          childButton.innerHTML = `<div class="choice-title">${glyphMarkup(child.glyph)}<span>${child.label}</span><span class="follow-state">${childSelected ? "Following" : "Follow"}</span></div><span class="selector-path">${entity.label} › ${child.label}</span><div class="choice-detail">${child.detail}</div>`;
+          childButton.addEventListener("click", () => {
+            handleSelectorDomainToggle(child.id);
+            renderSettingsScreen();
+          });
+          childWrapper.appendChild(childButton);
+          if (parentTemplate === "template:custom" && childSelected) childWrapper.insertAdjacentHTML("beforeend", inlineFrothControlMarkup(child.id));
+          grid.appendChild(childWrapper);
+        });
+      }
     });
     COMING_SOON_SPORTS.forEach(label => {
       const btn = document.createElement("button");
@@ -13338,6 +13491,37 @@ function renderFeedbackSettings(body){
   updateFeedbackPreview();
 }
 
+function renderFeedbackAppearanceSettings(body){
+  renderFeedbackSettings(body);
+  const stack = body.querySelector(".preference-stack");
+  const theme = normalizeThemePreference(draftPreferences.theme);
+  const themes = [
+    ["day", "Day"],
+    ["night", "Night"],
+    ["system", "System"],
+  ];
+  const appearance = document.createElement("section");
+  appearance.className = "filter-panel";
+  appearance.innerHTML = `<h3>Appearance</h3><p class="preference-help">Choose how nothingsport looks on this device.</p><div class="theme-choice-list" role="radiogroup" aria-label="App theme">${themes.map(([value, label]) => `<label class="theme-choice${theme === value ? " selected" : ""}"><input type="radio" name="theme" value="${value}" ${theme === value ? "checked" : ""}><strong>${label}</strong></label>`).join("")}</div>`;
+  appearance.querySelectorAll('input[name="theme"]').forEach(input => {
+    input.addEventListener("change", () => {
+      draftPreferences.theme = normalizeThemePreference(input.value);
+      applyThemePreference(draftPreferences.theme);
+      renderSettingsScreen();
+    });
+  });
+  const pilot = document.createElement("button");
+  pilot.type = "button";
+  pilot.className = "btn ghost";
+  pilot.textContent = "Trust pilot details";
+  pilot.addEventListener("click", () => {
+    settingsSection = "pilot";
+    renderSettingsScreen();
+  });
+  appearance.appendChild(pilot);
+  stack.appendChild(appearance);
+}
+
 function renderSettingsScreen(){
   const body = document.getElementById("settingsBody");
   const title = document.getElementById("settingsTitle");
@@ -13370,7 +13554,7 @@ function renderSettingsScreen(){
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
-    feedback: ["Feedback", "Send an idea, request, or bug report without leaving Settings."],
+    feedback: ["Feedback & appearance", "Send feedback, adjust appearance, or review the optional trust pilot."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
   if (settingsSection === "account") renderAccountSettings(body);
@@ -13383,7 +13567,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
-  else if (settingsSection === "feedback") renderFeedbackSettings(body);
+  else if (settingsSection === "feedback") renderFeedbackAppearanceSettings(body);
   else renderSettingsMenu(body);
 }
 
