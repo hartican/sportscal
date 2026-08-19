@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v87";
+const CACHE_NAME = "nothingsport-shell-v89";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -8,6 +8,7 @@ const APP_SHELL = [
   "/config/sport-domain-registry.js",
   "/config/canonical-sports-taxonomy.js",
   "/config/sport-hierarchy.js",
+  "/config/team-follow-catalogue.js",
   "/config/event-taxonomy-compat.js",
   "/config/preference-taxonomy.js",
   "/config/tennis-coverage.js",
@@ -19,6 +20,7 @@ const APP_SHELL = [
   "/config/user-state-sync.js",
   "/config/server-sync.js",
   "/config/feed-controls.js",
+  "/config/personalised-feed.js",
   "/config/preference-system.js",
   "/config/swipe-calibration.js",
   "/config/fine-tuning.js",

@@ -11482,7 +11482,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
     "sourceCheckedAt": "2026-08-13T02:00:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-13T02:00:00.000Z",
+    "lastReviewedAt": "2026-08-14T07:19:42.415Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati.",
@@ -11504,11 +11504,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "archetype": "marquee tournament window",
+      "archetype": "major test",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati.",
-      "synopsisSpoilerOff": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati. Exact match times will replace this overview only when an authoritative order of play is available."
+      "synopsisSpoilerOff": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati. Match cards require a confirmed draw or order-of-play source; this tournament-level card guarantees that active marquee tennis is not silently omitted while exact court times remain unconfirmed.",
+      "intensitySource": "computed",
+      "hookSpoilerOn": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati.",
+      "synopsisSpoilerOn": "Cincinnati Open's men's ATP Masters 1000 is inside its official hard-court tournament window in Cincinnati. Match cards require a confirmed draw or order-of-play source; this tournament-level card guarantees that active marquee tennis is not silently omitted while exact court times remain unconfirmed."
     }
   },
   {
@@ -11549,7 +11552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
     "sourceCheckedAt": "2026-08-13T02:00:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-13T02:00:00.000Z",
+    "lastReviewedAt": "2026-08-14T07:19:42.415Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati.",
@@ -11571,11 +11574,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "archetype": "marquee tournament window",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati.",
-      "synopsisSpoilerOff": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati. Exact match times will replace this overview only when an authoritative order of play is available."
+      "synopsisSpoilerOff": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati. Match cards require a confirmed draw or order-of-play source; this tournament-level card guarantees that active marquee tennis is not silently omitted while exact court times remain unconfirmed.",
+      "intensitySource": "computed",
+      "hookSpoilerOn": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati.",
+      "synopsisSpoilerOn": "Cincinnati Open's women's WTA 1000 is inside its official hard-court tournament window in Cincinnati. Match cards require a confirmed draw or order-of-play source; this tournament-level card guarantees that active marquee tennis is not silently omitted while exact court times remain unconfirmed."
     }
   },
   {
@@ -11943,6 +11948,64 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    }
+  },
+  {
+    "id": "rugby-south-africa-all-blacks-2026-08-22",
+    "eventId": "rugby-south-africa-all-blacks-2026-08-22",
+    "sport": "Rugby Union",
+    "key": "rugby",
+    "name": "South Africa v All Blacks",
+    "displayTitleCompact": "South Africa v All Blacks",
+    "date": "2026-08-22",
+    "time": "23:00",
+    "startTimeUtc": "2026-08-22T13:00:00Z",
+    "broadcaster": "Broadcast details TBC",
+    "broadcastOptions": [
+      "Broadcast details TBC"
+    ],
+    "expected": 10,
+    "venue": "Ellis Park, Johannesburg",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "test",
+    "selectedSentence": "The 2026 Rugby's Greatest Rivalry tour begins with the All Blacks in Johannesburg.",
+    "fullSpiel": "South Africa host the All Blacks at Ellis Park for the opening Test of the 2026 Rugby's Greatest Rivalry tour. The official All Blacks fixture lists a 3:00 pm Johannesburg start, which is 11:00 pm in Sydney.",
+    "sourceName": "All Blacks 2026 Rugby's Greatest Rivalry fixture",
+    "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
+    "sourceCheckedAt": "2026-08-19T00:00:00Z",
+    "sourceType": "official",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "status": "upcoming",
+    "participants": [
+      {
+        "name": "Springboks",
+        "role": "home"
+      },
+      {
+        "name": "All Blacks",
+        "role": "away"
+      }
+    ],
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The 2026 Rugby's Greatest Rivalry tour begins with the All Blacks in Johannesburg.",
+      "hookSpoilerOn": "The 2026 Rugby's Greatest Rivalry tour begins with the All Blacks in Johannesburg.",
+      "synopsisSpoilerOff": "South Africa host the All Blacks at Ellis Park for the opening Test of the 2026 Rugby's Greatest Rivalry tour.",
+      "synopsisSpoilerOn": "South Africa host the All Blacks at Ellis Park for the opening Test of the 2026 Rugby's Greatest Rivalry tour."
+    },
+    "lastReviewedAt": "2026-08-19T00:00:00Z",
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Official fixture details checked against the All Blacks tour page."
     }
   },
   {
@@ -12775,7 +12838,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The Raiders return to GIO Stadium for a Friday-night pressure game against the Broncos. The current official NRL ladder has Canberra 12th and Brisbane 16th, while the long-run head-to-head sits 24 wins to 17 in Brisbane's favour with one draw.",
     "sourceName": "Official NRL ladder",
     "sourceUrl": "https://www.nrl.com/ladder",
-    "sourceCheckedAt": "2026-08-14T03:04:29.554Z",
+    "sourceCheckedAt": "2026-08-14T07:19:31.374Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -12813,7 +12876,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Official NRL ladder",
       "sourceUrl": "https://www.nrl.com/ladder",
-      "sourceCheckedAt": "2026-08-14T03:04:29.554Z",
+      "sourceCheckedAt": "2026-08-14T07:19:31.374Z",
       "needsPreviewRefresh": false
     },
     "canonicalEventId": "event:nrl:129992502",

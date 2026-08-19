@@ -11955,6 +11955,64 @@
       }
     },
     {
+      "id": "rugby-south-africa-all-blacks-2026-08-22",
+      "eventId": "rugby-south-africa-all-blacks-2026-08-22",
+      "sport": "Rugby Union",
+      "key": "rugby",
+      "name": "South Africa v All Blacks",
+      "displayTitleCompact": "South Africa v All Blacks",
+      "date": "2026-08-22",
+      "time": "23:00",
+      "startTimeUtc": "2026-08-22T13:00:00Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [
+        "Broadcast details TBC"
+      ],
+      "expected": 10,
+      "venue": "Ellis Park, Johannesburg",
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "test",
+      "selectedSentence": "The 2026 Rugby's Greatest Rivalry tour begins with the All Blacks in Johannesburg.",
+      "fullSpiel": "South Africa host the All Blacks at Ellis Park for the opening Test of the 2026 Rugby's Greatest Rivalry tour. The official All Blacks fixture lists a 3:00 pm Johannesburg start, which is 11:00 pm in Sydney.",
+      "sourceName": "All Blacks 2026 Rugby's Greatest Rivalry fixture",
+      "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
+      "sourceCheckedAt": "2026-08-19T00:00:00Z",
+      "sourceType": "official",
+      "replayEligible": true,
+      "highlightEligible": true,
+      "briefingEligible": true,
+      "catchupEligible": true,
+      "status": "upcoming",
+      "participants": [
+        {
+          "name": "Springboks",
+          "role": "home"
+        },
+        {
+          "name": "All Blacks",
+          "role": "away"
+        }
+      ],
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "expectedSpectacle": 10,
+        "hookSpoilerOff": "The 2026 Rugby's Greatest Rivalry tour begins with the All Blacks in Johannesburg.",
+        "hookSpoilerOn": "The 2026 Rugby's Greatest Rivalry tour begins with the All Blacks in Johannesburg.",
+        "synopsisSpoilerOff": "South Africa host the All Blacks at Ellis Park for the opening Test of the 2026 Rugby's Greatest Rivalry tour.",
+        "synopsisSpoilerOn": "South Africa host the All Blacks at Ellis Park for the opening Test of the 2026 Rugby's Greatest Rivalry tour."
+      },
+      "lastReviewedAt": "2026-08-19T00:00:00Z",
+      "editorialPreview": {
+        "status": "research-required",
+        "needsPreviewRefresh": true,
+        "editorialWindowDays": 10,
+        "note": "Official fixture details checked against the All Blacks tour page."
+      }
+    },
+    {
       "id": "event-afl-cd_m20260142306",
       "eventId": "event-afl-cd_m20260142306",
       "sport": "AFL",

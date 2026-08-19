@@ -63,10 +63,9 @@ assert(storylineIds.length <= engine.PREMIUM_SURFACE_POLICY.topStorylineLimit, "
 assert(!mustWatchIds.some(id => storylineIds.includes(id)), "premium surfaces must not duplicate events");
 assert([...surfaces.mustWatch, ...surfaces.topStorylines].every(item => item.enrichment.stakesScore >= 4), "routine fixtures must stay out of premium surfaces");
 
-assert(html.includes('title: "Must Watch"'));
-assert(html.includes('title: "Top Storylines This Week"'));
-assert(html.includes("premiumEventIds"), "premium cards must be removed from the ordinary chronological stream");
-assert(html.includes('document.getElementById("mustWatchRail")'), "the initial feed jump must land on the premium surface rather than skip past it");
+assert(html.includes('function appendManualMustWatchQueue'), "manual Must Watch must replace the automatic premium rail");
+assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "premium cards must stay in the chronological feed unless the user adds them");
+assert(html.includes('return activeTodayAnchorId();'), "the initial feed jump must land at Today");
 assert(html.includes('${enrichment.stakesScore}/5'), "visible stakes must not be mislabeled storyline intensity");
 assert(html.includes("Editorially reviewed ·"), "opened flagship cards must disclose editorial review without exposing internal notes");
 
