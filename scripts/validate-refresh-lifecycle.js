@@ -89,7 +89,7 @@ assert(html.includes("refreshFeedOnFirstLoad()"), "the published feed must refre
 assert(html.includes('id="startupFeedLoading"') && html.includes("Loading your sports feed"), "startup must render the interactive framework with a dedicated card-loading surface");
 assert(html.includes('id="startupProgress"') && html.includes('id="startupProgressValue"'), "the top bar must expose non-blocking startup progress");
 assert(html.includes("setStartupProgress(100)"), "startup progress must reach 100 only when background data work has settled");
-assert(html.includes("Promise.allSettled([") && html.includes("startupCoordinator.markHydrationComplete()"), "canonical context and feed refresh must settle before cards are committed once");
+assert(html.includes("const startupTasks = [") && html.includes("window.requestAnimationFrame(() => {") && html.includes("startupCoordinator.markHydrationComplete()"), "the bundled static feed must commit after one frame while canonical context and refresh continue in the background");
 assert(html.includes("lastBundledEvents.length ? lastBundledEvents : EVENTS.slice()"), "a failed direct-file reload must preserve the last successfully loaded bundle instead of reverting to the tab's stale snapshot");
 assert(worker.includes("/config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
 

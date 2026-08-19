@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="89">
+<meta name="app-shell-version" content="90">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1316,6 +1316,13 @@ main{
   font-size:0.76rem;
   line-height:1.5;
 }
+
+.startup-sports-track{ position:relative; width:76px; height:26px; margin:0 auto 14px; border-bottom:2px solid color-mix(in srgb, var(--accent) 65%, var(--border)); overflow:hidden; }
+.startup-sports-ball{ position:absolute; bottom:4px; left:1px; width:16px; height:16px; border:2px solid var(--accent); border-radius:50%; background:var(--bg-card); animation:startup-sports-roll 1.45s ease-in-out infinite; }
+.startup-sports-ball::before,.startup-sports-ball::after{ content:""; position:absolute; background:var(--accent); border-radius:999px; }
+.startup-sports-ball::before{ width:2px; height:11px; left:5px; top:1px; transform:rotate(45deg); }
+.startup-sports-ball::after{ width:11px; height:2px; left:1px; top:5px; transform:rotate(45deg); }
+@keyframes startup-sports-roll{ 0%{ transform:translateX(0) rotate(0); } 48%{ transform:translateX(54px) rotate(310deg); } 52%{ transform:translateX(54px) rotate(310deg); } 100%{ transform:translateX(0) rotate(620deg); } }
 
 /* ---------- Event card ---------- */
 .event-card{
@@ -4528,6 +4535,10 @@ footer.app-footer{
 .joint-match-actions button{ min-height:36px; padding:0 9px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text); font:800 0.66rem/1 inherit; cursor:pointer; }
 .joint-saved{ border-top:1px solid var(--border); }
 .joint-saved summary{ padding:12px 16px; cursor:pointer; color:var(--text-dim); font-size:0.72rem; font-weight:800; }
+.joint-days{ border-top:1px solid var(--border); }
+.joint-days > summary{ padding:12px 16px; cursor:pointer; color:var(--text); font-size:0.74rem; font-weight:800; }
+.joint-day{ border-top:1px solid var(--border); }
+.joint-day h3{ margin:0; padding:12px 16px 6px; color:var(--text-dim); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; }
 .joint-overview{ padding:18px 16px; color:var(--text-dim); font-size:0.78rem; line-height:1.5; }
 
 body.header-compact-1 header.top{
@@ -4837,6 +4848,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/server-sync.js"></script>
 <script src="config/feed-controls.js"></script>
 <script src="config/personalised-feed.js"></script>
+<script src="config/source-trust.js"></script>
+<script src="config/venue-registry.js"></script>
 <script src="config/preference-system.js"></script>
 <script src="config/swipe-calibration.js"></script>
 <script src="config/fine-tuning.js"></script>
@@ -4857,6 +4870,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
+const SOURCE_TRUST = globalThis.NOTHINGSPORTS_SOURCE_TRUST || null;
+const VENUE_REGISTRY = globalThis.NOTHINGSPORTS_VENUE_REGISTRY || null;
 const FEED_REFRESH_LIFECYCLE = globalThis.NOTHINGSPORTS_FEED_REFRESH_LIFECYCLE;
 const startupCoordinator = FEED_REFRESH_LIFECYCLE?.createStartupCoordinator
   ? FEED_REFRESH_LIFECYCLE.createStartupCoordinator({
@@ -6654,6 +6669,7 @@ function coerceEventRecord(raw, index){
   const date = raw.date || fromUtc?.date;
   const time = raw.time || fromUtc?.time;
   if (!key || !SPORT_META[key] || !name || !date || !time) return null;
+  const venueRecord = VENUE_REGISTRY?.resolve?.(raw.venue);
   return {
     ...raw,
     id: raw.id || raw.eventId || `remote_${index}`,
@@ -6664,8 +6680,12 @@ function coerceEventRecord(raw, index){
     date,
     time,
     broadcaster: raw.broadcaster || raw.broadcastOptions?.[0] || "Broadcaster TBC",
+    sourceTrust: SOURCE_TRUST?.normaliseTrust?.(raw.sourceTrust, raw.sourceType) || raw.sourceTrust || "unverified",
     expected: Number(raw.expected ?? raw.recommendationScore ?? 6),
-    venue: raw.venue ?? null,
+    venue: venueRecord?.officialName || raw.venue || null,
+    venueId: venueRecord?.id || raw.venueId || null,
+    venueDisplayName: venueRecord?.displayName || raw.venueDisplayName || raw.venue || null,
+    venueOfficialName: venueRecord?.officialName || raw.venue || null,
     liveWindow: Number(raw.liveWindow || raw.calendarTemplate?.durationHours || 3),
   };
 }
@@ -7161,7 +7181,11 @@ function normalizeEvents(events = activeEvents){
     ev.narrativeType = ev.narrativeType || inferRound(ev.name);
     ev.broadcastOptions = ev.broadcastOptions || [ev.broadcaster].filter(Boolean);
     ev.broadcasterIds = inferBroadcasterIds([ev.broadcaster, ...ev.broadcastOptions, ...(ev.broadcasts || [])]);
-    ev.venueId = ev.venueId || (ev.venue ? ev.venue.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : null);
+    ev.sourceTrust = SOURCE_TRUST?.normaliseTrust?.(ev.sourceTrust, ev.sourceType) || ev.sourceTrust || "unverified";
+    const venueRecord = VENUE_REGISTRY?.resolve?.(ev.venue);
+    ev.venueId = venueRecord?.id || ev.venueId || (ev.venue ? ev.venue.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : null);
+    ev.venueDisplayName = venueRecord?.displayName || ev.venueDisplayName || ev.venue || null;
+    ev.venueOfficialName = venueRecord?.officialName || ev.venueOfficialName || ev.venue || null;
     ev.replayEligible = ev.replayEligible ?? ev.expected >= 7;
     ev.highlightEligible = ev.highlightEligible ?? ev.expected >= 6;
     ev.replayWindowEnd = ev.replayWindowEnd || null;
@@ -9727,11 +9751,13 @@ function buildEventCard(ev, options = {}){
     nameLine.appendChild(expandControl);
   }
   nameWrap.appendChild(nameLine);
-  if (state === "opened" && ev.venue){
-    const venueEl = document.createElement("div");
-    venueEl.className = "event-venue";
-    venueEl.textContent = ev.venue;
-    nameWrap.appendChild(venueEl);
+    if (state === "opened" && ev.venue){
+      const venueEl = document.createElement("div");
+      venueEl.className = "event-venue";
+      venueEl.textContent = ev.venueDisplayName && ev.venueOfficialName && ev.venueDisplayName !== ev.venueOfficialName
+        ? `${ev.venueDisplayName} · officially ${ev.venueOfficialName}`
+        : (ev.venueDisplayName || ev.venue);
+      nameWrap.appendChild(venueEl);
   }
   topRow.appendChild(nameWrap);
 
@@ -9915,9 +9941,10 @@ function buildEventCard(ev, options = {}){
 
     const details = document.createElement("div");
     details.className = "event-detail-grid";
+    const sourceTrust = SOURCE_TRUST?.sourceTrustForEvent?.(ev);
     details.innerHTML = `
       <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
-      ${ev.sourceName ? `<div class="event-detail-item"><strong>Data</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
+      ${ev.sourceName ? `<div class="event-detail-item"><strong>${sourceTrust?.label || "Source"}</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
     mainDiv.appendChild(details);
     const spoilerControl = buildSpoilerOverrideControl(ev);
@@ -10108,6 +10135,56 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   return row;
 }
 
+function jointTournamentDayGroups(tournamentDocument){
+  const uniqueMatches = new Map();
+  [...(tournamentDocument.schedule?.matches || []), ...(tournamentDocument.matchHistory || [])].forEach(match => {
+    if (!uniqueMatches.has(match.matchId)) uniqueMatches.set(match.matchId, match);
+  });
+  const groups = new Map();
+  uniqueMatches.forEach(match => {
+    const date = match.scheduleDate || tournamentDocument.schedule?.date || tournamentDocument.tournament.startDate;
+    if (!groups.has(date)) groups.set(date, []);
+    groups.get(date).push(match);
+  });
+  return [...groups.entries()]
+    .sort(([first], [second]) => first.localeCompare(second))
+    .map(([date, matches]) => ({
+      date,
+      matches: matches.sort((first, second) => (first.scheduledSequence || 0) - (second.scheduledSequence || 0) || first.matchId.localeCompare(second.matchId)),
+    }));
+}
+
+function jointTournamentDayLabel(date, tournamentDocument){
+  const start = new Date(`${tournamentDocument.tournament.startDate}T00:00:00Z`);
+  const day = new Date(`${date}T00:00:00Z`);
+  const dayNumber = Math.max(1, Math.round((day - start) / 86400000) + 1);
+  const label = new Intl.DateTimeFormat("en-AU", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }).format(day);
+  return `Day ${dayNumber} · ${label}`;
+}
+
+function buildJointTournamentDays(tournamentDocument){
+  const groups = jointTournamentDayGroups(tournamentDocument);
+  if (!groups.length) return null;
+  const details = globalThis.document.createElement("details");
+  details.className = "joint-days";
+  const summary = globalThis.document.createElement("summary");
+  summary.textContent = `Tournament days (${groups.length})`;
+  details.appendChild(summary);
+  groups.forEach(group => {
+    const section = globalThis.document.createElement("section");
+    section.className = "joint-day";
+    section.dataset.scheduleDate = group.date;
+    const heading = globalThis.document.createElement("h3");
+    heading.textContent = jointTournamentDayLabel(group.date, tournamentDocument);
+    const list = globalThis.document.createElement("div");
+    list.className = "joint-match-list";
+    group.matches.forEach(match => list.appendChild(buildJointTournamentMatch(match, tournamentDocument)));
+    section.append(heading, list);
+    details.appendChild(section);
+  });
+  return details;
+}
+
 function buildJointTournamentCard(tournamentDocument = jointTournamentData){
   const spoilerView = JOINT_TENNIS_TOURNAMENT?.spoilerSafeView?.(tournamentDocument, userPreferences.showSpoilers) || tournamentDocument;
   const card = tournamentDocument === null ? null : globalThis.document.createElement("section");
@@ -10157,6 +10234,8 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData){
   list.className = "joint-match-list";
   promoted.forEach(match => list.appendChild(buildJointTournamentMatch(match, spoilerView)));
   card.appendChild(list);
+  const days = buildJointTournamentDays(spoilerView);
+  if (days) card.appendChild(days);
   const addressableMatches = [...matches, ...(spoilerView.matchHistory || [])];
   const savedIds = addressableMatches.filter(match => {
     const action = getEventAction(jointMatchActionEvent(match, spoilerView));
@@ -10455,7 +10534,7 @@ function renderStartupFeedLoading(){
   const container = document.getElementById("listView");
   if (document.getElementById("startupFeedLoading")) return;
   container.innerHTML = `<div class="startup-feed-loading" id="startupFeedLoading" role="status" aria-live="polite">
-    <div><strong>Loading your sports feed</strong><span>The app is ready to use while fixture context and card details load in the background.</span></div>
+    <div><div class="startup-sports-track" aria-hidden="true"><span class="startup-sports-ball"></span></div><strong>Loading your sports feed</strong><span>The app is ready to use while fixture context and card details load in the background.</span></div>
   </div>`;
 }
 
@@ -14222,19 +14301,24 @@ function trackStartupTask(task){
     setStartupProgress(15 + startupBackgroundTasksSettled * 40);
   });
 }
-Promise.allSettled([
+const startupTasks = [
   trackStartupTask(loadCanonicalSportsData()),
   trackStartupTask(refreshFeedOnFirstLoad()),
-  loadJointTournamentData(),
-]).then(() => {
+  trackStartupTask(loadJointTournamentData()),
+];
+// The static bundled feed already shipped with the shell. Render it after one
+// animation frame instead of withholding the first card behind network work.
+window.requestAnimationFrame(() => {
+  startupCoordinator.markHydrationComplete();
+  renderAll();
+});
+Promise.allSettled(startupTasks).then(() => {
   setStartupProgress(100);
-  const updateReloadScheduled = startupCoordinator.markHydrationComplete();
   renderAll();
   window.setTimeout(() => {
     startupProgressDismissed = true;
     renderStartupProgress();
   }, 650);
-  if (updateReloadScheduled) return;
   if (!userPreferences.onboardingComplete){
     openSettings({ firstRun: true });
   } else {

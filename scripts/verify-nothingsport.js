@@ -353,8 +353,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v89"'), "the team-follow release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="89">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v90"'), "the source and venue release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="90">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -535,6 +535,7 @@ assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial 
 assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentCard(container)"), "Cincinnati must appear as a normal eligible Tennis suggestion rather than an automatic top pin");
 assert(!html.includes('textContent = action.saved ? "Saved" : "Save"'), "Cincinnati match actions must not retain the duplicate Save action");
 assert(html.includes('"Add to Must Watch"') && html.includes('Must Watch matches (${savedOutside.length})'), "Cincinnati matches must use the same Must Watch vocabulary as normal cards");
+assert(html.includes("function buildJointTournamentDays") && html.includes("Tournament days (${groups.length})"), "the combined Cincinnati card must expose one drill-down section per tournament day");
 assert(enrichedEventSchema.required.includes("followContext"), "derived enrichment must require resolved follow context");
 assert(enrichedEventSchema.properties.followContext.items.properties.participantType.enum.includes("competitor"), "follow context must use Competitor as the canonical individual participant term");
 assert.equal(sportContextSchema.properties.schemaVersion.const, "sport-context.v1", "modular sport context must be explicitly versioned");

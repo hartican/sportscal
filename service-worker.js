@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v89";
+const CACHE_NAME = "nothingsport-shell-v90";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -21,6 +21,8 @@ const APP_SHELL = [
   "/config/server-sync.js",
   "/config/feed-controls.js",
   "/config/personalised-feed.js",
+  "/config/source-trust.js",
+  "/config/venue-registry.js",
   "/config/preference-system.js",
   "/config/swipe-calibration.js",
   "/config/fine-tuning.js",
