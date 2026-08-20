@@ -241,7 +241,7 @@ assert(!html.includes('id="feedFilterVisibilityBtn"') && !html.includes('id="fee
 assert(html.includes("function stickyFeedChromeHeight()"), "focused-view offsets must continue to account for pinned app chrome");
 assert(html.includes("function scheduleFirstCardViewportFit()") && html.includes('"header-compact-1", "header-compact-2", "header-compact-3"'), "the phone opening must progressively compact the branded header around the first card");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"]'), "first login must keep Sports Followed and viewing first, followed by optional calibration");
+assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "first login must keep only Sports followed and viewing in the user-facing setup");
 assert(!html.includes('data-sports-followed-tab="events"'), "named events must not remain a follow-choice tab");
 assert(html.includes("data-domain-froth") && html.includes("data-domain-custom"), "followed sports must use a Casual-to-Froth slider with a separate Custom mode");
 assert(html.includes("data-inline-froth") && html.includes("selector-choice-stack"), "selected sports must render Froth controls inline with their selector rows");
@@ -285,7 +285,10 @@ assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main 
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
 assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
 const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
-assert(settingsMenuSource.includes('"Sports Followed"'), "Settings must use Sports Followed as the single top-level home for follow preferences");
+const settingsMenuLabels = ["Account & sync", "Sports followed", "Viewing & reminders", "Local venues", "Feedback & appearance"];
+assert(settingsMenuLabels.every(label => settingsMenuSource.includes(`"${label}"`)), "Settings must expose the five approved top-level areas");
+assert(settingsMenuLabels.every((label, index) => index === 0 || settingsMenuSource.indexOf(`"${settingsMenuLabels[index - 1]}"`) < settingsMenuSource.indexOf(`"${label}"`)), "Settings must retain the approved top-to-bottom order");
+assert(!settingsMenuSource.includes('settingsMenuItem("tune"') && !settingsMenuSource.includes('settingsMenuItem("calibration"'), "Tune and Swipe Calibration must remain absent from user-facing Settings navigation");
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
 assert.equal(JSON.parse(fs.readFileSync("schemas/product-events.schema.json", "utf8")).properties.schemaVersion.const, "product-events.v1", "pilot measurement must expose one versioned request contract");
@@ -300,7 +303,7 @@ assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph
 assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"]'), "optional swipe calibration must be the final onboarding step");
+assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "Swipe Calibration must remain BTS and absent from onboarding");
 assert(html.includes("applyCuratedEventSwipe") && html.includes("sessionDismissedEventIds.add"), "curated event swipes must learn immediately and dismiss dislikes only for the session");
 assert(html.includes('source: "calibration"') && html.includes('source: "feed"') && preferenceSystemSource.includes('"tune"'), "learning signals must retain their calibration, feed, or Tune source");
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
@@ -352,8 +355,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v93"'), "the completion-audit release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="93">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v94"'), "the completion-audit release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="94">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -874,6 +877,8 @@ globalThis.__test = {
   eventMeetsDerivedRetention,
   eventIsEditorialMustShow,
   eventMeetsCoveragePreference,
+  eventEligibleForOneOffMotorsportDiscovery,
+  discoverySportHasFroth,
   eventMatchesSportPreferences,
   feedFilterMatchesEvent,
   focusedRecentPastDateKey,
@@ -940,6 +945,8 @@ globalThis.__test = {
   eventTimeLabel,
   standingsEntriesForVisibility,
   standingsColumnsForCompetition,
+  standingsFrothRank,
+  orderStandingsCompetitions,
   rankingCompetitionsForStandings,
   rankingSportKeysForStandings,
 };`;
@@ -968,6 +975,116 @@ assert.equal(app.eventMeetsCoveragePreference({
   id: "all-blacks-springboks-regression", eventId: "all-blacks-springboks-regression", key: "rugby", sportId: "rugby", name: "South Africa v All Blacks", date: "2026-08-22", time: "23:00", stakesScore: 1,
   participants: [{ name: "South Africa" }, { name: "All Blacks" }],
 }), true, "a followed All Blacks fixture must surface even at Casual depth");
+
+const teamFixtureCases = [
+  {
+    domainId: "sport:rugby",
+    selectorId: "sport:rugby",
+    participantId: "team:rugby:all-blacks",
+    event: { key: "rugby", sportId: "rugby", name: "South Africa v All Blacks", participants: [{ name: "South Africa" }, { name: "All Blacks" }] },
+  },
+  {
+    domainId: "sport:cricket",
+    selectorId: "sport:cricket",
+    participantId: "team:cricket:australia",
+    event: { key: "cricket", sportId: "cricket", name: "Australia v India", participants: [{ name: "Australia" }, { name: "India" }] },
+  },
+  {
+    domainId: "sport:football",
+    selectorId: "sport:football",
+    participantId: "team:football:socceroos",
+    event: { key: "fifa", sportId: "football", name: "Socceroos v Japan", participants: [{ name: "Socceroos" }, { name: "Japan" }] },
+  },
+];
+teamFixtureCases.forEach(({ domainId, selectorId, participantId, event: fixture }, index) => {
+  const graph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+    profileId: `profile:team-fixture-${index}`,
+    domainIds: [domainId],
+    templateByDomain: { [domainId]: "template:casual" },
+  });
+  graph.entityFollows = [{ profileId: graph.profileId, participantId, followLevel: "follow" }];
+  app.setPreferences({ selectedSelectorEntityIds: [selectorId], preferenceGraph: graph });
+  assert.equal(app.eventMeetsCoveragePreference({
+    id: `followed-team-${index}`,
+    eventId: `followed-team-${index}`,
+    date: "2026-08-22",
+    time: "12:00",
+    stakesScore: 1,
+    ...fixture,
+  }), true, `${domainId} must surface every followed-team fixture at Casual depth`);
+});
+
+const thresholdCases = [
+  ["sport:rugby", "rugby"],
+  ["sport:cricket", "cricket"],
+  ["sport:football", "fifa"],
+];
+thresholdCases.forEach(([domainId, key], sportIndex) => {
+  const makeFixture = stakesScore => ({
+    id: `threshold-${sportIndex}-${stakesScore}`,
+    eventId: `threshold-${sportIndex}-${stakesScore}`,
+    key,
+    sportId: domainId.replace(/^sport:/, ""),
+    name: "Unfollowed Team A v Unfollowed Team B",
+    participants: [{ name: "Unfollowed Team A" }, { name: "Unfollowed Team B" }],
+    date: "2026-08-23",
+    time: "12:00",
+    stakesScore,
+  });
+  const setTemplate = templateId => app.setPreferences({
+    selectedSelectorEntityIds: [domainId],
+    preferenceGraph: app.PREFERENCE_SYSTEM.createPreferenceGraph({
+      profileId: `profile:threshold-${sportIndex}-${templateId}`,
+      domainIds: [domainId],
+      templateByDomain: { [domainId]: templateId },
+    }),
+  });
+  setTemplate("template:casual");
+  assert.equal(app.eventMeetsCoveragePreference(makeFixture(5)), false, `${domainId} Casual must add no unrelated fixtures`);
+  setTemplate("template:like");
+  assert.equal(app.eventMeetsCoveragePreference(makeFixture(4)), false, `${domainId} Like must exclude 4/5 unrelated fixtures`);
+  assert.equal(app.eventMeetsCoveragePreference(makeFixture(5)), true, `${domainId} Like must include 5/5 unrelated fixtures`);
+  setTemplate("template:froth");
+  assert.equal(app.eventMeetsCoveragePreference(makeFixture(3)), false, `${domainId} Froth must exclude unrelated fixtures below 4/5`);
+  assert.equal(app.eventMeetsCoveragePreference(makeFixture(4)), true, `${domainId} Froth must include 4/5 unrelated fixtures`);
+  assert.equal(app.eventMeetsCoveragePreference(makeFixture(5)), true, `${domainId} Froth must include 5/5 unrelated fixtures`);
+});
+
+const oneOffMotorsportEvent = (id, key, name) => ({
+  id,
+  eventId: id,
+  key,
+  sportId: key,
+  sport: name,
+  name,
+  date: "2026-08-23",
+  time: "12:00",
+  stakesScore: 5,
+});
+const leMansDiscovery = oneOffMotorsportEvent("one-off-le-mans", "lemans", "24 Hours of Le Mans");
+const dakarDiscovery = oneOffMotorsportEvent("one-off-dakar", "rally", "Paris-Dakar Rally");
+const setMotorsportTemplate = (domainId, templateId) => app.setPreferences({
+  selectedSelectorEntityIds: [domainId],
+  preferenceGraph: app.PREFERENCE_SYSTEM.createPreferenceGraph({
+    profileId: `profile:${domainId}:${templateId}`,
+    domainIds: [domainId],
+    templateByDomain: { [domainId]: templateId },
+  }),
+});
+app.setActions({});
+setMotorsportTemplate("sport:f1", "template:like");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(leMansDiscovery), false, "Le Mans must not surface from an F1 Like preference alone");
+assert.equal(app.eventMeetsCoveragePreference(leMansDiscovery), false, "the coverage pipeline must enforce the F1 Froth gate for Le Mans");
+setMotorsportTemplate("sport:f1", "template:froth");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(leMansDiscovery), true, "F1 Froth must unlock Le Mans as a feed-only one-off");
+setMotorsportTemplate("sport:motorsport", "template:froth");
+assert.equal(app.discoverySportHasFroth("sport:f1"), true, "parent Motorsport Froth must inherit into F1");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(leMansDiscovery), true, "parent Motorsport Froth must unlock F1 one-offs");
+setMotorsportTemplate("sport:rally", "template:like");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(dakarDiscovery), false, "Dakar must not surface from Rally Like alone");
+setMotorsportTemplate("sport:rally", "template:froth");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(dakarDiscovery), true, "Rally Froth must unlock Dakar as a feed-only one-off");
+assert.equal(app.discoverySportHasFroth("sport:f1"), false, "Rally Froth must not leak into the F1 sibling");
 app.setPreferences({});
 const newSelectorOptInIds = Array.from(app.selectorNewPromptEntities(), entity => entity.id);
 const expectedNewSelectorOptInIds = Array.from(app.SELECTOR_TAXONOMY.exposedSportNodes || [])
@@ -995,6 +1112,34 @@ assert.equal(
   "a followed Casual NRL sport must remain eligible for Standings without a separate visibility preference"
 );
 assert.deepEqual(Array.from(app.rankingSportKeysForStandings(casualNrlPreferences)), ["nrl"], "Standings sport filters must use stable product ordering");
+const standingsOrderGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
+  profileId: "profile:standings-order",
+  domainIds: ["sport:afl", "sport:nrl"],
+  templateByDomain: { "sport:afl": "template:froth", "sport:nrl": "template:like" },
+});
+app.setPreferences({
+  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
+  preferenceGraph: standingsOrderGraph,
+  standings: {
+    selectedSportKeys: ["afl", "nrl"],
+    pinTimestamps: {
+      "competition:pinned-froth": "2026-08-20T00:00:00.000Z",
+      "competition:pinned-like-old": "2026-08-20T01:00:00.000Z",
+      "competition:pinned-like-new": "2026-08-20T02:00:00.000Z",
+    },
+  },
+});
+assert.deepEqual(Array.from(app.orderStandingsCompetitions([
+  { id: "competition:unpinned-froth", name: "Unpinned Froth", sportDomainId: "sport:afl" },
+  { id: "competition:pinned-like-old", name: "Pinned Like Old", sportDomainId: "sport:nrl" },
+  { id: "competition:pinned-like-new", name: "Pinned Like New", sportDomainId: "sport:nrl" },
+  { id: "competition:pinned-froth", name: "Pinned Froth", sportDomainId: "sport:afl" },
+]), competition => competition.id), [
+  "competition:pinned-froth",
+  "competition:pinned-like-new",
+  "competition:pinned-like-old",
+  "competition:unpinned-froth",
+], "Standings must order pins first, then Froth, then the most recently pinned equal card");
 const nbaGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
   profileId: "profile:nba-standings",
   domainIds: ["sport:nba"],

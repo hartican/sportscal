@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="93">
+<meta name="app-shell-version" content="94">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -8399,9 +8399,25 @@ function discoverySportIsFollowed(nodeId, preferences = userPreferences){
 function discoverySportHasFroth(nodeId, preferences = userPreferences){
   return (preferences?.preferenceGraph?.domainPreferences || []).some(preference => (
     preference.enabled !== false
-    && preference.templateId === "template:froth"
-    && (preference.sportDomainId === nodeId || DISCOVERY_CATALOGUE?.familyIds?.(nodeId).includes(preference.sportDomainId))
+    && (
+      preference.templateId === "template:froth"
+      // Legacy "all fixtures" choices migrate to Custom. Treat that explicit
+      // depth as Froth for inherited one-off discovery so migration does not
+      // silently narrow a user's feed.
+      || (preference.templateId === "template:custom" && preference.includeAllFixtures === true)
+    )
+    && (
+      preference.sportDomainId === nodeId
+      || DISCOVERY_CATALOGUE?.familyIds?.(preference.sportDomainId).includes(nodeId)
+      || DISCOVERY_CATALOGUE?.familyIds?.(nodeId).includes(preference.sportDomainId)
+    )
   ));
+}
+
+function eventEligibleForOneOffMotorsportDiscovery(ev, preferences = userPreferences){
+  const relevantSportIds = DISCOVERY_CATALOGUE?.oneOffMotorsportFrothIds?.(ev) || [];
+  if (!relevantSportIds.length || getEventAction(ev).mustWatch) return true;
+  return relevantSportIds.some(nodeId => discoverySportHasFroth(nodeId, preferences));
 }
 
 function followDiscoverySport(nodeId){
@@ -8901,6 +8917,7 @@ function eventUsesFocusedSportFrothOverride(ev){
 }
 
 function eventMeetsCoveragePreference(ev){
+  if (!eventEligibleForOneOffMotorsportDiscovery(ev)) return false;
   const domainPreferences = eventDomainPreferences(ev);
   const enabledDomainPreferences = domainPreferences.filter(preference => preference?.enabled !== false);
   if (!domainPreferences.length) return eventMeetsGlobalThreshold(ev);
@@ -8959,6 +8976,7 @@ function eventIsAutoArchived(ev, reference = nowAEST()){
 function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = activeEvents.slice();
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
+  list = list.filter(eventEligibleForOneOffMotorsportDiscovery);
   list = list.filter(ev => (
     eventMatchesExplicitSubfilters(ev)
     && eventMatchesTennisFilters(ev)
@@ -12396,7 +12414,7 @@ function toggleSelectorEntityInDraft(entityId){
   syncDraftSelectorSports();
 }
 
-const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"];
+const ONBOARDING_SECTIONS = ["sports", "viewing"];
 
 function calibrationProcessedTargetKeys(graph){
   const learning = graph?.learning || {};
@@ -13103,7 +13121,7 @@ function renderSettingsMenu(body){
     : "Any time";
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
-    ${settingsMenuItem("sports", "ui:filter", "Sports Followed", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
+    ${settingsMenuItem("sports", "ui:filter", "Sports followed", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback & appearance", "Feedback, app appearance and optional pilot details")}
@@ -13805,8 +13823,8 @@ function renderSettingsScreen(){
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
     pilot: ["Trust pilot", "Automatic, disclosed measurement for signed-in users, with opt-out."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
-    sports: [settingsFirstRun ? "Sports Followed · 1 of 3" : "Sports Followed", settingsFirstRun ? "Pick sports, then tune selected sports inline." : "Follow sports and tune each one from Casual through Froth."],
-    viewing: [settingsFirstRun ? "Viewing preferences · 2 of 3" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
+    sports: [settingsFirstRun ? "Sports followed · 1 of 2" : "Sports followed", settingsFirstRun ? "Pick sports, then tune selected sports inline." : "Follow sports and tune each one from Casual through Froth."],
+    viewing: [settingsFirstRun ? "Viewing preferences · 2 of 2" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     calibration: [settingsFirstRun ? "Swipe calibration · 3 of 3" : "Swipe calibration", "Optional recognisable anchors teach the curated feed without changing complete fixture lists."],
     tune: ["Tune", "Move from broad sports into competitions, teams and players. Every choice autosaves."],
     providers: ["TV & streaming", "Choose the services available to you."],
@@ -14018,7 +14036,7 @@ function advanceOnboardingOrSave(){
     return;
   }
   if (settingsWizardStep === 0 && !selectedPreferenceDomainIds(draftPreferences).length){
-    showToast("Choose at least one sport or special event.");
+    showToast("Choose at least one sport.");
     return;
   }
   if (settingsWizardStep < ONBOARDING_SECTIONS.length - 1){

@@ -42,7 +42,7 @@ assert.equal(calibration.primaryTargetForEvent(piastri).targetId, "competitor:f1
 assert.equal(calibration.primaryTargetForEvent({ id: "event:cricket", key: "cricket", name: "Test match" }).targetId, "sport:cricket", "unconfigured feed cards must still learn against a bounded sport target");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"]'), "calibration must be the optional final onboarding step");
+assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "calibration must remain available to the learning model without appearing in onboarding");
 assert(html.includes('id="calibrationMoreBtn"') && html.includes('id="calibrationLessBtn"') && html.includes('id="calibrationSkipBtn"'), "calibration must expose visible More, Less and Skip controls");
 assert(html.includes('event.key === "ArrowRight"') && html.includes('event.key === "ArrowLeft"'), "curated cards must expose keyboard swipe equivalents");
 assert(html.includes("orderCuratedDayEvents(groups[dateStr])"), "learned signals must immediately reorder matching curated cards within their feed day");

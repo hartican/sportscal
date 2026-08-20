@@ -24,6 +24,18 @@
   const commonwealthByDiscipline = new Map(commonwealthDisciplines.map(node => [node.canonicalDiscipline, node]));
   const topLevelSportNodes = Object.freeze(sportNodes.filter(node => node.parentId === "category:sports"));
   const catalogueOrder = new Map(sportNodes.map((node, index) => [node.id, index]));
+  const oneOffMotorsportFrothRules = Object.freeze([
+    Object.freeze({
+      sportId: "sport:f1",
+      canonicalKeys: Object.freeze(["lemans", "goodwood"]),
+      titlePattern: /\ble mans\b|\bbathurst(?:\s+1000)?\b|\bindy(?:\s+500)?\b|\bindianapolis\s+500\b|\bgoodwood\b/i,
+    }),
+    Object.freeze({
+      sportId: "sport:rally",
+      canonicalKeys: Object.freeze([]),
+      titlePattern: /\b(?:paris[- ]?)?dakar\b/i,
+    }),
+  ]);
 
   const legacyFollowAliases = Object.freeze({
     "category:sports": sportNodes.map(node => node.id),
@@ -385,6 +397,16 @@
     return null;
   }
 
+  function oneOffMotorsportFrothIds(event){
+    const canonicalKey = String(event?.key || event?.sportKey || event?.sportId || "").trim().toLowerCase().replace(/^sport:/, "");
+    const title = [event?.name, event?.displayTitleCompact, event?.sport, event?.competition]
+      .filter(Boolean)
+      .join(" | ");
+    return orderedSportIds(oneOffMotorsportFrothRules
+      .filter(rule => rule.canonicalKeys.includes(canonicalKey) || rule.titlePattern.test(title))
+      .map(rule => rule.sportId));
+  }
+
   function nodeDepth(nodeId){
     let depth = 0;
     let node = sportById.get(nodeId);
@@ -472,6 +494,7 @@
     isUnfinishedEvent,
     eventIsInSydneyWindow,
     eventNodeId,
+    oneOffMotorsportFrothIds,
     countUnderlyingEvents,
     catalogueVisibility,
   });

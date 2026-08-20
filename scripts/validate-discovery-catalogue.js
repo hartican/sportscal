@@ -186,5 +186,21 @@ assert.equal(catalogue.sydneyDateKey("2026-08-13T14:30:00Z"), "2026-08-14", "UTC
 assert.equal(catalogue.addCalendarDays("2026-10-04", 1), "2026-10-05", "calendar windows must remain stable over Sydney daylight-saving changes");
 assert.equal(catalogue.eventNodeId({ taxonomySportId: "sport:australian-football" }), "sport:afl");
 assert.equal(catalogue.eventNodeId({ key: "cwg", discipline: "Rugby Sevens" }), "sport:rugby");
+assert.deepEqual(
+  catalogue.oneOffMotorsportFrothIds({ key: "lemans", name: "24 Hours of Le Mans" }),
+  ["sport:f1"],
+  "Le Mans must stay an internal one-off unlocked by F1 Froth"
+);
+assert.deepEqual(
+  catalogue.oneOffMotorsportFrothIds({ key: "motorsport", name: "Bathurst 1000" }),
+  ["sport:f1"],
+  "future Bathurst inputs must resolve without becoming a follow choice"
+);
+assert.deepEqual(
+  catalogue.oneOffMotorsportFrothIds({ key: "rally", name: "Paris-Dakar Rally" }),
+  ["sport:rally"],
+  "Dakar must be unlocked by Rally Froth"
+);
+assert.deepEqual(catalogue.oneOffMotorsportFrothIds({ key: "f1", name: "Australian Grand Prix" }), []);
 
 console.log("Discovery catalogue valid: v1 hierarchy, event-follow migration, Sydney-window counts, family visibility and session-only mixed states passed.");
