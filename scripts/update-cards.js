@@ -63,6 +63,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-joint-tennis-tournament.js"],
   ["scripts/build-tennis-context.js"],
   ["scripts/build-tennis-context.js", "--check"],
+  ["scripts/validate-country-flags.js"],
   ["scripts/validate-tennis-catalogue.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-sport-hierarchy.js"],

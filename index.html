@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="95">
+<meta name="app-shell-version" content="96">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -4539,7 +4539,8 @@ footer.app-footer{
 .joint-tournament-drilldown-head p{ margin:4px 0 0; color:var(--text-dim); font-size:0.7rem; line-height:1.45; }
 .joint-athlete-follow-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:8px; max-height:430px; overflow:auto; padding:0 16px 16px; }
 .joint-athlete-follow{ min-height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:9px; background:transparent; color:var(--text); cursor:pointer; text-align:left; }
-.joint-athlete-follow span{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:0.72rem; font-weight:750; }
+.joint-athlete-follow .athlete-with-flag{ min-width:0; flex:1 1 auto; }
+.joint-athlete-follow .athlete-name{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:0.72rem; font-weight:750; }
 .joint-athlete-follow strong{ flex:0 0 auto; color:var(--text-dim); font-size:0.65rem; }
 .joint-athlete-follow[aria-pressed="true"]{ border-color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); }
 .joint-athlete-follow[aria-pressed="true"] strong{ color:var(--accent); }
@@ -4568,8 +4569,14 @@ footer.app-footer{
   line-height:1.45;
 }
 .joint-match-order{ color:var(--text-dim); font-size:0.66rem; line-height:1.45; }
-.joint-match-copy strong{ display:block; font-size:0.8rem; }
-.joint-match-copy span{ display:block; margin-top:3px; color:var(--text-dim); font-size:0.68rem; }
+.joint-match-copy strong{ display:flex; flex-wrap:wrap; align-items:center; gap:5px; font-size:0.8rem; }
+.joint-match-copy > span{ display:block; margin-top:3px; color:var(--text-dim); font-size:0.68rem; }
+.joint-match-player,.athlete-with-flag{ display:inline-flex; align-items:center; gap:5px; min-width:0; }
+.joint-match-player .athlete-name{ color:var(--text); font:inherit; }
+.joint-match-versus{ color:var(--text-dim); font-size:0.68rem; font-weight:750; }
+.country-flag{ display:inline-block; width:20px; height:15px; flex:0 0 20px; margin:0; border-radius:2px; object-fit:cover; box-shadow:0 0 0 1px rgba(255,255,255,0.18); vertical-align:middle; }
+.standings-athlete{ display:inline-flex; align-items:center; gap:6px; }
+.standings-athlete .country-flag{ width:18px; height:13.5px; flex-basis:18px; }
 .joint-tour{ color:var(--accent); font-weight:900; }
 .joint-match-actions{ display:flex; gap:5px; }
 .joint-match-actions button{ min-height:36px; padding:0 9px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text); font:800 0.66rem/1 inherit; cursor:pointer; }
@@ -4877,6 +4884,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 <script src="config/brand-copy.js"></script>
 <script src="config/vector-assets.js"></script>
+<script src="config/country-flags.js"></script>
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/sport-hierarchy.js"></script>
@@ -4914,6 +4922,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
+const COUNTRY_FLAGS = globalThis.NOTHINGSPORTS_COUNTRY_FLAGS || null;
 const SOURCE_TRUST = globalThis.NOTHINGSPORTS_SOURCE_TRUST || null;
 const VENUE_REGISTRY = globalThis.NOTHINGSPORTS_VENUE_REGISTRY || null;
 const FEED_REFRESH_LIFECYCLE = globalThis.NOTHINGSPORTS_FEED_REFRESH_LIFECYCLE;
@@ -10202,6 +10211,19 @@ function jointMatchTimingLabel(match, tournamentDocument = jointTournamentData){
       : timing.label || "Time unavailable";
 }
 
+function buildAthleteName(athlete, { className = "athlete-with-flag" } = {}){
+  const identity = globalThis.document.createElement("span");
+  identity.className = className;
+  const countryCode = athlete?.nationalityCode || athlete?.countryCode || athlete?.metadata?.representedCountryCode;
+  const flag = COUNTRY_FLAGS?.flagMarkup?.(countryCode);
+  if (flag) identity.insertAdjacentHTML("beforeend", flag);
+  const name = globalThis.document.createElement("span");
+  name.className = "athlete-name";
+  name.textContent = athlete?.name || athlete?.displayName || athlete?.shortName || "Competitor TBC";
+  identity.appendChild(name);
+  return identity;
+}
+
 function buildJointTournamentMatch(match, tournamentDocument, { savedSection = false } = {}){
   const event = jointMatchActionEvent(match, tournamentDocument);
   const action = getEventAction(event);
@@ -10216,7 +10238,16 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   const copy = document.createElement("div");
   copy.className = "joint-match-copy";
   const title = document.createElement("strong");
-  title.textContent = match.players.map(player => player.name).join(" v ");
+  title.className = "joint-match-players";
+  match.players.forEach((player, index) => {
+    if (index){
+      const separator = document.createElement("span");
+      separator.className = "joint-match-versus";
+      separator.textContent = "v";
+      title.appendChild(separator);
+    }
+    title.appendChild(buildAthleteName(player, { className: "joint-match-player" }));
+  });
   const detail = document.createElement("span");
   const round = String(match.round || "").replace(/_/g, " ");
   detail.innerHTML = `<span class="joint-tour">${match.tour}</span> · ${round || "Round TBC"} · ${jointMatchTimingLabel(match, tournamentDocument)}`;
@@ -10543,7 +10574,9 @@ function buildJointTournamentAthletePanel(tournamentDocument){
     button.type = "button";
     button.className = "joint-athlete-follow";
     button.setAttribute("aria-pressed", String(following));
-    button.innerHTML = `<span>${participant.displayName}</span><strong>${following ? "Following" : "Follow"}</strong>`;
+    const state = document.createElement("strong");
+    state.textContent = following ? "Following" : "Follow";
+    button.append(buildAthleteName(participant), state);
     button.addEventListener("click", event => {
       event.stopPropagation();
       setJointTournamentAthleteFollow(participant, !following);
@@ -11803,6 +11836,10 @@ function standingsParticipantName(participantId){
   return participant?.displayName || participant?.shortName || participantId;
 }
 
+function standingsParticipant(participantId){
+  return canonicalSportsData?.participants?.find(item => item.id === participantId) || null;
+}
+
 function standingsTeamName(entry){
   return entry?.teamParticipantId ? standingsParticipantName(entry.teamParticipantId) : "—";
 }
@@ -11918,7 +11955,12 @@ function appendStandingsTable(module, competition, snapshot, visibility){
     columns.forEach(([key]) => {
       const cell = document.createElement("td");
       if (key === "participant"){
-        cell.textContent = standingsParticipantName(entry.participantId);
+        const participant = standingsParticipant(entry.participantId);
+        if (participant?.countryCode && ["competitor", "pair"].includes(participant.type)){
+          cell.appendChild(buildAthleteName(participant, { className: "standings-athlete" }));
+        } else {
+          cell.textContent = standingsParticipantName(entry.participantId);
+        }
         if (followed.has(entry.participantId)){
           const marker = document.createElement("span");
           marker.className = "standings-followed-tag";

@@ -163,6 +163,7 @@ assert(serverSyncSource.includes("PERSISTENT_SESSION_STORAGE_KEY") && serverSync
 assert(authApiSource.includes('"/auth/v1/token?grant_type=password"'), "the Auth API must exchange credentials through Supabase password Auth");
 assert(!authApiSource.includes("/auth/v1/otp") && !html.includes("magic link"), "the closed pilot must not expose magic-link or public account-creation paths");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
+assert(html.includes('src="config/country-flags.js"') && html.includes("const COUNTRY_FLAGS"), "the local country-flag renderer must load before athlete names are built");
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
 assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
@@ -356,8 +357,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v95"'), "the tournament-hub release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="95">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v96"'), "the athlete-flag release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="96">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
