@@ -8,19 +8,21 @@ const { spawnSync } = require("node:child_process");
 const { buildSteps, parseOptions } = require("./update-cards");
 
 const releaseStep = "scripts/redeploy-and-release.sh";
-const defaultSteps = buildSteps(parseOptions([]));
-const localSteps = buildSteps(parseOptions(["-p", "--local-only"]));
+const defaultSteps = buildSteps(parseOptions([], {}));
+const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
 
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
 assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"), "local-only updates must still refresh canonical sports data");
-assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must rebuild the provider-neutral tennis catalogue and fail closed on stale or asymmetric ATP/WTA ranking exports");
+assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-ranking-exports.js"), "every canonical update must check and refresh the official public ATP/WTA ranking exports before building the catalogue");
+assert(localSteps.some(step => step[0] === "scripts/validate-tennis-ranking-refresh.js"), "every canonical update must reject truncated or structurally unsafe official ranking extraction");
+assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must rebuild the provider-neutral tennis catalogue and fail closed on stale or unconfirmed ATP/WTA ranking publications");
 assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js" && step.includes("--check") && step.includes("--enforce-freshness")), "every canonical update must reject a stale generated tennis catalogue");
 assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && step.length === 1), "every canonical update must rebuild ATP/WTA athlete follows and standings from the provider-neutral catalogue");
 assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && step.includes("--check")), "every canonical update must reject a stale generated tennis context");
-assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js"), "every canonical update must enforce ATP/WTA parity, Australian coverage, froth rules, and Toronto regression coverage");
+assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js"), "every canonical update must enforce independent ATP/WTA publication freshness, Australian coverage, froth rules, and Toronto regression coverage");
 assert(localSteps.some(step => step[0] === "scripts/sync-tennis-tournaments-to-feed.js" && step.includes("--from-exports")), "the canonical update must project active marquee tennis from the reviewed provider exports");
 assert(localSteps.some(step => step[0] === "scripts/validate-sport-hierarchy.js"), "every canonical update must validate hierarchy compatibility for every published card");
 assert(localSteps.some(step => step[0] === "scripts/validate-discovery-catalogue.js"), "every canonical update must validate discovery hierarchy, event-follow migration, Sydney-window counts and session state");

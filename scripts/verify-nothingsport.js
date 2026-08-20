@@ -169,20 +169,19 @@ assert(html.includes('src="config/reminder-engine.js"'), "the deterministic remi
 assert(html.includes('src="config/soundtrack.js"'), "the top-bar soundtrack controller must load before app state");
 assert(html.includes('src="data/events.js"'), "direct-file mode must load the generated published-feed fallback");
 assert(
-  html.includes('src="data/canonical/joint-tennis-tournament-2026.js"')
-    && html.indexOf('src="data/canonical/joint-tennis-tournament-2026.js"') < html.indexOf("<script>\n/* ============ DATA ============ */"),
-  "the direct-file tournament document must load before app state",
-);
-assert(
   html.includes('globalThis.location?.protocol === "file:"')
+    && html.includes("reloadBundledJointTournamentScript()")
+    && html.includes("JOINT_TOURNAMENT_CONFIG.scriptUrl")
     && html.includes("globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT_DOCUMENT"),
-  "file URLs must read the generated joint tournament bundle without attempting a JSON fetch",
+  "file URLs must load the generated joint tournament bundle in background hydration without attempting a JSON fetch",
 );
+assert(!html.includes('<script src="data/canonical/joint-tennis-tournament-2026.js"></script>'), "tournament history and results must not block the first static feed render");
 assert(
   html.includes('userPreferences.showSpoilers && spoilerView.resultAvailability?.status === "unavailable"')
-    && html.includes("Completed results unavailable from the approved Cincinnati sources."),
-  "results-visible Cincinnati cards must explain when approved sources publish no safe completed result",
+    && html.includes("Completed results are not yet available from the checked Cincinnati sources."),
+  "results-visible Cincinnati cards must explain when checked sources publish no safe completed result",
 );
+assert(html.includes("buildJointTournamentReporting") && html.includes('"Unverified source"'), "Cincinnati day drill-down must expose source-labelled results, highlights and commentary");
 assert(
   html.includes("reloadBundledCanonicalContextsScript")
     && html.includes('scriptUrl: "data/canonical/contexts.js"')
@@ -353,8 +352,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v90"'), "the source and venue release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="90">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v92"'), "the source and venue release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="92">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -435,6 +434,7 @@ assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports fee
 assert(html.includes("startupFeedNavigationTouched") && html.includes('calendarInitialJumpPending = true;'), "initial Feed alignment must repeat after background loading unless the person has started navigating");
 assert(html.includes("PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST())"), "the curated feed must split past, Must Watch, Today and future cards from one timeline model");
 assert(html.includes("appendManualMustWatchQueue(container, timeline.mustWatch)"), "the manual Must Watch queue must sit between past cards and Today");
+assert(html.includes('rect.top <= window.innerHeight'), "the Today bar must count as visible across the full viewport for contextual Must Watch navigation");
 assert(html.includes("jumpTodayBtn.hidden = hubActive"), "Jump to Today must remain available in curated Feed views and stay out of complete sport hubs");
 assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
 assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
@@ -535,6 +535,8 @@ assert(html.includes('<script src="config/storyline-overrides.js"></script>'), "
 assert(html.includes('function appendManualMustWatchQueue'), "the curated feed must expose a manual Must Watch queue");
 assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial premium selections must not displace the chronological feed");
 assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentCard(container)"), "Cincinnati must appear as a normal eligible Tennis suggestion rather than an automatic top pin");
+assert(html.includes("function buildJointTournamentMustWatchAction") && html.includes("!jointTournamentIsMustWatch() && appendJointTournamentCard"), "Cincinnati must move into the chronological Must Watch queue only after a manual action");
+assert(html.includes('buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" })'), "the combined Cincinnati parent must render inside the manual queue without splitting ATP and WTA cards");
 assert(!html.includes('textContent = action.saved ? "Saved" : "Save"'), "Cincinnati match actions must not retain the duplicate Save action");
 assert(html.includes('"Add to Must Watch"') && html.includes('Must Watch matches (${savedOutside.length})'), "Cincinnati matches must use the same Must Watch vocabulary as normal cards");
 assert(html.includes("function buildJointTournamentDays") && html.includes("Tournament days (${groups.length})"), "the combined Cincinnati card must expose one drill-down section per tournament day");
@@ -733,6 +735,15 @@ assert.equal(wallabiesItaly.score, "Australia 57-10 Italy", "Wallabies v Italy m
 assert.match(wallabiesItaly.storyline.hookSpoilerOn, /57.10/i, "the revealed Wallabies result must include the final score");
 assert.doesNotMatch(wallabiesItaly.storyline.hookSpoilerOff, /57.10|Australia beat/i, "the protected Wallabies result must not leak the outcome");
 
+const darwinTest = publishedFeed.events.find(event => event.id === "cricket-australia-bangladesh-first-test-2026");
+assert.equal(darwinTest.status, "completed", "the completed Darwin Test must not remain an upcoming card");
+assert.equal(darwinTest.score, "Bangladesh beat Australia by 9 wickets", "the Darwin Test must retain Cricket Australia's official result");
+assert.match(darwinTest.sourceUrl, /^https:\/\/www\.cricket\.com\.au\//, "the Darwin Test result must cite Cricket Australia");
+const wallabiesJapan = publishedFeed.events.find(event => event.id === "rugby-australia-japan-2026-08-15");
+assert.equal(wallabiesJapan.status, "completed", "the completed Wallabies v Japan Test must not remain upcoming");
+assert.equal(wallabiesJapan.score, "Australia 56-17 Japan", "Wallabies v Japan must retain Rugby Australia's official score");
+assert.match(wallabiesJapan.sourceUrl, /^https:\/\/wallabies\.rugby\//, "Wallabies v Japan must cite Rugby Australia");
+
 const allBlacksSpringboks = publishedFeed.events.find(event => event.id === "rugby-south-africa-all-blacks-2026-08-22");
 assert(allBlacksSpringboks, "the South Africa v All Blacks Test must be present in the published feed");
 assert.equal(allBlacksSpringboks.date, "2026-08-22", "the All Blacks Test must use its official Sydney calendar date");
@@ -740,6 +751,9 @@ assert.equal(allBlacksSpringboks.time, "23:00", "the All Blacks Test must use it
 assert.equal(allBlacksSpringboks.storyline.stakes, 5, "the All Blacks Test must qualify as a universal-stakes Rugby fixture");
 assert.equal(allBlacksSpringboks.sourceType, "official", "the All Blacks Test must retain first-party fixture provenance");
 assert.match(allBlacksSpringboks.sourceUrl, /^https:\/\/www\.allblacks\.com\//, "the All Blacks Test must cite the official fixture page");
+assert.equal(allBlacksSpringboks.editorialPreview?.status, "journalistic", "the high-stakes All Blacks Test must ship with current source-backed preview context");
+assert(allBlacksSpringboks.editorialPreview?.contextSignals?.includes("tour-build-up"), "the All Blacks Test preview must explain the three-match tour build-up");
+assert.match(allBlacksSpringboks.selectedSentence, /Stormers, Sharks and Bulls supplied the runway/i, "the All Blacks Test must surface as a compelling personalised card rather than a bare fixture");
 
 const wimbledonCards = publishedFeed.events.filter(event => event.key === "wimbledon");
 assert.equal(wimbledonCards.length, 32, "Wimbledon must contain the two retained R3 matches plus all 30 singles matches from R4 onward");

@@ -9,6 +9,7 @@ const os = require("node:os");
 const path = require("node:path");
 const zlib = require("node:zlib");
 const jointTennis = require("../config/joint-tennis-tournament.js");
+const reportingSourceConfig = require("../config/cincinnati-reporting-sources.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT, "data/canonical/joint-tennis-tournament-2026.json");
@@ -20,7 +21,7 @@ const OFFICIAL_PAGES = Object.freeze({
   order_of_play: "https://cincinnatiopen.com/score-center/order-of-play/",
   draws: "https://cincinnatiopen.com/score-center/draws/",
 });
-const BLOCKED_AUTOMATION_HOSTS = /(?:^|\.)(?:atptour\.com|wtatennis\.com|rain(?:viewer)?\.[a-z.]+|sportradar\.com|sportsdata\.io|api-tennis\.com)$/i;
+const BLOCKED_PUBLISHED_DOCUMENT_HOSTS = /(?:^|\.)(?:atptour\.com|wtatennis\.com|sportradar\.com|sportsdata\.io|api-tennis\.com)$/i;
 const MAX_STALE_HOURS = 24;
 const SYDNEY_TIME_ZONE = "Australia/Sydney";
 const CINCINNATI_2026_WINDOW = Object.freeze({ startDate: "2026-08-08", endDate: "2026-08-23" });
@@ -100,6 +101,13 @@ function contentSignature(document){
     delete comparable.freshness.failureCode;
   }
   if (comparable.resultAvailability) delete comparable.resultAvailability.checkedAt;
+  if (comparable.reporting) {
+    delete comparable.reporting.checkedAt;
+    comparable.reporting.items = (comparable.reporting.items || []).map(item => {
+      delete item.sourceCheckedAt;
+      return item;
+    });
+  }
   comparable.sourceDocuments = (comparable.sourceDocuments || []).filter(source => source.kind === "order_of_play").map(source => {
     delete source.retrievedAt;
     delete source.sha256;
@@ -126,7 +134,7 @@ function assertApprovedPublishedDocument(record){
   assertApprovedPublisherPage(record?.publisherPageUrl);
   const source = new URL(record?.sourceUrl);
   if (source.protocol !== "https:") throw new Error(`Cincinnati documents must use HTTPS: ${source.href}`);
-  if (BLOCKED_AUTOMATION_HOSTS.test(source.hostname)) throw new Error(`ATP, WTA, Rain and paid-provider fallbacks are not approved for automation: ${source.hostname}`);
+  if (BLOCKED_PUBLISHED_DOCUMENT_HOSTS.test(source.hostname)) throw new Error(`An ATP, WTA or paid-provider document is not approved for the official PDF seam: ${source.hostname}`);
   if (!/\.pdf(?:$|[?#])/i.test(source.href)) throw new Error(`Only published Cincinnati PDF documents may be followed: ${source.href}`);
   return record;
 }
@@ -195,8 +203,9 @@ function completedSportsEvent(event){
   return /(?:^|\/)EventCompleted$/i.test(String(status || ""));
 }
 
-function extractOfficialResultsHtml(html, { document, publisherPageUrl, retrievedAt }){
-  const approvedPageUrl = assertApprovedPublisherPage(publisherPageUrl);
+function extractResultsHtml(html, { document, sourceUrl, sourceName, sourceTrust = "unverified", retrievedAt }){
+  const parsedSource = new URL(sourceUrl);
+  if (parsedSource.protocol !== "https:") throw new Error(`Cincinnati reporting sources must use HTTPS: ${parsedSource.href}`);
   const addressable = Array.from(new Map([
     ...(document?.schedule?.matches || []),
     ...(document?.matchHistory || []),
@@ -225,7 +234,9 @@ function extractOfficialResultsHtml(html, { document, publisherPageUrl, retrieve
       status: "completed",
       score: score.replace(/\s+/g, " ").trim(),
       winnerPlayerId: winner.playerId,
-      sourceUrl: approvedPageUrl,
+      sourceUrl: parsedSource.href,
+      sourceTrust,
+      ...(sourceName ? { sourceName } : {}),
       retrievedAt,
     };
     const existing = results[match.matchId];
@@ -235,6 +246,462 @@ function extractOfficialResultsHtml(html, { document, publisherPageUrl, retrieve
     results[match.matchId] = result;
   });
   return results;
+}
+
+function extractOfficialResultsHtml(html, { document, publisherPageUrl, retrievedAt }){
+  const approvedPageUrl = assertApprovedPublisherPage(publisherPageUrl);
+  return extractResultsHtml(html, {
+    document,
+    sourceUrl: approvedPageUrl,
+    sourceName: "Cincinnati Open",
+    sourceTrust: "verified",
+    retrievedAt,
+  });
+}
+
+function metaContent(html, key, attribute = "property"){
+  const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const first = new RegExp(`<meta[^>]+${attribute}=["']${escaped}["'][^>]+content=["']([^"']+)["'][^>]*>`, "i").exec(String(html || ""));
+  if (first) return htmlEntities(first[1]).trim();
+  const reversed = new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+${attribute}=["']${escaped}["'][^>]*>`, "i").exec(String(html || ""));
+  return reversed ? htmlEntities(reversed[1]).trim() : "";
+}
+
+function articleKind(title){
+  const value = String(title || "");
+  if (/highlight|watch|video/i.test(value)) return "highlight";
+  if (/result|score|beat|defeat|win(?:s|ning)?|champion|final/i.test(value)) return "result";
+  if (/preview|how to watch|schedule|order of play/i.test(value)) return "preview";
+  return "commentary";
+}
+
+function reportingItemId(sourceUrl, title){
+  return `reporting:cincinnati:${crypto.createHash("sha256").update(`${sourceUrl}|${title}`).digest("hex").slice(0, 20)}`;
+}
+
+function matchIdsForReportingTitle(title, document){
+  const normalizedTitle = jointTennis.slug(title).replace(/-/g, " ");
+  return Array.from(new Map([
+    ...(document?.schedule?.matches || []),
+    ...(document?.matchHistory || []),
+  ].map(match => [match.matchId, match])).values())
+    .filter(match => match.players.some(player => normalizedTitle.includes(jointTennis.slug(player.name).replace(/-/g, " "))))
+    .map(match => match.matchId);
+}
+
+function extractReportingItem(html, { source, document, retrievedAt }){
+  const title = metaContent(html, "og:title") || metaContent(html, "twitter:title", "name") || String(source.label || "Cincinnati tournament update");
+  const canonicalUrl = metaContent(html, "og:url") || source.url;
+  const parsedUrl = new URL(canonicalUrl, source.url);
+  if (parsedUrl.protocol !== "https:") return null;
+  const publishedRaw = metaContent(html, "article:published_time") || metaContent(html, "date", "name");
+  const publishedDate = Date.parse(publishedRaw);
+  const publishedAt = Number.isFinite(publishedDate) ? new Date(publishedDate).toISOString() : null;
+  const scheduleDate = publishedAt ? tournamentLocalDateKey(publishedAt, document.tournament) : null;
+  const matchIds = matchIdsForReportingTitle(title, document);
+  if (!/cincinnati/i.test(title) && !matchIds.length) return null;
+  return {
+    itemId: reportingItemId(parsedUrl.href, title),
+    kind: articleKind(title),
+    title: title.slice(0, 180),
+    sourceName: source.label,
+    sourceUrl: parsedUrl.href,
+    sourceTrust: source.sourceTrust,
+    reliabilityRank: source.reliabilityRank,
+    sourceCheckedAt: retrievedAt,
+    publishedAt,
+    scheduleDate: dateIsInsideTournament(scheduleDate, document.tournament) ? scheduleDate : null,
+    matchIds,
+  };
+}
+
+function discoverReportingLinks(html, source){
+  if (!source.linkPathPattern) return [];
+  const pathPattern = new RegExp(source.linkPathPattern, "i");
+  const sourceUrl = new URL(source.url);
+  const links = [];
+  const seen = new Set([sourceUrl.href]);
+  const hrefPattern = /\bhref\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/gi;
+  let match;
+  while ((match = hrefPattern.exec(String(html || ""))) && links.length < 12) {
+    try {
+      const url = new URL(htmlEntities(match[1] || match[2] || match[3]), sourceUrl);
+      if (url.protocol !== "https:" || url.hostname !== sourceUrl.hostname || !pathPattern.test(url.pathname) || seen.has(url.href)) continue;
+      seen.add(url.href);
+      links.push(url.href);
+    } catch (_error) {
+      // Ignore malformed navigation discovered in public page markup.
+    }
+  }
+  return links;
+}
+
+function parseJsonPayload(value){
+  try {
+    return JSON.parse(String(value || ""));
+  } catch (_error) {
+    return null;
+  }
+}
+
+function stripMarkup(value){
+  return htmlEntities(String(value || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
+}
+
+function sourcePublishedAt(value){
+  const raw = String(value || "").trim();
+  if (!raw) return null;
+  const normalized = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(raw) ? raw + "Z" : raw;
+  const timestamp = Date.parse(normalized);
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
+}
+
+function extractWordPressReporting(payload, { source, document, retrievedAt }){
+  if (!Array.isArray(payload)) return [];
+  return payload.map(post => {
+    const title = stripMarkup(post?.title?.rendered || post?.title || "");
+    const sourceUrl = String(post?.link || "").trim();
+    if (!title || !/^https:\/\/cincinnatiopen\.com\//i.test(sourceUrl)) return null;
+    const publishedAt = sourcePublishedAt(post?.date_gmt || post?.date);
+    const scheduleDate = publishedAt ? tournamentLocalDateKey(publishedAt, document.tournament) : null;
+    return {
+      itemId: reportingItemId(sourceUrl, title),
+      kind: articleKind(title),
+      title: title.slice(0, 180),
+      sourceName: source.label,
+      sourceUrl,
+      sourceTrust: source.sourceTrust,
+      reliabilityRank: source.reliabilityRank,
+      sourceRecordId: "wp:" + post.id,
+      sourceCheckedAt: retrievedAt,
+      publishedAt,
+      scheduleDate: dateIsInsideTournament(scheduleDate, document.tournament) ? scheduleDate : null,
+      matchIds: matchIdsForReportingTitle(title, document),
+    };
+  }).filter(Boolean);
+}
+
+function assignmentJson(html, assignmentName){
+  const marker = new RegExp("window\\[['\"]" + assignmentName + "['\"]\\]\\s*=\\s*", "i").exec(String(html || ""));
+  if (!marker) return null;
+  const input = String(html || "");
+  const start = input.indexOf("{", marker.index + marker[0].length);
+  if (start < 0) return null;
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  for (let index = start; index < input.length; index += 1) {
+    const character = input[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (character === "\\") escaped = true;
+      else if (character === quote) quote = null;
+      continue;
+    }
+    if (character === '"' || character === "'") {
+      quote = character;
+      continue;
+    }
+    if (character === "{") depth += 1;
+    if (character === "}") {
+      depth -= 1;
+      if (depth === 0) return parseJsonPayload(input.slice(start, index + 1));
+    }
+  }
+  return null;
+}
+
+function jsonScriptValues(html){
+  const values = [];
+  const scriptPattern = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
+  let script;
+  while ((script = scriptPattern.exec(String(html || "")))) {
+    if (!/(?:application\/(?:ld\+)?json|__NEXT_DATA__)/i.test(script[1])) continue;
+    try {
+      values.push(JSON.parse(script[2].trim()));
+    } catch (_error) {
+      // Ignore unrelated or non-JSON script payloads.
+    }
+  }
+  const espn = assignmentJson(html, "__espnfitt__");
+  if (espn) values.push(espn);
+  return values;
+}
+
+function rainRound(value){
+  const normalized = String(value || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
+  return {
+    F: "final",
+    FINAL: "final",
+    SF: "semifinal",
+    SEMIFINAL: "semifinal",
+    QF: "quarterfinal",
+    QUARTERFINAL: "quarterfinal",
+    R16: "round_of_16",
+    R32: "round_of_32",
+    R64: "round_of_64",
+    R128: "round_of_128",
+    Q: "qualifying",
+    QUALIFYING: "qualifying",
+  }[normalized] || "unknown";
+}
+
+function rainParticipant(team, tour, knownPlayers){
+  if (!Array.isArray(team?.players) || team.players.length !== 1) return null;
+  const sourcePlayer = team.players[0];
+  const name = [sourcePlayer.first || sourcePlayer.nF, sourcePlayer.last || sourcePlayer.nL].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+  if (!name) return null;
+  const known = knownPlayers.get(tour + ":" + jointTennis.slug(name));
+  const nationalityCode = known?.nationalityCode || String(sourcePlayer.country || sourcePlayer.c || "").toUpperCase() || null;
+  return {
+    playerId: known?.playerId || known?.athleteId || "competitor:tennis:" + tour.toLowerCase() + ":" + jointTennis.slug(name),
+    name: known?.name || known?.displayName || name,
+    ranking: Number.isInteger(known?.ranking) ? known.ranking : Number.isInteger(known?.rankingSingles) ? known.rankingSingles : null,
+    nationalityCode: /^[A-Z]{3}$/.test(nationalityCode || "") ? nationalityCode : null,
+    isAustralian: nationalityCode === "AUS",
+  };
+}
+
+function knownPlayersForDocument(document){
+  const players = new Map();
+  [...(document?.schedule?.matches || []), ...(document?.matchHistory || [])].forEach(match => {
+    (match.players || []).forEach(player => players.set(match.tour + ":" + jointTennis.slug(player.name), player));
+  });
+  return players;
+}
+
+function rainTiming(match, court){
+  const notBefore = match?.notBefore || {};
+  const joined = [notBefore.text, notBefore.time].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+  const parsed = parseTiming(joined) || parseTiming(notBefore.time) || parseTiming(court?.time);
+  if (parsed) return parsed;
+  const localTime = /^(?:[01]\d|2[0-3]):[0-5]\d/.exec(String(notBefore.isoTime || ""))?.[0] || null;
+  if (localTime) return { type: "exact", label: notBefore.time || localTime, localTime };
+  return { type: "session_only", label: "Session only", localTime: null };
+}
+
+function extractRainSchedule(payload, { document }){
+  if (!Array.isArray(payload)) return [];
+  const knownPlayers = knownPlayersForDocument(document);
+  const matches = new Map();
+  payload.slice().sort((left, right) => String(left?.date || "").localeCompare(String(right?.date || ""))).forEach(day => {
+    const date = String(day?.date || "");
+    if (!dateIsInsideTournament(date, document.tournament)) return;
+    let scheduledSequence = 0;
+    (day.courts || []).forEach(court => {
+      (court.matches || []).forEach((sourceMatch, courtIndex) => {
+        const tour = String(sourceMatch?.type || "").toUpperCase();
+        if (!["ATP", "WTA"].includes(tour) || !Array.isArray(sourceMatch.team) || sourceMatch.team.length !== 2) return;
+        const players = sourceMatch.team.map(team => rainParticipant(team, tour, knownPlayers));
+        if (players.some(player => !player) || new Set(players.map(player => player.playerId)).size !== 2) return;
+        scheduledSequence += 1;
+        const timing = rainTiming(sourceMatch, court);
+        const match = {
+          matchId: jointTennis.stableMatchId({ tournamentId: document.tournament.tournamentId, tour, players }),
+          tour,
+          round: rainRound(sourceMatch?.detail?.rnd || sourceMatch?.round),
+          venue: document.tournament.venue,
+          court: String(court?.name || "Court TBC"),
+          courtSequence: courtIndex + 1,
+          scheduledSequence,
+          scheduleDate: date,
+          scheduledAtUtc: timing.localTime ? jointTennis.zonedDateTimeToUtc(date, timing.localTime, document.tournament.timezone) : null,
+          players,
+          timing,
+          narrativeSignals: [],
+        };
+        match.selection = jointTennis.scoreMatch(match);
+        matches.set(match.matchId, match);
+      });
+    });
+  });
+  return [...matches.values()];
+}
+
+function rainSetScore(detail){
+  const sets = [];
+  for (let index = 1; index <= 5; index += 1) {
+    const first = Number(detail?.["s" + index + "A"]);
+    const second = Number(detail?.["s" + index + "B"]);
+    if (!Number.isFinite(first) || !Number.isFinite(second) || (first === 0 && second === 0) || first < 0 || second < 0 || first > 7 || second > 7) continue;
+    sets.push(first + "-" + second);
+  }
+  return sets.join(" ");
+}
+
+function extractRainDrawResults(payload, { document, source, retrievedAt }){
+  if (!Array.isArray(payload)) return {};
+  const pairs = addressableMatchesByPair(document);
+  const results = {};
+  payload.forEach(draw => (draw?.rounds || []).forEach(round => (round?.matches || []).forEach(sourceMatch => {
+    const side = String(sourceMatch?.drawInfo?.result || "").toUpperCase();
+    if (!["A", "B"].includes(side)) return;
+    const playerGroups = sourceMatch?.drawInfo?.players || {};
+    const players = [
+      rainParticipant({ players: playerGroups.A || [] }, source.tour, new Map()),
+      rainParticipant({ players: playerGroups.B || [] }, source.tour, new Map()),
+    ];
+    if (players.some(player => !player)) return;
+    const candidates = pairs.get(players.map(player => jointTennis.slug(player.name)).sort().join("|")) || [];
+    const score = rainSetScore(sourceMatch.detail || {});
+    if (candidates.length !== 1 || !score) return;
+    const match = candidates[0];
+    const winnerName = players[side === "A" ? 0 : 1].name;
+    const winner = match.players.find(player => jointTennis.slug(player.name) === jointTennis.slug(winnerName));
+    if (!winner) return;
+    const result = {
+      status: "completed",
+      score,
+      winnerPlayerId: winner.playerId,
+      sourceUrl: source.url,
+      sourceTrust: source.sourceTrust,
+      sourceName: source.label,
+      sourceRecordId: String(sourceMatch.id || sourceMatch.drawInfo?.id || ""),
+      reliabilityRank: source.reliabilityRank,
+      retrievedAt,
+    };
+    const existing = results[match.matchId];
+    if (existing && (existing.score !== result.score || existing.winnerPlayerId !== result.winnerPlayerId)) {
+      throw integrityError("conflicting_results", "Cincinnati integrated draw records conflict for " + match.matchId);
+    }
+    results[match.matchId] = result;
+  })));
+  return results;
+}
+
+function addressableMatchesByPair(document){
+  const matches = Array.from(new Map([
+    ...(document?.schedule?.matches || []),
+    ...(document?.matchHistory || []),
+  ].map(match => [match.matchId, match])).values());
+  const pairs = new Map();
+  matches.forEach(match => {
+    const key = match.players.map(player => jointTennis.slug(player.name)).sort().join("|");
+    const existing = pairs.get(key) || [];
+    existing.push(match);
+    pairs.set(key, existing);
+  });
+  return pairs;
+}
+
+function extractEmbeddedResultsHtml(html, { document, source, retrievedAt }){
+  const pairs = addressableMatchesByPair(document);
+  const results = {};
+  const visit = value => {
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    const competitors = Array.isArray(value.competitors) ? value.competitors : null;
+    const completed = value?.status?.completed === true
+      || value?.status?.type?.completed === true
+      || /post|complete|final/i.test(String(value?.status?.state || value?.status?.type?.state || value?.status || ""));
+    if (competitors?.length === 2 && completed) {
+      const names = competitors.map(competitor => schemaName(competitor.athlete || competitor.team || competitor) || String(competitor.nm || competitor.displayName || "").trim());
+      const candidates = pairs.get(names.map(jointTennis.slug).sort().join("|")) || [];
+      const winnerIndex = competitors.findIndex(competitor => competitor.winner === true || competitor.winner === "true");
+      if (candidates.length === 1 && winnerIndex >= 0) {
+        const lineScores = competitor => Array.isArray(competitor.linescores) ? competitor.linescores : Array.isArray(competitor.lnescrs) ? competitor.lnescrs : [];
+        const lineValue = entry => Number(entry?.value ?? entry?.displayValue ?? entry);
+        const setCount = Math.max(...competitors.map(competitor => lineScores(competitor).length));
+        const sets = [];
+        for (let index = 0; index < setCount; index += 1) {
+          const values = competitors.map(competitor => lineValue(lineScores(competitor)[index]));
+          if (values.every(Number.isFinite) && values.some(number => number > 0) && values.every(number => number >= 0 && number <= 7)) sets.push(`${values[0]}-${values[1]}`);
+        }
+        if (sets.length) {
+          const match = candidates[0];
+          const result = {
+            status: "completed",
+            score: sets.join(" "),
+            winnerPlayerId: match.players.find(player => jointTennis.slug(player.name) === jointTennis.slug(names[winnerIndex]))?.playerId,
+            sourceUrl: source.url,
+            sourceTrust: source.sourceTrust,
+            sourceName: source.label,
+            sourceRecordId: String(value.id || ""),
+            reliabilityRank: source.reliabilityRank,
+            retrievedAt,
+          };
+          if (result.winnerPlayerId && !results[match.matchId]) results[match.matchId] = result;
+        }
+      }
+    }
+    Object.values(value).forEach(visit);
+  };
+  jsonScriptValues(html).forEach(visit);
+  return results;
+}
+
+async function collectPublicReporting({ fetchImpl, sources, document, previous, now }){
+  const items = new Map((previous?.reporting?.items || []).map(item => [item.itemId, item]));
+  const resultCandidates = {};
+  const orderedSources = [...sources].sort((left, right) => left.reliabilityRank - right.reliabilityRank || left.id.localeCompare(right.id));
+  const settledSources = await Promise.allSettled(orderedSources.map(async source => {
+    reportingSourceConfig.validateSource(source);
+    const body = await checkedFetch(fetchImpl, source.url, source.responseFormat);
+    const pages = [{ url: source.url, body, responseFormat: source.responseFormat }];
+    const discovered = source.responseFormat === "html" ? discoverReportingLinks(body, source) : [];
+    const detailResponses = await Promise.allSettled(discovered.map(async url => ({ url, html: await checkedFetch(fetchImpl, url) })));
+    detailResponses.forEach(response => {
+      if (response.status === "fulfilled") pages.push({ url: response.value.url, body: response.value.html, responseFormat: "html" });
+    });
+    return { source, pages };
+  }));
+
+  const currentIds = new Set(document?.schedule?.matches?.map(match => match.matchId) || []);
+  const integratedMatches = new Map((document?.matchHistory || []).map(match => [match.matchId, match]));
+  settledSources.forEach(response => {
+    if (response.status !== "fulfilled" || response.value.source.pageRole !== "structured-schedule") return;
+    const page = response.value.pages[0];
+    extractRainSchedule(parseJsonPayload(page.body), { document }).forEach(match => {
+      if (!currentIds.has(match.matchId)) integratedMatches.set(match.matchId, match);
+    });
+  });
+  const resultDocument = { ...document, matchHistory: [...integratedMatches.values()] };
+
+  settledSources.forEach(response => {
+    if (response.status !== "fulfilled") return;
+    const { source, pages } = response.value;
+    pages.forEach(page => {
+      if (page.responseFormat === "json") {
+        const payload = parseJsonPayload(page.body);
+        if (source.pageRole === "reporting-api") {
+          extractWordPressReporting(payload, { source, document: resultDocument, retrievedAt: now }).forEach(item => items.set(item.itemId, item));
+        }
+        if (source.pageRole === "structured-results") {
+          Object.entries(extractRainDrawResults(payload, { document: resultDocument, source, retrievedAt: now })).forEach(([matchId, result]) => {
+            if (!resultCandidates[matchId]) resultCandidates[matchId] = result;
+          });
+        }
+        return;
+      }
+      const pageSource = { ...source, url: page.url };
+      if (page.url !== source.url || source.pageRole !== "reporting-index") {
+        const item = extractReportingItem(page.body, { source: pageSource, document: resultDocument, retrievedAt: now });
+        if (item) items.set(item.itemId, item);
+      }
+      const jsonLdResults = extractResultsHtml(page.body, {
+        document: resultDocument,
+        sourceUrl: page.url,
+        sourceName: source.label,
+        sourceTrust: source.sourceTrust,
+        retrievedAt: now,
+      });
+      const embeddedResults = extractEmbeddedResultsHtml(page.body, { document: resultDocument, source: pageSource, retrievedAt: now });
+      Object.entries({ ...embeddedResults, ...jsonLdResults }).forEach(([matchId, result]) => {
+        if (!resultCandidates[matchId]) resultCandidates[matchId] = result;
+      });
+    });
+  });
+  return {
+    reporting: {
+      checkedAt: now,
+      items: [...items.values()].sort((left, right) => left.reliabilityRank - right.reliabilityRank || String(right.publishedAt || "").localeCompare(String(left.publishedAt || "")) || left.itemId.localeCompare(right.itemId)),
+    },
+    matchHistory: [...integratedMatches.values()],
+    resultsByMatchId: resultCandidates,
+  };
 }
 
 function decodePdfLiteral(value){
@@ -586,6 +1053,8 @@ function parseOrderOfPlayText(text, { tournament, catalogue }){
           ],
         });
         columnBlockMatches = true;
+      } catch (error) {
+        if (!/Doubles participant|Ambiguous multi-player side/i.test(String(error?.message || error))) throw error;
       } finally {
         pendingTour = null;
         pendingFirstPlayer = null;
@@ -752,7 +1221,10 @@ function handleRefreshFailure(lastGood, { catalogue, now, error }){
 
 async function checkedFetch(fetchImpl, url, responseType = "text"){
   const response = await fetchImpl(url, {
-    headers: { "accept": responseType === "buffer" ? "application/pdf" : "text/html,application/xhtml+xml", "user-agent": "nothingSport-static-refresh/1.0" },
+    headers: {
+      "accept": responseType === "buffer" ? "application/pdf" : responseType === "json" ? "application/json" : "text/html,application/xhtml+xml",
+      "user-agent": "nothingSport-static-refresh/1.0",
+    },
     ...(typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function" ? { signal: AbortSignal.timeout(20000) } : {}),
   });
   if (!response?.ok) throw new Error(`HTTP fetch failed for ${url}: ${response?.status || "unknown"}`);
@@ -787,6 +1259,37 @@ function attachOfficialResults({ pages, document, retainedResults = {}, now }){
   });
 }
 
+function attachPublicReporting(document, publicBundle, now){
+  const currentMatchIds = new Set(document?.schedule?.matches?.map(match => match.matchId) || []);
+  const history = new Map((document?.matchHistory || []).map(match => [match.matchId, match]));
+  (publicBundle.matchHistory || []).forEach(match => {
+    if (!currentMatchIds.has(match.matchId)) history.set(match.matchId, match);
+  });
+  const enrichedDocument = { ...document, matchHistory: [...history.values()] };
+  const mergedResults = { ...(document.resultsByMatchId || {}) };
+  let publicAvailabilitySource = null;
+  Object.entries(publicBundle.resultsByMatchId || {}).forEach(([matchId, result]) => {
+    const existing = mergedResults[matchId];
+    if (existing?.sourceTrust === "verified") return;
+    if (existing && Number(existing.reliabilityRank || 4) <= Number(result.reliabilityRank || 4)) return;
+    mergedResults[matchId] = result;
+    publicAvailabilitySource ||= result;
+  });
+  const existingAvailability = document.resultAvailability || {};
+  const availability = publicAvailabilitySource
+    ? {
+        status: "available",
+        checkedAt: now,
+        sourceUrl: publicAvailabilitySource.sourceUrl,
+        sourceTrust: publicAvailabilitySource.sourceTrust,
+        lastCheck: "parsed",
+      }
+    : { ...existingAvailability, checkedAt: now };
+  const output = jointTennis.withResults(enrichedDocument, mergedResults, availability);
+  output.reporting = publicBundle.reporting;
+  return output;
+}
+
 function chooseOrderOfPlayDocument(documents, referenceDate){
   const candidates = documents.filter(document => document.kind === "order_of_play");
   if (!candidates.length) throw new Error("The official Cincinnati Order of Play page published no PDF link");
@@ -811,7 +1314,7 @@ function chooseOrderOfPlayDocument(documents, referenceDate){
     .sort((first, second) => second.score - first.score || first.index - second.index)[0].document;
 }
 
-async function refreshCincinnatiTournament({ fetchImpl = globalThis.fetch, now = new Date().toISOString(), outputPath = OUTPUT_PATH, catalogue = readJson(TENNIS_CATALOGUE_PATH) } = {}){
+async function refreshCincinnatiTournament({ fetchImpl = globalThis.fetch, now = new Date().toISOString(), outputPath = OUTPUT_PATH, catalogue = readJson(TENNIS_CATALOGUE_PATH), reportingSources = reportingSourceConfig.SOURCES } = {}){
   if (typeof fetchImpl !== "function") throw new Error("A fetch implementation is required for the Cincinnati refresh");
   const tournament = cincinnatiTournament(catalogue);
   if (!tournamentRefreshIsActive(tournament, now)) return { status: "inactive", changed: false, document: null };
@@ -833,6 +1336,14 @@ async function refreshCincinnatiTournament({ fetchImpl = globalThis.fetch, now =
     const addressableMatchIds = new Set([...currentMatchIds, ...document.matchHistory.map(match => match.matchId)]);
     const retainedResults = Object.fromEntries(Object.entries(previous?.resultsByMatchId || {}).filter(([matchId]) => addressableMatchIds.has(matchId)));
     document = attachOfficialResults({ pages, document, retainedResults, now });
+    const publicBundle = await collectPublicReporting({
+      fetchImpl,
+      sources: reportingSources,
+      document,
+      previous,
+      now,
+    });
+    document = attachPublicReporting(document, publicBundle, now);
     const changed = contentSignature(previous) !== contentSignature(document);
     return { status: "success", changed, document: changed ? document : previous };
   } catch (error) {
@@ -898,12 +1409,20 @@ module.exports = {
   BUNDLE_GLOBAL,
   assertApprovedPublishedDocument,
   attachOfficialResults,
+  attachPublicReporting,
   buildDocumentFromPdf,
   cincinnatiTournament,
   chooseOrderOfPlayDocument,
   contentSignature,
+  collectPublicReporting,
   discoverPublishedDocuments,
   extractOfficialResultsHtml,
+  extractEmbeddedResultsHtml,
+  extractRainDrawResults,
+  extractRainSchedule,
+  extractReportingItem,
+  extractResultsHtml,
+  extractWordPressReporting,
   extractPdfText,
   extractPdfTextWithPdfKit,
   fixtureDocument,

@@ -10,6 +10,9 @@ const ROOT = path.resolve(__dirname, "..");
 const EXPORT_DIR = path.join(ROOT, "feeds/provider-exports/tennis");
 const OUTPUT_PATH = path.join(ROOT, "data/canonical/tennis-catalogue-2026.json");
 const MAXIMUM_RANKING_AGE_DAYS = 9;
+const MAXIMUM_CONFIRMED_PUBLICATION_LAG_DAYS = 16;
+const MAXIMUM_PUBLICATION_CHECK_AGE_DAYS = 2;
+const RANKING_INGESTION_MODES = Object.freeze(["manual_reviewed_export", "licensed_api", "public_first_party"]);
 
 function readJson(filePath){
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -40,7 +43,12 @@ function validateRankingExport(payload, filePath){
   const label = path.relative(ROOT, filePath);
   if (payload?.schemaVersion !== "tennis-ranking-export.v1") throw new Error(`${label} has an unsupported schema version`);
   if (!["ATP", "WTA"].includes(payload.tour)) throw new Error(`${label} must declare ATP or WTA`);
-  if (!["manual_reviewed_export", "licensed_api"].includes(payload.ingestionMode)) throw new Error(`${label} has an unsupported ingestion mode`);
+  if (!RANKING_INGESTION_MODES.includes(payload.ingestionMode)) throw new Error(`${label} has an unsupported ingestion mode`);
+  if (payload.ingestionMode === "public_first_party") {
+    if (payload.sourceTrust !== "verified") throw new Error(`${label} must mark first-party public ranking data as verified`);
+    if (!Number.isFinite(Date.parse(payload.publicationCheckedAt || ""))) throw new Error(`${label} must record when the official publication was checked`);
+    if (!/^https:\/\//.test(payload.publicationUrl || "")) throw new Error(`${label} must retain its official human-readable publication URL`);
+  }
   if (payload.scope?.complete !== true || Number(payload.scope?.topN) < 50 || !payload.scope?.nationalityCodes?.includes("AUS")) {
     throw new Error(`${label} must be a complete Top 50 plus AUS export`);
   }
@@ -71,8 +79,6 @@ function latestRankingExports(){
     if (!previous || previous.payload.rankingSnapshotDate < payload.rankingSnapshotDate) grouped.set(payload.tour, { filePath, payload });
   });
   if (!grouped.has("ATP") || !grouped.has("WTA")) throw new Error("Tennis ranking refresh fails closed unless both ATP and WTA exports are present");
-  const snapshots = Array.from(grouped.values()).map(item => item.payload.rankingSnapshotDate);
-  if (new Set(snapshots).size !== 1) throw new Error(`ATP/WTA parity failure: ranking snapshot dates differ (${snapshots.join(", ")})`);
   return [grouped.get("ATP"), grouped.get("WTA")];
 }
 
@@ -104,6 +110,8 @@ function athleteRecord(exportPayload, athlete){
     rankingSingles: athlete.rank,
     rankingPoints: Number.isFinite(Number(athlete.points)) ? Number(athlete.points) : null,
     rankingSnapshotDate: exportPayload.rankingSnapshotDate,
+    rankingSourceTrust: exportPayload.sourceTrust || (exportPayload.ingestionMode === "licensed_api" ? "verified" : "unverified"),
+    rankingPublicationCheckedAt: exportPayload.publicationCheckedAt || exportPayload.extractedAt,
     nationalityCode: athlete.nationalityCode,
     isAustralian: athlete.nationalityCode === "AUS",
     active: true,
@@ -129,6 +137,9 @@ function generateCatalogue(){
       sourceUrl: payload.sourceUrl,
       effectiveDate: payload.rankingSnapshotDate,
       observedAt: payload.extractedAt,
+      publicationCheckedAt: payload.publicationCheckedAt || payload.extractedAt,
+      publicationUrl: payload.publicationUrl || payload.sourceUrl,
+      sourceTrust: payload.sourceTrust || (payload.ingestionMode === "licensed_api" ? "verified" : "unverified"),
       ingestionMode: payload.ingestionMode,
       fixturePath: path.relative(ROOT, filePath),
     })),
@@ -143,11 +154,14 @@ function generateCatalogue(){
     schemaVersion: "tennis-catalogue.v1",
     season: tournamentExport.season,
     generatedAt,
-    ingestionMode: ingestionModes.size === 1 ? Array.from(ingestionModes)[0] : "manual_reviewed_export",
+    ingestionMode: ingestionModes.size === 1 ? Array.from(ingestionModes)[0] : "mixed",
     refreshPolicy: {
       rankingsCadence: "weekly",
       maximumRankingAgeDays: MAXIMUM_RANKING_AGE_DAYS,
-      parityRequired: true,
+      maximumConfirmedPublicationLagDays: MAXIMUM_CONFIRMED_PUBLICATION_LAG_DAYS,
+      maximumPublicationCheckAgeDays: MAXIMUM_PUBLICATION_CHECK_AGE_DAYS,
+      parityRequired: false,
+      independentPublicationFreshnessRequired: true,
       failureMode: "retain_last_good_and_fail_closed",
     },
     sources,
@@ -158,11 +172,26 @@ function generateCatalogue(){
 
 function assertFresh(catalogue, referenceDate = new Date()){
   const referenceDay = Date.parse(`${String(referenceDate instanceof Date ? referenceDate.toISOString() : referenceDate).slice(0, 10)}T00:00:00Z`);
-  const rankingDates = catalogue.sources.filter(source => source.effectiveDate).map(source => Date.parse(`${source.effectiveDate}T00:00:00Z`));
-  const oldestAgeDays = Math.max(...rankingDates.map(snapshot => Math.floor((referenceDay - snapshot) / 86400000)));
-  if (!Number.isFinite(oldestAgeDays) || oldestAgeDays > catalogue.refreshPolicy.maximumRankingAgeDays) {
-    throw new Error(`Tennis ranking snapshot is ${oldestAgeDays} days old; refresh before publishing`);
-  }
+  const rankingSources = catalogue.sources.filter(source => source.tour && source.effectiveDate);
+  if (!Number.isFinite(referenceDay) || rankingSources.length !== 2) throw new Error("Tennis ranking freshness needs one ATP and one WTA source");
+  const ages = rankingSources.map(source => {
+    const snapshotDay = Date.parse(`${source.effectiveDate}T00:00:00Z`);
+    const ageDays = Math.floor((referenceDay - snapshotDay) / 86400000);
+    if (!Number.isFinite(ageDays) || ageDays < 0) throw new Error(`${source.tour} ranking snapshot has an impossible future date`);
+    if (ageDays <= catalogue.refreshPolicy.maximumRankingAgeDays) return ageDays;
+    const publicationCheckDay = Date.parse(`${String(source.publicationCheckedAt || "").slice(0, 10)}T00:00:00Z`);
+    const publicationCheckAgeDays = Math.max(0, Math.floor((referenceDay - publicationCheckDay) / 86400000));
+    const confirmedLatest = source.ingestionMode === "public_first_party"
+      && source.sourceTrust === "verified"
+      && Number.isFinite(publicationCheckDay)
+      && publicationCheckAgeDays <= catalogue.refreshPolicy.maximumPublicationCheckAgeDays
+      && ageDays <= catalogue.refreshPolicy.maximumConfirmedPublicationLagDays;
+    if (!confirmedLatest) {
+      throw new Error(`${source.tour} ranking snapshot is ${ageDays} days old and is not a recently confirmed latest official publication; refresh before publishing`);
+    }
+    return ageDays;
+  });
+  const oldestAgeDays = Math.max(...ages);
   return oldestAgeDays;
 }
 
@@ -198,6 +227,8 @@ module.exports = {
   EXPORT_DIR,
   OUTPUT_PATH,
   MAXIMUM_RANKING_AGE_DAYS,
+  MAXIMUM_CONFIRMED_PUBLICATION_LAG_DAYS,
+  MAXIMUM_PUBLICATION_CHECK_AGE_DAYS,
   assertFresh,
   generateCatalogue,
   latestRankingExports,

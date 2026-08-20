@@ -18,6 +18,8 @@ const finalDaySourceCheckedAt = "2026-08-03T15:07:00+10:00";
 const finalDayReviewedAt = "2026-08-03T05:07:00.000Z";
 const latestResultSourceCheckedAt = "2026-08-11T04:20:00+10:00";
 const latestResultReviewedAt = "2026-08-10T18:20:00.000Z";
+const refreshedResultSourceCheckedAt = "2026-08-20T18:21:12.000Z";
+const refreshedResultReviewedAt = "2026-08-20T18:21:12.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -64,7 +66,48 @@ const reputable = (sourceName, sourceUrl, result) => ({
   lastReviewedAt: latestResultReviewedAt,
 });
 
+const refreshedOfficial = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: refreshedResultSourceCheckedAt,
+  sourceType: "official",
+  lastReviewedAt: refreshedResultReviewedAt,
+});
+
 const results = {
+  "cricket-australia-bangladesh-first-test-2026": refreshedOfficial(
+    "Cricket Australia Darwin first Test match report",
+    "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
+    {
+      score: "Bangladesh beat Australia by 9 wickets",
+      outcomeText: "Bangladesh defeated Australia by nine wickets in the first Test in Darwin.",
+      recapText: "Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil.",
+      resultLabels: ["Bangladesh by 9 wickets", "First Test", "Official result"],
+      consensusResult: {
+        winner: "Bangladesh",
+        loser: "Australia",
+        summary: "Bangladesh defeated Australia by nine wickets in Darwin.",
+        marginText: "Bangladesh by 9 wickets",
+      },
+    }
+  ),
+  "rugby-australia-japan-2026-08-15": refreshedOfficial(
+    "Official Wallabies match report",
+    "https://wallabies.rugby/news/wallabies-crack-fifty-over-brave-blossoms-after-dominant-second-half-in-townsville-2026815",
+    {
+      score: "Australia 56-17 Japan",
+      outcomeText: "Australia defeated Japan 56-17 in Townsville.",
+      recapText: "The Wallabies led 21-17 at half-time before adding five unanswered second-half tries. All eight Australian tries came from the forwards, including a debut try for the 1000th Wallaby, Massimo De Lutiis.",
+      resultLabels: ["Wallabies by 39", "Eight forward tries", "Official result"],
+      consensusResult: {
+        winner: "Australia",
+        loser: "Japan",
+        summary: "Australia defeated Japan 56-17.",
+        marginText: "Australia by 39",
+      },
+    }
+  ),
   "rugby-japan-australia-2026-08-08": reputable(
     "Sydney Morning Herald match report and Superbru result listing",
     "https://www.superbru.com/tournaments/rugby-union/nations-championship-rugby/2026",
@@ -823,9 +866,9 @@ if (missing.length) {
   throw new Error(`Result refresh targets not found: ${missing.join(", ")}`);
 }
 
-feed.version = "nothingsport-results-2026-08-10-v1";
-feed.publishedAt = latestResultReviewedAt;
-feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 10 August 2026. Curated cards supersede routine imports for the same event.";
+feed.version = "nothingsport-results-2026-08-20-v1";
+feed.publishedAt = refreshedResultReviewedAt;
+feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 20 August 2026. Curated cards supersede routine imports for the same event.";
 
 fs.writeFileSync(inputPath, `${JSON.stringify(feed, null, 2)}\n`);
 console.log(`Updated ${found.size} result cards in ${path.relative(process.cwd(), inputPath)}.`);

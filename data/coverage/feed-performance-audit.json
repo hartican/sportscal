@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "feed-performance-audit.v1",
+  "measuredAt": "2026-08-21T00:00:00+10:00",
+  "method": "Codex in-app Chromium, local HTTP server, first visible .event-card after reload; seven warm reload samples per state",
+  "baseline": {
+    "ref": "a8128de",
+    "shellVersion": "89",
+    "description": "Release 2 boundary before the Release 3 static-first loading changes"
+  },
+  "measurements": {
+    "release2FreshOrigin": {
+      "visibleCards": 9,
+      "samplesMs": [1497, 321, 324, 318, 316, 341, 333],
+      "medianMs": 324,
+      "note": "The first sample includes the initial service-worker and cold-origin cost."
+    },
+    "release3FreshOrigin": {
+      "shellVersion": "90",
+      "visibleCards": 1,
+      "samplesMs": [256, 1227, 184, 253, 176, 179, 178],
+      "medianMs": 184,
+      "horizontalOverflow": false,
+      "note": "Fresh default preferences render fewer cards than Release 2, so this is a first-card latency measure rather than a full-list throughput comparison."
+    },
+    "release3Configured": {
+      "shellVersion": "90",
+      "visibleCards": 71,
+      "samplesMs": [596, 582, 589, 580, 597, 608, 594],
+      "medianMs": 594,
+      "horizontalOverflow": false,
+      "note": "Configured state exercises the long feed and remains below the separate configured-feed target."
+    }
+  },
+  "targets": {
+    "freshOriginFirstCardMedianMs": 350,
+    "configuredFirstCardMedianMs": 750,
+    "maxCriticalGzipGrowthPercent": 10,
+    "maxCriticalLocalAssetRequests": 40
+  }
+}

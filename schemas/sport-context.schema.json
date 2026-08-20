@@ -75,7 +75,8 @@
       "properties": {
         "provider": { "type": "string", "minLength": 2 },
         "sourceUrl": { "type": "string", "format": "uri" },
-        "sourceType": { "const": "official" },
+        "sourceType": { "enum": ["official", "broadcaster", "explicitly-permitted", "scraped"] },
+        "sourceTrust": { "enum": ["verified", "unverified"] },
         "checkedAt": { "type": "string", "format": "date-time" }
       }
     },

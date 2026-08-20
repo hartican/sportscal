@@ -45,7 +45,7 @@ const html = fs.readFileSync("index.html", "utf8");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing", "calibration"]'), "calibration must be the optional final onboarding step");
 assert(html.includes('id="calibrationMoreBtn"') && html.includes('id="calibrationLessBtn"') && html.includes('id="calibrationSkipBtn"'), "calibration must expose visible More, Less and Skip controls");
 assert(html.includes('event.key === "ArrowRight"') && html.includes('event.key === "ArrowLeft"'), "curated cards must expose keyboard swipe equivalents");
-assert(html.includes("orderCuratedDayEvents(groupMap[dateStr])"), "learned signals must immediately reorder matching curated cards within their feed day");
+assert(html.includes("orderCuratedDayEvents(groups[dateStr])"), "learned signals must immediately reorder matching curated cards within their feed day");
 assert(html.includes("sessionDismissedEventIds.add") && html.includes("sessionDismissedEventIds.has"), "a left swipe must dismiss only from the current curated-feed session");
 assert(!html.match(/function renderSportHubAllFixtures[\s\S]*?sessionDismissedEventIds/), "complete fixture rendering must ignore session swipe dismissals");
 

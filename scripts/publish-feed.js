@@ -6,6 +6,7 @@ const {
   activeSportsFor,
   mergeFeedEvents,
   normalizeFeed,
+  protectVerifiedEventFacts,
   readJson,
   summarizeFeedHorizon,
   validateFeed,
@@ -30,7 +31,16 @@ if (errors.length) {
 
 let publishedFeed = feed;
 let mergeSummary = null;
-if (!replaceExisting) {
+if (replaceExisting) {
+  try {
+    const existing = normalizeFeed(readJson(eventsOutPath));
+    const existingErrors = validateFeed(existing);
+    if (existingErrors.length) throw new Error(existingErrors.join("; "));
+    publishedFeed = { ...feed, events: protectVerifiedEventFacts(feed.events, existing.events) };
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+} else {
   try {
     const existing = normalizeFeed(readJson(eventsOutPath));
     const existingErrors = validateFeed(existing);

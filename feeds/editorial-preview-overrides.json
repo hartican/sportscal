@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
+  "sourceCheckedAt": "2026-08-20T18:21:12Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -16,6 +16,23 @@
         "sourceName": "Official NRL ladder",
         "sourceUrl": "https://www.nrl.com/ladder",
         "sourceCheckedAt": "{{ladderSourceCheckedAt}}",
+        "needsPreviewRefresh": false
+      }
+    },
+    "rugby-south-africa-all-blacks-2026-08-22": {
+      "selectedSentence": "Stormers, Sharks and Bulls supplied the runway; now Ellis Park opens the real four-Test contest, 30 years after the landmark 1996 tour.",
+      "fullSpiel": "The South African franchise leg has taken New Zealand through Cape Town, Durban and Pretoria before the first Test in Johannesburg. The official tour schedule frames this as the first full-scale, old-style All Blacks tour of South Africa in 30 years, with Ellis Park opening a four-Test series that eventually finishes in Baltimore.",
+      "sourceName": "Official All Blacks Rugby's Greatest Rivalry tour schedule",
+      "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
+      "sourceCheckedAt": "2026-08-20T18:21:12Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "A dominant three-match franchise warm-up gives way to the first Test of a revived old-style tour at Ellis Park.",
+        "contextSignals": ["tour-build-up", "series-opener", "rivalry-history", "iconic-venue"],
+        "sourceName": "Official All Blacks Rugby's Greatest Rivalry tour schedule",
+        "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
+        "sourceCheckedAt": "2026-08-20T18:21:12Z",
         "needsPreviewRefresh": false
       }
     },

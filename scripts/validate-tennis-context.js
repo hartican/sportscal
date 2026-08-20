@@ -5,7 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const sportContext = require("../config/sport-context");
-const { buildContext } = require("./build-tennis-context.js");
+const { ALPHA3_TO_ALPHA2, buildContext } = require("./build-tennis-context.js");
 
 const context = JSON.parse(fs.readFileSync("data/canonical/tennis-context-2026.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/sport-context.schema.json", "utf8"));
@@ -21,8 +21,9 @@ assert.deepEqual(
   context.participants.map(participant => participant.id),
   "the checked-in context and generator must retain the same ATP/WTA participant identities"
 );
-assert(context.sources.some(source => source.sourceUrl.startsWith("https://www.atptour.com/")));
-assert(context.sources.some(source => source.sourceUrl.startsWith("https://www.wtatennis.com/")));
+assert(context.sources.some(source => /^https:\/\/(www\.atptour\.com|www\.protennislive\.com)\//.test(source.sourceUrl)));
+assert(context.sources.some(source => /^https:\/\/(www\.|api\.)wtatennis\.com\//.test(source.sourceUrl)));
+assert(context.sources.filter(source => /protennislive|api\.wtatennis/.test(source.sourceUrl)).every(source => source.sourceTrust === "verified"), "first-party ATP/WTA ranking sources must remain visibly verified in canonical context");
 
 const participantsById = new Map(context.participants.map(participant => [participant.id, participant]));
 assert.equal(participantsById.size, context.participants.length, "tennis athlete IDs must be unique");
@@ -32,6 +33,9 @@ assert(context.participants.every(participant => participant.type === "competito
 assert(context.participants.every(participant => participant.metadata.titleAliases?.length));
 assert(context.participants.some(participant => participant.sportDomainId === "sport:tennis:atp" && participant.metadata.isAustralian && participant.metadata.rankingSingles > 50));
 assert(context.participants.some(participant => participant.sportDomainId === "sport:tennis:wta" && participant.metadata.isAustralian && participant.metadata.rankingSingles > 50));
+const rankingParticipants = context.participants.filter(participant => Number.isInteger(participant.metadata.rankingSingles));
+assert(rankingParticipants.every(participant => participant.metadata.rankingSourceTrust), "ranking participants must retain source trust provenance");
+assert(rankingParticipants.every(participant => ALPHA3_TO_ALPHA2[participant.metadata.representedCountryCode] === participant.countryCode), "every refreshed represented country must have an explicit ISO alpha-2 display mapping");
 
 for (const tour of ["atp", "wta"]) {
   const competition = context.competitions.find(item => item.id === `competition:${tour}-singles-2026`);

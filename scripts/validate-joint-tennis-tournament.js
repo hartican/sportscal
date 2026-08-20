@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 const jointTennis = require("../config/joint-tennis-tournament.js");
+const reportingSources = require("../config/cincinnati-reporting-sources.js");
 const refresh = require("./refresh-cincinnati-tournament.js");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -63,7 +64,8 @@ function validateDocument(document){
   assert(jointTennis.RESULT_CHECK_STATES.includes(document.resultAvailability.lastCheck));
   validDateTime(document.resultAvailability.checkedAt, "resultAvailability.checkedAt");
   if (document.resultAvailability.sourceUrl) {
-    assert(Object.values(refresh.OFFICIAL_PAGES).includes(document.resultAvailability.sourceUrl), "result availability may cite only the three approved publisher pages");
+    assert(/^https:\/\//.test(document.resultAvailability.sourceUrl), "result availability provenance must use HTTPS");
+    assert(["verified", "unverified"].includes(document.resultAvailability.sourceTrust), "result availability must expose its trust class");
   }
 
   const matches = document.schedule.matches || [];
@@ -108,13 +110,22 @@ function validateDocument(document){
     assert.equal(result.status, "completed");
     assert(/(?:^|\s)[0-7][-–][0-7](?:\(\d+\))?(?=\s|$)/.test(result.score), "completed result must contain an explicit tennis set score");
     assert(addressableById.get(matchId).players.some(player => player.playerId === result.winnerPlayerId), "winner must be an addressable participant");
-    assert(Object.values(refresh.OFFICIAL_PAGES).includes(result.sourceUrl), "results may cite only one of the three approved Cincinnati publisher pages");
+    assert(/^https:\/\//.test(result.sourceUrl), "results need HTTPS source provenance");
+    assert(["verified", "unverified"].includes(result.sourceTrust), "results need a visible trust class");
     validDateTime(result.retrievedAt, "result retrievedAt");
   });
   assert.equal(document.resultAvailability.status, resultEntries.length ? "available" : "unavailable", "result availability must reflect the separate result map");
-  if (document.resultAvailability.lastCheck === "parsed") assert(resultEntries.length > 0, "parsed result status requires at least one verified result");
-  if (document.resultAvailability.lastCheck === "parsed") assert(document.resultAvailability.sourceUrl, "a parsed result needs approved publisher-page provenance");
+  if (document.resultAvailability.lastCheck === "parsed") assert(resultEntries.length > 0, "parsed result status requires at least one source-backed result");
+  if (document.resultAvailability.lastCheck === "parsed") assert(document.resultAvailability.sourceUrl, "a parsed result needs source provenance");
   if (["not_checked", "no_parseable_completed_results"].includes(document.resultAvailability.lastCheck)) assert.equal(document.resultAvailability.sourceUrl, null);
+  (document.reporting?.items || []).forEach(item => {
+    assert(/^reporting:cincinnati:/.test(item.itemId));
+    assert(["result", "highlight", "commentary", "preview"].includes(item.kind));
+    assert(["verified", "unverified"].includes(item.sourceTrust));
+    assert(/^https:\/\//.test(item.sourceUrl));
+    assert(Number.isInteger(item.reliabilityRank) && item.reliabilityRank >= 1 && item.reliabilityRank <= 4);
+    validDateTime(item.sourceCheckedAt, "reporting sourceCheckedAt");
+  });
 
   if (document.freshness.mode === "overview") {
     assert.equal(matches.length, 0);
@@ -147,6 +158,10 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, jointTennis.SCHEMA_VERSION);
   assert.equal(schema.properties.resultsByMatchId.type, "object", "results must stay outside spoiler-safe schedule records");
   assert(schema.required.includes("resultAvailability"), "every canonical document must state whether verified results are available");
+  assert(reportingSources.SOURCES.some(source => source.sourceTrust === "unverified"), "the MVP reporting stack must include automatically scraped unverified reporting");
+  assert(reportingSources.SOURCES.some(source => source.id === "cincinnati-rain-oop-mixed" && source.responseFormat === "json" && source.sourceTrust === "verified"), "the public Cincinnati-integrated mixed order of play must be the automated schedule source");
+  assert(reportingSources.SOURCES.some(source => source.pageRole === "reporting-api" && /cincinnatiopen\.com\/wp-json\//.test(source.url)), "official Cincinnati editorial reporting must use the public WordPress API");
+  assert(reportingSources.SOURCES.some(source => /^espn-cincinnati-/.test(source.id) && source.sourceTrust === "unverified"), "ESPN must remain a labelled fallback rather than official truth");
 
   const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/tennis-catalogue-2026.json"), "utf8"));
   const cincinnati = refresh.cincinnatiTournament(catalogue);
@@ -212,6 +227,23 @@ async function run(){
     "column-block PDFs must be restored to row-major court/play order",
   );
   assert.deepEqual(columnBlockParsed.matches.map(match => match.timing.type), ["exact", "exact", "followed_by", "not_before"]);
+  const mixedSinglesAndDoubles = refresh.parseOrderOfPlayText([
+    "ORDER OF PLAY 14 AUGUST 2026",
+    "P&G STADIUM COURT",
+    "ATP",
+    "[5] HSIEH (TPE) / OSTAPENKO (LAT) or",
+    "V",
+    "DABROWSKI (CAN) / ROUTLIFFE (NZL)",
+    "ATP",
+    "Alex de Minaur (AUS)",
+    "V",
+    "Carlos Alcaraz (ESP)",
+  ].join("\n"), {
+    tournament: refresh.cincinnatiTournament(catalogue),
+    catalogue,
+  });
+  assert.equal(mixedSinglesAndDoubles.matches.length, 1, "column-block doubles rows must be skipped without discarding the published singles schedule");
+  assert.deepEqual(mixedSinglesAndDoubles.matches[0].players.map(player => player.name), ["Alex De Minaur", "Carlos Alcaraz"]);
   const rankings = new Map(catalogue.athletes.map(player => [`${player.tour}:${jointTennis.slug(player.displayName)}`, player]));
   assert.equal(refresh.parseMatchLine("Su-Wei HSIEH TPE Ena SHIBAHARA JPN vs Gabriela DABROWSKI CAN Erin ROUTLIFFE NZL WTA", rankings), null, "doubles rows must not be mistaken for a singles highlight");
   assert(refresh.parseMatchLine("ATP Botic VAN DE ZANDSCHULP (NED) v Tallon GRIEKSPOOR (NED)", rankings), "uppercase surname particles must not be mistaken for a doubles country code");
@@ -239,12 +271,15 @@ async function run(){
     score: "6-4 6-3",
     winnerPlayerId: firstMatch.players[0].playerId,
     sourceUrl: refresh.OFFICIAL_PAGES.draws,
+    sourceTrust: "verified",
+    sourceName: "Cincinnati Open",
     retrievedAt: "2026-08-14T18:00:00.000Z",
   };
   const withResult = jointTennis.withResults(parsedDocument, { [firstMatch.matchId]: completedResult }, {
     status: "available",
     checkedAt: completedResult.retrievedAt,
     sourceUrl: completedResult.sourceUrl,
+    sourceTrust: "verified",
     lastCheck: "parsed",
   });
   validateDocument(withResult);
@@ -272,7 +307,7 @@ async function run(){
 
   assert.throws(() => refresh.parseScheduleDate("31 FEBRUARY 2026"), error => error.code === "integrity_impossible_date", "impossible source dates must block release instead of degrading silently");
   assert.throws(() => refresh.assertApprovedPublishedDocument({ kind: "order_of_play", publisherPageUrl: refresh.OFFICIAL_PAGES.order_of_play, sourceUrl: "https://www.atptour.com/fallback.pdf" }), /not approved/);
-  assert.throws(() => refresh.discoverPublishedDocuments('<a href="https://api.rainviewer.com/order.pdf">Rain</a>', refresh.OFFICIAL_PAGES.order_of_play, "order_of_play"), /not approved/);
+  assert.throws(() => refresh.discoverPublishedDocuments('<a href="https://api-tennis.com/order.pdf">Paid feed</a>', refresh.OFFICIAL_PAGES.order_of_play, "order_of_play"), /not approved/);
   const publishedLinks = refresh.discoverPublishedDocuments(fixture("official-order-of-play-page.html").toString("utf8"), refresh.OFFICIAL_PAGES.order_of_play, "order_of_play");
   assert.equal(publishedLinks.length, 1);
   assert.equal(publishedLinks[0].sourceUrl, "https://cincinnatiopen.com/wp-content/uploads/2026/08/order-of-play-2026-08-14.pdf");
@@ -349,11 +384,12 @@ async function run(){
     now: "2026-08-14T13:00:00.000Z",
     outputPath: path.join(FIXTURE_DIR, "absent-output.json"),
     catalogue,
+    reportingSources: [],
   });
   assert.equal(refreshed.status, "success");
   validateDocument(refreshed.document);
   assert.deepEqual(fetchedUrls.slice(0, 3).sort(), Object.values(refresh.OFFICIAL_PAGES).slice().sort());
-  assert.equal(fetchedUrls.length, 4, "the refresh must fetch only the three named pages and the approved order-of-play PDF");
+  assert.equal(fetchedUrls.length, 4, "the schedule seam must fetch the three named pages and the approved order-of-play PDF when reporting fallbacks are disabled for this fixture");
   assert.equal(fetchedUrls.at(-1), publishedLinks[0].sourceUrl, "the refresh may only download a PDF discovered on an approved Cincinnati page");
   assert.equal(refreshed.document.resultAvailability.status, "unavailable");
   assert.equal(refreshed.document.resultAvailability.lastCheck, "no_parseable_completed_results");
@@ -390,6 +426,159 @@ async function run(){
   assert.equal(populatedResults.resultAvailability.sourceUrl, refresh.OFFICIAL_PAGES.draws);
   assert.equal(populatedResults.resultsByMatchId[firstMatch.matchId].score, "6-4 6-3");
   assert(!JSON.stringify(populatedResults.schedule).includes("6-4"), "an extracted score must never leak back into schedule fields");
+
+  const publicSource = {
+    id: "fixture-report",
+    label: "Public match report",
+    url: "https://example.com/cincinnati-report",
+    pageRole: "results-and-reporting",
+    responseFormat: "html",
+    sourceTrust: "unverified",
+    reliabilityRank: 2,
+  };
+  const publicResultHtml = `<!doctype html><html><head>
+    <meta property="og:title" content="Cincinnati result: ${firstMatch.players[0].name} v ${firstMatch.players[1].name}">
+    <meta property="og:url" content="${publicSource.url}">
+    <meta property="article:published_time" content="2026-08-14T18:00:00.000Z">
+    <script type="application/ld+json">${JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      sport: "Tennis",
+      eventStatus: "https://schema.org/EventCompleted",
+      competitor: firstMatch.players.map(player => ({ "@type": "Person", name: player.name })),
+      winner: { "@type": "Person", name: firstMatch.players[0].name },
+      score: "6-4 6-3",
+    })}</script>
+  </head></html>`;
+  const publicBundle = await refresh.collectPublicReporting({
+    fetchImpl: async url => {
+      assert.equal(url, publicSource.url);
+      return fakeResponse(publicResultHtml);
+    },
+    sources: [publicSource],
+    document: parsedDocument,
+    previous: null,
+    now: "2026-08-14T18:00:00.000Z",
+  });
+  assert.equal(publicBundle.reporting.items.length, 1, "public reporting metadata must be retained for tournament drill-down");
+  assert.equal(publicBundle.resultsByMatchId[firstMatch.matchId].sourceTrust, "unverified");
+  const withPublicReporting = refresh.attachPublicReporting(parsedDocument, publicBundle, "2026-08-14T18:00:00.000Z");
+  validateDocument(withPublicReporting);
+  assert.equal(withPublicReporting.resultAvailability.sourceTrust, "unverified");
+  assert.equal(withPublicReporting.resultsByMatchId[firstMatch.matchId].sourceName, publicSource.label);
+  const publicHidden = jointTennis.spoilerSafeView(withPublicReporting, false);
+  assert.equal(publicHidden.reporting, undefined, "results, highlights and commentary must remain hidden with spoilers off");
+  const officialWins = refresh.attachPublicReporting(withResult, {
+    ...publicBundle,
+    resultsByMatchId: {
+      [firstMatch.matchId]: { ...publicBundle.resultsByMatchId[firstMatch.matchId], score: "0-6 0-6", winnerPlayerId: firstMatch.players[1].playerId },
+    },
+  }, "2026-08-14T18:30:00.000Z");
+  assert.equal(officialWins.resultsByMatchId[firstMatch.matchId].score, "6-4 6-3", "unverified reporting must never overwrite a conflicting verified result");
+
+  const rainOopSource = reportingSources.SOURCES.find(source => source.id === "cincinnati-rain-oop-mixed");
+  const rainDrawSource = reportingSources.SOURCES.find(source => source.id === "cincinnati-rain-atp-draws");
+  const wordpressSource = reportingSources.SOURCES.find(source => source.id === "cincinnati-recaps-api");
+  const rainOopPayload = [{
+    date: "2026-08-11",
+    seq: "1",
+    courts: [{
+      id: 1,
+      name: "P&G Stadium Court",
+      time: "6:10 PM",
+      matches: [{
+        id: "MS999",
+        status: "Completed",
+        type: "atp",
+        notBefore: { time: "6:10 PM", text: "Starting at", isoTime: "18:10-0400" },
+        team: [
+          { players: [{ id: "100", first: "Jannik", last: "Sinner", country: "ITA" }], playersKnown: true },
+          { players: [{ id: "200", first: "Novak", last: "Djokovic", country: "SRB" }], playersKnown: true },
+        ],
+        detail: { rnd: "R32" },
+        seq: 1,
+      }],
+    }],
+  }];
+  const rainDrawPayload = [{
+    code: "MS",
+    description: "Men's Singles",
+    rounds: [{
+      id: "R32",
+      matches: [{
+        id: "MS999",
+        drawInfo: {
+          result: "A",
+          players: {
+            A: [{ id: "100", nF: "Jannik", nL: "Sinner", c: "ITA" }],
+            B: [{ id: "200", nF: "Novak", nL: "Djokovic", c: "SRB" }],
+          },
+        },
+        detail: { s1A: 6, s1B: 4, s2A: 6, s2B: 3 },
+      }],
+    }],
+  }];
+  const wordpressPayload = [{
+    id: 9876,
+    date_gmt: "2026-08-11T23:30:00",
+    link: "https://cincinnatiopen.com/news/sinner-djokovic-cincinnati-recap/",
+    title: { rendered: "Sinner and Djokovic light up Cincinnati" },
+    categories: [27],
+  }];
+  const integratedBodies = new Map([
+    [rainOopSource.url, JSON.stringify(rainOopPayload)],
+    [rainDrawSource.url, JSON.stringify(rainDrawPayload)],
+    [wordpressSource.url, JSON.stringify(wordpressPayload)],
+  ]);
+  const integratedBundle = await refresh.collectPublicReporting({
+    fetchImpl: async url => {
+      assert(integratedBodies.has(url), "the integrated-source test must fetch only its declared public endpoints");
+      return fakeResponse(integratedBodies.get(url), "application/json");
+    },
+    sources: [rainOopSource, rainDrawSource, wordpressSource],
+    document: parsedDocument,
+    previous: null,
+    now: "2026-08-14T18:00:00.000Z",
+  });
+  assert.equal(integratedBundle.matchHistory.length, 1, "the combined Rain OOP must populate a non-current tournament day");
+  assert.equal(integratedBundle.matchHistory[0].scheduleDate, "2026-08-11");
+  assert.equal(integratedBundle.matchHistory[0].round, "round_of_32");
+  assert.equal(integratedBundle.reporting.items[0].sourceRecordId, "wp:9876", "WordPress records must retain a stable source ID");
+  const integratedMatchId = integratedBundle.matchHistory[0].matchId;
+  assert.equal(integratedBundle.resultsByMatchId[integratedMatchId].score, "6-4 6-3");
+  assert.equal(integratedBundle.resultsByMatchId[integratedMatchId].sourceRecordId, "MS999");
+  const withIntegratedSources = refresh.attachPublicReporting(parsedDocument, integratedBundle, "2026-08-14T18:00:00.000Z");
+  validateDocument(withIntegratedSources);
+  assert(withIntegratedSources.matchHistory.some(match => match.matchId === integratedMatchId), "Rain day records must remain addressable in the combined tournament card");
+  assert.equal(withIntegratedSources.resultAvailability.sourceTrust, "verified");
+
+  const espnSource = reportingSources.SOURCES.find(source => source.id === "espn-cincinnati-men-2026");
+  const espnHtml = `<script>window['__espnfitt__'] = ${JSON.stringify({
+    page: {
+      content: {
+        scoreboard: {
+          competitions: {
+            "181910": {
+              id: "181910",
+              status: { description: "Final", state: "post", completed: true },
+              competitors: [
+                { nm: firstMatch.players[0].name, winner: true, lnescrs: [6, 6] },
+                { nm: firstMatch.players[1].name, winner: false, lnescrs: [4, 3] },
+              ],
+            },
+          },
+        },
+      },
+    },
+  })};</script>`;
+  const espnResults = refresh.extractEmbeddedResultsHtml(espnHtml, {
+    document: parsedDocument,
+    source: espnSource,
+    retrievedAt: "2026-08-14T18:00:00.000Z",
+  });
+  assert.equal(espnResults[firstMatch.matchId].score, "6-4 6-3", "the ESPN parser must use its embedded JSON assignment and compact score keys");
+  assert.equal(espnResults[firstMatch.matchId].sourceTrust, "unverified");
+  assert.equal(espnResults[firstMatch.matchId].sourceRecordId, "181910");
 
   let boundaryFetches = 0;
   const boundaryFetch = async () => {
@@ -444,7 +633,7 @@ async function run(){
     "the generated tournament bundle must expose the canonical document on the expected browser global",
   );
 
-  console.log("Joint tennis tournament valid: official Cincinnati-only discovery, PDF parsing, strict completed-result admission, explicit safe unavailability, stable IDs, spoiler separation and 24-hour fallback.");
+  console.log("Joint tennis tournament valid: official schedule discovery, source-ranked public reporting, protected verified facts, PDF parsing, stable IDs, spoiler separation and 24-hour fallback.");
 }
 
 if (require.main === module) {

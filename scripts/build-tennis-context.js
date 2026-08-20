@@ -10,7 +10,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT, "data/canonical/tennis-context-2026.json");
 const SUPPLEMENT_PATH = path.join(ROOT, "data/canonical/tennis-published-participants-2026.json");
 const ALPHA3_TO_ALPHA2 = Object.freeze({
-  ARG: "AR", AUS: "AU", AUT: "AT", BEL: "BE", BLR: "BY", BRA: "BR", CAN: "CA", CHI: "CL", CHN: "CN", CRO: "HR", CZE: "CZ", DEN: "DK", EGY: "EG", ESP: "ES", FRA: "FR", GBR: "GB", GER: "DE", GRE: "GR", INA: "ID", ITA: "IT", JPN: "JP", KAZ: "KZ", LAT: "LV", MON: "MC", NOR: "NO", PER: "PE", PHI: "PH", POL: "PL", ROU: "RO", RUS: "RU", SRB: "RS", SUI: "CH", UKR: "UA", USA: "US",
+  ARG: "AR", AUS: "AU", AUT: "AT", BEL: "BE", BLR: "BY", BRA: "BR", CAN: "CA", CHI: "CL", CHN: "CN", CRO: "HR", CZE: "CZ", DEN: "DK", EGY: "EG", ESP: "ES", FRA: "FR", GBR: "GB", GER: "DE", GRE: "GR", INA: "ID", ITA: "IT", JPN: "JP", KAZ: "KZ", LAT: "LV", MON: "MC", NOR: "NO", PER: "PE", PHI: "PH", POL: "PL", POR: "PT", ROU: "RO", RUS: "RU", SRB: "RS", SUI: "CH", TUR: "TR", UKR: "UA", USA: "US",
 });
 
 function surname(value){
@@ -34,6 +34,8 @@ function participant(athlete){
       rankingSingles: athlete.rankingSingles,
       rankingPoints: athlete.rankingPoints,
       rankingSnapshotDate: athlete.rankingSnapshotDate,
+      rankingSourceTrust: athlete.rankingSourceTrust,
+      rankingPublicationCheckedAt: athlete.rankingPublicationCheckedAt,
       representedCountryCode: athlete.nationalityCode,
       isAustralian: athlete.isAustralian,
       providerAlias: athlete.providerAlias,
@@ -78,14 +80,15 @@ function rankingSnapshot(catalogue, tour){
     source: {
       provider: source.provider,
       sourceUrl: source.sourceUrl,
-      sourceType: "official",
-      checkedAt: source.observedAt,
+      sourceType: source.sourceTrust === "verified" ? "official" : "scraped",
+      sourceTrust: source.sourceTrust,
+      checkedAt: source.publicationCheckedAt || source.observedAt,
     },
     metadata: {
-      scope: "Official Top 50 plus every ranked Australian in the reviewed provider export",
+      scope: "Top 50 plus every ranked Australian from the latest independently checked ATP or WTA publication",
       refreshCadence: "weekly",
       ingestionMode: catalogue.ingestionMode,
-      withholdingPolicy: "Retain the last good snapshot and fail closed if either tour is stale, truncated, or missing.",
+      withholdingPolicy: "Retain the last good snapshot and fail closed if either tour is unconfirmed, truncated, missing, or beyond the bounded official-publication lag.",
     },
   };
 }
@@ -104,8 +107,9 @@ function buildContext(catalogue = generateCatalogue()){
     sources: catalogue.sources.slice(0, 3).map(source => ({
       provider: source.provider,
       sourceUrl: source.sourceUrl,
-      sourceType: "official",
-      checkedAt: source.observedAt,
+      sourceType: source.sourceTrust === "verified" ? "official" : "scraped",
+      sourceTrust: source.sourceTrust,
+      checkedAt: source.publicationCheckedAt || source.observedAt,
     })),
     sportDomains: [{
       id: "sport:tennis",
@@ -159,4 +163,4 @@ function main(argv = process.argv.slice(2)){
 
 if (require.main === module) main();
 
-module.exports = { OUTPUT_PATH, buildContext, render };
+module.exports = { ALPHA3_TO_ALPHA2, OUTPUT_PATH, buildContext, render };

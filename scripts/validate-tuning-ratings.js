@@ -86,7 +86,7 @@ const worker = fs.readFileSync("service-worker.js", "utf8");
 const shellVersion = html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
 const workerVersion = worker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+)"/)?.[1];
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "Tune and rating contracts must load before app state");
-assert(html.includes('settingsMenuItem("tune"') && html.includes("renderFineTuningSettings"), "Tune must remain reachable from Settings");
+assert(!html.includes('settingsMenuItem("tune"') && html.includes('id="tuneNavBtn"'), "Tune must remain reachable only from the primary Tune tab, without a duplicate Settings entry");
 assert(html.includes("applyTuningSignal") && html.includes("completeTuningSession"), "every Tune choice and completed session must persist through the v6 graph");
 assert(html.includes('eventName: "tune_session"') && html.includes('surface: "tune"'), "Tune sessions must use the fixed pilot event contract");
 assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i<=10;i++)"), "actual spectacle must use five one-tap stars");

@@ -3,12 +3,29 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const READOUT = require("../config/pilot-readout");
-const { buildReadinessReport } = require("./verify-pilot-readiness");
+const { buildReadinessReport, isUnresolvedOfficialPlaceholder } = require("./verify-pilot-readiness");
 const { inputFromReadout } = require("./evaluate-pilot-readout");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
 const readiness = buildReadinessReport({ canonical, feedMeta, now: new Date(feedMeta.publishedAt) });
+const participantsById = new Map(canonical.participants.map(participant => [participant.id, participant]));
+const unresolvedPlaceholders = canonical.events.filter(fixture => isUnresolvedOfficialPlaceholder(fixture, participantsById));
+assert.deepEqual(unresolvedPlaceholders.map(fixture => fixture.displayName).sort(), ["1st v 4th", "2nd v 3rd", "7th v 10th", "8th v 9th"], "official positional AFL finals placeholders must remain deferred until the participants and schedule are published");
+const namedFixture = canonical.events.find(fixture => (
+  fixture.sportDomainId === "sport:afl"
+  && participantsById.get(fixture.homeParticipantId)?.teamCode !== "TBD"
+  && participantsById.get(fixture.awayParticipantId)?.teamCode !== "TBD"
+));
+assert(namedFixture, "the regression fixture needs a named-team AFL match");
+assert.equal(isUnresolvedOfficialPlaceholder({
+  ...namedFixture,
+  scheduleStatus: "tbc",
+  startTimeUtc: null,
+  roundLabel: "Wildcard Finals",
+}, participantsById), false, "a named-team fixture must never escape readiness merely because its time is TBC");
+assert.equal(readiness.deferredPlaceholderCount, 2, "the readiness report must expose rather than silently discard official placeholders");
+assert.equal(readiness.ready, true, `current supported fixtures should be complete after legitimate placeholders are deferred: ${readiness.issues.join("; ")}`);
 const weeklyTsdr = [{ weekStart: "2026-08-10", denominator: 2, numerator: 1, tsdrPercent: 50 }];
 const input = inputFromReadout([{
   cohort: "all",

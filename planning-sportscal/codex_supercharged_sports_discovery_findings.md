@@ -55,7 +55,7 @@ Following an unfollowed league starts at the existing normal follow default. The
 
 ## Cincinnati joint-tournament beta
 
-Build a reusable `joint-tennis-tournament.v1` model but enable only Cincinnati in this release. One stable tournament card is pinned from the first published order of play through the final.
+Build a reusable `joint-tennis-tournament.v1` model but enable only Cincinnati in this release. One stable tournament card is eligible from the first published order of play through the final, but it is not automatically pinned; it follows normal Tennis coverage and enters Must Watch only by user action. This wording is superseded by the later Personalised Feed Reset decisions.
 
 The card promotes three matches using a deterministic balanced score based on round importance, pre-match player rankings, Australian interest and trustworthy existing pre-match narrative/media signals. The chosen matches are displayed in their actual court/play sequence with ATP/WTA labels and exact, not-before, followed-by or session-only timing.
 
@@ -63,11 +63,11 @@ The card displays `Beta schedule`, its official source and one confidence state:
 
 Save, reminder and related actions belong to individual matches. A saved or reminded match that rotates out of the top three remains on the card in collapsed `Saved matches (N)`.
 
-### Approved source boundary
+### MVP source boundary
 
-Automation may follow only links published through Cincinnati's official [Tournament Schedule](https://cincinnatiopen.com/tournament/tournament-schedule/), [Order of Play](https://cincinnatiopen.com/score-center/order-of-play/) and [Draws](https://cincinnatiopen.com/score-center/draws/) pages. The importer discovers official PDFs from those pages, validates their host/type/content and records provenance.
+The official-PDF seam continues to discover documents only through Cincinnati's [Tournament Schedule](https://cincinnatiopen.com/tournament/tournament-schedule/), [Order of Play](https://cincinnatiopen.com/score-center/order-of-play/) and [Draws](https://cincinnatiopen.com/score-center/draws/) pages. The combined daily schedule and result layer may additionally use Cincinnati's public Rain Digital JSON feeds because the tournament's own Scores page declares and consumes them. Cincinnati's public WordPress API supplies official previews, recaps and commentary.
 
-Do not automate ATP or WTA fallbacks. Their published [ATP terms](https://www.atptour.com/en/terms-and-conditions) and [WTA terms](https://www.wtatennis.com/terms-and-conditions) restrict systematic or automated retrieval without permission. Do not depend on undocumented Rain endpoints.
+The static refresh may automatically scrape other publicly accessible Cincinnati, WTA, ESPN and surrounding reporting pages under the Personalised Feed Reset MVP policy, even without explicit automation permission. First-party and first-party-integrated facts are verified; other reporting is labelled `Unverified source` and cannot overwrite conflicting verified fixture, timing or result facts. The refresh must not bypass authentication, paywalls, CAPTCHAs, HTTP 403 responses or other technical access controls. ATP pages that reject unattended requests remain browser/manual corroboration rather than a release-critical automated dependency.
 
 After a parse failure, retain the last successful document for no more than 24 hours with `Stale`. After that, keep the pinned overview and say schedule details are unavailable. Optional tournament-detail failure must not block the wider feed; schema errors, duplicate IDs, impossible dates and spoiler leakage do block release.
 

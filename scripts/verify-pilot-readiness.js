@@ -33,6 +33,19 @@ function hasWatchDestination(fixture){
   ));
 }
 
+function isUnresolvedOfficialPlaceholder(fixture, participantsById){
+  if (!fixture || fixture.scheduleStatus !== "tbc" || fixture.startTimeUtc !== null) return false;
+  if (fixture?.source?.sourceType !== "official") return false;
+  if (!/^(?:\d+(?:st|nd|rd|th))\s+v\s+(?:\d+(?:st|nd|rd|th))$/i.test(String(fixture.displayName || "").trim())) return false;
+  if (!/finals?/i.test(String(fixture.roundLabel || ""))) return false;
+  const participants = [fixture.homeParticipantId, fixture.awayParticipantId]
+    .map(participantId => participantsById.get(participantId));
+  return participants.length === 2 && participants.every(participant => (
+    participant
+    && String(participant.teamCode || participant.shortName || "").trim().toUpperCase() === "TBD"
+  ));
+}
+
 function fixtureIssues(fixture, participantIds){
   const issues = [];
   if (!fixture?.id) issues.push("missing canonical event ID");
@@ -62,17 +75,32 @@ function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
   }
   if (!(now instanceof Date) || !Number.isFinite(now.getTime())) throw new TypeError("now must be a valid Date.");
 
-  const participantIds = new Set(canonical.participants.map(participant => participant?.id).filter(Boolean));
+  const participantsById = new Map(canonical.participants
+    .filter(participant => participant?.id)
+    .map(participant => [participant.id, participant]));
+  const participantIds = new Set(participantsById.keys());
   const issues = [];
   const sports = {};
   let supportedFixtureCount = 0;
   let completeFixtureCount = 0;
+  let deferredPlaceholderCount = 0;
+  const deferredPlaceholders = [];
 
   for (const sportKey of SUPPORTED_SPORTS){
     const fixtures = SPORT_HUBS.canonicalFixturesForSport(canonical, sportKey);
     const currentRound = SPORT_HUBS.currentRoundNumber(fixtures);
     const rounds = SPORT_HUBS.roundWindow(fixtures, currentRound, 2);
-    const windowFixtures = SPORT_HUBS.fixturesForRoundWindow(fixtures, currentRound, 2);
+    const roundWindowFixtures = SPORT_HUBS.fixturesForRoundWindow(fixtures, currentRound, 2);
+    const sportDeferredPlaceholders = roundWindowFixtures
+      .filter(fixture => isUnresolvedOfficialPlaceholder(fixture, participantsById))
+      .map(fixture => ({
+        id: fixture.id || null,
+        roundNumber: Number(fixture.roundNumber),
+        displayName: fixture.displayName || null,
+        reason: "awaiting participants and official scheduling",
+      }));
+    const deferredIds = new Set(sportDeferredPlaceholders.map(fixture => fixture.id));
+    const windowFixtures = roundWindowFixtures.filter(fixture => !deferredIds.has(fixture.id));
     const views = SPORT_HUBS.buildFixtureViews(windowFixtures, {
       participants: canonical.participants,
       feedCards: [],
@@ -97,12 +125,16 @@ function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
     const complete = fixtureReports.filter(fixture => fixture.complete).length;
     supportedFixtureCount += fixtureReports.length;
     completeFixtureCount += complete;
+    deferredPlaceholderCount += sportDeferredPlaceholders.length;
+    deferredPlaceholders.push(...sportDeferredPlaceholders.map(fixture => ({ sport: sportKey, ...fixture })));
     sports[sportKey] = {
       currentRound,
       roundNumbers: rounds.map(round => round.roundNumber),
       fixtureCount: fixtureReports.length,
       completeFixtureCount: complete,
       coveragePercent: fixtureReports.length ? Math.round(complete * 10_000 / fixtureReports.length) / 100 : 0,
+      deferredPlaceholderCount: sportDeferredPlaceholders.length,
+      deferredPlaceholders: sportDeferredPlaceholders,
       fixtures: fixtureReports,
     };
     if (!fixtureReports.length) issues.push(`${sportKey.toUpperCase()} has no current/next-round fixture window.`);
@@ -143,6 +175,8 @@ function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
     supportedFixtureCoveragePercent: coveragePercent,
     supportedFixtureCount,
     completeFixtureCount,
+    deferredPlaceholderCount,
+    deferredPlaceholders,
     dueSupportedFixtureCount: dueSupportedFixtures.length,
     overdueResultCount: overdueResults.length,
     overdueResults,
@@ -206,5 +240,6 @@ module.exports = {
   buildReadinessReport,
   completedResultIsPresent,
   fixtureIssues,
+  isUnresolvedOfficialPlaceholder,
   parseOptions,
 };

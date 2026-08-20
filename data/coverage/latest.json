@@ -1,7 +1,7 @@
 {
   "schemaVersion": "coverage-report.v1",
-  "reportId": "coverage-report:2026-08-14",
-  "referenceDate": "2026-08-14",
+  "reportId": "coverage-report:2026-08-21",
+  "referenceDate": "2026-08-21",
   "generatedAt": "2026-08-13T02:05:00.000Z",
   "refreshPolicy": {
     "weeklyBreadth": true,
@@ -147,7 +147,7 @@
       "status": "loaded",
       "sourceMode": "reviewed_export",
       "observedAt": "2026-08-13T02:00:00.000Z",
-      "ageDays": 1,
+      "ageDays": 8,
       "windowStart": "2026-08-13",
       "windowEnd": "2027-05-02",
       "itemCount": 6,
@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 306,
+    "canonicalEventsCompared": 307,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 6,
@@ -326,7 +326,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:xokppx",
       "candidateId": "coverage:xokppx",
-      "reportId": "coverage-report:2026-08-14",
+      "reportId": "coverage-report:2026-08-21",
       "title": "UEFA Super Cup",
       "eventTitle": "UEFA Super Cup",
       "source": "stan_sport",
@@ -418,7 +418,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:iutxl9",
       "candidateId": "coverage:iutxl9",
-      "reportId": "coverage-report:2026-08-14",
+      "reportId": "coverage-report:2026-08-21",
       "title": "WTA 1000",
       "eventTitle": "WTA 1000",
       "source": "stan_sport",
@@ -427,7 +427,7 @@
       "startsAt": "2026-08-12T23:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0.5,
+      "matchConfidence": 0,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "normal",
@@ -450,23 +450,11 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0.5,
+        "confidence": 0,
         "reasonCodes": [
-          "competition_match",
-          "title_tokens_match"
+          "no_catalogue_match"
         ],
-        "alternatives": [
-          {
-            "canonicalEventId": "tennis-tournament-wta-cincinnati-2026-2026-08-14",
-            "title": "Cincinnati Open — WTA 1000",
-            "confidence": 0.5
-          },
-          {
-            "canonicalEventId": "tennis-tournament-atp-cincinnati-2026-2026-08-14",
-            "title": "Cincinnati Open — ATP Masters 1000",
-            "confidence": 0
-          }
-        ]
+        "alternatives": []
       },
       "broadcastsAu": [
         {
@@ -522,7 +510,7 @@
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:v8q8w5",
       "candidateId": "coverage:v8q8w5",
-      "reportId": "coverage-report:2026-08-14",
+      "reportId": "coverage-report:2026-08-21",
       "title": "Formula E",
       "eventTitle": "Formula E",
       "source": "stan_sport",
@@ -609,13 +597,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:1cbygja",
       "candidateId": "coverage:1cbygja",
-      "reportId": "coverage-report:2026-08-14",
+      "reportId": "coverage-report:2026-08-21",
       "title": "FA Community Shield",
       "eventTitle": "FA Community Shield",
       "source": "stan_sport",
@@ -702,13 +690,13 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "daily_next_seven_days"
+      "scanScope": "weekly_breadth"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
       "id": "coverage:ef6gxf",
       "candidateId": "coverage:ef6gxf",
-      "reportId": "coverage-report:2026-08-14",
+      "reportId": "coverage-report:2026-08-21",
       "title": "Premier League",
       "eventTitle": "Premier League",
       "source": "stan_sport",
@@ -794,7 +782,7 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     }
   ]
 }

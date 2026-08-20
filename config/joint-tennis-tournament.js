@@ -10,11 +10,6 @@
   const TIMING_TYPES = Object.freeze(["exact", "not_before", "followed_by", "session_only"]);
   const RESULT_AVAILABILITY_STATUSES = Object.freeze(["available", "unavailable"]);
   const RESULT_CHECK_STATES = Object.freeze(["not_checked", "no_parseable_completed_results", "parsed"]);
-  const APPROVED_CINCINNATI_RESULT_SOURCE_URLS = new Set([
-    "https://cincinnatiopen.com/tournament/tournament-schedule/",
-    "https://cincinnatiopen.com/score-center/order-of-play/",
-    "https://cincinnatiopen.com/score-center/draws/",
-  ]);
   const TRUSTED_NARRATIVE_SOURCES = new Set(["official", "licensed_provider", "established_media", "internal_editorial"]);
   const OUTCOME_SIGNAL_PATTERN = /(?:result|winner|\bwin(?:ning)?\b|won|loss|lost|score|set score|post-match|beat(?:ing)?|defeat(?:ed)?|advanced|streak)/i;
   const ROUND_SCORES = Object.freeze({
@@ -233,6 +228,7 @@
     if (!resultsVisible) {
       delete output.resultsByMatchId;
       delete output.resultAvailability;
+      delete output.reporting;
     }
     return output;
   }
@@ -243,9 +239,10 @@
     if (!RESULT_CHECK_STATES.includes(input.lastCheck)) throw new Error(`Unsupported Cincinnati result check state: ${input.lastCheck}`);
     if (!checkedAt || new Date(checkedAt).toISOString() !== checkedAt) throw new Error("Cincinnati result availability needs a normalized checkedAt time");
     let sourceUrl = null;
+    let sourceTrust = input.sourceTrust === "unverified" ? "unverified" : "verified";
     if (input.sourceUrl != null) {
       const source = new URL(String(input.sourceUrl));
-      if (!APPROVED_CINCINNATI_RESULT_SOURCE_URLS.has(source.href)) throw new Error("Cincinnati result availability must cite one of the three approved publisher pages");
+      if (source.protocol !== "https:") throw new Error("Cincinnati result availability sources must use HTTPS");
       sourceUrl = source.href;
     }
     return {
@@ -253,6 +250,7 @@
       checkedAt,
       sourceUrl,
       lastCheck: input.lastCheck,
+      ...(sourceUrl ? { sourceTrust } : {}),
     };
   }
 
@@ -262,7 +260,8 @@
     if (!/(?:^|\s)[0-7][-–][0-7](?:\(\d+\))?(?=\s|$)/.test(score)) throw new Error("A completed Cincinnati result needs an explicit tennis set score");
     if (!(match?.players || []).some(player => player.playerId === result?.winnerPlayerId)) throw new Error("A Cincinnati result winner must be one of the scheduled participants");
     const source = new URL(String(result?.sourceUrl || ""));
-    if (!APPROVED_CINCINNATI_RESULT_SOURCE_URLS.has(source.href)) throw new Error("Cincinnati results must cite one of the three approved publisher pages");
+    if (source.protocol !== "https:") throw new Error("Cincinnati result sources must use HTTPS");
+    const sourceTrust = result?.sourceTrust === "unverified" ? "unverified" : "verified";
     const retrievedAt = String(result?.retrievedAt || "");
     if (!retrievedAt || new Date(retrievedAt).toISOString() !== retrievedAt) throw new Error("A Cincinnati result needs a normalized retrieval time");
     return {
@@ -270,6 +269,10 @@
       score,
       winnerPlayerId: result.winnerPlayerId,
       sourceUrl: source.href,
+      sourceTrust,
+      ...(result?.sourceName ? { sourceName: String(result.sourceName).trim() } : {}),
+      ...(result?.sourceRecordId ? { sourceRecordId: String(result.sourceRecordId).trim() } : {}),
+      ...(Number.isInteger(result?.reliabilityRank) ? { reliabilityRank: result.reliabilityRank } : {}),
       retrievedAt,
     };
   }

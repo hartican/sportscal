@@ -33,7 +33,8 @@
       "type": "object",
       "propertyNames": { "pattern": "^match:tennis:" },
       "additionalProperties": { "$ref": "#/$defs/result" }
-    }
+    },
+    "reporting": { "$ref": "#/$defs/reporting" }
   },
   "$defs": {
     "tournament": {
@@ -94,9 +95,10 @@
         "sourceUrl": {
           "type": ["string", "null"],
           "format": "uri",
-          "pattern": "^https://cincinnatiopen\\.com/(?:tournament/tournament-schedule|score-center/(?:order-of-play|draws))/$"
+          "pattern": "^https://"
         },
-        "lastCheck": { "enum": ["not_checked", "no_parseable_completed_results", "parsed"] }
+        "lastCheck": { "enum": ["not_checked", "no_parseable_completed_results", "parsed"] },
+        "sourceTrust": { "enum": ["verified", "unverified"] }
       }
     },
     "schedule": {
@@ -204,15 +206,54 @@
         }
       }
     },
+    "reporting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkedAt", "items"],
+      "properties": {
+        "checkedAt": { "type": "string", "format": "date-time" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/reportingItem" }
+        }
+      }
+    },
+    "reportingItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["itemId", "kind", "title", "sourceName", "sourceUrl", "sourceTrust", "reliabilityRank", "sourceCheckedAt"],
+      "properties": {
+        "itemId": { "type": "string", "pattern": "^reporting:cincinnati:" },
+        "kind": { "enum": ["result", "highlight", "commentary", "preview"] },
+        "title": { "type": "string", "minLength": 3, "maxLength": 180 },
+        "sourceName": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "sourceRecordId": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sourceTrust": { "enum": ["verified", "unverified"] },
+        "reliabilityRank": { "type": "integer", "minimum": 1, "maximum": 4 },
+        "sourceCheckedAt": { "type": "string", "format": "date-time" },
+        "publishedAt": { "type": ["string", "null"], "format": "date-time" },
+        "scheduleDate": { "type": ["string", "null"], "format": "date" },
+        "matchIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^match:tennis:" }
+        }
+      }
+    },
     "result": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "score", "winnerPlayerId", "sourceUrl", "retrievedAt"],
+      "required": ["status", "score", "winnerPlayerId", "sourceUrl", "sourceTrust", "retrievedAt"],
       "properties": {
         "status": { "const": "completed" },
         "score": { "type": "string", "minLength": 1 },
         "winnerPlayerId": { "type": "string", "pattern": "^competitor:tennis:" },
-        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://cincinnatiopen\\.com/(?:tournament/tournament-schedule|score-center/(?:order-of-play|draws))/$" },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sourceTrust": { "enum": ["verified", "unverified"] },
+        "sourceName": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "sourceRecordId": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "reliabilityRank": { "type": "integer", "minimum": 1, "maximum": 4 },
         "retrievedAt": { "type": "string", "format": "date-time" }
       }
     }

@@ -341,7 +341,7 @@ async function run(){
 
   const html = fs.readFileSync("index.html", "utf8");
   assert(html.includes('src="config/product-events.js"'));
-  assert(html.includes('settingsMenuItem("pilot"'));
+  assert(!html.includes('settingsMenuItem("pilot"') && html.includes('pilot.textContent = "Trust pilot details"'), "Trust pilot controls must sit inside Feedback & appearance rather than as a top-level Settings item");
   assert(html.includes('id="pilotMeasurementEnabled"'));
   assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");
   assert(html.includes('participationVersion: "pilot-participation.v1"'), "signed-in measurement must use the explicit automatic-participation state");
@@ -352,7 +352,7 @@ async function run(){
   assert(html.includes('eventName: "opportunity_exposed"'));
   assert(html.includes('eventName: "fixture_check"'));
   assert(html.includes('eventName: "watch_decision"'), "genuine reminder and watched actions must emit watch decisions");
-  assert(html.includes('if (!reminderOn) recordWatchDecision(ev, "remind")'), "removing a reminder must not fabricate a watch decision");
+  assert(html.includes('if (!reminderOn) recordWatchDecision(event, "remind", { surface: "event_card" })'), "adding a Cincinnati reminder must record a watch decision while removing it must not fabricate one");
   assert(html.includes('recordEventFeedAction(ev, "open", options)'), "card expansion must emit a separate categorical open action");
   assert(html.includes('eventName: "preference_change"') && html.includes('eventName: "feed_control_change"'), "approved preference and feed-control actions must be instrumented");
   assert(html.includes('eventName: "weekly_pulse"'));

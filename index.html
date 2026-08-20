@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="90">
+<meta name="app-shell-version" content="92">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -2208,7 +2208,7 @@ main{
   border-block:1px solid color-mix(in srgb, var(--attention) 32%, var(--border));
 }
 
-.event-card.is-must-watch-new{
+:is(.event-card, .joint-tournament-card).is-must-watch-new{
   animation:must-watch-arrive 900ms cubic-bezier(.2,.8,.2,1) both;
 }
 
@@ -4528,6 +4528,8 @@ footer.app-footer{
 .joint-tournament-source{ margin-top:5px; color:var(--text-dim); font-size:0.7rem; }
 .joint-tournament-source a{ text-decoration:underline; text-underline-offset:2px; }
 .joint-confidence{ flex:0 0 auto; padding:6px 9px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:0.66rem; font-weight:800; }
+.joint-tournament-card > .event-quick-must-watch{ margin:0 16px 14px; }
+.joint-tournament-card .must-watch-new-label{ display:inline-block; margin:5px 0 0; }
 .joint-match-list{ display:flex; flex-direction:column; }
 .joint-match{
   display:grid;
@@ -4558,6 +4560,12 @@ footer.app-footer{
 .joint-days > summary{ padding:12px 16px; cursor:pointer; color:var(--text); font-size:0.74rem; font-weight:800; }
 .joint-day{ border-top:1px solid var(--border); }
 .joint-day h3{ margin:0; padding:12px 16px 6px; color:var(--text-dim); font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; }
+.joint-reporting{ padding:10px 16px 14px; border-top:1px solid var(--border); }
+.joint-reporting h4{ margin:0 0 8px; color:var(--text-dim); font-size:0.68rem; letter-spacing:0.04em; text-transform:uppercase; }
+.joint-reporting-list{ display:flex; flex-direction:column; gap:7px; }
+.joint-reporting-item{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px; align-items:start; font-size:0.7rem; }
+.joint-reporting-item span{ color:var(--text-dim); white-space:nowrap; }
+.joint-reporting-item a{ color:var(--text); text-decoration:underline; text-decoration-color:rgba(255,255,255,0.25); text-underline-offset:2px; }
 .joint-overview{ padding:18px 16px; color:var(--text-dim); font-size:0.78rem; line-height:1.5; }
 
 body.header-compact-1 header.top{
@@ -4882,7 +4890,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/discovery-catalogue.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
-<script src="data/canonical/joint-tennis-tournament-2026.js"></script>
 <script src="data/events.js"></script>
 <script>
 /* ============ DATA ============ */
@@ -5156,6 +5163,7 @@ const FEED_CONFIG = {
 
 const JOINT_TOURNAMENT_CONFIG = Object.freeze({
   url: "data/canonical/joint-tennis-tournament-2026.json",
+  scriptUrl: "data/canonical/joint-tennis-tournament-2026.js",
   tournamentId: "tournament:tennis:joint:cincinnati-open:2026",
 });
 
@@ -6688,7 +6696,7 @@ function coerceEventRecord(raw, index){
   const date = raw.date || fromUtc?.date;
   const time = raw.time || fromUtc?.time;
   if (!key || !SPORT_META[key] || !name || !date || !time) return null;
-  const venueRecord = VENUE_REGISTRY?.resolve?.(raw.venue);
+  const venueRecord = VENUE_REGISTRY?.resolve?.(raw.venue, raw);
   return {
     ...raw,
     id: raw.id || raw.eventId || `remote_${index}`,
@@ -6789,13 +6797,37 @@ async function loadCanonicalContextBundles(){
   return Promise.all(CANONICAL_CONTEXT_CONFIG.sources.map(([, url]) => fetchJson(url)));
 }
 
+function reloadBundledJointTournamentScript(){
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    const scriptUrl = new URL(JOINT_TOURNAMENT_CONFIG.scriptUrl, globalThis.location.href);
+    scriptUrl.searchParams.set("refresh", String(Date.now()));
+    script.src = scriptUrl.href;
+    script.async = true;
+    script.onload = () => {
+      script.remove();
+      const document = globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT_DOCUMENT;
+      if (!document){
+        reject(new Error("Bundled joint tournament document was unavailable"));
+        return;
+      }
+      resolve(document);
+    };
+    script.onerror = () => {
+      script.remove();
+      reject(new Error("Bundled joint tournament document could not be loaded"));
+    };
+    document.head.appendChild(script);
+  });
+}
+
 async function loadJointTournamentData(){
   if (jointTournamentData || jointTournamentLoading) return jointTournamentData;
   jointTournamentLoading = true;
   jointTournamentError = null;
   try{
     const document = globalThis.location?.protocol === "file:"
-      ? globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT_DOCUMENT
+      ? await reloadBundledJointTournamentScript()
       : await fetchJson(JOINT_TOURNAMENT_CONFIG.url);
     if (!document) throw new Error("Bundled joint tournament document was missing");
     if (document?.schemaVersion !== JOINT_TENNIS_TOURNAMENT?.SCHEMA_VERSION){
@@ -7201,7 +7233,7 @@ function normalizeEvents(events = activeEvents){
     ev.broadcastOptions = ev.broadcastOptions || [ev.broadcaster].filter(Boolean);
     ev.broadcasterIds = inferBroadcasterIds([ev.broadcaster, ...ev.broadcastOptions, ...(ev.broadcasts || [])]);
     ev.sourceTrust = SOURCE_TRUST?.normaliseTrust?.(ev.sourceTrust, ev.sourceType) || ev.sourceTrust || "unverified";
-    const venueRecord = VENUE_REGISTRY?.resolve?.(ev.venue);
+    const venueRecord = VENUE_REGISTRY?.resolve?.(ev.venue, ev);
     ev.venueId = venueRecord?.id || ev.venueId || (ev.venue ? ev.venue.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : null);
     ev.venueDisplayName = venueRecord?.displayName || ev.venueDisplayName || ev.venue || null;
     ev.venueOfficialName = venueRecord?.officialName || ev.venueOfficialName || ev.venue || null;
@@ -10136,7 +10168,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   detail.innerHTML = `<span class="joint-tour">${match.tour}</span> · ${round || "Round TBC"} · ${jointMatchTimingLabel(match, tournamentDocument)}`;
   if (result?.score){
     const resultCopy = document.createElement("span");
-    resultCopy.textContent = `Completed · ${result.score}`;
+    resultCopy.textContent = `Completed · ${result.score}${result.sourceTrust === "unverified" ? " · Unverified source" : ""}`;
     copy.append(title, detail, resultCopy);
   } else {
     copy.append(title, detail);
@@ -10160,13 +10192,40 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   if (!reminderEligible) reminder.title = "A reminder needs an exact or not-before published time.";
   reminder.addEventListener("click", () => {
     if (!reminderEligible) return;
-    updateEventAction(event, { reminderRequested: !action.reminderRequested });
-    recordEventFeedAction(event, action.reminderRequested ? "reminder_removed" : "reminder", { surface: "event_card", recommendationClass: "direct" });
+    const reminderOn = Boolean(action.reminderRequested);
+    updateEventAction(event, { reminderRequested: !reminderOn });
+    recordEventFeedAction(event, reminderOn ? "reminder_removed" : "reminder", { surface: "event_card", recommendationClass: "direct" });
+    if (!reminderOn) recordWatchDecision(event, "remind", { surface: "event_card" });
     renderCurrentSection();
   });
   actions.append(mustWatch, reminder);
   row.append(orderCopy, copy, actions);
   return row;
+}
+
+function buildJointTournamentReporting(items, headingText = "Tournament updates"){
+  if (!items?.length) return null;
+  const section = globalThis.document.createElement("section");
+  section.className = "joint-reporting";
+  const heading = globalThis.document.createElement("h4");
+  heading.textContent = headingText;
+  const list = globalThis.document.createElement("div");
+  list.className = "joint-reporting-list";
+  items.forEach(item => {
+    const row = globalThis.document.createElement("div");
+    row.className = "joint-reporting-item";
+    const trust = globalThis.document.createElement("span");
+    trust.textContent = item.sourceTrust === "verified" ? "Verified source" : "Unverified source";
+    const link = globalThis.document.createElement("a");
+    link.href = item.sourceUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = `${item.sourceName}: ${item.title}`;
+    row.append(trust, link);
+    list.appendChild(row);
+  });
+  section.append(heading, list);
+  return section;
 }
 
 function jointTournamentDayGroups(tournamentDocument){
@@ -10214,16 +10273,25 @@ function buildJointTournamentDays(tournamentDocument){
     list.className = "joint-match-list";
     group.matches.forEach(match => list.appendChild(buildJointTournamentMatch(match, tournamentDocument)));
     section.append(heading, list);
+    const groupMatchIds = new Set(group.matches.map(match => match.matchId));
+    const dayReporting = (tournamentDocument.reporting?.items || []).filter(item => (
+      item.scheduleDate === group.date || item.matchIds?.some(matchId => groupMatchIds.has(matchId))
+    ));
+    const reporting = buildJointTournamentReporting(dayReporting, "Results, highlights and commentary");
+    if (reporting) section.appendChild(reporting);
     details.appendChild(section);
   });
   return details;
 }
 
-function buildJointTournamentCard(tournamentDocument = jointTournamentData){
+function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mode = "calendar" } = {}){
   const spoilerView = JOINT_TENNIS_TOURNAMENT?.spoilerSafeView?.(tournamentDocument, userPreferences.showSpoilers) || tournamentDocument;
   const card = tournamentDocument === null ? null : globalThis.document.createElement("section");
   if (!card) return null;
-  card.className = "joint-tournament-card";
+  const tournamentEvent = jointTournamentFeedEvent(tournamentDocument);
+  const tournamentAction = tournamentEvent ? getEventAction(tournamentEvent) : null;
+  const isNewMustWatch = mode === "must-watch-queue" && tournamentAction?.mustWatch && !tournamentAction.mustWatchSeenAt;
+  card.className = ["joint-tournament-card", `mode-${mode}`, isNewMustWatch ? "is-must-watch-new" : ""].filter(Boolean).join(" ");
   card.id = "cincinnatiTournamentCard";
   card.dataset.tournamentId = spoilerView.tournament.tournamentId;
   const head = globalThis.document.createElement("header");
@@ -10241,6 +10309,12 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData){
   sourceLink.textContent = "Official order of play";
   source.append("Lindner Family Tennis Center · ", sourceLink);
   identity.appendChild(source);
+  if (isNewMustWatch){
+    const label = globalThis.document.createElement("span");
+    label.className = "must-watch-new-label";
+    label.textContent = "NEW";
+    identity.appendChild(label);
+  }
   const confidence = globalThis.document.createElement("span");
   confidence.className = "joint-confidence";
   confidence.textContent = spoilerView.freshness.confidence;
@@ -10253,6 +10327,9 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData){
     overview.className = "joint-overview";
     overview.textContent = `${spoilerView.schedule?.displayMessage || "Schedule details unavailable"}. It remains available as a Tennis suggestion while the official schedule is checked.`;
     card.appendChild(overview);
+    const mustWatchAction = buildJointTournamentMustWatchAction(tournamentDocument);
+    if (mustWatchAction) card.appendChild(mustWatchAction);
+    bindJointTournamentSeenState(card, tournamentEvent, isNewMustWatch);
     return card;
   }
   const promoted = (spoilerView.schedule.promotedMatchIds || [])
@@ -10261,7 +10338,7 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData){
   if (userPreferences.showSpoilers && spoilerView.resultAvailability?.status === "unavailable"){
     const resultNote = globalThis.document.createElement("p");
     resultNote.className = "joint-results-note";
-    resultNote.textContent = "Completed results unavailable from the approved Cincinnati sources.";
+    resultNote.textContent = "Completed results are not yet available from the checked Cincinnati sources.";
     card.appendChild(resultNote);
   }
   const list = globalThis.document.createElement("div");
@@ -10270,6 +10347,15 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData){
   card.appendChild(list);
   const days = buildJointTournamentDays(spoilerView);
   if (days) card.appendChild(days);
+  const dayGroups = jointTournamentDayGroups(spoilerView);
+  const datedReporting = new Set(dayGroups.map(group => group.date));
+  const dayMatchIds = new Set(dayGroups.flatMap(group => group.matches.map(match => match.matchId)));
+  const generalReporting = (spoilerView.reporting?.items || []).filter(item => (
+    (!item.scheduleDate || !datedReporting.has(item.scheduleDate))
+    && !item.matchIds?.some(matchId => dayMatchIds.has(matchId))
+  ));
+  const reporting = buildJointTournamentReporting(generalReporting);
+  if (reporting) card.appendChild(reporting);
   const addressableMatches = [...matches, ...(spoilerView.matchHistory || [])];
   const savedIds = addressableMatches.filter(match => {
     const action = getEventAction(jointMatchActionEvent(match, spoilerView));
@@ -10285,6 +10371,9 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData){
     savedOutside.forEach(match => details.appendChild(buildJointTournamentMatch(match, spoilerView, { savedSection: true })));
     card.appendChild(details);
   }
+  const mustWatchAction = buildJointTournamentMustWatchAction(tournamentDocument);
+  if (mustWatchAction) card.appendChild(mustWatchAction);
+  bindJointTournamentSeenState(card, tournamentEvent, isNewMustWatch);
   return card;
 }
 
@@ -10307,6 +10396,41 @@ function jointTournamentFeedEvent(document = jointTournamentData){
   };
 }
 
+function jointTournamentIsMustWatch(document = jointTournamentData){
+  const tournamentEvent = jointTournamentFeedEvent(document);
+  return Boolean(tournamentEvent && getEventAction(tournamentEvent).mustWatch);
+}
+
+function buildJointTournamentMustWatchAction(document = jointTournamentData){
+  const tournamentEvent = jointTournamentFeedEvent(document);
+  if (!tournamentEvent) return null;
+  const action = getEventAction(tournamentEvent);
+  const button = globalThis.document.createElement("button");
+  button.type = "button";
+  button.className = "event-quick-must-watch joint-tournament-must-watch";
+  button.textContent = action.mustWatch ? "Remove from Must Watch" : "Add to Must Watch";
+  button.setAttribute("aria-pressed", String(action.mustWatch));
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    setMustWatch(tournamentEvent, !action.mustWatch);
+    renderAll({ preserveViewport: true });
+    showToast(action.mustWatch
+      ? `${tournamentEvent.name} removed from Must Watch.`
+      : `${tournamentEvent.name} added to Must Watch.`);
+  });
+  return button;
+}
+
+function bindJointTournamentSeenState(card, tournamentEvent, isNewMustWatch){
+  if (!card || !tournamentEvent || !isNewMustWatch) return;
+  card.addEventListener("click", event => {
+    if (event.target.closest(".joint-tournament-must-watch")) return;
+    updateEventAction(tournamentEvent, { mustWatchSeenAt: new Date().toISOString() });
+    card.classList.remove("is-must-watch-new");
+    card.querySelector(".must-watch-new-label")?.remove();
+  }, { once: true });
+}
+
 function jointTournamentShouldSurface(document = jointTournamentData){
   if (!jointTournamentIsActive(document)) return false;
   const tournamentEvent = jointTournamentFeedEvent(document);
@@ -10315,6 +10439,7 @@ function jointTournamentShouldSurface(document = jointTournamentData){
   if (focused) return feedFilterMatchesEvent(activeFilter, tournamentEvent);
   ensureDiscoverySessionInclusion();
   if (!discoverySessionIncludedSportIds.includes("sport:tennis")) return false;
+  if (getEventAction(tournamentEvent).mustWatch) return true;
   const profile = eventRecommendationProfile(tournamentEvent);
   return userPreferences.feedIntent === "focused"
     ? eventMeetsCoveragePreference(tournamentEvent)
@@ -10479,7 +10604,8 @@ function appendPremiumSurfaces(container, events){
 }
 
 function appendManualMustWatchQueue(container, events){
-  if (!events.length) return false;
+  const includeJointTournament = jointTournamentShouldSurface() && jointTournamentIsMustWatch();
+  if (!events.length && !includeJointTournament) return false;
   const section = document.createElement("section");
   section.className = "queue-section must-watch-queue";
   section.id = "mustWatchQueueAnchor";
@@ -10492,7 +10618,20 @@ function appendManualMustWatchQueue(container, events){
   detail.textContent = "Your picks, in time order. Past picks stay here quietly for three days.";
   const grid = document.createElement("div");
   grid.className = "cards-grid";
-  events.forEach(event => grid.appendChild(buildEventCard(event, { mode: "must-watch-queue" })));
+  const queueItems = events.map(event => ({ event, kind: "event" }));
+  if (includeJointTournament){
+    queueItems.push({ event: jointTournamentFeedEvent(), kind: "joint-tournament" });
+  }
+  queueItems
+    .sort((first, second) => eventDateTime(first.event) - eventDateTime(second.event))
+    .forEach(item => {
+      if (item.kind === "joint-tournament"){
+        const card = buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" });
+        if (card) grid.appendChild(card);
+        return;
+      }
+      grid.appendChild(buildEventCard(item.event, { mode: "must-watch-queue" }));
+    });
   section.append(heading, detail, grid);
   container.appendChild(section);
   return true;
@@ -10549,7 +10688,7 @@ function renderListView(){
 
   appendTodayAnchor();
   appendDateGroups(timeline.today);
-  if (appendJointTournamentCard(container)){
+  if (!jointTournamentIsMustWatch() && appendJointTournamentCard(container)){
     const cincinnatiCard = document.getElementById("cincinnatiTournamentCard");
     cincinnatiCard?.classList.add("joint-tournament-suggestion");
   }
@@ -10624,7 +10763,7 @@ function todayAnchorIsVisible(){
   if (!anchor) return false;
   const rect = anchor.getBoundingClientRect();
   const top = stickyFeedChromeHeight();
-  return rect.bottom >= top - 24 && rect.top <= window.innerHeight * 0.8;
+  return rect.bottom >= top - 24 && rect.top <= window.innerHeight;
 }
 
 function syncContextualJumpButton(){

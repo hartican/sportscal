@@ -55,6 +55,8 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/refresh-canonical-sports.js"],
+  ["scripts/refresh-tennis-ranking-exports.js"],
+  ["scripts/validate-tennis-ranking-refresh.js"],
   ["scripts/refresh-tennis-catalogue.js", "--enforce-freshness"],
   ["scripts/refresh-tennis-catalogue.js", "--check", "--enforce-freshness"],
   ["scripts/refresh-cincinnati-tournament.js"],
@@ -121,6 +123,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-cross-device-sync.js"],
   ["scripts/validate-server-persistence.js"],
   ["scripts/validate-update-cards.js"],
+  ["scripts/validate-source-and-venues.js"],
+  ["scripts/validate-feed-performance.js"],
   ["scripts/verify-nothingsport.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);

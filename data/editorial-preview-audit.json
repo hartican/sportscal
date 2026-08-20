@@ -1,19 +1,19 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-14T07:19:43.064Z",
+  "generatedAt": "2026-08-20T18:33:36.197Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 5,
-    "passed": 5,
+    "due": 6,
+    "passed": 6,
     "failed": 0
   },
   "cards": [
     {
-      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-14",
+      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-21",
       "name": "Cincinnati Open — ATP Masters 1000",
       "sport": "Tennis",
-      "date": "2026-08-14",
+      "date": "2026-08-21",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
@@ -26,10 +26,10 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-14",
+      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-21",
       "name": "Cincinnati Open — WTA 1000",
       "sport": "Tennis",
-      "date": "2026-08-14",
+      "date": "2026-08-21",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
@@ -69,6 +69,22 @@
         "venue-history"
       ],
       "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
+      "issues": []
+    },
+    {
+      "id": "rugby-south-africa-all-blacks-2026-08-22",
+      "name": "South Africa v All Blacks",
+      "sport": "Rugby Union",
+      "date": "2026-08-22",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "tour-build-up",
+        "series-opener",
+        "rivalry-history",
+        "iconic-venue"
+      ],
+      "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
       "issues": []
     },
     {

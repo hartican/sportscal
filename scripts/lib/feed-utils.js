@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { spoilerContractIssues } = require("./storyline-card-rules");
 const canonicalSportsTaxonomy = require(path.resolve(__dirname, "../../config/canonical-sports-taxonomy.js"));
+const sourceTrust = require(path.resolve(__dirname, "../../config/source-trust.js"));
 
 const LEGACY_SPORT_KEYS = new Set([
   "wimbledon",
@@ -43,7 +44,7 @@ mergeCanonicalSportKeys();
 const SPORT_KEY_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;
 
 const ROUNDS = new Set(["all", "early", "knockout", "quarterfinal", "semifinal", "final"]);
-const SOURCE_TYPES = new Set(["official", "broadcaster", "reputable", "personal-calendar"]);
+const SOURCE_TYPES = new Set(["official", "broadcaster", "explicitly-permitted", "reputable", "scraped", "community", "personal-calendar"]);
 const STANDARD_PRELOAD_DAYS = 92;
 const MARQUEE_ANNUAL_MONTHS = 12;
 
@@ -106,6 +107,7 @@ function ensureEventDefaults(event, index) {
     ...event,
     id,
     eventId: normalizeId(event.eventId || id),
+    sourceTrust: sourceTrust.normaliseTrust(event.sourceTrust, event.sourceType),
     displayTitleCompact: event.displayTitleCompact || event.name,
     broadcastOptions: event.broadcastOptions || [event.broadcaster].filter(Boolean),
     venue: event.venue ?? null,
@@ -155,6 +157,7 @@ function validateFeed(feed) {
     if (!/^(https?|calendar):\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) or calendar URL.`);
     if (!isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
     if (event.sourceType !== undefined && !SOURCE_TYPES.has(event.sourceType)) errors.push(`${prefix}.sourceType is unsupported.`);
+    if (event.sourceTrust !== undefined && !["verified", "unverified"].includes(event.sourceTrust)) errors.push(`${prefix}.sourceTrust must be verified or unverified if present.`);
     if (event.status !== undefined && !["upcoming", "completed"].includes(event.status)) errors.push(`${prefix}.status must be upcoming or completed.`);
     if (event.lastReviewedAt !== undefined && !isDateTime(event.lastReviewedAt)) errors.push(`${prefix}.lastReviewedAt must be an ISO date-time string.`);
     if (event.participants !== undefined && (!Array.isArray(event.participants) || event.participants.length < 2 || event.participants.some(participant => !participant || !String(participant.name || "").trim()))) {
@@ -297,7 +300,8 @@ function daysApart(first, second) {
 
 function isSupersededEvent(retained, incoming) {
   if (retained.id === incoming.id || retained.eventId === incoming.eventId) return true;
-  if (retained.key !== incoming.key || daysApart(retained, incoming) > 7) return false;
+  if (retained.canonicalEventId && incoming.canonicalEventId) return retained.canonicalEventId === incoming.canonicalEventId;
+  if (retained.key !== incoming.key || daysApart(retained, incoming) > 1) return false;
   if (incoming.sourceName === "Bundled nothingsport seed data") return false;
   const retainedTokens = identityTokens(retained);
   const incomingTokens = identityTokens(incoming);
@@ -308,10 +312,22 @@ function isSupersededEvent(retained, incoming) {
   return sharedTokens >= 2;
 }
 
+function protectVerifiedEventFacts(primaryEvents, retainedEvents) {
+  return primaryEvents.map(incoming => {
+    const verifiedMatch = retainedEvents.find(retained => (
+      isSupersededEvent(retained, incoming)
+      && sourceTrust.normaliseTrust(retained.sourceTrust, retained.sourceType) === "verified"
+    ));
+    if (!verifiedMatch || sourceTrust.normaliseTrust(incoming.sourceTrust, incoming.sourceType) !== "unverified") return incoming;
+    return sourceTrust.mergeClaims(verifiedMatch, incoming);
+  });
+}
+
 function mergeFeedEvents(primaryEvents, retainedEvents) {
+  const protectedPrimaryEvents = protectVerifiedEventFacts(primaryEvents, retainedEvents);
   const originalRetained = [...retainedEvents];
   const retained = [...retainedEvents];
-  primaryEvents.forEach(incoming => {
+  protectedPrimaryEvents.forEach(incoming => {
     const matchingIndexes = retained
       .map((event, index) => isSupersededEvent(event, incoming) ? index : -1)
       .filter(index => index >= 0);
@@ -319,9 +335,9 @@ function mergeFeedEvents(primaryEvents, retainedEvents) {
       matchingIndexes.reverse().forEach(index => retained.splice(index, 1));
     }
   });
-  const events = [...retained, ...primaryEvents]
+  const events = [...retained, ...protectedPrimaryEvents]
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
-  const added = primaryEvents.filter(incoming => !originalRetained.some(event => isSupersededEvent(event, incoming))).length;
+  const added = protectedPrimaryEvents.filter(incoming => !originalRetained.some(event => isSupersededEvent(event, incoming))).length;
   return { events, added, overridden: originalRetained.length - retained.length, preserved: retained.length };
 }
 
@@ -380,6 +396,7 @@ module.exports = {
   activeSportsFor,
   mergeFeedEvents,
   normalizeFeed,
+  protectVerifiedEventFacts,
   readJson,
   summarizeFeedHorizon,
   validateFeed,

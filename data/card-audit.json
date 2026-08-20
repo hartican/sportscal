@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-14T07:19:43.159Z",
+  "generatedAt": "2026-08-20T18:33:36.285Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,8 +12,8 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 163,
-    "completed": 116,
+    "totalMajorCards": 165,
+    "completed": 118,
     "upcoming": 47,
     "stale": 0,
     "needsRecap": 0,
@@ -1142,6 +1142,22 @@
       "issues": []
     },
     {
+      "id": "evt_20",
+      "name": "R10 Belgian GP Qualifying",
+      "sport": "F1",
+      "date": "2026-07-19",
+      "status": "completed",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
       "id": "fifa-third-place-2026",
       "name": "World Cup Third-Place Playoff",
       "sport": "Football",
@@ -1882,7 +1898,7 @@
       "name": "Australia v Bangladesh — First Test",
       "sport": "Cricket",
       "date": "2026-08-13",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
@@ -1894,10 +1910,10 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-14",
+      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-21",
       "name": "Cincinnati Open — ATP Masters 1000",
       "sport": "Tennis",
-      "date": "2026-08-14",
+      "date": "2026-08-21",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -1910,10 +1926,10 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-14",
+      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-21",
       "name": "Cincinnati Open — WTA 1000",
       "sport": "Tennis",
-      "date": "2026-08-14",
+      "date": "2026-08-21",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -1948,6 +1964,22 @@
       "date": "2026-08-22",
       "status": "upcoming",
       "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "rugby-south-africa-all-blacks-2026-08-22",
+      "name": "South Africa v All Blacks",
+      "sport": "Rugby Union",
+      "date": "2026-08-22",
+      "status": "upcoming",
+      "stakes": 5,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,

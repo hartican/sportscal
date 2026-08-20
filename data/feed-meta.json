@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-14T07:19:41.783Z",
+  "publishedAt": "2026-08-20T18:33:34.984Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -30,7 +30,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-08-14",
+    "basisDate": "2026-08-20",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -38,7 +38,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-07-10",
-    "daysAhead": 330,
+    "daysAhead": 324,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {
@@ -108,8 +108,8 @@
       },
       "tennis": {
         "count": 2,
-        "firstEventDate": "2026-08-14",
-        "lastEventDate": "2026-08-14"
+        "firstEventDate": "2026-08-21",
+        "lastEventDate": "2026-08-21"
       },
       "skateboard": {
         "count": 1,

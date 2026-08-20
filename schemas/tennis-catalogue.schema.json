@@ -9,15 +9,18 @@
     "schemaVersion": { "const": "tennis-catalogue.v1" },
     "season": { "type": "integer", "minimum": 2026 },
     "generatedAt": { "type": "string", "format": "date-time" },
-    "ingestionMode": { "enum": ["manual_reviewed_export", "licensed_api"] },
+    "ingestionMode": { "enum": ["manual_reviewed_export", "licensed_api", "public_first_party", "mixed"] },
     "refreshPolicy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["rankingsCadence", "maximumRankingAgeDays", "parityRequired", "failureMode"],
+      "required": ["rankingsCadence", "maximumRankingAgeDays", "maximumConfirmedPublicationLagDays", "maximumPublicationCheckAgeDays", "parityRequired", "independentPublicationFreshnessRequired", "failureMode"],
       "properties": {
         "rankingsCadence": { "const": "weekly" },
         "maximumRankingAgeDays": { "type": "integer", "minimum": 7, "maximum": 14 },
-        "parityRequired": { "const": true },
+        "maximumConfirmedPublicationLagDays": { "type": "integer", "minimum": 10, "maximum": 21 },
+        "maximumPublicationCheckAgeDays": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "parityRequired": { "const": false },
+        "independentPublicationFreshnessRequired": { "const": true },
         "failureMode": { "const": "retain_last_good_and_fail_closed" }
       }
     },
@@ -28,7 +31,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["athleteId", "providerAlias", "displayName", "tour", "rankingSingles", "rankingPoints", "rankingSnapshotDate", "nationalityCode", "isAustralian", "active", "selectionReasons"],
+        "required": ["athleteId", "providerAlias", "displayName", "tour", "rankingSingles", "rankingPoints", "rankingSnapshotDate", "rankingSourceTrust", "rankingPublicationCheckedAt", "nationalityCode", "isAustralian", "active", "selectionReasons"],
         "properties": {
           "athleteId": { "type": "string", "pattern": "^competitor:tennis:(atp|wta):[a-z0-9-]+$" },
           "providerAlias": { "type": "string", "pattern": "^(atp|wta):player:.+$" },
@@ -37,6 +40,8 @@
           "rankingSingles": { "type": "integer", "minimum": 1 },
           "rankingPoints": { "type": ["integer", "null"], "minimum": 0 },
           "rankingSnapshotDate": { "type": "string", "format": "date" },
+          "rankingSourceTrust": { "enum": ["verified", "unverified"] },
+          "rankingPublicationCheckedAt": { "type": "string", "format": "date-time" },
           "nationalityCode": { "type": "string", "pattern": "^[A-Z]{3}$" },
           "isAustralian": { "type": "boolean" },
           "active": { "const": true },

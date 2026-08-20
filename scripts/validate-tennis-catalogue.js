@@ -13,10 +13,42 @@ const feed = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
 
 assert.equal(catalogue.schemaVersion, "tennis-catalogue.v1");
 assert.equal(catalogue.refreshPolicy.rankingsCadence, "weekly");
-assert.equal(catalogue.refreshPolicy.parityRequired, true);
+assert.equal(catalogue.refreshPolicy.parityRequired, false);
+assert.equal(catalogue.refreshPolicy.independentPublicationFreshnessRequired, true);
 assert.equal(catalogue.refreshPolicy.failureMode, "retain_last_good_and_fail_closed");
-assert.equal(assertFresh(catalogue, "2026-08-13"), 3, "the reviewed snapshot must be inside the weekly refresh gate at implementation time");
-assert.throws(() => assertFresh(catalogue, "2026-08-20"), /refresh before publishing/, "stale rankings must fail closed");
+const independentlyConfirmedFixture = {
+  ...catalogue,
+  sources: catalogue.sources.map(source => source.tour === "ATP" ? {
+    ...source,
+    effectiveDate: "2026-08-10",
+    publicationCheckedAt: "2026-08-20T00:00:00.000Z",
+    ingestionMode: "public_first_party",
+    sourceTrust: "verified",
+  } : source.tour === "WTA" ? {
+    ...source,
+    effectiveDate: "2026-08-17",
+    publicationCheckedAt: "2026-08-20T00:00:00.000Z",
+    ingestionMode: "public_first_party",
+    sourceTrust: "verified",
+  } : source),
+};
+assert.equal(assertFresh(independentlyConfirmedFixture, "2026-08-20"), 10, "a bounded older snapshot is publishable only when the tour's latest official publication was checked recently");
+assert.throws(
+  () => assertFresh({
+    ...independentlyConfirmedFixture,
+    sources: independentlyConfirmedFixture.sources.map(source => source.tour === "ATP" ? { ...source, publicationCheckedAt: "2026-08-17T00:00:00.000Z" } : source),
+  }, "2026-08-20"),
+  /recently confirmed latest official publication/,
+  "an old confirmation must never excuse an old ranking snapshot"
+);
+assert.throws(
+  () => assertFresh({
+    ...independentlyConfirmedFixture,
+    sources: independentlyConfirmedFixture.sources.map(source => source.tour === "ATP" ? { ...source, effectiveDate: "2026-08-01" } : source),
+  }, "2026-08-20"),
+  /recently confirmed latest official publication/,
+  "the bounded maximum publication lag must still fail closed"
+);
 
 const byTour = tour => catalogue.athletes.filter(athlete => athlete.tour === tour);
 for (const tour of ["ATP", "WTA"]) {
@@ -26,6 +58,7 @@ for (const tour of ["ATP", "WTA"]) {
   assert(athletes.filter(athlete => athlete.rankingSingles <= 50).every(athlete => Number.isFinite(athlete.rankingPoints)), `${tour} Top 50 must retain ranking points`);
   assert(athletes.some(athlete => athlete.isAustralian && athlete.rankingSingles > 50), `${tour} must retain Australians outside the Top 50`);
   assert(athletes.every(athlete => athlete.isAustralian === (athlete.nationalityCode === "AUS")), `${tour} Australian status must derive from represented country`);
+  assert(athletes.every(athlete => ["verified", "unverified"].includes(athlete.rankingSourceTrust)), `${tour} rankings must retain source trust provenance`);
 }
 
 const marqueeLevels = new Set(catalogue.tournaments.map(tournament => tournament.level));
@@ -94,4 +127,4 @@ assert(sql.includes("create table if not exists public.tennis_tournaments"));
 assert(sql.includes("force row level security"));
 assert(!/grant\s+(insert|update|delete)/i.test(sql), "browser roles must never receive tennis catalogue writes");
 
-console.log(`Tennis catalogue valid: ${catalogue.athletes.length} athletes, ${catalogue.tournaments.length} tournaments, ATP/WTA parity, four froth levels, and Toronto automatic coverage.`);
+console.log(`Tennis catalogue valid: ${catalogue.athletes.length} athletes, ${catalogue.tournaments.length} tournaments, independent ATP/WTA publication freshness, four froth levels, and Toronto automatic coverage.`);

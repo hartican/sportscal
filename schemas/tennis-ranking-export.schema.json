@@ -11,7 +11,10 @@
     "tour": { "enum": ["ATP", "WTA"] },
     "rankingSnapshotDate": { "type": "string", "format": "date" },
     "extractedAt": { "type": "string", "format": "date-time" },
-    "ingestionMode": { "enum": ["manual_reviewed_export", "licensed_api"] },
+    "publicationCheckedAt": { "type": "string", "format": "date-time" },
+    "publicationUrl": { "type": "string", "format": "uri" },
+    "sourceTrust": { "enum": ["verified", "unverified"] },
+    "ingestionMode": { "enum": ["manual_reviewed_export", "licensed_api", "public_first_party"] },
     "sourceUrl": { "type": "string", "format": "uri" },
     "scope": {
       "type": "object",

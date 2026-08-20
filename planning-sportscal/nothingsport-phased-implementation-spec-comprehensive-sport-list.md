@@ -15,6 +15,14 @@ The main shift in this spec is from a narrowly curated event calendar to a broad
 - Use broadcaster data as a coverage-discovery layer, not the sole source of fixture truth.[cite:3]
 - Respect explicit user intent above recommendation novelty; deliberate unfollows and repeated dislikes must suppress discovery cards.
 
+### MVP source-acquisition policy
+
+- For the personal-use MVP, automated collection may scrape publicly accessible internet pages even when the publisher has not explicitly granted automation permission.
+- Do not bypass authentication, paywalls, CAPTCHAs or other technical access controls.
+- First-party and explicitly permitted sources are treated as verified. Other automatically collected reporting is admissible as unverified input and must be visibly labelled `Unverified source` wherever it reaches the product.
+- Unverified claims must not overwrite conflicting verified fixture, timing or result facts.
+- Before the product becomes commercial, review this acquisition policy and procure paid feeds where appropriate. Paid feeds are a future monetisation dependency, not an MVP blocker.
+
 ## Scope changes to implement
 
 ### 1. Tennis coverage becomes broader and more reliable
@@ -293,6 +301,8 @@ Run a weekly scan with a daily refresh for the next seven days.
 7. Publish approved additions into the canonical catalogue.
 ```
 
+The scan may include automated adapters for public pages without explicit automation permission under the MVP source-acquisition policy above. Such adapters must preserve source provenance and classify their output as unverified unless the source is first-party or explicitly permitted.
+
 ### Coverage candidate model
 
 ```ts
@@ -441,6 +451,8 @@ raw source capture
 - Normalize broadcaster names to a controlled vocabulary.
 - Use stable participant IDs so aliases do not fork the same entity.
 - Version availability because rights can change close to event day.[cite:3]
+- Preserve source provenance and trust class through every merge; an unverified claim cannot replace a conflicting verified fixture, timing or result fact.
+- Public-web scraping in the personal-use MVP must not bypass authentication, paywalls, CAPTCHAs or other technical access controls.
 
 ## Phased plan
 
