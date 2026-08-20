@@ -352,8 +352,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v92"'), "the source and venue release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="92">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v93"'), "the completion-audit release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="93">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -432,6 +432,7 @@ assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports feed must retain its Today anchor");
 assert(html.includes("startupFeedNavigationTouched") && html.includes('calendarInitialJumpPending = true;'), "initial Feed alignment must repeat after background loading unless the person has started navigating");
+assert(html.includes("function openFirstRunSettingsAfterFeedAlignment") && html.includes("window.requestAnimationFrame(() => openSettings({ firstRun: true }))"), "first-run Settings must capture its return position only after the persisted Must Watch queue has aligned the Feed at Today");
 assert(html.includes("PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST())"), "the curated feed must split past, Must Watch, Today and future cards from one timeline model");
 assert(html.includes("appendManualMustWatchQueue(container, timeline.mustWatch)"), "the manual Must Watch queue must sit between past cards and Today");
 assert(html.includes('rect.top <= window.innerHeight'), "the Today bar must count as visible across the full viewport for contextual Must Watch navigation");

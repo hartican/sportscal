@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="92">
+<meta name="app-shell-version" content="93">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -12746,6 +12746,12 @@ function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   setTimeout(openSelectorOptInPrompt, 0);
 }
 
+function openFirstRunSettingsAfterFeedAlignment(){
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => openSettings({ firstRun: true }));
+  });
+}
+
 function settingsMenuItem(section, glyph, title, detail){
   return `<button class="settings-menu-item" type="button" data-settings-section="${section}">
     <span class="settings-menu-icon" aria-hidden="true">${glyphMarkup(glyph)}</span>
@@ -14501,7 +14507,7 @@ Promise.allSettled(startupTasks).then(() => {
     renderStartupProgress();
   }, 650);
   if (!userPreferences.onboardingComplete){
-    openSettings({ firstRun: true });
+    openFirstRunSettingsAfterFeedAlignment();
   } else {
     const weeklyPulsePromptScheduled = document.visibilityState === "visible" && registerWeeklyPulseAppOpen();
     if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
