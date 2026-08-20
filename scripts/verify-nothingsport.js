@@ -43,6 +43,7 @@ const enrichmentEngineSource = fs.readFileSync("config/enrichment-engine.js", "u
 const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
 const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
 const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
+const jointTournamentSource = fs.readFileSync("config/joint-tennis-tournament.js", "utf8");
 const serviceWorkerSource = fs.readFileSync("service-worker.js", "utf8");
 const cardUpdateSource = fs.readFileSync("scripts/update-cards.js", "utf8");
 const australianMarqueePolicy = JSON.parse(fs.readFileSync("data/canonical/australian-marquee-events-2026.json", "utf8"));
@@ -177,11 +178,11 @@ assert(
 );
 assert(!html.includes('<script src="data/canonical/joint-tennis-tournament-2026.js"></script>'), "tournament history and results must not block the first static feed render");
 assert(
-  html.includes('userPreferences.showSpoilers && spoilerView.resultAvailability?.status === "unavailable"')
-    && html.includes("Completed results are not yet available from the checked Cincinnati sources."),
-  "results-visible Cincinnati cards must explain when checked sources publish no safe completed result",
+  html.includes('userPreferences.showSpoilers && tournamentDocument.resultAvailability?.status === "unavailable"')
+    && html.includes("Completed results are not yet available."),
+  "the opened Cincinnati schedule must explain when completed results are unavailable without exposing source plumbing",
 );
-assert(html.includes("buildJointTournamentReporting") && html.includes('"Unverified source"'), "Cincinnati day drill-down must expose source-labelled results, highlights and commentary");
+assert(html.includes("buildJointTournamentReporting") && html.includes('"Highlights & commentary"'), "Cincinnati drill-down must retain optional highlights and commentary");
 assert(
   html.includes("reloadBundledCanonicalContextsScript")
     && html.includes('scriptUrl: "data/canonical/contexts.js"')
@@ -355,8 +356,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v94"'), "the completion-audit release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="94">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v95"'), "the tournament-hub release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="95">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -541,6 +542,12 @@ assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial 
 assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentCard(container)"), "Cincinnati must appear as a normal eligible Tennis suggestion rather than an automatic top pin");
 assert(html.includes("function buildJointTournamentMustWatchAction") && html.includes("!jointTournamentIsMustWatch() && appendJointTournamentCard"), "Cincinnati must move into the chronological Must Watch queue only after a manual action");
 assert(html.includes('buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" })'), "the combined Cincinnati parent must render inside the manual queue without splitting ATP and WTA cards");
+assert(html.includes("eventIsJointTournamentFeedChild(ev, jointTournamentData, reference)"), "split Cincinnati ATP and WTA feed cards must be suppressed while the combined parent is active");
+const tournamentCardSource = html.slice(html.indexOf("function buildJointTournamentCard("), html.indexOf("function jointTournamentFeedEvent("));
+assert(tournamentCardSource.includes("buildJointTournamentNavigation") && tournamentCardSource.includes("buildJointTournamentDrilldown"), "the combined tournament card must be the entry point to its drill-down links");
+assert(!/Beta schedule|Verified source|Unverified source|Official order of play|Tournament updates/.test(tournamentCardSource), "the main tournament card must not expose schedule-beta or source-pipeline copy");
+assert(html.includes('["schedule", "Schedule & results"]') && html.includes('["tables", "ATP & WTA rankings"]') && html.includes('["athletes", "Follow players"]'), "the tournament hub must link to schedule, tables and player follows");
+assert(html.includes("renderStandingsContext({ container: body, competitions") && html.includes("setJointTournamentAthleteFollow"), "tournament drill-downs must render current tables and actionable player follows");
 assert(!html.includes('textContent = action.saved ? "Saved" : "Save"'), "Cincinnati match actions must not retain the duplicate Save action");
 assert(html.includes('"Add to Must Watch"') && html.includes('Must Watch matches (${savedOutside.length})'), "Cincinnati matches must use the same Must Watch vocabulary as normal cards");
 assert(html.includes("function buildJointTournamentDays") && html.includes("Tournament days (${groups.length})"), "the combined Cincinnati card must expose one drill-down section per tournament day");
@@ -810,6 +817,7 @@ vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-
 vm.runInContext(cardLifecycleSource, sandbox, { filename: "config/card-lifecycle.js" });
 vm.runInContext(reminderEngineSource, sandbox, { filename: "config/reminder-engine.js" });
 vm.runInContext(soundtrackSource, sandbox, { filename: "config/soundtrack.js" });
+vm.runInContext(jointTournamentSource, sandbox, { filename: "config/joint-tennis-tournament.js" });
 vm.runInContext(selectorTaxonomySource, sandbox, { filename: "config/selector-taxonomy.js" });
 vm.runInContext(discoveryCatalogueSource, sandbox, { filename: "config/discovery-catalogue.js" });
 vm.runInContext(broadcastConfigSource, sandbox, { filename: "config/au-broadcast-weights.js" });
@@ -864,6 +872,8 @@ globalThis.__test = {
   },
   setActiveFilter(next){ activeFilter = next; },
   getActiveFilter(){ return activeFilter; },
+  setJointTournamentData(next){ jointTournamentData = structuredClone(next); },
+  eventIsJointTournamentFeedChild,
   setCanonicalParticipants(participants){ canonicalPreferenceParticipants = structuredClone(participants); },
   migrateEventActionRecords,
   eventActionKey,
@@ -955,6 +965,19 @@ const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction 
 assert(icsSource, "calendar export functions must be present");
 vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+app.setJointTournamentData(jointTournamentDocument);
+assert.equal(app.eventIsJointTournamentFeedChild({
+  id: "tennis-tournament-atp-cincinnati-2026-2026-08-21",
+  key: "tennis",
+  name: "Cincinnati Open — ATP Masters 1000",
+  date: "2026-08-21",
+}), true, "an active ATP Cincinnati child must defer to the combined tournament parent");
+assert.equal(app.eventIsJointTournamentFeedChild({
+  id: "tennis-us-open-2026",
+  key: "tennis",
+  name: "US Open",
+  date: "2026-08-21",
+}), false, "unrelated Tennis cards must remain eligible beside the tournament parent");
 assert.deepEqual(
   Array.from(app.TEAM_FOLLOW_CATALOGUE.participantIdsForEvent({
     key: "rugby",

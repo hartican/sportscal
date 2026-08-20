@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="94">
+<meta name="app-shell-version" content="95">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -4517,17 +4517,36 @@ footer.app-footer{
 .joint-tournament-head{
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
+  align-items:center;
   gap:14px;
   padding:16px;
-  border-bottom:1px solid var(--border);
+  cursor:pointer;
 }
 
+.joint-tournament-head:focus-visible{ outline:2px solid var(--accent); outline-offset:-3px; }
 .joint-tournament-head h2{ font-size:1rem; }
 .joint-tournament-kicker{ color:var(--text-dim); font-size:0.68rem; font-weight:800; letter-spacing:0.07em; text-transform:uppercase; }
-.joint-tournament-source{ margin-top:5px; color:var(--text-dim); font-size:0.7rem; }
-.joint-tournament-source a{ text-decoration:underline; text-underline-offset:2px; }
-.joint-confidence{ flex:0 0 auto; padding:6px 9px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:0.66rem; font-weight:800; }
+.joint-tournament-summary{ margin-top:5px; color:var(--text-dim); font-size:0.7rem; }
+.joint-tournament-open-glyph{ flex:0 0 auto; color:var(--text-dim); font-size:1rem; transform:rotate(90deg); transition:transform 160ms ease; }
+.joint-tournament-card.is-navigation-open .joint-tournament-open-glyph{ transform:rotate(-90deg); }
+.joint-tournament-entry-hint{ margin:0; padding:0 16px 14px; color:var(--text-dim); font-size:0.72rem; line-height:1.45; }
+.joint-tournament-links{ display:flex; flex-wrap:wrap; gap:8px; padding:12px 16px; border-top:1px solid var(--border); }
+.joint-tournament-link{ min-height:36px; display:inline-flex; align-items:center; padding:7px 10px; border:1px solid var(--border); border-radius:9px; color:var(--text); background:transparent; font-size:0.7rem; font-weight:850; text-decoration:none; }
+.joint-tournament-link:hover,.joint-tournament-link:focus-visible,.joint-tournament-link[aria-current="page"]{ border-color:var(--accent); color:var(--accent); }
+.joint-tournament-drilldown{ border-top:1px solid var(--border); }
+.joint-tournament-drilldown-head{ padding:14px 16px 10px; }
+.joint-tournament-drilldown-head h3{ margin:0; font-size:0.86rem; }
+.joint-tournament-drilldown-head p{ margin:4px 0 0; color:var(--text-dim); font-size:0.7rem; line-height:1.45; }
+.joint-athlete-follow-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:8px; max-height:430px; overflow:auto; padding:0 16px 16px; }
+.joint-athlete-follow{ min-height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:9px; background:transparent; color:var(--text); cursor:pointer; text-align:left; }
+.joint-athlete-follow span{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:0.72rem; font-weight:750; }
+.joint-athlete-follow strong{ flex:0 0 auto; color:var(--text-dim); font-size:0.65rem; }
+.joint-athlete-follow[aria-pressed="true"]{ border-color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); }
+.joint-athlete-follow[aria-pressed="true"] strong{ color:var(--accent); }
+.joint-tournament-tables{ padding:0 16px 16px; }
+.joint-tournament-tables .standings-sport-heading{ display:none; }
+.joint-tournament-tables .standings-sport-section{ margin:0; }
+.joint-tournament-tables .standings-module{ margin-bottom:10px; }
 .joint-tournament-card > .event-quick-must-watch{ margin:0 16px 14px; }
 .joint-tournament-card .must-watch-new-label{ display:inline-block; margin:5px 0 0; }
 .joint-match-list{ display:flex; flex-direction:column; }
@@ -4563,8 +4582,7 @@ footer.app-footer{
 .joint-reporting{ padding:10px 16px 14px; border-top:1px solid var(--border); }
 .joint-reporting h4{ margin:0 0 8px; color:var(--text-dim); font-size:0.68rem; letter-spacing:0.04em; text-transform:uppercase; }
 .joint-reporting-list{ display:flex; flex-direction:column; gap:7px; }
-.joint-reporting-item{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px; align-items:start; font-size:0.7rem; }
-.joint-reporting-item span{ color:var(--text-dim); white-space:nowrap; }
+.joint-reporting-item{ font-size:0.7rem; }
 .joint-reporting-item a{ color:var(--text); text-decoration:underline; text-decoration-color:rgba(255,255,255,0.25); text-underline-offset:2px; }
 .joint-overview{ padding:18px 16px; color:var(--text-dim); font-size:0.78rem; line-height:1.5; }
 
@@ -5260,6 +5278,8 @@ let leagueCoveragePromptDismissed = new Set();
 let jointTournamentData = null;
 let jointTournamentLoading = false;
 let jointTournamentError = null;
+let jointTournamentNavigationOpen = false;
+let jointTournamentDrilldownPanel = null;
 let headerCompactionFrame = null;
 let feedFilterRefreshInFlight = null;
 let feedFilterRefreshQueued = false;
@@ -8976,6 +8996,7 @@ function eventIsAutoArchived(ev, reference = nowAEST()){
 function getPreferenceMatchedEvents(reference = nowAEST()){
   let list = activeEvents.slice();
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
+  list = list.filter(ev => !eventIsJointTournamentFeedChild(ev, jointTournamentData, reference));
   list = list.filter(eventEligibleForOneOffMotorsportDiscovery);
   list = list.filter(ev => (
     eventMatchesExplicitSubfilters(ev)
@@ -10076,6 +10097,21 @@ function jointTournamentIsActive(document = jointTournamentData, reference = now
     && retrievedAt <= new Date(reference).getTime());
 }
 
+function eventIsJointTournamentFeedChild(ev, tournamentDocument = jointTournamentData, reference = nowAEST()){
+  if (!jointTournamentIsActive(tournamentDocument, reference)) return false;
+  const tournament = tournamentDocument?.tournament;
+  const eventName = String(ev?.name || "").toLocaleLowerCase("en-AU");
+  const tournamentName = String(tournament?.name || "").toLocaleLowerCase("en-AU");
+  const eventDate = String(ev?.date || "");
+  return Boolean(
+    ev?.key === "tennis"
+    && eventName.includes(tournamentName)
+    && eventDate >= tournament.startDate
+    && eventDate <= tournament.endDate
+    && String(ev.eventId || ev.id) !== tournament.tournamentId
+  );
+}
+
 function normalizeJointTournamentFreshness(document, reference = new Date()){
   if (!document?.schedule?.matches?.length) return document;
   const freshnessTime = Date.parse(document.freshness?.lastSuccessfulAt || document.retrievedAt || "");
@@ -10186,7 +10222,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   detail.innerHTML = `<span class="joint-tour">${match.tour}</span> · ${round || "Round TBC"} · ${jointMatchTimingLabel(match, tournamentDocument)}`;
   if (result?.score){
     const resultCopy = document.createElement("span");
-    resultCopy.textContent = `Completed · ${result.score}${result.sourceTrust === "unverified" ? " · Unverified source" : ""}`;
+    resultCopy.textContent = `Completed · ${result.score}`;
     copy.append(title, detail, resultCopy);
   } else {
     copy.append(title, detail);
@@ -10221,7 +10257,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   return row;
 }
 
-function buildJointTournamentReporting(items, headingText = "Tournament updates"){
+function buildJointTournamentReporting(items, headingText = "Highlights & commentary"){
   if (!items?.length) return null;
   const section = globalThis.document.createElement("section");
   section.className = "joint-reporting";
@@ -10232,14 +10268,12 @@ function buildJointTournamentReporting(items, headingText = "Tournament updates"
   items.forEach(item => {
     const row = globalThis.document.createElement("div");
     row.className = "joint-reporting-item";
-    const trust = globalThis.document.createElement("span");
-    trust.textContent = item.sourceTrust === "verified" ? "Verified source" : "Unverified source";
     const link = globalThis.document.createElement("a");
     link.href = item.sourceUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = `${item.sourceName}: ${item.title}`;
-    row.append(trust, link);
+    link.textContent = item.title;
+    row.appendChild(link);
     list.appendChild(row);
   });
   section.append(heading, list);
@@ -10302,6 +10336,232 @@ function buildJointTournamentDays(tournamentDocument){
   return details;
 }
 
+function jointTournamentDateRange(tournamentDocument){
+  const start = new Date(`${tournamentDocument.tournament.startDate}T00:00:00Z`);
+  const end = new Date(`${tournamentDocument.tournament.endDate}T00:00:00Z`);
+  const formatter = new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "short", timeZone: "UTC" });
+  if (start.getUTCMonth() === end.getUTCMonth()){
+    return `${start.getUTCDate()}–${formatter.format(end)}`;
+  }
+  return `${formatter.format(start)}–${formatter.format(end)}`;
+}
+
+function setJointTournamentDrilldown(panel){
+  jointTournamentNavigationOpen = true;
+  jointTournamentDrilldownPanel = panel;
+  renderAll({ preserveViewport: true });
+  window.requestAnimationFrame(() => {
+    document.getElementById(`jointTournamentDrilldown-${panel}`)?.focus?.({ preventScroll: true });
+  });
+}
+
+function buildJointTournamentNavigation(){
+  const nav = globalThis.document.createElement("nav");
+  nav.className = "joint-tournament-links";
+  nav.setAttribute("aria-label", "Explore this Tennis tournament");
+  [
+    ["schedule", "Schedule & results"],
+    ["tables", "ATP & WTA rankings"],
+    ["athletes", "Follow players"],
+  ].forEach(([panel, label]) => {
+    const link = globalThis.document.createElement("a");
+    link.className = "joint-tournament-link";
+    link.href = `#jointTournamentDrilldown-${panel}`;
+    link.textContent = label;
+    if (jointTournamentDrilldownPanel === panel) link.setAttribute("aria-current", "page");
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      setJointTournamentDrilldown(panel);
+    });
+    nav.appendChild(link);
+  });
+  return nav;
+}
+
+function buildJointTournamentSchedulePanel(tournamentDocument){
+  const section = globalThis.document.createElement("section");
+  section.className = "joint-tournament-drilldown joint-tournament-schedule";
+  section.id = "jointTournamentDrilldown-schedule";
+  section.tabIndex = -1;
+  const head = globalThis.document.createElement("header");
+  head.className = "joint-tournament-drilldown-head";
+  head.innerHTML = "<h3>Schedule & results</h3><p>Open the day-by-day order only when you need the tournament detail.</p>";
+  section.appendChild(head);
+  const matches = tournamentDocument.schedule?.matches || [];
+  if (!matches.length){
+    const overview = globalThis.document.createElement("p");
+    overview.className = "joint-overview";
+    overview.textContent = tournamentDocument.schedule?.displayMessage || "Schedule details unavailable.";
+    section.appendChild(overview);
+    return section;
+  }
+  if (userPreferences.showSpoilers && tournamentDocument.resultAvailability?.status === "unavailable"){
+    const resultNote = globalThis.document.createElement("p");
+    resultNote.className = "joint-results-note";
+    resultNote.textContent = "Completed results are not yet available.";
+    section.appendChild(resultNote);
+  }
+  const days = buildJointTournamentDays(tournamentDocument);
+  if (days) section.appendChild(days);
+  const dayGroups = jointTournamentDayGroups(tournamentDocument);
+  const datedReporting = new Set(dayGroups.map(group => group.date));
+  const dayMatchIds = new Set(dayGroups.flatMap(group => group.matches.map(match => match.matchId)));
+  const generalReporting = (tournamentDocument.reporting?.items || []).filter(item => (
+    (!item.scheduleDate || !datedReporting.has(item.scheduleDate))
+    && !item.matchIds?.some(matchId => dayMatchIds.has(matchId))
+  ));
+  const reporting = buildJointTournamentReporting(generalReporting);
+  if (reporting) section.appendChild(reporting);
+  const addressableMatches = [...matches, ...(tournamentDocument.matchHistory || [])];
+  const savedIds = addressableMatches.filter(match => {
+    const action = getEventAction(jointMatchActionEvent(match, tournamentDocument));
+    return action.mustWatch || action.reminderRequested;
+  }).map(match => match.matchId);
+  const savedOutside = JOINT_TENNIS_TOURNAMENT?.savedMatches?.(
+    tournamentDocument,
+    savedIds,
+    tournamentDocument.schedule.promotedMatchIds
+  ) || [];
+  if (savedOutside.length){
+    const details = globalThis.document.createElement("details");
+    details.className = "joint-saved";
+    const summary = globalThis.document.createElement("summary");
+    summary.textContent = `Must Watch matches (${savedOutside.length})`;
+    details.appendChild(summary);
+    savedOutside.forEach(match => details.appendChild(buildJointTournamentMatch(match, tournamentDocument, { savedSection: true })));
+    section.appendChild(details);
+  }
+  return section;
+}
+
+function jointTournamentRankingCompetitions(){
+  return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
+    competition.supportsLadder
+    && (competition.preferenceDomainId === "sport:tennis" || competition.sportDomainId === "sport:tennis")
+  ));
+}
+
+function buildJointTournamentTablesPanel(){
+  const section = globalThis.document.createElement("section");
+  section.className = "joint-tournament-drilldown";
+  section.id = "jointTournamentDrilldown-tables";
+  section.tabIndex = -1;
+  const head = globalThis.document.createElement("header");
+  head.className = "joint-tournament-drilldown-head";
+  head.innerHTML = "<h3>ATP & WTA rankings</h3><p>Current tour tables, available directly from the tournament card.</p>";
+  section.appendChild(head);
+  const body = globalThis.document.createElement("div");
+  body.className = "joint-tournament-tables";
+  section.appendChild(body);
+  if (!canonicalSportsData){
+    body.innerHTML = `<p class="joint-overview">${canonicalSportsDataError ? "Rankings are temporarily unavailable." : "Loading ATP and WTA rankings…"}</p>`;
+    if (!canonicalSportsDataLoading){
+      loadCanonicalSportsData().then(() => {
+        if (jointTournamentDrilldownPanel === "tables") renderAll({ preserveViewport: true });
+      });
+    }
+    return section;
+  }
+  const competitions = jointTournamentRankingCompetitions();
+  if (!competitions.length){
+    body.innerHTML = '<p class="joint-overview">No current Tennis rankings are available.</p>';
+    return section;
+  }
+  renderStandingsContext({ container: body, competitions, sectionLabel: "Tennis rankings" });
+  return section;
+}
+
+function jointTournamentAthleteParticipants(tournamentDocument){
+  const playerNames = new Set(
+    [...(tournamentDocument.schedule?.matches || []), ...(tournamentDocument.matchHistory || [])]
+      .flatMap(match => match.players || [])
+      .map(player => JOINT_TENNIS_TOURNAMENT?.slug?.(player.name))
+      .filter(Boolean)
+  );
+  const followed = new Set((userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(item => ["follow", "priority"].includes(item.followLevel))
+    .map(item => item.participantId));
+  return canonicalPreferenceParticipants
+    .filter(participant => participant.type === "competitor" && String(participant.sportDomainId).startsWith("sport:tennis:"))
+    .filter(participant => [
+      participant.displayName,
+      participant.canonicalName,
+      participant.shortName,
+      ...(participant.metadata?.titleAliases || []),
+    ].some(name => playerNames.has(JOINT_TENNIS_TOURNAMENT?.slug?.(name))))
+    .sort((first, second) => (
+      Number(followed.has(second.id)) - Number(followed.has(first.id))
+      || Number(first.metadata?.rankingSingles || 9999) - Number(second.metadata?.rankingSingles || 9999)
+      || first.displayName.localeCompare(second.displayName)
+    ));
+}
+
+function setJointTournamentAthleteFollow(participant, enabled){
+  const next = clonePreferences(userPreferences);
+  if (enabled && !selectorEntityIsEffectivelySelected("sport:tennis", next)){
+    next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), "sport:tennis"]);
+    next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+    next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
+    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, "sport:tennis", "template:like");
+  }
+  next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participant.id, enabled ? "follow" : "none");
+  savePreferences(next);
+  recordPreferenceChange(enabled ? "follow" : "unfollow", "player", { sport: "tennis" });
+  showToast(`${participant.displayName} ${enabled ? "followed" : "unfollowed"}.`);
+  renderAll({ preserveViewport: true });
+}
+
+function buildJointTournamentAthletePanel(tournamentDocument){
+  const section = globalThis.document.createElement("section");
+  section.className = "joint-tournament-drilldown";
+  section.id = "jointTournamentDrilldown-athletes";
+  section.tabIndex = -1;
+  const head = globalThis.document.createElement("header");
+  head.className = "joint-tournament-drilldown-head";
+  head.innerHTML = "<h3>Follow players</h3><p>Following a player also adds Tennis at Like depth, so their eligible cards can reach your feed.</p>";
+  section.appendChild(head);
+  if (!canonicalSportsData){
+    const loading = globalThis.document.createElement("p");
+    loading.className = "joint-overview";
+    loading.textContent = canonicalSportsDataError ? "Player follows are temporarily unavailable." : "Loading tournament players…";
+    section.appendChild(loading);
+    if (!canonicalSportsDataLoading){
+      loadCanonicalSportsData().then(() => {
+        if (jointTournamentDrilldownPanel === "athletes") renderAll({ preserveViewport: true });
+      });
+    }
+    return section;
+  }
+  const participants = jointTournamentAthleteParticipants(tournamentDocument);
+  const grid = globalThis.document.createElement("div");
+  grid.className = "joint-athlete-follow-grid";
+  const follows = new Map((userPreferences.preferenceGraph?.entityFollows || []).map(item => [item.participantId, item.followLevel]));
+  participants.forEach(participant => {
+    const following = ["follow", "priority"].includes(follows.get(participant.id));
+    const button = globalThis.document.createElement("button");
+    button.type = "button";
+    button.className = "joint-athlete-follow";
+    button.setAttribute("aria-pressed", String(following));
+    button.innerHTML = `<span>${participant.displayName}</span><strong>${following ? "Following" : "Follow"}</strong>`;
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      setJointTournamentAthleteFollow(participant, !following);
+    });
+    grid.appendChild(button);
+  });
+  if (!participants.length) grid.innerHTML = '<p class="joint-overview">No tournament players could be matched to the current follow catalogue.</p>';
+  section.appendChild(grid);
+  return section;
+}
+
+function buildJointTournamentDrilldown(tournamentDocument){
+  if (jointTournamentDrilldownPanel === "schedule") return buildJointTournamentSchedulePanel(tournamentDocument);
+  if (jointTournamentDrilldownPanel === "tables") return buildJointTournamentTablesPanel();
+  if (jointTournamentDrilldownPanel === "athletes") return buildJointTournamentAthletePanel(tournamentDocument);
+  return null;
+}
+
 function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mode = "calendar" } = {}){
   const spoilerView = JOINT_TENNIS_TOURNAMENT?.spoilerSafeView?.(tournamentDocument, userPreferences.showSpoilers) || tournamentDocument;
   const card = tournamentDocument === null ? null : globalThis.document.createElement("section");
@@ -10314,80 +10574,47 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   card.dataset.tournamentId = spoilerView.tournament.tournamentId;
   const head = globalThis.document.createElement("header");
   head.className = "joint-tournament-head";
+  head.role = "button";
+  head.setAttribute("tabindex", "0");
+  head.setAttribute("aria-expanded", String(jointTournamentNavigationOpen));
+  head.setAttribute("aria-label", `${jointTournamentNavigationOpen ? "Close" : "Open"} ${spoilerView.tournament.name} tournament options`);
   const identity = globalThis.document.createElement("div");
-  identity.innerHTML = `<div class="joint-tournament-kicker">Beta schedule · ATP + WTA</div><h2>${spoilerView.tournament.name}</h2>`;
-  const source = globalThis.document.createElement("p");
-  source.className = "joint-tournament-source";
-  const sourceUrl = spoilerView.sourceDocuments?.find(item => item.kind === "order_of_play")?.sourceUrl
-    || "https://cincinnatiopen.com/score-center/order-of-play/";
-  const sourceLink = globalThis.document.createElement("a");
-  sourceLink.href = sourceUrl;
-  sourceLink.target = "_blank";
-  sourceLink.rel = "noopener noreferrer";
-  sourceLink.textContent = "Official order of play";
-  source.append("Lindner Family Tennis Center · ", sourceLink);
-  identity.appendChild(source);
+  identity.innerHTML = `<div class="joint-tournament-kicker">ATP + WTA</div><h2>${spoilerView.tournament.name}</h2><p class="joint-tournament-summary">Cincinnati · ${jointTournamentDateRange(spoilerView)}</p>`;
   if (isNewMustWatch){
     const label = globalThis.document.createElement("span");
     label.className = "must-watch-new-label";
     label.textContent = "NEW";
     identity.appendChild(label);
   }
-  const confidence = globalThis.document.createElement("span");
-  confidence.className = "joint-confidence";
-  confidence.textContent = spoilerView.freshness.confidence;
-  head.append(identity, confidence);
+  const openGlyph = globalThis.document.createElement("span");
+  openGlyph.className = "joint-tournament-open-glyph";
+  openGlyph.setAttribute("aria-hidden", "true");
+  openGlyph.textContent = "›";
+  head.append(identity, openGlyph);
+  const toggleNavigation = () => {
+    jointTournamentNavigationOpen = !jointTournamentNavigationOpen;
+    if (!jointTournamentNavigationOpen) jointTournamentDrilldownPanel = null;
+    renderAll({ preserveViewport: true });
+    window.requestAnimationFrame(() => document.querySelector("#cincinnatiTournamentCard .joint-tournament-head")?.focus?.({ preventScroll: true }));
+  };
+  head.addEventListener("click", toggleNavigation);
+  head.addEventListener("keydown", event => {
+    if (!["Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    toggleNavigation();
+  });
   card.appendChild(head);
-
-  const matches = spoilerView.schedule?.matches || [];
-  if (!matches.length){
-    const overview = globalThis.document.createElement("p");
-    overview.className = "joint-overview";
-    overview.textContent = `${spoilerView.schedule?.displayMessage || "Schedule details unavailable"}. It remains available as a Tennis suggestion while the official schedule is checked.`;
-    card.appendChild(overview);
-    const mustWatchAction = buildJointTournamentMustWatchAction(tournamentDocument);
-    if (mustWatchAction) card.appendChild(mustWatchAction);
-    bindJointTournamentSeenState(card, tournamentEvent, isNewMustWatch);
-    return card;
-  }
-  const promoted = (spoilerView.schedule.promotedMatchIds || [])
-    .map(matchId => matches.find(match => match.matchId === matchId))
-    .filter(Boolean);
-  if (userPreferences.showSpoilers && spoilerView.resultAvailability?.status === "unavailable"){
-    const resultNote = globalThis.document.createElement("p");
-    resultNote.className = "joint-results-note";
-    resultNote.textContent = "Completed results are not yet available from the checked Cincinnati sources.";
-    card.appendChild(resultNote);
-  }
-  const list = globalThis.document.createElement("div");
-  list.className = "joint-match-list";
-  promoted.forEach(match => list.appendChild(buildJointTournamentMatch(match, spoilerView)));
-  card.appendChild(list);
-  const days = buildJointTournamentDays(spoilerView);
-  if (days) card.appendChild(days);
-  const dayGroups = jointTournamentDayGroups(spoilerView);
-  const datedReporting = new Set(dayGroups.map(group => group.date));
-  const dayMatchIds = new Set(dayGroups.flatMap(group => group.matches.map(match => match.matchId)));
-  const generalReporting = (spoilerView.reporting?.items || []).filter(item => (
-    (!item.scheduleDate || !datedReporting.has(item.scheduleDate))
-    && !item.matchIds?.some(matchId => dayMatchIds.has(matchId))
-  ));
-  const reporting = buildJointTournamentReporting(generalReporting);
-  if (reporting) card.appendChild(reporting);
-  const addressableMatches = [...matches, ...(spoilerView.matchHistory || [])];
-  const savedIds = addressableMatches.filter(match => {
-    const action = getEventAction(jointMatchActionEvent(match, spoilerView));
-    return action.mustWatch || action.reminderRequested;
-  }).map(match => match.matchId);
-  const savedOutside = JOINT_TENNIS_TOURNAMENT?.savedMatches?.(spoilerView, savedIds, spoilerView.schedule.promotedMatchIds) || [];
-  if (savedOutside.length){
-    const details = globalThis.document.createElement("details");
-    details.className = "joint-saved";
-    const summary = globalThis.document.createElement("summary");
-    summary.textContent = `Must Watch matches (${savedOutside.length})`;
-    details.appendChild(summary);
-    savedOutside.forEach(match => details.appendChild(buildJointTournamentMatch(match, spoilerView, { savedSection: true })));
-    card.appendChild(details);
+  const hint = globalThis.document.createElement("p");
+  hint.className = "joint-tournament-entry-hint";
+  hint.textContent = jointTournamentNavigationOpen
+    ? "Choose where you want to go next."
+    : "Tap for schedule, rankings and player follows.";
+  card.appendChild(hint);
+  if (jointTournamentNavigationOpen){
+    card.classList.add("is-navigation-open");
+    card.appendChild(buildJointTournamentNavigation());
+    const drilldown = buildJointTournamentDrilldown(spoilerView);
+    if (drilldown) card.appendChild(drilldown);
   }
   const mustWatchAction = buildJointTournamentMustWatchAction(tournamentDocument);
   if (mustWatchAction) card.appendChild(mustWatchAction);

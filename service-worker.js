@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v94";
+const CACHE_NAME = "nothingsport-shell-v95";
 const APP_SHELL = [
   "/",
   "/index.html",
