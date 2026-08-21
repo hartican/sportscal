@@ -22,6 +22,19 @@ inputs.forEach(input => {
   standingsAwareOverrides.forEach(([eventId, override]) => {
     const event = feed.events.find(candidate => candidate.id === eventId || candidate.eventId === eventId);
     assert(event, `${input} must contain standings-aware editorial card ${eventId}`);
+    if (event.status === "completed") {
+      // A completed fixture deliberately replaces its pre-match ladder copy
+      // with the spoiler-safe result contract. Requiring the old ranks here
+      // would reject a correct score refresh after the final whistle.
+      const expectedStoryline = storylineFor(event);
+      assert.equal(event.selectedSentence, expectedStoryline.hookSpoilerOff, `${input} ${eventId} selectedSentence must stay spoiler-safe after completion`);
+      assert.equal(event.fullSpiel, expectedStoryline.synopsisSpoilerOff, `${input} ${eventId} fullSpiel must stay spoiler-safe after completion`);
+      ["hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn"].forEach(field => {
+        assert.equal(event.storyline?.[field], expectedStoryline[field], `${input} ${eventId} storyline.${field} must match the completed-result contract`);
+      });
+      checked += 1;
+      return;
+    }
     const expected = resolveStandingsAwareOverride(event, override, standingsIndex);
     assert.equal(event.selectedSentence, expected.selectedSentence, `${input} ${eventId} selectedSentence must match the current ladder`);
     assert.equal(event.fullSpiel, expected.fullSpiel, `${input} ${eventId} fullSpiel must match the current ladder`);

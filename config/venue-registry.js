@@ -80,6 +80,26 @@
     ["sun-valley-challenger", "Sun Valley", "Challenger course at Sun Valley Resort", ["Challenger course at Sun Valley Resort"]],
     ["glasgow-international-arena", "Glasgow International Arena", "Glasgow International Arena", ["Glasgow International Arena", "Emirates Arena"]],
     ["sec-centre", "the SEC", "SEC Centre", ["SEC Centre"]],
+    ["american-express-stadium", "American Express Stadium", "American Express Stadium", ["American Express Stadium", "Amex Stadium"]],
+    ["anfield", "Anfield", "Anfield", ["Anfield"]],
+    ["coventry-building-society-arena", "Coventry Building Society Arena", "Coventry Building Society Arena", ["Coventry Building Society Arena"]],
+    ["craven-cottage", "Craven Cottage", "Craven Cottage", ["Craven Cottage"]],
+    ["elland-road", "Elland Road", "Elland Road", ["Elland Road"]],
+    ["emirates-stadium", "Emirates Stadium", "Emirates Stadium", ["Emirates Stadium"]],
+    ["etihad-stadium-manchester", "Etihad Stadium", "Etihad Stadium", ["Etihad Stadium, Manchester"]],
+    ["gtech-community-stadium", "Gtech Community Stadium", "Gtech Community Stadium", ["Gtech Community Stadium"]],
+    ["hill-dickinson-stadium", "Hill Dickinson Stadium", "Hill Dickinson Stadium", ["Hill Dickinson Stadium"]],
+    ["old-trafford", "Old Trafford", "Old Trafford", ["Old Trafford"]],
+    ["portman-road", "Portman Road", "Portman Road", ["Portman Road"]],
+    ["selhurst-park", "Selhurst Park", "Selhurst Park", ["Selhurst Park"]],
+    ["st-james-park-newcastle", "St James' Park", "St James' Park", ["St. James' Park", "St James' Park"]],
+    ["stadium-of-light", "Stadium of Light", "Stadium of Light", ["Stadium of Light"]],
+    ["stamford-bridge", "Stamford Bridge", "Stamford Bridge", ["Stamford Bridge"]],
+    ["city-ground-nottingham", "The City Ground", "The City Ground", ["The City Ground", "City Ground"]],
+    ["mkm-stadium", "MKM Stadium", "The MKM Stadium", ["The MKM Stadium", "MKM Stadium"]],
+    ["tottenham-hotspur-stadium", "Tottenham Hotspur Stadium", "Tottenham Hotspur Stadium", ["Tottenham Hotspur Stadium"]],
+    ["villa-park", "Villa Park", "Villa Park", ["Villa Park"]],
+    ["vitality-stadium", "Vitality Stadium", "Vitality Stadium", ["Vitality Stadium"]],
   ].map(([id, displayName, officialName, aliases]) => Object.freeze({ id, displayName, officialName, aliases: Object.freeze(aliases) })));
 
   const CONTEXTUAL_ALIASES = Object.freeze({
@@ -94,6 +114,7 @@
     "sun valley idaho": Object.freeze({ id: "sun-valley-challenger", keys: Object.freeze(["ski"]) }),
     "the arena": Object.freeze({ id: "glasgow-international-arena", keys: Object.freeze(["cwg"]) }),
     "scottish event campus": Object.freeze({ id: "sec-centre", keys: Object.freeze(["cwg"]) }),
+    "etihad stadium": Object.freeze({ id: "etihad-stadium-manchester", keys: Object.freeze(["premier-league"]) }),
   });
 
   const REVIEW_DISPOSITIONS = Object.freeze({

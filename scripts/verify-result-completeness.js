@@ -23,6 +23,11 @@ function expectedCloseAt(event) {
 
 function isDueForResult(event) {
   if (event.status === "completed") return true;
+  // Tournament overview cards represent an active event window, not one
+  // scoreable contest. They remain preview coverage until a verified match or
+  // final result is available, so a daily order-of-play timestamp is never a
+  // result deadline.
+  if (event.cardType === "tournament_overview") return false;
   const expectedClose = expectedCloseAt(event);
   return Boolean(expectedClose && now.getTime() >= expectedClose.getTime());
 }
