@@ -16,11 +16,67 @@
     return Object.freeze({ id, label, url, sourceUrl, fit: options.fit || "contain", ...OFFICIAL_REFERENCE_USE });
   }
 
+  function sportMark(key, label, glyph){
+    return Object.freeze({
+      id: `sport:${key}`,
+      kind: "sport",
+      label,
+      glyph,
+      assetClass: "open-use",
+      rightsStatus: "open-use",
+      provenance: "licensed-library",
+      displayUse: "editorial-identification",
+      sourceUrl: "https://github.com/ookamiinc/sporticon",
+    });
+  }
+
   const eventMarks = Object.freeze({
     nrl: officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/"),
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
+  });
+
+  // A local, open-use sport mark covers every supported sport. This avoids
+  // treating a governing body's protected trademark as the app's own identity.
+  const sportMarks = Object.freeze({
+    f1: sportMark("f1", "Formula One", "sport:motorsport"),
+    motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
+    rally: sportMark("rally", "Rally", "sport:motorsport"),
+    goodwood: sportMark("goodwood", "Goodwood motorsport", "sport:motorsport"),
+    lemans: sportMark("lemans", "Endurance motorsport", "sport:motorsport"),
+    extreme: sportMark("extreme", "Extreme sport", "sport:extreme"),
+    "downhill-mtb": sportMark("downhill-mtb", "Downhill mountain biking", "sport:extreme"),
+    mtb: sportMark("mtb", "Mountain biking", "sport:extreme"),
+    skateboard: sportMark("skateboard", "Skateboarding", "sport:extreme"),
+    wsl: sportMark("wsl", "Surfing", "sport:surf"),
+    "big-wave": sportMark("big-wave", "Big-wave surfing", "sport:surf"),
+    surf: sportMark("surf", "Surfing", "sport:surf"),
+    telemark: sportMark("telemark", "Telemark skiing", "sport:skiing"),
+    ski: sportMark("ski", "Skiing", "sport:skiing"),
+    alpine: sportMark("alpine", "Alpine skiing", "sport:skiing"),
+    freestyle: sportMark("freestyle", "Freestyle skiing", "sport:skiing"),
+    cycling: sportMark("cycling", "Cycling", "sport:cycling"),
+    tdf: sportMark("tdf", "Tour cycling", "sport:cycling"),
+    rugby: sportMark("rugby", "Rugby", "sport:rugby"),
+    tennis: sportMark("tennis", "Tennis", "sport:tennis"),
+    fifa: sportMark("fifa", "Football", "sport:football"),
+    football: sportMark("football", "Football", "sport:football"),
+    cricket: sportMark("cricket", "Cricket", "sport:cricket"),
+    nba: sportMark("nba", "Basketball", "sport:basketball"),
+    basketball: sportMark("basketball", "Basketball", "sport:basketball"),
+    masters: sportMark("masters", "Golf", "sport:golf"),
+    golf: sportMark("golf", "Golf", "sport:golf"),
+    nfl: sportMark("nfl", "American football", "sport:american-football"),
+    "american-football": sportMark("american-football", "American football", "sport:american-football"),
+    cwg: sportMark("cwg", "Multi-sport games", "sport:multi-sport"),
+    athletics: sportMark("athletics", "Athletics", "sport:multi-sport"),
+    swimming: sportMark("swimming", "Swimming", "sport:multi-sport"),
+    netball: sportMark("netball", "Netball", "sport:multi-sport"),
+    hockey: sportMark("hockey", "Hockey", "sport:multi-sport"),
+    gymnastics: sportMark("gymnastics", "Gymnastics", "sport:multi-sport"),
+    boxing: sportMark("boxing", "Boxing", "sport:multi-sport"),
+    "multi-sport": sportMark("multi-sport", "Multi-sport games", "sport:multi-sport"),
   });
 
   const nrlTeamSlugs = Object.freeze({
@@ -58,7 +114,11 @@
     Object.freeze({ id: "wimbledon", pattern: /\b(?:wimbledon|the championships)\b/i }),
   ]);
   function eventSearchText(event){ return [event?.brandId, event?.competitionId, event?.series, event?.tournament, event?.name, event?.displayTitleCompact, event?.spoilerSafeTitle].filter(Boolean).join(" "); }
-  function markForEvent(event){ const brandRule = brandRules.find(rule => rule.pattern.test(eventSearchText(event))); return brandRule ? (eventMarks[brandRule.id] || null) : (eventMarks[event?.key] || null); }
+  function markForEvent(event){
+    const brandRule = brandRules.find(rule => rule.pattern.test(eventSearchText(event)));
+    if (brandRule) return eventMarks[brandRule.id] || null;
+    return eventMarks[event?.key] || sportMarks[event?.key] || null;
+  }
   function normalize(value){ return String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("en"); }
   function participantAliases(participant){ return Array.from(new Set([...(Array.isArray(participant?.metadata?.titleAliases) ? participant.metadata.titleAliases : []), participant?.shortName, participant?.displayName, participant?.canonicalName].map(value => String(value || "").trim()).filter(Boolean))).sort((left, right) => right.length - left.length); }
   function aliasRange(title, participant){
@@ -81,5 +141,5 @@
     if (resolved.length < 2) participantList.filter(participant => participantMarks[participant.id]).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
-  return Object.freeze({ schemaVersion: "card-identities.v1", policy: Object.freeze({ protectedMarks: "official-reference-with-neutral-fallback", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange });
+  return Object.freeze({ schemaVersion: "card-identities.v1", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange });
 });

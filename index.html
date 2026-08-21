@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="97">
+<meta name="app-shell-version" content="98">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1453,6 +1453,11 @@ main{
   overflow:hidden;
 }
 
+.event-icon.has-sport-logo{
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 27%, var(--bg-card));
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 48%, var(--border));
+}
+
 .event-brand-logo{
   display:block;
   width:34px;
@@ -1461,10 +1466,26 @@ main{
   transition:transform 0.16s ease;
 }
 
+.event-sport-logo{
+  display:block;
+  width:25px;
+  height:25px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  opacity:0.94;
+  transition:transform 0.16s ease;
+}
+
 .event-card:hover .event-brand-logo,
 .event-card.is-selected .event-brand-logo,
 .event-card.is-opened .event-brand-logo{
   transform:scale(1.06);
+}
+
+.event-card:hover .event-sport-logo,
+.event-card.is-selected .event-sport-logo,
+.event-card.is-opened .event-sport-logo{
+  transform:scale(1.08);
 }
 
 .event-main{
@@ -4132,6 +4153,7 @@ footer.app-footer{
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
   .event-brand-logo{ width:28px; height:28px; }
+  .event-sport-logo{ width:22px; height:22px; }
   .team-logo{ width:17px; height:17px; flex-basis:17px; }
   .month-cell{ min-height: 64px; }
   .month-cell .cell-event{ font-size: 0.55rem; }
@@ -5006,10 +5028,16 @@ function sportMetaForEvent(ev){
 function renderEventIdentityMark(container, ev, meta){
   const mark = CARD_IDENTITIES?.markForEvent(ev);
   const renderFallback = () => {
-    container.classList.remove("has-brand-logo");
+    container.classList.remove("has-brand-logo", "has-sport-logo");
     container.replaceChildren();
     container.innerHTML = glyphMarkup(meta.glyph, { label: meta.label, preferImage: true });
   };
+  if (mark?.kind === "sport" && mark.glyph){
+    container.classList.remove("has-brand-logo");
+    container.classList.add("has-sport-logo");
+    container.innerHTML = glyphMarkup(mark.glyph, { className: "event-sport-logo", label: mark.label, preferImage: true });
+    return;
+  }
   if (!mark?.url){
     renderFallback();
     return;
@@ -5022,6 +5050,7 @@ function renderEventIdentityMark(container, ev, meta){
   image.decoding = "async";
   image.referrerPolicy = "no-referrer";
   image.addEventListener("error", renderFallback, { once: true });
+  container.classList.remove("has-sport-logo");
   container.classList.add("has-brand-logo");
   container.replaceChildren(image);
 }
