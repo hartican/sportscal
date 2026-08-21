@@ -31,9 +31,17 @@ assert.equal(activeAflTeams.length, 18, "the current AFL competition must expose
 activeAflTeams.forEach(team => {
   const mark = identities.participantMarks[team.id];
   assert(mark, `missing AFL team identity for ${team.id}`);
-  assert.match(mark.url, /^https:\/\/resources\.afl\.com\.au\/photo-resources\/.+/);
+  assert.match(mark.url, /^\/assets\/teams\/afl\/[a-z]+\.svg$/, `${team.id} must use a transparent local AFL crest`);
   assert.equal(mark.provenance, "official-site");
-  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${team.id} must expose the ${asset} logo asset`));
+  assert.equal(mark.sourceUrl, "https://www.afl.com.au/resources/v5.52.26/i/svg-output/icons.svg");
+  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => {
+    const path = mark.logo?.[asset] || "";
+    assert.match(path, /^\/assets\/teams\/afl\/[a-z]+(?:-light)?\.svg$/, `${team.id} must expose the ${asset} crest asset`);
+    assert(fs.existsSync(`.${path}`), `${team.id} must provide ${asset} as a committed local asset`);
+    const source = fs.readFileSync(`.${path}`, "utf8");
+    assert.match(source, /<svg\b[^>]*\bviewBox=/, `${team.id} ${asset} must retain the AFL vector viewBox`);
+    assert.doesNotMatch(source, /<rect\b/i, `${team.id} ${asset} must not contain a rectangular logo background`);
+  });
 });
 
 assert.equal(identities.markForEvent({ key: "nrl", name: "Broncos v Storm" })?.label, "NRL", "NRL cards must use the competition logo");

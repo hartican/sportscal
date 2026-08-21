@@ -242,26 +242,21 @@
     shortName: mark.label,
     metadata: Object.freeze({ titleAliases: mark.aliases }),
   })));
+  // Extracted unchanged from AFL's club-navigation sprite. The colour and
+  // light SVGs are standalone, transparent vectors rather than campaign tiles.
   const aflTeamAssets = Object.freeze({
-    "team:afl:cd_t10": ["Adelaide Crows", "https://resources.afl.com.au/photo-resources/2024/11/19/027ba733-e379-48d4-94a8-9b20c06a285f/Adelaide-Crows-16-9.png?width=270&height=152"],
-    "team:afl:cd_t20": ["Brisbane Lions", "https://resources.afl.com.au/photo-resources/2023/08/11/41ce722c-142b-4b00-9de4-1e60c5a0aabd/BL.jpeg?width=270&height=152"],
-    "team:afl:cd_t30": ["Carlton", "https://resources.afl.com.au/photo-resources/2023/08/11/35c0ff6e-c60e-4946-9a30-328aa3818140/CARL.jpeg?width=270&height=152"],
-    "team:afl:cd_t40": ["Collingwood", "https://resources.afl.com.au/photo-resources/2023/08/11/480bd807-9b25-4b2f-ab29-f0ce15991049/COLL.jpeg?width=270&height=152"],
-    "team:afl:cd_t50": ["Essendon", "https://resources.afl.com.au/photo-resources/2023/08/11/1bf4ca3f-fb53-4b72-b361-d4dcd1f3528f/ESS.jpeg?width=270&height=152"],
-    "team:afl:cd_t60": ["Fremantle", "https://resources.afl.com.au/photo-resources/2023/08/11/c604e10a-9ae3-4083-90e3-7a99b36dfd50/FRE.jpeg?width=270&height=152"],
-    "team:afl:cd_t70": ["Geelong Cats", "https://resources.afl.com.au/photo-resources/2023/08/11/82c0f2f0-a4ed-4623-bf20-c34e395b2a19/GEEL.jpeg?width=270&height=152"],
-    "team:afl:cd_t1000": ["Gold Coast SUNS", "https://resources.afl.com.au/photo-resources/2024/11/19/bc20e892-5723-4761-b931-711ff2bf1240/Gold-Coast-SUNS-16-9.png?width=270&height=152"],
-    "team:afl:cd_t1010": ["GWS GIANTS", "https://resources.afl.com.au/photo-resources/2023/08/11/e6740288-a035-4e2a-bf61-a1032a7609e2/GWS.png?width=270&height=152"],
-    "team:afl:cd_t80": ["Hawthorn", "https://resources.afl.com.au/photo-resources/2023/08/11/e2db80ea-567c-41da-a3f8-3ec3977c688b/HAW.jpeg?width=270&height=152"],
-    "team:afl:cd_t90": ["Melbourne", "https://resources.afl.com.au/photo-resources/2023/08/11/a97d65ce-b997-4edb-b79f-9477b063d704/MELB.jpeg?width=270&height=152"],
-    "team:afl:cd_t100": ["North Melbourne", "https://resources.afl.com.au/photo-resources/2023/08/11/c5cf7f27-5aa1-4eed-8f39-28e4c20075bf/NMFC.jpeg?width=270&height=152"],
-    "team:afl:cd_t110": ["Port Adelaide", "https://resources.afl.com.au/photo-resources/2023/08/11/0857230b-55f3-4b70-a15c-3d4076d7ab29/PORT.jpeg?width=270&height=152"],
-    "team:afl:cd_t120": ["Richmond", "https://resources.afl.com.au/photo-resources/2023/08/11/50a71f61-e3c0-443c-a3c2-2d3a5040b1cd/RICH.jpeg?width=270&height=152"],
-    "team:afl:cd_t130": ["St Kilda", "https://resources.afl.com.au/photo-resources/2024/11/19/472df204-e3ec-48f0-9a2a-e5c91b1e101f/ST-KILDA-NEW-LOGO-16x9.png?width=270&height=152"],
-    "team:afl:cd_t160": ["Sydney Swans", "https://resources.afl.com.au/photo-resources/2023/08/11/875dfb95-9a71-4547-8edc-4cc4a67ab502/SYD.jpeg?width=270&height=152"],
-    "team:afl:cd_t150": ["West Coast Eagles", "https://resources.afl.com.au/photo-resources/2023/08/11/e9e3449f-25d0-4ec8-b88c-0d5e01e8524e/WCE.jpeg?width=270&height=152"],
-    "team:afl:cd_t140": ["Western Bulldogs", "https://resources.afl.com.au/photo-resources/2023/08/11/61392440-4084-419b-8371-55c9f922d099/WB.jpeg?width=270&height=152"],
+    "team:afl:cd_t10": ["Adelaide Crows", "adel"], "team:afl:cd_t20": ["Brisbane Lions", "bl"],
+    "team:afl:cd_t30": ["Carlton", "carl"], "team:afl:cd_t40": ["Collingwood", "coll"],
+    "team:afl:cd_t50": ["Essendon", "ess"], "team:afl:cd_t60": ["Fremantle", "fre"],
+    "team:afl:cd_t70": ["Geelong Cats", "geel"], "team:afl:cd_t1000": ["Gold Coast SUNS", "gcfc"],
+    "team:afl:cd_t1010": ["GWS GIANTS", "gws"], "team:afl:cd_t80": ["Hawthorn", "haw"],
+    "team:afl:cd_t90": ["Melbourne", "melb"], "team:afl:cd_t100": ["North Melbourne", "nmfc"],
+    "team:afl:cd_t110": ["Port Adelaide", "port"], "team:afl:cd_t120": ["Richmond", "rich"],
+    "team:afl:cd_t130": ["St Kilda", "stk"], "team:afl:cd_t160": ["Sydney Swans", "syd"],
+    "team:afl:cd_t150": ["West Coast Eagles", "wce"], "team:afl:cd_t140": ["Western Bulldogs", "wb"],
   });
+  const AFL_CREST_SOURCE = "https://www.afl.com.au/resources/v5.52.26/i/svg-output/icons.svg";
+  const aflCrestAsset = (slug, variant = "") => `/assets/teams/afl/${slug}${variant}.svg`;
 
   const participantMarks = Object.freeze(Object.fromEntries([
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/", {
@@ -275,7 +270,14 @@
         backgroundDark: "dark",
       },
     })]),
-    ...Object.entries(aflTeamAssets).map(([participantId, [label, url]]) => [participantId, officialMark(`participant:${participantId}`, label, url, "https://www.afl.com.au/teams")]),
+    ...Object.entries(aflTeamAssets).map(([participantId, [label, slug]]) => [participantId, officialMark(
+      `participant:${participantId}`, label, aflCrestAsset(slug), AFL_CREST_SOURCE, {
+        logo: {
+          light: aflCrestAsset(slug), dark: aflCrestAsset(slug, "-light"),
+          icon: aflCrestAsset(slug), iconLight: aflCrestAsset(slug), iconDark: aflCrestAsset(slug, "-light"),
+        },
+      },
+    )]),
     ...Object.entries(cricketTeamMarks),
     ...Object.entries(rugbyTeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
