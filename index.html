@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="101">
+<meta name="app-shell-version" content="102">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1349,6 +1349,10 @@ main{
   opacity: 0.55;
 }
 
+.event-card.is-past.has-card-result{
+  opacity: 0.8;
+}
+
 .event-card.is-past:hover{
   opacity: 0.85;
 }
@@ -1528,11 +1532,52 @@ main{
   flex-wrap: wrap;
 }
 
+.event-top-row.has-team-matchup{
+  display:block;
+  position:relative;
+}
+
+.event-top-row.has-team-matchup .event-title-stack{
+  width:100%;
+  text-align:center;
+}
+
+.event-top-row.has-team-matchup .event-date-line,
+.event-top-row.has-team-matchup .event-name-line{
+  justify-content:center;
+}
+
+.event-top-row.has-team-matchup .event-name{
+  text-align:center;
+}
+
+.event-top-row.has-team-matchup .badges{
+  position:absolute;
+  top:0;
+  right:0;
+  max-width:42%;
+  justify-content:flex-end;
+}
+
+@media (max-width:620px){
+  .event-top-row.has-team-matchup .badges{
+    position:static;
+    max-width:none;
+    margin-top:7px;
+    justify-content:center;
+  }
+}
+
 .event-name{
   font-size: 0.98rem;
   font-weight: 800;
   color: var(--text);
   line-height:1.3;
+}
+
+.event-title-stack{
+  min-width:0;
+  flex:1;
 }
 
 .team-name-with-logo{
@@ -1991,24 +2036,19 @@ main{
   color:var(--text-dim);
 }
 
-.compact-result{
+.card-result-line{
   display:grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items:baseline;
-  gap: 8px;
-  margin-top: 10px;
-  padding-top: 9px;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  font-size: 0.8rem;
-  line-height: 1.35;
+  justify-items:center;
+  margin:6px 0 1px;
+  color:var(--text);
+  text-align:center;
 }
 
-.compact-result-label{
-  color: var(--accent);
-  font-size: 0.64rem;
-  font-weight: 900;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+.card-result-score{
+  font:900 clamp(1.1rem, 2.8vw, 1.42rem)/1.16 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:0.01em;
+  text-wrap:balance;
 }
 
 .badge.discovery{
@@ -2022,20 +2062,6 @@ main{
   color:var(--text-dim);
   border:1px solid var(--border);
   background:var(--soft-fill);
-}
-
-.compact-result-copy{
-  min-width: 0;
-  overflow:hidden;
-  color: var(--text);
-  font-weight: 800;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.compact-result-outcome{
-  color: var(--text-dim);
-  font-weight: 500;
 }
 
 .rating-row{
@@ -9554,27 +9580,13 @@ function buildCompactResult(ev){
   if (!result) return null;
 
   const wrap = document.createElement("div");
-  wrap.className = "compact-result";
+  wrap.className = "card-result-line";
+  wrap.setAttribute("aria-label", "Final result");
 
-  const label = document.createElement("span");
-  label.className = "compact-result-label";
-  label.textContent = "Result";
-  wrap.appendChild(label);
-
-  const copy = document.createElement("div");
-  copy.className = "compact-result-copy";
-  if (result.score){
-    const score = document.createElement("span");
-    score.textContent = result.score;
-    copy.appendChild(score);
-  }
-  if (result.outcome){
-    const outcome = document.createElement("span");
-    outcome.className = "compact-result-outcome";
-    outcome.textContent = `${result.score ? " — " : ""}${result.outcome}`;
-    copy.appendChild(outcome);
-  }
-  wrap.appendChild(copy);
+  const score = document.createElement("span");
+  score.className = "card-result-score";
+  score.textContent = result.score || result.outcome;
+  wrap.appendChild(score);
   return wrap;
 }
 
@@ -9916,6 +9928,7 @@ function buildEventCard(ev, options = {}){
   const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
   const spoilerVisible = isSpoilerVisible(ev);
+  const displayedResult = status === "past" ? buildCompactResult(ev) : null;
   const protectedFacts = spoilerFactsForEvent(ev);
   const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
@@ -9940,6 +9953,7 @@ function buildEventCard(ev, options = {}){
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
     spoilerProtected ? "is-spoiler-protected" : "",
+    displayedResult ? "has-card-result" : "",
     presentation.isNew ? "is-new" : "",
     isNewMustWatch ? "is-must-watch-new" : "",
     status === "past" ? "is-past" : "",
@@ -9993,9 +10007,11 @@ function buildEventCard(ev, options = {}){
   mainDiv.className = "event-main";
 
   const topRow = document.createElement("div");
-  topRow.className = "event-top-row";
+  const isTeamMatchup = /\s+v\.?\s+/i.test(displayTitle);
+  topRow.className = `event-top-row${isTeamMatchup ? " has-team-matchup" : ""}`;
 
   const nameWrap = document.createElement("div");
+  nameWrap.className = "event-title-stack";
   if (expandable){
     const dateLine = document.createElement("div");
     dateLine.className = "event-date-line";
@@ -10051,6 +10067,7 @@ function buildEventCard(ev, options = {}){
     nameLine.appendChild(expandControl);
   }
   nameWrap.appendChild(nameLine);
+  if (displayedResult) nameWrap.appendChild(displayedResult);
     if (state === "opened" && ev.venue){
       const venueEl = document.createElement("div");
       venueEl.className = "event-venue";
@@ -10153,11 +10170,6 @@ function buildEventCard(ev, options = {}){
   if (followContext) mainDiv.appendChild(followContext);
   const jerseyContext = buildStageJerseyContext(ev);
   if (jerseyContext) mainDiv.appendChild(jerseyContext);
-
-  if (state !== "opened"){
-    const compactResult = buildCompactResult(ev);
-    if (compactResult) mainDiv.appendChild(compactResult);
-  }
 
   if (isSessionRatingPromptEvent(ev)){
     mainDiv.appendChild(buildPostEventRatingPrompt(ev));

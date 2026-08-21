@@ -361,8 +361,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v101"'), "the rugby-identity release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="101">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v102"'), "the prominent-result release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="102">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -465,8 +465,11 @@ assert(html.includes('if (scrollDirection === "up" && pendingCardRetractionSpace
 assert(html.includes("function cardRetractionVisualOffset(retainedHeight)") && html.includes("card.style.transform = `translateY(${visualOffset}px)`"), "a compact card must visually occupy its retained space before upward cleanup");
 assert(html.includes('card.style.transform = "";'), "temporary card translation must clear with retained retraction space");
 assert(html.includes("anchor.card?.isConnected") && html.includes("card: anchorCard || null"), "viewport restoration must retain the exact anchored card when it remains connected");
-assert(html.includes('const compactResult = buildCompactResult(ev)'), "compact cards must render revealed result summaries");
-assert(html.includes('if (state !== "opened")'), "compact results must hand off to full result detail at the opened level");
+assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev) : null;'), "past cards must render revealed result summaries");
+assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev) : null;'), "revealed past cards must build their score line before rendering the title stack");
+assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
+assert(html.includes('className = "card-result-score"') && html.includes('.card-result-line{'), "past-card results must use the centred, prominent score treatment");
+assert(html.includes('const isTeamMatchup = /\\s+v\\.?\\s+/i.test(displayTitle);') && html.includes('.event-top-row.has-team-matchup .event-name{'), "matchup team names must be centred independently of card badges");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
