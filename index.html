@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="104">
+<meta name="app-shell-version" content="105">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1449,7 +1449,10 @@ main{
     var(--bg-card);
 }
 
-.event-card.is-logo-led-matchup .event-icon{ display:none; }
+/* Historical context can be quieter without washing out official crests. */
+.event-card.is-logo-led-matchup.is-past{ opacity:0.86; }
+.event-card.is-logo-led-matchup.is-past.has-card-result{ opacity:0.92; }
+
 .event-card.is-logo-led-matchup .event-main{ width:100%; }
 
 .matchup-identity-row{
@@ -1460,6 +1463,38 @@ main{
   height:clamp(132px, 31vw, 164px);
   margin:0 auto 8px;
   padding:4px clamp(4px, 3vw, 24px);
+}
+
+.matchup-team-name-row{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  align-items:center;
+  gap:clamp(18px, 7vw, 44px);
+  margin:0 auto 2px;
+  padding:0 clamp(4px, 3vw, 24px);
+  position:relative;
+  color:var(--text-dim);
+  font-size:0.86rem;
+  font-weight:750;
+  letter-spacing:0.01em;
+}
+
+.matchup-team-name{
+  min-width:0;
+  overflow:hidden;
+  text-align:center;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.matchup-vs{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  color:var(--text-faint);
+  font-size:0.78rem;
+  font-weight:800;
+  text-transform:lowercase;
 }
 
 .matchup-team-logo-slot{
@@ -1479,6 +1514,13 @@ main{
 
 .matchup-logo-surface-light,
 .matchup-logo-surface-dark{ background:transparent; }
+
+/* Preserve transparent artwork by default. A supplied white-only official
+   mark gets this contrast surface only when no day variant exists. */
+.matchup-team-logo-slot[data-logo-surface="dark"]{
+  background:#092e4f;
+  border-radius:12px;
+}
 
 .matchup-team-logo{
   display:block;
@@ -1521,6 +1563,18 @@ main{
   text-align:center;
 }
 
+/* The visible fixture title is split beneath the crests. This retains the
+   complete label and expansion control for assistive technology only. */
+.event-card.is-logo-led-matchup .matchup-visual-title-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+
 .event-card.is-logo-led-matchup .event-date-line{
   margin:8px 0 0;
 }
@@ -1534,11 +1588,62 @@ main{
 
 .event-card.is-logo-led-matchup .event-meta-row,
 .event-card.is-logo-led-matchup .rating-row,
-.event-card.is-logo-led-matchup .event-quick-must-watch{ margin-top:10px; }
+.event-card.is-logo-led-matchup .event-quick-must-watch,
+.event-card.is-logo-led-matchup .follow-context,
+.event-card.is-logo-led-matchup .event-action-row{
+  justify-content:center;
+  margin-top:10px;
+  text-align:center;
+}
+
+.event-card.is-logo-led-matchup .event-venue{ text-align:center; }
+
+.event-card.is-logo-led-matchup .event-quick-must-watch{
+  display:flex;
+  margin-inline:auto;
+}
+
+/* The competition remains visible on logo-led fixtures without competing with
+   the two teams. Official marks get a small contrast-safe presentation here;
+   every other sport falls back to its vetted vector sport mark. */
+.event-card.is-logo-led-matchup .matchup-competition-tag{
+  gap:7px;
+}
+
+.event-card.is-logo-led-matchup .matchup-competition-icon{
+  display:flex;
+  width:25px;
+  height:25px;
+  border-radius:7px;
+  flex:0 0 25px;
+}
+
+.event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo{
+  /* Official organisation marks include dark vector artwork. Give this tiny
+     supporting mark its own pale surface instead of filtering the logo. */
+  background:#f8fafc;
+  border-color:color-mix(in srgb, var(--sport-color) 38%, #d9dee4);
+}
+
+.event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo:is([data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
+  background:#092e4f;
+  border-color:#2b6c99;
+}
+
+.event-card.is-logo-led-matchup .matchup-competition-icon .event-brand-logo{
+  width:21px;
+  height:21px;
+}
+
+.event-card.is-logo-led-matchup .matchup-competition-icon .event-sport-logo{
+  width:18px;
+  height:18px;
+}
 
 @media (max-width:620px){
   .event-card.is-logo-led-matchup{ min-height:286px; padding-inline:10px; }
   .matchup-identity-row{ height:126px; gap:18px; padding-inline:2px; }
+  .matchup-team-name-row{ gap:18px; padding-inline:2px; }
   .matchup-team-logo-slot{ width:126px; height:118px; padding:12px; border-radius:15px; }
 }
 
@@ -1559,6 +1664,11 @@ main{
   background: color-mix(in srgb, var(--bg-card) 78%, white 8%);
   border: 1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 28%, var(--border));
   overflow:hidden;
+}
+
+.event-icon.has-brand-logo:is([data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
+  background:#092e4f;
+  border-color:#2b6c99;
 }
 
 .event-icon.has-sport-logo{
@@ -5195,6 +5305,8 @@ function sportMetaForEvent(ev){
 
 function renderEventIdentityMark(container, ev, meta){
   const mark = CARD_IDENTITIES?.markForEvent(ev);
+  if (mark?.id) container.dataset.cardIdentity = mark.id;
+  else delete container.dataset.cardIdentity;
   const renderFallback = () => {
     container.classList.remove("has-brand-logo", "has-sport-logo");
     container.replaceChildren();
@@ -5280,6 +5392,8 @@ function buildMatchupIdentity(ev, displayTitle){
   const identities = matchupIdentityMatches(ev, displayTitle);
   if (identities.length !== 2) return null;
   const useDark = themeUsesDarkAssets();
+  const identity = document.createElement("div");
+  identity.className = "matchup-identity";
   const row = document.createElement("div");
   row.className = "matchup-identity-row";
   row.setAttribute("aria-label", `${identities[0].range.text} versus ${identities[1].range.text}`);
@@ -5287,6 +5401,8 @@ function buildMatchupIdentity(ev, displayTitle){
     const slot = document.createElement("div");
     const surface = mark?.logo?.[useDark ? "backgroundDark" : "backgroundLight"] || "light";
     slot.className = `matchup-team-logo-slot matchup-logo-surface-${surface === "dark" ? "dark" : "light"}`;
+    slot.dataset.logoSurface = surface === "dark" ? "dark" : "light";
+    if (mark?.id) slot.dataset.teamLogoId = mark.id;
     if (mark?.url || mark?.logo?.primary){
       const logo = document.createElement("img");
       logo.className = "matchup-team-logo";
@@ -5309,7 +5425,21 @@ function buildMatchupIdentity(ev, displayTitle){
     }
     row.appendChild(slot);
   });
-  return row;
+  const teamNames = document.createElement("div");
+  teamNames.className = "matchup-team-name-row";
+  teamNames.setAttribute("aria-hidden", "true");
+  const firstTeam = document.createElement("span");
+  firstTeam.className = "matchup-team-name";
+  firstTeam.textContent = identities[0].range.text;
+  const versus = document.createElement("span");
+  versus.className = "matchup-vs";
+  versus.textContent = "v";
+  const secondTeam = document.createElement("span");
+  secondTeam.className = "matchup-team-name";
+  secondTeam.textContent = identities[1].range.text;
+  teamNames.append(firstTeam, versus, secondTeam);
+  identity.append(row, teamNames);
+  return identity;
 }
 
 function renderEventTitleIdentity(nameElement, ev, displayTitle){
@@ -10217,10 +10347,12 @@ function buildEventCard(ev, options = {}){
     bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(ev, direction));
   }
 
-  const icon = document.createElement("div");
-  icon.className = "event-icon";
-  renderEventIdentityMark(icon, ev, meta);
-  card.appendChild(icon);
+  if (!matchupIdentity){
+    const icon = document.createElement("div");
+    icon.className = "event-icon";
+    renderEventIdentityMark(icon, ev, meta);
+    card.appendChild(icon);
+  }
 
   const mainDiv = document.createElement("div");
   mainDiv.className = "event-main";
@@ -10255,6 +10387,7 @@ function buildEventCard(ev, options = {}){
   }
   const nameLine = document.createElement("div");
   nameLine.className = "event-name-line";
+  if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
   if (presentation.isNew){
     const newDot = document.createElement("span");
     newDot.className = "new-dot";
@@ -10361,6 +10494,16 @@ function buildEventCard(ev, options = {}){
     <span class="meta-item sport-tag">${glyphMarkup(meta.glyph, { preferImage: true })}<span>${meta.label}</span></span>
     <span class="meta-item">${glyphMarkup("ui:clock", { preferImage: true })}<span>${eventTimeLabel(ev)}</span></span>
   `;
+  if (matchupIdentity){
+    const competitionTag = metaRow.querySelector(".sport-tag");
+    const competitionIcon = document.createElement("span");
+    competitionIcon.className = "event-icon matchup-competition-icon";
+    renderEventIdentityMark(competitionIcon, ev, meta);
+    const competitionLabel = document.createElement("span");
+    competitionLabel.textContent = CARD_IDENTITIES?.markForEvent(ev)?.label || meta.label;
+    competitionTag.classList.add("matchup-competition-tag");
+    competitionTag.replaceChildren(competitionIcon, competitionLabel);
+  }
   if (expandable){
     const dateItem = document.createElement("span");
     dateItem.className = "meta-item";

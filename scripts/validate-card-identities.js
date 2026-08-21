@@ -39,14 +39,21 @@ activeAflTeams.forEach(team => {
 assert.equal(identities.markForEvent({ key: "nrl", name: "Broncos v Storm" })?.label, "NRL", "NRL cards must use the competition logo");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Roland Garros — Men's Final" })?.label, "Roland Garros", "named marquee branding must override the generic tennis identity");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Wimbledon — Men's Final" })?.label, "Wimbledon", "Wimbledon cards must retain their own event brand");
-assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.label, "International Cricket Council", "cricket cards must use the ICC match logo");
+assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.label, "Cricket Australia", "Australian bilateral cricket cards must use Cricket Australia's organisation mark");
+assert.equal(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 World Cup — Australia v Bangladesh" })?.label, "International Cricket Council", "ICC-branded cricket cards must use the ICC organisation mark");
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.label, "Rugby Australia", "rugby cards must use the Rugby Australia competition logo");
 assert.match(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.url || "", /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//, "rugby cards must use a visible Rugby Australia vector mark");
 assert.equal(identities.markForEvent({ key: "f1", name: "British Grand Prix" })?.wordmark, "F1", "Formula One cards must carry a visible F1 wordmark");
-assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.url || "", /^https:\/\/images\.icc-cricket\.com\//, "cricket cards must use the official ICC image source");
+assert.match(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 World Cup — Australia v Bangladesh" })?.url || "", /^https:\/\/images\.icc-cricket\.com\/image\/private\/t_q-best\/.*\/icc-white-logo\.svg$/, "ICC cards must use ICC's official high-quality SVG mark");
+assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.url || "", /^https:\/\/resources\.cricket-australia\.pulselive\.com\/.*\/CricketAustraliaLogoWhiteWide\.svg$/, "Australian bilateral cards must use Cricket Australia's official SVG mark");
+const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));
+assert.equal(premierLeagueMarks.length, 20, "the Premier League registry must cover all current clubs");
+premierLeagueMarks.forEach(mark => assert.match(mark.url, /\/premierleague\/badges\/100\/t\d+\.png$/, `${mark.label} must use Premier League's 100px official badge source`));
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
+  assert(["official-reference", "open-use"].includes(mark.assetClass), `${key} must use a vetted official or open-use competition mark`);
+  assert(mark.url || mark.glyph, `${key} must provide a high-quality image or vector mark`);
 });
 
 const exampleEvent = { key: "nrl", participantIds: ["team:nrl:322", "team:nrl:324"] };
