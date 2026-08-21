@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const identities = require("../config/card-identities.js");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
+const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
 const eventPayload = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const activeEventKeys = [...new Set((eventPayload.events || eventPayload).map(event => event.key).filter(Boolean))].sort();
 const activeNrlTeams = canonical.participants.filter(participant => (
@@ -51,7 +52,21 @@ assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangla
 assert.equal(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 World Cup — Australia v Bangladesh" })?.label, "International Cricket Council", "ICC-branded cricket cards must use the ICC organisation mark");
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.label, "Rugby Australia", "rugby cards must use the Rugby Australia competition logo");
 assert.match(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.url || "", /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//, "rugby cards must use a visible Rugby Australia vector mark");
-assert.equal(identities.markForEvent({ key: "f1", name: "British Grand Prix" })?.wordmark, "F1", "Formula One cards must carry a visible F1 wordmark");
+const formulaOneMark = identities.markForEvent({ key: "f1", name: "British Grand Prix" });
+assert.equal(formulaOneMark?.label, "Formula One", "Formula One cards must carry the official competition mark");
+assert.match(formulaOneMark?.url || "", /^https:\/\/media\.formula1\.com\/image\/upload\/.*\/f1_logo\.svg$/, "Formula One cards must use Formula One's official SVG wordmark");
+assert.equal(formulaOneMark?.logo?.backgroundLight, "dark", "the white Formula One wordmark needs a contrast-safe light-theme surface");
+assert.equal(formulaOneMark?.logo?.backgroundDark, "dark", "the white Formula One wordmark needs a contrast-safe dark-theme surface");
+const activeF1Teams = f1Context.participants.filter(participant => participant.type === "team" && participant.sportDomainId === "sport:motorsport" && participant.metadata?.active !== false);
+assert.equal(activeF1Teams.length, 11, "the 2026 Formula One grid must include all 11 constructor teams");
+activeF1Teams.forEach(team => {
+  const mark = identities.participantMarks[team.id];
+  assert(mark, `missing Formula One team identity for ${team.id}`);
+  assert.match(mark.url, /^https:\/\/media\.formula1\.com\/image\/upload\/.*\/common\/f1\/202(?:5|6)\/.*\.webp$/, `${team.id} must use Formula One's transparent official team mark`);
+  assert.equal(mark.provenance, "official-site");
+  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\/media\.formula1\.com\//, `${team.id} must expose the ${asset} Formula One logo asset`));
+  assert.equal(mark.logo?.backgroundLight, "dark", `${team.id} must use a contrast-safe day surface for Formula One's white logo`);
+});
 assert.match(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 World Cup — Australia v Bangladesh" })?.url || "", /^https:\/\/images\.icc-cricket\.com\/image\/private\/t_q-best\/.*\/icc-white-logo\.svg$/, "ICC cards must use ICC's official high-quality SVG mark");
 assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.url || "", /^https:\/\/resources\.cricket-australia\.pulselive\.com\/.*\/CricketAustraliaLogoWhiteWide\.svg$/, "Australian bilateral cards must use Cricket Australia's official SVG mark");
 const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));

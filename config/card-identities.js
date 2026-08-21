@@ -93,6 +93,12 @@
   }
 
   const eventMarks = Object.freeze({
+    // Formula One publishes this transparent white wordmark in its own media
+    // library. It is paired with a dark contrast surface in the renderer;
+    // there is no need for an image filter or a made-up monochrome variant.
+    f1: officialMark("competition:formula-one", "Formula One", "https://media.formula1.com/image/upload/v1677237319/etc/designs/fom-website/images/f1_logo.svg", "https://www.formula1.com/en/", {
+      logo: { backgroundLight: "dark", backgroundDark: "dark" },
+    }),
     nrl: officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/"),
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
@@ -211,6 +217,33 @@
     shortName: mark.label,
     metadata: Object.freeze({ titleAliases: mark.aliases }),
   })));
+  // Formula One's current team hubs publish their transparent wordmarks from
+  // the same first-party media library. These are retained separately from
+  // the series mark for standings, follow controls and future team matchups.
+  const F1_TEAM_LOGO_BASE = "https://media.formula1.com/image/upload/c_fit,h_128/q_auto/v1740000001/common/f1";
+  function f1TeamMark(id, label, season, slug, filename, aliases){
+    const url = `${F1_TEAM_LOGO_BASE}/${season}/${slug}/${filename}`;
+    const teamPath = slug === "redbullracing" ? "red-bull-racing" : slug === "racingbulls" ? "racing-bulls" : slug;
+    return teamMark(id, label, url, `https://www.formula1.com/en/teams/${teamPath}/`, aliases, "", {
+      logo: {
+        primary: url, light: url, dark: url, icon: url, iconLight: url, iconDark: url,
+        backgroundLight: "dark", backgroundDark: "dark",
+      },
+    });
+  }
+  const f1TeamMarks = Object.freeze({
+    "team:f1:mercedes": f1TeamMark("team:f1:mercedes", "Mercedes", "2025", "mercedes", "2025mercedeslogowhite.webp", ["Mercedes"]),
+    "team:f1:ferrari": f1TeamMark("team:f1:ferrari", "Ferrari", "2025", "ferrari", "2025ferrarilogolight.webp", ["Ferrari"]),
+    "team:f1:mclaren": f1TeamMark("team:f1:mclaren", "McLaren", "2025", "mclaren", "2025mclarenlogowhite.webp", ["McLaren"]),
+    "team:f1:red-bull-racing": f1TeamMark("team:f1:red-bull-racing", "Red Bull Racing", "2025", "redbullracing", "2025redbullracinglogowhite.webp", ["Red Bull Racing", "Red Bull"]),
+    "team:f1:racing-bulls": f1TeamMark("team:f1:racing-bulls", "Racing Bulls", "2025", "racingbulls", "2025racingbullslogowhite.webp", ["Racing Bulls"]),
+    "team:f1:alpine": f1TeamMark("team:f1:alpine", "Alpine", "2025", "alpine", "2025alpinelogowhite.webp", ["Alpine"]),
+    "team:f1:haas": f1TeamMark("team:f1:haas", "Haas F1 Team", "2025", "haas", "2025haaslogowhite.webp", ["Haas F1 Team", "Haas"]),
+    "team:f1:audi": f1TeamMark("team:f1:audi", "Audi", "2026", "audi", "2026audilogowhite.webp", ["Audi"]),
+    "team:f1:williams": f1TeamMark("team:f1:williams", "Williams", "2025", "williams", "2025williamslogowhite.webp", ["Williams"]),
+    "team:f1:aston-martin": f1TeamMark("team:f1:aston-martin", "Aston Martin", "2025", "astonmartin", "2025astonmartinlogowhite.webp", ["Aston Martin"]),
+    "team:f1:cadillac": f1TeamMark("team:f1:cadillac", "Cadillac", "2026", "cadillac", "2026cadillaclogowhite.webp", ["Cadillac"]),
+  });
   // Club marks are Premier League's own published 100px badge resources, keyed
   // by the season's stable club IDs from the official fixture service.
   const premierLeagueTeamMarks = Object.freeze({
@@ -280,6 +313,7 @@
     )]),
     ...Object.entries(cricketTeamMarks),
     ...Object.entries(rugbyTeamMarks),
+    ...Object.entries(f1TeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
   ]));
   const identityParticipants = Object.freeze(Object.fromEntries(Object.entries(participantMarks).map(([id, mark]) => [id, Object.freeze({

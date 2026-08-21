@@ -1625,7 +1625,7 @@ main{
   border-color:color-mix(in srgb, var(--sport-color) 38%, #d9dee4);
 }
 
-.event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo:is([data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
+.event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo:is([data-card-identity="competition:formula-one"], [data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
   background:#092e4f;
   border-color:#2b6c99;
 }
@@ -1666,7 +1666,7 @@ main{
   overflow:hidden;
 }
 
-.event-icon.has-brand-logo:is([data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
+.event-icon.has-brand-logo:is([data-card-identity="competition:formula-one"], [data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
   background:#092e4f;
   border-color:#2b6c99;
 }
@@ -5334,7 +5334,11 @@ function renderEventIdentityMark(container, ev, meta){
   }
   const image = document.createElement("img");
   image.className = "event-brand-logo";
-  image.src = mark.url;
+  const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: false }) || mark.url;
+  const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: true }) || lightSource;
+  image.dataset.eventLogoLight = lightSource;
+  image.dataset.eventLogoDark = darkSource;
+  image.src = themeUsesDarkAssets() ? darkSource : lightSource;
   image.alt = mark.label;
   image.loading = "lazy";
   image.decoding = "async";
@@ -5362,6 +5366,13 @@ function applyTeamLogoAsset(image, mark, context = "primary", useDark = themeUse
 function syncThemeTeamAssets(useDark){
   document.querySelectorAll("img[data-team-logo-light]").forEach(image => {
     const nextSource = useDark ? image.dataset.teamLogoDark : image.dataset.teamLogoLight;
+    if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
+  });
+}
+
+function syncThemeEventAssets(useDark){
+  document.querySelectorAll("img[data-event-logo-light]").forEach(image => {
+    const nextSource = useDark ? image.dataset.eventLogoDark : image.dataset.eventLogoLight;
     if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
   });
 }
@@ -6168,6 +6179,7 @@ function syncThemeBrandAssets(useDark){
     if (nextSrc && image.getAttribute("src") !== nextSrc) image.setAttribute("src", nextSrc);
   });
   syncThemeTeamAssets(useDark);
+  syncThemeEventAssets(useDark);
 }
 
 function feedIntentForScope(scope){
