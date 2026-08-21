@@ -16,6 +16,20 @@
     return Object.freeze({ id, label, url, sourceUrl, fit: options.fit || "contain", ...OFFICIAL_REFERENCE_USE });
   }
 
+  function referenceMark(id, label, url, sourceUrl, options = {}){
+    return Object.freeze({
+      id,
+      label,
+      url,
+      sourceUrl,
+      fit: options.fit || "contain",
+      assetClass: "official-reference",
+      rightsStatus: "official-reference",
+      provenance: "reference-library",
+      displayUse: "editorial-identification",
+    });
+  }
+
   function sportMark(key, label, glyph, wordmark = ""){
     return Object.freeze({
       id: `sport:${key}`,
@@ -53,12 +67,21 @@
     });
   }
 
+  function teamMark(id, label, url, sourceUrl, aliases, fallbackCountryCode = ""){
+    return Object.freeze({
+      ...officialMark(id, label, url, sourceUrl),
+      aliases: Object.freeze(aliases),
+      fallbackCountryCode,
+    });
+  }
+
   const eventMarks = Object.freeze({
     nrl: officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/"),
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
     cricket: officialMark("competition:icc", "International Cricket Council", "https://images.icc-cricket.com/image/private/t_q-best/v1763015137/prd/assets/app-nav-dropdown/default-icc-logo.png", "https://www.icc-cricket.com/"),
+    rugby: referenceMark("competition:rugby-australia", "Rugby Australia", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Rugby_Australia_2017_vector_logo.svg", "https://commons.wikimedia.org/wiki/File:Rugby_Australia_2017_vector_logo.svg"),
   });
 
   // A local, open-use sport mark covers every supported sport. This avoids
@@ -121,6 +144,39 @@
     shortName: mark.label,
     metadata: Object.freeze({ titleAliases: mark.aliases }),
   })));
+  // International crests come from Rugby Australia's official match centre;
+  // Super Rugby Pacific clubs use the competition's official team assets.
+  const rugbyTeamMarks = Object.freeze({
+    "team:rugby:wallabies": teamMark("team:rugby:wallabies", "Wallabies", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/929920ed-8900-40f0-8402-4563c0006eec.png", "https://www.rugby.com.au/", ["Wallabies", "Australia", "Australian"], "AU"),
+    "team:rugby:ireland": teamMark("team:rugby:ireland", "Ireland", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/993f90f6-3586-4741-45ad-08d8e29e6bc6.png", "https://www.rugby.com.au/", ["Ireland", "Irish"], "IE"),
+    "team:rugby:france": teamMark("team:rugby:france", "France", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/d6161a2f-f770-46b9-23d9-08d9369d2141.png", "https://www.rugby.com.au/", ["France", "French"], "FR"),
+    "team:rugby:italy": teamMark("team:rugby:italy", "Italy", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/56e05e32-60ca-451d-b09a-ec3ad52cc709.png", "https://www.rugby.com.au/", ["Italy", "Italian"], "IT"),
+    "team:rugby:japan": teamMark("team:rugby:japan", "Japan", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/aaf401bd-6fbf-4881-a7db-52aec716f789.png", "https://www.rugby.com.au/", ["Japan", "Japanese"], "JP"),
+    "team:rugby:springboks": teamMark("team:rugby:springboks", "Springboks", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/bedf129f-471d-4442-b7ad-fdf07c516630.png", "https://www.rugby.com.au/", ["Springboks", "South Africa", "South African"], "ZA"),
+    "team:rugby:all-blacks": teamMark("team:rugby:all-blacks", "All Blacks", "https://images.allblacks.com/image/private/t_q_good/v1780998849/prd/assets/teams/logos_darkmode/AB.png", "https://www.allblacks.com/team/all-blacks", ["All Blacks", "New Zealand", "New Zealander"], "NZ"),
+    "team:rugby:argentina": teamMark("team:rugby:argentina", "Argentina", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/0d879300-8bf6-4f95-b91e-ea8b69723b75.png", "https://www.rugby.com.au/", ["Argentina", "Los Pumas", "Argentine"], "AR"),
+    "team:rugby:england": teamMark("team:rugby:england", "England", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/1fc97be3-7806-4009-a341-81a734684a79.png", "https://www.rugby.com.au/", ["England", "English"], "GB"),
+    "team:rugby:scotland": teamMark("team:rugby:scotland", "Scotland", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/45384b69-1c6c-4a23-9ee2-8c420e938e3d.png", "https://www.rugby.com.au/", ["Scotland", "Scottish"], "GB"),
+    "team:rugby:wales": teamMark("team:rugby:wales", "Wales", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/d01e3086-cb62-47bd-9e2b-61db9c1dc397.png", "https://www.rugby.com.au/", ["Wales", "Welsh"], "GB"),
+    "team:rugby:brumbies": teamMark("team:rugby:brumbies", "ACT Brumbies", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_ACT_Brumbies.png", "https://super.rugby/superrugby/teams/", ["ACT Brumbies", "Brumbies"]),
+    "team:rugby:waratahs": teamMark("team:rugby:waratahs", "NSW Waratahs", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_NSW_Waratahs.png", "https://super.rugby/superrugby/teams/", ["NSW Waratahs", "Waratahs"]),
+    "team:rugby:reds": teamMark("team:rugby:reds", "Queensland Reds", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Reds.png", "https://super.rugby/superrugby/teams/", ["Queensland Reds", "Reds"]),
+    "team:rugby:force": teamMark("team:rugby:force", "Western Force", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Western_Force.png", "https://super.rugby/superrugby/teams/", ["Western Force", "Force"]),
+    "team:rugby:drua": teamMark("team:rugby:drua", "Fijian Drua", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Fijian_Drua_1.png", "https://super.rugby/superrugby/teams/", ["Fijian Drua", "Drua"]),
+    "team:rugby:blues": teamMark("team:rugby:blues", "Blues", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Blues.png", "https://super.rugby/superrugby/teams/", ["Blues"]),
+    "team:rugby:chiefs": teamMark("team:rugby:chiefs", "Chiefs", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Chiefs.png", "https://super.rugby/superrugby/teams/", ["Chiefs"]),
+    "team:rugby:crusaders": teamMark("team:rugby:crusaders", "Crusaders", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Crusaders.png", "https://super.rugby/superrugby/teams/", ["Crusaders"]),
+    "team:rugby:highlanders": teamMark("team:rugby:highlanders", "Highlanders", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Highlanders.png", "https://super.rugby/superrugby/teams/", ["Highlanders"]),
+    "team:rugby:hurricanes": teamMark("team:rugby:hurricanes", "Hurricanes", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Hurricanes.png", "https://super.rugby/superrugby/teams/", ["Hurricanes"]),
+    "team:rugby:moana-pasifika": teamMark("team:rugby:moana-pasifika", "Moana Pasifika", "https://super.rugby/sites/sanzar/assets/teamlogos/SRP_Moana_Pasifika.png", "https://super.rugby/superrugby/teams/", ["Moana Pasifika"]),
+  });
+  const rugbyParticipants = Object.freeze(Object.entries(rugbyTeamMarks).map(([id, mark]) => Object.freeze({
+    id,
+    canonicalName: mark.label,
+    displayName: mark.label,
+    shortName: mark.label,
+    metadata: Object.freeze({ titleAliases: mark.aliases }),
+  })));
   const aflTeamAssets = Object.freeze({
     "team:afl:cd_t10": ["Adelaide Crows", "https://resources.afl.com.au/photo-resources/2024/11/19/027ba733-e379-48d4-94a8-9b20c06a285f/Adelaide-Crows-16-9.png?width=270&height=152"],
     "team:afl:cd_t20": ["Brisbane Lions", "https://resources.afl.com.au/photo-resources/2023/08/11/41ce722c-142b-4b00-9de4-1e60c5a0aabd/BL.jpeg?width=270&height=152"],
@@ -146,6 +202,7 @@
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/")]),
     ...Object.entries(aflTeamAssets).map(([participantId, [label, url]]) => [participantId, officialMark(`participant:${participantId}`, label, url, "https://www.afl.com.au/teams")]),
     ...Object.entries(cricketTeamMarks),
+    ...Object.entries(rugbyTeamMarks),
   ]));
 
   const brandRules = Object.freeze([
@@ -179,6 +236,7 @@
     (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId)).forEach(addParticipant);
     if (resolved.length < 2) participantList.filter(participant => participantMarks[participant.id]).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
   return Object.freeze({ schemaVersion: "card-identities.v1", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange });
