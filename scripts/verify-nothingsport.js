@@ -24,6 +24,7 @@ const teamFollowCatalogueSource = fs.readFileSync("config/team-follow-catalogue.
 const eventTaxonomyCompatSource = fs.readFileSync("config/event-taxonomy-compat.js", "utf8");
 const preferenceTaxonomySource = fs.readFileSync("config/preference-taxonomy.js", "utf8");
 const vectorAssetsSource = fs.readFileSync("config/vector-assets.js", "utf8");
+const cardIdentitiesSource = fs.readFileSync("config/card-identities.js", "utf8");
 const sportDomainRegistrySource = fs.readFileSync("config/sport-domain-registry.js", "utf8");
 const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
 const sportHubsSource = fs.readFileSync("config/sport-hubs.js", "utf8");
@@ -164,6 +165,8 @@ assert(authApiSource.includes('"/auth/v1/token?grant_type=password"'), "the Auth
 assert(!authApiSource.includes("/auth/v1/otp") && !html.includes("magic link"), "the closed pilot must not expose magic-link or public account-creation paths");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/country-flags.js"') && html.includes("const COUNTRY_FLAGS"), "the local country-flag renderer must load before athlete names are built");
+assert(html.includes('src="config/card-identities.js"') && html.includes("const CARD_IDENTITIES"), "the official card-identity registry must load before event cards render");
+assert(cardIdentitiesSource.includes('"competition:nrl"') && cardIdentitiesSource.includes('"brand:roland-garros"'), "card identities must include official competition and marquee-event marks");
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
 assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
@@ -348,6 +351,7 @@ assert(cardUpdateSource.includes('["scripts/build-discovery-dashboard.js"]') && 
 assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VERCEL_SKIP_AUTO_UPDATE"), "production releases must not suppress Vercel CLI auto-updates");
 [
   "validate-canonical-sports.js",
+  "validate-card-identities.js",
   "validate-f1-context.js",
   "validate-tennis-context.js",
   "validate-nba-context.js",
@@ -357,8 +361,9 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v96"'), "the athlete-flag release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="96">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v97"'), "the card-identity release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="97">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -465,6 +470,7 @@ assert(html.includes('if (state !== "opened")'), "compact results must hand off 
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+assert(eventCardSource.includes("renderEventIdentityMark(icon, ev, meta)") && eventCardSource.includes("renderEventTitleIdentity(nameEl, ev, displayTitle)"), "event cards must render competition, marquee, and team identities");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 9, "every large and small scrolling-card glyph must use the stable image-backed path");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");

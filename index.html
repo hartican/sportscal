@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="96">
+<meta name="app-shell-version" content="97">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1447,6 +1447,26 @@ main{
   border-radius: 10px;
 }
 
+.event-icon.has-brand-logo{
+  background: color-mix(in srgb, var(--bg-card) 78%, white 8%);
+  border: 1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 28%, var(--border));
+  overflow:hidden;
+}
+
+.event-brand-logo{
+  display:block;
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  transition:transform 0.16s ease;
+}
+
+.event-card:hover .event-brand-logo,
+.event-card.is-selected .event-brand-logo,
+.event-card.is-opened .event-brand-logo{
+  transform:scale(1.06);
+}
+
 .event-main{
   flex:1;
   min-width:0;
@@ -1465,6 +1485,30 @@ main{
   font-weight: 800;
   color: var(--text);
   line-height:1.3;
+}
+
+.team-name-with-logo{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  white-space:nowrap;
+  vertical-align:middle;
+}
+
+.team-logo{
+  display:inline-block;
+  width:19px;
+  height:19px;
+  object-fit:contain;
+  flex:0 0 19px;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,0.28));
+  transition:transform 0.16s ease;
+}
+
+.event-card:hover .team-logo,
+.event-card.is-selected .team-logo,
+.event-card.is-opened .team-logo{
+  transform:scale(1.08);
 }
 
 .event-name-line{
@@ -4087,6 +4131,8 @@ footer.app-footer{
   .filing-cabinet-icon{ width:1.55rem; height:1.55rem; }
   .event-card{ padding: 12px; gap: 10px; }
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
+  .event-brand-logo{ width:28px; height:28px; }
+  .team-logo{ width:17px; height:17px; flex-basis:17px; }
   .month-cell{ min-height: 64px; }
   .month-cell .cell-event{ font-size: 0.55rem; }
   .header-actions .btn span.full-label{ display:none; }
@@ -4884,6 +4930,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 <script src="config/brand-copy.js"></script>
 <script src="config/vector-assets.js"></script>
+<script src="config/card-identities.js"></script>
 <script src="config/country-flags.js"></script>
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
@@ -4922,6 +4969,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
+const CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES;
 const COUNTRY_FLAGS = globalThis.NOTHINGSPORTS_COUNTRY_FLAGS || null;
 const SOURCE_TRUST = globalThis.NOTHINGSPORTS_SOURCE_TRUST || null;
 const VENUE_REGISTRY = globalThis.NOTHINGSPORTS_VENUE_REGISTRY || null;
@@ -4945,6 +4993,71 @@ const SPORTS_LIBRARY = SPORT_DOMAIN_REGISTRY.selectorLibrary();
 
 function glyphMarkup(key, options = {}){
   return VECTOR_ASSETS.glyphMarkup(key, options);
+}
+
+function sportMetaForEvent(ev){
+  if (SPORT_META[ev?.key]) return SPORT_META[ev.key];
+  const label = String(ev?.sport || ev?.key || "Sport")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, character => character.toUpperCase());
+  return Object.freeze({ label, color: "var(--accent)", glyph: "ui:calendar" });
+}
+
+function renderEventIdentityMark(container, ev, meta){
+  const mark = CARD_IDENTITIES?.markForEvent(ev);
+  const renderFallback = () => {
+    container.classList.remove("has-brand-logo");
+    container.replaceChildren();
+    container.innerHTML = glyphMarkup(meta.glyph, { label: meta.label, preferImage: true });
+  };
+  if (!mark?.url){
+    renderFallback();
+    return;
+  }
+  const image = document.createElement("img");
+  image.className = "event-brand-logo";
+  image.src = mark.url;
+  image.alt = mark.label;
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.referrerPolicy = "no-referrer";
+  image.addEventListener("error", renderFallback, { once: true });
+  container.classList.add("has-brand-logo");
+  container.replaceChildren(image);
+}
+
+function renderEventTitleIdentity(nameElement, ev, displayTitle){
+  const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, canonicalPreferenceParticipants, displayTitle) || [];
+  const matches = identities
+    .map(identity => ({ ...identity, range: CARD_IDENTITIES.aliasRange(displayTitle, identity.participant) }))
+    .filter(identity => identity.range)
+    .sort((left, right) => left.range.start - right.range.start)
+    .filter((identity, index, all) => index === 0 || identity.range.start >= all[index - 1].range.end);
+  if (!matches.length){
+    nameElement.textContent = displayTitle;
+    return;
+  }
+  nameElement.setAttribute("aria-label", displayTitle);
+  let cursor = 0;
+  matches.forEach(({ mark, range }) => {
+    if (range.start > cursor) nameElement.append(document.createTextNode(displayTitle.slice(cursor, range.start)));
+    const teamName = document.createElement("span");
+    teamName.className = "team-name-with-logo";
+    const logo = document.createElement("img");
+    logo.className = "team-logo";
+    logo.src = mark.url;
+    logo.alt = "";
+    logo.loading = "lazy";
+    logo.decoding = "async";
+    logo.referrerPolicy = "no-referrer";
+    logo.addEventListener("error", () => logo.remove(), { once: true });
+    const label = document.createElement("span");
+    label.textContent = range.text;
+    teamName.append(logo, label);
+    nameElement.appendChild(teamName);
+    cursor = range.end;
+  });
+  if (cursor < displayTitle.length) nameElement.append(document.createTextNode(displayTitle.slice(cursor)));
 }
 
 function hydrateStaticVectorGlyphs(root = document){
@@ -9702,7 +9815,7 @@ function applyCuratedEventSwipe(ev, direction){
 }
 
 function buildEventCard(ev, options = {}){
-  const meta = SPORT_META[ev.key];
+  const meta = sportMetaForEvent(ev);
   const status = getEventStatus(ev);
   const presentation = surfacePresentationForEvent(ev);
   const enrichment = eventEnrichment(ev);
@@ -9785,7 +9898,7 @@ function buildEventCard(ev, options = {}){
 
   const icon = document.createElement("div");
   icon.className = "event-icon";
-  icon.innerHTML = glyphMarkup(meta.glyph, { label: meta.label, preferImage: true });
+  renderEventIdentityMark(icon, ev, meta);
   card.appendChild(icon);
 
   const mainDiv = document.createElement("div");
@@ -9833,7 +9946,7 @@ function buildEventCard(ev, options = {}){
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
   nameEl.id = `event-title-${String(ev.eventId || ev.id).replace(/[^a-z0-9_-]/gi, "-")}`;
-  nameEl.textContent = displayTitle;
+  renderEventTitleIdentity(nameEl, ev, displayTitle);
   nameLine.appendChild(nameEl);
   if (expandable){
     const expandControl = document.createElement("button");

@@ -1,10 +1,11 @@
-const CACHE_NAME = "nothingsport-shell-v96";
+const CACHE_NAME = "nothingsport-shell-v97";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
+  "/config/card-identities.js",
   "/config/country-flags.js",
   "/config/sport-domain-registry.js",
   "/config/canonical-sports-taxonomy.js",
