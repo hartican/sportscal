@@ -31,11 +31,34 @@
     });
   }
 
+  function nationalTeamMark(id, label, url, sourceUrl, aliases, fallbackCountryCode = ""){
+    return Object.freeze({
+      ...officialMark(id, label, url, sourceUrl),
+      aliases: Object.freeze(aliases),
+      fallbackCountryCode,
+    });
+  }
+
+  function nationalFlagMark(id, label, countryCode, sourceUrl, aliases){
+    return Object.freeze({
+      id,
+      label,
+      countryCode,
+      aliases: Object.freeze(aliases),
+      assetClass: "open-use",
+      rightsStatus: "open-use",
+      provenance: "licensed-library",
+      displayUse: "editorial-identification",
+      sourceUrl,
+    });
+  }
+
   const eventMarks = Object.freeze({
     nrl: officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/"),
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
+    cricket: officialMark("competition:icc", "International Cricket Council", "https://images.icc-cricket.com/image/private/t_q-best/v1763015137/prd/assets/app-nav-dropdown/default-icc-logo.png", "https://www.icc-cricket.com/"),
   });
 
   // A local, open-use sport mark covers every supported sport. This avoids
@@ -84,6 +107,20 @@
     "team:nrl:322": "broncos", "team:nrl:332": "bulldogs", "team:nrl:326": "cowboys", "team:nrl:9538": "dolphins", "team:nrl:330": "dragons", "team:nrl:328": "eels", "team:nrl:325": "knights", "team:nrl:329": "panthers", "team:nrl:335": "rabbitohs", "team:nrl:323": "raiders", "team:nrl:331": "roosters", "team:nrl:336": "sea-eagles", "team:nrl:333": "sharks", "team:nrl:324": "storm", "team:nrl:337": "titans", "team:nrl:321": "warriors", "team:nrl:334": "wests-tigers",
   });
   const nrlDefaultBadgeExceptions = new Set(["eels", "roosters", "titans"]);
+  const cricketTeamMarks = Object.freeze({
+    "team:cricket:australia": nationalTeamMark("team:cricket:australia", "Cricket Australia", "https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg", "https://www.cricket.com.au/", ["Australia", "Australian"], "AU"),
+    "team:cricket:bangladesh": nationalTeamMark("team:cricket:bangladesh", "Bangladesh Cricket Board", "https://www.tigercricket.com.bd/images/BCB-logo-Flip-360.gif", "https://www.tigercricket.com.bd/", ["Bangladesh"], "BD"),
+    "team:cricket:england": nationalTeamMark("team:cricket:england", "England and Wales Cricket Board", "https://resources.ecb.co.uk/ecb/document/2023/06/07/0d9368e6-932a-4bf2-90a3-509a0c4b1cc2/ECB.co.uk.png", "https://www.ecb.co.uk/", ["England"], "GB"),
+    "team:cricket:new-zealand": nationalTeamMark("team:cricket:new-zealand", "New Zealand Cricket", "https://www.nzc.nz/dist/img/nzc-logo-vert-2.svg", "https://www.nzc.nz/", ["New Zealand"], "NZ"),
+    "team:cricket:south-africa": nationalFlagMark("team:cricket:south-africa", "South Africa cricket", "ZA", "https://www.cricket.co.za/", ["South Africa"]),
+  });
+  const cricketParticipants = Object.freeze(Object.entries(cricketTeamMarks).map(([id, mark]) => Object.freeze({
+    id,
+    canonicalName: mark.label,
+    displayName: mark.label,
+    shortName: mark.label,
+    metadata: Object.freeze({ titleAliases: mark.aliases }),
+  })));
   const aflTeamAssets = Object.freeze({
     "team:afl:cd_t10": ["Adelaide Crows", "https://resources.afl.com.au/photo-resources/2024/11/19/027ba733-e379-48d4-94a8-9b20c06a285f/Adelaide-Crows-16-9.png?width=270&height=152"],
     "team:afl:cd_t20": ["Brisbane Lions", "https://resources.afl.com.au/photo-resources/2023/08/11/41ce722c-142b-4b00-9de4-1e60c5a0aabd/BL.jpeg?width=270&height=152"],
@@ -108,6 +145,7 @@
   const participantMarks = Object.freeze(Object.fromEntries([
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/")]),
     ...Object.entries(aflTeamAssets).map(([participantId, [label, url]]) => [participantId, officialMark(`participant:${participantId}`, label, url, "https://www.afl.com.au/teams")]),
+    ...Object.entries(cricketTeamMarks),
   ]));
 
   const brandRules = Object.freeze([
@@ -140,6 +178,7 @@
     const addParticipant = participant => { const mark = participantMarks[participant?.id]; if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
     (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId)).forEach(addParticipant);
     if (resolved.length < 2) participantList.filter(participant => participantMarks[participant.id]).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
   return Object.freeze({ schemaVersion: "card-identities.v1", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange });

@@ -37,11 +37,11 @@ activeAflTeams.forEach(team => {
 assert.equal(identities.markForEvent({ key: "nrl", name: "Broncos v Storm" })?.label, "NRL", "NRL cards must use the competition logo");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Roland Garros — Men's Final" })?.label, "Roland Garros", "named marquee branding must override the generic tennis identity");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Wimbledon — Men's Final" })?.label, "Wimbledon", "Wimbledon cards must retain their own event brand");
-assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.glyph, "sport:cricket", "cricket cards must use the dedicated open-use cricket mark");
+assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.label, "International Cricket Council", "cricket cards must use the ICC match logo");
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.glyph, "sport:rugby", "rugby cards must use the dedicated open-use rugby mark");
 assert.equal(identities.markForEvent({ key: "f1", name: "British Grand Prix" })?.wordmark, "F1", "Formula One cards must carry a visible F1 wordmark");
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.wordmark, "RUG", "rugby cards must carry a visible rugby wordmark");
-assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.wordmark, "CRK", "cricket cards must carry a visible cricket wordmark");
+assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.url || "", /^https:\/\/images\.icc-cricket\.com\//, "cricket cards must use the official ICC image source");
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
@@ -51,5 +51,12 @@ const exampleEvent = { key: "nrl", participantIds: ["team:nrl:322", "team:nrl:32
 const resolved = identities.participantMarksForEvent(exampleEvent, activeNrlTeams, "Broncos v Storm");
 assert.deepEqual(resolved.map(item => item.participant.shortName), ["BB", "MS"]);
 assert.deepEqual(resolved.map(item => identities.aliasRange("Broncos v Storm", item.participant)?.text), ["Broncos", "Storm"]);
+
+const cricketResolved = identities.participantMarksForEvent({ key: "cricket" }, [], "Australia v Bangladesh — First Test");
+assert.deepEqual(cricketResolved.map(item => identities.aliasRange("Australia v Bangladesh — First Test", item.participant)?.text), ["Australia", "Bangladesh"]);
+assert.equal(cricketResolved[0].mark.label, "Cricket Australia");
+assert.equal(cricketResolved[1].mark.label, "Bangladesh Cricket Board");
+assert.match(cricketResolved[0].mark.url, /^https:\/\/resources\.cricket-australia\.pulselive\.com\//);
+assert.match(cricketResolved[1].mark.url, /^https:\/\/www\.tigercricket\.com\.bd\//);
 
 console.log(`Card identities valid: ${activeNrlTeams.length} NRL and ${activeAflTeams.length} AFL team marks, ${activeEventKeys.length} active sport/event identities, and Wimbledon/Roland Garros event branding.`);

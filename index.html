@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="99">
+<meta name="app-shell-version" content="100">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1551,6 +1551,15 @@ main{
   flex:0 0 19px;
   filter:drop-shadow(0 1px 1px rgba(0,0,0,0.28));
   transition:transform 0.16s ease;
+}
+
+.team-logo-fallback.country-flag{
+  width:19px;
+  height:14px;
+  object-fit:cover;
+  flex:0 0 19px;
+  border-radius:2px;
+  box-shadow:0 1px 1px rgba(0,0,0,0.28);
 }
 
 .event-card:hover .team-logo,
@@ -4183,6 +4192,7 @@ footer.app-footer{
   .event-sport-logo{ width:22px; height:22px; }
   .event-sport-wordmark{ right:-2px; bottom:-2px; font-size:7px; }
   .team-logo{ width:17px; height:17px; flex-basis:17px; }
+  .team-logo-fallback.country-flag{ width:17px; height:13px; flex-basis:17px; }
   .month-cell{ min-height: 64px; }
   .month-cell .cell-event{ font-size: 0.55rem; }
   .header-actions .btn span.full-label{ display:none; }
@@ -5109,17 +5119,29 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle){
     if (range.start > cursor) nameElement.append(document.createTextNode(displayTitle.slice(cursor, range.start)));
     const teamName = document.createElement("span");
     teamName.className = "team-name-with-logo";
-    const logo = document.createElement("img");
-    logo.className = "team-logo";
-    logo.src = mark.url;
-    logo.alt = "";
-    logo.loading = "lazy";
-    logo.decoding = "async";
-    logo.referrerPolicy = "no-referrer";
-    logo.addEventListener("error", () => logo.remove(), { once: true });
+    const appendFlagFallback = () => {
+      const flagMarkup = COUNTRY_FLAGS?.flagMarkup?.(mark.fallbackCountryCode || mark.countryCode, { className: "team-logo-fallback", label: mark.label });
+      if (flagMarkup) teamName.insertAdjacentHTML("beforeend", flagMarkup);
+    };
+    if (mark.url){
+      const logo = document.createElement("img");
+      logo.className = "team-logo";
+      logo.src = mark.url;
+      logo.alt = "";
+      logo.loading = "lazy";
+      logo.decoding = "async";
+      logo.referrerPolicy = "no-referrer";
+      logo.addEventListener("error", () => {
+        logo.remove();
+        appendFlagFallback();
+      }, { once: true });
+      teamName.appendChild(logo);
+    } else {
+      appendFlagFallback();
+    }
     const label = document.createElement("span");
     label.textContent = range.text;
-    teamName.append(logo, label);
+    teamName.appendChild(label);
     nameElement.appendChild(teamName);
     cursor = range.end;
   });
