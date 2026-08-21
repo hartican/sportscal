@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="98">
+<meta name="app-shell-version" content="99">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1474,6 +1474,33 @@ main{
   filter:brightness(0) invert(1);
   opacity:0.94;
   transition:transform 0.16s ease;
+}
+
+.event-sport-mark{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+}
+
+.event-sport-wordmark{
+  position:absolute;
+  right:-3px;
+  bottom:-3px;
+  min-width:17px;
+  padding:1px 3px;
+  border:1px solid color-mix(in srgb, var(--bg-card) 58%, transparent);
+  border-radius:4px;
+  background:var(--bg-card);
+  color:var(--sport-color, var(--accent));
+  font-size:8px;
+  font-weight:900;
+  line-height:1.15;
+  letter-spacing:0.02em;
+  text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,0.3);
 }
 
 .event-card:hover .event-brand-logo,
@@ -4154,6 +4181,7 @@ footer.app-footer{
   .event-icon{ width: 34px; height:34px; font-size: 1.3rem; }
   .event-brand-logo{ width:28px; height:28px; }
   .event-sport-logo{ width:22px; height:22px; }
+  .event-sport-wordmark{ right:-2px; bottom:-2px; font-size:7px; }
   .team-logo{ width:17px; height:17px; flex-basis:17px; }
   .month-cell{ min-height: 64px; }
   .month-cell .cell-event{ font-size: 0.55rem; }
@@ -5035,7 +5063,16 @@ function renderEventIdentityMark(container, ev, meta){
   if (mark?.kind === "sport" && mark.glyph){
     container.classList.remove("has-brand-logo");
     container.classList.add("has-sport-logo");
-    container.innerHTML = glyphMarkup(mark.glyph, { className: "event-sport-logo", label: mark.label, preferImage: true });
+    const sportMark = document.createElement("span");
+    sportMark.className = "event-sport-mark";
+    sportMark.innerHTML = glyphMarkup(mark.glyph, { className: "event-sport-logo", label: mark.label, preferImage: true });
+    if (mark.wordmark){
+      const wordmark = document.createElement("span");
+      wordmark.className = "event-sport-wordmark";
+      wordmark.textContent = mark.wordmark;
+      sportMark.appendChild(wordmark);
+    }
+    container.replaceChildren(sportMark);
     return;
   }
   if (!mark?.url){

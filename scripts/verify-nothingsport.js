@@ -361,8 +361,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v98"'), "the all-sport card-identity release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="98">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v99"'), "the visible sport-wordmark release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="99">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -472,6 +472,7 @@ assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local 
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 assert(eventCardSource.includes("renderEventIdentityMark(icon, ev, meta)") && eventCardSource.includes("renderEventTitleIdentity(nameEl, ev, displayTitle)"), "event cards must render competition, marquee, and team identities");
 assert(html.includes('mark?.kind === "sport"') && html.includes('className: "event-sport-logo"'), "every supported sport must render its own licensed sport mark when no official competition mark is available");
+assert(html.includes('className = "event-sport-wordmark"') && html.includes("mark.wordmark"), "Formula One, rugby, and cricket sport marks must retain a visible text identity beside their open-use glyph");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 9, "every large and small scrolling-card glyph must use the stable image-backed path");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");

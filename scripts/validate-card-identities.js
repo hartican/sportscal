@@ -39,6 +39,9 @@ assert.equal(identities.markForEvent({ key: "wimbledon", name: "Roland Garros �
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Wimbledon — Men's Final" })?.label, "Wimbledon", "Wimbledon cards must retain their own event brand");
 assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.glyph, "sport:cricket", "cricket cards must use the dedicated open-use cricket mark");
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.glyph, "sport:rugby", "rugby cards must use the dedicated open-use rugby mark");
+assert.equal(identities.markForEvent({ key: "f1", name: "British Grand Prix" })?.wordmark, "F1", "Formula One cards must carry a visible F1 wordmark");
+assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.wordmark, "RUG", "rugby cards must carry a visible rugby wordmark");
+assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test" })?.wordmark, "CRK", "cricket cards must carry a visible cricket wordmark");
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);

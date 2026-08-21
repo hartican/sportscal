@@ -16,12 +16,13 @@
     return Object.freeze({ id, label, url, sourceUrl, fit: options.fit || "contain", ...OFFICIAL_REFERENCE_USE });
   }
 
-  function sportMark(key, label, glyph){
+  function sportMark(key, label, glyph, wordmark = ""){
     return Object.freeze({
       id: `sport:${key}`,
       kind: "sport",
       label,
       glyph,
+      wordmark,
       assetClass: "open-use",
       rightsStatus: "open-use",
       provenance: "licensed-library",
@@ -40,7 +41,7 @@
   // A local, open-use sport mark covers every supported sport. This avoids
   // treating a governing body's protected trademark as the app's own identity.
   const sportMarks = Object.freeze({
-    f1: sportMark("f1", "Formula One", "sport:motorsport"),
+    f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
     rally: sportMark("rally", "Rally", "sport:motorsport"),
     goodwood: sportMark("goodwood", "Goodwood motorsport", "sport:motorsport"),
@@ -58,11 +59,11 @@
     freestyle: sportMark("freestyle", "Freestyle skiing", "sport:skiing"),
     cycling: sportMark("cycling", "Cycling", "sport:cycling"),
     tdf: sportMark("tdf", "Tour cycling", "sport:cycling"),
-    rugby: sportMark("rugby", "Rugby", "sport:rugby"),
+    rugby: sportMark("rugby", "Rugby", "sport:rugby", "RUG"),
     tennis: sportMark("tennis", "Tennis", "sport:tennis"),
     fifa: sportMark("fifa", "Football", "sport:football"),
     football: sportMark("football", "Football", "sport:football"),
-    cricket: sportMark("cricket", "Cricket", "sport:cricket"),
+    cricket: sportMark("cricket", "Cricket", "sport:cricket", "CRK"),
     nba: sportMark("nba", "Basketball", "sport:basketball"),
     basketball: sportMark("basketball", "Basketball", "sport:basketball"),
     masters: sportMark("masters", "Golf", "sport:golf"),
