@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="102">
+<meta name="app-shell-version" content="103">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -8130,6 +8130,37 @@ function compactResultForEvent(ev){
   return { score, outcome: outcome ? String(outcome) : null };
 }
 
+function escapeResultNameForPattern(value){
+  return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function scoreLineForDisplay(ev, displayTitle, result){
+  const original = String(result?.score || result?.outcome || "").trim();
+  if (!original) return null;
+  const titleParticipants = String(displayTitle || "")
+    .split(/\s+v\.?\s+/i)
+    .map(name => name.split(/\s+[—–-]\s+|\s*\(/)[0].trim())
+    .filter(Boolean);
+  const eventParticipants = (Array.isArray(ev?.participants) ? ev.participants : [])
+    .map(participant => typeof participant === "string" ? participant : participant?.name)
+    .map(name => String(name || "").trim())
+    .filter(Boolean);
+  let compact = original;
+  Array.from(new Set([...titleParticipants, ...eventParticipants]))
+    .sort((left, right) => right.length - left.length)
+    .forEach(name => {
+      const escaped = escapeResultNameForPattern(name);
+      if (!escaped) return;
+      compact = compact.replace(new RegExp(`(^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`, "gi"), "$1");
+    });
+  compact = compact
+    .replace(/\s{2,}/g, " ")
+    .replace(/^[\s,;:—–-]+|[\s,;:—–-]+$/g, "")
+    .replace(/^(?:defeated|beat|def)\s+(?=\d)/i, "")
+    .replace(/^beat\s+by\s+/i, "Won by ");
+  return compact || original;
+}
+
 function normalizeVenueText(value){
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
@@ -9575,7 +9606,7 @@ function buildSpoilerFacts(ev){
   return wrap.childElementCount ? wrap : null;
 }
 
-function buildCompactResult(ev){
+function buildCompactResult(ev, displayTitle = ""){
   const result = compactResultForEvent(ev);
   if (!result) return null;
 
@@ -9585,7 +9616,7 @@ function buildCompactResult(ev){
 
   const score = document.createElement("span");
   score.className = "card-result-score";
-  score.textContent = result.score || result.outcome;
+  score.textContent = scoreLineForDisplay(ev, displayTitle, result);
   wrap.appendChild(score);
   return wrap;
 }
@@ -9928,7 +9959,7 @@ function buildEventCard(ev, options = {}){
   const state = expandable ? cardStateForEvent(ev) : "compact";
   const importanceColor = importanceColorForEvent(ev);
   const spoilerVisible = isSpoilerVisible(ev);
-  const displayedResult = status === "past" ? buildCompactResult(ev) : null;
+  const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;
   const protectedFacts = spoilerFactsForEvent(ev);
   const hasSpoilerFacts = hasSpoilerSensitiveContent(ev, protectedFacts, status);
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
@@ -10116,17 +10147,6 @@ function buildEventCard(ev, options = {}){
     const b = document.createElement("span");
     b.className = "badge discovery";
     b.textContent = recommendationProfile.label;
-    badges.appendChild(b);
-  }
-  if (FEED_CONTROLS){
-    const accessTypes = FEED_CONTROLS.accessTypes(ev);
-    const accessLabel = accessTypes.includes("free") ? "Free"
-      : accessTypes.includes("included") ? "Included"
-        : accessTypes.includes("ppv") ? "PPV"
-          : "Availability TBC";
-    const b = document.createElement("span");
-    b.className = "badge availability";
-    b.textContent = accessLabel;
     badges.appendChild(b);
   }
   if (upgraded){

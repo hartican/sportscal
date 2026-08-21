@@ -73,6 +73,28 @@
         ["team:football:adelaide-united", "Adelaide United", ["Adelaide United"]],
         ["team:football:perth-glory", "Perth Glory", ["Perth Glory"]],
       ]],
+      ["Premier League", [
+        ["team:football:epl:1", "Arsenal", ["Arsenal"]],
+        ["team:football:epl:2", "Aston Villa", ["Aston Villa"]],
+        ["team:football:epl:127", "Bournemouth", ["Bournemouth", "AFC Bournemouth"]],
+        ["team:football:epl:130", "Brentford", ["Brentford"]],
+        ["team:football:epl:131", "Brighton & Hove Albion", ["Brighton & Hove Albion", "Brighton"]],
+        ["team:football:epl:4", "Chelsea", ["Chelsea"]],
+        ["team:football:epl:5", "Coventry City", ["Coventry City", "Coventry"]],
+        ["team:football:epl:6", "Crystal Palace", ["Crystal Palace"]],
+        ["team:football:epl:7", "Everton", ["Everton"]],
+        ["team:football:epl:34", "Fulham", ["Fulham"]],
+        ["team:football:epl:41", "Hull City", ["Hull City", "Hull"]],
+        ["team:football:epl:8", "Ipswich Town", ["Ipswich Town", "Ipswich"]],
+        ["team:football:epl:9", "Leeds United", ["Leeds United", "Leeds"]],
+        ["team:football:epl:10", "Liverpool", ["Liverpool"]],
+        ["team:football:epl:11", "Manchester City", ["Manchester City", "Man City"]],
+        ["team:football:epl:12", "Manchester United", ["Manchester United", "Man Utd"]],
+        ["team:football:epl:23", "Newcastle United", ["Newcastle United", "Newcastle"]],
+        ["team:football:epl:15", "Nottingham Forest", ["Nottingham Forest", "Nott'm Forest"]],
+        ["team:football:epl:29", "Sunderland", ["Sunderland"]],
+        ["team:football:epl:21", "Tottenham Hotspur", ["Tottenham Hotspur", "Tottenham", "Spurs"]],
+      ]],
     ]],
   ].map(([domainId, label, sections]) => Object.freeze({
     domainId,
@@ -94,7 +116,7 @@
 
   function participantIdsForEvent(event){
     const sportKey = String(event?.key || "");
-    const domainId = sportKey === "rugby" ? "sport:rugby" : sportKey === "cricket" ? "sport:cricket" : ["football", "fifa"].includes(sportKey) ? "sport:football" : null;
+    const domainId = sportKey === "rugby" ? "sport:rugby" : sportKey === "cricket" ? "sport:cricket" : ["football", "fifa", "premier-league"].includes(sportKey) ? "sport:football" : null;
     if (!domainId) return [];
     const text = [event?.name, event?.displayTitleCompact, ...(Array.isArray(event?.participants) ? event.participants.map(participant => participant?.name) : [])]
       .filter(Boolean).join(" | ").toLowerCase();

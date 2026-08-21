@@ -82,6 +82,7 @@
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
     cricket: officialMark("competition:icc", "International Cricket Council", "https://images.icc-cricket.com/image/private/t_q-best/v1763015137/prd/assets/app-nav-dropdown/default-icc-logo.png", "https://www.icc-cricket.com/"),
     rugby: referenceMark("competition:rugby-australia", "Rugby Australia", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Rugby_Australia_2017_vector_logo.svg", "https://commons.wikimedia.org/wiki/File:Rugby_Australia_2017_vector_logo.svg"),
+    "premier-league": referenceMark("competition:premier-league", "Premier League", "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg", "https://www.premierleague.com/"),
   });
 
   // A local, open-use sport mark covers every supported sport. This avoids
@@ -109,6 +110,7 @@
     tennis: sportMark("tennis", "Tennis", "sport:tennis"),
     fifa: sportMark("fifa", "Football", "sport:football"),
     football: sportMark("football", "Football", "sport:football"),
+    "premier-league": sportMark("premier-league", "Football", "sport:football"),
     cricket: sportMark("cricket", "Cricket", "sport:cricket", "CRK"),
     nba: sportMark("nba", "Basketball", "sport:basketball"),
     basketball: sportMark("basketball", "Basketball", "sport:basketball"),
@@ -177,6 +179,37 @@
     shortName: mark.label,
     metadata: Object.freeze({ titleAliases: mark.aliases }),
   })));
+  // Club marks are Premier League's own published 50px badge resources, keyed
+  // by the season's stable club IDs from the official fixture service.
+  const premierLeagueTeamMarks = Object.freeze({
+    "team:football:epl:1": teamMark("team:football:epl:1", "Arsenal", "https://resources.premierleague.com/premierleague/badges/50/t3.png", "https://www.premierleague.com/en/clubs/1/arsenal/overview", ["Arsenal"]),
+    "team:football:epl:2": teamMark("team:football:epl:2", "Aston Villa", "https://resources.premierleague.com/premierleague/badges/50/t7.png", "https://www.premierleague.com/en/clubs/2/aston-villa/overview", ["Aston Villa"]),
+    "team:football:epl:127": teamMark("team:football:epl:127", "Bournemouth", "https://resources.premierleague.com/premierleague/badges/50/t91.png", "https://www.premierleague.com/en/clubs/127/bournemouth/overview", ["Bournemouth", "AFC Bournemouth"]),
+    "team:football:epl:130": teamMark("team:football:epl:130", "Brentford", "https://resources.premierleague.com/premierleague/badges/50/t94.png", "https://www.premierleague.com/en/clubs/130/brentford/overview", ["Brentford"]),
+    "team:football:epl:131": teamMark("team:football:epl:131", "Brighton & Hove Albion", "https://resources.premierleague.com/premierleague/badges/50/t36.png", "https://www.premierleague.com/en/clubs/131/brighton-and-hove-albion/overview", ["Brighton & Hove Albion", "Brighton"]),
+    "team:football:epl:4": teamMark("team:football:epl:4", "Chelsea", "https://resources.premierleague.com/premierleague/badges/50/t8.png", "https://www.premierleague.com/en/clubs/4/chelsea/overview", ["Chelsea"]),
+    "team:football:epl:5": teamMark("team:football:epl:5", "Coventry City", "https://resources.premierleague.com/premierleague/badges/50/t9.png", "https://www.premierleague.com/en/clubs/5/coventry-city/overview", ["Coventry City", "Coventry"]),
+    "team:football:epl:6": teamMark("team:football:epl:6", "Crystal Palace", "https://resources.premierleague.com/premierleague/badges/50/t31.png", "https://www.premierleague.com/en/clubs/6/crystal-palace/overview", ["Crystal Palace"]),
+    "team:football:epl:7": teamMark("team:football:epl:7", "Everton", "https://resources.premierleague.com/premierleague/badges/50/t11.png", "https://www.premierleague.com/en/clubs/7/everton/overview", ["Everton"]),
+    "team:football:epl:34": teamMark("team:football:epl:34", "Fulham", "https://resources.premierleague.com/premierleague/badges/50/t54.png", "https://www.premierleague.com/en/clubs/34/fulham/overview", ["Fulham"]),
+    "team:football:epl:41": teamMark("team:football:epl:41", "Hull City", "https://resources.premierleague.com/premierleague/badges/50/t88.png", "https://www.premierleague.com/en/clubs/41/hull-city/overview", ["Hull City", "Hull"]),
+    "team:football:epl:8": teamMark("team:football:epl:8", "Ipswich Town", "https://resources.premierleague.com/premierleague/badges/50/t40.png", "https://www.premierleague.com/en/clubs/8/ipswich-town/overview", ["Ipswich Town", "Ipswich"]),
+    "team:football:epl:9": teamMark("team:football:epl:9", "Leeds United", "https://resources.premierleague.com/premierleague/badges/50/t2.png", "https://www.premierleague.com/en/clubs/9/leeds-united/overview", ["Leeds United", "Leeds"]),
+    "team:football:epl:10": teamMark("team:football:epl:10", "Liverpool", "https://resources.premierleague.com/premierleague/badges/50/t14.png", "https://www.premierleague.com/en/clubs/10/liverpool/overview", ["Liverpool"]),
+    "team:football:epl:11": teamMark("team:football:epl:11", "Manchester City", "https://resources.premierleague.com/premierleague/badges/50/t43.png", "https://www.premierleague.com/en/clubs/11/manchester-city/overview", ["Manchester City", "Man City"]),
+    "team:football:epl:12": teamMark("team:football:epl:12", "Manchester United", "https://resources.premierleague.com/premierleague/badges/50/t1.png", "https://www.premierleague.com/en/clubs/12/manchester-united/overview", ["Manchester United", "Man Utd"]),
+    "team:football:epl:23": teamMark("team:football:epl:23", "Newcastle United", "https://resources.premierleague.com/premierleague/badges/50/t4.png", "https://www.premierleague.com/en/clubs/23/newcastle-united/overview", ["Newcastle United", "Newcastle"]),
+    "team:football:epl:15": teamMark("team:football:epl:15", "Nottingham Forest", "https://resources.premierleague.com/premierleague/badges/50/t17.png", "https://www.premierleague.com/en/clubs/15/nottingham-forest/overview", ["Nottingham Forest", "Nott'm Forest"]),
+    "team:football:epl:29": teamMark("team:football:epl:29", "Sunderland", "https://resources.premierleague.com/premierleague/badges/50/t56.png", "https://www.premierleague.com/en/clubs/29/sunderland/overview", ["Sunderland"]),
+    "team:football:epl:21": teamMark("team:football:epl:21", "Tottenham Hotspur", "https://resources.premierleague.com/premierleague/badges/50/t6.png", "https://www.premierleague.com/en/clubs/21/tottenham-hotspur/overview", ["Tottenham Hotspur", "Tottenham", "Spurs"]),
+  });
+  const footballParticipants = Object.freeze(Object.entries(premierLeagueTeamMarks).map(([id, mark]) => Object.freeze({
+    id,
+    canonicalName: mark.label,
+    displayName: mark.label,
+    shortName: mark.label,
+    metadata: Object.freeze({ titleAliases: mark.aliases }),
+  })));
   const aflTeamAssets = Object.freeze({
     "team:afl:cd_t10": ["Adelaide Crows", "https://resources.afl.com.au/photo-resources/2024/11/19/027ba733-e379-48d4-94a8-9b20c06a285f/Adelaide-Crows-16-9.png?width=270&height=152"],
     "team:afl:cd_t20": ["Brisbane Lions", "https://resources.afl.com.au/photo-resources/2023/08/11/41ce722c-142b-4b00-9de4-1e60c5a0aabd/BL.jpeg?width=270&height=152"],
@@ -203,6 +236,7 @@
     ...Object.entries(aflTeamAssets).map(([participantId, [label, url]]) => [participantId, officialMark(`participant:${participantId}`, label, url, "https://www.afl.com.au/teams")]),
     ...Object.entries(cricketTeamMarks),
     ...Object.entries(rugbyTeamMarks),
+    ...Object.entries(premierLeagueTeamMarks),
   ]));
 
   const brandRules = Object.freeze([
@@ -237,6 +271,7 @@
     if (resolved.length < 2) participantList.filter(participant => participantMarks[participant.id]).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (event?.key === "premier-league") footballParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
   return Object.freeze({ schemaVersion: "card-identities.v1", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange });

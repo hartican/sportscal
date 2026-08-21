@@ -361,8 +361,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v102"'), "the prominent-result release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="102">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v103"'), "the Premier League and card-presentation release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="103">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -465,18 +465,20 @@ assert(html.includes('if (scrollDirection === "up" && pendingCardRetractionSpace
 assert(html.includes("function cardRetractionVisualOffset(retainedHeight)") && html.includes("card.style.transform = `translateY(${visualOffset}px)`"), "a compact card must visually occupy its retained space before upward cleanup");
 assert(html.includes('card.style.transform = "";'), "temporary card translation must clear with retained retraction space");
 assert(html.includes("anchor.card?.isConnected") && html.includes("card: anchorCard || null"), "viewport restoration must retain the exact anchored card when it remains connected");
-assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev) : null;'), "past cards must render revealed result summaries");
-assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev) : null;'), "revealed past cards must build their score line before rendering the title stack");
+assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "past cards must render revealed result summaries");
+assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "revealed past cards must build their score line before rendering the title stack");
 assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
 assert(html.includes('className = "card-result-score"') && html.includes('.card-result-line{'), "past-card results must use the centred, prominent score treatment");
 assert(html.includes('const isTeamMatchup = /\\s+v\\.?\\s+/i.test(displayTitle);') && html.includes('.event-top-row.has-team-matchup .event-name{'), "matchup team names must be centred independently of card badges");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+assert(!eventCardSource.includes('b.className = "badge availability"'), "card availability classifications must remain behind the scenes rather than render as badges");
 assert(eventCardSource.includes("renderEventIdentityMark(icon, ev, meta)") && eventCardSource.includes("renderEventTitleIdentity(nameEl, ev, displayTitle)"), "event cards must render competition, marquee, and team identities");
 assert(html.includes('mark?.kind === "sport"') && html.includes('className: "event-sport-logo"'), "every supported sport must render its own licensed sport mark when no official competition mark is available");
 assert(html.includes('className = "event-sport-wordmark"') && html.includes("mark.wordmark"), "Formula One, rugby, and cricket sport marks must retain a visible text identity beside their open-use glyph");
 assert(cardIdentitiesSource.includes('"competition:icc"') && cardIdentitiesSource.includes('"team:cricket:australia"') && cardIdentitiesSource.includes('"team:cricket:bangladesh"'), "cricket cards must register the ICC match mark and official team identities");
+assert(cardIdentitiesSource.includes('"competition:premier-league"') && cardIdentitiesSource.includes('"team:football:epl:1"') && cardIdentitiesSource.includes('"team:football:epl:21"'), "Premier League cards must register the league and every club's published badge identity");
 assert(html.includes("appendFlagFallback") && html.includes("team-logo-fallback"), "a missing official cricket-team mark must fall back to that team's national flag without removing its name");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 9, "every large and small scrolling-card glyph must use the stable image-backed path");
@@ -736,6 +738,13 @@ assert.equal(fifaFinal.sourceType, "reputable", "a delayed official World Cup sc
 assert.doesNotMatch(`${fifaFinal.selectedSentence}\n${fifaFinal.fullSpiel}`, /Spain 1-0|Ferran Torres|extra time/i, "the completed final's default fields must remain spoiler-safe");
 assert.match(`${fifaFinal.storyline.hookSpoilerOn}\n${fifaFinal.storyline.synopsisSpoilerOn}`, /Spain.+1-0|Ferran Torres|extra time/i, "the revealed final card must contain the result-aware recap");
 
+const premierLeagueCards = publishedFeed.events.filter(event => event.key === "premier-league");
+assert.equal(premierLeagueCards.length, 380, "published feed must contain the complete 2026/27 Premier League fixture list");
+assert.equal(new Set(premierLeagueCards.flatMap(event => event.participantIds || [])).size, 20, "Premier League cards must retain all 20 official club identities");
+assert(premierLeagueCards.every(event => event.sourceType === "official" && event.competitionId === "competition:premier-league-2026-27"), "Premier League fixture cards must retain official schedule provenance");
+assert.equal(premierLeagueCards.find(event => event.id === "epl-2026-27-128923")?.startTimeUtc, "2026-08-21T19:00:00.000Z", "Arsenal v Coventry City must retain the official opening kick-off");
+assert.equal(premierLeagueCards.find(event => event.id === "epl-2026-27-129302")?.startTimeUtc, "2027-05-30T15:00:00.000Z", "the final Premier League round must retain its simultaneous official kick-off");
+
 const belgianGrandPrix = publishedFeed.events.find(event => event.id === "evt_21");
 assert.equal(`${belgianGrandPrix.date} ${belgianGrandPrix.time}`, "2026-07-19 23:00", "the Belgian Grand Prix must use the official Sydney start time");
 assert.equal(belgianGrandPrix.status, "completed", "the Belgian Grand Prix must convert from preview to result");
@@ -938,6 +947,7 @@ globalThis.__test = {
   applyGlobalSpoilerPolicy,
   hasSpoilerSensitiveContent,
   compactResultForEvent,
+  scoreLineForDisplay,
   markSpoilerRevealed,
   revealSpoilerDetails,
   hideSpoilersForEvent,
@@ -2017,6 +2027,8 @@ assert.equal(app.compactResultForEvent(scoredPast), null, "compact cards must no
 app.setPreferences({ showSpoilers: true });
 assert.equal(app.compactResultForEvent(scoredPast).score, "Home 2-1 Away", "compact cards must show scores when spoilers are enabled");
 assert.equal(app.compactResultForEvent(scoredPast).outcome, "Home advanced to the final.", "compact cards must show a short outcome when spoilers are enabled");
+assert.equal(app.scoreLineForDisplay(scoredPast, "Home v Away", app.compactResultForEvent(scoredPast)), "2-1", "prominent score lines must omit the team names already shown above them");
+assert.equal(app.scoreLineForDisplay({ participants: [{ name: "Australia" }, { name: "Bangladesh" }] }, "Australia v Bangladesh — First Test", { score: "Bangladesh beat Australia by 9 wickets" }), "Won by 9 wickets", "non-numeric score lines must retain the useful result phrase without repeating either team");
 app.setPreferences({ showSpoilers: false });
 app.setCardState(pastA, "opened");
 assert.equal(app.cardStateForEvent(pastA), "opened", "the actively viewed card must retain its expanded state");

@@ -27,6 +27,7 @@ const LEGACY_SPORT_KEYS = new Set([
   "nfl",
   "ski",
   "cwg",
+  "premier-league",
 ]);
 const SPORT_KEYS = new Set(LEGACY_SPORT_KEYS);
 

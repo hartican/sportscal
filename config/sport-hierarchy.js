@@ -209,6 +209,7 @@
     tennis: "sport:tennis",
     wimbledon: "event-series:wimbledon",
     fifa: "competition:fifa-world-cup",
+    "premier-league": "competition:premier-league",
     tdf: "event-series:tour-de-france",
     nrl: "competition:nrl-premiership",
     afl: "competition:afl-premiership",

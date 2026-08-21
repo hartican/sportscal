@@ -8,23 +8,24 @@
     "masters",
     "nba",
     "lemans",
-    "fifa",
     "wimbledon",
     "rugby",
     "tdf",
     "f1",
-    "nrl",
-    "afl",
     "cwg",
-    "cricket",
+    "afl",
     "tennis",
+    "nrl",
+    "cricket",
+    "ski",
+    "fifa",
+    "premier-league",
     "skateboard",
     "wsl",
     "downhill-mtb",
     "telemark",
     "rally",
     "big-wave",
-    "ski",
     "goodwood"
   ],
   "briefingWeekKey": "2026-W28",
@@ -61,11 +62,6 @@
         "firstEventDate": "2026-06-13",
         "lastEventDate": "2026-06-14"
       },
-      "fifa": {
-        "count": 20,
-        "firstEventDate": "2026-06-14",
-        "lastEventDate": "2026-07-20"
-      },
       "wimbledon": {
         "count": 32,
         "firstEventDate": "2026-07-03",
@@ -86,30 +82,45 @@
         "firstEventDate": "2026-07-05",
         "lastEventDate": "2027-03-07"
       },
-      "nrl": {
-        "count": 63,
-        "firstEventDate": "2026-07-18",
-        "lastEventDate": "2026-10-31"
+      "cwg": {
+        "count": 34,
+        "firstEventDate": "2026-07-24",
+        "lastEventDate": "2026-08-03"
       },
       "afl": {
         "count": 47,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-09-26"
       },
-      "cwg": {
-        "count": 34,
-        "firstEventDate": "2026-07-24",
-        "lastEventDate": "2026-08-03"
+      "tennis": {
+        "count": 2,
+        "firstEventDate": "2026-08-21",
+        "lastEventDate": "2026-08-21"
+      },
+      "nrl": {
+        "count": 63,
+        "firstEventDate": "2026-07-18",
+        "lastEventDate": "2026-10-31"
       },
       "cricket": {
         "count": 16,
         "firstEventDate": "2026-08-13",
         "lastEventDate": "2027-01-02"
       },
-      "tennis": {
-        "count": 2,
-        "firstEventDate": "2026-08-21",
-        "lastEventDate": "2026-08-21"
+      "ski": {
+        "count": 4,
+        "firstEventDate": "2027-03-06",
+        "lastEventDate": "2027-03-20"
+      },
+      "fifa": {
+        "count": 20,
+        "firstEventDate": "2026-06-14",
+        "lastEventDate": "2026-07-20"
+      },
+      "premier-league": {
+        "count": 380,
+        "firstEventDate": "2026-08-22",
+        "lastEventDate": "2027-05-31"
       },
       "skateboard": {
         "count": 1,
@@ -140,11 +151,6 @@
         "count": 2,
         "firstEventDate": "2027-01-22",
         "lastEventDate": "2027-02-07"
-      },
-      "ski": {
-        "count": 4,
-        "firstEventDate": "2027-03-06",
-        "lastEventDate": "2027-03-20"
       },
       "goodwood": {
         "count": 1,

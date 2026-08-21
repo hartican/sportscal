@@ -66,7 +66,7 @@
     ["sport:freestyle", "Freestyle", "child", "sport:skiing", ["freestyle"], "competition:fis-freestyle", "sport:skiing", 62],
     ["sport:rugby", "Rugby Union", "sport", null, ["rugby"], "sport:rugby-union", "sport:rugby", 70],
     ["sport:tennis", "Tennis", "sport", null, ["tennis", "wimbledon"], "sport:tennis", "sport:tennis", 80],
-    ["sport:football", "Football", "sport", null, ["football", "fifa"], "sport:football", "sport:football", 90],
+    ["sport:football", "Football", "sport", null, ["football", "fifa", "premier-league"], "sport:football", "sport:football", 90],
     ["sport:cycling", "Cycling", "sport", null, ["cycling", "tdf"], "sport:cycling", "sport:cycling", 100],
     ["sport:cricket", "Cricket", "sport", null, ["cricket"], "sport:cricket", "sport:cricket", 110],
     ["sport:nba", "Basketball", "sport", null, ["nba", "basketball"], "sport:basketball", "sport:basketball", 120],
