@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="105">
+<meta name="app-shell-version" content="106">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -5011,7 +5011,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </div>
 </header>
 
-<audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="metadata" loop></audio>
+<audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="none" loop></audio>
 
 <div class="controls" id="calendarControls">
   <div class="preference-summary" id="preferenceSummary"></div>
@@ -5263,9 +5263,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/discovery-catalogue.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
-<script src="data/events.js"></script>
 <script>
 /* ============ DATA ============ */
+// The current feed is fetched as JSON. The generated script is loaded only as
+// an offline/direct-file fallback so it cannot block the first paint.
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
@@ -7299,7 +7300,8 @@ function reloadBundledEventsScript(){
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     const source = new URL(FEED_CONFIG.eventsScriptUrl, document.baseURI);
-    source.searchParams.set("refresh", String(Date.now()));
+    // Preserve the stable URL so the service-worker's offline fallback can
+    // satisfy this request from its precache. Fresh online starts use JSON.
     script.src = source.href;
     script.async = true;
     script.onload = () => {
@@ -7320,9 +7322,10 @@ function reloadBundledEventsScript(){
 }
 
 function loadLatestBundledEvents(){
-  return globalThis.location?.protocol === "file:"
-    ? reloadBundledEventsScript()
-    : Promise.resolve(EVENTS.slice());
+  const alreadyAvailable = coerceEventList(globalThis.NOTHINGSPORTS_EVENTS || []);
+  if (alreadyAvailable.length) return Promise.resolve(alreadyAvailable);
+  if (typeof document === "undefined") return Promise.resolve(EVENTS.slice());
+  return reloadBundledEventsScript();
 }
 
 async function fetchJson(url){
@@ -7511,10 +7514,12 @@ async function refreshRemoteFeed({ quiet = false } = {}){
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
     }
-    const lastBundledEvents = globalThis.location?.protocol === "file:"
-      ? coerceEventList(globalThis.NOTHINGSPORTS_EVENTS || [])
-      : [];
-    const fallbackEvents = lastBundledEvents.length ? lastBundledEvents : EVENTS.slice();
+    let fallbackEvents = EVENTS.slice();
+    try{
+      fallbackEvents = await loadLatestBundledEvents();
+    }catch(fallbackError){
+      console.warn("Bundled feed fallback unavailable", fallbackError);
+    }
     const rendered = applyFeedEvents(fallbackEvents);
     if (!quiet){
       showToast(centralRebuildRequested
@@ -15343,8 +15348,8 @@ const startupTasks = [
   trackStartupTask(refreshFeedOnFirstLoad()),
   trackStartupTask(loadJointTournamentData()),
 ];
-// The static bundled feed already shipped with the shell. Render it after one
-// animation frame instead of withholding the first card behind network work.
+// Render the interactive shell immediately. The current feed fills in from
+// JSON, while the large generated script remains a strictly on-demand fallback.
 window.requestAnimationFrame(() => {
   startupCoordinator.markHydrationComplete();
   renderAll();

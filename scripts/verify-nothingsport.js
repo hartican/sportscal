@@ -172,7 +172,7 @@ assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enric
 assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
 assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
 assert(html.includes('src="config/soundtrack.js"'), "the top-bar soundtrack controller must load before app state");
-assert(html.includes('src="data/events.js"'), "direct-file mode must load the generated published-feed fallback");
+assert(!html.includes('src="data/events.js"') && html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "the generated published-feed fallback must load on demand rather than block the initial parser");
 assert(
   html.includes('globalThis.location?.protocol === "file:"')
     && html.includes("reloadBundledJointTournamentScript()")
@@ -361,8 +361,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v105"'), "the competition-mark release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="105">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v106"'), "the startup-performance release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="106">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -372,8 +372,7 @@ assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot e
 assert(serviceWorkerSource.includes('"/config/user-state-sync.js"'), "the field-level user-state contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/swipe-calibration.js"'), "recognisable swipe anchors must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
-assert(serviceWorkerSource.includes('"/data/canonical/contexts.js"'), "the generated direct-file canonical transport must ship with the app shell");
-assert(serviceWorkerSource.includes('"/data/canonical/joint-tennis-tournament-2026.js"'), "the generated direct-file tournament transport must ship with the app shell");
+assert(!serviceWorkerSource.includes('"/data/canonical/contexts.js"') && !serviceWorkerSource.includes('"/data/canonical/joint-tennis-tournament-2026.js"'), "large optional canonical transports must not delay shell installation");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
 assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
 assert(serviceWorkerSource.includes("keys.filter(key => key !== CACHE_NAME)"), "the worker must remove superseded shell caches during activation");
@@ -386,16 +385,14 @@ assert(html.includes("This is when the published feed was generated, not when th
 assert(serverFeedSource.includes("sourcePublishedAt") && serverFeedApiSource.includes("sourcePublishedAt: eventFeed.publishedAt"), "signed-in feeds must retain the same canonical publication timestamp");
 assert(html.includes('tick.type = "button"') && html.includes('tick.setAttribute("role", "checkbox")') && html.includes('tick.setAttribute("aria-checked"'), "Tune sport toggles must use native keyboard-operable buttons with checkbox semantics");
 assert(html.includes("Must Watch and top-story discovery picks can still appear when you do not follow their sport"), "Sports Followed must explain the editorial must-show override");
+assert(serviceWorkerSource.includes('"/assets/brand/web/nothingsport-logo.png"'), "the visible brand mark must remain in the lean offline shell");
 brandAssets
-  .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && !asset.endsWith("nothingsport-logo-slogan.png"))
-  .forEach(asset => assert(serviceWorkerSource.includes(`"/${asset}"`), `the offline shell must cache ${asset}`));
+  .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && asset !== "assets/brand/web/nothingsport-logo.png")
+  .forEach(asset => assert(!serviceWorkerSource.includes(`"/${asset}"`), `optional ${asset} must not delay shell installation`));
 assert(!serviceWorkerSource.includes("/assets/brand/web/nothingsport-logo-slogan.png"), "the offline shell must stop caching the stale slogan raster");
-assert(serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"'), "the sole soundtrack must be available in the offline app shell");
-assert(serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"'), "F1 follows and standings must be available in the offline app shell");
-assert(serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"'), "tennis follows and ATP rankings must be available in the offline app shell");
-assert(serviceWorkerSource.includes('"/data/canonical/cycling-context-2026.json"'), "Tour rider and jersey context must be available in the offline app shell");
-assert(serviceWorkerSource.includes('"/data/canonical/nba-context-2026.json"'), "NBA follows and conference standings must be available in the offline app shell");
-assert(serviceWorkerSource.includes('"/data/canonical/cwg-context-2026.json"'), "CWG competitor follows and the medal table must be available in the offline app shell");
+assert(!serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"') && html.includes('preload="none"'), "the optional soundtrack must never delay app startup");
+assert(!serviceWorkerSource.includes('"/data/events.json"') && serviceWorkerSource.includes('"/data/events.js"'), "the shell must retain one offline event fallback without preloading the duplicate JSON feed");
+assert(!serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/cycling-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/nba-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/cwg-context-2026.json"'), "optional standings and context data must load on demand");
 assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");

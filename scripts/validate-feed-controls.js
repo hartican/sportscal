@@ -78,12 +78,12 @@ assert(
 );
 assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
 assert(html.includes('contextReferences: eventLearningReferences(ev)'), "curated dislikes must retain event context");
-assert(html.includes('className = "badge discovery"') && html.includes('className = "badge availability"'), "discovery and access must be labelled on cards");
+assert(html.includes('className = "badge discovery"') && !html.includes('className = "badge availability"'), "discovery remains labelled while availability classifications stay behind the scenes");
 assert(html.includes('sessionOpenedEventIds.add(') && html.includes('mustWatchSeenAt: new Date().toISOString()'), "opening an unseen Must Watch card must clear its durable new state while open signals remain session-local");
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must keep targeting Must Watch while the Today bar is anywhere in view");
 assert(html.includes('buildJointTournamentMustWatchAction') && html.includes('jointTournamentIsMustWatch'), "the combined tournament card must support manual Must Watch placement without an automatic pin");
 assert(html.includes("action.mustWatch ? 12"), "manual Must Watch choices must influence local recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v96"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v106"'));
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 
 console.log("Feed controls valid: durable UI model, Sydney timing, availability, mix targets, discovery caps and negative suppression passed.");

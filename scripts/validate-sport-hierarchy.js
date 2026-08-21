@@ -97,7 +97,6 @@ assert.equal(shellVersion, workerVersion, "HTML and service-worker shell version
   "/config/event-taxonomy-compat.js",
   "/config/preference-taxonomy.js",
   "/config/tennis-coverage.js",
-  "/data/canonical/tennis-catalogue-2026.json",
   "/schemas/sport-hierarchy.schema.json",
   "/schemas/catalog-event.schema.json",
   "/schemas/preference-taxonomy.schema.json",
@@ -105,5 +104,6 @@ assert.equal(shellVersion, workerVersion, "HTML and service-worker shell version
   "/schemas/tennis-tournament-export.schema.json",
   "/schemas/tennis-catalogue.schema.json",
 ].forEach(asset => assert(serviceWorker.includes(`"${asset}"`), `${asset} must ship in the offline shell`));
+assert(!serviceWorker.includes('"/data/canonical/tennis-catalogue-2026.json"'), "large optional catalogue data must not delay the offline shell installation");
 
 console.log(`Sport hierarchy valid: ${hierarchy.nodes.length} nodes; ${feed.events.length} published cards resolve without identity changes.`);

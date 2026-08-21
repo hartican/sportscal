@@ -21,13 +21,14 @@ assert(html.includes("buildAthleteName(player") && html.includes("buildAthleteNa
 assert(html.includes('buildAthleteName(participant, { className: "standings-athlete" })'), "competitor ranking tables must render country flags");
 assert(serviceWorker.includes('"/config/country-flags.js"'), "the flag mapping must be available offline");
 assert(serviceWorker.includes(`"/${countryFlags.ASSET_SOURCE.noticePath}"`), "the flag licence notice must be available offline");
+assert(!serviceWorker.includes('"/assets/flags/4x3/au.svg"'), "the app shell must not eagerly download every flag before it is needed");
 
 countryFlags.SUPPORTED_ALPHA2.forEach(code => {
   const path = countryFlags.assetPath(code);
   assert(path, `${code} must resolve to a flag asset`);
   assert(fs.existsSync(path), `${path} must exist`);
   assert.match(fs.readFileSync(path, "utf8"), /<svg\b/i, `${path} must be an SVG`);
-  assert(serviceWorker.includes(`"/${path}"`), `${path} must be available offline`);
+  assert(!serviceWorker.includes(`"/${path}"`), `${path} must be fetched and runtime-cached only when it is displayed`);
 });
 
 const tournamentPlayers = [...(tournament.schedule?.matches || []), ...(tournament.matchHistory || [])]

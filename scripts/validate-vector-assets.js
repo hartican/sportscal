@@ -81,7 +81,8 @@ assert.match(stableCardIntensityIcon, /<img\b/, "small stakes card glyphs must u
   assert(vectorAssets.openUse[entity.glyph] || vectorAssets.custom[entity.glyph], `${entity.id} must reference a registered vector`);
 });
 
-assert(html.includes('src="data/events.js"'), "the generated direct-file event bundle must load before the app");
+assert(!html.includes('src="data/events.js"'), "the generated direct-file event bundle must not block the initial parser");
+assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "the generated direct-file event bundle must remain available as an on-demand fallback");
 const uiSource = html;
 assert.doesNotMatch(uiSource, /\p{Extended_Pictographic}|\p{Regional_Indicator}{2}/u, "visible interface graphics must not use emoji");
 assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyphs must be removed before rendering or export");
