@@ -357,8 +357,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v96"'), "the athlete-flag release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="96">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v97"'), "the standalone tournament-match release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="97">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -543,6 +543,8 @@ assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial 
 assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentCard(container)"), "Cincinnati must appear as a normal eligible Tennis suggestion rather than an automatic top pin");
 assert(html.includes("function buildJointTournamentMustWatchAction") && html.includes("!jointTournamentIsMustWatch() && appendJointTournamentCard"), "Cincinnati must move into the chronological Must Watch queue only after a manual action");
 assert(html.includes('buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" })'), "the combined Cincinnati parent must render inside the manual queue without splitting ATP and WTA cards");
+assert(html.includes("function jointTournamentMustWatchMatchEvents"), "manually selected tournament matches must be promoted into the main feed as standalone events");
+assert(html.includes("const filtered = [...getFilteredEvents(), ...jointTournamentMustWatchMatchEvents()]"), "standalone tournament picks must enter the same chronological feed timeline as normal cards");
 assert(html.includes("eventIsJointTournamentFeedChild(ev, jointTournamentData, reference)"), "split Cincinnati ATP and WTA feed cards must be suppressed while the combined parent is active");
 const tournamentCardSource = html.slice(html.indexOf("function buildJointTournamentCard("), html.indexOf("function jointTournamentFeedEvent("));
 assert(tournamentCardSource.includes("buildJointTournamentNavigation") && tournamentCardSource.includes("buildJointTournamentDrilldown"), "the combined tournament card must be the entry point to its drill-down links");
@@ -840,6 +842,7 @@ globalThis.__test = {
   CARD_LIFECYCLE,
   REMINDER_ENGINE,
   SOUNDTRACK,
+  PERSONALISED_FEED,
   BASE_SPORT_SELECTOR_ENTITIES,
   mergePreferences,
   getActiveEventIds(){ return activeEvents.map(event => event.id); },
@@ -875,6 +878,8 @@ globalThis.__test = {
   getActiveFilter(){ return activeFilter; },
   setJointTournamentData(next){ jointTournamentData = structuredClone(next); },
   eventIsJointTournamentFeedChild,
+  jointMatchActionEvent,
+  jointTournamentMustWatchMatchEvents,
   setCanonicalParticipants(participants){ canonicalPreferenceParticipants = structuredClone(participants); },
   migrateEventActionRecords,
   eventActionKey,
@@ -895,6 +900,7 @@ globalThis.__test = {
   focusedRecentPastDateKey,
   eventMatchesExplicitSubfilters,
   eventMatchesBroadcasterPreferences,
+  eventRecommendationProfile,
   eventIsAutoArchived,
   rebuildDerivedCardCache,
   purgeDerivedCardCache,
@@ -979,6 +985,59 @@ assert.equal(app.eventIsJointTournamentFeedChild({
   name: "US Open",
   date: "2026-08-21",
 }), false, "unrelated Tennis cards must remain eligible beside the tournament parent");
+const timedTournamentMatches = jointTournamentDocument.schedule.matches
+  .filter(match => match.scheduledAtUtc)
+  .slice()
+  .sort((first, second) => Date.parse(first.scheduledAtUtc) - Date.parse(second.scheduledAtUtc));
+const firstTournamentMatch = timedTournamentMatches[0];
+const secondTournamentMatch = timedTournamentMatches[1];
+const betweenMatchEvent = {
+  id: "event:between-tournament-picks",
+  eventId: "event:between-tournament-picks",
+  actionKey: "event:between-tournament-picks",
+  key: "tennis",
+  sportId: "tennis",
+  name: "Between tournament picks",
+  date: "2026-08-22",
+  time: "02:00",
+  startTimeUtc: new Date((Date.parse(firstTournamentMatch.scheduledAtUtc) + Date.parse(secondTournamentMatch.scheduledAtUtc)) / 2).toISOString(),
+};
+app.setActions({
+  [firstTournamentMatch.matchId]: { eventId: firstTournamentMatch.matchId, mustWatch: true, mustWatchAddedAt: "2026-08-21T12:00:00.000Z" },
+  [secondTournamentMatch.matchId]: { eventId: secondTournamentMatch.matchId, mustWatch: true, mustWatchAddedAt: "2026-08-21T12:01:00.000Z" },
+  [betweenMatchEvent.actionKey]: { eventId: betweenMatchEvent.eventId, mustWatch: true, mustWatchAddedAt: "2026-08-21T12:02:00.000Z" },
+});
+const tournamentMustWatchEvents = app.jointTournamentMustWatchMatchEvents(
+  jointTournamentDocument,
+  new Date("2026-08-21T12:30:00.000Z"),
+);
+assert.deepEqual(
+  Array.from(tournamentMustWatchEvents, event => event.eventId),
+  [firstTournamentMatch.matchId, secondTournamentMatch.matchId],
+  "selected player matches must become standalone feed events in start-time order",
+);
+assert.equal(tournamentMustWatchEvents[0].jointTournamentMatch, true, "the standalone card must retain its tournament-match identity");
+assert.equal(tournamentMustWatchEvents[0].competitionId, jointTournamentDocument.tournament.tournamentId, "the standalone card must retain its parent tournament context");
+assert.deepEqual(
+  Array.from(tournamentMustWatchEvents[0].participantIds),
+  firstTournamentMatch.players.map(player => player.playerId),
+  "the standalone card must retain both player identities",
+);
+app.setPreferences({ selectedSelectorEntityIds: [], selectedBroadcasters: [] });
+assert.equal(
+  app.eventRecommendationProfile(tournamentMustWatchEvents[0]).classification,
+  "direct",
+  "a manually selected tournament match must be labelled as a direct choice rather than a similar-event suggestion",
+);
+assert.deepEqual(
+  Array.from(app.PERSONALISED_FEED.queueEvents(
+    [tournamentMustWatchEvents[1], betweenMatchEvent, tournamentMustWatchEvents[0]],
+    app.getEventAction,
+    new Date("2026-08-21T12:30:00.000Z"),
+  ), event => event.eventId),
+  [firstTournamentMatch.matchId, betweenMatchEvent.eventId, secondTournamentMatch.matchId],
+  "tournament match cards must interleave chronologically with ordinary Must Watch cards",
+);
 assert.deepEqual(
   Array.from(app.TEAM_FOLLOW_CATALOGUE.participantIdsForEvent({
     key: "rugby",

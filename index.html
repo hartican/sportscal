@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="96">
+<meta name="app-shell-version" content="97">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -8907,11 +8907,11 @@ function eventRecommendationProfile(ev){
   const followLevels = eventParticipantFollowLevels(ev);
   const competitionDisabled = eventCompetitionPreference(ev)?.enabled === false;
   const providerEligible = eventMatchesBroadcasterPreferences(ev);
-  const directInterest = providerEligible && (
+  const directInterest = getEventAction(ev).mustWatch || (providerEligible && (
     eventUsesFocusedSportFrothOverride(ev)
     || (eventMatchesSportPreferences(ev) && eventMeetsCoveragePreference(ev))
     || followLevels.some(level => level === "follow" || level === "priority")
-  );
+  ));
   const accessTypes = FEED_CONTROLS.accessTypes(ev);
   const availability = accessTypes.includes("free") ? "free"
     : accessTypes.includes("included") ? "included"
@@ -9452,7 +9452,8 @@ function replaceCollapsedCardsInPlace(collapsingCards){
   const replacementCards = [];
   collapsingCards.forEach(({ card, rect }) => {
     const eventId = card.dataset.eventId;
-    const ev = activeEvents.find(candidate => String(candidate.eventId || candidate.id) === eventId);
+    const ev = activeEvents.find(candidate => String(candidate.eventId || candidate.id) === eventId)
+      || jointTournamentMustWatchMatchEvents().find(candidate => String(candidate.eventId || candidate.id) === eventId);
     if (!ev || !card.isConnected) return;
     const mode = card.dataset.cardMode || "calendar";
     const seenTimer = surfaceSeenTimers.get(card);
@@ -10163,24 +10164,98 @@ function jointMatchActionEvent(match, document = jointTournamentData){
         hourCycle: "h23",
       }).formatToParts(scheduledDate).map(part => [part.type, part.value]))
     : null;
+  const tournament = document?.tournament || {};
+  const result = document?.resultsByMatchId?.[match.matchId] || null;
+  const players = Array.isArray(match.players) ? match.players : [];
+  const name = players.map(player => player.name).filter(Boolean).join(" v ") || "Tournament match";
+  const normalizedRound = String(match.round || "").replace(/_/g, " ").trim();
+  const roundLabel = normalizedRound && normalizedRound.toLowerCase() !== "unknown"
+    ? normalizedRound
+    : "tournament match";
+  const winner = players.find(player => player.playerId === result?.winnerPlayerId) || null;
+  const sourceDocument = document?.sourceDocuments?.find(item => item.kind === "order_of_play") || null;
+  const sourceUrl = result?.sourceUrl || sourceDocument?.sourceUrl || sourceDocument?.publisherPageUrl || document?.sourcePages?.[0] || null;
+  const sourceCheckedAt = result?.retrievedAt || sourceDocument?.retrievedAt || document?.retrievedAt || null;
+  const selectionScore = Number(match.selection?.score || 50);
+  const expected = Math.max(1, Math.min(10, Math.round(selectionScore / 10)));
+  const stakesScore = Math.max(1, Math.min(5, Math.ceil(Number(match.selection?.components?.roundImportance || 5) / 7)));
+  const scheduleCopy = `${match.tour || "Tennis"} ${roundLabel} at ${tournament.name || "the tournament"}.`;
+  const timingCopy = scheduledAtUtc
+    ? `${jointMatchTimingLabel(match, document)} at ${match.court || tournament.venue || "court TBC"}.`
+    : `${jointMatchTimingLabel(match, document)}.`;
+  const completed = result?.status === "completed";
+  const outcomeCopy = winner ? `${winner.name} won${result?.score ? ` ${result.score}` : ""}.` : null;
   return {
     id: match.matchId,
     actionKey: match.matchId,
     eventId: match.matchId,
     canonicalEventId: match.matchId,
-    competitionId: document.tournament.tournamentId,
+    competitionId: tournament.tournamentId,
     key: "tennis",
     sportId: "tennis",
     sport: "Tennis",
-    name: match.players.map(player => player.name).join(" v "),
-    date: sydneyParts ? `${sydneyParts.year}-${sydneyParts.month}-${sydneyParts.day}` : matchScheduleDate || document.tournament.startDate,
+    name,
+    displayTitleCompact: name,
+    date: sydneyParts ? `${sydneyParts.year}-${sydneyParts.month}-${sydneyParts.day}` : matchScheduleDate || tournament.startDate,
     time: sydneyParts ? `${sydneyParts.hour}:${sydneyParts.minute}` : match.timing?.localTime || "00:00",
     ...(scheduledAtUtc ? { startTimeUtc: scheduledAtUtc } : {}),
+    venue: match.venue || tournament.venue || null,
+    location: tournament.location || null,
+    broadcaster: "Broadcast TBC",
+    broadcasts: [],
+    liveWindow: 3,
     jointTournamentMatch: true,
-    expected: Math.max(1, Math.min(10, Math.round(Number(match.selection?.score || 50) / 10))),
-    stakesScore: Math.max(1, Math.min(5, Math.ceil(Number(match.selection?.components?.roundImportance || 5) / 7))),
-    status: document.resultsByMatchId?.[match.matchId]?.status === "completed" ? "completed" : "scheduled",
+    expected,
+    stakesScore,
+    participants: players.map(player => ({
+      name: player.name,
+      participantId: player.playerId,
+      countryCode: player.nationalityCode || null,
+    })),
+    participantIds: players.map(player => player.playerId).filter(Boolean),
+    selectedSentence: completed
+      ? `${name} is complete, with the result protected until you choose to reveal it.`
+      : `${scheduleCopy} ${timingCopy}`,
+    fullSpiel: `${scheduleCopy} ${timingCopy}`,
+    storyline: {
+      intensity: stakesScore,
+      hookSpoilerOff: completed
+        ? `${name} is complete, with the result protected until you choose to reveal it.`
+        : `${scheduleCopy} ${timingCopy}`,
+      hookSpoilerOn: completed && outcomeCopy ? outcomeCopy : `${scheduleCopy} ${timingCopy}`,
+      synopsisSpoilerOff: completed
+        ? `${name} is complete. The result and score are ready when you are.`
+        : `${scheduleCopy} ${timingCopy}`,
+      synopsisSpoilerOn: completed && outcomeCopy ? outcomeCopy : `${scheduleCopy} ${timingCopy}`,
+    },
+    sourceName: result?.sourceName || "Cincinnati Open",
+    sourceUrl,
+    sourceCheckedAt,
+    sourceType: "official",
+    sourceTrust: result?.sourceTrust || "verified",
+    ...(result?.score ? { score: result.score } : {}),
+    ...(outcomeCopy ? { outcomeText: outcomeCopy, recapText: outcomeCopy } : {}),
+    status: completed ? "completed" : "scheduled",
   };
+}
+
+function jointTournamentAddressableMatches(document = jointTournamentData){
+  const matches = new Map();
+  (document?.matchHistory || []).forEach(match => matches.set(match.matchId, match));
+  (document?.schedule?.matches || []).forEach(match => matches.set(match.matchId, match));
+  return Array.from(matches.values());
+}
+
+function jointTournamentMustWatchMatchEvents(document = jointTournamentData, reference = nowAEST()){
+  if (!document?.tournament) return [];
+  return jointTournamentAddressableMatches(document)
+    .map(match => jointMatchActionEvent(match, document))
+    .filter(event => getEventAction(event).mustWatch)
+    .filter(event => !PERSONALISED_FEED?.isRetainedMustWatch
+      || PERSONALISED_FEED.isRetainedMustWatch(event, getEventAction(event), reference))
+    .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event))
+    .sort((first, second) => eventDateTime(first) - eventDateTime(second)
+      || String(first.eventId || first.id).localeCompare(String(second.eventId || second.id)));
 }
 
 function jointMatchTimingLabel(match, tournamentDocument = jointTournamentData){
@@ -10920,7 +10995,7 @@ function renderListView(){
   container.innerHTML = "";
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
-  const filtered = getFilteredEvents();
+  const filtered = [...getFilteredEvents(), ...jointTournamentMustWatchMatchEvents()];
   ensureSessionRatingPrompt(filtered);
   const focusedArchived = focusedArchivedEvents();
   appendFocusedArchiveRecovery(container, focusedArchived);
@@ -12466,9 +12541,11 @@ function renderCurrentSection(){
 }
 
 function renderTabCounts(){
-  const feedCount = getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev))
-    .length;
+  const feedCount = new Set(
+    [...getPreferenceMatchedEvents(), ...jointTournamentMustWatchMatchEvents()]
+      .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev))
+      .map(ev => String(ev.eventId || ev.id))
+  ).size;
   document.getElementById("feedTabCount").textContent = feedCount;
   document.getElementById("standingsTabCount").textContent = rankingCompetitionsForStandings().length;
 }
