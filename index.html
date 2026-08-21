@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="103">
+<meta name="app-shell-version" content="104">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1436,6 +1436,110 @@ main{
 
 .event-card.mode-calendar{
   cursor: pointer;
+}
+
+/* Team matchups have a distinct hierarchy: the crests are the identity layer,
+   while the fixture name is deliberately secondary. */
+.event-card.is-logo-led-matchup{
+  display:block;
+  min-height:304px;
+  padding:12px 14px 14px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--sport-color) 10%, var(--bg-card)), var(--bg-card) 56%),
+    var(--bg-card);
+}
+
+.event-card.is-logo-led-matchup .event-icon{ display:none; }
+.event-card.is-logo-led-matchup .event-main{ width:100%; }
+
+.matchup-identity-row{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  place-items:center;
+  gap:clamp(18px, 7vw, 44px);
+  height:clamp(132px, 31vw, 164px);
+  margin:0 auto 8px;
+  padding:4px clamp(4px, 3vw, 24px);
+}
+
+.matchup-team-logo-slot{
+  display:grid;
+  place-items:center;
+  width:min(100%, 148px);
+  height:clamp(122px, 29vw, 154px);
+  padding:6px;
+  /* The fixed box normalises footprint only; brand artwork floats directly
+     on the card rather than being placed on an artificial logo tile. */
+  background:transparent;
+  border:0;
+  border-radius:0;
+  overflow:visible;
+  box-shadow:none;
+}
+
+.matchup-logo-surface-light,
+.matchup-logo-surface-dark{ background:transparent; }
+
+.matchup-team-logo{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:transform 0.2s ease;
+}
+
+.event-card.is-logo-led-matchup:hover .matchup-team-logo,
+.event-card.is-logo-led-matchup.is-selected .matchup-team-logo,
+.event-card.is-logo-led-matchup.is-opened .matchup-team-logo{ transform:scale(1.035); }
+
+.team-logo-monogram{
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  border:2px solid currentColor;
+  border-radius:50%;
+  color:var(--sport-color);
+  font-size:1.4rem;
+  font-weight:900;
+  letter-spacing:0.06em;
+}
+
+.event-card.is-logo-led-matchup .event-top-row{
+  display:block;
+  position:static;
+}
+
+.event-card.is-logo-led-matchup .event-title-stack{ width:100%; text-align:center; }
+.event-card.is-logo-led-matchup .event-name-line,
+.event-card.is-logo-led-matchup .event-date-line{ justify-content:center; }
+.event-card.is-logo-led-matchup .event-name{
+  color:var(--text-dim);
+  font-size:0.86rem;
+  font-weight:750;
+  letter-spacing:0.01em;
+  text-align:center;
+}
+
+.event-card.is-logo-led-matchup .event-date-line{
+  margin:8px 0 0;
+}
+
+.event-card.is-logo-led-matchup .event-top-row.has-team-matchup .badges{
+  position:static;
+  max-width:none;
+  justify-content:center;
+  margin-top:8px;
+}
+
+.event-card.is-logo-led-matchup .event-meta-row,
+.event-card.is-logo-led-matchup .rating-row,
+.event-card.is-logo-led-matchup .event-quick-must-watch{ margin-top:10px; }
+
+@media (max-width:620px){
+  .event-card.is-logo-led-matchup{ min-height:286px; padding-inline:10px; }
+  .matchup-identity-row{ height:126px; gap:18px; padding-inline:2px; }
+  .matchup-team-logo-slot{ width:126px; height:118px; padding:12px; border-radius:15px; }
 }
 
 .event-icon{
@@ -4858,7 +4962,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <div class="onboarding-panel settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="onboarding-head">
       <div class="settings-title-row">
-        <img class="brand-compact-icon" id="settingsBrandIcon" data-brand-asset="icon" src="assets/brand/web/nothingsport-app-icon.png" width="720" height="611" alt="" aria-hidden="true">
+        <img class="brand-compact-icon" id="settingsBrandIcon" data-brand-asset="icon" src="assets/brand/web/nothingsport-app-icon.png" width="720" height="611" alt="" aria-hidden="true" loading="lazy" decoding="async">
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
@@ -4878,7 +4982,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <div class="modal-backdrop" id="aboutModal" aria-hidden="true">
   <div class="onboarding-panel about-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
     <div class="onboarding-head about-hero">
-      <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true">
+      <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="about-hero-copy">
         <h2 id="aboutTitle" data-brand-copy="title">Nothingsport — Smart sports feed</h2>
         <p data-brand-copy="hero">The sports-fanatic mate who knows what you’re into.</p>
@@ -5128,6 +5232,86 @@ function renderEventIdentityMark(container, ev, meta){
   container.replaceChildren(image);
 }
 
+function themeUsesDarkAssets(){
+  return document.documentElement.dataset.theme === "night"
+    || (document.documentElement.dataset.theme === "system" && window.matchMedia?.("(prefers-color-scheme: dark)").matches);
+}
+
+function applyTeamLogoAsset(image, mark, context = "primary", useDark = themeUsesDarkAssets()){
+  const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context, useDark: false }) || mark?.url || "";
+  const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context, useDark: true }) || lightSource;
+  image.dataset.teamLogoLight = lightSource;
+  image.dataset.teamLogoDark = darkSource;
+  image.dataset.teamLogoContext = context;
+  image.src = useDark ? darkSource : lightSource;
+}
+
+function syncThemeTeamAssets(useDark){
+  document.querySelectorAll("img[data-team-logo-light]").forEach(image => {
+    const nextSource = useDark ? image.dataset.teamLogoDark : image.dataset.teamLogoLight;
+    if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
+  });
+}
+
+function appendTeamIdentityFallback(container, mark, label, className = "team-logo-fallback"){
+  const flagMarkup = COUNTRY_FLAGS?.flagMarkup?.(mark?.fallbackCountryCode || mark?.countryCode, { className, label });
+  if (flagMarkup){
+    container.insertAdjacentHTML("beforeend", flagMarkup);
+    return;
+  }
+  const monogram = document.createElement("span");
+  monogram.className = "team-logo-monogram";
+  monogram.setAttribute("aria-label", label);
+  monogram.textContent = String(label || mark?.label || "?").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
+  container.appendChild(monogram);
+}
+
+function matchupIdentityMatches(ev, displayTitle){
+  const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, canonicalPreferenceParticipants, displayTitle) || [];
+  return identities
+    .map(identity => ({ ...identity, range: CARD_IDENTITIES.aliasRange(displayTitle, identity.participant) }))
+    .filter(identity => identity.range)
+    .sort((left, right) => left.range.start - right.range.start)
+    .filter((identity, index, all) => index === 0 || identity.range.start >= all[index - 1].range.end)
+    .slice(0, 2);
+}
+
+function buildMatchupIdentity(ev, displayTitle){
+  const identities = matchupIdentityMatches(ev, displayTitle);
+  if (identities.length !== 2) return null;
+  const useDark = themeUsesDarkAssets();
+  const row = document.createElement("div");
+  row.className = "matchup-identity-row";
+  row.setAttribute("aria-label", `${identities[0].range.text} versus ${identities[1].range.text}`);
+  identities.forEach(({ mark, range }) => {
+    const slot = document.createElement("div");
+    const surface = mark?.logo?.[useDark ? "backgroundDark" : "backgroundLight"] || "light";
+    slot.className = `matchup-team-logo-slot matchup-logo-surface-${surface === "dark" ? "dark" : "light"}`;
+    if (mark?.url || mark?.logo?.primary){
+      const logo = document.createElement("img");
+      logo.className = "matchup-team-logo";
+      logo.alt = `${range.text} logo`;
+      // A feed can contain hundreds of fixtures; native lazy loading keeps
+      // off-screen brand imagery out of the initial network burst.
+      logo.loading = "lazy";
+      logo.decoding = "async";
+      logo.width = 148;
+      logo.height = 154;
+      logo.referrerPolicy = "no-referrer";
+      applyTeamLogoAsset(logo, mark, "primary", useDark);
+      logo.addEventListener("error", () => {
+        logo.remove();
+        appendTeamIdentityFallback(slot, mark, range.text, "team-logo-fallback matchup-team-logo-fallback");
+      }, { once: true });
+      slot.appendChild(logo);
+    } else {
+      appendTeamIdentityFallback(slot, mark, range.text, "team-logo-fallback matchup-team-logo-fallback");
+    }
+    row.appendChild(slot);
+  });
+  return row;
+}
+
 function renderEventTitleIdentity(nameElement, ev, displayTitle){
   const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, canonicalPreferenceParticipants, displayTitle) || [];
   const matches = identities
@@ -5149,14 +5333,14 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle){
       const flagMarkup = COUNTRY_FLAGS?.flagMarkup?.(mark.fallbackCountryCode || mark.countryCode, { className: "team-logo-fallback", label: mark.label });
       if (flagMarkup) teamName.insertAdjacentHTML("beforeend", flagMarkup);
     };
-    if (mark.url){
+    if (mark.url || mark?.logo?.primary){
       const logo = document.createElement("img");
       logo.className = "team-logo";
-      logo.src = mark.url;
       logo.alt = "";
       logo.loading = "lazy";
       logo.decoding = "async";
       logo.referrerPolicy = "no-referrer";
+      applyTeamLogoAsset(logo, mark, "icon");
       logo.addEventListener("error", () => {
         logo.remove();
         appendFlagFallback();
@@ -5852,6 +6036,7 @@ function syncThemeBrandAssets(useDark){
     const nextSrc = BRAND_ASSETS[image.dataset.brandAsset]?.[mode];
     if (nextSrc && image.getAttribute("src") !== nextSrc) image.setAttribute("src", nextSrc);
   });
+  syncThemeTeamAssets(useDark);
 }
 
 function feedIntentForScope(scope){
@@ -9952,8 +10137,10 @@ function buildEventCard(ev, options = {}){
   const enrichment = eventEnrichment(ev);
   const actual = getActual(ev.id);
   const displayTitle = spoilerSafeDisplayTitle(ev);
+  const isTeamMatchup = /\s+v\.?\s+/i.test(displayTitle);
   const upgraded = isUpgrade(ev) && isSpoilerVisible(ev);
   const mode = options.mode || "calendar";
+  const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;
   // Interaction stays consistent while derived variants control visual weight.
   const expandable = true;
   const state = expandable ? cardStateForEvent(ev) : "compact";
@@ -9977,6 +10164,7 @@ function buildEventCard(ev, options = {}){
   const card = document.createElement("article");
   card.className = [
     "event-card",
+    matchupIdentity ? "is-logo-led-matchup" : "",
     `mode-${mode}`,
     `variant-${enrichment.cardVariant}`,
     `intensity-${enrichment.intensity}`,
@@ -10038,13 +10226,14 @@ function buildEventCard(ev, options = {}){
   mainDiv.className = "event-main";
 
   const topRow = document.createElement("div");
-  const isTeamMatchup = /\s+v\.?\s+/i.test(displayTitle);
   topRow.className = `event-top-row${isTeamMatchup ? " has-team-matchup" : ""}`;
 
   const nameWrap = document.createElement("div");
   nameWrap.className = "event-title-stack";
+  if (matchupIdentity) mainDiv.appendChild(matchupIdentity);
+  let dateLine = null;
   if (expandable){
-    const dateLine = document.createElement("div");
+    dateLine = document.createElement("div");
     dateLine.className = "event-date-line";
     const dateChip = document.createElement("div");
     dateChip.className = "event-date-chip";
@@ -10062,7 +10251,7 @@ function buildEventCard(ev, options = {}){
       tickets.addEventListener("click", evt => evt.stopPropagation());
       dateLine.appendChild(tickets);
     }
-    nameWrap.appendChild(dateLine);
+    if (!matchupIdentity) nameWrap.appendChild(dateLine);
   }
   const nameLine = document.createElement("div");
   nameLine.className = "event-name-line";
@@ -10081,7 +10270,8 @@ function buildEventCard(ev, options = {}){
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
   nameEl.id = `event-title-${String(ev.eventId || ev.id).replace(/[^a-z0-9_-]/gi, "-")}`;
-  renderEventTitleIdentity(nameEl, ev, displayTitle);
+  if (matchupIdentity) nameEl.textContent = displayTitle;
+  else renderEventTitleIdentity(nameEl, ev, displayTitle);
   nameLine.appendChild(nameEl);
   if (expandable){
     const expandControl = document.createElement("button");
@@ -10099,6 +10289,7 @@ function buildEventCard(ev, options = {}){
   }
   nameWrap.appendChild(nameLine);
   if (displayedResult) nameWrap.appendChild(displayedResult);
+  if (matchupIdentity && dateLine) nameWrap.appendChild(dateLine);
     if (state === "opened" && ev.venue){
       const venueEl = document.createElement("div");
       venueEl.className = "event-venue";

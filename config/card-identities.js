@@ -12,15 +12,32 @@
     displayUse: "editorial-identification",
   });
 
+  function logoAssets(url, options = {}){
+    const primary = options.primary || url;
+    return Object.freeze({
+      primary,
+      light: options.light || primary,
+      dark: options.dark || primary,
+      icon: options.icon || primary,
+      iconLight: options.iconLight || options.icon || options.light || primary,
+      iconDark: options.iconDark || options.icon || options.dark || primary,
+      backgroundLight: options.backgroundLight || "light",
+      backgroundDark: options.backgroundDark || "light",
+    });
+  }
+
   function officialMark(id, label, url, sourceUrl, options = {}){
-    return Object.freeze({ id, label, url, sourceUrl, fit: options.fit || "contain", ...OFFICIAL_REFERENCE_USE });
+    const logo = logoAssets(url, options.logo || options);
+    return Object.freeze({ id, label, url: logo.primary, logo, sourceUrl, fit: options.fit || "contain", ...OFFICIAL_REFERENCE_USE });
   }
 
   function referenceMark(id, label, url, sourceUrl, options = {}){
+    const logo = logoAssets(url, options.logo || options);
     return Object.freeze({
       id,
       label,
-      url,
+      url: logo.primary,
+      logo,
       sourceUrl,
       fit: options.fit || "contain",
       assetClass: "official-reference",
@@ -67,9 +84,9 @@
     });
   }
 
-  function teamMark(id, label, url, sourceUrl, aliases, fallbackCountryCode = ""){
+  function teamMark(id, label, url, sourceUrl, aliases, fallbackCountryCode = "", options = {}){
     return Object.freeze({
-      ...officialMark(id, label, url, sourceUrl),
+      ...officialMark(id, label, url, sourceUrl, options),
       aliases: Object.freeze(aliases),
       fallbackCountryCode,
     });
@@ -155,7 +172,14 @@
     "team:rugby:italy": teamMark("team:rugby:italy", "Italy", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/56e05e32-60ca-451d-b09a-ec3ad52cc709.png", "https://www.rugby.com.au/", ["Italy", "Italian"], "IT"),
     "team:rugby:japan": teamMark("team:rugby:japan", "Japan", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/aaf401bd-6fbf-4881-a7db-52aec716f789.png", "https://www.rugby.com.au/", ["Japan", "Japanese"], "JP"),
     "team:rugby:springboks": teamMark("team:rugby:springboks", "Springboks", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/bedf129f-471d-4442-b7ad-fdf07c516630.png", "https://www.rugby.com.au/", ["Springboks", "South Africa", "South African"], "ZA"),
-    "team:rugby:all-blacks": teamMark("team:rugby:all-blacks", "All Blacks", "https://images.allblacks.com/image/private/t_q_good/v1780998849/prd/assets/teams/logos_darkmode/AB.png", "https://www.allblacks.com/team/all-blacks", ["All Blacks", "New Zealand", "New Zealander"], "NZ"),
+    "team:rugby:all-blacks": teamMark("team:rugby:all-blacks", "All Blacks", "https://images.allblacks.com/image/private/t_q_good/v1780998849/prd/assets/teams/logos_darkmode/AB.png", "https://www.allblacks.com/team/all-blacks", ["All Blacks", "New Zealand", "New Zealander"], "NZ", {
+      logo: {
+        dark: "https://images.allblacks.com/image/private/t_q_good/v1780998849/prd/assets/teams/logos_darkmode/AB.png",
+        iconDark: "https://images.allblacks.com/image/private/t_q_good/v1780998849/prd/assets/teams/logos_darkmode/AB.png",
+        backgroundLight: "dark",
+        backgroundDark: "dark",
+      },
+    }),
     "team:rugby:argentina": teamMark("team:rugby:argentina", "Argentina", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/0d879300-8bf6-4f95-b91e-ea8b69723b75.png", "https://www.rugby.com.au/", ["Argentina", "Los Pumas", "Argentine"], "AR"),
     "team:rugby:england": teamMark("team:rugby:england", "England", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/1fc97be3-7806-4009-a341-81a734684a79.png", "https://www.rugby.com.au/", ["England", "English"], "GB"),
     "team:rugby:scotland": teamMark("team:rugby:scotland", "Scotland", "https://d26phqdbpt0w91.cloudfront.net/NonVideo/45384b69-1c6c-4a23-9ee2-8c420e938e3d.png", "https://www.rugby.com.au/", ["Scotland", "Scottish"], "GB"),
@@ -232,12 +256,29 @@
   });
 
   const participantMarks = Object.freeze(Object.fromEntries([
-    ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/")]),
+    ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/", {
+      logo: {
+        light: `https://www.nrl.com/.theme/${slug}/badge.svg`,
+        dark: `https://www.nrl.com/.theme/${slug}/badge-light.svg`,
+        icon: `https://www.nrl.com/.theme/${slug}/badge.svg`,
+        iconLight: `https://www.nrl.com/.theme/${slug}/badge.svg`,
+        iconDark: `https://www.nrl.com/.theme/${slug}/badge-light.svg`,
+        backgroundLight: "light",
+        backgroundDark: "dark",
+      },
+    })]),
     ...Object.entries(aflTeamAssets).map(([participantId, [label, url]]) => [participantId, officialMark(`participant:${participantId}`, label, url, "https://www.afl.com.au/teams")]),
     ...Object.entries(cricketTeamMarks),
     ...Object.entries(rugbyTeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
   ]));
+  const identityParticipants = Object.freeze(Object.fromEntries(Object.entries(participantMarks).map(([id, mark]) => [id, Object.freeze({
+    id,
+    canonicalName: mark.label,
+    displayName: mark.label,
+    shortName: mark.label,
+    metadata: Object.freeze({ titleAliases: mark.aliases || [mark.label] }),
+  })])));
 
   const brandRules = Object.freeze([
     Object.freeze({ id: "roland-garros", pattern: /\b(?:roland garros|french open)\b/i }),
@@ -267,12 +308,17 @@
   function participantMarksForEvent(event, participants, title = ""){
     const participantList = Array.isArray(participants) ? participants : []; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
     const addParticipant = participant => { const mark = participantMarks[participant?.id]; if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
-    (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId)).forEach(addParticipant);
+    (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
     if (resolved.length < 2) participantList.filter(participant => participantMarks[participant.id]).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "premier-league") footballParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
-  return Object.freeze({ schemaVersion: "card-identities.v1", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange });
+  function logoForTheme(mark, { context = "primary", useDark = false } = {}){
+    const assets = mark?.logo || {};
+    const themedContext = `${context}${useDark ? "Dark" : "Light"}`;
+    return assets[themedContext] || assets[useDark ? "dark" : "light"] || assets[context] || assets.primary || mark?.url || "";
+  }
+  return Object.freeze({ schemaVersion: "card-identities.v2", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange, logoForTheme });
 });

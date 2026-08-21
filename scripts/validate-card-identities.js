@@ -18,13 +18,14 @@ const activeAflTeams = canonical.participants.filter(participant => (
   && participant.teamCode !== "TBD"
 ));
 
-assert.equal(identities.schemaVersion, "card-identities.v1");
+assert.equal(identities.schemaVersion, "card-identities.v2");
 assert.equal(activeNrlTeams.length, 17, "the current NRL competition must expose 17 active teams");
 activeNrlTeams.forEach(team => {
   const mark = identities.participantMarks[team.id];
   assert(mark, `missing NRL team identity for ${team.id}`);
   assert.match(mark.url, /^https:\/\/www\.nrl\.com\/\.theme\/.+\/badge(?:-light)?\.svg$/);
   assert.equal(mark.provenance, "official-site");
+  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${team.id} must expose the ${asset} logo asset`));
 });
 assert.equal(activeAflTeams.length, 18, "the current AFL competition must expose 18 active clubs");
 activeAflTeams.forEach(team => {
@@ -32,6 +33,7 @@ activeAflTeams.forEach(team => {
   assert(mark, `missing AFL team identity for ${team.id}`);
   assert.match(mark.url, /^https:\/\/resources\.afl\.com\.au\/photo-resources\/.+/);
   assert.equal(mark.provenance, "official-site");
+  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${team.id} must expose the ${asset} logo asset`));
 });
 
 assert.equal(identities.markForEvent({ key: "nrl", name: "Broncos v Storm" })?.label, "NRL", "NRL cards must use the competition logo");
@@ -89,6 +91,10 @@ assert.equal(rugbyMarks.length, 22, "the rugby registry must cover current inter
 rugbyMarks.forEach(mark => {
   assert.match(mark.url, /^https:\/\/(?:d26phqdbpt0w91\.cloudfront\.net|images\.allblacks\.com|super\.rugby)\//, `rugby mark must have a vetted official asset: ${mark.label}`);
   assert.equal(mark.provenance, "official-site");
+  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${mark.label} must expose the ${asset} logo asset`));
 });
+const nrlBroncos = identities.participantMarks["team:nrl:322"];
+assert.notEqual(identities.logoForTheme(nrlBroncos, { context: "primary", useDark: false }), identities.logoForTheme(nrlBroncos, { context: "primary", useDark: true }), "NRL primary logos must use the league's official light and dark assets");
+assert.equal(identities.logoForTheme(identities.participantMarks["team:football:epl:1"], { context: "icon", useDark: false }), identities.participantMarks["team:football:epl:1"].logo.iconLight, "small-format contexts must select an explicit icon asset rather than resize the primary reference");
 
 console.log(`Card identities valid: ${activeNrlTeams.length} NRL and ${activeAflTeams.length} AFL team marks, ${activeEventKeys.length} active sport/event identities, and Wimbledon/Roland Garros event branding.`);

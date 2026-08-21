@@ -361,8 +361,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v103"'), "the Premier League and card-presentation release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="103">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v104"'), "the logo-led matchup release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="104">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -470,9 +470,15 @@ assert(html.includes('const displayedResult = status === "past" ? buildCompactRe
 assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
 assert(html.includes('className = "card-result-score"') && html.includes('.card-result-line{'), "past-card results must use the centred, prominent score treatment");
 assert(html.includes('const isTeamMatchup = /\\s+v\\.?\\s+/i.test(displayTitle);') && html.includes('.event-top-row.has-team-matchup .event-name{'), "matchup team names must be centred independently of card badges");
+assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('height:clamp(132px, 31vw, 164px)'), "matchup cards must reserve equal, logo-led bounding boxes for both teams");
+assert(html.includes('background:transparent;\n  border:0;') && html.includes('.matchup-logo-surface-dark{ background:transparent; }'), "matchup logo boxes must remain transparent rather than placing official marks on artificial tiles");
+assert(html.includes('logo.loading = "lazy";') && html.includes('logo.width = 148;') && html.includes('logo.height = 154;'), "off-screen matchup logos must defer their network work while retaining a stable layout footprint");
+assert(html.includes('function syncThemeTeamAssets(useDark)') && html.includes('syncThemeTeamAssets(useDark);'), "team identity assets must switch with light and dark themes without CSS recolouring");
+assert(cardIdentitiesSource.includes('primary,') && cardIdentitiesSource.includes('iconLight') && cardIdentitiesSource.includes('logoForTheme'), "every team identity must expose primary, theme, and compact-logo asset slots");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
 assert(html.includes('glyphMarkup("ui:ticket", { preferImage: true })'), "local games must expose a stable vector-labelled Tickets link");
 const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
+assert(eventCardSource.includes('const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;') && eventCardSource.includes('matchupIdentity ? "is-logo-led-matchup" : ""'), "full match cards must promote two large team identities while compact rails retain icon-specific treatment");
 assert(!eventCardSource.includes('b.className = "badge availability"'), "card availability classifications must remain behind the scenes rather than render as badges");
 assert(eventCardSource.includes("renderEventIdentityMark(icon, ev, meta)") && eventCardSource.includes("renderEventTitleIdentity(nameEl, ev, displayTitle)"), "event cards must render competition, marquee, and team identities");
 assert(html.includes('mark?.kind === "sport"') && html.includes('className: "event-sport-logo"'), "every supported sport must render its own licensed sport mark when no official competition mark is available");
