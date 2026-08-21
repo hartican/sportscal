@@ -15,11 +15,11 @@
     "startDate": "2026-08-08",
     "endDate": "2026-08-23"
   },
-  "retrievedAt": "2026-08-20T22:43:38.949Z",
+  "retrievedAt": "2026-08-21T12:44:44.314Z",
   "freshness": {
     "confidence": "Provisional",
     "mode": "schedule",
-    "lastSuccessfulAt": "2026-08-20T22:43:38.949Z",
+    "lastSuccessfulAt": "2026-08-21T12:44:44.314Z",
     "staleAfterHours": 24
   },
   "sourcePages": [
@@ -31,15 +31,15 @@
     {
       "kind": "order_of_play",
       "publisherPageUrl": "https://cincinnatiopen.com/score-center/order-of-play/",
-      "sourceUrl": "https://cincinnatiopen.com/wp-content/uploads/2026/08/OP-0821-1413.pdf",
-      "retrievedAt": "2026-08-20T22:43:38.949Z",
-      "sha256": "b1f122aaa1f8573c45c6dbc5ea85b5cb8f2f961ff1481106e2b01696825e51e8"
+      "sourceUrl": "https://cincinnatiopen.com/wp-content/uploads/2026/08/OP-AUG20-11PM.pdf",
+      "retrievedAt": "2026-08-21T12:44:44.314Z",
+      "sha256": "cab5643571b0f851d7e0f3b0ba5e0cfef75ab4ec57bd204ca2322f2f6ce44aae"
     },
     {
       "kind": "draws",
       "publisherPageUrl": "https://cincinnatiopen.com/score-center/draws/",
-      "sourceUrl": "https://cincinnatiopen.com/wp-content/uploads/2026/08/MDS-atp-0820-0030.pdf",
-      "retrievedAt": "2026-08-20T22:43:38.949Z"
+      "sourceUrl": "https://cincinnatiopen.com/wp-content/uploads/2026/08/MDS-ATP-AUG20-11PM.pdf",
+      "retrievedAt": "2026-08-21T12:44:44.314Z"
     }
   ],
   "schedule": {
@@ -143,6 +143,51 @@
         "round": "unknown",
         "players": [
           {
+            "playerId": "competitor:tennis:atp:constantin-frantzen",
+            "name": "Constantin FRANTZEN",
+            "ranking": null,
+            "nationalityCode": "GER",
+            "isAustralian": false
+          },
+          {
+            "playerId": "competitor:tennis:atp:theo-arribage",
+            "name": "Theo ARRIBAGE",
+            "ranking": null,
+            "nationalityCode": "FRA",
+            "isAustralian": false
+          }
+        ],
+        "venue": "Lindner Family Tennis Center",
+        "court": "TONY TRABERT STADIUM 3",
+        "courtSequence": 1,
+        "scheduledSequence": 3,
+        "timing": {
+          "type": "exact",
+          "label": "11:00 AM",
+          "localTime": "11:00"
+        },
+        "narrativeSignals": [],
+        "matchId": "match:tennis:tournament-tennis-joint-cincinnati-open-2026:atp:competitor-tennis-atp-constantin-frantzen--competitor-tennis-atp-theo-arribage",
+        "scheduleDate": "2026-08-21",
+        "scheduledAtUtc": "2026-08-21T15:00:00.000Z",
+        "selection": {
+          "score": 10,
+          "components": {
+            "roundImportance": 6,
+            "playerRankings": 4,
+            "australianInterest": 0,
+            "narrative": 0
+          },
+          "reasons": [
+            "unknown importance"
+          ]
+        }
+      },
+      {
+        "tour": "ATP",
+        "round": "unknown",
+        "players": [
+          {
             "playerId": "competitor:tennis:atp:taylor-fritz",
             "name": "Taylor Fritz",
             "ranking": 9,
@@ -160,7 +205,7 @@
         "venue": "Lindner Family Tennis Center",
         "court": "P&G STADIUM COURT",
         "courtSequence": 2,
-        "scheduledSequence": 3,
+        "scheduledSequence": 4,
         "timing": {
           "type": "not_before",
           "label": "Not before 3:00 PM",
@@ -189,6 +234,96 @@
         "round": "unknown",
         "players": [
           {
+            "playerId": "competitor:tennis:atp:simone-bolelli",
+            "name": "Simone BOLELLI",
+            "ranking": null,
+            "nationalityCode": "ITA",
+            "isAustralian": false
+          },
+          {
+            "playerId": "competitor:tennis:atp:orlando",
+            "name": "Orlando",
+            "ranking": null,
+            "nationalityCode": "BRA",
+            "isAustralian": false
+          }
+        ],
+        "venue": "Lindner Family Tennis Center",
+        "court": "GRANDSTAND",
+        "courtSequence": 2,
+        "scheduledSequence": 5,
+        "timing": {
+          "type": "followed_by",
+          "label": "Followed by",
+          "localTime": null
+        },
+        "narrativeSignals": [],
+        "matchId": "match:tennis:tournament-tennis-joint-cincinnati-open-2026:atp:competitor-tennis-atp-orlando--competitor-tennis-atp-simone-bolelli",
+        "scheduleDate": "2026-08-21",
+        "scheduledAtUtc": null,
+        "selection": {
+          "score": 10,
+          "components": {
+            "roundImportance": 6,
+            "playerRankings": 4,
+            "australianInterest": 0,
+            "narrative": 0
+          },
+          "reasons": [
+            "unknown importance"
+          ]
+        }
+      },
+      {
+        "tour": "ATP",
+        "round": "unknown",
+        "players": [
+          {
+            "playerId": "competitor:tennis:atp:hugo",
+            "name": "Hugo",
+            "ranking": null,
+            "nationalityCode": "MON",
+            "isAustralian": false
+          },
+          {
+            "playerId": "competitor:tennis:atp:sadio-doumbia",
+            "name": "Sadio DOUMBIA",
+            "ranking": null,
+            "nationalityCode": "FRA",
+            "isAustralian": false
+          }
+        ],
+        "venue": "Lindner Family Tennis Center",
+        "court": "TONY TRABERT STADIUM 3",
+        "courtSequence": 2,
+        "scheduledSequence": 6,
+        "timing": {
+          "type": "followed_by",
+          "label": "Followed by",
+          "localTime": null
+        },
+        "narrativeSignals": [],
+        "matchId": "match:tennis:tournament-tennis-joint-cincinnati-open-2026:atp:competitor-tennis-atp-hugo--competitor-tennis-atp-sadio-doumbia",
+        "scheduleDate": "2026-08-21",
+        "scheduledAtUtc": null,
+        "selection": {
+          "score": 10,
+          "components": {
+            "roundImportance": 6,
+            "playerRankings": 4,
+            "australianInterest": 0,
+            "narrative": 0
+          },
+          "reasons": [
+            "unknown importance"
+          ]
+        }
+      },
+      {
+        "tour": "ATP",
+        "round": "unknown",
+        "players": [
+          {
             "playerId": "competitor:tennis:atp:lorenzo-musetti",
             "name": "Lorenzo Musetti",
             "ranking": 15,
@@ -204,9 +339,9 @@
           }
         ],
         "venue": "Lindner Family Tennis Center",
-        "court": "GRANDSTAND",
-        "courtSequence": 2,
-        "scheduledSequence": 4,
+        "court": "TONY TRABERT STADIUM 3",
+        "courtSequence": 3,
+        "scheduledSequence": 7,
         "timing": {
           "type": "not_before",
           "label": "Not before 7:00 PM",
@@ -250,9 +385,9 @@
           }
         ],
         "venue": "Lindner Family Tennis Center",
-        "court": "GRANDSTAND",
-        "courtSequence": 3,
-        "scheduledSequence": 5,
+        "court": "TONY TRABERT STADIUM 3",
+        "courtSequence": 4,
+        "scheduledSequence": 8,
         "timing": {
           "type": "not_before",
           "label": "Not before 8:30 PM",
@@ -11002,7 +11137,7 @@
     {
       "matchId": "match:tennis:tournament-tennis-joint-cincinnati-open-2026:wta:competitor-tennis-wta-elena-rybakina--competitor-tennis-wta-iga-swiatek",
       "tour": "WTA",
-      "round": "unknown",
+      "round": "qualifying",
       "venue": "Lindner Family Tennis Center",
       "court": "P&G Stadium Court",
       "courtSequence": 4,
@@ -11032,15 +11167,15 @@
       },
       "narrativeSignals": [],
       "selection": {
-        "score": 10,
+        "score": 8,
         "components": {
-          "roundImportance": 6,
+          "roundImportance": 4,
           "playerRankings": 4,
           "australianInterest": 0,
           "narrative": 0
         },
         "reasons": [
-          "unknown importance"
+          "qualifying importance"
         ]
       }
     },
@@ -13664,18 +13799,78 @@
       "sourceRecordId": "MS004",
       "reliabilityRank": 1,
       "retrievedAt": "2026-08-20T22:43:38.949Z"
+    },
+    "match:tennis:tournament-tennis-joint-cincinnati-open-2026:atp:competitor-tennis-atp-arthur-fils--competitor-tennis-atp-thiago-agustin-tirante": {
+      "status": "completed",
+      "score": "3-6 2-6",
+      "winnerPlayerId": "competitor:tennis:atp:arthur-fils",
+      "sourceUrl": "https://tennis-feeds.rain-digital.ca/get/atp/cincinnati/draws",
+      "sourceTrust": "verified",
+      "sourceName": "Cincinnati Open",
+      "sourceRecordId": "MS005",
+      "reliabilityRank": 1,
+      "retrievedAt": "2026-08-21T12:43:57.614Z"
+    },
+    "match:tennis:tournament-tennis-joint-cincinnati-open-2026:wta:competitor-tennis-wta-amanda-anisimova--competitor-tennis-wta-jessica-pegula": {
+      "status": "completed",
+      "score": "4-6 6-2 6-7",
+      "winnerPlayerId": "competitor:tennis:wta:jessica-pegula",
+      "sourceUrl": "https://tennis-feeds.rain-digital.ca/get/wta/cincinnati/draws",
+      "sourceTrust": "verified",
+      "sourceName": "Cincinnati Open",
+      "sourceRecordId": "LS006",
+      "reliabilityRank": 1,
+      "retrievedAt": "2026-08-21T12:43:57.614Z"
+    },
+    "match:tennis:tournament-tennis-joint-cincinnati-open-2026:wta:competitor-tennis-wta-elena-rybakina--competitor-tennis-wta-iga-swiatek": {
+      "status": "completed",
+      "score": "4-1",
+      "winnerPlayerId": "competitor:tennis:wta:iga-swiatek",
+      "sourceUrl": "https://tennis-feeds.rain-digital.ca/get/wta/cincinnati/draws",
+      "sourceTrust": "verified",
+      "sourceName": "Cincinnati Open",
+      "sourceRecordId": "LS007",
+      "reliabilityRank": 1,
+      "retrievedAt": "2026-08-21T12:43:57.614Z"
     }
   },
   "resultAvailability": {
     "status": "available",
-    "checkedAt": "2026-08-20T22:43:38.949Z",
-    "sourceUrl": "https://tennis-feeds.rain-digital.ca/get/atp/cincinnati/draws",
-    "lastCheck": "parsed",
-    "sourceTrust": "verified"
+    "checkedAt": "2026-08-21T12:44:44.314Z",
+    "sourceUrl": null,
+    "lastCheck": "no_parseable_completed_results"
   },
   "reporting": {
-    "checkedAt": "2026-08-20T22:43:38.949Z",
+    "checkedAt": "2026-08-21T12:44:44.314Z",
     "items": [
+      {
+        "itemId": "reporting:cincinnati:262f08c6bbd166051bca",
+        "kind": "commentary",
+        "title": "Day 10: Best of photos",
+        "sourceName": "Cincinnati Open",
+        "sourceUrl": "https://cincinnatiopen.com/news/day-10-best-of-photos/",
+        "sourceTrust": "verified",
+        "reliabilityRank": 1,
+        "sourceRecordId": "wp:13388",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
+        "publishedAt": "2026-08-21T02:44:16.000Z",
+        "scheduleDate": "2026-08-20",
+        "matchIds": []
+      },
+      {
+        "itemId": "reporting:cincinnati:49c277ec222b0b2b5275",
+        "kind": "commentary",
+        "title": "Tracy Austin: &#8216;What a great sport we have&#8217;",
+        "sourceName": "Cincinnati Open",
+        "sourceUrl": "https://cincinnatiopen.com/news/tracy-austin-what-a-great-sport-we-have/",
+        "sourceTrust": "verified",
+        "reliabilityRank": 1,
+        "sourceRecordId": "wp:13371",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
+        "publishedAt": "2026-08-20T22:44:58.000Z",
+        "scheduleDate": "2026-08-20",
+        "matchIds": []
+      },
       {
         "itemId": "reporting:cincinnati:a33214ac8ad4381f2fcf",
         "kind": "commentary",
@@ -13685,7 +13880,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13370",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-20T22:31:04.000Z",
         "scheduleDate": "2026-08-20",
         "matchIds": []
@@ -13699,7 +13894,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13359",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-20T17:56:11.000Z",
         "scheduleDate": "2026-08-20",
         "matchIds": []
@@ -13713,7 +13908,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13293",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-20T13:03:48.000Z",
         "scheduleDate": "2026-08-20",
         "matchIds": []
@@ -13727,7 +13922,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13308",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-20T03:00:00.000Z",
         "scheduleDate": "2026-08-19",
         "matchIds": []
@@ -13741,7 +13936,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13150",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-19T16:26:25.000Z",
         "scheduleDate": "2026-08-19",
         "matchIds": []
@@ -13755,7 +13950,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13157",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-19T16:13:09.000Z",
         "scheduleDate": "2026-08-19",
         "matchIds": []
@@ -13769,7 +13964,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13145",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-19T15:38:12.000Z",
         "scheduleDate": "2026-08-19",
         "matchIds": []
@@ -13783,7 +13978,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13117",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T22:09:40.000Z",
         "scheduleDate": "2026-08-18",
         "matchIds": [
@@ -13800,7 +13995,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13116",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T20:37:00.000Z",
         "scheduleDate": "2026-08-18",
         "matchIds": [
@@ -13816,7 +14011,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13110",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T18:19:29.000Z",
         "scheduleDate": "2026-08-18",
         "matchIds": []
@@ -13830,7 +14025,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13098",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T16:52:31.000Z",
         "scheduleDate": "2026-08-18",
         "matchIds": []
@@ -13844,7 +14039,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13037",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T15:50:50.000Z",
         "scheduleDate": "2026-08-18",
         "matchIds": []
@@ -13858,7 +14053,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13017",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T03:06:00.000Z",
         "scheduleDate": "2026-08-17",
         "matchIds": []
@@ -13872,7 +14067,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:13042",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-18T02:39:00.000Z",
         "scheduleDate": "2026-08-17",
         "matchIds": []
@@ -13886,7 +14081,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:12995",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-17T20:39:49.000Z",
         "scheduleDate": "2026-08-17",
         "matchIds": []
@@ -13900,7 +14095,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:12985",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-17T17:04:13.000Z",
         "scheduleDate": "2026-08-17",
         "matchIds": []
@@ -13914,7 +14109,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:12982",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-17T16:58:33.000Z",
         "scheduleDate": "2026-08-17",
         "matchIds": []
@@ -13928,7 +14123,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:12887",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-17T02:36:31.000Z",
         "scheduleDate": "2026-08-16",
         "matchIds": []
@@ -13987,7 +14182,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:12702",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-08-15T22:27:17.000Z",
         "scheduleDate": "2026-08-15",
         "matchIds": []
@@ -14001,7 +14196,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10817",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-06-16T16:47:15.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14015,7 +14210,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10594",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-03-31T19:57:44.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14029,7 +14224,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10446",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2026-02-02T16:54:57.000Z",
         "scheduleDate": null,
         "matchIds": [
@@ -14048,7 +14243,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10315",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-12-18T16:30:23.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14062,7 +14257,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10271",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-12-04T18:24:42.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14076,7 +14271,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10148",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-10-02T15:15:11.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14090,7 +14285,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10157",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-10-01T21:01:33.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14104,7 +14299,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10130",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-09-16T15:51:17.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14118,7 +14313,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10117",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-09-12T19:01:08.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14132,7 +14327,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:10071",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-09-05T20:16:27.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14146,7 +14341,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:9965",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-08-19T02:29:00.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14160,7 +14355,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:9956",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-08-18T21:22:05.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14174,7 +14369,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:9922",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-08-18T02:29:23.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14188,7 +14383,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:8410",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-07-16T13:51:30.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14202,7 +14397,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:7893",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2025-06-11T21:27:27.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14216,7 +14411,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:6794",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2024-12-16T21:31:58.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14230,7 +14425,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:6509",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2024-09-10T18:14:44.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14244,7 +14439,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:6488",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2024-08-29T18:37:18.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14258,7 +14453,7 @@
         "sourceTrust": "verified",
         "reliabilityRank": 1,
         "sourceRecordId": "wp:6378",
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": "2024-08-23T13:43:45.000Z",
         "scheduleDate": null,
         "matchIds": []
@@ -14271,7 +14466,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4562793/kostyuk-takes-12-of-last-14-games-to-oust-andreeva-in-cincinnati",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14284,7 +14479,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563421/cincinnati-post-match-interview-r16-sara-bejlek-english_digital-download_m51633",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": [
@@ -14305,7 +14500,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563163/bejlek-upsets-no-1-sabalenka-to-advance-to-first-wta-1000-quarterfinal-in-cincinnati",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14318,7 +14513,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4562936/anisimova-scores-third-straight-win-over-noskova-to-reach-cincinnati-quarters",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14331,7 +14526,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4562632/swiatek-defeats-parry-in-straight-sets-to-make-cincinnati-quarters",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14344,7 +14539,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563931/hsieh-ostapenko-take-out-no-5-seeds-mladenovic-guo",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14357,7 +14552,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563914/pegula-stumps-anisimova-again-takes-third-set-tiebreak-to-reach-cincinnati-semis",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14370,7 +14565,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563138/fresh-off-biggest-win-of-career-bejlek-addresses-late-night-cincinnati-crowd",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14383,7 +14578,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4562831/pegula-holds-off-cirstea-in-cincinnati-round-of-16",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14396,7 +14591,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563423/cincinnati-post-match-interview-r16-jessica-pegula_digital-download_m51625",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": [
@@ -14427,7 +14622,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563161/hot-shot_-aryna-sabalenka-wins-battle-of-the-angles-in-cincinnati",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": [
@@ -14444,7 +14639,7 @@
         "sourceUrl": "https://www.wtatennis.com/tournaments/1017/cincinnati/2026/scores",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14457,7 +14652,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4562897/rybakina-returns-to-cincinnati-quarters-for-third-time-with-win-over-shnaider",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14470,7 +14665,7 @@
         "sourceUrl": "https://www.wtatennis.com/videos/4563075/keys-returns-to-final-eight-in-cincinnati",
         "sourceTrust": "verified",
         "reliabilityRank": 2,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14483,7 +14678,7 @@
         "sourceUrl": "https://www.espn.com/tennis/scoreboard/tournament/_/eventId/718-2026/competitionType/1",
         "sourceTrust": "unverified",
         "reliabilityRank": 3,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []
@@ -14496,7 +14691,7 @@
         "sourceUrl": "https://www.espn.com/tennis/scoreboard/tournament/_/eventId/718-2026/competitionType/2",
         "sourceTrust": "unverified",
         "reliabilityRank": 3,
-        "sourceCheckedAt": "2026-08-20T22:43:38.949Z",
+        "sourceCheckedAt": "2026-08-21T12:44:44.314Z",
         "publishedAt": null,
         "scheduleDate": null,
         "matchIds": []

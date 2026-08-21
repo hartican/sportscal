@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 307,
+    "canonicalEventsCompared": 686,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 6,
@@ -705,7 +705,7 @@
       "startsAt": "2026-08-21T19:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.6,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -728,11 +728,28 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.6,
         "reasonCodes": [
-          "no_catalogue_match"
+          "competition_match",
+          "start_within_15_minutes"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "epl-2026-27-128923",
+            "title": "Arsenal v Coventry City",
+            "confidence": 0.6
+          },
+          {
+            "canonicalEventId": "epl-2026-27-128924",
+            "title": "Brentford v Tottenham Hotspur",
+            "confidence": 0.45
+          },
+          {
+            "canonicalEventId": "epl-2026-27-128925",
+            "title": "Everton v Crystal Palace",
+            "confidence": 0.45
+          }
+        ]
       },
       "broadcastsAu": [
         {

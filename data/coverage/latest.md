@@ -2,7 +2,7 @@
 
 Reference date: 2026-08-21
 
-Compared 5 live/delayed listings with 307 canonical events. Found 5 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 4 high-priority recommendations.
+Compared 5 live/delayed listings with 686 canonical events. Found 5 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 4 high-priority recommendations.
 
 ## Australian source health
 
@@ -27,7 +27,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2026-08-13 | WTA 1000 | new | 0.00 | normal | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-08-15 | Formula E | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-08-16 | FA Community Shield | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-08-22 | Premier League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
+| 2026-08-22 | Premier League | new | 0.60 | high | review | Stan Sport (included) | new_catalogue_identity |
 
 ## Decision boundary
 

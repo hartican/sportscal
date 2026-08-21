@@ -1,11 +1,11 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-20T22:43:46.139Z",
+  "generatedAt": "2026-08-21T12:47:21.307Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 6,
-    "passed": 6,
+    "due": 5,
+    "passed": 5,
     "failed": 0
   },
   "cards": [
@@ -42,18 +42,17 @@
       "issues": []
     },
     {
-      "id": "nrl-raiders-broncos-2026-08-21",
-      "name": "Canberra Raiders v Brisbane Broncos",
-      "sport": "NRL",
-      "date": "2026-08-21",
+      "id": "evt_25",
+      "name": "R12 Dutch GP Race",
+      "sport": "F1",
+      "date": "2026-08-24",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
-        "current-ladder-position",
-        "head-to-head-record",
-        "late-season-stakes"
+        "Kimi Antonelli: championship leader by 50 points",
+        "Oscar Piastri: 7th on 92 points"
       ],
-      "sourceUrl": "https://www.nrl.com/ladder",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "issues": []
     },
     {
@@ -85,20 +84,6 @@
         "iconic-venue"
       ],
       "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
-      "issues": []
-    },
-    {
-      "id": "evt_25",
-      "name": "R12 Dutch GP Race",
-      "sport": "F1",
-      "date": "2026-08-24",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "Kimi Antonelli: championship leader by 50 points",
-        "Oscar Piastri: 7th on 92 points"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "issues": []
     }
   ]
