@@ -155,10 +155,11 @@
   });
   const nrlDefaultBadgeExceptions = new Set(["eels", "roosters", "titans"]);
   const cricketTeamMarks = Object.freeze({
-    "team:cricket:australia": nationalTeamMark("team:cricket:australia", "Cricket Australia", "https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg", "https://www.cricket.com.au/", ["Australia", "Australian"], "AU", {
-      logo: { backgroundLight: "dark", backgroundDark: "dark" },
-    }),
-    "team:cricket:bangladesh": nationalTeamMark("team:cricket:bangladesh", "Bangladesh Cricket Board", "https://www.tigercricket.com.bd/images/BCB-logo-Flip-360.gif", "https://www.tigercricket.com.bd/", ["Bangladesh"], "BD"),
+    // The national teams use their own compact crests rather than the Cricket
+    // Australia wordmark or BCB's animated board logo. Both sources preserve
+    // transparent artwork in the fixed matchup-logo box.
+    "team:cricket:australia": nationalTeamMark("team:cricket:australia", "Cricket Australia", "https://vignette.wikia.nocookie.net/logopedia/images/a/af/1280px-Australia_cricket_logo.svg.png/revision/latest?cb=20180103230009", "https://shop.cricket.com.au/products/odi-au-mens-2526-shirt-craumt0096", ["Australia", "Australian"], "AU"),
+    "team:cricket:bangladesh": nationalTeamMark("team:cricket:bangladesh", "Bangladesh Cricket Board", "https://www.tigercricket.com.bd/public/images/2016/12/cropped-Bangladesh-Cricket-Team-LogoW-1-192x192.png", "https://www.tigercricket.com.bd/public/", ["Bangladesh"], "BD"),
     "team:cricket:england": nationalTeamMark("team:cricket:england", "England and Wales Cricket Board", "https://resources.ecb.co.uk/ecb/document/2023/06/07/0d9368e6-932a-4bf2-90a3-509a0c4b1cc2/ECB.co.uk.png", "https://www.ecb.co.uk/", ["England"], "GB"),
     "team:cricket:new-zealand": nationalTeamMark("team:cricket:new-zealand", "New Zealand Cricket", "https://www.nzc.nz/dist/img/nzc-logo-vert-2.svg", "https://www.nzc.nz/", ["New Zealand"], "NZ"),
     "team:cricket:south-africa": nationalFlagMark("team:cricket:south-africa", "South Africa cricket", "ZA", "https://www.cricket.co.za/", ["South Africa"]),

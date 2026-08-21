@@ -65,8 +65,9 @@ const cricketResolved = identities.participantMarksForEvent({ key: "cricket" }, 
 assert.deepEqual(cricketResolved.map(item => identities.aliasRange("Australia v Bangladesh — First Test", item.participant)?.text), ["Australia", "Bangladesh"]);
 assert.equal(cricketResolved[0].mark.label, "Cricket Australia");
 assert.equal(cricketResolved[1].mark.label, "Bangladesh Cricket Board");
-assert.match(cricketResolved[0].mark.url, /^https:\/\/resources\.cricket-australia\.pulselive\.com\//);
-assert.match(cricketResolved[1].mark.url, /^https:\/\/www\.tigercricket\.com\.bd\//);
+assert.match(cricketResolved[0].mark.url, /^https:\/\/vignette\.wikia\.nocookie\.net\/logopedia\/images\/a\/af\/1280px-Australia_cricket_logo\.svg\.png\//, "Australia must use the national team coat-of-arms crest rather than a Cricket Australia wordmark");
+assert.match(cricketResolved[1].mark.url, /^https:\/\/www\.tigercricket\.com\.bd\/public\/images\/2016\/12\/cropped-Bangladesh-Cricket-Team-LogoW-1-192x192\.png$/, "Bangladesh must use the official men's tiger crest rather than the board animation");
+assert.notEqual(cricketResolved[0].mark.url, cricketResolved[1].mark.url, "Australia and Bangladesh must retain clearly distinct team identities");
 
 const rugbyCases = [
   ["Australia v Ireland", ["Wallabies", "Ireland"]],
