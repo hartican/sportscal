@@ -18,6 +18,7 @@ assert.equal(feed.normaliseFeedIntent("focused"), "focused");
 assert.equal(feed.normaliseFeedIntent("unknown"), "balanced");
 assert.equal(feed.normaliseMustWatchAction({ mustWatch: true }, queueFuture, now).mustWatchAddedAt, now.toISOString());
 assert.equal(feed.isRetainedMustWatch(queuePast, actionFor(queuePast), now), true, "past Must Watch cards stay for three days");
+assert.equal(feed.isRetainedMustWatch({ id: "multi-day", date: "2026-08-08", endDate: "2026-08-23", time: "09:00" }, { mustWatch: true }, now), true, "multi-day Must Watch retention starts after the final day");
 assert.equal(feed.isRetainedMustWatch({ id: "expired", date: "2026-08-14", time: "12:00" }, { mustWatch: true }, now), false, "expired Must Watch cards leave the queue");
 assert.deepEqual(feed.queueEvents([queueFuture, queuePast], actionFor, now).map(event => event.id), ["queue-past", "queue-future"], "Must Watch is chronological");
 assert.deepEqual(feed.splitTimeline([past, queueFuture, queuePast, today, future], actionFor, now), {

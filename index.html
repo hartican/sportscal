@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="97">
+<meta name="app-shell-version" content="98">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -4550,6 +4550,32 @@ footer.app-footer{
 .joint-tournament-tables .standings-module{ margin-bottom:10px; }
 .joint-tournament-card > .event-quick-must-watch{ margin:0 16px 14px; }
 .joint-tournament-card .must-watch-new-label{ display:inline-block; margin:5px 0 0; }
+.multi-day-mini{
+  width:100%;
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 14px;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 38%, var(--border));
+  border-radius:12px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 6%, var(--bg-card));
+  color:var(--text);
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+.multi-day-mini:hover,
+.multi-day-mini:focus-visible{
+  border-color:color-mix(in srgb, var(--sport-color, var(--accent)) 78%, var(--border));
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 10%, var(--bg-card));
+}
+.multi-day-mini:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.multi-day-mini-copy{ min-width:0; display:flex; flex-direction:column; gap:3px; }
+.multi-day-mini-copy strong{ font-size:0.78rem; }
+.multi-day-mini-copy span{ color:var(--text-dim); font-size:0.68rem; }
+.multi-day-mini-link{ flex:0 0 auto; color:var(--sport-color, var(--accent)); font-size:0.68rem; font-weight:850; }
 .joint-match-list{ display:flex; flex-direction:column; }
 .joint-match{
   display:grid;
@@ -7321,6 +7347,13 @@ function fmtDateHeading(dateStr){
 }
 
 function getEventStatus(ev){
+  const multiDayWindow = multiDayEventWindow(ev);
+  if (multiDayWindow){
+    const today = formatDateKey(nowAEST());
+    if (today < multiDayWindow.startDate) return "upcoming";
+    if (today <= multiDayWindow.endDate) return "live";
+    return "past";
+  }
   const start = eventDateTime(ev);
   const now = nowAEST();
   const liveWindowMs = (ev.liveWindow || 3) * 3600 * 1000;
@@ -8038,6 +8071,84 @@ function dayDateLabel(dateStr){
 
 function eventDateLabel(ev){
   return ev.displayDateLabel || dayDateLabel(ev.date);
+}
+
+function multiDayEventWindow(ev){
+  const startDate = String(ev?.startDate || ev?.date || "");
+  const endDate = String(ev?.endDate || "");
+  if (!/^20\d{2}-\d{2}-\d{2}$/.test(startDate) || !/^20\d{2}-\d{2}-\d{2}$/.test(endDate) || endDate <= startDate) return null;
+  return { startDate, endDate };
+}
+
+function multiDayEventDateKeys(ev){
+  const window = multiDayEventWindow(ev);
+  if (!window) return [];
+  const dates = [];
+  const cursor = new Date(`${window.startDate}T00:00:00Z`);
+  const end = new Date(`${window.endDate}T00:00:00Z`);
+  while (cursor <= end){
+    dates.push(cursor.toISOString().slice(0, 10));
+    cursor.setUTCDate(cursor.getUTCDate() + 1);
+  }
+  return dates;
+}
+
+function multiDayEventDateRangeLabel(ev){
+  const window = multiDayEventWindow(ev);
+  if (!window) return eventDateLabel(ev);
+  const start = new Date(`${window.startDate}T00:00:00Z`);
+  const end = new Date(`${window.endDate}T00:00:00Z`);
+  const month = new Intl.DateTimeFormat("en-AU", { month: "short", timeZone: "UTC" });
+  const sameMonth = start.getUTCFullYear() === end.getUTCFullYear() && start.getUTCMonth() === end.getUTCMonth();
+  const sameYear = start.getUTCFullYear() === end.getUTCFullYear();
+  if (sameMonth) return `${start.getUTCDate()}–${end.getUTCDate()} ${month.format(end)} ${end.getUTCFullYear()}`;
+  if (sameYear) return `${start.getUTCDate()} ${month.format(start)}–${end.getUTCDate()} ${month.format(end)} ${end.getUTCFullYear()}`;
+  return `${start.getUTCDate()} ${month.format(start)} ${start.getUTCFullYear()}–${end.getUTCDate()} ${month.format(end)} ${end.getUTCFullYear()}`;
+}
+
+function multiDayPrimaryCardId(ev){
+  if (ev?.tournamentParent && String(ev.eventId || ev.id).includes("cincinnati-open")) return "cincinnatiTournamentCard";
+  return `multiDayPrimary-${String(ev?.eventId || ev?.id || "event").replace(/[^a-z0-9_-]+/gi, "-")}`;
+}
+
+function focusMultiDayPrimary(ev){
+  const primary = document.getElementById(multiDayPrimaryCardId(ev));
+  if (!primary) return false;
+  const top = window.scrollY + primary.getBoundingClientRect().top - stickyFeedChromeHeight() - 14;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  window.setTimeout(() => {
+    const focusTarget = primary.querySelector(".joint-tournament-head") || primary;
+    if (!focusTarget.hasAttribute("tabindex")) focusTarget.setAttribute("tabindex", "-1");
+    focusTarget.focus?.({ preventScroll: true });
+  }, 280);
+  return true;
+}
+
+function buildMultiDayContinuationCard(ev, date){
+  const dates = multiDayEventDateKeys(ev);
+  const dayIndex = dates.indexOf(date);
+  if (dayIndex < 1) return null;
+  const meta = SPORT_META[ev.key] || { color: "var(--accent)" };
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "multi-day-mini";
+  card.dataset.eventId = ev.eventId || ev.id;
+  card.dataset.primaryTarget = multiDayPrimaryCardId(ev);
+  card.style.setProperty("--sport-color", meta.color);
+  card.setAttribute("aria-label", `Day ${dayIndex + 1} of ${ev.name}. Go to the primary event card.`);
+  const copy = document.createElement("span");
+  copy.className = "multi-day-mini-copy";
+  const title = document.createElement("strong");
+  title.textContent = ev.name;
+  const detail = document.createElement("span");
+  detail.textContent = `Day ${dayIndex + 1} · ${dayDateLabel(date)}`;
+  copy.append(title, detail);
+  const link = document.createElement("span");
+  link.className = "multi-day-mini-link";
+  link.textContent = "Primary card ↑";
+  card.append(copy, link);
+  card.addEventListener("click", () => focusMultiDayPrimary(ev));
+  return card;
 }
 
 function eventLocationLabel(ev){
@@ -8988,6 +9099,12 @@ function eventMeetsDerivedRetention(ev, reference = nowAEST()){
   const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
     ? new Date(reference.getTime())
     : nowAEST();
+  const multiDayWindow = multiDayEventWindow(ev);
+  if (multiDayWindow){
+    const referenceDate = formatDateKey(effectiveReference);
+    if (referenceDate <= multiDayWindow.endDate) return true;
+    ev = { ...ev, date: multiDayWindow.endDate };
+  }
   return CARD_LIFECYCLE
     ? CARD_LIFECYCLE.isWithinRetention(ev, effectiveReference, { action: getEventAction(ev) })
     : true;
@@ -9747,6 +9864,7 @@ function buildEventCard(ev, options = {}){
     swipeEligible ? "is-swipe-eligible" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
+  if (multiDayEventWindow(ev)) card.id = multiDayPrimaryCardId(ev);
   card.dataset.cardMode = mode;
   card.dataset.feedBucket = presentation.feedBucket;
   card.dataset.cardVariant = enrichment.cardVariant;
@@ -9801,7 +9919,7 @@ function buildEventCard(ev, options = {}){
     dateLine.className = "event-date-line";
     const dateChip = document.createElement("div");
     dateChip.className = "event-date-chip";
-    dateChip.textContent = `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+    dateChip.textContent = `${multiDayEventDateRangeLabel(ev)} · ${eventTimeLabel(ev)}`;
     dateLine.appendChild(dateChip);
     const ticketUrl = (localGame || ev.ticketUrl || ev.ticketsUrl) ? preferredTicketUrlForEvent(ev) : null;
     if (ticketUrl){
@@ -10678,7 +10796,7 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   const tournamentAction = tournamentEvent ? getEventAction(tournamentEvent) : null;
   const isNewMustWatch = mode === "must-watch-queue" && tournamentAction?.mustWatch && !tournamentAction.mustWatchSeenAt;
   card.className = ["joint-tournament-card", `mode-${mode}`, isNewMustWatch ? "is-must-watch-new" : ""].filter(Boolean).join(" ");
-  card.id = "cincinnatiTournamentCard";
+  card.id = multiDayPrimaryCardId(tournamentEvent);
   card.dataset.tournamentId = spoilerView.tournament.tournamentId;
   const head = globalThis.document.createElement("header");
   head.className = "joint-tournament-head";
@@ -10741,6 +10859,8 @@ function jointTournamentFeedEvent(document = jointTournamentData){
     sport: "Tennis",
     name: tournament.name,
     date: tournament.startDate,
+    startDate: tournament.startDate,
+    endDate: tournament.endDate,
     time: "00:00",
     stakesScore: 5,
     expected: 9,
@@ -10752,6 +10872,20 @@ function jointTournamentFeedEvent(document = jointTournamentData){
 function jointTournamentIsMustWatch(document = jointTournamentData){
   const tournamentEvent = jointTournamentFeedEvent(document);
   return Boolean(tournamentEvent && getEventAction(tournamentEvent).mustWatch);
+}
+
+function jointTournamentFollowedPlayerIds(document = jointTournamentData){
+  const playerIds = new Set(jointTournamentAddressableMatches(document)
+    .flatMap(match => match.players || [])
+    .map(player => player.playerId)
+    .filter(Boolean));
+  return (userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(item => ["follow", "priority"].includes(item.followLevel) && playerIds.has(item.participantId))
+    .map(item => item.participantId);
+}
+
+function jointTournamentHasFollowedPlayer(document = jointTournamentData){
+  return jointTournamentFollowedPlayerIds(document).length > 0;
 }
 
 function buildJointTournamentMustWatchAction(document = jointTournamentData){
@@ -10790,6 +10924,7 @@ function jointTournamentShouldSurface(document = jointTournamentData){
   if (!tournamentEvent) return false;
   const focused = activeFilter !== "all";
   if (focused) return feedFilterMatchesEvent(activeFilter, tournamentEvent);
+  if (jointTournamentHasFollowedPlayer(document)) return true;
   ensureDiscoverySessionInclusion();
   if (!discoverySessionIncludedSportIds.includes("sport:tennis")) return false;
   if (getEventAction(tournamentEvent).mustWatch) return true;
@@ -10799,10 +10934,16 @@ function jointTournamentShouldSurface(document = jointTournamentData){
     : profile.eligible;
 }
 
-function appendJointTournamentCard(container){
-  if (!jointTournamentShouldSurface()) return false;
-  const card = buildJointTournamentCard(jointTournamentData);
+function appendJointTournamentTimelineCard(container, date, tournamentDocument = jointTournamentData){
+  if (!jointTournamentShouldSurface(tournamentDocument) || jointTournamentIsMustWatch(tournamentDocument)) return false;
+  const tournamentEvent = jointTournamentFeedEvent(tournamentDocument);
+  const window = multiDayEventWindow(tournamentEvent);
+  if (!window || date < window.startDate || date > window.endDate) return false;
+  const card = date === window.startDate
+    ? buildJointTournamentCard(tournamentDocument)
+    : buildMultiDayContinuationCard(tournamentEvent, date);
   if (!card) return false;
+  if (date === window.startDate) card.classList.add("joint-tournament-suggestion");
   container.appendChild(card);
   return true;
 }
@@ -11006,9 +11147,10 @@ function renderListView(){
     today: filtered.filter(event => event.date === todayStr),
     future: filtered.filter(event => event.date > todayStr),
   };
-  const appendDateGroups = events => {
+  const appendDateGroups = (events, multiDayEntries = []) => {
     const groups = groupEventsByDate(events);
-    Object.keys(groups).sort().forEach(dateStr => {
+    const dateKeys = [...new Set([...Object.keys(groups), ...multiDayEntries.map(entry => entry.date)])].sort();
+    dateKeys.forEach(dateStr => {
       const groupDiv = document.createElement("div");
       groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
       const heading = document.createElement("div");
@@ -11016,13 +11158,33 @@ function renderListView(){
       heading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
       const grid = document.createElement("div");
       grid.className = "cards-grid";
-      orderCuratedDayEvents(groups[dateStr]).forEach(event => grid.appendChild(buildEventCard(event)));
+      orderCuratedDayEvents(groups[dateStr] || []).forEach(event => grid.appendChild(buildEventCard(event)));
+      multiDayEntries.filter(entry => entry.date === dateStr).forEach(entry => {
+        if (entry.jointTournament && entry.primary){
+          appendJointTournamentTimelineCard(grid, dateStr, jointTournamentData);
+          return;
+        }
+        const mini = buildMultiDayContinuationCard(entry.event, dateStr);
+        if (mini) grid.appendChild(mini);
+      });
       groupDiv.append(heading, grid);
       container.appendChild(groupDiv);
     });
   };
 
-  appendDateGroups(timeline.retainedPast);
+  const multiDayEntries = filtered.flatMap(event => multiDayEventDateKeys(event)
+    .slice(1)
+    .map(date => ({ date, event, primary: false, jointTournament: false })));
+  if (jointTournamentShouldSurface()){
+    const tournamentEvent = jointTournamentFeedEvent();
+    multiDayEventDateKeys(tournamentEvent).forEach((date, index) => {
+      if (index === 0 && jointTournamentIsMustWatch()) return;
+      multiDayEntries.push({ date, event: tournamentEvent, primary: index === 0, jointTournament: true });
+    });
+  }
+  const multiDayEntriesFor = predicate => multiDayEntries.filter(entry => predicate(entry.date));
+
+  appendDateGroups(timeline.retainedPast, multiDayEntriesFor(date => date < todayStr));
   appendManualMustWatchQueue(container, timeline.mustWatch);
 
   let todayAnchorInserted = false;
@@ -11040,12 +11202,8 @@ function renderListView(){
   };
 
   appendTodayAnchor();
-  appendDateGroups(timeline.today);
-  if (!jointTournamentIsMustWatch() && appendJointTournamentCard(container)){
-    const cincinnatiCard = document.getElementById("cincinnatiTournamentCard");
-    cincinnatiCard?.classList.add("joint-tournament-suggestion");
-  }
-  appendDateGroups(timeline.future);
+  appendDateGroups(timeline.today, multiDayEntriesFor(date => date === todayStr));
+  appendDateGroups(timeline.future, multiDayEntriesFor(date => date > todayStr));
   if (!filtered.length && !focusedArchived.length){
     const empty = document.createElement("div");
     empty.className = "empty-state";

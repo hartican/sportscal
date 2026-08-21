@@ -100,6 +100,9 @@ assert.equal(torontoCards.length, 1, "Toronto must generate one active tournamen
 assert.equal(torontoCards[0].key, "tennis");
 assert.equal(torontoCards[0].taxonomySportId, "sport:tennis");
 assert.equal(torontoCards[0].taxonomyCompetitionId, "competition:wta-tour");
+assert.equal(torontoCards[0].date, toronto.startDate, "multi-day tournament primaries must stay anchored to day one");
+assert.equal(torontoCards[0].startDate, toronto.startDate);
+assert.equal(torontoCards[0].endDate, toronto.endDate, "multi-day tournament cards must carry the full window for daily continuation cards");
 assert.equal(torontoCards[0].sourceUrl, "https://www.wtatennis.com/tournaments/806/toronto/2026");
 assert.equal(torontoCards[0].editorialPreview.status, "journalistic", "active tournament overview cards inside the editorial window need source-backed preview metadata");
 assert(torontoCards[0].editorialPreview.contextSignals.includes("closing-day"));

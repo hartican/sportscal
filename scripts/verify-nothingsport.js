@@ -357,8 +357,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v97"'), "the standalone tournament-match release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="97">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v98"'), "the multi-day tournament release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="98">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -540,8 +540,11 @@ assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event
 assert(html.includes('<script src="config/storyline-overrides.js"></script>'), "the editorial override registry must load before the enrichment engine");
 assert(html.includes('function appendManualMustWatchQueue'), "the curated feed must expose a manual Must Watch queue");
 assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial premium selections must not displace the chronological feed");
-assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentCard(container)"), "Cincinnati must appear as a normal eligible Tennis suggestion rather than an automatic top pin");
-assert(html.includes("function buildJointTournamentMustWatchAction") && html.includes("!jointTournamentIsMustWatch() && appendJointTournamentCard"), "Cincinnati must move into the chronological Must Watch queue only after a manual action");
+assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentTimelineCard(grid, dateStr"), "Cincinnati must appear inside the dated multi-day timeline rather than as an automatic top pin");
+assert(html.includes("function jointTournamentHasFollowedPlayer") && html.includes("if (jointTournamentHasFollowedPlayer(document)) return true"), "following a Cincinnati player must make the parent tournament timeline eligible");
+assert(html.includes("function multiDayEventWindow") && html.includes("function multiDayEventDateKeys") && html.includes("function buildMultiDayContinuationCard"), "all future multi-day events must use the shared primary-and-continuation card template");
+assert(html.includes("multiDayEventDateRangeLabel(ev)") && html.includes("focusMultiDayPrimary(ev)"), "multi-day primary cards must show the full date range and continuation cards must return to them");
+assert(html.includes("function buildJointTournamentMustWatchAction") && html.includes("jointTournamentIsMustWatch()"), "Cincinnati must move into the chronological Must Watch queue only after a manual action");
 assert(html.includes('buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" })'), "the combined Cincinnati parent must render inside the manual queue without splitting ATP and WTA cards");
 assert(html.includes("function jointTournamentMustWatchMatchEvents"), "manually selected tournament matches must be promoted into the main feed as standalone events");
 assert(html.includes("const filtered = [...getFilteredEvents(), ...jointTournamentMustWatchMatchEvents()]"), "standalone tournament picks must enter the same chronological feed timeline as normal cards");

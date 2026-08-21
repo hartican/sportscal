@@ -28,6 +28,15 @@
     return Number.isNaN(parsed.getTime()) ? null : parsed;
   }
 
+  function eventEnd(event){
+    const endDate = String(event?.endDate || "");
+    if (/^20\d{2}-\d{2}-\d{2}$/.test(endDate)){
+      const parsed = new Date(`${endDate}T23:59:59`);
+      if (!Number.isNaN(parsed.getTime())) return parsed;
+    }
+    return eventStart(event);
+  }
+
   function normaliseMustWatchAction(action = {}, event, now = new Date()){
     const enabled = Boolean(action.mustWatch);
     const addedAt = enabled
@@ -49,11 +58,11 @@
 
   function isRetainedMustWatch(event, action, now = new Date()){
     if (!action?.mustWatch) return false;
-    const start = eventStart(event);
-    if (!start) return true;
+    const end = eventEnd(event);
+    if (!end) return true;
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return true;
-    return reference.getTime() <= start.getTime() + POST_EVENT_RETENTION_MS;
+    return reference.getTime() <= end.getTime() + POST_EVENT_RETENTION_MS;
   }
 
   function queueEvents(events, actionForEvent, now = new Date()){

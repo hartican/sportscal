@@ -39,7 +39,7 @@ function tournamentToCard(tournament, referenceDate){
   const levelLabel = displayLevel(tournament.level);
   const tourLabel = tournament.tour === "BOTH" || tournament.tour === "TEAM" ? levelLabel : `${tournament.tour} ${levelLabel.replace(/^ATP |^WTA /, "")}`;
   const compactTitle = `${tournament.name} — ${tourLabel}`;
-  const id = `tennis-tournament-${tournament.tournamentId.replace(/^tournament:tennis:/, "")}-${referenceDate}`;
+  const id = `tennis-tournament-${tournament.tournamentId.replace(/^tournament:tennis:/, "")}-${tournament.startDate}`;
   const tourName = tournament.tour === "ATP" ? "men's" : tournament.tour === "WTA" ? "women's" : "combined";
   const surfaceLabel = tournament.surface === "hard" ? "hard-court" : `${tournament.surface}-court`;
   const activeCopy = tournament.endDate === referenceDate
@@ -72,7 +72,9 @@ function tournamentToCard(tournament, referenceDate){
     cardType: "tournament_overview",
     name: compactTitle,
     displayTitleCompact: compactTitle.slice(0, 80),
-    date: referenceDate,
+    date: tournament.startDate,
+    startDate: tournament.startDate,
+    endDate: tournament.endDate,
     time: "09:00",
     timeTbc: true,
     displayTimeLabel: "Daily order of play",
