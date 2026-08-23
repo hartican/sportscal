@@ -7559,13 +7559,14 @@ async function loadMajorEventsData(){
   if (majorEventsLoading) return null;
   majorEventsLoading = true;
   majorEventsError = null;
+  const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url);
   renderAll({ preserveViewport: true });
   let loadJointSchedule = false;
   try{
     let payload;
     let loadedFromStorage = false;
     try{
-      payload = await fetchJson(MAJOR_EVENTS_CONFIG.url);
+      payload = await networkRequest;
     }catch(networkError){
       payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null);
       loadedFromStorage = true;
@@ -13542,8 +13543,9 @@ function activateTopLevelTab(nextTab){
     button.classList.toggle("active", button.dataset.tab === nextTab);
   });
   if (activeTab === "feed") calendarInitialJumpPending = true;
-  renderAll();
-  if (activeTab === "events") loadMajorEventsData();
+  const shouldLoadEvents = activeTab === "events" && !majorEventsDocument && !majorEventsLoading;
+  if (shouldLoadEvents) void loadMajorEventsData();
+  else renderAll();
   if (activeTab === "standings") window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
 }
 

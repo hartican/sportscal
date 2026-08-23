@@ -81,6 +81,8 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="standings"'), "Events must sit directly after Fixtures");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
+assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
+assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
 assert(worker.includes('"/config/major-events.js"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
