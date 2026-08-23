@@ -55,6 +55,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/refresh-canonical-sports.js"],
+  ["scripts/refresh-major-events-from-canonical.js"],
   ["scripts/refresh-tennis-ranking-exports.js"],
   ["scripts/validate-tennis-ranking-refresh.js"],
   ["scripts/refresh-tennis-catalogue.js", "--enforce-freshness"],

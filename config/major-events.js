@@ -11,9 +11,11 @@
   const MARKERS = Object.freeze([
     { id: "major-event:cincinnati-open-2026", name: "Cincinnati Open", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-08", endDate: "2026-08-23", stakesScore: 5 },
     { id: "major-event:us-open-2026", name: "US Open 2026", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-23", endDate: "2026-09-13", stakesScore: 5 },
-    { id: "major-event:afl-grand-final-2026", name: "2026 AFL Grand Final", sportKey: "afl", sportKeys: ["afl"], startDate: "2026-09-26", endDate: "2026-09-26", stakesScore: 5 },
-    { id: "major-event:nrl-grand-final-2026", name: "2026 NRL Grand Final", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-10-04", endDate: "2026-10-04", stakesScore: 5 },
+    { id: "major-event:afl-finals-series-2026", name: "2026 Toyota AFL Finals Series", sportKey: "afl", sportKeys: ["afl"], startDate: "2026-08-28", endDate: "2026-09-26", stakesScore: 5, replacesFixtureIds: ["event-afl-cd_m20260142901"] },
+    { id: "major-event:nrl-finals-series-2026", name: "2026 NRL Finals Series", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-09-12", endDate: "2026-10-04", stakesScore: 5, replacesFixtureIds: ["evt_81", "evt_82", "evt_83", "evt_84"] },
     { id: "major-event:rlwc-2026", name: "Rugby League World Cup 2026", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-10-15", endDate: "2026-11-15", stakesScore: 5 },
+    { id: "major-event:nations-championship-finals-2026", name: "2026 Nations Championship Finals Weekend", sportKey: "rugby", sportKeys: ["rugby"], startDate: "2026-11-28", endDate: "2026-11-30", stakesScore: 5 },
+    { id: "major-event:uefa-champions-league-2026-27", name: "UEFA Champions League 2026/27", sportKey: "football", sportKeys: ["football"], startDate: "2026-07-07", endDate: "2027-06-05", stakesScore: 5 },
     { id: "major-event:australian-open-2027", name: "Australian Open 2027", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2027-01-11", endDate: "2027-01-31", stakesScore: 5 },
   ].map(marker => Object.freeze({ ...marker, sportKeys: Object.freeze(marker.sportKeys) })));
 
@@ -127,8 +129,11 @@
   }
 
   function markerEvents(followedSports, reference = new Date()){
+    const today = dateKey(reference);
+    const earliest = addDays(today, -PAST_WINDOW_DAYS);
+    const latest = addMonths(today, FORWARD_WINDOW_MONTHS);
     return MARKERS
-      .filter(marker => marker.stakesScore === 5 && followed(marker, followedSports) && inWindow(marker, reference))
+      .filter(marker => marker.stakesScore === 5 && followed(marker, followedSports) && marker.startDate >= earliest && marker.startDate <= latest)
       .map(marker => ({
         ...marker,
         eventId: marker.id,
@@ -140,6 +145,10 @@
         majorEventId: marker.id,
         majorEventMarker: true,
       }));
+  }
+
+  function markerReplacementFixtureIds(){
+    return MARKERS.flatMap(marker => Array.isArray(marker.replacesFixtureIds) ? marker.replacesFixtureIds : []);
   }
 
   function validateDocument(document, { reference = new Date(), verifiedTicketUrl = null } = {}){
@@ -192,5 +201,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, activeTicketing, inWindow, visibleRecords, fixtureFromSubEvent, markerEvents, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, activeTicketing, inWindow, visibleRecords, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });

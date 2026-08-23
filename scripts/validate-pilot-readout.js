@@ -11,7 +11,9 @@ const feedMeta = JSON.parse(fs.readFileSync("data/feed-meta.json", "utf8"));
 const readiness = buildReadinessReport({ canonical, feedMeta, now: new Date(feedMeta.publishedAt) });
 const participantsById = new Map(canonical.participants.map(participant => [participant.id, participant]));
 const unresolvedPlaceholders = canonical.events.filter(fixture => isUnresolvedOfficialPlaceholder(fixture, participantsById));
-assert.deepEqual(unresolvedPlaceholders.map(fixture => fixture.displayName).sort(), ["1st v 4th", "2nd v 3rd", "7th v 10th", "8th v 9th"], "official positional AFL finals placeholders must remain deferred until the participants and schedule are published");
+assert(unresolvedPlaceholders.length > 0, "official AFL finals placeholders must remain visible to the readiness contract until the participants and schedule are published");
+assert(unresolvedPlaceholders.every(fixture => fixture.sportDomainId === "sport:afl" && /final/i.test(fixture.roundLabel || "")), "only official AFL finals placeholders may defer readiness");
+assert(unresolvedPlaceholders.some(fixture => fixture.id === "event:afl:cd_m20260142603"), "the expanded AFL Elimination Final pathway must remain covered while its teams are TBC");
 const namedFixture = canonical.events.find(fixture => (
   fixture.sportDomainId === "sport:afl"
   && participantsById.get(fixture.homeParticipantId)?.teamCode !== "TBD"
@@ -24,7 +26,9 @@ assert.equal(isUnresolvedOfficialPlaceholder({
   startTimeUtc: null,
   roundLabel: "Wildcard Finals",
 }, participantsById), false, "a named-team fixture must never escape readiness merely because its time is TBC");
-assert.equal(readiness.deferredPlaceholderCount, 2, "the readiness report must expose rather than silently discard official placeholders");
+assert.equal(readiness.deferredPlaceholderCount, readiness.deferredPlaceholders.length, "the readiness report must expose rather than silently discard official placeholders in its current-round window");
+assert(readiness.deferredPlaceholders.every(fixture => unresolvedPlaceholders.some(candidate => candidate.id === fixture.id)), "every deferred current-window slot must be an official unresolved AFL final from the canonical source");
+assert(readiness.sports.afl.fixtureCount > 0 || readiness.sports.afl.deferredPlaceholderCount > 0, "AFL must retain either timed fixtures or source-backed deferred finals in its current window");
 assert.equal(readiness.ready, true, `current supported fixtures should be complete after legitimate placeholders are deferred: ${readiness.issues.join("; ")}`);
 const weeklyTsdr = [{ weekStart: "2026-08-10", denominator: 2, numerator: 1, tsdrPercent: 50 }];
 const input = inputFromReadout([{

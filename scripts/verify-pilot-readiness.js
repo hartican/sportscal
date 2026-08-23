@@ -36,7 +36,6 @@ function hasWatchDestination(fixture){
 function isUnresolvedOfficialPlaceholder(fixture, participantsById){
   if (!fixture || fixture.scheduleStatus !== "tbc" || fixture.startTimeUtc !== null) return false;
   if (fixture?.source?.sourceType !== "official") return false;
-  if (!/^(?:\d+(?:st|nd|rd|th))\s+v\s+(?:\d+(?:st|nd|rd|th))$/i.test(String(fixture.displayName || "").trim())) return false;
   if (!/finals?/i.test(String(fixture.roundLabel || ""))) return false;
   const participants = [fixture.homeParticipantId, fixture.awayParticipantId]
     .map(participantId => participantsById.get(participantId));
@@ -137,7 +136,9 @@ function buildReadinessReport({ canonical, feedMeta, now = new Date() } = {}){
       deferredPlaceholders: sportDeferredPlaceholders,
       fixtures: fixtureReports,
     };
-    if (!fixtureReports.length) issues.push(`${sportKey.toUpperCase()} has no current/next-round fixture window.`);
+    if (!fixtureReports.length && !sportDeferredPlaceholders.length){
+      issues.push(`${sportKey.toUpperCase()} has no current/next-round fixture window.`);
+    }
   }
 
   const resultCutoff = now.getTime() - RESULT_GRACE_HOURS * 3_600_000;

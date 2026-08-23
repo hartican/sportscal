@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const majorEvents = require("../config/major-events.js");
 const ticketing = require("../config/ticketing.js");
+const aflNrlCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 
 const REFERENCE = new Date("2026-08-23T12:00:00.000Z");
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
@@ -46,6 +47,40 @@ const publishedParents = catalogue.events.filter(record => record.kind !== "tick
 assert(publishedParents.some(record => record.id === "major-event:australian-open-2027"));
 assert(publishedParents.some(record => record.id === "major-event:australian-grand-prix-2027" && record.dateStatus === "tbc"));
 assert(publishedParents.some(record => record.id === "major-event:cincinnati-open-2026"), "Cincinnati must remain during its seven-day retention window");
+const aflFinals = catalogue.events.find(record => record.id === "major-event:afl-finals-series-2026");
+assert(aflFinals, "the complete AFL Finals Series must replace the lone Grand Final event");
+assert.equal(aflFinals.subEvents.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final");
+assert.equal(aflFinals.startDate, "2026-08-28");
+assert.equal(aflFinals.endDate, "2026-09-26");
+const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""));
+assert.deepEqual(aflFinals.subEvents.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Events must preserve every canonical finals placeholder");
+assert.equal(majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === "event:afl:cd_m20260142601"), aflFinals), null, "un-timed AFL finals must not materialise in Fixtures");
+const confirmedWildcard = canonicalAflFinals.find(event => /wildcard/i.test(event.roundLabel || "") && event.startTimeUtc);
+if (confirmedWildcard){
+  const materialisedWildcard = majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === confirmedWildcard.id), aflFinals);
+  assert.equal(materialisedWildcard?.startTimeUtc, confirmedWildcard.startTimeUtc, "a confirmed AFL Wildcard Final must become selectable as soon as the source publishes it");
+}
+assert.equal(majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === "event:afl:cd_m20260142901"), aflFinals).date, "2026-09-26", "the confirmed AFL Grand Final must remain selectable");
+
+const nrlFinals = catalogue.events.find(record => record.id === "major-event:nrl-finals-series-2026");
+assert(nrlFinals, "the NRL Finals Series must replace the lone Grand Final event");
+assert.equal(nrlFinals.subEvents.length, 9, "NRL must retain four first-week finals, two Semis, two Prelims and the Grand Final");
+assert(nrlFinals.subEvents.every(event => event.startTimeUtc === null), "unpublished NRL slots must not receive invented start times");
+assert.equal(majorEvents.fixtureFromSubEvent(nrlFinals.subEvents[0], nrlFinals), null, "un-timed NRL finals must not materialise in Fixtures");
+
+const rugbyFinals = catalogue.events.find(record => record.id === "major-event:nations-championship-finals-2026");
+assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
+assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Rugby placement sessions require a published label but no invented drawn fixture");
+
+const championsLeague = catalogue.events.find(record => record.id === "major-event:uefa-champions-league-2026-27");
+assert(championsLeague && championsLeague.subEvents.length === 6, "Football must retain the complete Champions League phase pathway");
+assert.equal(championsLeague.endDate, "2027-06-05");
+assert(championsLeague.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Football stages require source-published phase dates without materialising fictional fixtures");
+
+const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], REFERENCE).map(event => event.id);
+assert(markerIds.includes(aflFinals.id) && markerIds.includes(nrlFinals.id) && markerIds.includes(rugbyFinals.id), "upcoming verified series require compact Fixtures markers");
+assert(!markerIds.includes(championsLeague.id), "a long-running tournament must remain in Events after its start marker leaves the seven-day Fixtures window");
+assert.deepEqual(new Set(majorEvents.markerReplacementFixtureIds()), new Set(["event-afl-cd_m20260142901", "evt_81", "evt_82", "evt_83", "evt_84"]), "legacy weekly or lone-final placeholders must be replaced by their series marker");
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-grand-prix-2027-waitlist"));
 
@@ -89,5 +124,7 @@ assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "t
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
 assert(html.includes("addedToFixtures") && html.includes("addedFixture"), "selected match persistence must be wired into the browser state");
 assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event)'), "selected matches and parent markers must still respect an explicitly focused sport view");
+assert(html.includes("markerReplacementFixtureIds") && majorEvents.MARKERS.some(marker => Array.isArray(marker.replacesFixtureIds)), "legacy finals placeholders must be replaced by one series marker in Fixtures");
+assert(html.includes("subEvent.dateLabel") && html.includes("concrete drawn match"), "published stage dates must render without making an un-drawn match addable");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

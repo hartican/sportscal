@@ -9181,7 +9181,10 @@ function mainFeedMajorEventMarkers(){
 }
 
 function mergeMainFeedSpecialEvents(events){
-  const merged = new Map(events.map(event => [String(event.eventId || event.id), event]));
+  const replacementIds = new Set(MAJOR_EVENTS?.markerReplacementFixtureIds?.() || []);
+  const merged = new Map(events
+    .filter(event => !replacementIds.has(String(event.eventId || event.id)))
+    .map(event => [String(event.eventId || event.id), event]));
   const specialEvents = [...selectedMajorEventFixtures(), ...mainFeedMajorEventMarkers()]
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event));
   specialEvents.forEach(event => {
@@ -14373,7 +14376,7 @@ function buildMajorEventSchedule(record){
     const detail = document.createElement("span");
     detail.textContent = fixture
       ? `${eventDateLabel(fixture)} - ${eventTimeLabel(fixture)} - ${subEvent.venue || record.venue}`
-      : `${subEvent.venue || record.venue || "Venue TBC"} - Time not confirmed`;
+      : [subEvent.dateLabel, subEvent.venue || record.venue || "Venue TBC", subEvent.dateLabel ? null : "Time not confirmed"].filter(Boolean).join(" - ");
     copy.append(title, detail);
     if (subEvent.status === "completed" && subEvent.scoreDisplay && userPreferences.showSpoilers){
       const score = document.createElement("span");
@@ -14388,7 +14391,9 @@ function buildMajorEventSchedule(record){
     button.disabled = !fixture;
     button.setAttribute("aria-pressed", String(added));
     button.textContent = fixture ? (added ? "Remove from Fixtures" : "Add to Fixtures") : "Time not confirmed";
-    if (!fixture) button.title = "A published start time is required before this match can be added.";
+    if (!fixture) button.title = subEvent.dateLabel
+      ? "A concrete drawn match and published start time are required before this schedule item can be added."
+      : "A published start time is required before this match can be added.";
     button.addEventListener("click", () => {
       if (!fixture || !setMajorEventFixtureAdded(subEvent, record, !added)) return;
       renderAll({ preserveViewport: true });

@@ -16,6 +16,14 @@ assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canoni
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
 assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"), "local-only updates must still refresh canonical sports data");
+assert(localSteps.some(step => step[0] === "scripts/refresh-major-events-from-canonical.js"), "the canonical update must reconcile published AFL Finals Series slots before validating Events");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/refresh-major-events-from-canonical.js")
+    > localSteps.findIndex(step => step[0] === "scripts/refresh-canonical-sports.js")
+    && localSteps.findIndex(step => step[0] === "scripts/refresh-major-events-from-canonical.js")
+      < localSteps.findIndex(step => step[0] === "scripts/validate-major-events.js"),
+  "major event reconciliation must run after canonical sport refresh and before Events validation"
+);
 assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-ranking-exports.js"), "every canonical update must check and refresh the official public ATP/WTA ranking exports before building the catalogue");
 assert(localSteps.some(step => step[0] === "scripts/validate-tennis-ranking-refresh.js"), "every canonical update must reject truncated or structurally unsafe official ranking extraction");
 assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must rebuild the provider-neutral tennis catalogue and fail closed on stale or unconfirmed ATP/WTA ranking publications");

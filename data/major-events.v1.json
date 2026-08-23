@@ -7,7 +7,10 @@
       "kind": "tournament",
       "name": "Cincinnati Open",
       "sportKey": "tennis",
-      "sportKeys": ["tennis", "wimbledon"],
+      "sportKeys": [
+        "tennis",
+        "wimbledon"
+      ],
       "sportLabel": "Tennis",
       "competitionId": "tournament:tennis:joint:cincinnati-open:2026",
       "stakesScore": 5,
@@ -43,7 +46,10 @@
       "kind": "tournament",
       "name": "US Open 2026",
       "sportKey": "tennis",
-      "sportKeys": ["tennis", "wimbledon"],
+      "sportKeys": [
+        "tennis",
+        "wimbledon"
+      ],
       "sportLabel": "Tennis",
       "competitionId": "competition:tennis:us-open:2026",
       "stakesScore": 5,
@@ -82,57 +88,231 @@
       ]
     },
     {
-      "id": "major-event:afl-grand-final-2026",
+      "id": "major-event:afl-finals-series-2026",
       "kind": "major_event",
-      "name": "2026 AFL Grand Final",
+      "name": "2026 Toyota AFL Finals Series",
       "sportKey": "afl",
-      "sportKeys": ["afl"],
+      "sportKeys": [
+        "afl"
+      ],
       "sportLabel": "AFL",
       "competitionId": "competition:afl:premiership:2026",
       "stakesScore": 5,
       "dateStatus": "confirmed",
       "season": 2026,
-      "startDate": "2026-09-26",
+      "startDate": "2026-08-28",
       "endDate": "2026-09-26",
       "timezone": "Australia/Melbourne",
-      "venue": "Melbourne Cricket Ground",
-      "location": "Melbourne, Victoria",
-      "summary": "The 2026 AFL premiership decider at the MCG. Competing clubs and the confirmed bounce time will be added when the finals series resolves them.",
+      "venue": "Multiple venues",
+      "location": "Australia",
+      "summary": "The expanded 2026 Toyota AFL Finals Series opens with Wildcard Finals before the top-eight premiership race concludes at the MCG.",
       "details": [
-        "The Grand Final is confirmed for Saturday 26 September 2026.",
-        "No direct public seller endpoint is published in this catalogue, so the card does not display a ticket CTA."
+        "Wildcard Finals open the series: seventh plays 10th and eighth plays ninth, while the top six receive a bye into the first full week of finals.",
+        "The AFL will publish clubs, venues and kick-off times as the ladder and final-series pathway resolve.",
+        "The Grand Final is confirmed for Saturday 26 September at 2.30pm AEST at the MCG.",
+        "No exact public seller endpoint is published in this catalogue, so the card does not display a ticket CTA."
       ],
-      "subEvents": [],
+      "subEvents": [
+        {
+          "id": "event:afl:cd_m20260142501",
+          "name": "Wildcard Final - Melbourne v Carlton",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Official AFL schedule: Melbourne v Carlton at MCG."
+        },
+        {
+          "id": "event:afl:cd_m20260142502",
+          "name": "Wildcard Final - Western Bulldogs v Collingwood",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Official AFL schedule: Western Bulldogs v Collingwood at MCG."
+        },
+        {
+          "id": "event:afl:cd_m20260142601",
+          "name": "Qualifying Final 1 - 1st v 4th",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "First Qualifying Final. Teams, venue and time are pending the final ladder."
+        },
+        {
+          "id": "event:afl:cd_m20260142602",
+          "name": "Qualifying Final 2 - 2nd v 3rd",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Second Qualifying Final. Teams, venue and time are pending the final ladder."
+        },
+        {
+          "id": "event:afl:cd_m20260142603",
+          "name": "Elimination Final 1 - 5th v lowest-ranked Wildcard winner",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "First Elimination Final. Teams, venue and time are pending the Wildcard results."
+        },
+        {
+          "id": "event:afl:cd_m20260142604",
+          "name": "Elimination Final 2 - 6th v highest-ranked Wildcard winner",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Second Elimination Final. Teams, venue and time are pending the Wildcard results."
+        },
+        {
+          "id": "event:afl:cd_m20260142701",
+          "name": "Semi Final 1 - loser of QF1 v winner of EF1",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "First Semi Final. Teams, venue and time are pending first-week results."
+        },
+        {
+          "id": "event:afl:cd_m20260142702",
+          "name": "Semi Final 2 - loser of QF2 v winner of EF2",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Second Semi Final. Teams, venue and time are pending first-week results."
+        },
+        {
+          "id": "event:afl:cd_m20260142801",
+          "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals."
+        },
+        {
+          "id": "event:afl:cd_m20260142802",
+          "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals."
+        },
+        {
+          "id": "event:afl:cd_m20260142901",
+          "name": "Grand Final - Winner of PF1 v Winner of PF2",
+          "startTimeUtc": "2026-09-26T04:30:00.000Z",
+          "venue": "MCG",
+          "stakesScore": 5,
+          "summary": "Official AFL schedule: Winner of PF1 v Winner of PF2 at MCG."
+        }
+      ],
       "sources": [
         {
-          "name": "AFL 2026 Grand Final ticketing scheme",
-          "url": "https://resources.afl.com.au/afl/document/2026/04/24/9dbb254f-eb90-4b55-9a09-f7a39a4d7210/2026-AFL-Grand-Final-Ticketing-Scheme-12032026-.pdf",
+          "name": "AFL Wildcard Finals structure",
+          "url": "https://www.afl.com.au/news/1451971/wildcard-finals-round",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "AFL 2026 Finals and Grand Final dates",
+          "url": "https://www.afl.com.au/news/1582665/price-freeze-on-entry-level-finals-tickets-for-11th-straight-year",
           "checkedAt": "2026-08-23T06:00:00.000Z"
         }
       ]
     },
     {
-      "id": "major-event:nrl-grand-final-2026",
+      "id": "major-event:nrl-finals-series-2026",
       "kind": "major_event",
-      "name": "2026 NRL Grand Final",
+      "name": "2026 NRL Finals Series",
       "sportKey": "nrl",
-      "sportKeys": ["nrl"],
+      "sportKeys": [
+        "nrl"
+      ],
       "sportLabel": "NRL",
       "competitionId": "competition:nrl:premiership:2026",
       "stakesScore": 5,
       "dateStatus": "confirmed",
       "season": 2026,
-      "startDate": "2026-10-04",
+      "startDate": "2026-09-12",
       "endDate": "2026-10-04",
       "timezone": "Australia/Sydney",
-      "venue": "Accor Stadium",
-      "location": "Sydney Olympic Park, New South Wales",
-      "summary": "The NRL and NRLW premiership deciders return to Accor Stadium on Sunday 4 October.",
+      "venue": "Multiple venues",
+      "location": "Australia",
+      "summary": "Four weeks of NRL finals culminate with the NRL and NRLW premiership deciders at Accor Stadium on Sunday 4 October.",
       "details": [
-        "The event listing opens at noon and covers the full Grand Final day program.",
-        "Competing teams and exact match times will be attached when the finals series resolves them."
+        "The top eight finals bracket begins with four first-week matches, followed by two Semi Finals and two Preliminary Finals.",
+        "Finalists, venues and individual kick-off times will be attached only when the NRL publishes them.",
+        "The official Grand Final listing covers the full NRL and NRLW decider day at Accor Stadium."
       ],
-      "subEvents": [],
+      "subEvents": [
+        {
+          "id": "major-match:nrl-finals-2026:qualifying-final-1",
+          "name": "Qualifying Final 1 - 1st v 4th",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending the final ladder."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:qualifying-final-2",
+          "name": "Qualifying Final 2 - 2nd v 3rd",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending the final ladder."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:elimination-final-1",
+          "name": "Elimination Final 1 - 5th v 8th",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending the final ladder."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:elimination-final-2",
+          "name": "Elimination Final 2 - 6th v 7th",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending the final ladder."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:semi-final-1",
+          "name": "Semi Final 1 - loser of QF1 v winner of EF1",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending first-week results."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:semi-final-2",
+          "name": "Semi Final 2 - loser of QF2 v winner of EF2",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending first-week results."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:preliminary-final-1",
+          "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending the Semi Finals."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:preliminary-final-2",
+          "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "startTimeUtc": null,
+          "venue": "Venue TBC",
+          "stakesScore": 5,
+          "summary": "Teams, venue and time are pending the Semi Finals."
+        },
+        {
+          "id": "major-match:nrl-finals-2026:grand-final",
+          "name": "NRL Grand Final - winner of PF1 v winner of PF2",
+          "startTimeUtc": null,
+          "venue": "Accor Stadium",
+          "stakesScore": 5,
+          "summary": "The NRL and NRLW Grand Final day at Accor Stadium on Sunday 4 October. Exact match time is not published in the official ticket listing."
+        }
+      ],
       "ticketing": {
         "provider": "Ticketmaster",
         "status": "on_sale",
@@ -143,8 +323,13 @@
       },
       "sources": [
         {
-          "name": "NRL official tickets listing",
-          "url": "https://www.nrl.com/tickets",
+          "name": "NRL 2026 Grand Final official tickets",
+          "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "NRL 2026 official draw",
+          "url": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
           "checkedAt": "2026-08-23T06:00:00.000Z"
         }
       ]
@@ -154,7 +339,9 @@
       "kind": "tournament",
       "name": "Rugby League World Cup 2026",
       "sportKey": "nrl",
-      "sportKeys": ["nrl"],
+      "sportKeys": [
+        "nrl"
+      ],
       "sportLabel": "Rugby league",
       "competitionId": "competition:rugby-league-world-cup:2026",
       "stakesScore": 5,
@@ -178,8 +365,14 @@
           "venue": "Allianz Stadium",
           "stakesScore": 5,
           "participants": [
-            { "name": "Australia", "role": "home" },
-            { "name": "New Zealand", "role": "away" }
+            {
+              "name": "Australia",
+              "role": "home"
+            },
+            {
+              "name": "New Zealand",
+              "role": "away"
+            }
           ],
           "summary": "The opening men's pool match in Sydney."
         }
@@ -206,11 +399,191 @@
       ]
     },
     {
+      "id": "major-event:nations-championship-finals-2026",
+      "kind": "major_event",
+      "name": "2026 Nations Championship Finals Weekend",
+      "sportKey": "rugby",
+      "sportKeys": [
+        "rugby"
+      ],
+      "sportLabel": "Rugby",
+      "competitionId": "competition:nations-championship:2026",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-30",
+      "timezone": "Europe/London",
+      "venue": "Allianz Stadium, Twickenham",
+      "location": "London, England",
+      "summary": "The inaugural Nations Championship ends with six cross-hemisphere placement matches at Allianz Stadium, Twickenham.",
+      "details": [
+        "The final weekend brings the Northern and Southern Hemisphere tables together in six placement matches.",
+        "Rugby Australia has published the match-up pathway and Sydney-time sessions; the individual teams are set only after the six-round competition.",
+        "No exact public ticket-seller endpoint is verified for these sessions, so the card does not display a ticket CTA."
+      ],
+      "subEvents": [
+        {
+          "id": "major-match:nations-championship-2026:sixth-place",
+          "name": "Sixth placed North v Sixth placed South",
+          "startTimeUtc": null,
+          "venue": "Allianz Stadium, Twickenham",
+          "stakesScore": 5,
+          "dateLabel": "Saturday 28 November, 3.40am AEDT",
+          "summary": "Opening Finals Weekend placement match. Teams resolve after the group stage."
+        },
+        {
+          "id": "major-match:nations-championship-2026:third-place",
+          "name": "Third placed North v Third placed South",
+          "startTimeUtc": null,
+          "venue": "Allianz Stadium, Twickenham",
+          "stakesScore": 5,
+          "dateLabel": "Saturday 28 November, 7.10am AEDT",
+          "summary": "Placement match. Teams resolve after the group stage."
+        },
+        {
+          "id": "major-match:nations-championship-2026:fifth-place",
+          "name": "Fifth placed North v Fifth placed South",
+          "startTimeUtc": null,
+          "venue": "Allianz Stadium, Twickenham",
+          "stakesScore": 5,
+          "dateLabel": "Saturday 29 November, 12.10am AEDT",
+          "summary": "Placement match. Teams resolve after the group stage."
+        },
+        {
+          "id": "major-match:nations-championship-2026:second-place",
+          "name": "Second placed North v Second placed South",
+          "startTimeUtc": null,
+          "venue": "Allianz Stadium, Twickenham",
+          "stakesScore": 5,
+          "dateLabel": "Saturday 29 November, 3.40am AEDT",
+          "summary": "Placement match. Teams resolve after the group stage."
+        },
+        {
+          "id": "major-match:nations-championship-2026:fourth-place",
+          "name": "Fourth placed North v Fourth placed South",
+          "startTimeUtc": null,
+          "venue": "Allianz Stadium, Twickenham",
+          "stakesScore": 5,
+          "dateLabel": "Monday 30 November, 12.10am AEDT",
+          "summary": "Placement match. Teams resolve after the group stage."
+        },
+        {
+          "id": "major-match:nations-championship-2026:championship",
+          "name": "First placed North v First placed South",
+          "startTimeUtc": null,
+          "venue": "Allianz Stadium, Twickenham",
+          "stakesScore": 5,
+          "dateLabel": "Monday 30 November, 3.40am AEDT",
+          "summary": "The Nations Championship deciding match. Teams resolve after the group stage."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Rugby Australia 2026 Nations Championship fixtures",
+          "url": "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:uefa-champions-league-2026-27",
+      "kind": "tournament",
+      "name": "UEFA Champions League 2026/27",
+      "sportKey": "football",
+      "sportKeys": [
+        "football"
+      ],
+      "sportLabel": "Football",
+      "competitionId": "competition:uefa-champions-league:2026-27",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-07-07",
+      "endDate": "2027-06-05",
+      "timezone": "Europe/Madrid",
+      "venue": "Multiple venues",
+      "location": "Europe",
+      "summary": "Europe's leading club competition runs through the 2026/27 season and concludes at Estadio Metropolitano in Madrid on 5 June 2027.",
+      "details": [
+        "The league phase runs across eight matchdays from September 2026 to January 2027.",
+        "The knockout phase begins with play-offs in February, followed by the Round of 16, quarter-finals and semi-finals.",
+        "The Final is scheduled at Estadio Metropolitano, Madrid. Qualifiers, drawn ties and individual kick-off times remain source-published before they can be added to Fixtures.",
+        "No exact public seller endpoint is verified for the final, so the card does not display a ticket CTA."
+      ],
+      "subEvents": [
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:league-phase",
+          "name": "League phase - matchdays 1 to 8",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "8 September 2026 to 27 January 2027",
+          "summary": "Eight league-phase matchdays. Individual fixtures remain in the football fixture bundles."
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:knockout-play-offs",
+          "name": "Knockout phase play-offs",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "16/17 and 23/24 February 2027",
+          "summary": "The play-off stage of the knockout phase."
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:round-of-16",
+          "name": "Round of 16",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "9/10 and 16/17 March 2027",
+          "summary": "Round of 16 ties."
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:quarter-finals",
+          "name": "Quarter-finals",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "6/7 and 13/14 April 2027",
+          "summary": "Quarter-final ties."
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:semi-finals",
+          "name": "Semi-finals",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "27/28 April and 4/5 May 2027",
+          "summary": "Semi-final ties."
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:final",
+          "name": "UEFA Champions League Final",
+          "startTimeUtc": null,
+          "venue": "Estadio Metropolitano",
+          "stakesScore": 5,
+          "dateLabel": "Saturday 5 June 2027",
+          "summary": "The 2026/27 Champions League final in Madrid. Finalists and kick-off time are not yet published."
+        }
+      ],
+      "sources": [
+        {
+          "name": "UEFA 2026/27 Champions League dates and final",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
       "id": "major-event:australian-open-2027",
       "kind": "tournament",
       "name": "Australian Open 2027",
       "sportKey": "tennis",
-      "sportKeys": ["tennis", "wimbledon"],
+      "sportKeys": [
+        "tennis",
+        "wimbledon"
+      ],
       "sportLabel": "Tennis",
       "competitionId": "competition:tennis:australian-open:2027",
       "stakesScore": 5,
@@ -253,7 +626,10 @@
       "kind": "major_event",
       "name": "Formula 1 Australian Grand Prix 2027",
       "sportKey": "f1",
-      "sportKeys": ["f1", "motorsport"],
+      "sportKeys": [
+        "f1",
+        "motorsport"
+      ],
       "sportLabel": "Formula One",
       "competitionId": "competition:f1:australian-grand-prix:2027",
       "stakesScore": 5,
@@ -292,7 +668,10 @@
       "parentEventId": "major-event:australian-open-2027",
       "name": "Australian Open 2027 tickets on sale",
       "sportKey": "tennis",
-      "sportKeys": ["tennis", "wimbledon"],
+      "sportKeys": [
+        "tennis",
+        "wimbledon"
+      ],
       "sportLabel": "Tennis",
       "competitionId": "competition:tennis:australian-open:2027",
       "stakesScore": 5,
@@ -304,7 +683,9 @@
       "venue": "Melbourne Park",
       "location": "Melbourne, Victoria",
       "summary": "General public sales opened at noon AEST on 13 August 2026 through Ticketmaster.",
-      "details": ["Session availability varies by day and arena."],
+      "details": [
+        "Session availability varies by day and arena."
+      ],
       "subEvents": [],
       "ticketing": {
         "provider": "Ticketmaster",
@@ -328,7 +709,10 @@
       "parentEventId": "major-event:australian-grand-prix-2027",
       "name": "Australian Grand Prix 2027 ticket waitlist",
       "sportKey": "f1",
-      "sportKeys": ["f1", "motorsport"],
+      "sportKeys": [
+        "f1",
+        "motorsport"
+      ],
       "sportLabel": "Formula One",
       "competitionId": "competition:f1:australian-grand-prix:2027",
       "stakesScore": 5,
@@ -340,7 +724,9 @@
       "venue": "Albert Park Circuit",
       "location": "Melbourne, Victoria",
       "summary": "Formula One's direct Australian Grand Prix ticketing page is accepting waitlist registrations while event dates remain TBC.",
-      "details": ["The waitlist is powered by Fever through Formula One's ticketing endpoint."],
+      "details": [
+        "The waitlist is powered by Fever through Formula One's ticketing endpoint."
+      ],
       "subEvents": [],
       "ticketing": {
         "provider": "Formula 1 Ticketing powered by Fever",

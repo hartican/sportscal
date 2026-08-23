@@ -47,6 +47,7 @@
         "startTimeUtc": { "type": ["string", "null"], "format": "date-time" },
         "venue": { "type": "string", "minLength": 1 },
         "stakesScore": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "dateLabel": { "type": "string", "minLength": 1 },
         "expected": { "type": "number", "minimum": 0, "maximum": 10 },
         "status": { "enum": ["scheduled", "live", "completed", "postponed", "cancelled"] },
         "summary": { "type": "string" },
