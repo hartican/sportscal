@@ -79,7 +79,11 @@ assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangla
 const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));
 assert.equal(premierLeagueMarks.length, 20, "the Premier League registry must cover all current clubs");
 premierLeagueMarks.forEach(mark => {
-  assert.match(mark.url, /^https:\/\/resources\.premierleague\.com\/premierleague25\/badges\/\d+\.svg$/, `${mark.label} must use the current Premier League first-party SVG badge source`);
+  assert.match(mark.url, /^assets\/identities\/epl\/\d+\.svg$/, `${mark.label} must use a local production copy of its Premier League SVG badge`);
+  assert.match(mark.assetSourceUrl, /^https:\/\/resources\.premierleague\.com\/premierleague25\/badges\/\d+\.svg$/, `${mark.label} must retain the current Premier League first-party SVG provenance`);
+  const svg = fs.readFileSync(mark.url, "utf8");
+  assert.match(svg, /<svg\b/, `${mark.label} must retain a valid SVG asset`);
+  assert.doesNotMatch(svg, /<script\b/i, `${mark.label} SVG must not contain scripts`);
   assert.equal(mark.provenance, "official-site");
 });
 activeEventKeys.forEach(key => {
