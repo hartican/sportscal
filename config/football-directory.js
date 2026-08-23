@@ -9,6 +9,11 @@
   const SESSION_SCHEMA_VERSION = "standings-directory-session.v1";
   const SESSION_STORAGE_KEY = "nothingsport:standings-directory-session:v1";
   const PLAYER_ID_PREFIX = "competitor:football:";
+  const DIRECTORY_PLAYER_ID_PREFIXES = Object.freeze([
+    PLAYER_ID_PREFIX,
+    "competitor:nrl:",
+    "competitor:afl:",
+  ]);
 
   function unique(values){
     return Array.from(new Set((values || []).filter(Boolean)));
@@ -57,6 +62,10 @@
     return new Map((index?.players || []).map(player => [player.id, player.currentTeamId]));
   }
 
+  function isDirectoryPlayerId(value){
+    return DIRECTORY_PLAYER_ID_PREFIXES.some(prefix => String(value || "").startsWith(prefix));
+  }
+
   function expandedFollowLevels(event, graph, index){
     const eventParticipants = new Set([
       ...(Array.isArray(event?.participantIds) ? event.participantIds : []),
@@ -66,7 +75,7 @@
     const playerTeams = playerTeamMap(index);
     return (graph?.entityFollows || []).filter(follow => {
       if (eventParticipants.has(follow.participantId)) return true;
-      if (!String(follow.participantId || "").startsWith(PLAYER_ID_PREFIX)) return false;
+      if (!isDirectoryPlayerId(follow.participantId)) return false;
       if (follow.followLevel === "mute") return false;
       return eventParticipants.has(playerTeams.get(follow.participantId));
     }).map(follow => follow.followLevel);
@@ -101,10 +110,12 @@
     SESSION_SCHEMA_VERSION,
     SESSION_STORAGE_KEY,
     PLAYER_ID_PREFIX,
+    DIRECTORY_PLAYER_ID_PREFIXES,
     defaultSessionState,
     parseSessionState,
     normalizeFilters,
     playerTeamMap,
+    isDirectoryPlayerId,
     expandedFollowLevels,
     filteredDirectory,
   });

@@ -62,6 +62,6 @@ assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, 
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
 assert(userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.some(branch => branch.required?.includes("startTimeUtc")), "persisted child fixtures must require a confirmed UTC start");
 assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
-assert(html.includes('name="app-shell-version" content="116"') && worker.includes('nothingsport-shell-v116'), "the polished card UI must ship in a matching offline shell version");
+assert(html.includes('name="app-shell-version" content="117"') && worker.includes('nothingsport-shell-v117'), "the polished card UI must ship in a matching offline shell version");
 
 console.log("Card polish valid: three-level cards, centred logo layouts, WCAG ticket contrast, score-only results, Bruce stadium aliases, exact 10% identity reduction, two-line names, top selection controls and surface-aware ticket gating passed.");

@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "afl-follow-index.v1",
+  "generatedAt": "2026-08-23T12:00:00.000Z",
+  "teams": [
+    {
+      "id": "team:afl:cd_t10",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t20",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t30",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t40",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t50",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t60",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t70",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t1000",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t1010",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t80",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t90",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t100",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t110",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t120",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t130",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t160",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t150",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "team:afl:cd_t140",
+      "leagueId": "competition:afl-premiership-2026"
+    }
+  ],
+  "players": [
+    {
+      "id": "competitor:afl:jordan-dawson",
+      "currentTeamId": "team:afl:cd_t10",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:izak-rankine",
+      "currentTeamId": "team:afl:cd_t10",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:harris-andrews",
+      "currentTeamId": "team:afl:cd_t20",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:hugh-mccluggage",
+      "currentTeamId": "team:afl:cd_t20",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:patrick-cripps",
+      "currentTeamId": "team:afl:cd_t30",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:sam-walsh",
+      "currentTeamId": "team:afl:cd_t30",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:darcy-moore",
+      "currentTeamId": "team:afl:cd_t40",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:nick-daicos",
+      "currentTeamId": "team:afl:cd_t40",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:zach-merrett",
+      "currentTeamId": "team:afl:cd_t50",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:nate-caddy",
+      "currentTeamId": "team:afl:cd_t50",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:alex-pearce",
+      "currentTeamId": "team:afl:cd_t60",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:caleb-serong",
+      "currentTeamId": "team:afl:cd_t60",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:patrick-dangerfield",
+      "currentTeamId": "team:afl:cd_t70",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:jeremy-cameron",
+      "currentTeamId": "team:afl:cd_t70",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:noah-anderson",
+      "currentTeamId": "team:afl:cd_t1000",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:matt-rowell",
+      "currentTeamId": "team:afl:cd_t1000",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:toby-greene",
+      "currentTeamId": "team:afl:cd_t1010",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:tom-green",
+      "currentTeamId": "team:afl:cd_t1010",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:james-sicily",
+      "currentTeamId": "team:afl:cd_t80",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:jai-newcombe",
+      "currentTeamId": "team:afl:cd_t80",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:max-gawn",
+      "currentTeamId": "team:afl:cd_t90",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:kysaiah-pickett",
+      "currentTeamId": "team:afl:cd_t90",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:jy-simpkin",
+      "currentTeamId": "team:afl:cd_t100",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:harry-sheezel",
+      "currentTeamId": "team:afl:cd_t100",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:connor-rozee",
+      "currentTeamId": "team:afl:cd_t110",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:zak-butters",
+      "currentTeamId": "team:afl:cd_t110",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:toby-nankervis",
+      "currentTeamId": "team:afl:cd_t120",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:tim-taranto",
+      "currentTeamId": "team:afl:cd_t120",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:jack-sinclair",
+      "currentTeamId": "team:afl:cd_t130",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:callum-wilkie",
+      "currentTeamId": "team:afl:cd_t130",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:callum-mills",
+      "currentTeamId": "team:afl:cd_t160",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:chad-warner",
+      "currentTeamId": "team:afl:cd_t160",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:liam-duggan",
+      "currentTeamId": "team:afl:cd_t150",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:harley-reid",
+      "currentTeamId": "team:afl:cd_t150",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:marcus-bontempelli",
+      "currentTeamId": "team:afl:cd_t140",
+      "leagueId": "competition:afl-premiership-2026"
+    },
+    {
+      "id": "competitor:afl:sam-darcy",
+      "currentTeamId": "team:afl:cd_t140",
+      "leagueId": "competition:afl-premiership-2026"
+    }
+  ]
+}

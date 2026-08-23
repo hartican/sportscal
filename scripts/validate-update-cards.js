@@ -25,6 +25,8 @@ assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && 
 assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js"), "every canonical update must enforce independent ATP/WTA publication freshness, Australian coverage, froth rules, and Toronto regression coverage");
 assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--check")), "every canonical update must fail closed when a six-league football snapshot is incomplete");
 assert(localSteps.some(step => step[0] === "scripts/validate-football-directory.js"), "every canonical update must validate football clubs, players, follows, flags, session state, and lazy fixtures");
+assert(localSteps.some(step => step[0] === "scripts/build-team-player-directories.js" && step.includes("--check")), "every canonical update must reject stale NRL and AFL directory snapshots");
+assert(localSteps.some(step => step[0] === "scripts/validate-team-player-directories.js"), "every canonical update must validate NRL and AFL club coverage, player follow expansion, source URLs and lazy loading");
 assert(localSteps.some(step => step[0] === "scripts/sync-tennis-tournaments-to-feed.js" && step.includes("--from-exports")), "the canonical update must project active marquee tennis from the reviewed provider exports");
 assert(localSteps.some(step => step[0] === "scripts/validate-sport-hierarchy.js"), "every canonical update must validate hierarchy compatibility for every published card");
 assert(localSteps.some(step => step[0] === "scripts/validate-discovery-catalogue.js"), "every canonical update must validate discovery hierarchy, event-follow migration, Sydney-window counts and session state");

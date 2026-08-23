@@ -268,6 +268,10 @@ assert(html.includes('className = "standings-freshness-note"'), "standings must 
 assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
 assert(html.includes("Standings refresh periodically and may briefly differ from official sources due to update delays."), "standings must disclose periodic update latency against official sources");
 assert(html.includes("appendDirectoryFollowOptions") && html.includes("setDirectoryEntityFollow"), "entity follow levels must be editable from the central Standings directory");
+assert(html.includes('["nrl", "NRL"]') && html.includes('["afl", "AFL"]'), "Standings Teams & players must expose NRL and AFL alongside Football");
+assert(html.includes("loadNrlDirectoryData") && html.includes("loadAflDirectoryData"), "NRL and AFL catalogues must load only when opened");
+assert(html.includes("profileHasNrlEntityFollow") && html.includes("profileHasAflEntityFollow"), "saved NRL and AFL player follows must restore their fixture expansion at startup");
+assert(!serviceWorkerSource.includes('"/data/canonical/nrl-directory.v1.json"') && !serviceWorkerSource.includes('"/data/canonical/afl-directory.v1.json"'), "full NRL and AFL directories must remain outside the critical offline shell");
 assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
 assert(html.includes('"Top 3 + followed"'), "summary standings must promise to retain followed entities outside the top three");
 assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
@@ -364,8 +368,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v116"'), "the liquid launch release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="116">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v117"'), "the Teams & players directory release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="117">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");

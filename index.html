@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="116">
+<meta name="app-shell-version" content="117">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -5365,6 +5365,7 @@ footer.app-footer{
 .football-club-expand[aria-expanded="true"] .vector-glyph{ transform:rotate(90deg); }
 .football-player-list{ border-top:1px solid var(--border); background:var(--soft-fill); }
 .football-player-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(76px,0.35fr) 92px 116px; align-items:center; gap:10px; min-height:48px; padding:7px 10px 7px 62px; }
+.football-player-row.without-tier{ grid-template-columns:minmax(0,1fr) minmax(76px,0.35fr) 116px; }
 .football-player-row + .football-player-row{ border-top:1px solid var(--border); }
 .football-player-name{ display:flex; align-items:center; gap:8px; min-width:0; font-size:0.76rem; font-weight:800; }
 .football-player-name span{ min-width:0; overflow-wrap:anywhere; }
@@ -5485,9 +5486,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .focused-discovery-actions{ justify-content:flex-start; }
   .football-directory-toolbar{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .football-directory-field:first-child{ grid-column:1 / -1; }
-  .football-club-head{ grid-template-columns:38px minmax(0,1fr) 100px 34px; gap:7px; padding:8px; }
+  .football-club-head{ grid-template-columns:38px minmax(0,1fr) 116px 34px; gap:7px; padding:8px; }
   .football-club-crest{ width:34px; height:34px; }
-  .football-player-row{ grid-template-columns:minmax(0,1fr) 100px; padding:8px 8px 8px 53px; }
+  .football-player-row{ grid-template-columns:minmax(0,1fr) 116px; padding:8px 8px 8px 53px; }
+  .football-player-row.without-tier{ grid-template-columns:minmax(0,1fr) 116px; }
   .football-player-position,
   .football-player-tier{ display:none; }
   .joint-match{ grid-template-columns:64px minmax(0, 1fr); }
@@ -6322,6 +6324,20 @@ const FOOTBALL_DIRECTORY_CONFIG = Object.freeze({
   fixtureBaseUrl: "data/football/fixtures",
 });
 
+const NRL_DIRECTORY_CONFIG = Object.freeze({
+  directoryUrl: "data/canonical/nrl-directory.v1.json",
+  directoryScriptUrl: "data/canonical/nrl-directory.v1.js",
+  indexUrl: "data/canonical/nrl-follow-index.v1.json",
+  indexScriptUrl: "data/canonical/nrl-follow-index.v1.js",
+});
+
+const AFL_DIRECTORY_CONFIG = Object.freeze({
+  directoryUrl: "data/canonical/afl-directory.v1.json",
+  directoryScriptUrl: "data/canonical/afl-directory.v1.js",
+  indexUrl: "data/canonical/afl-follow-index.v1.json",
+  indexScriptUrl: "data/canonical/afl-follow-index.v1.js",
+});
+
 const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
   defaultWeight: 0,
   profiles: [],
@@ -6450,6 +6466,16 @@ let footballDirectoryLoading = false;
 let footballDirectoryError = null;
 let footballFollowIndex = null;
 let footballFollowIndexLoading = null;
+let nrlDirectoryData = null;
+let nrlDirectoryLoading = false;
+let nrlDirectoryError = null;
+let nrlFollowIndex = null;
+let nrlFollowIndexLoading = null;
+let aflDirectoryData = null;
+let aflDirectoryLoading = false;
+let aflDirectoryError = null;
+let aflFollowIndex = null;
+let aflFollowIndexLoading = null;
 let footballCoreLoading = null;
 const footballFixtureEventsByBundle = new Map();
 let footballDirectorySearchTimer = null;
@@ -7983,6 +8009,64 @@ async function loadFootballDirectoryData(){
   }
 }
 
+async function loadNrlDirectoryData(){
+  if (nrlDirectoryData) return nrlDirectoryData;
+  if (nrlDirectoryLoading) return null;
+  nrlDirectoryLoading = true;
+  nrlDirectoryError = null;
+  try{
+    const [api, data] = await Promise.all([
+      loadFootballDirectoryModule(),
+      loadFootballAsset({
+        url: NRL_DIRECTORY_CONFIG.directoryUrl,
+        scriptUrl: NRL_DIRECTORY_CONFIG.directoryScriptUrl,
+        globalName: "NOTHINGSPORTS_NRL_DIRECTORY_DATA",
+      }),
+    ]);
+    if (data?.schemaVersion !== "nrl-directory.v1" || !Array.isArray(data?.teams) || !Array.isArray(data?.players)){
+      throw new Error("NRL directory schema is unsupported");
+    }
+    nrlDirectoryData = data;
+    return nrlDirectoryData;
+  }catch(error){
+    nrlDirectoryError = error;
+    console.warn("NRL directory unavailable", error);
+    return null;
+  }finally{
+    nrlDirectoryLoading = false;
+    renderStandingsContext();
+  }
+}
+
+async function loadAflDirectoryData(){
+  if (aflDirectoryData) return aflDirectoryData;
+  if (aflDirectoryLoading) return null;
+  aflDirectoryLoading = true;
+  aflDirectoryError = null;
+  try{
+    const [, data] = await Promise.all([
+      loadFootballDirectoryModule(),
+      loadFootballAsset({
+        url: AFL_DIRECTORY_CONFIG.directoryUrl,
+        scriptUrl: AFL_DIRECTORY_CONFIG.directoryScriptUrl,
+        globalName: "NOTHINGSPORTS_AFL_DIRECTORY_DATA",
+      }),
+    ]);
+    if (data?.schemaVersion !== "afl-directory.v1" || !Array.isArray(data?.teams) || !Array.isArray(data?.players)){
+      throw new Error("AFL directory schema is unsupported");
+    }
+    aflDirectoryData = data;
+    return aflDirectoryData;
+  }catch(error){
+    aflDirectoryError = error;
+    console.warn("AFL directory unavailable", error);
+    return null;
+  }finally{
+    aflDirectoryLoading = false;
+    renderStandingsContext();
+  }
+}
+
 async function loadFootballFollowIndex(){
   if (footballFollowIndex) return footballFollowIndex;
   if (footballFollowIndexLoading) return footballFollowIndexLoading;
@@ -7999,6 +8083,46 @@ async function loadFootballFollowIndex(){
     return index;
   }).finally(() => { footballFollowIndexLoading = null; });
   return footballFollowIndexLoading;
+}
+
+async function loadNrlFollowIndex(){
+  if (nrlFollowIndex) return nrlFollowIndex;
+  if (nrlFollowIndexLoading) return nrlFollowIndexLoading;
+  nrlFollowIndexLoading = Promise.all([
+    loadFootballDirectoryModule(),
+    loadFootballAsset({
+      url: NRL_DIRECTORY_CONFIG.indexUrl,
+      scriptUrl: NRL_DIRECTORY_CONFIG.indexScriptUrl,
+      globalName: "NOTHINGSPORTS_NRL_FOLLOW_INDEX",
+    }),
+  ]).then(([, index]) => {
+    if (index?.schemaVersion !== "nrl-follow-index.v1") throw new Error("NRL follow index schema is unsupported");
+    nrlFollowIndex = index;
+    return index;
+  }).finally(() => { nrlFollowIndexLoading = null; });
+  return nrlFollowIndexLoading;
+}
+
+async function loadAflFollowIndex(){
+  if (aflFollowIndex) return aflFollowIndex;
+  if (aflFollowIndexLoading) return aflFollowIndexLoading;
+  aflFollowIndexLoading = loadFootballAsset({
+    url: AFL_DIRECTORY_CONFIG.indexUrl,
+    scriptUrl: AFL_DIRECTORY_CONFIG.indexScriptUrl,
+    globalName: "NOTHINGSPORTS_AFL_FOLLOW_INDEX",
+  }).then(index => {
+    if (index?.schemaVersion !== "afl-follow-index.v1") throw new Error("AFL follow index schema is unsupported");
+    aflFollowIndex = index;
+    return index;
+  }).finally(() => { aflFollowIndexLoading = null; });
+  return aflFollowIndexLoading;
+}
+
+function directoryFollowIndex(){
+  return {
+    players: [...(footballFollowIndex?.players || []), ...(nrlFollowIndex?.players || []), ...(aflFollowIndex?.players || [])],
+    teams: [...(footballFollowIndex?.teams || []), ...(nrlFollowIndex?.teams || []), ...(aflFollowIndex?.teams || [])],
+  };
 }
 
 function mergeFootballFixtureEvents(events){
@@ -8077,6 +8201,20 @@ function profileHasFootballEntityFollow(preferences = userPreferences){
   return (preferences?.preferenceGraph?.entityFollows || []).some(follow => (
     String(follow.participantId || "").startsWith("team:football:")
     || String(follow.participantId || "").startsWith("competitor:football:")
+  ));
+}
+
+function profileHasNrlEntityFollow(preferences = userPreferences){
+  return (preferences?.preferenceGraph?.entityFollows || []).some(follow => (
+    String(follow.participantId || "").startsWith("team:nrl:")
+    || String(follow.participantId || "").startsWith("competitor:nrl:")
+  ));
+}
+
+function profileHasAflEntityFollow(preferences = userPreferences){
+  return (preferences?.preferenceGraph?.entityFollows || []).some(follow => (
+    String(follow.participantId || "").startsWith("team:afl:")
+    || String(follow.participantId || "").startsWith("competitor:afl:")
   ));
 }
 
@@ -10333,7 +10471,7 @@ function eventParticipantFollowLevels(ev){
   const expanded = footballDirectoryApi?.expandedFollowLevels?.(
     { ...ev, participantIds: Array.from(participantIds) },
     userPreferences.preferenceGraph,
-    footballFollowIndex
+    directoryFollowIndex()
   ) || [];
   return Array.from(new Set([...direct, ...expanded]));
 }
@@ -13148,7 +13286,7 @@ function readStandingsDirectorySession(preferences = userPreferences){
       ...fallback,
       activeView: parsed.activeView === "directory" ? "directory" : "tables",
       selectedSportKeys: Array.isArray(parsed.selectedSportKeys) ? parsed.selectedSportKeys.filter(key => typeof key === "string") : fallback.selectedSportKeys,
-      directorySportKey: ["football", "rugby", "cricket", "tennis"].includes(parsed.directorySportKey) ? parsed.directorySportKey : "football",
+      directorySportKey: ["football", "nrl", "afl", "rugby", "cricket", "tennis"].includes(parsed.directorySportKey) ? parsed.directorySportKey : "football",
       filtersBySport: parsed.filtersBySport && typeof parsed.filtersBySport === "object" && !Array.isArray(parsed.filtersBySport) ? parsed.filtersBySport : {},
     };
   }catch(_error){
@@ -13515,11 +13653,12 @@ function footballLeagueKeyForId(leagueId){
 
 function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
   const next = clonePreferences(userPreferences);
-  if (["follow", "priority"].includes(followLevel) && sportKey === "football" && !selectorEntityIsEffectivelySelected("sport:football", next)){
-    next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), "sport:football"]);
+  const sportSelectorId = ["football", "nrl", "afl"].includes(sportKey) ? `sport:${sportKey}` : null;
+  if (["follow", "priority"].includes(followLevel) && sportSelectorId && !selectorEntityIsEffectivelySelected(sportSelectorId, next)){
+    next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), sportSelectorId]);
     next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
     next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
-    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, "sport:football", "template:like");
+    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, sportSelectorId, "template:like");
   }
   next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participantId, followLevel);
   savePreferences(next);
@@ -13530,6 +13669,13 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
     void loadFootballFollowIndex().then(async () => {
       const leagueKey = footballLeagueKeyForId(leagueId);
       await (leagueKey ? loadFootballLeagueFixtures(leagueKey) : loadFootballFixturesForCurrentFollows());
+      rebuildDerivedCardCache(activeEvents);
+      renderAll({ preserveViewport: true });
+    });
+  }
+  if (sportKey === "nrl" || sportKey === "afl"){
+    const loadIndex = sportKey === "nrl" ? loadNrlFollowIndex : loadAflFollowIndex;
+    void loadIndex().then(() => {
       rebuildDerivedCardCache(activeEvents);
       renderAll({ preserveViewport: true });
     });
@@ -13554,7 +13700,7 @@ function buildDirectorySelect(label, value, options, onChange){
   return field;
 }
 
-function buildFootballDirectoryToolbar(directory, filters){
+function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"){
   const toolbar = document.createElement("div");
   toolbar.className = "football-directory-toolbar";
   const searchField = document.createElement("label");
@@ -13565,7 +13711,7 @@ function buildFootballDirectoryToolbar(directory, filters){
   search.value = filters.query;
   search.placeholder = "Club or player";
   search.addEventListener("input", () => {
-    updateDirectoryFilters("football", { query: search.value });
+    updateDirectoryFilters(sportKey, { query: search.value });
     window.clearTimeout(footballDirectorySearchTimer);
     footballDirectorySearchTimer = window.setTimeout(() => {
       renderStandingsContext();
@@ -13578,35 +13724,41 @@ function buildFootballDirectoryToolbar(directory, filters){
   toolbar.appendChild(searchField);
   const leagueOptions = [["", "All leagues"], ...directory.leagues.map(league => [league.id, league.displayName])];
   toolbar.appendChild(buildDirectorySelect("League", filters.leagueId, leagueOptions, leagueId => {
-    updateDirectoryFilters("football", { leagueId, teamId: "", expandedTeamId: "" }); renderStandingsContext();
+    updateDirectoryFilters(sportKey, { leagueId, teamId: "", expandedTeamId: "" }); renderStandingsContext();
   }));
   const teamOptions = [["", "All clubs"], ...directory.teams
     .filter(team => !filters.leagueId || team.leagueId === filters.leagueId)
     .sort((a, b) => a.displayName.localeCompare(b.displayName))
     .map(team => [team.id, team.displayName])];
   toolbar.appendChild(buildDirectorySelect("Club", filters.teamId, teamOptions, teamId => {
-    updateDirectoryFilters("football", { teamId, expandedTeamId: teamId }); renderStandingsContext();
+    updateDirectoryFilters(sportKey, { teamId, expandedTeamId: teamId }); renderStandingsContext();
   }));
-  const countries = Array.from(new Set(directory.players.map(player => player.birthCountryCode))).sort((a, b) => (
+  const countries = Array.from(new Set(directory.players.map(player => player.birthCountryCode).filter(Boolean))).sort((a, b) => (
     COUNTRY_FLAGS.countryName(a).localeCompare(COUNTRY_FLAGS.countryName(b))
   ));
-  toolbar.appendChild(buildDirectorySelect("Country", filters.birthCountryCode, [["", "All countries"], ...countries.map(code => [code, COUNTRY_FLAGS.countryName(code)])], birthCountryCode => {
-    updateDirectoryFilters("football", { birthCountryCode }); renderStandingsContext();
-  }));
-  toolbar.appendChild(buildDirectorySelect("Prominence", filters.prominenceTier, [["", "All levels"], ["marquee", "Marquee"], ["established", "Established"], ["emerging", "Emerging"]], prominenceTier => {
-    updateDirectoryFilters("football", { prominenceTier }); renderStandingsContext();
-  }));
+  if (countries.length){
+    toolbar.appendChild(buildDirectorySelect("Country", filters.birthCountryCode, [["", "All countries"], ...countries.map(code => [code, COUNTRY_FLAGS.countryName(code)])], birthCountryCode => {
+      updateDirectoryFilters(sportKey, { birthCountryCode }); renderStandingsContext();
+    }));
+  }
+  if (directory.players.some(player => player.prominenceTier)){
+    toolbar.appendChild(buildDirectorySelect("Prominence", filters.prominenceTier, [["", "All levels"], ["marquee", "Marquee"], ["established", "Established"], ["emerging", "Emerging"]], prominenceTier => {
+      updateDirectoryFilters(sportKey, { prominenceTier }); renderStandingsContext();
+    }));
+  }
   return toolbar;
 }
 
-function buildFootballPlayerRow(player){
+function buildFootballPlayerRow(player, sportKey = "football"){
   const row = document.createElement("div");
   row.className = "football-player-row";
   const identity = document.createElement("div");
   identity.className = "football-player-name";
-  const countryName = COUNTRY_FLAGS.countryName(player.birthCountryCode);
-  const flagLabel = player.birthCountryBasis === "official-birthplace" ? `Born in ${countryName}` : `Country: ${countryName}`;
-  identity.innerHTML = COUNTRY_FLAGS.flagMarkup(player.birthCountryCode, { label: flagLabel });
+  if (player.birthCountryCode){
+    const countryName = COUNTRY_FLAGS.countryName(player.birthCountryCode);
+    const flagLabel = player.birthCountryBasis === "official-birthplace" ? `Born in ${countryName}` : `Country: ${countryName}`;
+    identity.innerHTML = COUNTRY_FLAGS.flagMarkup(player.birthCountryCode, { label: flagLabel });
+  }
   const name = document.createElement("span");
   name.textContent = player.displayName;
   identity.appendChild(name);
@@ -13615,25 +13767,31 @@ function buildFootballPlayerRow(player){
   position.textContent = player.position;
   const tier = document.createElement("span");
   tier.className = "football-player-tier";
-  tier.textContent = player.prominenceTier;
-  tier.title = player.prominenceReason;
+  tier.textContent = player.prominenceTier || "";
+  tier.title = player.prominenceReason || "";
   const follow = document.createElement("select");
   follow.className = "football-follow-select";
   follow.setAttribute("aria-label", `Follow setting for ${player.displayName}`);
   appendDirectoryFollowOptions(follow, directoryFollowLevel(player.id));
-  follow.addEventListener("change", () => setDirectoryEntityFollow(player.id, follow.value, { leagueId: player.leagueId, label: player.displayName }));
-  row.append(identity, position, tier, follow);
+  follow.addEventListener("change", () => setDirectoryEntityFollow(player.id, follow.value, { sportKey, leagueId: player.leagueId, label: player.displayName }));
+  if (player.prominenceTier) row.append(identity, position, tier, follow);
+  else {
+    row.classList.add("without-tier");
+    row.append(identity, position, follow);
+  }
   return row;
 }
 
-function buildFootballClubRow(team, league, players, expanded){
+function buildFootballClubRow(team, league, players, expanded, sportKey = "football"){
   const row = document.createElement("section");
   row.className = "football-club-row";
   const head = document.createElement("div");
   head.className = "football-club-head";
   const crest = document.createElement("img");
   crest.className = "football-club-crest";
-  crest.src = team.crestUrl;
+  const mark = CARD_IDENTITIES?.participantMarks?.[team.id];
+  if (mark) applyTeamLogoAsset(crest, mark, "icon");
+  else crest.src = team.crestUrl || "";
   crest.alt = `${team.displayName} crest`;
   crest.width = 38;
   crest.height = 38;
@@ -13644,13 +13802,13 @@ function buildFootballClubRow(team, league, players, expanded){
   const title = document.createElement("strong");
   title.textContent = team.displayName;
   const detail = document.createElement("span");
-  detail.textContent = `${league?.displayName || "Football"} · ${players.length} priority player${players.length === 1 ? "" : "s"}`;
+  detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} priority player${players.length === 1 ? "" : "s"}`;
   copy.append(title, detail);
   const follow = document.createElement("select");
   follow.className = "football-follow-select";
   follow.setAttribute("aria-label", `Follow setting for ${team.displayName}`);
   appendDirectoryFollowOptions(follow, directoryFollowLevel(team.id));
-  follow.addEventListener("change", () => setDirectoryEntityFollow(team.id, follow.value, { leagueId: team.leagueId, label: team.displayName }));
+  follow.addEventListener("change", () => setDirectoryEntityFollow(team.id, follow.value, { sportKey, leagueId: team.leagueId, label: team.displayName }));
   const expander = document.createElement("button");
   expander.type = "button";
   expander.className = "football-club-expand";
@@ -13658,17 +13816,17 @@ function buildFootballClubRow(team, league, players, expanded){
   expander.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} ${team.displayName} players`);
   expander.innerHTML = glyphMarkup("ui:chevron-right");
   expander.addEventListener("click", () => {
-    updateDirectoryFilters("football", { expandedTeamId: expanded ? "" : team.id });
+    updateDirectoryFilters(sportKey, { expandedTeamId: expanded ? "" : team.id });
     renderStandingsContext();
-    window.requestAnimationFrame(() => document.querySelector(`[data-football-team-id="${CSS.escape(team.id)}"] .football-club-expand`)?.focus({ preventScroll: true }));
+    window.requestAnimationFrame(() => document.querySelector(`[data-directory-team-id="${CSS.escape(team.id)}"] .football-club-expand`)?.focus({ preventScroll: true }));
   });
   head.append(crest, copy, follow, expander);
-  row.dataset.footballTeamId = team.id;
+  row.dataset.directoryTeamId = team.id;
   row.appendChild(head);
   if (expanded){
     const list = document.createElement("div");
     list.className = "football-player-list";
-    players.forEach(player => list.appendChild(buildFootballPlayerRow(player)));
+    players.forEach(player => list.appendChild(buildFootballPlayerRow(player, sportKey)));
     if (!players.length){
       const empty = document.createElement("div");
       empty.className = "football-directory-empty";
@@ -13680,18 +13838,25 @@ function buildFootballClubRow(team, league, players, expanded){
   return row;
 }
 
-function renderFootballDirectory(container){
-  if (!footballDirectoryData){
+function renderFootballDirectory(container, {
+  sportKey = "football",
+  directoryData = footballDirectoryData,
+  loading = footballDirectoryLoading,
+  error = footballDirectoryError,
+  loadDirectory = loadFootballDirectoryData,
+} = {}){
+  if (!directoryData){
     const status = document.createElement("div");
     status.className = "standings-module";
-    status.textContent = footballDirectoryError ? "Football teams and players are temporarily unavailable." : "Loading football teams and players…";
+    const sportLabel = SPORT_META[sportKey]?.label || "Sport";
+    status.textContent = error ? `${sportLabel} teams and players are temporarily unavailable.` : `Loading ${sportLabel.toLocaleLowerCase("en-AU")} teams and players…`;
     container.appendChild(status);
-    if (!footballDirectoryLoading) void loadFootballDirectoryData();
+    if (!loading) void loadDirectory();
     return;
   }
-  const filters = directoryFilters("football");
-  const filtered = footballDirectoryApi.filteredDirectory(footballDirectoryData, filters);
-  const leagues = new Map(footballDirectoryData.leagues.map(league => [league.id, league]));
+  const filters = directoryFilters(sportKey);
+  const filtered = footballDirectoryApi.filteredDirectory(directoryData, filters);
+  const leagues = new Map(directoryData.leagues.map(league => [league.id, league]));
   const playersByTeam = new Map();
   filtered.players.forEach(player => {
     const players = playersByTeam.get(player.currentTeamId) || [];
@@ -13700,16 +13865,16 @@ function renderFootballDirectory(container){
   });
   const directory = document.createElement("section");
   directory.className = "football-directory";
-  directory.appendChild(buildFootballDirectoryToolbar(footballDirectoryData, filters));
+  directory.appendChild(buildFootballDirectoryToolbar(directoryData, filters, sportKey));
   const summary = document.createElement("p");
   summary.className = "football-directory-summary";
-  summary.textContent = `${filtered.teams.length} clubs · ${filtered.players.length} matching players. Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace.`;
+  summary.textContent = `${filtered.teams.length} clubs · ${filtered.players.length} matching players.${directoryData.players.some(player => player.birthCountryCode) ? " Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace." : " Players are a source-backed priority shortlist, not a weekly team list."}`;
   directory.appendChild(summary);
   const list = document.createElement("div");
   list.className = "football-club-list";
   filtered.teams.sort((a, b) => a.displayName.localeCompare(b.displayName)).forEach(team => {
     const players = (playersByTeam.get(team.id) || []).sort((a, b) => a.sortName.localeCompare(b.sortName));
-    list.appendChild(buildFootballClubRow(team, leagues.get(team.leagueId), players, filters.expandedTeamId === team.id));
+    list.appendChild(buildFootballClubRow(team, leagues.get(team.leagueId), players, filters.expandedTeamId === team.id, sportKey));
   });
   if (!filtered.teams.length){
     const empty = document.createElement("div");
@@ -13772,7 +13937,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
 
 function renderTeamsAndPlayersDirectory(container){
   const session = readStandingsDirectorySession();
-  const chooser = buildDirectorySelect("Sport", session.directorySportKey, [["football", "Football"], ["rugby", "Rugby"], ["cricket", "Cricket"], ["tennis", "Tennis"]], sportKey => {
+  const chooser = buildDirectorySelect("Sport", session.directorySportKey, [["football", "Football"], ["nrl", "NRL"], ["afl", "AFL"], ["rugby", "Rugby"], ["cricket", "Cricket"], ["tennis", "Tennis"]], sportKey => {
     updateStandingsDirectorySession({ directorySportKey: sportKey });
     renderStandingsContext();
   });
@@ -13781,6 +13946,20 @@ function renderTeamsAndPlayersDirectory(container){
   toolbar.appendChild(chooser);
   container.appendChild(toolbar);
   if (session.directorySportKey === "football") renderFootballDirectory(container);
+  else if (session.directorySportKey === "nrl") renderFootballDirectory(container, {
+    sportKey: "nrl",
+    directoryData: nrlDirectoryData,
+    loading: nrlDirectoryLoading,
+    error: nrlDirectoryError,
+    loadDirectory: loadNrlDirectoryData,
+  });
+  else if (session.directorySportKey === "afl") renderFootballDirectory(container, {
+    sportKey: "afl",
+    directoryData: aflDirectoryData,
+    loading: aflDirectoryLoading,
+    error: aflDirectoryError,
+    loadDirectory: loadAflDirectoryData,
+  });
   else renderLegacyParticipantDirectory(container, session.directorySportKey);
 }
 
@@ -16853,6 +17032,14 @@ renderAll();
 scheduleBrowserReminders();
 if (profileSelectsFootball()) void loadFootballCoreEvents();
 if (profileHasFootballEntityFollow()) void loadFootballFixturesForCurrentFollows();
+if (profileHasNrlEntityFollow()) void loadNrlFollowIndex().then(() => {
+  rebuildDerivedCardCache(activeEvents);
+  renderAll({ preserveViewport: true });
+});
+if (profileHasAflEntityFollow()) void loadAflFollowIndex().then(() => {
+  rebuildDerivedCardCache(activeEvents);
+  renderAll({ preserveViewport: true });
+});
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => { startupFeedNavigationTouched = true; }, { passive: true, once: true });
