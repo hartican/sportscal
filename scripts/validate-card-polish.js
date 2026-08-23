@@ -48,6 +48,7 @@ assert(html.includes('className = soloIdentity ? "event-hero-mark" : "event-icon
 assert(html.includes("width:min(100%, 133.2px)") && html.includes("138.6px"), "desktop large identities must be exactly 10% smaller than 148x154");
 assert(html.includes("width:113.4px") && html.includes("height:106.2px"), "mobile large identities must be exactly 10% smaller than 126x118");
 assert(html.includes(".event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }") && html.includes("margin:0 auto 16px"), "single-logo cards must centre their full text stack and reserve safe clearance below the logo");
+assert(html.includes(".major-event-logo{ display:grid; place-items:center; width:133.2px; height:99px; margin:0 auto 16px; padding:6px; }") && html.includes(".major-event-logo{ width:113.4px; height:89px; margin-bottom:14px; }"), "tournament and major-event kickers must reserve the same desktop and mobile clearance below square logos");
 assert(html.includes(".event-card.is-logo-led-event .event-name-line .card-expand-control") && html.includes("position:absolute;\n  right:0;"), "single-logo titles must stay centred independently of their expand control");
 assert(html.includes("-webkit-line-clamp:2") && html.includes("white-space:normal"), "long names must wrap to two lines");
 assert(html.includes('return cardViewStates[ev.eventId || ev.id] || "compact";'), "the three-level card state must support both fixture and major-event IDs");
@@ -61,6 +62,6 @@ assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, 
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
 assert(userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.some(branch => branch.required?.includes("startTimeUtc")), "persisted child fixtures must require a confirmed UTC start");
 assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
-assert(html.includes('name="app-shell-version" content="109"') && worker.includes('nothingsport-shell-v109'), "the polished card UI must ship in a matching offline shell version");
+assert(html.includes('name="app-shell-version" content="110"') && worker.includes('nothingsport-shell-v110'), "the polished card UI must ship in a matching offline shell version");
 
 console.log("Card polish valid: three-level cards, centred logo layouts, WCAG ticket contrast, score-only results, Bruce stadium aliases, exact 10% identity reduction, two-line names, top selection controls and surface-aware ticket gating passed.");
