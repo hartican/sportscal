@@ -17,7 +17,7 @@ assert.equal(countryFlags.ASSET_SOURCE.version, "7.3.2");
 assert.equal(countryFlags.ASSET_SOURCE.license, "MIT");
 assert(fs.existsSync(countryFlags.ASSET_SOURCE.noticePath), "the bundled flag library must retain its MIT notice");
 assert(html.includes('<script src="config/country-flags.js"></script>'), "country flags must load before the app renders athlete names");
-assert(html.includes("buildAthleteName(player") && html.includes("buildAthleteName(participant)"), "tournament matches and player follows must both render country flags");
+assert(html.includes("buildAthleteName(player") && html.includes("COUNTRY_FLAGS.flagMarkup(player.birthCountryCode"), "tournament matches and the central player directory must both render country flags");
 assert(html.includes('buildAthleteName(participant, { className: "standings-athlete" })'), "competitor ranking tables must render country flags");
 assert(serviceWorker.includes('"/config/country-flags.js"'), "the flag mapping must be available offline");
 assert(serviceWorker.includes(`"/${countryFlags.ASSET_SOURCE.noticePath}"`), "the flag licence notice must be available offline");

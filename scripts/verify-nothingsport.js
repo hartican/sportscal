@@ -260,14 +260,14 @@ assert(!html.includes("renderStandingsSettings") && !html.includes("renderTempla
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
 assert(html.includes('id="standingsContext"'), "supported table content must resolve into the dedicated Standings destination");
 assert(html.includes('expander.dataset.standingsExpander = competition.id') && html.includes('standingsCompetitionExpansion[competition.id] = !expanded'), "each standings component must expose a direct expand and retract control");
-assert(html.includes("function selectedStandingsSportKeys") && html.includes("function saveStandingsSportKeys"), "Tune filters must remain session-only while Standings keeps its own persistent selections");
+assert(html.includes("function selectedStandingsSportKeys") && html.includes("sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY"), "Tune and Standings filters must remain session-only");
 assert(html.includes("function toggleStandingsPin") && html.includes('pin.textContent = pinned ? "Pinned" : "Pin"'), "each Standings card must provide a persistent Pin control");
 assert(html.includes("function orderStandingsCompetitions") && html.includes("standingsFrothRank"), "Standings must order pins first, then Froth level and recent pin time");
 assert(html.includes('expanded ? "full" : "summary"'), "followed standings must default to Top 3 plus followed and expand only in direct view state");
 assert(html.includes('className = "standings-freshness-note"'), "standings must expose a visible freshness and source-delay notice");
 assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
 assert(html.includes("Standings refresh periodically and may briefly differ from official sources due to update delays."), "standings must disclose periodic update latency against official sources");
-assert(html.includes("data-entity-follow"), "entity follow levels must be editable from canonical participants");
+assert(html.includes("appendDirectoryFollowOptions") && html.includes("setDirectoryEntityFollow"), "entity follow levels must be editable from the central Standings directory");
 assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
 assert(html.includes('"Top 3 + followed"'), "summary standings must promise to retain followed entities outside the top three");
 assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
@@ -364,8 +364,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v111"'), "the card interaction release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="111">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v113"'), "the card interaction release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="113">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -575,8 +575,8 @@ assert(html.includes("eventIsJointTournamentFeedChild(ev, jointTournamentData, r
 const tournamentCardSource = html.slice(html.indexOf("function buildJointTournamentCard("), html.indexOf("function jointTournamentFeedEvent("));
 assert(tournamentCardSource.includes("buildJointTournamentNavigation") && tournamentCardSource.includes("buildJointTournamentDrilldown"), "the combined tournament card must be the entry point to its drill-down links");
 assert(!/Beta schedule|Verified source|Unverified source|Official order of play|Tournament updates/.test(tournamentCardSource), "the main tournament card must not expose schedule-beta or source-pipeline copy");
-assert(html.includes('["schedule", "Schedule & results"]') && html.includes('["tables", "ATP & WTA rankings"]') && html.includes('["athletes", "Follow players"]'), "the tournament hub must link to schedule, tables and player follows");
-assert(html.includes("renderStandingsContext({ container: body, competitions") && html.includes("setJointTournamentAthleteFollow"), "tournament drill-downs must render current tables and actionable player follows");
+assert(html.includes('["schedule", "Schedule & results"]') && html.includes('["tables", "ATP & WTA rankings"]') && !html.includes('["athletes", "Follow players"]'), "the tournament hub must retain schedule and tables while player browsing moves to Standings");
+assert(html.includes("renderStandingsContext({ container: body, competitions") && html.includes("renderTeamsAndPlayersDirectory"), "tournament drill-downs must render current tables while actionable player follows live in Standings");
 assert(!html.includes('textContent = action.saved ? "Saved" : "Save"'), "Cincinnati match actions must not retain the duplicate Save action");
 assert(html.includes('"Add to Must Watch"') && html.includes('Must Watch matches (${savedOutside.length})'), "Cincinnati matches must use the same Must Watch vocabulary as normal cards");
 assert(html.includes("function buildJointTournamentDays") && html.includes("Tournament days (${groups.length})"), "the combined Cincinnati card must expose one drill-down section per tournament day");

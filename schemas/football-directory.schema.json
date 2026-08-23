@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/football-directory.schema.json",
+  "title": "nothingsport football directory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "seasonLabel", "generatedAt", "sources", "leagues", "teams", "players"],
+  "properties": {
+    "schemaVersion": { "const": "football-directory.v1" },
+    "seasonLabel": { "type": "string", "minLength": 4 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+    "leagues": { "type": "array", "minItems": 6, "items": { "$ref": "#/$defs/league" } },
+    "teams": { "type": "array", "minItems": 100, "items": { "$ref": "#/$defs/team" } },
+    "players": { "type": "array", "minItems": 100, "items": { "$ref": "#/$defs/player" } }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "provider", "url", "sourceType", "checkedAt"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^source:football:" },
+        "provider": { "type": "string", "minLength": 2 },
+        "url": { "type": "string", "format": "uri" },
+        "sourceType": { "enum": ["official", "reputable", "explicitly-permitted"] },
+        "checkedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "league": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "key", "displayName", "countryCode", "seasonLabel", "teamCount", "sourceRefs"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^competition:" },
+        "key": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "displayName": { "type": "string", "minLength": 2 },
+        "countryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "seasonLabel": { "type": "string" },
+        "teamCount": { "type": "integer", "minimum": 10, "maximum": 24 },
+        "sourceRefs": { "$ref": "#/$defs/sourceRefs" }
+      }
+    },
+    "team": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "leagueId", "displayName", "shortName", "aliases", "crestUrl", "crestSourceUrl", "externalIds", "sourceRefs", "active"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^team:football:" },
+        "leagueId": { "type": "string", "pattern": "^competition:" },
+        "displayName": { "type": "string", "minLength": 2 },
+        "shortName": { "type": "string", "minLength": 2 },
+        "aliases": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 2 } },
+        "crestUrl": { "type": "string", "format": "uri" },
+        "crestSourceUrl": { "type": "string", "format": "uri" },
+        "externalIds": { "type": "object", "additionalProperties": { "type": "string" } },
+        "sourceRefs": { "$ref": "#/$defs/sourceRefs" },
+        "active": { "type": "boolean" }
+      }
+    },
+    "player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "displayName", "sortName", "currentTeamId", "leagueId", "position", "birthCountryCode", "birthCountryBasis", "prominenceTier", "prominenceReason", "sourceRefs", "active"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^competitor:football:" },
+        "displayName": { "type": "string", "minLength": 2 },
+        "sortName": { "type": "string", "minLength": 2 },
+        "currentTeamId": { "type": "string", "pattern": "^team:football:" },
+        "leagueId": { "type": "string", "pattern": "^competition:" },
+        "position": { "enum": ["Goalkeeper", "Defender", "Midfielder", "Forward", "Unknown"] },
+        "birthCountryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "birthCountryBasis": { "enum": ["official-birthplace", "provider-country-fallback"] },
+        "prominenceTier": { "enum": ["marquee", "established", "emerging"] },
+        "prominenceReason": { "type": "string", "minLength": 8 },
+        "dateOfBirth": { "type": ["string", "null"], "format": "date" },
+        "externalIds": { "type": "object", "additionalProperties": { "type": "string" } },
+        "sourceRefs": { "$ref": "#/$defs/sourceRefs" },
+        "active": { "type": "boolean" },
+        "australianPriority": { "type": "boolean" }
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^source:football:" }
+    }
+  }
+}

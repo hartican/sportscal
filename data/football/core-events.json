@@ -1,0 +1,1566 @@
+{
+  "schemaVersion": "football-core-events.v1",
+  "generatedAt": "2026-08-23T09:51:08.241Z",
+  "events": [
+    {
+      "id": "football-serie-a-2026-27-401874954",
+      "eventId": "football-serie-a-2026-27-401874954",
+      "canonicalEventId": "event:football:serie-a:401874954",
+      "canonicalSourceId": "401874954",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:serie-a",
+      "name": "Juventus v AC Milan",
+      "displayTitleCompact": "Juventus v AC Milan",
+      "participants": [
+        {
+          "name": "Juventus",
+          "role": "home"
+        },
+        {
+          "name": "AC Milan",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:juventus",
+        "team:football:club:ac-milan"
+      ],
+      "homeParticipantId": "team:football:club:juventus",
+      "awayParticipantId": "team:football:club:ac-milan",
+      "date": "2026-09-07",
+      "time": "04:45",
+      "startTimeUtc": "2026-09-06T18:45:00.000Z",
+      "endTimeUtc": "2026-09-06T20:45:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Serie A fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Juventus v AC Milan is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882865",
+      "eventId": "football-la-liga-2026-27-401882865",
+      "canonicalEventId": "event:football:la-liga:401882865",
+      "canonicalSourceId": "401882865",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Atlético Madrid v Real Madrid",
+      "displayTitleCompact": "Atlético Madrid v Real Madrid",
+      "participants": [
+        {
+          "name": "Atlético Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:atletico-madrid",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:atletico-madrid",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-09-21",
+      "time": "04:00",
+      "startTimeUtc": "2026-09-20T18:00:00.000Z",
+      "endTimeUtc": "2026-09-20T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Riyadh Air Metropolitano",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Atlético Madrid v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-ligue-1-2026-27-401876449",
+      "eventId": "football-ligue-1-2026-27-401876449",
+      "canonicalEventId": "event:football:ligue-1:401876449",
+      "canonicalSourceId": "401876449",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:ligue-1",
+      "name": "Marseille v Paris Saint-Germain",
+      "displayTitleCompact": "Marseille v Paris Saint-Germain",
+      "participants": [
+        {
+          "name": "Marseille",
+          "role": "home"
+        },
+        {
+          "name": "Paris Saint-Germain",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:marseille",
+        "team:football:club:paris-saint-germain"
+      ],
+      "homeParticipantId": "team:football:club:marseille",
+      "awayParticipantId": "team:football:club:paris-saint-germain",
+      "date": "2026-09-21",
+      "time": "04:45",
+      "startTimeUtc": "2026-09-20T18:45:00.000Z",
+      "endTimeUtc": "2026-09-20T20:45:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Stade Vélodrome",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Ligue 1 fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Marseille v Paris Saint-Germain is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-a-league-men-2026-27-401892162",
+      "eventId": "football-a-league-men-2026-27-401892162",
+      "canonicalEventId": "event:football:a-league-men:401892162",
+      "canonicalSourceId": "401892162",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:a-leagues",
+      "name": "Sydney FC v Western Sydney Wanderers",
+      "displayTitleCompact": "Sydney FC v Western Sydney Wanderers",
+      "participants": [
+        {
+          "name": "Sydney FC",
+          "role": "home"
+        },
+        {
+          "name": "Western Sydney Wanderers",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:sydney-fc",
+        "team:football:western-sydney-wanderers"
+      ],
+      "homeParticipantId": "team:football:sydney-fc",
+      "awayParticipantId": "team:football:western-sydney-wanderers",
+      "date": "2026-10-16",
+      "time": "20:00",
+      "startTimeUtc": "2026-10-16T09:00:00.000Z",
+      "endTimeUtc": "2026-10-16T11:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "A-League Men fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Sydney FC v Western Sydney Wanderers is listed in the current A-League Men schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882832",
+      "eventId": "football-la-liga-2026-27-401882832",
+      "canonicalEventId": "event:football:la-liga:401882832",
+      "canonicalSourceId": "401882832",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Barcelona v Real Madrid",
+      "displayTitleCompact": "Barcelona v Real Madrid",
+      "participants": [
+        {
+          "name": "Barcelona",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:barcelona",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:barcelona",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-10-26",
+      "time": "05:00",
+      "startTimeUtc": "2026-10-25T18:00:00.000Z",
+      "endTimeUtc": "2026-10-25T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Spotify Camp Nou",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Barcelona v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-bundesliga-2026-27-401884754",
+      "eventId": "football-bundesliga-2026-27-401884754",
+      "canonicalEventId": "event:football:bundesliga:401884754",
+      "canonicalSourceId": "401884754",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:bundesliga",
+      "name": "Bayern Munich v Borussia Dortmund",
+      "displayTitleCompact": "Bayern Munich v Borussia Dortmund",
+      "participants": [
+        {
+          "name": "Bayern Munich",
+          "role": "home"
+        },
+        {
+          "name": "Borussia Dortmund",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:bayern-munich",
+        "team:football:club:borussia-dortmund"
+      ],
+      "homeParticipantId": "team:football:club:bayern-munich",
+      "awayParticipantId": "team:football:club:borussia-dortmund",
+      "date": "2026-11-01",
+      "time": "05:00",
+      "startTimeUtc": "2026-10-31T18:00:00.000Z",
+      "endTimeUtc": "2026-10-31T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Arena",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Bundesliga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Bayern Munich v Borussia Dortmund is listed in the current Bundesliga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-serie-a-2026-27-401874949",
+      "eventId": "football-serie-a-2026-27-401874949",
+      "canonicalEventId": "event:football:serie-a:401874949",
+      "canonicalSourceId": "401874949",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:serie-a",
+      "name": "Juventus v Napoli",
+      "displayTitleCompact": "Juventus v Napoli",
+      "participants": [
+        {
+          "name": "Juventus",
+          "role": "home"
+        },
+        {
+          "name": "Napoli",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:juventus",
+        "team:football:club:napoli"
+      ],
+      "homeParticipantId": "team:football:club:juventus",
+      "awayParticipantId": "team:football:club:napoli",
+      "date": "2026-11-02",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-01T20:00:00.000Z",
+      "endTimeUtc": "2026-11-01T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Serie A fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Juventus v Napoli is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882816",
+      "eventId": "football-la-liga-2026-27-401882816",
+      "canonicalEventId": "event:football:la-liga:401882816",
+      "canonicalSourceId": "401882816",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Atlético Madrid v Barcelona",
+      "displayTitleCompact": "Atlético Madrid v Barcelona",
+      "participants": [
+        {
+          "name": "Atlético Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Barcelona",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:atletico-madrid",
+        "team:football:club:barcelona"
+      ],
+      "homeParticipantId": "team:football:club:atletico-madrid",
+      "awayParticipantId": "team:football:club:barcelona",
+      "date": "2026-11-09",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-08T20:00:00.000Z",
+      "endTimeUtc": "2026-11-08T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Riyadh Air Metropolitano",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Atlético Madrid v Barcelona is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-bundesliga-2026-27-401884727",
+      "eventId": "football-bundesliga-2026-27-401884727",
+      "canonicalEventId": "event:football:bundesliga:401884727",
+      "canonicalSourceId": "401884727",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:bundesliga",
+      "name": "Borussia Dortmund v Bayer Leverkusen",
+      "displayTitleCompact": "Borussia Dortmund v Bayer Leverkusen",
+      "participants": [
+        {
+          "name": "Borussia Dortmund",
+          "role": "home"
+        },
+        {
+          "name": "Bayer Leverkusen",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:borussia-dortmund",
+        "team:football:club:bayer-leverkusen"
+      ],
+      "homeParticipantId": "team:football:club:borussia-dortmund",
+      "awayParticipantId": "team:football:club:bayer-leverkusen",
+      "date": "2026-11-29",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-28T20:00:00.000Z",
+      "endTimeUtc": "2026-11-28T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Signal Iduna Park",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Bundesliga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Borussia Dortmund v Bayer Leverkusen is listed in the current Bundesliga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-a-league-men-2026-27-401892129",
+      "eventId": "football-a-league-men-2026-27-401892129",
+      "canonicalEventId": "event:football:a-league-men:401892129",
+      "canonicalSourceId": "401892129",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:a-leagues",
+      "name": "Sydney FC v Melbourne Victory",
+      "displayTitleCompact": "Sydney FC v Melbourne Victory",
+      "participants": [
+        {
+          "name": "Sydney FC",
+          "role": "home"
+        },
+        {
+          "name": "Melbourne Victory",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:sydney-fc",
+        "team:football:melbourne-victory"
+      ],
+      "homeParticipantId": "team:football:sydney-fc",
+      "awayParticipantId": "team:football:melbourne-victory",
+      "date": "2026-12-06",
+      "time": "17:00",
+      "startTimeUtc": "2026-12-06T06:00:00.000Z",
+      "endTimeUtc": "2026-12-06T08:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "A-League Men fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Sydney FC v Melbourne Victory is listed in the current A-League Men schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-serie-a-2026-27-401875028",
+      "eventId": "football-serie-a-2026-27-401875028",
+      "canonicalEventId": "event:football:serie-a:401875028",
+      "canonicalSourceId": "401875028",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:serie-a",
+      "name": "Napoli v AC Milan",
+      "displayTitleCompact": "Napoli v AC Milan",
+      "participants": [
+        {
+          "name": "Napoli",
+          "role": "home"
+        },
+        {
+          "name": "AC Milan",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:napoli",
+        "team:football:club:ac-milan"
+      ],
+      "homeParticipantId": "team:football:club:napoli",
+      "awayParticipantId": "team:football:club:ac-milan",
+      "date": "2026-12-14",
+      "time": "07:00",
+      "startTimeUtc": "2026-12-13T20:00:00.000Z",
+      "endTimeUtc": "2026-12-13T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Stadio Diego Armando Maradona",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Serie A fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Napoli v AC Milan is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-bundesliga-2026-27-401884682",
+      "eventId": "football-bundesliga-2026-27-401884682",
+      "canonicalEventId": "event:football:bundesliga:401884682",
+      "canonicalSourceId": "401884682",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:bundesliga",
+      "name": "Bayern Munich v Bayer Leverkusen",
+      "displayTitleCompact": "Bayern Munich v Bayer Leverkusen",
+      "participants": [
+        {
+          "name": "Bayern Munich",
+          "role": "home"
+        },
+        {
+          "name": "Bayer Leverkusen",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:bayern-munich",
+        "team:football:club:bayer-leverkusen"
+      ],
+      "homeParticipantId": "team:football:club:bayern-munich",
+      "awayParticipantId": "team:football:club:bayer-leverkusen",
+      "date": "2027-01-14",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-13T20:00:00.000Z",
+      "endTimeUtc": "2027-01-13T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Arena",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Bundesliga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Bayern Munich v Bayer Leverkusen is listed in the current Bundesliga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-a-league-men-2026-27-401892086",
+      "eventId": "football-a-league-men-2026-27-401892086",
+      "canonicalEventId": "event:football:a-league-men:401892086",
+      "canonicalSourceId": "401892086",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:a-leagues",
+      "name": "Melbourne Victory v Sydney FC",
+      "displayTitleCompact": "Melbourne Victory v Sydney FC",
+      "participants": [
+        {
+          "name": "Melbourne Victory",
+          "role": "home"
+        },
+        {
+          "name": "Sydney FC",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:melbourne-victory",
+        "team:football:sydney-fc"
+      ],
+      "homeParticipantId": "team:football:melbourne-victory",
+      "awayParticipantId": "team:football:sydney-fc",
+      "date": "2027-01-26",
+      "time": "17:00",
+      "startTimeUtc": "2027-01-26T06:00:00.000Z",
+      "endTimeUtc": "2027-01-26T08:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Melbourne Rectangular Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "A-League Men fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Melbourne Victory v Sydney FC is listed in the current A-League Men schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-a-league-men-2026-27-401892082",
+      "eventId": "football-a-league-men-2026-27-401892082",
+      "canonicalEventId": "event:football:a-league-men:401892082",
+      "canonicalSourceId": "401892082",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:a-leagues",
+      "name": "Western Sydney Wanderers v Sydney FC",
+      "displayTitleCompact": "Western Sydney Wanderers v Sydney FC",
+      "participants": [
+        {
+          "name": "Western Sydney Wanderers",
+          "role": "home"
+        },
+        {
+          "name": "Sydney FC",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:western-sydney-wanderers",
+        "team:football:sydney-fc"
+      ],
+      "homeParticipantId": "team:football:western-sydney-wanderers",
+      "awayParticipantId": "team:football:sydney-fc",
+      "date": "2027-01-30",
+      "time": "19:40",
+      "startTimeUtc": "2027-01-30T08:40:00.000Z",
+      "endTimeUtc": "2027-01-30T10:40:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "CommBank Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "A-League Men fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Western Sydney Wanderers v Sydney FC is listed in the current A-League Men schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-serie-a-2026-27-401875078",
+      "eventId": "football-serie-a-2026-27-401875078",
+      "canonicalEventId": "event:football:serie-a:401875078",
+      "canonicalSourceId": "401875078",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:serie-a",
+      "name": "AC Milan v Juventus",
+      "displayTitleCompact": "AC Milan v Juventus",
+      "participants": [
+        {
+          "name": "AC Milan",
+          "role": "home"
+        },
+        {
+          "name": "Juventus",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:ac-milan",
+        "team:football:club:juventus"
+      ],
+      "homeParticipantId": "team:football:club:ac-milan",
+      "awayParticipantId": "team:football:club:juventus",
+      "date": "2027-02-01",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-31T20:00:00.000Z",
+      "endTimeUtc": "2027-01-31T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "San Siro",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Serie A fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "AC Milan v Juventus is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-ligue-1-2026-27-401876323",
+      "eventId": "football-ligue-1-2026-27-401876323",
+      "canonicalEventId": "event:football:ligue-1:401876323",
+      "canonicalSourceId": "401876323",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:ligue-1",
+      "name": "Paris Saint-Germain v Marseille",
+      "displayTitleCompact": "Paris Saint-Germain v Marseille",
+      "participants": [
+        {
+          "name": "Paris Saint-Germain",
+          "role": "home"
+        },
+        {
+          "name": "Marseille",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:paris-saint-germain",
+        "team:football:club:marseille"
+      ],
+      "homeParticipantId": "team:football:club:paris-saint-germain",
+      "awayParticipantId": "team:football:club:marseille",
+      "date": "2027-02-08",
+      "time": "06:45",
+      "startTimeUtc": "2027-02-07T19:45:00.000Z",
+      "endTimeUtc": "2027-02-07T21:45:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Parc des Princes",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Ligue 1 fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Paris Saint-Germain v Marseille is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882700",
+      "eventId": "football-la-liga-2026-27-401882700",
+      "canonicalEventId": "event:football:la-liga:401882700",
+      "canonicalSourceId": "401882700",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Barcelona v Atlético Madrid",
+      "displayTitleCompact": "Barcelona v Atlético Madrid",
+      "participants": [
+        {
+          "name": "Barcelona",
+          "role": "home"
+        },
+        {
+          "name": "Atlético Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:barcelona",
+        "team:football:club:atletico-madrid"
+      ],
+      "homeParticipantId": "team:football:club:barcelona",
+      "awayParticipantId": "team:football:club:atletico-madrid",
+      "date": "2027-02-08",
+      "time": "07:00",
+      "startTimeUtc": "2027-02-07T20:00:00.000Z",
+      "endTimeUtc": "2027-02-07T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Spotify Camp Nou",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Barcelona v Atlético Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-serie-a-2026-27-401874829",
+      "eventId": "football-serie-a-2026-27-401874829",
+      "canonicalEventId": "event:football:serie-a:401874829",
+      "canonicalSourceId": "401874829",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:serie-a",
+      "name": "Napoli v Juventus",
+      "displayTitleCompact": "Napoli v Juventus",
+      "participants": [
+        {
+          "name": "Napoli",
+          "role": "home"
+        },
+        {
+          "name": "Juventus",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:napoli",
+        "team:football:club:juventus"
+      ],
+      "homeParticipantId": "team:football:club:napoli",
+      "awayParticipantId": "team:football:club:juventus",
+      "date": "2027-02-15",
+      "time": "07:00",
+      "startTimeUtc": "2027-02-14T20:00:00.000Z",
+      "endTimeUtc": "2027-02-14T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Stadio Diego Armando Maradona",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Serie A fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Napoli v Juventus is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-bundesliga-2026-27-401884601",
+      "eventId": "football-bundesliga-2026-27-401884601",
+      "canonicalEventId": "event:football:bundesliga:401884601",
+      "canonicalSourceId": "401884601",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:bundesliga",
+      "name": "Borussia Dortmund v Bayern Munich",
+      "displayTitleCompact": "Borussia Dortmund v Bayern Munich",
+      "participants": [
+        {
+          "name": "Borussia Dortmund",
+          "role": "home"
+        },
+        {
+          "name": "Bayern Munich",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:borussia-dortmund",
+        "team:football:club:bayern-munich"
+      ],
+      "homeParticipantId": "team:football:club:borussia-dortmund",
+      "awayParticipantId": "team:football:club:bayern-munich",
+      "date": "2027-03-07",
+      "time": "07:00",
+      "startTimeUtc": "2027-03-06T20:00:00.000Z",
+      "endTimeUtc": "2027-03-06T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Signal Iduna Park",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Bundesliga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Borussia Dortmund v Bayern Munich is listed in the current Bundesliga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-a-league-men-2026-27-401892040",
+      "eventId": "football-a-league-men-2026-27-401892040",
+      "canonicalEventId": "event:football:a-league-men:401892040",
+      "canonicalSourceId": "401892040",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:a-leagues",
+      "name": "Sydney FC v Western Sydney Wanderers",
+      "displayTitleCompact": "Sydney FC v Western Sydney Wanderers",
+      "participants": [
+        {
+          "name": "Sydney FC",
+          "role": "home"
+        },
+        {
+          "name": "Western Sydney Wanderers",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:sydney-fc",
+        "team:football:western-sydney-wanderers"
+      ],
+      "homeParticipantId": "team:football:sydney-fc",
+      "awayParticipantId": "team:football:western-sydney-wanderers",
+      "date": "2027-04-03",
+      "time": "19:40",
+      "startTimeUtc": "2027-04-03T08:40:00.000Z",
+      "endTimeUtc": "2027-04-03T10:40:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Allianz Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "A-League Men fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Sydney FC v Western Sydney Wanderers is listed in the current A-League Men schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-bundesliga-2026-27-401884572",
+      "eventId": "football-bundesliga-2026-27-401884572",
+      "canonicalEventId": "event:football:bundesliga:401884572",
+      "canonicalSourceId": "401884572",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:bundesliga",
+      "name": "Bayer Leverkusen v Borussia Dortmund",
+      "displayTitleCompact": "Bayer Leverkusen v Borussia Dortmund",
+      "participants": [
+        {
+          "name": "Bayer Leverkusen",
+          "role": "home"
+        },
+        {
+          "name": "Borussia Dortmund",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:bayer-leverkusen",
+        "team:football:club:borussia-dortmund"
+      ],
+      "homeParticipantId": "team:football:club:bayer-leverkusen",
+      "awayParticipantId": "team:football:club:borussia-dortmund",
+      "date": "2027-04-04",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-03T18:00:00.000Z",
+      "endTimeUtc": "2027-04-03T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "BayArena",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Bundesliga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Bayer Leverkusen v Borussia Dortmund is listed in the current Bundesliga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882628",
+      "eventId": "football-la-liga-2026-27-401882628",
+      "canonicalEventId": "event:football:la-liga:401882628",
+      "canonicalSourceId": "401882628",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Atlético Madrid",
+      "displayTitleCompact": "Real Madrid v Atlético Madrid",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Atlético Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:atletico-madrid"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:atletico-madrid",
+      "date": "2027-04-05",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-04T18:00:00.000Z",
+      "endTimeUtc": "2027-04-04T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Atlético Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-a-league-men-2026-27-401892033",
+      "eventId": "football-a-league-men-2026-27-401892033",
+      "canonicalEventId": "event:football:a-league-men:401892033",
+      "canonicalSourceId": "401892033",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:a-leagues",
+      "name": "Melbourne Victory v Sydney FC",
+      "displayTitleCompact": "Melbourne Victory v Sydney FC",
+      "participants": [
+        {
+          "name": "Melbourne Victory",
+          "role": "home"
+        },
+        {
+          "name": "Sydney FC",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:melbourne-victory",
+        "team:football:sydney-fc"
+      ],
+      "homeParticipantId": "team:football:melbourne-victory",
+      "awayParticipantId": "team:football:sydney-fc",
+      "date": "2027-04-10",
+      "time": "19:40",
+      "startTimeUtc": "2027-04-10T09:40:00.000Z",
+      "endTimeUtc": "2027-04-10T11:40:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Melbourne Rectangular Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "A-League Men fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Melbourne Victory v Sydney FC is listed in the current A-League Men schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
+    },
+    {
+      "id": "football-serie-a-2026-27-401874831",
+      "eventId": "football-serie-a-2026-27-401874831",
+      "canonicalEventId": "event:football:serie-a:401874831",
+      "canonicalSourceId": "401874831",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:serie-a",
+      "name": "AC Milan v Napoli",
+      "displayTitleCompact": "AC Milan v Napoli",
+      "participants": [
+        {
+          "name": "AC Milan",
+          "role": "home"
+        },
+        {
+          "name": "Napoli",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:ac-milan",
+        "team:football:club:napoli"
+      ],
+      "homeParticipantId": "team:football:club:ac-milan",
+      "awayParticipantId": "team:football:club:napoli",
+      "date": "2027-04-19",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-18T18:00:00.000Z",
+      "endTimeUtc": "2027-04-18T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "San Siro",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Serie A fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "AC Milan v Napoli is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882579",
+      "eventId": "football-la-liga-2026-27-401882579",
+      "canonicalEventId": "event:football:la-liga:401882579",
+      "canonicalSourceId": "401882579",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Barcelona",
+      "displayTitleCompact": "Real Madrid v Barcelona",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Barcelona",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:barcelona"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:barcelona",
+      "date": "2027-05-10",
+      "time": "04:00",
+      "startTimeUtc": "2027-05-09T18:00:00.000Z",
+      "endTimeUtc": "2027-05-09T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Barcelona is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-bundesliga-2026-27-401884526",
+      "eventId": "football-bundesliga-2026-27-401884526",
+      "canonicalEventId": "event:football:bundesliga:401884526",
+      "canonicalSourceId": "401884526",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:bundesliga",
+      "name": "Bayer Leverkusen v Bayern Munich",
+      "displayTitleCompact": "Bayer Leverkusen v Bayern Munich",
+      "participants": [
+        {
+          "name": "Bayer Leverkusen",
+          "role": "home"
+        },
+        {
+          "name": "Bayern Munich",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:bayer-leverkusen",
+        "team:football:club:bayern-munich"
+      ],
+      "homeParticipantId": "team:football:club:bayer-leverkusen",
+      "awayParticipantId": "team:football:club:bayern-munich",
+      "date": "2027-05-16",
+      "time": "04:00",
+      "startTimeUtc": "2027-05-15T18:00:00.000Z",
+      "endTimeUtc": "2027-05-15T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "BayArena",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 8,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Bundesliga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Bayer Leverkusen v Bayern Munich is listed in the current Bundesliga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    }
+  ]
+}

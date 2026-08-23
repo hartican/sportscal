@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="111">
+<meta name="app-shell-version" content="113">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -5022,6 +5022,36 @@ footer.app-footer{
 .standings-filter-choices{ display:flex; flex-wrap:wrap; gap:7px; margin-top:11px; }
 .standings-filter-choice{ min-height:32px; padding:5px 9px; border:1px solid var(--border); border-radius:999px; background:transparent; color:var(--text-dim); font:800 0.7rem/1 inherit; cursor:pointer; }
 .standings-filter-choice.active{ color:#05050a; background:var(--accent); border-color:var(--accent); }
+.standings-inner-tabs{ display:flex; gap:4px; margin:0 0 14px; padding:4px; border:1px solid var(--border); border-radius:8px; background:var(--soft-fill); }
+.standings-inner-tab{ flex:1; min-height:38px; border:0; border-radius:6px; background:transparent; color:var(--text-dim); font:800 0.76rem/1 inherit; cursor:pointer; }
+.standings-inner-tab.active{ background:var(--bg-card); color:var(--text); box-shadow:0 0 0 1px var(--border); }
+.football-directory{ display:flex; flex-direction:column; gap:12px; }
+.football-directory-sport-choice{ width:min(100%,240px); }
+.football-directory-toolbar{ display:grid; grid-template-columns:minmax(180px,1.5fr) repeat(4,minmax(120px,1fr)); gap:8px; padding:12px; border:1px solid var(--border); border-radius:8px; background:var(--bg-card); }
+.football-directory-field{ display:flex; flex-direction:column; gap:5px; min-width:0; color:var(--text-dim); font-size:0.66rem; font-weight:800; }
+.football-directory-field input,
+.football-directory-field select{ width:100%; min-height:38px; padding:8px 9px; border:1px solid var(--border); border-radius:6px; background:var(--panel); color:var(--text); font:700 0.75rem/1.2 inherit; }
+.football-directory-summary{ color:var(--text-dim); font-size:0.72rem; line-height:1.45; }
+.football-club-list{ border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--bg-card); }
+.football-club-row + .football-club-row{ border-top:1px solid var(--border); }
+.football-club-head{ display:grid; grid-template-columns:42px minmax(0,1fr) 116px 36px; align-items:center; gap:10px; min-height:58px; padding:8px 10px; }
+.football-club-crest{ width:38px; height:38px; object-fit:contain; }
+.football-club-copy{ min-width:0; }
+.football-club-copy strong{ display:block; font-size:0.82rem; line-height:1.25; overflow-wrap:anywhere; }
+.football-club-copy span{ display:block; margin-top:3px; color:var(--text-dim); font-size:0.68rem; }
+.football-follow-select{ width:100%; min-height:34px; padding:6px 7px; border:1px solid var(--border); border-radius:6px; background:var(--panel); color:var(--text); font:750 0.68rem/1 inherit; }
+.football-club-expand{ display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--border); border-radius:6px; background:transparent; color:var(--text); cursor:pointer; }
+.football-club-expand .vector-glyph{ width:15px; height:15px; transition:transform 160ms ease; }
+.football-club-expand[aria-expanded="true"] .vector-glyph{ transform:rotate(90deg); }
+.football-player-list{ border-top:1px solid var(--border); background:var(--soft-fill); }
+.football-player-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(76px,0.35fr) 92px 116px; align-items:center; gap:10px; min-height:48px; padding:7px 10px 7px 62px; }
+.football-player-row + .football-player-row{ border-top:1px solid var(--border); }
+.football-player-name{ display:flex; align-items:center; gap:8px; min-width:0; font-size:0.76rem; font-weight:800; }
+.football-player-name span{ min-width:0; overflow-wrap:anywhere; }
+.football-player-position,
+.football-player-tier{ color:var(--text-dim); font-size:0.68rem; }
+.football-player-tier{ text-transform:capitalize; }
+.football-directory-empty{ padding:24px 14px; color:var(--text-dim); text-align:center; font-size:0.76rem; }
 .standings-pin{ flex:0 0 auto; min-height:32px; padding:5px 9px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text-dim); font:800 0.68rem/1 inherit; cursor:pointer; }
 .standings-pin.active{ color:#05050a; background:var(--accent); border-color:var(--accent); }
 
@@ -5133,6 +5163,13 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .browse-row.is-child{ margin-left:14px; }
   .focused-discovery-banner{ align-items:flex-start; flex-direction:column; }
   .focused-discovery-actions{ justify-content:flex-start; }
+  .football-directory-toolbar{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .football-directory-field:first-child{ grid-column:1 / -1; }
+  .football-club-head{ grid-template-columns:38px minmax(0,1fr) 100px 34px; gap:7px; padding:8px; }
+  .football-club-crest{ width:34px; height:34px; }
+  .football-player-row{ grid-template-columns:minmax(0,1fr) 100px; padding:8px 8px 8px 53px; }
+  .football-player-position,
+  .football-player-tier{ display:none; }
   .joint-match{ grid-template-columns:64px minmax(0, 1fr); }
   .joint-match-actions{ grid-column:1 / -1; justify-content:flex-end; }
   body.header-compact-2 .header-brand-logo{ width:132px; }
@@ -5936,6 +5973,17 @@ const CANONICAL_CONTEXT_CONFIG = Object.freeze({
   ]),
 });
 
+const FOOTBALL_DIRECTORY_CONFIG = Object.freeze({
+  moduleScriptUrl: "config/football-directory.js",
+  directoryUrl: "data/canonical/football-directory.v1.json",
+  directoryScriptUrl: "data/canonical/football-directory.v1.js",
+  indexUrl: "data/canonical/football-follow-index.v1.json",
+  indexScriptUrl: "data/canonical/football-follow-index.v1.js",
+  coreUrl: "data/football/core-events.json",
+  coreScriptUrl: "data/football/core-events.js",
+  fixtureBaseUrl: "data/football/fixtures",
+});
+
 const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
   defaultWeight: 0,
   profiles: [],
@@ -6060,6 +6108,15 @@ let canonicalPreferenceParticipants = [];
 let canonicalSportsData = null;
 let canonicalSportsDataLoading = false;
 let canonicalSportsDataError = null;
+let footballDirectoryApi = null;
+let footballDirectoryData = null;
+let footballDirectoryLoading = false;
+let footballDirectoryError = null;
+let footballFollowIndex = null;
+let footballFollowIndexLoading = null;
+let footballCoreLoading = null;
+const footballFixtureEventsByBundle = new Map();
+let footballDirectorySearchTimer = null;
 let standingsRevealApproved = false;
 let pendingStandingsReveal = null;
 let pendingSelectorPromptIds = new Set();
@@ -7530,6 +7587,161 @@ async function fetchJson(url){
   return response.json();
 }
 
+function loadDeferredScript(url){
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = new URL(url, document.baseURI).href;
+    script.async = true;
+    script.onload = () => { script.remove(); resolve(); };
+    script.onerror = () => { script.remove(); reject(new Error(`${url} could not be loaded`)); };
+    document.head.appendChild(script);
+  });
+}
+
+async function loadFootballDirectoryModule(){
+  if (footballDirectoryApi) return footballDirectoryApi;
+  await loadDeferredScript(FOOTBALL_DIRECTORY_CONFIG.moduleScriptUrl);
+  footballDirectoryApi = globalThis.NOTHINGSPORTS_FOOTBALL_DIRECTORY || null;
+  if (!footballDirectoryApi) throw new Error("Football directory runtime was unavailable");
+  return footballDirectoryApi;
+}
+
+async function loadFootballAsset({ url, scriptUrl, globalName }){
+  if (globalThis.location?.protocol === "file:"){
+    await loadDeferredScript(scriptUrl);
+    return globalThis[globalName];
+  }
+  const response = await fetch(url);
+  if (!response.ok){
+    throw new Error(`${url} returned ${response.status}`);
+  }
+  return response.json();
+}
+
+async function loadFootballDirectoryData(){
+  if (footballDirectoryData) return footballDirectoryData;
+  if (footballDirectoryLoading) return null;
+  footballDirectoryLoading = true;
+  footballDirectoryError = null;
+  try{
+    const [api, data] = await Promise.all([
+      loadFootballDirectoryModule(),
+      loadFootballAsset({
+        url: FOOTBALL_DIRECTORY_CONFIG.directoryUrl,
+        scriptUrl: FOOTBALL_DIRECTORY_CONFIG.directoryScriptUrl,
+        globalName: "NOTHINGSPORTS_FOOTBALL_DIRECTORY_DATA",
+      }),
+    ]);
+    if (data?.schemaVersion !== api.SCHEMA_VERSION) throw new Error("Football directory schema is unsupported");
+    footballDirectoryData = data;
+    return data;
+  }catch(error){
+    footballDirectoryError = error;
+    console.warn("Football directory unavailable", error);
+    return null;
+  }finally{
+    footballDirectoryLoading = false;
+    renderStandingsContext();
+  }
+}
+
+async function loadFootballFollowIndex(){
+  if (footballFollowIndex) return footballFollowIndex;
+  if (footballFollowIndexLoading) return footballFollowIndexLoading;
+  footballFollowIndexLoading = Promise.all([
+    loadFootballDirectoryModule(),
+    loadFootballAsset({
+      url: FOOTBALL_DIRECTORY_CONFIG.indexUrl,
+      scriptUrl: FOOTBALL_DIRECTORY_CONFIG.indexScriptUrl,
+      globalName: "NOTHINGSPORTS_FOOTBALL_FOLLOW_INDEX",
+    }),
+  ]).then(([, index]) => {
+    if (index?.schemaVersion !== "football-follow-index.v1") throw new Error("Football follow index schema is unsupported");
+    footballFollowIndex = index;
+    return index;
+  }).finally(() => { footballFollowIndexLoading = null; });
+  return footballFollowIndexLoading;
+}
+
+function mergeFootballFixtureEvents(events){
+  const merged = new Map();
+  footballFixtureEventsByBundle.forEach(bundle => bundle.forEach(event => {
+    merged.set(event.canonicalEventId || event.eventId || event.id, event);
+  }));
+  events.forEach(event => merged.set(event.canonicalEventId || event.eventId || event.id, event));
+  return Array.from(merged.values());
+}
+
+function applyLoadedFootballBundle(bundleKey, payload){
+  const events = coerceEventList(payload);
+  if (!events.length) throw new Error(`${bundleKey} football fixture bundle contained no usable events`);
+  footballFixtureEventsByBundle.set(bundleKey, events);
+  activeEvents = mergeFootballFixtureEvents(activeEvents);
+  normalizeEvents(activeEvents);
+  rebuildDerivedCardCache(activeEvents);
+  scheduleBrowserReminders();
+  renderAll({ preserveViewport: true });
+  return events;
+}
+
+async function loadFootballCoreEvents(){
+  if (footballFixtureEventsByBundle.has("core")) return footballFixtureEventsByBundle.get("core");
+  if (footballCoreLoading) return footballCoreLoading;
+  footballCoreLoading = loadFootballAsset({
+    url: FOOTBALL_DIRECTORY_CONFIG.coreUrl,
+    scriptUrl: FOOTBALL_DIRECTORY_CONFIG.coreScriptUrl,
+    globalName: "NOTHINGSPORTS_FOOTBALL_CORE_EVENTS",
+  }).then(payload => applyLoadedFootballBundle("core", payload))
+    .catch(error => { console.warn("Football core fixtures unavailable", error); return []; })
+    .finally(() => { footballCoreLoading = null; });
+  return footballCoreLoading;
+}
+
+async function loadFootballLeagueFixtures(leagueKey){
+  if (leagueKey === "premier-league") return activeEvents.filter(event => event.key === "premier-league");
+  const bundleKey = `league:${leagueKey}`;
+  if (footballFixtureEventsByBundle.has(bundleKey)) return footballFixtureEventsByBundle.get(bundleKey);
+  const payload = await loadFootballAsset({
+    url: `${FOOTBALL_DIRECTORY_CONFIG.fixtureBaseUrl}/${leagueKey}.json`,
+    scriptUrl: `${FOOTBALL_DIRECTORY_CONFIG.fixtureBaseUrl}/${leagueKey}.js`,
+    globalName: "NOTHINGSPORTS_FOOTBALL_FIXTURES",
+  });
+  const document = globalThis.location?.protocol === "file:" ? payload?.[leagueKey] : payload;
+  return applyLoadedFootballBundle(bundleKey, document);
+}
+
+function footballLeagueKeysForFollows(index = footballFollowIndex){
+  const leagueKeyById = new Map([
+    ["competition:premier-league", "premier-league"], ["competition:bundesliga", "bundesliga"],
+    ["competition:la-liga", "la-liga"], ["competition:serie-a", "serie-a"],
+    ["competition:ligue-1", "ligue-1"], ["competition:a-leagues", "a-league-men"],
+  ]);
+  const followedIds = new Set((userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(follow => ["follow", "priority", "mute"].includes(follow.followLevel))
+    .map(follow => follow.participantId));
+  return Array.from(new Set([
+    ...(index?.teams || []).filter(team => followedIds.has(team.id)).map(team => leagueKeyById.get(team.leagueId)),
+    ...(index?.players || []).filter(player => followedIds.has(player.id)).map(player => leagueKeyById.get(player.leagueId)),
+  ].filter(Boolean)));
+}
+
+async function loadFootballFixturesForCurrentFollows(){
+  const index = await loadFootballFollowIndex();
+  await Promise.all(footballLeagueKeysForFollows(index).map(loadFootballLeagueFixtures));
+}
+
+function profileSelectsFootball(preferences = userPreferences){
+  return (preferences?.selectedSelectorEntityIds || []).includes("sport:football")
+    || (preferences?.preferenceGraph?.domainPreferences || []).some(preference => preference.sportDomainId === "sport:football" && preference.enabled !== false);
+}
+
+function profileHasFootballEntityFollow(preferences = userPreferences){
+  return (preferences?.preferenceGraph?.entityFollows || []).some(follow => (
+    String(follow.participantId || "").startsWith("team:football:")
+    || String(follow.participantId || "").startsWith("competitor:football:")
+  ));
+}
+
 function reloadBundledCanonicalContextsScript(){
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -7652,9 +7864,10 @@ async function loadMajorEventsData(){
 }
 
 function applyFeedEvents(events, meta){
+  const mergedEvents = mergeFootballFixtureEvents(events);
   activeEvents = SPORT_CONTEXT && canonicalSportsData
-    ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
-    : events;
+    ? SPORT_CONTEXT.applyContextToEvents(mergedEvents, canonicalSportsData)
+    : mergedEvents;
   normalizeEvents(activeEvents);
   syncLegacyArchiveReferences(activeEvents);
   rebuildDerivedCardCache(activeEvents);
@@ -7673,7 +7886,7 @@ function applyServerFeed(payload){
   if (!Array.isArray(payload.events)){
     throw new Error("Server feed did not contain a canonical event collection");
   }
-  const events = coerceEventList(payload);
+  const events = mergeFootballFixtureEvents(coerceEventList(payload));
   const cache = CARD_LIFECYCLE?.normalizeCache(payload.derivedCardCache);
   if (!cache || cache.buildOrigin !== "server"){
     throw new Error("Server feed did not contain a central derived-card rebuild");
@@ -7862,6 +8075,10 @@ function setActiveFeedFilter(nextFilter, {
   todayMoreReveal = false;
   calendarInitialJumpPending = !previousHubKey && !nextHubKey;
   renderAll();
+  if (["football", "sport:football", "premier-league"].includes(normalizedFilter)){
+    void Promise.all(["premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "a-league-men"]
+      .map(loadFootballLeagueFixtures));
+  }
   if (nextHubKey && nextHubKey !== previousHubKey && measurementEntry){
     const selectedRound = Number.isInteger(roundNumber)
       ? roundNumber
@@ -9772,9 +9989,15 @@ function eventParticipantFollowLevels(ev){
     ev.homeParticipantId,
     ev.awayParticipantId,
   ].filter(Boolean));
-  return (userPreferences.preferenceGraph?.entityFollows || [])
+  const direct = (userPreferences.preferenceGraph?.entityFollows || [])
     .filter(preference => participantIds.has(preference.participantId))
     .map(preference => preference.followLevel);
+  const expanded = footballDirectoryApi?.expandedFollowLevels?.(
+    { ...ev, participantIds: Array.from(participantIds) },
+    userPreferences.preferenceGraph,
+    footballFollowIndex
+  ) || [];
+  return Array.from(new Set([...direct, ...expanded]));
 }
 
 function eventHasExplicitUnfollow(ev){
@@ -9856,7 +10079,7 @@ function eventMeetsCoveragePreference(ev){
   // Release 1 applies the explicit Casual/Like/Froth tiers to the first three
   // team-aware sports. Existing catalogue families keep their established
   // coverage behaviour until their own hierarchy release.
-  if (!["rugby", "cricket", "football", "fifa"].includes(ev.key)){
+  if (!["rugby", "cricket", "football", "fifa", "premier-league"].includes(ev.key)){
     const includeAllFixtures = enabledDomainPreferences.some(preference => preference.includeAllFixtures);
     const includeMajorEvents = enabledDomainPreferences.some(preference => preference.includeMajorEvents !== false);
     return includeAllFixtures || (includeMajorEvents && eventMeetsGlobalThreshold(ev));
@@ -11279,7 +11502,6 @@ function buildJointTournamentNavigation(){
   [
     ["schedule", "Schedule & results"],
     ["tables", "ATP & WTA rankings"],
-    ["athletes", "Follow players"],
   ].forEach(([panel, label]) => {
     const link = globalThis.document.createElement("a");
     link.className = "joint-tournament-link";
@@ -11389,95 +11611,9 @@ function buildJointTournamentTablesPanel(){
   return section;
 }
 
-function jointTournamentAthleteParticipants(tournamentDocument){
-  const playerNames = new Set(
-    [...(tournamentDocument.schedule?.matches || []), ...(tournamentDocument.matchHistory || [])]
-      .flatMap(match => match.players || [])
-      .map(player => JOINT_TENNIS_TOURNAMENT?.slug?.(player.name))
-      .filter(Boolean)
-  );
-  const followed = new Set((userPreferences.preferenceGraph?.entityFollows || [])
-    .filter(item => ["follow", "priority"].includes(item.followLevel))
-    .map(item => item.participantId));
-  return canonicalPreferenceParticipants
-    .filter(participant => participant.type === "competitor" && String(participant.sportDomainId).startsWith("sport:tennis:"))
-    .filter(participant => [
-      participant.displayName,
-      participant.canonicalName,
-      participant.shortName,
-      ...(participant.metadata?.titleAliases || []),
-    ].some(name => playerNames.has(JOINT_TENNIS_TOURNAMENT?.slug?.(name))))
-    .sort((first, second) => (
-      Number(followed.has(second.id)) - Number(followed.has(first.id))
-      || Number(first.metadata?.rankingSingles || 9999) - Number(second.metadata?.rankingSingles || 9999)
-      || first.displayName.localeCompare(second.displayName)
-    ));
-}
-
-function setJointTournamentAthleteFollow(participant, enabled){
-  const next = clonePreferences(userPreferences);
-  if (enabled && !selectorEntityIsEffectivelySelected("sport:tennis", next)){
-    next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), "sport:tennis"]);
-    next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
-    next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
-    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, "sport:tennis", "template:like");
-  }
-  next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participant.id, enabled ? "follow" : "none");
-  savePreferences(next);
-  recordPreferenceChange(enabled ? "follow" : "unfollow", "player", { sport: "tennis" });
-  showToast(`${participant.displayName} ${enabled ? "followed" : "unfollowed"}.`);
-  renderAll({ preserveViewport: true });
-}
-
-function buildJointTournamentAthletePanel(tournamentDocument){
-  const section = globalThis.document.createElement("section");
-  section.className = "joint-tournament-drilldown";
-  section.id = "jointTournamentDrilldown-athletes";
-  section.tabIndex = -1;
-  const head = globalThis.document.createElement("header");
-  head.className = "joint-tournament-drilldown-head";
-  head.innerHTML = "<h3>Follow players</h3><p>Following a player also adds Tennis at Like depth, so their eligible cards can reach your feed.</p>";
-  section.appendChild(head);
-  if (!canonicalSportsData){
-    const loading = globalThis.document.createElement("p");
-    loading.className = "joint-overview";
-    loading.textContent = canonicalSportsDataError ? "Player follows are temporarily unavailable." : "Loading tournament players…";
-    section.appendChild(loading);
-    if (!canonicalSportsDataLoading){
-      loadCanonicalSportsData().then(() => {
-        if (jointTournamentDrilldownPanel === "athletes") renderAll({ preserveViewport: true });
-      });
-    }
-    return section;
-  }
-  const participants = jointTournamentAthleteParticipants(tournamentDocument);
-  const grid = globalThis.document.createElement("div");
-  grid.className = "joint-athlete-follow-grid";
-  const follows = new Map((userPreferences.preferenceGraph?.entityFollows || []).map(item => [item.participantId, item.followLevel]));
-  participants.forEach(participant => {
-    const following = ["follow", "priority"].includes(follows.get(participant.id));
-    const button = globalThis.document.createElement("button");
-    button.type = "button";
-    button.className = "joint-athlete-follow";
-    button.setAttribute("aria-pressed", String(following));
-    const state = document.createElement("strong");
-    state.textContent = following ? "Following" : "Follow";
-    button.append(buildAthleteName(participant), state);
-    button.addEventListener("click", event => {
-      event.stopPropagation();
-      setJointTournamentAthleteFollow(participant, !following);
-    });
-    grid.appendChild(button);
-  });
-  if (!participants.length) grid.innerHTML = '<p class="joint-overview">No tournament players could be matched to the current follow catalogue.</p>';
-  section.appendChild(grid);
-  return section;
-}
-
 function buildJointTournamentDrilldown(tournamentDocument){
   if (jointTournamentDrilldownPanel === "schedule") return buildJointTournamentSchedulePanel(tournamentDocument);
   if (jointTournamentDrilldownPanel === "tables") return buildJointTournamentTablesPanel();
-  if (jointTournamentDrilldownPanel === "athletes") return buildJointTournamentAthletePanel(tournamentDocument);
   return null;
 }
 
@@ -12627,9 +12763,77 @@ function rankingSportKeysForStandings(preferences = userPreferences){
   return FILTER_ORDER.filter(key => key !== "all" && keys.has(key));
 }
 
+const STANDINGS_DIRECTORY_SESSION_KEY = "nothingsport:standings-directory-session:v1";
+const STANDINGS_DIRECTORY_SESSION_VERSION = "standings-directory-session.v1";
+
+function defaultStandingsDirectorySession(preferences = userPreferences){
+  return {
+    schemaVersion: STANDINGS_DIRECTORY_SESSION_VERSION,
+    activeView: "tables",
+    selectedSportKeys: Array.isArray(preferences?.standings?.selectedSportKeys)
+      ? preferences.standings.selectedSportKeys.slice()
+      : rankingSportKeysForStandings(preferences),
+    directorySportKey: "football",
+    filtersBySport: {},
+  };
+}
+
+function readStandingsDirectorySession(preferences = userPreferences){
+  const fallback = defaultStandingsDirectorySession(preferences);
+  try{
+    const parsed = JSON.parse(sessionStorage.getItem(STANDINGS_DIRECTORY_SESSION_KEY) || "null");
+    if (!parsed || parsed.schemaVersion !== STANDINGS_DIRECTORY_SESSION_VERSION){
+      sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(fallback));
+      return fallback;
+    }
+    return {
+      ...fallback,
+      activeView: parsed.activeView === "directory" ? "directory" : "tables",
+      selectedSportKeys: Array.isArray(parsed.selectedSportKeys) ? parsed.selectedSportKeys.filter(key => typeof key === "string") : fallback.selectedSportKeys,
+      directorySportKey: ["football", "rugby", "cricket", "tennis"].includes(parsed.directorySportKey) ? parsed.directorySportKey : "football",
+      filtersBySport: parsed.filtersBySport && typeof parsed.filtersBySport === "object" && !Array.isArray(parsed.filtersBySport) ? parsed.filtersBySport : {},
+    };
+  }catch(_error){
+    return fallback;
+  }
+}
+
+function writeStandingsDirectorySession(next){
+  const clean = { ...defaultStandingsDirectorySession(), ...next, schemaVersion: STANDINGS_DIRECTORY_SESSION_VERSION };
+  try { sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY, JSON.stringify(clean)); } catch(_error) { /* session state is optional */ }
+  return clean;
+}
+
+function updateStandingsDirectorySession(patch){
+  return writeStandingsDirectorySession({ ...readStandingsDirectorySession(), ...patch });
+}
+
+function directoryFilters(sportKey = readStandingsDirectorySession().directorySportKey){
+  const raw = readStandingsDirectorySession().filtersBySport?.[sportKey] || {};
+  return {
+    leagueId: typeof raw.leagueId === "string" ? raw.leagueId : "",
+    teamId: typeof raw.teamId === "string" ? raw.teamId : "",
+    birthCountryCode: typeof raw.birthCountryCode === "string" ? raw.birthCountryCode : "",
+    prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
+    query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
+    expandedTeamId: typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "",
+  };
+}
+
+function updateDirectoryFilters(sportKey, patch){
+  const session = readStandingsDirectorySession();
+  writeStandingsDirectorySession({
+    ...session,
+    filtersBySport: {
+      ...session.filtersBySport,
+      [sportKey]: { ...directoryFilters(sportKey), ...patch },
+    },
+  });
+}
+
 function selectedStandingsSportKeys(preferences = userPreferences){
   const available = rankingSportKeysForStandings(preferences);
-  const saved = preferences?.standings?.selectedSportKeys;
+  const saved = readStandingsDirectorySession(preferences).selectedSportKeys;
   if (!Array.isArray(saved)) return available;
   return available.filter(key => saved.includes(key));
 }
@@ -12637,13 +12841,7 @@ function selectedStandingsSportKeys(preferences = userPreferences){
 function saveStandingsSportKeys(keys){
   const available = rankingSportKeysForStandings();
   const selected = available.filter(key => keys.includes(key));
-  savePreferences({
-    ...userPreferences,
-    standings: {
-      ...(userPreferences.standings || {}),
-      selectedSportKeys: selected,
-    },
-  });
+  updateStandingsDirectorySession({ selectedSportKeys: selected });
 }
 
 function setAllStandingsSportKeys(selected){
@@ -12911,6 +13109,323 @@ function buildStandingsFilter(){
   return panel;
 }
 
+function buildStandingsInnerTabs(){
+  const activeView = readStandingsDirectorySession().activeView;
+  const tabs = document.createElement("div");
+  tabs.className = "standings-inner-tabs";
+  tabs.setAttribute("role", "tablist");
+  [["tables", "Tables"], ["directory", "Teams & players"]].forEach(([view, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `standings-inner-tab${activeView === view ? " active" : ""}`;
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", String(activeView === view));
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      updateStandingsDirectorySession({ activeView: view });
+      renderStandingsContext();
+    });
+    tabs.appendChild(button);
+  });
+  return tabs;
+}
+
+function directoryFollowLevel(participantId){
+  return userPreferences.preferenceGraph?.entityFollows?.find(item => item.participantId === participantId)?.followLevel || "none";
+}
+
+function appendDirectoryFollowOptions(select, current){
+  [["none", "Not followed"], ["follow", "Follow"], ["priority", "Priority"], ["mute", "Mute"]].forEach(([value, label]) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    option.selected = current === value;
+    select.appendChild(option);
+  });
+}
+
+function footballLeagueKeyForId(leagueId){
+  return {
+    "competition:premier-league": "premier-league",
+    "competition:bundesliga": "bundesliga",
+    "competition:la-liga": "la-liga",
+    "competition:serie-a": "serie-a",
+    "competition:ligue-1": "ligue-1",
+    "competition:a-leagues": "a-league-men",
+  }[leagueId] || null;
+}
+
+function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
+  const next = clonePreferences(userPreferences);
+  if (["follow", "priority"].includes(followLevel) && sportKey === "football" && !selectorEntityIsEffectivelySelected("sport:football", next)){
+    next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), "sport:football"]);
+    next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+    next.taxonomySelection = taxonomySelectionForSelectorIds(next.selectedSelectorEntityIds);
+    next.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(next.preferenceGraph, "sport:football", "template:like");
+  }
+  next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participantId, followLevel);
+  savePreferences(next);
+  recordPreferenceChange(followLevel === "none" || followLevel === "mute" ? "unfollow" : "follow", participantId.startsWith("team:") ? "team" : "player", { sport: sportKey });
+  showToast(`${label}: ${followLevel === "none" ? "not followed" : followLevel}.`);
+  if (sportKey === "football"){
+    void loadFootballCoreEvents();
+    void loadFootballFollowIndex().then(async () => {
+      const leagueKey = footballLeagueKeyForId(leagueId);
+      await (leagueKey ? loadFootballLeagueFixtures(leagueKey) : loadFootballFixturesForCurrentFollows());
+      rebuildDerivedCardCache(activeEvents);
+      renderAll({ preserveViewport: true });
+    });
+  }
+  renderStandingsContext();
+}
+
+function buildDirectorySelect(label, value, options, onChange){
+  const field = document.createElement("label");
+  field.className = "football-directory-field";
+  field.append(document.createTextNode(label));
+  const select = document.createElement("select");
+  options.forEach(([optionValue, optionLabel]) => {
+    const option = document.createElement("option");
+    option.value = optionValue;
+    option.textContent = optionLabel;
+    option.selected = optionValue === value;
+    select.appendChild(option);
+  });
+  select.addEventListener("change", () => onChange(select.value));
+  field.appendChild(select);
+  return field;
+}
+
+function buildFootballDirectoryToolbar(directory, filters){
+  const toolbar = document.createElement("div");
+  toolbar.className = "football-directory-toolbar";
+  const searchField = document.createElement("label");
+  searchField.className = "football-directory-field";
+  searchField.append(document.createTextNode("Search"));
+  const search = document.createElement("input");
+  search.type = "search";
+  search.value = filters.query;
+  search.placeholder = "Club or player";
+  search.addEventListener("input", () => {
+    updateDirectoryFilters("football", { query: search.value });
+    window.clearTimeout(footballDirectorySearchTimer);
+    footballDirectorySearchTimer = window.setTimeout(() => {
+      renderStandingsContext();
+      const restored = document.querySelector('.football-directory-field input[type="search"]');
+      restored?.focus({ preventScroll: true });
+      restored?.setSelectionRange(restored.value.length, restored.value.length);
+    }, 140);
+  });
+  searchField.appendChild(search);
+  toolbar.appendChild(searchField);
+  const leagueOptions = [["", "All leagues"], ...directory.leagues.map(league => [league.id, league.displayName])];
+  toolbar.appendChild(buildDirectorySelect("League", filters.leagueId, leagueOptions, leagueId => {
+    updateDirectoryFilters("football", { leagueId, teamId: "", expandedTeamId: "" }); renderStandingsContext();
+  }));
+  const teamOptions = [["", "All clubs"], ...directory.teams
+    .filter(team => !filters.leagueId || team.leagueId === filters.leagueId)
+    .sort((a, b) => a.displayName.localeCompare(b.displayName))
+    .map(team => [team.id, team.displayName])];
+  toolbar.appendChild(buildDirectorySelect("Club", filters.teamId, teamOptions, teamId => {
+    updateDirectoryFilters("football", { teamId, expandedTeamId: teamId }); renderStandingsContext();
+  }));
+  const countries = Array.from(new Set(directory.players.map(player => player.birthCountryCode))).sort((a, b) => (
+    COUNTRY_FLAGS.countryName(a).localeCompare(COUNTRY_FLAGS.countryName(b))
+  ));
+  toolbar.appendChild(buildDirectorySelect("Country", filters.birthCountryCode, [["", "All countries"], ...countries.map(code => [code, COUNTRY_FLAGS.countryName(code)])], birthCountryCode => {
+    updateDirectoryFilters("football", { birthCountryCode }); renderStandingsContext();
+  }));
+  toolbar.appendChild(buildDirectorySelect("Prominence", filters.prominenceTier, [["", "All levels"], ["marquee", "Marquee"], ["established", "Established"], ["emerging", "Emerging"]], prominenceTier => {
+    updateDirectoryFilters("football", { prominenceTier }); renderStandingsContext();
+  }));
+  return toolbar;
+}
+
+function buildFootballPlayerRow(player){
+  const row = document.createElement("div");
+  row.className = "football-player-row";
+  const identity = document.createElement("div");
+  identity.className = "football-player-name";
+  const countryName = COUNTRY_FLAGS.countryName(player.birthCountryCode);
+  const flagLabel = player.birthCountryBasis === "official-birthplace" ? `Born in ${countryName}` : `Country: ${countryName}`;
+  identity.innerHTML = COUNTRY_FLAGS.flagMarkup(player.birthCountryCode, { label: flagLabel });
+  const name = document.createElement("span");
+  name.textContent = player.displayName;
+  identity.appendChild(name);
+  const position = document.createElement("span");
+  position.className = "football-player-position";
+  position.textContent = player.position;
+  const tier = document.createElement("span");
+  tier.className = "football-player-tier";
+  tier.textContent = player.prominenceTier;
+  tier.title = player.prominenceReason;
+  const follow = document.createElement("select");
+  follow.className = "football-follow-select";
+  follow.setAttribute("aria-label", `Follow setting for ${player.displayName}`);
+  appendDirectoryFollowOptions(follow, directoryFollowLevel(player.id));
+  follow.addEventListener("change", () => setDirectoryEntityFollow(player.id, follow.value, { leagueId: player.leagueId, label: player.displayName }));
+  row.append(identity, position, tier, follow);
+  return row;
+}
+
+function buildFootballClubRow(team, league, players, expanded){
+  const row = document.createElement("section");
+  row.className = "football-club-row";
+  const head = document.createElement("div");
+  head.className = "football-club-head";
+  const crest = document.createElement("img");
+  crest.className = "football-club-crest";
+  crest.src = team.crestUrl;
+  crest.alt = `${team.displayName} crest`;
+  crest.width = 38;
+  crest.height = 38;
+  crest.loading = "lazy";
+  crest.decoding = "async";
+  const copy = document.createElement("div");
+  copy.className = "football-club-copy";
+  const title = document.createElement("strong");
+  title.textContent = team.displayName;
+  const detail = document.createElement("span");
+  detail.textContent = `${league?.displayName || "Football"} · ${players.length} priority player${players.length === 1 ? "" : "s"}`;
+  copy.append(title, detail);
+  const follow = document.createElement("select");
+  follow.className = "football-follow-select";
+  follow.setAttribute("aria-label", `Follow setting for ${team.displayName}`);
+  appendDirectoryFollowOptions(follow, directoryFollowLevel(team.id));
+  follow.addEventListener("change", () => setDirectoryEntityFollow(team.id, follow.value, { leagueId: team.leagueId, label: team.displayName }));
+  const expander = document.createElement("button");
+  expander.type = "button";
+  expander.className = "football-club-expand";
+  expander.setAttribute("aria-expanded", String(expanded));
+  expander.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} ${team.displayName} players`);
+  expander.innerHTML = glyphMarkup("ui:chevron-right");
+  expander.addEventListener("click", () => {
+    updateDirectoryFilters("football", { expandedTeamId: expanded ? "" : team.id });
+    renderStandingsContext();
+    window.requestAnimationFrame(() => document.querySelector(`[data-football-team-id="${CSS.escape(team.id)}"] .football-club-expand`)?.focus({ preventScroll: true }));
+  });
+  head.append(crest, copy, follow, expander);
+  row.dataset.footballTeamId = team.id;
+  row.appendChild(head);
+  if (expanded){
+    const list = document.createElement("div");
+    list.className = "football-player-list";
+    players.forEach(player => list.appendChild(buildFootballPlayerRow(player)));
+    if (!players.length){
+      const empty = document.createElement("div");
+      empty.className = "football-directory-empty";
+      empty.textContent = "No priority players match the current filters.";
+      list.appendChild(empty);
+    }
+    row.appendChild(list);
+  }
+  return row;
+}
+
+function renderFootballDirectory(container){
+  if (!footballDirectoryData){
+    const status = document.createElement("div");
+    status.className = "standings-module";
+    status.textContent = footballDirectoryError ? "Football teams and players are temporarily unavailable." : "Loading football teams and players…";
+    container.appendChild(status);
+    if (!footballDirectoryLoading) void loadFootballDirectoryData();
+    return;
+  }
+  const filters = directoryFilters("football");
+  const filtered = footballDirectoryApi.filteredDirectory(footballDirectoryData, filters);
+  const leagues = new Map(footballDirectoryData.leagues.map(league => [league.id, league]));
+  const playersByTeam = new Map();
+  filtered.players.forEach(player => {
+    const players = playersByTeam.get(player.currentTeamId) || [];
+    players.push(player);
+    playersByTeam.set(player.currentTeamId, players);
+  });
+  const directory = document.createElement("section");
+  directory.className = "football-directory";
+  directory.appendChild(buildFootballDirectoryToolbar(footballDirectoryData, filters));
+  const summary = document.createElement("p");
+  summary.className = "football-directory-summary";
+  summary.textContent = `${filtered.teams.length} clubs · ${filtered.players.length} matching players. Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace.`;
+  directory.appendChild(summary);
+  const list = document.createElement("div");
+  list.className = "football-club-list";
+  filtered.teams.sort((a, b) => a.displayName.localeCompare(b.displayName)).forEach(team => {
+    const players = (playersByTeam.get(team.id) || []).sort((a, b) => a.sortName.localeCompare(b.sortName));
+    list.appendChild(buildFootballClubRow(team, leagues.get(team.leagueId), players, filters.expandedTeamId === team.id));
+  });
+  if (!filtered.teams.length){
+    const empty = document.createElement("div");
+    empty.className = "football-directory-empty";
+    empty.textContent = "No clubs or players match these filters.";
+    list.appendChild(empty);
+  }
+  directory.appendChild(list);
+  container.appendChild(directory);
+}
+
+function renderLegacyParticipantDirectory(container, sportKey){
+  const query = directoryFilters(sportKey).query.toLocaleLowerCase("en-AU");
+  const teamGroup = TEAM_FOLLOW_CATALOGUE.groups.find(group => group.domainId === `sport:${sportKey}`);
+  const teams = teamGroup?.sections.flatMap(section => section.teams.map(team => ({ ...team, sectionLabel: section.label }))) || [];
+  const tennisPlayers = sportKey === "tennis" ? (canonicalSportsData?.participants || []).filter(participant => (
+    participant.type === "competitor" && String(participant.sportDomainId || "").startsWith("sport:tennis")
+  )) : [];
+  const records = [...teams, ...tennisPlayers].filter(record => !query || record.displayName.toLocaleLowerCase("en-AU").includes(query));
+  const directory = document.createElement("section");
+  directory.className = "football-directory";
+  const toolbar = document.createElement("div");
+  toolbar.className = "football-directory-toolbar";
+  const field = document.createElement("label");
+  field.className = "football-directory-field";
+  field.textContent = "Search";
+  const search = document.createElement("input");
+  search.type = "search";
+  search.value = directoryFilters(sportKey).query;
+  search.placeholder = "Team or player";
+  search.addEventListener("change", () => { updateDirectoryFilters(sportKey, { query: search.value }); renderStandingsContext(); });
+  field.appendChild(search);
+  toolbar.appendChild(field);
+  directory.appendChild(toolbar);
+  const list = document.createElement("div");
+  list.className = "football-club-list";
+  records.sort((a, b) => a.displayName.localeCompare(b.displayName)).forEach(record => {
+    const row = document.createElement("div");
+    row.className = "football-club-head";
+    const icon = document.createElement("span");
+    icon.innerHTML = glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
+    const copy = document.createElement("div");
+    copy.className = "football-club-copy";
+    const name = document.createElement("strong");
+    name.textContent = record.displayName;
+    const detail = document.createElement("span");
+    detail.textContent = record.sectionLabel || "Competitor";
+    copy.append(name, detail);
+    const select = document.createElement("select");
+    select.className = "football-follow-select";
+    select.setAttribute("aria-label", `Follow setting for ${record.displayName}`);
+    appendDirectoryFollowOptions(select, directoryFollowLevel(record.id));
+    select.addEventListener("change", () => setDirectoryEntityFollow(record.id, select.value, { sportKey, label: record.displayName }));
+    row.append(icon, copy, select);
+    list.appendChild(row);
+  });
+  directory.appendChild(list);
+  container.appendChild(directory);
+}
+
+function renderTeamsAndPlayersDirectory(container){
+  const session = readStandingsDirectorySession();
+  const chooser = buildDirectorySelect("Sport", session.directorySportKey, [["football", "Football"], ["rugby", "Rugby"], ["cricket", "Cricket"], ["tennis", "Tennis"]], sportKey => {
+    updateStandingsDirectorySession({ directorySportKey: sportKey });
+    renderStandingsContext();
+  });
+  const toolbar = document.createElement("div");
+  toolbar.className = "football-directory-sport-choice";
+  toolbar.appendChild(chooser);
+  container.appendChild(toolbar);
+  if (session.directorySportKey === "football") renderFootballDirectory(container);
+  else renderLegacyParticipantDirectory(container, session.directorySportKey);
+}
+
 function renderStandingsContext(options = {}){
   const embedded = Boolean(options.container);
   const container = options.container || document.getElementById("standingsContext");
@@ -12919,7 +13434,14 @@ function renderStandingsContext(options = {}){
   if (!embedded && activeTab !== "standings") return;
   const competitions = options.competitions || activeStandingsCompetitions();
   const sectionLabel = options.sectionLabel || "Standings";
-  if (!embedded) container.appendChild(buildStandingsFilter());
+  if (!embedded){
+    container.appendChild(buildStandingsInnerTabs());
+    if (readStandingsDirectorySession().activeView === "directory"){
+      renderTeamsAndPlayersDirectory(container);
+      return;
+    }
+    container.appendChild(buildStandingsFilter());
+  }
   if (!competitions.length){
     const empty = document.createElement("div");
     empty.className = "standings-empty";
@@ -13479,9 +14001,7 @@ function buildMajorEventCard(record){
       if (schedule) body.appendChild(schedule);
       if (record.scheduleAdapter === "joint-tennis-tournament-2026" && jointTournamentData){
         const tables = buildJointTournamentTablesPanel();
-        const athletes = buildJointTournamentAthletePanel(jointTournamentData);
         if (tables) body.appendChild(tables);
-        if (athletes) body.appendChild(athletes);
       }
     }
     card.appendChild(body);
@@ -14735,49 +15255,6 @@ function renderArchiveSettings(body){
   });
 }
 
-function renderTeamFollowPanel(container){
-  const selectedDomains = new Set(selectedPreferenceDomainIds(draftPreferences));
-  const groups = (TEAM_FOLLOW_CATALOGUE?.groups || []).filter(group => selectedDomains.has(group.domainId));
-  if (!groups.length) return;
-  const graph = draftPreferences.preferenceGraph;
-  const panel = document.createElement("section");
-  panel.className = "filter-panel team-follow-panel";
-  panel.innerHTML = `<h3>Team follows</h3><p class="preference-help">Following a team always includes every fixture. International and domestic teams are separate, so choosing the All Blacks does not follow the Chiefs.</p><div class="team-follow-groups"></div>`;
-  const groupsContainer = panel.querySelector(".team-follow-groups");
-  groups.forEach(group => {
-    const groupElement = document.createElement("section");
-    groupElement.className = "team-follow-group";
-    const heading = document.createElement("h4");
-    heading.textContent = group.label;
-    groupElement.appendChild(heading);
-    group.sections.forEach(section => {
-      const sectionElement = document.createElement("div");
-      sectionElement.className = "team-follow-section";
-      const title = document.createElement("strong");
-      title.textContent = section.label;
-      const choices = document.createElement("div");
-      choices.className = "choice-grid team-follow-choice-grid";
-      section.teams.forEach(team => {
-        const followed = graph.entityFollows.some(item => item.participantId === team.id && ["follow", "priority"].includes(item.followLevel));
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = `choice-card team-follow-choice${followed ? " selected followed" : ""}`;
-        button.setAttribute("aria-pressed", String(followed));
-        button.innerHTML = `<div class="choice-title"><span>${team.displayName}</span><span class="follow-state">${followed ? "Following" : "Follow"}</span></div><div class="choice-detail">${section.label}</div>`;
-        button.addEventListener("click", () => {
-          draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(graph, team.id, followed ? "none" : "follow");
-          renderSettingsScreen();
-        });
-        choices.appendChild(button);
-      });
-      sectionElement.append(title, choices);
-      groupElement.appendChild(sectionElement);
-    });
-    groupsContainer.appendChild(groupElement);
-  });
-  container.appendChild(panel);
-}
-
 function renderSportsSettings(body){
   syncDraftPreferenceGraph();
   body.innerHTML = `${wizardProgressMarkup()}<div id="sportsFollowedContent"></div>`;
@@ -14921,7 +15398,6 @@ function renderSportsSettings(body){
       btn.innerHTML = `<div class="choice-title">${glyphMarkup("ui:plus")}<span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
       grid.appendChild(btn);
     });
-    renderTeamFollowPanel(childPanel);
   }
 
   bindSelectionActions(
@@ -15134,8 +15610,6 @@ function renderCoverageSettings(body, { embedded = false } = {}){
     const mode = coverageModeFor(preference);
     const competitions = competitionsForPreferenceDomain(domainId);
     const participants = participantsForPreferenceDomain(domainId);
-    const teams = participants.filter(participant => ["team", "nationalSide"].includes(participant.type));
-    const competitors = participants.filter(participant => ["competitor", "pair"].includes(participant.type));
     const panel = document.createElement("section");
     panel.className = "template-domain";
     panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3>
@@ -15160,15 +15634,7 @@ function renderCoverageSettings(body, { embedded = false } = {}){
         const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);
         return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label></div>`;
       }).join("")}
-      ${teams.length ? `<div class="entity-follow-list"><h4>Team follows</h4>${teams.map(participant => {
-        const follow = graph.entityFollows.find(item => item.participantId === participant.id)?.followLevel || "none";
-        return `<label><span>${participant.displayName}</span><select data-entity-follow="${participant.id}"><option value="none" ${follow === "none" ? "selected" : ""}>Not followed</option><option value="follow" ${follow === "follow" ? "selected" : ""}>Follow</option><option value="priority" ${follow === "priority" ? "selected" : ""}>Priority</option><option value="mute" ${follow === "mute" ? "selected" : ""}>Mute</option></select></label>`;
-      }).join("")}</div>` : ""}
-      ${competitors.length ? `<div class="entity-follow-list"><h4>Competitor follows</h4>${competitors.map(participant => {
-        const follow = graph.entityFollows.find(item => item.participantId === participant.id)?.followLevel || "none";
-        return `<label><span>${participant.displayName}</span><select data-entity-follow="${participant.id}"><option value="none" ${follow === "none" ? "selected" : ""}>Not followed</option><option value="follow" ${follow === "follow" ? "selected" : ""}>Follow</option><option value="priority" ${follow === "priority" ? "selected" : ""}>Priority</option><option value="mute" ${follow === "mute" ? "selected" : ""}>Mute</option></select></label>`;
-      }).join("")}</div>` : ""}
-      ${!participants.length && competitions.length ? `<p class="preference-help">Loading canonical team and competitor choices…</p>` : ""}`;
+      ${!participants.length && competitions.length ? `<p class="preference-help">Team and player follows are managed in Standings.</p>` : ""}`;
     list.appendChild(panel);
   });
 
@@ -15188,11 +15654,6 @@ function renderCoverageSettings(body, { embedded = false } = {}){
         enabled: input.checked,
         templateInheritedFromDomain: false,
       });
-    });
-  });
-  list.querySelectorAll("[data-entity-follow]").forEach(select => {
-    select.addEventListener("change", () => {
-      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(draftPreferences.preferenceGraph, select.dataset.entityFollow, select.value);
     });
   });
   if (domainIds.some(domainId => competitionsForPreferenceDomain(domainId).length)){
@@ -16050,6 +16511,8 @@ updateClock();
 setInterval(updateClock, 1000);
 renderAll();
 scheduleBrowserReminders();
+if (profileSelectsFootball()) void loadFootballCoreEvents();
+if (profileHasFootballEntityFollow()) void loadFootballFixturesForCurrentFollows();
 let startupBackgroundTasksSettled = 0;
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){

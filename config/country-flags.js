@@ -14,12 +14,16 @@
     noticePath: "assets/licenses/FLAG-ICONS-MIT.txt",
   });
   const ALPHA3_TO_ALPHA2 = Object.freeze({
-    ARG: "AR", ARM: "AM", AUS: "AU", AUT: "AT", BEL: "BE", BLR: "BY", BOL: "BO", BRA: "BR", BUL: "BG",
-    CAN: "CA", CHI: "CL", CHN: "CN", COL: "CO", CRO: "HR", CZE: "CZ", DEN: "DK", EGY: "EG", ESP: "ES",
-    EST: "EE", FIN: "FI", FRA: "FR", GBR: "GB", GEO: "GE", GER: "DE", GRE: "GR", HKG: "HK", HUN: "HU",
-    INA: "ID", ITA: "IT", JPN: "JP", KAZ: "KZ", KOR: "KR", LAT: "LV", MON: "MC", NED: "NL", NOR: "NO",
-    PAR: "PY", PER: "PE", PHI: "PH", POL: "PL", POR: "PT", ROU: "RO", RUS: "RU", SLO: "SI", SRB: "RS",
-    SUI: "CH", SVK: "SK", THA: "TH", TUN: "TN", TUR: "TR", UKR: "UA", USA: "US", UZB: "UZ",
+    ALB: "AL", ALG: "DZ", ANG: "AO", ARG: "AR", ARM: "AM", AUS: "AU", AUT: "AT", BEL: "BE", BEN: "BJ",
+    BFA: "BF", BIH: "BA", BLR: "BY", BOL: "BO", BRA: "BR", BUL: "BG", CAN: "CA", CHI: "CL", CHN: "CN",
+    CIV: "CI", COL: "CO", CPV: "CV", CRO: "HR", CZE: "CZ", DEN: "DK", DOM: "DO", ECU: "EC", EGY: "EG",
+    ESP: "ES", EST: "EE", FIN: "FI", FRA: "FR", GAB: "GA", GAM: "GM", GBR: "GB", GEO: "GE", GER: "DE",
+    GHA: "GH", GRE: "GR", GUI: "GN", HAI: "HT", HKG: "HK", HUN: "HU", INA: "ID", IRL: "IE", ISL: "IS",
+    ISR: "IL", ITA: "IT", JAM: "JM", JPN: "JP", KAZ: "KZ", KOR: "KR", LAT: "LV", MAR: "MA", MEX: "MX",
+    MKD: "MK", MLI: "ML", MON: "MC", MOZ: "MZ", NED: "NL", NGA: "NG", NOR: "NO", NZL: "NZ", PAR: "PY",
+    PER: "PE", PHI: "PH", POL: "PL", POR: "PT", ROU: "RO", RUS: "RU", SEN: "SN", SLO: "SI", SRB: "RS",
+    SUI: "CH", SVK: "SK", SWE: "SE", THA: "TH", TOG: "TG", TUN: "TN", TUR: "TR", UKR: "UA", URU: "UY",
+    USA: "US", UZB: "UZ", VEN: "VE", ZAM: "ZM",
   });
   const SUPPORTED_ALPHA2 = Object.freeze([...new Set(Object.values(ALPHA3_TO_ALPHA2))].sort());
 
