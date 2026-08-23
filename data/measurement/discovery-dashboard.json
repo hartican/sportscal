@@ -1,6 +1,6 @@
 {
   "schemaVersion": "discovery-measurement.v1",
-  "generatedAt": "2026-08-13T02:05:00.000Z",
+  "generatedAt": "2026-08-23T05:32:00.000Z",
   "evidenceState": "partial_evidence",
   "coverage": {
     "missingMarquee": {
@@ -12,11 +12,12 @@
       "ratePercent": 0
     },
     "missingMarqueeTrend": {
-      "status": "insufficient_history",
-      "direction": null,
-      "changePercentagePoints": null,
-      "observationCount": 1,
-      "note": "At least two independently generated coverage snapshots are required before claiming a trend."
+      "status": "measured",
+      "direction": "flat",
+      "changePercentagePoints": 0,
+      "observationCount": 2,
+      "firstObservedAt": "2026-08-13T02:05:00.000Z",
+      "latestObservedAt": "2026-08-23T05:32:00.000Z"
     },
     "snapshots": [
       {
@@ -24,11 +25,17 @@
         "expectedCount": 5,
         "missingCount": 0,
         "ratePercent": 0
+      },
+      {
+        "observedAt": "2026-08-23T05:32:00.000Z",
+        "expectedCount": 5,
+        "missingCount": 0,
+        "ratePercent": 0
       }
     ],
     "candidatePublish": {
       "status": "insufficient_reviewed_candidates",
-      "candidateCount": 5,
+      "candidateCount": 6,
       "reviewedCount": 0,
       "publishCount": 0,
       "pendingCount": 5,

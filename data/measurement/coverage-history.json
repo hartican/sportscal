@@ -6,6 +6,12 @@
       "expectedCount": 5,
       "missingCount": 0,
       "ratePercent": 0
+    },
+    {
+      "observedAt": "2026-08-23T05:32:00.000Z",
+      "expectedCount": 5,
+      "missingCount": 0,
+      "ratePercent": 0
     }
   ]
 }

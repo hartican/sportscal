@@ -1,8 +1,8 @@
 # nothingSport weekly coverage discovery
 
-Reference date: 2026-08-21
+Reference date: 2026-08-23
 
-Compared 5 live/delayed listings with 686 canonical events. Found 5 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 4 high-priority recommendations.
+Compared 6 live/delayed listings with 686 canonical events. Found 2 catalogue gaps, 0 ambiguous listings, 4 possible AU availability changes and 5 high-priority recommendations.
 
 ## Australian source health
 
@@ -10,7 +10,7 @@ Compared 5 live/delayed listings with 686 canonical events. Found 5 catalogue ga
 |---|---|---|
 | Kayo Sports | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | Foxtel | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
-| Stan Sport | loaded | reviewed_export; 6 listings; 8d old |
+| Stan Sport | loaded | reviewed_export; 6 listings; 0d old |
 | ESPN Australia | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | SBS | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | 9Now | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
@@ -23,11 +23,12 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 
 | Date | Candidate | Match | Confidence | Priority | Suggested action | AU option | Blockers |
 |---|---|---|---:|---|---|---|---|
-| 2026-08-13 | UEFA Super Cup | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
-| 2026-08-13 | WTA 1000 | new | 0.00 | normal | review | Stan Sport (included) | new_catalogue_identity |
-| 2026-08-15 | Formula E | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-08-16 | FA Community Shield | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-08-22 | Premier League | new | 0.60 | high | review | Stan Sport (included) | new_catalogue_identity |
+| 2026-08-23 | Brighton & Hove Albion v Aston Villa | matched → epl-2026-27-128929 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-23 | Manchester City v Bournemouth | matched → epl-2026-27-128930 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-24 | Newcastle United v Liverpool | matched → epl-2026-27-128931 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-25 | Fulham v Chelsea | matched → epl-2026-27-128932 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-26 | US Open | new | 0.00 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-08-28 | UCI Mountain Bike World Championship | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 
 ## Decision boundary
 

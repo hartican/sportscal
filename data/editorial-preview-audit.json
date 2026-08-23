@@ -1,41 +1,41 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-21T12:47:21.307Z",
+  "generatedAt": "2026-08-23T07:24:53.933Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 5,
-    "passed": 5,
+    "due": 3,
+    "passed": 3,
     "failed": 0
   },
   "cards": [
     {
-      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-21",
+      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-23",
       "name": "Cincinnati Open — ATP Masters 1000",
       "sport": "Tennis",
-      "date": "2026-08-21",
+      "date": "2026-08-23",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
         "atp-tour",
         "atp_masters_1000",
-        "active-tournament-window",
+        "closing-day",
         "hard-surface"
       ],
       "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
       "issues": []
     },
     {
-      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-21",
+      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-23",
       "name": "Cincinnati Open — WTA 1000",
       "sport": "Tennis",
-      "date": "2026-08-21",
+      "date": "2026-08-23",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
         "wta-tour",
         "wta_1000",
-        "active-tournament-window",
+        "closing-day",
         "hard-surface"
       ],
       "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
@@ -53,37 +53,6 @@
         "Oscar Piastri: 7th on 92 points"
       ],
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "issues": []
-    },
-    {
-      "id": "cricket-australia-bangladesh-second-test-2026",
-      "name": "Australia v Bangladesh — Second Test",
-      "sport": "Cricket",
-      "date": "2026-08-22",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "new-test-venue",
-        "series-second-test",
-        "venue-history"
-      ],
-      "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-      "issues": []
-    },
-    {
-      "id": "rugby-south-africa-all-blacks-2026-08-22",
-      "name": "South Africa v All Blacks",
-      "sport": "Rugby Union",
-      "date": "2026-08-22",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "tour-build-up",
-        "series-opener",
-        "rivalry-history",
-        "iconic-venue"
-      ],
-      "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
       "issues": []
     }
   ]

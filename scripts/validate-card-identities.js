@@ -28,6 +28,10 @@ activeNrlTeams.forEach(team => {
   assert.equal(mark.provenance, "official-site");
   ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${team.id} must expose the ${asset} logo asset`));
 });
+for (const participantId of ["team:nrl:328", "team:nrl:331", "team:nrl:337"]){
+  assert.match(identities.participantMarks[participantId].logo.dark, /\/badge\.svg$/, `${participantId} must avoid the unavailable NRL badge-light variant`);
+  assert.match(identities.participantMarks[participantId].logo.iconDark, /\/badge\.svg$/, `${participantId} icon must avoid the unavailable NRL badge-light variant`);
+}
 assert.equal(activeAflTeams.length, 18, "the current AFL competition must expose 18 active clubs");
 activeAflTeams.forEach(team => {
   const mark = identities.participantMarks[team.id];
@@ -48,6 +52,9 @@ activeAflTeams.forEach(team => {
 assert.equal(identities.markForEvent({ key: "nrl", name: "Broncos v Storm" })?.label, "NRL", "NRL cards must use the competition logo");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Roland Garros — Men's Final" })?.label, "Roland Garros", "named marquee branding must override the generic tennis identity");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Wimbledon — Men's Final" })?.label, "Wimbledon", "Wimbledon cards must retain their own event brand");
+assert.equal(identities.markForEvent({ key: "tennis", name: "Cincinnati Open" })?.label, "Cincinnati Open", "Cincinnati cards must use the named tournament brand");
+assert.equal(identities.markForEvent({ key: "tennis", name: "US Open 2026" })?.label, "US Open", "US Open cards must use the named tournament brand");
+assert.equal(identities.markForEvent({ key: "tennis", name: "Australian Open 2027" })?.label, "Australian Open", "Australian Open cards must use the named tournament brand");
 assert.equal(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.label, "Cricket Australia", "Australian bilateral cricket cards must use Cricket Australia's organisation mark");
 assert.equal(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 World Cup — Australia v Bangladesh" })?.label, "International Cricket Council", "ICC-branded cricket cards must use the ICC organisation mark");
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.label, "Rugby Australia", "rugby cards must use the Rugby Australia competition logo");
@@ -71,7 +78,10 @@ assert.match(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 Worl
 assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.url || "", /^https:\/\/resources\.cricket-australia\.pulselive\.com\/.*\/CricketAustraliaLogoWhiteWide\.svg$/, "Australian bilateral cards must use Cricket Australia's official SVG mark");
 const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));
 assert.equal(premierLeagueMarks.length, 20, "the Premier League registry must cover all current clubs");
-premierLeagueMarks.forEach(mark => assert.match(mark.url, /\/premierleague\/badges\/100\/t\d+\.png$/, `${mark.label} must use Premier League's 100px official badge source`));
+premierLeagueMarks.forEach(mark => {
+  assert.match(mark.url, /^https:\/\/resources\.premierleague\.com\/premierleague25\/badges\/\d+\.svg$/, `${mark.label} must use the current Premier League first-party SVG badge source`);
+  assert.equal(mark.provenance, "official-site");
+});
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
@@ -128,4 +138,4 @@ const nrlBroncos = identities.participantMarks["team:nrl:322"];
 assert.notEqual(identities.logoForTheme(nrlBroncos, { context: "primary", useDark: false }), identities.logoForTheme(nrlBroncos, { context: "primary", useDark: true }), "NRL primary logos must use the league's official light and dark assets");
 assert.equal(identities.logoForTheme(identities.participantMarks["team:football:epl:1"], { context: "icon", useDark: false }), identities.participantMarks["team:football:epl:1"].logo.iconLight, "small-format contexts must select an explicit icon asset rather than resize the primary reference");
 
-console.log(`Card identities valid: ${activeNrlTeams.length} NRL and ${activeAflTeams.length} AFL team marks, ${activeEventKeys.length} active sport/event identities, and Wimbledon/Roland Garros event branding.`);
+console.log(`Card identities valid: ${activeNrlTeams.length} NRL and ${activeAflTeams.length} AFL team marks, ${activeEventKeys.length} active sport/event identities, and named Grand Slam/Cincinnati event branding.`);

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-08-20T18:21:12Z",
+  "sourceCheckedAt": "2026-08-23T05:40:00Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -20,19 +20,46 @@
       }
     },
     "rugby-south-africa-all-blacks-2026-08-22": {
-      "selectedSentence": "Stormers, Sharks and Bulls supplied the runway; now Ellis Park opens the real four-Test contest, 30 years after the landmark 1996 tour.",
-      "fullSpiel": "The South African franchise leg has taken New Zealand through Cape Town, Durban and Pretoria before the first Test in Johannesburg. The official tour schedule frames this as the first full-scale, old-style All Blacks tour of South Africa in 30 years, with Ellis Park opening a four-Test series that eventually finishes in Baltimore.",
-      "sourceName": "Official All Blacks Rugby's Greatest Rivalry tour schedule",
-      "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
-      "sourceCheckedAt": "2026-08-20T18:21:12Z",
+      "selectedSentence": "The first Test of the revived four-match rivalry series is complete; reveal the result when you are ready.",
+      "fullSpiel": "Ellis Park opened the first full-scale All Blacks tour of South Africa in 30 years. The verified score and result-aware recap remain protected until you choose to reveal them.",
+      "status": "completed",
+      "homeScore": 16,
+      "awayScore": 33,
+      "score": "South Africa 16-33 All Blacks",
+      "outcomeText": "The All Blacks defeated South Africa 33-16.",
+      "recapText": "New Zealand recovered from a 13-12 halftime deficit and controlled the second half to win the opening Test at Ellis Park by 17 points.",
+      "sourceName": "SA Rugby official match report",
+      "sourceUrl": "https://springboks.rugby/news-features/articles/2026/8/22/all-blacks-go-one-up-after-rgr-opener-in-joburg",
+      "sourceCheckedAt": "2026-08-23T05:40:00Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "A dominant three-match franchise warm-up gives way to the first Test of a revived old-style tour at Ellis Park.",
-        "contextSignals": ["tour-build-up", "series-opener", "rivalry-history", "iconic-venue"],
-        "sourceName": "Official All Blacks Rugby's Greatest Rivalry tour schedule",
-        "sourceUrl": "https://www.allblacks.com/team/all-blacks/rugbys-greatest-rivalry",
-        "sourceCheckedAt": "2026-08-20T18:21:12Z",
+        "angle": "New Zealand's second-half control turned a narrow halftime deficit into a decisive series-opening win.",
+        "contextSignals": ["verified-result", "series-opener", "rivalry-history", "iconic-venue"],
+        "sourceName": "SA Rugby official match report",
+        "sourceUrl": "https://springboks.rugby/news-features/articles/2026/8/22/all-blacks-go-one-up-after-rgr-opener-in-joburg",
+        "sourceCheckedAt": "2026-08-23T05:40:00Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_24": {
+      "selectedSentence": "Dutch Grand Prix qualifying is complete; reveal the classification when you are ready.",
+      "fullSpiel": "The grid-setting session at Zandvoort is complete. The official classification and result-aware recap remain protected until you choose to reveal them.",
+      "status": "completed",
+      "score": "Lando Norris pole (1:11.163)",
+      "outcomeText": "Lando Norris qualified on pole for the 2026 Dutch Grand Prix.",
+      "recapText": "Norris beat Russell to pole by 0.102 seconds, with Antonelli and Piastri completing the first two rows. Max Verstappen qualified seventh.",
+      "sourceName": "Formula 1 official qualifying classification",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/races/1292/netherlands/qualifying",
+      "sourceCheckedAt": "2026-08-23T05:40:00Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Norris converted McLaren's session pace into pole while Verstappen starts his home race from seventh.",
+        "contextSignals": ["verified-result", "grid-position", "home-driver", "championship-context"],
+        "sourceName": "Formula 1 official qualifying classification",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/races/1292/netherlands/qualifying",
+        "sourceCheckedAt": "2026-08-23T05:40:00Z",
         "needsPreviewRefresh": false
       }
     },

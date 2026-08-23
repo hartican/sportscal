@@ -68,10 +68,25 @@ function teamFromEntry(entry){
 }
 
 function resultScoreline(fixture, home, away){
-  const goals = Array.isArray(fixture.goals) ? fixture.goals : [];
-  const homeGoals = goals.filter(goal => goal?.homeScore !== undefined).at(-1)?.homeScore;
-  const awayGoals = goals.filter(goal => goal?.awayScore !== undefined).at(-1)?.awayScore;
-  return Number.isInteger(homeGoals) && Number.isInteger(awayGoals) ? `${home.name} ${homeGoals}-${awayGoals} ${away.name}` : null;
+  const [homeEntry, awayEntry] = fixture.teams || [];
+  const homeGoals = Number(homeEntry?.score);
+  const awayGoals = Number(awayEntry?.score);
+  if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) return null;
+  const outcomeText = homeGoals === awayGoals
+    ? `${home.name} drew ${away.name} ${homeGoals}-${awayGoals}.`
+    : homeGoals > awayGoals
+      ? `${home.name} defeated ${away.name} ${homeGoals}-${awayGoals}.`
+      : `${away.name} defeated ${home.name} ${awayGoals}-${homeGoals}.`;
+  const margin = Math.abs(homeGoals - awayGoals);
+  return {
+    homeScore: homeGoals,
+    awayScore: awayGoals,
+    score: `${home.name} ${homeGoals}-${awayGoals} ${away.name}`,
+    outcomeText,
+    recapText: homeGoals === awayGoals
+      ? `${home.name} and ${away.name} shared the points after a ${homeGoals}-${awayGoals} draw.`
+      : `${homeGoals > awayGoals ? home.name : away.name} completed a ${margin}-goal win in Premier League Matchweek ${fixture.gameweek?.gameweek}.`,
+  };
 }
 
 function cardForFixture(fixture, checkedAt){
@@ -80,7 +95,7 @@ function cardForFixture(fixture, checkedAt){
   const startTimeUtc = new Date(fixture.kickoff.millis).toISOString();
   const { date, time } = sydneyDateAndTime(fixture.kickoff.millis);
   const completed = fixture.status === "C";
-  const score = completed ? resultScoreline(fixture, home, away) : null;
+  const result = completed ? resultScoreline(fixture, home, away) : null;
   const gameweek = fixture.gameweek?.gameweek;
   const name = `${home.name} v ${away.name}`;
   return {
@@ -128,7 +143,11 @@ function cardForFixture(fixture, checkedAt){
     briefingEligible: false,
     catchupEligible: completed,
     resultLabels: [`Premier League Matchweek ${gameweek}`],
-    ...(score ? { score } : {}),
+    ...(result ? {
+      ...result,
+      canonicalResultScoreline: result.score,
+      resultLabels: [`Premier League Matchweek ${gameweek}`, result.outcomeText],
+    } : {}),
   };
 }
 
@@ -153,4 +172,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { cardForFixture, loadFixtures, refreshPremierLeagueCards, sydneyDateAndTime };
+module.exports = { cardForFixture, loadFixtures, refreshPremierLeagueCards, resultScoreline, sydneyDateAndTime };

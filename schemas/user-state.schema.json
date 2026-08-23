@@ -46,6 +46,25 @@
         "eventId": { "type": "string" },
         "startTime": { "type": "string" },
         "mustWatch": { "type": "boolean" },
+        "addedToFixtures": { "type": "boolean" },
+        "addedToFixturesAt": { "type": ["string", "null"], "format": "date-time" },
+        "addedFixture": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": true,
+              "required": ["eventId", "majorEventParentId", "date", "time", "startTimeUtc"],
+              "properties": {
+                "eventId": { "type": "string", "minLength": 1 },
+                "majorEventParentId": { "type": "string", "minLength": 1 },
+                "date": { "type": "string", "format": "date" },
+                "time": { "type": "string", "pattern": "^[0-2][0-9]:[0-5][0-9]$" },
+                "startTimeUtc": { "type": "string", "format": "date-time" }
+              }
+            }
+          ]
+        },
         "watchLater": { "type": "boolean" },
         "watched": { "type": "boolean" },
         "watchedAt": { "type": ["string", "null"], "format": "date-time" },

@@ -159,19 +159,32 @@
     return { low: 4, balanced: 3, high: 2, maximum: 1 }[froth] || 3;
   }
 
-  function matchesStakes(event, controls, { mustWatch = false, explicitCoverage = false } = {}){
+  function isPremierLeagueEvent(event){
+    return event?.key === "premier-league" || /premier[-_ ]league/i.test(String(event?.competitionId || ""));
+  }
+
+  function matchesStakes(event, controls, {
+    mustWatch = false,
+    explicitCoverage = false,
+    followedParticipant = false,
+    explicitlyAdded = false,
+  } = {}){
     const score = Math.max(1, Math.min(5, Number(event?.stakesScore || event?.storyline?.stakes || 1)));
     if (controls.stakes === "must_watch" && !mustWatch && score < 4) return false;
     if (controls.stakes === "important" && score < 3) return false;
+    if (isPremierLeagueEvent(event) && controls.froth === "balanced"){
+      if (mustWatch || followedParticipant || explicitlyAdded) return true;
+      if (score < 4) return false;
+    }
     if (controls.stakes === "everything" && explicitCoverage) return true;
     return mustWatch || score >= frothMinimumStakes(controls.froth);
   }
 
-  function matchesEvent(event, input, { now = new Date(), mustWatch = false, explicitCoverage = false } = {}){
+  function matchesEvent(event, input, { now = new Date(), mustWatch = false, explicitCoverage = false, followedParticipant = false, explicitlyAdded = false } = {}){
     const controls = normalize(input);
     return matchesAvailability(event, controls.availability)
       && matchesTiming(event, controls.timing, now)
-      && matchesStakes(event, controls, { mustWatch, explicitCoverage });
+      && matchesStakes(event, controls, { mustWatch, explicitCoverage, followedParticipant, explicitlyAdded });
   }
 
   function classifyRecommendation({
@@ -267,6 +280,7 @@
     isLiveNow,
     matchesAvailability,
     matchesTiming,
+    isPremierLeagueEvent,
     matchesStakes,
     matchesEvent,
     classifyRecommendation,

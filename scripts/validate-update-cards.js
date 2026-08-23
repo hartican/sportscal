@@ -28,6 +28,8 @@ assert(localSteps.some(step => step[0] === "scripts/validate-sport-hierarchy.js"
 assert(localSteps.some(step => step[0] === "scripts/validate-discovery-catalogue.js"), "every canonical update must validate discovery hierarchy, event-follow migration, Sydney-window counts and session state");
 assert(localSteps.some(step => step[0] === "scripts/refresh-cincinnati-tournament.js"), "every canonical update must run the official Cincinnati-only tournament check");
 assert(localSteps.some(step => step[0] === "scripts/validate-joint-tennis-tournament.js"), "every canonical update must reject joint-tournament schema, ID, date or spoiler failures");
+assert(localSteps.some(step => step[0] === "scripts/validate-major-events.js"), "every canonical update must fail closed on major-event evidence, dates, IDs and ticket endpoints");
+assert(localSteps.some(step => step[0] === "scripts/validate-card-polish.js"), "every canonical update must retain card, venue, score and local-ticket regressions");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-taxonomy.js"), "every canonical update must validate exact idempotent preference translation into the hierarchy");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-controls.js"), "every canonical update must enforce feed intent, discovery mix, availability and negative suppression");
 assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must regenerate the broadcaster-led weekly and next-seven-day coverage report from approved inputs");
@@ -103,7 +105,11 @@ assert.match(releaseScript, /vercel list sportscal --meta "releaseGitSha=\$DEPLO
 assert.match(releaseScript, /item\.target === "production"/, "the release metadata check must require the production target");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
 assert.match(releaseScript, /"data\/canonical\/joint-tennis-tournament-2026\.js"/, "the release commit must include the regenerated direct-file tournament bundle");
-assert.match(snapshotScript, /git archive "\$DEPLOY_SHA"/, "the deployment helper must archive the resolved immutable commit");
+assert.match(snapshotScript, /materialize-git-tree\.js "\$DEPLOY_SHA"/, "the deployment helper must materialise the resolved immutable commit from Git objects");
+assert.doesNotMatch(snapshotScript, /(?:git archive|git checkout|rsync -a)/, "immutable staging must avoid mutable worktree copies and the macOS bulk Git paths that can SIGBUS");
+const materializerSource = fs.readFileSync(path.join(projectRoot, "scripts/materialize-git-tree.js"), "utf8");
+assert.match(materializerSource, /gitBlobOid\(content\) === entry\.oid/, "working-tree bytes may be reused only after exact Git blob identity verification");
+assert.match(materializerSource, /execFileSync\("git", \["cat-file", "blob", entry\.oid\]/, "changed working-tree files must fall back to immutable Git object reads");
 assert.match(snapshotScript, /releaseGitSha=\$DEPLOY_SHA/, "the Vercel deployment must record its source commit");
 assert.equal(vercelConfig.git?.deploymentEnabled, false, "Vercel Git auto-deploys must remain disabled so the reviewed immutable CLI release is the only production deployment path");
 

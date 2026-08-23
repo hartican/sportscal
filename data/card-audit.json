@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-21T12:47:21.417Z",
+  "generatedAt": "2026-08-23T07:24:54.047Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 165,
-    "completed": 119,
-    "upcoming": 46,
+    "completed": 120,
+    "upcoming": 45,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1462,10 +1462,10 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-21",
+      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-23",
       "name": "Cincinnati Open — ATP Masters 1000",
       "sport": "Tennis",
-      "date": "2026-08-21",
+      "date": "2026-08-23",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -1478,10 +1478,10 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-21",
+      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-23",
       "name": "Cincinnati Open — WTA 1000",
       "sport": "Tennis",
-      "date": "2026-08-21",
+      "date": "2026-08-23",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -2378,7 +2378,7 @@
       "name": "South Africa v All Blacks",
       "sport": "Rugby Union",
       "date": "2026-08-22",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 5,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

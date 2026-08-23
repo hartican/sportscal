@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsports.local/schemas/major-events.schema.json",
+  "title": "nothingsport major events catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "publishedAt", "events"],
+  "properties": {
+    "schemaVersion": { "const": "major-events.v1" },
+    "publishedAt": { "type": "string", "format": "date-time" },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/event" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "checkedAt"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "checkedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "ticketing": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["provider", "status", "url", "verifiedAt"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["on_sale", "presale", "waitlist", "register_interest"] },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "verifiedAt": { "type": "string", "format": "date-time" },
+        "saleStartAt": { "type": ["string", "null"], "format": "date-time" },
+        "saleEndAt": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "subEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "startTimeUtc", "venue", "stakesScore"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "startTimeUtc": { "type": ["string", "null"], "format": "date-time" },
+        "venue": { "type": "string", "minLength": 1 },
+        "stakesScore": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "expected": { "type": "number", "minimum": 0, "maximum": 10 },
+        "status": { "enum": ["scheduled", "live", "completed", "postponed", "cancelled"] },
+        "summary": { "type": "string" },
+        "scoreDisplay": { "type": ["string", "null"] },
+        "participants": { "type": "array" },
+        "participantIds": { "type": "array", "items": { "type": "string" } },
+        "ticketing": { "$ref": "#/$defs/ticketing" }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "name", "sportKey", "sportKeys", "sportLabel", "stakesScore", "dateStatus", "season", "summary", "details", "sources"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["tournament", "major_event", "ticket_sale"] },
+        "parentEventId": { "type": "string" },
+        "name": { "type": "string", "minLength": 1 },
+        "sportKey": { "type": "string", "minLength": 1 },
+        "sportKeys": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "sportLabel": { "type": "string", "minLength": 1 },
+        "competitionId": { "type": "string" },
+        "stakesScore": { "const": 5 },
+        "dateStatus": { "enum": ["confirmed", "tbc"] },
+        "season": { "type": "integer", "minimum": 2026 },
+        "startDate": { "type": ["string", "null"], "format": "date" },
+        "endDate": { "type": ["string", "null"], "format": "date" },
+        "timezone": { "type": "string" },
+        "venue": { "type": "string" },
+        "location": { "type": "string" },
+        "summary": { "type": "string", "minLength": 1 },
+        "details": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "scheduleAdapter": { "type": "string" },
+        "subEvents": { "type": "array", "items": { "$ref": "#/$defs/subEvent" } },
+        "ticketing": { "$ref": "#/$defs/ticketing" },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } }
+      }
+    }
+  }
+}

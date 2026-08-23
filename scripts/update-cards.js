@@ -67,6 +67,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-tennis-catalogue.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-card-identities.js"],
+  ["scripts/validate-card-polish.js"],
+  ["scripts/validate-major-events.js"],
   ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-discovery-catalogue.js"],
   ["scripts/validate-preference-taxonomy.js"],

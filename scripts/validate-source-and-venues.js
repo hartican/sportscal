@@ -55,6 +55,8 @@ assert.equal(venues.resolve("ENGIE Stadium, Sydney").id, "sydney-showground-stad
 assert.equal(venues.resolve("Netstrata Jubilee Stadium").id, "jubilee-oval", "Kogarah must retain its own canonical venue identity");
 assert.notEqual(venues.resolve("ENGIE Stadium, Sydney").id, venues.resolve("Netstrata Jubilee Stadium").id, "ENGIE Stadium and Netstrata Jubilee Stadium must never be merged");
 assert.equal(venues.resolve("Go Media Stadium").displayName, "Mt Smart");
+assert.equal(venues.resolve("GIO Stadium").displayName, "Bruce stadium");
+assert.equal(venues.resolve("Canberra Stadium").id, "gio-stadium");
 assert.equal(venues.resolve("UTAS Stadium, Launceston").displayName, "York Park");
 assert.equal(venues.resolve("Cincinnati, USA", { key: "tennis" }).displayName, "Cincinnati Open", "broad location aliases must resolve only with event context");
 assert.equal(venues.resolve("Cincinnati, USA").audited, false, "a city must not globally collapse to one venue");

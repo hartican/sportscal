@@ -45,6 +45,8 @@ const cardLifecycleSource = fs.readFileSync("config/card-lifecycle.js", "utf8");
 const reminderEngineSource = fs.readFileSync("config/reminder-engine.js", "utf8");
 const soundtrackSource = fs.readFileSync("config/soundtrack.js", "utf8");
 const jointTournamentSource = fs.readFileSync("config/joint-tennis-tournament.js", "utf8");
+const cardResultsSource = fs.readFileSync("config/card-results.js", "utf8");
+const ticketingSource = fs.readFileSync("config/ticketing.js", "utf8");
 const serviceWorkerSource = fs.readFileSync("service-worker.js", "utf8");
 const cardUpdateSource = fs.readFileSync("scripts/update-cards.js", "utf8");
 const australianMarqueePolicy = JSON.parse(fs.readFileSync("data/canonical/australian-marquee-events-2026.json", "utf8"));
@@ -71,7 +73,7 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["feed", "standings"], "Feed and Standings must remain routed destinations");
+assert.deepEqual(tabOrder, ["feed", "events", "standings"], "Fixtures, Events and Standings must remain ordered routed destinations");
 assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"'), "the compact primary navigation must expose Tune as a bottom sheet");
 const requiredSlogan = "Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
@@ -136,7 +138,8 @@ assert.deepEqual(
   "the install manifest must use the supplied skier app icon with normal and maskable safe zones"
 );
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
-assert(html.includes('<span class="tab-label">Feed</span>'), "Feed must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Fixtures</span>'), "Fixtures must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Events</span>'), "Events must be visible in primary navigation");
 assert(html.includes('<span class="tab-label">Standings</span>'), "Standings must be visible in primary navigation");
 assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived|Ladders|L&amp;S)<\/span>/.test(html), "obsolete primary tab labels must be removed");
 assert(!/id="(?:neverMissView|watchLaterView|archivedView)"/.test(html), "removed navigation surfaces must not leave orphaned view routes");
@@ -361,8 +364,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v107"'), "the transparent AFL crest release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="107">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v108"'), "the Events feed release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="108">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -431,7 +434,7 @@ assert(html.includes('setTimeout(openSelectorOptInPrompt, 250)'), "existing prof
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
 assert(!settingsMenuSource.includes('settingsMenuItem("archive"') && html.includes("function renderArchiveSettings"), "legacy Archive recovery must not be a user-facing Settings destination");
-assert(html.includes('selectionActionsMarkup("sports"') && html.includes('selectionActionsMarkup("providers"') && html.includes('selectionActionsMarkup("venues"'), "every setup multi-select must expose Select all and Deselect all controls");
+assert(html.includes('selectionActionsMarkup("sports-global"') && html.includes('selectionActionsMarkup("providers"') && html.includes('selectionActionsMarkup("venues"'), "every setup multi-select must expose Select all and Deselect all controls");
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
@@ -467,12 +470,12 @@ assert(html.includes('const displayedResult = status === "past" ? buildCompactRe
 assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
 assert(html.includes('className = "card-result-score"') && html.includes('.card-result-line{'), "past-card results must use the centred, prominent score treatment");
 assert(html.includes('const isTeamMatchup = /\\s+v\\.?\\s+/i.test(displayTitle);') && html.includes('.event-top-row.has-team-matchup .event-name{'), "matchup team names must be centred independently of card badges");
-assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('height:clamp(132px, 31vw, 164px)'), "matchup cards must reserve equal, logo-led bounding boxes for both teams");
+assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('height:clamp(118.8px, 27.9vw, 147.6px)'), "matchup cards must reserve equal, 10%-smaller logo-led bounding boxes for both teams");
 assert(html.includes('.event-card.is-logo-led-matchup.is-past{ opacity:0.86; }'), "logo-led past fixtures must retain enough contrast for their official team marks");
 assert(html.includes('.matchup-team-name-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('.matchup-vs{\n  position:absolute;\n  left:50%;') && html.includes('teamNames.append(firstTeam, versus, secondTeam);'), "each matchup label must split into team A, versus, and team B beneath their corresponding logos");
 assert(html.includes('background:transparent;\n  border:0;') && html.includes('.matchup-logo-surface-dark{ background:transparent; }'), "matchup logo boxes must remain transparent rather than placing official marks on artificial tiles");
 assert(html.includes('.matchup-team-logo-slot[data-logo-surface="dark"]{') && html.includes('background:#092e4f;'), "white official team marks without a day alternative must receive a contrast-safe fallback surface");
-assert(html.includes('logo.loading = "lazy";') && html.includes('logo.width = 148;') && html.includes('logo.height = 154;'), "off-screen matchup logos must defer their network work while retaining a stable layout footprint");
+assert(html.includes('logo.loading = "lazy";') && html.includes('logo.width = 133;') && html.includes('logo.height = 139;'), "off-screen matchup logos must defer their network work while retaining the reduced stable layout footprint");
 assert(html.includes('function syncThemeTeamAssets(useDark)') && html.includes('syncThemeTeamAssets(useDark);'), "team identity assets must switch with light and dark themes without CSS recolouring");
 assert(cardIdentitiesSource.includes('primary,') && cardIdentitiesSource.includes('iconLight') && cardIdentitiesSource.includes('logoForTheme'), "every team identity must expose primary, theme, and compact-logo asset slots");
 assert(html.includes("LOCAL GAME"), "cards must support the LOCAL GAME tag");
@@ -565,8 +568,8 @@ assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event
 assert(html.includes('<script src="config/storyline-overrides.js"></script>'), "the editorial override registry must load before the enrichment engine");
 assert(html.includes('function appendManualMustWatchQueue'), "the curated feed must expose a manual Must Watch queue");
 assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial premium selections must not displace the chronological feed");
-assert(html.includes("function jointTournamentShouldSurface") && html.includes("appendJointTournamentCard(container)"), "Cincinnati must appear as a normal eligible Tennis suggestion rather than an automatic top pin");
-assert(html.includes("function buildJointTournamentMustWatchAction") && html.includes("!jointTournamentIsMustWatch() && appendJointTournamentCard"), "Cincinnati must move into the chronological Must Watch queue only after a manual action");
+assert(html.includes("function buildMajorEventMarker") && html.includes("openMajorEventInEvents"), "Cincinnati must use one compact Fixtures marker that opens its rich Events card");
+assert(html.includes("function majorEventActionEvent") && html.includes('className = "major-event-follow"'), "rich Events cards must expose a durable event-level Must Watch control");
 assert(html.includes('buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" })'), "the combined Cincinnati parent must render inside the manual queue without splitting ATP and WTA cards");
 assert(html.includes("eventIsJointTournamentFeedChild(ev, jointTournamentData, reference)"), "split Cincinnati ATP and WTA feed cards must be suppressed while the combined parent is active");
 const tournamentCardSource = html.slice(html.indexOf("function buildJointTournamentCard("), html.indexOf("function jointTournamentFeedEvent("));
@@ -793,11 +796,13 @@ assert(allBlacksSpringboks, "the South Africa v All Blacks Test must be present 
 assert.equal(allBlacksSpringboks.date, "2026-08-22", "the All Blacks Test must use its official Sydney calendar date");
 assert.equal(allBlacksSpringboks.time, "23:00", "the All Blacks Test must use its official Sydney start time");
 assert.equal(allBlacksSpringboks.storyline.stakes, 5, "the All Blacks Test must qualify as a universal-stakes Rugby fixture");
-assert.equal(allBlacksSpringboks.sourceType, "official", "the All Blacks Test must retain first-party fixture provenance");
-assert.match(allBlacksSpringboks.sourceUrl, /^https:\/\/www\.allblacks\.com\//, "the All Blacks Test must cite the official fixture page");
-assert.equal(allBlacksSpringboks.editorialPreview?.status, "journalistic", "the high-stakes All Blacks Test must ship with current source-backed preview context");
-assert(allBlacksSpringboks.editorialPreview?.contextSignals?.includes("tour-build-up"), "the All Blacks Test preview must explain the three-match tour build-up");
-assert.match(allBlacksSpringboks.selectedSentence, /Stormers, Sharks and Bulls supplied the runway/i, "the All Blacks Test must surface as a compelling personalised card rather than a bare fixture");
+assert.equal(allBlacksSpringboks.status, "completed", "the completed All Blacks Test must not remain upcoming");
+assert.equal(allBlacksSpringboks.score, "South Africa 16-33 All Blacks", "the All Blacks Test must retain SA Rugby's official score");
+assert.equal(allBlacksSpringboks.sourceType, "official", "the All Blacks Test must retain first-party result provenance");
+assert.match(allBlacksSpringboks.sourceUrl, /^https:\/\/springboks\.rugby\//, "the All Blacks Test must cite the official SA Rugby match report");
+assert.equal(allBlacksSpringboks.storyline.arcStage, "recap", "the completed All Blacks Test must use recap Storyline treatment");
+assert.notEqual(allBlacksSpringboks.storyline.hookSpoilerOff, allBlacksSpringboks.storyline.hookSpoilerOn, "the All Blacks Test must keep its verified result behind the spoiler control");
+assert.match(allBlacksSpringboks.selectedSentence, /protected until you choose to reveal/i, "the All Blacks Test must protect its result until the viewer reveals it");
 
 const wimbledonCards = publishedFeed.events.filter(event => event.key === "wimbledon");
 assert.equal(wimbledonCards.length, 32, "Wimbledon must contain the two retained R3 matches plus all 30 singles matches from R4 onward");
@@ -826,6 +831,7 @@ storage.set("ns_feed_cache_v1", JSON.stringify({
 const sandbox = {
   console,
   structuredClone,
+  URL,
   URLSearchParams,
   localStorage: {
     getItem: key => storage.has(key) ? storage.get(key) : null,
@@ -834,6 +840,8 @@ const sandbox = {
 };
 vm.createContext(sandbox);
 vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.js" });
+vm.runInContext(cardResultsSource, sandbox, { filename: "config/card-results.js" });
+vm.runInContext(ticketingSource, sandbox, { filename: "config/ticketing.js" });
 vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-domain-registry.js" });
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
 vm.runInContext(sportHierarchySource, sandbox, { filename: "config/sport-hierarchy.js" });
@@ -964,7 +972,7 @@ globalThis.__test = {
   resetSpoilerOverride,
   isLocalGame,
   matchedLocalVenue,
-  preferredTicketUrlForEvent,
+  preferredTicketOfferForEvent,
   setEventRating,
   getActual,
   archiveEvent,
@@ -1994,8 +2002,18 @@ const localGame = {
 };
 app.setPreferences({ showSpoilers: false });
 assert.equal(app.isLocalGame(localGame), true, "GIO Stadium must be local by default");
-assert.equal(app.matchedLocalVenue(localGame).label, "GIO Stadium");
-assert.equal(app.preferredTicketUrlForEvent(localGame), "https://www.nrl.com/tickets");
+assert.equal(app.matchedLocalVenue(localGame).label, "Bruce stadium");
+assert.equal(app.preferredTicketOfferForEvent(localGame), null, "ordinary fixtures without an exact verified seller endpoint must not show tickets");
+const localGameWithTickets = {
+  ...localGame,
+  ticketing: {
+    provider: "Ticketmaster",
+    status: "on_sale",
+    url: "https://www.ticketmaster.com.au/direct-event/event/123",
+    verifiedAt: new Date().toISOString(),
+  },
+};
+assert.equal(app.preferredTicketOfferForEvent(localGameWithTickets).provider, "Ticketmaster", "ordinary local fixtures may show an exact verified seller endpoint");
 
 const manukaGame = {
   ...event("local-cricket", 3, 3),
@@ -2004,7 +2022,7 @@ const manukaGame = {
   venue: "Corroboree Group Oval, Manuka",
 };
 assert.equal(app.isLocalGame(manukaGame), true, "Manuka venue aliases must match the default local venue");
-assert.equal(app.preferredTicketUrlForEvent(manukaGame), "https://www.cricket.com.au/tickets");
+assert.equal(app.preferredTicketOfferForEvent(manukaGame), null, "official-code ticket pages must never be substituted for seller endpoints");
 
 const pastA = event("past-a", -2, 4);
 const pastB = event("past-b", -1, 3);

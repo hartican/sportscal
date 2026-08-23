@@ -1,8 +1,8 @@
 {
   "schemaVersion": "coverage-report.v1",
-  "reportId": "coverage-report:2026-08-21",
-  "referenceDate": "2026-08-21",
-  "generatedAt": "2026-08-13T02:05:00.000Z",
+  "reportId": "coverage-report:2026-08-23",
+  "referenceDate": "2026-08-23",
+  "generatedAt": "2026-08-23T05:32:00.000Z",
   "refreshPolicy": {
     "weeklyBreadth": true,
     "dailyWindowDays": 7,
@@ -146,12 +146,12 @@
       "territory": "AU",
       "status": "loaded",
       "sourceMode": "reviewed_export",
-      "observedAt": "2026-08-13T02:00:00.000Z",
-      "ageDays": 8,
-      "windowStart": "2026-08-13",
-      "windowEnd": "2027-05-02",
+      "observedAt": "2026-08-23T05:30:00.000Z",
+      "ageDays": 0,
+      "windowStart": "2026-08-23",
+      "windowEnd": "2026-09-05",
       "itemCount": 6,
-      "fixturePath": "feeds/provider-exports/broadcasters/stan-sport-2026-08-13.json",
+      "fixturePath": "feeds/provider-exports/broadcasters/stan-sport-2026-08-23.json",
       "reason": null
     },
     {
@@ -310,59 +310,68 @@
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 6,
-    "liveOrDelayedListingsEvaluated": 5,
-    "nonEventProgrammesExcluded": 1,
-    "matched": 0,
-    "newCatalogueGaps": 5,
+    "liveOrDelayedListingsEvaluated": 6,
+    "nonEventProgrammesExcluded": 0,
+    "matched": 4,
+    "newCatalogueGaps": 2,
     "ambiguous": 0,
     "publish": 0,
-    "review": 5,
+    "review": 6,
     "ignore": 0,
-    "highPriorityRecommendations": 4,
-    "auAvailabilityChanges": 0
+    "highPriorityRecommendations": 5,
+    "auAvailabilityChanges": 4
   },
   "candidates": [
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:xokppx",
-      "candidateId": "coverage:xokppx",
-      "reportId": "coverage-report:2026-08-21",
-      "title": "UEFA Super Cup",
-      "eventTitle": "UEFA Super Cup",
+      "id": "coverage:1qeo7uq",
+      "candidateId": "coverage:1qeo7uq",
+      "reportId": "coverage-report:2026-08-23",
+      "title": "Brighton & Hove Albion v Aston Villa",
+      "eventTitle": "Brighton & Hove Albion v Aston Villa",
       "source": "stan_sport",
       "sport": "sport:football",
-      "competition": "competition:uefa",
-      "startsAt": "2026-08-12T19:00:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "competition": "competition:premier-league",
+      "startsAt": "2026-08-23T13:00:00.000Z",
+      "matchStatus": "matched",
+      "catalogueStatus": "matched",
+      "matchConfidence": 0.9,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
         "taxonomyStatus": "resolved",
-        "taxonomyNodeId": "competition:uefa",
+        "taxonomyNodeId": "competition:premier-league",
         "sportId": "sport:football",
         "disciplineId": "discipline:football:club",
-        "competitionId": "competition:uefa",
+        "competitionId": "competition:premier-league",
         "eventSeriesId": null,
         "rawSport": "Football",
-        "rawCompetition": "UEFA competitions"
+        "rawCompetition": "Premier League"
       },
       "eventTiming": {
-        "localDate": "2026-08-13",
-        "eventStartsAtUtc": "2026-08-12T19:00:00.000Z",
-        "programmeStartsAtUtc": "2026-08-12T18:54:00.000Z",
+        "localDate": "2026-08-23",
+        "eventStartsAtUtc": "2026-08-23T13:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-23T12:50:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
+        "canonicalEventId": "epl-2026-27-128929",
+        "confidence": 0.9,
         "reasonCodes": [
-          "no_catalogue_match"
+          "competition_match",
+          "both_participants_match",
+          "start_within_15_minutes",
+          "title_tokens_match"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "epl-2026-27-128929",
+            "title": "Brighton & Hove Albion v Aston Villa",
+            "confidence": 0.9
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -373,38 +382,26 @@
           "liveOrReplay": "live",
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z"
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:uefa-super-cup-2026-08-13",
-          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "listingId": "stan_sport:premier-league-brighton-aston-villa-2026-08-23",
+          "snapshotId": "stan-sport-au-2026-08-23T05-30Z",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z",
           "territory": "AU",
-          "rawTitle": "UEFA Super Cup"
+          "rawTitle": "Brighton & Hove Albion v Aston Villa"
         }
       ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:xokppx",
-        "title": "UEFA Super Cup",
-        "sportId": "sport:football",
-        "disciplineId": "discipline:football:club",
-        "competitionId": "competition:uefa",
-        "eventSeriesId": null,
-        "rawCompetition": "UEFA competitions",
-        "startTimeUtc": "2026-08-12T19:00:00.000Z",
-        "sourceLocalDate": "2026-08-13",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
+      "provisionalEvent": null,
+      "availabilityChange": "added_au_option",
       "blockers": [
-        "new_catalogue_identity"
+        "confidence_below_publish_threshold"
       ],
       "editorial": {
         "decision": "pending",
@@ -412,19 +409,286 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:iutxl9",
-      "candidateId": "coverage:iutxl9",
-      "reportId": "coverage-report:2026-08-21",
-      "title": "WTA 1000",
-      "eventTitle": "WTA 1000",
+      "id": "coverage:2f5c9v",
+      "candidateId": "coverage:2f5c9v",
+      "reportId": "coverage-report:2026-08-23",
+      "title": "Manchester City v Bournemouth",
+      "eventTitle": "Manchester City v Bournemouth",
+      "source": "stan_sport",
+      "sport": "sport:football",
+      "competition": "competition:premier-league",
+      "startsAt": "2026-08-23T13:00:00.000Z",
+      "matchStatus": "matched",
+      "catalogueStatus": "matched",
+      "matchConfidence": 0.9,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:premier-league",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:premier-league",
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "Premier League"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-23",
+        "eventStartsAtUtc": "2026-08-23T13:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-23T12:50:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": "epl-2026-27-128930",
+        "confidence": 0.9,
+        "reasonCodes": [
+          "competition_match",
+          "both_participants_match",
+          "start_within_15_minutes",
+          "title_tokens_match"
+        ],
+        "alternatives": [
+          {
+            "canonicalEventId": "epl-2026-27-128930",
+            "title": "Manchester City v Bournemouth",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:premier-league-manchester-city-bournemouth-2026-08-23",
+          "snapshotId": "stan-sport-au-2026-08-23T05-30Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z",
+          "territory": "AU",
+          "rawTitle": "Manchester City v Bournemouth"
+        }
+      ],
+      "provisionalEvent": null,
+      "availabilityChange": "added_au_option",
+      "blockers": [
+        "confidence_below_publish_threshold"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:5gl8bf",
+      "candidateId": "coverage:5gl8bf",
+      "reportId": "coverage-report:2026-08-23",
+      "title": "Newcastle United v Liverpool",
+      "eventTitle": "Newcastle United v Liverpool",
+      "source": "stan_sport",
+      "sport": "sport:football",
+      "competition": "competition:premier-league",
+      "startsAt": "2026-08-23T15:30:00.000Z",
+      "matchStatus": "matched",
+      "catalogueStatus": "matched",
+      "matchConfidence": 0.9,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:premier-league",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:premier-league",
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "Premier League"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-24",
+        "eventStartsAtUtc": "2026-08-23T15:30:00.000Z",
+        "programmeStartsAtUtc": "2026-08-23T15:20:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": "epl-2026-27-128931",
+        "confidence": 0.9,
+        "reasonCodes": [
+          "competition_match",
+          "both_participants_match",
+          "start_within_15_minutes",
+          "title_tokens_match"
+        ],
+        "alternatives": [
+          {
+            "canonicalEventId": "epl-2026-27-128931",
+            "title": "Newcastle United v Liverpool",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:premier-league-newcastle-liverpool-2026-08-24",
+          "snapshotId": "stan-sport-au-2026-08-23T05-30Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z",
+          "territory": "AU",
+          "rawTitle": "Newcastle United v Liverpool"
+        }
+      ],
+      "provisionalEvent": null,
+      "availabilityChange": "added_au_option",
+      "blockers": [
+        "confidence_below_publish_threshold"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:e3od05",
+      "candidateId": "coverage:e3od05",
+      "reportId": "coverage-report:2026-08-23",
+      "title": "Fulham v Chelsea",
+      "eventTitle": "Fulham v Chelsea",
+      "source": "stan_sport",
+      "sport": "sport:football",
+      "competition": "competition:premier-league",
+      "startsAt": "2026-08-24T19:00:00.000Z",
+      "matchStatus": "matched",
+      "catalogueStatus": "matched",
+      "matchConfidence": 0.9,
+      "coverageReason": "broadcaster_featured",
+      "suggestedAction": "review",
+      "priority": "high",
+      "taxonomy": {
+        "taxonomyVersion": "sport-hierarchy.v1",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:premier-league",
+        "sportId": "sport:football",
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:premier-league",
+        "eventSeriesId": null,
+        "rawSport": "Football",
+        "rawCompetition": "Premier League"
+      },
+      "eventTiming": {
+        "localDate": "2026-08-25",
+        "eventStartsAtUtc": "2026-08-24T19:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-24T18:30:00.000Z",
+        "timeConfidence": "exact"
+      },
+      "match": {
+        "canonicalEventId": "epl-2026-27-128932",
+        "confidence": 0.9,
+        "reasonCodes": [
+          "competition_match",
+          "both_participants_match",
+          "start_within_15_minutes",
+          "title_tokens_match"
+        ],
+        "alternatives": [
+          {
+            "canonicalEventId": "epl-2026-27-128932",
+            "title": "Fulham v Chelsea",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "broadcastsAu": [
+        {
+          "serviceId": "stan_sport",
+          "serviceLabel": "Stan Sport",
+          "territory": "AU",
+          "accessType": "included",
+          "liveOrReplay": "live",
+          "channelBrand": "Stan Sport",
+          "sourceId": "stan_sport",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z"
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "listingId": "stan_sport:premier-league-fulham-chelsea-2026-08-25",
+          "snapshotId": "stan-sport-au-2026-08-23T05-30Z",
+          "sourceId": "stan_sport",
+          "sourceMode": "reviewed_export",
+          "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+          "observedAt": "2026-08-23T05:30:00.000Z",
+          "territory": "AU",
+          "rawTitle": "Fulham v Chelsea"
+        }
+      ],
+      "provisionalEvent": null,
+      "availabilityChange": "added_au_option",
+      "blockers": [
+        "confidence_below_publish_threshold"
+      ],
+      "editorial": {
+        "decision": "pending",
+        "reviewedBy": null,
+        "reviewedAt": null,
+        "note": null
+      },
+      "scanScope": "daily_next_seven_days"
+    },
+    {
+      "schemaVersion": "coverage-candidate.v1",
+      "id": "coverage:1vbwb02",
+      "candidateId": "coverage:1vbwb02",
+      "reportId": "coverage-report:2026-08-23",
+      "title": "US Open",
+      "eventTitle": "US Open",
       "source": "stan_sport",
       "sport": "sport:tennis",
-      "competition": "competition:wta-tour",
-      "startsAt": "2026-08-12T23:00:00.000Z",
+      "competition": "US Open",
+      "startsAt": "2026-08-25T14:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -433,19 +697,19 @@
       "priority": "normal",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "resolved",
-        "taxonomyNodeId": "competition:wta-tour",
+        "taxonomyStatus": "sport_only",
+        "taxonomyNodeId": "sport:tennis",
         "sportId": "sport:tennis",
-        "disciplineId": "discipline:tennis:professional",
-        "competitionId": "competition:wta-tour",
+        "disciplineId": null,
+        "competitionId": null,
         "eventSeriesId": null,
         "rawSport": "Tennis",
-        "rawCompetition": "WTA Tour"
+        "rawCompetition": "US Open"
       },
       "eventTiming": {
-        "localDate": "2026-08-13",
-        "eventStartsAtUtc": "2026-08-12T23:00:00.000Z",
-        "programmeStartsAtUtc": "2026-08-12T23:00:00.000Z",
+        "localDate": "2026-08-26",
+        "eventStartsAtUtc": "2026-08-25T14:00:00.000Z",
+        "programmeStartsAtUtc": "2026-08-25T14:00:00.000Z",
         "timeConfidence": "date_only"
       },
       "match": {
@@ -466,36 +730,37 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z"
+          "observedAt": "2026-08-23T05:30:00.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:wta-1000-2026-08-13",
-          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "listingId": "stan_sport:us-open-2026-08-26",
+          "snapshotId": "stan-sport-au-2026-08-23T05-30Z",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z",
+          "observedAt": "2026-08-23T05:30:00.000Z",
           "territory": "AU",
-          "rawTitle": "WTA 1000"
+          "rawTitle": "US Open"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:iutxl9",
-        "title": "WTA 1000",
+        "id": "provisional:1vbwb02",
+        "title": "US Open",
         "sportId": "sport:tennis",
-        "disciplineId": "discipline:tennis:professional",
-        "competitionId": "competition:wta-tour",
+        "disciplineId": null,
+        "competitionId": null,
         "eventSeriesId": null,
-        "rawCompetition": "WTA Tour",
-        "startTimeUtc": "2026-08-12T23:00:00.000Z",
-        "sourceLocalDate": "2026-08-13",
+        "rawCompetition": "US Open",
+        "startTimeUtc": "2026-08-25T14:00:00.000Z",
+        "sourceLocalDate": "2026-08-26",
         "status": "provisional"
       },
       "availabilityChange": null,
       "blockers": [
+        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -504,19 +769,19 @@
         "reviewedAt": null,
         "note": null
       },
-      "scanScope": "weekly_breadth"
+      "scanScope": "daily_next_seven_days"
     },
     {
       "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:v8q8w5",
-      "candidateId": "coverage:v8q8w5",
-      "reportId": "coverage-report:2026-08-21",
-      "title": "Formula E",
-      "eventTitle": "Formula E",
+      "id": "coverage:2a783t",
+      "candidateId": "coverage:2a783t",
+      "reportId": "coverage-report:2026-08-23",
+      "title": "UCI Mountain Bike World Championship",
+      "eventTitle": "UCI Mountain Bike World Championship",
       "source": "stan_sport",
-      "sport": "sport:motorsport",
-      "competition": "Formula E",
-      "startsAt": "2026-08-14T14:55:00.000Z",
+      "sport": "sport:cycling",
+      "competition": "UCI Mountain Bike World Championship",
+      "startsAt": "2026-08-27T15:40:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
       "matchConfidence": 0,
@@ -526,18 +791,18 @@
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
         "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:motorsport",
-        "sportId": "sport:motorsport",
+        "taxonomyNodeId": "sport:cycling",
+        "sportId": "sport:cycling",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
-        "rawSport": "Motorsport",
-        "rawCompetition": "Formula E"
+        "rawSport": "Cycling",
+        "rawCompetition": "UCI Mountain Bike World Championship"
       },
       "eventTiming": {
-        "localDate": "2026-08-15",
-        "eventStartsAtUtc": "2026-08-14T14:55:00.000Z",
-        "programmeStartsAtUtc": "2026-08-14T14:50:00.000Z",
+        "localDate": "2026-08-28",
+        "eventStartsAtUtc": "2026-08-27T15:40:00.000Z",
+        "programmeStartsAtUtc": "2026-08-27T15:35:00.000Z",
         "timeConfidence": "exact"
       },
       "match": {
@@ -558,239 +823,37 @@
           "channelBrand": "Stan Sport",
           "sourceId": "stan_sport",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z"
+          "observedAt": "2026-08-23T05:30:00.000Z"
         }
       ],
       "sourceEvidence": [
         {
-          "listingId": "stan_sport:formula-e-2026-08-15",
-          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
+          "listingId": "stan_sport:uci-mtb-world-championship-2026-08-28",
+          "snapshotId": "stan-sport-au-2026-08-23T05-30Z",
           "sourceId": "stan_sport",
           "sourceMode": "reviewed_export",
           "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z",
+          "observedAt": "2026-08-23T05:30:00.000Z",
           "territory": "AU",
-          "rawTitle": "Formula E"
+          "rawTitle": "UCI Mountain Bike World Championship"
         }
       ],
       "provisionalEvent": {
         "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:v8q8w5",
-        "title": "Formula E",
-        "sportId": "sport:motorsport",
+        "id": "provisional:2a783t",
+        "title": "UCI Mountain Bike World Championship",
+        "sportId": "sport:cycling",
         "disciplineId": null,
         "competitionId": null,
         "eventSeriesId": null,
-        "rawCompetition": "Formula E",
-        "startTimeUtc": "2026-08-14T14:55:00.000Z",
-        "sourceLocalDate": "2026-08-15",
+        "rawCompetition": "UCI Mountain Bike World Championship",
+        "startTimeUtc": "2026-08-27T15:40:00.000Z",
+        "sourceLocalDate": "2026-08-28",
         "status": "provisional"
       },
       "availabilityChange": null,
       "blockers": [
         "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:1cbygja",
-      "candidateId": "coverage:1cbygja",
-      "reportId": "coverage-report:2026-08-21",
-      "title": "FA Community Shield",
-      "eventTitle": "FA Community Shield",
-      "source": "stan_sport",
-      "sport": "sport:football",
-      "competition": "FA Community Shield",
-      "startsAt": "2026-08-16T14:00:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:football",
-        "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawSport": "Football",
-        "rawCompetition": "FA Community Shield"
-      },
-      "eventTiming": {
-        "localDate": "2026-08-16",
-        "eventStartsAtUtc": "2026-08-16T14:00:00.000Z",
-        "programmeStartsAtUtc": "2026-08-16T13:45:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0,
-        "reasonCodes": [
-          "no_catalogue_match"
-        ],
-        "alternatives": []
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:fa-community-shield-2026-08-16",
-          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z",
-          "territory": "AU",
-          "rawTitle": "FA Community Shield"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:1cbygja",
-        "title": "FA Community Shield",
-        "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
-        "eventSeriesId": null,
-        "rawCompetition": "FA Community Shield",
-        "startTimeUtc": "2026-08-16T14:00:00.000Z",
-        "sourceLocalDate": "2026-08-16",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
-        "competition_needs_review",
-        "new_catalogue_identity"
-      ],
-      "editorial": {
-        "decision": "pending",
-        "reviewedBy": null,
-        "reviewedAt": null,
-        "note": null
-      },
-      "scanScope": "weekly_breadth"
-    },
-    {
-      "schemaVersion": "coverage-candidate.v1",
-      "id": "coverage:ef6gxf",
-      "candidateId": "coverage:ef6gxf",
-      "reportId": "coverage-report:2026-08-21",
-      "title": "Premier League",
-      "eventTitle": "Premier League",
-      "source": "stan_sport",
-      "sport": "sport:football",
-      "competition": "competition:premier-league",
-      "startsAt": "2026-08-21T19:00:00.000Z",
-      "matchStatus": "new",
-      "catalogueStatus": "new",
-      "matchConfidence": 0.6,
-      "coverageReason": "broadcaster_featured",
-      "suggestedAction": "review",
-      "priority": "high",
-      "taxonomy": {
-        "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "resolved",
-        "taxonomyNodeId": "competition:premier-league",
-        "sportId": "sport:football",
-        "disciplineId": "discipline:football:club",
-        "competitionId": "competition:premier-league",
-        "eventSeriesId": null,
-        "rawSport": "Football",
-        "rawCompetition": "Premier League"
-      },
-      "eventTiming": {
-        "localDate": "2026-08-22",
-        "eventStartsAtUtc": "2026-08-21T19:00:00.000Z",
-        "programmeStartsAtUtc": "2026-08-21T18:00:00.000Z",
-        "timeConfidence": "exact"
-      },
-      "match": {
-        "canonicalEventId": null,
-        "confidence": 0.6,
-        "reasonCodes": [
-          "competition_match",
-          "start_within_15_minutes"
-        ],
-        "alternatives": [
-          {
-            "canonicalEventId": "epl-2026-27-128923",
-            "title": "Arsenal v Coventry City",
-            "confidence": 0.6
-          },
-          {
-            "canonicalEventId": "epl-2026-27-128924",
-            "title": "Brentford v Tottenham Hotspur",
-            "confidence": 0.45
-          },
-          {
-            "canonicalEventId": "epl-2026-27-128925",
-            "title": "Everton v Crystal Palace",
-            "confidence": 0.45
-          }
-        ]
-      },
-      "broadcastsAu": [
-        {
-          "serviceId": "stan_sport",
-          "serviceLabel": "Stan Sport",
-          "territory": "AU",
-          "accessType": "included",
-          "liveOrReplay": "live",
-          "channelBrand": "Stan Sport",
-          "sourceId": "stan_sport",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z"
-        }
-      ],
-      "sourceEvidence": [
-        {
-          "listingId": "stan_sport:premier-league-2026-08-22",
-          "snapshotId": "stan-sport-au-2026-08-13T02-00Z",
-          "sourceId": "stan_sport",
-          "sourceMode": "reviewed_export",
-          "sourceUrl": "https://www.stan.com.au/watch/sport",
-          "observedAt": "2026-08-13T02:00:00.000Z",
-          "territory": "AU",
-          "rawTitle": "Premier League"
-        }
-      ],
-      "provisionalEvent": {
-        "schemaVersion": "provisional-catalog-event.v1",
-        "id": "provisional:ef6gxf",
-        "title": "Premier League",
-        "sportId": "sport:football",
-        "disciplineId": "discipline:football:club",
-        "competitionId": "competition:premier-league",
-        "eventSeriesId": null,
-        "rawCompetition": "Premier League",
-        "startTimeUtc": "2026-08-21T19:00:00.000Z",
-        "sourceLocalDate": "2026-08-22",
-        "status": "provisional"
-      },
-      "availabilityChange": null,
-      "blockers": [
         "new_catalogue_identity"
       ],
       "editorial": {

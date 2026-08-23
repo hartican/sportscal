@@ -30,7 +30,14 @@ inputs.forEach(input => {
     const override = overrides.events[event.id] || overrides.events[event.eventId];
     if (override) {
       foundIds.add(event.id);
-      if (lifecycleFor(event) === "completed") return event;
+      const hasVerifiedResultOverride = override.status === "completed"
+        && override.score
+        && override.outcomeText
+        && override.recapText
+        && override.sourceName
+        && override.sourceUrl
+        && override.sourceCheckedAt;
+      if (lifecycleFor(event) === "completed" && !hasVerifiedResultOverride) return event;
       applied += 1;
       return { ...event, ...resolveStandingsAwareOverride(event, override, standingsIndex) };
     }

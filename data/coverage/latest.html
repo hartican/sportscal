@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>nothingSport coverage discovery · 2026-08-21</title>
+  <title>nothingSport coverage discovery · 2026-08-23</title>
   <style>
     :root { color-scheme: dark; --ink:#f5f4ef; --muted:#a9a9a3; --line:#30302d; --panel:#171715; --lime:#d8ff56; --amber:#ffc857; --rose:#ff7a90; }
     * { box-sizing:border-box; } body { margin:0; font:15px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--ink); background:#0c0c0b; }
@@ -22,12 +22,12 @@
   </style>
 </head>
 <body><main>
-  <header><span class="eyebrow">Weekly source reconciliation · 2026-08-21</span><h1>Coverage gaps, without false certainty.</h1><p>5 broadcaster listings were compared with 686 canonical events. Missing source inputs remain visible and fail closed.</p></header>
-  <div class="metrics"><div class="metric"><strong>5</strong><span>new catalogue gaps</span></div><div class="metric"><strong>0</strong><span>ambiguous matches</span></div><div class="metric"><strong>0</strong><span>AU option changes</span></div><div class="metric"><strong>4</strong><span>high-priority recommendations</span></div></div>
+  <header><span class="eyebrow">Weekly source reconciliation · 2026-08-23</span><h1>Coverage gaps, without false certainty.</h1><p>6 broadcaster listings were compared with 686 canonical events. Missing source inputs remain visible and fail closed.</p></header>
+  <div class="metrics"><div class="metric"><strong>2</strong><span>new catalogue gaps</span></div><div class="metric"><strong>0</strong><span>ambiguous matches</span></div><div class="metric"><strong>4</strong><span>AU option changes</span></div><div class="metric"><strong>5</strong><span>high-priority recommendations</span></div></div>
   <section><h2>Australian source health</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Status</th><th>Mode and freshness</th></tr></thead><tbody>
           <tr><td><strong>Kayo Sports</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
           <tr><td><strong>Foxtel</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
-          <tr><td><strong>Stan Sport</strong></td><td><span class="status loaded">loaded</span></td><td>reviewed_export; 6 listings; 8d old</td></tr>
+          <tr><td><strong>Stan Sport</strong></td><td><span class="status loaded">loaded</span></td><td>reviewed_export; 6 listings; 0d old</td></tr>
           <tr><td><strong>ESPN Australia</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
           <tr><td><strong>SBS</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
           <tr><td><strong>9Now</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
@@ -35,49 +35,58 @@
           <tr><td><strong>Paramount+ Australia</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr></tbody></table></div></section>
   <section><h2>Editorial queue</h2><div class="table-wrap"><table><thead><tr><th>Date</th><th>Candidate</th><th>Match</th><th>Confidence</th><th>Priority</th><th>Action</th><th>AU option</th><th>Blockers</th></tr></thead><tbody>
           <tr>
-            <td>2026-08-13</td>
-            <td><strong>UEFA Super Cup</strong><small>coverage:xokppx</small></td>
-            <td><span class="status new">new</span></td>
-            <td class="number">0.00</td>
+            <td>2026-08-23</td>
+            <td><strong>Brighton &amp; Hove Albion v Aston Villa</strong><small>coverage:1qeo7uq</small></td>
+            <td><span class="status matched">matched</span><small>epl-2026-27-128929</small></td>
+            <td class="number">0.90</td>
             <td>high</td><td><span class="action review">review</span></td>
             <td>Stan Sport · included</td>
-            <td>new_catalogue_identity</td>
+            <td>confidence_below_publish_threshold</td>
           </tr>
           <tr>
-            <td>2026-08-13</td>
-            <td><strong>WTA 1000</strong><small>coverage:iutxl9</small></td>
+            <td>2026-08-23</td>
+            <td><strong>Manchester City v Bournemouth</strong><small>coverage:2f5c9v</small></td>
+            <td><span class="status matched">matched</span><small>epl-2026-27-128930</small></td>
+            <td class="number">0.90</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>confidence_below_publish_threshold</td>
+          </tr>
+          <tr>
+            <td>2026-08-24</td>
+            <td><strong>Newcastle United v Liverpool</strong><small>coverage:5gl8bf</small></td>
+            <td><span class="status matched">matched</span><small>epl-2026-27-128931</small></td>
+            <td class="number">0.90</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>confidence_below_publish_threshold</td>
+          </tr>
+          <tr>
+            <td>2026-08-25</td>
+            <td><strong>Fulham v Chelsea</strong><small>coverage:e3od05</small></td>
+            <td><span class="status matched">matched</span><small>epl-2026-27-128932</small></td>
+            <td class="number">0.90</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>confidence_below_publish_threshold</td>
+          </tr>
+          <tr>
+            <td>2026-08-26</td>
+            <td><strong>US Open</strong><small>coverage:1vbwb02</small></td>
             <td><span class="status new">new</span></td>
             <td class="number">0.00</td>
             <td>normal</td><td><span class="action review">review</span></td>
             <td>Stan Sport · included</td>
-            <td>new_catalogue_identity</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
           </tr>
           <tr>
-            <td>2026-08-15</td>
-            <td><strong>Formula E</strong><small>coverage:v8q8w5</small></td>
+            <td>2026-08-28</td>
+            <td><strong>UCI Mountain Bike World Championship</strong><small>coverage:2a783t</small></td>
             <td><span class="status new">new</span></td>
             <td class="number">0.00</td>
             <td>high</td><td><span class="action review">review</span></td>
             <td>Stan Sport · included</td>
             <td>competition_needs_review, new_catalogue_identity</td>
-          </tr>
-          <tr>
-            <td>2026-08-16</td>
-            <td><strong>FA Community Shield</strong><small>coverage:1cbygja</small></td>
-            <td><span class="status new">new</span></td>
-            <td class="number">0.00</td>
-            <td>high</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>competition_needs_review, new_catalogue_identity</td>
-          </tr>
-          <tr>
-            <td>2026-08-22</td>
-            <td><strong>Premier League</strong><small>coverage:ef6gxf</small></td>
-            <td><span class="status new">new</span></td>
-            <td class="number">0.60</td>
-            <td>high</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>new_catalogue_identity</td>
           </tr></tbody></table></div></section>
   <section class="note"><h2>Decision boundary</h2><p>New and ambiguous events always remain under review. Publish requires an existing canonical match at 0.92 or higher, a named Australian service, known access type and no blockers. Approved decisions are exported separately; this queue never mutates the event feed.</p></section>
   <section><h2>Paid and licensed possibilities</h2><p>The adapter contract accepts licensed API snapshots without changing the editorial model. Global claims are not treated as proof of Australian inventory.</p><div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Supplier</th><th>Possible role</th><th>AU evidence</th><th>Evaluation</th><th>Recommendation</th></tr></thead><tbody>

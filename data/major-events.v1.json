@@ -1,0 +1,362 @@
+{
+  "schemaVersion": "major-events.v1",
+  "publishedAt": "2026-08-23T06:00:00.000Z",
+  "events": [
+    {
+      "id": "major-event:cincinnati-open-2026",
+      "kind": "tournament",
+      "name": "Cincinnati Open",
+      "sportKey": "tennis",
+      "sportKeys": ["tennis", "wimbledon"],
+      "sportLabel": "Tennis",
+      "competitionId": "tournament:tennis:joint:cincinnati-open:2026",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-08-08",
+      "endDate": "2026-08-23",
+      "timezone": "America/New_York",
+      "venue": "Lindner Family Tennis Center",
+      "location": "Mason, Ohio, USA",
+      "summary": "A combined ATP Masters 1000 and WTA 1000 tournament, with both draws, daily schedules, rankings and followed-player controls in one place.",
+      "details": [
+        "Community Weekend opened the tournament on 8-9 August before main-draw play began on 11 August.",
+        "The event concludes with finals weekend on 22-23 August. Published match times remain subject to the official order of play."
+      ],
+      "scheduleAdapter": "joint-tennis-tournament-2026",
+      "subEvents": [],
+      "sources": [
+        {
+          "name": "Cincinnati Open tournament information",
+          "url": "https://cincinnatiopen.com/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Cincinnati Open order of play",
+          "url": "https://cincinnatiopen.com/score-center/order-of-play/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:us-open-2026",
+      "kind": "tournament",
+      "name": "US Open 2026",
+      "sportKey": "tennis",
+      "sportKeys": ["tennis", "wimbledon"],
+      "sportLabel": "Tennis",
+      "competitionId": "competition:tennis:us-open:2026",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-08-23",
+      "endDate": "2026-09-13",
+      "timezone": "America/New_York",
+      "venue": "USTA Billie Jean King National Tennis Center",
+      "location": "Flushing, New York, USA",
+      "summary": "The final Grand Slam of 2026 runs for 22 days, from Fan Week and qualifying through the singles finals at Arthur Ashe Stadium.",
+      "details": [
+        "Fan Week begins on 23 August and main-draw singles begin on 30 August.",
+        "The women's singles final is scheduled for 12 September and the men's singles final for 13 September."
+      ],
+      "subEvents": [],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com/usopentennis",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": "2026-05-28T16:00:00.000Z",
+        "saleEndAt": "2026-09-13T18:00:00.000Z"
+      },
+      "sources": [
+        {
+          "name": "US Open 2026 schedule",
+          "url": "https://www.usopen.org/en_US/about/eventschedule.html",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "US Open ticket FAQ",
+          "url": "https://www.usopen.org/en_US/tickets/tickets_faq.html",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:afl-grand-final-2026",
+      "kind": "major_event",
+      "name": "2026 AFL Grand Final",
+      "sportKey": "afl",
+      "sportKeys": ["afl"],
+      "sportLabel": "AFL",
+      "competitionId": "competition:afl:premiership:2026",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "timezone": "Australia/Melbourne",
+      "venue": "Melbourne Cricket Ground",
+      "location": "Melbourne, Victoria",
+      "summary": "The 2026 AFL premiership decider at the MCG. Competing clubs and the confirmed bounce time will be added when the finals series resolves them.",
+      "details": [
+        "The Grand Final is confirmed for Saturday 26 September 2026.",
+        "No direct public seller endpoint is published in this catalogue, so the card does not display a ticket CTA."
+      ],
+      "subEvents": [],
+      "sources": [
+        {
+          "name": "AFL 2026 Grand Final ticketing scheme",
+          "url": "https://resources.afl.com.au/afl/document/2026/04/24/9dbb254f-eb90-4b55-9a09-f7a39a4d7210/2026-AFL-Grand-Final-Ticketing-Scheme-12032026-.pdf",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:nrl-grand-final-2026",
+      "kind": "major_event",
+      "name": "2026 NRL Grand Final",
+      "sportKey": "nrl",
+      "sportKeys": ["nrl"],
+      "sportLabel": "NRL",
+      "competitionId": "competition:nrl:premiership:2026",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
+      "timezone": "Australia/Sydney",
+      "venue": "Accor Stadium",
+      "location": "Sydney Olympic Park, New South Wales",
+      "summary": "The NRL and NRLW premiership deciders return to Accor Stadium on Sunday 4 October.",
+      "details": [
+        "The event listing opens at noon and covers the full Grand Final day program.",
+        "Competing teams and exact match times will be attached when the finals series resolves them."
+      ],
+      "subEvents": [],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com.au/2026-nrl-nrlw-telstra-premiership-grand-final-sydney-olympic-park-04-10-2026/event/250064D2A74B48BE",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": null,
+        "saleEndAt": "2026-10-04T06:00:00.000Z"
+      },
+      "sources": [
+        {
+          "name": "NRL official tickets listing",
+          "url": "https://www.nrl.com/tickets",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:rlwc-2026",
+      "kind": "tournament",
+      "name": "Rugby League World Cup 2026",
+      "sportKey": "nrl",
+      "sportKeys": ["nrl"],
+      "sportLabel": "Rugby league",
+      "competitionId": "competition:rugby-league-world-cup:2026",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-10-15",
+      "endDate": "2026-11-15",
+      "timezone": "Australia/Sydney",
+      "venue": "Multiple venues",
+      "location": "Australia and New Zealand",
+      "summary": "Four weeks of men's, women's and wheelchair World Cup competition across Australia and New Zealand.",
+      "details": [
+        "Australia v New Zealand opens the men's tournament at Allianz Stadium on 15 October.",
+        "The men's and women's finals are scheduled for Suncorp Stadium on 15 November."
+      ],
+      "subEvents": [
+        {
+          "id": "major-match:rlwc-2026:australia-new-zealand",
+          "name": "Australia v New Zealand",
+          "startTimeUtc": "2026-10-15T09:05:00.000Z",
+          "venue": "Allianz Stadium",
+          "stakesScore": 5,
+          "participants": [
+            { "name": "Australia", "role": "home" },
+            { "name": "New Zealand", "role": "away" }
+          ],
+          "summary": "The opening men's pool match in Sydney."
+        }
+      ],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com.au/rlwc2026",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": null,
+        "saleEndAt": "2026-11-15T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "name": "RLWC 2026 official draw",
+          "url": "https://www.rlwc2026.com/draws-and-pools",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Ticketmaster RLWC 2026 fixture listing",
+          "url": "https://www.ticketmaster.com.au/rugby-league-world-cup-2026-tickets/artist/1167790",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:australian-open-2027",
+      "kind": "tournament",
+      "name": "Australian Open 2027",
+      "sportKey": "tennis",
+      "sportKeys": ["tennis", "wimbledon"],
+      "sportLabel": "Tennis",
+      "competitionId": "competition:tennis:australian-open:2027",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2027,
+      "startDate": "2027-01-11",
+      "endDate": "2027-01-31",
+      "timezone": "Australia/Melbourne",
+      "venue": "Melbourne Park",
+      "location": "Melbourne, Victoria",
+      "summary": "Opening Week runs from 11-16 January before the Australian Open main draw from 17-31 January.",
+      "details": [
+        "Ground passes and arena sessions are listed through the tournament's official Ticketmaster channel.",
+        "Drawn matches will become selectable for Fixtures once a stable match identity and published start time are available."
+      ],
+      "subEvents": [],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com.au/ausopen",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": "2026-08-13T02:00:00.000Z",
+        "saleEndAt": "2027-01-31T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "name": "Australian Open ticket FAQ",
+          "url": "https://ausopen.com/ticket-faqs",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Open 2027 sale guide",
+          "url": "https://ausopen.com/articles/news/your-guide-australian-open-2027-ticket-pre-sales",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:australian-grand-prix-2027",
+      "kind": "major_event",
+      "name": "Formula 1 Australian Grand Prix 2027",
+      "sportKey": "f1",
+      "sportKeys": ["f1", "motorsport"],
+      "sportLabel": "Formula One",
+      "competitionId": "competition:f1:australian-grand-prix:2027",
+      "stakesScore": 5,
+      "dateStatus": "tbc",
+      "season": 2027,
+      "startDate": null,
+      "endDate": null,
+      "timezone": "Australia/Melbourne",
+      "venue": "Albert Park Circuit",
+      "location": "Melbourne, Victoria",
+      "summary": "The 2027 Australian Grand Prix is confirmed for Albert Park, with race-weekend dates still unpublished on the verified ticket page.",
+      "details": [
+        "The official Formula One ticketing endpoint currently offers a waitlist.",
+        "The event date remains TBC until a current Formula One or FIA calendar confirms it."
+      ],
+      "subEvents": [],
+      "ticketing": {
+        "provider": "Formula 1 Ticketing powered by Fever",
+        "status": "waitlist",
+        "url": "https://ticketing.formula1.com/australia/",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": "2026-07-20T00:00:00.000Z",
+        "saleEndAt": null
+      },
+      "sources": [
+        {
+          "name": "Formula 1 Australian Grand Prix 2027 ticketing",
+          "url": "https://ticketing.formula1.com/australia/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "ticket-sale:australian-open-2027-general-sale",
+      "kind": "ticket_sale",
+      "parentEventId": "major-event:australian-open-2027",
+      "name": "Australian Open 2027 tickets on sale",
+      "sportKey": "tennis",
+      "sportKeys": ["tennis", "wimbledon"],
+      "sportLabel": "Tennis",
+      "competitionId": "competition:tennis:australian-open:2027",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2027,
+      "startDate": "2026-08-13",
+      "endDate": "2027-01-31",
+      "timezone": "Australia/Melbourne",
+      "venue": "Melbourne Park",
+      "location": "Melbourne, Victoria",
+      "summary": "General public sales opened at noon AEST on 13 August 2026 through Ticketmaster.",
+      "details": ["Session availability varies by day and arena."],
+      "subEvents": [],
+      "ticketing": {
+        "provider": "Ticketmaster",
+        "status": "on_sale",
+        "url": "https://www.ticketmaster.com.au/ausopen",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": "2026-08-13T02:00:00.000Z",
+        "saleEndAt": "2027-01-31T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "name": "Australian Open 2027 sale guide",
+          "url": "https://ausopen.com/articles/news/your-guide-australian-open-2027-ticket-pre-sales",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "ticket-sale:australian-grand-prix-2027-waitlist",
+      "kind": "ticket_sale",
+      "parentEventId": "major-event:australian-grand-prix-2027",
+      "name": "Australian Grand Prix 2027 ticket waitlist",
+      "sportKey": "f1",
+      "sportKeys": ["f1", "motorsport"],
+      "sportLabel": "Formula One",
+      "competitionId": "competition:f1:australian-grand-prix:2027",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2027,
+      "startDate": "2026-07-20",
+      "endDate": null,
+      "timezone": "Australia/Melbourne",
+      "venue": "Albert Park Circuit",
+      "location": "Melbourne, Victoria",
+      "summary": "Formula One's direct Australian Grand Prix ticketing page is accepting waitlist registrations while event dates remain TBC.",
+      "details": ["The waitlist is powered by Fever through Formula One's ticketing endpoint."],
+      "subEvents": [],
+      "ticketing": {
+        "provider": "Formula 1 Ticketing powered by Fever",
+        "status": "waitlist",
+        "url": "https://ticketing.formula1.com/australia/",
+        "verifiedAt": "2026-08-23T06:00:00.000Z",
+        "saleStartAt": "2026-07-20T00:00:00.000Z",
+        "saleEndAt": null
+      },
+      "sources": [
+        {
+          "name": "Formula 1 Australian Grand Prix 2027 ticketing",
+          "url": "https://ticketing.formula1.com/australia/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    }
+  ]
+}

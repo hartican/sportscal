@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v107";
+const CACHE_NAME = "nothingsport-shell-v108";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "/config/brand-copy.js",
   "/config/vector-assets.js",
   "/config/card-identities.js",
+  "/config/card-results.js",
   "/config/country-flags.js",
   "/config/sport-domain-registry.js",
   "/config/canonical-sports-taxonomy.js",
@@ -22,6 +23,8 @@ const APP_SHELL = [
   "/config/user-state-sync.js",
   "/config/server-sync.js",
   "/config/feed-controls.js",
+  "/config/ticketing.js",
+  "/config/major-events.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
   "/config/venue-registry.js",
@@ -49,6 +52,7 @@ const APP_SHELL = [
   "/schemas/tennis-tournament-export.schema.json",
   "/schemas/tennis-catalogue.schema.json",
   "/schemas/joint-tennis-tournament.schema.json",
+  "/schemas/major-events.schema.json",
   "/schemas/product-events.schema.json",
   "/schemas/user-state-patch.schema.json",
   "/schemas/enriched-event.schema.json",

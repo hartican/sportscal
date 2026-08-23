@@ -9,15 +9,18 @@ DEPLOY_SHA="$(git rev-parse "${DEPLOY_REF}^{commit}")"
 PROJECT_LINK="$PROJECT_ROOT/.vercel/project.json"
 SECRET_PATH="planning-sportscal/Archive/supabase_keys.txt"
 
-NS_DEPLOY_DIR="$(mktemp -d /tmp/nothingsport-deploy.XXXXXX)"
-test -n "${NS_DEPLOY_DIR:-}"
-test -d "${NS_DEPLOY_DIR:?}"
+NS_DEPLOY_ROOT="$(mktemp -d /tmp/nothingsport-deploy.XXXXXX)"
+NS_DEPLOY_DIR="$NS_DEPLOY_ROOT/snapshot"
+test -n "${NS_DEPLOY_ROOT:-}"
+test -d "${NS_DEPLOY_ROOT:?}"
 cleanup() {
-  rm -rf "${NS_DEPLOY_DIR:?}"
+  rm -rf "${NS_DEPLOY_ROOT:?}"
 }
 trap cleanup EXIT
 
-git archive "$DEPLOY_SHA" | tar -x -C "${NS_DEPLOY_DIR:?}"
+# Blob-SHA verification plus isolated object fallback avoids the macOS SIGBUS
+# in Git's bulk paths while materialising only the requested commit tree.
+node scripts/materialize-git-tree.js "$DEPLOY_SHA" "${NS_DEPLOY_DIR:?}"
 
 if [[ -e "$NS_DEPLOY_DIR/$SECRET_PATH" ]]; then
   echo "Error: immutable deployment snapshot contains the excluded secret path." >&2

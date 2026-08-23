@@ -1,0 +1,196 @@
+(function attachNothingSportsMajorEvents(root, factory){
+  const api = factory();
+  root.NOTHINGSPORTS_MAJOR_EVENTS = api;
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsMajorEvents(){
+  "use strict";
+
+  const SCHEMA_VERSION = "major-events.v1";
+  const PAST_WINDOW_DAYS = 7;
+  const FORWARD_WINDOW_MONTHS = 12;
+  const MARKERS = Object.freeze([
+    { id: "major-event:cincinnati-open-2026", name: "Cincinnati Open", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-08", endDate: "2026-08-23", stakesScore: 5 },
+    { id: "major-event:us-open-2026", name: "US Open 2026", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-23", endDate: "2026-09-13", stakesScore: 5 },
+    { id: "major-event:afl-grand-final-2026", name: "2026 AFL Grand Final", sportKey: "afl", sportKeys: ["afl"], startDate: "2026-09-26", endDate: "2026-09-26", stakesScore: 5 },
+    { id: "major-event:nrl-grand-final-2026", name: "2026 NRL Grand Final", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-10-04", endDate: "2026-10-04", stakesScore: 5 },
+    { id: "major-event:rlwc-2026", name: "Rugby League World Cup 2026", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-10-15", endDate: "2026-11-15", stakesScore: 5 },
+    { id: "major-event:australian-open-2027", name: "Australian Open 2027", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2027-01-11", endDate: "2027-01-31", stakesScore: 5 },
+  ].map(marker => Object.freeze({ ...marker, sportKeys: Object.freeze(marker.sportKeys) })));
+
+  function dateKey(value, timeZone = "Australia/Sydney"){
+    const date = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    const parts = new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" })
+      .formatToParts(date);
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return `${values.year}-${values.month}-${values.day}`;
+  }
+
+  function addDays(date, count){
+    const copy = new Date(`${date}T00:00:00Z`);
+    copy.setUTCDate(copy.getUTCDate() + count);
+    return copy.toISOString().slice(0, 10);
+  }
+
+  function addMonths(date, count){
+    const source = new Date(`${date}T00:00:00Z`);
+    const day = source.getUTCDate();
+    source.setUTCDate(1);
+    source.setUTCMonth(source.getUTCMonth() + count);
+    const lastDay = new Date(Date.UTC(source.getUTCFullYear(), source.getUTCMonth() + 1, 0)).getUTCDate();
+    source.setUTCDate(Math.min(day, lastDay));
+    return source.toISOString().slice(0, 10);
+  }
+
+  function followed(record, followedSports){
+    const selected = new Set(Array.isArray(followedSports) ? followedSports : []);
+    const keys = Array.isArray(record?.sportKeys) && record.sportKeys.length ? record.sportKeys : [record?.sportKey];
+    return keys.some(key => selected.has(key));
+  }
+
+  function activeTicketing(record, reference = new Date()){
+    if (!["on_sale", "presale", "waitlist", "register_interest"].includes(record?.ticketing?.status)) return false;
+    const referenceTime = reference instanceof Date ? reference.getTime() : new Date(reference).getTime();
+    const saleStartTime = record.ticketing.saleStartAt ? new Date(record.ticketing.saleStartAt).getTime() : null;
+    const saleEndTime = record.ticketing.saleEndAt ? new Date(record.ticketing.saleEndAt).getTime() : null;
+    if (!Number.isFinite(referenceTime)) return false;
+    return !(Number.isFinite(saleStartTime) && referenceTime < saleStartTime)
+      && !(Number.isFinite(saleEndTime) && referenceTime > saleEndTime);
+  }
+
+  function inWindow(record, reference = new Date()){
+    const today = dateKey(reference);
+    if (!today) return false;
+    const earliest = addDays(today, -PAST_WINDOW_DAYS);
+    const latest = addMonths(today, FORWARD_WINDOW_MONTHS);
+    const start = record?.startDate;
+    const end = record?.endDate || start;
+    if (start && end) return end >= earliest && start <= latest;
+    const season = Number(record?.season);
+    return record?.dateStatus === "tbc"
+      && season >= Number(today.slice(0, 4))
+      && season <= Number(latest.slice(0, 4))
+      && activeTicketing(record, reference);
+  }
+
+  function visibleRecords(document, followedSports, reference = new Date()){
+    const records = Array.isArray(document?.events) ? document.events : [];
+    const parents = records.filter(record => record.kind !== "ticket_sale" && record.stakesScore === 5 && followed(record, followedSports) && inWindow(record, reference));
+    const parentIds = new Set(parents.map(record => record.id));
+    const alerts = records.filter(record => record.kind === "ticket_sale" && parentIds.has(record.parentEventId) && activeTicketing(record, reference));
+    return {
+      events: parents.slice().sort(compareRecords),
+      alerts: alerts.slice().sort(compareRecords),
+    };
+  }
+
+  function compareRecords(left, right){
+    const leftDate = left.startDate || `${left.season || 9999}-12-31`;
+    const rightDate = right.startDate || `${right.season || 9999}-12-31`;
+    return leftDate.localeCompare(rightDate) || String(left.id).localeCompare(String(right.id));
+  }
+
+  function fixtureFromSubEvent(subEvent, parent){
+    if (!subEvent?.id || !subEvent?.startTimeUtc) return null;
+    const instant = new Date(subEvent.startTimeUtc);
+    if (Number.isNaN(instant.getTime())) return null;
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-AU", {
+      timeZone: "Australia/Sydney", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+    }).formatToParts(instant).map(part => [part.type, part.value]));
+    return {
+      id: subEvent.id,
+      eventId: subEvent.id,
+      canonicalEventId: subEvent.id,
+      actionKey: subEvent.id,
+      key: parent.sportKey,
+      sport: parent.sportLabel,
+      competitionId: parent.competitionId,
+      majorEventId: parent.id,
+      majorEventParentId: parent.id,
+      name: subEvent.name,
+      date: `${parts.year}-${parts.month}-${parts.day}`,
+      time: `${parts.hour}:${parts.minute}`,
+      startTimeUtc: subEvent.startTimeUtc,
+      venue: subEvent.venue || parent.venue,
+      status: subEvent.status || "scheduled",
+      ...(subEvent.scoreDisplay ? { scoreDisplay: subEvent.scoreDisplay, score: subEvent.scoreDisplay } : {}),
+      stakesScore: Number(subEvent.stakesScore || parent.stakesScore || 5),
+      expected: Number(subEvent.expected || 8),
+      participants: subEvent.participants || [],
+      participantIds: subEvent.participantIds || [],
+      ticketing: subEvent.ticketing || parent.ticketing || null,
+      sourceName: subEvent.sourceName || parent.sources?.[0]?.name,
+      sourceUrl: subEvent.sourceUrl || parent.sources?.[0]?.url,
+      selectedSentence: subEvent.summary || `Selected from ${parent.name}.`,
+      fullSpiel: subEvent.summary || `Selected from ${parent.name}.`,
+    };
+  }
+
+  function markerEvents(followedSports, reference = new Date()){
+    return MARKERS
+      .filter(marker => marker.stakesScore === 5 && followed(marker, followedSports) && inWindow(marker, reference))
+      .map(marker => ({
+        ...marker,
+        eventId: marker.id,
+        key: marker.sportKey,
+        sport: marker.sportKey,
+        date: marker.startDate,
+        time: "00:00",
+        expected: 9,
+        majorEventId: marker.id,
+        majorEventMarker: true,
+      }));
+  }
+
+  function validateDocument(document, { reference = new Date(), verifiedTicketUrl = null } = {}){
+    const errors = [];
+    const referenceTime = reference instanceof Date ? reference.getTime() : new Date(reference).getTime();
+    if (document?.schemaVersion !== SCHEMA_VERSION) errors.push(`schemaVersion must be ${SCHEMA_VERSION}`);
+    const publishedTime = new Date(document?.publishedAt).getTime();
+    if (!Number.isFinite(publishedTime) || publishedTime > referenceTime) errors.push("publishedAt must be a valid, non-future UTC timestamp");
+    if (!Array.isArray(document?.events)) return [...errors, "events must be an array"];
+    const eventIds = new Set();
+    const allEventIds = new Set(document.events.map(record => record?.id).filter(Boolean));
+    const childIds = new Set();
+    const parentIds = new Set(document.events.filter(record => record?.kind !== "ticket_sale").map(record => record.id));
+    document.events.forEach(record => {
+      if (!record?.id || eventIds.has(record.id)) errors.push(`duplicate or missing event id: ${record?.id || "(missing)"}`);
+      eventIds.add(record?.id);
+      if (!["tournament", "major_event", "ticket_sale"].includes(record?.kind)) errors.push(`${record?.id}: unsupported kind`);
+      if (record?.stakesScore !== 5) errors.push(`${record?.id}: stakes must be 5/5`);
+      if (!Array.isArray(record?.sources) || !record.sources.length) errors.push(`${record?.id}: official evidence is required`);
+      (record?.sources || []).forEach(source => {
+        const checkedTime = new Date(source?.checkedAt).getTime();
+        if (!source?.name || !/^https:\/\//.test(source?.url || "") || !Number.isFinite(checkedTime) || checkedTime > referenceTime) errors.push(`${record?.id}: invalid or future-dated source evidence`);
+      });
+      if (record?.dateStatus === "confirmed"){
+        if (!record.startDate || (record.endDate && record.endDate < record.startDate)) errors.push(`${record?.id}: confirmed dates are invalid`);
+        if (record.kind === "ticket_sale"){
+          if (!activeTicketing(record, reference)) errors.push(`${record?.id}: ticket-sale alert is outside its active window`);
+        } else if (!record.endDate || !inWindow(record, reference)) {
+          errors.push(`${record?.id}: confirmed event falls outside the retention horizon`);
+        }
+      } else if (record?.dateStatus === "tbc"){
+        if (record.startDate || record.endDate || !activeTicketing(record, reference) || !inWindow(record, reference)) errors.push(`${record?.id}: TBC records require an active verified ticket state inside the retention horizon and no invented dates`);
+      } else {
+        errors.push(`${record?.id}: dateStatus must be confirmed or tbc`);
+      }
+      if (record?.kind === "ticket_sale" && !parentIds.has(record.parentEventId)) errors.push(`${record?.id}: parent event is missing`);
+      if (record?.ticketing && typeof verifiedTicketUrl === "function" && !verifiedTicketUrl(record.ticketing.url)) errors.push(`${record?.id}: ticket URL is not an exact verified seller endpoint`);
+      if (record?.ticketing){
+        const verifiedTime = new Date(record.ticketing.verifiedAt).getTime();
+        if (!Number.isFinite(verifiedTime) || verifiedTime > referenceTime) errors.push(`${record?.id}: ticket verification must be valid and cannot be future-dated`);
+      }
+      (record?.subEvents || []).forEach(subEvent => {
+        if (!subEvent?.id || childIds.has(subEvent.id) || allEventIds.has(subEvent.id)) errors.push(`${record?.id}: duplicate or missing child id`);
+        childIds.add(subEvent?.id);
+        if (!subEvent?.name || !subEvent?.venue || !Number.isFinite(Number(subEvent?.stakesScore))) errors.push(`${subEvent?.id}: incomplete child fixture`);
+        if (!Object.prototype.hasOwnProperty.call(subEvent || {}, "startTimeUtc")) errors.push(`${subEvent?.id}: child start time state is required`);
+        if (subEvent?.startTimeUtc && !Number.isFinite(new Date(subEvent.startTimeUtc).getTime())) errors.push(`${subEvent?.id}: invalid UTC start time`);
+      });
+    });
+    return errors;
+  }
+
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, activeTicketing, inWindow, visibleRecords, fixtureFromSubEvent, markerEvents, validateDocument });
+});

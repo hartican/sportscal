@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const feedControls = require("../config/feed-controls.js");
 const preferences = require("../config/preference-system.js");
+const { cardForFixture } = require("./refresh-premier-league-cards.js");
 
 const schema = JSON.parse(fs.readFileSync("schemas/feed-controls.schema.json", "utf8"));
 const html = fs.readFileSync("index.html", "utf8");
@@ -37,6 +38,26 @@ assert(feedControls.matchesTiming(viewingEvent, "tonight", new Date("2026-08-13T
 assert(feedControls.matchesTiming(viewingEvent, "this_week", new Date("2026-08-13T08:00:00.000Z")));
 assert(!feedControls.matchesEvent({ ...viewingEvent, stakesScore: 2 }, { froth: "balanced" }), "Balanced must keep low-stakes noise out by default");
 assert(feedControls.matchesEvent({ ...viewingEvent, stakesScore: 2 }, { froth: "balanced" }, { explicitCoverage: true }), "explicit all-fixture coverage must survive feed-density controls");
+const eplFixture = { ...viewingEvent, key: "premier-league", competitionId: "competition:premier-league", name: "Arsenal v Chelsea" };
+assert(!feedControls.matchesEvent({ ...eplFixture, stakesScore: 3 }, { froth: "balanced" }, { explicitCoverage: true }), "balanced EPL must ignore broad all-fixture coverage below 4/5");
+assert(feedControls.matchesEvent({ ...eplFixture, stakesScore: 4 }, { froth: "balanced" }), "balanced EPL must surface 4/5 fixtures");
+assert(feedControls.matchesEvent({ ...eplFixture, stakesScore: 2 }, { froth: "balanced" }, { followedParticipant: true }), "balanced EPL must surface followed teams");
+assert(feedControls.matchesEvent({ ...eplFixture, stakesScore: 2 }, { froth: "balanced" }, { explicitlyAdded: true }), "balanced EPL must surface explicitly added fixtures");
+const completedEpl = cardForFixture({
+  id: 1,
+  status: "C",
+  kickoff: { millis: Date.parse("2026-08-21T19:00:00Z") },
+  provisionalKickoff: { millis: Date.parse("2026-08-21T19:00:00Z") },
+  gameweek: { gameweek: 1 },
+  ground: { name: "Emirates Stadium" },
+  teams: [
+    { team: { name: "Arsenal", club: { id: 1 } }, score: 3 },
+    { team: { name: "Coventry City", club: { id: 5 } }, score: 0 },
+  ],
+}, "2026-08-23T05:30:00Z");
+assert.equal(completedEpl.score, "Arsenal 3-0 Coventry City");
+assert.equal(completedEpl.outcomeText, "Arsenal defeated Coventry City 3-0.");
+assert.match(completedEpl.recapText, /3-goal win/);
 
 assert.equal(feedControls.classifyRecommendation({ directInterest: true }).classification, "direct");
 assert.equal(feedControls.classifyRecommendation({ directInterest: true, explicitUnfollow: true }).classification, "suppressed", "explicit unfollows must win over direct interest");
@@ -83,7 +104,7 @@ assert(html.includes('sessionOpenedEventIds.add(') && html.includes('mustWatchSe
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must keep targeting Must Watch while the Today bar is anywhere in view");
 assert(html.includes('buildJointTournamentMustWatchAction') && html.includes('jointTournamentIsMustWatch'), "the combined tournament card must support manual Must Watch placement without an automatic pin");
 assert(html.includes("action.mustWatch ? 12"), "manual Must Watch choices must influence local recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v107"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v108"'));
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 
 console.log("Feed controls valid: durable UI model, Sydney timing, availability, mix targets, discovery caps and negative suppression passed.");

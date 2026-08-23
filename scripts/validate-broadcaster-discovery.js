@@ -89,9 +89,14 @@ assert(discovery.canPublishCandidate(exactCandidate));
 assert(discovery.scoreListingAgainstEvent(replay, discovery.resolveTaxonomy(replay), cricket).confidence <= 0.49, "replay evidence must stay below the event match threshold");
 
 const snapshots = loadSnapshots();
-assert.equal(assertFreshSnapshots(snapshots, "2026-08-13"), undefined);
-assert.throws(() => assertFreshSnapshots(snapshots, `2026-08-${13 + MAXIMUM_SNAPSHOT_AGE_DAYS + 1}`), /refresh|review or replace/, "stale broadcaster evidence must fail closed");
-const report = buildReport({ referenceDate: "2026-08-13", snapshots, catalogue: canonical });
+assert.equal(assertFreshSnapshots(snapshots, sydneyDate()), undefined);
+const latestObservedAt = Array.from(snapshots.values()).map(snapshot => snapshot.observedAt).sort().at(-1);
+const staleReference = new Date(latestObservedAt);
+staleReference.setUTCDate(staleReference.getUTCDate() + MAXIMUM_SNAPSHOT_AGE_DAYS + 1);
+assert.throws(() => assertFreshSnapshots(snapshots, staleReference.toISOString().slice(0, 10)), /refresh|review or replace/, "stale broadcaster evidence must fail closed");
+const regressionSnapshot = discovery.normalizeSnapshot(JSON.parse(fs.readFileSync("feeds/provider-exports/broadcasters/stan-sport-2026-08-13.json", "utf8")));
+const regressionSnapshots = new Map([[regressionSnapshot.sourceId, { ...regressionSnapshot, fixturePath: "feeds/provider-exports/broadcasters/stan-sport-2026-08-13.json" }]]);
+const report = buildReport({ referenceDate: "2026-08-13", snapshots: regressionSnapshots, catalogue: canonical });
 assert.equal(report.sources.filter(source => source.priorityAu).length, 8);
 assert.equal(report.summary.priorityAuSourcesLoaded, 1);
 assert.equal(report.summary.nonEventProgrammesExcluded, 1, "studio/replay/highlights programming must not become event candidates");

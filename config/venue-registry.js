@@ -14,7 +14,7 @@
     ["gabba", "the Gabba", "Brisbane Cricket Ground", ["Brisbane Cricket Ground", "Gabba, Brisbane"]],
     ["kardinia-park", "Kardinia Park", "GMHBA Stadium", ["GMHBA Stadium, Geelong"]],
     ["docklands-stadium", "Docklands Stadium", "Marvel Stadium", ["Marvel Stadium", "Marvel Stadium, Melbourne"]],
-    ["canberra-stadium", "Canberra Stadium", "GIO Stadium Canberra", ["GIO Stadium Canberra"]],
+    ["gio-stadium", "Bruce stadium", "GIO Stadium Canberra", ["GIO Stadium", "GIO Stadium Canberra", "Canberra Stadium", "Bruce Stadium", "Bruce stadium"]],
     ["manuka-oval", "Manuka Oval", "Corroboree Group Oval", ["Corroboree Group Oval, Manuka", "Manuka Oval, Canberra"]],
     ["shark-park", "Shark Park", "Ocean Protect Stadium", ["Ocean Protect Stadium"]],
     ["perth-stadium", "Perth Stadium", "Optus Stadium", ["Optus Stadium, Perth", "Perth Stadium"]],
