@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="113">
+<meta name="app-shell-version" content="114">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -62,6 +62,7 @@
   --positive: #36c98f;
   --attention: #f7d000;
   --glyph-image-filter: brightness(0) invert(1);
+  --startup-logo-mask: url("assets/brand/web/nothingsport-logo.png");
 
   --c-f1: #e8002d;
   --c-rugby: #1a6b3a;
@@ -268,32 +269,219 @@ header.top{
   min-height:1rem;
 }
 
-.startup-progress{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-  color:var(--text-faint);
-  font-size:0.64rem;
-  font-weight:750;
-  font-variant-numeric:tabular-nums;
-  line-height:1;
-  white-space:nowrap;
-}
-
-.startup-progress[hidden]{ display:none; }
-
-.startup-progress progress{
-  width:42px;
-  height:3px;
-  border:0;
-  border-radius:999px;
+.startup-launch{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:grid;
+  place-items:center;
   overflow:hidden;
-  background:var(--border);
+  isolation:isolate;
+  padding:max(28px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  background:
+    radial-gradient(ellipse 76% 48% at 50% 104%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%),
+    radial-gradient(circle at 50% 14%, color-mix(in srgb, var(--accent) 8%, var(--bg)), transparent 42%),
+    var(--bg);
+  animation:startup-launch-exit 2s cubic-bezier(.58,0,.32,1) forwards;
 }
 
-.startup-progress progress::-webkit-progress-bar{ background:var(--border); }
-.startup-progress progress::-webkit-progress-value{ background:var(--accent); }
-.startup-progress progress::-moz-progress-bar{ background:var(--accent); }
+.startup-launch::before,
+.startup-launch::after{
+  content:"";
+  position:absolute;
+  inset:auto;
+  pointer-events:none;
+}
+
+.startup-launch::before{
+  z-index:-2;
+  width:min(84vw, 980px);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent) 12%, transparent) 0 1%, transparent 65%);
+  filter:blur(22px);
+  transform:translateY(28%);
+  animation:startup-launch-glow 1.68s ease-out both;
+}
+
+.startup-launch::after{
+  z-index:-1;
+  width:min(86vw, 1040px);
+  height:1px;
+  top:calc(50% + clamp(72px, 11vw, 136px));
+  background:color-mix(in srgb, var(--accent) 36%, transparent);
+  box-shadow:0 0 58px 20px color-mix(in srgb, var(--accent) 20%, transparent);
+  opacity:0;
+  animation:startup-launch-horizon 1.78s ease-out both;
+}
+
+.startup-launch-mark{
+  position:relative;
+  width:min(760px, 88vw);
+  aspect-ratio:1200 / 488;
+  filter:drop-shadow(0 24px 38px color-mix(in srgb, var(--shadow) 76%, transparent));
+  transform-origin:center;
+  animation:startup-launch-mark 1.68s cubic-bezier(.18,.88,.3,1) both;
+}
+
+.startup-launch-liquid{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  -webkit-mask:var(--startup-logo-mask) center / contain no-repeat;
+  mask:var(--startup-logo-mask) center / contain no-repeat;
+}
+
+.startup-launch-liquid::before,
+.startup-launch-liquid::after{
+  content:"";
+  position:absolute;
+  inset:auto;
+  left:-16%;
+  width:132%;
+  pointer-events:none;
+}
+
+.startup-launch-liquid::before{
+  top:0;
+  height:146%;
+  clip-path:polygon(0 3%, 10% .7%, 21% 2.2%, 33% .8%, 45% 2.7%, 57% .7%, 69% 2.3%, 81% 0, 91% 1.8%, 100% .8%, 100% 100%, 0 100%);
+  background:
+    radial-gradient(ellipse 72% 32% at 24% 14%, rgba(255,255,255,.54), transparent 39%),
+    radial-gradient(ellipse 46% 30% at 76% 18%, color-mix(in srgb, var(--brand-start) 56%, transparent), transparent 58%),
+    radial-gradient(ellipse 72% 48% at 51% 94%, color-mix(in srgb, var(--accent) 36%, #00131a), transparent 66%),
+    linear-gradient(165deg, color-mix(in srgb, var(--brand-end) 56%, white) 0%, var(--accent) 27%, color-mix(in srgb, var(--accent) 58%, #003847) 64%, #00141c 100%);
+  background-size:130% 100%, 112% 100%, 100% 100%, 100% 100%;
+  background-position:0 0, 100% 0, 50% 100%, 50% 50%;
+  box-shadow:inset 0 18px 25px rgba(255,255,255,.24), inset 0 -28px 34px rgba(0,0,0,.4);
+  transform:translate3d(0, 74%, 0);
+  animation:startup-liquid-rise 1.52s cubic-bezier(.18,.82,.28,1) .12s both;
+}
+
+.startup-launch-liquid-surface{
+  position:absolute;
+  z-index:1;
+  top:-4.5%;
+  left:-16%;
+  width:132%;
+  height:19%;
+  overflow:hidden;
+  pointer-events:none;
+  border-radius:50% 50% 44% 46% / 66% 67% 39% 43%;
+  clip-path:polygon(0 22%, 8% 8%, 17% 4%, 27% 17%, 37% 8%, 46% 2%, 56% 15%, 66% 11%, 76% 3%, 86% 9%, 94% 0, 100% 11%, 100% 100%, 0 100%);
+  background:
+    radial-gradient(ellipse 25% 50% at 21% 12%, rgba(255,255,255,.96), transparent 56%),
+    radial-gradient(ellipse 28% 52% at 72% 18%, rgba(211,255,255,.78), transparent 62%),
+    radial-gradient(ellipse 42% 72% at 50% 110%, rgba(0,18,25,.62), transparent 68%),
+    linear-gradient(169deg, color-mix(in srgb, var(--brand-end) 61%, white) 0%, var(--accent) 28%, color-mix(in srgb, var(--accent) 64%, #003743) 70%, #00212b 100%);
+  box-shadow:
+    inset 0 8px 12px rgba(255,255,255,.62),
+    inset 0 -16px 20px rgba(0,12,18,.54),
+    0 3px 7px rgba(0,17,25,.34);
+  filter:saturate(1.1);
+  transform:translate3d(-1.5%, 600%, 0) rotate(-1.8deg) scaleX(.96);
+  transform-origin:center 58%;
+  animation:startup-liquid-surface-rise 1.52s cubic-bezier(.18,.82,.28,1) .12s both;
+}
+
+.startup-launch-liquid-surface::before,
+.startup-launch-liquid-surface::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  pointer-events:none;
+}
+
+.startup-launch-liquid-surface::before{
+  top:3%;
+  height:33%;
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse 13% 96% at 16% 54%, rgba(255,255,255,.93), transparent 72%),
+    radial-gradient(ellipse 18% 100% at 47% 48%, rgba(230,255,255,.76), transparent 72%),
+    radial-gradient(ellipse 15% 92% at 80% 45%, rgba(247,255,255,.83), transparent 72%);
+  filter:blur(.45px);
+  opacity:.95;
+}
+
+.startup-launch-liquid-surface::after{
+  bottom:0;
+  height:64%;
+  background:linear-gradient(180deg, transparent 0%, rgba(0,48,59,.08) 35%, rgba(0,12,19,.42) 100%);
+  mix-blend-mode:multiply;
+}
+
+.startup-launch-liquid::after{
+  top:12%;
+  height:34%;
+  border-radius:0 0 52% 48%;
+  background:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,.92), transparent 24%),
+    linear-gradient(96deg, transparent 8%, rgba(255,255,255,.34) 30%, rgba(202,255,255,.7) 48%, rgba(255,255,255,.18) 67%, transparent 90%);
+  filter:blur(1px);
+  mix-blend-mode:screen;
+  opacity:0;
+  transform:translate3d(-12%, 90%, 0) skewX(-11deg);
+  animation:startup-liquid-sheen 1.02s cubic-bezier(.22,.78,.24,1) .86s both;
+}
+
+.startup-launch-fallback{
+  display:none;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 20px 34px color-mix(in srgb, var(--shadow) 74%, transparent));
+}
+
+@keyframes startup-launch-mark{
+  0%{ opacity:0; transform:translateY(12px) scale(.955); }
+  22%{ opacity:1; }
+  100%{ opacity:1; transform:translateY(0) scale(1); }
+}
+
+@keyframes startup-liquid-rise{
+  0%{ transform:translate3d(0, 74%, 0); background-position:0 0, 100% 0, 50% 100%, 50% 50%; }
+  58%{ transform:translate3d(-1.6%, 14%, 0); background-position:18% 0, 82% 0, 50% 100%, 50% 50%; }
+  79%{ transform:translate3d(1.2%, -1.8%, 0); background-position:30% 0, 70% 0, 50% 100%, 50% 50%; }
+  100%{ transform:translate3d(0, 0, 0); background-position:42% 0, 58% 0, 50% 100%, 50% 50%; }
+}
+
+@keyframes startup-liquid-surface-rise{
+  0%{ transform:translate3d(-1.5%, 600%, 0) rotate(-1.8deg) scaleX(.96); }
+  48%{ transform:translate3d(2%, 132%, 0) rotate(1.2deg) scaleX(1.045); }
+  70%{ transform:translate3d(-1.2%, -11%, 0) rotate(-.9deg) scaleX(.985); }
+  83%{ transform:translate3d(.7%, 4%, 0) rotate(.5deg) scaleX(1.015); }
+  100%{ transform:translate3d(0, 0, 0) rotate(0) scaleX(1); }
+}
+
+@keyframes startup-liquid-sheen{
+  0%{ opacity:0; transform:translate3d(-16%, 90%, 0) skewX(-11deg); }
+  34%{ opacity:.86; }
+  100%{ opacity:.16; transform:translate3d(14%, 5%, 0) skewX(-11deg); }
+}
+
+@keyframes startup-launch-glow{
+  0%{ opacity:0; transform:translateY(40%) scale(.78); }
+  58%{ opacity:1; }
+  100%{ opacity:.7; transform:translateY(28%) scale(1); }
+}
+
+@keyframes startup-launch-horizon{
+  0%, 54%{ opacity:0; transform:scaleX(.42); }
+  78%{ opacity:1; transform:scaleX(1); }
+  100%{ opacity:.12; transform:scaleX(.92); }
+}
+
+@keyframes startup-launch-exit{
+  0%, 80%{ opacity:1; visibility:visible; }
+  100%{ opacity:0; visibility:hidden; pointer-events:none; }
+}
+
+@supports not ((-webkit-mask: url("")) or (mask: url(""))){
+  .startup-launch-liquid{ display:none; }
+  .startup-launch-fallback{ display:block; }
+}
 
 .brand .slogan{
   max-width:460px;
@@ -4540,7 +4728,6 @@ footer.app-footer{
     gap:4px;
     flex-wrap:wrap;
   }
-  .startup-progress progress{ display:none; }
   .header-actions{
     width:100%;
     display:grid;
@@ -5183,10 +5370,18 @@ body.header-compact-3 .brand .slogan{ display:none; }
     transition-duration: 0.01ms !important;
   }
   .event-card:hover{ transform: none; }
+  .startup-launch{ pointer-events:none; }
 }
 </style>
 </head>
 <body>
+
+<div class="startup-launch" id="startupLaunch" aria-hidden="true">
+  <div class="startup-launch-mark">
+    <div class="startup-launch-liquid"><span class="startup-launch-liquid-surface" aria-hidden="true"></span></div>
+    <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
+  </div>
+</div>
 
 <a class="skip-link" href="#mainContent">Skip to sports feed</a>
 
@@ -5199,10 +5394,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <div class="slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.</div>
       <div class="brand-status-row">
         <div class="clock" id="liveClock">—</div>
-        <div class="startup-progress" id="startupProgress" role="status" aria-live="polite" aria-label="Sports feed loading progress">
-          <span>Loading <span id="startupProgressValue">15%</span></span>
-          <progress id="startupProgressBar" max="100" value="15">15%</progress>
-        </div>
       </div>
     </div>
     <div class="header-actions">
@@ -6076,8 +6267,6 @@ let headerCompactionFrame = null;
 let feedFilterRefreshInFlight = null;
 let feedFilterRefreshQueued = false;
 let committedFeedPresentationFingerprint = null;
-let startupProgressPercent = 15;
-let startupProgressDismissed = false;
 let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
@@ -6413,6 +6602,8 @@ function syncBrandCopy(){
 
 function syncThemeBrandAssets(useDark){
   const mode = useDark ? "night" : "day";
+  const launchLogo = BRAND_ASSETS.logo?.[mode];
+  if (launchLogo) document.documentElement.style.setProperty("--startup-logo-mask", `url("${launchLogo}")`);
   document.querySelectorAll("[data-brand-asset]").forEach(image => {
     const nextSrc = BRAND_ASSETS[image.dataset.brandAsset]?.[mode];
     if (nextSrc && image.getAttribute("src") !== nextSrc) image.setAttribute("src", nextSrc);
@@ -13744,23 +13935,6 @@ function updateClock(){
   document.getElementById("liveClock").textContent = now.toLocaleDateString('en-AU', opts) + " AEST/AEDT";
 }
 
-function renderStartupProgress(){
-  const status = document.getElementById("startupProgress");
-  const value = document.getElementById("startupProgressValue");
-  const bar = document.getElementById("startupProgressBar");
-  if (!status || !value || !bar) return;
-  status.hidden = startupProgressDismissed;
-  value.textContent = `${startupProgressPercent}%`;
-  bar.value = startupProgressPercent;
-  bar.textContent = `${startupProgressPercent}%`;
-}
-
-function setStartupProgress(value){
-  startupProgressPercent = Math.max(startupProgressPercent, Math.min(100, Math.round(Number(value) || 0)));
-  renderStartupProgress();
-  return startupProgressPercent;
-}
-
 const CARD_RETRACTION_SCROLL_IDLE_MS = 180;
 let cardRetractionScrollTimer = null;
 let lastCardRetractionScrollY = window.scrollY;
@@ -14278,7 +14452,6 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   const preservedViewportAnchor = viewportAnchor || (preserveViewport ? captureViewportRenderAnchor() : null);
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();
-  renderStartupProgress();
   renderFilters();
   renderFeedFilterDock();
   syncFeedFilterDockOffset();
@@ -16513,20 +16686,13 @@ renderAll();
 scheduleBrowserReminders();
 if (profileSelectsFootball()) void loadFootballCoreEvents();
 if (profileHasFootballEntityFollow()) void loadFootballFixturesForCurrentFollows();
-let startupBackgroundTasksSettled = 0;
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => { startupFeedNavigationTouched = true; }, { passive: true, once: true });
 }
-function trackStartupTask(task){
-  return Promise.resolve(task).finally(() => {
-    startupBackgroundTasksSettled += 1;
-    setStartupProgress(15 + startupBackgroundTasksSettled * 40);
-  });
-}
 const startupTasks = [
-  trackStartupTask(loadCanonicalSportsData()),
-  trackStartupTask(refreshFeedOnFirstLoad()),
+  loadCanonicalSportsData(),
+  refreshFeedOnFirstLoad(),
 ];
 // Render the interactive shell immediately. The current feed fills in from
 // JSON, while the large generated script remains a strictly on-demand fallback.
@@ -16535,16 +16701,11 @@ window.requestAnimationFrame(() => {
   renderAll();
 });
 Promise.allSettled(startupTasks).then(() => {
-  setStartupProgress(100);
   // Background context can change the sticky header height after the first
   // static render. Until the person has interacted, re-align Feed at Today
   // once the initial loading work settles.
   if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
   renderAll();
-  window.setTimeout(() => {
-    startupProgressDismissed = true;
-    renderStartupProgress();
-  }, 650);
   if (!userPreferences.onboardingComplete){
     openFirstRunSettingsAfterFeedAlignment();
   } else {

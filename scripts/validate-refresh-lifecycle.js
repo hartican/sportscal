@@ -87,8 +87,13 @@ assert(html.includes('id="refreshAndRebuildFeedStatus"') && html.includes('aria-
 assert(html.includes("renderFeedIfPresentationChanged"), "background hydration must pass through the visible-change render gate");
 assert(html.includes("refreshFeedOnFirstLoad()"), "the published feed must refresh automatically on first load");
 assert(html.includes('id="startupFeedLoading"') && html.includes("Loading your sports feed"), "startup must render the interactive framework with a dedicated card-loading surface");
-assert(html.includes('id="startupProgress"') && html.includes('id="startupProgressValue"'), "the top bar must expose non-blocking startup progress");
-assert(html.includes("setStartupProgress(100)"), "startup progress must reach 100 only when background data work has settled");
+assert(html.includes('id="startupLaunch"') && html.includes('class="startup-launch-liquid"'), "startup must use the full-screen liquid brand launch instead of a numeric progress indicator");
+assert(html.includes("-webkit-mask:var(--startup-logo-mask)") && html.includes("@keyframes startup-liquid-rise"), "the launch wordmark must fill through the existing logo mask with a rising liquid motion");
+assert(html.includes("startup-launch-liquid-surface") && html.includes("@keyframes startup-liquid-surface-rise"), "the liquid leading edge must use a rounded, settling meniscus instead of a flat gradient fill");
+assert(html.includes("@keyframes startup-liquid-sheen") && html.includes("@keyframes startup-launch-exit"), "the launch must include a moving liquid highlight and a bounded self-dismissal animation");
+assert(html.includes("animation:startup-launch-exit 2s"), "the liquid launch must remain on screen for the requested two-second timer");
+assert(html.includes("@supports not ((-webkit-mask") && html.includes("startup-launch-fallback"), "browsers without CSS masking must receive the PNG launch fallback");
+assert(!html.includes('id="startupProgress"') && !html.includes("setStartupProgress("), "the header percentage loader and its progress bookkeeping must be removed");
 assert(html.includes("const startupTasks = [") && html.includes("window.requestAnimationFrame(() => {") && html.includes("startupCoordinator.markHydrationComplete()"), "the bundled static feed must commit after one frame while canonical context and refresh continue in the background");
 assert(html.includes("lastBundledEvents.length ? lastBundledEvents : EVENTS.slice()"), "a failed direct-file reload must preserve the last successfully loaded bundle instead of reverting to the tab's stale snapshot");
 assert(worker.includes("/config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
