@@ -91,11 +91,16 @@ assert(html.includes('id="startupLaunch"') && html.includes('class="startup-laun
 assert(html.includes("-webkit-mask:var(--startup-logo-mask)") && html.includes("@keyframes startup-liquid-rise"), "the launch wordmark must fill through the existing logo mask with a rising liquid motion");
 assert(html.includes("startup-launch-liquid-surface") && html.includes("@keyframes startup-liquid-surface-rise"), "the liquid leading edge must use a rounded, settling meniscus instead of a flat gradient fill");
 assert(html.includes("@keyframes startup-liquid-sheen") && html.includes("@keyframes startup-launch-exit"), "the launch must include a moving liquid highlight and a bounded self-dismissal animation");
-assert(html.includes("animation:startup-launch-exit 2s"), "the liquid launch must remain on screen for the requested two-second timer");
+assert(html.includes("animation:startup-launch-exit 3s"), "the liquid launch must remain on screen for the requested three-second timer");
+assert(html.includes("startup-launch-liquid-depth") && html.includes("startup-launch-liquid-backwash"), "the launch must layer depth currents and a backwash behind the foreground meniscus");
+assert(html.includes("@keyframes startup-liquid-depth-rise") && html.includes("@keyframes startup-liquid-undercurrent") && html.includes("@keyframes startup-liquid-backwash-rise"), "the viscous ocean treatment must use independently timed depth, undercurrent and backwash motion");
+assert(html.includes("perspective:900px") && html.includes("rotateX(45deg)"), "the liquid surface must retain visible perspective depth");
+assert(html.includes("cubic-bezier(.18,.7,.22,1)"), "the foreground swell must use the slower viscous easing curve");
 assert(html.includes("@supports not ((-webkit-mask") && html.includes("startup-launch-fallback"), "browsers without CSS masking must receive the PNG launch fallback");
 assert(!html.includes('id="startupProgress"') && !html.includes("setStartupProgress("), "the header percentage loader and its progress bookkeeping must be removed");
 assert(html.includes("const startupTasks = [") && html.includes("window.requestAnimationFrame(() => {") && html.includes("startupCoordinator.markHydrationComplete()"), "the bundled static feed must commit after one frame while canonical context and refresh continue in the background");
-assert(html.includes("lastBundledEvents.length ? lastBundledEvents : EVENTS.slice()"), "a failed direct-file reload must preserve the last successfully loaded bundle instead of reverting to the tab's stale snapshot");
+assert(html.includes("const alreadyAvailable = coerceEventList(globalThis.NOTHINGSPORTS_EVENTS || [])")
+  && html.includes("if (alreadyAvailable.length) return Promise.resolve(alreadyAvailable)"), "direct-file recovery must preserve the last successfully loaded global bundle before requesting the offline script fallback");
 assert(worker.includes("/config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
 
 async function validateServiceWorkerActivation(){
@@ -208,7 +213,7 @@ async function validateDirectFileBundleReload(){
 
   const reloaded = await sandbox.__loadLatestBundledEvents();
   assert.deepEqual(Array.from(reloaded, event => event.id), freshEvents.map(event => event.id), "direct-file recovery must replace the stale tab snapshot with every event in the regenerated bundle");
-  assert.match(appendedSource, /^file:\/\/\/tmp\/nothingsport\/data\/events\.js\?refresh=\d+$/, "direct-file recovery must bypass the browser's cached script copy");
+  assert.equal(appendedSource, "file:///tmp/nothingsport/data/events.js", "direct-file recovery must retain the stable script URL used by the service-worker offline cache");
   assert.equal(removed, true, "the one-shot recovery script must be removed after loading");
 }
 
