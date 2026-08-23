@@ -3,9 +3,11 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const identities = require("../config/card-identities.js");
+const html = fs.readFileSync("index.html", "utf8");
 
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
+const footballDirectory = JSON.parse(fs.readFileSync("data/canonical/football-directory.v1.json", "utf8"));
 const eventPayload = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const activeEventKeys = [...new Set((eventPayload.events || eventPayload).map(event => event.key).filter(Boolean))].sort();
 const activeNrlTeams = canonical.participants.filter(participant => (
@@ -19,7 +21,7 @@ const activeAflTeams = canonical.participants.filter(participant => (
   && participant.teamCode !== "TBD"
 ));
 
-assert.equal(identities.schemaVersion, "card-identities.v2");
+assert.equal(identities.schemaVersion, "card-identities.v3");
 assert.equal(activeNrlTeams.length, 17, "the current NRL competition must expose 17 active teams");
 activeNrlTeams.forEach(team => {
   const mark = identities.participantMarks[team.id];
@@ -88,6 +90,33 @@ premierLeagueMarks.forEach(mark => {
   assert.doesNotMatch(svg, /<script\b/i, `${mark.label} SVG must not contain scripts`);
   assert.equal(mark.provenance, "official-site");
 });
+const footballParticipants = footballDirectory.teams.map(team => ({
+  ...team,
+  canonicalName:team.displayName,
+  shortName:team.shortName || team.displayName,
+  metadata:{ titleAliases:team.aliases || [team.displayName] },
+}));
+assert.equal(footballParticipants.length, 108, "all six active football leagues must remain available to the identity resolver");
+footballParticipants.forEach(team => {
+  const resolved = identities.participantMarksForEvent({ key:footballDirectory.leagues.find(league => league.id === team.leagueId)?.key, participantIds:[team.id] }, footballParticipants, team.displayName);
+  assert.equal(resolved.length, 1, `missing directory crest for ${team.displayName}`);
+  const expectedCrest = identities.participantMarks[team.id]?.url || team.crestUrl;
+  assert.equal(resolved[0].mark.url, expectedCrest, `${team.displayName} must prefer its first-party local crest, then preserve its directory crest URL`);
+});
+const footballFixtureEvents = ["bundesliga", "la-liga", "serie-a", "ligue-1", "a-league-men"]
+  .flatMap(leagueKey => JSON.parse(fs.readFileSync(`data/football/fixtures/${leagueKey}.json`, "utf8")).events || []);
+footballFixtureEvents.forEach(event => {
+  const sides = identities.matchupSidesForEvent(event, footballParticipants, event.name);
+  assert.equal(sides.length, 2, `${event.id} must expose two ordered football sides`);
+  assert(sides.every(side => side.mark?.url), `${event.id} must resolve both directory crests`);
+});
+for (const [competitionId, label] of [
+  ["competition:bundesliga", "Bundesliga"], ["competition:la-liga", "LALIGA"], ["competition:serie-a", "Serie A"],
+  ["competition:ligue-1", "Ligue 1"], ["competition:a-leagues", "A-League Men"], ["competition:uefa-champions-league", "UEFA Champions League"],
+]){
+  assert.equal(identities.markForCompetitionId(competitionId)?.label, label, `${competitionId} must resolve its competition identity`);
+}
+assert.equal(identities.markForEvent({ key:"football", competitionId:"competition:uefa-champions-league", name:"UEFA Champions League Final" })?.label, "UEFA Champions League", "Champions League fixtures must not fall back to the generic football icon");
 activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
@@ -99,6 +128,13 @@ const exampleEvent = { key: "nrl", participantIds: ["team:nrl:322", "team:nrl:32
 const resolved = identities.participantMarksForEvent(exampleEvent, activeNrlTeams, "Broncos v Storm");
 assert.deepEqual(resolved.map(item => item.participant.shortName), ["BB", "MS"]);
 assert.deepEqual(resolved.map(item => identities.aliasRange("Broncos v Storm", item.participant)?.text), ["Broncos", "Storm"]);
+assert.deepEqual(identities.matchupSidesForEvent(exampleEvent, activeNrlTeams, "Broncos v Storm").map(side => side.label), ["Broncos", "Storm"]);
+assert.equal(identities.matchupSidesForEvent({ key:"football" }, [], "Team A v Team B").length, 2, "a team matchup with no marks must still expose two ordered placeholder slots");
+assert.equal(identities.matchupSidesForEvent({ key:"football" }, [footballParticipants[0]], `${footballParticipants[0].displayName} v Unknown XI`).length, 2, "a one-crest matchup must retain the opposing placeholder slot");
+assert.equal(identities.matchupSidesForEvent({ key:"tennis" }, [], "Player A v Player B").length, 0, "individual tennis fixtures must not be converted into team-logo cards");
+(eventPayload.events || eventPayload).filter(event => identities.isTeamSportMatchup(event, event.name)).forEach(event => {
+  assert.equal(identities.matchupSidesForEvent(event, [...activeNrlTeams, ...activeAflTeams, ...footballParticipants], event.name).length, 2, `${event.id || event.name} must render exactly two ordered matchup slots`);
+});
 
 const cricketResolved = identities.participantMarksForEvent({ key: "cricket" }, [], "Australia v Bangladesh — First Test");
 assert.deepEqual(cricketResolved.map(item => identities.aliasRange("Australia v Bangladesh — First Test", item.participant)?.text), ["Australia", "Bangladesh"]);
@@ -143,5 +179,8 @@ rugbyMarks.forEach(mark => {
 const nrlBroncos = identities.participantMarks["team:nrl:322"];
 assert.notEqual(identities.logoForTheme(nrlBroncos, { context: "primary", useDark: false }), identities.logoForTheme(nrlBroncos, { context: "primary", useDark: true }), "NRL primary logos must use the league's official light and dark assets");
 assert.equal(identities.logoForTheme(identities.participantMarks["team:football:epl:1"], { context: "icon", useDark: false }), identities.participantMarks["team:football:epl:1"].logo.iconLight, "small-format contexts must select an explicit icon asset rather than resize the primary reference");
+assert(html.includes('appendTeamIdentityFallback(slot, mark, label') && html.includes('logo.hidden = true'), "each matchup side must paint a placeholder before its crest downloads");
+assert(html.includes('logo.addEventListener("load"') && html.includes('logo.hidden = false'), "a successful crest must replace only its own placeholder");
+assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(html), "a failed crest must leave the other side and its own placeholder intact");
 
-console.log(`Card identities valid: ${activeNrlTeams.length} NRL and ${activeAflTeams.length} AFL team marks, ${activeEventKeys.length} active sport/event identities, and named Grand Slam/Cincinnati event branding.`);
+console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, ${activeEventKeys.length} active sport/event identities, six football competition identities, and two-slot matchup fallbacks.`);

@@ -368,8 +368,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v117"'), "the Teams & players directory release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="117">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v118"'), "the liquid launch and complete-feed gate release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="118">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -473,7 +473,7 @@ assert(html.includes('const displayedResult = status === "past" ? buildCompactRe
 assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "revealed past cards must build their score line before rendering the title stack");
 assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
 assert(html.includes('className = "card-result-score"') && html.includes('.card-result-line{'), "past-card results must use the centred, prominent score treatment");
-assert(html.includes('const isTeamMatchup = /\\s+v\\.?\\s+/i.test(displayTitle);') && html.includes('.event-top-row.has-team-matchup .event-name{'), "matchup team names must be centred independently of card badges");
+assert(html.includes('const isTeamMatchup = CARD_IDENTITIES?.isTeamSportMatchup?.(ev, displayTitle) || false;') && html.includes('.event-top-row.has-team-matchup .event-name{'), "team matchup names must be centred independently of card badges without turning individual tennis fixtures into team cards");
 assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('height:clamp(118.8px, 27.9vw, 147.6px)'), "matchup cards must reserve equal, 10%-smaller logo-led bounding boxes for both teams");
 assert(html.includes('.event-card.is-logo-led-matchup.is-past{ opacity:0.86; }'), "logo-led past fixtures must retain enough contrast for their official team marks");
 assert(html.includes('.matchup-team-name-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('.matchup-vs{\n  position:absolute;\n  left:50%;') && html.includes('teamNames.append(firstTeam, versus, secondTeam);'), "each matchup label must split into team A, versus, and team B beneath their corresponding logos");

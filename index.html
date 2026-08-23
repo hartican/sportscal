@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="117">
+<meta name="app-shell-version" content="118">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -284,7 +284,6 @@ header.top{
     var(--bg);
   transform-origin:50% 44%;
   will-change:opacity, transform;
-  animation:startup-launch-exit 3s cubic-bezier(.58,0,.32,1) forwards;
 }
 
 header.top,
@@ -293,14 +292,29 @@ header.top,
 .app-footer,
 #jumpTodayBtn{
   will-change:opacity, transform, filter;
-  animation:startup-screen-arrive .82s cubic-bezier(.18,.78,.24,1) both;
+  opacity:0;
+  transform:translate3d(0, 14px, 0) scale(.994);
+  filter:blur(5px);
+  transition:opacity .72s cubic-bezier(.18,.78,.24,1), transform .72s cubic-bezier(.18,.78,.24,1), filter .72s ease;
 }
 
-header.top{ animation-delay:2.22s; }
-#calendarControls{ animation-delay:2.3s; }
-#mainContent{ animation-delay:2.36s; }
-.app-footer{ animation-delay:2.42s; }
-#jumpTodayBtn{ animation-delay:2.48s; }
+body.startup-shell-visible header.top,
+body.startup-shell-visible #calendarControls,
+body.startup-shell-visible #mainContent,
+body.startup-shell-visible .app-footer,
+body.startup-shell-visible #jumpTodayBtn{
+  opacity:1;
+  transform:none;
+  filter:none;
+}
+
+body.startup-shell-visible header.top{ transition-delay:0ms; }
+body.startup-shell-visible #calendarControls{ transition-delay:70ms; }
+body.startup-shell-visible #mainContent{ transition-delay:140ms; }
+body.startup-shell-visible .app-footer{ transition-delay:210ms; }
+body.startup-shell-visible #jumpTodayBtn{ transition-delay:280ms; }
+
+body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 
 .startup-launch::before,
 .startup-launch::after{
@@ -339,192 +353,62 @@ header.top{ animation-delay:2.22s; }
   filter:drop-shadow(0 24px 38px color-mix(in srgb, var(--shadow) 76%, transparent));
   transform-origin:center;
   transform-style:preserve-3d;
-  animation:startup-launch-mark 2.45s cubic-bezier(.18,.78,.24,1) both;
+  animation:startup-launch-mark .3s cubic-bezier(.18,.78,.24,1) both;
 }
 
-.startup-launch-liquid{
+.startup-launch-glass,
+.startup-launch-fill,
+.startup-launch-shine{
   position:absolute;
   inset:0;
-  overflow:hidden;
-  perspective:900px;
-  transform-style:preserve-3d;
   -webkit-mask:var(--startup-logo-mask) center / contain no-repeat;
   mask:var(--startup-logo-mask) center / contain no-repeat;
 }
 
-.startup-launch-liquid::before,
-.startup-launch-liquid::after{
-  content:"";
-  position:absolute;
-  inset:auto;
-  left:-16%;
-  width:132%;
-  pointer-events:none;
+.startup-launch-glass{
+  background:linear-gradient(150deg, color-mix(in srgb, white 34%, var(--text)), color-mix(in srgb, var(--text) 14%, transparent) 44%, color-mix(in srgb, var(--text) 26%, transparent));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5), inset 0 -7px 18px rgba(0,0,0,.2);
+  opacity:.78;
+  filter:drop-shadow(0 1px 0 color-mix(in srgb, white 46%, transparent)) drop-shadow(0 5px 11px color-mix(in srgb, var(--text) 15%, transparent));
 }
 
-.startup-launch-liquid::before{
-  z-index:0;
-  top:0;
-  height:150%;
-  clip-path:polygon(0 5%, 12% 1%, 28% 4.2%, 44% .4%, 62% 5.1%, 80% 1.1%, 100% 4%, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse 72% 32% at 24% 14%, rgba(255,255,255,.54), transparent 39%),
-    radial-gradient(ellipse 46% 30% at 76% 18%, color-mix(in srgb, var(--brand-start) 56%, transparent), transparent 58%),
-    radial-gradient(ellipse 72% 48% at 51% 94%, color-mix(in srgb, var(--accent) 36%, #00131a), transparent 66%),
-    linear-gradient(165deg, color-mix(in srgb, var(--brand-end) 56%, white) 0%, var(--accent) 27%, color-mix(in srgb, var(--accent) 58%, #003847) 64%, #00141c 100%);
-  background-size:130% 100%, 112% 100%, 100% 100%, 100% 100%;
-  background-position:0 0, 100% 0, 50% 100%, 50% 50%;
-  box-shadow:inset 0 20px 28px rgba(255,255,255,.25), inset 0 -34px 42px rgba(0,0,0,.46);
-  transform:translate3d(0, 74%, 0);
-  transform-origin:50% 4%;
-  animation:startup-liquid-rise 2.38s cubic-bezier(.18,.72,.22,1) .18s both;
-}
-
-.startup-launch-liquid-depth{
-  position:absolute;
-  z-index:1;
-  top:0;
-  left:-18%;
-  width:136%;
-  height:150%;
-  pointer-events:none;
-  clip-path:polygon(0 5%, 12% 1%, 28% 4.2%, 44% .4%, 62% 5.1%, 80% 1.1%, 100% 4%, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse 17% 7% at 13% 10%, rgba(238,255,255,.52), transparent 74%),
-    radial-gradient(ellipse 21% 8% at 42% 18%, rgba(143,240,245,.38), transparent 76%),
-    radial-gradient(ellipse 18% 7% at 72% 11%, rgba(236,255,255,.46), transparent 74%),
-    radial-gradient(ellipse 22% 9% at 92% 22%, rgba(91,196,207,.32), transparent 76%),
-    repeating-linear-gradient(172deg, transparent 0 8%, rgba(190,253,255,.09) 9%, transparent 13% 22%);
-  filter:contrast(1.08) saturate(1.08);
-  mix-blend-mode:screen;
-  opacity:0;
-  transform:translate3d(-2%, 75%, 10px) rotateX(8deg) rotateZ(-1.2deg) scaleX(1.02);
-  transform-origin:50% 4%;
-  animation:startup-liquid-depth-rise 2.42s cubic-bezier(.16,.7,.2,1) .2s both;
-}
-
-.startup-launch-liquid-depth::before,
-.startup-launch-liquid-depth::after{
-  content:"";
-  position:absolute;
-  left:-4%;
-  width:108%;
-  pointer-events:none;
-}
-
-.startup-launch-liquid-depth::before{
-  top:8%;
-  height:24%;
-  border-radius:45% 55% 48% 52% / 34% 38% 62% 66%;
-  background:
-    radial-gradient(ellipse 26% 56% at 20% 14%, rgba(255,255,255,.7), transparent 60%),
-    radial-gradient(ellipse 31% 62% at 67% 8%, rgba(180,252,255,.46), transparent 64%),
-    linear-gradient(178deg, rgba(232,255,255,.3), rgba(15,128,144,.04) 52%, rgba(0,18,28,.28));
-  box-shadow:inset 0 8px 12px rgba(255,255,255,.22), inset 0 -12px 18px rgba(0,18,28,.34);
-  transform:translate3d(0, 0, 24px) rotateX(58deg) scaleY(.82);
-}
-
-.startup-launch-liquid-depth::after{
-  top:30%;
-  height:58%;
-  background:
-    radial-gradient(ellipse 36% 18% at 24% 18%, rgba(0,15,24,.35), transparent 72%),
-    radial-gradient(ellipse 42% 20% at 76% 47%, rgba(0,24,34,.28), transparent 74%),
-    linear-gradient(180deg, transparent, rgba(0,19,28,.22));
-  filter:blur(4px);
-  mix-blend-mode:multiply;
-  animation:startup-liquid-undercurrent 1.72s cubic-bezier(.3,.05,.25,1) .7s both;
-}
-
-.startup-launch-liquid-backwash{
-  position:absolute;
-  z-index:2;
-  top:-7%;
-  left:-18%;
-  width:136%;
-  height:23%;
+.startup-launch-fill{
   overflow:hidden;
-  pointer-events:none;
-  border-radius:49% 51% 46% 54% / 68% 62% 38% 32%;
-  background:
-    radial-gradient(ellipse 28% 58% at 22% 18%, rgba(255,255,255,.72), transparent 62%),
-    radial-gradient(ellipse 30% 56% at 74% 12%, rgba(193,252,255,.52), transparent 65%),
-    linear-gradient(177deg, color-mix(in srgb, var(--brand-end) 48%, white), color-mix(in srgb, var(--accent) 76%, #004e5e) 52%, rgba(0,25,35,.45));
-  box-shadow:inset 0 9px 14px rgba(255,255,255,.42), inset 0 -12px 19px rgba(0,18,27,.38), 0 8px 15px rgba(0,15,24,.2);
-  filter:saturate(1.08) blur(.25px);
-  opacity:0;
-  transform:translate3d(-2%, 540%, -18px) rotateX(64deg) rotateZ(1.4deg) scaleX(1.04);
-  transform-origin:center 64%;
-  animation:startup-liquid-backwash-rise 2.38s cubic-bezier(.2,.68,.22,1) .2s both;
+  clip-path:polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  animation:startup-original-logo-fill 2s cubic-bezier(.2,.72,.2,1) .3s both;
 }
 
-.startup-launch-liquid-surface{
-  position:absolute;
-  z-index:3;
-  top:-5.5%;
-  left:-16%;
-  width:132%;
-  height:22%;
-  overflow:hidden;
-  pointer-events:none;
-  border-radius:50% 50% 44% 46% / 66% 67% 39% 43%;
-  clip-path:polygon(0 34%, 12% 12%, 28% 4%, 45% 28%, 62% 8%, 80% 22%, 95% 2%, 100% 16%, 100% 100%, 0 100%);
-  background:
-    radial-gradient(ellipse 25% 50% at 21% 12%, rgba(255,255,255,.96), transparent 56%),
-    radial-gradient(ellipse 28% 52% at 72% 18%, rgba(211,255,255,.78), transparent 62%),
-    radial-gradient(ellipse 42% 72% at 50% 110%, rgba(0,18,25,.62), transparent 68%),
-    linear-gradient(169deg, color-mix(in srgb, var(--brand-end) 61%, white) 0%, var(--accent) 28%, color-mix(in srgb, var(--accent) 64%, #003743) 70%, #00212b 100%);
-  box-shadow:
-    inset 0 8px 12px rgba(255,255,255,.62),
-    inset 0 -16px 20px rgba(0,12,18,.54),
-    0 3px 7px rgba(0,17,25,.34);
-  filter:saturate(1.12) drop-shadow(0 7px 8px rgba(0,14,22,.26));
-  transform:translate3d(-1.5%, 530%, 34px) rotateX(44deg) rotateZ(-1.8deg) scaleX(.96);
-  transform-origin:center 58%;
-  animation:startup-liquid-surface-rise 2.38s cubic-bezier(.18,.7,.22,1) .18s both;
-}
-
-.startup-launch-liquid-surface::before,
-.startup-launch-liquid-surface::after{
-  content:"";
-  position:absolute;
-  left:0;
+.startup-launch-original{
+  display:block;
   width:100%;
-  pointer-events:none;
+  height:100%;
+  object-fit:contain;
+  filter:saturate(1.03) contrast(1.03) drop-shadow(0 18px 28px rgba(0,0,0,.25));
 }
 
-.startup-launch-liquid-surface::before{
-  top:3%;
-  height:33%;
-  border-radius:50%;
-  background:
-    radial-gradient(ellipse 13% 96% at 16% 54%, rgba(255,255,255,.93), transparent 72%),
-    radial-gradient(ellipse 18% 100% at 47% 48%, rgba(230,255,255,.76), transparent 72%),
-    radial-gradient(ellipse 15% 92% at 80% 45%, rgba(247,255,255,.83), transparent 72%);
-  filter:blur(.45px);
-  opacity:.95;
-}
-
-.startup-launch-liquid-surface::after{
-  bottom:0;
-  height:64%;
-  background:linear-gradient(180deg, transparent 0%, rgba(0,48,59,.08) 35%, rgba(0,12,19,.42) 100%);
-  mix-blend-mode:multiply;
-}
-
-.startup-launch-liquid::after{
+.startup-launch-meniscus{
+  position:absolute;
   z-index:4;
-  top:12%;
-  height:34%;
-  border-radius:0 0 52% 48%;
-  background:
-    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,.92), transparent 24%),
-    linear-gradient(96deg, transparent 8%, rgba(255,255,255,.34) 30%, rgba(202,255,255,.7) 48%, rgba(255,255,255,.18) 67%, transparent 90%);
-  filter:blur(1px);
-  mix-blend-mode:screen;
+  left:-9%;
+  top:91%;
+  width:118%;
+  height:18%;
+  border-radius:48% 52% 46% 54% / 62% 58% 42% 38%;
+  clip-path:polygon(0 48%, 12% 19%, 27% 44%, 43% 8%, 60% 39%, 77% 14%, 91% 41%, 100% 24%, 100% 100%, 0 100%);
+  background:radial-gradient(ellipse 20% 36% at 22% 28%, rgba(255,255,255,.88), transparent 70%), radial-gradient(ellipse 24% 42% at 71% 22%, rgba(255,255,255,.56), transparent 72%), linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.1) 32%, rgba(31,10,19,.4) 78%, transparent);
+  box-shadow:0 -3px 9px rgba(255,255,255,.5), 0 9px 16px rgba(18,4,9,.34);
+  filter:blur(.25px);
+  mix-blend-mode:soft-light;
+  transform:translateX(-2%) rotate(-1deg);
+  animation:startup-meniscus-rise 2s cubic-bezier(.2,.72,.2,1) .3s both;
+}
+
+.startup-launch-shine{
+  z-index:5;
+  background:linear-gradient(108deg, transparent 24%, rgba(255,255,255,.65) 44%, rgba(255,255,255,.12) 53%, transparent 70%);
   opacity:0;
-  transform:translate3d(-12%, 90%, 0) skewX(-11deg);
-  animation:startup-liquid-sheen 1.55s cubic-bezier(.22,.68,.24,1) 1.16s both;
+  transform:translateX(-48%);
+  animation:startup-logo-shine .7s cubic-bezier(.2,.7,.2,1) 2.3s both;
 }
 
 .startup-launch-fallback{
@@ -535,56 +419,43 @@ header.top{ animation-delay:2.22s; }
   filter:drop-shadow(0 20px 34px color-mix(in srgb, var(--shadow) 74%, transparent));
 }
 
+.startup-logo-flight{
+  position:fixed;
+  z-index:1002;
+  display:block;
+  object-fit:contain;
+  pointer-events:none;
+  transform-origin:top left;
+  filter:drop-shadow(0 14px 24px rgba(0,0,0,.28));
+  will-change:transform;
+}
+
 @keyframes startup-launch-mark{
   0%{ opacity:0; transform:translateY(12px) scale(.955); }
   22%{ opacity:1; }
   100%{ opacity:1; transform:translateY(0) scale(1); }
 }
 
-@keyframes startup-liquid-rise{
-  0%{ transform:translate3d(0, 74%, 0) rotateZ(-.8deg) scaleX(1.01); background-position:0 0, 100% 0, 50% 100%, 50% 50%; clip-path:polygon(0 5%, 12% 1%, 28% 4.2%, 44% .4%, 62% 5.1%, 80% 1.1%, 100% 4%, 100% 100%, 0 100%); }
-  46%{ transform:translate3d(-2.2%, 26%, 0) rotateZ(1.1deg) scaleX(1.035); background-position:16% 0, 86% 0, 50% 100%, 50% 50%; clip-path:polygon(0 1.2%, 15% 5.4%, 32% .3%, 50% 5.8%, 68% .5%, 84% 4.9%, 100% 1.7%, 100% 100%, 0 100%); }
-  70%{ transform:translate3d(1.7%, 4%, 0) rotateZ(-.65deg) scaleX(.99); background-position:29% 0, 72% 0, 50% 100%, 50% 50%; clip-path:polygon(0 5.7%, 14% .2%, 31% 4.8%, 48% .8%, 66% 5.2%, 83% .4%, 100% 4.6%, 100% 100%, 0 100%); }
-  86%{ transform:translate3d(-.7%, -1.2%, 0) rotateZ(.28deg) scaleX(1.008); background-position:38% 0, 63% 0, 50% 100%, 50% 50%; }
-  100%{ transform:translate3d(0, 0, 0) rotateZ(0) scaleX(1); background-position:46% 0, 56% 0, 50% 100%, 50% 50%; clip-path:polygon(0 4.1%, 14% .8%, 30% 3.8%, 47% .6%, 64% 4.2%, 82% .9%, 100% 3.7%, 100% 100%, 0 100%); }
+@keyframes startup-original-logo-fill{
+  0%{ clip-path:polygon(0 100%, 100% 100%, 100% 100%, 0 100%); transform:translateX(-1.2%) rotate(-.5deg) scaleX(1.02); }
+  34%{ clip-path:polygon(0 72%, 13% 68%, 29% 73%, 45% 67%, 62% 72%, 79% 68%, 100% 71%, 100% 100%, 0 100%); transform:translateX(1.1%) rotate(.65deg) scaleX(1.035); }
+  68%{ clip-path:polygon(0 29%, 14% 34%, 31% 27%, 48% 33%, 65% 27%, 83% 32%, 100% 28%, 100% 100%, 0 100%); transform:translateX(-.7%) rotate(-.35deg) scaleX(.995); }
+  88%{ clip-path:polygon(0 1.8%, 16% 4.2%, 33% .4%, 50% 3.6%, 68% .6%, 84% 3.4%, 100% 1.1%, 100% 100%, 0 100%); transform:translateX(.2%) rotate(.1deg) scaleX(1.004); }
+  100%{ clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%); transform:none; }
 }
 
-@keyframes startup-liquid-depth-rise{
-  0%{ opacity:0; transform:translate3d(-2%, 75%, 10px) rotateX(8deg) rotateZ(-1.2deg) scaleX(1.02); background-position:0 0, 8% 0, 0 0, 5% 0, 0 0; }
-  24%{ opacity:.34; }
-  50%{ opacity:.78; transform:translate3d(2.6%, 25%, 18px) rotateX(5deg) rotateZ(1.2deg) scaleX(1.05); background-position:14% 0, -8% 0, 18% 0, -12% 0, 24% 0; }
-  73%{ opacity:.68; transform:translate3d(-1.5%, 3%, 12px) rotateX(3deg) rotateZ(-.7deg) scaleX(.99); background-position:28% 0, -18% 0, 31% 0, -22% 0, 42% 0; }
-  87%{ opacity:.62; transform:translate3d(.6%, -1%, 8px) rotateX(1deg) rotateZ(.25deg) scaleX(1.008); }
-  100%{ opacity:.58; transform:translate3d(0, 0, 6px) rotateX(0) rotateZ(0) scaleX(1); background-position:39% 0, -27% 0, 44% 0, -31% 0, 58% 0; }
+@keyframes startup-meniscus-rise{
+  0%{ top:91%; transform:translateX(-2%) rotate(-1deg) scaleX(1.02); }
+  34%{ top:64%; transform:translateX(2.8%) rotate(1.15deg) scaleX(1.06); }
+  68%{ top:21%; transform:translateX(-1.8%) rotate(-.75deg) scaleX(.985); }
+  88%{ top:-6%; transform:translateX(.5%) rotate(.2deg) scaleX(1.01); opacity:.92; }
+  100%{ top:-13%; transform:none; opacity:0; }
 }
 
-@keyframes startup-liquid-undercurrent{
-  0%{ opacity:0; transform:translate3d(-8%, 5%, 0) scaleX(.94); }
-  38%{ opacity:.5; }
-  100%{ opacity:.28; transform:translate3d(8%, -3%, 0) scaleX(1.04); }
-}
-
-@keyframes startup-liquid-backwash-rise{
-  0%{ opacity:0; transform:translate3d(-2%, 540%, -18px) rotateX(64deg) rotateZ(1.4deg) scaleX(1.04); }
-  38%{ opacity:.58; transform:translate3d(3%, 210%, -10px) rotateX(61deg) rotateZ(-1.1deg) scaleX(.97); }
-  63%{ opacity:.82; transform:translate3d(-1.8%, 19%, -6px) rotateX(58deg) rotateZ(.8deg) scaleX(1.035); }
-  80%{ opacity:.66; transform:translate3d(1%, -7%, -8px) rotateX(60deg) rotateZ(-.35deg) scaleX(.992); }
-  100%{ opacity:.54; transform:translate3d(0, 2%, -10px) rotateX(60deg) rotateZ(0) scaleX(1); }
-}
-
-@keyframes startup-liquid-surface-rise{
-  0%{ transform:translate3d(-1.5%, 530%, 34px) rotateX(44deg) rotateZ(-1.8deg) scaleX(.96); clip-path:polygon(0 34%, 12% 12%, 28% 4%, 45% 28%, 62% 8%, 80% 22%, 95% 2%, 100% 16%, 100% 100%, 0 100%); }
-  43%{ transform:translate3d(2.8%, 144%, 40px) rotateX(48deg) rotateZ(1.5deg) scaleX(1.055); clip-path:polygon(0 12%, 15% 31%, 32% 4%, 50% 29%, 68% 2%, 84% 27%, 100% 9%, 100% 100%, 0 100%); }
-  68%{ transform:translate3d(-1.8%, -13%, 38px) rotateX(45deg) rotateZ(-1deg) scaleX(.982); clip-path:polygon(0 30%, 14% 5%, 31% 26%, 48% 1%, 66% 27%, 83% 4%, 100% 24%, 100% 100%, 0 100%); }
-  82%{ transform:translate3d(.9%, 5.5%, 36px) rotateX(46deg) rotateZ(.48deg) scaleX(1.018); }
-  92%{ transform:translate3d(-.3%, -.8%, 35px) rotateX(45deg) rotateZ(-.14deg) scaleX(.996); }
-  100%{ transform:translate3d(0, 0, 34px) rotateX(45deg) rotateZ(0) scaleX(1); clip-path:polygon(0 27%, 14% 7%, 30% 23%, 47% 3%, 64% 25%, 82% 6%, 100% 21%, 100% 100%, 0 100%); }
-}
-
-@keyframes startup-liquid-sheen{
-  0%{ opacity:0; transform:translate3d(-16%, 90%, 0) skewX(-11deg); }
-  34%{ opacity:.86; }
-  100%{ opacity:.16; transform:translate3d(14%, 5%, 0) skewX(-11deg); }
+@keyframes startup-logo-shine{
+  0%{ opacity:0; transform:translateX(-48%); }
+  38%{ opacity:.84; }
+  100%{ opacity:.12; transform:translateX(48%); }
 }
 
 @keyframes startup-launch-glow{
@@ -599,20 +470,8 @@ header.top{ animation-delay:2.22s; }
   100%{ opacity:.12; transform:scaleX(.92); }
 }
 
-@keyframes startup-launch-exit{
-  0%, 78%{ opacity:1; visibility:visible; transform:translate3d(0, 0, 0) scale(1); }
-  86%{ opacity:.82; transform:translate3d(0, -1.1vh, 0) scale(.992); }
-  100%{ opacity:0; visibility:hidden; pointer-events:none; transform:translate3d(0, -2.8vh, 0) scale(.978); }
-}
-
-@keyframes startup-screen-arrive{
-  0%{ opacity:0; transform:translate3d(0, 14px, 0) scale(.994); filter:blur(5px); }
-  54%{ opacity:.72; filter:blur(1.5px); }
-  100%{ opacity:1; transform:translate3d(0, 0, 0) scale(1); filter:blur(0); }
-}
-
 @supports not ((-webkit-mask: url("")) or (mask: url(""))){
-  .startup-launch-liquid{ display:none; }
+  .startup-launch-glass,.startup-launch-shine{ display:none; }
   .startup-launch-fallback{ display:block; }
 }
 
@@ -1628,37 +1487,69 @@ main{
 }
 
 .startup-feed-loading{
-  min-height:240px;
   display:grid;
-  place-items:center;
-  padding:48px 20px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:var(--soft-fill);
+  gap:18px;
+  min-height:420px;
   color:var(--text-dim);
+}
+
+.startup-skeleton-date{
+  width:132px;
+  height:14px;
+  border-radius:999px;
+  background:var(--soft-fill);
+}
+
+.startup-skeleton-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+  gap:12px;
+}
+
+.startup-card-skeleton{
+  min-height:174px;
+  padding:18px;
+  border:1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-left:4px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  border-radius:12px;
+  background:color-mix(in srgb, var(--bg-card) 86%, var(--soft-fill));
+  filter:blur(.35px);
+  animation:startup-card-pulse 1.55s ease-in-out infinite alternate;
+}
+
+.startup-card-skeleton:nth-child(2){ animation-delay:-.45s; }
+.startup-card-skeleton:nth-child(3){ animation-delay:-.9s; }
+.startup-card-skeleton:nth-child(4){ animation-delay:-.2s; }
+
+.startup-skeleton-matchup{ display:flex; justify-content:center; align-items:center; gap:22px; margin:4px 0 18px; }
+.startup-skeleton-logo{ width:58px; height:58px; border-radius:50%; background:var(--soft-fill); box-shadow:inset 0 0 20px color-mix(in srgb, var(--border) 46%, transparent); }
+.startup-skeleton-vs{ width:18px; height:8px; border-radius:999px; background:var(--soft-fill); }
+.startup-skeleton-line{ height:11px; margin:9px auto 0; border-radius:999px; background:var(--soft-fill); }
+.startup-skeleton-line.is-title{ width:78%; height:14px; }
+.startup-skeleton-line.is-meta{ width:54%; }
+.startup-skeleton-line.is-short{ width:36%; }
+
+.startup-feed-loading.is-failed{
+  min-height:360px;
+  place-items:center;
   text-align:center;
 }
+.startup-feed-retry{ max-width:440px; padding:36px 22px; }
+.startup-feed-retry strong{ display:block; margin-bottom:8px; color:var(--text); font-size:1rem; }
+.startup-feed-retry p{ margin:0 0 18px; font-size:.78rem; line-height:1.5; }
+.startup-feed-retry .btn{ min-width:150px; justify-content:center; }
 
-.startup-feed-loading strong{
-  display:block;
-  margin-bottom:6px;
-  color:var(--text);
-  font-size:0.92rem;
+@keyframes startup-card-pulse{
+  0%{ opacity:.42; transform:translateY(1px); }
+  100%{ opacity:.82; transform:translateY(0); }
 }
 
-.startup-feed-loading span{
-  display:block;
-  max-width:420px;
-  font-size:0.76rem;
-  line-height:1.5;
+#listView.is-startup-revealed .date-group,
+#listView.is-startup-revealed .today-anchor,
+#listView.is-startup-revealed .premium-surface{
+  animation:startup-feed-reveal .42s cubic-bezier(.2,.75,.2,1) both;
 }
-
-.startup-sports-track{ position:relative; width:76px; height:26px; margin:0 auto 14px; border-bottom:2px solid color-mix(in srgb, var(--accent) 65%, var(--border)); overflow:hidden; }
-.startup-sports-ball{ position:absolute; bottom:4px; left:1px; width:16px; height:16px; border:2px solid var(--accent); border-radius:50%; background:var(--bg-card); animation:startup-sports-roll 1.45s ease-in-out infinite; }
-.startup-sports-ball::before,.startup-sports-ball::after{ content:""; position:absolute; background:var(--accent); border-radius:999px; }
-.startup-sports-ball::before{ width:2px; height:11px; left:5px; top:1px; transform:rotate(45deg); }
-.startup-sports-ball::after{ width:11px; height:2px; left:1px; top:5px; transform:rotate(45deg); }
-@keyframes startup-sports-roll{ 0%{ transform:translateX(0) rotate(0); } 48%{ transform:translateX(54px) rotate(310deg); } 52%{ transform:translateX(54px) rotate(310deg); } 100%{ transform:translateX(0) rotate(620deg); } }
+@keyframes startup-feed-reveal{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
 
 /* ---------- Event card ---------- */
 .event-card{
@@ -5522,12 +5413,13 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <body>
 
 <div class="startup-launch" id="startupLaunch" aria-hidden="true">
-  <div class="startup-launch-mark">
-    <div class="startup-launch-liquid">
-      <span class="startup-launch-liquid-depth" aria-hidden="true"></span>
-      <span class="startup-launch-liquid-backwash" aria-hidden="true"></span>
-      <span class="startup-launch-liquid-surface" aria-hidden="true"></span>
+  <div class="startup-launch-mark" id="startupLaunchMark">
+    <span class="startup-launch-glass" aria-hidden="true"></span>
+    <div class="startup-launch-fill">
+      <img class="startup-launch-original" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="sync">
+      <span class="startup-launch-meniscus" aria-hidden="true"></span>
     </div>
+    <span class="startup-launch-shine" aria-hidden="true"></span>
     <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
   </div>
 </div>
@@ -5538,7 +5430,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <div class="header-inner">
     <div class="brand">
       <div class="brand-title-row">
-        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
+        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.</div>
       <div class="brand-status-row">
@@ -5844,6 +5736,63 @@ const startupCoordinator = FEED_REFRESH_LIFECYCLE?.createStartupCoordinator
       controllerChanged: () => false,
       markHydrationComplete: () => false,
     });
+const STARTUP_FEED_TIMEOUT_MS = 6000;
+let startupFeedState = { phase:"loading", attempt:0, issues:[] };
+let startupFeedRevealPending = false;
+
+function finishStartupLogoLaunch(overlay, flight = null){
+  flight?.remove();
+  document.body.classList.remove("startup-logo-in-flight");
+  document.body.classList.add("startup-shell-visible");
+  if (overlay){
+    overlay.hidden = true;
+    overlay.remove();
+  }
+}
+
+function runStartupLogoLaunch(){
+  const overlay = document.getElementById("startupLaunch");
+  const source = document.getElementById("startupLaunchMark");
+  const target = document.getElementById("headerBrandLogo");
+  if (!overlay || !source || !target) return document.body.classList.add("startup-shell-visible");
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches){
+    finishStartupLogoLaunch(overlay);
+    return;
+  }
+  window.setTimeout(() => {
+    document.body.classList.add("startup-shell-visible", "startup-logo-in-flight");
+    const from = source.getBoundingClientRect();
+    const to = target.getBoundingClientRect();
+    if (!from.width || !to.width || typeof source.animate !== "function"){
+      finishStartupLogoLaunch(overlay);
+      return;
+    }
+    const flight = document.createElement("img");
+    flight.className = "startup-logo-flight";
+    flight.src = "assets/brand/web/nothingsport-logo.png";
+    flight.alt = "";
+    flight.width = 1200;
+    flight.height = 488;
+    Object.assign(flight.style, {
+      left: `${from.left}px`, top: `${from.top}px`, width: `${from.width}px`, height: `${from.height}px`,
+    });
+    document.body.appendChild(flight);
+    source.style.opacity = "0";
+    const scale = to.width / from.width;
+    const translateX = to.left - from.left;
+    const translateY = to.top - from.top;
+    const flightAnimation = flight.animate([
+      { transform:"translate3d(0,0,0) scale(1)", filter:"drop-shadow(0 18px 30px rgba(0,0,0,.3))" },
+      { offset:.64, transform:`translate3d(${translateX * .72}px,${translateY * .72}px,0) scale(${1 - ((1 - scale) * .72)})`, filter:"drop-shadow(0 10px 18px rgba(0,0,0,.24))" },
+      { transform:`translate3d(${translateX}px,${translateY}px,0) scale(${scale})`, filter:"drop-shadow(0 8px 18px rgba(0,0,0,.28))" },
+    ], { duration:1000, easing:"cubic-bezier(.2,.76,.2,1)", fill:"forwards" });
+    overlay.animate([{ opacity:1 }, { offset:.3, opacity:.9 }, { opacity:0 }], { duration:1000, easing:"ease", fill:"forwards" });
+    flightAnimation.finished.then(() => finishStartupLogoLaunch(overlay, flight)).catch(() => finishStartupLogoLaunch(overlay, flight));
+    window.setTimeout(() => {
+      if (document.body.contains(flight)) finishStartupLogoLaunch(overlay, flight);
+    }, 1200);
+  }, 3000);
+}
 const SPORT_DOMAIN_REGISTRY = globalThis.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY;
 const SPORT_META = SPORT_DOMAIN_REGISTRY.metaByKey();
 const FILTER_ORDER = SPORT_DOMAIN_REGISTRY.filterOrder;
@@ -5941,20 +5890,24 @@ function appendTeamIdentityFallback(container, mark, label, className = "team-lo
     return;
   }
   const monogram = document.createElement("span");
-  monogram.className = "team-logo-monogram";
+  monogram.className = `${className} team-logo-monogram`;
   monogram.setAttribute("aria-label", label);
   monogram.textContent = String(label || mark?.label || "?").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
   container.appendChild(monogram);
 }
 
+function cardIdentityParticipants(){
+  const directoryTeams = (footballDirectoryData?.teams || []).map(team => ({
+    ...team,
+    canonicalName:team.displayName,
+    shortName:team.shortName || team.displayName,
+    metadata:{ ...(team.metadata || {}), titleAliases:team.aliases || [team.displayName] },
+  }));
+  return [...canonicalPreferenceParticipants, ...directoryTeams];
+}
+
 function matchupIdentityMatches(ev, displayTitle){
-  const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, canonicalPreferenceParticipants, displayTitle) || [];
-  return identities
-    .map(identity => ({ ...identity, range: CARD_IDENTITIES.aliasRange(displayTitle, identity.participant) }))
-    .filter(identity => identity.range)
-    .sort((left, right) => left.range.start - right.range.start)
-    .filter((identity, index, all) => index === 0 || identity.range.start >= all[index - 1].range.end)
-    .slice(0, 2);
+  return CARD_IDENTITIES?.matchupSidesForEvent?.(ev, cardIdentityParticipants(), displayTitle) || [];
 }
 
 function buildMatchupIdentity(ev, displayTitle){
@@ -5965,17 +5918,18 @@ function buildMatchupIdentity(ev, displayTitle){
   identity.className = "matchup-identity";
   const row = document.createElement("div");
   row.className = "matchup-identity-row";
-  row.setAttribute("aria-label", `${identities[0].range.text} versus ${identities[1].range.text}`);
-  identities.forEach(({ mark, range }) => {
+  row.setAttribute("aria-label", `${identities[0].label} versus ${identities[1].label}`);
+  identities.forEach(({ mark, label }) => {
     const slot = document.createElement("div");
     const surface = mark?.logo?.[useDark ? "backgroundDark" : "backgroundLight"] || "light";
     slot.className = `matchup-team-logo-slot matchup-logo-surface-${surface === "dark" ? "dark" : "light"}`;
     slot.dataset.logoSurface = surface === "dark" ? "dark" : "light";
     if (mark?.id) slot.dataset.teamLogoId = mark.id;
+    appendTeamIdentityFallback(slot, mark, label, "team-logo-fallback matchup-team-logo-fallback");
     if (mark?.url || mark?.logo?.primary){
       const logo = document.createElement("img");
       logo.className = "matchup-team-logo";
-      logo.alt = `${range.text} logo`;
+      logo.alt = `${label} logo`;
       // A feed can contain hundreds of fixtures; native lazy loading keeps
       // off-screen brand imagery out of the initial network burst.
       logo.loading = "lazy";
@@ -5983,14 +5937,16 @@ function buildMatchupIdentity(ev, displayTitle){
       logo.width = 133;
       logo.height = 139;
       logo.referrerPolicy = "no-referrer";
+      logo.hidden = true;
       applyTeamLogoAsset(logo, mark, "primary", useDark);
+      logo.addEventListener("load", () => {
+        slot.querySelectorAll(".matchup-team-logo-fallback,.team-logo-monogram").forEach(fallback => fallback.remove());
+        logo.hidden = false;
+      }, { once: true });
       logo.addEventListener("error", () => {
         logo.remove();
-        appendTeamIdentityFallback(slot, mark, range.text, "team-logo-fallback matchup-team-logo-fallback");
       }, { once: true });
       slot.appendChild(logo);
-    } else {
-      appendTeamIdentityFallback(slot, mark, range.text, "team-logo-fallback matchup-team-logo-fallback");
     }
     row.appendChild(slot);
   });
@@ -5999,20 +5955,20 @@ function buildMatchupIdentity(ev, displayTitle){
   teamNames.setAttribute("aria-hidden", "true");
   const firstTeam = document.createElement("span");
   firstTeam.className = "matchup-team-name";
-  firstTeam.textContent = identities[0].range.text;
+  firstTeam.textContent = identities[0].label;
   const versus = document.createElement("span");
   versus.className = "matchup-vs";
   versus.textContent = "v";
   const secondTeam = document.createElement("span");
   secondTeam.className = "matchup-team-name";
-  secondTeam.textContent = identities[1].range.text;
+  secondTeam.textContent = identities[1].label;
   teamNames.append(firstTeam, versus, secondTeam);
   identity.append(row, teamNames);
   return identity;
 }
 
 function renderEventTitleIdentity(nameElement, ev, displayTitle){
-  const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, canonicalPreferenceParticipants, displayTitle) || [];
+  const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, cardIdentityParticipants(), displayTitle) || [];
   const matches = identities
     .map(identity => ({ ...identity, range: CARD_IDENTITIES.aliasRange(displayTitle, identity.participant) }))
     .filter(identity => identity.range)
@@ -11288,7 +11244,7 @@ function buildEventCard(ev, options = {}){
   const enrichment = eventEnrichment(ev);
   const actual = getActual(ev.id);
   const displayTitle = spoilerSafeDisplayTitle(ev);
-  const isTeamMatchup = /\s+v\.?\s+/i.test(displayTitle);
+  const isTeamMatchup = CARD_IDENTITIES?.isTeamSportMatchup?.(ev, displayTitle) || false;
   const upgraded = isUpgrade(ev) && isSpoilerVisible(ev);
   const mode = options.mode || "calendar";
   const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;
@@ -12483,10 +12439,14 @@ function renderListView(){
 
 function renderStartupFeedLoading(){
   const container = document.getElementById("listView");
-  if (document.getElementById("startupFeedLoading")) return;
-  container.innerHTML = `<div class="startup-feed-loading" id="startupFeedLoading" role="status" aria-live="polite">
-    <div><div class="startup-sports-track" aria-hidden="true"><span class="startup-sports-ball"></span></div><strong>Loading your sports feed</strong><span>The app is ready to use while fixture context and card details load in the background.</span></div>
-  </div>`;
+  const failure = startupFeedState.phase === "failed";
+  container.innerHTML = failure
+    ? `<div class="startup-feed-loading is-failed" id="startupFeedLoading" role="status" aria-live="polite"><div class="startup-feed-retry"><strong>Feed is taking longer than expected</strong><p>${startupFeedState.issues.length ? "Some fixture data could not be confirmed. " : "The full fixture set has not arrived yet. "}Your settings and navigation are still available.</p><button class="btn primary" type="button" id="startupFeedRetryBtn">Refresh feed</button></div></div>`
+    : `<div class="startup-feed-loading" id="startupFeedLoading" role="status" aria-live="polite" aria-label="Loading complete sports feed">
+        <span class="startup-skeleton-date" aria-hidden="true"></span>
+        <div class="startup-skeleton-grid" aria-hidden="true">${Array.from({ length:4 }, () => `<div class="startup-card-skeleton"><div class="startup-skeleton-matchup"><span class="startup-skeleton-logo"></span><span class="startup-skeleton-vs"></span><span class="startup-skeleton-logo"></span></div><div class="startup-skeleton-line is-title"></div><div class="startup-skeleton-line is-meta"></div><div class="startup-skeleton-line is-short"></div></div>`).join("")}</div>
+      </div>`;
+  document.getElementById("startupFeedRetryBtn")?.addEventListener("click", () => runStartupFeedBarrier());
 }
 
 function formatDateKey(dt){
@@ -14764,16 +14724,16 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
 
 function renderCurrentSection(){
   clearPendingCardRetractionSpace();
+  if (startupCoordinator.isHydrating()){
+    renderStartupFeedLoading();
+    return;
+  }
   if (activeTab === "events"){
     renderEventsView();
     return;
   }
   if (activeTab === "standings"){
     renderStandingsContext();
-    return;
-  }
-  if (startupCoordinator.isHydrating()){
-    renderStartupFeedLoading();
     return;
   }
   if (activeSportHubKey()){
@@ -14819,18 +14779,18 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     view.style.display = "none";
   });
   calControls.style.display = "flex";
-  if (activeTab === "feed"){
+  if (startupCoordinator.isHydrating()){
+    jumpTodayBtn.hidden = true;
+    listView.style.display = "block";
+    renderStartupFeedLoading();
+  } else if (activeTab === "feed"){
     listView.className = "";
     const hubActive = Boolean(activeSportHubKey());
     calControls.style.display = hubActive ? "none" : "flex";
     preferenceSummary.style.display = hubActive ? "none" : "";
     feedViewToggle.style.display = hubActive ? "none" : "flex";
     jumpTodayBtn.hidden = hubActive;
-    if (startupCoordinator.isHydrating()){
-      jumpTodayBtn.hidden = true;
-      listView.style.display = "block";
-      renderStartupFeedLoading();
-    } else if (hubActive){
+    if (hubActive){
       listView.style.display = "block";
       renderSportHub();
     } else if (activeView === "list"){
@@ -14853,6 +14813,10 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     preferenceSummary.style.display = "none";
     feedViewToggle.style.display = "none";
     jumpTodayBtn.hidden = true;
+  }
+  if (startupFeedRevealPending && !startupCoordinator.isHydrating()){
+    listView.classList.add("is-startup-revealed");
+    startupFeedRevealPending = false;
   }
   restoreViewportRenderAnchor(preservedViewportAnchor);
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
@@ -17016,8 +16980,72 @@ function downloadEventICS(ev){
   showToast(`Calendar file created for ${ev.name}.`);
 }
 
+function startupFeedTaskDescriptors(){
+  const tasks = [
+    { name:"canonical sports context", run:() => loadCanonicalSportsData(), valid:value => Boolean(value && Array.isArray(value.participants)) },
+    { name:"published feed", run:() => refreshFeedOnFirstLoad(), valid:value => Boolean(value && Number(value.eventCount) > 0) },
+    { name:"football identity directory", run:() => loadFootballDirectoryData(), valid:value => Boolean(value?.teams?.length) },
+  ];
+  if (profileSelectsFootball()) tasks.push({ name:"football core fixtures", run:() => loadFootballCoreEvents(), valid:value => Array.isArray(value) && value.length > 0 });
+  if (profileHasFootballEntityFollow()) tasks.push({ name:"followed football fixtures", run:() => loadFootballFixturesForCurrentFollows(), valid:() => footballLeagueKeysForFollows().every(key => key === "premier-league" || footballFixtureEventsByBundle.has(`league:${key}`)) });
+  if (profileHasNrlEntityFollow()) tasks.push({ name:"NRL follow index", run:() => loadNrlFollowIndex(), valid:value => Boolean(value?.teams?.length) });
+  if (profileHasAflEntityFollow()) tasks.push({ name:"AFL follow index", run:() => loadAflFollowIndex(), valid:value => Boolean(value?.teams?.length) });
+  return tasks;
+}
+
+let startupPostLoadHandled = false;
+function completeStartupFeedHydration(){
+  startupFeedState = { ...startupFeedState, phase:"ready", issues:[] };
+  startupFeedRevealPending = true;
+  startupCoordinator.markHydrationComplete();
+  if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
+  renderAll();
+  if (startupPostLoadHandled) return;
+  startupPostLoadHandled = true;
+  if (!userPreferences.onboardingComplete){
+    openFirstRunSettingsAfterFeedAlignment();
+  } else {
+    const weeklyPulsePromptScheduled = document.visibilityState === "visible" && registerWeeklyPulseAppOpen();
+    if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
+  }
+}
+
+function runStartupFeedBarrier(){
+  const attempt = startupFeedState.attempt + 1;
+  const retryNames = new Set(startupFeedState.issues || []);
+  const allTasks = startupFeedTaskDescriptors();
+  const tasks = retryNames.size ? allTasks.filter(task => retryNames.has(task.name)) : allTasks;
+  startupFeedState = { phase:"loading", attempt, issues:[] };
+  renderAll();
+  const taskStates = new Map(tasks.map(task => [task.name, "pending"]));
+  const timeoutId = window.setTimeout(() => {
+    if (startupFeedState.attempt !== attempt || startupFeedState.phase !== "loading") return;
+    const issues = tasks.filter(task => taskStates.get(task.name) !== "valid").map(task => task.name);
+    startupFeedState = { phase:"failed", attempt, issues };
+    renderAll();
+  }, STARTUP_FEED_TIMEOUT_MS);
+  const startupTasks = tasks.map(task => Promise.resolve()
+    .then(task.run)
+    .then(value => {
+      taskStates.set(task.name, task.valid(value) ? "valid" : "invalid");
+      return value;
+    }, error => {
+      taskStates.set(task.name, "rejected");
+      console.warn(`Startup task failed: ${task.name}`, error);
+      throw error;
+    }));
+  Promise.allSettled(startupTasks).then(() => {
+    if (startupFeedState.attempt !== attempt || startupFeedState.phase !== "loading") return;
+    const issues = tasks.filter(task => taskStates.get(task.name) !== "valid").map(task => task.name);
+    if (issues.length) return;
+    window.clearTimeout(timeoutId);
+    completeStartupFeedHydration();
+  });
+}
+
 /* ============ INIT ============ */
 applyThemePreference(userPreferences.theme);
+runStartupLogoLaunch();
 window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
   if (normalizeThemePreference(userPreferences.theme) === "system" && !draftPreferences) applyThemePreference("system");
 });
@@ -17035,43 +17063,11 @@ updateClock();
 setInterval(updateClock, 1000);
 renderAll();
 scheduleBrowserReminders();
-if (profileSelectsFootball()) void loadFootballCoreEvents();
-if (profileHasFootballEntityFollow()) void loadFootballFixturesForCurrentFollows();
-if (profileHasNrlEntityFollow()) void loadNrlFollowIndex().then(() => {
-  rebuildDerivedCardCache(activeEvents);
-  renderAll({ preserveViewport: true });
-});
-if (profileHasAflEntityFollow()) void loadAflFollowIndex().then(() => {
-  rebuildDerivedCardCache(activeEvents);
-  renderAll({ preserveViewport: true });
-});
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => { startupFeedNavigationTouched = true; }, { passive: true, once: true });
 }
-const startupTasks = [
-  loadCanonicalSportsData(),
-  refreshFeedOnFirstLoad(),
-];
-// Render the interactive shell immediately. The current feed fills in from
-// JSON, while the large generated script remains a strictly on-demand fallback.
-window.requestAnimationFrame(() => {
-  startupCoordinator.markHydrationComplete();
-  renderAll();
-});
-Promise.allSettled(startupTasks).then(() => {
-  // Background context can change the sticky header height after the first
-  // static render. Until the person has interacted, re-align Feed at Today
-  // once the initial loading work settles.
-  if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
-  renderAll();
-  if (!userPreferences.onboardingComplete){
-    openFirstRunSettingsAfterFeedAlignment();
-  } else {
-    const weeklyPulsePromptScheduled = document.visibilityState === "visible" && registerWeeklyPulseAppOpen();
-    if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
-  }
-});
+runStartupFeedBarrier();
 let weeklyPulseWasHidden = document.visibilityState === "hidden";
 let installedServiceWorkerRegistration = null;
 document.addEventListener("visibilitychange", () => {

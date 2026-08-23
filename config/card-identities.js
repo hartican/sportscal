@@ -115,6 +115,12 @@
     }),
     rugby: referenceMark("competition:rugby-australia", "Rugby Australia", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Rugby_Australia_2017_vector_logo.svg", "https://commons.wikimedia.org/wiki/File:Rugby_Australia_2017_vector_logo.svg"),
     "premier-league": referenceMark("competition:premier-league", "Premier League", "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg", "https://www.premierleague.com/"),
+    bundesliga: officialMark("competition:bundesliga", "Bundesliga", "https://www.bundesliga.com/assets/logo/bundesliga_pos.svg", "https://www.bundesliga.com/en/bundesliga"),
+    "la-liga": officialMark("competition:la-liga", "LALIGA", "https://assets.laliga.com/assets/logos/laliga-v/laliga-v-300x300.jpg", "https://www.laliga.com/en-GB"),
+    "serie-a": officialMark("competition:serie-a", "Serie A", "https://images.legaseriea.it/image/private/t_w_480/v1764689566/prd/assets/mobileapp/logos/seriea-enilive-logo_jssflz.png", "https://en.legaseriea.it/serie-a"),
+    "ligue-1": officialMark("competition:ligue-1", "Ligue 1", "https://ligue1.com/images/Logo_Ligue1.webp", "https://ligue1.com/"),
+    "a-league-men": officialMark("competition:a-leagues", "A-League Men", "https://aleagues.com.au/wp-content/uploads/sites/17/2023/08/A-Leagues-Logo_Men_Horizontal_Colour_Black_RGB_061021-1.webp", "https://aleagues.com.au/a-league-men/"),
+    "uefa-champions-league": officialMark("competition:uefa-champions-league", "UEFA Champions League", "https://img.uefa.com/imgml/uefacom/ucl/2024/logos/logo_dark.svg", "https://www.uefa.com/uefachampionsleague/", { logo: { backgroundLight:"dark", backgroundDark:"dark" } }),
   });
 
   // A local, open-use sport mark covers every supported sport. This avoids
@@ -143,6 +149,11 @@
     fifa: sportMark("fifa", "Football", "sport:football"),
     football: sportMark("football", "Football", "sport:football"),
     "premier-league": sportMark("premier-league", "Football", "sport:football"),
+    bundesliga: sportMark("bundesliga", "Football", "sport:football"),
+    "la-liga": sportMark("la-liga", "Football", "sport:football"),
+    "serie-a": sportMark("serie-a", "Football", "sport:football"),
+    "ligue-1": sportMark("ligue-1", "Football", "sport:football"),
+    "a-league-men": sportMark("a-league-men", "Football", "sport:football"),
     cricket: sportMark("cricket", "Cricket", "sport:cricket", "CRK"),
     nba: sportMark("nba", "Basketball", "sport:basketball"),
     basketball: sportMark("basketball", "Basketball", "sport:basketball"),
@@ -347,6 +358,15 @@
     Object.freeze({ id: "us-open", pattern: /\bus open\b/i }),
     Object.freeze({ id: "australian-open", pattern: /\b(?:australian open|aus open)\b/i }),
   ]);
+  const competitionMarks = Object.freeze({
+    "competition:premier-league": eventMarks["premier-league"],
+    "competition:bundesliga": eventMarks.bundesliga,
+    "competition:la-liga": eventMarks["la-liga"],
+    "competition:serie-a": eventMarks["serie-a"],
+    "competition:ligue-1": eventMarks["ligue-1"],
+    "competition:a-leagues": eventMarks["a-league-men"],
+    "competition:uefa-champions-league": eventMarks["uefa-champions-league"],
+  });
   function eventSearchText(event){ return [event?.brandId, event?.competitionId, event?.series, event?.tournament, event?.name, event?.displayTitleCompact, event?.spoilerSafeTitle].filter(Boolean).join(" "); }
   function cricketOrganisationMarkForEvent(event){
     const search = [eventSearchText(event), event?.sourceName, event?.sourceUrl, event?.selectedSentence, event?.fullSpiel].filter(Boolean).join(" ");
@@ -357,9 +377,13 @@
   function markForEvent(event){
     const brandRule = brandRules.find(rule => rule.pattern.test(eventSearchText(event)));
     if (brandRule) return eventMarks[brandRule.id] || null;
+    const competitionMark = markForCompetitionId(event?.competitionId);
+    if (competitionMark) return competitionMark;
+    if (/\b(?:uefa )?champions league\b/i.test(eventSearchText(event))) return eventMarks["uefa-champions-league"];
     if (event?.key === "cricket") return cricketOrganisationMarkForEvent(event);
     return eventMarks[event?.key] || sportMarks[event?.key] || null;
   }
+  function markForCompetitionId(competitionId){ return competitionMarks[String(competitionId || "")] || null; }
   function normalize(value){ return String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("en"); }
   function participantAliases(participant){ return Array.from(new Set([...(Array.isArray(participant?.metadata?.titleAliases) ? participant.metadata.titleAliases : []), participant?.shortName, participant?.displayName, participant?.canonicalName].map(value => String(value || "").trim()).filter(Boolean))).sort((left, right) => right.length - left.length); }
   function aliasRange(title, participant){
@@ -377,18 +401,49 @@
   }
   function participantMarksForEvent(event, participants, title = ""){
     const participantList = Array.isArray(participants) ? participants : []; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
-    const addParticipant = participant => { const mark = participantMarks[participant?.id]; if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
+    const addParticipant = participant => { const mark = participantMarks[participant?.id] || directoryMarkForParticipant(participant); if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
     (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
-    if (resolved.length < 2) participantList.filter(participant => participantMarks[participant.id]).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (resolved.length < 2 && /\s+v\.?\s+/i.test(title)) participantList.filter(participant => participantMarks[participant.id] || participant.crestUrl).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "premier-league") footballParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
+  }
+  function directoryMarkForParticipant(participant){
+    if (!participant?.id || !participant?.crestUrl) return null;
+    const label = participant.displayName || participant.canonicalName || participant.shortName || participant.id;
+    return Object.freeze({
+      ...referenceMark(`participant:${participant.id}`, label, participant.crestUrl, participant.crestSourceUrl || participant.sourceUrl || "", { backgroundLight:"light", backgroundDark:"light" }),
+      aliases:Object.freeze(participantAliases(participant)),
+      fallbackCountryCode:participant.countryCode || participant.metadata?.countryCode || "",
+    });
+  }
+  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "a-league-men", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey"]);
+  function isTeamSportMatchup(event, title = ""){
+    return TEAM_SPORT_KEYS.has(String(event?.key || "")) && /\s+v\.?\s+/i.test(String(title || event?.name || ""));
+  }
+  function cleanMatchupSideLabel(value, side){
+    let label = String(value || "").trim();
+    if (side === 0 && /\s[—–]\s/.test(label)) label = label.split(/\s[—–]\s/).pop().trim();
+    if (side === 1 && /\s[—–]\s/.test(label)) label = label.split(/\s[—–]\s/)[0].trim();
+    return label || "Team";
+  }
+  function matchupSidesForEvent(event, participants, title = ""){
+    const source = String(title || event?.name || "");
+    if (!isTeamSportMatchup(event, source)) return [];
+    const divider = /\s+v\.?\s+/i.exec(source);
+    if (!divider) return [];
+    const labels = [cleanMatchupSideLabel(source.slice(0, divider.index), 0), cleanMatchupSideLabel(source.slice(divider.index + divider[0].length), 1)];
+    const resolved = participantMarksForEvent(event, participants, source);
+    return labels.map((label, index) => {
+      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved[index] || null;
+      return Object.freeze({ label, participant:identity?.participant || null, mark:identity?.mark || null });
+    });
   }
   function logoForTheme(mark, { context = "primary", useDark = false } = {}){
     const assets = mark?.logo || {};
     const themedContext = `${context}${useDark ? "Dark" : "Light"}`;
     return assets[themedContext] || assets[useDark ? "dark" : "light"] || assets[context] || assets.primary || mark?.url || "";
   }
-  return Object.freeze({ schemaVersion: "card-identities.v2", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, markForEvent, participantMarksForEvent, participantAliases, aliasRange, logoForTheme });
+  return Object.freeze({ schemaVersion: "card-identities.v3", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, competitionMarks, markForCompetitionId, markForEvent, participantMarksForEvent, matchupSidesForEvent, isTeamSportMatchup, participantAliases, aliasRange, logoForTheme });
 });
