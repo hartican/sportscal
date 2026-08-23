@@ -6,6 +6,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PROJECT_ROOT="$(pwd)"
 DEPLOY_REF="${NS_DEPLOY_REF:-HEAD}"
 DEPLOY_SHA="$(git rev-parse "${DEPLOY_REF}^{commit}")"
+VERCEL_SCOPE="${NS_VERCEL_SCOPE:-harticans-projects}"
 PROJECT_LINK="$PROJECT_ROOT/.vercel/project.json"
 SECRET_PATH="planning-sportscal/Archive/supabase_keys.txt"
 
@@ -51,5 +52,6 @@ mkdir -p "$NS_DEPLOY_DIR/.vercel"
 cp "$PROJECT_LINK" "$NS_DEPLOY_DIR/.vercel/project.json"
 
 XDG_CACHE_HOME=/tmp vercel deploy "$NS_DEPLOY_DIR" --prod --yes \
+  --scope "$VERCEL_SCOPE" \
   --meta "releaseGitSha=$DEPLOY_SHA" \
   --meta "releaseGitRef=$DEPLOY_REF"
