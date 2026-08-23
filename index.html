@@ -5904,6 +5904,7 @@ const STORAGE_KEYS = {
   lastFeedVersion: "ns_last_feed_version_v1",
   lastFeedPublishedAt: "ns_last_feed_published_at_v1",
   lastRefreshAt: "ns_last_refresh_at_v1",
+  majorEventsCatalogue: "ns_major_events_catalogue_v1",
   ratings: "ns_ratings_v1",
   legacySpoilerReveals: "ns_spoiler_reveals_v1",
   legacyPreferences: "sportscal:v1:preferences",
@@ -7559,17 +7560,25 @@ async function loadMajorEventsData(){
   majorEventsLoading = true;
   majorEventsError = null;
   renderAll({ preserveViewport: true });
+  let loadJointSchedule = false;
   try{
-    const payload = await fetchJson(MAJOR_EVENTS_CONFIG.url);
+    let payload;
+    let loadedFromStorage = false;
+    try{
+      payload = await fetchJson(MAJOR_EVENTS_CONFIG.url);
+    }catch(networkError){
+      payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null);
+      loadedFromStorage = true;
+      if (!payload) throw networkError;
+    }
     const validationErrors = MAJOR_EVENTS?.validateDocument?.(payload, {
       reference: nowAEST(),
       verifiedTicketUrl: TICKETING?.verifiedSellerUrl,
     }) || ["Major events validation is unavailable"];
     if (validationErrors.length) throw new Error(`Unsupported major events catalogue: ${validationErrors[0]}`);
     majorEventsDocument = payload;
-    if (payload.events.some(event => event.scheduleAdapter === "joint-tennis-tournament-2026")){
-      await loadJointTournamentData();
-    }
+    if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload);
+    loadJointSchedule = payload.events.some(event => event.scheduleAdapter === "joint-tennis-tournament-2026");
     refreshAddedFixtureSnapshots();
   }catch(error){
     majorEventsError = error;
@@ -7578,6 +7587,7 @@ async function loadMajorEventsData(){
     majorEventsLoading = false;
     renderAll({ preserveViewport: true });
   }
+  if (loadJointSchedule) void loadJointTournamentData();
   return majorEventsDocument;
 }
 

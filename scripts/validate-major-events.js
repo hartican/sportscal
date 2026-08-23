@@ -83,6 +83,8 @@ assert(html.includes('data-tab="events"') && html.indexOf('data-tab="events"') <
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
 assert(worker.includes('"/config/major-events.js"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
+assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
+assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
 assert(html.includes("addedToFixtures") && html.includes("addedFixture"), "selected match persistence must be wired into the browser state");
 assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event)'), "selected matches and parent markers must still respect an explicitly focused sport view");
 
