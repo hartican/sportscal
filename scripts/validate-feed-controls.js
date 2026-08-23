@@ -104,7 +104,10 @@ assert(html.includes('sessionOpenedEventIds.add(') && html.includes('mustWatchSe
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must keep targeting Must Watch while the Today bar is anywhere in view");
 assert(html.includes('buildJointTournamentMustWatchAction') && html.includes('jointTournamentIsMustWatch'), "the combined tournament card must support manual Must Watch placement without an automatic pin");
 assert(html.includes("action.mustWatch ? 12"), "manual Must Watch choices must influence local recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v115"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v116"'));
+assert(html.includes('function activeMustWatchAnchor()') && html.includes('button.hidden = true;') && html.includes('delete button.dataset.jumpTarget;'), "the contextual jump control must hide when Today is visible and no off-screen Must Watch destination exists");
+assert(html.includes('const jumpToMustWatch = todayVisible && Boolean(mustWatchAnchor) && !mustWatchVisible;'), "Jump to Must Watch must require a real off-screen queue anchor");
+assert(!/function scrollActiveFeedToMustWatch[\s\S]{0,450}scrollActiveFeedToToday/.test(html), "a missing Must Watch queue must not silently jump to the already-visible Today anchor");
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 
 console.log("Feed controls valid: durable UI model, Sydney timing, availability, mix targets, discovery caps and negative suppression passed.");

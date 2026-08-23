@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="115">
+<meta name="app-shell-version" content="116">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -282,8 +282,25 @@ header.top{
     radial-gradient(ellipse 76% 48% at 50% 104%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%),
     radial-gradient(circle at 50% 14%, color-mix(in srgb, var(--accent) 8%, var(--bg)), transparent 42%),
     var(--bg);
+  transform-origin:50% 44%;
+  will-change:opacity, transform;
   animation:startup-launch-exit 3s cubic-bezier(.58,0,.32,1) forwards;
 }
+
+header.top,
+#calendarControls,
+#mainContent,
+.app-footer,
+#jumpTodayBtn{
+  will-change:opacity, transform, filter;
+  animation:startup-screen-arrive .82s cubic-bezier(.18,.78,.24,1) both;
+}
+
+header.top{ animation-delay:2.22s; }
+#calendarControls{ animation-delay:2.3s; }
+#mainContent{ animation-delay:2.36s; }
+.app-footer{ animation-delay:2.42s; }
+#jumpTodayBtn{ animation-delay:2.48s; }
 
 .startup-launch::before,
 .startup-launch::after{
@@ -583,8 +600,15 @@ header.top{
 }
 
 @keyframes startup-launch-exit{
-  0%, 83.333%{ opacity:1; visibility:visible; }
-  100%{ opacity:0; visibility:hidden; pointer-events:none; }
+  0%, 78%{ opacity:1; visibility:visible; transform:translate3d(0, 0, 0) scale(1); }
+  86%{ opacity:.82; transform:translate3d(0, -1.1vh, 0) scale(.992); }
+  100%{ opacity:0; visibility:hidden; pointer-events:none; transform:translate3d(0, -2.8vh, 0) scale(.978); }
+}
+
+@keyframes startup-screen-arrive{
+  0%{ opacity:0; transform:translate3d(0, 14px, 0) scale(.994); filter:blur(5px); }
+  54%{ opacity:.72; filter:blur(1.5px); }
+  100%{ opacity:1; transform:translate3d(0, 0, 0) scale(1); filter:blur(0); }
 }
 
 @supports not ((-webkit-mask: url("")) or (mask: url(""))){
@@ -5480,6 +5504,16 @@ body.header-compact-3 .brand .slogan{ display:none; }
   }
   .event-card:hover{ transform: none; }
   .startup-launch{ pointer-events:none; }
+  header.top,
+  #calendarControls,
+  #mainContent,
+  .app-footer,
+  #jumpTodayBtn{
+    animation:none !important;
+    opacity:1;
+    transform:none;
+    filter:none;
+  }
 }
 </style>
 </head>
@@ -12354,28 +12388,48 @@ function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
 }
 
 function scrollActiveFeedToMustWatch({ behavior = "smooth" } = {}){
-  const anchor = document.getElementById("mustWatchQueueAnchor");
-  if (!anchor) return scrollActiveFeedToToday({ behavior });
+  const anchor = activeMustWatchAnchor();
+  if (!anchor) return false;
   const top = window.scrollY + anchor.getBoundingClientRect().top - stickyFeedChromeHeight() - 14;
   window.scrollTo({ top: Math.max(0, top), behavior });
   return true;
 }
 
-function todayAnchorIsVisible(){
-  const anchor = document.getElementById(activeTodayAnchorId());
+function activeMustWatchAnchor(){
+  return document.getElementById("mustWatchQueueAnchor") || document.getElementById("mustWatchRail");
+}
+
+function feedAnchorIsVisible(anchor){
   if (!anchor) return false;
   const rect = anchor.getBoundingClientRect();
   const top = stickyFeedChromeHeight();
   return rect.bottom >= top - 24 && rect.top <= window.innerHeight;
 }
 
+function todayAnchorIsVisible(){
+  return feedAnchorIsVisible(document.getElementById(activeTodayAnchorId()));
+}
+
 function syncContextualJumpButton(){
   const button = document.getElementById("jumpTodayBtn");
-  if (!button || button.hidden || activeTab !== "feed" || activeView !== "list") return;
+  if (!button) return;
+  if (activeTab !== "feed" || activeView !== "list" || activeSportHubKey()){
+    button.hidden = true;
+    return;
+  }
   const todayVisible = todayAnchorIsVisible();
-  button.dataset.jumpTarget = todayVisible ? "must-watch" : "today";
-  button.setAttribute("aria-label", todayVisible ? "Jump to Must Watch queue" : "Jump to today in the sports feed");
-  button.innerHTML = `${glyphMarkup("ui:jump", { preferImage: true })} ${todayVisible ? "Jump to Must Watch" : "Jump to Today"}`;
+  const mustWatchAnchor = activeMustWatchAnchor();
+  const mustWatchVisible = feedAnchorIsVisible(mustWatchAnchor);
+  const jumpToMustWatch = todayVisible && Boolean(mustWatchAnchor) && !mustWatchVisible;
+  if (todayVisible && !jumpToMustWatch){
+    button.hidden = true;
+    delete button.dataset.jumpTarget;
+    return;
+  }
+  button.hidden = false;
+  button.dataset.jumpTarget = jumpToMustWatch ? "must-watch" : "today";
+  button.setAttribute("aria-label", jumpToMustWatch ? "Jump to Must Watch queue" : "Jump to today in the sports feed");
+  button.innerHTML = `${glyphMarkup("ui:jump", { preferImage: true })} ${jumpToMustWatch ? "Jump to Must Watch" : "Jump to Today"}`;
 }
 
 function scheduleInitialCalendarJump(){

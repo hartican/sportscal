@@ -96,6 +96,9 @@ assert(html.includes("startup-launch-liquid-depth") && html.includes("startup-la
 assert(html.includes("@keyframes startup-liquid-depth-rise") && html.includes("@keyframes startup-liquid-undercurrent") && html.includes("@keyframes startup-liquid-backwash-rise"), "the viscous ocean treatment must use independently timed depth, undercurrent and backwash motion");
 assert(html.includes("perspective:900px") && html.includes("rotateX(45deg)"), "the liquid surface must retain visible perspective depth");
 assert(html.includes("cubic-bezier(.18,.7,.22,1)"), "the foreground swell must use the slower viscous easing curve");
+assert(html.includes("@keyframes startup-screen-arrive") && html.includes("animation-delay:2.36s"), "the launch must crossfade into a staggered app-screen arrival instead of disappearing abruptly");
+assert(html.includes("transform:translate3d(0, -2.8vh, 0) scale(.978)"), "the launch surface must settle upward as the app screen takes focus");
+assert(/@media \(prefers-reduced-motion: reduce\)[\s\S]*#mainContent[\s\S]*animation:none !important/.test(html), "reduced-motion users must bypass the delayed screen transition");
 assert(html.includes("@supports not ((-webkit-mask") && html.includes("startup-launch-fallback"), "browsers without CSS masking must receive the PNG launch fallback");
 assert(!html.includes('id="startupProgress"') && !html.includes("setStartupProgress("), "the header percentage loader and its progress bookkeeping must be removed");
 assert(html.includes("const startupTasks = [") && html.includes("window.requestAnimationFrame(() => {") && html.includes("startupCoordinator.markHydrationComplete()"), "the bundled static feed must commit after one frame while canonical context and refresh continue in the background");
