@@ -638,6 +638,11 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   gap: 6px;
 }
 
+.tab-label{
+  min-width:0;
+  white-space:nowrap;
+}
+
 .tab-btn:hover{ color: var(--text); }
 
 .tab-btn.active{
@@ -4808,6 +4813,10 @@ footer.app-footer{
     text-align:center;
     line-height:1.15;
   }
+  .tab-label{
+    white-space:normal;
+    text-wrap:balance;
+  }
   .tab-count{ display:none; }
   .filing-cabinet-icon{ width:1.55rem; height:1.55rem; }
   .event-card{ padding: 12px; gap: 10px; }
@@ -5365,6 +5374,13 @@ body.header-compact-2 .header-actions .btn{ padding-top:7px; padding-bottom:7px;
 body.header-compact-3 .brand .slogan{ display:none; }
 
 @media (max-width: 640px){
+  .standings-inner-tabs{ gap:6px; padding:5px; }
+  .standings-inner-tab{
+    min-height:44px;
+    padding:8px 10px;
+    font-size:0.7rem;
+    line-height:1.2;
+  }
   .tune-sheet{ max-height:92dvh; }
   .tune-sheet-head{ padding:15px 14px 12px; }
   .tune-sheet-body{ padding:14px 12px calc(16px + env(safe-area-inset-bottom)); }
@@ -5449,7 +5465,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <div class="tabs">
     <button class="tab-btn active" data-tab="feed"><span class="tab-label">Fixtures</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="events"><span class="tab-label">Events</span><span class="tab-count" id="eventsTabCount">0</span></button>
-    <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings</span><span class="tab-count" id="standingsTabCount">0</span></button>
+    <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings &amp; Follow</span><span class="tab-count" id="standingsTabCount">0</span></button>
     <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Tune</span></button>
   </div>
 </header>
@@ -13222,6 +13238,10 @@ function rankingSportKeysForStandings(preferences = userPreferences){
   return FILTER_ORDER.filter(key => key !== "all" && keys.has(key));
 }
 
+function standingsFilterSportKeys(preferences = userPreferences){
+  return Array.from(new Set(["football", ...rankingSportKeysForStandings(preferences)]));
+}
+
 const STANDINGS_DIRECTORY_SESSION_KEY = "nothingsport:standings-directory-session:v1";
 const STANDINGS_DIRECTORY_SESSION_VERSION = "standings-directory-session.v1";
 
@@ -13231,7 +13251,7 @@ function defaultStandingsDirectorySession(preferences = userPreferences){
     activeView: "tables",
     selectedSportKeys: Array.isArray(preferences?.standings?.selectedSportKeys)
       ? preferences.standings.selectedSportKeys.slice()
-      : rankingSportKeysForStandings(preferences),
+      : standingsFilterSportKeys(preferences),
     directorySportKey: "football",
     filtersBySport: {},
   };
@@ -13291,20 +13311,20 @@ function updateDirectoryFilters(sportKey, patch){
 }
 
 function selectedStandingsSportKeys(preferences = userPreferences){
-  const available = rankingSportKeysForStandings(preferences);
+  const available = standingsFilterSportKeys(preferences);
   const saved = readStandingsDirectorySession(preferences).selectedSportKeys;
   if (!Array.isArray(saved)) return available;
   return available.filter(key => saved.includes(key));
 }
 
 function saveStandingsSportKeys(keys){
-  const available = rankingSportKeysForStandings();
+  const available = standingsFilterSportKeys();
   const selected = available.filter(key => keys.includes(key));
   updateStandingsDirectorySession({ selectedSportKeys: selected });
 }
 
 function setAllStandingsSportKeys(selected){
-  saveStandingsSportKeys(selected ? rankingSportKeysForStandings() : []);
+  saveStandingsSportKeys(selected ? standingsFilterSportKeys() : []);
   renderAll({ preserveViewport: true });
 }
 
@@ -13530,7 +13550,7 @@ function appendStandingsTable(module, competition, snapshot, visibility){
 }
 
 function buildStandingsFilter(){
-  const available = rankingSportKeysForStandings();
+  const available = standingsFilterSportKeys();
   const selected = new Set(selectedStandingsSportKeys());
   const panel = document.createElement("section");
   panel.className = "standings-filter-panel";
@@ -13573,7 +13593,7 @@ function buildStandingsInnerTabs(){
   const tabs = document.createElement("div");
   tabs.className = "standings-inner-tabs";
   tabs.setAttribute("role", "tablist");
-  [["tables", "Tables"], ["directory", "Teams & players"]].forEach(([view, label]) => {
+  [["tables", "Tables"], ["directory", "Follow Teams & Players"]].forEach(([view, label]) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `standings-inner-tab${activeView === view ? " active" : ""}`;
@@ -13681,7 +13701,7 @@ function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"
       const restored = document.querySelector('.football-directory-field input[type="search"]');
       restored?.focus({ preventScroll: true });
       restored?.setSelectionRange(restored.value.length, restored.value.length);
-    }, 140);
+    }, 600);
   });
   searchField.appendChild(search);
   toolbar.appendChild(searchField);
@@ -13868,7 +13888,16 @@ function renderLegacyParticipantDirectory(container, sportKey){
   search.type = "search";
   search.value = directoryFilters(sportKey).query;
   search.placeholder = "Team or player";
-  search.addEventListener("change", () => { updateDirectoryFilters(sportKey, { query: search.value }); renderStandingsContext(); });
+  search.addEventListener("input", () => {
+    updateDirectoryFilters(sportKey, { query: search.value });
+    window.clearTimeout(footballDirectorySearchTimer);
+    footballDirectorySearchTimer = window.setTimeout(() => {
+      renderStandingsContext();
+      const restored = document.querySelector('.football-directory-field input[type="search"]');
+      restored?.focus({ preventScroll: true });
+      restored?.setSelectionRange(restored.value.length, restored.value.length);
+    }, 600);
+  });
   field.appendChild(search);
   toolbar.appendChild(field);
   directory.appendChild(toolbar);

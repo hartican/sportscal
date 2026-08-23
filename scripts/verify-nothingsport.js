@@ -140,7 +140,7 @@ assert.deepEqual(
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(html.includes('<span class="tab-label">Fixtures</span>'), "Fixtures must be visible in primary navigation");
 assert(html.includes('<span class="tab-label">Events</span>'), "Events must be visible in primary navigation");
-assert(html.includes('<span class="tab-label">Standings</span>'), "Standings must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Standings &amp; Follow</span>'), "Standings & Follow must be visible in primary navigation");
 assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived|Ladders|L&amp;S)<\/span>/.test(html), "obsolete primary tab labels must be removed");
 assert(!/id="(?:neverMissView|watchLaterView|archivedView)"/.test(html), "removed navigation surfaces must not leave orphaned view routes");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");

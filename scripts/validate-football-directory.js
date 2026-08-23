@@ -96,7 +96,10 @@ function validate(){
   assert.equal(new Set(coreEvents.events.map(event => event.canonicalEventId)).size, coreEvents.events.length, "core football feed must deduplicate fixtures");
   assert(hierarchySource.includes('"competition:bundesliga"') && hierarchySource.includes('"competition:la-liga"')
     && hierarchySource.includes('"competition:serie-a"') && hierarchySource.includes('"competition:ligue-1"'), "all new league nodes must be registered");
-  assert(appSource.includes('[["tables", "Tables"], ["directory", "Teams & players"]]'), "Standings must expose Tables and Teams & players tabs");
+  assert(appSource.includes('[["tables", "Tables"], ["directory", "Follow Teams & Players"]]'), "Standings & Follow must expose Tables and Follow Teams & Players tabs");
+  assert(appSource.includes('return Array.from(new Set(["football", ...rankingSportKeysForStandings(preferences)]))'), "the Standings filter must always expose Football");
+  assert.equal((appSource.match(/footballDirectorySearchTimer = window\.setTimeout\(\(\) => \{/g) || []).length, 2, "all team and player searches must use the shared debounce");
+  assert.equal((appSource.match(/\}, 600\);/g) || []).length >= 2, true, "team and player search must wait 600ms before rebuilding the directory");
   assert(appSource.includes("sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY"), "Standings filters must use sessionStorage");
   assert(!/function saveStandingsSportKeys[\s\S]{0,450}savePreferences\(/.test(appSource), "Standings filters must never enter profile sync");
   assert(!appSource.includes("function renderTeamFollowPanel") && !appSource.includes("function buildJointTournamentAthletePanel")
