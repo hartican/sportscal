@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="108">
+<meta name="app-shell-version" content="109">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -46,6 +46,11 @@
   --text-faint: #5f5f6b;
   --color-contrast: #ffffff;
   --accent: #00e5ff;
+  --events-text-accent: #00e5ff;
+  --ticket-action-bg: #00e5ff;
+  --ticket-action-text: #071015;
+  --ticket-action-border: #5ef0ff;
+  --ticket-action-hover: #55efff;
   --brand-start: #ffffff;
   --brand-end: #00e5ff;
   --header-bg: rgba(10,10,15,0.88);
@@ -89,6 +94,11 @@
   --text-faint: #8c96a3;
   --color-contrast: #151820;
   --accent: #007f99;
+  --events-text-accent: #006f85;
+  --ticket-action-bg: #00677b;
+  --ticket-action-text: #ffffff;
+  --ticket-action-border: #004f61;
+  --ticket-action-hover: #00586a;
   --brand-start: #151820;
   --brand-end: #007f99;
   --header-bg: rgba(243,245,247,0.9);
@@ -115,6 +125,11 @@
     --text-faint: #8c96a3;
     --color-contrast: #151820;
     --accent: #007f99;
+    --events-text-accent: #006f85;
+    --ticket-action-bg: #00677b;
+    --ticket-action-text: #ffffff;
+    --ticket-action-border: #004f61;
+    --ticket-action-hover: #00586a;
     --brand-start: #151820;
     --brand-end: #007f99;
     --header-bg: rgba(243,245,247,0.9);
@@ -1663,7 +1678,7 @@ main{
   place-items:center;
   width:133.2px;
   height:99px;
-  margin:0 auto 5px;
+  margin:0 auto 16px;
   padding:6px;
   background:transparent;
   border:0;
@@ -1678,7 +1693,29 @@ main{
 .event-hero-mark .event-brand-logo,
 .event-hero-mark .event-sport-mark,
 .event-hero-mark .event-sport-logo{ width:100%; height:100%; object-fit:contain; }
+.event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }
 .event-card.is-logo-led-event .event-title-stack{ width:100%; }
+.event-card.is-logo-led-event .event-name-line{
+  position:relative;
+  min-height:34px;
+  padding-inline:48px;
+}
+.event-card.is-logo-led-event .event-name-line .event-name{
+  width:100%;
+}
+.event-card.is-logo-led-event .event-name-line .new-dot{
+  position:absolute;
+  left:10px;
+}
+.event-card.is-logo-led-event .event-name-line .must-watch-new-label{
+  position:absolute;
+  left:28px;
+}
+.event-card.is-logo-led-event .event-name-line .card-expand-control{
+  position:absolute;
+  right:0;
+  margin-left:0;
+}
 .event-card.is-logo-led-event .event-name-line,
 .event-card.is-logo-led-event .event-date-line,
 .event-card.is-logo-led-event .badges,
@@ -1686,6 +1723,11 @@ main{
 .event-card.is-logo-led-event .rating-row,
 .event-card.is-logo-led-event .follow-context,
 .event-card.is-logo-led-event .event-action-row{ justify-content:center; text-align:center; }
+.event-card.is-logo-led-event .badges{
+  position:static;
+  max-width:none;
+  margin-top:8px;
+}
 .event-card.is-logo-led-event .event-name{ max-width:760px; margin-inline:auto; text-align:center; }
 .event-card.is-logo-led-event .event-quick-must-watch{ display:flex; margin:8px auto 0; }
 .event-card.is-logo-led-event .event-date-line,
@@ -1693,7 +1735,7 @@ main{
 .event-card.is-logo-led-event .rating-row{ margin-top:7px; }
 
 @media (max-width:620px){
-  .event-hero-mark{ width:113.4px; height:89px; padding:5px; }
+  .event-hero-mark{ width:113.4px; height:89px; margin-bottom:14px; padding:5px; }
 }
 
 /* Events is a working feed, with one rich card per tournament and separate
@@ -1711,26 +1753,40 @@ main{
   background:var(--bg-card);
   overflow:hidden;
   scroll-margin-top:130px;
+  cursor:pointer;
+  transition:border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
 }
 .major-event-card:focus{ outline:2px solid var(--accent); outline-offset:3px; }
-.major-event-ticket-row{ min-height:48px; padding:9px 14px; display:flex; align-items:center; justify-content:flex-end; border-bottom:1px solid var(--border); background:var(--soft-fill); }
+.major-event-card:hover{ background:var(--bg-card-hover); }
+.major-event-card.is-selected,
+.major-event-card.is-opened{
+  border-color:color-mix(in srgb, var(--sport-color, var(--accent)) 58%, var(--border));
+  box-shadow:0 0 0 1px color-mix(in srgb, var(--sport-color, var(--accent)) 24%, transparent) inset;
+}
+.major-event-ticket-row{ min-height:54px; padding:9px 14px; display:flex; align-items:center; justify-content:flex-end; gap:8px; border-bottom:1px solid var(--border); background:var(--soft-fill); }
 .major-event-ticket-row:empty{ display:none; }
-.major-event-ticket-link{ display:inline-flex; align-items:center; gap:7px; min-height:34px; padding:7px 11px; border-radius:6px; background:var(--accent); color:#071015; font-size:0.76rem; font-weight:850; text-decoration:none; }
+.major-event-ticket-link{ display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:42px; margin-right:auto; padding:9px 14px; border:2px solid var(--ticket-action-border); border-radius:6px; background:var(--ticket-action-bg); color:var(--ticket-action-text); box-shadow:0 2px 8px color-mix(in srgb, var(--ticket-action-bg) 22%, transparent); font-size:0.8rem; font-weight:850; text-decoration:none; }
+.major-event-ticket-link:hover{ background:var(--ticket-action-hover); }
 .major-event-follow{ margin-left:auto; min-height:38px; padding:8px 12px; border:1px solid var(--border); border-radius:7px; background:var(--bg-card); color:var(--text); font:750 0.74rem/1 'DM Sans', sans-serif; cursor:pointer; }
 .major-event-follow[aria-pressed="true"]{ border-color:var(--sport-color); color:var(--sport-color); }
+.major-event-expand-control{ display:inline-grid; place-items:center; width:40px; height:40px; flex:0 0 40px; padding:0; border:1px solid var(--border); border-radius:7px; background:var(--bg-card); color:var(--text); cursor:pointer; }
+.major-event-expand-control .vector-glyph{ transition:transform 0.16s ease; }
+.major-event-card.is-selected .major-event-expand-control .vector-glyph{ transform:rotate(90deg); }
+.major-event-card.is-opened .major-event-expand-control .vector-glyph{ transform:rotate(-90deg); }
 .major-event-identity{ padding:18px 20px 14px; text-align:center; }
 .major-event-logo{ display:grid; place-items:center; width:133.2px; height:99px; margin:0 auto 8px; padding:6px; }
 .major-event-logo .event-brand-logo,.major-event-logo .event-sport-mark,.major-event-logo .event-sport-logo{ width:100%; height:100%; object-fit:contain; }
 .major-event-logo[data-card-identity="competition:formula-one"]{ background:#092e4f; border-radius:8px; }
-.major-event-kicker{ color:var(--accent); font-size:0.69rem; font-weight:850; text-transform:uppercase; }
+.major-event-kicker{ color:var(--events-text-accent); font-size:0.69rem; font-weight:850; text-transform:uppercase; }
 .major-event-identity h3{ margin:5px 0 6px; font:700 1.28rem/1.18 'Cardo', Georgia, serif; }
 .major-event-summary{ max-width:760px; margin:0 auto; color:var(--text-dim); font-size:0.82rem; line-height:1.5; }
 .major-event-facts{ display:flex; flex-wrap:wrap; justify-content:center; gap:7px 14px; margin-top:10px; color:var(--text-dim); font-size:0.74rem; }
 .major-event-body{ display:grid; grid-template-columns:minmax(0, 1.15fr) minmax(260px, 0.85fr); gap:22px; padding:14px 20px 20px; border-top:1px solid var(--border); }
+.major-event-card.is-selected .major-event-body{ grid-template-columns:1fr; }
 .major-event-body h4{ margin:0 0 8px; font-size:0.8rem; }
 .major-event-detail-list{ margin:0; padding-left:18px; color:var(--text-dim); font-size:0.78rem; line-height:1.55; }
 .major-event-sources{ display:flex; flex-direction:column; gap:7px; }
-.major-event-sources a{ color:var(--accent); font-size:0.75rem; overflow-wrap:anywhere; }
+.major-event-sources a{ color:var(--events-text-accent); font-size:0.75rem; overflow-wrap:anywhere; }
 .major-event-schedule{ grid-column:1 / -1; padding-top:14px; border-top:1px solid var(--border); }
 .major-event-schedule-list{ display:flex; flex-direction:column; gap:7px; }
 .major-event-match{ display:grid; grid-template-columns:minmax(0, 1fr) auto; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
@@ -1750,6 +1806,9 @@ main{
 .major-event-marker-copy span{ margin-top:3px; color:var(--text-dim); font-size:0.72rem; }
 .major-event-marker-open{ color:var(--accent); font-size:0.74rem; font-weight:800; }
 @media (max-width:720px){
+  .major-event-ticket-row{ flex-wrap:wrap; padding-inline:10px; }
+  .major-event-ticket-link{ flex:1 1 180px; }
+  .major-event-follow{ margin-left:0; }
   .major-event-body{ grid-template-columns:1fr; padding-inline:14px; }
   .major-event-schedule{ grid-column:auto; }
   .major-event-identity{ padding-inline:14px; }
@@ -10203,7 +10262,7 @@ function nextCardState(current){
 }
 
 function cardStateForEvent(ev){
-  return cardViewStates[ev.eventId] || "compact";
+  return cardViewStates[ev.eventId || ev.id] || "compact";
 }
 
 function setCardState(ev, state){
@@ -13302,12 +13361,37 @@ function buildMajorEventSchedule(record){
 
 function buildMajorEventCard(record){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
+  const state = cardStateForEvent(record);
   const card = document.createElement("article");
-  card.className = "major-event-card";
+  card.className = [
+    "major-event-card",
+    state === "selected" ? "is-selected" : "",
+    state === "opened" ? "is-opened" : "",
+  ].filter(Boolean).join(" ");
   card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.majorEventId = record.id;
-  card.tabIndex = -1;
+  card.dataset.cardState = state;
+  card.tabIndex = 0;
+  card.setAttribute("aria-expanded", String(state !== "compact"));
+  card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
   card.style.setProperty("--sport-color", meta.color);
+
+  const advanceState = ({ restoreFocus = false } = {}) => {
+    setCardState(record, nextCardState(state));
+    renderAll({ preserveViewport: true });
+    if (restoreFocus){
+      window.requestAnimationFrame(() => document.getElementById(card.id)?.focus({ preventScroll: true }));
+    }
+  };
+  card.addEventListener("click", event => {
+    if (event.target.closest("a, button, input, select, textarea")) return;
+    advanceState();
+  });
+  card.addEventListener("keydown", event => {
+    if (event.target !== card || !["Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    advanceState({ restoreFocus: true });
+  });
 
   const ticketRow = document.createElement("div");
   ticketRow.className = "major-event-ticket-row";
@@ -13325,6 +13409,15 @@ function buildMajorEventCard(record){
     renderAll({ preserveViewport: true });
   });
   ticketRow.appendChild(follow);
+  const expand = document.createElement("button");
+  expand.type = "button";
+  expand.className = "major-event-expand-control";
+  expand.setAttribute("aria-expanded", String(state !== "compact"));
+  expand.setAttribute("aria-label", `${state === "compact" ? "Show summary for" : state === "selected" ? "Show full details for" : "Collapse"} ${record.name}`);
+  expand.title = state === "compact" ? "Show summary" : state === "selected" ? "Show full details" : "Collapse";
+  expand.innerHTML = glyphMarkup("ui:chevron-right", { preferImage: true });
+  expand.addEventListener("click", () => advanceState({ restoreFocus: true }));
+  ticketRow.appendChild(expand);
 
   const identity = document.createElement("header");
   identity.className = "major-event-identity";
@@ -13346,45 +13439,53 @@ function buildMajorEventCard(record){
     fact.textContent = value;
     facts.appendChild(fact);
   });
-  identity.append(logo, kicker, title, summary, facts);
+  identity.append(logo, kicker, title);
+  if (state !== "compact") identity.appendChild(summary);
+  identity.appendChild(facts);
 
-  const body = document.createElement("div");
-  body.className = "major-event-body";
-  const about = document.createElement("section");
-  const aboutHeading = document.createElement("h4");
-  aboutHeading.textContent = "Event detail";
-  const details = document.createElement("ul");
-  details.className = "major-event-detail-list";
-  record.details.forEach(item => {
-    const row = document.createElement("li");
-    row.textContent = item;
-    details.appendChild(row);
-  });
-  about.append(aboutHeading, details);
-  const sources = document.createElement("section");
-  const sourcesHeading = document.createElement("h4");
-  sourcesHeading.textContent = "Official sources";
-  const sourceList = document.createElement("div");
-  sourceList.className = "major-event-sources";
-  record.sources.forEach(source => {
-    const link = document.createElement("a");
-    link.href = source.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = source.name;
-    sourceList.appendChild(link);
-  });
-  sources.append(sourcesHeading, sourceList);
-  body.append(about, sources);
-  const schedule = buildMajorEventSchedule(record);
-  if (schedule) body.appendChild(schedule);
-  if (record.scheduleAdapter === "joint-tennis-tournament-2026" && jointTournamentData){
-    const tables = buildJointTournamentTablesPanel();
-    const athletes = buildJointTournamentAthletePanel(jointTournamentData);
-    if (tables) body.appendChild(tables);
-    if (athletes) body.appendChild(athletes);
+  card.append(ticketRow, identity);
+  if (state !== "compact"){
+    const body = document.createElement("div");
+    body.className = "major-event-body";
+    const about = document.createElement("section");
+    const aboutHeading = document.createElement("h4");
+    aboutHeading.textContent = "Event detail";
+    const details = document.createElement("ul");
+    details.className = "major-event-detail-list";
+    record.details.forEach(item => {
+      const row = document.createElement("li");
+      row.textContent = item;
+      details.appendChild(row);
+    });
+    about.append(aboutHeading, details);
+    body.appendChild(about);
+    if (state === "opened"){
+      const sources = document.createElement("section");
+      const sourcesHeading = document.createElement("h4");
+      sourcesHeading.textContent = "Official sources";
+      const sourceList = document.createElement("div");
+      sourceList.className = "major-event-sources";
+      record.sources.forEach(source => {
+        const link = document.createElement("a");
+        link.href = source.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = source.name;
+        sourceList.appendChild(link);
+      });
+      sources.append(sourcesHeading, sourceList);
+      body.appendChild(sources);
+      const schedule = buildMajorEventSchedule(record);
+      if (schedule) body.appendChild(schedule);
+      if (record.scheduleAdapter === "joint-tennis-tournament-2026" && jointTournamentData){
+        const tables = buildJointTournamentTablesPanel();
+        const athletes = buildJointTournamentAthletePanel(jointTournamentData);
+        if (tables) body.appendChild(tables);
+        if (athletes) body.appendChild(athletes);
+      }
+    }
+    card.appendChild(body);
   }
-  card.append(ticketRow, identity, body);
   return card;
 }
 

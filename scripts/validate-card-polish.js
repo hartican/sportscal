@@ -47,12 +47,20 @@ assert(html.includes("ev.venueSourceName") && html.includes("ev.venueOfficialNam
 assert(html.includes('className = soloIdentity ? "event-hero-mark" : "event-icon"'), "non-matchup cards must use the centred logo-led treatment");
 assert(html.includes("width:min(100%, 133.2px)") && html.includes("138.6px"), "desktop large identities must be exactly 10% smaller than 148x154");
 assert(html.includes("width:113.4px") && html.includes("height:106.2px"), "mobile large identities must be exactly 10% smaller than 126x118");
+assert(html.includes(".event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }") && html.includes("margin:0 auto 16px"), "single-logo cards must centre their full text stack and reserve safe clearance below the logo");
+assert(html.includes(".event-card.is-logo-led-event .event-name-line .card-expand-control") && html.includes("position:absolute;\n  right:0;"), "single-logo titles must stay centred independently of their expand control");
 assert(html.includes("-webkit-line-clamp:2") && html.includes("white-space:normal"), "long names must wrap to two lines");
+assert(html.includes('return cardViewStates[ev.eventId || ev.id] || "compact";'), "the three-level card state must support both fixture and major-event IDs");
+assert(html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"') && html.includes("setCardState(record, nextCardState(state))"), "full Events cards must cycle through compact, summary and full-detail levels");
+assert(html.includes('if (state !== "compact") identity.appendChild(summary);') && html.includes('if (state === "opened"){'), "compact Events cards must defer rich details until the second and third levels");
+assert(html.includes("--ticket-action-bg: #00677b") && html.includes("--ticket-action-text: #ffffff") && html.includes("background:var(--ticket-action-bg); color:var(--ticket-action-text)"), "day-mode Events ticket actions must use the high-contrast action palette");
+assert(html.includes("--events-text-accent: #006f85") && html.includes("color:var(--events-text-accent)"), "day-mode Events editorial links must use the dedicated high-contrast text accent");
 assert(html.indexOf('${selectionActionsMarkup("sports-global", "Sports")}') < html.indexOf('id="selectorCategoryList"'), "Select all and Deselect all must precede startup sport categories");
 assert(html.includes('bindSelectionActions(\n    body,\n    "sports-global"'), "global sports actions must retain keyboard-native buttons and labelled controls");
 assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, "boolean");
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
 assert(userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.some(branch => branch.required?.includes("startTimeUtc")), "persisted child fixtures must require a confirmed UTC start");
 assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
+assert(html.includes('name="app-shell-version" content="109"') && worker.includes('nothingsport-shell-v109'), "the polished card UI must ship in a matching offline shell version");
 
-console.log("Card polish valid: score-only results, Bruce stadium aliases, exact 10% identity reduction, two-line names, top selection controls and surface-aware ticket gating passed.");
+console.log("Card polish valid: three-level cards, centred logo layouts, WCAG ticket contrast, score-only results, Bruce stadium aliases, exact 10% identity reduction, two-line names, top selection controls and surface-aware ticket gating passed.");

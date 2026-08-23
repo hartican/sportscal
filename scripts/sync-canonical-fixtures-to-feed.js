@@ -13,6 +13,7 @@ const {
 const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
 
 const DEFAULT_LIVE_WINDOW_MS = 3 * 60 * 60 * 1000;
+const COMPLETED_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
 
 function sanitizeSportKey(value) {
   return String(value || "")
@@ -406,6 +407,12 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     && event.startTimeUtc
     && Date.parse(event.startTimeUtc) + DEFAULT_LIVE_WINDOW_MS >= basisTime
   );
+  const completedFixtures = canonicalBundle.events.filter(event =>
+    sportDetailsByDomainId.has(event.sportDomainId)
+    && event.status === "completed"
+    && event.startTimeUtc
+    && Date.parse(event.startTimeUtc) + COMPLETED_RETENTION_MS >= basisTime
+  );
   const activeFixtureIds = new Set(fixtures.map(event => event.id));
   const scheduledCanonicalIds = new Set(canonicalBundle.events
     .filter(event => sportDetailsByDomainId.has(event.sportDomainId) && event.status === "scheduled")
@@ -420,6 +427,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
   const preservedEvents = currentFeedEvents.map(card => {
     const exactFixture = canonicalById.get(card.canonicalEventId);
     if (exactFixture?.status === "completed"){
+      matchedCanonicalIds.add(exactFixture.id);
       const next = applyCompletedCanonicalResult(card, exactFixture, participantsById);
       if (next.status === "completed" && card.status !== "completed") completedResultsUpdated += 1;
       return next;
@@ -428,21 +436,42 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       if (matchedCanonicalIds.has(candidate.id)) return false;
       return isSameFixture(card, candidate, sportDetailsByDomainId);
     });
-    if (!fixture) return card;
-    matchedCanonicalIds.add(fixture.id);
-    const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
-    return {
-      ...card,
-      participants: card.participants || participantRefs(fixture, participantsById),
-      sport: sport.label,
-      key: sport.key,
-      ...canonicalMetadata(fixture),
-    };
+    if (fixture){
+      matchedCanonicalIds.add(fixture.id);
+      const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
+      return {
+        ...card,
+        participants: card.participants || participantRefs(fixture, participantsById),
+        sport: sport.label,
+        key: sport.key,
+        ...canonicalMetadata(fixture),
+      };
+    }
+    const completedFixture = completedFixtures.find(candidate => {
+      if (matchedCanonicalIds.has(candidate.id)) return false;
+      return isSameFixture(card, candidate, sportDetailsByDomainId);
+    });
+    if (!completedFixture) return card;
+    matchedCanonicalIds.add(completedFixture.id);
+    const next = applyCompletedCanonicalResult(card, completedFixture, participantsById);
+    if (next.status === "completed" && card.status !== "completed") completedResultsUpdated += 1;
+    return next;
   });
   const generatedEvents = fixtures
     .filter(fixture => !matchedCanonicalIds.has(fixture.id))
     .map(fixture => fixtureToCard(fixture, participantsById, sportDetailsByDomainId));
-  const { events: rawEvents, removed: duplicateRemoved } = dedupeRegularSeasonFixtureCards([...preservedEvents, ...generatedEvents]);
+  const generatedCompletedEvents = completedFixtures
+    .filter(fixture => !matchedCanonicalIds.has(fixture.id))
+    .map(fixture => applyCompletedCanonicalResult(
+      fixtureToCard(fixture, participantsById, sportDetailsByDomainId),
+      fixture,
+      participantsById
+    ));
+  const { events: rawEvents, removed: duplicateRemoved } = dedupeRegularSeasonFixtureCards([
+    ...preservedEvents,
+    ...generatedEvents,
+    ...generatedCompletedEvents,
+  ]);
   const events = rawEvents
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
   const output = normalizeFeed({
@@ -458,7 +487,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     duplicateRemoved,
     summary: {
       eligible: fixtures.length,
-      existingMatches: matchedCanonicalIds.size,
+      existingMatches: fixtures.length - generatedEvents.length,
       generated: generatedEvents.length,
       duplicateRemoved: duplicateRemoved.length,
       byKey: output.events.reduce((acc, event) => {
@@ -466,6 +495,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
         return acc;
       }, {}),
       completedResultsUpdated,
+      completedResultsGenerated: generatedCompletedEvents.length,
       supportedSportDomains: Array.from(sportDetailsByDomainId.keys()),
     },
   };
@@ -490,6 +520,7 @@ function main(){
   writeJson(outputPath, output);
   console.log(`Synced ${summary.eligible} confirmed scheduled fixtures: ${summary.existingMatches} existing cards retained, ${summary.generated} routine cards added.`);
   console.log(`Projected ${summary.completedResultsUpdated} newly completed canonical results into existing cards.`);
+  console.log(`Restored ${summary.completedResultsGenerated} recent completed canonical results inside the seven-day window.`);
   const keyTotals = Object.entries(summary.byKey)
     .sort(([left], [right]) => left.localeCompare(right))
     .map(([key, count]) => `${key}:${count}`)

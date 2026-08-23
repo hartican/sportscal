@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-23T07:58:08.641Z",
+  "publishedAt": "2026-08-23T08:35:19.047Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -88,7 +88,7 @@
         "lastEventDate": "2026-08-03"
       },
       "afl": {
-        "count": 46,
+        "count": 47,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-09-26"
       },

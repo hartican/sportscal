@@ -2,7 +2,7 @@
 
 Reference date: 2026-08-23
 
-Compared 6 live/delayed listings with 686 canonical events. Found 2 catalogue gaps, 0 ambiguous listings, 4 possible AU availability changes and 5 high-priority recommendations.
+Compared 6 live/delayed listings with 687 canonical events. Found 2 catalogue gaps, 0 ambiguous listings, 4 possible AU availability changes and 5 high-priority recommendations.
 
 ## Australian source health
 

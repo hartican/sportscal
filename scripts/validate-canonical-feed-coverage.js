@@ -11,6 +11,7 @@ const feed = readJson(feedPath);
 const canonicalById = new Map(canonical.events.map(event => [event.id, event]));
 const basisTime = Date.parse(feed.publishedAt);
 const liveWindowMs = 3 * 60 * 60 * 1000;
+const completedRetentionMs = 7 * 24 * 60 * 60 * 1000;
 const canonicalDomainIndex = new Map(canonical.sportDomains.map(item => [item.id, item]));
 
 canonicalSportsTaxonomy?.sportDomains?.forEach(item => {
@@ -63,6 +64,29 @@ assert(publishedCards.every(event => !/\s(?:vs\.?|versus)\s/i.test(event.name)),
 const completedLinkedCards = feed.events.filter(event =>
   canonicalById.get(event.canonicalEventId)?.status === "completed"
 );
+const recentCompleted = canonical.events.filter(event =>
+  isCanonicalFixtureDomain(event.sportDomainId)
+  && event.status === "completed"
+  && event.startTimeUtc
+  && Date.parse(event.startTimeUtc) + completedRetentionMs >= basisTime
+);
+const recentCompletedIds = new Set(recentCompleted.map(event => event.id));
+const recentCompletedCards = feed.events.filter(event => recentCompletedIds.has(event.canonicalEventId));
+const recentCompletedPublishedIds = new Set(recentCompletedCards.map(event => event.canonicalEventId));
+const missingRecentCompleted = recentCompleted.filter(event => !recentCompletedPublishedIds.has(event.id));
+const duplicateRecentCompleted = recentCompletedCards.filter((event, index, items) =>
+  items.findIndex(item => item.canonicalEventId === event.canonicalEventId) !== index
+);
+assert.equal(
+  missingRecentCompleted.length,
+  0,
+  `missing completed canonical fixtures inside seven-day retention: ${missingRecentCompleted.map(event => event.id).join(", ")}`
+);
+assert.equal(
+  duplicateRecentCompleted.length,
+  0,
+  `duplicate completed canonical fixtures inside seven-day retention: ${duplicateRecentCompleted.map(event => event.canonicalEventId).join(", ")}`
+);
 const incompleteCanonicalResults = completedLinkedCards.filter(event =>
   event.status !== "completed"
   || !event.score
@@ -101,4 +125,5 @@ const keyTotals = Object.entries(counts)
 
 console.log(`Canonical feed coverage valid: ${keyTotals || "no confirmed scheduled cards"}; ${publishedCards.length} confirmed scheduled cards.`);
 console.log(`${completedLinkedCards.length} linked completed cards retain source-backed results.`);
+console.log(`${recentCompletedCards.length} recent completed cards cover the seven-day canonical retention window.`);
 console.log(`${tbcCount} official fixtures remain excluded until their start times are confirmed.`);
