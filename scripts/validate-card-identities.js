@@ -27,6 +27,8 @@ activeNrlTeams.forEach(team => {
   assert.match(mark.url, /^https:\/\/www\.nrl\.com\/\.theme\/.+\/badge(?:-light)?\.svg$/);
   assert.equal(mark.provenance, "official-site");
   ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${team.id} must expose the ${asset} logo asset`));
+  assert.equal(mark.logo?.backgroundLight, "light", `${team.id} must keep its official badge transparent in day mode`);
+  assert.equal(mark.logo?.backgroundDark, "light", `${team.id} must keep its official badge transparent in night mode`);
 });
 for (const participantId of ["team:nrl:328", "team:nrl:331", "team:nrl:337"]){
   assert.match(identities.participantMarks[participantId].logo.dark, /\/badge\.svg$/, `${participantId} must avoid the unavailable NRL badge-light variant`);

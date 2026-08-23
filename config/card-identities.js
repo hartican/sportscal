@@ -316,7 +316,7 @@
         iconLight: `https://www.nrl.com/.theme/${slug}/badge.svg`,
         iconDark: `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`,
         backgroundLight: "light",
-        backgroundDark: "dark",
+        backgroundDark: "light",
       },
     })]),
     ...Object.entries(aflTeamAssets).map(([participantId, [label, slug]]) => [participantId, officialMark(
