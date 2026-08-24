@@ -31,16 +31,16 @@
       "note": "Configured state exercises the long feed and remains below the separate configured-feed target."
     },
     "release4MissionCritical": {
-      "shellVersion": "119",
+      "shellVersion": "120",
       "visibleCanonicalRecords": 20,
-      "samplesMs": [73, 72, 73, 68, 73, 73, 68],
-      "medianMs": 73,
-      "feedRefreshSamplesMs": [13, 11, 12, 9, 13, 10, 10],
-      "feedRefreshMedianMs": 11,
+      "samplesMs": [1146, 82, 66, 68, 78, 70, 65],
+      "medianMs": 70,
+      "feedRefreshSamplesMs": [19, 11, 13, 12, 11, 13, 10],
+      "feedRefreshMedianMs": 12,
       "initialFeedPageRequests": 1,
-      "maximumInitialImageRequests": 16,
+      "maximumInitialImageRequests": 4,
       "horizontalOverflow": false,
-      "note": "Every run requested page-001 only before interaction. The 73ms median is 77.5% below the recorded 324ms Release 2 baseline."
+      "note": "Every run requested page-001 only before interaction and no canonical season or extra fixture bundle. The 70ms median is 78.4% below the recorded 324ms Release 2 baseline."
     }
   },
   "targets": {

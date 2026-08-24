@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="119">
+<meta name="app-shell-version" content="120">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -17300,12 +17300,9 @@ function startupFeedTaskDescriptors(){
 }
 
 function loadDeferredStartupContext(){
-  const tasks = [loadCanonicalSportsData()];
-  if (profileSelectsFootball()) tasks.push(loadFootballDirectoryData(), loadFootballCoreEvents());
-  if (profileHasFootballEntityFollow()) tasks.push(loadFootballFixturesForCurrentFollows());
-  if (profileHasNrlEntityFollow()) tasks.push(loadNrlFollowIndex());
-  if (profileHasAflEntityFollow()) tasks.push(loadAflFollowIndex());
-  return Promise.allSettled(tasks);
+  // Canonical seasons, directories and extra fixture bundles are intentionally
+  // loaded only by the Settings, Standings or Inspector surfaces that need them.
+  return disposableStore?.evictExpired?.() || Promise.resolve(0);
 }
 
 let startupPostLoadHandled = false;
