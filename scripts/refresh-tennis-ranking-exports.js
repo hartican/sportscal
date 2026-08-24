@@ -247,6 +247,19 @@ async function checkedFetch(fetchImpl, url, responseType = "json"){
   return response.json();
 }
 
+async function fetchWtaRankingUniverse(fetchImpl, referenceDate){
+  const rows = [];
+  const pageSize = 100;
+  const maximumPages = 25;
+  for (let page = 0; page < maximumPages; page += 1){
+    const pageRows = await checkedFetch(fetchImpl, `${WTA_SOURCE_URL}?page=${page}&pageSize=${pageSize}&type=rankSingles&sort=asc&metric=SINGLES&at=${referenceDate}`);
+    if (!Array.isArray(pageRows)) throw new Error(`WTA public rankings API returned a non-array page at ${page}`);
+    rows.push(...pageRows);
+    if (pageRows.length < pageSize) return rows;
+  }
+  throw new Error(`WTA public rankings API exceeded the fail-closed ${maximumPages * pageSize}-row pagination boundary`);
+}
+
 function rankingExport({ provider, tour, sourceUrl, publicationUrl, rankingSnapshotDate, publicationCheckedAt, athletes }){
   return {
     schemaVersion: "tennis-ranking-export.v1",
@@ -272,13 +285,12 @@ async function refreshRankingExports({ fetchImpl = fetch, now = new Date() } = {
   const publicationCheckedAt = isoTimestamp(now);
   const referenceDate = publicationCheckedAt.slice(0, 10);
   const previousAtp = currentRankingExport("ATP").payload;
-  const [atpBuffer, wtaTopRows, wtaAustralianRows] = await Promise.all([
+  const [atpBuffer, wtaRows] = await Promise.all([
     checkedFetch(fetchImpl, ATP_SOURCE_URL, "buffer"),
-    checkedFetch(fetchImpl, `${WTA_SOURCE_URL}?page=0&pageSize=50&type=rankSingles&sort=asc&metric=SINGLES&at=${referenceDate}`),
-    checkedFetch(fetchImpl, `${WTA_SOURCE_URL}?page=0&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES&at=${referenceDate}&nationality=AUS`),
+    fetchWtaRankingUniverse(fetchImpl, referenceDate),
   ]);
   const atp = parseAtpRankingRows(extractAtpPdfLayout(atpBuffer), previousAtp);
-  const wta = parseWtaRankingRows(wtaTopRows, wtaAustralianRows);
+  const wta = parseWtaRankingRows(wtaRows, []);
   return [
     rankingExport({
       provider: "ATP Tour",
@@ -332,6 +344,7 @@ module.exports = {
   assertCompleteRankingUniverse,
   atpDisplayName,
   extractAtpPdfLayout,
+  fetchWtaRankingUniverse,
   groupPositionedCells,
   parseAtpRankingRows,
   parseWtaRankingRows,

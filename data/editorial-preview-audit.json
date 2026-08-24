@@ -1,59 +1,12 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-23T12:44:43.330Z",
+  "generatedAt": "2026-08-24T06:12:56.467Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 3,
-    "passed": 3,
+    "due": 0,
+    "passed": 0,
     "failed": 0
   },
-  "cards": [
-    {
-      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-23",
-      "name": "Cincinnati Open — ATP Masters 1000",
-      "sport": "Tennis",
-      "date": "2026-08-23",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "atp-tour",
-        "atp_masters_1000",
-        "closing-day",
-        "hard-surface"
-      ],
-      "sourceUrl": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
-      "issues": []
-    },
-    {
-      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-23",
-      "name": "Cincinnati Open — WTA 1000",
-      "sport": "Tennis",
-      "date": "2026-08-23",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "wta-tour",
-        "wta_1000",
-        "closing-day",
-        "hard-surface"
-      ],
-      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_25",
-      "name": "R12 Dutch GP Race",
-      "sport": "F1",
-      "date": "2026-08-24",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "Kimi Antonelli: championship leader by 50 points",
-        "Oscar Piastri: 7th on 92 points"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "issues": []
-    }
-  ]
+  "cards": []
 }

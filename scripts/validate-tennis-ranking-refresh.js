@@ -7,6 +7,7 @@ const {
   ATP_SOURCE_URL,
   WTA_SOURCE_URL,
   atpDisplayName,
+  fetchWtaRankingUniverse,
   groupPositionedCells,
   parseAtpRankingRows,
   parseWtaRankingRows,
@@ -97,4 +98,26 @@ assert.equal(payload.ingestionMode, "public_first_party");
 assert.equal(payload.sourceTrust, "verified");
 assert.equal(payload.publicationCheckedAt, "2026-08-21T00:00:00.000Z");
 
-console.log("Official tennis ranking refresh valid: positioned ATP PDF rows, public WTA JSON, complete Top 50/AUS scope, identity fallback, and fail-closed provenance.");
+async function validateWtaPagination(){
+  const rows = Array.from({ length: 102 }, (_, index) => wtaRow(index + 1, index >= 100 ? "AUS" : "USA"));
+  const requestedPages = [];
+  const fetchImpl = async url => {
+    const page = Number(new URL(url).searchParams.get("page"));
+    requestedPages.push(page);
+    return {
+      ok: true,
+      async json(){ return rows.slice(page * 100, (page + 1) * 100); },
+    };
+  };
+  const universe = await fetchWtaRankingUniverse(fetchImpl, "2026-08-17");
+  assert.deepEqual(requestedPages, [0, 1], "the WTA refresh must page through one unfiltered official ranking publication");
+  assert.equal(universe.length, rows.length);
+  assert.equal(parseWtaRankingRows(universe, []).athletes.filter(athlete => athlete.nationalityCode === "AUS").length, 2, "lower-ranked Australians must come from the same publication boundary as the Top 50");
+}
+
+validateWtaPagination()
+  .then(() => console.log("Official tennis ranking refresh valid: positioned ATP PDF rows, one-date paginated WTA JSON, complete Top 50/AUS scope, identity fallback, and fail-closed provenance."))
+  .catch(error => {
+    console.error(error.stack || error.message);
+    process.exit(1);
+  });

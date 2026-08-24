@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-23T12:44:43.438Z",
+  "generatedAt": "2026-08-24T06:12:56.580Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,9 +12,9 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 165,
-    "completed": 120,
-    "upcoming": 45,
+    "totalMajorCards": 163,
+    "completed": 121,
+    "upcoming": 42,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1462,43 +1462,11 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-atp-cincinnati-2026-2026-08-23",
-      "name": "Cincinnati Open — ATP Masters 1000",
-      "sport": "Tennis",
-      "date": "2026-08-23",
-      "status": "upcoming",
-      "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
-      "id": "tennis-tournament-wta-cincinnati-2026-2026-08-23",
-      "name": "Cincinnati Open — WTA 1000",
-      "sport": "Tennis",
-      "date": "2026-08-23",
-      "status": "upcoming",
-      "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
       "id": "evt_25",
       "name": "R12 Dutch GP Race",
       "sport": "F1",
       "date": "2026-08-24",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

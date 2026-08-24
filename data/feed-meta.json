@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-23T12:44:37.629Z",
+  "publishedAt": "2026-08-24T06:12:50.553Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -14,7 +14,6 @@
     "f1",
     "cwg",
     "afl",
-    "tennis",
     "nrl",
     "cricket",
     "ski",
@@ -31,7 +30,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-08-23",
+    "basisDate": "2026-08-24",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -39,7 +38,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-02-09",
     "lastEventDate": "2027-07-10",
-    "daysAhead": 321,
+    "daysAhead": 320,
     "coversStandardPreloadWindow": true,
     "sports": {
       "nfl": {
@@ -88,14 +87,9 @@
         "lastEventDate": "2026-08-03"
       },
       "afl": {
-        "count": 47,
+        "count": 53,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-09-26"
-      },
-      "tennis": {
-        "count": 2,
-        "firstEventDate": "2026-08-23",
-        "lastEventDate": "2026-08-23"
       },
       "nrl": {
         "count": 63,

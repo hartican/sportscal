@@ -116,50 +116,50 @@
         {
           "id": "event:afl:cd_m20260142501",
           "name": "Wildcard Final - Melbourne v Carlton",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-08-29T09:35:00.000Z",
+          "venue": "MCG",
           "stakesScore": 5,
           "summary": "Official AFL schedule: Melbourne v Carlton at MCG."
         },
         {
           "id": "event:afl:cd_m20260142502",
           "name": "Wildcard Final - Western Bulldogs v Collingwood",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-08-28T09:40:00.000Z",
+          "venue": "MCG",
           "stakesScore": 5,
           "summary": "Official AFL schedule: Western Bulldogs v Collingwood at MCG."
         },
         {
           "id": "event:afl:cd_m20260142601",
-          "name": "Qualifying Final 1 - 1st v 4th",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "name": "Qualifying & Elimination Final - Fremantle v Hawthorn",
+          "startTimeUtc": "2026-09-03T10:10:00.000Z",
+          "venue": "Optus Stadium",
           "stakesScore": 5,
-          "summary": "First Qualifying Final. Teams, venue and time are pending the final ladder."
+          "summary": "Official AFL schedule: Fremantle v Hawthorn at Optus Stadium."
         },
         {
           "id": "event:afl:cd_m20260142602",
-          "name": "Qualifying Final 2 - 2nd v 3rd",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "name": "Qualifying & Elimination Final - Sydney Swans v Brisbane Lions",
+          "startTimeUtc": "2026-09-05T05:15:00.000Z",
+          "venue": "SCG",
           "stakesScore": 5,
-          "summary": "Second Qualifying Final. Teams, venue and time are pending the final ladder."
+          "summary": "Official AFL schedule: Sydney Swans v Brisbane Lions at SCG."
         },
         {
           "id": "event:afl:cd_m20260142603",
-          "name": "Elimination Final 1 - 5th v lowest-ranked Wildcard winner",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "name": "Qualifying & Elimination Final - Geelong Cats v Lowest-ranked WF Winner",
+          "startTimeUtc": "2026-09-04T09:40:00.000Z",
+          "venue": "MCG",
           "stakesScore": 5,
-          "summary": "First Elimination Final. Teams, venue and time are pending the Wildcard results."
+          "summary": "Official AFL schedule: Geelong Cats v Lowest-ranked WF Winner at MCG."
         },
         {
           "id": "event:afl:cd_m20260142604",
-          "name": "Elimination Final 2 - 6th v highest-ranked Wildcard winner",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "name": "Qualifying & Elimination Final - Adelaide Crows v Highest-ranked WF Winner",
+          "startTimeUtc": "2026-09-05T09:35:00.000Z",
+          "venue": "Adelaide Oval",
           "stakesScore": 5,
-          "summary": "Second Elimination Final. Teams, venue and time are pending the Wildcard results."
+          "summary": "Official AFL schedule: Adelaide Crows v Highest-ranked WF Winner at Adelaide Oval."
         },
         {
           "id": "event:afl:cd_m20260142701",

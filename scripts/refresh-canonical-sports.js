@@ -827,7 +827,13 @@ async function main(){
 
   const aflRecords = aflMatches.map(match => buildAflEvent(match, checkedAt, createdAtById));
   const nrlRecords = nrlMatches.map(match => buildNrlEvent(match, checkedAt, createdAtById));
-  const participants = uniqueParticipants([...aflRecords, ...nrlRecords].map(record => record.participants));
+  const preservedParticipants = (existingBundle?.participants || []).filter(participant => (
+    !["sport:afl", "sport:nrl"].includes(participant.sportDomainId)
+  ));
+  const participants = uniqueParticipants([
+    ...[...aflRecords, ...nrlRecords].map(record => record.participants),
+    preservedParticipants,
+  ]);
   const events = sortedEvents([...aflRecords, ...nrlRecords].map(record => record.event));
   const nrlLadder = buildNrlLadder(nrlRecords.map(record => record.event), participants, checkedAt);
   const independentNrlStandings = parseEspnNrlStandings(
@@ -844,7 +850,13 @@ async function main(){
     snapshot.competitionId === fetchedAflLadder.competitionId
   );
   const aflLadder = selectFreshestLadderSnapshot(fetchedAflLadder, storedAflLadder);
-  const ladderSnapshots = [aflLadder, nrlLadder];
+  const preservedLadderSnapshots = (existingBundle?.ladderSnapshots || []).filter(snapshot => (
+    ![aflLadder.competitionId, nrlLadder.competitionId].includes(snapshot.competitionId)
+  ));
+  const ladderSnapshots = [aflLadder, nrlLadder, ...preservedLadderSnapshots];
+  const preservedSources = (existingBundle?.sources || []).filter(source => (
+    source.provider === "Premier League"
+  ));
   const bundle = {
     schemaVersion: "canonical-sports.v1",
     taxonomyVersion: taxonomy.schemaVersion,
@@ -854,6 +866,7 @@ async function main(){
       eventSource("AFL", "https://www.afl.com.au/fixture", "official", checkedAt),
       eventSource("NRL Match Centre / Champion Data", "https://www.nrl.com/draw", "official-provider", checkedAt),
       independentNrlStandings.source,
+      ...preservedSources,
     ],
     sportDomains: taxonomy.sportDomains,
     competitionFamilies: taxonomy.competitionFamilies,
@@ -865,7 +878,7 @@ async function main(){
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(bundle, null, 2)}\n`);
-  console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} teams.`);
+  console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} preserved/current teams.`);
   console.log(`NRL result reconciliation: ${officialNrlCorrections.correctedMatchIds.length} direct-official corrections, ${nrlReconciliation.verifiedMatchIds.length} independently verified, ${nrlReconciliation.promotedMatchIds.length} supplemented, ${supplementalNrl.failedDates.length} scoreboard fetch failures.`);
   console.log(`NRL independent standings check: ${nrlLadder.metadata.independentValidation.status}.`);
   if (aflLadder === storedAflLadder){

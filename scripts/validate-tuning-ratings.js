@@ -86,7 +86,7 @@ const worker = fs.readFileSync("service-worker.js", "utf8");
 const shellVersion = html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
 const workerVersion = worker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+)"/)?.[1];
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "Tune and rating contracts must load before app state");
-assert(!html.includes('settingsMenuItem("tune"') && html.includes('<span class="tab-label">Code Inspector</span>'), "the separate Tune screen must be retired and the primary entry renamed Code Inspector");
+assert(!html.includes('settingsMenuItem("tune"') && html.includes('<span class="tab-label">Inspector</span>'), "the separate Tune screen must be retired and the primary entry named Inspector");
 assert(html.includes("renderDraftFineTuning") && html.includes("applyDraftFineTuneChoice"), "all deep tuning must remain draft-only under Froth knobs");
 assert(html.includes('sportsFollowedTab === "froth"') && html.includes("Save & close"), "Froth knobs must share one explicit Settings save boundary");
 assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i<=10;i++)"), "actual spectacle must use five one-tap stars");

@@ -54,7 +54,11 @@ assert.equal(aflFinals.startDate, "2026-08-28");
 assert.equal(aflFinals.endDate, "2026-09-26");
 const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""));
 assert.deepEqual(aflFinals.subEvents.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Events must preserve every canonical finals placeholder");
-assert.equal(majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === "event:afl:cd_m20260142601"), aflFinals), null, "un-timed AFL finals must not materialise in Fixtures");
+const firstUntimedAflFinal = aflFinals.subEvents.find(event => !event.startTimeUtc);
+assert(firstUntimedAflFinal, "at least one unresolved later-round AFL placeholder must remain available for TBC rendering");
+assert.equal(majorEvents.fixtureFromSubEvent(firstUntimedAflFinal, aflFinals), null, "genuinely un-timed AFL finals must not materialise as selectable Fixtures");
+const newlyConfirmedFirstWeek = canonicalAflFinals.find(event => event.id === "event:afl:cd_m20260142601");
+assert.equal(majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === newlyConfirmedFirstWeek.id), aflFinals)?.startTimeUtc, newlyConfirmedFirstWeek.startTimeUtc, "a newly confirmed first-week AFL final must materialise with the official start time");
 const confirmedWildcard = canonicalAflFinals.find(event => /wildcard/i.test(event.roundLabel || "") && event.startTimeUtc);
 if (confirmedWildcard){
   const materialisedWildcard = majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === confirmedWildcard.id), aflFinals);

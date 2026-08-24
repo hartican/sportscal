@@ -20,6 +20,8 @@ const latestResultSourceCheckedAt = "2026-08-11T04:20:00+10:00";
 const latestResultReviewedAt = "2026-08-10T18:20:00.000Z";
 const refreshedResultSourceCheckedAt = "2026-08-20T18:21:12.000Z";
 const refreshedResultReviewedAt = "2026-08-20T18:21:12.000Z";
+const releaseResultSourceCheckedAt = "2026-08-24T05:40:00.000Z";
+const releaseResultReviewedAt = "2026-08-24T05:40:00.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -73,6 +75,15 @@ const refreshedOfficial = (sourceName, sourceUrl, result) => ({
   sourceCheckedAt: refreshedResultSourceCheckedAt,
   sourceType: "official",
   lastReviewedAt: refreshedResultReviewedAt,
+});
+
+const releaseOfficial = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: releaseResultSourceCheckedAt,
+  sourceType: "official",
+  lastReviewedAt: releaseResultReviewedAt,
 });
 
 const results = {
@@ -580,6 +591,21 @@ const results = {
       },
     }
   ),
+  evt_25: releaseOfficial(
+    "Formula 1 Dutch Grand Prix race result",
+    "https://www.formula1.com/en/results/2026/races/1292/netherlands/race-result",
+    {
+      score: "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
+      outcomeText: "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
+      recapText: "Norris completed 72 laps in 2:04:44.859 and won by 11.536 seconds from Antonelli, with Russell third and Oscar Piastri sixth.",
+      resultLabels: ["Dutch GP", "Norris winner", "Official result"],
+      consensusResult: {
+        winner: "Lando Norris",
+        summary: "Norris won the Dutch Grand Prix.",
+        marginText: "Antonelli +11.536 seconds",
+      },
+    }
+  ),
   evt_66: official(
     "Tour de France stage 21 and final classification",
     "https://www.letour.fr/en/rankings/stage-21",
@@ -866,9 +892,9 @@ if (missing.length) {
   throw new Error(`Result refresh targets not found: ${missing.join(", ")}`);
 }
 
-feed.version = "nothingsport-results-2026-08-20-v1";
-feed.publishedAt = refreshedResultReviewedAt;
-feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 20 August 2026. Curated cards supersede routine imports for the same event.";
+feed.version = "nothingsport-results-2026-08-24-v2";
+feed.publishedAt = releaseResultReviewedAt;
+feed.sourceNote = "Curated event cards plus official confirmed 2026 AFL and NRL fixtures, refreshed with source-backed results through 24 August 2026. Curated cards supersede routine imports for the same event.";
 
 fs.writeFileSync(inputPath, `${JSON.stringify(feed, null, 2)}\n`);
 console.log(`Updated ${found.size} result cards in ${path.relative(process.cwd(), inputPath)}.`);

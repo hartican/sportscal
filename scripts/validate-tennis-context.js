@@ -27,8 +27,13 @@ assert(context.sources.filter(source => /protennislive|api\.wtatennis/.test(sour
 
 const participantsById = new Map(context.participants.map(participant => [participant.id, participant]));
 assert.equal(participantsById.size, context.participants.length, "tennis athlete IDs must be unique");
-assert(context.participants.filter(participant => participant.sportDomainId === "sport:tennis:atp").length >= 125);
-assert(context.participants.filter(participant => participant.sportDomainId === "sport:tennis:wta").length >= 100);
+for (const tour of ["atp", "wta"]){
+  const tourParticipants = context.participants.filter(participant => participant.sportDomainId === `sport:tennis:${tour}`);
+  const ranked = tourParticipants.filter(participant => Number.isInteger(participant.metadata.rankingSingles));
+  assert.equal(ranked.filter(participant => participant.metadata.rankingSingles <= 50).length, 50, `${tour.toUpperCase()} participants must include the complete Top 50`);
+  assert(ranked.some(participant => participant.metadata.isAustralian && participant.metadata.rankingSingles > 50), `${tour.toUpperCase()} participants must include current Australians outside the Top 50`);
+  assert(ranked.every(participant => participant.metadata.rankingSingles <= 50 || participant.metadata.isAustralian), `${tour.toUpperCase()} ranking participants must stay within the published Top 50 plus Australian scope`);
+}
 assert(context.participants.every(participant => participant.type === "competitor"));
 assert(context.participants.every(participant => participant.metadata.titleAliases?.length));
 assert(context.participants.some(participant => participant.sportDomainId === "sport:tennis:atp" && participant.metadata.isAustralian && participant.metadata.rankingSingles > 50));

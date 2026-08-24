@@ -100,8 +100,10 @@ function validate(){
   assert(appSource.includes('return Array.from(new Set(["football", ...rankingSportKeysForStandings(preferences)]))'), "the Standings filter must always expose Football");
   assert.equal((appSource.match(/footballDirectorySearchTimer = window\.setTimeout\(\(\) => \{/g) || []).length, 2, "all team and player searches must use the shared debounce");
   assert.equal((appSource.match(/\}, 600\);/g) || []).length >= 2, true, "team and player search must wait 600ms before rebuilding the directory");
-  assert(appSource.includes("sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY"), "Standings filters must use sessionStorage");
-  assert(!/function saveStandingsSportKeys[\s\S]{0,450}savePreferences\(/.test(appSource), "Standings filters must never enter profile sync");
+  assert(appSource.includes("sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY"), "transient Standings directory view and search state must use sessionStorage");
+  assert(/function selectedStandingsSportKeys[\s\S]{0,260}preferences\?\.standings\?\.selectedSportKeys/.test(appSource), "Standings selections must hydrate from durable preferences");
+  assert(/function saveStandingsSportKeys[\s\S]{0,500}savePreferences\(/.test(appSource), "Standings selections must enter the shared profile sync boundary");
+  assert(/function saveStandingsSportKeys[\s\S]{0,350}current\.length === selected\.length[\s\S]{0,100}return false/.test(appSource), "semantic Standings selection no-ops must not write or change timestamps");
   assert(!appSource.includes("function renderTeamFollowPanel") && !appSource.includes("function buildJointTournamentAthletePanel")
     && !appSource.includes("data-entity-follow"), "dedicated follow lists must not remain outside Standings");
   assert(appSource.includes('!["rugby", "cricket", "football", "fifa", "premier-league"].includes(ev.key)'), "balanced football filtering must cover Premier League and core football fixtures");
@@ -112,9 +114,30 @@ function validate(){
     && workerSource.includes("cache.match(cacheKey)"), "lazy football assets must use a normalised runtime cache key for offline replay");
   assert(appSource.includes("async function loadFootballAsset")
     && /async function loadFootballAsset[\s\S]{0,500}const response = await fetch\(url\)/.test(appSource), "lazy football assets must remain runtime-cacheable");
-  const malformed = directoryApi.parseSessionState("{bad", ["nrl"]);
+  const playerMatch = directoryApi.filteredDirectory(directory, { query: "Lucas Herrington" });
+  assert.equal(playerMatch.players.length, 1, "a direct player match must display the matching player");
+  assert(playerMatch.teams.some(team => team.id === herrington.currentTeamId), "a direct player match must display the player's club");
+  assert(playerMatch.playerTeamIds.includes(herrington.currentTeamId), "a direct player match must mark its club for automatic expansion");
+  const teamMatch = directoryApi.filteredDirectory(directory, { query: "Arsenal" });
+  assert(teamMatch.teams.some(team => team.displayName === "Arsenal"), "a direct team match must display its team row");
+  assert.equal(teamMatch.players.length, 0, "a team-name match must not display players that do not independently match");
+  const syntheticMultiClubDirectory = {
+    teams: directory.teams.slice(0, 2),
+    players: directory.teams.slice(0, 2).map((team, index) => ({
+      id: `competitor:football:test-smith-${index}`,
+      displayName: index ? "Jordan Smith" : "Alex Smith",
+      currentTeamId: team.id,
+      leagueId: team.leagueId,
+      position: "Midfielder",
+      prominenceTier: "established",
+    })),
+  };
+  const multiClubMatch = directoryApi.filteredDirectory(syntheticMultiClubDirectory, { query: "smith" });
+  assert(new Set(multiClubMatch.playerTeamIds).size >= 2, "a shared player-name query must support simultaneous multi-club expansion");
+  assert(appSource.includes("autoExpanded || filters.expandedTeamId === team.id"), "every club with a matching player must auto-expand without collapsing another match");
+  const malformed = directoryApi.parseSessionState("{bad");
   assert.equal(malformed.activeView, "tables");
-  assert.deepEqual(malformed.selectedSportKeys, ["nrl"]);
+  assert.equal(Object.hasOwn(malformed, "selectedSportKeys"), false, "durable selected sports must never leak into the transient session contract");
   console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} priority players across six leagues.`);
   return directory;
 }

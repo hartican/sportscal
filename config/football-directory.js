@@ -6,8 +6,8 @@
   "use strict";
 
   const SCHEMA_VERSION = "football-directory.v1";
-  const SESSION_SCHEMA_VERSION = "standings-directory-session.v1";
-  const SESSION_STORAGE_KEY = "nothingsport:standings-directory-session:v1";
+  const SESSION_SCHEMA_VERSION = "standings-directory-session.v2";
+  const SESSION_STORAGE_KEY = "nothingsport:standings-directory-session:v2";
   const PLAYER_ID_PREFIX = "competitor:football:";
   const DIRECTORY_PLAYER_ID_PREFIXES = Object.freeze([
     PLAYER_ID_PREFIX,
@@ -19,11 +19,10 @@
     return Array.from(new Set((values || []).filter(Boolean)));
   }
 
-  function defaultSessionState(selectedSportKeys = []){
+  function defaultSessionState(){
     return {
       schemaVersion: SESSION_SCHEMA_VERSION,
       activeView: "tables",
-      selectedSportKeys: unique(selectedSportKeys),
       directorySportKey: "football",
       filtersBySport: {},
     };
@@ -40,19 +39,18 @@
     };
   }
 
-  function parseSessionState(raw, selectedSportKeys = []){
+  function parseSessionState(raw){
     let parsed = raw;
     if (typeof raw === "string"){
       try { parsed = JSON.parse(raw); } catch (_error) { parsed = null; }
     }
-    if (!parsed || parsed.schemaVersion !== SESSION_SCHEMA_VERSION) return defaultSessionState(selectedSportKeys);
+    if (!parsed || parsed.schemaVersion !== SESSION_SCHEMA_VERSION) return defaultSessionState();
     const filtersBySport = Object.fromEntries(Object.entries(parsed.filtersBySport || {})
       .filter(([key]) => typeof key === "string" && key.length <= 48)
       .map(([key, filters]) => [key, normalizeFilters(filters)]));
     return {
       schemaVersion: SESSION_SCHEMA_VERSION,
       activeView: parsed.activeView === "directory" ? "directory" : "tables",
-      selectedSportKeys: unique(Array.isArray(parsed.selectedSportKeys) ? parsed.selectedSportKeys : selectedSportKeys),
       directorySportKey: typeof parsed.directorySportKey === "string" ? parsed.directorySportKey : "football",
       filtersBySport,
     };
@@ -95,14 +93,13 @@
       if (filters.birthCountryCode && player.birthCountryCode !== filters.birthCountryCode) return false;
       if (filters.prominenceTier && player.prominenceTier !== filters.prominenceTier) return false;
       if (!query) return true;
-      const team = teams.find(item => item.id === player.currentTeamId);
-      return [player.displayName, player.position, player.prominenceTier, team?.displayName]
+      return [player.displayName, player.position, player.prominenceTier]
         .filter(Boolean).join(" ").toLocaleLowerCase("en-AU").includes(query);
     });
     const playerTeamIds = new Set(players.map(player => player.currentTeamId));
     const visibleTeams = teams.filter(team => !query || playerTeamIds.has(team.id)
       || [team.displayName, ...(team.aliases || [])].join(" ").toLocaleLowerCase("en-AU").includes(query));
-    return { teams: visibleTeams, players };
+    return { teams: visibleTeams, players, playerTeamIds: Array.from(playerTeamIds) };
   }
 
   return Object.freeze({

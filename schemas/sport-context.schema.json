@@ -105,7 +105,7 @@
         "sportDomainId": { "$ref": "#/$defs/id" },
         "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "name": { "type": "string", "minLength": 2 },
-        "familyType": { "enum": ["championship", "tour"] },
+        "familyType": { "enum": ["championship", "tour", "league"] },
         "sortOrder": { "type": "integer" },
         "isActive": { "type": "boolean" }
       }
@@ -141,8 +141,8 @@
         "supportsLadder": { "type": "boolean" },
         "supportsTeams": { "type": "boolean" },
         "supportsCompetitors": { "type": "boolean" },
-        "standingsOnly": { "const": true },
-        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking", "stageJerseys", "conferenceStandings", "medalTable"] },
+        "standingsOnly": { "type": "boolean" },
+        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking", "stageJerseys", "conferenceStandings", "medalTable", "leagueTable"] },
         "defaultStandingsVisibility": { "enum": ["summary", "full"] }
       }
     },

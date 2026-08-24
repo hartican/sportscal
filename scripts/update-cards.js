@@ -55,6 +55,9 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/refresh-canonical-sports.js"],
+  ["scripts/refresh-premier-league-context.js"],
+  ["scripts/refresh-premier-league-context.js", "--check"],
+  ["scripts/validate-premier-league-context.js"],
   ["scripts/refresh-major-events-from-canonical.js"],
   ["scripts/refresh-tennis-ranking-exports.js"],
   ["scripts/validate-tennis-ranking-refresh.js"],
@@ -138,6 +141,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-source-and-venues.js"],
   ["scripts/validate-feed-performance.js"],
   ["scripts/validate-code-inspector-ui.js"],
+  ["scripts/validate-events-fixture-ux.js"],
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/verify-nothingsport.js"],
   ];

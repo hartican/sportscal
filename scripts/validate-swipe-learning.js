@@ -45,8 +45,11 @@ const html = fs.readFileSync("index.html", "utf8");
 assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "calibration must remain available to the learning model without appearing in onboarding");
 assert(html.includes('id="calibrationMoreBtn"') && html.includes('id="calibrationLessBtn"') && html.includes('id="calibrationSkipBtn"'), "calibration must expose visible More, Less and Skip controls");
 assert(html.includes('event.key === "ArrowRight"') && html.includes('event.key === "ArrowLeft"'), "curated cards must expose keyboard swipe equivalents");
-assert(html.includes("orderCuratedDayEvents(groups[dateStr])"), "learned signals must immediately reorder matching curated cards within their feed day");
-assert(html.includes("sessionDismissedEventIds.add") && html.includes("sessionDismissedEventIds.has"), "a left swipe must dismiss only from the current curated-feed session");
-assert(!html.match(/function renderSportHubAllFixtures[\s\S]*?sessionDismissedEventIds/), "complete fixture rendering must ignore session swipe dismissals");
+assert(html.includes("orderCuratedDayEvents(groups[dateStr])"), "learned signals must affect the next feed calculation");
+assert(html.includes("cardRetained: true") && !html.includes("sessionDismissedEventIds"), "both swipe directions must retain the visible card list");
+assert(html.includes("window.setTimeout(() =>") && html.includes("}, 1400);"), "swipe feedback must remain visible for 1.4 seconds");
+assert(html.includes("future feed suggestions will adapt."), "swipe feedback must explain when the learning signal takes effect");
+assert(html.includes("swipeCoaching") && html.includes("dismissedAt") && html.includes("swipe-coaching"), "swipe coaching completion and hints must use the durable profile contract");
+assert(html.includes('overlay.setAttribute("role", "status")') && html.includes("prefers-reduced-motion:reduce"), "swipe feedback must be announced politely and honour reduced motion");
 
-console.log("Swipe learning valid: canonical anchors, accessible controls, bounded v6 signals, session dismissal and complete-fixture isolation passed.");
+console.log("Swipe learning valid: canonical anchors, retained cards, 1.4-second feedback, durable coaching and reduced-motion handling passed.");
