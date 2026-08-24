@@ -242,6 +242,7 @@ function participantRefs(fixture, participantsById){
     { id: fixture.homeParticipantId, role: "home" },
     { id: fixture.awayParticipantId, role: "away" },
   ].map(item => ({
+    id: item.id,
     name: participantsById.get(item.id)?.displayName || participantsById.get(item.id)?.canonicalName || item.id,
     role: item.role,
   }));
@@ -260,6 +261,15 @@ function canonicalMetadata(fixture){
     participantIds: fixture.participantIds,
     homeParticipantId: fixture.homeParticipantId,
     awayParticipantId: fixture.awayParticipantId,
+    roundLabel: fixture.roundLabel || null,
+    stage: fixture.stage || null,
+    isInternational: fixture.competitionScope === "international" || fixture.isInternational === true,
+    competitionScope: fixture.competitionScope || (fixture.isInternational === true ? "international" : "domestic"),
+    representativeCountryCodes: Array.from(new Set([
+      ...(Array.isArray(fixture.representativeCountryCodes) ? fixture.representativeCountryCodes : []),
+      fixture.homeRepresentingCountryCode,
+      fixture.awayRepresentingCountryCode,
+    ].filter(Boolean))),
     broadcasterIds: fixture.broadcasters.map(item => item.broadcasterId.replace(/^broadcaster:/, "")),
     scheduleStatus: fixture.scheduleStatus,
     ...(fixture.status === "completed" && fixture.result?.scorelineText

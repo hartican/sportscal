@@ -5,6 +5,20 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsTeamFollowCatalogue(){
   "use strict";
 
+  const NATIONAL_COUNTRY_CODES = Object.freeze({
+    "team:rugby:wallabies":"AU", "team:rugby:all-blacks":"NZ", "team:rugby:springboks":"ZA",
+    "team:rugby:argentina":"AR", "team:rugby:england":"GB", "team:rugby:ireland":"IE",
+    "team:rugby:france":"FR", "team:rugby:scotland":"GB", "team:rugby:wales":"GB",
+    "team:cricket:australia":"AU", "team:cricket:england":"GB", "team:cricket:india":"IN",
+    "team:cricket:new-zealand":"NZ", "team:cricket:south-africa":"ZA", "team:cricket:pakistan":"PK",
+    "team:cricket:bangladesh":"BD", "team:cricket:sri-lanka":"LK", "team:cricket:west-indies":"WI",
+    "team:football:socceroos":"AU", "team:football:matildas":"AU", "team:football:england":"GB",
+    "team:football:argentina":"AR", "team:football:france":"FR", "team:football:spain":"ES",
+    "team:football:brazil":"BR",
+    "team:nrl:kangaroos":"AU", "team:nrl:jillaroos":"AU",
+    "team:nrl:kiwis":"NZ", "team:nrl:kiwi-ferns":"NZ",
+  });
+
   const groups = [
     ["sport:rugby", "Rugby", [
       ["International", [
@@ -87,13 +101,43 @@
         ["team:football:epl:21", "Tottenham Hotspur", ["Tottenham Hotspur", "Tottenham", "Spurs"]],
       ]],
     ]],
+    ["sport:nrl", "Rugby League", [
+      ["International", [
+        ["team:nrl:kangaroos", "Australian Kangaroos", ["Australia", "Kangaroos"], "AU"],
+        ["team:nrl:jillaroos", "Australian Jillaroos", ["Australia Women", "Jillaroos"], "AU"],
+        ["team:nrl:kiwis", "New Zealand Kiwis", ["New Zealand", "Kiwis"], "NZ"],
+        ["team:nrl:kiwi-ferns", "New Zealand Kiwi Ferns", ["New Zealand Women", "Kiwi Ferns"], "NZ"],
+      ]],
+    ]],
+    ["sport:nba", "Basketball", [
+      ["International", [
+        ["team:basketball:boomers", "Australian Boomers", ["Australia", "Boomers"], "AU"],
+        ["team:basketball:opals", "Australian Opals", ["Australia Women", "Opals"], "AU"],
+      ]],
+    ]],
+    ["sport:netball", "Netball", [
+      ["International", [
+        ["team:netball:diamonds", "Australian Diamonds", ["Australia", "Diamonds"], "AU"],
+      ]],
+    ]],
+    ["sport:hockey", "Hockey", [
+      ["International", [
+        ["team:hockey:kookaburras", "Kookaburras", ["Australia Men", "Kookaburras"], "AU"],
+        ["team:hockey:hockeyroos", "Hockeyroos", ["Australia Women", "Hockeyroos"], "AU"],
+      ]],
+    ]],
+    ["sport:multi-sport", "Multi-sport Games", [
+      ["International", [
+        ["team:cwg:australia", "Australia", ["Australia", "Team Australia"], "AU"],
+      ]],
+    ]],
   ].map(([domainId, label, sections]) => Object.freeze({
     domainId,
     label,
     sections: Object.freeze(sections.map(([sectionLabel, teams]) => Object.freeze({
       label: sectionLabel,
-      teams: Object.freeze(teams.map(([id, displayName, aliases]) => Object.freeze({
-        id, displayName, aliases: Object.freeze(aliases), type: sectionLabel === "International" ? "nationalSide" : "team", sportDomainId: domainId,
+      teams: Object.freeze(teams.map(([id, displayName, aliases, countryCode = ""]) => Object.freeze({
+        id, displayName, aliases: Object.freeze(aliases), countryCode:countryCode || NATIONAL_COUNTRY_CODES[id] || "", type: sectionLabel === "International" ? "nationalSide" : "team", sportDomainId: domainId,
       }))),
     }))),
   }));
@@ -107,7 +151,15 @@
 
   function participantIdsForEvent(event){
     const sportKey = String(event?.key || "");
-    const domainId = sportKey === "rugby" ? "sport:rugby" : sportKey === "cricket" ? "sport:cricket" : ["football", "fifa", "premier-league"].includes(sportKey) ? "sport:football" : null;
+    const domainId = sportKey === "rugby" ? "sport:rugby"
+      : sportKey === "cricket" ? "sport:cricket"
+        : ["football", "fifa", "premier-league"].includes(sportKey) ? "sport:football"
+          : sportKey === "nrl" ? "sport:nrl"
+            : ["nba", "basketball"].includes(sportKey) ? "sport:nba"
+              : sportKey === "netball" ? "sport:netball"
+                : sportKey === "hockey" ? "sport:hockey"
+                  : ["cwg", "multi-sport"].includes(sportKey) ? "sport:multi-sport"
+                    : null;
     if (!domainId) return [];
     const text = [event?.name, event?.displayTitleCompact, ...(Array.isArray(event?.participants) ? event.participants.map(participant => participant?.name) : [])]
       .filter(Boolean).join(" | ").toLowerCase();

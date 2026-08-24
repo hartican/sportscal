@@ -21,6 +21,10 @@ assert(html.includes("replaceCardPreservingViewport(card, buildMajorEventCard(re
 assert(/function replaceCardPreservingViewport[\s\S]{0,1200}getBoundingClientRect\(\)\.top[\s\S]{0,500}window\.scrollTo/.test(html), "keyed card replacement must restore the tapped card's viewport top");
 assert(html.includes('.major-event-logo{ display:grid; place-items:center; width:88px; height:90px;') && html.includes('.major-event-logo{ width:74px; height:70px;'), "Events identities must share the compact desktop and mobile fixture frames");
 assert(html.includes("renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta)"), "both Events card types must use the shared official identity renderer");
+assert(html.includes('headingText: state === "opened" ? "Published timetable" : "Next matches and line-ups"'), "Events cards must expose the immediate timetable above the fold");
+assert(html.includes('lineup.textContent = lineupNames.length >= 2') && html.includes('"Line-up TBC"'), "Events cards must use published line-ups or an explicit TBC state");
+assert(!html.includes('aboutHeading.textContent = "Event detail"'), "the generic Event detail preamble must be removed");
+assert(html.includes('className = "major-event-ticket-link event-quick-action"'), "Buy tickets must share the Remind me and View pill geometry");
 
 assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");

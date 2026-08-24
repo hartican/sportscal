@@ -36,5 +36,8 @@ assert(html.includes("identity.replaceChildren(fallback)") && html.includes("log
 assert(html.includes("function auditFeedUiGeometry"), "the app must expose deterministic live geometry checks for responsive browser QA");
 assert(html.includes('type: "horizontal-overflow"') && html.includes('type: "identity-escape"') && html.includes('type: "identity-overlap"') && html.includes('type: "image-fallback-collision"'), "the live geometry audit must reject every required collision class");
 assert(html.includes("content-visibility:auto") && html.includes("contain-intrinsic-size"), "fixture-heavy cards must reserve off-screen geometry");
+assert(/\.cards-grid > \.event-card\{ padding:14px 14px 18px; \}/.test(html), "mobile Feed cards must retain 14px sides and 18px bottom whitespace");
+assert(html.includes("height:auto;") && html.includes("max-height:none;") && html.includes("overflow:visible;"), "compact cards must not clip a growing final row");
+assert(html.includes(".ticket-sale-card,.ticket-sale-card *{ min-width:0; }") && html.includes("overflow-wrap:anywhere"), "ticket-alert detail must wrap safely on iOS");
 
 console.log(`Feed UI geometry contract valid across ${framedRoles.length} identity roles.`);

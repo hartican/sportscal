@@ -44,6 +44,8 @@
       "properties": {
         "id": { "type": "string", "minLength": 1 },
         "name": { "type": "string", "minLength": 1 },
+        "roundLabel": { "type": ["string", "null"] },
+        "stage": { "type": ["string", "null"] },
         "startTimeUtc": { "type": ["string", "null"], "format": "date-time" },
         "venue": { "type": "string", "minLength": 1 },
         "stakesScore": { "type": "integer", "minimum": 1, "maximum": 5 },
@@ -54,6 +56,9 @@
         "scoreDisplay": { "type": ["string", "null"] },
         "participants": { "type": "array" },
         "participantIds": { "type": "array", "items": { "type": "string" } },
+        "competitionScope": { "enum": ["domestic", "international"] },
+        "isInternational": { "type": "boolean" },
+        "representativeCountryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 3 } },
         "ticketing": { "$ref": "#/$defs/ticketing" }
       }
     },
@@ -70,6 +75,9 @@
         "sportKeys": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "sportLabel": { "type": "string", "minLength": 1 },
         "competitionId": { "type": "string" },
+        "competitionScope": { "enum": ["domestic", "international"] },
+        "isInternational": { "type": "boolean" },
+        "representativeCountryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 3 } },
         "stakesScore": { "const": 5 },
         "dateStatus": { "enum": ["confirmed", "tbc"] },
         "season": { "type": "integer", "minimum": 2026 },

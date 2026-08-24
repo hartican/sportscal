@@ -95,8 +95,10 @@ assert(
   !html.includes('id="tuneControlGrid"')
     && html.includes('id="tuneBrowseList"')
     && !html.includes('id="draftFeedControls"')
-    && html.includes("function renderFollowView"),
-  "Standings & Fixtures must remain read-only while Follow owns feed eligibility"
+    && html.includes("function renderFollowView")
+    && html.includes("function setCodeInspectorFixtureAdded")
+    && html.includes('addedFixture:snapshot'),
+  "Standings & Fixtures may pin a concrete one-off fixture while Follow remains the only automatic eligibility control"
 );
 assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
 assert(html.includes("FOLLOW_FIRST?.appendFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata");
@@ -104,7 +106,7 @@ assert(html.includes('className = "badge discovery"') && !html.includes('classNa
 assert(html.includes('sessionOpenedEventIds.add(') && html.includes('label.className = "new-tag"'), "open signals must remain session-local while newly surfaced cards use the durable New lifecycle");
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must count Today as visible anywhere in the viewport");
 assert(!/buildJointTournamentMustWatchAction|jointTournamentIsMustWatch|action\.mustWatch \? 12/.test(html), "the removed Must Watch feature must not affect tournament actions or recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v134"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v138"'));
 assert(html.includes('button.dataset.jumpTarget = "today"') && html.includes('delete button.dataset.jumpTarget;'), "the contextual jump control must target only Today and hide when it is visible");
 assert(!html.includes('scrollActiveFeedToMustWatch'), "the removed queue must have no jump target");
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));

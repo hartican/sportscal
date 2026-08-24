@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const followFirst = require("../config/follow-first");
+const { fixtureToCard } = require("./sync-canonical-fixtures-to-feed");
 
 const meta = followFirst.normalizeMeta({
   sports:["afl", "football", "unknown"],
@@ -21,19 +22,46 @@ assert.equal(meta.personalisedOffersConsent, false);
 const seeded = followFirst.applyMetaSeed({}, meta);
 assert.equal(seeded.changed, true);
 assert.deepEqual(seeded.preferences.selectedSelectorEntityIds, ["sport:afl", "sport:football"]);
-assert.deepEqual(seeded.preferences.followFirst.australiansOnlySportIds, ["afl", "football"]);
+assert.deepEqual(seeded.preferences.followFirst.australiansOnlySportIds, [], "signup sport seeds must not silently enable Australia-only matching");
 assert.equal(followFirst.applyMetaSeed(seeded.preferences, meta).changed, false);
 
 const followed = followFirst.migratePreferences({
   followedSports:["afl"],
-  preferenceGraph:{ entityFollows:[{ participantId:"team:afl:test", followLevel:"follow" }] },
+  followFirst:{ australiansOnlySportIds:["afl", "nrl", "rugby"] },
+  preferenceGraph:{ entityFollows:[
+    { participantId:"team:afl:test", followLevel:"follow" },
+    { participantId:"competitor:rugby:test", followLevel:"follow" },
+  ] },
 });
-assert.equal(followFirst.reasonForEvent({ key:"afl", participantIds:["team:afl:test"] }, followed, { participantLabel:() => "Test Club" }).label, "Because you follow Test Club");
-assert.equal(followFirst.reasonForEvent({ key:"afl", australianInterest:true }, followed).label, "Because you follow Aussies Only");
-assert.equal(followFirst.reasonForEvent({ key:"afl" }, followed).label, "Because you follow Aussies Only");
+assert.deepEqual(followed.followFirst.australiansOnlySportIds, ["rugby"], "domestic AFL and NRL must be removed idempotently from Aussies Only");
+const teamReason = followFirst.reasonForEvent({ key:"afl", participantIds:["team:afl:test"] }, followed, { participantLabel:() => "Test Club" });
+assert.equal(teamReason.label, "Because you follow Test Club");
+assert.equal(teamReason.entityKind, "team");
+assert.equal(teamReason.displayTag, false, "team follows remain eligibility-only context");
+const playerReason = followFirst.reasonForEvent({ key:"rugby", participantIds:["competitor:rugby:test"] }, followed, { participantLabel:() => "Test Player" });
+assert.equal(playerReason.label, "Because you follow Test Player");
+assert.equal(playerReason.entityKind, "athlete");
+assert.equal(playerReason.displayTag, true, "only a directly followed athlete gets visible context");
+assert.equal(followFirst.reasonForEvent({ key:"rugby", competitionScope:"domestic", representativeCountryCodes:["AU"] }, followed), null, "Australian domestic events must not qualify");
+assert.equal(followFirst.reasonForEvent({ key:"rugby", competitionScope:"international", representativeCountryCodes:[] }, followed), null, "international metadata still requires explicit Australian representation");
+const australiaReason = followFirst.reasonForEvent({ key:"rugby", competitionScope:"international", representativeCountryCodes:["AUS"] }, followed);
+assert.equal(australiaReason.entityKind, "national-representation");
+assert.equal(australiaReason.displayTag, false);
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
+assert.equal(followFirst.stageLabel({ stage:"Wildcard Final" }), "Wildcard");
 assert.equal(followFirst.stageLabel({ stage:"Preliminary Final" }), "Prelim");
 assert.equal(followFirst.stageLabel({ roundLabel:"Quarter-finals" }), "QF");
+assert.equal(followFirst.stageLabel({ stage:"Semi Final" }), "Semis");
+assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Finals");
+
+const finalsCard = fixtureToCard({
+  id:"event:test:final", sourceId:"source:test", source:{ provider:"Official", sourceUrl:"https://example.com", checkedAt:"2026-08-24T00:00:00Z" },
+  sportDomainId:"sport:nrl", competitionId:"competition:test", participantIds:["team:one", "team:two"], homeParticipantId:"team:one", awayParticipantId:"team:two",
+  displayName:"One v Two", startTimeUtc:"2026-09-01T09:00:00Z", broadcasters:[], venueName:"Venue", venueCity:"Sydney", status:"scheduled", scheduleStatus:"confirmed",
+  roundLabel:"Preliminary Final", stage:"Preliminary Final", competitionScope:"domestic", updatedAt:"2026-08-24T00:00:00Z",
+}, new Map([["team:one", { displayName:"One" }], ["team:two", { displayName:"Two" }]]), new Map([["sport:nrl", { key:"nrl", label:"NRL" }]]));
+assert.equal(finalsCard.roundLabel, "Preliminary Final");
+assert.equal(finalsCard.stage, "Preliminary Final", "generated feed cards must preserve finals metadata");
 
 const feedback = followFirst.appendFeedback(followed, { eventId:"event:1", direction:"negative", targetId:"team:afl:test" });
 assert.equal(feedback.followFirst.feedback.entries.length, 1);
@@ -78,6 +106,7 @@ assert(!fs.existsSync("api/calendar.js") && !fs.existsSync("lib/calendar-sync.js
 
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
 assert(html.includes('className = "follow-reason-tag"') && followFirstSource.includes("Because you follow"));
+assert(html.includes("followReason?.displayTag"), "visible follow context must respect the player-only display flag");
 assert(html.includes("appendEventQuickActions") && html.includes("Remind me") && html.includes("<span>View</span>"));
 assert(/\.swipe-coaching[\s\S]{0,500}color:\s*#43b9ff/.test(html));
 assert(/\.swipe-coaching[\s\S]{0,500}font-size:\s*\.85rem/.test(html));
@@ -98,7 +127,10 @@ assert(migration.includes("Gender and full age brackets are intentionally not co
 assert(html.includes("LOCALITY_COORDINATES") && html.includes("distanceKm") && html.includes("radiusKm"));
 assert(locationApi.includes("GOOGLE_MAPS_API_KEY") && locationApi.includes("FALLBACK_LOCATIONS"));
 assert(packageDocument.dependencies["web-push"]);
-assert(html.includes("pushInstallationCredentials") && html.includes("ensurePushInstallation"));
+assert(html.includes("localNotificationRegistration") && html.includes("deliverBrowserReminder"));
+const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
+assert(!quickReminderSource.includes("ensureWebPushReminder") && !quickReminderSource.includes("removeWebPushReminder"), "release reminders must remain local-only");
+assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep nothingSport open."));
 assert(notificationApi.includes("remind_at") && notificationApi.includes("15 * 60 * 1000"));
 assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));

@@ -61,6 +61,6 @@ assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, 
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
 assert(userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.some(branch => branch.required?.includes("startTimeUtc")), "persisted child fixtures must require a confirmed UTC start");
 assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
-assert(html.includes('name="app-shell-version" content="134"') && worker.includes('nothingsport-shell-v134'), "the polished card UI must ship in a matching offline shell version");
+assert(html.includes('name="app-shell-version" content="138"') && worker.includes('nothingsport-shell-v138'), "the polished card UI must ship in a matching offline shell version");
 
 console.log("Card polish valid: three-level cards, shared fixture/event shells, radius-aware ticket gating, compact identities, and score-only results passed.");

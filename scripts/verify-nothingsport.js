@@ -73,8 +73,8 @@ assert(scriptMatch, "index.html must contain an inline app script");
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app script must parse");
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
-assert.deepEqual(tabOrder, ["feed", "events", "standings"], "Fixtures, Events and Standings must remain ordered routed destinations");
-assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"') && html.includes('<span class="tab-label">Inspector</span>'), "the compact primary navigation must expose Inspector as a bottom sheet");
+assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
+assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"') && html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "the compact primary navigation must expose Standings & Fixtures as the fourth destination");
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
 const requiredSlogan = "Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
@@ -91,7 +91,7 @@ assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requi
 assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["curates live sport around your tastes", "follow and rate", "results hidden", "major live moments", "Sports followed & Tune", "Inspector", "read-only code-level fixture drill-down"].forEach(phrase => {
+["only from teams, players and Aussies Only follows", "Sport and major-event choices organise", "Likes and dislikes are saved as feedback", "Standings & Fixtures"].forEach(phrase => {
   assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
@@ -104,7 +104,7 @@ assert(
 assert(!html.includes("Sports feed orchestrator") && !html.includes("Your sports, orchestrated."), "superseded slogan copy must be removed from app and share surfaces");
 assert(!/right live games/i.test(html), "superseded right-live-games copy must be removed");
 assert(!brand.about.includes("Sydney"), "core product copy must not be city-bound");
-assert(brand.about.includes("AEST/AEDT by default"), "core product copy must describe its default timezone basis");
+assert(brand.timezoneDescription.includes("AEST/AEDT by default"), "core product copy must describe its default timezone basis");
 const brandAssets = [
   "assets/brand/source/nothingsport-logo-master.png",
   "assets/brand/source/nothingsport-hero-logo-master.png",
@@ -139,9 +139,10 @@ assert.deepEqual(
   "the install manifest must use the supplied skier app icon with normal and maskable safe zones"
 );
 assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
-assert(html.includes('<span class="tab-label">Fixtures</span>'), "Fixtures must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Feed</span>'), "Feed must be visible in primary navigation");
 assert(html.includes('<span class="tab-label">Events</span>'), "Events must be visible in primary navigation");
-assert(html.includes('<span class="tab-label">Standings &amp; Follow</span>'), "Standings & Follow must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Follow</span>'), "Follow must be visible in primary navigation");
+assert(html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "Standings & Fixtures must be visible in primary navigation");
 assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived|Ladders|L&amp;S)<\/span>/.test(html), "obsolete primary tab labels must be removed");
 assert(!/id="(?:neverMissView|watchLaterView|archivedView)"/.test(html), "removed navigation surfaces must not leave orphaned view routes");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
@@ -209,7 +210,8 @@ assert(
     && html.includes("FEED_CONFIG.eventsScriptUrl"),
   "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
 );
-assert(html.includes('id="browserAlertsEnabled"'), "browser reminders must require an explicit settings toggle");
+assert(html.includes("async function toggleQuickReminder") && html.includes("await localNotificationRegistration()"), "Remind me must enable the local reminder from the user gesture");
+assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep nothingSport open."), "local reminder UI must disclose its active-app delivery limit");
 assert(html.includes('id="soundtrackToggle"'), "background audio must use an explicit top-bar toggle");
 assert(html.includes('class="soundtrack-toggle-state">OFF</span>'), "the soundtrack toggle must expose an ON/OFF state");
 assert(html.includes('id="soundtrackAudio"') && html.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "the supplied Skyscraper Samba recording must be the sole audio source");
@@ -220,7 +222,8 @@ assert(!/createOscillator|elevator|epic orchestral|heavy metal/i.test(soundtrack
 assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
 assert(html.includes('PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle'), "settings writes must target one stable profile transaction");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
-assert(html.includes('id="tuneNavBtn"') && html.includes('<span class="tab-label">Inspector</span>') && html.includes('id="tuneSheet"'), "compact navigation must expose the read-only Inspector");
+assert(html.includes('id="tuneNavBtn"') && html.includes('<span class="tab-label">Standings &amp; Fixtures</span>') && html.includes('id="tuneSheet"'), "compact navigation must expose Standings & Fixtures");
+assert(html.includes("function setCodeInspectorFixtureAdded") && html.includes("addedFixture:snapshot") && html.includes('added ? "Remove from Feed" : "Add to Feed"'), "Standings & Fixtures must persist Add to Feed and Remove from Feed against the stable fixture snapshot");
 assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
 assert(html.includes("function openCodeInspector(codeId") && html.includes("history.pushState({ codeInspector: codeId, inspectorParent: true }") && !html.includes("openDiscoverySport(nodeId)"), "Inspect actions must use isolated history state rather than mutating the feed filter");
 assert(html.includes('activeTab: sportHubFullCoverageAllowed(sportKey) ? "all-fixtures" : "worth-watching"'), "AFL and NRL must default to highlights until that sport is Froth");
@@ -244,17 +247,16 @@ assert(html.includes('<h3 id="tuneBrowseTitle">Codes</h3>') && html.includes("lo
 assert(!html.includes('id="tuneSelectAllBtn"') && !html.includes('id="tuneDeselectAllBtn"') && !html.includes('id="tuneClearFilterBtn"'), "Inspector must remove visit-scoped multi-select filtering");
 assert(html.includes('role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle"') && html.includes("function trapTuneSheetFocus(event)"), "Inspector must remain an accessible focus-trapped bottom sheet");
 assert(html.includes("tuneSheetReturnState = {") && html.includes("inspectorPickerState = { scrollTop:") && html.includes('returnState.focus.focus({ preventScroll: true })'), "Inspector list must preserve feed and picker position and restore keyboard focus");
-assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState") && html.includes("#inspect/"), "Inspector drill-down must keep a separate history-aware return state");
+assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState") && html.includes("#standings-fixtures/"), "Standings & Fixtures drill-down must keep a separate history-aware return state");
 assert(!html.includes('id="feedFilterVisibilityBtn"') && !html.includes('id="feedFilterDock"'), "the retired Hide/Show filter rail must not remain exposed");
 assert(html.includes("function stickyFeedChromeHeight()"), "focused-view offsets must continue to account for pinned app chrome");
 assert(html.includes("function scheduleFirstCardViewportFit()") && html.includes('"header-compact-1", "header-compact-2", "header-compact-3"'), "the phone opening must progressively compact the branded header around the first card");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "first login must keep only Sports followed and viewing in the user-facing setup");
-assert(!html.includes('data-sports-followed-tab="events"'), "named events must not remain a follow-choice tab");
-assert(html.includes("data-domain-froth") && html.includes("data-domain-custom"), "followed sports must use a Casual-to-Froth slider with a separate Custom mode");
-assert(html.includes("data-inline-froth") && html.includes('id="frothKnobList"'), "selected sports must render Froth controls only in Froth knobs");
-assert(html.includes('.filter(entity => entity.parentId === "category:sports")') && html.includes('const revealChildren = selected && ["template:like", "template:froth", "template:custom"].includes(parentTemplate)'), "Sports Followed must show hierarchy children only beneath their selected parent at Like, Froth or Custom depth");
-assert(html.includes("renderDraftFineTuning") && html.includes("applyDraftFineTuneChoice"), "competition, team and player tuning must remain draft-only under Froth knobs");
+assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "first login must use the idempotent lightweight startup metadata screen");
+assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect a limited sport and major-event selection");
+assert(html.includes('id="startupLocationQuery"') && html.includes('id="startupRadius"'), "startup must collect a coarse location with an adjustable radius");
+assert(html.includes('id="startupOffersGrid"') && html.includes('id="personalisedOffersConsent"'), "startup must keep offer interests and personalised-offer consent separate and optional");
+assert(!html.includes('data-domain-froth') && !html.includes('id="frothKnobList"'), "Froth controls must not remain in the user-facing setup");
 assert(!html.includes("data-domain-ls") && !html.includes("data-standings-visibility"), "standings visibility controls must be removed from Settings and Froth");
 assert(!html.includes("renderStandingsSettings") && !html.includes("renderTemplateSettings"), "standalone standings visibility and Froth screens must be removed");
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
@@ -268,21 +270,16 @@ assert(html.includes('className = "standings-freshness-note"'), "standings must 
 assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
 assert(html.includes("Standings refresh periodically and may briefly differ from official sources due to update delays."), "standings must disclose periodic update latency against official sources");
 assert(html.includes("appendDirectoryFollowOptions") && html.includes("setDirectoryEntityFollow"), "entity follow levels must be editable from the central Standings directory");
-assert(html.includes('["nrl", "NRL"]') && html.includes('["afl", "AFL"]'), "Standings Teams & players must expose NRL and AFL alongside Football");
+assert(html.includes('session.directorySportKey === "football"') && html.includes('session.directorySportKey === "nrl"') && html.includes('session.directorySportKey === "afl"'), "Teams & Players must expose NRL and AFL alongside Football");
 assert(html.includes("loadNrlDirectoryData") && html.includes("loadAflDirectoryData"), "NRL and AFL catalogues must load only when opened");
 assert(html.includes("profileHasNrlEntityFollow") && html.includes("profileHasAflEntityFollow"), "saved NRL and AFL player follows must restore their fixture expansion at startup");
 assert(!serviceWorkerSource.includes('"/data/canonical/nrl-directory.v1.json"') && !serviceWorkerSource.includes('"/data/canonical/afl-directory.v1.json"'), "full NRL and AFL directories must remain outside the critical offline shell");
 assert(html.includes('className = "follow-context"'), "followed teams and competitors must resolve into visible card context");
 assert(html.includes('"Top 3 + followed"'), "summary standings must promise to retain followed entities outside the top three");
-assert(html.includes('id="viewingStartHour"') && html.includes('id="viewingEndHour"'), "viewing time windows must be optional settings");
-assert(html.includes('id="viewingWindowEnabled"'), "Any time must be represented as an explicit durable viewing-window preference");
-assert(html.includes("The recommended default is 7am–10pm AEST/AEDT"), "Settings must explain the recommended default viewing window");
-assert(html.includes('${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window'), "the Settings menu must summarise the active viewing window");
-assert(html.includes("Calendar sync starts enabled for new profiles"), "Settings must explain the Calendar sync default");
-assert(html.includes("asks permission only when you enable it"), "browser alert permission must remain deferred until explicit enablement");
-assert.equal(preferenceSystem.DEFAULT_VIEWING_WINDOW.startHourLocal, 7, "the preference graph default must start at 7am");
-assert.equal(preferenceSystem.DEFAULT_VIEWING_WINDOW.endHourLocal, 22, "the preference graph default must end at 10pm");
-assert(html.includes("Every available provider starts selected"), "provider selection must be opt-out");
+assert(html.includes('settingsMenuItem("subscriptions"') && html.includes('settingsMenuItem("notifications"'), "Subscriptions and Notifications must be separate Settings destinations");
+assert(html.includes("function renderSubscriptionSettings") && html.includes("function renderNotificationSettings"), "Subscriptions and Notifications must have independent settings screens");
+assert(!html.includes("Calendar sync starts enabled for new profiles") && !html.includes("calendar sync"), "calendar sync must remain removed from the app");
+assert(html.includes("async function localNotificationRegistration") && html.includes("Notification.requestPermission()"), "notification permission must remain deferred until the local reminder user gesture");
 assert(!html.includes("loadCachedFeedEvents"), "a stale saved feed must not override the generated published-feed fallback");
 assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
 assert(html.includes("className = \"new-dot\""), "new cards must render the compact contrast-colour dot");
@@ -292,12 +289,12 @@ assert(html.includes('<span class="spoiler-home-label">Show/Hide Results:</span>
 assert(html.includes('state.textContent = shown ? "ON" : "OFF"'), "the result control must expose explicit ON and OFF pill states");
 assert(html.includes(".spoiler-home-toggle.active .spoiler-home-state"), "the ON result pill must have a distinct active treatment");
 assert(!html.includes("id=\"globalSpoilerSwitch\""), "Settings must not duplicate the global result-visibility control");
-assert(html.includes('"Local venues", `${draftPreferences.localVenueIds.length} local venue'), "Settings must retain a Local venues entry after removing the result control");
+assert(html.includes('settingsMenuItem("location", "ui:map-pin", "Set location"'), "Settings must expose the location and radius screen as Set location");
 assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main screen");
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
-assert(html.includes('id="sportsChoiceGrid"'), "Settings must restore the sports selector");
+assert(html.includes('class="tab-btn" data-tab="follow"') && html.includes("function renderFollowView"), "Follow must own sports, team, player and event choices outside Settings");
 const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
-const settingsMenuLabels = ["Account & sync", "Sports followed & Tune", "Viewing & reminders", "Local venues", "Feedback & appearance"];
+const settingsMenuLabels = ["Account", "Subscriptions", "Notifications", "Set location", "Feedback"];
 assert(settingsMenuLabels.every(label => settingsMenuSource.includes(`"${label}"`)), "Settings must expose the five approved top-level areas");
 assert(settingsMenuLabels.every((label, index) => index === 0 || settingsMenuSource.indexOf(`"${settingsMenuLabels[index - 1]}"`) < settingsMenuSource.indexOf(`"${label}"`)), "Settings must retain the approved top-to-bottom order");
 assert(!settingsMenuSource.includes('settingsMenuItem("tune"') && !settingsMenuSource.includes('settingsMenuItem("calibration"'), "Tune and Swipe Calibration must remain absent from user-facing Settings navigation");
@@ -315,16 +312,15 @@ assert(preferenceSystemSource.includes('const SCHEMA_VERSION = "preference-graph
 assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferenceSystemSource.includes("MAX_CALIBRATION_SKIPS = 10"), "learning and calibration progress must stay bounded");
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "Swipe Calibration must remain BTS and absent from onboarding");
+assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "Swipe Calibration must remain BTS and absent from onboarding");
 assert(html.includes("applyCuratedEventSwipe") && html.includes("cardRetained: true") && !html.includes("sessionDismissedEventIds"), "curated event swipes must learn without removing or reordering the current card list");
-assert(html.includes('source: "calibration"') && html.includes('source: "feed"') && preferenceSystemSource.includes('"tune"'), "learning signals must retain their calibration, feed, or Tune source");
+assert(html.includes('source: "calibration"') && html.includes("FOLLOW_FIRST?.appendFeedback") && html.includes("targetType:target.targetType"), "calibration and feed feedback must retain their distinct bounded metadata paths");
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
 assert(html.includes("learningPreference: graph.learning || null"), "local profile reloads must retain learning separately from canonical truth");
 assert(preferenceSystemSource.includes("function mergeLearning"), "preference migrations must retain a bounded learning merge helper");
 assert(html.includes("userPreferences = mergePreferences(state.preferences || {})"), "sign-in must hydrate the latest cloud preferences before tracking new session changes");
-assert(fineTuningSource.includes('id: "broad"') && fineTuningSource.includes('id: "teams"') && fineTuningSource.includes('id: "people"'), "Froth knobs must retain sports, marquee events, teams, players and event families");
-assert(!html.includes('settingsMenuItem("tune"') && html.includes("renderDraftFineTuning") && html.includes('<span class="tab-label">Inspector</span>'), "the separate Tune screen must be retired in favour of draft-only Froth knobs and Inspector");
-assert(html.includes("applyDraftFineTuneChoice") && html.includes("saveSettingsPreferences"), "deep tuning must commit only through the shared Settings save boundary");
+assert(!html.includes('settingsMenuItem("tune"') && !html.includes('id="frothKnobList"'), "Tune and Froth knobs must remain absent from user-facing Settings");
+assert(html.includes("function renderFollowView") && html.includes("setDirectoryEntityFollow") && html.includes("saveFollowSport"), "Follow must own direct sport, team and player preference updates");
 assert(preferenceSystemSource.includes("MEANINGFUL_TUNING_INTERACTIONS = 8") && preferenceSystemSource.includes("MEANINGFUL_TUNING_SESSIONS = 2"), "meaningful tuning must use the canonical interaction or completed-session thresholds");
 assert(preferenceSystemSource.includes("POST_TUNING_DISLIKE_GAP = 100") && preferenceSystemSource.includes("POST_TUNING_DAY_GAP = 30"), "meaningful tuning must suppress prompts until both fatigue gates pass");
 assert(ratingSystemSource.includes("return value * 2") && ratingSystemSource.includes("value / 2"), "five-star ratings must preserve 1-10 storage and render odd scores as half stars");
@@ -368,8 +364,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v132"'), "the startup release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="132">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v138"'), "the startup release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="138">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -391,11 +387,12 @@ assert(html.includes("Feed generated ${publishedCopy}"), "feed status must label
 assert(html.includes("This is when the published feed was generated, not when this browser last checked it."), "feed status must not imply that a browser refresh contacts sporting sources");
 assert(serverFeedSource.includes("sourcePublishedAt") && serverFeedApiSource.includes("sourcePublishedAt: eventFeed.publishedAt"), "signed-in feeds must retain the same canonical publication timestamp");
 assert(html.includes('open.type = "button"') && html.includes('open.textContent = "Inspect"') && !html.includes('tick.setAttribute("role", "checkbox")'), "Inspector rows must expose keyboard-native Inspect actions without feed-filter checkbox semantics");
-assert(html.includes("Editorial top picks and story highlights can still appear when you do not follow their sport"), "Sports Followed must explain the editorial must-show override");
+assert(!html.includes("Editorial top picks and story highlights can still appear when you do not follow their sport") && html.includes("Automatic Feed cards come from saved teams, players and Australian national representation."), "Follow must describe the strict follow-first Feed boundary without an editorial bypass");
 assert(serviceWorkerSource.includes('"/assets/brand/web/nothingsport-logo.png"'), "the visible brand mark must remain in the lean offline shell");
+const appShellSource = serviceWorkerSource.match(/const APP_SHELL = \[[\s\S]*?\n\];/)?.[0] || "";
 brandAssets
   .filter(asset => (asset.startsWith("assets/brand/web/") || asset.startsWith("icons/")) && asset !== "assets/brand/web/nothingsport-logo.png")
-  .forEach(asset => assert(!serviceWorkerSource.includes(`"/${asset}"`), `optional ${asset} must not delay shell installation`));
+  .forEach(asset => assert(!appShellSource.includes(`"/${asset}"`), `optional ${asset} must not delay shell installation`));
 assert(!serviceWorkerSource.includes("/assets/brand/web/nothingsport-logo-slogan.png"), "the offline shell must stop caching the stale slogan raster");
 assert(!serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"') && html.includes('preload="none"'), "the optional soundtrack must never delay app startup");
 assert(!serviceWorkerSource.includes('"/data/events.json"') && !serviceWorkerSource.includes('"/data/events.js"') && serviceWorkerSource.includes('"/data/feed/page-001.json"'), "the shell must retain only the bounded first feed page for offline startup");
@@ -429,16 +426,15 @@ const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(p
 assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
 assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");
 assert(!html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must preserve its seeded league choices");
-assert(html.includes('id="selectorCategoryList"'), "Settings must expose top-level selector categories");
-assert(html.includes('id="commonwealthFilterList"'), "Commonwealth Games must expose its discipline filters");
+assert(html.includes('[["teams-players", "Teams & Players"], ["sports-australia", "Sports & Australia"], ["major-events", "Major Events"]]'), "Follow must expose its three clear choice sections");
 assert(html.includes('id="selectorOptInModal"'), "new selector entities must use one consolidated opt-in prompt");
 assert.equal((html.match(/id="selectorOptInModal"/g) || []).length, 1, "new selector entities must not stack multiple prompts");
 assert(html.includes('selectorNewMarkerMarkup(entity)'), "new selector entities must reuse the contrast-colour dot treatment");
-assert(html.includes('setTimeout(openSelectorOptInPrompt, 250)'), "existing profiles must receive the batched opt-in prompt on the next app open");
+assert(html.includes("FOLLOW_FIRST?.shouldPromptRefinement?.(userPreferences)") && html.includes('id="reviewSportsFromTuneBtn">Open Follow</button>') && html.includes('activateTopLevelTab("follow")'), "the third-open or first-swipe refinement prompt must route to Follow");
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
 assert(!settingsMenuSource.includes('settingsMenuItem("archive"') && html.includes("function renderArchiveSettings"), "legacy Archive recovery must not be a user-facing Settings destination");
-assert(html.includes('selectionActionsMarkup("sports-global"') && html.includes('selectionActionsMarkup("providers"') && html.includes('selectionActionsMarkup("venues"'), "every setup multi-select must expose Select all and Deselect all controls");
+assert(html.includes('renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SPORTS') && html.includes('renderChoices("startupEventsGrid", FOLLOW_FIRST.MAJOR_EVENT_FAMILIES'), "startup must render only the bounded popular sport and major-event choices");
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
@@ -476,7 +472,7 @@ assert(html.includes('className = "card-result-score"') && html.includes('.card-
 assert(html.includes('const isTeamMatchup = CARD_IDENTITIES?.isTeamSportMatchup?.(ev, displayTitle) || false;') && html.includes('.event-top-row.has-team-matchup .event-name{'), "team matchup names must be centred independently of card badges without turning individual tennis fixtures into team cards");
 assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('height:92px;') && html.includes('.matchup-team-logo-slot{ width:74px; height:70px;'), "matchup cards must reserve equal, approximately 35%-smaller logo-led bounding boxes for both teams");
 assert(html.includes('.event-card.is-logo-led-matchup.is-past{ opacity:0.86; }'), "logo-led past fixtures must retain enough contrast for their official team marks");
-assert(html.includes('.matchup-team-name-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('.matchup-vs{\n  position:absolute;\n  left:50%;') && html.includes('teamNames.append(firstTeam, versus, secondTeam);'), "each matchup label must split into team A, versus, and team B beneath their corresponding logos");
+assert(html.includes('.matchup-team-name-row{') && html.includes('grid-template-columns:repeat(2, minmax(0, 1fr))') && html.includes('.matchup-stage-vs{ position:absolute; left:50%;') && html.includes('stageVersus.appendChild(versus);') && html.includes('teamNames.append(firstTeam, stageVersus, secondTeam);'), "each matchup label must split into team A, stage badge above versus, and team B beneath their corresponding logos");
 assert(html.includes('background:transparent;\n  border:0;') && html.includes('.matchup-logo-surface-dark{ background:transparent; }'), "matchup logo boxes must remain transparent rather than placing official marks on artificial tiles");
 assert(html.includes('.matchup-team-logo-slot[data-logo-surface="dark"]{') && html.includes('background:#092e4f;'), "white official team marks without a day alternative must receive a contrast-safe fallback surface");
 assert(html.includes('logo.loading = "lazy";') && html.includes('.matchup-team-logo-slot{') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "off-screen matchup logos must defer their network work while retaining the reduced stable layout footprint");
@@ -504,10 +500,7 @@ assert(html.includes('intensityMarkup(ev.stakesScore, { className: "stakes-vecto
 assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
 assert(eventCardSource.includes('label.className = "new-tag"') && eventCardSource.includes('label.textContent = "New"'), "unseen surfaced cards must carry the temporary New tag");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
-assert(html.includes('id="calendarSyncBtn"'), "the header must expose Calendar sync as the primary calendar action");
-assert(html.includes('id="calendarSyncModal"'), "Calendar sync must reveal a dedicated subscription surface");
-assert(html.includes('id="calendarSyncUrl"'), "Calendar sync must reveal the customised subscription URL");
-assert(html.includes('id="copyCalendarSyncBtn"') && html.includes('id="subscribeCalendarSyncBtn"'), "Calendar sync must support copy and calendar-app subscription actions");
+assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"') && !html.includes('id="calendarSyncUrl"'), "calendar sync must remain removed from the header and app");
 assert(!html.includes("Export Never Miss"), "the obsolete one-off Never Miss export language must be removed");
 assert(!html.includes('id="exportModal"') && !html.includes('id="exportForm"'), "the one-off batch export form must be removed");
 const actionPanelSource = html.match(/function buildEventActionPanel\(ev, options = \{\}\)\{[\s\S]*?\n  return panel;\n\}/)?.[0] || "";
@@ -601,7 +594,6 @@ assert(contextualTennisEvents.filter(event => /\bMen(?:'|’)s\b/i.test(event.na
 assert(contextualTennisEvents.filter(event => /\bWomen(?:'|’)s\b/i.test(event.name)).every(event => event.participantIds?.length === 2), "Wimbledon women's cards must resolve only the two named WTA competitors");
 assert(html.includes('["tennisContext", "data/canonical/tennis-context-2026.json"]') && html.includes("loadCanonicalContextBundles()"), "the browser must load the tennis context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/tennis-context-2026.json")'), "the authenticated server feed must load the same tennis context bundle");
-assert(html.includes('? "Competitor ranking context"'), "tennis settings must describe ATP data as competitor rankings rather than a generic championship table");
 assert.equal(cyclingContext.participants.length, 14, "Tour detail settings must expose the calibrated rider-follow set");
 assert.equal(cyclingContext.jerseySnapshots.length, 21, "every Tour stage card must have a start/close jersey snapshot");
 assert(cyclingContext.jerseySnapshots.every(snapshot => snapshot.unavailableClassifications.includes("purple")), "purple must be explicitly withheld when the official Tour publishes no such classification");
@@ -614,7 +606,6 @@ assert(html.includes('["cyclingContext", "data/canonical/cycling-context-2026.js
 assert(serverFeedApiSource.includes('require("../data/canonical/cycling-context-2026.json")'), "the authenticated server feed must load the same cycling context bundle");
 assert(html.includes("function buildStageJerseyContext(ev)"), "Tour stage cards must render the calibrated jersey context");
 assert(html.includes("Starting and closing holders protected while Results is off."), "Tour jersey changes must respect spoiler protection");
-assert(html.includes("purple withheld because the official Tour publishes no purple classification"), "Tour settings must explain why purple is unavailable rather than silently substituting green");
 assert.equal(nbaContext.participants.filter(participant => participant.type === "team").length, 30, "NBA detail settings must expose all 30 team follows");
 assert.equal(nbaContext.participants.filter(participant => participant.type === "competitor").length, 15, "NBA detail settings must expose the official 15 All-NBA competitors");
 assert(nbaContext.competitions.every(competition => competition.standingsType === "conferenceStandings"), "NBA context must use conference-calibrated standings");
@@ -625,7 +616,6 @@ assert(contextualNbaEvents.every(event => event.participantIds?.length === 4), "
 assert(contextualNbaEvents.every(event => !event.participantIds.includes("team:nba:detroit-pistons")), "unrelated NBA teams must not leak onto Finals cards");
 assert(html.includes('["nbaContext", "data/canonical/nba-context-2026.json"]'), "the browser must load the NBA context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/nba-context-2026.json")'), "the authenticated server feed must load the same NBA context bundle");
-assert(html.includes("Conference standings · W/L, win percentage and games behind"), "NBA settings must describe the calibrated conference tables");
 assert.equal(cwgContext.participants.filter(participant => participant.sportDomainId === "sport:multi-sport:cwg:competitors").length, 15, "CWG detail settings must expose the calibrated competitor-follow set");
 assert.equal(cwgContext.participants.filter(participant => participant.sportDomainId === "sport:multi-sport:cwg:nations").length, 24, "CWG medal context must resolve every currently medalling nation or territory");
 assert.equal(cwgContext.competitions[0]?.standingsType, "medalTable", "CWG context must use a sport-calibrated medal table");
@@ -638,7 +628,6 @@ assert(!contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-boxing-
 assert(html.includes('["cwgContext", "data/canonical/cwg-context-2026.json"]'), "the browser must load the CWG context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/cwg-context-2026.json")'), "the authenticated server feed must load the same CWG context bundle");
 assert(html.includes('"special:commonwealth-games": "sport:multi-sport"'), "Commonwealth Games settings must resolve to the multi-sport canonical domain");
-assert(html.includes("Medal table · Gold, silver, bronze and total"), "CWG settings must describe the calibrated medal table");
 const canonicalIndex = createCanonicalSportsIndex(canonicalSports);
 assert(canonicalIndex.getFixtures({ competitionId: "competition:afl-premiership-2026" }).length >= 207, "canonical store must contain the complete 2026 AFL home-and-away fixture plus any published finals");
 assert(canonicalIndex.getFixtures({ competitionId: "competition:nrl-premiership-2026" }).length >= 204, "canonical store must contain the complete 2026 NRL premiership fixture plus any published finals");
@@ -825,8 +814,6 @@ assert(melbourneCards.every(event => event.ticketSaleStatus === "waitlist-open-d
 assert.equal(melbourneCards.find(event => event.timeTbc)?.calendarExportEligible, false, "the date-TBC Melbourne card must not create a false calendar appointment");
 
 const appPrelude = scriptMatch[1].split("/* ============ LIVE CLOCK ============ */")[0];
-const calendarSyncSummarySource = scriptMatch[1].match(/function calendarSyncSummaryText\(config = calendarSyncConfigForPreferences\(\)\)\{[\s\S]*?(?=\nfunction renderCalendarSyncModal)/);
-assert(calendarSyncSummarySource, "Calendar sync must expose a preference-specific subscription summary");
 const storage = new Map();
 storage.set("ns_feed_cache_v1", JSON.stringify({
   events: [{ id: "stale-cache-card", eventId: "stale-cache-card", key: "nrl", sport: "NRL", name: "Stale cached fixture", date: "2026-07-24", time: "19:00", broadcaster: "Kayo Sports", expected: 5 }],
@@ -974,7 +961,6 @@ globalThis.__test = {
   hideSpoilersForEvent,
   resetSpoilerOverride,
   isLocalGame,
-  matchedLocalVenue,
   preferredTicketOfferForEvent,
   setEventRating,
   getActual,
@@ -986,10 +972,6 @@ globalThis.__test = {
   storylineCopyForDisplay,
   eventSpielForDisplay,
   retrospectiveSignificanceForEvent,
-  calendarSyncConfigForPreferences,
-  buildCalendarSyncUrl,
-  buildCalendarWebcalUrl,
-  calendarSyncSummaryText,
   formatFeedbackTimestamp,
   buildFeedbackMessage,
   buildFeedbackSmsUrl,
@@ -1005,10 +987,7 @@ globalThis.__test = {
   rankingCompetitionsForStandings,
   rankingSportKeysForStandings,
 };`;
-vm.runInContext(`${appPrelude}\n${calendarSyncSummarySource[0]}\n${expose}`, sandbox, { filename: "index.html" });
-const icsSource = scriptMatch[1].match(/function pad2\(n\)[\s\S]*?(?=\nfunction downloadICS)/);
-assert(icsSource, "calendar export functions must be present");
-vm.runInContext(`${icsSource[0]}\nglobalThis.__test.generateICS = generateICS;`, sandbox, { filename: "index.html" });
+vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
 app.setJointTournamentData(jointTournamentDocument);
 assert.equal(app.eventIsJointTournamentFeedChild({
@@ -1428,7 +1407,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 15, "the seeded league defaults must use the personalised-feed preference migration");
+assert.equal(app.mergePreferences(null).version, 16, "the seeded defaults must use the follow-first preference migration");
 assert.deepEqual(Array.from(app.mergePreferences(null).standings.selectedSportKeys), [], "fresh profiles must deselect every Standings sport");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 14, standings: { selectedSportKeys: null } }).standings.selectedSportKeys), [], "legacy null Standings selections must migrate to an explicit empty array");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 15, standings: { selectedSportKeys: [] } }).standings.selectedSportKeys), [], "a durable explicit empty Standings selection must remain authoritative");
@@ -1511,7 +1490,7 @@ assert(existingProfileBeforeCwg.selectedBroadcasters.includes("seven"), "existin
 app.setEvents(publishedCwgCards);
 app.setPreferences(existingProfileBeforeCwg);
 assert(publishedCwgCards.filter(event => /swim/i.test(event.commonwealthDiscipline || event.sport || "")).every(event => app.selectorEntityMatchesEvent("sport:swimming", event)), "migrated Commonwealth sport follows must match their discipline cards");
-assert.equal(app.getPreferenceMatchedEvents(new Date("2026-07-24T00:00:00Z")).filter(event => event.key === "cwg").length, 34, "existing profiles must retain every Commonwealth Games card after the selector taxonomy updates");
+assert.equal(app.getPreferenceMatchedEvents(new Date("2026-07-24T00:00:00Z")).filter(event => event.key === "cwg").length, 0, "broad sport follows alone must not bypass strict follow-first Feed eligibility");
 const cwgUmbrellaMigration = app.mergePreferences({ version: 12, selectedSelectorEntityIds: ["special:commonwealth-games"], followedSports: ["cwg"] });
 assert(!cwgUmbrellaMigration.selectedSelectorEntityIds.some(id => id.startsWith("special:") || id.startsWith("cwg:")), "a saved Games umbrella must become supported sports rather than a hidden compatibility selector");
 
@@ -1578,8 +1557,8 @@ app.setPreferences({
 assert.equal(app.eventIsEditorialMustShow(publishedAustraliaIreland), true, "Australia v Ireland must qualify as an editorial must-show card at 4/5 stakes");
 assert.deepEqual(
   Array.from(app.getPreferenceMatchedEvents(new Date("2026-08-03T05:00:00Z")), item => item.id),
-  ["aflw-australia-ireland-2026-08-01"],
-  "a 4/5 Australia v Ireland AFLW card must appear regardless of followed sports or selected broadcasters"
+  [],
+  "an editorial 4/5 card must not bypass follow-first eligibility"
 );
 const lowerStakesAflwFixture = {
   ...publishedAustraliaIreland,
@@ -1598,8 +1577,8 @@ app.setPreferences({
 });
 assert.deepEqual(
   Array.from(app.getPreferenceMatchedEvents(new Date("2026-08-03T05:00:00Z")), item => item.id),
-  ["aflw-under-afl-preference"],
-  "a lower-stakes AFLW fixture must inherit the ordinary AFL follow setting"
+  [],
+  "a broad AFL sport follow alone must not surface a domestic fixture"
 );
 
 const recentWallabiesJapan = publishedFeed.events.find(item => item.id === "rugby-japan-australia-2026-08-08");
@@ -1639,8 +1618,8 @@ focusedSportFilterIds.forEach(filterId => {
 });
 assert.deepEqual(
   Array.from(app.getPreferenceMatchedEvents(recentRugbyReference), item => item.id),
-  ["rugby-japan-australia-2026-08-08"],
-  "the focused Rugby view must retain Japan v Australia on 11 August even without a selected provider"
+  [],
+  "a focused sport alone must not bypass strict participant or Australian-representation eligibility"
 );
 app.setArchivedEventRefs([{
   id: "archive:profile:existing:rugby-japan-australia-2026-08-08",
@@ -1650,8 +1629,8 @@ app.setArchivedEventRefs([{
 }]);
 assert.deepEqual(
   Array.from(app.focusedArchivedEvents(recentRugbyReference), item => item.id),
-  ["rugby-japan-australia-2026-08-08"],
-  "an existing profile archive must keep a retained Rugby result discoverable inside the focused Rugby view"
+  [],
+  "legacy archives must not bypass current follow-first eligibility"
 );
 app.setArchivedEventRefs([]);
 app.setActiveFilter("all");
@@ -1660,7 +1639,7 @@ app.setPreferences({});
 const canonicalWimbledon = { ...event("canonical-wimbledon", 2, 4), sport: "Tennis", key: "wimbledon" };
 app.setEvents([canonicalWimbledon]);
 app.setPreferences({ selectedSelectorEntityIds: ["sport:wimbledon", "special:wimbledon"] });
-assert.equal(app.getPreferenceMatchedEvents().length, 1, "Special Events must not duplicate a canonical event selected through the base sport tree");
+assert.equal(app.getPreferenceMatchedEvents().length, 0, "sport and major-event selectors must not independently bypass follow-first eligibility");
 
 const commonwealthAthletics = { ...event("cwg-athletics", 2, 4), sport: "Commonwealth Games", key: "cwg", commonwealthDiscipline: "Athletics" };
 const commonwealthBadminton = { ...event("cwg-badminton", 3, 4), sport: "Commonwealth Games", key: "cwg", commonwealthDiscipline: "Badminton" };
@@ -1817,12 +1796,13 @@ const topNineCandidates = [
   eventFromReference("below-top-nine-floor", rankingReference, 12, 3, "SBS On Demand", 3),
 ];
 app.setEvents(topNineCandidates);
+app.setActions(Object.fromEntries(topNineCandidates.map(ev => [`${ev.id}:${ev.date}T${ev.time}`, { addedToFixtures:true, addedFixture:ev, manualPin:true }])));
 app.setSurfacePresentation(Object.fromEntries(topNineCandidates.map(ev => [
   app.surfacePresentationKey(ev),
   { firstSurfacedAt: new Date(rankingReference.getTime() - 2 * 3600 * 1000).toISOString(), seenAt: new Date(rankingReference.getTime() - 3600 * 1000).toISOString() },
 ])));
 const rankedTopNine = app.topNineEvents(rankingReference);
-assert.equal(rankedTopNine.length, 9, "Top 9 must cap an eligible set at nine items");
+assert.equal(rankedTopNine.length, 9, "Top 9 must cap an eligible set of intentional fixture pins at nine items");
 assert.equal(rankedTopNine[0].id, "top-sbs", "Top 9 must put the highest Australian broadcast-weight score first");
 assert(!rankedTopNine.some(ev => ev.id === "lower-broadcast-weight" || ev.id === "below-top-nine-floor"), "Top 9 must not use lower-priority fixtures as filler");
 assert.deepEqual(Array.from(app.topNineEvents(rankingReference).slice(0, 2), ev => ev.id), ["top-sbs", "top-stan-1"]);
@@ -1859,11 +1839,11 @@ app.setPreferences({
   selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
   preferenceGraph: allLeagueFixturesGraph,
 });
-assert(app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "AFL All fixtures coverage must expose routine fixtures in the feed");
+assert(!app.getFilteredEvents().some(ev => ev.id === "routine-afl"), "legacy All-fixtures coverage must not bypass follow-first Feed eligibility");
 assert.deepEqual(
   Array.from(app.getFilteredEvents().filter(ev => ev.id.startsWith("routine-")), ev => ev.id).sort(),
-  ["routine-afl", "routine-nrl"],
-  "All fixtures coverage must expose routine AFL and NRL cards in the All calendar"
+  [],
+  "broad AFL and NRL coverage choices must not surface domestic fixtures without a participant follow or pin"
 );
 app.setPreferences({});
 
@@ -1906,93 +1886,6 @@ for (const sportKey of ["nrl", "afl"]){
 }
 app.setPreferences({});
 
-const calendarSyncPreferences = {
-  selectedSelectorEntityIds: ["sport:afl", "sport:nrl"],
-  selectedBroadcasters: ["kayo", "foxtel"],
-  preferenceGraph: allLeagueFixturesGraph,
-};
-const calendarSyncConfig = app.calendarSyncConfigForPreferences(calendarSyncPreferences);
-assert.deepEqual(Array.from(calendarSyncConfig.sports), ["afl", "nrl"], "Calendar sync must encode followed sports");
-assert.deepEqual(Array.from(calendarSyncConfig.providers), ["foxtel", "kayo"], "Calendar sync must encode selected providers");
-assert.deepEqual(Array.from(calendarSyncConfig.allFixtures), ["afl", "nrl"], "Calendar sync must encode Froth or All-fixtures depth");
-assert.deepEqual(Array.from(calendarSyncConfig.majorFollowedSports), ["afl", "nrl"], "Calendar sync must encode domains where followed teams or competitors can add routine events");
-assert.deepEqual(Array.from(calendarSyncConfig.followedParticipantIds), []);
-assert.deepEqual(Array.from(calendarSyncConfig.mutedParticipantIds), []);
-assert.deepEqual(Array.from(calendarSyncConfig.excludedCompetitionIds), []);
-assert.deepEqual(Array.from(calendarSyncConfig.cwgDisciplines), []);
-const calendarSyncUrl = app.buildCalendarSyncUrl(calendarSyncPreferences, {
-  protocol: "http:",
-  hostname: "127.0.0.1",
-  origin: "http://127.0.0.1:8000",
-});
-assert.match(calendarSyncUrl, /^https:\/\/nothingsport\.vercel\.app\/api\/calendar\?/);
-const calendarSyncParams = new URL(calendarSyncUrl).searchParams;
-assert.equal(calendarSyncParams.get("sports"), "afl,nrl");
-assert.equal(calendarSyncParams.get("providers"), "foxtel,kayo");
-assert.equal(calendarSyncParams.get("all"), "afl,nrl");
-assert.equal(calendarSyncParams.get("majorFollowed"), "afl,nrl");
-assert.equal(calendarSyncParams.get("min"), "3");
-assert.equal(app.buildCalendarWebcalUrl(calendarSyncPreferences, {
-  protocol: "https:",
-  hostname: "nothingsport.vercel.app",
-  origin: "https://nothingsport.vercel.app",
-}).startsWith("webcal://nothingsport.vercel.app/api/calendar?"), true, "calendar-app subscription must use the webcal scheme");
-
-let followedCalendarGraph = app.PREFERENCE_SYSTEM.createPreferenceGraph({
-  profileId: "profile:follow-aware-calendar",
-  domainIds: ["sport:f1", "special:commonwealth-games"],
-  broadcasterIds: ["kayo", "stan"],
-});
-followedCalendarGraph = app.PREFERENCE_SYSTEM.setCoverageMode(followedCalendarGraph, "sport:f1", "majorFollowed");
-followedCalendarGraph = app.PREFERENCE_SYSTEM.setCoverageMode(followedCalendarGraph, "special:commonwealth-games", "majorFollowed");
-followedCalendarGraph = app.PREFERENCE_SYSTEM.setEntityFollow(followedCalendarGraph, "competitor:f1:oscar-piastri", "priority");
-followedCalendarGraph = app.PREFERENCE_SYSTEM.setEntityFollow(followedCalendarGraph, "competitor:cwg:liz-watson", "follow");
-followedCalendarGraph = app.PREFERENCE_SYSTEM.setEntityFollow(followedCalendarGraph, "competitor:f1:muted-driver", "mute");
-followedCalendarGraph = app.PREFERENCE_SYSTEM.upsertCompetitionPreference(
-  followedCalendarGraph,
-  "competition:f1:excluded",
-  { enabled: false }
-);
-const followedCalendarPreferences = {
-  selectedSelectorEntityIds: ["sport:f1", "cwg:swimming"],
-  selectedBroadcasters: ["kayo"],
-  preferenceGraph: followedCalendarGraph,
-};
-const followedCalendarConfig = app.calendarSyncConfigForPreferences(followedCalendarPreferences);
-assert.deepEqual(Array.from(followedCalendarConfig.sports), ["cwg", "f1", "swimming"], "Games discipline migration must retain the underlying sport and add the CWG transport key");
-assert.deepEqual(Array.from(followedCalendarConfig.majorFollowedSports), ["cwg", "f1"]);
-assert.deepEqual(Array.from(followedCalendarConfig.followedParticipantIds), [
-  "competitor:cwg:liz-watson",
-  "competitor:f1:oscar-piastri",
-]);
-assert.deepEqual(Array.from(followedCalendarConfig.mutedParticipantIds), ["competitor:f1:muted-driver"]);
-assert.deepEqual(Array.from(followedCalendarConfig.excludedCompetitionIds), ["competition:f1:excluded"]);
-assert.deepEqual(Array.from(followedCalendarConfig.cwgDisciplines), ["swimming"], "a CWG subdiscipline selection must narrow the live calendar feed");
-const followedCalendarUrl = new URL(app.buildCalendarSyncUrl(followedCalendarPreferences, {
-  protocol: "https:",
-  hostname: "nothingsport.vercel.app",
-  origin: "https://nothingsport.vercel.app",
-}));
-assert.equal(followedCalendarUrl.searchParams.get("follow"), "competitor:cwg:liz-watson,competitor:f1:oscar-piastri");
-assert.equal(followedCalendarUrl.searchParams.get("mute"), "competitor:f1:muted-driver");
-assert.equal(followedCalendarUrl.searchParams.get("excludeCompetition"), "competition:f1:excluded");
-assert.equal(followedCalendarUrl.searchParams.get("cwg"), "swimming");
-assert.match(app.calendarSyncSummaryText(followedCalendarConfig), /2 followed teams or competitors/);
-assert.match(app.calendarSyncSummaryText(followedCalendarConfig), /1 muted/);
-assert.match(app.calendarSyncSummaryText(followedCalendarConfig), /CWG Swimming/);
-
-const selectedIcs = app.generateICS([phaseOneEvents[4], phaseOneEvents[5]]);
-assert.equal((selectedIcs.match(/BEGIN:VEVENT/g) || []).length, 2, "calendar file must contain only the selected events");
-assert.match(selectedIcs, /^BEGIN:VCALENDAR/);
-assert.match(selectedIcs, /TZID:Australia\/Sydney/);
-assert.match(selectedIcs, /END:VCALENDAR$/);
-assert.match(selectedIcs, /UID:worth-week@sportscal/);
-assert.match(selectedIcs, /UID:around@sportscal/);
-assert.doesNotMatch(selectedIcs, /UID:horizon-exception@sportscal/);
-assert.doesNotMatch(selectedIcs, /UID:top-week@sportscal/);
-assert.match(selectedIcs, /Priority event:/);
-assert.doesNotMatch(selectedIcs, /Don’t Miss:|Never Miss:/);
-
 const archived = phaseOneEvents[0];
 app.updateEventAction(archived, { archived: true });
 assert(!app.getFilteredEvents().some(ev => ev.id === archived.id), "archived events must leave active feeds");
@@ -2003,10 +1896,10 @@ const localGame = {
   key: "nrl",
   sport: "NRL",
   venue: "GIO Stadium Canberra",
+  city: "Canberra",
 };
-app.setPreferences({ showSpoilers: false });
-assert.equal(app.isLocalGame(localGame), true, "GIO Stadium must be local by default");
-assert.equal(app.matchedLocalVenue(localGame).label, "Bruce stadium");
+app.setPreferences({ showSpoilers: false, followFirst:{ location:{ label:"Canberra", region:"ACT", countryCode:"AU", latitude:null, longitude:null, radiusKm:20, mode:"manual", source:"user", updatedAt:null } } });
+assert.equal(app.isLocalGame(localGame), true, "GIO Stadium must match an explicit Canberra location");
 assert.equal(app.preferredTicketOfferForEvent(localGame), null, "ordinary fixtures without an exact verified seller endpoint must not show tickets");
 const localGameWithTickets = {
   ...localGame,
@@ -2172,9 +2065,9 @@ app.setRatings({ [savedPastRetention.id]: 9 });
 assert.equal(app.archiveEvent(savedPastRetention, { preserve: true }), true, "rated Save must preserve a card beyond normal retention");
 assert.equal(app.eventIsAutoArchived(autoArchivedAfterSevenDays), true, "unsaved cards must auto-archive after seven days");
 assert.equal(app.getFilteredEvents().some(event => event.id === autoArchivedAfterSevenDays.id), false, "auto-archived cards must leave active feeds");
-assert.equal(app.archivedEvents().some(event => event.id === autoArchivedAfterSevenDays.id), true, "the Archived screen must rebuild automatic seven-day archive entries from canonical events");
+assert.equal(app.archivedEvents().some(event => event.id === autoArchivedAfterSevenDays.id), false, "automatic archives must not bypass follow-first eligibility after the Archived screen is retired");
 assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === expiredAfterFourteenDays.id), false, "unsaved cards must disappear after fourteen days");
-assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === savedPastRetention.id), true, "rated cards saved to Archive must remain available after fourteen days");
+assert.equal(app.getPreferenceMatchedEvents().some(event => event.id === savedPastRetention.id), false, "legacy saved cards must not independently bypass follow-first eligibility");
 assert.equal(app.getDerivedCardCache().derivedCards.some(card => card.canonicalEventId === savedPastRetention.id && card.retentionExempt), true, "saved cards must remain explicitly exempt in the disposable cache");
 
 const winterTimestamp = app.formatFeedbackTimestamp(new Date("2026-07-16T10:00:00Z"));

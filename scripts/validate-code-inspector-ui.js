@@ -21,6 +21,10 @@ assert(!html.includes("tuneSelectAllBtn") && !html.includes("tuneDeselectAllBtn"
 assert(html.includes('open.textContent = "Inspect"') && html.includes("More codes"), "every canonical code must expose Inspect and unfollowed codes must collapse under More codes");
 assert(html.includes("renderCodeInspectorIdentity") && html.includes("renderEventIdentityMark(identity, event, sportMetaForEvent(event))"), "Inspector rows and headings must use the central official identity registry");
 assert(html.includes('frame.className = "code-inspector-team-icon identity-frame"') && html.includes('logo.width = 24') && html.includes('logo.height = 24'), "each Inspector participant must have a fixed 24px canonical identity frame");
+assert(html.includes("codeInspectorParticipantMark") && html.includes("appendTeamIdentityFallback(frame, mark, label)"), "recognised participants must resolve by canonical identity, flag or monogram rather than a question mark");
+assert(html.includes("codeInspectorExpandedFixtureId") && html.includes('row.setAttribute("aria-expanded", String(expanded))'), "fixture cards must be tappable and expandable");
+assert(html.includes('added ? "Remove from Feed" : "Add to Feed"') && html.includes("manualPin:true"), "future concrete fixtures must persist an explicit Add/Remove Feed pin");
+assert(html.includes('pin.disabled = !snapshot') && html.includes('fixture.scheduleStatus === "provisional"'), "past and unresolved fixture pins must be disabled");
 assert(html.includes('sportHubState.activeTab = "all-fixtures"') && html.includes("inspectorAlwaysShowsAllFixtures"), "Standings & Fixtures must always expose the complete timetable independently of Feed follows");
 assert(html.includes('recordFeedInteraction("inspector_fixture_render"') && html.indexOf('recordFeedInteraction("inspector_open"') < html.indexOf("await loadCodeInspectorChunk(codeId)"), "Inspector performance must measure rendering separately from fixture transfer latency");
 assert(html.includes('["results", "Results"]') && !html.includes("Results/Replays") && !html.includes("results-replays"), "Inspector result labels and state identifiers must not imply video replays");
@@ -31,6 +35,7 @@ assert(html.includes("Details likely known by") && html.includes("TBC"), "unknow
 assert(/starting-round-select[\s\S]{0,220}min-height:\s*48px/.test(html), "Starting round must provide a 48px minimum touch target");
 assert(html.includes("confirmStandingsReveal") && !html.includes("Show Standings"), "spoiler-safe standings must use one confirmation without an intermediate second action");
 assert(html.includes("identity-frame") && html.includes("object-fit: contain") && html.includes("overflow: hidden"), "all official identities must stay inside reserved role frames");
+assert(html.includes("syncTopLevelNavigationState") && html.includes('button.setAttribute("aria-current", "page")'), "one central navigation state must own the only active underline and aria-current marker");
 
 assert(fs.existsSync(manifestPath), "the canonical update must publish code-inspector.v1");
 const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));

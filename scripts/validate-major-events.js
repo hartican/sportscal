@@ -50,6 +50,7 @@ assert(publishedParents.some(record => record.id === "major-event:cincinnati-ope
 const aflFinals = catalogue.events.find(record => record.id === "major-event:afl-finals-series-2026");
 assert(aflFinals, "the complete AFL Finals Series must replace the lone Grand Final event");
 assert.equal(aflFinals.subEvents.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final");
+assert(aflFinals.subEvents.every(event => event.roundLabel && event.stage), "every AFL finals card must retain explicit round and stage metadata");
 assert.equal(aflFinals.startDate, "2026-08-28");
 assert.equal(aflFinals.endDate, "2026-09-26");
 const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""));
@@ -74,6 +75,8 @@ assert.equal(majorEvents.fixtureFromSubEvent(nrlFinals.subEvents[0], nrlFinals),
 
 const rugbyFinals = catalogue.events.find(record => record.id === "major-event:nations-championship-finals-2026");
 assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
+assert.equal(rugbyFinals.competitionScope, "international");
+assert(rugbyFinals.representativeCountryCodes.includes("AU"), "Australian national representation must be explicit metadata, not a title heuristic");
 assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Rugby placement sessions require a published label but no invented drawn fixture");
 
 const championsLeague = catalogue.events.find(record => record.id === "major-event:uefa-champions-league-2026-27");
@@ -128,7 +131,7 @@ assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "t
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
 assert(html.includes("addedToFixtures") && html.includes("addedFixture"), "selected match persistence must be wired into the browser state");
 assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event)'), "selected matches and parent markers must still respect an explicitly focused sport view");
-assert(html.includes("markerReplacementFixtureIds") && majorEvents.MARKERS.some(marker => Array.isArray(marker.replacesFixtureIds)), "legacy finals placeholders must be replaced by one series marker in Fixtures");
+assert(html.includes("markers.flatMap(marker => marker.replacesFixtureIds || [])") && majorEvents.MARKERS.some(marker => Array.isArray(marker.replacesFixtureIds)), "legacy placeholders may be replaced only when their eligible follow-driven series marker is actually surfaced");
 assert(html.includes("subEvent.dateLabel") && html.includes("concrete drawn match"), "published stage dates must render without making an un-drawn match addable");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

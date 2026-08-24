@@ -116,6 +116,8 @@
         {
           "id": "event:afl:cd_m20260142501",
           "name": "Wildcard Final - Melbourne v Carlton",
+          "roundLabel": "Wildcard Final",
+          "stage": "Wildcard",
           "startTimeUtc": "2026-08-29T09:35:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
@@ -124,6 +126,8 @@
         {
           "id": "event:afl:cd_m20260142502",
           "name": "Wildcard Final - Western Bulldogs v Collingwood",
+          "roundLabel": "Wildcard Final",
+          "stage": "Wildcard",
           "startTimeUtc": "2026-08-28T09:40:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
@@ -132,6 +136,8 @@
         {
           "id": "event:afl:cd_m20260142601",
           "name": "Qualifying & Elimination Final - Fremantle v Hawthorn",
+          "roundLabel": "Qualifying Final",
+          "stage": "Qualifying Final",
           "startTimeUtc": "2026-09-03T10:10:00.000Z",
           "venue": "Optus Stadium",
           "stakesScore": 5,
@@ -140,6 +146,8 @@
         {
           "id": "event:afl:cd_m20260142602",
           "name": "Qualifying & Elimination Final - Sydney Swans v Brisbane Lions",
+          "roundLabel": "Qualifying Final",
+          "stage": "Qualifying Final",
           "startTimeUtc": "2026-09-05T05:15:00.000Z",
           "venue": "SCG",
           "stakesScore": 5,
@@ -148,6 +156,8 @@
         {
           "id": "event:afl:cd_m20260142603",
           "name": "Qualifying & Elimination Final - Geelong Cats v Lowest-ranked WF Winner",
+          "roundLabel": "Elimination Final",
+          "stage": "Elimination Final",
           "startTimeUtc": "2026-09-04T09:40:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
@@ -156,6 +166,8 @@
         {
           "id": "event:afl:cd_m20260142604",
           "name": "Qualifying & Elimination Final - Adelaide Crows v Highest-ranked WF Winner",
+          "roundLabel": "Elimination Final",
+          "stage": "Elimination Final",
           "startTimeUtc": "2026-09-05T09:35:00.000Z",
           "venue": "Adelaide Oval",
           "stakesScore": 5,
@@ -164,6 +176,8 @@
         {
           "id": "event:afl:cd_m20260142701",
           "name": "Semi Final 1 - loser of QF1 v winner of EF1",
+          "roundLabel": "Semi Final",
+          "stage": "Semi Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -172,6 +186,8 @@
         {
           "id": "event:afl:cd_m20260142702",
           "name": "Semi Final 2 - loser of QF2 v winner of EF2",
+          "roundLabel": "Semi Final",
+          "stage": "Semi Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -180,6 +196,8 @@
         {
           "id": "event:afl:cd_m20260142801",
           "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "roundLabel": "Preliminary Final",
+          "stage": "Preliminary Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -188,6 +206,8 @@
         {
           "id": "event:afl:cd_m20260142802",
           "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "roundLabel": "Preliminary Final",
+          "stage": "Preliminary Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -196,6 +216,8 @@
         {
           "id": "event:afl:cd_m20260142901",
           "name": "Grand Final - Winner of PF1 v Winner of PF2",
+          "roundLabel": "Grand Final",
+          "stage": "Grand Final",
           "startTimeUtc": "2026-09-26T04:30:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
@@ -243,6 +265,8 @@
         {
           "id": "major-match:nrl-finals-2026:qualifying-final-1",
           "name": "Qualifying Final 1 - 1st v 4th",
+          "roundLabel": "Qualifying Final",
+          "stage": "Qualifying Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -251,6 +275,8 @@
         {
           "id": "major-match:nrl-finals-2026:qualifying-final-2",
           "name": "Qualifying Final 2 - 2nd v 3rd",
+          "roundLabel": "Qualifying Final",
+          "stage": "Qualifying Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -259,6 +285,8 @@
         {
           "id": "major-match:nrl-finals-2026:elimination-final-1",
           "name": "Elimination Final 1 - 5th v 8th",
+          "roundLabel": "Elimination Final",
+          "stage": "Elimination Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -267,6 +295,8 @@
         {
           "id": "major-match:nrl-finals-2026:elimination-final-2",
           "name": "Elimination Final 2 - 6th v 7th",
+          "roundLabel": "Elimination Final",
+          "stage": "Elimination Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -275,6 +305,8 @@
         {
           "id": "major-match:nrl-finals-2026:semi-final-1",
           "name": "Semi Final 1 - loser of QF1 v winner of EF1",
+          "roundLabel": "Semi Final",
+          "stage": "Semi Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -283,6 +315,8 @@
         {
           "id": "major-match:nrl-finals-2026:semi-final-2",
           "name": "Semi Final 2 - loser of QF2 v winner of EF2",
+          "roundLabel": "Semi Final",
+          "stage": "Semi Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -291,6 +325,8 @@
         {
           "id": "major-match:nrl-finals-2026:preliminary-final-1",
           "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "roundLabel": "Preliminary Final",
+          "stage": "Preliminary Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -299,6 +335,8 @@
         {
           "id": "major-match:nrl-finals-2026:preliminary-final-2",
           "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "roundLabel": "Preliminary Final",
+          "stage": "Preliminary Final",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
@@ -307,6 +345,8 @@
         {
           "id": "major-match:nrl-finals-2026:grand-final",
           "name": "NRL Grand Final - winner of PF1 v winner of PF2",
+          "roundLabel": "Grand Final",
+          "stage": "Grand Final",
           "startTimeUtc": null,
           "venue": "Accor Stadium",
           "stakesScore": 5,
@@ -344,6 +384,12 @@
       ],
       "sportLabel": "Rugby league",
       "competitionId": "competition:rugby-league-world-cup:2026",
+      "competitionScope": "international",
+      "isInternational": true,
+      "representativeCountryCodes": [
+        "AU",
+        "NZ"
+      ],
       "stakesScore": 5,
       "dateStatus": "confirmed",
       "season": 2026,
@@ -361,6 +407,16 @@
         {
           "id": "major-match:rlwc-2026:australia-new-zealand",
           "name": "Australia v New Zealand",
+          "competitionScope": "international",
+          "isInternational": true,
+          "representativeCountryCodes": [
+            "AU",
+            "NZ"
+          ],
+          "participantIds": [
+            "team:nrl:kangaroos",
+            "team:nrl:kiwis"
+          ],
           "startTimeUtc": "2026-10-15T09:05:00.000Z",
           "venue": "Allianz Stadium",
           "stakesScore": 5,
@@ -408,6 +464,11 @@
       ],
       "sportLabel": "Rugby",
       "competitionId": "competition:nations-championship:2026",
+      "competitionScope": "international",
+      "isInternational": true,
+      "representativeCountryCodes": [
+        "AU"
+      ],
       "stakesScore": 5,
       "dateStatus": "confirmed",
       "season": 2026,

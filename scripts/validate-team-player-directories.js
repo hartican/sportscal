@@ -69,7 +69,8 @@ function validate(){
   const server = fs.readFileSync(path.join(ROOT, "lib/server-feed-pipeline.js"), "utf8");
   const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const results = DIRECTORY_SPECS.map(validateDirectory);
-  assert(app.includes('["nrl", "NRL"]') && app.includes('["afl", "AFL"]'), "Standings must offer NRL and AFL directories");
+  assert(app.includes('session.directorySportKey === "nrl"') && app.includes('session.directorySportKey === "afl"'), "Follow must offer NRL and AFL directories");
+  assert(app.includes("BASE_SPORT_SELECTOR_ENTITIES") && app.includes("renderTeamsAndPlayersDirectory"), "Follow must expose the broader canonical sport chooser without eagerly loading every directory");
   assert(app.includes("loadNrlDirectoryData") && app.includes("loadAflDirectoryData"), "both Australian directories must be lazy-loaded");
   assert(app.includes("profileHasNrlEntityFollow") && app.includes("profileHasAflEntityFollow"), "saved player follows must load their small follow index at startup");
   assert(server.includes("teamPlayerFollowIndex"), "server feeds must expand NRL and AFL player follows");

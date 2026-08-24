@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="134">
+<meta name="app-shell-version" content="138">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -2109,7 +2109,10 @@ main{
 .major-event-match-action{ min-width:124px; min-height:34px; border:1px solid var(--border); border-radius:6px; background:var(--soft-fill); color:var(--text); font:750 0.72rem/1 'DM Sans', sans-serif; cursor:pointer; }
 .major-event-match-action[aria-pressed="true"]{ border-color:var(--accent); color:var(--accent); }
 .major-event-match-action:disabled{ cursor:not-allowed; opacity:0.5; }
-.ticket-sale-card{ position:relative; overflow:hidden; border:1px solid var(--border); border-left:4px solid var(--sport-color, var(--accent)); border-radius:12px; background:var(--bg-card); cursor:pointer; }
+.ticket-sale-card{ position:relative; display:block; padding:0; gap:0; overflow:hidden; border:1px solid var(--border); border-left:4px solid var(--sport-color, var(--accent)); border-radius:12px; background:var(--bg-card); cursor:pointer; }
+.ticket-sale-card > .major-event-ticket-row,
+.ticket-sale-card > .major-event-identity,
+.ticket-sale-card > .major-event-body{ width:100%; }
 .ticket-sale-card.is-selected,.ticket-sale-card.is-opened{ border-color:color-mix(in srgb,var(--sport-color) 58%,var(--border)); box-shadow:0 0 0 1px color-mix(in srgb,var(--sport-color) 24%,transparent) inset; }
 .ticket-sale-card .major-event-body{ grid-template-columns:1fr; }
 .ticket-sale-card h3{ margin:0; font-size:0.9rem; }
@@ -4800,7 +4803,7 @@ footer.app-footer{
   .header-actions{
     width:100%;
     display:grid;
-    grid-template-columns:minmax(88px, 1fr) repeat(4, 44px) 58px;
+    grid-template-columns:minmax(88px, 1fr) repeat(3, 44px) 58px;
     gap:5px;
   }
   .header-hydration-slot,
@@ -4903,6 +4906,17 @@ footer.app-footer{
   .theme-choice-list{ grid-template-columns:1fr; }
   .choice-grid{
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:360px){
+  header.top{
+    padding-left:max(8px, env(safe-area-inset-left));
+    padding-right:max(8px, env(safe-area-inset-right));
+  }
+  .header-actions{
+    grid-template-columns:minmax(80px, 1fr) repeat(3, 44px) 58px;
+    gap:4px;
   }
 }
 
@@ -5596,6 +5610,103 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .joint-tournament-card{
   content-visibility: auto;
   contain-intrinsic-size: 440px;
+}
+
+/* Fixture-first correction pass: content may grow, but controls and the final
+   metadata row must never be clipped to a decorative fixed card height. */
+.cards-grid > .event-card[data-card-state="compact"],
+.cards-grid > .major-event-marker[data-card-state="compact"],
+.cards-grid > .joint-tournament-card[data-card-state="compact"]{
+  height:auto;
+  max-height:none;
+  overflow:visible;
+}
+.event-card{ min-width:0; }
+.event-main,.event-name-wrap,.event-date-line,.event-meta-row,.event-meta-row .meta-item{ min-width:0; }
+.event-date-line,.event-meta-row,.rating-row,.badges{ row-gap:10px; }
+.event-meta-row .meta-item span,.event-date-chip,.event-venue{ overflow-wrap:anywhere; }
+.event-quick-actions{ min-width:0; }
+.event-quick-action,
+.major-event-ticket-link{
+  min-height:44px;
+  padding:9px 13px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  font:800 .72rem/1.1 'DM Sans',sans-serif;
+  white-space:normal;
+  text-align:center;
+}
+.major-event-ticket-link{
+  margin-right:0;
+  border-color:var(--ticket-action-border);
+  background:var(--ticket-action-bg);
+  color:var(--ticket-action-text);
+  overflow-wrap:anywhere;
+}
+.major-event-ticket-row{ min-width:0; align-items:center; flex-wrap:wrap; }
+.major-event-ticket-row > *{ min-width:0; }
+.major-event-ticket-row .event-quick-actions{ margin-left:0; }
+.major-event-expand-control{ width:44px; height:44px; flex-basis:44px; border-radius:999px; }
+.major-event-identity{ min-width:0; padding-bottom:12px; }
+.major-event-identity h3,.major-event-summary,.major-event-facts,.ticket-sale-card p{ overflow-wrap:anywhere; }
+.major-event-schedule{ padding:14px 16px 16px; border-top:1px solid var(--border); }
+.major-event-schedule.is-preview{ padding-top:12px; }
+.major-event-schedule h4,.major-event-table-preview h4{ margin:0 0 9px; font-size:.78rem; }
+.major-event-lineup{ color:var(--text); font-weight:750; overflow-wrap:anywhere; }
+.major-event-immediate-tbc{ margin:0; padding:14px 16px 18px; border-top:1px solid var(--border); color:var(--text-dim); font-size:.76rem; }
+.major-event-table-preview{ min-width:0; padding:14px 16px 18px; border-top:1px solid var(--border); }
+.major-event-table-module + .major-event-table-module{ margin-top:12px; }
+.major-event-table-module h5{ margin:0 0 6px; color:var(--text-dim); font-size:.72rem; }
+.major-event-table-preview .standings-table-wrap{ overflow-x:auto; }
+.feed-major-event-card{ width:100%; height:auto!important; min-height:0!important; max-height:none!important; overflow:visible!important; }
+.feed-major-event-card .major-event-marker-open{ margin-left:auto; }
+
+.follow-summary{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; padding:13px 16px; border:1px solid var(--border); border-radius:14px; background:var(--soft-fill); color:var(--text-dim); font-size:.75rem; }
+.follow-summary strong{ color:var(--text); }
+.follow-section-tabs{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.follow-section-tab{ min-width:0; min-height:48px; padding:8px; border:0; border-right:1px solid var(--border); background:var(--soft-fill); color:var(--text-dim); font:850 .74rem/1.2 'DM Sans',sans-serif; cursor:pointer; }
+.follow-section-tab:last-child{ border-right:0; }
+.follow-section-tab.active{ color:var(--text); background:color-mix(in srgb,var(--accent) 11%,var(--bg-card)); box-shadow:inset 0 -4px 0 var(--accent); }
+.follow-section-panel{ min-width:0; padding:16px; border:1px solid var(--border); border-radius:16px; background:var(--bg-card); }
+.follow-section-panel > h3{ margin:0 0 5px; }
+.follow-sport-card{ flex-wrap:wrap; }
+.follow-sport-card .btn{ flex:1 1 180px; min-height:44px; white-space:normal; }
+
+.code-inspector-fixture{ cursor:pointer; }
+.code-inspector-fixture:hover,.code-inspector-fixture.is-expanded{ border-color:color-mix(in srgb,var(--sport-color) 55%,var(--border)); }
+.code-inspector-fixture-side{ display:flex; flex-direction:column; align-items:flex-end; gap:9px; min-width:138px; }
+.code-inspector-feed-action{ width:100%; justify-content:center; }
+.code-inspector-fixture-expanded{ grid-column:1 / -1; display:flex; flex-wrap:wrap; gap:6px 14px; padding-top:11px; border-top:1px solid var(--border); color:var(--text-dim); font-size:.7rem; overflow-wrap:anywhere; }
+.code-inspector-fixture-expanded strong{ color:var(--text); }
+
+@media (max-width:720px){
+  .cards-grid{ gap:12px; }
+  .cards-grid > .event-card{ padding:14px 14px 18px; }
+  .cards-grid > .event-card.is-logo-led-matchup{ padding:12px 14px 18px; }
+  .event-main > * + *{ margin-top:10px; }
+  .event-meta-row{ gap:10px 12px; margin-top:10px; }
+  .event-date-line{ gap:10px; padding-bottom:2px; }
+  .event-quick-actions{ width:100%; margin-left:0; }
+  .event-quick-action,.major-event-ticket-link{ flex:1 1 128px; justify-content:center; }
+  .major-event-ticket-row{ width:100%; padding:10px 12px; }
+  .major-event-ticket-row > .event-quick-actions{ flex:1 1 100%; }
+  .major-event-ticket-row > .major-event-expand-control{ flex:0 0 44px; }
+  .major-event-match{ grid-template-columns:minmax(0,1fr); align-items:stretch; }
+  .major-event-match-copy{ min-width:0; overflow-wrap:anywhere; }
+  .major-event-match-action{ width:100%; min-height:44px; white-space:normal; }
+  .major-event-body,.major-event-schedule,.major-event-table-preview{ min-width:0; padding-inline:14px; }
+  .ticket-sale-card,.ticket-sale-card *{ min-width:0; }
+  .ticket-sale-card .major-event-ticket-row{ align-items:stretch; }
+  .ticket-sale-card .major-event-ticket-link{ width:100%; flex-basis:100%; overflow-wrap:anywhere; }
+  .follow-view{ gap:12px; padding-bottom:24px; }
+  .follow-view-head,.follow-section-panel{ padding:14px; }
+  .follow-section-tabs{ grid-template-columns:1fr; }
+  .follow-section-tab{ border-right:0; border-bottom:1px solid var(--border); }
+  .follow-section-tab:last-child{ border-bottom:0; }
+  .code-inspector-fixture{ grid-template-columns:minmax(0,1fr); padding:14px; }
+  .code-inspector-fixture-side{ width:100%; min-width:0; align-items:stretch; }
+  .code-inspector-fixture-time{ display:flex; gap:10px; text-align:left; }
+  .code-inspector-feed-action{ min-height:44px; }
 }
 
 .feed-page-sentinel{
@@ -6542,7 +6653,7 @@ const EVENT_LOCATION_BY_VENUE = [
 ];
 
 const LOCALITY_COORDINATES = Object.freeze({
-  sydney:[-33.87, 151.21], melbourne:[-37.81, 144.96], canberra:[-35.28, 149.13],
+  sydney:[-33.87, 151.21], melbourne:[-37.81, 144.96], canberra:[-35.28, 149.13], manuka:[-35.32, 149.13],
   brisbane:[-27.47, 153.03], perth:[-31.95, 115.86], adelaide:[-34.93, 138.60],
   "gold coast":[-28.02, 153.40], townsville:[-19.26, 146.82], geelong:[-38.15, 144.36],
   newcastle:[-32.93, 151.78], wollongong:[-34.43, 150.89], leeds:[53.80, -1.55],
@@ -6957,6 +7068,7 @@ let codeInspectorChunkLoading = null;
 let codeInspectorTab = "all-fixtures";
 let codeInspectorPlayersExpanded = false;
 let codeInspectorGroup = "";
+let codeInspectorExpandedFixtureId = null;
 let leagueCoveragePromptDismissed = new Set();
 let jointTournamentData = null;
 let jointTournamentLoading = false;
@@ -6969,6 +7081,7 @@ let majorEventsError = null;
 let pendingMajorEventFocusId = null;
 let pendingTicketAlertFocusId = null;
 let eventsViewTab = "major-events";
+let followViewSection = "teams-players";
 let eventsDeepLinkReturnState = null;
 let headerCompactionFrame = null;
 let feedFilterRefreshInFlight = null;
@@ -7832,7 +7945,19 @@ function scheduleBrowserReminders(reference = nowAEST()){
   const jointReminderEvents = (jointTournamentData?.schedule?.matches || [])
     .map(match => jointMatchActionEvent(match, jointTournamentData))
     .filter(event => event.startTimeUtc);
-  const schedule = REMINDER_ENGINE.buildSchedule([...getPreferenceMatchedEvents(), ...jointReminderEvents], {
+  const majorEventReminderEvents = (majorEventsDocument?.events || [])
+    .filter(record => record.kind !== "ticket_sale")
+    .flatMap(record => [
+      majorEventActionEvent(record),
+      ...majorEventSubEvents(record).map(subEvent => majorEventFixtureSnapshot(subEvent, record)).filter(Boolean),
+    ]);
+  const reminderEvents = Array.from(new Map([
+    ...getPreferenceMatchedEvents(),
+    ...selectedMajorEventFixtures(),
+    ...majorEventReminderEvents,
+    ...jointReminderEvents,
+  ].map(event => [String(event.eventId || event.id), event])).values());
+  const schedule = REMINDER_ENGINE.buildSchedule(reminderEvents, {
     now: reference,
     leadMinutes: viewing.reminderLeadMinutes,
     shouldRemind: event => Boolean(getEventAction(event).reminderRequested),
@@ -7850,6 +7975,32 @@ async function requestBrowserAlerts(){
   if (Notification.permission === "granted") return "granted";
   if (Notification.permission === "denied") return "denied";
   return Notification.requestPermission();
+}
+
+async function localNotificationRegistration(){
+  if (typeof Notification === "undefined") throw new Error("Local notifications are not supported in this browser.");
+  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add nothingsport to your Home Screen before enabling local reminders.");
+  if (!("serviceWorker" in navigator)) throw new Error("Local notifications are not supported in this browser.");
+  const registration = installedServiceWorkerRegistration
+    || await navigator.serviceWorker.register("/service-worker.js");
+  installedServiceWorkerRegistration = registration;
+  const permission = await requestBrowserAlerts();
+  if (permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
+  if (permission !== "granted") throw new Error("Notification permission was not granted.");
+  return navigator.serviceWorker.ready;
+}
+
+function setLocalNotificationPreference(preferences, enabled){
+  const next = preferences;
+  next.followFirst.notifications.enabled = Boolean(enabled);
+  next.followFirst.notifications.defaultLeadMinutes = 15;
+  next.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+  next.preferenceGraph.viewing = {
+    ...(next.preferenceGraph.viewing || {}),
+    browserAlertsEnabled:Boolean(enabled),
+    reminderLeadMinutes:[15],
+  };
+  return next;
 }
 
 function clearSpoilerOverrides(override){
@@ -9545,12 +9696,40 @@ function importanceColorForEvent(ev){
   return "#6f7a86";
 }
 
+function explicitInternationalRepresentation(ev){
+  const resolvedParticipantIds = Array.from(new Set([
+    ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
+    ...(Array.isArray(ev?.participants) ? ev.participants.map(participant => participant?.participantId || participant?.id) : []),
+    ev?.homeParticipantId,
+    ev?.awayParticipantId,
+  ].filter(Boolean)));
+  const nationalSides = resolvedParticipantIds
+    .map(id => TEAM_FOLLOW_CATALOGUE?.teamsById?.[id])
+    .filter(team => team?.type === "nationalSide");
+  const representativeCountryCodes = Array.from(new Set([
+    ...(Array.isArray(ev?.representativeCountryCodes) ? ev.representativeCountryCodes : []),
+    ev?.representingCountryCode,
+    ...nationalSides.map(team => team.countryCode),
+    ...(Array.isArray(ev?.participants) ? ev.participants
+      .filter(participant => participant?.representsCountry === true)
+      .map(participant => participant.representingCountryCode) : []),
+  ].map(value => String(value || "").toUpperCase()).filter(Boolean)));
+  const isInternational = ev?.isInternational === true
+    || ev?.competitionScope === "international"
+    || nationalSides.length >= 2;
+  return { isInternational, representativeCountryCodes };
+}
+
 function normalizeEvents(events = activeEvents){
   events.forEach(ev => {
     if (EVENT_TAXONOMY_COMPAT){
       Object.assign(ev, EVENT_TAXONOMY_COMPAT.enrichEvent(ev));
     }
-    ev.australianInterest = Boolean(ev.australianInterest || /\u{1F1E6}\u{1F1FA}/u.test(`${ev.name || ""} ${ev.displayTitleCompact || ""} ${ev.fullSpiel || ""}`));
+    const internationalRepresentation = explicitInternationalRepresentation(ev);
+    ev.isInternational = internationalRepresentation.isInternational;
+    ev.competitionScope = ev.isInternational ? "international" : (ev.competitionScope || "domestic");
+    ev.representativeCountryCodes = internationalRepresentation.representativeCountryCodes;
+    ev.australianInterest = ev.isInternational && ev.representativeCountryCodes.some(code => ["AU", "AUS"].includes(code));
     if (ENRICHMENT_ENGINE){
       ev.name = ENRICHMENT_ENGINE.canonicalFixtureTitle(ev.name, { sportKey: ev.key });
       if (ev.displayTitleCompact){
@@ -9963,10 +10142,14 @@ function majorEventSubEvents(record){
       });
     });
   }
-  return [...byId.values()].sort((left, right) => (
-    Date.parse(left.startTimeUtc || "") - Date.parse(right.startTimeUtc || "")
-    || String(left.id).localeCompare(String(right.id))
-  ));
+  return [...byId.values()].sort((left, right) => {
+    const leftTime = Date.parse(left.startTimeUtc || "");
+    const rightTime = Date.parse(right.startTimeUtc || "");
+    if (Number.isFinite(leftTime) && Number.isFinite(rightTime)) return leftTime - rightTime;
+    if (Number.isFinite(leftTime)) return -1;
+    if (Number.isFinite(rightTime)) return 1;
+    return 0;
+  });
 }
 
 function majorEventFixtureSnapshot(subEvent, parent){
@@ -10019,15 +10202,21 @@ function refreshAddedFixtureSnapshots(){
 }
 
 function mainFeedMajorEventMarkers(){
-  return MAJOR_EVENTS?.markerEvents?.(userPreferences.followedSports, nowAEST()) || [];
+  const markers = MAJOR_EVENTS?.markerEvents?.(userPreferences.followedSports, nowAEST()) || [];
+  if (!majorEventsDocument?.events?.length) return [];
+  return markers.filter(marker => {
+    const record = majorEventsDocument.events.find(candidate => candidate.id === marker.majorEventId);
+    return record && Boolean(eventFollowReason(majorEventActionEvent(record)));
+  });
 }
 
 function mergeMainFeedSpecialEvents(events){
-  const replacementIds = new Set(MAJOR_EVENTS?.markerReplacementFixtureIds?.() || []);
+  const markers = mainFeedMajorEventMarkers();
+  const replacementIds = new Set(markers.flatMap(marker => marker.replacesFixtureIds || []));
   const merged = new Map(events
     .filter(event => !replacementIds.has(String(event.eventId || event.id)))
     .map(event => [String(event.eventId || event.id), event]));
-  const specialEvents = [...selectedMajorEventFixtures(), ...mainFeedMajorEventMarkers()]
+  const specialEvents = [...selectedMajorEventFixtures(), ...markers]
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event));
   specialEvents.forEach(event => {
     const id = String(event.eventId || event.id);
@@ -10315,7 +10504,9 @@ function distanceKm(first, second){
 
 function isLocalGame(ev){
   const location = userPreferences.followFirst?.location;
-  const selectedCoordinates = Number.isFinite(Number(location?.latitude)) && Number.isFinite(Number(location?.longitude))
+  const hasLatitude = location?.latitude !== null && location?.latitude !== undefined && location?.latitude !== "" && Number.isFinite(Number(location.latitude));
+  const hasLongitude = location?.longitude !== null && location?.longitude !== undefined && location?.longitude !== "" && Number.isFinite(Number(location.longitude));
+  const selectedCoordinates = hasLatitude && hasLongitude
     ? { latitude:Number(location.latitude), longitude:Number(location.longitude) }
     : localityCoordinates(`${location?.label || ""} ${location?.region || ""}`);
   const fixtureCoordinates = eventCoordinates(ev);
@@ -11110,16 +11301,28 @@ function renderTuneSheetContents(){
   }
   remainingCodes.forEach(code => moreList.appendChild(buildDiscoveryBrowseRow(code)));
   more.hidden = remainingCodes.length === 0;
-  if (summary) summary.textContent = `${codes.length} canonical codes · read-only`;
+  if (summary) summary.textContent = `${codes.length} canonical codes · fixtures can be pinned to Feed`;
   restoreDiscoveryTuneFocus(focusDescriptor);
+}
+
+function syncTopLevelNavigationState(){
+  const inspectorActive = Boolean(activeInspectorCodeId || document.getElementById("tuneSheet")?.classList.contains("show"));
+  document.querySelectorAll(".tab-btn").forEach(button => {
+    const selected = button.id === "tuneNavBtn"
+      ? inspectorActive
+      : !inspectorActive && button.dataset.tab === activeTab;
+    button.classList.toggle("active", selected);
+    if (selected) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  });
 }
 
 function setTuneSheetModalState(open){
   const sheet = document.getElementById("tuneSheet");
   sheet.classList.toggle("show", open);
   sheet.setAttribute("aria-hidden", open ? "false" : "true");
-  document.getElementById("tuneNavBtn")?.classList.toggle("active", open);
   document.body.classList.toggle("modal-open", open || Boolean(document.querySelector(".modal-backdrop.show")));
+  syncTopLevelNavigationState();
 }
 
 function inspectorPickerHash(){
@@ -11136,6 +11339,7 @@ function openTuneSheet({ pushHistory = true, preserveReturnState = false } = {})
     };
   }
   discoveryTuneInteractionCount = 0;
+  if (!preserveReturnState) inspectorPickerState = { scrollTop:0, focusCodeId:null };
   renderTuneSheetContents();
   setTuneSheetModalState(true);
   window.scrollTo({ top:0, behavior:"auto" });
@@ -11271,13 +11475,14 @@ async function openCodeInspector(codeId, { pushHistory = true } = {}){
   activeInspectorCodeId = codeId;
   codeInspectorTab = "all-fixtures";
   codeInspectorGroup = "";
+  codeInspectorExpandedFixtureId = null;
   codeInspectorChunk = null;
   sportHubState.activeTab = "all-fixtures";
   closeTuneSheet({ restoreFocus: false, restoreViewport: false });
   if (pushHistory && window.location.hash !== codeInspectorHash(codeId)){
     history.pushState({ codeInspector: codeId, inspectorParent: true }, "", codeInspectorHash(codeId));
   }
-  document.getElementById("tuneNavBtn")?.classList.add("active");
+  syncTopLevelNavigationState();
   renderAll();
   window.scrollTo({ top: 0, behavior: "auto" });
   recordFeedInteraction("inspector_open", startedAt);
@@ -11308,16 +11513,14 @@ function closeCodeInspector({ restoreViewport = true, preserveReturnState = fals
   codeInspectorChunk = null;
   codeInspectorTab = "all-fixtures";
   codeInspectorGroup = "";
-  document.getElementById("tuneNavBtn")?.classList.remove("active");
+  codeInspectorExpandedFixtureId = null;
   if (returnState){
     activeTab = returnState.activeTab;
     activeView = returnState.activeView;
     activeFilter = returnState.activeFilter;
   }
   if (!preserveReturnState) inspectorReturnState = null;
-  document.querySelectorAll(".tab-btn[data-tab]").forEach(button => {
-    button.classList.toggle("active", button.dataset.tab === activeTab);
-  });
+  syncTopLevelNavigationState();
   document.querySelectorAll(".view-toggle button").forEach(button => {
     button.classList.toggle("active", button.dataset.view === activeView);
   });
@@ -11465,10 +11668,73 @@ function renderCodeInspectorPlayers(panel, fixtures){
   }
 }
 
+function codeInspectorFixtureSportKey(fixture){
+  const slug = codeInspectorManifest?.codes?.find(code => code.id === fixture.codeId)?.slug || String(fixture.codeId || "").replace(/^sport:/, "");
+  return ({ "rugby-union":"rugby", motorsport:"f1", basketball:"nba", "multi-sport":"cwg" })[slug] || slug;
+}
+
+function codeInspectorFixtureSnapshot(fixture){
+  if (!fixture?.id || !fixture.date || !fixture.time || fixture.scheduleStatus === "provisional" || inspectorFixtureIsResult(fixture)) return null;
+  const participantSlots = Array.isArray(fixture.participantSlots) ? fixture.participantSlots : [];
+  const snapshot = {
+    id:fixture.id,
+    eventId:fixture.id,
+    canonicalEventId:fixture.id,
+    actionKey:fixture.id,
+    key:codeInspectorFixtureSportKey(fixture),
+    sport:codeInspectorManifest?.codes?.find(code => code.id === fixture.codeId)?.label || codeInspectorFixtureSportKey(fixture),
+    competitionId:fixture.competitionId || null,
+    name:fixture.name || "Fixture TBC",
+    date:fixture.date,
+    time:fixture.time,
+    startTimeUtc:fixture.startTimeUtc || null,
+    venue:fixture.venue || "Venue TBC",
+    broadcaster:fixture.broadcaster || "",
+    stage:fixture.stage || null,
+    roundLabel:fixture.roundLabel || null,
+    participantIds:participantSlots.map(slot => slot.participantId).filter(Boolean),
+    participants:participantSlots.map(slot => ({ id:slot.participantId || null, name:slot.label || "TBC" })),
+    status:"scheduled",
+    stakesScore:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
+    expected:Number(fixture.expected || 7),
+    selectedSentence:`Pinned from Standings & Fixtures. ${fixture.venue || "Venue TBC"}.`,
+    fullSpiel:`Pinned from Standings & Fixtures. ${fixture.broadcaster || "Viewing provider TBC"}.`,
+  };
+  return eventDateTime(snapshot).getTime() > Date.now() ? snapshot : null;
+}
+
+function setCodeInspectorFixtureAdded(fixture, enabled){
+  const snapshot = codeInspectorFixtureSnapshot(fixture);
+  if (!snapshot) return false;
+  const action = getEventAction(snapshot);
+  updateEventAction(snapshot, {
+    addedToFixtures:Boolean(enabled),
+    addedToFixturesAt:enabled ? (action.addedToFixturesAt || new Date().toISOString()) : null,
+    addedFixture:snapshot,
+    manualPin:true,
+  });
+  recordEventFeedAction(snapshot, enabled ? "added_to_fixtures" : "removed_from_fixtures", { surface:"standings_fixtures", recommendationClass:"direct" });
+  return true;
+}
+
+function codeInspectorParticipantMark(slot, fixture){
+  const direct = slot.participantId ? CARD_IDENTITIES?.participantMarks?.[slot.participantId] : null;
+  if (direct) return direct;
+  const event = { key:codeInspectorFixtureSportKey(fixture), name:slot.label || fixture.name, participantIds:[slot.participantId].filter(Boolean) };
+  return CARD_IDENTITIES?.participantMarksForEvent?.(event, cardIdentityParticipants(), slot.label || fixture.name)?.[0]?.mark
+    || (TEAM_FOLLOW_CATALOGUE?.teamsById?.[slot.participantId]?.countryCode
+      ? { label:slot.label, countryCode:TEAM_FOLLOW_CATALOGUE.teamsById[slot.participantId].countryCode }
+      : null);
+}
+
 function buildCodeInspectorFixture(fixture){
   const row = document.createElement("article");
-  row.className = "code-inspector-fixture";
+  const expanded = codeInspectorExpandedFixtureId === fixture.id;
+  row.className = `code-inspector-fixture${expanded ? " is-expanded" : ""}`;
   row.dataset.inspectorFixtureId = fixture.id;
+  row.tabIndex = 0;
+  row.setAttribute("role", "button");
+  row.setAttribute("aria-expanded", String(expanded));
   const main = document.createElement("div");
   const title = document.createElement("h4");
   title.textContent = fixture.name || "Fixture TBC";
@@ -11484,8 +11750,8 @@ function buildCodeInspectorFixture(fixture){
     const frame = document.createElement("span");
     frame.className = "code-inspector-team-icon identity-frame";
     frame.setAttribute("aria-hidden", "true");
-    const mark = slot.participantId ? CARD_IDENTITIES?.participantMarks?.[slot.participantId] : null;
-    appendTeamIdentityFallback(frame, mark, mark ? label : "?");
+    const mark = codeInspectorParticipantMark(slot, fixture);
+    appendTeamIdentityFallback(frame, mark, label);
     if (mark?.url || mark?.logo?.primary){
       const logo = document.createElement("img");
       logo.alt = "";
@@ -11526,7 +11792,46 @@ function buildCodeInspectorFixture(fixture){
   time.textContent = fixture.time || "TBC";
   if (!fixture.time) time.className = "code-inspector-tbc";
   timing.append(date, time);
-  row.append(main, timing);
+  const snapshot = codeInspectorFixtureSnapshot(fixture);
+  const pin = document.createElement("button");
+  pin.type = "button";
+  pin.className = "event-quick-action code-inspector-feed-action";
+  const added = Boolean(snapshot && getEventAction(snapshot).addedToFixtures);
+  pin.disabled = !snapshot;
+  pin.setAttribute("aria-pressed", String(added));
+  pin.textContent = snapshot ? (added ? "Remove from Feed" : "Add to Feed") : (inspectorFixtureIsResult(fixture) ? "Finished" : "Time TBC");
+  pin.title = snapshot ? "Pin this one fixture to Feed without following either participant." : "Only concrete future fixtures with a published sporting start can be added.";
+  pin.addEventListener("click", event => {
+    event.stopPropagation();
+    if (!setCodeInspectorFixtureAdded(fixture, !added)) return;
+    renderCodeInspector();
+    showToast(added ? `${fixture.name} removed from Feed.` : `${fixture.name} added to Feed.`);
+  });
+  const side = document.createElement("div");
+  side.className = "code-inspector-fixture-side";
+  side.append(timing, pin);
+  row.append(main, side);
+  if (expanded){
+    const details = document.createElement("div");
+    details.className = "code-inspector-fixture-expanded";
+    const round = FOLLOW_FIRST?.stageLabel?.(fixture) || fixture.stage || fixture.roundLabel || "Stage TBC";
+    details.innerHTML = `<strong>${round}</strong><span>${fixture.sourceCoverage === "official-canonical" ? "Official canonical fixture" : "Published fixture"}</span><span>${fixture.broadcaster || "Viewing provider TBC"}</span>`;
+    row.appendChild(details);
+  }
+  const toggle = () => {
+    codeInspectorExpandedFixtureId = expanded ? null : fixture.id;
+    renderCodeInspector();
+    window.requestAnimationFrame(() => document.querySelector(`[data-inspector-fixture-id="${CSS.escape(fixture.id)}"]`)?.focus({ preventScroll:true }));
+  };
+  row.addEventListener("click", event => {
+    if (event.target.closest("a,button,input,select,textarea")) return;
+    toggle();
+  });
+  row.addEventListener("keydown", event => {
+    if (event.target !== row || !["Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    toggle();
+  });
   return row;
 }
 
@@ -11573,7 +11878,7 @@ function renderCodeInspector(){
   const title = document.createElement("h2");
   title.textContent = code.label;
   const promise = document.createElement("p");
-  promise.textContent = "Standings & Fixtures is read-only. Your saved preferences and feed remain unchanged.";
+  promise.textContent = "Tap a fixture for match detail, or pin one future fixture to Feed without following either team.";
   copy.append(eyebrow, title, promise);
   headingMain.append(identity, copy);
   const back = document.createElement("button");
@@ -11733,13 +12038,55 @@ function eventMatchesSportPreferences(ev){
 
 function followedParticipantLabel(participantId){
   return canonicalSportsData?.participants?.find(item => item.id === participantId)?.displayName
+    || [...(footballDirectoryData?.players || []), ...(nrlDirectoryData?.players || []), ...(aflDirectoryData?.players || [])].find(item => item.id === participantId)?.displayName
+    || [...(footballDirectoryData?.teams || []), ...(nrlDirectoryData?.teams || []), ...(aflDirectoryData?.teams || [])].find(item => item.id === participantId)?.displayName
     || TEAM_FOLLOW_CATALOGUE?.teamsById?.[participantId]?.displayName
     || CARD_IDENTITIES?.participantMarks?.[participantId]?.label
     || String(participantId || "").split(":").at(-1).replace(/-/g, " ");
 }
 
 function eventFollowReason(ev){
-  return FOLLOW_FIRST?.reasonForEvent?.(ev, userPreferences, {
+  if (getEventAction(ev).addedToFixtures){
+    return {
+      type:"manualPin",
+      entityKind:"fixture",
+      id:String(ev?.eventId || ev?.id || ""),
+      label:null,
+      displayTag:false,
+    };
+  }
+  const eventParticipantIds = Array.from(new Set([
+    ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
+    ...(TEAM_FOLLOW_CATALOGUE?.participantIdsForEvent?.(ev) || []),
+    ev?.homeParticipantId,
+    ev?.awayParticipantId,
+  ].filter(Boolean)));
+  const eventParticipantIdSet = new Set(eventParticipantIds);
+  const playerTeams = new Map([
+    ...(directoryFollowIndex().players || []),
+    ...(footballDirectoryData?.players || []),
+    ...(nrlDirectoryData?.players || []),
+    ...(aflDirectoryData?.players || []),
+  ].map(player => [player.id, player.currentTeamId]));
+  const directlyFollowedPlayer = (userPreferences.preferenceGraph?.entityFollows || []).find(follow => (
+    !String(follow.participantId || "").startsWith("team:")
+    && ["follow", "priority"].includes(follow.followLevel)
+    && eventParticipantIdSet.has(playerTeams.get(follow.participantId))
+  ));
+  if (directlyFollowedPlayer){
+    return {
+      type:"athlete",
+      entityKind:"athlete",
+      id:directlyFollowedPlayer.participantId,
+      label:`Because you follow ${followedParticipantLabel(directlyFollowedPlayer.participantId)}`,
+      displayTag:true,
+    };
+  }
+  const eligibilityEvent = {
+    ...ev,
+    participantIds:eventParticipantIds,
+  };
+  return FOLLOW_FIRST?.reasonForEvent?.(eligibilityEvent, userPreferences, {
     participantLabel:followedParticipantLabel,
   }) || null;
 }
@@ -11900,7 +12247,7 @@ function eventHasExplicitCoverage(ev){
 
 function eventRecommendationProfile(ev){
   const reason = eventFollowReason(ev);
-  return { classification:"direct", eligible:Boolean(reason), label:reason?.label || null, reasons:reason ? [reason.type] : [] };
+  return { classification:"direct", eligible:Boolean(reason), label:null, reasons:reason ? [reason.type] : [] };
 }
 
 function eventRecommendationClassification(ev){
@@ -12673,6 +13020,7 @@ function eventReminderTiming(ev){
   if (ev.startTimeUtc && !Number.isNaN(Date.parse(ev.startTimeUtc))){
     return { startsAt:new Date(ev.startTimeUtc).toISOString(), fallback:false };
   }
+  if (!ev.date || !ev.time) return null;
   const inferred = eventDateTime(ev);
   return Number.isNaN(inferred.getTime()) ? null : { startsAt:inferred.toISOString(), fallback:true };
 }
@@ -12786,14 +13134,17 @@ async function toggleQuickReminder(ev, button){
   const enabled = !action.reminderRequested;
   button.disabled = true;
   try{
-    if (enabled) await ensureWebPushReminder?.(ev, timing);
-    else await removeWebPushReminder?.(ev);
+    if (enabled){
+      await localNotificationRegistration();
+      const next = setLocalNotificationPreference(clonePreferences(userPreferences), true);
+      savePreferences(next);
+    }
     updateEventAction(ev, { reminderRequested:enabled });
     recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
     button.setAttribute("aria-pressed", String(enabled));
     button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
     showToast(enabled
-      ? `Reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}.`
+      ? `Local reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}. Keep nothingSport open.`
       : "Reminder removed.");
   }catch(error){
     showToast(error?.message || "Notifications could not be enabled on this device.");
@@ -12812,8 +13163,8 @@ function appendEventQuickActions(container, ev){
   reminder.disabled = !timing || Date.parse(timing.startsAt) <= Date.now();
   reminder.setAttribute("aria-pressed", String(Boolean(getEventAction(ev).reminderRequested)));
   reminder.title = timing?.fallback
-    ? "15 minutes before the published broadcast time because a kickoff or race start is not available."
-    : "15 minutes before kickoff or race start, not the start of the broadcast.";
+    ? "15 minutes before the published broadcast time because a kickoff or race start is not available. Local reminder—keep nothingSport open."
+    : "15 minutes before kickoff or race start. Local reminder—keep nothingSport open.";
   reminder.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${getEventAction(ev).reminderRequested ? "Reminder on" : "Remind me"}</span>`;
   reminder.addEventListener("click", event => {
     event.stopPropagation();
@@ -12944,7 +13295,7 @@ function buildEventCard(ev, options = {}){
   const nameWrap = document.createElement("div");
   nameWrap.className = "event-title-stack";
   const followReason = eventFollowReason(ev);
-  if (activeTab === "feed" && followReason){
+  if (activeTab === "feed" && followReason?.displayTag){
     const reason = document.createElement("span");
     reason.className = "follow-reason-tag";
     reason.textContent = followReason.label;
@@ -15436,10 +15787,15 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const query = directoryFilters(sportKey).query.toLocaleLowerCase("en-AU");
   const teamGroup = TEAM_FOLLOW_CATALOGUE.groups.find(group => group.domainId === `sport:${sportKey}`);
   const teams = teamGroup?.sections.flatMap(section => section.teams.map(team => ({ ...team, sectionLabel: section.label }))) || [];
-  const tennisPlayers = sportKey === "tennis" ? (canonicalSportsData?.participants || []).filter(participant => (
-    participant.type === "competitor" && String(participant.sportDomainId || "").startsWith("sport:tennis")
-  )) : [];
-  const records = [...teams, ...tennisPlayers].filter(record => !query || record.displayName.toLocaleLowerCase("en-AU").includes(query));
+  const canonicalDomainId = canonicalDomainIdForPreferenceDomain(`sport:${sportKey}`);
+  const canonicalParticipants = (canonicalSportsData?.participants || []).filter(participant => (
+    participant?.metadata?.active !== false
+    && ["team", "nationalSide", "competitor", "pair"].includes(participant.type)
+    && (participant.sportDomainId === canonicalDomainId || String(participant.sportDomainId || "").startsWith(`${canonicalDomainId}:`))
+  ));
+  const records = Array.from(new Map([...teams, ...canonicalParticipants]
+    .map(record => [record.id, record])).values())
+    .filter(record => !query || record.displayName.toLocaleLowerCase("en-AU").includes(query));
   const directory = document.createElement("section");
   directory.className = "football-directory";
   const toolbar = document.createElement("div");
@@ -15464,19 +15820,36 @@ function renderLegacyParticipantDirectory(container, sportKey){
   field.appendChild(search);
   toolbar.appendChild(field);
   directory.appendChild(toolbar);
+  if (!canonicalSportsData && !canonicalSportsDataLoading) void loadCanonicalSportsData();
   const list = document.createElement("div");
   list.className = "football-club-list";
   records.sort((a, b) => a.displayName.localeCompare(b.displayName)).forEach(record => {
     const row = document.createElement("div");
     row.className = "football-club-head";
     const icon = document.createElement("span");
-    icon.innerHTML = glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
+    icon.className = "follow-directory-identity identity-frame";
+    const mark = CARD_IDENTITIES?.participantMarks?.[record.id];
+    if (mark?.url || mark?.logo?.primary){
+      const image = document.createElement("img");
+      image.alt = "";
+      image.loading = "lazy";
+      image.decoding = "async";
+      applyTeamLogoAsset(image, mark, "icon");
+      image.addEventListener("error", () => {
+        icon.innerHTML = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:record.displayName })
+          || glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
+      }, { once:true });
+      icon.appendChild(image);
+    } else {
+      icon.innerHTML = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:record.displayName })
+        || glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
+    }
     const copy = document.createElement("div");
     copy.className = "football-club-copy";
     const name = document.createElement("strong");
     name.textContent = record.displayName;
     const detail = document.createElement("span");
-    detail.textContent = record.sectionLabel || "Competitor";
+    detail.textContent = record.sectionLabel || (record.type === "competitor" ? "Player" : record.type === "nationalSide" ? "National team" : "Team");
     copy.append(name, detail);
     const select = document.createElement("select");
     select.className = "football-follow-select";
@@ -15492,7 +15865,10 @@ function renderLegacyParticipantDirectory(container, sportKey){
 
 function renderTeamsAndPlayersDirectory(container){
   const session = readStandingsDirectorySession();
-  const chooser = buildDirectorySelect("Sport", session.directorySportKey, [["football", "Football"], ["nrl", "NRL"], ["afl", "AFL"], ["rugby", "Rugby"], ["cricket", "Cricket"], ["tennis", "Tennis"]], sportKey => {
+  const directorySportOptions = BASE_SPORT_SELECTOR_ENTITIES
+    .filter(entity => Number(entity.level) === 2)
+    .map(entity => [entity.id.replace(/^sport:/, ""), entity.label]);
+  const chooser = buildDirectorySelect("Sport", session.directorySportKey, directorySportOptions, sportKey => {
     updateStandingsDirectorySession({ directorySportKey: sportKey });
     renderStandingsContext();
   });
@@ -15525,9 +15901,6 @@ function saveFollowSport(sport, followed){
   else selected.delete(sport.selectorId);
   next.selectedSelectorEntityIds = Array.from(selected);
   next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
-  next.followFirst.australiansOnlySportIds = followed
-    ? Array.from(new Set([...next.followFirst.australiansOnlySportIds, sport.id]))
-    : next.followFirst.australiansOnlySportIds.filter(id => id !== sport.id);
   savePreferences(next);
   renderAll({ preserveViewport:true });
 }
@@ -15562,7 +15935,7 @@ function renderFollowView(){
   const title = document.createElement("h2");
   title.textContent = "Follow";
   const detail = document.createElement("p");
-  detail.textContent = "Your Feed is built only from team, player and Aussies Only follows. Likes and dislikes stay feedback-only.";
+  detail.textContent = "Automatic Feed cards come from saved teams, players and Australian national representation. Likes and dislikes stay feedback-only.";
   headCopy.append(title, detail);
   if (userPreferences.followFirst.refinement.deferred && !userPreferences.followFirst.refinement.completedAt){
     const notice = document.createElement("span");
@@ -15572,13 +15945,50 @@ function renderFollowView(){
   } else head.appendChild(headCopy);
   container.appendChild(head);
 
+  const entityFollows = (userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(follow => ["follow", "priority"].includes(follow.followLevel));
+  const summary = document.createElement("div");
+  summary.className = "follow-summary";
+  summary.innerHTML = `<strong>${entityFollows.length} team/player follow${entityFollows.length === 1 ? "" : "s"}</strong><span>${userPreferences.followedSports.length} sports</span><span>${userPreferences.followFirst.followedMajorEventIds.length} event families</span>`;
+  container.appendChild(summary);
+
+  const sectionTabs = document.createElement("div");
+  sectionTabs.className = "follow-section-tabs";
+  sectionTabs.setAttribute("role", "tablist");
+  [["teams-players", "Teams & Players"], ["sports-australia", "Sports & Australia"], ["major-events", "Major Events"]].forEach(([value, label]) => {
+    const tab = document.createElement("button");
+    tab.type = "button";
+    tab.className = `follow-section-tab${followViewSection === value ? " active" : ""}`;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-selected", String(followViewSection === value));
+    tab.textContent = label;
+    tab.addEventListener("click", () => {
+      followViewSection = value;
+      renderFollowView();
+      window.scrollTo({ top:0, behavior:"auto" });
+    });
+    sectionTabs.appendChild(tab);
+  });
+  container.appendChild(sectionTabs);
+
+  if (followViewSection === "teams-players"){
+    const directory = document.createElement("section");
+    directory.className = "follow-section-panel";
+    directory.innerHTML = "<h3>Teams & players</h3><p class=\"preference-help\">Search all supported current directories. AFL and NRL use complete current squad lists; football remains restricted to current players in the included leagues.</p>";
+    renderTeamsAndPlayersDirectory(directory);
+    container.appendChild(directory);
+    return;
+  }
+
+  if (followViewSection === "sports-australia"){
   const sportSection = document.createElement("section");
-  sportSection.className = "filter-panel";
-  sportSection.innerHTML = "<h3>Sports & Aussies Only</h3><p class=\"preference-help\">Following a sport also enables Aussies Only by default. Switch either off whenever you like.</p>";
+  sportSection.className = "follow-section-panel";
+  sportSection.innerHTML = "<h3>Sports & Australia</h3><p class=\"preference-help\">Sport follows organise your choices. Australia in internationals is separate and only matches national teams or athletes explicitly representing Australia.</p>";
   const sportGrid = document.createElement("div");
   sportGrid.className = "follow-sport-grid";
-  FOLLOW_FIRST.STARTUP_SPORTS.forEach(sport => {
-    const followed = userPreferences.followedSports.includes(sport.id);
+  orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES.filter(entity => Number(entity.level) === 2), userPreferences).forEach(entity => {
+    const sport = { id:entity.canonicalSportKeys?.[0] || entity.id.replace(/^sport:/, ""), selectorId:entity.id, label:entity.label };
+    const followed = selectorEntityIsEffectivelySelected(entity.id, userPreferences);
     const card = document.createElement("div");
     card.className = `follow-sport-card${followed ? " active" : ""}`;
     card.style.setProperty("--sport-color", SPORT_META[sport.id]?.color || "var(--accent)");
@@ -15588,22 +15998,27 @@ function renderFollowView(){
     follow.setAttribute("aria-pressed", String(followed));
     follow.textContent = followed ? `Following ${sport.label}` : `Follow ${sport.label}`;
     follow.addEventListener("click", () => saveFollowSport(sport, !followed));
-    const aussies = document.createElement("button");
-    const aussiesOn = userPreferences.followFirst.australiansOnlySportIds.includes(sport.id);
-    aussies.type = "button";
-    aussies.className = "btn ghost";
-    aussies.disabled = !followed;
-    aussies.setAttribute("aria-pressed", String(aussiesOn));
-    aussies.textContent = aussiesOn ? "Aussies Only on" : "Aussies Only off";
-    aussies.addEventListener("click", () => toggleAussiesOnly(sport.id));
-    card.append(follow, aussies);
+    card.appendChild(follow);
+    if (FOLLOW_FIRST.INTERNATIONAL_AUSTRALIA_SPORT_IDS.includes(sport.id)){
+      const aussies = document.createElement("button");
+      const aussiesOn = userPreferences.followFirst.australiansOnlySportIds.includes(sport.id);
+      aussies.type = "button";
+      aussies.className = "btn ghost";
+      aussies.disabled = !followed;
+      aussies.setAttribute("aria-pressed", String(aussiesOn));
+      aussies.textContent = aussiesOn ? "Australia in internationals on" : "Australia in internationals off";
+      aussies.addEventListener("click", () => toggleAussiesOnly(sport.id));
+      card.appendChild(aussies);
+    }
     sportGrid.appendChild(card);
   });
   sportSection.appendChild(sportGrid);
   container.appendChild(sportSection);
+  return;
+  }
 
   const events = document.createElement("section");
-  events.className = "filter-panel";
+  events.className = "follow-section-panel";
   events.innerHTML = "<h3>Major events</h3><p class=\"preference-help\">Keep event families handy in Events and future Follow suggestions. They do not bypass Feed eligibility.</p>";
   const eventGrid = document.createElement("div");
   eventGrid.className = "setup-choice-grid";
@@ -15619,12 +16034,6 @@ function renderFollowView(){
   });
   events.appendChild(eventGrid);
   container.appendChild(events);
-
-  const directory = document.createElement("section");
-  directory.className = "filter-panel";
-  directory.innerHTML = "<h3>Teams & players</h3><p class=\"preference-help\">Binary follows only. AFL and NRL use current official squad directories; football is restricted to the current included-league list.</p>";
-  renderTeamsAndPlayersDirectory(directory);
-  container.appendChild(directory);
 }
 
 function renderStandingsContext(options = {}){
@@ -15897,22 +16306,41 @@ function majorEventIdentityEvent(record){
 }
 
 function majorEventActionEvent(record){
+  const fixtures = majorEventSubEvents(record)
+    .map(subEvent => majorEventFixtureSnapshot(subEvent, record))
+    .filter(Boolean)
+    .sort((first, second) => eventDateTime(first) - eventDateTime(second));
+  const nextFixture = fixtures.find(fixture => eventDateTime(fixture).getTime() > Date.now()) || fixtures[0] || null;
+  const participantIds = Array.from(new Set([
+    ...(nextFixture?.participantIds || []),
+    ...majorEventSubEvents(record).flatMap(subEvent => [
+      ...(subEvent.participantIds || []),
+      ...(TEAM_FOLLOW_CATALOGUE?.participantIdsForEvent?.({ key:record.sportKey, name:subEvent.name, participants:subEvent.participants }) || []),
+    ]),
+  ]));
   return {
+    ...(nextFixture || {}),
     id: record.id,
     eventId: record.id,
     key: record.sportKey,
     sport: record.sportLabel,
     competitionId: record.competitionId,
     name: record.name,
-    date: record.startDate || `${record.season}-12-31`,
-    time: "00:00",
+    date: nextFixture?.date || null,
+    time: nextFixture?.time || null,
+    startTimeUtc: nextFixture?.startTimeUtc || null,
     stakesScore: record.stakesScore,
     expected: 9,
     majorEventId: record.id,
+    participants: nextFixture?.participants || [],
+    participantIds,
+    competitionScope: record.competitionScope || "domestic",
+    isInternational: record.isInternational === true || record.competitionScope === "international",
+    representativeCountryCodes: record.representativeCountryCodes || [],
   };
 }
 
-function buildMajorEventTicketLink(record, className = "major-event-ticket-link"){
+function buildMajorEventTicketLink(record, className = "major-event-ticket-link event-quick-action"){
   const offer = preferredTicketOfferForEvent({ ...record, majorEventId: record.parentEventId || record.id }, { surface: "events", localVenueMatched: false });
   if (!offer) return null;
   const link = document.createElement("a");
@@ -15929,17 +16357,42 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link"
   return link;
 }
 
-function buildMajorEventSchedule(record){
-  const subEvents = majorEventSubEvents(record);
+function prioritisedMajorEventSubEvents(record, limit = Infinity){
+  const followed = [];
+  const scheduled = [];
+  majorEventSubEvents(record).forEach((subEvent, order) => {
+    const fixture = majorEventFixtureSnapshot(subEvent, record);
+    const candidate = { subEvent, fixture, order };
+    if (fixture && eventFollowReason(fixture)) followed.push(candidate);
+    else scheduled.push(candidate);
+  });
+  const futureFirst = (left, right) => {
+    const leftTime = left.fixture ? eventDateTime(left.fixture).getTime() : Number.MAX_SAFE_INTEGER;
+    const rightTime = right.fixture ? eventDateTime(right.fixture).getTime() : Number.MAX_SAFE_INTEGER;
+    const leftPast = leftTime < Date.now();
+    const rightPast = rightTime < Date.now();
+    return Number(leftPast) - Number(rightPast) || leftTime - rightTime || left.order - right.order;
+  };
+  scheduled.sort(futureFirst);
+  followed.sort(futureFirst);
+  const selected = scheduled.slice(0, Number.isFinite(limit) ? limit : scheduled.length);
+  const selectedIds = new Set(selected.map(item => item.subEvent.id));
+  followed.forEach(item => {
+    if (!selectedIds.has(item.subEvent.id)) selected.push(item);
+  });
+  return Number.isFinite(limit) ? selected.slice(0, Math.max(limit, selected.length)) : [...scheduled, ...followed.filter(item => !selectedIds.has(item.subEvent.id))];
+}
+
+function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Published matches", compact = false } = {}){
+  const subEvents = prioritisedMajorEventSubEvents(record, limit);
   if (!subEvents.length) return null;
   const section = document.createElement("section");
-  section.className = "major-event-schedule";
+  section.className = `major-event-schedule${compact ? " is-preview" : ""}`;
   const heading = document.createElement("h4");
-  heading.textContent = "Published matches";
+  heading.textContent = headingText;
   const list = document.createElement("div");
   list.className = "major-event-schedule-list";
-  subEvents.forEach(subEvent => {
-    const fixture = majorEventFixtureSnapshot(subEvent, record);
+  subEvents.forEach(({ subEvent, fixture }) => {
     const row = document.createElement("article");
     row.className = "major-event-match";
     row.dataset.matchId = subEvent.id;
@@ -15952,6 +16405,11 @@ function buildMajorEventSchedule(record){
       ? `${eventDateLabel(fixture)} - ${eventTimeLabel(fixture)} - ${subEvent.venue || record.venue}`
       : [subEvent.dateLabel, subEvent.venue || record.venue || "Venue TBC", subEvent.dateLabel ? null : "Time not confirmed"].filter(Boolean).join(" - ");
     copy.append(title, detail);
+    const lineupNames = (subEvent.participants || []).map(participant => participant.name).filter(Boolean);
+    const lineup = document.createElement("span");
+    lineup.className = "major-event-lineup";
+    lineup.textContent = lineupNames.length >= 2 ? `Line-up: ${lineupNames.join(" v ")}` : "Line-up TBC";
+    copy.appendChild(lineup);
     if (subEvent.status === "completed" && subEvent.scoreDisplay && userPreferences.showSpoilers){
       const score = document.createElement("span");
       score.textContent = CARD_RESULTS?.scoreLine?.(fixture || subEvent, subEvent.name, { score: subEvent.scoreDisplay }) || subEvent.scoreDisplay;
@@ -15978,6 +16436,34 @@ function buildMajorEventSchedule(record){
   });
   section.append(heading, list);
   return section;
+}
+
+function buildMajorEventTablePreview(record){
+  if (record.scheduleAdapter !== "joint-tennis-tournament-2026") return null;
+  const section = document.createElement("section");
+  section.className = "major-event-table-preview";
+  const heading = document.createElement("h4");
+  heading.textContent = "Top 3 + followed";
+  section.appendChild(heading);
+  if (!canonicalSportsData){
+    const state = document.createElement("p");
+    state.textContent = canonicalSportsDataError ? "Rankings unavailable." : "Rankings loading…";
+    section.appendChild(state);
+    if (!canonicalSportsDataLoading) void loadCanonicalSportsData().then(() => renderAll({ preserveViewport:true }));
+    return section;
+  }
+  jointTournamentRankingCompetitions().forEach(competition => {
+    const snapshot = latestStandingsSnapshot(competition.id);
+    if (!snapshot) return;
+    const module = document.createElement("div");
+    module.className = "standings-module major-event-table-module";
+    const label = document.createElement("h5");
+    label.textContent = competition.displayName || competition.label || competition.id.replace(/^competition:/, "");
+    module.appendChild(label);
+    appendStandingsTable(module, competition, snapshot, "summary");
+    section.appendChild(module);
+  });
+  return section.children.length > 1 ? section : null;
 }
 
 function buildMajorEventCard(record){
@@ -16047,7 +16533,7 @@ function buildMajorEventCard(record){
   kicker.className = "major-event-kicker";
   kicker.textContent = record.kind === "tournament" ? "Tournament" : "Major event";
   const followReason = eventFollowReason(majorEventActionEvent(record));
-  if (followReason){
+  if (followReason?.displayTag){
     const reason = document.createElement("span");
     reason.className = "follow-reason-tag";
     reason.textContent = followReason.label;
@@ -16055,9 +16541,6 @@ function buildMajorEventCard(record){
   }
   const title = document.createElement("h3");
   title.textContent = record.name;
-  const summary = document.createElement("p");
-  summary.className = "major-event-summary";
-  summary.textContent = record.summary;
   const facts = document.createElement("div");
   facts.className = "major-event-facts";
   [majorEventDateLabel(record), record.venue, record.location, `Stakes ${record.stakesScore}/5`].filter(Boolean).forEach(value => {
@@ -16066,48 +16549,41 @@ function buildMajorEventCard(record){
     facts.appendChild(fact);
   });
   identity.append(logo, kicker, title);
-  if (state !== "compact") identity.appendChild(summary);
   identity.appendChild(facts);
 
-  card.append(ticketRow, identity);
-  if (state !== "compact"){
+  card.append(identity, ticketRow);
+  const immediateSchedule = buildMajorEventSchedule(record, {
+    limit: state === "opened" ? Infinity : 3,
+    headingText: state === "opened" ? "Published timetable" : "Next matches and line-ups",
+    compact: state !== "opened",
+  });
+  if (immediateSchedule) card.appendChild(immediateSchedule);
+  else {
+    const tbc = document.createElement("p");
+    tbc.className = "major-event-immediate-tbc";
+    tbc.textContent = "Immediate match line-up TBC. Open timetable for the source-published schedule.";
+    card.appendChild(tbc);
+  }
+  const tablePreview = buildMajorEventTablePreview(record);
+  if (tablePreview && state !== "compact") card.appendChild(tablePreview);
+  if (state === "opened"){
     const body = document.createElement("div");
     body.className = "major-event-body";
-    const about = document.createElement("section");
-    const aboutHeading = document.createElement("h4");
-    aboutHeading.textContent = "Event detail";
-    const details = document.createElement("ul");
-    details.className = "major-event-detail-list";
-    record.details.forEach(item => {
-      const row = document.createElement("li");
-      row.textContent = item;
-      details.appendChild(row);
+    const sources = document.createElement("section");
+    const sourcesHeading = document.createElement("h4");
+    sourcesHeading.textContent = "Official sources";
+    const sourceList = document.createElement("div");
+    sourceList.className = "major-event-sources";
+    record.sources.forEach(source => {
+      const link = document.createElement("a");
+      link.href = source.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = source.name;
+      sourceList.appendChild(link);
     });
-    about.append(aboutHeading, details);
-    body.appendChild(about);
-    if (state === "opened"){
-      const sources = document.createElement("section");
-      const sourcesHeading = document.createElement("h4");
-      sourcesHeading.textContent = "Official sources";
-      const sourceList = document.createElement("div");
-      sourceList.className = "major-event-sources";
-      record.sources.forEach(source => {
-        const link = document.createElement("a");
-        link.href = source.url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = source.name;
-        sourceList.appendChild(link);
-      });
-      sources.append(sourcesHeading, sourceList);
-      body.appendChild(sources);
-      const schedule = buildMajorEventSchedule(record);
-      if (schedule) body.appendChild(schedule);
-      if (record.scheduleAdapter === "joint-tennis-tournament-2026" && jointTournamentData){
-        const tables = buildJointTournamentTablesPanel();
-        if (tables) body.appendChild(tables);
-      }
-    }
+    sources.append(sourcesHeading, sourceList);
+    body.appendChild(sources);
     card.appendChild(body);
   }
   return card;
@@ -16221,7 +16697,7 @@ function buildTicketSaleCard(record){
   const actions = document.createElement("div");
   actions.className = "major-event-ticket-row";
   const ticket = buildMajorEventTicketLink(record);
-  if (state !== "compact" && ticket) actions.appendChild(ticket);
+  if (ticket) actions.appendChild(ticket);
   const expand = document.createElement("button");
   expand.type = "button";
   expand.className = "major-event-expand-control";
@@ -16262,32 +16738,29 @@ function buildTicketSaleCard(record){
 }
 
 function buildMajorEventMarker(event){
-  const meta = sportMetaForEvent(event);
-  const card = document.createElement("article");
-  card.className = "major-event-marker";
+  const record = majorEventsDocument?.events?.find(candidate => candidate.id === event.majorEventId);
+  if (!record){
+    const unavailable = document.createElement("article");
+    unavailable.className = "major-event-marker feed-major-event-card";
+    unavailable.dataset.majorEventMarker = event.majorEventId;
+    unavailable.innerHTML = `<strong>${event.name}</strong><span>Event timetable loading…</span>`;
+    if (!majorEventsLoading) void loadMajorEventsData();
+    return unavailable;
+  }
+  const card = buildMajorEventCard(record);
+  card.id = `feed-major-event-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
+  card.classList.add("feed-major-event-card");
   card.dataset.majorEventMarker = event.majorEventId;
-  card.dataset.cardState = "compact";
-  card.style.setProperty("--sport-color", meta.color);
-  const logo = document.createElement("div");
-  logo.className = "major-event-marker-logo";
-  renderEventIdentityMark(logo, event, meta);
-  const copy = document.createElement("div");
-  copy.className = "major-event-marker-copy";
-  const title = document.createElement("strong");
-  title.textContent = event.name;
-  const detail = document.createElement("span");
-  detail.textContent = `${majorEventDateLabel(event)} - Explore in Events`;
-  copy.append(title, detail);
   const action = document.createElement("button");
   action.type = "button";
-  action.className = "major-event-marker-open";
+  action.className = "event-quick-action major-event-marker-open";
   action.textContent = "Open in Events";
   action.setAttribute("aria-label", `Open ${event.name} in Events`);
   action.addEventListener("click", clickEvent => {
     clickEvent.stopPropagation();
     openMajorEventInEvents(event.majorEventId);
   });
-  card.append(logo, copy, action);
+  card.querySelector(".major-event-ticket-row")?.appendChild(action);
   return card;
 }
 
@@ -16362,6 +16835,9 @@ function renderEventsView(){
     return;
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST());
+  const followedEventFamilies = new Set(userPreferences.followFirst.followedMajorEventIds || []);
+  visible.events.sort((first, second) => Number(followedEventFamilies.has(second.id)) - Number(followedEventFamilies.has(first.id)));
+  visible.alerts.sort((first, second) => Number(followedEventFamilies.has(second.parentEventId)) - Number(followedEventFamilies.has(first.parentEventId)));
   if (pendingMajorEventFocusId){
     const pendingRecord = visible.events.find(record => record.id === pendingMajorEventFocusId);
     if (pendingRecord && cardStateForEvent(pendingRecord) === "compact") setCardState(pendingRecord, "selected");
@@ -16417,14 +16893,15 @@ function activateTopLevelTab(nextTab){
   }
   collapseAllCardStates();
   activeTab = nextTab;
-  document.querySelectorAll(".tab-btn[data-tab]").forEach(button => {
-    button.classList.toggle("active", button.dataset.tab === nextTab);
-  });
+  syncTopLevelNavigationState();
   if (activeTab === "feed") calendarInitialJumpPending = true;
   const shouldLoadEvents = activeTab === "events" && !majorEventsDocument && !majorEventsLoading;
   if (shouldLoadEvents) void loadMajorEventsData();
   else renderAll();
-  window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.querySelectorAll("#listView, #monthView, .code-inspector-panel, .events-feed, .follow-view").forEach(panel => { panel.scrollTop = 0; });
+  });
 }
 
 /* ============ TABS / VIEW SWITCHING ============ */
@@ -16541,6 +17018,7 @@ function renderTabCounts(){
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   clearPendingCardRetractionSpace();
+  syncTopLevelNavigationState();
   const preservedViewportAnchor = viewportAnchor || (preserveViewport ? captureViewportRenderAnchor() : null);
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();
@@ -17657,21 +18135,19 @@ function renderSubscriptionSettings(body){
 
 function renderNotificationSettings(body){
   const enabled = draftPreferences.followFirst.notifications.enabled;
-  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Notifications</h3><p class="preference-help">Reminders default to 15 minutes before kickoff or race start. A published broadcast time is used only when the sporting start is unavailable, and the card tells you when that fallback applies.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn notifications off" : "Enable notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${enabled ? "Enabled on this installation." : "On iPhone and iPad, install nothingsport to the Home Screen first. Web Push requires iOS/iPadOS 16.4 or later."}</p></section></div>`;
+  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Local notifications</h3><p class="preference-help">Reminders default to 15 minutes before kickoff or race start. A published broadcast time is used only when the sporting start is unavailable.</p><p class="local-reminder-notice">15 minutes before kickoff or race start. Local reminder—keep nothingSport open. Reliable background iPhone delivery is not enabled in this release.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn local notifications off" : "Enable local notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${enabled ? "Enabled on this installation while the app remains active." : "On iPhone and iPad, install nothingSport to the Home Screen first."}</p></section></div>`;
   document.getElementById("notificationPermissionBtn").addEventListener("click", async () => {
     const status = document.getElementById("notificationPermissionStatus");
     if (enabled){
-      await disablePushInstallation().catch(() => null);
-      draftPreferences.followFirst.notifications.enabled = false;
-      status.textContent = "Notifications will be disabled when you save.";
+      setLocalNotificationPreference(draftPreferences, false);
+      status.textContent = "Local notifications will be disabled when you save.";
       renderSettingsScreen();
       return;
     }
     status.textContent = "Requesting system permission…";
     try{
-      await ensurePushInstallation();
-      draftPreferences.followFirst.notifications.enabled = true;
-      draftPreferences.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+      await localNotificationRegistration();
+      setLocalNotificationPreference(draftPreferences, true);
       renderSettingsScreen();
     }catch(error){ status.textContent = error.message || "Notification permission was not granted."; }
   });
@@ -18478,6 +18954,7 @@ document.addEventListener("visibilitychange", () => {
   if (!startupFunnelStarted && loadingAudioPlayer?.enabled?.()) void loadingAudioPlayer.startFill();
   if (!weeklyPulseWasHidden) return;
   weeklyPulseWasHidden = false;
+  scheduleBrowserReminders();
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   registerWeeklyPulseAppOpen();
 });

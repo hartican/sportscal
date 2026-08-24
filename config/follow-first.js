@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v1";
+  const SCHEMA_VERSION = "follow-first.v2";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -31,6 +31,18 @@
     { id:"fifa-world-cup", label:"FIFA World Cup", sportIds:["football"] },
     { id:"olympic-games", label:"Olympic Games", sportIds:[] },
     { id:"wimbledon", label:"Wimbledon", sportIds:["tennis"] },
+    { id:"cincinnati-open", label:"Cincinnati Open", sportIds:["tennis"] },
+    { id:"us-open", label:"US Open", sportIds:["tennis"] },
+    { id:"rugby-league-world-cup", label:"Rugby League World Cup", sportIds:["nrl"] },
+    { id:"nations-championship", label:"Nations Championship", sportIds:["rugby"] },
+    { id:"uefa-champions-league", label:"UEFA Champions League", sportIds:["football"] },
+  ]);
+
+  const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
+    "cricket", "football", "tennis", "f1", "rugby", "nba", "motorsport", "rally",
+    "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
+    "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg", "multi-sport",
+    "athletics", "swimming", "netball", "hockey", "gymnastics", "boxing",
   ]);
 
   const OFFER_INTERESTS = Object.freeze([
@@ -131,7 +143,7 @@
       schemaVersion:SCHEMA_VERSION,
       startupMeta:normalizeMeta({}),
       appliedSeedHash:null,
-      australiansOnlySportIds:["afl", "nrl"],
+      australiansOnlySportIds:[],
       followedMajorEventIds:[],
       location:normalizeLocation({}),
       subscriptions:[],
@@ -170,7 +182,9 @@
         schemaVersion:SCHEMA_VERSION,
         startupMeta,
         appliedSeedHash:String(prior.appliedSeedHash || "") || null,
-        australiansOnlySportIds:uniqueAllowed(prior.australiansOnlySportIds || startupMeta.sports, STARTUP_SPORTS),
+        australiansOnlySportIds:Array.from(new Set(Array.isArray(prior.australiansOnlySportIds)
+          ? prior.australiansOnlySportIds.map(String).filter(id => INTERNATIONAL_AUSTRALIA_SPORT_IDS.includes(id))
+          : [])),
         followedMajorEventIds:uniqueAllowed(prior.followedMajorEventIds || startupMeta.majorEvents, MAJOR_EVENT_FAMILIES),
         location:normalizeLocation(prior.location || startupMeta.location),
         subscriptions:Array.from(new Set((Array.isArray(prior.subscriptions) ? prior.subscriptions : []).map(String).filter(id => VIEWING_PROVIDERS[id]))),
@@ -203,17 +217,12 @@
         ...current.followFirst,
         startupMeta:meta,
         appliedSeedHash:meta.seedHash,
-        australiansOnlySportIds:meta.sports.slice(),
+        australiansOnlySportIds:current.followFirst.australiansOnlySportIds.slice(),
         followedMajorEventIds:meta.majorEvents.slice(),
         location:meta.location,
       },
     });
     return { preferences:next, changed:true };
-  }
-
-  function eventText(event){
-    return [event?.name, event?.displayTitleCompact, event?.competitionName, event?.stage, event?.roundLabel]
-      .filter(Boolean).join(" ").toLowerCase();
   }
 
   function participantIds(event){
@@ -233,13 +242,27 @@
     for (const id of participantIds(event)){
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
-        return { type:id.startsWith("team:") ? "team" : "athlete", id, label:`Because you follow ${participantLabel(id)}` };
+        const entityKind = id.startsWith("team:") ? "team" : "athlete";
+        return {
+          type:entityKind,
+          entityKind,
+          id,
+          label:`Because you follow ${participantLabel(id)}`,
+          displayTag:entityKind === "athlete",
+        };
       }
     }
-    const sportId = String(event?.sportId || event?.key || "");
-    const inherentlyAustralianCompetition = ["afl", "nrl"].includes(sportId);
-    if (next.followFirst.australiansOnlySportIds.includes(sportId) && (inherentlyAustralianCompetition || event?.australianInterest || /australia|aussie|socceroos|matildas|wallabies/.test(eventText(event)))){
-      return { type:"australians", id:sportId, label:"Because you follow Aussies Only" };
+    const sportAliases = { "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg" };
+    const sourceSportId = String(event?.sportId || event?.key || "");
+    const sportId = sportAliases[sourceSportId] || sourceSportId;
+    const representativeCountryCodes = Array.from(new Set([
+      ...(Array.isArray(event?.representativeCountryCodes) ? event.representativeCountryCodes : []),
+      event?.representingCountryCode,
+    ].map(value => String(value || "").toUpperCase()).filter(Boolean)));
+    const representsAustralia = representativeCountryCodes.some(code => ["AU", "AUS"].includes(code));
+    const international = event?.isInternational === true || event?.competitionScope === "international";
+    if (next.followFirst.australiansOnlySportIds.includes(sportId) && international && representsAustralia){
+      return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
     }
     return null;
   }
@@ -248,9 +271,9 @@
     const value = `${event?.stage || ""} ${event?.roundLabel || ""} ${event?.round || ""}`.toLowerCase();
     if (/wild\s*card/.test(value)) return "Wildcard";
     if (/prelim/.test(value)) return "Prelim";
-    if (/quarter|\bqf\b/.test(value)) return "QF";
+    if (/quarter|qualifying|\bqf\b/.test(value)) return "QF";
     if (/semi|\bsf\b/.test(value)) return "Semis";
-    if (/grand final|\bfinals?\b/.test(value)) return "Finals";
+    if (/grand final|elimination|\bfinals?\b/.test(value)) return "Finals";
     return "";
   }
 
@@ -308,6 +331,7 @@
     MAX_RADIUS_KM,
     STARTUP_SPORTS,
     MAJOR_EVENT_FAMILIES,
+    INTERNATIONAL_AUSTRALIA_SPORT_IDS,
     OFFER_INTERESTS,
     VIEWING_PROVIDERS,
     normalizeLocation,
