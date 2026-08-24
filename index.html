@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="131">
+<meta name="app-shell-version" content="132">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -15907,9 +15907,19 @@ function focusMajorEventCard(eventId){
   const targetId = `major-event-card-${String(eventId || "").replace(/[^a-z0-9_-]/gi, "-")}`;
   const target = document.getElementById(targetId);
   if (!target) return false;
-  pendingMajorEventFocusId = null;
-  target.focus({ preventScroll: true });
   target.scrollIntoView({ behavior: "smooth", block: "start" });
+  const restoreTargetFocus = () => {
+    const current = document.getElementById(targetId);
+    if (!current) return false;
+    current.focus({ preventScroll: true });
+    pendingMajorEventFocusId = null;
+    return true;
+  };
+  window.requestAnimationFrame(restoreTargetFocus);
+  window.setTimeout(() => {
+    const deepLink = eventsDeepLinkFromLocation();
+    if (deepLink?.type === "major" && deepLink.id === eventId) restoreTargetFocus();
+  }, 450);
   return true;
 }
 
