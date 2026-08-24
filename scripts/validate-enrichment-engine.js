@@ -28,7 +28,7 @@ const tourNarrative = engine.enrichEvent({
   time: "20:00",
   expected: 7,
 }, { preferenceGraph: graph, narrativeProfile: sportRegistry.byKey.tdf.narrativeProfile });
-assert.equal(tourNarrative.storyline.visibleLabel, "Must Watch", "sport-specific narrative signals must run before global fallback rules");
+assert.equal(tourNarrative.storyline.visibleLabel, "Top pick", "sport-specific narrative signals must run before global fallback rules");
 assert.equal(tourNarrative.storyline.archetype, "quest");
 
 const routine = engine.enrichEvent({
@@ -112,7 +112,10 @@ assert(similarStakesFollowed.mustWatchScore > similarStakesDiscovery.mustWatchSc
 
 const toronto = engine.enrichEvent({
   id: "tennis-tournament-wta-toronto-806-2026-2026-08-13",
-  key: "wimbledon",
+  key: "tennis",
+  tour: "WTA",
+  tennisLevel: "wta_1000",
+  cardType: "tournament_overview",
   name: "National Bank Open presented by Rogers — WTA 1000",
   date: "2026-08-13",
   time: "09:00",

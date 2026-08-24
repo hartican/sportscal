@@ -68,7 +68,7 @@ const migratedPreferences = catalogue.migratePreferences({
   followedSports: ["goodwood"],
   discoverySessionInclusion: ["sport:tennis"],
   preferenceGraph: {
-    schemaVersion: "preference-graph.v6",
+    schemaVersion: "preference-graph.v7",
     learning: { tuningInteractionCount: 9 },
     entityFollows: [{ participantId: "competitor:tennis:ash-barty", followLevel: "follow" }],
     domainPreferences: [

@@ -56,7 +56,7 @@ Object.values(vectorAssets.custom).forEach(entry => assert(["official", "fallbac
 assert.equal(vectorAssets.policy.protectedMarks, "neutral-fallback-unless-permission-recorded");
 assert.equal(vectorAssets.policy.commercialRecordings, "not-bundled");
 
-const editorialLabels = ["Must Watch", "Rivalry", "Record Chase", "Title Decider", "Upset Watch"];
+const editorialLabels = ["Top pick", "Rivalry", "Record Chase", "Title Decider", "Upset Watch"];
 editorialLabels.forEach(label => assert.match(vectorAssets.editorialMarkup(label), /<svg\b/, `${label} must render as a custom vector`));
 [1, 2, 3, 4, 5].forEach(level => assert.match(vectorAssets.intensityMarkup(level), /<svg\b/, `intensity ${level} must render`));
 ["low", "medium", "high", "critical"].forEach(level => assert.match(vectorAssets.stakesMarkup(level), /<svg\b/, `${level} stakes must render`));
@@ -69,7 +69,7 @@ assert.doesNotMatch(stableCardSportIcon, /vector-mask/, "stable card sport icons
 const stableCardClockIcon = vectorAssets.glyphMarkup("ui:clock", { label: "Start time", preferImage: true });
 assert.match(stableCardClockIcon, /<img\b/, "small card controls must use an image-backed glyph on Safari");
 assert.doesNotMatch(stableCardClockIcon, /<svg\b|vector-mask/, "small card controls must not leave live inline vectors or CSS masks in scrolling cards");
-const stableCardEditorialIcon = vectorAssets.editorialMarkup("Must Watch", { label: "Top pick", preferImage: true });
+const stableCardEditorialIcon = vectorAssets.editorialMarkup("Top pick", { label: "Top pick", preferImage: true });
 assert.match(stableCardEditorialIcon, /<img\b/, "small editorial card glyphs must use the stable image path");
 const stableCardBroadcastIcon = vectorAssets.broadcastMarkup("live", { label: "Live broadcast", preferImage: true });
 assert.match(stableCardBroadcastIcon, /<img\b/, "small broadcast card glyphs must use the stable image path");

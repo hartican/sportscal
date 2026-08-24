@@ -64,15 +64,6 @@
         ["team:football:spain", "Spain", ["Spain"]],
         ["team:football:brazil", "Brazil", ["Brazil"]],
       ]],
-      ["Domestic", [
-        ["team:football:sydney-fc", "Sydney FC", ["Sydney FC"]],
-        ["team:football:western-sydney-wanderers", "Western Sydney Wanderers", ["Western Sydney Wanderers"]],
-        ["team:football:melbourne-victory", "Melbourne Victory", ["Melbourne Victory"]],
-        ["team:football:melbourne-city", "Melbourne City", ["Melbourne City"]],
-        ["team:football:brisbane-roar", "Brisbane Roar", ["Brisbane Roar"]],
-        ["team:football:adelaide-united", "Adelaide United", ["Adelaide United"]],
-        ["team:football:perth-glory", "Perth Glory", ["Perth Glory"]],
-      ]],
       ["Premier League", [
         ["team:football:epl:1", "Arsenal", ["Arsenal"]],
         ["team:football:epl:2", "Aston Villa", ["Aston Villa"]],

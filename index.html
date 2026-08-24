@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title data-brand-copy="title">Nothingsport — Smart sports feed</title>
 <meta name="theme-color" content="#0a0a0f">
-<meta name="description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
+<meta name="description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
 <meta name="application-name" content="NS">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="129">
+<meta name="app-shell-version" content="131">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
-<meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
+<meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
 <meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
-<meta name="twitter:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
+<meta name="twitter:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
 <meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/nothingsport-app-32.png" sizes="32x32" type="image/png">
@@ -212,9 +212,9 @@ header.top{
 }
 
 .brand{
-  flex:0 1 340px;
-  min-width:280px;
-  max-width:340px;
+  flex:1 1 430px;
+  min-width:300px;
+  max-width:520px;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -241,7 +241,7 @@ header.top{
 }
 
 .header-brand-logo{
-  width:clamp(174px, 15vw, 194px);
+  width:clamp(87px, 7.5vw, 97px);
   animation:brand-arrive 520ms cubic-bezier(.2,.8,.2,1) both;
 }
 
@@ -252,21 +252,6 @@ header.top{
   flex:0 0 42px;
   object-fit:contain;
   filter:drop-shadow(0 6px 14px rgba(0,0,0,0.28));
-}
-
-.brand .clock{
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  line-height:1.35;
-}
-
-.brand-status-row{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  min-height:1rem;
 }
 
 .startup-launch{
@@ -284,6 +269,34 @@ header.top{
     var(--bg);
   transform-origin:50% 44%;
   will-change:opacity, transform;
+}
+
+.startup-launch-content{
+  width:min(760px, 88vw);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:clamp(18px, 4vh, 34px);
+}
+
+.startup-progress-copy{
+  min-height:1.2rem;
+  color:var(--text-dim);
+  font-size:.78rem;
+  font-weight:750;
+  letter-spacing:.035em;
+  text-align:center;
+}
+
+.startup-sound-enable{
+  min-height:42px;
+  border:1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius:999px;
+  background:color-mix(in srgb, var(--accent) 10%, transparent);
+  color:var(--text);
+  padding:9px 14px;
+  font:800 .72rem/1 'DM Sans', sans-serif;
+  cursor:pointer;
 }
 
 header.top,
@@ -348,12 +361,12 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 
 .startup-launch-mark{
   position:relative;
-  width:min(760px, 88vw);
+  width:100%;
   aspect-ratio:1200 / 488;
   filter:drop-shadow(0 24px 38px color-mix(in srgb, var(--shadow) 76%, transparent));
   transform-origin:center;
   transform-style:preserve-3d;
-  animation:startup-launch-mark .3s cubic-bezier(.18,.78,.24,1) both;
+  animation:startup-launch-mark .9s cubic-bezier(.18,.78,.24,1) both;
 }
 
 .startup-launch-glass,
@@ -375,7 +388,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 .startup-launch-fill{
   overflow:hidden;
   clip-path:polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  animation:startup-original-logo-fill .38s cubic-bezier(.2,.72,.2,1) .08s both;
+  animation:startup-original-logo-fill 2.75s cubic-bezier(.2,.72,.2,1) .2s both;
 }
 
 .startup-launch-original{
@@ -400,7 +413,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   filter:blur(.25px);
   mix-blend-mode:soft-light;
   transform:translateX(-2%) rotate(-1deg);
-  animation:startup-meniscus-rise .38s cubic-bezier(.2,.72,.2,1) .08s both;
+  animation:startup-meniscus-rise 2.75s cubic-bezier(.2,.72,.2,1) .2s both;
 }
 
 .startup-launch-shine{
@@ -408,7 +421,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background:linear-gradient(108deg, transparent 24%, rgba(255,255,255,.65) 44%, rgba(255,255,255,.12) 53%, transparent 70%);
   opacity:0;
   transform:translateX(-48%);
-  animation:startup-logo-shine .18s cubic-bezier(.2,.7,.2,1) .4s both;
+  animation:startup-logo-shine .65s cubic-bezier(.2,.7,.2,1) 2.72s both;
 }
 
 .startup-launch-fallback{
@@ -476,8 +489,8 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 }
 
 .brand .slogan{
-  max-width:460px;
-  font-size: 0.72rem;
+  max-width:500px;
+  font-size:clamp(.82rem, 1.15vw, .98rem);
   color: var(--text);
   font-weight: 800;
   letter-spacing: 0.015em;
@@ -496,6 +509,57 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   min-width:0;
   justify-content:flex-end;
 }
+
+.header-hydration-slot{
+  min-width:72px;
+  min-height:44px;
+  display:grid;
+  place-items:center;
+  align-self:stretch;
+}
+
+.header-date-badge{
+  display:flex;
+  min-width:72px;
+  min-height:44px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  font:950 .72rem/.95 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+
+.header-date-badge strong{ font-size:.8rem; }
+
+.loading-progress-ring{
+  --loading-ring-size:88px;
+  position:relative;
+  width:var(--loading-ring-size);
+  height:var(--loading-ring-size);
+  display:grid;
+  place-items:center;
+  color:var(--text);
+  font-variant-numeric:tabular-nums;
+}
+
+.loading-progress-ring.is-compact{ --loading-ring-size:42px; }
+.loading-progress-ring svg{ position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg); }
+.loading-progress-ring circle{ fill:none; stroke-width:3.5; }
+.loading-progress-track{ stroke:color-mix(in srgb, var(--text) 16%, transparent); }
+.loading-progress-value{
+  stroke:var(--accent);
+  stroke-linecap:round;
+  stroke-dasharray:113.1;
+  stroke-dashoffset:var(--loading-progress-offset);
+  transition:stroke-dashoffset .26s linear;
+}
+.loading-progress-ring.is-failed .loading-progress-value{ stroke:#ff6b6b; }
+.loading-progress-ring strong{ font-size:1.14rem; line-height:1; }
+.loading-progress-ring > span{ position:absolute; left:calc(50% + .65rem); top:calc(50% - .45rem); color:var(--text-dim); font-size:.55rem; font-weight:900; }
+.loading-progress-ring.is-compact strong{ font-size:.74rem; }
+.loading-progress-ring.is-compact > span{ display:none; }
 
 .spoiler-home-toggle{
   display:inline-flex;
@@ -1480,10 +1544,6 @@ main{
   min-height:100%;
 }
 
-.premium-surface-must-watch .premium-surface-header h2{
-  color:var(--attention);
-}
-
 .editorial-review-note{
   margin:9px 0 0;
   color:var(--text-dim);
@@ -1663,7 +1723,8 @@ main{
 .swipe-coaching{ position:absolute; inset:50% 8px auto; z-index:4; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none; color:var(--text); font-size:.68rem; font-weight:900; }
 .swipe-coaching span{ max-width:92px; padding:7px 9px; border:1px solid color-mix(in srgb,var(--text) 18%,transparent); border-radius:999px; background:color-mix(in srgb,var(--bg-card) 72%,transparent); opacity:.62; backdrop-filter:blur(5px); }
 .swipe-feedback-overlay{ position:absolute; inset:0; z-index:12; display:grid; place-content:center; gap:8px; padding:18px; background:color-mix(in srgb,var(--bg-card) 82%,transparent); text-align:center; pointer-events:none; animation:swipe-feedback-in .18s ease both; }
-.swipe-feedback-icon{ font-size:4rem; line-height:1; filter:drop-shadow(0 8px 20px rgba(0,0,0,.28)); }
+.swipe-feedback-icon{ display:grid; place-items:center; line-height:1; filter:drop-shadow(0 8px 20px rgba(0,0,0,.28)); }
+.swipe-feedback-icon .vector-glyph{ width:4rem; height:4rem; }
 .swipe-feedback-copy{ color:var(--text); font-size:.82rem; font-weight:900; }
 @keyframes swipe-feedback-in{ from{ opacity:0; transform:scale(.94); } to{ opacity:1; transform:scale(1); } }
 @media (prefers-reduced-motion:reduce){ .event-card.is-swipe-eligible.swipe-returning,.swipe-feedback-overlay{ transition:none; animation:none; } }
@@ -1833,7 +1894,6 @@ main{
 
 .event-card.is-logo-led-matchup .event-meta-row,
 .event-card.is-logo-led-matchup .rating-row,
-.event-card.is-logo-led-matchup .event-quick-must-watch,
 .event-card.is-logo-led-matchup .follow-context,
 .event-card.is-logo-led-matchup .event-action-row{
   justify-content:center;
@@ -1842,11 +1902,6 @@ main{
 }
 
 .event-card.is-logo-led-matchup .event-venue{ text-align:center; }
-
-.event-card.is-logo-led-matchup .event-quick-must-watch{
-  display:flex;
-  margin-inline:auto;
-}
 
 /* The competition remains visible on logo-led fixtures without competing with
    the two teams. Official marks get a small contrast-safe presentation here;
@@ -1886,6 +1941,7 @@ main{
 }
 
 @media (max-width:620px){
+  .event-card.is-swipe-eligible .swipe-coaching{ display:none; }
   .event-card.is-logo-led-matchup{ min-height:0; padding:7px 9px 9px; }
   .matchup-identity-row{ height:72px; gap:14px; padding-inline:2px; }
   .matchup-team-name-row{ gap:14px; padding-inline:2px; font-size:.77rem; }
@@ -1933,13 +1989,9 @@ main{
 .event-card.is-logo-led-event .event-name-line .event-name{
   width:100%;
 }
-.event-card.is-logo-led-event .event-name-line .new-dot{
+.event-card.is-logo-led-event .event-name-line .new-tag{
   position:absolute;
   left:10px;
-}
-.event-card.is-logo-led-event .event-name-line .must-watch-new-label{
-  position:absolute;
-  left:28px;
 }
 .event-card.is-logo-led-event .event-name-line .card-expand-control{
   position:absolute;
@@ -1959,7 +2011,6 @@ main{
   margin-top:8px;
 }
 .event-card.is-logo-led-event .event-name{ max-width:760px; margin-inline:auto; text-align:center; }
-.event-card.is-logo-led-event .event-quick-must-watch{ display:flex; margin:8px auto 0; }
 .event-card.is-logo-led-event .event-date-line,
 .event-card.is-logo-led-event .event-meta-row,
 .event-card.is-logo-led-event .rating-row{ margin-top:7px; }
@@ -2036,13 +2087,33 @@ main{
 .ticket-sale-card .major-event-body{ grid-template-columns:1fr; }
 .ticket-sale-card h3{ margin:0; font-size:0.9rem; }
 .ticket-sale-card p{ margin:4px 0 0; color:var(--text-dim); font-size:0.74rem; line-height:1.4; }
-.major-event-marker{ display:grid; grid-template-columns:52px minmax(0, 1fr) auto; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border); border-left:4px solid var(--sport-color, var(--accent)); border-radius:8px; background:var(--bg-card); cursor:pointer; }
+.major-event-marker{ display:grid; grid-template-columns:52px minmax(0, 1fr) auto; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border); border-left:4px solid var(--sport-color, var(--accent)); border-radius:8px; background:var(--bg-card); }
 .major-event-marker-logo{ display:grid; place-items:center; width:52px; height:44px; }
 .major-event-marker-logo .event-brand-logo,.major-event-marker-logo .event-sport-mark,.major-event-marker-logo .event-sport-logo{ width:100%; height:100%; object-fit:contain; }
 .major-event-marker-copy strong,.major-event-marker-copy span{ display:block; }
 .major-event-marker-copy span{ margin-top:3px; color:var(--text-dim); font-size:0.72rem; }
-.major-event-marker-open{ color:var(--accent); font-size:0.74rem; font-weight:800; }
+.major-event-marker-open{ justify-self:end; }
+
+:root{ --fixture-card-collapsed-height:248px; }
+.cards-grid > .event-card[data-card-state="compact"],
+.cards-grid > .major-event-marker[data-card-state="compact"],
+.cards-grid > .joint-tournament-card[data-card-state="compact"]{
+  box-sizing:border-box;
+  width:100%;
+  height:var(--fixture-card-collapsed-height);
+  min-height:var(--fixture-card-collapsed-height);
+  max-height:var(--fixture-card-collapsed-height);
+  overflow:hidden;
+}
+.event-card[data-card-state="compact"] .event-name,
+.major-event-marker[data-card-state="compact"] .major-event-marker-copy strong{
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
 @media (max-width:720px){
+  :root{ --fixture-card-collapsed-height:224px; }
   .major-event-ticket-row{ flex-wrap:wrap; padding-inline:10px; }
   .major-event-ticket-link{ flex:1 1 180px; }
   .major-event-follow{ margin-left:0; }
@@ -2251,6 +2322,35 @@ main{
   flex: 0 0 12px;
 }
 
+.new-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:20px;
+  padding:2px 7px;
+  border:1px solid color-mix(in srgb, var(--accent) 60%, var(--border));
+  border-radius:999px;
+  background:color-mix(in srgb, var(--accent) 13%, var(--bg-card));
+  color:var(--text);
+  flex:0 0 auto;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  line-height:1;
+  text-transform:uppercase;
+}
+
+.open-in-events-link,
+.major-event-marker-open{
+  min-height:32px;
+  padding:6px 9px;
+  border:1px solid color-mix(in srgb, var(--accent) 50%, var(--border));
+  border-radius:7px;
+  background:color-mix(in srgb, var(--accent) 8%, var(--bg-card));
+  color:var(--accent);
+  font:850 .68rem/1.1 'DM Sans',sans-serif;
+  cursor:pointer;
+}
+
 .cell-event .new-dot{
   inline-size: 10px;
   block-size: 10px;
@@ -2439,25 +2539,6 @@ main{
   gap: 8px;
 }
 
-.event-quick-must-watch{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:30px;
-  margin-top:10px;
-  padding:5px 8px;
-  border:0;
-  border-top:1px solid var(--border);
-  border-radius:0;
-  background:transparent;
-  color:var(--text-dim);
-  font:800 0.68rem/1 inherit;
-  letter-spacing:0.01em;
-  cursor:pointer;
-}
-.event-quick-must-watch:hover,
-.event-quick-must-watch[aria-pressed="true"]{ color:var(--accent); }
-
 .action-btn{
   background: var(--soft-fill-strong);
   border: 1px solid var(--border);
@@ -2529,7 +2610,7 @@ main{
   color: var(--text-faint);
 }
 
-.badge.mustwatch{
+.badge.editorial{
   background: linear-gradient(135deg, #ff9800, #ff5722);
   color: #fff;
 }
@@ -2869,7 +2950,7 @@ main{
   filter: saturate(0.82);
 }
 
-.month-cell .cell-event.must-watch{
+.month-cell .cell-event.priority-event{
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--sport-color, var(--accent)) 42%, var(--bg-card)), var(--bg-card) 70%),
     color-mix(in srgb, var(--sport-color, var(--accent)) 32%, var(--bg-card));
@@ -2882,7 +2963,7 @@ main{
   filter: saturate(1.35);
 }
 
-.month-cell .cell-event.must-watch::after{
+.month-cell .cell-event.priority-event::after{
   content: "";
   position:absolute;
   right: 4px;
@@ -2895,7 +2976,7 @@ main{
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--sport-color, var(--accent)) 24%, transparent);
 }
 
-.month-cell .cell-event.must-watch{
+.month-cell .cell-event.priority-event{
   padding-right: 18px;
 }
 
@@ -2952,28 +3033,6 @@ main{
   letter-spacing: 0.06em;
   margin-bottom: 10px;
   text-transform: uppercase;
-}
-
-.must-watch-queue{
-  padding:14px 0 20px;
-  border-block:1px solid color-mix(in srgb, var(--attention) 32%, var(--border));
-}
-
-:is(.event-card, .joint-tournament-card).is-must-watch-new{
-  animation:must-watch-arrive 900ms cubic-bezier(.2,.8,.2,1) both;
-}
-
-@keyframes must-watch-arrive{
-  from{ box-shadow:0 0 0 rgba(255,138,0,0); }
-  62%{ box-shadow:0 0 28px rgba(255,138,0,0.2); }
-  to{ box-shadow:0 0 10px rgba(255,138,0,0.08); }
-}
-
-.must-watch-new-label{
-  color:var(--attention);
-  font-size:0.62rem;
-  font-weight:900;
-  letter-spacing:0.08em;
 }
 
 .team-follow-panel{ margin-top:16px; }
@@ -4766,33 +4825,26 @@ footer.app-footer{
     min-width:0;
     max-width:none;
     display:grid;
-    grid-template-columns:minmax(132px, 150px) minmax(0, 1fr);
-    grid-template-rows:auto auto;
+    grid-template-columns:76px minmax(0, 1fr);
+    grid-template-rows:auto;
     align-items:center;
     column-gap:10px;
     row-gap:2px;
   }
-  .brand-title-row{ grid-row:1 / 3; }
-  .header-brand-logo{ width:min(150px, 100%); }
+  .brand-title-row{ grid-row:1; }
+  .header-brand-logo{ width:min(75px, 100%); }
   .brand .slogan{
-    font-size:0.61rem;
+    font-size:clamp(.73rem, 3.2vw, .86rem);
     letter-spacing:0.01em;
-  }
-  .brand .clock{
-    font-size:0.6rem;
-    line-height:1.3;
-  }
-  .brand-status-row{
-    align-items:flex-start;
-    gap:4px;
-    flex-wrap:wrap;
   }
   .header-actions{
     width:100%;
     display:grid;
-    grid-template-columns:minmax(88px, 1fr) repeat(5, 44px);
+    grid-template-columns:minmax(88px, 1fr) repeat(4, 44px) 58px;
     gap:5px;
   }
+  .header-hydration-slot,
+  .header-date-badge{ min-width:58px; }
   .header-actions .btn{
     width:100%;
     min-width:44px;
@@ -5474,8 +5526,6 @@ footer.app-footer{
 .joint-tournament-tables .standings-sport-heading{ display:none; }
 .joint-tournament-tables .standings-sport-section{ margin:0; }
 .joint-tournament-tables .standings-module{ margin-bottom:10px; }
-.joint-tournament-card > .event-quick-must-watch{ margin:0 16px 14px; }
-.joint-tournament-card .must-watch-new-label{ display:inline-block; margin:5px 0 0; }
 .joint-match-list{ display:flex; flex-direction:column; }
 .joint-match{
   display:grid;
@@ -5525,7 +5575,7 @@ body.header-compact-1 header.top{
 }
 body.header-compact-1 .tabs{ margin-top:8px; }
 body.header-compact-1 .tab-btn{ padding-top:7px; padding-bottom:7px; }
-body.header-compact-2 .header-brand-logo{ width:clamp(142px, 14vw, 164px); }
+body.header-compact-2 .header-brand-logo{ width:clamp(78px, 7vw, 88px); }
 body.header-compact-2 .header-actions .btn{ padding-top:7px; padding-bottom:7px; }
 body.header-compact-3 .brand .slogan{ display:none; }
 
@@ -5557,7 +5607,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .football-player-tier{ display:none; }
   .joint-match{ grid-template-columns:64px minmax(0, 1fr); }
   .joint-match-actions{ grid-column:1 / -1; justify-content:flex-end; }
-  body.header-compact-2 .header-brand-logo{ width:132px; }
+  body.header-compact-2 .header-brand-logo{ width:70px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -5596,15 +5646,20 @@ body.header-compact-3 .brand .slogan{ display:none; }
 </head>
 <body>
 
-<div class="startup-launch" id="startupLaunch" aria-hidden="true">
-  <div class="startup-launch-mark" id="startupLaunchMark">
-    <span class="startup-launch-glass" aria-hidden="true"></span>
-    <div class="startup-launch-fill">
-      <img class="startup-launch-original" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="sync">
-      <span class="startup-launch-meniscus" aria-hidden="true"></span>
+<div class="startup-launch" id="startupLaunch" role="status" aria-live="polite" aria-label="Loading nothingsport">
+  <div class="startup-launch-content">
+    <div class="startup-launch-mark" id="startupLaunchMark">
+      <span class="startup-launch-glass" aria-hidden="true"></span>
+      <div class="startup-launch-fill">
+        <img class="startup-launch-original" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="sync">
+        <span class="startup-launch-meniscus" aria-hidden="true"></span>
+      </div>
+      <span class="startup-launch-shine" aria-hidden="true"></span>
+      <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
     </div>
-    <span class="startup-launch-shine" aria-hidden="true"></span>
-    <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
+    <div id="startupProgressRing"></div>
+    <p class="startup-progress-copy" id="startupProgressLabel">Preparing your Fixtures feed…</p>
+    <button class="startup-sound-enable" id="enableLoadingSoundsBtn" type="button" hidden>Enable loading sounds</button>
   </div>
 </div>
 
@@ -5616,10 +5671,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
       </div>
-      <div class="slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.</div>
-      <div class="brand-status-row">
-        <div class="clock" id="liveClock">—</div>
-      </div>
+      <div class="slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.</div>
     </div>
     <div class="header-actions">
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
@@ -5627,6 +5679,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
       <button class="btn primary" id="calendarSyncBtn" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
+      <div class="header-hydration-slot" id="headerHydrationSlot">
+        <div id="headerProgressRing" hidden></div>
+        <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
+      </div>
     </div>
   </div>
 
@@ -5639,6 +5695,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 </header>
 
 <audio id="soundtrackAudio" src="/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3" preload="none" loop></audio>
+<audio id="loadingFillAudio" preload="none" loop></audio>
+<audio id="loadingFunnelAudio" preload="none"></audio>
 
 <div class="controls" id="calendarControls">
   <div class="preference-summary" id="preferenceSummary"></div>
@@ -5658,7 +5716,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 <footer class="app-footer">
   <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" loading="lazy" decoding="async">
-  <div class="footer-slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket.</div>
+  <div class="footer-slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
 </footer>
 
@@ -5723,6 +5781,38 @@ body.header-compact-3 .brand .slogan{ display:none; }
     </div>
     <div class="about-actions">
       <button class="btn primary" id="closeAboutBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop recovery-modal" id="passwordRecoveryModal" aria-hidden="true">
+  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="passwordRecoveryTitle" aria-describedby="passwordRecoveryCopy">
+    <div class="onboarding-head">
+      <div>
+        <h2 id="passwordRecoveryTitle">Set a new password</h2>
+        <p id="passwordRecoveryCopy">Choose a password for your nothingsport account. This reset session stays separate from your normal profile.</p>
+      </div>
+    </div>
+    <div class="onboarding-body" id="passwordRecoveryBody">
+      <form class="account-sync-form" id="passwordRecoveryForm">
+        <label class="field-label" for="recoveryPassword">New password
+          <input id="recoveryPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" required>
+        </label>
+        <label class="field-label" for="recoveryPasswordConfirm">Confirm new password
+          <input id="recoveryPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="1024" required>
+        </label>
+        <p class="preference-help" id="passwordRecoveryMessage" role="status" aria-live="polite">Use at least eight characters.</p>
+        <button class="btn primary" type="submit" id="passwordRecoverySubmit">Update password</button>
+      </form>
+      <form class="account-sync-form" id="passwordRecoveryResendForm" hidden>
+        <p class="preference-help">This reset link is invalid or expired. Request a fresh link without returning to the normal session.</p>
+        <label class="field-label" for="recoveryResendEmail">Email
+          <input id="recoveryResendEmail" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required>
+        </label>
+        <p class="preference-help" id="passwordRecoveryResendMessage" role="status" aria-live="polite"></p>
+        <button class="btn primary" type="submit">Send another reset link</button>
+      </form>
+      <button class="btn ghost" type="button" id="passwordRecoverySignIn" hidden>Return to sign in</button>
     </div>
   </div>
 </div>
@@ -5863,6 +5953,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
+<script src="config/loading-progress.js"></script>
 <script src="config/profile-storage.js"></script>
 <script src="config/disposable-storage.js"></script>
 <script src="config/product-events.js"></script>
@@ -5915,59 +6006,219 @@ const startupCoordinator = FEED_REFRESH_LIFECYCLE?.createStartupCoordinator
 const STARTUP_FEED_TIMEOUT_MS = 6000;
 let startupFeedState = { phase:"loading", attempt:0, issues:[] };
 let startupFeedRevealPending = false;
+const LOADING_PROGRESS = globalThis.NOTHINGSPORTS_LOADING_PROGRESS;
+const loadingController = LOADING_PROGRESS?.createController?.() || {
+  snapshot:() => ({ phase:"complete", percent:100, error:"", tasks:{} }),
+  set:() => {}, complete:() => {}, fail:() => {}, subscribe:() => () => {},
+};
+let startupLaunchStartedAt = 0;
+let startupLaunchTimer = null;
+let startupFunnelStarted = false;
+let startupFunnelFinished = false;
+let loadingAudioPlayer = null;
+let inSessionLoading = null;
+let inSessionLoadingSequence = 0;
+
+function renderHeaderLoadingIndicator(startupState = loadingController.snapshot()){
+  const headerHost = document.getElementById("headerProgressRing");
+  const dateBadge = document.getElementById("calendarDateBadge");
+  const startupActive = document.body.classList.contains("startup-shell-visible") && startupState.phase !== "complete";
+  const sessionActive = Boolean(inSessionLoading?.visible && !startupActive);
+  const active = startupActive
+    ? { state:startupState, label:"Loading Fixtures" }
+    : sessionActive
+      ? inSessionLoading
+      : null;
+  if (headerHost){
+    headerHost.hidden = !active;
+    if (active && LOADING_PROGRESS){
+      headerHost.innerHTML = LOADING_PROGRESS.ringMarkup(active.state, { label:active.label, compact:true });
+    }
+  }
+  if (dateBadge) dateBadge.hidden = Boolean(active);
+}
+
+function beginInSessionLoading(label){
+  const id = ++inSessionLoadingSequence;
+  const controller = LOADING_PROGRESS?.createController?.({ milestones:{ preparation:10, data:75, render:15 } });
+  if (!controller) return Object.freeze({ progress:() => {}, complete:() => {}, fail:() => {} });
+  const operation = {
+    id,
+    label:String(label || "Loading"),
+    controller,
+    state:controller.snapshot(),
+    visible:false,
+    visibleAt:0,
+    delayTimer:null,
+    hideTimer:null,
+  };
+  inSessionLoading = operation;
+  operation.delayTimer = window.setTimeout(() => {
+    if (inSessionLoading?.id !== id || operation.state.phase === "complete") return;
+    operation.visible = true;
+    operation.visibleAt = performance.now();
+    renderHeaderLoadingIndicator();
+  }, LOADING_PROGRESS?.INDICATOR_DELAY_MS || 150);
+  controller.subscribe(state => {
+    operation.state = state;
+    if (operation.visible) renderHeaderLoadingIndicator();
+  });
+  controller.complete("preparation");
+  function dismiss(){
+    window.clearTimeout(operation.delayTimer);
+    if (inSessionLoading?.id !== id) return;
+    const elapsed = operation.visibleAt ? performance.now() - operation.visibleAt : Number.POSITIVE_INFINITY;
+    const wait = operation.visible ? Math.max(0, (LOADING_PROGRESS?.INDICATOR_MIN_VISIBLE_MS || 300) - elapsed) : 0;
+    operation.hideTimer = window.setTimeout(() => {
+      if (inSessionLoading?.id !== id) return;
+      inSessionLoading = null;
+      renderHeaderLoadingIndicator();
+    }, wait);
+  }
+  return Object.freeze({
+    progress(value){ controller.set("data", value); },
+    complete(){ controller.complete("data"); controller.complete("render"); dismiss(); },
+    fail(message){ controller.fail("data", message); operation.visible = true; operation.visibleAt ||= performance.now(); renderHeaderLoadingIndicator(); },
+  });
+}
+
+function updateCalendarDate(){
+  const badge = document.getElementById("calendarDateBadge");
+  if (!badge) return;
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat("en-AU", {
+    timeZone:"Australia/Sydney",
+    weekday:"short",
+    day:"2-digit",
+    month:"short",
+  }).formatToParts(now);
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  const weekday = String(values.weekday || "").toUpperCase();
+  const date = `${values.day || ""}${String(values.month || "").toUpperCase()}`;
+  badge.innerHTML = `<span>${weekday}</span><strong>${date}</strong>`;
+  badge.dateTime = `${new Intl.DateTimeFormat("en-CA", { timeZone:"Australia/Sydney", year:"numeric", month:"2-digit", day:"2-digit" }).format(now)}`;
+  badge.setAttribute("aria-label", new Intl.DateTimeFormat("en-AU", {
+    timeZone:"Australia/Sydney",
+    weekday:"long",
+    day:"numeric",
+    month:"long",
+  }).format(now));
+}
+
+function renderLoadingProgress(state = loadingController.snapshot()){
+  const startupHost = document.getElementById("startupProgressRing");
+  const label = document.getElementById("startupProgressLabel");
+  if (startupHost && LOADING_PROGRESS) startupHost.innerHTML = LOADING_PROGRESS.ringMarkup(state, { label:"Loading Fixtures" });
+  if (label){
+    label.textContent = state.phase === "failed"
+      ? state.error || "The feed is taking longer than expected."
+      : state.percent >= 90
+        ? "Finishing your first Fixtures view…"
+        : state.percent >= 30
+          ? "Loading your Fixtures feed…"
+          : "Preparing your sports profile…";
+  }
+  renderHeaderLoadingIndicator(state);
+}
 
 function finishStartupLogoLaunch(overlay, flight = null){
   flight?.remove();
   document.body.classList.remove("startup-logo-in-flight");
   document.body.classList.add("startup-shell-visible");
+  startupFunnelFinished = true;
+  feedPerformanceMetrics.startupCompleteMs = feedPerformanceNow();
+  publishFeedPerformanceMetrics();
   if (overlay){
     overlay.hidden = true;
     overlay.remove();
   }
+  renderLoadingProgress();
+  runStartupPostLoadActions();
 }
 
-function runStartupLogoLaunch(){
+function beginStartupLogoFunnel(){
+  if (startupFunnelStarted) return;
+  startupFunnelStarted = true;
+  void loadingAudioPlayer?.playFunnel?.();
+  window.clearTimeout(startupLaunchTimer);
   const overlay = document.getElementById("startupLaunch");
   const source = document.getElementById("startupLaunchMark");
   const target = document.getElementById("headerBrandLogo");
   if (!overlay || !source || !target) return document.body.classList.add("startup-shell-visible");
-  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches){
+  document.body.classList.add("startup-shell-visible", "startup-logo-in-flight");
+  renderLoadingProgress();
+  const from = source.getBoundingClientRect();
+  const to = target.getBoundingClientRect();
+  if (!from.width || !to.width || typeof source.animate !== "function"){
     finishStartupLogoLaunch(overlay);
     return;
   }
+  const flight = document.createElement("img");
+  flight.className = "startup-logo-flight";
+  flight.src = "assets/brand/web/nothingsport-logo.png";
+  flight.alt = "";
+  flight.width = 1200;
+  flight.height = 488;
+  Object.assign(flight.style, {
+    left:`${from.left}px`, top:`${from.top}px`, width:`${from.width}px`, height:`${from.height}px`,
+  });
+  document.body.appendChild(flight);
+  source.style.opacity = "0";
+  const scale = to.width / from.width;
+  const translateX = to.left - from.left;
+  const translateY = to.top - from.top;
+  const duration = LOADING_PROGRESS?.FUNNEL_DURATION_MS || 1000;
+  const flightAnimation = flight.animate([
+    { transform:"translate3d(0,0,0) scale(1)", filter:"drop-shadow(0 22px 36px rgba(0,0,0,.32))" },
+    { offset:.34, transform:`translate3d(${translateX * .18}px,${translateY * .12}px,0) scale(${1 - ((1 - scale) * .18)})`, filter:"drop-shadow(0 18px 30px rgba(0,0,0,.3))" },
+    { offset:.76, transform:`translate3d(${translateX * .78}px,${translateY * .76}px,0) scale(${1 - ((1 - scale) * .78)})`, filter:"drop-shadow(0 11px 20px rgba(0,0,0,.25))" },
+    { transform:`translate3d(${translateX}px,${translateY}px,0) scale(${scale})`, filter:"drop-shadow(0 8px 16px rgba(0,0,0,.24))" },
+  ], { duration, easing:"cubic-bezier(.16,.72,.18,1)", fill:"forwards" });
+  overlay.animate([{ opacity:1 }, { offset:.48, opacity:.96 }, { opacity:0 }], { duration, easing:"cubic-bezier(.24,.7,.2,1)", fill:"forwards" });
+  flightAnimation.finished.then(() => finishStartupLogoLaunch(overlay, flight)).catch(() => finishStartupLogoLaunch(overlay, flight));
   window.setTimeout(() => {
-    document.body.classList.add("startup-shell-visible", "startup-logo-in-flight");
-    const from = source.getBoundingClientRect();
-    const to = target.getBoundingClientRect();
-    if (!from.width || !to.width || typeof source.animate !== "function"){
-      finishStartupLogoLaunch(overlay);
-      return;
-    }
-    const flight = document.createElement("img");
-    flight.className = "startup-logo-flight";
-    flight.src = "assets/brand/web/nothingsport-logo.png";
-    flight.alt = "";
-    flight.width = 1200;
-    flight.height = 488;
-    Object.assign(flight.style, {
-      left: `${from.left}px`, top: `${from.top}px`, width: `${from.width}px`, height: `${from.height}px`,
+    if (document.body.contains(flight)) finishStartupLogoLaunch(overlay, flight);
+  }, duration + 220);
+}
+
+function scheduleStartupLogoFunnel({ feedReady = false } = {}){
+  if (startupFunnelStarted) return;
+  const elapsed = Math.max(0, performance.now() - startupLaunchStartedAt);
+  const timing = LOADING_PROGRESS?.startupTiming?.({
+    readyAfterMs:feedReady ? elapsed : Number.POSITIVE_INFINITY,
+  }) || { funnelStartAfterMs:feedReady ? 3000 : 6000 };
+  const delay = Math.max(0, timing.funnelStartAfterMs - elapsed);
+  window.clearTimeout(startupLaunchTimer);
+  startupLaunchTimer = window.setTimeout(beginStartupLogoFunnel, delay);
+}
+
+function runStartupLogoLaunch(){
+  startupLaunchStartedAt = performance.now();
+  feedPerformanceMetrics.shellReadyMs = feedPerformanceNow();
+  publishFeedPerformanceMetrics();
+  loadingController.subscribe(renderLoadingProgress);
+  loadingController.complete("runtime");
+  loadingController.complete("local-state");
+  updateCalendarDate();
+  loadingAudioPlayer = LOADING_PROGRESS?.createAudioCuePlayer?.({
+    fillAudio:document.getElementById("loadingFillAudio"),
+    funnelAudio:document.getElementById("loadingFunnelAudio"),
+  }) || null;
+  const soundEnable = document.getElementById("enableLoadingSoundsBtn");
+  if (soundEnable && loadingAudioPlayer?.available?.()){
+    soundEnable.hidden = loadingAudioPlayer.enabled();
+    soundEnable.addEventListener("click", async () => {
+      const started = await loadingAudioPlayer.enable();
+      soundEnable.hidden = started;
+      if (!started) soundEnable.textContent = "Enable loading sounds";
     });
-    document.body.appendChild(flight);
-    source.style.opacity = "0";
-    const scale = to.width / from.width;
-    const translateX = to.left - from.left;
-    const translateY = to.top - from.top;
-    const flightAnimation = flight.animate([
-      { transform:"translate3d(0,0,0) scale(1)", filter:"drop-shadow(0 18px 30px rgba(0,0,0,.3))" },
-      { offset:.64, transform:`translate3d(${translateX * .72}px,${translateY * .72}px,0) scale(${1 - ((1 - scale) * .72)})`, filter:"drop-shadow(0 10px 18px rgba(0,0,0,.24))" },
-      { transform:`translate3d(${translateX}px,${translateY}px,0) scale(${scale})`, filter:"drop-shadow(0 8px 18px rgba(0,0,0,.28))" },
-    ], { duration:360, easing:"cubic-bezier(.2,.76,.2,1)", fill:"forwards" });
-    overlay.animate([{ opacity:1 }, { offset:.3, opacity:.9 }, { opacity:0 }], { duration:360, easing:"ease", fill:"forwards" });
-    flightAnimation.finished.then(() => finishStartupLogoLaunch(overlay, flight)).catch(() => finishStartupLogoLaunch(overlay, flight));
-    window.setTimeout(() => {
-      if (document.body.contains(flight)) finishStartupLogoLaunch(overlay, flight);
-    }, 520);
-  }, 480);
+    if (loadingAudioPlayer.enabled()) void loadingAudioPlayer.startFill();
+  }
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches){
+    finishStartupLogoLaunch(document.getElementById("startupLaunch"));
+    return;
+  }
+  scheduleStartupLogoFunnel();
 }
 const SPORT_DOMAIN_REGISTRY = globalThis.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY;
 const SPORT_META = SPORT_DOMAIN_REGISTRY.metaByKey();
@@ -6031,7 +6282,7 @@ function renderEventIdentityMark(container, ev, meta){
   container.replaceChildren(image);
 }
 
-const INITIAL_CARD_IMAGE_BUDGET = 20;
+const INITIAL_CARD_IMAGE_BUDGET = 4;
 const activatedCardImageSources = new Set();
 const deferredCardImages = new Set();
 let deferredCardImageObserver = null;
@@ -6564,6 +6815,10 @@ const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.createClient()
   : null;
+let activeRecoverySession = typeof window !== "undefined" && SERVER_SYNC
+  ? SERVER_SYNC.captureRecoveryFromLocation()
+  : null;
+if (activeRecoverySession) serverSyncClient?.clearSession?.();
 const productEventSessionId = globalThis.crypto?.randomUUID?.()
   || `session_${Date.now().toString(36)}_${Math.random().toString(36).slice(2).padEnd(12, "0")}`;
 const productEventsQueue = PRODUCT_EVENTS && serverSyncClient
@@ -6636,6 +6891,8 @@ function saveActiveProfileSections(sections){
 /* ============ STATE ============ */
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v2:first-page.v1";
+const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 let publicFeedManifest = null;
 let publicFeedNextPageIndex = 0;
 let serverFeedNextCursor = null;
@@ -6647,6 +6904,11 @@ const feedPerformanceNow = () => globalThis.performance?.now?.() || 0;
 const feedPerformanceMetrics = {
   schemaVersion: "feed-performance.v1",
   navigationStartedAt: globalThis.performance?.timeOrigin || Date.now(),
+  shellReadyMs: null,
+  cachedFeedReadyMs: null,
+  personalisedFeedReadyMs: null,
+  firstCardRenderedMs: null,
+  startupCompleteMs: null,
   feedReadyMs: null,
   initialPayloadBytes: 0,
   largestContentfulPaintMs: null,
@@ -6663,6 +6925,11 @@ function publishFeedPerformanceMetrics(){
   const maxInteraction = Math.max(0, ...feedPerformanceMetrics.interactionDurations.map(item => Number(item.durationMs) || 0));
   const maxLongTask = Math.max(0, ...feedPerformanceMetrics.longTasks.map(item => Number(item.durationMs) || 0));
   root.dataset.feedReadyMs = feedPerformanceMetrics.feedReadyMs === null ? "" : feedPerformanceMetrics.feedReadyMs.toFixed(1);
+  root.dataset.shellReadyMs = feedPerformanceMetrics.shellReadyMs === null ? "" : feedPerformanceMetrics.shellReadyMs.toFixed(1);
+  root.dataset.cachedFeedReadyMs = feedPerformanceMetrics.cachedFeedReadyMs === null ? "" : feedPerformanceMetrics.cachedFeedReadyMs.toFixed(1);
+  root.dataset.personalisedFeedReadyMs = feedPerformanceMetrics.personalisedFeedReadyMs === null ? "" : feedPerformanceMetrics.personalisedFeedReadyMs.toFixed(1);
+  root.dataset.firstCardRenderedMs = feedPerformanceMetrics.firstCardRenderedMs === null ? "" : feedPerformanceMetrics.firstCardRenderedMs.toFixed(1);
+  root.dataset.startupCompleteMs = feedPerformanceMetrics.startupCompleteMs === null ? "" : feedPerformanceMetrics.startupCompleteMs.toFixed(1);
   root.dataset.feedPayloadBytes = String(feedPerformanceMetrics.initialPayloadBytes || 0);
   root.dataset.feedLcpMs = feedPerformanceMetrics.largestContentfulPaintMs === null ? "" : feedPerformanceMetrics.largestContentfulPaintMs.toFixed(1);
   root.dataset.feedCls = feedPerformanceMetrics.cumulativeLayoutShift.toFixed(4);
@@ -6766,6 +7033,7 @@ let standingsCompetitionExpansion = {};
 let todayMoreReveal = false;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
+let accountRecoveryRequestOpen = false;
 let settingsFirstRun = false;
 let settingsWizardStep = 0;
 let settingsSelectorCategory = "category:sports";
@@ -6815,6 +7083,7 @@ const sessionOpenedEventIds = new Set();
 let serverSyncApplying = false;
 let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
+let serverStatusRequest = null;
 let serverStateBaseline = null;
 let startupSessionStateBaseline = null;
 let serverPersistence = {
@@ -7392,16 +7661,14 @@ function loadEventActions(){
 function migrateEventActionRecords(records){
   return Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
     if (!action || typeof action !== "object") return [key, action];
+    const { mustWatch:_legacyMustWatch, mustWatchAddedAt:_legacyMustWatchAddedAt, mustWatchSeenAt:_legacyMustWatchSeenAt, ...cleanAction } = action;
     const wasSavedForLater = Boolean(
       action.watchLater
       || action.savedForCatchup
       || action.reminderState === "saved_for_catchup"
     );
     return [key, {
-      ...action,
-      mustWatch: Boolean((action.mustWatch && (action.reminderRequested || action.mustWatchAddedAt)) || wasSavedForLater || action.saved),
-      mustWatchAddedAt: action.mustWatchAddedAt || ((wasSavedForLater || action.saved) ? action.lastActionAt || null : null),
-      mustWatchSeenAt: action.mustWatchSeenAt || null,
+      ...cleanAction,
       watchLater: false,
       saved: Boolean(action.saved || wasSavedForLater),
       archived: Boolean(action.archived || action.dismissed || wasSavedForLater),
@@ -7917,6 +8184,7 @@ function setServerPersistence(patch){
   serverPersistence = { ...serverPersistence, ...(patch || {}) };
   const nextOwnerId = serverPersistence.user?.id || null;
   if (previousOwnerId !== nextOwnerId || productEventOwnerId !== nextOwnerId){
+    if (previousOwnerId && previousOwnerId !== nextOwnerId) void clearCachedPersonalisedFeed(previousOwnerId);
     productEventsQueue?.clear();
     productExposureKeys.clear();
     productEventOwnerId = nextOwnerId;
@@ -7927,6 +8195,25 @@ function setServerPersistence(patch){
     renderSettingsScreen();
   }
   return serverPersistence;
+}
+
+function ensureServerSyncStatus(){
+  if (!serverSyncClient || serverPersistence.state !== "checking" || serverStatusRequest) return serverStatusRequest;
+  serverStatusRequest = serverSyncClient.status().then(status => {
+    setServerPersistence(status.configured
+      ? { configured:true, state:"signedOut", user:null, message:"" }
+      : { configured:false, state:"local", user:null, message:"" });
+  }).catch(error => {
+    setServerPersistence({
+      configured:false,
+      state:error?.status === 404 ? "local" : "error",
+      user:null,
+      message:error?.status === 404 ? "" : "Server sync is temporarily unavailable.",
+    });
+  }).finally(() => {
+    serverStatusRequest = null;
+  });
+  return serverStatusRequest;
 }
 
 function currentServerStatePayload(){
@@ -7991,9 +8278,13 @@ function queueServerStateSync(){
   clearTimeout(serverSyncTimer);
   serverSyncTimer = setTimeout(() => {
     serverSyncTimer = null;
-    syncCurrentServerState().catch(error => {
-      console.warn("Deferred server sync failed", error);
-    });
+    const hydration = startupFunnelFinished ? beginInSessionLoading("Saving settings") : null;
+    syncCurrentServerState()
+      .then(() => hydration?.complete())
+      .catch(error => {
+        hydration?.fail("Settings are saved locally; online sync will retry.");
+        console.warn("Deferred server sync failed", error);
+      });
   }, 650);
   return true;
 }
@@ -8167,38 +8458,41 @@ function applyServerState(state){
   }
 }
 
-async function bootstrapServerPersistence(){
+async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
   if (!serverSyncClient){
     setServerPersistence({ configured: false, state: "local", message: "" });
     return serverPersistence;
   }
   setServerPersistence({ state: "checking", message: "Checking server sync…" });
   try{
-    const status = await serverSyncClient.status();
-    if (!status.configured){
-      setServerPersistence({
-        configured: false,
-        state: "local",
-        user: null,
-        message: "",
-      });
-      return serverPersistence;
+    if (checkStatus){
+      const status = await serverSyncClient.status();
+      if (!status.configured){
+        setServerPersistence({
+          configured: false,
+          state: "local",
+          user: null,
+          message: "",
+        });
+        return serverPersistence;
+      }
     }
 
     setServerPersistence({ configured: true });
-    const session = await serverSyncClient.restoreSession();
+    const session = sessionHint === undefined
+      ? await serverSyncClient.restoreSession()
+      : sessionHint;
     if (!session){
       setServerPersistence({ state: "signedOut", user: null, message: "" });
       return serverPersistence;
     }
 
-    const user = await serverSyncClient.user();
     setServerPersistence({
       state: "syncing",
-      user,
       message: "Loading your saved profile…",
     });
     const result = await serverSyncClient.loadState();
+    const user = result.user;
     if (result.state){
       const stateBeforeHydration = currentServerStatePayload();
       const sessionPatch = USER_STATE_SYNC.createPatch(
@@ -8213,7 +8507,7 @@ async function bootstrapServerPersistence(){
       setServerStateBaseline(result.state);
       setServerPersistence({
         state: "signedIn",
-        user: result.user || user,
+        user,
         lastSyncedAt: result.state.updatedAt,
         message: "",
       });
@@ -8375,9 +8669,30 @@ async function loadFootballAsset({ url, scriptUrl, globalName }){
   return response.json();
 }
 
+function pruneUnavailableFootballFollows(directory){
+  const graph = userPreferences?.preferenceGraph;
+  if (!graph || !Array.isArray(graph.entityFollows)) return false;
+  const activeIds = new Set([
+    ...(directory?.teams || []).map(item => item?.id),
+    ...(directory?.players || []).map(item => item?.id),
+  ].filter(Boolean));
+  const nextFollows = graph.entityFollows.filter(item => {
+    const id = String(item?.participantId || "");
+    if (!id.startsWith("team:football:") && !id.startsWith("competitor:football:")) return true;
+    return activeIds.has(id);
+  });
+  if (nextFollows.length === graph.entityFollows.length) return false;
+  savePreferences({
+    ...userPreferences,
+    preferenceGraph: { ...graph, entityFollows: nextFollows },
+  });
+  return true;
+}
+
 async function loadFootballDirectoryData(){
   if (footballDirectoryData) return footballDirectoryData;
   if (footballDirectoryLoading) return null;
+  const hydration = startupFunnelFinished ? beginInSessionLoading("Loading football directory") : null;
   footballDirectoryLoading = true;
   footballDirectoryError = null;
   try{
@@ -8391,14 +8706,18 @@ async function loadFootballDirectoryData(){
     ]);
     if (data?.schemaVersion !== api.SCHEMA_VERSION) throw new Error("Football directory schema is unsupported");
     footballDirectoryData = data;
+    pruneUnavailableFootballFollows(data);
+    hydration?.progress(.9);
     return data;
   }catch(error){
+    hydration?.fail("Football directory unavailable. Try again.");
     footballDirectoryError = error;
     console.warn("Football directory unavailable", error);
     return null;
   }finally{
     footballDirectoryLoading = false;
     renderStandingsContext();
+    if (!footballDirectoryError) hydration?.complete();
   }
 }
 
@@ -8569,7 +8888,7 @@ function footballLeagueKeysForFollows(index = footballFollowIndex){
   const leagueKeyById = new Map([
     ["competition:premier-league", "premier-league"], ["competition:bundesliga", "bundesliga"],
     ["competition:la-liga", "la-liga"], ["competition:serie-a", "serie-a"],
-    ["competition:ligue-1", "ligue-1"], ["competition:a-leagues", "a-league-men"],
+    ["competition:ligue-1", "ligue-1"],
   ]);
   const followedIds = new Set((userPreferences.preferenceGraph?.entityFollows || [])
     .filter(follow => ["follow", "priority", "mute"].includes(follow.followLevel))
@@ -8697,6 +9016,7 @@ async function loadJointTournamentData(){
 async function loadMajorEventsData(){
   if (majorEventsDocument) return majorEventsDocument;
   if (majorEventsLoading) return null;
+  const hydration = startupFunnelFinished ? beginInSessionLoading("Loading Events") : null;
   majorEventsLoading = true;
   majorEventsError = null;
   const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url);
@@ -8718,15 +9038,18 @@ async function loadMajorEventsData(){
     }) || ["Major events validation is unavailable"];
     if (validationErrors.length) throw new Error(`Unsupported major events catalogue: ${validationErrors[0]}`);
     majorEventsDocument = payload;
+    hydration?.progress(.9);
     if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload);
     loadJointSchedule = payload.events.some(event => event.scheduleAdapter === "joint-tennis-tournament-2026");
     refreshAddedFixtureSnapshots();
   }catch(error){
     majorEventsError = error;
+    hydration?.fail("Events could not be loaded. Try again.");
     console.warn("Major events catalogue unavailable", error);
   }finally{
     majorEventsLoading = false;
     renderAll({ preserveViewport: true });
+    if (!majorEventsError) hydration?.complete();
   }
   if (loadJointSchedule) void loadJointTournamentData();
   return majorEventsDocument;
@@ -8765,6 +9088,36 @@ function applyFeedEvents(events, meta, { append = false } = {}){
   if (!activeSportHubKey()) renderPreferenceSummary();
   if (append && appendFeedPageToCurrentList(events)) return true;
   return renderFeedIfPresentationChanged({ preserveViewport: true });
+}
+
+function personalisedFeedCacheKey(userId = serverSyncClient?.sessionSubject?.()){
+  const subject = String(userId || "").trim();
+  return subject ? `personalised-feed:${subject}:${PERSONALISED_FEED_CACHE_VERSION}` : "";
+}
+
+function cachePersonalisedFeedPayload(payload, userId){
+  const key = personalisedFeedCacheKey(userId);
+  const firstPage = payload?.schemaVersion === "server-feed.v2"
+    && Number(payload.pagination?.cursor || 0) === 0
+    && Array.isArray(payload.events)
+    && payload.events.length > 0;
+  if (!key || !firstPage) return false;
+  disposableStore?.set(key, payload, { ttlMs:PERSONALISED_FEED_CACHE_TTL_MS });
+  void disposableStore?.flush?.();
+  return true;
+}
+
+async function restoreCachedPersonalisedFeed(userId){
+  const key = personalisedFeedCacheKey(userId);
+  if (!key || !disposableStore?.hydrate) return null;
+  const payload = await disposableStore.hydrate(key, null);
+  if (payload?.schemaVersion !== "server-feed.v2" || Number(payload.pagination?.cursor || 0) !== 0) return null;
+  return payload;
+}
+
+function clearCachedPersonalisedFeed(userId){
+  const key = personalisedFeedCacheKey(userId);
+  return key ? disposableStore?.remove?.(key) : Promise.resolve(false);
 }
 
 function applyServerFeed(payload){
@@ -8811,26 +9164,32 @@ function applyServerFeed(payload){
   };
 }
 
-async function refreshRemoteFeed({ quiet = false } = {}){
+async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
   const interactionStartedAt = feedPerformanceNow();
+  const hydration = startupFunnelFinished ? beginInSessionLoading("Refreshing Fixtures") : null;
   const centralRebuildRequested = Boolean(
     serverSyncClient
-    && serverPersistence.user
+    && (signedInHint || serverPersistence.user || serverSyncClient.getSession?.())
     && ["signedIn", "syncing", "error"].includes(serverPersistence.state)
   );
   try{
     if (!quiet) showToast(centralRebuildRequested ? "Rebuilding your feed…" : "Loading the published feed…");
     if (globalThis.location?.protocol === "file:"){
       const events = await loadLatestBundledEvents();
+      hydration?.progress(.9);
       const rendered = applyFeedEvents(events);
       if (!quiet) showToast(`Bundled feed reloaded: ${events.length} events.`);
       return { source: "bundled", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
     }
     if (centralRebuildRequested){
       const payload = await serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE });
+      hydration?.progress(.82);
       feedPerformanceMetrics.initialPayloadBytes = new TextEncoder().encode(JSON.stringify(payload)).byteLength;
       publishFeedPerformanceMetrics();
+      cachePersonalisedFeedPayload(payload);
       const result = applyServerFeed(payload);
+      feedPerformanceMetrics.personalisedFeedReadyMs = feedPerformanceNow();
+      publishFeedPerformanceMetrics();
       if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
       return result;
     }
@@ -8839,6 +9198,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     publicFeedManifest = manifest;
     publicFeedNextPageIndex = 1;
     const payload = await fetchJson(manifest.pages[0].path, { cache: "default" });
+    hydration?.progress(.82);
     feedPerformanceMetrics.initialPayloadBytes = new TextEncoder()
       .encode(JSON.stringify({ manifest, payload })).byteLength;
     publishFeedPerformanceMetrics();
@@ -8880,6 +9240,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     }
     return { source: "fallback", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length, rendered };
   }finally{
+    hydration?.complete();
     recordFeedInteraction("feed_refresh", interactionStartedAt);
   }
 }
@@ -8890,7 +9251,9 @@ async function loadNextFeedPage(){
   const publicPage = publicFeedManifest?.pages?.[publicFeedNextPageIndex];
   if (!signedIn && !publicPage) return false;
   feedPageLoading = true;
+  const hydration = beginInSessionLoading("Loading more Fixtures");
   const interactionStartedAt = feedPerformanceNow();
+  let pageLoaded = false;
   try{
     if (signedIn){
       applyServerFeed(await serverSyncClient.loadFeed({ cursor: serverFeedNextCursor, limit: FEED_PAGE_SIZE }));
@@ -8904,12 +9267,16 @@ async function loadNextFeedPage(){
         publishedAt: publicFeedManifest.sourcePublishedAt,
       }, { append: true });
     }
+    hydration.progress(.9);
+    pageLoaded = true;
     return true;
   }catch(error){
+    hydration.fail("More Fixtures could not be loaded. Try again.");
     console.warn("Additional feed page unavailable", error);
     return false;
   }finally{
     feedPageLoading = false;
+    if (pageLoaded) hydration.complete();
     recordFeedInteraction("feed_page_append", interactionStartedAt);
   }
 }
@@ -8934,12 +9301,32 @@ function observeFeedPageSentinel(container){
 }
 
 async function refreshFeedOnFirstLoad(){
-  try{
-    await bootstrapServerPersistence();
-  }catch(error){
-    console.warn("Account bootstrap unavailable; continuing with automatic feed refresh", error);
-  }
-  return refreshRemoteFeed({ quiet: true });
+  const storedSession = serverSyncClient?.getSession?.() || null;
+  const sessionUserId = serverSyncClient?.sessionSubject?.() || "";
+  let networkFeedSettled = false;
+  const accountTask = storedSession
+    ? bootstrapServerPersistence({ session:storedSession, checkStatus:false })
+    : Promise.resolve(setServerPersistence({ state:"checking", user:null, message:"" }));
+  const feedTask = refreshRemoteFeed({ quiet:true, signedInHint:Boolean(storedSession) })
+    .finally(() => { networkFeedSettled = true; });
+  const cachedFeedTask = sessionUserId
+    ? restoreCachedPersonalisedFeed(sessionUserId).then(payload => {
+        if (!payload || networkFeedSettled) return null;
+        applyServerFeed(payload);
+        feedPerformanceMetrics.cachedFeedReadyMs = feedPerformanceNow();
+        publishFeedPerformanceMetrics();
+        loadingController.set("feed-page", .72);
+        return payload;
+      })
+    : Promise.resolve(null);
+  void Promise.allSettled([accountTask]).then(([accountResult]) => {
+    loadingController.complete("account-state");
+    if (accountResult.status === "rejected"){
+      console.warn("Account bootstrap unavailable; continuing with the already usable feed", accountResult.reason);
+    }
+  });
+  void Promise.allSettled([cachedFeedTask]);
+  return feedTask;
 }
 
 function requestFeedRefreshForFilterChange(){
@@ -9034,7 +9421,7 @@ function setActiveFeedFilter(nextFilter, {
   calendarInitialJumpPending = !previousHubKey && !nextHubKey;
   renderAll();
   if (["football", "sport:football", "premier-league"].includes(normalizedFilter)){
-    void Promise.all(["premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "a-league-men"]
+    void Promise.all(["premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1"]
       .map(loadFootballLeagueFixtures));
   }
   if (nextHubKey && nextHubKey !== previousHubKey && measurementEntry){
@@ -9377,9 +9764,8 @@ function retrospectiveSignificanceForEvent(ev){
   };
 }
 
-function isMustWatch(ev){
-  return getEventAction(ev).mustWatch
-    || isPreFlagged(ev)
+function isPriorityEvent(ev){
+  return isPreFlagged(ev)
     || eventEnrichment(ev).mustWatchScore >= 70
     || (isSpoilerVisible(ev) && isUpgrade(ev));
 }
@@ -9393,9 +9779,6 @@ function defaultEventAction(ev){
   return {
     eventId: ev.eventId || ev.id,
     startTime: `${ev.date}T${ev.time}`,
-    mustWatch: false,
-    mustWatchAddedAt: null,
-    mustWatchSeenAt: null,
     addedToFixtures: false,
     addedToFixturesAt: null,
     addedFixture: null,
@@ -9412,7 +9795,7 @@ function getEventAction(ev){
   const saved = eventActions[eventActionKey(ev)] || {};
   const archivedByReference = archivedEventRefs?.some(reference => reference.canonicalEventId === (ev.eventId || ev.id));
   const action = { ...defaultEventAction(ev), ...saved, archived: Boolean(saved.archived || archivedByReference) };
-  return PERSONALISED_FEED?.normaliseMustWatchAction?.(action, ev) || action;
+  return action;
 }
 
 function enrichmentContextForEvent(ev){
@@ -9421,7 +9804,6 @@ function enrichmentContextForEvent(ev){
     followedSports: userPreferences.followedSports,
     selectedBroadcasterIds: userPreferences.selectedBroadcasters,
     participants: canonicalPreferenceParticipants,
-    explicitMustWatch: getEventAction(ev).mustWatch,
     narrativeProfile: SPORT_DOMAIN_REGISTRY.byKey[ev.key]?.narrativeProfile,
   };
 }
@@ -9477,7 +9859,6 @@ function eventLearningScore(ev){
   const eventId = String(ev.eventId || ev.id);
   const openedSignal = sessionOpenedEventIds.has(eventId) && !cardViewStates[eventId] ? 2 : 0;
   const localSignals = openedSignal
-    + (action.mustWatch ? 12 : 0)
     + (action.addedToFixtures ? 12 : 0)
     + (action.saved ? 10 : 0)
     + (action.watched ? 6 : 0);
@@ -9676,18 +10057,6 @@ function mergeMainFeedSpecialEvents(events){
   return [...merged.values()];
 }
 
-function setMustWatch(ev, enabled){
-  const action = getEventAction(ev);
-  const nextAction = updateEventAction(ev, {
-    mustWatch: Boolean(enabled),
-    mustWatchAddedAt: enabled ? (action.mustWatchAddedAt || new Date().toISOString()) : null,
-    mustWatchSeenAt: enabled ? action.mustWatchSeenAt : null,
-    reminderRequested: enabled ? false : action.reminderRequested,
-  });
-  recordEventFeedAction(ev, enabled ? "must_watch_added" : "must_watch_removed", productRecommendationContext(ev));
-  return nextAction;
-}
-
 function surfacePresentationKey(ev){
   const id = ev.eventId || ev.id;
   return id === undefined || id === null ? "" : String(id);
@@ -9741,7 +10110,6 @@ function computeAuBroadcastWeightScore(input){
 }
 
 function userInterestScoreForEvent(ev){
-  if (getEventAction(ev).mustWatch) return 5;
   const followsSport = userPreferences.followedSports.includes(ev.sportId || ev.key);
   const hasPreferredBroadcaster = (ev.broadcasterIds || []).some(id => userPreferences.selectedBroadcasters.includes(id));
   if (followsSport && hasPreferredBroadcaster) return 4;
@@ -9800,31 +10168,9 @@ function compareStableEventIds(first, second){
   return firstId < secondId ? -1 : 1;
 }
 
-function compareSurfacedEvents(first, second, { topNine = false, reference = nowAEST() } = {}){
-  const firstPresentation = surfacePresentationForEvent(first, reference);
-  const secondPresentation = surfacePresentationForEvent(second, reference);
-  const recommendationOrder = { direct: 0, adjacent: 1, discovery: 2, ineligible: 3, suppressed: 4 };
-  const recommendationDifference = (recommendationOrder[eventRecommendationClassification(first)] ?? 3)
-    - (recommendationOrder[eventRecommendationClassification(second)] ?? 3);
-  if (recommendationDifference) return recommendationDifference;
-  if (firstPresentation.isPinned !== secondPresentation.isPinned) return firstPresentation.isPinned ? -1 : 1;
-  if (firstPresentation.isNew !== secondPresentation.isNew) return firstPresentation.isNew ? -1 : 1;
-  const learningDifference = eventLearningScore(second) - eventLearningScore(first);
-  if (learningDifference) return learningDifference;
-  if (topNine){
-    const scoreDifference = eventEnrichment(second).mustWatchScore - eventEnrichment(first).mustWatchScore;
-    if (scoreDifference) return scoreDifference;
-    if (firstPresentation.auBroadcastWeightScore !== secondPresentation.auBroadcastWeightScore){
-      return secondPresentation.auBroadcastWeightScore - firstPresentation.auBroadcastWeightScore;
-    }
-  }
-  const importanceDifference = Number(second.stakesScore || stakesScoreForEvent(second)) - Number(first.stakesScore || stakesScoreForEvent(first));
-  if (importanceDifference) return importanceDifference;
-  const timeDifference = eventDateTime(first) - eventDateTime(second);
-  if (timeDifference) return timeDifference;
-  const intensityDifference = storylineIntensityForEvent(second) - storylineIntensityForEvent(first);
-  if (intensityDifference) return intensityDifference;
-  return compareStableEventIds(first, second);
+function compareSurfacedEvents(first, second){
+  return PERSONALISED_FEED?.compareChronological?.(first, second)
+    ?? (eventDateTime(first) - eventDateTime(second) || compareStableEventIds(first, second));
 }
 
 function orderSurfacedEvents(events, options = {}){
@@ -9834,15 +10180,7 @@ function orderSurfacedEvents(events, options = {}){
 }
 
 function orderCuratedDayEvents(events){
-  return events
-    .map((event, index) => ({ event, index }))
-    .sort((first, second) => (
-      ({ direct: 0, adjacent: 1, discovery: 2 }[eventRecommendationClassification(first.event)] ?? 3)
-      - ({ direct: 0, adjacent: 1, discovery: 2 }[eventRecommendationClassification(second.event)] ?? 3)
-      || eventLearningScore(second.event) - eventLearningScore(first.event)
-      || first.index - second.index
-    ))
-    .map(item => item.event);
+  return orderSurfacedEvents(events);
 }
 
 function partitionSurfacedEvents(events, options = {}){
@@ -10079,7 +10417,7 @@ function archiveEvent(ev, { preserve = false } = {}){
       archivedFromCardId: derivedCardIdForEvent(ev),
     }));
   }
-  updateEventAction(ev, { archived: true, saved: preserve, watchLater: false, mustWatch: false });
+  updateEventAction(ev, { archived: true, saved: preserve, watchLater: false });
   recordEventFeedAction(ev, preserve ? "save" : "archive", recommendationContext);
   return true;
 }
@@ -10182,12 +10520,6 @@ function buildEventActionPanel(ev, options = {}){
       ariaLabel: `Less like ${ev.name}`,
       iconMarkup: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>',
     });
-    const mustWatch = Boolean(getEventAction(ev).mustWatch);
-    makeActionButton(mustWatch ? "Remove from Must Watch" : "Add to Must Watch", mustWatch ? "active must-watch-toggle" : "must-watch-toggle", () => {
-      setMustWatch(ev, !mustWatch);
-      renderAll({ preserveViewport: true });
-      showToast(mustWatch ? `${ev.name} removed from Must Watch.` : `${ev.name} added to Must Watch.`);
-    }, { pressed: mustWatch });
     if (getEventStatus(ev) === "past"){
       makeActionButton("Rate", "", () => {
         markSpoilerRevealed(ev);
@@ -10344,7 +10676,7 @@ function renderFeedControls(){
     ["scope", "Feed intent", [["following", "Focused"], ["for_you", "Balanced"], ["explore", "Discovery"]]],
     ["availability", "Availability", [["any", "Any"], ["free", "Free"], ["included", "Included"], ["ppv", "PPV"]]],
     ["timing", "Timing", [["any", "Any time"], ["live_now", "Live now"], ["tonight", "Tonight"], ["this_week", "This week"], ["overnight", "Overnight OK"]]],
-    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["must_watch", "Must watch"]]],
+    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["top_picks", "Top picks"]]],
   ];
   grid.innerHTML = "";
   definitions.forEach(([key, label, values]) => {
@@ -10511,7 +10843,7 @@ function discoverySportHasFroth(nodeId, preferences = userPreferences){
 
 function eventEligibleForOneOffMotorsportDiscovery(ev, preferences = userPreferences){
   const relevantSportIds = DISCOVERY_CATALOGUE?.oneOffMotorsportFrothIds?.(ev) || [];
-  if (!relevantSportIds.length || getEventAction(ev).mustWatch) return true;
+  if (!relevantSportIds.length) return true;
   return relevantSportIds.some(nodeId => discoverySportHasFroth(nodeId, preferences));
 }
 
@@ -10899,8 +11231,12 @@ function restoreInspectorFeedViewport(returnState){
 
 async function openCodeInspector(codeId, { pushHistory = true } = {}){
   const startedAt = feedPerformanceNow();
+  const hydration = codeInspectorChunk ? null : beginInSessionLoading("Loading Inspector");
   const manifest = await loadCodeInspectorManifest();
-  if (!manifest.codes.some(code => code.id === codeId)) return;
+  if (!manifest.codes.some(code => code.id === codeId)){
+    hydration?.fail("Inspector is unavailable.");
+    return;
+  }
   if (!activeInspectorCodeId){
     const pickerBody = document.querySelector("#tuneSheet .tune-sheet-body");
     inspectorPickerState = { scrollTop: pickerBody?.scrollTop || 0, focusCodeId: codeId };
@@ -10927,12 +11263,15 @@ async function openCodeInspector(codeId, { pushHistory = true } = {}){
   recordFeedInteraction("inspector_open", startedAt);
   try{
     await loadCodeInspectorChunk(codeId);
+    hydration?.progress(.9);
     if (activeInspectorCodeId === codeId){
       const renderStartedAt = feedPerformanceNow();
       renderAll();
+      hydration?.complete();
       recordFeedInteraction("inspector_fixture_render", renderStartedAt);
     }
   }catch(error){
+    hydration?.fail("Inspector fixtures could not be loaded. Try again.");
     console.warn("Inspector fixtures unavailable", error);
     if (activeInspectorCodeId === codeId){
       const renderStartedAt = feedPerformanceNow();
@@ -11298,9 +11637,9 @@ function buildFocusedDiscoveryBanner(nodeId){
   banner.style.setProperty("--sport-color", node.color || SPORT_META[sportKey]?.color || "var(--accent)");
   const copy = document.createElement("div");
   const detail = !followed
-    ? "You are previewing Must Watch and top-story highlights. Follow to keep this sport in your feed."
+    ? "You are previewing editorial top picks and story highlights. Follow to keep this sport in your feed."
     : promptFroth
-      ? `Choose whether ${node.label} should show every fixture or keep only Must Watch and top-story cards.`
+      ? `Choose whether ${node.label} should show every fixture or keep only top-pick and story cards.`
       : isCoverageLeague && !hasFroth
         ? "Highlights mode is active for this visit. Sport-specific Froth is required for every fixture."
         : "Focused view is open. Your saved follow and feed intent settings still apply.";
@@ -11496,7 +11835,6 @@ function eventHasExplicitCoverage(ev){
   const follows = eventParticipantFollowLevels(ev);
   return enabledDomains.some(preference => preference.includeAllFixtures)
     || follows.some(level => level === "follow" || level === "priority")
-    || getEventAction(ev).mustWatch
     || getEventAction(ev).addedToFixtures;
 }
 
@@ -11619,7 +11957,7 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
     const completeLeagueCoverage = !["afl", "nrl"].includes(focusedKey) || discoverySportHasFroth(activeFilter);
     list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
     if (!followed || !completeLeagueCoverage){
-      list = list.filter(event => eventIsEditorialMustShow(event) || getEventAction(event).mustWatch);
+      list = list.filter(eventIsEditorialMustShow);
     }
     if (!FEED_CONTROLS) return list;
     const focusedControls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
@@ -11640,7 +11978,6 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
     && eventMatchesBroadcasterPreferences(event)
     && FEED_CONTROLS.matchesEvent(event, controls, {
       now: reference,
-      mustWatch: getEventAction(event).mustWatch,
       explicitCoverage: eventHasExplicitCoverage(event),
       followedParticipant: eventParticipantFollowLevels(event).some(level => level === "follow" || level === "priority"),
       explicitlyAdded: getEventAction(event).addedToFixtures,
@@ -11753,7 +12090,7 @@ function observeProductOpportunity(element, key, event){
 function removeNewMarker(card){
   card.classList.remove("is-new");
   card.dataset.feedBucket = "seen";
-  card.querySelector(".new-dot")?.remove();
+  card.querySelector(".new-tag")?.remove();
 }
 
 function getSurfaceSeenObserver(){
@@ -12326,7 +12663,7 @@ function applyCuratedEventSwipe(ev, direction){
     const icon = document.createElement("span");
     icon.className = "swipe-feedback-icon";
     icon.setAttribute("aria-hidden", "true");
-    icon.textContent = direction === "positive" ? "👍" : "👎";
+    icon.innerHTML = VECTOR_ASSETS.glyphMarkup(direction === "positive" ? "ui:plus" : "ui:minus");
     const copy = document.createElement("span");
     copy.className = "swipe-feedback-copy";
     copy.textContent = `${direction === "positive" ? "Liked" : "Not for me"} — future feed suggestions will adapt.`;
@@ -12372,8 +12709,6 @@ function buildEventCard(ev, options = {}){
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
   const recommendationProfile = eventRecommendationProfile(ev);
-  const mustWatchAction = getEventAction(ev);
-  const isNewMustWatch = mode === "must-watch-queue" && mustWatchAction.mustWatch && !mustWatchAction.mustWatchSeenAt;
   const swipeEligible = mode !== "premium-rail"
     && !options.archived
     && activeTab === "feed"
@@ -12395,12 +12730,12 @@ function buildEventCard(ev, options = {}){
     spoilerProtected ? "is-spoiler-protected" : "",
     displayedResult ? "has-card-result" : "",
     presentation.isNew ? "is-new" : "",
-    isNewMustWatch ? "is-must-watch-new" : "",
     status === "past" ? "is-past" : "",
     ["adjacent", "discovery"].includes(recommendationProfile.classification) ? "is-discovery" : "",
     swipeEligible ? "is-swipe-eligible" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
+  card.dataset.cardState = state;
   card.dataset.cardMode = mode;
   card.dataset.feedBucket = presentation.feedBucket;
   card.dataset.cardVariant = enrichment.cardVariant;
@@ -12416,7 +12751,6 @@ function buildEventCard(ev, options = {}){
       if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", options);
       sessionOpenedEventIds.add(eventId);
     }
-    if (isNewMustWatch) updateEventAction(ev, { mustWatchSeenAt: new Date().toISOString() });
     setCardState(ev, nextCardState(state));
     replaceCardPreservingViewport(card, buildEventCard(ev, options), { restoreFocus: document.activeElement === card });
   };
@@ -12481,21 +12815,33 @@ function buildEventCard(ev, options = {}){
       tickets.addEventListener("click", evt => evt.stopPropagation());
       dateLine.appendChild(tickets);
     }
+    const eventsRecordId = ev.majorEventId || ev.parentMajorEventId || null;
+    const hasEventsRecord = eventsRecordId && (
+      ev.majorEventMarker
+      || !majorEventsDocument
+      || majorEventsDocument.events?.some(record => record.id === eventsRecordId)
+    );
+    if (hasEventsRecord){
+      const openEvents = document.createElement("button");
+      openEvents.type = "button";
+      openEvents.className = "open-in-events-link";
+      openEvents.textContent = "Open in Events";
+      openEvents.addEventListener("click", event => {
+        event.stopPropagation();
+        openMajorEventInEvents(eventsRecordId);
+      });
+      dateLine.appendChild(openEvents);
+    }
     if (!matchupIdentity) nameWrap.appendChild(dateLine);
   }
   const nameLine = document.createElement("div");
   nameLine.className = "event-name-line";
   if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
   if (presentation.isNew){
-    const newDot = document.createElement("span");
-    newDot.className = "new-dot";
-    newDot.setAttribute("aria-label", "New item");
-    nameLine.appendChild(newDot);
-  }
-  if (isNewMustWatch){
     const label = document.createElement("span");
-    label.className = "must-watch-new-label";
-    label.textContent = "NEW";
+    label.className = "new-tag";
+    label.textContent = "New";
+    label.setAttribute("aria-label", "Newly surfaced fixture");
     nameLine.appendChild(label);
   }
   const nameEl = document.createElement("div");
@@ -12553,7 +12899,7 @@ function buildEventCard(ev, options = {}){
       ? "Top pick"
       : enrichment.storyline.visibleLabel;
     const b = document.createElement("span");
-    b.className = "badge mustwatch";
+    b.className = "badge editorial";
     b.innerHTML = `${VECTOR_ASSETS.editorialMarkup(enrichment.storyline.visibleLabel, { className: "semantic-badge-glyph", label: displayLabel, preferImage: true })}<span>${displayLabel}</span>`;
     badges.appendChild(b);
   }
@@ -12657,21 +13003,6 @@ function buildEventCard(ev, options = {}){
   }
 
   if (ratingRow.childElementCount) mainDiv.appendChild(ratingRow);
-  if (!options.archived && mode !== "premium-rail"){
-    const quickMustWatch = document.createElement("button");
-    const mustWatch = Boolean(getEventAction(ev).mustWatch);
-    quickMustWatch.type = "button";
-    quickMustWatch.className = "event-quick-must-watch";
-    quickMustWatch.textContent = mustWatch ? "Remove from Must Watch" : "Add to Must Watch";
-    quickMustWatch.setAttribute("aria-pressed", String(mustWatch));
-    quickMustWatch.addEventListener("click", event => {
-      event.stopPropagation();
-      setMustWatch(ev, !mustWatch);
-      renderAll({ preserveViewport: true });
-      showToast(mustWatch ? `${ev.name} removed from Must Watch.` : `${ev.name} added to Must Watch.`);
-    });
-    mainDiv.appendChild(quickMustWatch);
-  }
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
@@ -12928,14 +13259,6 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   }
   const actions = document.createElement("div");
   actions.className = "joint-match-actions";
-  const mustWatch = document.createElement("button");
-  mustWatch.type = "button";
-  mustWatch.textContent = action.mustWatch ? "Remove from Must Watch" : "Add to Must Watch";
-  mustWatch.setAttribute("aria-pressed", String(action.mustWatch));
-  mustWatch.addEventListener("click", () => {
-    setMustWatch(event, !action.mustWatch);
-    renderCurrentSection();
-  });
   const reminder = document.createElement("button");
   reminder.type = "button";
   const reminderEligible = Boolean(event.startTimeUtc && Date.parse(event.startTimeUtc) > Date.now());
@@ -12951,7 +13274,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
     if (!reminderOn) recordWatchDecision(event, "remind", { surface: "event_card" });
     renderCurrentSection();
   });
-  actions.append(mustWatch, reminder);
+  actions.append(reminder);
   row.append(orderCopy, copy, actions);
   return row;
 }
@@ -13114,7 +13437,7 @@ function buildJointTournamentSchedulePanel(tournamentDocument){
   const addressableMatches = [...matches, ...(tournamentDocument.matchHistory || [])];
   const savedIds = addressableMatches.filter(match => {
     const action = getEventAction(jointMatchActionEvent(match, tournamentDocument));
-    return action.mustWatch || action.reminderRequested;
+    return action.reminderRequested;
   }).map(match => match.matchId);
   const savedOutside = JOINT_TENNIS_TOURNAMENT?.savedMatches?.(
     tournamentDocument,
@@ -13125,7 +13448,7 @@ function buildJointTournamentSchedulePanel(tournamentDocument){
     const details = globalThis.document.createElement("details");
     details.className = "joint-saved";
     const summary = globalThis.document.createElement("summary");
-    summary.textContent = `Must Watch matches (${savedOutside.length})`;
+    summary.textContent = `Reminder matches (${savedOutside.length})`;
     details.appendChild(summary);
     savedOutside.forEach(match => details.appendChild(buildJointTournamentMatch(match, tournamentDocument, { savedSection: true })));
     section.appendChild(details);
@@ -13181,11 +13504,10 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   const card = tournamentDocument === null ? null : globalThis.document.createElement("section");
   if (!card) return null;
   const tournamentEvent = jointTournamentFeedEvent(tournamentDocument);
-  const tournamentAction = tournamentEvent ? getEventAction(tournamentEvent) : null;
-  const isNewMustWatch = mode === "must-watch-queue" && tournamentAction?.mustWatch && !tournamentAction.mustWatchSeenAt;
-  card.className = ["joint-tournament-card", `mode-${mode}`, isNewMustWatch ? "is-must-watch-new" : ""].filter(Boolean).join(" ");
+  card.className = ["joint-tournament-card", `mode-${mode}`].filter(Boolean).join(" ");
   card.id = "cincinnatiTournamentCard";
   card.dataset.tournamentId = spoilerView.tournament.tournamentId;
+  card.dataset.cardState = jointTournamentNavigationOpen ? "opened" : "compact";
   const head = globalThis.document.createElement("header");
   head.className = "joint-tournament-head";
   head.role = "button";
@@ -13194,12 +13516,6 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   head.setAttribute("aria-label", `${jointTournamentNavigationOpen ? "Close" : "Open"} ${spoilerView.tournament.name} tournament options`);
   const identity = globalThis.document.createElement("div");
   identity.innerHTML = `<div class="joint-tournament-kicker">ATP + WTA</div><h2>${spoilerView.tournament.name}</h2><p class="joint-tournament-summary">Cincinnati · ${jointTournamentDateRange(spoilerView)}</p>`;
-  if (isNewMustWatch){
-    const label = globalThis.document.createElement("span");
-    label.className = "must-watch-new-label";
-    label.textContent = "NEW";
-    identity.appendChild(label);
-  }
   const openGlyph = globalThis.document.createElement("span");
   openGlyph.className = "joint-tournament-open-glyph";
   openGlyph.setAttribute("aria-hidden", "true");
@@ -13230,9 +13546,6 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
     const drilldown = buildJointTournamentDrilldown(spoilerView);
     if (drilldown) card.appendChild(drilldown);
   }
-  const mustWatchAction = buildJointTournamentMustWatchAction(tournamentDocument);
-  if (mustWatchAction) card.appendChild(mustWatchAction);
-  bindJointTournamentSeenState(card, tournamentEvent, isNewMustWatch);
   return card;
 }
 
@@ -13255,41 +13568,6 @@ function jointTournamentFeedEvent(document = jointTournamentData){
   };
 }
 
-function jointTournamentIsMustWatch(document = jointTournamentData){
-  const tournamentEvent = jointTournamentFeedEvent(document);
-  return Boolean(tournamentEvent && getEventAction(tournamentEvent).mustWatch);
-}
-
-function buildJointTournamentMustWatchAction(document = jointTournamentData){
-  const tournamentEvent = jointTournamentFeedEvent(document);
-  if (!tournamentEvent) return null;
-  const action = getEventAction(tournamentEvent);
-  const button = globalThis.document.createElement("button");
-  button.type = "button";
-  button.className = "event-quick-must-watch joint-tournament-must-watch";
-  button.textContent = action.mustWatch ? "Remove from Must Watch" : "Add to Must Watch";
-  button.setAttribute("aria-pressed", String(action.mustWatch));
-  button.addEventListener("click", event => {
-    event.stopPropagation();
-    setMustWatch(tournamentEvent, !action.mustWatch);
-    renderAll({ preserveViewport: true });
-    showToast(action.mustWatch
-      ? `${tournamentEvent.name} removed from Must Watch.`
-      : `${tournamentEvent.name} added to Must Watch.`);
-  });
-  return button;
-}
-
-function bindJointTournamentSeenState(card, tournamentEvent, isNewMustWatch){
-  if (!card || !tournamentEvent || !isNewMustWatch) return;
-  card.addEventListener("click", event => {
-    if (event.target.closest(".joint-tournament-must-watch")) return;
-    updateEventAction(tournamentEvent, { mustWatchSeenAt: new Date().toISOString() });
-    card.classList.remove("is-must-watch-new");
-    card.querySelector(".must-watch-new-label")?.remove();
-  }, { once: true });
-}
-
 function jointTournamentShouldSurface(document = jointTournamentData){
   if (!jointTournamentIsActive(document)) return false;
   const tournamentEvent = jointTournamentFeedEvent(document);
@@ -13298,7 +13576,6 @@ function jointTournamentShouldSurface(document = jointTournamentData){
   if (focused) return feedFilterMatchesEvent(activeFilter, tournamentEvent);
   ensureDiscoverySessionInclusion();
   if (!discoverySessionIncludedSportIds.includes("sport:tennis")) return false;
-  if (getEventAction(tournamentEvent).mustWatch) return true;
   const profile = eventRecommendationProfile(tournamentEvent);
   return userPreferences.feedIntent === "focused"
     ? eventMeetsCoveragePreference(tournamentEvent)
@@ -13373,27 +13650,17 @@ function appendTodayFallback(container, filtered, todayStr){
   }
   container.appendChild(fallback);
 
-  if (!todayMoreReveal || !moreEvents.length) return;
-  const section = document.createElement("section");
-  section.className = "today-more-section";
-  const heading = document.createElement("h3");
-  heading.textContent = "More on today";
-  const grid = document.createElement("div");
-  grid.className = "cards-grid";
-  moreEvents.forEach(ev => grid.appendChild(buildEventCard(ev, { mode: "today-more" })));
-  section.append(heading, grid);
-  container.appendChild(section);
 }
 
 function appendFocusedArchiveRecovery(container, events){
   if (!events.length) return false;
   const filterLabel = selectorEntityById(activeFilter)?.label || "this sport";
-  const section = document.createElement("section");
+  const section = document.createElement("details");
   section.className = "queue-section focused-archive-recovery";
   section.id = "calendarArchivedRecoveryAnchor";
   section.setAttribute("aria-label", `Recently archived ${filterLabel} events`);
-  const heading = document.createElement("h3");
-  heading.textContent = `Archived in ${filterLabel}`;
+  const heading = document.createElement("summary");
+  heading.textContent = `Archived in ${filterLabel} (${events.length})`;
   const note = document.createElement("p");
   note.className = "preference-help";
   note.textContent = "Automatic archive entries remain here through day 14. Cards you chose to Archive stay here until you reinstate them.";
@@ -13444,58 +13711,6 @@ function appendPremiumRail(container, items, { id, title, description, className
   return true;
 }
 
-function appendPremiumSurfaces(container, events){
-  if (!ENRICHMENT_ENGINE?.selectPremiumSurfaces || activeTab !== "feed" || activeView !== "list" || activeFilter !== "all") return new Set();
-  const surfaces = ENRICHMENT_ENGINE.selectPremiumSurfaces(events, premiumSurfaceContext());
-  appendPremiumRail(container, surfaces.mustWatch, {
-    id: "mustWatchRail",
-    title: "Must Watch",
-    description: "The clearest appointment-viewing picks in the next seven days.",
-    className: "premium-surface-must-watch",
-  });
-  appendPremiumRail(container, surfaces.topStorylines, {
-    id: "topStorylinesRail",
-    title: "Top Storylines This Week",
-    description: "High-stakes arcs worth tracking without turning the feed into a fixture dump.",
-    className: "premium-surface-storylines",
-  });
-  return new Set([...surfaces.mustWatch, ...surfaces.topStorylines].map(item => String(item.event.eventId || item.event.id)));
-}
-
-function appendManualMustWatchQueue(container, events){
-  const includeJointTournament = jointTournamentShouldSurface() && jointTournamentIsMustWatch();
-  if (!events.length && !includeJointTournament) return false;
-  const section = document.createElement("section");
-  section.className = "queue-section must-watch-queue";
-  section.id = "mustWatchQueueAnchor";
-  section.setAttribute("aria-labelledby", "mustWatchQueueTitle");
-  const heading = document.createElement("h3");
-  heading.id = "mustWatchQueueTitle";
-  heading.textContent = "Must Watch";
-  const detail = document.createElement("p");
-  detail.className = "preference-help";
-  detail.textContent = "Your picks, in time order. Past picks stay here quietly for three days.";
-  const grid = document.createElement("div");
-  grid.className = "cards-grid";
-  const queueItems = events.map(event => ({ event, kind: "event" }));
-  if (includeJointTournament){
-    queueItems.push({ event: jointTournamentFeedEvent(), kind: "joint-tournament" });
-  }
-  queueItems
-    .sort((first, second) => eventDateTime(first.event) - eventDateTime(second.event))
-    .forEach(item => {
-      if (item.kind === "joint-tournament"){
-        const card = buildJointTournamentCard(jointTournamentData, { mode: "must-watch-queue" });
-        if (card) grid.appendChild(card);
-        return;
-      }
-      grid.appendChild(buildEventCard(item.event, { mode: "must-watch-queue" }));
-    });
-  section.append(heading, detail, grid);
-  container.appendChild(section);
-  return true;
-}
-
 function appendFeedPageToCurrentList(incomingEvents){
   if (startupCoordinator.isHydrating() || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()) return false;
   const container = document.getElementById("listView");
@@ -13523,7 +13738,9 @@ function appendFeedPageToCurrentList(incomingEvents){
       grid = document.createElement("div");
       grid.className = "cards-grid";
       groupDiv.append(heading, grid);
-      container.appendChild(groupDiv);
+      const laterGroup = Array.from(container.querySelectorAll(".date-group"))
+        .find(group => String(group.dataset.feedDate || "") > dateStr);
+      container.insertBefore(groupDiv, laterGroup || container.querySelector(".feed-page-sentinel"));
     }
     orderCuratedDayEvents(groups[dateStr]).forEach(event => {
       const id = event?.canonicalEventId || event?.eventId || event?.id;
@@ -13531,6 +13748,14 @@ function appendFeedPageToCurrentList(incomingEvents){
       const card = event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event);
       card.dataset.feedEventId = String(id);
       grid.appendChild(card);
+    });
+    const orderedIds = orderCuratedDayEvents(mergeMainFeedSpecialEvents(getFilteredEvents()).filter(event => event.date === dateStr))
+      .map(event => String(event?.canonicalEventId || event?.eventId || event?.id || ""));
+    const cardsById = new Map(Array.from(grid.querySelectorAll("[data-feed-event-id]"))
+      .map(card => [card.dataset.feedEventId, card]));
+    orderedIds.forEach(id => {
+      const card = cardsById.get(id);
+      if (card) grid.appendChild(card);
     });
   });
   observeFeedPageSentinel(container);
@@ -13545,14 +13770,18 @@ function renderListView(){
   container.innerHTML = "";
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
-  const filtered = mergeMainFeedSpecialEvents(getFilteredEvents());
+  const baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
+  let filtered = baseFiltered;
   ensureSessionRatingPrompt(filtered);
   const focusedArchived = focusedArchivedEvents();
-  appendFocusedArchiveRecovery(container, focusedArchived);
   const todayStr = formatDateKey(nowAEST());
+  if (todayMoreReveal){
+    const merged = new Map(filtered.map(event => [String(event.eventId || event.id), event]));
+    temporaryTodayMoreEvents(filtered, todayStr).forEach(event => merged.set(String(event.eventId || event.id), event));
+    filtered = orderSurfacedEvents([...merged.values()]);
+  }
   const timeline = PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST()) || {
     retainedPast: filtered.filter(event => getEventStatus(event) === "past"),
-    mustWatch: [],
     today: filtered.filter(event => event.date === todayStr),
     future: filtered.filter(event => event.date > todayStr),
   };
@@ -13578,7 +13807,6 @@ function renderListView(){
   };
 
   appendDateGroups(timeline.retainedPast);
-  appendManualMustWatchQueue(container, timeline.mustWatch);
 
   let todayAnchorInserted = false;
   const appendTodayAnchor = () => {
@@ -13590,13 +13818,14 @@ function renderListView(){
     anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
     anchor.textContent = "Today";
     container.appendChild(anchor);
-    appendTodayFallback(container, filtered, todayStr);
+    appendTodayFallback(container, baseFiltered, todayStr);
     todayAnchorInserted = true;
   };
 
   appendTodayAnchor();
   appendDateGroups(timeline.today);
   appendDateGroups(timeline.future);
+  appendFocusedArchiveRecovery(container, focusedArchived);
   if (!filtered.length && !focusedArchived.length){
     const empty = document.createElement("div");
     empty.className = "empty-state";
@@ -13659,18 +13888,6 @@ function scrollActiveFeedToToday({ behavior = "smooth" } = {}){
   return true;
 }
 
-function scrollActiveFeedToMustWatch({ behavior = "smooth" } = {}){
-  const anchor = activeMustWatchAnchor();
-  if (!anchor) return false;
-  const top = window.scrollY + anchor.getBoundingClientRect().top - stickyFeedChromeHeight() - 14;
-  window.scrollTo({ top: Math.max(0, top), behavior });
-  return true;
-}
-
-function activeMustWatchAnchor(){
-  return document.getElementById("mustWatchQueueAnchor") || document.getElementById("mustWatchRail");
-}
-
 function feedAnchorIsVisible(anchor){
   if (!anchor) return false;
   const rect = anchor.getBoundingClientRect();
@@ -13690,18 +13907,15 @@ function syncContextualJumpButton(){
     return;
   }
   const todayVisible = todayAnchorIsVisible();
-  const mustWatchAnchor = activeMustWatchAnchor();
-  const mustWatchVisible = feedAnchorIsVisible(mustWatchAnchor);
-  const jumpToMustWatch = todayVisible && Boolean(mustWatchAnchor) && !mustWatchVisible;
-  if (todayVisible && !jumpToMustWatch){
+  if (todayVisible){
     button.hidden = true;
     delete button.dataset.jumpTarget;
     return;
   }
   button.hidden = false;
-  button.dataset.jumpTarget = jumpToMustWatch ? "must-watch" : "today";
-  button.setAttribute("aria-label", jumpToMustWatch ? "Jump to Must Watch queue" : "Jump to today in the sports feed");
-  button.innerHTML = `${glyphMarkup("ui:jump", { preferImage: true })} ${jumpToMustWatch ? "Jump to Must Watch" : "Jump to Today"}`;
+  button.dataset.jumpTarget = "today";
+  button.setAttribute("aria-label", "Jump to today in the sports feed");
+  button.innerHTML = `${glyphMarkup("ui:jump", { preferImage: true })} Jump to Today`;
 }
 
 function scheduleInitialCalendarJump(){
@@ -13785,7 +13999,7 @@ function renderMonthView(){
       const displayTitle = spoilerSafeDisplayTitle(ev);
       const evEl = document.createElement("div");
       const presentation = surfacePresentationForEvent(ev);
-      const priorityClass = isMustWatch(ev) ? " must-watch" : (ev.expected >= 7 ? " solid" : " quiet");
+      const priorityClass = isPriorityEvent(ev) ? " priority-event" : (ev.expected >= 7 ? " solid" : " quiet");
       evEl.className = "cell-event" + priorityClass + (presentation.isNew ? " is-new" : "");
       evEl.dataset.feedBucket = presentation.feedBucket;
       evEl.style.setProperty("--sport-color", meta.color);
@@ -13802,7 +14016,7 @@ function renderMonthView(){
       labelCopy.textContent = displayTitle;
       label.appendChild(labelCopy);
       evEl.appendChild(label);
-      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isMustWatch(ev) ? " — Priority event" : ""}`;
+      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isPriorityEvent(ev) ? " — Priority event" : ""}`;
       observeNewSurfaceItem(evEl, ev, presentation);
       cell.appendChild(evEl);
     });
@@ -14273,7 +14487,7 @@ function renderSportHub(){
   const identity = document.createElement("div");
   identity.className = "sport-hub-identity";
   const fullCoverage = sportHubFullCoverageAllowed(sportKey);
-  identity.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter", { label: sport.label })}<div><p>${fullCoverage ? "Complete 2026 coverage" : "Must Watch and top stories"}</p><h2>${sport.label}</h2></div>`;
+  identity.innerHTML = `${glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter", { label: sport.label })}<div><p>${fullCoverage ? "Complete 2026 coverage" : "Top picks and stories"}</p><h2>${sport.label}</h2></div>`;
   const promise = document.createElement("p");
   promise.className = "sport-hub-promise";
   promise.textContent = fullCoverage
@@ -14814,7 +15028,6 @@ function footballLeagueKeyForId(leagueId){
     "competition:la-liga": "la-liga",
     "competition:serie-a": "serie-a",
     "competition:ligue-1": "ligue-1",
-    "competition:a-leagues": "a-league-men",
   }[leagueId] || null;
 }
 
@@ -15452,12 +15665,8 @@ function showToast(msg){
 }
 
 /* ============ LIVE CLOCK ============ */
-function updateClock(){
-  const now = nowAEST();
-  const opts = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Australia/Sydney' };
-  document.getElementById("liveClock").textContent = now.toLocaleDateString('en-AU', opts) + " AEST/AEDT";
-}
-
+// The clock itself is intentionally absent; this stable boundary keeps the
+// calendar/date test harness separate from DOM-only viewport behaviour.
 const CARD_RETRACTION_SCROLL_IDLE_MS = 180;
 let cardRetractionScrollTimer = null;
 let lastCardRetractionScrollY = window.scrollY;
@@ -15616,18 +15825,6 @@ function buildMajorEventCard(record){
   ticketRow.className = "major-event-ticket-row";
   const ticketLink = buildMajorEventTicketLink(record);
   if (ticketLink) ticketRow.appendChild(ticketLink);
-  const actionEvent = majorEventActionEvent(record);
-  const follow = document.createElement("button");
-  const followed = Boolean(getEventAction(actionEvent).mustWatch);
-  follow.type = "button";
-  follow.className = "major-event-follow";
-  follow.setAttribute("aria-pressed", String(followed));
-  follow.textContent = followed ? "Remove from Must Watch" : "Add to Must Watch";
-  follow.addEventListener("click", () => {
-    setMustWatch(actionEvent, !followed);
-    replaceCardPreservingViewport(card, buildMajorEventCard(record));
-  });
-  ticketRow.appendChild(follow);
   const expand = document.createElement("button");
   expand.type = "button";
   expand.className = "major-event-expand-control";
@@ -15743,6 +15940,8 @@ function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
   eventsViewTab = "major-events";
   pendingMajorEventFocusId = eventId;
   pendingTicketAlertFocusId = null;
+  const record = majorEventsDocument?.events?.find(item => item.id === eventId);
+  if (record && cardStateForEvent(record) === "compact") setCardState(record, "selected");
   const hash = eventsDeepLinkHash("major", eventId);
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: eventId } }, "", hash);
   activateTopLevelTab("events");
@@ -15847,9 +16046,7 @@ function buildMajorEventMarker(event){
   const card = document.createElement("article");
   card.className = "major-event-marker";
   card.dataset.majorEventMarker = event.majorEventId;
-  card.tabIndex = 0;
-  card.role = "button";
-  card.setAttribute("aria-label", `Open ${event.name} in Events`);
+  card.dataset.cardState = "compact";
   card.style.setProperty("--sport-color", meta.color);
   const logo = document.createElement("div");
   logo.className = "major-event-marker-logo";
@@ -15861,15 +16058,14 @@ function buildMajorEventMarker(event){
   const detail = document.createElement("span");
   detail.textContent = `${majorEventDateLabel(event)} - Explore in Events`;
   copy.append(title, detail);
-  const action = document.createElement("span");
+  const action = document.createElement("button");
+  action.type = "button";
   action.className = "major-event-marker-open";
-  action.textContent = "Open Events";
-  const open = () => openMajorEventInEvents(event.majorEventId);
-  card.addEventListener("click", open);
-  card.addEventListener("keydown", keyEvent => {
-    if (!["Enter", " "].includes(keyEvent.key)) return;
-    keyEvent.preventDefault();
-    open();
+  action.textContent = "Open in Events";
+  action.setAttribute("aria-label", `Open ${event.name} in Events`);
+  action.addEventListener("click", clickEvent => {
+    clickEvent.stopPropagation();
+    openMajorEventInEvents(event.majorEventId);
   });
   card.append(logo, copy, action);
   return card;
@@ -15946,6 +16142,10 @@ function renderEventsView(){
     return;
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST());
+  if (pendingMajorEventFocusId){
+    const pendingRecord = visible.events.find(record => record.id === pendingMajorEventFocusId);
+    if (pendingRecord && cardStateForEvent(pendingRecord) === "compact") setCardState(pendingRecord, "selected");
+  }
   const panel = document.createElement("div");
   panel.id = "eventsViewPanel";
   panel.setAttribute("role", "tabpanel");
@@ -16043,8 +16243,7 @@ document.getElementById("jumpTodayBtn").addEventListener("click", () => {
     renderAll();
   }
   window.requestAnimationFrame(() => {
-    if (document.getElementById("jumpTodayBtn").dataset.jumpTarget === "must-watch") scrollActiveFeedToMustWatch({ behavior: "smooth" });
-    else scrollActiveFeedToToday({ behavior: "smooth" });
+    scrollActiveFeedToToday({ behavior: "smooth" });
   });
 });
 
@@ -16789,7 +16988,97 @@ function accountSyncTimeLabel(value){
   })}`;
 }
 
+function showPasswordRecoveryState({ invalid = false, success = false } = {}){
+  const modal = document.getElementById("passwordRecoveryModal");
+  const form = document.getElementById("passwordRecoveryForm");
+  const resend = document.getElementById("passwordRecoveryResendForm");
+  const signIn = document.getElementById("passwordRecoverySignIn");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  form.hidden = invalid || success;
+  resend.hidden = !invalid || success;
+  signIn.hidden = !success;
+  if (invalid){
+    document.getElementById("passwordRecoveryTitle").textContent = "Reset link expired";
+    document.getElementById("passwordRecoveryCopy").textContent = "Send another reset link to continue securely.";
+    window.requestAnimationFrame(() => document.getElementById("recoveryResendEmail")?.focus());
+  } else if (success){
+    document.getElementById("passwordRecoveryTitle").textContent = "Password updated";
+    document.getElementById("passwordRecoveryCopy").textContent = "Your reset session and any previous app session have been cleared. Sign in with the new password.";
+    window.requestAnimationFrame(() => signIn.focus());
+  } else {
+    window.requestAnimationFrame(() => document.getElementById("recoveryPassword")?.focus());
+  }
+}
+
+function bindPasswordRecoveryFlow(){
+  if (!activeRecoverySession) return;
+  showPasswordRecoveryState({ invalid:Boolean(activeRecoverySession.invalid) });
+  document.getElementById("passwordRecoveryForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    const password = document.getElementById("recoveryPassword").value;
+    const confirmation = document.getElementById("recoveryPasswordConfirm").value;
+    const message = document.getElementById("passwordRecoveryMessage");
+    const submit = document.getElementById("passwordRecoverySubmit");
+    if (password.length < 8 || password.length > 1024){
+      message.textContent = "Use between 8 and 1024 characters.";
+      return;
+    }
+    if (password !== confirmation){
+      message.textContent = "The passwords do not match.";
+      return;
+    }
+    const recovery = SERVER_SYNC.readRecoverySession();
+    if (!recovery){
+      activeRecoverySession = { invalid:true };
+      showPasswordRecoveryState({ invalid:true });
+      return;
+    }
+    submit.disabled = true;
+    message.textContent = "Updating password…";
+    try{
+      await serverSyncClient.updateRecoveryPassword(recovery.accessToken, password);
+      SERVER_SYNC.storeRecoverySession(sessionStorage, null);
+      serverSyncClient.clearSession();
+      activeRecoverySession = null;
+      showPasswordRecoveryState({ success:true });
+    }catch(error){
+      if ([400, 401, 403].includes(error.status)){
+        SERVER_SYNC.storeRecoverySession(sessionStorage, null);
+        activeRecoverySession = { invalid:true };
+        showPasswordRecoveryState({ invalid:true });
+      } else {
+        message.textContent = error.message || "The password could not be updated. Try again.";
+      }
+    }finally{
+      submit.disabled = false;
+    }
+  });
+  document.getElementById("passwordRecoveryResendForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    const message = document.getElementById("passwordRecoveryResendMessage");
+    const submit = event.currentTarget.querySelector('[type="submit"]');
+    submit.disabled = true;
+    message.textContent = "Sending…";
+    try{
+      await serverSyncClient.requestPasswordRecovery(document.getElementById("recoveryResendEmail").value.trim());
+      message.textContent = "If that account exists, a password reset link is on its way.";
+    }catch(error){
+      message.textContent = error.message || "A reset link could not be sent. Try again.";
+    }finally{
+      submit.disabled = false;
+    }
+  });
+  document.getElementById("passwordRecoverySignIn").addEventListener("click", () => {
+    document.getElementById("passwordRecoveryModal").classList.remove("show");
+    document.getElementById("passwordRecoveryModal").setAttribute("aria-hidden", "true");
+    accountRecoveryRequestOpen = false;
+    openSettings({ section:"account" });
+  });
+}
+
 function renderAccountSettings(body){
+  if (serverPersistence.state === "checking" && !serverSyncClient?.getSession?.()) void ensureServerSyncStatus();
   const state = serverPersistence.state;
   const signedIn = Boolean(serverPersistence.user) && ["signedIn", "syncing", "error"].includes(state);
   const pending = ["checking", "requesting", "syncing"].includes(state);
@@ -16853,6 +17142,7 @@ function renderAccountSettings(body){
       syncCurrentServerState({ notify: true }).catch(error => console.warn("Manual server sync failed", error));
     });
     document.getElementById("signOutAccountBtn").addEventListener("click", async () => {
+      const signedOutUserId = serverPersistence.user?.id || serverSyncClient?.sessionSubject?.();
       try{
         await serverSyncClient?.signOut();
       }catch(error){
@@ -16867,12 +17157,43 @@ function renderAccountSettings(body){
       });
       serverStateBaseline = null;
       startupSessionStateBaseline = currentServerStatePayload();
+      void clearCachedPersonalisedFeed(signedOutUserId);
       showToast("Signed out. Your local copy remains on this device.");
     });
     return;
   }
 
   if (!serverPersistence.configured || ["checking", "requesting"].includes(state)) return;
+
+  if (accountRecoveryRequestOpen){
+    controls.innerHTML = `<form class="account-sync-form" id="accountRecoveryRequestForm">
+      <label class="field-label" for="accountRecoveryEmail">Email
+        <input id="accountRecoveryEmail" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required placeholder="you@example.com">
+      </label>
+      <p class="preference-help" id="accountRecoveryRequestMessage" role="status" aria-live="polite">We will send a reset link if that account exists.</p>
+      <div class="account-sync-actions"><button class="btn primary" type="submit">Send reset link</button><button class="btn ghost" type="button" id="accountRecoveryCancel">Back to sign in</button></div>
+    </form>`;
+    document.getElementById("accountRecoveryCancel").addEventListener("click", () => {
+      accountRecoveryRequestOpen = false;
+      renderSettingsScreen();
+    });
+    document.getElementById("accountRecoveryRequestForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      const message = document.getElementById("accountRecoveryRequestMessage");
+      const submit = event.currentTarget.querySelector('[type="submit"]');
+      submit.disabled = true;
+      message.textContent = "Sending…";
+      try{
+        await serverSyncClient.requestPasswordRecovery(document.getElementById("accountRecoveryEmail").value.trim());
+        message.textContent = "If that account exists, a password reset link is on its way.";
+      }catch(error){
+        message.textContent = error.message || "A reset link could not be sent. Try again.";
+      }finally{
+        submit.disabled = false;
+      }
+    });
+    return;
+  }
 
   controls.innerHTML = `<form class="account-sync-form" id="accountSignInForm">
     <label class="field-label" for="accountEmail">Email
@@ -16886,7 +17207,12 @@ function renderAccountSettings(body){
       <span><strong>Keep me signed in on this device</strong>Stores a rotating Supabase session locally after sign-in. Nothingsport does not save your password.</span>
     </label>
     <button class="btn primary" type="submit">Sign in</button>
+    <button class="btn ghost" type="button" id="forgotPasswordBtn">Forgot password?</button>
   </form>`;
+  document.getElementById("forgotPasswordBtn").addEventListener("click", () => {
+    accountRecoveryRequestOpen = true;
+    renderSettingsScreen();
+  });
   document.getElementById("accountSignInForm").addEventListener("submit", async event => {
     event.preventDefault();
     const email = document.getElementById("accountEmail").value.trim();
@@ -17137,7 +17463,7 @@ function renderDraftFeedControls(container){
     ["scope", "Feed intent", [["following", "Focused"], ["for_you", "Balanced"], ["explore", "Discovery"]]],
     ["availability", "Availability", [["any", "Any"], ["free", "Free"], ["included", "Included"], ["ppv", "PPV"]]],
     ["timing", "Timing", [["any", "Any time"], ["live_now", "Live now"], ["tonight", "Tonight"], ["this_week", "This week"], ["overnight", "Overnight OK"]]],
-    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["must_watch", "Must watch"]]],
+    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["top_picks", "Top picks"]]],
   ];
   definitions.forEach(([key, label, values]) => {
     const control = document.createElement("label");
@@ -17246,7 +17572,7 @@ function renderSportsSettings(body){
     <div class="filter-panel">
       <h3>Sports Followed</h3>
       <p class="preference-help">Follow or unfollow sports here. Named tournaments and marquee events map to their underlying sport instead of becoming separate follow choices.</p>
-      <p class="preference-help">Must Watch and top-story discovery picks can still appear when you do not follow their sport; following controls the regular coverage around those highlights.</p>
+      <p class="preference-help">Editorial top picks and story highlights can still appear when you do not follow their sport; following controls the regular coverage around those highlights.</p>
       ${selectionActionsMarkup("sports-global", "Sports")}
       <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
     </div>
@@ -17532,17 +17858,20 @@ function detailedCoverageDomainIds(preferences){
 
 async function loadCanonicalSportsData(){
   if (canonicalSportsData || canonicalSportsDataLoading) return canonicalSportsData;
+  const hydration = startupFunnelFinished ? beginInSessionLoading("Loading Standings") : null;
   canonicalSportsDataLoading = true;
   canonicalSportsDataError = null;
   try{
     if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
     const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext] = await loadCanonicalContextBundles();
     canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
+    hydration?.progress(.9);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
     activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);
     normalizeEvents(activeEvents);
   }catch(error){
     canonicalSportsDataError = error;
+    hydration?.fail("Standings could not be loaded. Try again.");
     console.warn("Canonical standings and participant data unavailable", error);
   }finally{
     canonicalSportsDataLoading = false;
@@ -17559,6 +17888,7 @@ async function loadCanonicalSportsData(){
     renderTabCounts();
     if (activeInspectorCodeId && codeInspectorTab === "standings") renderCodeInspector();
     else if (!visibleFeedRendered) renderStandingsContext();
+    if (!canonicalSportsDataError) hydration?.complete();
   }
   return canonicalSportsData;
 }
@@ -18412,14 +18742,14 @@ function generateICS(events = getFilteredEvents()){
     const dtStart = buildICSDateTimeAEST(ev.date, ev.time);
     const durationHours = ev.liveWindow || 3;
     const dtEnd = addHoursToDateTimeStr(ev.date, ev.time, durationHours);
-    const mustWatch = isMustWatch(ev);
+    const priorityEvent = isPriorityEvent(ev);
     const actual = getActual(ev.id);
 
     const descParts = [
       `Sport: ${meta.label}`,
       `Broadcaster: ${ev.broadcaster}`,
       `Stakes: ${ev.stakesScore}/5`,
-      `Priority event: ${mustWatch ? "YES" : "No"}`
+      `Priority event: ${priorityEvent ? "YES" : "No"}`
     ];
     if (ev.venue) descParts.push(`Venue: ${ev.venue}`);
     if (actual !== null) descParts.push(`Actual spectacle: ${actual}/10`);
@@ -18430,7 +18760,7 @@ function generateICS(events = getFilteredEvents()){
     lines.push(`DTSTAMP:${dtstamp}`);
     lines.push(`DTSTART;TZID=Australia/Sydney:${dtStart}`);
     lines.push(`DTEND;TZID=Australia/Sydney:${dtEnd}`);
-    lines.push(`SUMMARY:${escapeICS(`${mustWatch ? "[Priority] " : ""}${spoilerSafeDisplayTitle(ev)}`)}`);
+    lines.push(`SUMMARY:${escapeICS(`${priorityEvent ? "[Priority] " : ""}${spoilerSafeDisplayTitle(ev)}`)}`);
     if (ev.venue) lines.push(`LOCATION:${escapeICS(ev.venue)}`);
     lines.push(`DESCRIPTION:${description}`);
     lines.push(`CATEGORIES:${escapeICS(meta.label)}`);
@@ -18480,17 +18810,8 @@ function loadDeferredStartupContext(){
 }
 
 let startupPostLoadHandled = false;
-function completeStartupFeedHydration(){
-  startupFeedState = { ...startupFeedState, phase:"ready", issues:[] };
-  startupFeedRevealPending = true;
-  startupCoordinator.markHydrationComplete();
-  feedPerformanceMetrics.feedReadyMs = feedPerformanceNow();
-  publishFeedPerformanceMetrics();
-  if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
-  renderAll();
-  const defer = window.requestIdleCallback || (callback => window.setTimeout(callback, 250));
-  defer(() => { void loadDeferredStartupContext(); });
-  if (startupPostLoadHandled) return;
+function runStartupPostLoadActions(){
+  if (startupPostLoadHandled || activeRecoverySession || !startupFunnelFinished) return;
   startupPostLoadHandled = true;
   if (!userPreferences.onboardingComplete){
     openFirstRunSettingsAfterFeedAlignment();
@@ -18498,6 +18819,28 @@ function completeStartupFeedHydration(){
     const weeklyPulsePromptScheduled = document.visibilityState === "visible" && registerWeeklyPulseAppOpen();
     if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
   }
+}
+
+function completeStartupFeedHydration(){
+  startupFeedState = { ...startupFeedState, phase:"ready", issues:[] };
+  startupFeedRevealPending = true;
+  loadingController.complete("feed-page");
+  startupCoordinator.markHydrationComplete();
+  feedPerformanceMetrics.feedReadyMs = feedPerformanceNow();
+  publishFeedPerformanceMetrics();
+  if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
+  renderAll();
+  window.requestAnimationFrame(() => {
+    if (document.querySelector(".event-card, .major-event-marker, .joint-tournament-card")){
+      feedPerformanceMetrics.firstCardRenderedMs = feedPerformanceNow();
+      publishFeedPerformanceMetrics();
+    }
+    loadingController.complete("first-viewport");
+    scheduleStartupLogoFunnel({ feedReady:true });
+  });
+  const defer = window.requestIdleCallback || (callback => window.setTimeout(callback, 250));
+  defer(() => { void loadDeferredStartupContext(); });
+  runStartupPostLoadActions();
 }
 
 function runStartupFeedBarrier(){
@@ -18512,6 +18855,7 @@ function runStartupFeedBarrier(){
     if (startupFeedState.attempt !== attempt || startupFeedState.phase !== "loading") return;
     const issues = tasks.filter(task => taskStates.get(task.name) !== "valid").map(task => task.name);
     startupFeedState = { phase:"failed", attempt, issues };
+    loadingController.fail("feed-page", "The feed is taking longer than expected. Try again.");
     renderAll();
   }, STARTUP_FEED_TIMEOUT_MS);
   const startupTasks = tasks.map(task => Promise.resolve()
@@ -18550,11 +18894,12 @@ if (typeof ResizeObserver === "function"){
   const stickyHeaderResizeObserver = new ResizeObserver(syncFeedFilterDockOffset);
   stickyHeaderResizeObserver.observe(document.querySelector("header.top"));
 }
-updateClock();
-setInterval(updateClock, 1000);
+updateCalendarDate();
+setInterval(updateCalendarDate, 60 * 1000);
 renderAll();
 void syncAppRouteFromLocation();
 scheduleBrowserReminders();
+bindPasswordRecoveryFlow();
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => {
@@ -18571,15 +18916,18 @@ let weeklyPulseWasHidden = document.visibilityState === "hidden";
 let installedServiceWorkerRegistration = null;
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden"){
+    loadingAudioPlayer?.stop?.();
     weeklyPulseWasHidden = true;
     void flushDisposableStore();
     return;
   }
+  if (!startupFunnelStarted && loadingAudioPlayer?.enabled?.()) void loadingAudioPlayer.startFill();
   if (!weeklyPulseWasHidden) return;
   weeklyPulseWasHidden = false;
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   registerWeeklyPulseAppOpen();
 });
+window.addEventListener("pagehide", () => loadingAudioPlayer?.stop?.(), { passive:true });
 window.addEventListener("online", () => {
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
 });

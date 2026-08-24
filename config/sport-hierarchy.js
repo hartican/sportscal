@@ -43,7 +43,6 @@
     ["discipline:football:club", "Club football", "discipline", "sport:football"],
     ["competition:fifa-world-cup", "FIFA World Cup", "competition", "discipline:football:international"],
     ["competition:afc", "AFC competitions", "competition", "discipline:football:international"],
-    ["competition:a-leagues", "A-Leagues", "competition", "discipline:football:club"],
     ["competition:premier-league", "Premier League", "competition", "discipline:football:club"],
     ["competition:bundesliga", "Bundesliga", "competition", "discipline:football:club"],
     ["competition:la-liga", "La Liga", "competition", "discipline:football:club"],

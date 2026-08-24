@@ -19,7 +19,7 @@
     "archivedEvents"
   ],
   "properties": {
-    "schemaVersion": { "const": 4 },
+    "schemaVersion": { "const": 5 },
     "profile": {
       "type": "object",
       "additionalProperties": false,
@@ -29,7 +29,7 @@
         "usernameLabel": { "type": "string", "minLength": 1 },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" },
-        "schemaVersion": { "const": 4 },
+        "schemaVersion": { "const": 5 },
         "onboardingCompleted": { "type": "boolean" },
         "timezone": { "type": "string", "minLength": 3 }
       }

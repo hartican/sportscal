@@ -55,6 +55,11 @@ function main(){
   const configuredMedian = median(audit.measurements.release3Configured.samplesMs);
   const missionCriticalMedian = median(audit.measurements.release4MissionCritical.samplesMs);
   const missionCriticalRefreshMedian = median(audit.measurements.release4MissionCritical.feedRefreshSamplesMs);
+  const fast4g = audit.measurements.release5Fast4G;
+  const anonymousWarmMedian = median(fast4g.anonymousWarmFeedReadySamplesMs);
+  const signedColdMedian = median(fast4g.signedColdPersonalisedReadySamplesMs);
+  const signedColdP95 = Math.max(...fast4g.signedColdPersonalisedReadySamplesMs);
+  const signedWarmCachedMedian = median(fast4g.signedWarmCachedReadySamplesMs);
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/feed/manifest.json"), "utf8"));
   const firstPage = fs.statSync(path.join(ROOT, manifest.pages[0].path));
@@ -72,10 +77,21 @@ function main(){
   assert(configuredMedian <= audit.targets.configuredFirstCardMedianMs, `configured first-card median ${configuredMedian}ms exceeds target`);
   assert.equal(missionCriticalMedian, audit.measurements.release4MissionCritical.medianMs, "mission-critical browser median must be reproducible from its samples");
   assert.equal(missionCriticalRefreshMedian, audit.measurements.release4MissionCritical.feedRefreshMedianMs, "bounded feed-refresh median must be reproducible from its samples");
+  assert.equal(anonymousWarmMedian, fast4g.anonymousWarmFeedReadyMedianMs, "Fast-4G anonymous warm median must be reproducible");
+  assert.equal(signedColdMedian, fast4g.signedColdPersonalisedReadyMedianMs, "Fast-4G signed cold median must be reproducible");
+  assert.equal(signedColdP95, fast4g.signedColdPersonalisedReadyP95Ms, "Fast-4G signed cold p95 must be reproducible from five samples");
+  assert.equal(signedWarmCachedMedian, fast4g.signedWarmCachedReadyMedianMs, "Fast-4G signed warm cache median must be reproducible");
+  assert(anonymousWarmMedian <= audit.targets.warmCachedFirstPageMedianMs, `anonymous warm feed ${anonymousWarmMedian}ms exceeds the cached-page target`);
+  assert(signedWarmCachedMedian <= audit.targets.warmCachedFirstPageMedianMs, `signed warm cache ${signedWarmCachedMedian}ms exceeds the cached-page target`);
+  assert(signedColdMedian <= audit.targets.coldSignedPersonalisedMedianMs, `signed cold personalised feed ${signedColdMedian}ms exceeds target`);
+  assert(signedColdP95 <= audit.targets.coldSignedPersonalisedP95Ms, `signed cold personalised p95 ${signedColdP95}ms exceeds target`);
+  assert.equal(fast4g.initialSignedFeedPageRequests, 1, "Fast-4G signed startup must issue one feed-page request");
+  assert(fast4g.maximumActiveInitialCardImages <= audit.targets.maxInitialCardImages, "Fast-4G startup must activate at most four card images");
+  assert.equal(fast4g.horizontalOverflow, false, "Fast-4G mobile runs must not overflow horizontally");
   assert(transferReduction >= 0.5, `startup feed transfer reduction ${(transferReduction * 100).toFixed(1)}% is below 50%`);
   assert(hydrationReduction >= 0.5, `browser hydration reduction ${(hydrationReduction * 100).toFixed(1)}% is below 50%`);
   assert.equal(audit.measurements.release4MissionCritical.initialFeedPageRequests, 1, "startup must request only the first feed page before interaction");
-  assert(audit.measurements.release4MissionCritical.maximumInitialImageRequests <= 20, "startup must request no more than twenty card images");
+  assert(audit.measurements.release4MissionCritical.maximumInitialImageRequests <= 4, "startup must request no more than four first-viewport card images");
   assert(gzipGrowthPercent <= audit.targets.maxCriticalGzipGrowthPercent, `critical gzip growth ${gzipGrowthPercent.toFixed(2)}% exceeds target`);
   assert(current.requestCount <= audit.targets.maxCriticalLocalAssetRequests, `critical local asset request count ${current.requestCount} exceeds target`);
   assert(audit.measurements.release3FreshOrigin.horizontalOverflow === false, "fresh mobile preview must have no horizontal overflow");
@@ -84,10 +100,19 @@ function main(){
   assert.equal(manifest.pageSize, 20, "the first feed window must remain bounded to twenty records");
   assert(firstPage.size <= 250 * 1024, "the first feed page must remain below 250 KiB uncompressed");
   assert(html.includes("loadDeferredStartupContext") && html.includes('name:"published feed"'), "optional context must be deferred until the first page is usable");
+  assert(html.includes("const INITIAL_CARD_IMAGE_BUDGET = 4"), "startup must activate at most four distinct card-image sources before user interaction");
+  const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
+  assert(worker.includes('event.request.mode === "navigate"') && worker.includes('new Request("/index.html")'), "warm navigations must render the cached shell immediately while revalidating");
   assert(html.includes("cumulativeLayoutShift") && html.includes("feedLongTaskMaxMs") && html.includes("feedInteractionMaxMs"), "privacy-safe browser QA metrics must publish CLS, long-task and interaction ceilings");
-  assert(html.includes("}, 480);") && html.includes("duration:360") && !html.includes("}, 3000);"), "the branded launch must reveal the usable shell in under one second");
+  assert(html.includes("cachedFeedReadyMs") && html.includes("personalisedFeedReadyMs") && html.includes("firstCardRenderedMs") && html.includes("startupCompleteMs"), "startup metrics must distinguish cache, account feed, first-card and branded-completion timings");
+  assert(html.includes("scheduleStartupLogoFunnel({ feedReady:true })") && html.includes("FUNNEL_DURATION_MS || 1000"), "the branded launch must be coordinated with usable feed arrival and use the one-second funnel");
+  const firstLoad = html.match(/async function refreshFeedOnFirstLoad\(\)\{([\s\S]*?)\n\}/)?.[1] || "";
+  assert(firstLoad.includes("Promise.allSettled"), "signed-in account state and the first feed page must hydrate concurrently");
+  assert(firstLoad.includes("return feedTask"), "the usable personalised feed must not wait for account-state reconciliation");
+  assert(!/await Promise\.allSettled\(\[accountTask, cachedFeedTask, feedTask\]\)/.test(firstLoad), "account reconciliation must continue independently after the first feed page becomes usable");
+  assert(!/await bootstrapServerPersistence\(\)[\s\S]+return refreshRemoteFeed/.test(firstLoad), "the first feed request must not wait behind the full account bootstrap");
 
-  console.log(`Feed performance valid: mission-critical browser median ${missionCriticalMedian}ms (${(hydrationReduction * 100).toFixed(1)}% faster), feed refresh ${missionCriticalRefreshMedian}ms; initial feed transfer ${(transferReduction * 100).toFixed(1)}% smaller, ${audit.measurements.release4MissionCritical.maximumInitialImageRequests} image requests max.`);
+  console.log(`Feed performance valid: Fast-4G warm cache ${signedWarmCachedMedian}ms, signed cold ${signedColdMedian}ms median/${signedColdP95}ms p95, one feed request and ${fast4g.maximumActiveInitialCardImages} card images max.`);
 }
 
 if (require.main === module) main();

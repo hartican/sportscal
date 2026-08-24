@@ -71,7 +71,7 @@
       "type": "object",
       "properties": {
         "archetype": { "enum": ["monster", "ragsToRiches", "quest", "voyageReturn", "rivalry", "rebirth", "comedy"] },
-        "visibleLabel": { "enum": ["Must Watch", "Rivalry", "Record Chase", "Title Decider", "Upset Watch"] },
+        "visibleLabel": { "enum": ["Top pick", "Must Watch", "Rivalry", "Record Chase", "Title Decider", "Upset Watch"] },
         "stakes": { "enum": ["low", "medium", "high", "critical"] },
         "arcStage": { "enum": ["inciting", "rising", "climax", "resolution"] },
         "narrativeHook": { "type": "string" },

@@ -24,7 +24,6 @@ const LEAGUES = Object.freeze([
   { key: "la-liga", id: "competition:la-liga", name: "La Liga", countryCode: "ES", espn: "esp.1", footballData: "PD", teams: 20, fixtures: 380, official: "https://www.laliga.com/en-GB/laliga-easports/clubs" },
   { key: "serie-a", id: "competition:serie-a", name: "Serie A", countryCode: "IT", espn: "ita.1", footballData: "SA", teams: 20, fixtures: 380, official: "https://www.legaseriea.it/en/team" },
   { key: "ligue-1", id: "competition:ligue-1", name: "Ligue 1", countryCode: "FR", espn: "fra.1", footballData: "FL1", teams: 18, fixtures: 306, official: "https://ligue1.com/fr/articles/l1_article_5293-les-dates-de-reprise-des-clubs-de-l1-2627" },
-  { key: "a-league-men", id: "competition:a-leagues", name: "A-League Men", countryCode: "AU", espn: "aus.1", teams: 12, fixtures: 156, official: "https://aleagues.com.au/news/aleague-men-2026-2027-fixture-list-revealed-key-dates-fixture-information/" },
 ]);
 
 const ALPHA3_TO_ALPHA2 = Object.freeze({
@@ -39,15 +38,13 @@ const MARQUEE_PLAYERS = new Set([
 const MARQUEE_TEAMS = new Set([
   "Arsenal", "Chelsea", "Liverpool", "Manchester City", "Manchester United", "Tottenham Hotspur",
   "Bayern Munich", "Borussia Dortmund", "Bayer Leverkusen", "Real Madrid", "Barcelona", "Atletico Madrid",
-  "Inter Milan", "Juventus", "AC Milan", "Napoli", "Paris Saint-Germain", "Marseille", "Monaco",
-  "Sydney FC", "Melbourne Victory", "Melbourne City"
+  "Inter Milan", "Juventus", "AC Milan", "Napoli", "Paris Saint-Germain", "Marseille", "Monaco"
 ].map(normalizeName));
 
 const DERBY_PAIRS = new Set([
   "arsenal|tottenham hotspur", "liverpool|manchester united", "manchester city|manchester united",
   "bayern munich|borussia dortmund", "barcelona|real madrid", "atletico madrid|real madrid",
-  "ac milan|inter milan", "inter milan|juventus", "marseille|paris saint germain",
-  "melbourne city|melbourne victory", "sydney fc|western sydney wanderers"
+  "ac milan|inter milan", "inter milan|juventus", "marseille|paris saint germain"
 ].map(pair => pair.split("|").map(normalizeName).sort().join("|")));
 
 function normalizeName(value){
@@ -463,7 +460,37 @@ async function refreshEuropeanFixtures(){
   writeJson(CORE_FIXTURE_PATH, core);
   writeAtomic(CORE_FIXTURE_SCRIPT_PATH, `globalThis.NOTHINGSPORTS_FOOTBALL_CORE_EVENTS = ${JSON.stringify(core)};\n`);
   checkExisting();
-  console.log("Refreshed Bundesliga, La Liga, Serie A and Ligue 1 from football-data.org; retained first-party Premier League and official A-League paths.");
+  console.log("Refreshed Bundesliga, La Liga, Serie A and Ligue 1 from football-data.org; retained the first-party Premier League path.");
+}
+
+function pruneRemovedLeagues(){
+  const removedLeagueIds = new Set(["competition:a-leagues"]);
+  const removedLeagueKeys = new Set(["a-league-men"]);
+  const directory = JSON.parse(fs.readFileSync(DIRECTORY_PATH, "utf8"));
+  directory.sources = directory.sources.filter(source => !String(source.id || "").includes("a-league-men"));
+  directory.leagues = directory.leagues.filter(league => !removedLeagueIds.has(league.id) && !removedLeagueKeys.has(league.key));
+  directory.teams = directory.teams.filter(team => !removedLeagueIds.has(team.leagueId));
+  const activeTeamIds = new Set(directory.teams.map(team => team.id));
+  directory.players = directory.players.filter(player => !removedLeagueIds.has(player.leagueId) && activeTeamIds.has(player.currentTeamId));
+  const index = {
+    schemaVersion:"football-follow-index.v1",
+    generatedAt:directory.generatedAt,
+    teams:directory.teams.map(team => ({ id:team.id, leagueId:team.leagueId })),
+    players:directory.players.map(player => ({ id:player.id, currentTeamId:player.currentTeamId, leagueId:player.leagueId })),
+  };
+  const core = JSON.parse(fs.readFileSync(CORE_FIXTURE_PATH, "utf8"));
+  core.events = core.events.filter(event => !removedLeagueIds.has(event.competitionId) && !removedLeagueKeys.has(event.key));
+  writeJson(DIRECTORY_PATH, directory);
+  writeAtomic(DIRECTORY_SCRIPT_PATH, `globalThis.NOTHINGSPORTS_FOOTBALL_DIRECTORY_DATA = ${JSON.stringify(directory)};\n`);
+  writeJson(INDEX_PATH, index);
+  writeAtomic(INDEX_SCRIPT_PATH, `globalThis.NOTHINGSPORTS_FOOTBALL_FOLLOW_INDEX = ${JSON.stringify(index)};\n`);
+  writeJson(CORE_FIXTURE_PATH, core);
+  writeAtomic(CORE_FIXTURE_SCRIPT_PATH, `globalThis.NOTHINGSPORTS_FOOTBALL_CORE_EVENTS = ${JSON.stringify(core)};\n`);
+  for (const extension of ["json", "js"]){
+    const removedFixture = path.join(FIXTURE_DIR, `a-league-men.${extension}`);
+    if (fs.existsSync(removedFixture)) fs.unlinkSync(removedFixture);
+  }
+  console.log(`Removed A-League Men from active football data; retained ${directory.teams.length} clubs and ${directory.players.length} players.`);
 }
 
 function checkExisting(){
@@ -478,12 +505,13 @@ function checkExisting(){
   if (core.schemaVersion !== "football-core-events.v1") throw new Error("Football core fixture schema is invalid");
   if (!core.events.length || core.events.some(event => Number(event.expected) < 8)) throw new Error("Football core fixtures must contain only 4/5 and 5/5 events");
   if (new Set(core.events.map(event => event.canonicalEventId)).size !== core.events.length) throw new Error("Football core fixtures must be deduplicated");
-  console.log("Football fixture snapshots valid: all six league schedules are complete and deduplicated.");
+  console.log("Football fixture snapshots valid: all five active league schedules are complete and deduplicated.");
 }
 
 async function main(){
   if (process.argv.includes("--bootstrap-public")) return bootstrapAndWrite();
   if (process.argv.includes("--refresh-fixtures")) return refreshEuropeanFixtures();
+  if (process.argv.includes("--prune-removed")) return pruneRemovedLeagues();
   return checkExisting();
 }
 

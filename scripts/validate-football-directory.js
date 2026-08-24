@@ -27,7 +27,8 @@ function validate(){
   const workerSource = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
   const hierarchySource = fs.readFileSync(path.join(ROOT, "config/sport-hierarchy.js"), "utf8");
   assert.equal(directory.schemaVersion, "football-directory.v1");
-  assert.equal(directory.leagues.length, 6, "exactly the six approved leagues must be published");
+  assert.equal(directory.leagues.length, 5, "exactly the five approved leagues must be published");
+  assert(!directory.leagues.some(league => league.id === "competition:a-leagues" || league.key === "a-league-men"), "A-League Men must not remain in the active directory");
   uniqueIds(directory.leagues, "league");
   uniqueIds(directory.teams, "team");
   uniqueIds(directory.players, "player");
@@ -138,7 +139,7 @@ function validate(){
   const malformed = directoryApi.parseSessionState("{bad");
   assert.equal(malformed.activeView, "tables");
   assert.equal(Object.hasOwn(malformed, "selectedSportKeys"), false, "durable selected sports must never leak into the transient session contract");
-  console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} priority players across six leagues.`);
+  console.log(`Football directory valid: ${directory.teams.length} clubs and ${directory.players.length} priority players across five leagues.`);
   return directory;
 }
 

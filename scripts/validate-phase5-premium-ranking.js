@@ -63,10 +63,10 @@ assert(storylineIds.length <= engine.PREMIUM_SURFACE_POLICY.topStorylineLimit, "
 assert(!mustWatchIds.some(id => storylineIds.includes(id)), "premium surfaces must not duplicate events");
 assert([...surfaces.mustWatch, ...surfaces.topStorylines].every(item => item.enrichment.stakesScore >= 4), "routine fixtures must stay out of premium surfaces");
 
-assert(html.includes('function appendManualMustWatchQueue'), "manual Must Watch must replace the automatic premium rail");
-assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "premium cards must stay in the chronological feed unless the user adds them");
+assert(!html.includes('function appendManualMustWatchQueue') && !html.includes("appendPremiumSurfaces(container, filtered)"), "editorial scoring must not split cards out of the chronological feed");
+assert(html.includes('const displayLabel = enrichment.storyline.visibleLabel === "Must Watch"') && html.includes('? "Top pick"'), "legacy editorial labels must render as Top pick tags");
 assert(html.includes('return activeTodayAnchorId();'), "the initial feed jump must land at Today");
 assert(html.includes('${enrichment.stakesScore}/5'), "visible stakes must not be mislabeled storyline intensity");
 assert(html.includes("Editorially reviewed ·"), "opened flagship cards must disclose editorial review without exposing internal notes");
 
-console.log(`Phase 5 premium ranking valid: ${mustWatchIds.length} Must Watch and ${storylineIds.length} Top Storylines events selected from the reviewed week.`);
+console.log(`Phase 5 editorial ranking valid: ${mustWatchIds.length} top picks and ${storylineIds.length} storyline events scored without splitting the chronological feed.`);

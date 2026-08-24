@@ -46,7 +46,7 @@ function memoryStorage(){
 
 async function run(){
   const userStateSchema = JSON.parse(fs.readFileSync("schemas/user-state.schema.json", "utf8"));
-  assert.equal(userStateSchema.properties.schemaVersion.const, "user-state.v1");
+  assert.equal(userStateSchema.properties.schemaVersion.const, "user-state.v2");
   assert(userStateSchema.required.includes("preferences"));
   assert(userStateSchema.required.includes("eventUserState"));
   assert.equal(server.supabaseConfig({}).configured, false);
@@ -61,14 +61,19 @@ async function run(){
 
   const normalized = server.normalizeUserState({
     profile: { timezone: "Australia/Sydney" },
-    preferences: { showSpoilers: false },
-    eventUserState: { event: { watchLater: true, watched: true } },
+    preferences: {
+      showSpoilers: false,
+      preferenceGraph: { domainPreferences:[{ sportDomainId:"sport:football", mustWatchSensitivity:"high", editorialSensitivity:"medium" }] },
+    },
+    eventUserState: { event: { watchLater: true, watched: true, mustWatch:true } },
     archivedEvents: [],
   }, "11111111-1111-4111-8111-111111111111", new Date("2026-07-27T10:00:00.000Z"));
-  assert.equal(normalized.schema_version, "user-state.v1");
+  assert.equal(normalized.schema_version, "user-state.v2");
   assert.equal(normalized.user_id, "11111111-1111-4111-8111-111111111111");
   assert.equal(normalized.event_user_state.event.watchLater, true, "saved cards must be part of durable server state");
   assert.equal(normalized.event_user_state.event.watched, true, "Catch Up watched state must be part of durable server state");
+  assert.equal(Object.hasOwn(normalized.event_user_state.event, "mustWatch"), false, "legacy server Must Watch actions must be discarded");
+  assert.equal(Object.hasOwn(normalized.preferences.preferenceGraph.domainPreferences[0], "mustWatchSensitivity"), false, "legacy server Must Watch preferences must be discarded");
   const mergedState = server.mergeUserState({
     profile: { timezone: "Australia/Sydney", futureProfileField: "keep" },
     preferences: {
@@ -137,6 +142,8 @@ async function run(){
   global.fetch = async (url, options = {}) => {
     requests.push({ url: String(url), options });
     if (String(url).includes("/auth/v1/token?grant_type=password")) return fetchResponse(passwordSession);
+    if (String(url).includes("/auth/v1/recover?redirect_to=")) return fetchResponse({});
+    if (String(url).endsWith("/auth/v1/user") && options.method === "PUT") return fetchResponse(authUser);
     if (String(url).endsWith("/auth/v1/user")) return fetchResponse(authUser);
     if (String(url).includes("/rest/v1/nothingsports_user_state") && options.method === "PATCH"){
       if (forceConditionalConflict){
@@ -183,6 +190,35 @@ async function run(){
     assert.equal(missingPasswordResponse.statusCode, 400);
     assert.equal(missingPasswordResponse.body.code, "invalid_password");
 
+    const recoveryResponses = [];
+    for (const email of ["known@example.com", "unknown@example.com"]){
+      const recoveryResponse = responseStub();
+      await authHandler({
+        method:"POST",
+        headers:{ host:"localhost:3000" },
+        body:{ action:"password-recovery-request", email },
+      }, recoveryResponse);
+      recoveryResponses.push(recoveryResponse);
+    }
+    assert.equal(recoveryResponses[0].statusCode, 200);
+    assert.deepEqual(recoveryResponses[0].body, recoveryResponses[1].body, "recovery requests must not reveal whether an account exists");
+    const recoveryRequest = requests.find(request => request.url.includes("/auth/v1/recover?redirect_to="));
+    assert.match(decodeURIComponent(recoveryRequest.url), /redirect_to=http:\/\/localhost:3000\/\?auth=recovery$/, "local recovery must use an allowlisted callback");
+
+    const updatePasswordResponse = responseStub();
+    await authHandler({
+      method:"POST",
+      headers:{ authorization:"Bearer recovery-access" },
+      body:{ action:"password-update", password:"new secure password" },
+    }, updatePasswordResponse);
+    assert.equal(updatePasswordResponse.statusCode, 200);
+    const updatePasswordRequest = requests.find(request => request.url.endsWith("/auth/v1/user") && request.options.method === "PUT");
+    assert.equal(updatePasswordRequest.options.headers.Authorization, "Bearer recovery-access");
+    assert.deepEqual(JSON.parse(updatePasswordRequest.options.body), { password:"new secure password" });
+    const shortPasswordResponse = responseStub();
+    await authHandler({ method:"POST", headers:{ authorization:"Bearer recovery-access" }, body:{ action:"password-update", password:"short" } }, shortPasswordResponse);
+    assert.equal(shortPasswordResponse.body.code, "invalid_password");
+
     const loadedResponse = responseStub();
     await userStateHandler({
       method: "GET",
@@ -191,7 +227,7 @@ async function run(){
     assert.equal(loadedResponse.statusCode, 200);
     assert.equal(loadedResponse.body.user.email, "fan@example.com");
     assert.equal(loadedResponse.body.state.preferences.showSpoilers, false);
-    const userLookup = requests.find(request => request.url.endsWith("/auth/v1/user"));
+    const userLookup = requests.find(request => request.url.endsWith("/auth/v1/user") && request.options.method !== "PUT");
     assert.equal(userLookup.options.headers.Authorization, "Bearer access-token", "the Auth API must verify the signed-in user token");
     const stateLookup = requests.find(request => request.url.includes("/rest/v1/nothingsports_user_state"));
     assert.equal(stateLookup.options.headers.Authorization, "Bearer access-token", "RLS requests must run as the signed-in user");
@@ -295,6 +331,24 @@ async function run(){
   assert.equal(parsedPasswordSession.accessToken, "access");
   assert.equal(parsedPasswordSession.expiresAt, Date.parse("2026-07-27T11:00:00.000Z"));
 
+  const recoveryStorage = memoryStorage();
+  let scrubbedRecoveryUrl = null;
+  const capturedRecovery = serverSync.captureRecoveryFromLocation({
+    location:{ pathname:"/", search:"?auth=recovery&keep=1", hash:"#access_token=recovery-secret&type=recovery&expires_in=600" },
+    history:{ replaceState(_state, _title, url){ scrubbedRecoveryUrl = url; } },
+    storage:recoveryStorage,
+    now:Date.parse("2026-07-27T10:00:00.000Z"),
+  });
+  assert.equal(capturedRecovery.accessToken, "recovery-secret");
+  assert.equal(scrubbedRecoveryUrl, "/?keep=1", "recovery tokens and routing markers must be scrubbed immediately");
+  assert(recoveryStorage.getItem(serverSync.RECOVERY_STORAGE_KEY)?.includes("recovery-secret"), "the isolated recovery namespace must retain the short-lived token");
+  assert.equal(recoveryStorage.getItem(serverSync.SESSION_STORAGE_KEY), null, "a recovery token must never enter normal session persistence");
+  assert.equal(serverSync.readRecoverySession(recoveryStorage, Date.parse("2026-07-27T10:11:00.000Z")), null, "expired recovery sessions must be discarded");
+  assert.equal(serverSync.captureRecoveryFromLocation({
+    location:{ pathname:"/", search:"?auth=recovery", hash:"#type=recovery" },
+    history:{ replaceState(){} }, storage:memoryStorage(), now:0,
+  }).invalid, true, "an invalid recovery link must enter the resend flow");
+
   const storage = memoryStorage();
   const persistentStorage = memoryStorage();
   const browserRequests = [];
@@ -344,6 +398,13 @@ async function run(){
   assert.equal(storage.getItem(serverSync.SESSION_STORAGE_KEY), null, "persistent sign-in must not duplicate the refresh token in session storage");
   assert(persistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), "persistent sign-in must survive a browser restart without saving the password");
   assert(!persistentStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("correct horse battery staple"), "the user's password must never be stored with the persistent session");
+  await client.requestPasswordRecovery("fan@example.com");
+  await client.updateRecoveryPassword("isolated-recovery-token", "another secure password");
+  const browserRecoveryRequest = browserRequests.find(request => JSON.parse(request.options.body || "{}").action === "password-recovery-request");
+  const browserPasswordUpdate = browserRequests.find(request => JSON.parse(request.options.body || "{}").action === "password-update");
+  assert(browserRecoveryRequest, "the browser must expose the non-enumerating recovery request");
+  assert.equal(browserPasswordUpdate.options.headers.Authorization, "Bearer isolated-recovery-token");
+  assert(!storage.getItem(serverSync.SESSION_STORAGE_KEY)?.includes("isolated-recovery-token"), "the recovery bearer must remain outside normal session storage");
 
   const restartedClient = serverSync.createClient({
     storage: memoryStorage(),
@@ -430,7 +491,7 @@ async function run(){
     preferences: { showSpoilers: false },
     eventUserState: { event: { watchLater: true } },
   });
-  assert.equal(snapshot.schemaVersion, "user-state.v1");
+  assert.equal(snapshot.schemaVersion, "user-state.v2");
   assert.equal(snapshot.eventUserState.event.watchLater, true);
   const browserMergedSettings = serverSync.mergeSettings({
     theme: "night",
@@ -444,7 +505,7 @@ async function run(){
   assert.equal(browserMergedSettings.viewing.startHourLocal, 9, "browser hydration must prefer the incoming server value");
   assert.deepEqual(browserMergedSettings.selectedBroadcasters, [], "explicit empty selections must remain explicit");
 
-  console.log("Server persistence valid: password auth, RLS ownership, conditional field patches and browser session handling passed.");
+  console.log("Server persistence valid: password auth and recovery, privacy-safe reset requests, RLS ownership, conditional patches and isolated browser recovery state passed.");
 }
 
 run().catch(error => {

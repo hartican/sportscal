@@ -15,7 +15,7 @@
     "learning"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v6" },
+    "schemaVersion": { "const": "preference-graph.v7" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -48,7 +48,7 @@
         "includeFollowedTeams",
         "narrativeVisibility",
         "narrativeIntensity",
-        "mustWatchSensitivity",
+        "editorialSensitivity",
         "reminderDefault",
         "scopedCompetitionIds",
         "scopedTaxonomyNodeIds"
@@ -64,7 +64,7 @@
         "includeFollowedTeams": { "type": "boolean" },
         "narrativeVisibility": { "enum": ["off", "importantOnly", "allEligible"] },
         "narrativeIntensity": { "type": "integer", "minimum": 1, "maximum": 5 },
-        "mustWatchSensitivity": { "enum": ["low", "medium", "high"] },
+        "editorialSensitivity": { "enum": ["low", "medium", "high"] },
         "reminderDefault": { "enum": ["off", "importantOnly", "allFollowed"] },
         "scopedCompetitionIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
         "scopedTaxonomyNodeIds": { "type": "array", "items": { "type": "string", "pattern": "^(sport|discipline|competition|event-series):" }, "uniqueItems": true }

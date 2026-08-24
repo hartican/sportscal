@@ -8,7 +8,9 @@
   const SESSION_STORAGE_KEY = "ns_auth_session_v1";
   const PERSISTENT_SESSION_STORAGE_KEY = "ns_auth_persistent_session_v1";
   const SESSION_PERSISTENCE_KEY = "ns_auth_persistence_v1";
-  const USER_STATE_SCHEMA_VERSION = "user-state.v1";
+  const RECOVERY_STORAGE_KEY = "ns_auth_recovery_v1";
+  const RECOVERY_TTL_MS = 15 * 60 * 1000;
+  const USER_STATE_SCHEMA_VERSION = "user-state.v2";
   const PRODUCT_EVENTS_SCHEMA_VERSION = "product-events.v1";
   const REFRESH_EARLY_MS = 60 * 1000;
 
@@ -47,6 +49,77 @@
       ? (explicitExpiry < 10_000_000_000 ? explicitExpiry * 1000 : explicitExpiry)
       : Number(now) + Math.max(60, expiresIn) * 1000;
     return { accessToken, refreshToken, expiresAt };
+  }
+
+  function sessionSubject(input){
+    const token = String(input?.accessToken || input?.access_token || input || "");
+    const payload = token.split(".")[1];
+    if (!payload) return "";
+    try{
+      const normalized = payload.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(payload.length / 4) * 4, "=");
+      const decoded = typeof atob === "function"
+        ? atob(normalized)
+        : Buffer.from(normalized, "base64").toString("utf8");
+      return String(JSON.parse(decoded)?.sub || "");
+    }catch(_error){
+      return "";
+    }
+  }
+
+  function parseRecoveryFragment(hash, now = Date.now()){
+    const source = String(hash || "").replace(/^#/, "");
+    if (!source) return null;
+    const params = new URLSearchParams(source);
+    if (params.get("type") !== "recovery") return null;
+    const accessToken = String(params.get("access_token") || "");
+    if (!accessToken) return null;
+    const expiresIn = Math.max(60, Math.min(RECOVERY_TTL_MS / 1000, Number(params.get("expires_in")) || RECOVERY_TTL_MS / 1000));
+    return { accessToken, expiresAt:Number(now) + expiresIn * 1000 };
+  }
+
+  function storeRecoverySession(storage, recovery){
+    try{
+      if (recovery) storage?.setItem?.(RECOVERY_STORAGE_KEY, JSON.stringify(recovery));
+      else storage?.removeItem?.(RECOVERY_STORAGE_KEY);
+    }catch(_error){ return null; }
+    return recovery;
+  }
+
+  function readRecoverySession(storage = globalThis.sessionStorage, now = Date.now()){
+    try{
+      const recovery = JSON.parse(storage?.getItem?.(RECOVERY_STORAGE_KEY) || "null");
+      if (!recovery?.accessToken || Number(recovery.expiresAt) <= Number(now)){
+        storeRecoverySession(storage, null);
+        return null;
+      }
+      return { accessToken:String(recovery.accessToken), expiresAt:Number(recovery.expiresAt) };
+    }catch(_error){
+      storeRecoverySession(storage, null);
+      return null;
+    }
+  }
+
+  function captureRecoveryFromLocation({
+    location = globalThis.location,
+    history = globalThis.history,
+    storage = globalThis.sessionStorage,
+    now = Date.now(),
+  } = {}){
+    const fragment = new URLSearchParams(String(location?.hash || "").replace(/^#/, ""));
+    const recoveryLink = fragment.get("type") === "recovery" || new URLSearchParams(location?.search || "").get("auth") === "recovery";
+    const recovery = parseRecoveryFragment(location?.hash, now);
+    if (recovery) storeRecoverySession(storage, recovery);
+    if (recoveryLink){
+      try{
+      const search = new URLSearchParams(location.search || "");
+      search.delete("auth");
+      const suffix = search.toString();
+      history?.replaceState?.(null, "", `${location.pathname || "/"}${suffix ? `?${suffix}` : ""}`);
+      }catch(_error){ /* Token storage is already isolated even if URL replacement is unavailable. */ }
+    }
+    if (recovery) return recovery;
+    const stored = readRecoverySession(storage, now);
+    return stored || (recoveryLink ? { invalid:true, expiresAt:Number(now) } : null);
   }
 
   function stateFromDatabaseRow(row){
@@ -108,6 +181,7 @@
   } = {}){
     let session = null;
     let persistSession = true;
+    let refreshInFlight = null;
 
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
@@ -161,6 +235,7 @@
 
     function clearSession(){
       session = null;
+      refreshInFlight = null;
       storageWrite(storage, SESSION_STORAGE_KEY, null);
       storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
     }
@@ -185,19 +260,25 @@
 
     async function refreshSession(){
       if (!session?.refreshToken) return null;
-      try{
-        const payload = await jsonRequest("/api/auth", {
-          method: "POST",
-          body: JSON.stringify({
-            action: "refresh",
-            refreshToken: session.refreshToken,
-          }),
-        });
-        return saveSession(payload.session);
-      }catch(error){
-        clearSession();
-        throw error;
-      }
+      if (refreshInFlight) return refreshInFlight;
+      refreshInFlight = (async () => {
+        try{
+          const payload = await jsonRequest("/api/auth", {
+            method: "POST",
+            body: JSON.stringify({
+              action: "refresh",
+              refreshToken: session.refreshToken,
+            }),
+          });
+          return saveSession(payload.session);
+        }catch(error){
+          clearSession();
+          throw error;
+        }finally{
+          refreshInFlight = null;
+        }
+      })();
+      return refreshInFlight;
     }
 
     async function currentSession(){
@@ -258,6 +339,19 @@
         }
         return { ...saved };
       },
+      async requestPasswordRecovery(email){
+        return jsonRequest("/api/auth", {
+          method:"POST",
+          body:JSON.stringify({ action:"password-recovery-request", email }),
+        });
+      },
+      async updateRecoveryPassword(accessToken, password){
+        return jsonRequest("/api/auth", {
+          method:"POST",
+          headers:{ Authorization:`Bearer ${String(accessToken || "")}` },
+          body:JSON.stringify({ action:"password-update", password }),
+        });
+      },
       async user(){
         const payload = await authenticatedRequest("/api/auth");
         return payload.user;
@@ -314,6 +408,9 @@
       getSession(){
         return session ? { ...session } : restoreStoredSession();
       },
+      sessionSubject(){
+        return sessionSubject(session || restoreStoredSession());
+      },
       prefersPersistentSession(){
         return persistencePreference() !== "session";
       },
@@ -336,11 +433,18 @@
     PERSISTENT_SESSION_STORAGE_KEY,
     SESSION_STORAGE_KEY,
     SESSION_PERSISTENCE_KEY,
+    RECOVERY_STORAGE_KEY,
+    RECOVERY_TTL_MS,
     USER_STATE_SCHEMA_VERSION,
     buildUserState,
     createClient,
     mergeSettings,
     parseSession,
+    parseRecoveryFragment,
+    captureRecoveryFromLocation,
+    readRecoverySession,
+    storeRecoverySession,
+    sessionSubject,
     stateFromDatabaseRow,
   });
 });

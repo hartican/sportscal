@@ -10,7 +10,7 @@
   const SCOPES = Object.freeze(["following", "for_you", "explore"]);
   const AVAILABILITY = Object.freeze(["any", "free", "included", "ppv"]);
   const TIMING = Object.freeze(["any", "live_now", "tonight", "this_week", "overnight"]);
-  const STAKES = Object.freeze(["everything", "important", "must_watch"]);
+  const STAKES = Object.freeze(["everything", "important", "top_picks"]);
   const SPOILERS = Object.freeze(["strict", "standard", "results_visible"]);
   const NEGATIVE_SUPPRESSION_COUNT = 2;
   const FIRST_IMPRESSION_DEPTH = 10;
@@ -52,7 +52,7 @@
       scope: enumValue(saved.scope, SCOPES, DEFAULT_CONTROLS.scope),
       availability: enumValue(saved.availability, AVAILABILITY, DEFAULT_CONTROLS.availability),
       timing: enumValue(saved.timing, TIMING, DEFAULT_CONTROLS.timing),
-      stakes: enumValue(saved.stakes, STAKES, DEFAULT_CONTROLS.stakes),
+      stakes: enumValue(saved.stakes === "must_watch" ? "top_picks" : saved.stakes, STAKES, DEFAULT_CONTROLS.stakes),
       spoilers: enumValue(saved.spoilers, SPOILERS, showSpoilers ? "results_visible" : DEFAULT_CONTROLS.spoilers),
       expanded: saved.expanded !== false,
     };
@@ -164,27 +164,26 @@
   }
 
   function matchesStakes(event, controls, {
-    mustWatch = false,
     explicitCoverage = false,
     followedParticipant = false,
     explicitlyAdded = false,
   } = {}){
     const score = Math.max(1, Math.min(5, Number(event?.stakesScore || event?.storyline?.stakes || 1)));
-    if (controls.stakes === "must_watch" && !mustWatch && score < 4) return false;
+    if (controls.stakes === "top_picks" && score < 4) return false;
     if (controls.stakes === "important" && score < 3) return false;
     if (isPremierLeagueEvent(event) && controls.froth === "balanced"){
-      if (mustWatch || followedParticipant || explicitlyAdded) return true;
+      if (followedParticipant || explicitlyAdded) return true;
       if (score < 4) return false;
     }
     if (controls.stakes === "everything" && explicitCoverage) return true;
-    return mustWatch || score >= frothMinimumStakes(controls.froth);
+    return score >= frothMinimumStakes(controls.froth);
   }
 
-  function matchesEvent(event, input, { now = new Date(), mustWatch = false, explicitCoverage = false, followedParticipant = false, explicitlyAdded = false } = {}){
+  function matchesEvent(event, input, { now = new Date(), explicitCoverage = false, followedParticipant = false, explicitlyAdded = false } = {}){
     const controls = normalize(input);
     return matchesAvailability(event, controls.availability)
       && matchesTiming(event, controls.timing, now)
-      && matchesStakes(event, controls, { mustWatch, explicitCoverage, followedParticipant, explicitlyAdded });
+      && matchesStakes(event, controls, { explicitCoverage, followedParticipant, explicitlyAdded });
   }
 
   function classifyRecommendation({

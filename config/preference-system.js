@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(hierarchy){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v6";
+  const SCHEMA_VERSION = "preference-graph.v7";
   const MAX_LEARNING_SIGNALS = 120;
   const MAX_CALIBRATION_SKIPS = 10;
   const MAX_TUNING_DOMAINS = 24;
@@ -29,13 +29,13 @@
       id: "template:froth",
       slug: "froth",
       name: "Froth",
-      description: "More fixtures, stronger follow weighting, and high must-watch sensitivity.",
+      description: "More fixtures, stronger follow weighting, and high editorial sensitivity.",
       rules: {
         includeAllFixturesDefault: true,
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: true,
         narrativeIntensityDefault: 5,
-        mustWatchSensitivityDefault: "high",
+        editorialSensitivityDefault: "high",
         reminderDefault: "allFollowed",
       },
     },
@@ -49,7 +49,7 @@
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: true,
         narrativeIntensityDefault: 3,
-        mustWatchSensitivityDefault: "medium",
+        editorialSensitivityDefault: "medium",
         reminderDefault: "importantOnly",
       },
     },
@@ -63,7 +63,7 @@
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: false,
         narrativeIntensityDefault: 2,
-        mustWatchSensitivityDefault: "low",
+        editorialSensitivityDefault: "low",
         reminderDefault: "importantOnly",
       },
     },
@@ -77,7 +77,7 @@
         includeMajorEventsDefault: true,
         includeFollowedTeamsDefault: true,
         narrativeIntensityDefault: 3,
-        mustWatchSensitivityDefault: "medium",
+        editorialSensitivityDefault: "medium",
         reminderDefault: "importantOnly",
       },
     },
@@ -113,7 +113,11 @@
 
   function expandTemplate(profileId, sportDomainId, templateId, overrides = {}){
     const template = templateFor(templateId);
-    const { showLadder: _obsoleteShowLadder, ...cleanOverrides } = overrides || {};
+    const {
+      showLadder: _obsoleteShowLadder,
+      mustWatchSensitivity: _obsoleteMustWatchSensitivity,
+      ...cleanOverrides
+    } = overrides || {};
     const scopedCompetitionIds = uniqueStrings(overrides.scopedCompetitionIds);
     return {
       profileId,
@@ -126,7 +130,7 @@
       includeFollowedTeams: template.rules.includeFollowedTeamsDefault,
       narrativeVisibility: narrativeVisibilityFor(template),
       narrativeIntensity: template.rules.narrativeIntensityDefault,
-      mustWatchSensitivity: template.rules.mustWatchSensitivityDefault,
+      editorialSensitivity: template.rules.editorialSensitivityDefault,
       reminderDefault: template.rules.reminderDefault,
       ...cleanOverrides,
       profileId,

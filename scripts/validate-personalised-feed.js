@@ -3,28 +3,42 @@ const assert = require("node:assert/strict");
 const feed = require("../config/personalised-feed.js");
 
 const now = new Date("2026-08-19T00:00:00.000Z");
-const past = { id: "past", date: "2026-08-17", time: "12:00" };
-const queueFuture = { id: "queue-future", date: "2026-08-22", time: "21:00" };
-const queuePast = { id: "queue-past", date: "2026-08-18", time: "12:00" };
-const today = { id: "today", date: "2026-08-19", time: "20:00" };
-const future = { id: "future", date: "2026-08-20", time: "12:00" };
+const pastEarly = { id: "past-early", startTimeUtc: "2026-08-17T02:00:00.000Z" };
+const pastLate = { id: "past-late", startTimeUtc: "2026-08-18T02:00:00.000Z" };
+const todayEarly = { id: "today-early", startTimeUtc: "2026-08-19T01:00:00.000Z" };
+const todayLate = { id: "today-late", startTimeUtc: "2026-08-19T08:00:00.000Z" };
+const future = { id: "future", startTimeUtc: "2026-08-20T02:00:00.000Z" };
+const sameTimeA = { id: "same-a", startTimeUtc: "2026-08-21T02:00:00.000Z" };
+const sameTimeB = { id: "same-b", startTimeUtc: "2026-08-21T02:00:00.000Z" };
 const actions = {
-  "queue-future": { mustWatch: true, mustWatchAddedAt: "2026-08-18T00:00:00.000Z" },
-  "queue-past": { mustWatch: true, mustWatchAddedAt: "2026-08-18T00:00:00.000Z" },
+  "today-late": { mustWatch: true, mustWatchAddedAt: "2026-08-18T00:00:00.000Z" },
+  "past-late": { mustWatch: true, mustWatchAddedAt: "2026-08-18T00:00:00.000Z" },
 };
 const actionFor = event => actions[event.id] || {};
 
 assert.equal(feed.normaliseFeedIntent("focused"), "focused");
 assert.equal(feed.normaliseFeedIntent("unknown"), "balanced");
-assert.equal(feed.normaliseMustWatchAction({ mustWatch: true }, queueFuture, now).mustWatchAddedAt, now.toISOString());
-assert.equal(feed.isRetainedMustWatch(queuePast, actionFor(queuePast), now), true, "past Must Watch cards stay for three days");
-assert.equal(feed.isRetainedMustWatch({ id: "expired", date: "2026-08-14", time: "12:00" }, { mustWatch: true }, now), false, "expired Must Watch cards leave the queue");
-assert.deepEqual(feed.queueEvents([queueFuture, queuePast], actionFor, now).map(event => event.id), ["queue-past", "queue-future"], "Must Watch is chronological");
-assert.deepEqual(feed.splitTimeline([past, queueFuture, queuePast, today, future], actionFor, now), {
-  retainedPast: [past],
-  mustWatch: [queuePast, queueFuture],
-  today: [today],
-  future: [future],
-}, "feed order is past, Must Watch, Today, then future");
+assert.equal(feed.eventStart({ date: "2026-08-19", time: "20:00" }).toISOString(), "2026-08-19T10:00:00.000Z", "legacy wall-clock starts must resolve in Australia/Sydney");
+assert.deepEqual(
+  feed.sortChronological([sameTimeB, future, sameTimeA]).map(event => event.id),
+  ["future", "same-a", "same-b"],
+  "canonical IDs must deterministically break equal start-time ties"
+);
+assert.deepEqual(feed.splitTimeline([
+  todayLate,
+  sameTimeB,
+  pastLate,
+  future,
+  pastEarly,
+  sameTimeA,
+  todayEarly,
+], actionFor, now), {
+  retainedPast: [pastEarly, pastLate],
+  today: [todayEarly, todayLate],
+  future: [future, sameTimeA, sameTimeB],
+}, "manual picks and recommendation state must never split or reorder the canonical timeline");
+assert.equal(feed.eventStart({ id: "tbc", date: "2026-08-19", timeTbc: true }), null, "timeless TBC fixtures must not receive a false start");
+assert.equal(feed.eventStart({ id: "timeless", date: "2026-08-19" }), null, "a date without an explicit date-only contract must stay out of Fixtures");
+assert(feed.eventStart({ id: "tournament", date: "2026-08-19", dateOnly: true }), "genuine date-only tournaments must receive a deterministic Sydney start-of-day");
 
-console.log("Personalised feed valid: persistent intent and chronological three-day Must Watch timeline.");
+console.log("Personalised feed valid: one canonical ascending timeline with stable ties and no Must Watch queue.");

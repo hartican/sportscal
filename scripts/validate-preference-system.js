@@ -15,7 +15,7 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
-assert.equal(initial.schemaVersion, "preference-graph.v6");
+assert.equal(initial.schemaVersion, "preference-graph.v7");
 assert.equal(initial.domainPreferences[0].taxonomyNodeId, "sport:australian-football", "legacy AFL preference domains must retain their UI ID and gain a canonical taxonomy target");
 assert.deepEqual(initial.learning, {
   signals: [],
@@ -41,6 +41,8 @@ assert.equal(initial.viewing.allowLateNightOverrides, true, "high-stakes overrid
 assert.equal(initial.viewing.calendarSyncEnabled, true, "Calendar sync must start enabled for a new profile");
 assert.equal(initial.viewing.browserAlertsEnabled, false, "browser alerts must remain opt-in");
 assert.equal(initial.domainPreferences[0].templateId, "template:like");
+assert.equal(initial.domainPreferences[0].editorialSensitivity, "medium");
+assert(!("mustWatchSensitivity" in initial.domainPreferences[0]), "legacy Must Watch sensitivity must not survive the preference migration");
 assert(!("showLadder" in initial.domainPreferences[0]), "standings visibility must not be persisted with Froth preferences");
 
 const froth = preferences.quickAddDomain(initial, "sport:nrl", "template:froth");
@@ -125,6 +127,7 @@ const migratedLegacyVisibility = preferences.migratePreferenceGraph({
   broadcasterIds: [...baseProviders, "seven"],
 });
 assert(migratedLegacyVisibility.domainPreferences.every(item => !("showLadder" in item)), "legacy domain visibility fields must be removed");
+assert(migratedLegacyVisibility.domainPreferences.every(item => !("mustWatchSensitivity" in item)), "legacy Must Watch fields must be removed");
 assert(migratedLegacyVisibility.competitionPreferences.every(item => !("showLadder" in item)), "legacy competition visibility fields must be removed");
 
 const disabledNrl = preferences.disableDomain(migratedWithNewProvider, "sport:nrl");
@@ -243,4 +246,4 @@ const mergedLearning = preferences.mergeLearning(dislikedWimbledon.learning, {
 assert.equal(mergedLearning.signals.length, 2, "sign-in must merge local and server learning targets instead of replacing the local graph");
 assert.equal(mergedLearning.dislikeCount, 1, "sign-in must preserve the higher durable dislike counter");
 
-console.log("Preference system valid: v6 hierarchy migration, bounded negative context, meaningful Tune suppression, templates, follows and viewing preferences passed.");
+console.log("Preference system valid: v7 hierarchy/editorial migration, bounded negative context, meaningful Tune suppression, templates, follows and viewing preferences passed.");

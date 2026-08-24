@@ -14,7 +14,7 @@
     "ratings"
   ],
   "properties": {
-    "schemaVersion": { "const": "user-state.v1" },
+    "schemaVersion": { "const": "user-state.v2" },
     "profile": { "type": "object" },
     "preferences": { "type": "object" },
     "eventUserState": {
@@ -45,7 +45,6 @@
       "properties": {
         "eventId": { "type": "string" },
         "startTime": { "type": "string" },
-        "mustWatch": { "type": "boolean" },
         "addedToFixtures": { "type": "boolean" },
         "addedToFixturesAt": { "type": ["string", "null"], "format": "date-time" },
         "addedFixture": {

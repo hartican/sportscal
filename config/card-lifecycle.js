@@ -55,7 +55,7 @@
   }
 
   function isSavedAction(action = {}){
-    return Boolean(action.watchLater || action.mustWatch || action.saved);
+    return Boolean(action.watchLater || action.saved);
   }
 
   function isRetentionExemptAction(action = {}){
@@ -175,7 +175,6 @@
     if (action.watchLater) return "saved";
     const status = String(event.status || "").toLowerCase();
     if (["past", "completed"].includes(status)) return "recent";
-    if (action.mustWatch) return "homeMustWatch";
     if (["homeMustWatch", "topStorylines", "sportFeed"].includes(enrichment.premiumSurface)) return enrichment.premiumSurface;
     if (enrichment.mustWatchScore >= 70) return "homeMustWatch";
     if (enrichment.intensity >= 4) return "topStorylines";

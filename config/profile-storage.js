@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildProfileStorage(){
   "use strict";
 
-  const PROFILE_SCHEMA_VERSION = 4;
+  const PROFILE_SCHEMA_VERSION = 5;
   const INSTALL_SCHEMA_VERSION = 1;
   const CACHE_SCHEMA_VERSION = 2;
   const KEYS = Object.freeze({
@@ -21,6 +21,46 @@
     eventSpoilerState: ["ns_event_spoiler_state_v1", "ns_spoiler_reveals_v1"],
     surfacePresentation: ["ns_surface_presentation_v1"],
   });
+  const REMOVED_COMPETITION_IDS = new Set(["competition:a-leagues", "a-league-men"]);
+  const REMOVED_A_LEAGUE_TEAM_IDS = new Set([
+    "team:football:adelaide-united", "team:football:club:auckland-fc", "team:football:brisbane-roar",
+    "team:football:club:central-coast-mariners", "team:football:club:macarthur-fc", "team:football:club:melbourne-city-fc",
+    "team:football:melbourne-victory", "team:football:club:newcastle-jets", "team:football:perth-glory",
+    "team:football:sydney-fc", "team:football:club:wellington-phoenix-fc", "team:football:western-sydney-wanderers",
+  ]);
+
+  function sanitizeEventUserState(input){
+    return Object.fromEntries(Object.entries(input && typeof input === "object" ? input : {}).map(([key, value]) => {
+      if (!value || typeof value !== "object" || Array.isArray(value)) return [key, value];
+      const { mustWatch, mustWatchAddedAt, mustWatchSeenAt, ...safe } = value;
+      return [key, safe];
+    }));
+  }
+
+  function sanitizePreferences(input){
+    if (!input || typeof input !== "object" || Array.isArray(input)) return input ?? null;
+    const preferences = clone(input);
+    ["selectedSelectorEntityIds", "followedSports"].forEach(key => {
+      if (Array.isArray(preferences[key])) preferences[key] = preferences[key].filter(id => !REMOVED_COMPETITION_IDS.has(String(id)));
+    });
+    const graph = preferences.preferenceGraph;
+    if (graph && typeof graph === "object"){
+      if (Array.isArray(graph.domainPreferences)){
+        graph.domainPreferences = graph.domainPreferences.map(item => {
+          if (!item || typeof item !== "object") return item;
+          const { mustWatchSensitivity, ...safe } = item;
+          return safe;
+        });
+      }
+      if (Array.isArray(graph.competitionPreferences)){
+        graph.competitionPreferences = graph.competitionPreferences.filter(item => !REMOVED_COMPETITION_IDS.has(String(item?.competitionId || item?.id || "")));
+      }
+      if (Array.isArray(graph.entityFollows)){
+        graph.entityFollows = graph.entityFollows.filter(item => !REMOVED_A_LEAGUE_TEAM_IDS.has(String(item?.participantId || item?.id || "")));
+      }
+    }
+    return preferences;
+  }
 
   function parseStored(storage, key, fallback = null){
     try{
@@ -132,9 +172,9 @@
 
   function migrateLegacyBundle(storage, profileId, now){
     const bundle = emptyBundle(profileId, now);
-    bundle.preferences = firstLegacyValue(storage, LEGACY_KEYS.preferences, null);
+    bundle.preferences = sanitizePreferences(firstLegacyValue(storage, LEGACY_KEYS.preferences, null));
     bundle.ratings = firstLegacyValue(storage, LEGACY_KEYS.ratings, {});
-    bundle.eventUserState = firstLegacyValue(storage, LEGACY_KEYS.eventUserState, {});
+    bundle.eventUserState = sanitizeEventUserState(firstLegacyValue(storage, LEGACY_KEYS.eventUserState, {}));
     bundle.eventSpoilerState = firstLegacyValue(storage, LEGACY_KEYS.eventSpoilerState, {});
     bundle.profile.onboardingCompleted = Boolean(bundle.preferences?.onboardingComplete);
     return bundle;
@@ -162,9 +202,12 @@
         : null,
       archivedEvents: Array.isArray(input.archivedEvents) ? input.archivedEvents : [],
       ratings: input.ratings && typeof input.ratings === "object" ? input.ratings : {},
-      eventUserState: input.eventUserState && typeof input.eventUserState === "object" ? input.eventUserState : {},
+      preferences: sanitizePreferences(input.preferences),
+      eventUserState: sanitizeEventUserState(input.eventUserState),
       eventSpoilerState: input.eventSpoilerState && typeof input.eventSpoilerState === "object" ? input.eventSpoilerState : {},
     };
+    bundle.competitionPreferences = bundle.competitionPreferences.filter(item => !REMOVED_COMPETITION_IDS.has(String(item?.competitionId || item?.id || "")));
+    bundle.entityFollows = bundle.entityFollows.filter(item => !REMOVED_A_LEAGUE_TEAM_IDS.has(String(item?.participantId || item?.id || "")));
     bundle.profile.onboardingCompleted = Boolean(
       input.profile?.onboardingCompleted ?? input.preferences?.onboardingComplete
     );

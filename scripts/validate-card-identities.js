@@ -96,14 +96,14 @@ const footballParticipants = footballDirectory.teams.map(team => ({
   shortName:team.shortName || team.displayName,
   metadata:{ titleAliases:team.aliases || [team.displayName] },
 }));
-assert.equal(footballParticipants.length, 108, "all six active football leagues must remain available to the identity resolver");
+assert.equal(footballParticipants.length, 96, "all five active football leagues must remain available to the identity resolver");
 footballParticipants.forEach(team => {
   const resolved = identities.participantMarksForEvent({ key:footballDirectory.leagues.find(league => league.id === team.leagueId)?.key, participantIds:[team.id] }, footballParticipants, team.displayName);
   assert.equal(resolved.length, 1, `missing directory crest for ${team.displayName}`);
   const expectedCrest = identities.participantMarks[team.id]?.url || team.crestUrl;
   assert.equal(resolved[0].mark.url, expectedCrest, `${team.displayName} must prefer its first-party local crest, then preserve its directory crest URL`);
 });
-const footballFixtureEvents = ["bundesliga", "la-liga", "serie-a", "ligue-1", "a-league-men"]
+const footballFixtureEvents = ["bundesliga", "la-liga", "serie-a", "ligue-1"]
   .flatMap(leagueKey => JSON.parse(fs.readFileSync(`data/football/fixtures/${leagueKey}.json`, "utf8")).events || []);
 footballFixtureEvents.forEach(event => {
   const sides = identities.matchupSidesForEvent(event, footballParticipants, event.name);
@@ -112,7 +112,7 @@ footballFixtureEvents.forEach(event => {
 });
 for (const [competitionId, label] of [
   ["competition:bundesliga", "Bundesliga"], ["competition:la-liga", "LALIGA"], ["competition:serie-a", "Serie A"],
-  ["competition:ligue-1", "Ligue 1"], ["competition:a-leagues", "A-League Men"], ["competition:uefa-champions-league", "UEFA Champions League"],
+  ["competition:ligue-1", "Ligue 1"], ["competition:uefa-champions-league", "UEFA Champions League"],
 ]){
   assert.equal(identities.markForCompetitionId(competitionId)?.label, label, `${competitionId} must resolve its competition identity`);
 }

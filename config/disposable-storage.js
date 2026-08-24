@@ -123,7 +123,22 @@
       return removals.length;
     }
 
-    return Object.freeze({ initial, hydrate, set, flush, evictExpired });
+    async function remove(key){
+      const target = String(key);
+      memory.delete(target);
+      pending.delete(target);
+      const db = await database();
+      if (!db) return false;
+      return new Promise(resolve => {
+        const transaction = db.transaction(STORE_NAME, "readwrite");
+        transaction.objectStore(STORE_NAME).delete(target);
+        transaction.oncomplete = () => resolve(true);
+        transaction.onerror = () => resolve(false);
+        transaction.onabort = () => resolve(false);
+      });
+    }
+
+    return Object.freeze({ initial, hydrate, set, flush, evictExpired, remove });
   }
 
   return Object.freeze({ DB_NAME, STORE_NAME, DEFAULT_TTL_MS, DEFAULT_MAX_ENTRIES, FLUSH_DELAY_MS, createStore });

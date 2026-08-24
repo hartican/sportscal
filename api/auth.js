@@ -4,6 +4,7 @@ const {
   authenticatedUser,
   bearerToken,
   publicError,
+  requestOrigin,
   supabaseConfig,
   supabaseRequest,
 } = require("../lib/supabase-server");
@@ -31,6 +32,25 @@ function validEmail(value){
 function validPassword(value){
   const password = typeof value === "string" ? value : "";
   return password.length > 0 && password.length <= 1024 ? password : "";
+}
+
+function validNewPassword(value){
+  const password = typeof value === "string" ? value : "";
+  return password.length >= 8 && password.length <= 1024 ? password : "";
+}
+
+function recoveryCallback(request, environment = process.env){
+  const allowed = new Set(["https://nothingsport.vercel.app"]);
+  String(environment.AUTH_RECOVERY_ORIGINS || "").split(",").map(value => value.trim()).filter(Boolean).forEach(value => {
+    try{ allowed.add(new URL(value).origin); }catch(_error){ /* Ignore malformed configuration. */ }
+  });
+  if (environment.VERCEL_URL){
+    try{ allowed.add(new URL(`https://${environment.VERCEL_URL}`).origin); }catch(_error){ /* Ignore malformed deployment metadata. */ }
+  }
+  const candidate = requestOrigin(request);
+  if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(candidate)) allowed.add(candidate);
+  const origin = allowed.has(candidate) ? candidate : "https://nothingsport.vercel.app";
+  return `${origin}/?auth=recovery`;
 }
 
 function publicUser(user){
@@ -67,6 +87,44 @@ module.exports = async function authHandler(request, response){
     }
 
     const body = requestBody(request);
+    if (body.action === "password-recovery-request"){
+      const email = validEmail(body.email);
+      if (!email){
+        response.status(400).json({ error: "Enter a valid email address.", code: "invalid_email" });
+        return;
+      }
+      try{
+        await supabaseRequest(`/auth/v1/recover?redirect_to=${encodeURIComponent(recoveryCallback(request))}`, {
+          method: "POST",
+          body: { email },
+        });
+      }catch(error){
+        if (![400, 404, 422].includes(error?.status)) throw error;
+      }
+      response.status(200).json({ requested: true, message: "If that account exists, a password reset link is on its way." });
+      return;
+    }
+
+    if (body.action === "password-update"){
+      const accessToken = bearerToken(request);
+      const password = validNewPassword(body.password);
+      if (!accessToken){
+        response.status(401).json({ error: "This password reset link is invalid or expired.", code: "missing_recovery_token" });
+        return;
+      }
+      if (!password){
+        response.status(400).json({ error: "Use between 8 and 1024 characters.", code: "invalid_password" });
+        return;
+      }
+      await supabaseRequest("/auth/v1/user", {
+        method: "PUT",
+        accessToken,
+        body: { password },
+      });
+      response.status(200).json({ updated: true });
+      return;
+    }
+
     if (body.action === "password-sign-in"){
       const email = validEmail(body.email);
       if (!email){

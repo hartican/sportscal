@@ -55,7 +55,7 @@
       stakes: 4,
       intensity: 4,
       archetype: "quest",
-      visibleLabel: "Must Watch",
+      visibleLabel: "Top pick",
       cardVariant: "marquee",
       forceSurface: "homeMustWatch",
       reviewedAt: "2026-08-14T00:00:00.000Z",

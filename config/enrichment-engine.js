@@ -27,6 +27,7 @@
     "comedy",
   ]);
   const ALLOWED_LABELS = new Set([
+    "Top pick",
     "Must Watch",
     "Rivalry",
     "Record Chase",
@@ -210,7 +211,6 @@
   }
 
   function userInterestScore(event, context){
-    if (context.explicitMustWatch) return 5;
     const graph = context.preferenceGraph;
     const competition = competitionPreferenceFor(event, graph);
     if (competition?.enabled === false) return 0;
@@ -371,7 +371,7 @@
     if (/record/i.test(text)) return "Record Chase";
     if (/upset|underdog/i.test(text)) return "Upset Watch";
     if (/\b(?:final|decider|gold medal|super bowl)\b/i.test(text)) return "Title Decider";
-    return mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "Must Watch" : undefined;
+    return mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "Top pick" : undefined;
   }
 
   function variantForSignificance(stakes, intensity, mustWatchScore, override = null){
@@ -396,7 +396,6 @@
     const australia = clamp(australianRelevanceScore(event), 0, 5);
     const timeWindow = clamp(timeWindowFitScore(event, context, stakes), 0, 5);
     const editorialBoost = override ? 5 : 0;
-    const explicitBoost = context.explicitMustWatch ? 10 : 0;
     const mustWatchScore = Math.round(clamp(
       stakes * 12
       + intensity * 4
@@ -405,8 +404,7 @@
       + australia * 2
       + availability
       + timeWindow
-      + editorialBoost
-      + explicitBoost,
+      + editorialBoost,
       0,
       100
     ));
@@ -420,7 +418,6 @@
       timeWindow === 5 ? "Fits your viewing window." : timeWindow === 3 ? "High stakes triggered your late-night override." : "Falls outside your viewing window.",
     ];
     if (override) scoreReasons.push(`Editorial review added ${editorialBoost} points.`);
-    if (explicitBoost) scoreReasons.push(`Your Must Watch choice added ${explicitBoost} points.`);
     const storyline = {
       stakes: stakesLabel(stakes),
       arcStage: arcStage(event, stakes, override),
@@ -452,7 +449,7 @@
       mustWatchScore,
       intensity,
       cardVariant: variantForSignificance(stakes, intensity, mustWatchScore, override),
-      premiumSurface: override?.forceSurface || (context.explicitMustWatch || mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "homeMustWatch" : stakes >= 4 ? "topStorylines" : "sportFeed"),
+      premiumSurface: override?.forceSurface || (mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "homeMustWatch" : stakes >= 4 ? "topStorylines" : "sportFeed"),
       editorialOverride: override ? {
         reviewedAt: override.reviewedAt,
         reviewedBy: override.reviewedBy,

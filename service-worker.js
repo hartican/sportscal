@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v129";
+const CACHE_NAME = "nothingsport-shell-v131";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -18,6 +18,7 @@ const APP_SHELL = [
   "/config/sport-context.js",
   "/config/sport-hubs.js",
   "/config/feed-refresh-lifecycle.js",
+  "/config/loading-progress.js",
   "/config/profile-storage.js",
   "/config/disposable-storage.js",
   "/config/product-events.js",
@@ -128,6 +129,10 @@ self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   const cacheKey = new Request(event.request.url, { method: "GET" });
   if (requestUrl.origin !== self.location.origin) return;
+  if (event.request.mode === "navigate"){
+    event.respondWith(staleWhileRevalidate(event.request, event, new Request("/index.html")));
+    return;
+  }
   if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){
     event.respondWith(fetch(event.request));
     return;
@@ -144,7 +149,7 @@ self.addEventListener("fetch", event => {
     event.respondWith(cacheFirst(event.request, cacheKey));
     return;
   }
-  event.respondWith(networkFirst(event.request, event, cacheKey));
+  event.respondWith(staleWhileRevalidate(event.request, event, cacheKey));
 });
 
 self.addEventListener("notificationclick", event => {

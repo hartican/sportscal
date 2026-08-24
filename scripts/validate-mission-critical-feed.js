@@ -48,7 +48,7 @@ function read(relativePath){
 }
 
 function validateProfileStorage(){
-  assert.equal(profileStorage.PROFILE_SCHEMA_VERSION, 4, "durable profiles must use schema v4");
+  assert.equal(profileStorage.PROFILE_SCHEMA_VERSION, 5, "durable profiles must use schema v5");
   assert.equal(typeof profileStorage.commitSections, "function", "profile storage must expose one transactional commitSections API");
 
   const storage = new CountingStorage();
@@ -63,7 +63,7 @@ function validateProfileStorage(){
     learningPreference: { version: 1 },
   }, { now: new Date("2026-08-24T00:01:00Z") });
   assert.equal(storage.writes, 1, "one settings save must perform one durable profile write");
-  assert.equal(bundle.schemaVersion, 4);
+  assert.equal(bundle.schemaVersion, 5);
   assert.equal(Object.prototype.hasOwnProperty.call(bundle, "surfacePresentation"), false, "surface history must not inflate the durable profile");
 
   storage.failWrites = true;
@@ -74,14 +74,30 @@ function validateProfileStorage(){
   );
 
   const legacyStorage = new CountingStorage({
-    ns_preferences_v1: JSON.stringify({ onboardingComplete: true, feedIntent: "focused" }),
+    ns_preferences_v1: JSON.stringify({
+      onboardingComplete:true,
+      feedIntent:"focused",
+      selectedSelectorEntityIds:["sport:football", "competition:a-leagues"],
+      preferenceGraph:{
+        domainPreferences:[{ sportDomainId:"sport:football", mustWatchSensitivity:"high", editorialSensitivity:"medium" }],
+        competitionPreferences:[{ competitionId:"competition:a-leagues", enabled:true }, { competitionId:"competition:premier-league", enabled:true }],
+        entityFollows:[{ participantId:"team:football:sydney-fc", followLevel:"follow" }, { participantId:"team:football:epl:1", followLevel:"follow" }],
+      },
+    }),
     ns_ratings_v1: JSON.stringify({ fixture: 9 }),
+    ns_event_user_state_v1: JSON.stringify({ fixture:{ mustWatch:true, mustWatchAddedAt:"2026-08-20T00:00:00Z", reminderRequested:true } }),
   });
   const migrated = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:02:00Z") });
-  assert.equal(migrated.schemaVersion, 4);
+  assert.equal(migrated.schemaVersion, 5);
   assert.equal(migrated.preferences.feedIntent, "focused");
   assert.equal(migrated.ratings.fixture, 9);
-  assert.equal(legacyStorage.getItem("ns_preferences_v1"), null, "legacy preferences may be removed only after the v4 bundle reads back successfully");
+  assert(!migrated.preferences.selectedSelectorEntityIds.includes("competition:a-leagues"));
+  assert.deepEqual(migrated.preferences.preferenceGraph.competitionPreferences.map(item => item.competitionId), ["competition:premier-league"]);
+  assert.deepEqual(migrated.preferences.preferenceGraph.entityFollows.map(item => item.participantId), ["team:football:epl:1"]);
+  assert.equal(Object.hasOwn(migrated.preferences.preferenceGraph.domainPreferences[0], "mustWatchSensitivity"), false, "legacy preference-level Must Watch fields must be discarded");
+  assert.equal(Object.hasOwn(migrated.eventUserState.fixture, "mustWatch"), false, "legacy Must Watch fields must be accepted then discarded");
+  assert.equal(migrated.eventUserState.fixture.reminderRequested, true, "unrelated legacy actions must survive migration");
+  assert.equal(legacyStorage.getItem("ns_preferences_v1"), null, "legacy preferences may be removed only after the v5 bundle reads back successfully");
   const migratedAgain = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:03:00Z") });
   assert.deepEqual(migratedAgain.preferences, migrated.preferences, "legacy migration must be idempotent");
 
@@ -124,7 +140,7 @@ function validateFeedContract(){
   assert(fs.statSync(firstPagePath).size <= 250 * 1024, "the first public feed page must remain under 250 KiB uncompressed");
 
   assert(index.includes("const FEED_PAGE_SIZE = 20"), "the browser must cap its initial feed window at 20 cards");
-  assert(index.includes("const INITIAL_CARD_IMAGE_BUDGET = 20") && index.includes("assignCardImageSource"), "the browser must cap initial card identity requests at twenty and defer the rest until interaction");
+  assert(index.includes("const INITIAL_CARD_IMAGE_BUDGET = 4") && index.includes("assignCardImageSource"), "the browser must cap first-viewport card identity requests at four and defer the rest until interaction");
   assert(index.includes("content-visibility: auto"), "feed cards must use content visibility containment");
   assert(index.includes("feedPageObserver = new IntersectionObserver"), "feed pagination must be driven near the scroll boundary");
   assert(index.includes("appendFeedPageToCurrentList") && index.includes("append && appendFeedPageToCurrentList(events)"), "later feed pages must append targeted date groups instead of rerendering the whole feed");

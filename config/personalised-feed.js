@@ -7,7 +7,6 @@
 
   const VERSION = "personalised-feed.v1";
   const FEED_INTENTS = Object.freeze(["focused", "balanced", "discovery"]);
-  const POST_EVENT_RETENTION_MS = 3 * 24 * 60 * 60 * 1000;
 
   function normaliseFeedIntent(value){
     return FEED_INTENTS.includes(value) ? value : "balanced";
@@ -22,72 +21,43 @@
       const parsed = new Date(event.startTimeUtc);
       if (!Number.isNaN(parsed.getTime())) return parsed;
     }
-    const date = String(event?.date || "");
-    const time = String(event?.time || "00:00");
-    const parsed = new Date(`${date}T${time}`);
-    return Number.isNaN(parsed.getTime()) ? null : parsed;
+    if (event?.timeTbc) return null;
+    const clock = typeof event?.time === "string" && /^\d{2}:\d{2}$/.test(event.time)
+      ? event.time
+      : (event?.dateOnly === true || event?.tournamentParent || event?.majorEventMarker ? "00:00" : "");
+    const match = `${event?.date || ""}T${clock}`.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
+    if (!match) return null;
+    const [, year, month, day, hour, minute] = match.map(Number);
+    const assumedUtc = Date.UTC(year, month - 1, day, hour, minute);
+    const offsetParts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Australia/Sydney",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(new Date(assumedUtc));
+    const offset = Object.fromEntries(offsetParts.map(part => [part.type, Number(part.value)]));
+    const renderedAsUtc = Date.UTC(offset.year, offset.month - 1, offset.day, offset.hour, offset.minute);
+    return new Date(assumedUtc - (renderedAsUtc - assumedUtc));
   }
 
-  function normaliseMustWatchAction(action = {}, event, now = new Date()){
-    const enabled = Boolean(action.mustWatch);
-    const addedAt = enabled
-      ? normaliseTimestamp(action.mustWatchAddedAt) || normaliseTimestamp(action.lastActionAt) || normaliseTimestamp(now)
-      : null;
-    return {
-      ...action,
-      mustWatch: enabled,
-      mustWatchAddedAt: addedAt,
-      mustWatchSeenAt: normaliseTimestamp(action.mustWatchSeenAt),
-      eventId: action.eventId || eventId(event),
-    };
-  }
-
-  function normaliseTimestamp(value){
-    const parsed = new Date(value || "");
-    return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
-  }
-
-  function isRetainedMustWatch(event, action, now = new Date()){
-    if (!action?.mustWatch) return false;
-    const start = eventStart(event);
-    if (!start) return true;
+  function splitTimeline(events, _actionForEvent, now = new Date()){
     const reference = now instanceof Date ? now : new Date(now);
-    if (Number.isNaN(reference.getTime())) return true;
-    return reference.getTime() <= start.getTime() + POST_EVENT_RETENTION_MS;
-  }
-
-  function queueEvents(events, actionForEvent, now = new Date()){
-    return (Array.isArray(events) ? events : [])
-      .filter(event => isRetainedMustWatch(event, actionForEvent(event), now))
-      .slice()
-      .sort((first, second) => {
-        const firstStart = eventStart(first)?.getTime() || Number.MAX_SAFE_INTEGER;
-        const secondStart = eventStart(second)?.getTime() || Number.MAX_SAFE_INTEGER;
-        return firstStart - secondStart || eventId(first).localeCompare(eventId(second));
-      });
-  }
-
-  function splitTimeline(events, actionForEvent, now = new Date()){
-    const reference = now instanceof Date ? now : new Date(now);
-    const queuedIds = new Set(queueEvents(events, actionForEvent, reference).map(eventId));
-    const result = { retainedPast: [], mustWatch: [], today: [], future: [] };
-    const today = localDateKey(reference);
-    (Array.isArray(events) ? events : []).forEach(event => {
-      const id = eventId(event);
+    const result = { retainedPast: [], today: [], future: [] };
+    const today = sydneyDateKey(reference);
+    sortChronological(events).forEach(event => {
       const start = eventStart(event);
-      if (queuedIds.has(id)) return;
-      if (!start || start.getTime() < reference.getTime()) {
+      if (!start) return;
+      if (start.getTime() < reference.getTime()) {
         result.retainedPast.push(event);
-      } else if (localDateKey(start) === today) {
+      } else if (sydneyDateKey(start) === today) {
         result.today.push(event);
       } else {
         result.future.push(event);
       }
     });
-    result.retainedPast.sort((first, second) => (eventStart(second)?.getTime() || 0) - (eventStart(first)?.getTime() || 0));
-    result.today.sort(compareChronological);
-    result.future.sort(compareChronological);
-    result.mustWatch = queueEvents(events, actionForEvent, reference);
     return result;
   }
 
@@ -96,20 +66,34 @@
       || eventId(first).localeCompare(eventId(second));
   }
 
-  function localDateKey(value){
+  function sortChronological(events){
+    return (Array.isArray(events) ? events : [])
+      .filter(event => eventStart(event))
+      .slice()
+      .sort(compareChronological);
+  }
+
+  function sydneyDateKey(value){
     const date = value instanceof Date ? value : new Date(value);
     if (Number.isNaN(date.getTime())) return "";
-    return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Australia/Sydney",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(date);
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return `${values.year}-${values.month}-${values.day}`;
   }
 
   return Object.freeze({
     VERSION,
     FEED_INTENTS,
-    POST_EVENT_RETENTION_MS,
     normaliseFeedIntent,
-    normaliseMustWatchAction,
-    isRetainedMustWatch,
-    queueEvents,
+    eventStart,
+    compareChronological,
+    sortChronological,
+    sydneyDateKey,
     splitTimeline,
   });
 });

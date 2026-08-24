@@ -119,7 +119,6 @@
     "la-liga": officialMark("competition:la-liga", "LALIGA", "https://assets.laliga.com/assets/logos/laliga-v/laliga-v-300x300.jpg", "https://www.laliga.com/en-GB"),
     "serie-a": officialMark("competition:serie-a", "Serie A", "https://images.legaseriea.it/image/private/t_w_480/v1764689566/prd/assets/mobileapp/logos/seriea-enilive-logo_jssflz.png", "https://en.legaseriea.it/serie-a"),
     "ligue-1": officialMark("competition:ligue-1", "Ligue 1", "https://ligue1.com/images/Logo_Ligue1.webp", "https://ligue1.com/"),
-    "a-league-men": officialMark("competition:a-leagues", "A-League Men", "https://aleagues.com.au/wp-content/uploads/sites/17/2023/08/A-Leagues-Logo_Men_Horizontal_Colour_Black_RGB_061021-1.webp", "https://aleagues.com.au/a-league-men/"),
     "uefa-champions-league": officialMark("competition:uefa-champions-league", "UEFA Champions League", "https://img.uefa.com/imgml/uefacom/ucl/2024/logos/logo_dark.svg", "https://www.uefa.com/uefachampionsleague/", { logo: { backgroundLight:"dark", backgroundDark:"dark" } }),
   });
 
@@ -153,7 +152,6 @@
     "la-liga": sportMark("la-liga", "Football", "sport:football"),
     "serie-a": sportMark("serie-a", "Football", "sport:football"),
     "ligue-1": sportMark("ligue-1", "Football", "sport:football"),
-    "a-league-men": sportMark("a-league-men", "Football", "sport:football"),
     cricket: sportMark("cricket", "Cricket", "sport:cricket", "CRK"),
     nba: sportMark("nba", "Basketball", "sport:basketball"),
     basketball: sportMark("basketball", "Basketball", "sport:basketball"),
@@ -364,7 +362,6 @@
     "competition:la-liga": eventMarks["la-liga"],
     "competition:serie-a": eventMarks["serie-a"],
     "competition:ligue-1": eventMarks["ligue-1"],
-    "competition:a-leagues": eventMarks["a-league-men"],
     "competition:uefa-champions-league": eventMarks["uefa-champions-league"],
   });
   function eventSearchText(event){ return [event?.brandId, event?.competitionId, event?.series, event?.tournament, event?.name, event?.displayTitleCompact, event?.spoilerSafeTitle].filter(Boolean).join(" "); }
@@ -418,7 +415,7 @@
       fallbackCountryCode:participant.countryCode || participant.metadata?.countryCode || "",
     });
   }
-  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "a-league-men", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey"]);
+  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey"]);
   function isTeamSportMatchup(event, title = ""){
     return TEAM_SPORT_KEYS.has(String(event?.key || "")) && /\s+v\.?\s+/i.test(String(title || event?.name || ""));
   }

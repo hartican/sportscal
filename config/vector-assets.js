@@ -43,6 +43,7 @@
     "ui:map-pin": '<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
     "ui:chevron-right": '<path d="m9 18 6-6-6-6"/>',
     "ui:plus": '<path d="M5 12h14M12 5v14"/>',
+    "ui:minus": '<path d="M5 12h14"/>',
   };
 
   const customBodies = {
@@ -104,6 +105,7 @@
   }
 
   const editorialKeys = Object.freeze({
+    "Top pick": "semantic:must-watch",
     "Must Watch": "semantic:must-watch",
     Rivalry: "semantic:rivalry",
     "Record Chase": "semantic:record-chase",

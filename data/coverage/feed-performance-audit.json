@@ -1,7 +1,7 @@
 {
   "schemaVersion": "feed-performance-audit.v1",
-  "measuredAt": "2026-08-24T10:55:00+10:00",
-  "method": "Codex in-app Chromium at 390x844 against a local HTTP server; seven isolated navigations per state, reading the privacy-safe feed-performance.v1 session record after hydration",
+  "measuredAt": "2026-08-24T18:42:38+10:00",
+  "method": "Codex Chromium at 390x844. Release 5 uses a deterministic localhost Fast-4G proxy with gzip text responses, 150 ms latency and 1.6 Mbps transfer; five navigations per state read the privacy-safe feed-performance.v1 record after first-card hydration.",
   "baseline": {
     "ref": "a8128de",
     "shellVersion": "89",
@@ -41,12 +41,34 @@
       "maximumInitialImageRequests": 4,
       "horizontalOverflow": false,
       "note": "Every run requested page-001 only before interaction and no canonical season or extra fixture bundle. The 70ms median is 78.4% below the recorded 324ms Release 2 baseline."
+    },
+    "release5Fast4G": {
+      "shellVersion": "131",
+      "anonymousColdFeedReadySamplesMs": [2743, 2768, 2741, 2761, 2750],
+      "anonymousColdFeedReadyMedianMs": 2750,
+      "anonymousWarmFeedReadySamplesMs": [107, 95, 86, 87, 85],
+      "anonymousWarmFeedReadyMedianMs": 87,
+      "signedColdPersonalisedReadySamplesMs": [256, 236, 238, 241, 235],
+      "signedColdPersonalisedReadyMedianMs": 238,
+      "signedColdPersonalisedReadyP95Ms": 256,
+      "signedWarmCachedReadySamplesMs": [99, 81, 101, 86, 131],
+      "signedWarmCachedReadyMedianMs": 99,
+      "signedWarmNetworkReadySamplesMs": [250, 233, 344, 232, 285],
+      "signedWarmNetworkReadyMedianMs": 250,
+      "initialSignedFeedPageRequests": 1,
+      "maximumActiveInitialCardImages": 4,
+      "horizontalOverflow": false,
+      "note": "Anonymous cold clears the origin cache. Warm runs use the installed v131 stale-while-revalidate shell. Signed cold uses that installed shell with a unique user/feed-contract cache key on each run, so the personalised page always comes from the one network request; signed warm measures IndexedDB first-page readiness while the same single request reconciles in parallel."
     }
   },
   "targets": {
     "freshOriginFirstCardMedianMs": 350,
     "configuredFirstCardMedianMs": 750,
     "maxCriticalGzipGrowthPercent": 10,
-    "maxCriticalLocalAssetRequests": 40
+    "maxCriticalLocalAssetRequests": 41,
+    "warmCachedFirstPageMedianMs": 750,
+    "coldSignedPersonalisedMedianMs": 2500,
+    "coldSignedPersonalisedP95Ms": 6000,
+    "maxInitialCardImages": 4
   }
 }

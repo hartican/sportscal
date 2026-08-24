@@ -34,7 +34,8 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-tennis-catalogue.js"
 assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && step.length === 1), "every canonical update must rebuild ATP/WTA athlete follows and standings from the provider-neutral catalogue");
 assert(localSteps.some(step => step[0] === "scripts/build-tennis-context.js" && step.includes("--check")), "every canonical update must reject a stale generated tennis context");
 assert(localSteps.some(step => step[0] === "scripts/validate-tennis-catalogue.js"), "every canonical update must enforce independent ATP/WTA publication freshness, Australian coverage, froth rules, and Toronto regression coverage");
-assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--check")), "every canonical update must fail closed when a six-league football snapshot is incomplete");
+assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--prune-removed")), "every canonical update must prune removed competitions through the football directory pipeline");
+assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.js" && step.includes("--check")), "every canonical update must fail closed when the five-league football snapshot is incomplete");
 assert(localSteps.some(step => step[0] === "scripts/validate-football-directory.js"), "every canonical update must validate football clubs, players, follows, flags, session state, and lazy fixtures");
 assert(localSteps.some(step => step[0] === "scripts/build-team-player-directories.js" && step.includes("--check")), "every canonical update must reject stale NRL and AFL directory snapshots");
 assert(localSteps.some(step => step[0] === "scripts/validate-team-player-directories.js"), "every canonical update must validate NRL and AFL club coverage, player follow expansion, source URLs and lazy loading");
@@ -46,7 +47,10 @@ assert(localSteps.some(step => step[0] === "scripts/validate-joint-tennis-tourna
 assert(localSteps.some(step => step[0] === "scripts/validate-major-events.js"), "every canonical update must fail closed on major-event evidence, dates, IDs and ticket endpoints");
 assert(localSteps.some(step => step[0] === "scripts/validate-card-polish.js"), "every canonical update must retain card, venue, score and local-ticket regressions");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-taxonomy.js"), "every canonical update must validate exact idempotent preference translation into the hierarchy");
+assert(localSteps.some(step => step[0] === "scripts/validate-preference-system.js"), "every canonical update must validate legacy Must Watch preference removal");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-controls.js"), "every canonical update must enforce feed intent, discovery mix, availability and negative suppression");
+assert(localSteps.some(step => step[0] === "scripts/validate-loading-progress.js"), "every canonical update must validate dynamic startup and in-session progress timing");
+assert(localSteps.some(step => step[0] === "scripts/validate-fixtures-contract.js"), "every canonical update must validate chronology, equal cards, Events links and the five-league catalogue");
 assert(localSteps.some(step => step[0] === "scripts/validate-code-inspector-ui.js"), "every canonical update must cover every canonical code through the read-only Inspector contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-events-fixture-ux.js"), "every canonical update must validate Events tabs, compact fixture density, viewport stability and retained-card swipe learning");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-ui-geometry.js"), "every canonical update must reject identity escapes, collisions, overflow and missing reserved geometry");
