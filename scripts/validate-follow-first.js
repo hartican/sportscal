@@ -102,7 +102,7 @@ assert(html.includes("pushInstallationCredentials") && html.includes("ensurePush
 assert(notificationApi.includes("remind_at") && notificationApi.includes("15 * 60 * 1000"));
 assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));
-assert(vercel.crons.some(cron => cron.path === "/api/notification-dispatch"));
+assert(vercel.crons.some(cron => cron.path === "/api/notification-dispatch" && cron.schedule === "0 9 * * *"), "Hobby deployment must retain one daily notification-dispatch proof run");
 assert.equal(manifest.id, "/");
 
 for (const [name, minimum] of [["nrl", 500], ["afl", 650]]){
