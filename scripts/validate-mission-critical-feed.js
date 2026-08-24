@@ -101,6 +101,7 @@ function validateFeedContract(){
   assert(fs.statSync(firstPagePath).size <= 250 * 1024, "the first public feed page must remain under 250 KiB uncompressed");
 
   assert(index.includes("const FEED_PAGE_SIZE = 20"), "the browser must cap its initial feed window at 20 cards");
+  assert(index.includes("const INITIAL_CARD_IMAGE_BUDGET = 20") && index.includes("assignCardImageSource"), "the browser must cap initial card identity requests at twenty and defer the rest until interaction");
   assert(index.includes("content-visibility: auto"), "feed cards must use content visibility containment");
   assert(index.includes("feedPageObserver = new IntersectionObserver"), "feed pagination must be driven near the scroll boundary");
   assert(index.includes("appendFeedPageToCurrentList") && index.includes("append && appendFeedPageToCurrentList(events)"), "later feed pages must append targeted date groups instead of rerendering the whole feed");

@@ -31,7 +31,7 @@
       "note": "Configured state exercises the long feed and remains below the separate configured-feed target."
     },
     "release4MissionCritical": {
-      "shellVersion": "120",
+      "shellVersion": "121",
       "visibleCanonicalRecords": 20,
       "samplesMs": [1146, 82, 66, 68, 78, 70, 65],
       "medianMs": 70,

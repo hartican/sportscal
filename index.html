@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="120">
+<meta name="app-shell-version" content="121">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -5873,7 +5873,7 @@ function renderEventIdentityMark(container, ev, meta){
   const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: true }) || lightSource;
   image.dataset.eventLogoLight = lightSource;
   image.dataset.eventLogoDark = darkSource;
-  image.src = themeUsesDarkAssets() ? darkSource : lightSource;
+  assignCardImageSource(image, themeUsesDarkAssets() ? darkSource : lightSource);
   image.alt = mark.label;
   image.loading = "lazy";
   image.decoding = "async";
@@ -5882,6 +5882,49 @@ function renderEventIdentityMark(container, ev, meta){
   container.classList.remove("has-sport-logo");
   container.classList.add("has-brand-logo");
   container.replaceChildren(image);
+}
+
+const INITIAL_CARD_IMAGE_BUDGET = 20;
+const activatedCardImageSources = new Set();
+const deferredCardImages = new Set();
+let deferredCardImageObserver = null;
+let cardImageLoadingUnlocked = false;
+
+function assignCardImageSource(image, source){
+  if (!source) return;
+  if (activatedCardImageSources.has(source) || activatedCardImageSources.size < INITIAL_CARD_IMAGE_BUDGET){
+    activatedCardImageSources.add(source);
+    image.removeAttribute("data-deferred-card-image");
+    image.src = source;
+    return;
+  }
+  image.removeAttribute("src");
+  image.hidden = true;
+  image.addEventListener("load", () => { image.hidden = false; }, { once: true });
+  image.dataset.deferredCardImage = source;
+  deferredCardImages.add(image);
+  if (cardImageLoadingUnlocked) observeDeferredCardImages();
+}
+
+function observeDeferredCardImages(){
+  if (typeof IntersectionObserver !== "function") return;
+  deferredCardImageObserver ||= new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const image = entry.target;
+      const source = image.dataset.deferredCardImage;
+      if (source){
+        activatedCardImageSources.add(source);
+        image.src = source;
+        delete image.dataset.deferredCardImage;
+      }
+      deferredCardImages.delete(image);
+      deferredCardImageObserver.unobserve(image);
+    });
+  }, { rootMargin: "160px 0px" });
+  deferredCardImages.forEach(image => {
+    if (image.isConnected) deferredCardImageObserver.observe(image);
+  });
 }
 
 function themeUsesDarkAssets(){
@@ -5895,20 +5938,24 @@ function applyTeamLogoAsset(image, mark, context = "primary", useDark = themeUse
   image.dataset.teamLogoLight = lightSource;
   image.dataset.teamLogoDark = darkSource;
   image.dataset.teamLogoContext = context;
-  image.src = useDark ? darkSource : lightSource;
+  const source = useDark ? darkSource : lightSource;
+  if (image.classList.contains("matchup-team-logo") || image.classList.contains("team-logo")) assignCardImageSource(image, source);
+  else image.src = source;
 }
 
 function syncThemeTeamAssets(useDark){
   document.querySelectorAll("img[data-team-logo-light]").forEach(image => {
     const nextSource = useDark ? image.dataset.teamLogoDark : image.dataset.teamLogoLight;
-    if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
+    if (image.dataset.deferredCardImage) image.dataset.deferredCardImage = nextSource;
+    else if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
   });
 }
 
 function syncThemeEventAssets(useDark){
   document.querySelectorAll("img[data-event-logo-light]").forEach(image => {
     const nextSource = useDark ? image.dataset.eventLogoDark : image.dataset.eventLogoLight;
-    if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
+    if (image.dataset.deferredCardImage) image.dataset.deferredCardImage = nextSource;
+    else if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
   });
 }
 
@@ -17384,6 +17431,8 @@ for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => {
     startupFeedNavigationTouched = true;
     feedNavigationInteractionVersion += 1;
+    cardImageLoadingUnlocked = true;
+    observeDeferredCardImages();
   }, { passive: true });
 }
 runStartupFeedBarrier();
