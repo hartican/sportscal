@@ -92,10 +92,11 @@ for (let index = 0; index < 2; index += 1){
 assert.equal(preferences.negativeContextCount(graph, [{ targetType: "competition", targetId: "competition:test" }]), 2);
 
 assert(
-  html.includes('id="tuneControlGrid"')
+  !html.includes('id="tuneControlGrid"')
     && html.includes('id="tuneBrowseList"')
-    && html.includes("select.dataset.feedControl = key"),
-  "Tune must keep feed-intent controls separate from the session-only sport browser"
+    && html.includes('id="draftFeedControls"')
+    && html.includes("function updateDraftFeedControl"),
+  "Code Inspector must remain read-only while Settings drafts Feed intent until Save & close"
 );
 assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
 assert(html.includes('contextReferences: eventLearningReferences(ev)'), "curated dislikes must retain event context");
@@ -104,7 +105,7 @@ assert(html.includes('sessionOpenedEventIds.add(') && html.includes('mustWatchSe
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must keep targeting Must Watch while the Today bar is anywhere in view");
 assert(html.includes('buildJointTournamentMustWatchAction') && html.includes('jointTournamentIsMustWatch'), "the combined tournament card must support manual Must Watch placement without an automatic pin");
 assert(html.includes("action.mustWatch ? 12"), "manual Must Watch choices must influence local recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v121"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v126"'));
 assert(html.includes('function activeMustWatchAnchor()') && html.includes('button.hidden = true;') && html.includes('delete button.dataset.jumpTarget;'), "the contextual jump control must hide when Today is visible and no off-screen Must Watch destination exists");
 assert(html.includes('const jumpToMustWatch = todayVisible && Boolean(mustWatchAnchor) && !mustWatchVisible;'), "Jump to Must Watch must require a real off-screen queue anchor");
 assert(!/function scrollActiveFeedToMustWatch[\s\S]{0,450}scrollActiveFeedToToday/.test(html), "a missing Must Watch queue must not silently jump to the already-visible Today anchor");

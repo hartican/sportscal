@@ -8,6 +8,7 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
 const profileStorage = require("../config/profile-storage");
+const disposableStorage = require("../config/disposable-storage");
 
 class CountingStorage {
   constructor(entries = {}){
@@ -83,6 +84,28 @@ function validateProfileStorage(){
   assert.equal(legacyStorage.getItem("ns_preferences_v1"), null, "legacy preferences may be removed only after the v4 bundle reads back successfully");
   const migratedAgain = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:03:00Z") });
   assert.deepEqual(migratedAgain.preferences, migrated.preferences, "legacy migration must be idempotent");
+
+  const disabledStorage = {
+    getItem(){ throw new DOMException("Storage is disabled", "SecurityError"); },
+    setItem(){ throw new DOMException("Storage is disabled", "SecurityError"); },
+    removeItem(){ throw new DOMException("Storage is disabled", "SecurityError"); },
+  };
+  assert.throws(
+    () => profileStorage.loadActiveProfile(disabledStorage),
+    error => error?.name === "SecurityError",
+    "disabled durable storage must remain distinguishable from quota exhaustion"
+  );
+}
+
+async function validateDisposableFallback(){
+  let currentTime = 1_000_000;
+  const store = disposableStorage.createStore({ indexedDB: null, now: () => currentTime });
+  store.set("derivedCardCache", { ids: ["one"] }, { ttlMs: 60_000 });
+  assert.deepEqual(store.initial("derivedCardCache", null), { ids: ["one"] }, "disposable data must remain usable in memory when IndexedDB is blocked");
+  assert.equal(await store.flush(), false, "a blocked IndexedDB write must be explicitly classifiable as a disposable-cache fallback");
+  assert.deepEqual(await store.hydrate("derivedCardCache", null), { ids: ["one"] }, "failed disposable persistence must not discard the session cache");
+  currentTime += 60_001;
+  assert.deepEqual(store.initial("derivedCardCache", { ids: [] }), { ids: [] }, "expired in-memory disposable data must honour TTL");
 }
 
 function validateFeedContract(){
@@ -107,17 +130,22 @@ function validateFeedContract(){
   assert(index.includes("appendFeedPageToCurrentList") && index.includes("append && appendFeedPageToCurrentList(events)"), "later feed pages must append targeted date groups instead of rerendering the whole feed");
   assert(index.includes("loadDeferredStartupContext"), "optional sporting context must be deferred until after the first feed is usable");
   assert(index.includes("profileStorageBootstrapError") && index.includes("retryDurableProfileWrite"), "blocked storage must retain an in-memory profile and retry after disposable eviction");
+  assert(index.includes('kind: "disposable-cache"') && index.includes("flushDisposableStore"), "disposable-cache failures must be distinguished from durable quota and blocked-storage failures");
   assert(index.includes("JSON.stringify(verified) === JSON.stringify(migrated)"), "legacy disposable state must remain until IndexedDB read-back succeeds");
   assert(index.includes('schemaVersion: "feed-performance.v1"'), "the browser must expose privacy-safe session performance measurements");
   assert(serviceWorker.includes("staleWhileRevalidate"), "the service worker must use stale-while-revalidate for published data");
 }
 
-function main(){
+async function main(){
   validateProfileStorage();
+  await validateDisposableFallback();
   validateFeedContract();
   console.log("Mission-critical Release 1 contract valid: one durable settings write, disposable state removed from the profile, and a 20-card paged feed with deferred context.");
 }
 
-if (require.main === module) main();
+if (require.main === module) main().catch(error => {
+  console.error(error);
+  process.exitCode = 1;
+});
 
-module.exports = { CountingStorage, validateFeedContract, validateProfileStorage };
+module.exports = { CountingStorage, validateDisposableFallback, validateFeedContract, validateProfileStorage };

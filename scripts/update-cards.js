@@ -99,6 +99,7 @@ function buildSteps({ localOnly = false } = {}) {
   ), discoverCanonicalFixtureBundles()),
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
   ["scripts/build-paged-feed.js"],
+  ["scripts/build-code-inspector.js"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
   ["scripts/validate-phase5-premium-ranking.js"],
@@ -136,6 +137,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-update-cards.js"],
   ["scripts/validate-source-and-venues.js"],
   ["scripts/validate-feed-performance.js"],
+  ["scripts/validate-code-inspector-ui.js"],
+  ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/verify-nothingsport.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);

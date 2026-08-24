@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "code-inspector.v1",
+  "generatedAt": "2026-08-23T12:44:37.629Z",
+  "codes": [
+    {
+      "id": "sport:afl",
+      "slug": "afl",
+      "label": "AFL",
+      "fixtureCount": 221,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/afl.json"
+    },
+    {
+      "id": "sport:nrl",
+      "slug": "nrl",
+      "label": "NRL",
+      "fixtureCount": 222,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/nrl.json"
+    },
+    {
+      "id": "sport:motorsport",
+      "slug": "motorsport",
+      "label": "Motorsport",
+      "fixtureCount": 33,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/motorsport.json"
+    },
+    {
+      "id": "sport:extreme",
+      "slug": "extreme",
+      "label": "Extreme Sports",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/extreme.json"
+    },
+    {
+      "id": "sport:surf",
+      "slug": "surf",
+      "label": "Surfing",
+      "fixtureCount": 3,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/surf.json"
+    },
+    {
+      "id": "sport:rugby-union",
+      "slug": "rugby-union",
+      "label": "Rugby Union",
+      "fixtureCount": 24,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/rugby-union.json"
+    },
+    {
+      "id": "sport:tennis",
+      "slug": "tennis",
+      "label": "Tennis",
+      "fixtureCount": 34,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/tennis.json"
+    },
+    {
+      "id": "sport:football",
+      "slug": "football",
+      "label": "Football",
+      "fixtureCount": 407,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/football.json"
+    },
+    {
+      "id": "sport:cycling",
+      "slug": "cycling",
+      "label": "Cycling",
+      "fixtureCount": 21,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/cycling.json"
+    },
+    {
+      "id": "sport:cricket",
+      "slug": "cricket",
+      "label": "Cricket",
+      "fixtureCount": 16,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/cricket.json"
+    },
+    {
+      "id": "sport:basketball",
+      "slug": "basketball",
+      "label": "Basketball",
+      "fixtureCount": 7,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/basketball.json"
+    },
+    {
+      "id": "sport:golf",
+      "slug": "golf",
+      "label": "Golf",
+      "fixtureCount": 4,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/golf.json"
+    },
+    {
+      "id": "sport:american-football",
+      "slug": "american-football",
+      "label": "American Football",
+      "fixtureCount": 1,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/american-football.json"
+    },
+    {
+      "id": "sport:skiing",
+      "slug": "skiing",
+      "label": "Skiing",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/skiing.json"
+    },
+    {
+      "id": "sport:multi-sport",
+      "slug": "multi-sport",
+      "label": "Multi-sport Games",
+      "fixtureCount": 34,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/multi-sport.json"
+    },
+    {
+      "id": "sport:athletics",
+      "slug": "athletics",
+      "label": "Athletics",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/athletics.json"
+    },
+    {
+      "id": "sport:swimming",
+      "slug": "swimming",
+      "label": "Swimming",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/swimming.json"
+    },
+    {
+      "id": "sport:netball",
+      "slug": "netball",
+      "label": "Netball",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/netball.json"
+    },
+    {
+      "id": "sport:hockey",
+      "slug": "hockey",
+      "label": "Hockey",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/hockey.json"
+    },
+    {
+      "id": "sport:gymnastics",
+      "slug": "gymnastics",
+      "label": "Gymnastics",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/gymnastics.json"
+    },
+    {
+      "id": "sport:boxing",
+      "slug": "boxing",
+      "label": "Boxing",
+      "fixtureCount": 0,
+      "groupingMode": "competition-date",
+      "coverageStatus": "unavailable",
+      "freshAt": "2026-08-23T12:44:37.629Z",
+      "chunkPath": "data/code-inspector/boxing.json"
+    }
+  ]
+}

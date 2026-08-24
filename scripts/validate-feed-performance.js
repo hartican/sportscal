@@ -84,6 +84,8 @@ function main(){
   assert.equal(manifest.pageSize, 20, "the first feed window must remain bounded to twenty records");
   assert(firstPage.size <= 250 * 1024, "the first feed page must remain below 250 KiB uncompressed");
   assert(html.includes("loadDeferredStartupContext") && html.includes('name:"published feed"'), "optional context must be deferred until the first page is usable");
+  assert(html.includes("cumulativeLayoutShift") && html.includes("feedLongTaskMaxMs") && html.includes("feedInteractionMaxMs"), "privacy-safe browser QA metrics must publish CLS, long-task and interaction ceilings");
+  assert(html.includes("}, 480);") && html.includes("duration:360") && !html.includes("}, 3000);"), "the branded launch must reveal the usable shell in under one second");
 
   console.log(`Feed performance valid: mission-critical browser median ${missionCriticalMedian}ms (${(hydrationReduction * 100).toFixed(1)}% faster), feed refresh ${missionCriticalRefreshMedian}ms; initial feed transfer ${(transferReduction * 100).toFixed(1)}% smaller, ${audit.measurements.release4MissionCritical.maximumInitialImageRequests} image requests max.`);
 }

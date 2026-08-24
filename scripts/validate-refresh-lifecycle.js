@@ -92,10 +92,10 @@ assert(html.includes('id="startupLaunch"') && html.includes('class="startup-laun
 assert(html.includes('class="startup-launch-original"') && html.includes('src="assets/brand/web/nothingsport-logo.png"'), "the liquid fill must reveal the exact original logo pixels");
 assert(html.includes("-webkit-mask:var(--startup-logo-mask)") && html.includes("@keyframes startup-original-logo-fill"), "the glass silhouette and original logo must use the existing alpha mask and rising fill");
 assert(html.includes("startup-launch-meniscus") && html.includes("@keyframes startup-meniscus-rise"), "the rising fill must carry an uneven viscous meniscus");
-assert(html.includes("@keyframes startup-logo-shine") && html.includes("animation:startup-logo-shine .7s"), "the completed original logo must receive a bounded specular settle");
-assert(html.includes("window.setTimeout(() => {") && html.includes("}, 3000);") && html.includes("duration:1000"), "the launch must use three seconds of fill/settle plus a one-second header flight");
+assert(html.includes("@keyframes startup-logo-shine") && html.includes("animation:startup-logo-shine .18s"), "the completed original logo must receive a bounded specular settle");
+assert(html.includes("window.setTimeout(() => {") && html.includes("}, 480);") && html.includes("duration:360"), "the launch must reveal the usable shell and complete its header flight in under one second");
 assert(html.includes("startup-logo-flight") && html.includes("getElementById(\"headerBrandLogo\")") && html.includes("getBoundingClientRect()"), "the final logo must FLIP into the real responsive header bounds");
-assert(html.includes("startup-shell-visible") && html.includes("transition-delay:140ms"), "the app screen must stagger into view behind the logo flight");
+assert(html.includes("startup-shell-visible") && html.includes("transition-delay:40ms"), "the app screen must use a short stagger behind the logo flight");
 assert(/@media \(prefers-reduced-motion: reduce\)[\s\S]*#mainContent[\s\S]*animation:none !important/.test(html), "reduced-motion users must bypass the delayed screen transition");
 assert(html.includes("@supports not ((-webkit-mask") && html.includes("startup-launch-fallback"), "browsers without CSS masking must receive the PNG launch fallback");
 assert(!html.includes('id="startupProgress"') && !html.includes("setStartupProgress("), "the header percentage loader and its progress bookkeeping must be removed");

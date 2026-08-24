@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v121";
+const CACHE_NAME = "nothingsport-shell-v126";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -130,6 +130,10 @@ self.addEventListener("fetch", event => {
   if (requestUrl.origin !== self.location.origin) return;
   if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){
     event.respondWith(fetch(event.request));
+    return;
+  }
+  if (/^\/data\/code-inspector\//.test(requestUrl.pathname)){
+    event.respondWith(networkFirst(event.request, event, cacheKey));
     return;
   }
   if (/^\/data\/(?:feed|canonical|football)\//.test(requestUrl.pathname)){

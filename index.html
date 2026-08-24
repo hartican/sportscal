@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="121">
+<meta name="app-shell-version" content="126">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -275,7 +275,7 @@ header.top{
   z-index:1000;
   display:grid;
   place-items:center;
-  overflow:hidden;
+  overflow: hidden;
   isolation:isolate;
   padding:max(28px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   background:
@@ -295,7 +295,7 @@ header.top,
   opacity:0;
   transform:translate3d(0, 14px, 0) scale(.994);
   filter:blur(5px);
-  transition:opacity .72s cubic-bezier(.18,.78,.24,1), transform .72s cubic-bezier(.18,.78,.24,1), filter .72s ease;
+  transition:opacity .28s cubic-bezier(.18,.78,.24,1), transform .28s cubic-bezier(.18,.78,.24,1), filter .28s ease;
 }
 
 body.startup-shell-visible header.top,
@@ -309,10 +309,10 @@ body.startup-shell-visible #jumpTodayBtn{
 }
 
 body.startup-shell-visible header.top{ transition-delay:0ms; }
-body.startup-shell-visible #calendarControls{ transition-delay:70ms; }
-body.startup-shell-visible #mainContent{ transition-delay:140ms; }
-body.startup-shell-visible .app-footer{ transition-delay:210ms; }
-body.startup-shell-visible #jumpTodayBtn{ transition-delay:280ms; }
+body.startup-shell-visible #calendarControls{ transition-delay:20ms; }
+body.startup-shell-visible #mainContent{ transition-delay:40ms; }
+body.startup-shell-visible .app-footer{ transition-delay:60ms; }
+body.startup-shell-visible #jumpTodayBtn{ transition-delay:80ms; }
 
 body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 
@@ -332,7 +332,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background:radial-gradient(circle, color-mix(in srgb, var(--accent) 12%, transparent) 0 1%, transparent 65%);
   filter:blur(22px);
   transform:translateY(28%);
-  animation:startup-launch-glow 2.55s ease-out both;
+  animation:startup-launch-glow .55s ease-out both;
 }
 
 .startup-launch::after{
@@ -343,7 +343,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background:color-mix(in srgb, var(--accent) 36%, transparent);
   box-shadow:0 0 58px 20px color-mix(in srgb, var(--accent) 20%, transparent);
   opacity:0;
-  animation:startup-launch-horizon 2.7s ease-out both;
+  animation:startup-launch-horizon .58s ease-out both;
 }
 
 .startup-launch-mark{
@@ -375,14 +375,14 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 .startup-launch-fill{
   overflow:hidden;
   clip-path:polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  animation:startup-original-logo-fill 2s cubic-bezier(.2,.72,.2,1) .3s both;
+  animation:startup-original-logo-fill .38s cubic-bezier(.2,.72,.2,1) .08s both;
 }
 
 .startup-launch-original{
   display:block;
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit: contain;
   filter:saturate(1.03) contrast(1.03) drop-shadow(0 18px 28px rgba(0,0,0,.25));
 }
 
@@ -400,7 +400,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   filter:blur(.25px);
   mix-blend-mode:soft-light;
   transform:translateX(-2%) rotate(-1deg);
-  animation:startup-meniscus-rise 2s cubic-bezier(.2,.72,.2,1) .3s both;
+  animation:startup-meniscus-rise .38s cubic-bezier(.2,.72,.2,1) .08s both;
 }
 
 .startup-launch-shine{
@@ -408,7 +408,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background:linear-gradient(108deg, transparent 24%, rgba(255,255,255,.65) 44%, rgba(255,255,255,.12) 53%, transparent 70%);
   opacity:0;
   transform:translateX(-48%);
-  animation:startup-logo-shine .7s cubic-bezier(.2,.7,.2,1) 2.3s both;
+  animation:startup-logo-shine .18s cubic-bezier(.2,.7,.2,1) .4s both;
 }
 
 .startup-launch-fallback{
@@ -1125,7 +1125,7 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 
 .sport-hub-round-step,
 .sport-hub-round-picker select{
-  min-height:44px;
+  min-height:48px;
   border:1px solid var(--border);
   border-radius:10px;
   background:var(--bg-card);
@@ -3528,6 +3528,16 @@ main{
   color:var(--text);
 }
 
+.froth-help-heading{ display:flex; align-items:center; gap:8px; }
+.froth-help-button{ width:28px; height:28px; display:inline-grid; place-items:center; border:1px solid var(--accent); border-radius:999px; background:transparent; color:var(--accent); font:900 .78rem/1 inherit; cursor:pointer; }
+.froth-help-copy{ margin-top:10px; padding:12px 14px; border:1px solid var(--border); border-radius:10px; background:var(--soft-fill); color:var(--text-dim); font-size:.76rem; line-height:1.5; }
+.froth-help-copy ul{ margin:8px 0 0 18px; }
+.froth-knob-list{ display:flex; flex-direction:column; gap:12px; }
+.froth-knob-list .froth-control{ margin:0; }
+.draft-feed-controls{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.draft-feed-controls .feed-control select{ min-height:48px; }
+@media (max-width:600px){ .draft-feed-controls{ grid-template-columns:minmax(0,1fr); } }
+
 .selector-category-row{
   display:grid;
   grid-template-columns:minmax(0, 1fr) auto;
@@ -5217,6 +5227,127 @@ footer.app-footer{
 
 .browse-more .browse-list{ padding:0 8px 8px; }
 
+/* Read-only Code Inspector and shared, collision-safe identity frames. */
+.identity-frame,
+.code-inspector-identity,
+.matchup-team-logo-slot,
+.event-hero-mark,
+.major-event-logo,
+.major-event-marker-logo,
+.matchup-competition-icon,
+.event-icon{
+  position:relative;
+  overflow: hidden;
+  contain:paint;
+  isolation:isolate;
+}
+
+.identity-frame img,
+.code-inspector-identity img,
+.matchup-team-logo-slot img,
+.event-hero-mark img,
+.major-event-logo img,
+.major-event-marker-logo img,
+.matchup-competition-icon img,
+.event-icon img{
+  display:block;
+  max-width:100%;
+  max-height:100%;
+  object-fit: contain;
+  object-position:center;
+}
+
+.major-event-marker-logo img{
+  width:52px;
+  height:44px;
+  max-width:52px;
+  max-height:44px;
+}
+
+.event-hero-mark img,
+.major-event-logo img{
+  position:absolute;
+  inset:6px;
+  width:calc(100% - 12px);
+  height:calc(100% - 12px);
+  max-width:calc(100% - 12px);
+  max-height:calc(100% - 12px);
+}
+
+@media (max-width:720px){
+  .event-hero-mark img{
+    inset:5px;
+    width:calc(100% - 10px);
+    height:calc(100% - 10px);
+    max-width:calc(100% - 10px);
+    max-height:calc(100% - 10px);
+  }
+}
+
+.code-inspector-row{
+  grid-template-columns:minmax(0, 1fr) auto;
+  min-height:76px;
+  padding:12px;
+}
+.code-inspector-row .browse-row-main{ grid-template-columns:48px minmax(0, 1fr); }
+.code-inspector-identity{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 55%, var(--border));
+  border-radius:12px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 10%, var(--bg-card));
+}
+.code-inspector-identity .vector-glyph{ width:26px; height:26px; }
+.code-inspector-identity-fallback{ font-size:.7rem; font-weight:950; letter-spacing:.04em; }
+.code-inspector-inspect{ min-height:44px; min-width:92px; padding-inline:16px; }
+.code-inspector-view{ --sport-color:var(--accent); }
+.code-inspector-heading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:16px;
+  padding:18px;
+  border:1px solid color-mix(in srgb, var(--sport-color) 64%, var(--border));
+  border-radius:18px;
+  background:color-mix(in srgb, var(--sport-color) 8%, var(--bg-card));
+}
+.code-inspector-heading-main{ display:grid; grid-template-columns:56px minmax(0, 1fr); gap:14px; min-width:0; }
+.code-inspector-heading .code-inspector-identity{ width:56px; height:56px; }
+.code-inspector-eyebrow{ color:var(--text-dim); font-size:.7rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+.code-inspector-heading h2{ margin-top:3px; font-size:1.25rem; }
+.code-inspector-heading p{ margin-top:5px; color:var(--text-dim); font-size:.78rem; line-height:1.45; }
+.code-inspector-back{ flex:0 0 auto; min-height:44px; }
+.code-inspector-tabs{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-bottom:14px; border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.code-inspector-tab{ min-height:48px; border:0; border-right:1px solid var(--border); background:var(--soft-fill); color:var(--text-dim); font:800 .76rem/1.2 'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif; cursor:pointer; }
+.code-inspector-tab:last-child{ border-right:0; }
+.code-inspector-tab.active{ background:color-mix(in srgb,var(--sport-color) 13%,var(--bg-card)); color:var(--text); box-shadow:inset 0 -4px 0 var(--sport-color); }
+.code-inspector-panel{ min-height:min(640px,65vh); }
+.code-inspector-toolbar{ display:grid; grid-template-columns:minmax(0,1fr); gap:7px; margin:0 0 16px; }
+.code-inspector-toolbar label{ color:var(--text-dim); font-size:.7rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+.starting-round-select{ width:100%; min-height:48px; padding:0 14px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); color:var(--text); font:800 .83rem/1 'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif; }
+.code-inspector-group + .code-inspector-group{ margin-top:20px; }
+.code-inspector-group h3{ margin-bottom:9px; color:var(--text-dim); font-size:.82rem; }
+.code-inspector-fixtures{ display:flex; flex-direction:column; gap:8px; }
+.code-inspector-fixture{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:13px 14px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); content-visibility:auto; contain-intrinsic-size:auto 92px; }
+.code-inspector-fixture h4{ font-size:.85rem; line-height:1.35; }
+.code-inspector-fixture p{ margin-top:4px; color:var(--text-dim); font-size:.7rem; line-height:1.4; }
+.code-inspector-fixture-time{ text-align:right; font-size:.73rem; font-weight:900; white-space:nowrap; }
+.code-inspector-tbc{ color:var(--attention); font-weight:900; }
+.code-inspector-coverage{ margin-bottom:14px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; color:var(--text-dim); font-size:.75rem; line-height:1.45; }
+
+@media (max-width:600px){
+  .code-inspector-heading{ flex-direction:column; }
+  .code-inspector-back{ width:100%; }
+  .code-inspector-tabs{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .code-inspector-tab:nth-child(2){ border-right:0; }
+  .code-inspector-tab:nth-child(-n+2){ border-bottom:1px solid var(--border); }
+  .code-inspector-fixture{ grid-template-columns:minmax(0,1fr); }
+  .code-inspector-fixture-time{ text-align:left; }
+}
+
 .focused-discovery-banner{
   margin-bottom:14px;
   padding:14px;
@@ -5478,7 +5609,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <button class="tab-btn active" data-tab="feed"><span class="tab-label">Fixtures</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="events"><span class="tab-label">Events</span><span class="tab-count" id="eventsTabCount">0</span></button>
     <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings &amp; Follow</span><span class="tab-count" id="standingsTabCount">0</span></button>
-    <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Tune</span></button>
+    <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Code Inspector</span></button>
   </div>
 </header>
 
@@ -5512,26 +5643,17 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <section class="tune-sheet" role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle" aria-describedby="tuneSheetDescription">
     <header class="tune-sheet-head">
       <div>
-        <h2 id="tuneSheetTitle">Tune your feed</h2>
-        <p id="tuneSheetDescription">Choose what appears for this visit, then adjust how adventurous the feed should be.</p>
+        <h2 id="tuneSheetTitle">Inspect your code</h2>
+        <p id="tuneSheetDescription">Drill into every published fixture for one code without changing your feed or saved settings.</p>
       </div>
-      <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Tune">×</button>
+      <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Code Inspector">×</button>
     </header>
     <div class="tune-sheet-body">
-      <section class="tune-section" aria-labelledby="tuneIntentTitle">
-        <div class="tune-section-heading"><h3 id="tuneIntentTitle">Feed intent</h3><span>Saved normally</span></div>
-        <div class="tune-controls-grid" id="tuneControlGrid"></div>
-      </section>
       <section class="tune-section" aria-labelledby="tuneBrowseTitle">
-        <div class="tune-section-heading"><h3 id="tuneBrowseTitle">Filter</h3><span id="tuneBrowseSummary">All sports included this visit</span></div>
-        <div class="tune-filter-actions" id="tuneFilterActions">
-          <button class="btn ghost" type="button" id="tuneSelectAllBtn">Select all</button>
-          <button class="btn ghost" type="button" id="tuneDeselectAllBtn">Deselect all</button>
-          <button class="btn ghost" type="button" id="tuneClearFilterBtn" hidden>Clear filter</button>
-        </div>
+        <div class="tune-section-heading"><h3 id="tuneBrowseTitle">Codes</h3><span id="tuneBrowseSummary">Loading coverage…</span></div>
         <div class="browse-list" id="tuneBrowseList"></div>
         <details class="browse-more" id="tuneBrowseMore" hidden>
-          <summary>More followed sports</summary>
+          <summary>More codes</summary>
           <div class="browse-list" id="tuneBrowseMoreList"></div>
         </details>
       </section>
@@ -5570,7 +5692,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       </div>
     </div>
     <div class="about-body">
-      <p data-brand-copy="about">nothingsport curates live sport around your tastes, learning from what you follow and rate so the feed gets more useful over time. It surfaces the matches and events most worth your attention, keeps results hidden until you choose to reveal them, and helps you catch major live moments without trawling every fixture. Open Tune to shape the mix or temporarily hide sports, and open any sport for a focused view. Built around AEST/AEDT by default, it adapts to other time zones.</p>
+      <p data-brand-copy="about">nothingsport curates live sport around your tastes, learning from what you follow and rate so the feed gets more useful over time. It surfaces the matches and events most worth your attention, keeps results hidden until you choose to reveal them, and helps you catch major live moments without trawling every fixture. Use Sports followed & Tune in Settings to shape the curated mix, or open Code Inspector for a read-only code-level fixture drill-down. Built around AEST/AEDT by default, it adapts to other time zones.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
     </div>
@@ -5624,7 +5746,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="onboarding-head">
       <div>
         <h2 id="tunePromptTitle">Want to tune that further?</h2>
-        <p>Your feed already learned from the swipe. Tune can deepen that signal from broad sports into teams, players and event families.</p>
+        <p>Your feed already learned from the swipe. Froth knobs can deepen that signal from broad sports into teams, players and event families.</p>
       </div>
     </div>
     <div class="onboarding-body">
@@ -5632,7 +5754,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     </div>
     <div class="onboarding-actions">
       <button class="btn ghost" type="button" id="dismissTunePromptBtn">Not now</button>
-      <button class="btn primary" type="button" id="reviewSportsFromTuneBtn">Tune now</button>
+      <button class="btn primary" type="button" id="reviewSportsFromTuneBtn">Open Froth knobs</button>
     </div>
   </div>
 </div>
@@ -5668,7 +5790,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     </div>
     <div class="onboarding-actions">
       <button class="btn ghost" type="button" id="cancelStandingsRevealBtn">Keep hidden</button>
-      <button class="btn primary" type="button" id="confirmStandingsRevealBtn">Show standings</button>
+      <button class="btn primary" type="button" id="confirmStandingsRevealBtn">Reveal once</button>
     </div>
   </div>
 </div>
@@ -5814,13 +5936,13 @@ function runStartupLogoLaunch(){
       { transform:"translate3d(0,0,0) scale(1)", filter:"drop-shadow(0 18px 30px rgba(0,0,0,.3))" },
       { offset:.64, transform:`translate3d(${translateX * .72}px,${translateY * .72}px,0) scale(${1 - ((1 - scale) * .72)})`, filter:"drop-shadow(0 10px 18px rgba(0,0,0,.24))" },
       { transform:`translate3d(${translateX}px,${translateY}px,0) scale(${scale})`, filter:"drop-shadow(0 8px 18px rgba(0,0,0,.28))" },
-    ], { duration:1000, easing:"cubic-bezier(.2,.76,.2,1)", fill:"forwards" });
-    overlay.animate([{ opacity:1 }, { offset:.3, opacity:.9 }, { opacity:0 }], { duration:1000, easing:"ease", fill:"forwards" });
+    ], { duration:360, easing:"cubic-bezier(.2,.76,.2,1)", fill:"forwards" });
+    overlay.animate([{ opacity:1 }, { offset:.3, opacity:.9 }, { opacity:0 }], { duration:360, easing:"ease", fill:"forwards" });
     flightAnimation.finished.then(() => finishStartupLogoLaunch(overlay, flight)).catch(() => finishStartupLogoLaunch(overlay, flight));
     window.setTimeout(() => {
       if (document.body.contains(flight)) finishStartupLogoLaunch(overlay, flight);
-    }, 1200);
-  }, 3000);
+    }, 520);
+  }, 480);
 }
 const SPORT_DOMAIN_REGISTRY = globalThis.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY;
 const SPORT_META = SPORT_DOMAIN_REGISTRY.metaByKey();
@@ -6453,7 +6575,7 @@ function saveActiveProfileSection(section, value){
 
 async function retryDurableProfileWrite(sections){
   if (!PROFILE_STORAGE || !activeProfileBundle || !disposableStore) return false;
-  await disposableStore.flush();
+  await flushDisposableStore();
   await disposableStore.evictExpired({ maxEntries: 0 });
   try{
     activeProfileBundle = PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle, sections);
@@ -6500,16 +6622,32 @@ const feedPerformanceMetrics = {
   feedReadyMs: null,
   initialPayloadBytes: 0,
   largestContentfulPaintMs: null,
+  cumulativeLayoutShift: 0,
+  lastLayoutShiftSources: [],
   interactionDurations: [],
   longTasks: [],
   storageFallbacks: [],
 };
 globalThis.NOTHINGSPORTS_FEED_PERFORMANCE = feedPerformanceMetrics;
 
+function publishFeedPerformanceMetrics(){
+  const root = document.documentElement;
+  const maxInteraction = Math.max(0, ...feedPerformanceMetrics.interactionDurations.map(item => Number(item.durationMs) || 0));
+  const maxLongTask = Math.max(0, ...feedPerformanceMetrics.longTasks.map(item => Number(item.durationMs) || 0));
+  root.dataset.feedReadyMs = feedPerformanceMetrics.feedReadyMs === null ? "" : feedPerformanceMetrics.feedReadyMs.toFixed(1);
+  root.dataset.feedPayloadBytes = String(feedPerformanceMetrics.initialPayloadBytes || 0);
+  root.dataset.feedLcpMs = feedPerformanceMetrics.largestContentfulPaintMs === null ? "" : feedPerformanceMetrics.largestContentfulPaintMs.toFixed(1);
+  root.dataset.feedCls = feedPerformanceMetrics.cumulativeLayoutShift.toFixed(4);
+  root.dataset.feedClsLastSources = feedPerformanceMetrics.lastLayoutShiftSources.join(",");
+  root.dataset.feedInteractionMaxMs = maxInteraction.toFixed(1);
+  root.dataset.feedLongTaskMaxMs = maxLongTask.toFixed(1);
+}
+
 function recordFeedInteraction(name, startedAt){
   const durationMs = Math.max(0, feedPerformanceNow() - startedAt);
   feedPerformanceMetrics.interactionDurations.push({ name, durationMs });
   feedPerformanceMetrics.interactionDurations = feedPerformanceMetrics.interactionDurations.slice(-40);
+  publishFeedPerformanceMetrics();
   return durationMs;
 }
 
@@ -6518,7 +6656,10 @@ function observeFeedPerformance(){
   try{
     const lcpObserver = new PerformanceObserver(list => {
       const entry = list.getEntries().at(-1);
-      if (entry) feedPerformanceMetrics.largestContentfulPaintMs = entry.startTime;
+      if (entry){
+        feedPerformanceMetrics.largestContentfulPaintMs = entry.startTime;
+        publishFeedPerformanceMetrics();
+      }
     });
     lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
   }catch(_error){ /* unsupported performance entry type */ }
@@ -6528,15 +6669,39 @@ function observeFeedPerformance(){
         feedPerformanceMetrics.longTasks.push({ startTime: entry.startTime, durationMs: entry.duration });
       });
       feedPerformanceMetrics.longTasks = feedPerformanceMetrics.longTasks.slice(-40);
+      publishFeedPerformanceMetrics();
     });
     longTaskObserver.observe({ type: "longtask", buffered: true });
   }catch(_error){ /* unsupported performance entry type */ }
+  try{
+    const layoutShiftObserver = new PerformanceObserver(list => {
+      list.getEntries().forEach(entry => {
+        if (entry.hadRecentInput) return;
+        feedPerformanceMetrics.cumulativeLayoutShift += Number(entry.value) || 0;
+        feedPerformanceMetrics.lastLayoutShiftSources = (entry.sources || [])
+          .map(source => source.node?.className || source.node?.id || source.node?.tagName || "unknown")
+          .filter(value => typeof value === "string")
+          .slice(0, 6);
+      });
+      publishFeedPerformanceMetrics();
+    });
+    layoutShiftObserver.observe({ type: "layout-shift", buffered: true });
+  }catch(_error){ /* unsupported performance entry type */ }
+  publishFeedPerformanceMetrics();
 }
 let discoverySessionIncludedSportIds = [];
 let discoverySessionInitialized = false;
 let discoveryExpandedParentIds = new Set();
 let tuneSheetReturnState = null;
 let discoveryTuneInteractionCount = 0;
+let activeInspectorCodeId = null;
+let inspectorReturnState = null;
+let codeInspectorManifest = null;
+let codeInspectorManifestLoading = null;
+let codeInspectorChunk = null;
+let codeInspectorChunkLoading = null;
+let codeInspectorTab = "all-fixtures";
+let codeInspectorGroup = "";
 let leagueCoveragePromptDismissed = new Set();
 let jointTournamentData = null;
 let jointTournamentLoading = false;
@@ -6573,6 +6738,7 @@ let settingsFirstRun = false;
 let settingsWizardStep = 0;
 let settingsSelectorCategory = "category:sports";
 let sportsFollowedTab = "sports";
+let frothHelpExpanded = false;
 let settingsFocusedDomainId = null;
 let draftPreferences = null;
 let settingsDraftBaseline = null;
@@ -6669,6 +6835,28 @@ function notifyDurableStorageFailure(error){
   showToast(kind === "quota"
     ? "Your preferences are safe for this session, but this device is out of storage. Clear browser site data to save them locally again."
     : "Your preferences are safe for this session, but private or blocked storage prevents local saving.");
+}
+
+let disposableStorageFailureNotified = false;
+function notifyDisposableStorageFailure(){
+  if (disposableStorageFailureNotified) return;
+  disposableStorageFailureNotified = true;
+  feedPerformanceMetrics.storageFallbacks.push({ kind: "disposable-cache", atMs: feedPerformanceNow() });
+  publishFeedPerformanceMetrics();
+  showToast("Temporary feed cache is using memory. Your saved preferences are unaffected.");
+}
+
+async function flushDisposableStore(){
+  if (!disposableStore?.flush) return false;
+  try{
+    const written = await disposableStore.flush();
+    if (!written) notifyDisposableStorageFailure();
+    return written;
+  }catch(error){
+    console.warn("Disposable feed cache write failed; using memory", error);
+    notifyDisposableStorageFailure();
+    return false;
+  }
 }
 
 function uniqueArray(values){
@@ -7237,7 +7425,7 @@ function loadSurfacePresentation(){
   const migrated = current && typeof current === "object" && !Array.isArray(current) ? current : {};
   if (current){
     disposableStore?.set("surfacePresentation", migrated);
-    disposableStore?.flush().then(async written => {
+    flushDisposableStore().then(async written => {
       const verified = written ? await disposableStore.hydrate("surfacePresentation", null) : null;
       if (verified && JSON.stringify(verified) === JSON.stringify(migrated)) localStorage.removeItem(STORAGE_KEYS.surfacePresentation);
     });
@@ -7259,7 +7447,7 @@ function loadDerivedCardCache(){
   const initial = CARD_LIFECYCLE?.normalizeCache(raw) || { schemaVersion: "derived-card-cache.unavailable", generatedAt: new Date().toISOString(), derivedCards: [] };
   if (raw){
     disposableStore?.set("derivedCardCache", initial);
-    disposableStore?.flush().then(async written => {
+    flushDisposableStore().then(async written => {
       const verified = written ? await disposableStore.hydrate("derivedCardCache", null) : null;
       if (verified && JSON.stringify(verified) === JSON.stringify(initial)) localStorage.removeItem(STORAGE_KEYS.derivedCardCache);
     });
@@ -8605,6 +8793,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     if (centralRebuildRequested){
       const payload = await serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE });
       feedPerformanceMetrics.initialPayloadBytes = new TextEncoder().encode(JSON.stringify(payload)).byteLength;
+      publishFeedPerformanceMetrics();
       const result = applyServerFeed(payload);
       if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
       return result;
@@ -8616,6 +8805,7 @@ async function refreshRemoteFeed({ quiet = false } = {}){
     const payload = await fetchJson(manifest.pages[0].path, { cache: "default" });
     feedPerformanceMetrics.initialPayloadBytes = new TextEncoder()
       .encode(JSON.stringify({ manifest, payload })).byteLength;
+    publishFeedPerformanceMetrics();
     const events = coerceEventList(payload);
     if (!events.length){
       throw new Error("Remote feed did not contain usable events");
@@ -10063,7 +10253,7 @@ function feedFilterMatchesEvent(filterValue, event){
 }
 
 function renderFeedFilterDock(){
-  renderTuneSheetContents();
+  // Code Inspector is opened explicitly; its manifest must not join feed startup.
 }
 
 function setFeedFilterVisible(nextVisible){
@@ -10085,7 +10275,6 @@ function renderFilters(){
   });
   if (activeFilter !== "all" && !feedFilterOptions().includes(activeFilter)) activeFilter = "all";
   renderFeedControls();
-  renderTuneSheetContents();
   renderPreferenceSummary();
 }
 
@@ -10329,86 +10518,173 @@ function upgradeDiscoverySportToFroth(nodeId){
   renderAll({ preserveViewport: true });
 }
 
-function openDiscoverySport(nodeId){
-  const node = discoveryNodeById(nodeId);
-  if (!node) return;
-  const followed = discoverySportIsFollowed(nodeId);
-  recordProductEvent({
-    eventName: "feed_action",
-    surface: "tune",
-    ...(productSportForPreferenceIdentifier(nodeId) ? { sport: productSportForPreferenceIdentifier(nodeId) } : {}),
-    properties: {
-      action: "open",
-      recommendationClass: followed ? "direct" : "discovery",
-      coldStart: productMeasurementIsColdStart(),
-    },
-  });
-  closeTuneSheet();
-  activeTab = "feed";
-  activeView = "list";
-  document.querySelectorAll(".tab-btn[data-tab]").forEach(button => {
-    button.classList.toggle("active", button.dataset.tab === "feed");
-  });
-  document.querySelectorAll(".view-toggle button").forEach(button => {
-    button.classList.toggle("active", button.dataset.view === "list");
-  });
-  if (activeFilter === nodeId){
-    renderAll();
-    focusSportHubViewport();
-    return;
+const CODE_INSPECTOR_MANIFEST_URL = "data/code-inspector/manifest.json";
+
+const FEED_IDENTITY_FRAME_SELECTOR = [
+  ".identity-frame",
+  ".matchup-team-logo-slot",
+  ".event-hero-mark",
+  ".major-event-logo",
+  ".major-event-marker-logo",
+  ".matchup-competition-icon",
+  ".event-icon",
+].join(",");
+
+function geometryElementIsVisible(element){
+  if (!(element instanceof Element) || element.hidden) return false;
+  const style = getComputedStyle(element);
+  if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity) === 0) return false;
+  const rect = element.getBoundingClientRect();
+  return rect.width > 0 && rect.height > 0;
+}
+
+function geometryRectsOverlap(first, second, tolerance = 1){
+  return first.left < second.right - tolerance
+    && first.right > second.left + tolerance
+    && first.top < second.bottom - tolerance
+    && first.bottom > second.top + tolerance;
+}
+
+function auditFeedUiGeometry(root = document){
+  const documentRoot = root.nodeType === Node.DOCUMENT_NODE ? root : root.ownerDocument;
+  const issues = [];
+  const viewport = documentRoot.documentElement;
+  if (viewport.scrollWidth > viewport.clientWidth + 1){
+    issues.push({ type: "horizontal-overflow", scrollWidth: viewport.scrollWidth, clientWidth: viewport.clientWidth });
   }
-  setActiveFeedFilter(nodeId, {
-    measurementEntry: sportHubKeyForFilter(nodeId) ? "sport_filter" : null,
+  root.querySelectorAll(FEED_IDENTITY_FRAME_SELECTOR).forEach(frame => {
+    if (!geometryElementIsVisible(frame)) return;
+    const frameRect = frame.getBoundingClientRect();
+    const visibleImages = Array.from(frame.querySelectorAll("img")).filter(geometryElementIsVisible);
+    visibleImages.forEach(image => {
+      const imageRect = image.getBoundingClientRect();
+      if (
+        imageRect.left < frameRect.left - 1
+        || imageRect.top < frameRect.top - 1
+        || imageRect.right > frameRect.right + 1
+        || imageRect.bottom > frameRect.bottom + 1
+      ){
+        issues.push({ type: "identity-escape", frame: frame.className, image: image.alt || image.src });
+      }
+    });
+    const visibleFallbacks = Array.from(frame.querySelectorAll(
+      ".team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark,.vector-glyph:not(img)"
+    )).filter(fallback => geometryElementIsVisible(fallback) && !Array.from(fallback.querySelectorAll("img")).some(geometryElementIsVisible));
+    if (visibleImages.length && visibleFallbacks.length){
+      issues.push({ type: "image-fallback-collision", frame: frame.className });
+    }
+    const row = frame.closest(".browse-row,.code-inspector-heading,.event-top-row,.major-event-marker");
+    if (!row) return;
+    row.querySelectorAll(".browse-copy,.browse-actions,.code-inspector-heading-main > div,.event-title-stack,.major-event-marker-copy,.major-event-marker-open,button").forEach(candidate => {
+      if (frame.contains(candidate) || candidate.contains(frame) || !geometryElementIsVisible(candidate)) return;
+      if (geometryRectsOverlap(frameRect, candidate.getBoundingClientRect())){
+        issues.push({ type: "identity-overlap", frame: frame.className, element: candidate.className || candidate.tagName });
+      }
+    });
+  });
+  return {
+    checkedAt: new Date().toISOString(),
+    viewport: { width: viewport.clientWidth, height: viewport.clientHeight },
+    issues,
+  };
+}
+
+globalThis.NOTHINGSPORTS_FEED_UI_AUDIT = auditFeedUiGeometry;
+
+function codeInspectorGlyph(code){
+  const aliases = {
+    "rugby-union": "sport:rugby",
+    "american-football": "sport:nfl",
+    "multi-sport": "sport:multi",
+    extreme: "sport:extreme",
+  };
+  return aliases[code.slug] || `sport:${code.slug}`;
+}
+
+function codeInspectorIdentityEvent(code){
+  const aliases = {
+    "rugby-union": "rugby",
+    "multi-sport": "multi-sport",
+  };
+  const key = aliases[code.slug] || code.slug;
+  return { key, name: code.label, sport: code.label };
+}
+
+function renderCodeInspectorIdentity(identity, code, { eager = false } = {}){
+  const event = codeInspectorIdentityEvent(code);
+  renderEventIdentityMark(identity, event, sportMetaForEvent(event));
+  prepareCodeInspectorIdentity(identity, code.label, { eager });
+}
+
+function codeInspectorSportColor(code){
+  const aliases = { "rugby-union": "rugby", "american-football": "nfl", "multi-sport": "multi" };
+  return SPORT_META[aliases[code.slug] || code.slug]?.color || "var(--accent)";
+}
+
+function codeInspectorCodeIsFollowed(codeId, preferences = userPreferences){
+  return selectedPreferenceDomainIds(preferences)
+    .map(canonicalDomainIdForPreferenceDomain)
+    .includes(codeId);
+}
+
+function prepareCodeInspectorIdentity(identity, label, { eager = false } = {}){
+  identity.querySelectorAll("img").forEach(image => {
+    image.loading = eager ? "eager" : "lazy";
+    image.decoding = "async";
+    if (image.classList.contains("event-brand-logo")) return;
+    image.addEventListener("error", () => {
+      const fallback = document.createElement("span");
+      fallback.className = "code-inspector-identity-fallback";
+      fallback.textContent = String(label || "?").split(/\s+/).slice(0, 2).map(word => word[0]).join("").toUpperCase();
+      identity.replaceChildren(fallback);
+    }, { once: true });
   });
 }
 
-function buildDiscoveryBrowseRow(nodeId, count, { child = false } = {}){
-  const node = discoveryNodeById(nodeId);
-  if (!node) return null;
-  const state = discoverySessionSelectionState(nodeId);
+async function loadCodeInspectorManifest(){
+  if (codeInspectorManifest) return codeInspectorManifest;
+  if (codeInspectorManifestLoading) return codeInspectorManifestLoading;
+  codeInspectorManifestLoading = fetchJson(CODE_INSPECTOR_MANIFEST_URL, { cache: "default" })
+    .then(document => {
+      if (document?.schemaVersion !== "code-inspector.v1" || !Array.isArray(document.codes)){
+        throw new Error("Invalid Code Inspector manifest");
+      }
+      codeInspectorManifest = document;
+      return document;
+    })
+    .finally(() => { codeInspectorManifestLoading = null; });
+  return codeInspectorManifestLoading;
+}
+
+function buildDiscoveryBrowseRow(code){
+  const followed = codeInspectorCodeIsFollowed(code.id);
   const row = document.createElement("div");
-  row.className = `browse-row${child ? " is-child" : ""}`;
-  row.dataset.discoverySportId = nodeId;
+  row.className = "browse-row code-inspector-row";
+  row.dataset.discoverySportId = code.id;
+  row.style.setProperty("--sport-color", codeInspectorSportColor(code));
   const main = document.createElement("div");
   main.className = "browse-row-main";
-  const tick = document.createElement("button");
-  tick.type = "button";
-  tick.className = `browse-tick${state.checked ? " is-on" : ""}${state.mixed ? " is-mixed" : ""}`;
-  tick.setAttribute("role", "checkbox");
-  tick.dataset.discoveryTuneControl = "toggle";
-  tick.setAttribute("aria-checked", state.mixed ? "mixed" : String(state.checked));
-  tick.setAttribute("aria-label", `${state.checked ? "Hide" : "Show"} ${node.label} for this visit`);
-  tick.textContent = state.mixed ? "−" : state.checked ? "✓" : "";
-  tick.addEventListener("click", () => setDiscoverySessionNodeIncluded(nodeId, !state.checked));
+  const identity = document.createElement("span");
+  identity.className = "code-inspector-identity identity-frame";
+  identity.setAttribute("aria-hidden", "true");
+  renderCodeInspectorIdentity(identity, code);
   const copy = document.createElement("div");
   copy.className = "browse-copy";
-  copy.innerHTML = `<strong>${node.label}</strong><span>${count} upcoming event${count === 1 ? "" : "s"} · ${discoverySportIsFollowed(nodeId) ? "Following" : "Discovery"}</span>`;
-  main.append(tick, copy);
+  const title = document.createElement("strong");
+  title.textContent = code.label;
+  const detail = document.createElement("span");
+  detail.textContent = `${code.fixtureCount} available fixture${code.fixtureCount === 1 ? "" : "s"} · ${followed ? "Following" : "Not followed"}`;
+  copy.append(title, detail);
+  main.append(identity, copy);
   const actions = document.createElement("div");
   actions.className = "browse-actions";
-  if ((node.childIds || []).length){
-    const expand = document.createElement("button");
-    expand.type = "button";
-    expand.className = "browse-expand";
-    expand.dataset.discoveryTuneControl = "expand";
-    const expanded = discoveryExpandedParentIds.has(nodeId);
-    expand.setAttribute("aria-expanded", String(expanded));
-    expand.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} ${node.label}`);
-    expand.textContent = expanded ? "⌃" : "⌄";
-    expand.addEventListener("click", () => {
-      if (expanded) discoveryExpandedParentIds.delete(nodeId);
-      else discoveryExpandedParentIds.add(nodeId);
-      renderTuneSheetContents();
-    });
-    actions.appendChild(expand);
-  }
   const open = document.createElement("button");
   open.type = "button";
-  open.className = "browse-open";
+  open.className = "browse-open code-inspector-inspect";
   open.dataset.discoveryTuneControl = "open";
-  open.textContent = "Open";
-  open.setAttribute("aria-label", `Open focused ${node.label} view`);
-  open.addEventListener("click", () => openDiscoverySport(nodeId));
+  open.textContent = "Inspect";
+  open.setAttribute("aria-label", `Inspect ${code.label} fixtures`);
+  open.addEventListener("click", () => openCodeInspector(code.id));
   actions.appendChild(open);
   row.append(main, actions);
   return row;
@@ -10436,42 +10712,33 @@ function renderTuneSheetContents(){
   const more = document.getElementById("tuneBrowseMore");
   const moreList = document.getElementById("tuneBrowseMoreList");
   if (!list || !more || !moreList) return;
-  const visibility = discoveryVisibilityModel();
-  ensureDiscoverySessionInclusion();
-  const allCandidateIds = new Set([...visibility.mainIds, ...visibility.moreIds]);
-  const rootIds = ids => ids.filter(nodeId => !allCandidateIds.has(discoveryNodeById(nodeId)?.parentId));
-  const appendRows = (target, ids) => rootIds(ids).forEach(nodeId => {
-    const row = buildDiscoveryBrowseRow(nodeId, Number(visibility.counts?.aggregateCounts?.[nodeId] || 0));
-    if (row) target.appendChild(row);
-    const node = discoveryNodeById(nodeId);
-    if (!discoveryExpandedParentIds.has(nodeId)) return;
-    (node?.childIds || []).forEach(childId => {
-      const child = buildDiscoveryBrowseRow(childId, Number(visibility.counts?.aggregateCounts?.[childId] || 0), { child: true });
-      if (child) target.appendChild(child);
-    });
-  });
   list.innerHTML = "";
-  appendRows(list, visibility.mainIds);
-  if (!list.children.length){
-    list.innerHTML = '<div class="empty-state" style="padding:16px">No sport family has five unfinished events in the next 30 Sydney days.</div>';
-  }
   moreList.innerHTML = "";
-  appendRows(moreList, visibility.moreIds);
-  restoreDiscoveryTuneFocus(focusDescriptor);
-  more.hidden = visibility.moreIds.length === 0;
-  const included = new Set(discoverySessionIncludedSportIds);
-  const visibleLeaves = visibility.visibleSportIds.flatMap(id => DISCOVERY_CATALOGUE?.familyIds?.(id) || [id]);
-  const includedCount = uniqueArray(visibleLeaves).filter(id => included.has(id)).length;
   const summary = document.getElementById("tuneBrowseSummary");
-  if (summary) summary.textContent = `${includedCount} of ${uniqueArray(visibleLeaves).length} included this visit`;
-  document.getElementById("tuneSelectAllBtn")?.addEventListener("click", () => setAllDiscoverySessionIncluded(true), { once: true });
-  document.getElementById("tuneDeselectAllBtn")?.addEventListener("click", () => setAllDiscoverySessionIncluded(false), { once: true });
-  const clear = document.getElementById("tuneClearFilterBtn");
-  if (clear){
-    clear.hidden = activeFilter === "all";
-    clear.addEventListener("click", clearDiscoveryFocusedFilter, { once: true });
+  if (!codeInspectorManifest){
+    list.innerHTML = '<div class="empty-state" style="padding:16px">Loading published code coverage…</div>';
+    more.hidden = true;
+    if (summary) summary.textContent = "Loading coverage…";
+    void loadCodeInspectorManifest()
+      .then(() => renderTuneSheetContents())
+      .catch(error => {
+        console.warn("Code Inspector manifest unavailable", error);
+        list.innerHTML = '<div class="empty-state" style="padding:16px">Code coverage is temporarily unavailable. Your feed and saved choices are unchanged.</div>';
+        if (summary) summary.textContent = "Unavailable";
+      });
+    return;
   }
-  renderFeedControls();
+  const codes = [...codeInspectorManifest.codes];
+  const followedCodes = codes.filter(code => codeInspectorCodeIsFollowed(code.id));
+  const remainingCodes = codes.filter(code => !codeInspectorCodeIsFollowed(code.id));
+  followedCodes.forEach(code => list.appendChild(buildDiscoveryBrowseRow(code)));
+  if (!followedCodes.length){
+    list.innerHTML = '<div class="empty-state" style="padding:16px">No followed code yet. Every published code remains available below.</div>';
+  }
+  remainingCodes.forEach(code => moreList.appendChild(buildDiscoveryBrowseRow(code)));
+  more.hidden = remainingCodes.length === 0;
+  if (summary) summary.textContent = `${codes.length} canonical codes · read-only`;
+  restoreDiscoveryTuneFocus(focusDescriptor);
 }
 
 function setTuneSheetModalState(open){
@@ -10484,15 +10751,12 @@ function setTuneSheetModalState(open){
 
 function openTuneSheet(){
   if (document.getElementById("tuneSheet")?.classList.contains("show")) return;
+  const startedAt = feedPerformanceNow();
   tuneSheetReturnState = { focus: document.activeElement, scrollY: window.scrollY };
   discoveryTuneInteractionCount = 0;
   renderTuneSheetContents();
   setTuneSheetModalState(true);
-  recordProductEvent({
-    eventName: "tune_session",
-    surface: "tune",
-    properties: { action: "started", interactionCount: 0 },
-  });
+  recordFeedInteraction("inspector_list_open", startedAt);
   document.getElementById("closeTuneSheetBtn")?.focus({ preventScroll: true });
 }
 
@@ -10500,11 +10764,6 @@ function closeTuneSheet({ restoreFocus = true } = {}){
   if (!document.getElementById("tuneSheet")?.classList.contains("show")) return;
   const returnState = tuneSheetReturnState;
   setTuneSheetModalState(false);
-  recordProductEvent({
-    eventName: "tune_session",
-    surface: "tune",
-    properties: { action: "exited", interactionCount: discoveryTuneInteractionCount },
-  });
   tuneSheetReturnState = null;
   if (!returnState) return;
   window.scrollTo({ top: returnState.scrollY, behavior: "auto" });
@@ -10530,6 +10789,353 @@ function trapTuneSheetFocus(event){
     event.preventDefault();
     first.focus();
   }
+}
+
+function inspectorAlwaysShowsAllFixtures(){
+  return true;
+}
+
+function codeInspectorHash(codeId){
+  return `#inspect/${encodeURIComponent(codeId)}`;
+}
+
+function codeInspectorCodeFromLocation(){
+  const match = String(window.location.hash || "").match(/^#inspect\/(.+)$/);
+  if (!match) return null;
+  try{ return decodeURIComponent(match[1]); }catch(_error){ return null; }
+}
+
+async function loadCodeInspectorChunk(codeId){
+  const manifest = await loadCodeInspectorManifest();
+  const code = manifest.codes.find(candidate => candidate.id === codeId);
+  if (!code) throw new Error(`Unknown canonical code: ${codeId}`);
+  if (codeInspectorChunk?.code?.id === codeId) return codeInspectorChunk;
+  const requestedCodeId = codeId;
+  codeInspectorChunkLoading = fetchJson(code.chunkPath, { cache: "default" })
+    .then(document => {
+      if (document?.schemaVersion !== "code-inspector-chunk.v1" || document?.code?.id !== requestedCodeId){
+        throw new Error(`Invalid Code Inspector chunk: ${requestedCodeId}`);
+      }
+      codeInspectorChunk = document;
+      return document;
+    })
+    .finally(() => { codeInspectorChunkLoading = null; });
+  return codeInspectorChunkLoading;
+}
+
+function restoreInspectorFeedViewport(returnState){
+  if (!returnState) return;
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({ top: Math.min(returnState.scrollY, maxScrollY), behavior: "auto" });
+  }));
+}
+
+async function openCodeInspector(codeId, { pushHistory = true } = {}){
+  const startedAt = feedPerformanceNow();
+  const manifest = await loadCodeInspectorManifest();
+  if (!manifest.codes.some(code => code.id === codeId)) return;
+  if (!activeInspectorCodeId){
+    inspectorReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY };
+  }
+  activeInspectorCodeId = codeId;
+  codeInspectorTab = "all-fixtures";
+  codeInspectorGroup = "";
+  codeInspectorChunk = null;
+  sportHubState.activeTab = "all-fixtures";
+  closeTuneSheet({ restoreFocus: false });
+  if (pushHistory && window.location.hash !== codeInspectorHash(codeId)){
+    history.pushState({ codeInspector: codeId }, "", codeInspectorHash(codeId));
+  }
+  document.getElementById("tuneNavBtn")?.classList.add("active");
+  renderAll();
+  recordFeedInteraction("inspector_open", startedAt);
+  try{
+    await loadCodeInspectorChunk(codeId);
+    if (activeInspectorCodeId === codeId){
+      const renderStartedAt = feedPerformanceNow();
+      renderAll();
+      recordFeedInteraction("inspector_fixture_render", renderStartedAt);
+    }
+  }catch(error){
+    console.warn("Code Inspector fixtures unavailable", error);
+    if (activeInspectorCodeId === codeId){
+      const renderStartedAt = feedPerformanceNow();
+      renderAll();
+      recordFeedInteraction("inspector_fixture_error", renderStartedAt);
+    }
+  }
+}
+
+function closeCodeInspector({ restoreViewport = true } = {}){
+  if (!activeInspectorCodeId) return;
+  const returnState = inspectorReturnState;
+  activeInspectorCodeId = null;
+  codeInspectorChunk = null;
+  codeInspectorTab = "all-fixtures";
+  codeInspectorGroup = "";
+  document.getElementById("tuneNavBtn")?.classList.remove("active");
+  if (returnState){
+    activeTab = returnState.activeTab;
+    activeView = returnState.activeView;
+    activeFilter = returnState.activeFilter;
+  }
+  inspectorReturnState = null;
+  document.querySelectorAll(".tab-btn[data-tab]").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === activeTab);
+  });
+  document.querySelectorAll(".view-toggle button").forEach(button => {
+    button.classList.toggle("active", button.dataset.view === activeView);
+  });
+  renderAll();
+  if (restoreViewport) restoreInspectorFeedViewport(returnState);
+}
+
+function backFromCodeInspector(){
+  if (codeInspectorCodeFromLocation()) history.back();
+  else closeCodeInspector();
+}
+
+async function syncCodeInspectorFromLocation(){
+  const codeId = codeInspectorCodeFromLocation();
+  if (codeId){
+    if (activeInspectorCodeId !== codeId) await openCodeInspector(codeId, { pushHistory: false });
+    return;
+  }
+  if (activeInspectorCodeId) closeCodeInspector();
+}
+
+function codeInspectorCoverageCopy(code){
+  if (code.coverageStatus === "complete") return "Complete official published coverage is available for this code.";
+  if (code.coverageStatus === "partial") return "Published coverage is partial. This view shows every available fixture, but does not claim a complete schedule.";
+  return "No reliable fixture schedule is currently published for this code. This honest unavailable state will update when source-backed coverage exists.";
+}
+
+function codeInspectorGroupLabel(fixture, groupingMode){
+  if (groupingMode === "stage") return fixture.stage || "Stage TBC";
+  if (groupingMode === "round") return fixture.roundLabel && fixture.roundLabel !== "all"
+    ? fixture.roundLabel
+    : fixture.roundNumber !== null && fixture.roundNumber !== undefined && Number.isFinite(Number(fixture.roundNumber))
+      ? `Round ${fixture.roundNumber}`
+      : "Other fixtures";
+  const competition = fixture.competitionId ? fixture.competitionId.replace(/^competition:/, "").replace(/[-:]/g, " ") : "Competition TBC";
+  return `${competition} · ${fixture.date || "Date TBC"}`;
+}
+
+function formatInspectorDetailsExpectedAt(value){
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  const formatted = new Intl.DateTimeFormat("en-AU", {
+    timeZone: "Australia/Sydney",
+    weekday: "short",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(date);
+  return `Details likely known by ${formatted}.`;
+}
+
+function inspectorFixtureIsResult(fixture){
+  return ["completed", "finished", "final"].includes(String(fixture.status || "").toLowerCase());
+}
+
+function inspectorFixtureMatchesTab(fixture){
+  if (codeInspectorTab === "results") return inspectorFixtureIsResult(fixture);
+  if (codeInspectorTab === "worth-watching") return !inspectorFixtureIsResult(fixture) && Number(fixture.expected || 0) >= 7;
+  return true;
+}
+
+function buildCodeInspectorFixture(fixture){
+  const row = document.createElement("article");
+  row.className = "code-inspector-fixture";
+  row.dataset.inspectorFixtureId = fixture.id;
+  const main = document.createElement("div");
+  const title = document.createElement("h4");
+  title.textContent = fixture.name || "Fixture TBC";
+  const participants = Array.isArray(fixture.participantSlots) && fixture.participantSlots.length
+    ? fixture.participantSlots.map(slot => slot.label || "TBC").join(" v ")
+    : "Participants TBC";
+  const detail = document.createElement("p");
+  detail.textContent = `${participants} · ${fixture.venue || "Venue TBC"}${fixture.broadcaster ? ` · ${fixture.broadcaster}` : ""}`;
+  main.append(title, detail);
+  const expected = formatInspectorDetailsExpectedAt(fixture.detailsExpectedAt);
+  if (expected){
+    const note = document.createElement("p");
+    note.className = "code-inspector-tbc";
+    note.textContent = expected;
+    main.appendChild(note);
+  }
+  const timing = document.createElement("div");
+  timing.className = "code-inspector-fixture-time";
+  const date = document.createElement("div");
+  date.textContent = fixture.date || "TBC";
+  if (!fixture.date) date.className = "code-inspector-tbc";
+  const time = document.createElement("div");
+  time.textContent = fixture.time || "TBC";
+  if (!fixture.time) time.className = "code-inspector-tbc";
+  timing.append(date, time);
+  row.append(main, timing);
+  return row;
+}
+
+function codeInspectorStandingsSportKey(code){
+  return ({ "rugby-union": "rugby", "american-football": "nfl" })[code.slug] || code.slug;
+}
+
+function renderCodeInspectorStandings(panel, code){
+  const sportKey = codeInspectorStandingsSportKey(code);
+  const competitions = rankingCompetitionsForStandings()
+    .filter(competition => standingsSportKey(competition) === sportKey);
+  if (!competitions.length){
+    panel.appendChild(sportHubEmptyState(`Standings or rankings are not meaningfully available for ${code.label}.`));
+    return;
+  }
+  renderStandingsContext({ container: panel, competitions, sectionLabel: `${code.label} standings` });
+}
+
+function renderCodeInspector(){
+  const container = document.getElementById("listView");
+  container.innerHTML = "";
+  const code = codeInspectorManifest?.codes?.find(candidate => candidate.id === activeInspectorCodeId);
+  if (!code){
+    container.innerHTML = '<div class="empty-state">Loading Code Inspector…</div>';
+    return;
+  }
+  const view = document.createElement("section");
+  view.className = "code-inspector-view";
+  view.dataset.codeInspector = code.id;
+  view.style.setProperty("--sport-color", codeInspectorSportColor(code));
+  const heading = document.createElement("header");
+  heading.className = "code-inspector-heading";
+  const headingMain = document.createElement("div");
+  headingMain.className = "code-inspector-heading-main";
+  const identity = document.createElement("span");
+  identity.className = "code-inspector-identity identity-frame";
+  identity.setAttribute("aria-hidden", "true");
+  renderCodeInspectorIdentity(identity, code, { eager: true });
+  const copy = document.createElement("div");
+  const eyebrow = document.createElement("span");
+  eyebrow.className = "code-inspector-eyebrow";
+  eyebrow.textContent = `${code.fixtureCount} published fixture${code.fixtureCount === 1 ? "" : "s"}`;
+  const title = document.createElement("h2");
+  title.textContent = code.label;
+  const promise = document.createElement("p");
+  promise.textContent = "Inspector is read-only. Your saved preferences and the feed beneath it remain unchanged.";
+  copy.append(eyebrow, title, promise);
+  headingMain.append(identity, copy);
+  const back = document.createElement("button");
+  back.type = "button";
+  back.className = "btn ghost code-inspector-back";
+  back.textContent = "Back to Feed";
+  back.addEventListener("click", backFromCodeInspector);
+  heading.append(headingMain, back);
+  view.appendChild(heading);
+
+  const coverage = document.createElement("div");
+  coverage.className = "code-inspector-coverage";
+  coverage.textContent = `${codeInspectorCoverageCopy(code)} Fresh ${new Date(code.freshAt).toLocaleString("en-AU", { timeZone: "Australia/Sydney", dateStyle: "medium", timeStyle: "short" })}.`;
+  view.appendChild(coverage);
+
+  const tabs = document.createElement("div");
+  tabs.className = "code-inspector-tabs";
+  tabs.setAttribute("role", "tablist");
+  const tabDefinitions = [
+    ["all-fixtures", "All Fixtures"],
+    ["worth-watching", "Worth Watching"],
+    ["standings", "Standings"],
+    ["results", "Results"],
+  ];
+  tabDefinitions.forEach(([value, label]) => {
+    const tab = document.createElement("button");
+    tab.type = "button";
+    tab.className = `code-inspector-tab${codeInspectorTab === value ? " active" : ""}`;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-selected", String(codeInspectorTab === value));
+    tab.textContent = label;
+    tab.addEventListener("click", () => {
+      const activate = () => {
+        const startedAt = feedPerformanceNow();
+        codeInspectorTab = value;
+        codeInspectorGroup = "";
+        renderCodeInspector();
+        recordFeedInteraction(`inspector_${value}`, startedAt);
+      };
+      if (value === "standings") confirmStandingsReveal(activate);
+      else activate();
+    });
+    tabs.appendChild(tab);
+  });
+  view.appendChild(tabs);
+  const panel = document.createElement("div");
+  panel.className = "code-inspector-panel";
+  view.appendChild(panel);
+  container.appendChild(view);
+
+  if (codeInspectorTab === "standings"){
+    renderCodeInspectorStandings(panel, code);
+    return;
+  }
+  if (codeInspectorChunkLoading || codeInspectorChunk?.code?.id !== code.id){
+    panel.innerHTML = '<div class="empty-state">Loading detailed fixtures…</div>';
+    return;
+  }
+  const fixtures = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab);
+  if (!fixtures.length){
+    panel.appendChild(sportHubEmptyState(code.coverageStatus === "unavailable"
+      ? `No reliable ${code.label} fixtures are currently published.`
+      : codeInspectorTab === "results" ? "No published results are available yet." : "No fixtures match this view."));
+    return;
+  }
+  const grouped = new Map();
+  fixtures.forEach(fixture => {
+    const label = codeInspectorGroupLabel(fixture, code.groupingMode);
+    const group = grouped.get(label) || [];
+    group.push(fixture);
+    grouped.set(label, group);
+  });
+  const groupLabels = [...grouped.keys()];
+  if (!codeInspectorGroup || !grouped.has(codeInspectorGroup)){
+    const todayKey = formatDateKey(nowAEST());
+    const nextFixture = fixtures.find(fixture => fixture.date && fixture.date >= todayKey);
+    const nextGroup = nextFixture ? codeInspectorGroupLabel(nextFixture, code.groupingMode) : null;
+    codeInspectorGroup = nextGroup && grouped.has(nextGroup) ? nextGroup : groupLabels[0];
+  }
+  const toolbar = document.createElement("div");
+  toolbar.className = "code-inspector-toolbar";
+  const pickerLabel = document.createElement("label");
+  pickerLabel.setAttribute("for", "codeInspectorStartingRound");
+  pickerLabel.textContent = code.groupingMode === "round" ? "Starting round" : "Starting group";
+  const picker = document.createElement("select");
+  picker.id = "codeInspectorStartingRound";
+  picker.className = "starting-round-select";
+  groupLabels.forEach(label => {
+    const option = document.createElement("option");
+    option.value = label;
+    option.textContent = label;
+    option.selected = label === codeInspectorGroup;
+    picker.appendChild(option);
+  });
+  picker.addEventListener("change", () => {
+    const startedAt = feedPerformanceNow();
+    codeInspectorGroup = picker.value;
+    renderCodeInspector();
+    recordFeedInteraction("inspector_round_change", startedAt);
+  });
+  toolbar.append(pickerLabel, picker);
+  panel.appendChild(toolbar);
+  const startIndex = Math.max(0, groupLabels.indexOf(codeInspectorGroup));
+  groupLabels.slice(startIndex, startIndex + 2).forEach(label => {
+    const section = document.createElement("section");
+    section.className = "code-inspector-group";
+    const groupTitle = document.createElement("h3");
+    groupTitle.textContent = label;
+    const list = document.createElement("div");
+    list.className = "code-inspector-fixtures";
+    grouped.get(label).forEach(fixture => list.appendChild(buildCodeInspectorFixture(fixture)));
+    section.append(groupTitle, list);
+    panel.appendChild(section);
+  });
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -12861,7 +13467,7 @@ function todayAnchorIsVisible(){
 function syncContextualJumpButton(){
   const button = document.getElementById("jumpTodayBtn");
   if (!button) return;
-  if (activeTab !== "feed" || activeView !== "list" || activeSportHubKey()){
+  if (activeInspectorCodeId || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()){
     button.hidden = true;
     return;
   }
@@ -13181,10 +13787,9 @@ function buildSportHubFixtureRow(view, {
   }
   const details = document.createElement("p");
   details.className = "sport-hub-fixture-detail";
-  details.textContent = `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(
-    resultsMode ? view.replayProviders : view.liveProviders,
-    resultsMode ? "Replay provider not confirmed" : "Broadcaster TBC"
-  )}`;
+  details.textContent = resultsMode
+    ? `${sportHubVenueLabel(view)} · Result record · video availability is not promised`
+    : `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(view.liveProviders, "Broadcaster TBC")}`;
   main.append(titleLine, details);
 
   const status = document.createElement("div");
@@ -13399,7 +14004,7 @@ function renderSportHubResults(panel, fixtures, sportKey){
   if (!userPreferences.showSpoilers){
     const notice = document.createElement("p");
     notice.className = "sport-hub-spoiler-notice";
-    notice.textContent = "Results are off. Scores stay hidden; source-backed replay providers remain visible.";
+    notice.textContent = "Results are off. Scores stay hidden; this view does not promise video availability.";
     panel.appendChild(notice);
   }
   const selectedFixtures = SPORT_HUBS.fixturesForRoundWindow(fixtures, sportHubState.resultsRoundNumber, 1)
@@ -13463,7 +14068,7 @@ function renderSportHub(){
     ["worth-watching", "Worth Watching"],
     ...(fullCoverage ? [["all-fixtures", "All Fixtures"]] : []),
     ["standings", "Standings"],
-    ["results-replays", "Results/Replays"],
+    ["results", "Results"],
   ];
   const tablist = document.createElement("div");
   tablist.className = "sport-hub-tabs";
@@ -13480,6 +14085,14 @@ function renderSportHub(){
     button.tabIndex = sportHubState.activeTab === id ? 0 : -1;
     button.textContent = label;
     button.addEventListener("click", () => {
+      if (id === "standings" && !userPreferences.showSpoilers && !standingsRevealApproved){
+        confirmStandingsReveal(() => {
+          sportHubState.activeTab = "standings";
+          sportHubState.showHidden = false;
+          renderCurrentSection();
+        });
+        return;
+      }
       if (id === "all-fixtures" && sportHubState.activeTab !== id){
         recordFixtureCheck(sportKey, {
           entry: "hub_tab",
@@ -13531,7 +14144,7 @@ function renderSportHub(){
   }
   if (sportHubState.activeTab === "worth-watching") renderSportHubWorthWatching(panel, fixtures, sportKey);
   else if (sportHubState.activeTab === "standings") renderSportHubStandings(panel, sportKey);
-  else if (sportHubState.activeTab === "results-replays") renderSportHubResults(panel, fixtures, sportKey);
+  else if (sportHubState.activeTab === "results") renderSportHubResults(panel, fixtures, sportKey);
   else if (fullCoverage) renderSportHubAllFixtures(panel, fixtures, sportKey);
   else renderSportHubWorthWatching(panel, fixtures, sportKey);
 }
@@ -14322,8 +14935,8 @@ function renderStandingsContext(options = {}){
     const reveal = document.createElement("button");
     reveal.className = "btn ghost";
     reveal.type = "button";
-    reveal.textContent = "Show standings";
-    reveal.addEventListener("click", () => requestStandingsAccess(renderAll));
+    reveal.textContent = "Reveal standings";
+    reveal.addEventListener("click", () => confirmStandingsReveal(renderAll));
     module.append(copy, reveal);
     container.appendChild(module);
     return;
@@ -15003,6 +15616,10 @@ function renderEventsView(){
 }
 
 function activateTopLevelTab(nextTab){
+  if (activeInspectorCodeId){
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    closeCodeInspector({ restoreViewport: false });
+  }
   collapseAllCardStates();
   activeTab = nextTab;
   document.querySelectorAll(".tab-btn[data-tab]").forEach(button => {
@@ -15018,7 +15635,8 @@ function activateTopLevelTab(nextTab){
 /* ============ TABS / VIEW SWITCHING ============ */
 document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
   btn.addEventListener("click", () => {
-    activateTopLevelTab(btn.dataset.tab);
+    if (btn.dataset.tab === "standings") confirmStandingsReveal(() => activateTopLevelTab("standings"));
+    else activateTopLevelTab(btn.dataset.tab);
   });
 });
 document.getElementById("tuneNavBtn").addEventListener("click", openTuneSheet);
@@ -15027,6 +15645,7 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
   if (event.target.id === "tuneSheet") closeTuneSheet();
 });
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
+window.addEventListener("popstate", () => { void syncCodeInspectorFromLocation(); });
 
 document.querySelectorAll(".view-toggle button").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -15084,6 +15703,10 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
 
 function renderCurrentSection(){
   clearPendingCardRetractionSpace();
+  if (activeInspectorCodeId){
+    renderCodeInspector();
+    return;
+  }
   if (startupCoordinator.isHydrating()){
     renderStartupFeedLoading();
     return;
@@ -15139,7 +15762,14 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     view.style.display = "none";
   });
   calControls.style.display = "flex";
-  if (startupCoordinator.isHydrating()){
+  if (activeInspectorCodeId){
+    calControls.style.display = "none";
+    preferenceSummary.style.display = "none";
+    feedViewToggle.style.display = "none";
+    jumpTodayBtn.hidden = true;
+    listView.style.display = "block";
+    renderCodeInspector();
+  } else if (startupCoordinator.isHydrating()){
     jumpTodayBtn.hidden = true;
     listView.style.display = "block";
     renderStartupFeedLoading();
@@ -15669,7 +16299,6 @@ function openSettings({ firstRun = false, section = "main" } = {}){
 
 function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
   const viewportAnchor = settingsViewportAnchor;
-  if (settingsSection === "tune") closeTuneSession("exited");
   const modal = document.getElementById("settingsModal");
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
@@ -15713,7 +16342,7 @@ function setStandingsSpoilerModalOpen(open){
   );
 }
 
-function requestStandingsAccess(onConfirm){
+function confirmStandingsReveal(onConfirm){
   if (userPreferences.showSpoilers || standingsRevealApproved){
     onConfirm();
     return;
@@ -16046,7 +16675,7 @@ function renderSettingsMenu(body){
     : "Any time";
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
-    ${settingsMenuItem("sports", "ui:filter", "Sports followed", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
+    ${settingsMenuItem("sports", "ui:filter", "Sports followed & Tune", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
     ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
     ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback & appearance", "Feedback, app appearance and optional pilot details")}
@@ -16103,15 +16732,145 @@ function renderArchiveSettings(body){
   });
 }
 
+function sportsFollowedTabsMarkup(){
+  return `<div class="sports-followed-tabs" role="tablist" aria-label="Sports followed and Tune">
+    <button class="sports-followed-tab${sportsFollowedTab === "sports" ? " active" : ""}" type="button" role="tab" aria-selected="${sportsFollowedTab === "sports"}" data-sports-followed-tab="sports">Sports</button>
+    <button class="sports-followed-tab${sportsFollowedTab === "froth" ? " active" : ""}" type="button" role="tab" aria-selected="${sportsFollowedTab === "froth"}" data-sports-followed-tab="froth">Froth knobs</button>
+  </div>`;
+}
+
+function bindSportsFollowedTabs(root){
+  root.querySelectorAll("[data-sports-followed-tab]").forEach(button => {
+    button.addEventListener("click", () => {
+      sportsFollowedTab = button.dataset.sportsFollowedTab;
+      renderSettingsScreen();
+    });
+  });
+}
+
+function updateDraftFeedControl(key, value){
+  if (!FEED_CONTROLS) return;
+  draftPreferences.feedControls = FEED_CONTROLS.normalize({ ...draftPreferences.feedControls, [key]: value }, {
+    showSpoilers: draftPreferences.showSpoilers,
+  });
+  if (key === "scope") draftPreferences.feedIntent = feedIntentForScope(draftPreferences.feedControls.scope);
+}
+
+function renderDraftFeedControls(container){
+  const controls = FEED_CONTROLS.normalize(draftPreferences.feedControls, { showSpoilers: draftPreferences.showSpoilers });
+  const definitions = [
+    ["scope", "Feed intent", [["following", "Focused"], ["for_you", "Balanced"], ["explore", "Discovery"]]],
+    ["availability", "Availability", [["any", "Any"], ["free", "Free"], ["included", "Included"], ["ppv", "PPV"]]],
+    ["timing", "Timing", [["any", "Any time"], ["live_now", "Live now"], ["tonight", "Tonight"], ["this_week", "This week"], ["overnight", "Overnight OK"]]],
+    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["must_watch", "Must watch"]]],
+  ];
+  definitions.forEach(([key, label, values]) => {
+    const control = document.createElement("label");
+    control.className = "feed-control";
+    const copy = document.createElement("span");
+    copy.textContent = label;
+    const select = document.createElement("select");
+    select.setAttribute("aria-label", `${label} feed control`);
+    values.forEach(([optionValue, optionLabel]) => {
+      const option = document.createElement("option");
+      option.value = optionValue;
+      option.textContent = optionLabel;
+      option.selected = controls[key] === optionValue;
+      select.appendChild(option);
+    });
+    select.addEventListener("change", () => updateDraftFeedControl(key, select.value));
+    control.append(copy, select);
+    container.appendChild(control);
+  });
+}
+
+function applyDraftFineTuneChoice(target, value){
+  if (!target || !PREFERENCE_SYSTEM || ![-1, 1].includes(value)) return;
+  const current = FINE_TUNING?.selectedValue?.(draftPreferences.preferenceGraph, target) || 0;
+  if (current === value) return;
+  draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.applyTuningSignal(draftPreferences.preferenceGraph, {
+    targetType: target.targetType,
+    targetId: target.targetId,
+    value,
+  }, { domainId: target.domainId });
+  renderSettingsScreen();
+}
+
+function renderDraftFineTuning(container){
+  const sections = FINE_TUNING?.sections || [];
+  if (!sections.length){
+    container.innerHTML = '<div class="empty-state">Competition, team and player tuning is temporarily unavailable.</div>';
+    return;
+  }
+  sections.forEach(section => {
+    const wrapper = document.createElement("section");
+    wrapper.className = "filter-panel";
+    const heading = document.createElement("div");
+    heading.className = "tune-section-copy";
+    heading.innerHTML = `<h3>${section.title}</h3><p class="preference-help">${section.detail} These choices affect curated ranking only.</p>`;
+    const grid = document.createElement("div");
+    grid.className = "tune-card-grid";
+    section.targets.forEach(target => {
+      const value = FINE_TUNING.selectedValue(draftPreferences.preferenceGraph, target);
+      const card = document.createElement("article");
+      card.className = "tune-card";
+      card.dataset.tuneTarget = FINE_TUNING.targetKey(target);
+      card.innerHTML = `<span class="tune-card-glyph" aria-hidden="true">${glyphMarkup(target.glyph, { preferImage: true })}</span><strong>${target.label}</strong><span class="tune-card-copy">${target.detail}</span><span class="tune-card-actions"><button class="tune-choice${value === -1 ? " selected" : ""}" type="button" data-tune-value="-1" aria-pressed="${value === -1}">Less</button><button class="tune-choice${value === 1 ? " selected" : ""}" type="button" data-tune-value="1" aria-pressed="${value === 1}">More</button></span>`;
+      card.querySelectorAll("[data-tune-value]").forEach(button => {
+        button.addEventListener("click", () => applyDraftFineTuneChoice(target, Number(button.dataset.tuneValue)));
+      });
+      grid.appendChild(card);
+    });
+    wrapper.append(heading, grid);
+    container.appendChild(wrapper);
+  });
+}
+
+function renderFrothKnobsSettings(content){
+  content.innerHTML = `<div class="preference-stack">
+    <section class="filter-panel"><h3>Global Feed intent</h3><p class="preference-help">Choose the overall balance for the curated feed. Nothing is written until Save &amp; close.</p><div class="draft-feed-controls" id="draftFeedControls"></div></section>
+    <section class="filter-panel"><div class="froth-help-heading"><h3>Per-sport Froth</h3><button class="froth-help-button" type="button" id="frothHelpButton" aria-label="What does Froth mean?" aria-expanded="${frothHelpExpanded}" aria-controls="frothHelpCopy">?</button></div>
+      <div class="froth-help-copy" id="frothHelpCopy" ${frothHelpExpanded ? "" : "hidden"}><strong>Froth represents enthusiasm for a sport.</strong><ul><li>Casual keeps the biggest moments.</li><li>Like adds strong fixtures and followed teams.</li><li>Froth includes every available fixture for that sport in the curated feed.</li></ul><p>Code Inspector always shows All Fixtures, whatever the Froth setting.</p></div>
+      <p class="preference-help">Tune each followed sport without changing which sports you follow.</p><div class="froth-knob-list" id="frothKnobList"></div>
+    </section>
+    <div id="draftFineTuning"></div>
+  </div>`;
+  renderDraftFeedControls(document.getElementById("draftFeedControls"));
+  document.getElementById("frothHelpButton").addEventListener("click", () => {
+    frothHelpExpanded = !frothHelpExpanded;
+    renderSettingsScreen();
+    document.getElementById("frothHelpButton")?.focus({ preventScroll: true });
+  });
+  const knobList = document.getElementById("frothKnobList");
+  const domainIds = selectedPreferenceDomainIds(draftPreferences)
+    .filter(domainId => preferenceDomainById(domainId));
+  if (!domainIds.length){
+    knobList.innerHTML = '<div class="empty-state">Follow a sport in the Sports tab to add its Froth knob.</div>';
+  } else {
+    domainIds.forEach(domainId => {
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = inlineFrothControlMarkup(domainId);
+      knobList.appendChild(wrapper.firstElementChild);
+    });
+    bindInlineFrothControls(knobList);
+  }
+  renderDraftFineTuning(document.getElementById("draftFineTuning"));
+}
+
 function renderSportsSettings(body){
   syncDraftPreferenceGraph();
-  body.innerHTML = `${wizardProgressMarkup()}<div id="sportsFollowedContent"></div>`;
+  body.innerHTML = `${wizardProgressMarkup()}${sportsFollowedTabsMarkup()}<div id="sportsFollowedContent"></div>`;
+  bindSportsFollowedTabs(body);
   const content = document.getElementById("sportsFollowedContent");
+  if (sportsFollowedTab === "froth"){
+    renderFrothKnobsSettings(content);
+    return;
+  }
 
   content.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
       <h3>Sports Followed</h3>
-      <p class="preference-help">Follow sports here. Named tournaments and marquee events map to their underlying sport instead of becoming separate follow choices. Selected sports keep their Froth control directly beneath them.</p>
+      <p class="preference-help">Follow or unfollow sports here. Named tournaments and marquee events map to their underlying sport instead of becoming separate follow choices.</p>
       <p class="preference-help">Must Watch and top-story discovery picks can still appear when you do not follow their sport; following controls the regular coverage around those highlights.</p>
       ${selectionActionsMarkup("sports-global", "Sports")}
       <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
@@ -16164,7 +16923,6 @@ function renderSportsSettings(body){
         renderSettingsScreen();
       });
       wrapper.appendChild(btn);
-      if (selected) wrapper.insertAdjacentHTML("beforeend", inlineFrothControlMarkup(entity.id));
       specialGrid.appendChild(wrapper);
     });
 
@@ -16210,7 +16968,6 @@ function renderSportsSettings(body){
         renderSettingsScreen();
       });
       wrapper.appendChild(btn);
-      if (selected) wrapper.insertAdjacentHTML("beforeend", inlineFrothControlMarkup(entity.id));
       grid.appendChild(wrapper);
       const parentTemplate = preferenceDomainById(entity.id)?.templateId;
       const revealChildren = selected && ["template:like", "template:froth", "template:custom"].includes(parentTemplate);
@@ -16233,7 +16990,6 @@ function renderSportsSettings(body){
             renderSettingsScreen();
           });
           childWrapper.appendChild(childButton);
-          if (parentTemplate === "template:custom" && childSelected) childWrapper.insertAdjacentHTML("beforeend", inlineFrothControlMarkup(child.id));
           grid.appendChild(childWrapper);
         });
       }
@@ -16255,7 +17011,6 @@ function renderSportsSettings(body){
     () => clearSelectorCategoryFromDraft("category:sports")
   );
 
-  bindInlineFrothControls(content);
 }
 
 const FROTH_TEMPLATE_STEPS = ["template:casual", "template:like", "template:froth"];
@@ -16427,7 +17182,8 @@ async function loadCanonicalSportsData(){
       }
     }
     renderTabCounts();
-    if (!visibleFeedRendered) renderStandingsContext();
+    if (activeInspectorCodeId && codeInspectorTab === "standings") renderCodeInspector();
+    else if (!visibleFeedRendered) renderStandingsContext();
   }
   return canonicalSportsData;
 }
@@ -16675,11 +17431,9 @@ function renderSettingsScreen(){
   const calibrationComplete = Boolean(draftPreferences?.preferenceGraph?.learning?.calibrationCompletedAt);
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
-  document.getElementById("resetPreferencesBtn").hidden = ["calibration", "tune"].includes(settingsSection);
+  document.getElementById("resetPreferencesBtn").hidden = settingsSection === "calibration";
   document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && settingsSection === "archive"
     ? "Close"
-    : !settingsFirstRun && settingsSection === "tune"
-      ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
     ? "Next"
     : settingsFirstRun && settingsSection === "calibration" && !calibrationComplete
@@ -16691,10 +17445,9 @@ function renderSettingsScreen(){
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
     pilot: ["Trust pilot", "Automatic, disclosed measurement for signed-in users, with opt-out."],
     archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
-    sports: [settingsFirstRun ? "Sports followed · 1 of 2" : "Sports followed", settingsFirstRun ? "Pick sports, then tune selected sports inline." : "Follow sports and tune each one from Casual through Froth."],
+    sports: [settingsFirstRun ? "Sports followed & Tune · 1 of 2" : "Sports followed & Tune", settingsFirstRun ? "Pick sports, then set Feed intent and Froth knobs before saving once." : "Follow sports in one tab; set Feed intent, Froth and deep tuning in the other."],
     viewing: [settingsFirstRun ? "Viewing preferences · 2 of 2" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
     calibration: [settingsFirstRun ? "Swipe calibration · 3 of 3" : "Swipe calibration", "Optional recognisable anchors teach the curated feed without changing complete fixture lists."],
-    tune: ["Tune", "Move from broad sports into competitions, teams and players. Every choice autosaves."],
     providers: ["TV & streaming", "Choose the services available to you."],
     privacy: ["Local venues", "Choose the venues that count as local."],
     appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
@@ -16707,7 +17460,6 @@ function renderSettingsScreen(){
   else if (settingsSection === "sports") renderSportsSettings(body);
   else if (settingsSection === "viewing") renderViewingSettings(body);
   else if (settingsSection === "calibration") renderCalibrationSettings(body);
-  else if (settingsSection === "tune") renderFineTuningSettings(body);
   else if (settingsSection === "providers") renderProviderSettings(body);
   else if (settingsSection === "privacy") renderPrivacySettings(body);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
@@ -16896,7 +17648,7 @@ function saveSettingsPreferences(){
 
 function advanceOnboardingOrSave(){
   if (!settingsFirstRun){
-    if (["tune", "account"].includes(settingsSection)){
+    if (settingsSection === "account"){
       closeSettings();
       return;
     }
@@ -16925,7 +17677,6 @@ document.getElementById("settingsBackBtn").addEventListener("click", () => {
     settingsWizardStep -= 1;
     settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
   } else {
-    if (settingsSection === "tune") closeTuneSession("exited");
     settingsFocusedDomainId = null;
     settingsSection = "main";
   }
@@ -16949,7 +17700,9 @@ document.getElementById("dismissTunePromptBtn").addEventListener("click", () => 
 document.getElementById("reviewSportsFromTuneBtn").addEventListener("click", () => {
   recordTunePromptAction("accepted");
   setTunePromptOpen(false);
-  openSettings({ section: "tune" });
+  openSettings({ section: "sports" });
+  sportsFollowedTab = "froth";
+  renderSettingsScreen();
 });
 document.getElementById("tunePromptModal").addEventListener("click", event => {
   if (event.target.id !== "tunePromptModal") return;
@@ -16989,7 +17742,6 @@ document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
 document.addEventListener("keydown", evt => {
   if (evt.key !== "Escape" || !document.getElementById("settingsModal").classList.contains("show")) return;
   if (settingsSection !== "main"){
-    if (settingsSection === "tune") closeTuneSession("exited");
     settingsSection = "main";
     renderSettingsScreen();
   } else {
@@ -17358,6 +18110,7 @@ function completeStartupFeedHydration(){
   startupFeedRevealPending = true;
   startupCoordinator.markHydrationComplete();
   feedPerformanceMetrics.feedReadyMs = feedPerformanceNow();
+  publishFeedPerformanceMetrics();
   if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
   renderAll();
   const defer = window.requestIdleCallback || (callback => window.setTimeout(callback, 250));
@@ -17425,6 +18178,7 @@ if (typeof ResizeObserver === "function"){
 updateClock();
 setInterval(updateClock, 1000);
 renderAll();
+void syncCodeInspectorFromLocation();
 scheduleBrowserReminders();
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
@@ -17443,7 +18197,7 @@ let installedServiceWorkerRegistration = null;
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden"){
     weeklyPulseWasHidden = true;
-    void disposableStore?.flush?.();
+    void flushDisposableStore();
     return;
   }
   if (!weeklyPulseWasHidden) return;
