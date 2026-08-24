@@ -1,0 +1,9 @@
+{
+  "name": "nothingsport",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Follow-first smart sports feed",
+  "dependencies": {
+    "web-push": "^3.6.7"
+  }
+}

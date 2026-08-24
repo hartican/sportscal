@@ -68,7 +68,7 @@ assert(html.includes('id="startupProgressRing"') && html.includes('id="headerHyd
 assert(html.includes("loadingController.complete(\"feed-page\")"), "usable feed arrival must drive the weighted progress controller");
 assert(html.includes("function beginInSessionLoading(label)"), "one shared ring controller must cover in-session hydration");
 assert(html.includes("LOADING_PROGRESS?.INDICATOR_DELAY_MS || 150") && html.includes("LOADING_PROGRESS?.INDICATOR_MIN_VISIBLE_MS || 300"), "in-session loading must suppress flicker with the agreed delay and minimum visibility");
-for (const label of ["Loading Events", "Loading Standings", "Loading Inspector", "Refreshing Fixtures", "Saving settings"]){
+for (const label of ["Loading Events", "Loading Standings", "Loading Standings & Fixtures", "Refreshing Feed", "Saving settings"]){
   assert(html.includes(`beginInSessionLoading(\"${label}\")`), `${label} must use the shared loading ring`);
 }
 assert(worker.includes('"/config/loading-progress.js"'), "the loading controller must be available offline");

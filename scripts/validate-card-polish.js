@@ -42,7 +42,7 @@ assert.equal(ticketing.verifiedSellerUrl("https://www.nrl.com/tickets"), false, 
 assert.equal(ticketing.resolve({ ...verifiedFixture, ticketing: { ...verifiedFixture.ticketing, verifiedAt: "2026-08-24T00:00:00.000Z" } }, { surface: "events", reference: new Date("2026-08-23T12:00:00Z") }), null, "future-dated seller verification must fail closed");
 assert.equal(ticketing.resolve({ eventId: "event-nrl-129992601" }, { surface: "fixture", localVenueMatched: false, reference: new Date("2026-08-24T00:00:00Z") }), null, "verified ordinary fixture endpoints remain local-venue gated");
 assert.equal(ticketing.resolve({ eventId: "event-nrl-129992601" }, { surface: "fixture", localVenueMatched: true, reference: new Date("2026-08-24T00:00:00Z") }).provider, "Ticketek", "verified local fixtures must retain direct seller CTAs");
-assert(html.includes("ev.venueSourceName") && html.includes("ev.venueOfficialName") && html.includes("option?.label"), "local-venue matching must survive canonical display-name normalisation");
+assert(html.includes("LOCALITY_COORDINATES") && html.includes("eventLocationLabel(ev)") && html.includes("distanceKm(selectedCoordinates, fixtureCoordinates)"), "radius-based location matching must survive canonical venue display names");
 
 assert(html.includes('className = soloIdentity ? "event-hero-mark" : "event-icon"'), "non-matchup cards must use the centred logo-led treatment");
 assert(html.includes(".event-hero-mark{") && html.includes("width:88px;") && html.includes("height:90px;"), "desktop fixture identities must use the compact 88 by 90 pixel frame");
@@ -56,12 +56,11 @@ assert(html.includes('state === "selected" ? "is-selected"') && html.includes('s
 assert(html.includes('if (state !== "compact") identity.appendChild(summary);') && html.includes('if (state === "opened"){'), "compact Events cards must defer rich details until the second and third levels");
 assert(html.includes("--ticket-action-bg: #00677b") && html.includes("--ticket-action-text: #ffffff") && html.includes("background:var(--ticket-action-bg); color:var(--ticket-action-text)"), "day-mode Events ticket actions must use the high-contrast action palette");
 assert(html.includes("--events-text-accent: #006f85") && html.includes("color:var(--events-text-accent)"), "day-mode Events editorial links must use the dedicated high-contrast text accent");
-assert(html.indexOf('${selectionActionsMarkup("sports-global", "Sports")}') < html.indexOf('id="selectorCategoryList"'), "Select all and Deselect all must precede startup sport categories");
-assert(html.includes('bindSelectionActions(\n    body,\n    "sports-global"'), "global sports actions must retain keyboard-native buttons and labelled controls");
+assert(html.includes('id="startupSportsGrid"') && html.includes("Choose at least one"), "startup sport choices must remain lightweight and require one selection");
 assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, "boolean");
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
 assert(userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.some(branch => branch.required?.includes("startTimeUtc")), "persisted child fixtures must require a confirmed UTC start");
 assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
-assert(html.includes('name="app-shell-version" content="132"') && worker.includes('nothingsport-shell-v132'), "the polished card UI must ship in a matching offline shell version");
+assert(html.includes('name="app-shell-version" content="134"') && worker.includes('nothingsport-shell-v134'), "the polished card UI must ship in a matching offline shell version");
 
-console.log("Card polish valid: three-level cards, compact centred logo layouts, WCAG ticket contrast, score-only results, Bruce stadium aliases, two-line names, top selection controls and surface-aware ticket gating passed.");
+console.log("Card polish valid: three-level cards, shared fixture/event shells, radius-aware ticket gating, compact identities, and score-only results passed.");

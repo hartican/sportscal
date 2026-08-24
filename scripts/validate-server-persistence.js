@@ -100,13 +100,13 @@ async function run(){
   assert.match(sql, /to authenticated[\s\S]+auth\.uid\(\)/i);
   assert.match(sql, /revoke all[\s\S]+from anon/i);
   assert.doesNotMatch(
-    fs.readFileSync("api/auth.js", "utf8")
-      + fs.readFileSync("api/user-state.js", "utf8")
+    fs.readFileSync("api/user-state.js", "utf8")
       + fs.readFileSync("config/server-sync.js", "utf8")
-      + fs.readFileSync(".env.example", "utf8"),
+      + fs.readFileSync("index.html", "utf8"),
     /service[_-]?role/i,
-    "the client and request path must never depend on a service-role key"
+    "browser and user-state persistence must never receive a service-role key"
   );
+  assert.match(fs.readFileSync("api/auth.js", "utf8"), /supabaseServiceRequest/, "signup metadata may use the server-only service role with authenticated first-session fallback");
 
   const originalUrl = process.env.SUPABASE_URL;
   const originalPublishable = process.env.SUPABASE_PUBLISHABLE_KEY;

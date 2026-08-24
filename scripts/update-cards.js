@@ -71,6 +71,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-football-directory.js", "--prune-removed"],
   ["scripts/refresh-football-directory.js", "--check"],
   ["scripts/validate-football-directory.js"],
+  ["scripts/build-team-player-directories.js"],
   ["scripts/build-team-player-directories.js", "--check"],
   ["scripts/validate-team-player-directories.js"],
   ["scripts/validate-tennis-catalogue.js"],
@@ -147,7 +148,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-code-inspector-ui.js"],
   ["scripts/validate-events-fixture-ux.js"],
   ["scripts/validate-feed-ui-geometry.js"],
-  ["scripts/verify-nothingsport.js"],
+  ["scripts/validate-follow-first.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);
   return steps;

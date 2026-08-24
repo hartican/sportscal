@@ -231,6 +231,7 @@
   }
 
   function buildViewingPreference(profileId, broadcasterIds, saved = {}, legacySelectedBroadcasterIds){
+    const { calendarSyncEnabled: _retiredCalendarSync, ...savedWithoutCalendarSync } = saved;
     const available = uniqueStrings(broadcasterIds);
     const known = uniqueStrings(saved.knownBroadcasterIds);
     const hasVersionedSelection = Array.isArray(saved.selectedBroadcasterIds) || Array.isArray(saved.excludedBroadcasterIds);
@@ -252,7 +253,7 @@
     const savedStartHour = normalizeHour(saved.startHourLocal);
     const savedEndHour = normalizeHour(saved.endHourLocal);
     return {
-      ...saved,
+      ...savedWithoutCalendarSync,
       profileId,
       selectedBroadcasterIds,
       excludedBroadcasterIds: excluded,
@@ -261,7 +262,6 @@
       startHourLocal: savedStartHour ?? DEFAULT_VIEWING_WINDOW.startHourLocal,
       endHourLocal: savedEndHour ?? DEFAULT_VIEWING_WINDOW.endHourLocal,
       allowLateNightOverrides: saved.allowLateNightOverrides !== false,
-      calendarSyncEnabled: saved.calendarSyncEnabled !== false,
       browserAlertsEnabled: Boolean(saved.browserAlertsEnabled),
       reminderLeadMinutes: normalizeLeadMinutes(saved.reminderLeadMinutes?.length ? saved.reminderLeadMinutes : [60]),
     };

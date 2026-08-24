@@ -2,7 +2,7 @@
 
 Checked: 2026-08-23 (AEST)
 
-The NRL directory is a source-backed priority-player shortlist for following, not a weekly team list or a claim to publish every contracted player.
+The NRL directory is a source-backed current full Premiership player list for following. The canonical refresh queries the official player-data surface for all 17 clubs.
 
 - [NRL clubs](https://www.nrl.com/clubs/) establishes the 17 active club identities and crest provenance.
 - [NRL player directory](https://www.nrl.com/players/?competition=111) establishes the Telstra Premiership player surface.

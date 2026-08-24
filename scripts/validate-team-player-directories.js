@@ -12,8 +12,8 @@ const CANONICAL = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/afl
 const DIRECTORY_SCHEMA = JSON.parse(fs.readFileSync(path.join(ROOT, "schemas/team-player-directory.schema.json"), "utf8"));
 
 const DIRECTORY_SPECS = Object.freeze([
-  { key: "nrl", label: "NRL", directory: "nrl-directory.v1.json", index: "nrl-follow-index.v1.json", schemaVersion: "nrl-directory.v1", indexVersion: "nrl-follow-index.v1", teamPrefix: "team:nrl:", playerPrefix: "competitor:nrl:", profileHost: "www.nrl.com" },
-  { key: "afl", label: "AFL", directory: "afl-directory.v1.json", index: "afl-follow-index.v1.json", schemaVersion: "afl-directory.v1", indexVersion: "afl-follow-index.v1", teamPrefix: "team:afl:", playerPrefix: "competitor:afl:", profileHost: "www.afl.com.au" },
+  { key: "nrl", label: "NRL", directory: "nrl-directory.v1.json", index: "nrl-follow-index.v1.json", schemaVersion: "nrl-directory.v1", indexVersion: "nrl-follow-index.v1", teamPrefix: "team:nrl:", playerPrefix: "competitor:nrl:", profileHost: "www.nrl.com", minimumPlayers:500 },
+  { key: "afl", label: "AFL", directory: "afl-directory.v1.json", index: "afl-follow-index.v1.json", schemaVersion: "afl-directory.v1", indexVersion: "afl-follow-index.v1", teamPrefix: "team:afl:", playerPrefix: "competitor:afl:", profileHost: "www.afl.com.au", minimumPlayers:650 },
 ]);
 
 function readJson(relative){
@@ -41,6 +41,7 @@ function validateDirectory(spec){
   assert.deepEqual(ids(directory.teams).sort(), canonicalTeamIds, `${spec.label} must include every current canonical club using its existing ID`);
   assert(directory.teams.every(team => team.id.startsWith(spec.teamPrefix) && team.active), `${spec.label} team records must be active and use existing IDs`);
   assert(directory.players.every(player => player.id.startsWith(spec.playerPrefix) && player.active), `${spec.label} player IDs must be sport-scoped`);
+  assert(directory.players.length >= spec.minimumPlayers, `${spec.label} must expose its complete current player directory, not a priority shortlist`);
   const teamIds = new Set(ids(directory.teams));
   const sourceIds = new Set(ids(directory.sources));
   assert(directory.sources.every(source => source.sourceType === "official" && /^https:\/\//.test(source.url)), `${spec.label} sources must be official HTTPS records`);

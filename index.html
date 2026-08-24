@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="132">
+<meta name="app-shell-version" content="134">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1720,8 +1720,8 @@ main{
 }
 
 .event-card.is-swipe-eligible.swipe-returning{ transition:transform .26s cubic-bezier(.2,.8,.2,1), border-color .2s ease; }
-.swipe-coaching{ position:absolute; inset:50% 8px auto; z-index:4; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none; color:var(--text); font-size:.68rem; font-weight:900; }
-.swipe-coaching span{ max-width:92px; padding:7px 9px; border:1px solid color-mix(in srgb,var(--text) 18%,transparent); border-radius:999px; background:color-mix(in srgb,var(--bg-card) 72%,transparent); opacity:.62; backdrop-filter:blur(5px); }
+.swipe-coaching{ position:absolute; inset:50% 8px auto; z-index:4; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none; color:#43b9ff; font-size:.85rem; font-weight:900; }
+.swipe-coaching span{ max-width:116px; padding:9px 11px; border:1px solid rgba(67,185,255,.7); border-radius:999px; background:color-mix(in srgb,var(--bg-card) 76%,transparent); opacity:.7; backdrop-filter:blur(5px); }
 .swipe-feedback-overlay{ position:absolute; inset:0; z-index:12; display:grid; place-content:center; gap:8px; padding:18px; background:color-mix(in srgb,var(--bg-card) 82%,transparent); text-align:center; pointer-events:none; animation:swipe-feedback-in .18s ease both; }
 .swipe-feedback-icon{ display:grid; place-items:center; line-height:1; filter:drop-shadow(0 8px 20px rgba(0,0,0,.28)); }
 .swipe-feedback-icon .vector-glyph{ width:4rem; height:4rem; }
@@ -1802,6 +1802,29 @@ main{
   font-weight:800;
   text-transform:lowercase;
 }
+
+.matchup-stage-vs{ position:absolute; left:50%; transform:translateX(-50%); display:grid; place-items:center; gap:3px; align-self:center; }
+.matchup-stage-vs .matchup-vs{ position:static; transform:none; }
+.matchup-stage-badge{ padding:3px 7px; border:1px solid color-mix(in srgb,var(--sport-color) 70%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--sport-color) 13%,var(--bg-card)); color:var(--text); font-size:.58rem; font-weight:950; letter-spacing:.055em; line-height:1; text-transform:uppercase; }
+.follow-reason-tag{ display:inline-flex; align-items:center; width:fit-content; max-width:100%; margin:0 0 8px; padding:5px 9px; border:1px solid color-mix(in srgb,var(--accent) 38%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--accent) 8%,transparent); color:var(--accent); font-size:.66rem; font-weight:850; line-height:1.25; }
+.event-quick-actions{ display:flex; flex-wrap:wrap; gap:7px; margin-left:auto; }
+.event-quick-action{ min-height:34px; display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border:1px solid var(--border); border-radius:999px; background:var(--soft-fill); color:var(--text); font:800 .68rem/1 'DM Sans',sans-serif; text-decoration:none; cursor:pointer; }
+.event-quick-action.primary{ border-color:color-mix(in srgb,var(--accent) 55%,var(--border)); background:color-mix(in srgb,var(--accent) 10%,transparent); }
+.event-quick-action .vector-glyph{ width:14px; height:14px; }
+.follow-view{ width:min(1100px,100%); margin:0 auto; display:grid; gap:16px; }
+.follow-view-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:18px; border:1px solid var(--border); border-radius:18px; background:var(--bg-card); }
+.follow-view-head p{ margin-top:5px; color:var(--text-dim); font-size:.8rem; }
+.follow-sport-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; }
+.follow-sport-card{ min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px; border:1px solid var(--border); border-radius:15px; background:var(--bg-card); color:var(--text); text-align:left; cursor:pointer; }
+.follow-sport-card.active{ border-color:var(--sport-color,var(--accent)); box-shadow:inset 0 0 0 1px var(--sport-color,var(--accent)); }
+.follow-sport-card span{ color:var(--text-dim); font-size:.7rem; font-weight:800; }
+.setup-choice-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:9px; margin-top:10px; }
+.setup-choice{ min-height:58px; display:flex; align-items:center; gap:9px; padding:10px 12px; border:1px solid var(--border); border-radius:13px; background:var(--soft-fill); color:var(--text); font-size:.76rem; font-weight:800; }
+.setup-choice input{ accent-color:var(--accent); }
+.setup-location-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(120px,.35fr); gap:10px; }
+.setup-consent{ margin-top:12px; }
+.setup-consent span{ font-size:.72rem; }
+@media(max-width:640px){ .setup-location-grid{ grid-template-columns:1fr; } .event-quick-actions{ width:100%; margin-left:0; } .event-quick-action{ flex:1; justify-content:center; } }
 
 .matchup-team-logo-slot{
   display:grid;
@@ -1941,7 +1964,7 @@ main{
 }
 
 @media (max-width:620px){
-  .event-card.is-swipe-eligible .swipe-coaching{ display:none; }
+  .event-card.is-swipe-eligible .swipe-coaching{ display:flex; }
   .event-card.is-logo-led-matchup{ min-height:0; padding:7px 9px 9px; }
   .matchup-identity-row{ height:72px; gap:14px; padding-inline:2px; }
   .matchup-team-name-row{ gap:14px; padding-inline:2px; font-size:.77rem; }
@@ -2034,16 +2057,20 @@ main{
 .major-event-card{
   border:1px solid var(--border);
   border-left:4px solid var(--sport-color, var(--accent));
-  border-radius:8px;
+  border-radius:12px;
   background:var(--bg-card);
+  display:block;
+  padding:0;
+  align-items:stretch;
+  gap:0;
   overflow:hidden;
   scroll-margin-top:130px;
   cursor:pointer;
-  transition:border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+  transition:all 0.15s ease;
 }
 .events-feed-card[data-card-state="compact"]{ min-height:0; }
 .major-event-card:focus{ outline:2px solid var(--accent); outline-offset:3px; }
-.major-event-card:hover{ background:var(--bg-card-hover); }
+.major-event-card:hover{ background:var(--bg-card-hover); transform:translateX(2px); }
 .major-event-card.is-selected,
 .major-event-card.is-opened{
   border-color:color-mix(in srgb, var(--sport-color, var(--accent)) 58%, var(--border));
@@ -4391,77 +4418,10 @@ main{
   gap: 16px;
 }
 
-.calendar-sync-status{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:16px;
-  padding-bottom:14px;
-  border-bottom:1px solid var(--border);
-}
-
-.calendar-sync-status strong{
-  display:block;
-  margin-bottom:4px;
-  font-size:0.86rem;
-}
-
-.calendar-sync-status span,
 .utility-help{
   color: var(--text-dim);
   font-size: 0.75rem;
   line-height:1.4;
-}
-
-.calendar-sync-state{
-  flex:0 0 auto;
-  padding:5px 8px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  color: var(--accent);
-  font-size:0.68rem;
-  font-weight:850;
-  white-space:nowrap;
-}
-
-.calendar-sync-field{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  margin-top:16px;
-  color:var(--text-dim);
-  font-size:0.74rem;
-  font-weight:800;
-}
-
-.calendar-sync-url{
-  width:100%;
-  min-height:88px;
-  resize:none;
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:12px;
-  background:var(--bg-card);
-  color:var(--text);
-  font:650 0.72rem/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  overflow-wrap:anywhere;
-}
-
-.calendar-sync-actions{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:10px;
-}
-
-.calendar-sync-actions .btn{
-  text-decoration:none;
-}
-
-@media (max-width:620px){
-  .calendar-sync-status{ flex-direction:column; gap:10px; }
-  .calendar-sync-actions{ align-items:stretch; flex-direction:column-reverse; }
-  .calendar-sync-actions .btn{ width:100%; justify-content:center; }
 }
 
 .field-label{
@@ -5658,7 +5618,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
     </div>
     <div id="startupProgressRing"></div>
-    <p class="startup-progress-copy" id="startupProgressLabel">Preparing your Fixtures feed…</p>
+    <p class="startup-progress-copy" id="startupProgressLabel">Preparing your Feed…</p>
     <button class="startup-sound-enable" id="enableLoadingSoundsBtn" type="button" hidden>Enable loading sounds</button>
   </div>
 </div>
@@ -5678,7 +5638,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn ghost" id="aboutBtn" aria-label="About"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
-      <button class="btn primary" id="calendarSyncBtn" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span> <span class="full-label">Calendar sync</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
@@ -5687,10 +5646,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="feed"><span class="tab-label">Fixtures</span><span class="tab-count" id="feedTabCount">0</span></button>
+    <button class="tab-btn active" data-tab="feed"><span class="tab-label">Feed</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="events"><span class="tab-label">Events</span><span class="tab-count" id="eventsTabCount">0</span></button>
-    <button class="tab-btn" data-tab="standings"><span class="tab-label">Standings &amp; Follow</span><span class="tab-count" id="standingsTabCount">0</span></button>
-    <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Inspector</span></button>
+    <button class="tab-btn" data-tab="follow"><span class="tab-label">Follow</span><span class="tab-count" id="followTabCount">0</span></button>
+    <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Standings &amp; Fixtures</span></button>
   </div>
 </header>
 
@@ -5726,10 +5685,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <section class="tune-sheet" role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle" aria-describedby="tuneSheetDescription">
     <header class="tune-sheet-head">
       <div>
-        <h2 id="tuneSheetTitle">Inspector</h2>
-        <p id="tuneSheetDescription">Drill into every published fixture for one code without changing your feed or saved settings.</p>
+        <h2 id="tuneSheetTitle">Standings &amp; Fixtures</h2>
+        <p id="tuneSheetDescription">Drill into every published fixture and its standings for one code without changing your feed or saved settings.</p>
       </div>
-      <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Inspector">×</button>
+      <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Standings and Fixtures">×</button>
     </header>
     <div class="tune-sheet-body">
       <section class="tune-section" aria-labelledby="tuneBrowseTitle">
@@ -5775,7 +5734,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       </div>
     </div>
     <div class="about-body">
-      <p data-brand-copy="about">nothingsport curates live sport around your tastes, learning from what you follow and rate so the feed gets more useful over time. It surfaces the matches and events most worth your attention, keeps results hidden until you choose to reveal them, and helps you catch major live moments without trawling every fixture. Use Sports followed & Tune in Settings to shape the curated mix, or open Inspector for a read-only code-level fixture drill-down. Built around AEST/AEDT by default, it adapts to other time zones.</p>
+      <p data-brand-copy="about">nothingsport builds your feed from the sports, teams, players and major events you follow. Likes and dislikes are saved as feedback for future recommendations without changing today’s feed. Open Standings &amp; Fixtures for the complete code-level timetable and ladder context.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
     </div>
@@ -5860,8 +5819,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <div class="onboarding-panel utility-panel tune-prompt-panel" role="dialog" aria-modal="true" aria-labelledby="tunePromptTitle">
     <div class="onboarding-head">
       <div>
-        <h2 id="tunePromptTitle">Want to tune that further?</h2>
-        <p>Your feed already learned from the swipe. Froth knobs can deepen that signal from broad sports into teams, players and event families.</p>
+        <h2 id="tunePromptTitle">Refine who you follow?</h2>
+        <p>Your swipe was saved as feedback. Choose teams and players in Follow when you want to sharpen the feed.</p>
       </div>
     </div>
     <div class="onboarding-body">
@@ -5869,7 +5828,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     </div>
     <div class="onboarding-actions">
       <button class="btn ghost" type="button" id="dismissTunePromptBtn">Not now</button>
-      <button class="btn primary" type="button" id="reviewSportsFromTuneBtn">Open Froth knobs</button>
+      <button class="btn primary" type="button" id="reviewSportsFromTuneBtn">Open Follow</button>
     </div>
   </div>
 </div>
@@ -5910,32 +5869,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </div>
 </div>
 
-<div class="modal-backdrop" id="calendarSyncModal" aria-hidden="true">
-  <div class="onboarding-panel utility-panel" role="dialog" aria-modal="true" aria-labelledby="calendarSyncTitle">
-    <div class="onboarding-head">
-      <div>
-        <h2 id="calendarSyncTitle">Calendar sync</h2>
-        <p>Subscribe once. Your followed events and future fixture updates stay connected.</p>
-      </div>
-    </div>
-    <div class="utility-form">
-      <div class="calendar-sync-status">
-        <div><strong>Your customised feed</strong><span id="calendarSyncSummary">Built from your followed events, Froth depth, and providers.</span></div>
-        <span class="calendar-sync-state" id="calendarSyncState">Ready</span>
-      </div>
-      <label class="calendar-sync-field" for="calendarSyncUrl">Subscription URL
-        <textarea class="calendar-sync-url" id="calendarSyncUrl" readonly rows="3"></textarea>
-      </label>
-      <p class="utility-help">Calendar apps poll this address for changes. Reopen Calendar sync after changing your nothingsport preferences to get the updated filter path.</p>
-      <div class="calendar-sync-actions">
-        <button class="btn ghost" type="button" id="closeCalendarSyncBtn">Close</button>
-        <button class="btn ghost" type="button" id="copyCalendarSyncBtn"><span id="copyCalendarSyncLabel">Copy link</span></button>
-        <a class="btn primary" id="subscribeCalendarSyncBtn" href="#"><span data-vector-glyph="ui:calendar"></span> Subscribe in calendar</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script src="config/brand-copy.js"></script>
 <script src="config/vector-assets.js"></script>
 <script src="config/card-identities.js"></script>
@@ -5949,6 +5882,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
+<script src="config/follow-first.js"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
@@ -6025,7 +5959,7 @@ function renderHeaderLoadingIndicator(startupState = loadingController.snapshot(
   const startupActive = document.body.classList.contains("startup-shell-visible") && startupState.phase !== "complete";
   const sessionActive = Boolean(inSessionLoading?.visible && !startupActive);
   const active = startupActive
-    ? { state:startupState, label:"Loading Fixtures" }
+    ? { state:startupState, label:"Loading Feed" }
     : sessionActive
       ? inSessionLoading
       : null;
@@ -6108,14 +6042,14 @@ function updateCalendarDate(){
 function renderLoadingProgress(state = loadingController.snapshot()){
   const startupHost = document.getElementById("startupProgressRing");
   const label = document.getElementById("startupProgressLabel");
-  if (startupHost && LOADING_PROGRESS) startupHost.innerHTML = LOADING_PROGRESS.ringMarkup(state, { label:"Loading Fixtures" });
+  if (startupHost && LOADING_PROGRESS) startupHost.innerHTML = LOADING_PROGRESS.ringMarkup(state, { label:"Loading Feed" });
   if (label){
     label.textContent = state.phase === "failed"
       ? state.error || "The feed is taking longer than expected."
       : state.percent >= 90
-        ? "Finishing your first Fixtures view…"
+        ? "Finishing your first Feed view…"
         : state.percent >= 30
-          ? "Loading your Fixtures feed…"
+          ? "Loading your Feed…"
           : "Preparing your sports profile…";
   }
   renderHeaderLoadingIndicator(state);
@@ -6433,10 +6367,20 @@ function buildMatchupIdentity(ev, displayTitle){
   const versus = document.createElement("span");
   versus.className = "matchup-vs";
   versus.textContent = "v";
+  const stageVersus = document.createElement("span");
+  stageVersus.className = "matchup-stage-vs";
+  const stageLabel = FOLLOW_FIRST?.stageLabel?.(ev) || "";
+  if (stageLabel){
+    const stage = document.createElement("span");
+    stage.className = "matchup-stage-badge";
+    stage.textContent = stageLabel;
+    stageVersus.appendChild(stage);
+  }
+  stageVersus.appendChild(versus);
   const secondTeam = document.createElement("span");
   secondTeam.className = "matchup-team-name";
   secondTeam.textContent = identities[1].label;
-  teamNames.append(firstTeam, versus, secondTeam);
+  teamNames.append(firstTeam, stageVersus, secondTeam);
   identity.append(row, teamNames);
   return identity;
 }
@@ -6527,6 +6471,7 @@ const PREFERENCE_TAXONOMY = globalThis.NOTHINGSPORTS_PREFERENCE_TAXONOMY || null
 const TENNIS_COVERAGE = globalThis.NOTHINGSPORTS_TENNIS_COVERAGE || null;
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
+const FOLLOW_FIRST = globalThis.NOTHINGSPORTS_FOLLOW_FIRST || null;
 const PERSONALISED_FEED = globalThis.NOTHINGSPORTS_PERSONALISED_FEED || null;
 const TEAM_FOLLOW_CATALOGUE = globalThis.NOTHINGSPORTS_TEAM_FOLLOW_CATALOGUE || null;
 const FEED_CONTROLS = globalThis.NOTHINGSPORTS_FEED_CONTROLS || null;
@@ -6581,7 +6526,32 @@ const EVENT_LOCATION_BY_VENUE = [
   [/\bAugusta National Golf Club\b/i, "Augusta"],
   [/\bAll England Club\b/i, "Wimbledon"],
   [/\bSilverstone Circuit\b/i, "Silverstone"],
+  [/\bElland Road\b/i, "Leeds"],
+  [/\b(Emirates Stadium|Tottenham Hotspur Stadium|Stamford Bridge|Craven Cottage|Selhurst Park|Gtech Community Stadium)\b/i, "London"],
+  [/\b(Anfield|Hill Dickinson Stadium)\b/i, "Liverpool"],
+  [/\b(Etihad Stadium|Old Trafford)\b/i, "Manchester"],
+  [/\bSt\. James' Park\b/i, "Newcastle upon Tyne"],
+  [/\bStadium of Light\b/i, "Sunderland"],
+  [/\bVilla Park\b/i, "Birmingham"],
+  [/\bThe City Ground\b/i, "Nottingham"],
+  [/\bThe MKM Stadium\b/i, "Hull"],
+  [/\bPortman Road\b/i, "Ipswich"],
+  [/\bVitality Stadium\b/i, "Bournemouth"],
+  [/\bAmerican Express Stadium\b/i, "Brighton"],
+  [/\bCoventry Building Society Arena\b/i, "Coventry"],
 ];
+
+const LOCALITY_COORDINATES = Object.freeze({
+  sydney:[-33.87, 151.21], melbourne:[-37.81, 144.96], canberra:[-35.28, 149.13],
+  brisbane:[-27.47, 153.03], perth:[-31.95, 115.86], adelaide:[-34.93, 138.60],
+  "gold coast":[-28.02, 153.40], townsville:[-19.26, 146.82], geelong:[-38.15, 144.36],
+  newcastle:[-32.93, 151.78], wollongong:[-34.43, 150.89], leeds:[53.80, -1.55],
+  london:[51.51, -0.13], liverpool:[53.41, -2.99], manchester:[53.48, -2.24],
+  "newcastle upon tyne":[54.98, -1.62], sunderland:[54.91, -1.38], birmingham:[52.49, -1.89],
+  nottingham:[52.95, -1.15], hull:[53.77, -0.33], ipswich:[52.06, 1.15],
+  bournemouth:[50.72, -1.88], brighton:[50.82, -0.14], coventry:[52.41, -1.51],
+  glasgow:[55.86, -4.25], wimbledon:[51.42, -0.21], silverstone:[52.07, -1.02],
+});
 
 const BASE_SPORT_SELECTOR_ENTITIES = (SELECTOR_TAXONOMY.exposedSportNodes?.length
   ? SELECTOR_TAXONOMY.exposedSportNodes
@@ -6627,17 +6597,6 @@ const BROADCASTER_LIBRARY = {
 
 const FUTURE_BROADCASTERS = ["Sky Sports", "Canal+", "Eurosport", "VPN / international access"];
 
-const LOCAL_VENUE_OPTIONS = {
-  "gio-stadium": { label: "Bruce stadium", aliases: ["bruce stadium", "canberra stadium", "gio stadium"] },
-  "manuka-oval": { label: "Manuka Oval", aliases: ["manuka oval", "corroboree group oval"] },
-  "allianz-stadium": { label: "Allianz Stadium", aliases: ["allianz stadium"] },
-  "accor-stadium": { label: "Accor Stadium", aliases: ["accor stadium"] },
-  "sydney-cricket-ground": { label: "Sydney Cricket Ground", aliases: ["sydney cricket ground", "scg"] },
-  "melbourne-cricket-ground": { label: "Melbourne Cricket Ground", aliases: ["melbourne cricket ground", "mcg"] },
-  "marvel-stadium": { label: "Marvel Stadium", aliases: ["marvel stadium"] },
-  "suncorp-stadium": { label: "Suncorp Stadium", aliases: ["suncorp stadium", "brisbane stadium"] },
-};
-
 const SPOILER_FIELDS = {
   score: ["score", "finalScore", "scoreline"],
   outcome: ["outcomeText", "outcome", "result"],
@@ -6652,13 +6611,13 @@ const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 15,
+  version: 16,
   discoveryCatalogueVersion: DISCOVERY_CATALOGUE?.SCHEMA_VERSION || "sports-discovery-catalogue.v1",
   onboardingComplete: false,
   theme: "system",
   showSpoilers: false,
   feedIntent: "balanced",
-  localVenueIds: ["gio-stadium", "manuka-oval"],
+  localVenueIds: [],
   selectedSelectorEntityIds: DEFAULT_FIRST_RUN_SELECTOR_IDS,
   followedSports: DEFAULT_FIRST_RUN_SPORT_KEYS,
   taxonomySelection: null,
@@ -6681,6 +6640,7 @@ const DEFAULT_PREFERENCES = {
   swipeCoaching: {
     dismissedAt: null,
   },
+  followFirst: FOLLOW_FIRST?.migratePreferences?.({})?.followFirst || null,
   pilotMeasurement: {
     enabled: true,
     participationVersion: "pilot-participation.v1",
@@ -6709,8 +6669,6 @@ const DEFAULT_PREFERENCES = {
 };
 
 const FEEDBACK_RECIPIENT = "0437041326";
-const CALENDAR_SYNC_FALLBACK_ORIGIN = "https://nothingsport.vercel.app";
-
 const SCORE_BANDS = {
   minimumStakes: 3,
   topStorylines: { minStakes: 4, maxStakes: 5 },
@@ -6997,6 +6955,7 @@ let codeInspectorManifestLoading = null;
 let codeInspectorChunk = null;
 let codeInspectorChunkLoading = null;
 let codeInspectorTab = "all-fixtures";
+let codeInspectorPlayersExpanded = false;
 let codeInspectorGroup = "";
 let leagueCoveragePromptDismissed = new Set();
 let jointTournamentData = null;
@@ -7424,6 +7383,7 @@ function mergePreferences(saved){
     merged.taxonomySelection = taxonomySelectionForSelectorIds(merged.selectedSelectorEntityIds);
     return merged;
   }
+  saved = FOLLOW_FIRST?.migratePreferences?.(saved) || saved;
   const savedPreferenceVersion = Number(saved.version || 0);
   saved = DISCOVERY_CATALOGUE?.migratePreferences?.(saved) || saved;
   const savedPilotMeasurement = saved.pilotMeasurement && typeof saved.pilotMeasurement === "object" && !Array.isArray(saved.pilotMeasurement)
@@ -7498,7 +7458,9 @@ function mergePreferences(saved){
         ? new Date(saved.swipeCoaching.dismissedAt).toISOString()
         : null,
     },
-    localVenueIds: uniqueArray(saved.localVenueIds || merged.localVenueIds).filter(id => LOCAL_VENUE_OPTIONS[id]),
+    // The retired venue shortlist is deliberately discarded. Follow-first
+    // location is the single local-sport source of truth.
+    localVenueIds: [],
     selectedSelectorEntityIds: migratedSelectorEntityIds,
     followedSports: canonicalSportKeysForSelectorIds(migratedSelectorEntityIds),
     taxonomySelection: taxonomySelectionForSelectorIds(migratedSelectorEntityIds),
@@ -7531,7 +7493,7 @@ function mergePreferences(saved){
     spoilers: preferences.showSpoilers ? "results_visible" : preferences.feedControls?.spoilers,
   }, { showSpoilers: preferences.showSpoilers }) || preferences.feedControls;
   delete preferences.soundtrack;
-  return preferences;
+  return FOLLOW_FIRST?.migratePreferences?.(preferences) || preferences;
 }
 
 function saveActivePreferenceGraph(graph){
@@ -7995,6 +7957,9 @@ let reminderTimers = [];
 startupSessionStateBaseline = currentServerStatePayload();
 if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
 let activeEvents = EVENTS.slice();
+const followFirstOpenId = globalThis.crypto?.randomUUID?.() || `open_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+const preferencesAfterOpen = FOLLOW_FIRST?.registerOpen?.(userPreferences, followFirstOpenId);
+if (preferencesAfterOpen) savePreferences(preferencesAfterOpen);
 if (RATING_SYSTEM){
   const startedRatingPromptState = RATING_SYSTEM.startSession(
     userPreferences.ratingPromptState,
@@ -8458,6 +8423,19 @@ function applyServerState(state){
   }
 }
 
+async function hydrateUserMetaSeed(){
+  if (!serverSyncClient || !serverPersistence.user) return null;
+  const payload = await serverSyncClient.loadMeta();
+  let meta = payload?.meta || null;
+  if (!meta){
+    const created = await serverSyncClient.saveMeta(userPreferences.followFirst.startupMeta);
+    meta = created?.meta || userPreferences.followFirst.startupMeta;
+  }
+  const seeded = FOLLOW_FIRST.applyMetaSeed(userPreferences, meta);
+  if (seeded.changed) savePreferences(seeded.preferences);
+  return meta;
+}
+
 async function bootstrapServerPersistence({ session: sessionHint = undefined, checkStatus = true } = {}){
   if (!serverSyncClient){
     setServerPersistence({ configured: false, state: "local", message: "" });
@@ -8511,6 +8489,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         lastSyncedAt: result.state.updatedAt,
         message: "",
       });
+      await hydrateUserMetaSeed();
       startupSessionStateBaseline = null;
       if (USER_STATE_SYNC.hasChanges(sessionPatch)) await syncCurrentServerState();
     } else {
@@ -8520,6 +8499,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
         updatedAt: null,
       };
       startupSessionStateBaseline = null;
+      await hydrateUserMetaSeed();
       await syncCurrentServerState();
     }
   }catch(error){
@@ -9166,7 +9146,7 @@ function applyServerFeed(payload){
 
 async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
   const interactionStartedAt = feedPerformanceNow();
-  const hydration = startupFunnelFinished ? beginInSessionLoading("Refreshing Fixtures") : null;
+  const hydration = startupFunnelFinished ? beginInSessionLoading("Refreshing Feed") : null;
   const centralRebuildRequested = Boolean(
     serverSyncClient
     && (signedInHint || serverPersistence.user || serverSyncClient.getSession?.())
@@ -9251,7 +9231,7 @@ async function loadNextFeedPage(){
   const publicPage = publicFeedManifest?.pages?.[publicFeedNextPageIndex];
   if (!signedIn && !publicPage) return false;
   feedPageLoading = true;
-  const hydration = beginInSessionLoading("Loading more Fixtures");
+  const hydration = beginInSessionLoading("Loading more Feed cards");
   const interactionStartedAt = feedPerformanceNow();
   let pageLoaded = false;
   try{
@@ -9271,7 +9251,7 @@ async function loadNextFeedPage(){
     pageLoaded = true;
     return true;
   }catch(error){
-    hydration.fail("More Fixtures could not be loaded. Try again.");
+    hydration.fail("More Feed cards could not be loaded. Try again.");
     console.warn("Additional feed page unavailable", error);
     return false;
   }finally{
@@ -9854,7 +9834,6 @@ function eventLearningReferences(ev){
 }
 
 function eventLearningScore(ev){
-  const swipeScore = PREFERENCE_SYSTEM?.learningScore?.(userPreferences?.preferenceGraph, eventLearningReferences(ev)) || 0;
   const action = getEventAction(ev);
   const eventId = String(ev.eventId || ev.id);
   const openedSignal = sessionOpenedEventIds.has(eventId) && !cardViewStates[eventId] ? 2 : 0;
@@ -9862,7 +9841,7 @@ function eventLearningScore(ev){
     + (action.addedToFixtures ? 12 : 0)
     + (action.saved ? 10 : 0)
     + (action.watched ? 6 : 0);
-  return Math.max(-30, Math.min(30, swipeScore + localSignals));
+  return Math.max(-30, Math.min(30, localSignals));
 }
 
 function eventEnrichment(ev){
@@ -10306,24 +10285,48 @@ function normalizeVenueText(value){
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
 
-function matchedLocalVenue(ev){
-  const venueNames = uniqueArray([
-    ev.venue,
-    ev.venueDisplayName,
-    ev.venueSourceName,
-    ev.venueOfficialName,
-  ]).map(normalizeVenueText).filter(Boolean);
-  if (!venueNames.length) return null;
-  for (const id of userPreferences.localVenueIds || []){
-    const option = LOCAL_VENUE_OPTIONS[id];
-    const optionNames = [option?.label, ...(option?.aliases || [])].map(normalizeVenueText).filter(Boolean);
-    if (optionNames.some(alias => venueNames.some(venue => venue.includes(alias) || alias.includes(venue)))) return option;
-  }
-  return null;
+function localityCoordinates(value){
+  const normalized = normalizeVenueText(value);
+  if (!normalized) return null;
+  const match = Object.entries(LOCALITY_COORDINATES)
+    .sort((first, second) => second[0].length - first[0].length)
+    .find(([label]) => normalized === label || normalized.includes(label));
+  return match ? { latitude:match[1][0], longitude:match[1][1] } : null;
+}
+
+function eventCoordinates(ev){
+  const latitude = Number(ev?.latitude ?? ev?.venueLatitude ?? ev?.location?.latitude);
+  const longitude = Number(ev?.longitude ?? ev?.venueLongitude ?? ev?.location?.longitude);
+  if (Number.isFinite(latitude) && Number.isFinite(longitude)) return { latitude, longitude };
+  return localityCoordinates(eventLocationLabel(ev));
+}
+
+function distanceKm(first, second){
+  const radians = degrees => degrees * Math.PI / 180;
+  const earthRadiusKm = 6371;
+  const latitudeDelta = radians(second.latitude - first.latitude);
+  const longitudeDelta = radians(second.longitude - first.longitude);
+  const firstLatitude = radians(first.latitude);
+  const secondLatitude = radians(second.latitude);
+  const haversine = Math.sin(latitudeDelta / 2) ** 2
+    + Math.cos(firstLatitude) * Math.cos(secondLatitude) * Math.sin(longitudeDelta / 2) ** 2;
+  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
 }
 
 function isLocalGame(ev){
-  return Boolean(matchedLocalVenue(ev));
+  const location = userPreferences.followFirst?.location;
+  const selectedCoordinates = Number.isFinite(Number(location?.latitude)) && Number.isFinite(Number(location?.longitude))
+    ? { latitude:Number(location.latitude), longitude:Number(location.longitude) }
+    : localityCoordinates(`${location?.label || ""} ${location?.region || ""}`);
+  const fixtureCoordinates = eventCoordinates(ev);
+  if (selectedCoordinates && fixtureCoordinates){
+    return distanceKm(selectedCoordinates, fixtureCoordinates) <= Math.max(1, Math.min(300, Number(location?.radiusKm) || 20));
+  }
+  const place = normalizeVenueText(location?.label);
+  const region = normalizeVenueText(location?.region);
+  if (!place && !region) return false;
+  const eventPlace = normalizeVenueText([ev.venue, ev.venueDisplayName, eventLocationLabel(ev)].filter(Boolean).join(" "));
+  return Boolean((place && eventPlace.includes(place)) || (region && eventPlace.includes(region)));
 }
 
 function preferredTicketOfferForEvent(ev, { surface = "fixture", localVenueMatched = isLocalGame(ev) } = {}){
@@ -10507,9 +10510,11 @@ function buildEventActionPanel(ev, options = {}){
       });
     }
   } else {
-    const learning = PREFERENCE_SYSTEM?.learningScore?.(userPreferences.preferenceGraph, eventLearningReferences(ev)) || 0;
-    const positive = learning > 0;
-    const negative = learning < 0;
+    const eventId = String(ev.eventId || ev.id);
+    const latestFeedback = [...(userPreferences.followFirst?.feedback?.entries || [])]
+      .reverse().find(entry => entry.eventId === eventId);
+    const positive = latestFeedback?.direction === "positive";
+    const negative = latestFeedback?.direction === "negative";
     makeActionButton("", `thumb-control${positive ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "positive"), {
       pressed: positive,
       ariaLabel: `More like ${ev.name}`,
@@ -11015,7 +11020,7 @@ async function loadCodeInspectorManifest(){
   codeInspectorManifestLoading = fetchJson(CODE_INSPECTOR_MANIFEST_URL, { cache: "default" })
     .then(document => {
       if (document?.schemaVersion !== "code-inspector.v1" || !Array.isArray(document.codes)){
-        throw new Error("Invalid Inspector manifest");
+        throw new Error("Invalid Standings & Fixtures manifest");
       }
       codeInspectorManifest = document;
       return document;
@@ -11090,7 +11095,7 @@ function renderTuneSheetContents(){
     void loadCodeInspectorManifest()
       .then(() => renderTuneSheetContents())
       .catch(error => {
-        console.warn("Inspector manifest unavailable", error);
+        console.warn("Standings & Fixtures manifest unavailable", error);
         list.innerHTML = '<div class="empty-state" style="padding:16px">Code coverage is temporarily unavailable. Your feed and saved choices are unchanged.</div>';
         if (summary) summary.textContent = "Unavailable";
       });
@@ -11118,7 +11123,7 @@ function setTuneSheetModalState(open){
 }
 
 function inspectorPickerHash(){
-  return "#inspector";
+  return "#standings-fixtures";
 }
 
 function openTuneSheet({ pushHistory = true, preserveReturnState = false } = {}){
@@ -11133,6 +11138,7 @@ function openTuneSheet({ pushHistory = true, preserveReturnState = false } = {})
   discoveryTuneInteractionCount = 0;
   renderTuneSheetContents();
   setTuneSheetModalState(true);
+  window.scrollTo({ top:0, behavior:"auto" });
   if (pushHistory && window.location.hash !== inspectorPickerHash()){
     history.pushState({ inspectorPicker: true }, "", inspectorPickerHash());
   }
@@ -11188,13 +11194,27 @@ function inspectorAlwaysShowsAllFixtures(){
 }
 
 function codeInspectorHash(codeId){
-  return `#inspect/${encodeURIComponent(codeId)}`;
+  return `#standings-fixtures/${encodeURIComponent(codeId)}`;
 }
 
 function codeInspectorCodeFromLocation(){
-  const match = String(window.location.hash || "").match(/^#inspect\/(.+)$/);
+  const match = String(window.location.hash || "").match(/^#(?:standings-fixtures|inspect)\/(.+)$/);
   if (!match) return null;
   try{ return decodeURIComponent(match[1]); }catch(_error){ return null; }
+}
+
+async function openStandingsFixturesForEvent(event){
+  const manifest = await loadCodeInspectorManifest();
+  const aliases = { f1:"motorsport", rugby:"rugby-union", fifa:"football", "premier-league":"football", nba:"basketball" };
+  const sportKey = aliases[event?.sportKey || event?.sportId || event?.key] || event?.sportKey || event?.sportId || event?.key;
+  const code = manifest.codes.find(item => item.id === `sport:${sportKey}` || item.slug === sportKey);
+  if (!code){
+    openTuneSheet();
+    showToast("That event’s timetable is not published in Standings & Fixtures yet.");
+    return false;
+  }
+  await openCodeInspector(code.id);
+  return true;
 }
 
 async function loadCodeInspectorChunk(codeId){
@@ -11231,10 +11251,10 @@ function restoreInspectorFeedViewport(returnState){
 
 async function openCodeInspector(codeId, { pushHistory = true } = {}){
   const startedAt = feedPerformanceNow();
-  const hydration = codeInspectorChunk ? null : beginInSessionLoading("Loading Inspector");
+  const hydration = codeInspectorChunk ? null : beginInSessionLoading("Loading Standings & Fixtures");
   const manifest = await loadCodeInspectorManifest();
   if (!manifest.codes.some(code => code.id === codeId)){
-    hydration?.fail("Inspector is unavailable.");
+    hydration?.fail("Standings & Fixtures is unavailable.");
     return;
   }
   if (!activeInspectorCodeId){
@@ -11271,8 +11291,8 @@ async function openCodeInspector(codeId, { pushHistory = true } = {}){
       recordFeedInteraction("inspector_fixture_render", renderStartedAt);
     }
   }catch(error){
-    hydration?.fail("Inspector fixtures could not be loaded. Try again.");
-    console.warn("Inspector fixtures unavailable", error);
+    hydration?.fail("Standings & Fixtures could not be loaded. Try again.");
+    console.warn("Standings & Fixtures unavailable", error);
     if (activeInspectorCodeId === codeId){
       const renderStartedAt = feedPerformanceNow();
       renderAll();
@@ -11323,7 +11343,8 @@ async function syncCodeInspectorFromLocation(){
     if (activeInspectorCodeId !== codeId) await openCodeInspector(codeId, { pushHistory: false });
     return;
   }
-  if (window.location.hash === inspectorPickerHash()){
+  if ([inspectorPickerHash(), "#inspector"].includes(window.location.hash)){
+    if (window.location.hash === "#inspector") history.replaceState(history.state, "", inspectorPickerHash());
     if (activeInspectorCodeId) closeCodeInspector({ restoreViewport: false, preserveReturnState: true });
     openTuneSheet({ pushHistory: false, preserveReturnState: true });
     return;
@@ -11333,7 +11354,7 @@ async function syncCodeInspectorFromLocation(){
 }
 
 async function syncAppRouteFromLocation(){
-  const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || window.location.hash === inspectorPickerHash());
+  const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || [inspectorPickerHash(), "#inspector"].includes(window.location.hash));
   if (inspectorRoute){
     await syncCodeInspectorFromLocation();
     return;
@@ -11393,9 +11414,55 @@ function inspectorFixtureIsResult(fixture){
 }
 
 function inspectorFixtureMatchesTab(fixture){
-  if (codeInspectorTab === "results") return inspectorFixtureIsResult(fixture);
-  if (codeInspectorTab === "worth-watching") return !inspectorFixtureIsResult(fixture) && Number(fixture.expected || 0) >= 7;
+  if (codeInspectorTab === "matches") return (fixture.participantSlots || []).filter(slot => slot.participantId || slot.label).length >= 2;
   return true;
+}
+
+function renderCodeInspectorPlayers(panel, fixtures){
+  const followed = followedStandingsParticipantIds();
+  const players = new Map();
+  fixtures.forEach(fixture => (fixture.participantSlots || []).forEach(slot => {
+    const id = String(slot.participantId || slot.label || "");
+    if (!id) return;
+    const record = players.get(id) || { id, label:slot.label || followedParticipantLabel(id), appearances:0 };
+    record.appearances += 1;
+    players.set(id, record);
+  }));
+  const ordered = [...players.values()].sort((first, second) => (
+    Number(followed.has(second.id)) - Number(followed.has(first.id))
+    || second.appearances - first.appearances
+    || first.label.localeCompare(second.label)
+  ));
+  const visible = codeInspectorPlayersExpanded
+    ? ordered
+    : ordered.filter((player, index) => index < 3 || followed.has(player.id));
+  const list = document.createElement("div");
+  list.className = "code-inspector-fixtures";
+  visible.forEach(player => {
+    const row = document.createElement("article");
+    row.className = "code-inspector-fixture";
+    const copy = document.createElement("div");
+    const title = document.createElement("h4");
+    title.textContent = player.label;
+    const detail = document.createElement("p");
+    detail.textContent = `${player.appearances} published appearance${player.appearances === 1 ? "" : "s"}${followed.has(player.id) ? " · Following" : ""}`;
+    copy.append(title, detail);
+    row.appendChild(copy);
+    list.appendChild(row);
+  });
+  panel.appendChild(list);
+  if (visible.length < ordered.length || codeInspectorPlayersExpanded){
+    const expander = document.createElement("button");
+    expander.type = "button";
+    expander.className = "standings-table-expander";
+    expander.setAttribute("aria-expanded", String(codeInspectorPlayersExpanded));
+    expander.innerHTML = `<span>${codeInspectorPlayersExpanded ? "Top 3 + followed" : "Show all players & teams"}</span>${glyphMarkup("ui:chevron-right")}`;
+    expander.addEventListener("click", () => {
+      codeInspectorPlayersExpanded = !codeInspectorPlayersExpanded;
+      renderCodeInspector();
+    });
+    panel.appendChild(expander);
+  }
 }
 
 function buildCodeInspectorFixture(fixture){
@@ -11484,7 +11551,7 @@ function renderCodeInspector(){
   container.innerHTML = "";
   const code = codeInspectorManifest?.codes?.find(candidate => candidate.id === activeInspectorCodeId);
   if (!code){
-    container.innerHTML = '<div class="empty-state">Loading Inspector…</div>';
+    container.innerHTML = '<div class="empty-state">Loading Standings &amp; Fixtures…</div>';
     return;
   }
   const view = document.createElement("section");
@@ -11506,13 +11573,13 @@ function renderCodeInspector(){
   const title = document.createElement("h2");
   title.textContent = code.label;
   const promise = document.createElement("p");
-  promise.textContent = "Inspector is read-only. Your saved preferences and the feed beneath it remain unchanged.";
+  promise.textContent = "Standings & Fixtures is read-only. Your saved preferences and feed remain unchanged.";
   copy.append(eyebrow, title, promise);
   headingMain.append(identity, copy);
   const back = document.createElement("button");
   back.type = "button";
   back.className = "btn ghost code-inspector-back";
-  back.textContent = "Back to Inspector";
+  back.textContent = "Back to Standings & Fixtures";
   back.addEventListener("click", backFromCodeInspector);
   heading.append(headingMain, back);
   view.appendChild(heading);
@@ -11526,10 +11593,10 @@ function renderCodeInspector(){
   tabs.className = "code-inspector-tabs";
   tabs.setAttribute("role", "tablist");
   const tabDefinitions = [
-    ["all-fixtures", "All Fixtures"],
-    ["worth-watching", "Worth Watching"],
+    ["all-fixtures", "Timetable"],
+    ["matches", "Matches"],
+    ["players", "Players"],
     ["standings", "Standings"],
-    ["results", "Results"],
   ];
   tabDefinitions.forEach(([value, label]) => {
     const tab = document.createElement("button");
@@ -11566,10 +11633,14 @@ function renderCodeInspector(){
     return;
   }
   const fixtures = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab);
+  if (codeInspectorTab === "players"){
+    renderCodeInspectorPlayers(panel, codeInspectorChunk.fixtures || []);
+    return;
+  }
   if (!fixtures.length){
     panel.appendChild(sportHubEmptyState(code.coverageStatus === "unavailable"
       ? `No reliable ${code.label} fixtures are currently published.`
-      : codeInspectorTab === "results" ? "No published results are available yet." : "No fixtures match this view."));
+      : "No fixtures match this view."));
     return;
   }
   const grouped = new Map();
@@ -11628,21 +11699,13 @@ function buildFocusedDiscoveryBanner(nodeId){
   const node = discoveryNodeById(nodeId);
   if (!node) return null;
   const followed = discoverySportIsFollowed(nodeId);
-  const sportKey = node.canonicalSportKeys?.[0] || nodeId.replace(/^sport:/, "");
-  const isCoverageLeague = ["afl", "nrl"].includes(sportKey);
-  const hasFroth = discoverySportHasFroth(nodeId);
-  const promptFroth = followed && isCoverageLeague && !hasFroth && !leagueCoveragePromptDismissed.has(nodeId);
   const banner = document.createElement("aside");
   banner.className = "focused-discovery-banner";
   banner.style.setProperty("--sport-color", node.color || SPORT_META[sportKey]?.color || "var(--accent)");
   const copy = document.createElement("div");
   const detail = !followed
-    ? "You are previewing editorial top picks and story highlights. Follow to keep this sport in your feed."
-    : promptFroth
-      ? `Choose whether ${node.label} should show every fixture or keep only top-pick and story cards.`
-      : isCoverageLeague && !hasFroth
-        ? "Highlights mode is active for this visit. Sport-specific Froth is required for every fixture."
-        : "Focused view is open. Your saved follow and feed intent settings still apply.";
+    ? "Follow this sport, then choose Australian teams and players in Follow to build your Feed."
+    : "Focused view is open. Every surfaced card still comes from a saved follow.";
   copy.innerHTML = `<strong>${node.label}</strong><p>${detail}</p>`;
   const actions = document.createElement("div");
   actions.className = "focused-discovery-actions";
@@ -11659,21 +11722,6 @@ function buildFocusedDiscoveryBanner(nodeId){
     follow.textContent = "Follow";
     follow.addEventListener("click", () => followDiscoverySport(nodeId));
     actions.appendChild(follow);
-  } else if (promptFroth){
-    const keep = document.createElement("button");
-    keep.type = "button";
-    keep.className = "btn ghost";
-    keep.textContent = "Keep highlights";
-    keep.addEventListener("click", () => {
-      leagueCoveragePromptDismissed.add(nodeId);
-      renderAll({ preserveViewport: true });
-    });
-    const froth = document.createElement("button");
-    froth.type = "button";
-    froth.className = "btn primary";
-    froth.textContent = "Set this sport to Froth";
-    froth.addEventListener("click", () => upgradeDiscoverySportToFroth(nodeId));
-    actions.append(keep, froth);
   }
   banner.append(copy, actions);
   return banner;
@@ -11681,6 +11729,19 @@ function buildFocusedDiscoveryBanner(nodeId){
 
 function eventMatchesSportPreferences(ev){
   return (userPreferences.selectedSelectorEntityIds || []).some(entityId => selectorEntityMatchesEvent(entityId, ev));
+}
+
+function followedParticipantLabel(participantId){
+  return canonicalSportsData?.participants?.find(item => item.id === participantId)?.displayName
+    || TEAM_FOLLOW_CATALOGUE?.teamsById?.[participantId]?.displayName
+    || CARD_IDENTITIES?.participantMarks?.[participantId]?.label
+    || String(participantId || "").split(":").at(-1).replace(/-/g, " ");
+}
+
+function eventFollowReason(ev){
+  return FOLLOW_FIRST?.reasonForEvent?.(ev, userPreferences, {
+    participantLabel:followedParticipantLabel,
+  }) || null;
 }
 
 function eventMatchesExplicitSubfilters(ev){
@@ -11692,9 +11753,8 @@ function eventMatchesExplicitSubfilters(ev){
 }
 
 function eventMatchesBroadcasterPreferences(ev){
-  if (!userPreferences.selectedBroadcasters.length) return false;
-  if (!ev.broadcasterIds || !ev.broadcasterIds.length) return true;
-  return ev.broadcasterIds.some(id => userPreferences.selectedBroadcasters.includes(id));
+  void ev;
+  return true;
 }
 
 function eventMatchesTennisFilters(ev){
@@ -11839,37 +11899,8 @@ function eventHasExplicitCoverage(ev){
 }
 
 function eventRecommendationProfile(ev){
-  if (!FEED_CONTROLS){
-    return { classification: "direct", eligible: true, label: null, reasons: ["legacy_fallback"] };
-  }
-  const followLevels = eventParticipantFollowLevels(ev);
-  const competitionDisabled = eventCompetitionPreference(ev)?.enabled === false;
-  const providerEligible = eventMatchesBroadcasterPreferences(ev);
-  const directInterest = providerEligible && (
-    eventUsesFocusedSportFrothOverride(ev)
-    || (eventMatchesSportPreferences(ev) && eventMeetsCoveragePreference(ev))
-    || followLevels.some(level => level === "follow" || level === "priority")
-  );
-  const accessTypes = FEED_CONTROLS.accessTypes(ev);
-  const availability = accessTypes.includes("free") ? "free"
-    : accessTypes.includes("included") ? "included"
-      : accessTypes.includes("ppv") ? "ppv"
-        : "unknown";
-  return FEED_CONTROLS.classifyRecommendation({
-    directInterest,
-    explicitUnfollow: eventHasExplicitUnfollow(ev),
-    competitionDisabled,
-    mutedParticipant: followLevels.includes("mute"),
-    negativeContextCount: PREFERENCE_SYSTEM?.negativeContextCount?.(
-      userPreferences.preferenceGraph,
-      eventLearningReferences(ev)
-    ) || 0,
-    learningScore: eventLearningScore(ev),
-    stakes: Number(ev.stakesScore || stakesScoreForEvent(ev)),
-    australianInterest: Boolean(ev.australianInterest),
-    availability,
-    friendlyWindow: FEED_CONTROLS.friendlyWindow(ev),
-  });
+  const reason = eventFollowReason(ev);
+  return { classification:"direct", eligible:Boolean(reason), label:reason?.label || null, reasons:reason ? [reason.type] : [] };
 }
 
 function eventRecommendationClassification(ev){
@@ -11950,49 +11981,9 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
     && eventMatchesTennisFilters(ev)
     && eventMatchesFifaFilters(ev)
   ));
-  if (activeTab === "feed" && activeFilter !== "all"){
-    const focusedNode = discoveryNodeById(activeFilter);
-    const focusedKey = focusedNode?.canonicalSportKeys?.[0] || String(activeFilter).replace(/^sport:/, "");
-    const followed = discoverySportIsFollowed(activeFilter);
-    const completeLeagueCoverage = !["afl", "nrl"].includes(focusedKey) || discoverySportHasFroth(activeFilter);
-    list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
-    if (!followed || !completeLeagueCoverage){
-      list = list.filter(eventIsEditorialMustShow);
-    }
-    if (!FEED_CONTROLS) return list;
-    const focusedControls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
-    return list.filter(event => (
-      eventMatchesBroadcasterPreferences(event)
-      && FEED_CONTROLS.matchesAvailability(event, focusedControls.availability)
-      && FEED_CONTROLS.matchesTiming(event, focusedControls.timing, reference)
-    ));
-  }
-  if (!FEED_CONTROLS) return list.filter(ev => eventMeetsCoveragePreference(ev));
-  const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
-  const focused = activeFilter !== "all";
-  const candidates = list.map(ev => ({
-    event: ev,
-    profile: eventRecommendationProfile(ev),
-  })).filter(({ event, profile }) => (
-    profile.eligible
-    && eventMatchesBroadcasterPreferences(event)
-    && FEED_CONTROLS.matchesEvent(event, controls, {
-      now: reference,
-      explicitCoverage: eventHasExplicitCoverage(event),
-      followedParticipant: eventParticipantFollowLevels(event).some(level => level === "follow" || level === "priority"),
-      explicitlyAdded: getEventAction(event).addedToFixtures,
-    })
-  ));
-  if (focused) return candidates.map(candidate => candidate.event);
-  const selectedIds = FEED_CONTROLS.selectRecommendationMix(candidates.map(({ event, profile }) => ({
-    id: String(event.eventId || event.id),
-    classification: profile.classification,
-    score: eventEnrichment(event).mustWatchScore,
-    startsAt: eventDateTime(event).getTime(),
-  })), controls);
-  return candidates
-    .filter(({ event }) => selectedIds.has(String(event.eventId || event.id)))
-    .map(candidate => candidate.event);
+  list = list.filter(eventFollowReason);
+  if (activeTab === "feed" && activeFilter !== "all") list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
+  return list;
 }
 
 function getFilteredEvents(){
@@ -12000,18 +11991,6 @@ function getFilteredEvents(){
   list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
   if (activeTab === "feed" && activeFilter === "all"){
     list = list.filter(discoveryEventIncludedForSession);
-  }
-  if (activeTab === "feed" && activeFilter === "all"){
-    if (FEED_CONTROLS){
-      const controls = FEED_CONTROLS.normalize(userPreferences.feedControls, { showSpoilers: userPreferences.showSpoilers });
-      const selectedIds = FEED_CONTROLS.selectRecommendationMix(list.map(event => ({
-        id: String(event.eventId || event.id),
-        classification: eventRecommendationClassification(event),
-        score: eventEnrichment(event).mustWatchScore,
-        startsAt: eventDateTime(event).getTime(),
-      })), controls);
-      list = list.filter(event => selectedIds.has(String(event.eventId || event.id)));
-    }
   }
   if (activeFilter !== "all") list = list.filter(ev => feedFilterMatchesEvent(activeFilter, ev));
   return list;
@@ -12619,7 +12598,7 @@ function recordTunePromptAction(action){
 }
 
 function applyCuratedEventSwipe(ev, direction){
-  if (!PREFERENCE_SYSTEM || !["positive", "negative"].includes(direction)) return;
+  if (!["positive", "negative"].includes(direction)) return;
   const eventId = String(ev.eventId || ev.id);
   const card = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
     .find(candidate => candidate.dataset.eventId === eventId);
@@ -12630,17 +12609,15 @@ function applyCuratedEventSwipe(ev, direction){
     targetId: String(ev.eventId || ev.id),
     label: spoilerSafeDisplayTitle(ev),
   };
-  let graph = PREFERENCE_SYSTEM.applyLearningSignal(userPreferences.preferenceGraph, {
-    targetType: target.targetType,
-    targetId: target.targetId,
-    value: direction === "positive" ? 1 : -1,
-    source: "feed",
-  }, { contextReferences: eventLearningReferences(ev) });
-  const dislikeCount = graph.learning.dislikeCount;
-  const showTunePrompt = direction === "negative" && PREFERENCE_SYSTEM.shouldPromptTune(graph, { now: nowAEST() });
-  if (showTunePrompt) graph = PREFERENCE_SYSTEM.recordTunePrompt(graph, { dislikeCount });
-  const next = clonePreferences(userPreferences);
-  next.preferenceGraph = graph;
+  let next = FOLLOW_FIRST?.appendFeedback?.(userPreferences, {
+    eventId,
+    direction,
+    targetType:target.targetType,
+    targetId:target.targetId,
+  }) || clonePreferences(userPreferences);
+  next.followFirst.refinement.firstSwipeAt ||= new Date().toISOString();
+  const feedbackCount = next.followFirst.feedback.entries.length;
+  const showTunePrompt = FOLLOW_FIRST?.shouldPromptRefinement?.(next) || false;
   if (!next.swipeCoaching?.dismissedAt){
     next.swipeCoaching = { dismissedAt: new Date().toISOString() };
   }
@@ -12673,17 +12650,189 @@ function applyCuratedEventSwipe(ev, direction){
       overlay.remove();
       delete card.dataset.swipeFeedbackActive;
       if (showTunePrompt){
+        const prompted = clonePreferences(userPreferences);
+        prompted.followFirst.refinement.promptedAt = new Date().toISOString();
+        savePreferences(prompted);
         recordProductEvent({
           eventName: "tune_prompt",
           surface: "curated_feed",
-          properties: { action: "shown", dislikeCount },
+          properties: { action: "shown", dislikeCount:feedbackCount },
         });
-        setTunePromptOpen(true, dislikeCount);
+        setTunePromptOpen(true, feedbackCount);
       }
     }, 1400);
   } else if (showTunePrompt){
-    setTunePromptOpen(true, dislikeCount);
+    const prompted = clonePreferences(userPreferences);
+    prompted.followFirst.refinement.promptedAt = new Date().toISOString();
+    savePreferences(prompted);
+    setTunePromptOpen(true, feedbackCount);
   }
+}
+
+function eventReminderTiming(ev){
+  if (ev.startTimeUtc && !Number.isNaN(Date.parse(ev.startTimeUtc))){
+    return { startsAt:new Date(ev.startTimeUtc).toISOString(), fallback:false };
+  }
+  const inferred = eventDateTime(ev);
+  return Number.isNaN(inferred.getTime()) ? null : { startsAt:inferred.toISOString(), fallback:true };
+}
+
+const PUSH_INSTALLATION_STORAGE_KEY = "ns_push_installation_v1";
+
+function pushInstallationCredentials(){
+  const existing = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+  if (existing?.installationId && existing?.secret) return existing;
+  const installationId = globalThis.crypto?.randomUUID?.();
+  const bytes = new Uint8Array(32);
+  globalThis.crypto?.getRandomValues?.(bytes);
+  const secret = Array.from(bytes).map(value => String.fromCharCode(value)).join("");
+  const credentials = {
+    installationId:installationId || `00000000-0000-4000-8000-${Math.random().toString(16).slice(2).padEnd(12, "0").slice(0, 12)}`,
+    secret:btoa(secret).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""),
+  };
+  writeStorage(PUSH_INSTALLATION_STORAGE_KEY, credentials);
+  return credentials;
+}
+
+function vapidApplicationServerKey(value){
+  const padding = "=".repeat((4 - String(value || "").length % 4) % 4);
+  const decoded = atob(`${String(value || "").replace(/-/g, "+").replace(/_/g, "/")}${padding}`);
+  return Uint8Array.from(decoded, character => character.charCodeAt(0));
+}
+
+function iosPushRequiresHomeScreen(){
+  const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const standalone = window.matchMedia?.("(display-mode: standalone)")?.matches || navigator.standalone === true;
+  return isiOS && !standalone;
+}
+
+async function pushServiceWorkerRegistration(){
+  if (!("serviceWorker" in navigator)) throw new Error("Notifications are not supported in this browser.");
+  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add nothingsport to your Home Screen before enabling notifications.");
+  if (!("PushManager" in window) || typeof Notification === "undefined") throw new Error("Web Push is not supported on this device.");
+  const registration = installedServiceWorkerRegistration
+    || await navigator.serviceWorker.register("/service-worker.js");
+  installedServiceWorkerRegistration = registration;
+  return navigator.serviceWorker.ready;
+}
+
+async function ensurePushInstallation(){
+  const registration = await pushServiceWorkerRegistration();
+  const configResponse = await fetch("/api/notifications", { headers:{ Accept:"application/json" }, cache:"no-store" });
+  const config = await configResponse.json().catch(() => ({}));
+  if (!configResponse.ok || !config.configured || !config.publicKey) throw new Error("Notifications are not configured yet.");
+  if (Notification.permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
+  if (Notification.permission === "default"){
+    const permission = await Notification.requestPermission();
+    if (permission !== "granted") throw new Error("Notification permission was not granted.");
+  }
+  let subscription = await registration.pushManager.getSubscription();
+  if (!subscription){
+    subscription = await registration.pushManager.subscribe({
+      userVisibleOnly:true,
+      applicationServerKey:vapidApplicationServerKey(config.publicKey),
+    });
+  }
+  const credentials = pushInstallationCredentials();
+  await serverSyncClient.notificationCommand({
+    action:"register",
+    ...credentials,
+    subscription:subscription.toJSON(),
+    timezone:Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Sydney",
+  }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
+  return { ...credentials, subscription };
+}
+
+async function disablePushInstallation(){
+  const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+  const registration = "serviceWorker" in navigator ? await navigator.serviceWorker.ready.catch(() => null) : null;
+  if (credentials?.installationId && credentials?.secret){
+    await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.()) }).catch(() => null);
+  }
+  const subscription = await registration?.pushManager?.getSubscription?.();
+  await subscription?.unsubscribe?.();
+  localStorage.removeItem(PUSH_INSTALLATION_STORAGE_KEY);
+}
+
+async function ensureWebPushReminder(ev, timing){
+  const installation = await ensurePushInstallation();
+  const viewing = FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []);
+  return serverSyncClient.notificationCommand({
+    action:"remind",
+    installationId:installation.installationId,
+    secret:installation.secret,
+    eventId:String(ev.eventId || ev.id),
+    title:spoilerSafeDisplayTitle(ev),
+    startsAt:timing.startsAt,
+    viewingUrl:viewing?.url || null,
+    fallbackToBroadcast:Boolean(timing.fallback),
+  }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
+}
+
+async function removeWebPushReminder(ev){
+  const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+  if (!credentials) return { cancelled:true };
+  return serverSyncClient.notificationCommand({
+    action:"cancel",
+    ...credentials,
+    eventId:String(ev.eventId || ev.id),
+  }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
+}
+
+async function toggleQuickReminder(ev, button){
+  const timing = eventReminderTiming(ev);
+  if (!timing || Date.parse(timing.startsAt) <= Date.now()) return;
+  const action = getEventAction(ev);
+  const enabled = !action.reminderRequested;
+  button.disabled = true;
+  try{
+    if (enabled) await ensureWebPushReminder?.(ev, timing);
+    else await removeWebPushReminder?.(ev);
+    updateEventAction(ev, { reminderRequested:enabled });
+    recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
+    button.setAttribute("aria-pressed", String(enabled));
+    button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
+    showToast(enabled
+      ? `Reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}.`
+      : "Reminder removed.");
+  }catch(error){
+    showToast(error?.message || "Notifications could not be enabled on this device.");
+  }finally{
+    button.disabled = false;
+  }
+}
+
+function appendEventQuickActions(container, ev){
+  const actions = document.createElement("div");
+  actions.className = "event-quick-actions";
+  const timing = eventReminderTiming(ev);
+  const reminder = document.createElement("button");
+  reminder.type = "button";
+  reminder.className = "event-quick-action primary";
+  reminder.disabled = !timing || Date.parse(timing.startsAt) <= Date.now();
+  reminder.setAttribute("aria-pressed", String(Boolean(getEventAction(ev).reminderRequested)));
+  reminder.title = timing?.fallback
+    ? "15 minutes before the published broadcast time because a kickoff or race start is not available."
+    : "15 minutes before kickoff or race start, not the start of the broadcast.";
+  reminder.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${getEventAction(ev).reminderRequested ? "Reminder on" : "Remind me"}</span>`;
+  reminder.addEventListener("click", event => {
+    event.stopPropagation();
+    void toggleQuickReminder(ev, reminder);
+  });
+  actions.appendChild(reminder);
+  const viewing = FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []);
+  if (viewing){
+    const link = document.createElement("a");
+    link.className = "event-quick-action";
+    link.href = viewing.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.title = `Open ${viewing.label}. Installed apps may open natively; otherwise this opens in your browser.`;
+    link.innerHTML = `${glyphMarkup("ui:external-link", { preferImage:true })}<span>View</span>`;
+    link.addEventListener("click", event => event.stopPropagation());
+    actions.appendChild(link);
+  }
+  container.appendChild(actions);
 }
 
 function buildEventCard(ev, options = {}){
@@ -12794,6 +12943,14 @@ function buildEventCard(ev, options = {}){
 
   const nameWrap = document.createElement("div");
   nameWrap.className = "event-title-stack";
+  const followReason = eventFollowReason(ev);
+  if (activeTab === "feed" && followReason){
+    const reason = document.createElement("span");
+    reason.className = "follow-reason-tag";
+    reason.textContent = followReason.label;
+    nameWrap.appendChild(reason);
+    card.dataset.followReason = followReason.type;
+  }
   if (matchupIdentity) mainDiv.appendChild(matchupIdentity);
   let dateLine = null;
   if (expandable){
@@ -12832,6 +12989,7 @@ function buildEventCard(ev, options = {}){
       });
       dateLine.appendChild(openEvents);
     }
+    appendEventQuickActions(dateLine, ev);
     if (!matchupIdentity) nameWrap.appendChild(dateLine);
   }
   const nameLine = document.createElement("div");
@@ -14492,7 +14650,7 @@ function renderSportHub(){
   promise.className = "sport-hub-promise";
   promise.textContent = fullCoverage
     ? "Curated when you want judgement. Complete when you want to check every fixture."
-    : "Set this sport to Froth to unlock every fixture; highlights stay curated until then.";
+    : "Follow teams and players to add their fixtures to your Feed.";
   heading.append(identity, promise);
   hub.appendChild(heading);
 
@@ -15012,11 +15170,12 @@ function directoryFollowLevel(participantId){
 }
 
 function appendDirectoryFollowOptions(select, current){
-  [["none", "Not followed"], ["follow", "Follow"], ["priority", "Priority"], ["mute", "Mute"]].forEach(([value, label]) => {
+  const normalized = ["follow", "priority"].includes(current) ? "follow" : "none";
+  [["none", "Not followed"], ["follow", "Follow"]].forEach(([value, label]) => {
     const option = document.createElement("option");
     option.value = value;
     option.textContent = label;
-    option.selected = current === value;
+    option.selected = normalized === value;
     select.appendChild(option);
   });
 }
@@ -15182,7 +15341,8 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   const title = document.createElement("strong");
   title.textContent = team.displayName;
   const detail = document.createElement("span");
-  detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} priority player${players.length === 1 ? "" : "s"}`;
+  const playerScope = ["nrl", "afl"].includes(sportKey) ? "current player" : "priority player";
+  detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} ${playerScope}${players.length === 1 ? "" : "s"}`;
   copy.append(title, detail);
   const follow = document.createElement("select");
   follow.className = "football-follow-select";
@@ -15248,7 +15408,12 @@ function renderFootballDirectory(container, {
   directory.appendChild(buildFootballDirectoryToolbar(directoryData, filters, sportKey));
   const summary = document.createElement("p");
   summary.className = "football-directory-summary";
-  summary.textContent = `${filtered.teams.length} club${filtered.teams.length === 1 ? "" : "s"} · ${filtered.players.length} matching player${filtered.players.length === 1 ? "" : "s"}.${directoryData.players.some(player => player.birthCountryCode) ? " Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace." : " Players are a source-backed priority shortlist, not a weekly team list."}`;
+  const directoryNote = ["nrl", "afl"].includes(sportKey)
+    ? " Current official squad list at the directory refresh time."
+    : directoryData.players.some(player => player.birthCountryCode)
+      ? " Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace."
+      : " Players are a source-backed priority shortlist, not a weekly team list.";
+  summary.textContent = `${filtered.teams.length} club${filtered.teams.length === 1 ? "" : "s"} · ${filtered.players.length} matching player${filtered.players.length === 1 ? "" : "s"}.${directoryNote}`;
   directory.appendChild(summary);
   const list = document.createElement("div");
   list.className = "football-club-list";
@@ -15353,11 +15518,124 @@ function renderTeamsAndPlayersDirectory(container){
   else renderLegacyParticipantDirectory(container, session.directorySportKey);
 }
 
+function saveFollowSport(sport, followed){
+  const next = clonePreferences(userPreferences);
+  const selected = new Set(next.selectedSelectorEntityIds || []);
+  if (followed) selected.add(sport.selectorId);
+  else selected.delete(sport.selectorId);
+  next.selectedSelectorEntityIds = Array.from(selected);
+  next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+  next.followFirst.australiansOnlySportIds = followed
+    ? Array.from(new Set([...next.followFirst.australiansOnlySportIds, sport.id]))
+    : next.followFirst.australiansOnlySportIds.filter(id => id !== sport.id);
+  savePreferences(next);
+  renderAll({ preserveViewport:true });
+}
+
+function toggleAussiesOnly(sportId){
+  const next = clonePreferences(userPreferences);
+  const selected = new Set(next.followFirst.australiansOnlySportIds || []);
+  if (selected.has(sportId)) selected.delete(sportId);
+  else selected.add(sportId);
+  next.followFirst.australiansOnlySportIds = Array.from(selected);
+  savePreferences(next);
+  renderAll({ preserveViewport:true });
+}
+
+function toggleMajorEventFollow(eventId){
+  const next = clonePreferences(userPreferences);
+  const selected = new Set(next.followFirst.followedMajorEventIds || []);
+  if (selected.has(eventId)) selected.delete(eventId);
+  else selected.add(eventId);
+  next.followFirst.followedMajorEventIds = Array.from(selected);
+  savePreferences(next);
+  renderAll({ preserveViewport:true });
+}
+
+function renderFollowView(){
+  const container = document.getElementById("listView");
+  container.innerHTML = "";
+  container.className = "follow-view";
+  const head = document.createElement("header");
+  head.className = "follow-view-head";
+  const headCopy = document.createElement("div");
+  const title = document.createElement("h2");
+  title.textContent = "Follow";
+  const detail = document.createElement("p");
+  detail.textContent = "Your Feed is built only from team, player and Aussies Only follows. Likes and dislikes stay feedback-only.";
+  headCopy.append(title, detail);
+  if (userPreferences.followFirst.refinement.deferred && !userPreferences.followFirst.refinement.completedAt){
+    const notice = document.createElement("span");
+    notice.className = "follow-reason-tag";
+    notice.textContent = "Finish setup";
+    head.append(headCopy, notice);
+  } else head.appendChild(headCopy);
+  container.appendChild(head);
+
+  const sportSection = document.createElement("section");
+  sportSection.className = "filter-panel";
+  sportSection.innerHTML = "<h3>Sports & Aussies Only</h3><p class=\"preference-help\">Following a sport also enables Aussies Only by default. Switch either off whenever you like.</p>";
+  const sportGrid = document.createElement("div");
+  sportGrid.className = "follow-sport-grid";
+  FOLLOW_FIRST.STARTUP_SPORTS.forEach(sport => {
+    const followed = userPreferences.followedSports.includes(sport.id);
+    const card = document.createElement("div");
+    card.className = `follow-sport-card${followed ? " active" : ""}`;
+    card.style.setProperty("--sport-color", SPORT_META[sport.id]?.color || "var(--accent)");
+    const follow = document.createElement("button");
+    follow.type = "button";
+    follow.className = "btn ghost";
+    follow.setAttribute("aria-pressed", String(followed));
+    follow.textContent = followed ? `Following ${sport.label}` : `Follow ${sport.label}`;
+    follow.addEventListener("click", () => saveFollowSport(sport, !followed));
+    const aussies = document.createElement("button");
+    const aussiesOn = userPreferences.followFirst.australiansOnlySportIds.includes(sport.id);
+    aussies.type = "button";
+    aussies.className = "btn ghost";
+    aussies.disabled = !followed;
+    aussies.setAttribute("aria-pressed", String(aussiesOn));
+    aussies.textContent = aussiesOn ? "Aussies Only on" : "Aussies Only off";
+    aussies.addEventListener("click", () => toggleAussiesOnly(sport.id));
+    card.append(follow, aussies);
+    sportGrid.appendChild(card);
+  });
+  sportSection.appendChild(sportGrid);
+  container.appendChild(sportSection);
+
+  const events = document.createElement("section");
+  events.className = "filter-panel";
+  events.innerHTML = "<h3>Major events</h3><p class=\"preference-help\">Keep event families handy in Events and future Follow suggestions. They do not bypass Feed eligibility.</p>";
+  const eventGrid = document.createElement("div");
+  eventGrid.className = "setup-choice-grid";
+  FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.forEach(record => {
+    const selected = userPreferences.followFirst.followedMajorEventIds.includes(record.id);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `choice-card${selected ? " selected" : ""}`;
+    button.setAttribute("aria-pressed", String(selected));
+    button.textContent = `${selected ? "✓ " : ""}${record.label}`;
+    button.addEventListener("click", () => toggleMajorEventFollow(record.id));
+    eventGrid.appendChild(button);
+  });
+  events.appendChild(eventGrid);
+  container.appendChild(events);
+
+  const directory = document.createElement("section");
+  directory.className = "filter-panel";
+  directory.innerHTML = "<h3>Teams & players</h3><p class=\"preference-help\">Binary follows only. AFL and NRL use current official squad directories; football is restricted to the current included-league list.</p>";
+  renderTeamsAndPlayersDirectory(directory);
+  container.appendChild(directory);
+}
+
 function renderStandingsContext(options = {}){
   const embedded = Boolean(options.container);
   const container = options.container || document.getElementById("standingsContext");
   if (!container) return;
   container.innerHTML = "";
+  if (!embedded && activeTab === "follow"){
+    renderFollowView();
+    return;
+  }
   if (!embedded && activeTab !== "standings") return;
   const competitions = options.competitions || activeStandingsCompetitions();
   const sectionLabel = options.sectionLabel || "Standings";
@@ -15534,94 +15812,7 @@ function archivedEvents(){
   return Array.from(byId.values());
 }
 
-function calendarSyncConfigForPreferences(preferences = userPreferences){
-  const selectedSelectorIds = new Set(normalizeSelectorEntityIds(preferences?.selectedSelectorEntityIds || []));
-  const commonwealthMappings = (SELECTOR_TAXONOMY.commonwealthDisciplines || []).filter(entity => (
-    (entity.underlyingSportIds || []).some(id => selectedSelectorIds.has(id))
-  ));
-  const allCommonwealthSportIds = uniqueArray((SELECTOR_TAXONOMY.commonwealthDisciplines || [])
-    .flatMap(entity => entity.underlyingSportIds || []));
-  const allCommonwealthDisciplinesSelected = allCommonwealthSportIds.length > 0
-    && allCommonwealthSportIds.every(id => selectedSelectorIds.has(id));
-  const sports = uniqueArray([
-    ...canonicalSportKeysForSelectorIds(preferences?.selectedSelectorEntityIds || []),
-    ...(commonwealthMappings.length ? ["cwg"] : []),
-  ]).sort();
-  const commonwealthSportKeys = new Set(commonwealthMappings.flatMap(entity => (
-    (entity.underlyingSportIds || []).flatMap(id => selectorEntityCanonicalSportKeys(selectorEntityById(id)))
-  )));
-  const addCommonwealthCoverage = keys => uniqueArray([
-    ...keys,
-    ...(keys.some(key => commonwealthSportKeys.has(key)) ? ["cwg"] : []),
-  ]).filter(key => sports.includes(key)).sort();
-  const domainPreferences = preferences?.preferenceGraph?.domainPreferences || [];
-  const allFixtures = addCommonwealthCoverage(uniqueArray(domainPreferences
-    .filter(preference => preference.enabled !== false && preference.includeAllFixtures)
-    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId)))));
-  const majorFollowedSports = addCommonwealthCoverage(uniqueArray(domainPreferences
-    .filter(preference => preference.enabled !== false && preference.includeFollowedTeams)
-    .flatMap(preference => selectorEntityCanonicalSportKeys(selectorEntityById(preference.sportDomainId)))));
-  const entityFollows = preferences?.preferenceGraph?.entityFollows || [];
-  const followedParticipantIds = uniqueArray(entityFollows
-    .filter(preference => ["follow", "priority"].includes(preference.followLevel))
-    .map(preference => preference.participantId))
-    .sort();
-  const mutedParticipantIds = uniqueArray(entityFollows
-    .filter(preference => preference.followLevel === "mute")
-    .map(preference => preference.participantId))
-    .sort();
-  const excludedCompetitionIds = uniqueArray((preferences?.preferenceGraph?.competitionPreferences || [])
-    .filter(preference => preference.enabled === false)
-    .map(preference => preference.competitionId))
-    .sort();
-  const cwgDisciplines = sports.includes("cwg") && !allCommonwealthDisciplinesSelected
-    ? uniqueArray(commonwealthMappings.map(entity => entity.canonicalDiscipline))
-      .sort()
-    : [];
-  const reminderMinutes = Number(preferences?.preferenceGraph?.viewing?.reminderLeadMinutes?.[0] || 60);
-  return {
-    sports,
-    providers: uniqueArray(preferences?.selectedBroadcasters || []).sort(),
-    allFixtures,
-    majorFollowedSports,
-    followedParticipantIds,
-    mutedParticipantIds,
-    excludedCompetitionIds,
-    cwgDisciplines,
-    minStakes: SCORE_BANDS.minimumStakes,
-    reminderMinutes,
-  };
-}
-
-function calendarSyncOrigin(locationLike = globalThis.location){
-  const protocol = String(locationLike?.protocol || "");
-  const hostname = String(locationLike?.hostname || "");
-  if (!/^https?:$/.test(protocol) || ["localhost", "127.0.0.1", "::1"].includes(hostname)){
-    return CALENDAR_SYNC_FALLBACK_ORIGIN;
-  }
-  return String(locationLike.origin || CALENDAR_SYNC_FALLBACK_ORIGIN).replace(/\/$/, "");
-}
-
-function buildCalendarSyncUrl(preferences = userPreferences, locationLike = globalThis.location){
-  const config = calendarSyncConfigForPreferences(preferences);
-  const params = new URLSearchParams();
-  params.set("sports", config.sports.join(","));
-  if (config.providers.length) params.set("providers", config.providers.join(","));
-  if (config.allFixtures.length) params.set("all", config.allFixtures.join(","));
-  if (config.majorFollowedSports.length) params.set("majorFollowed", config.majorFollowedSports.join(","));
-  if (config.followedParticipantIds.length) params.set("follow", config.followedParticipantIds.join(","));
-  if (config.mutedParticipantIds.length) params.set("mute", config.mutedParticipantIds.join(","));
-  if (config.excludedCompetitionIds.length) params.set("excludeCompetition", config.excludedCompetitionIds.join(","));
-  if (config.cwgDisciplines.length) params.set("cwg", config.cwgDisciplines.join(","));
-  params.set("min", String(config.minStakes));
-  params.set("reminder", String(config.reminderMinutes));
-  return `${calendarSyncOrigin(locationLike)}/api/calendar?${params.toString()}`;
-}
-
-function buildCalendarWebcalUrl(preferences = userPreferences, locationLike = globalThis.location){
-  return buildCalendarSyncUrl(preferences, locationLike).replace(/^https?:/, "webcal:");
-}
-
+// Calendar export and subscription sync were removed. Reminders use Web Push.
 function formatFeedbackTimestamp(date = new Date()){
   return new Intl.DateTimeFormat("en-AU", {
     timeZone: "Australia/Sydney",
@@ -15773,14 +15964,14 @@ function buildMajorEventSchedule(record){
     const added = Boolean(action?.addedToFixtures);
     button.disabled = !fixture;
     button.setAttribute("aria-pressed", String(added));
-    button.textContent = fixture ? (added ? "Remove from Fixtures" : "Add to Fixtures") : "Time not confirmed";
+    button.textContent = fixture ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
     if (!fixture) button.title = subEvent.dateLabel
       ? "A concrete drawn match and published start time are required before this schedule item can be added."
       : "A published start time is required before this match can be added.";
     button.addEventListener("click", () => {
       if (!fixture || !setMajorEventFixtureAdded(subEvent, record, !added)) return;
       renderAll({ preserveViewport: true });
-      showToast(added ? `${subEvent.name} removed from Fixtures.` : `${subEvent.name} added to Fixtures.`);
+      showToast(added ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
     });
     row.append(copy, button);
     list.appendChild(row);
@@ -15794,6 +15985,8 @@ function buildMajorEventCard(record){
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   card.className = [
+    "event-card",
+    "mode-events",
     "major-event-card",
     "events-feed-card",
     state === "selected" ? "is-selected" : "",
@@ -15825,6 +16018,16 @@ function buildMajorEventCard(record){
   ticketRow.className = "major-event-ticket-row";
   const ticketLink = buildMajorEventTicketLink(record);
   if (ticketLink) ticketRow.appendChild(ticketLink);
+  appendEventQuickActions(ticketRow, majorEventActionEvent(record));
+  const inspect = document.createElement("button");
+  inspect.type = "button";
+  inspect.className = "event-quick-action";
+  inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Timetable</span>`;
+  inspect.addEventListener("click", event => {
+    event.stopPropagation();
+    void openStandingsFixturesForEvent(record);
+  });
+  ticketRow.appendChild(inspect);
   const expand = document.createElement("button");
   expand.type = "button";
   expand.className = "major-event-expand-control";
@@ -15843,6 +16046,13 @@ function buildMajorEventCard(record){
   const kicker = document.createElement("div");
   kicker.className = "major-event-kicker";
   kicker.textContent = record.kind === "tournament" ? "Tournament" : "Major event";
+  const followReason = eventFollowReason(majorEventActionEvent(record));
+  if (followReason){
+    const reason = document.createElement("span");
+    reason.className = "follow-reason-tag";
+    reason.textContent = followReason.label;
+    identity.appendChild(reason);
+  }
   const title = document.createElement("h3");
   title.textContent = record.name;
   const summary = document.createElement("p");
@@ -15973,7 +16183,7 @@ function buildTicketSaleCard(record){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
-  card.className = ["ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
+  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
   card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.ticketAlertId = record.id;
   card.dataset.cardState = state;
@@ -16214,14 +16424,13 @@ function activateTopLevelTab(nextTab){
   const shouldLoadEvents = activeTab === "events" && !majorEventsDocument && !majorEventsLoading;
   if (shouldLoadEvents) void loadMajorEventsData();
   else renderAll();
-  if (activeTab === "standings") window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
+  window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
 }
 
 /* ============ TABS / VIEW SWITCHING ============ */
 document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
   btn.addEventListener("click", () => {
-    if (btn.dataset.tab === "standings") confirmStandingsReveal(() => activateTopLevelTab("standings"));
-    else activateTopLevelTab(btn.dataset.tab);
+    activateTopLevelTab(btn.dataset.tab);
   });
 });
 document.getElementById("tuneNavBtn").addEventListener("click", () => openTuneSheet());
@@ -16299,6 +16508,10 @@ function renderCurrentSection(){
     renderEventsView();
     return;
   }
+  if (activeTab === "follow"){
+    renderFollowView();
+    return;
+  }
   if (activeTab === "standings"){
     renderStandingsContext();
     return;
@@ -16322,7 +16535,8 @@ function renderTabCounts(){
       })()
     : mainFeedMajorEventMarkers().length;
   document.getElementById("eventsTabCount").textContent = eventsCount;
-  document.getElementById("standingsTabCount").textContent = rankingCompetitionsForStandings().length;
+  document.getElementById("followTabCount").textContent = (userPreferences.preferenceGraph?.entityFollows || [])
+    .filter(item => ["follow", "priority"].includes(item.followLevel)).length;
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
@@ -16334,7 +16548,6 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   renderFeedFilterDock();
   syncFeedFilterDockOffset();
   renderTabCounts();
-  renderStandingsContext();
   const calControls = document.getElementById("calendarControls");
   const preferenceSummary = document.getElementById("preferenceSummary");
   const feedViewToggle = document.getElementById("feedViewToggle");
@@ -16383,6 +16596,13 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = true;
     listView.style.display = "flex";
     renderEventsView();
+  } else if (activeTab === "follow"){
+    calControls.style.display = "none";
+    preferenceSummary.style.display = "none";
+    feedViewToggle.style.display = "none";
+    jumpTodayBtn.hidden = true;
+    listView.style.display = "grid";
+    renderFollowView();
   } else {
     preferenceSummary.style.display = "none";
     feedViewToggle.style.display = "none";
@@ -16553,7 +16773,7 @@ function toggleSelectorEntityInDraft(entityId){
   syncDraftSelectorSports();
 }
 
-const ONBOARDING_SECTIONS = ["sports", "viewing"];
+const ONBOARDING_SECTIONS = ["startup"];
 
 function calibrationProcessedTargetKeys(graph){
   const learning = graph?.learning || {};
@@ -17108,7 +17328,7 @@ function renderAccountSettings(body){
             ? accountSyncTimeLabel(serverPersistence.lastSyncedAt)
             : state === "error"
               ? (serverPersistence.message || "Your local copy is active while sync recovers.")
-              : (serverPersistence.message || "Sign in with one of the accounts approved for the closed pilot.");
+              : (serverPersistence.message || "Sign in, or create a verified account with your lightweight Feed setup.");
 
   body.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
@@ -17116,7 +17336,7 @@ function renderAccountSettings(body){
         <span class="account-sync-dot${dotClass}" aria-hidden="true"></span>
         <div><strong>${heading}</strong><span id="accountSyncDetail"></span></div>
       </div>
-      <p class="preference-help">Preferences, followed teams and competitors, saved Archive cards, results, standings and Calendar sync settings follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable feed cards stay local and rebuild from source data.</p>
+      <p class="preference-help">Preferences, followed teams and players, saved Archive cards, results, standings, subscriptions and notification choices follow your account. Sync first loads the newest account state, then uploads only choices changed in this session. Disposable Feed cards stay local and rebuild from source data.</p>
       <div id="accountSyncControls"></div>
     </div>
   </div>`;
@@ -17217,8 +17437,13 @@ function renderAccountSettings(body){
       <span><strong>Keep me signed in on this device</strong>Stores a rotating Supabase session locally after sign-in. Nothingsport does not save your password.</span>
     </label>
     <button class="btn primary" type="submit">Sign in</button>
+    <button class="btn ghost" type="button" id="createAccountBtn">Create account</button>
     <button class="btn ghost" type="button" id="forgotPasswordBtn">Forgot password?</button>
   </form>`;
+  document.getElementById("createAccountBtn").addEventListener("click", () => {
+    closeSettings({ restoreViewport:false });
+    openSettings({ firstRun:true });
+  });
   document.getElementById("forgotPasswordBtn").addEventListener("click", () => {
     accountRecoveryRequestOpen = true;
     renderSettingsScreen();
@@ -17379,17 +17604,12 @@ function renderPilotSettings(body){
 }
 
 function renderSettingsMenu(body){
-  const viewing = draftPreferences.preferenceGraph?.viewing;
-  const viewingHourLabel = hour => `${Number(hour) % 12 || 12}${Number(hour) < 12 ? "am" : "pm"}`;
-  const viewingWindowLabel = viewing?.viewingWindowEnabled
-    ? `${viewingHourLabel(viewing.startHourLocal)}–${viewingHourLabel(viewing.endHourLocal)} window`
-    : "Any time";
   body.innerHTML = `<div class="settings-menu">
-    ${settingsMenuItem("account", "ui:radio", "Account & sync", accountSettingsSummary())}
-    ${settingsMenuItem("sports", "ui:filter", "Sports followed & Tune", `${draftPreferences.selectedSelectorEntityIds.length} followed sport choices`)}
-    ${settingsMenuItem("viewing", "ui:bell", "Viewing & reminders", `${draftPreferences.selectedBroadcasters.length} providers · ${viewingWindowLabel}`)}
-    ${settingsMenuItem("privacy", "ui:map-pin", "Local venues", `${draftPreferences.localVenueIds.length} local venue${draftPreferences.localVenueIds.length === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("feedback", "ui:message", "Feedback & appearance", "Feedback, app appearance and optional pilot details")}
+    ${settingsMenuItem("account", "ui:radio", "Account", accountSettingsSummary())}
+    ${settingsMenuItem("subscriptions", "ui:watch", "Subscriptions", `${draftPreferences.followFirst.subscriptions.length} preferred viewing service${draftPreferences.followFirst.subscriptions.length === 1 ? "" : "s"}`)}
+    ${settingsMenuItem("notifications", "ui:bell", "Notifications", draftPreferences.followFirst.notifications.enabled ? "15 minutes before kickoff or race start" : "Off")}
+    ${settingsMenuItem("location", "ui:map-pin", "Set location", draftPreferences.followFirst.location.label || "Not set")}
+    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to nothingsport")}
   </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   bindSettingsMenuNavigation(body);
   document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
@@ -17414,6 +17634,81 @@ function renderSettingsMenu(body){
     button.disabled = false;
     showToast(status.textContent);
   });
+}
+
+function renderSubscriptionSettings(body){
+  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Subscriptions</h3><p class="preference-help">These choices only order View links. They never decide which cards appear in Feed.</p><div class="setup-choice-grid" id="subscriptionGrid"></div></section></div>`;
+  const selected = new Set(draftPreferences.followFirst.subscriptions || []);
+  const grid = document.getElementById("subscriptionGrid");
+  Object.entries(FOLLOW_FIRST.VIEWING_PROVIDERS).forEach(([id, provider]) => {
+    const label = document.createElement("label");
+    label.className = "setup-choice";
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = selected.has(id);
+    input.addEventListener("change", () => {
+      if (input.checked) selected.add(id); else selected.delete(id);
+      draftPreferences.followFirst.subscriptions = Array.from(selected);
+    });
+    label.append(input, document.createTextNode(provider.label));
+    grid.appendChild(label);
+  });
+}
+
+function renderNotificationSettings(body){
+  const enabled = draftPreferences.followFirst.notifications.enabled;
+  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Notifications</h3><p class="preference-help">Reminders default to 15 minutes before kickoff or race start. A published broadcast time is used only when the sporting start is unavailable, and the card tells you when that fallback applies.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn notifications off" : "Enable notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${enabled ? "Enabled on this installation." : "On iPhone and iPad, install nothingsport to the Home Screen first. Web Push requires iOS/iPadOS 16.4 or later."}</p></section></div>`;
+  document.getElementById("notificationPermissionBtn").addEventListener("click", async () => {
+    const status = document.getElementById("notificationPermissionStatus");
+    if (enabled){
+      await disablePushInstallation().catch(() => null);
+      draftPreferences.followFirst.notifications.enabled = false;
+      status.textContent = "Notifications will be disabled when you save.";
+      renderSettingsScreen();
+      return;
+    }
+    status.textContent = "Requesting system permission…";
+    try{
+      await ensurePushInstallation();
+      draftPreferences.followFirst.notifications.enabled = true;
+      draftPreferences.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+      renderSettingsScreen();
+    }catch(error){ status.textContent = error.message || "Notification permission was not granted."; }
+  });
+}
+
+function renderLocationSettings(body){
+  const location = draftPreferences.followFirst.location;
+  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Set location</h3><p class="preference-help">Search for a city, postcode or area, or use permissioned system location. Use Travel mode for a temporary local Feed while you are away.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="settingsLocationQuery" type="search" value="${String(location.label || "").replace(/"/g, "&quot;")}" maxlength="120" placeholder="e.g. Leeds"></label><label class="field-label">Radius<select id="settingsLocationRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><label class="viewing-toggle"><input id="travelLocationMode" type="checkbox" ${location.mode === "travel" ? "checked" : ""}><span><strong>Temporary travel location</strong>Use this area until you switch Travel mode off.</span></label><div class="account-sync-actions"><button class="btn primary" type="button" id="settingsFindLocationBtn">Update location</button><button class="btn ghost" type="button" id="settingsUseCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="settingsLocationStatus">${location.label ? `${location.label} · ${location.radiusKm} km` : "No location set."}</p></section></div>`;
+  const applyLocation = value => {
+    draftPreferences.followFirst.location = FOLLOW_FIRST.normalizeLocation({ ...value, radiusKm:Number(document.getElementById("settingsLocationRadius").value), mode:document.getElementById("travelLocationMode").checked ? "travel" : value.mode });
+    draftPreferences.followFirst.startupMeta = FOLLOW_FIRST.normalizeMeta({ ...draftPreferences.followFirst.startupMeta, location:draftPreferences.followFirst.location });
+  };
+  document.getElementById("settingsFindLocationBtn").addEventListener("click", async () => {
+    const status = document.getElementById("settingsLocationStatus");
+    status.textContent = "Finding that area…";
+    try{
+      const response = await fetch(`/api/location?q=${encodeURIComponent(document.getElementById("settingsLocationQuery").value.trim())}`);
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error);
+      applyLocation(payload.location);
+      status.textContent = `${payload.location.label} will be used when you save.`;
+    }catch(error){ status.textContent = error.message || "That location could not be found."; }
+  });
+  document.getElementById("settingsUseCurrentLocationBtn").addEventListener("click", async () => {
+    try{
+      if (!navigator.geolocation) throw new Error("Location is not supported on this device.");
+      const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy:false, timeout:10000, maximumAge:300000 }));
+      const latitude = Number(position.coords.latitude.toFixed(2));
+      const longitude = Number(position.coords.longitude.toFixed(2));
+      const response = await fetch(`/api/location?lat=${latitude}&lng=${longitude}`);
+      const payload = await response.json();
+      applyLocation(payload.location || { label:"Current area", latitude, longitude, source:"system" });
+      document.getElementById("settingsLocationStatus").textContent = `${draftPreferences.followFirst.location.label} will be used when you save.`;
+    }catch(error){ document.getElementById("settingsLocationStatus").textContent = error.message || "Location permission was not granted."; }
+  });
+  document.getElementById("settingsLocationRadius").addEventListener("change", () => applyLocation(draftPreferences.followFirst.location));
+  document.getElementById("travelLocationMode").addEventListener("change", () => applyLocation(draftPreferences.followFirst.location));
 }
 
 function renderArchiveSettings(body){
@@ -17441,371 +17736,6 @@ function renderArchiveSettings(body){
     section.appendChild(grid);
     list.appendChild(section);
   });
-}
-
-function sportsFollowedTabsMarkup(){
-  return `<div class="sports-followed-tabs" role="tablist" aria-label="Sports followed and Tune">
-    <button class="sports-followed-tab${sportsFollowedTab === "sports" ? " active" : ""}" type="button" role="tab" aria-selected="${sportsFollowedTab === "sports"}" data-sports-followed-tab="sports">Sports</button>
-    <button class="sports-followed-tab${sportsFollowedTab === "froth" ? " active" : ""}" type="button" role="tab" aria-selected="${sportsFollowedTab === "froth"}" data-sports-followed-tab="froth">Froth knobs</button>
-  </div>`;
-}
-
-function bindSportsFollowedTabs(root){
-  root.querySelectorAll("[data-sports-followed-tab]").forEach(button => {
-    button.addEventListener("click", () => {
-      sportsFollowedTab = button.dataset.sportsFollowedTab;
-      renderSettingsScreen();
-    });
-  });
-}
-
-function updateDraftFeedControl(key, value){
-  if (!FEED_CONTROLS) return;
-  draftPreferences.feedControls = FEED_CONTROLS.normalize({ ...draftPreferences.feedControls, [key]: value }, {
-    showSpoilers: draftPreferences.showSpoilers,
-  });
-  if (key === "scope") draftPreferences.feedIntent = feedIntentForScope(draftPreferences.feedControls.scope);
-}
-
-function renderDraftFeedControls(container){
-  const controls = FEED_CONTROLS.normalize(draftPreferences.feedControls, { showSpoilers: draftPreferences.showSpoilers });
-  const definitions = [
-    ["scope", "Feed intent", [["following", "Focused"], ["for_you", "Balanced"], ["explore", "Discovery"]]],
-    ["availability", "Availability", [["any", "Any"], ["free", "Free"], ["included", "Included"], ["ppv", "PPV"]]],
-    ["timing", "Timing", [["any", "Any time"], ["live_now", "Live now"], ["tonight", "Tonight"], ["this_week", "This week"], ["overnight", "Overnight OK"]]],
-    ["stakes", "Stakes", [["everything", "Everything"], ["important", "Important"], ["top_picks", "Top picks"]]],
-  ];
-  definitions.forEach(([key, label, values]) => {
-    const control = document.createElement("label");
-    control.className = "feed-control";
-    const copy = document.createElement("span");
-    copy.textContent = label;
-    const select = document.createElement("select");
-    select.setAttribute("aria-label", `${label} feed control`);
-    values.forEach(([optionValue, optionLabel]) => {
-      const option = document.createElement("option");
-      option.value = optionValue;
-      option.textContent = optionLabel;
-      option.selected = controls[key] === optionValue;
-      select.appendChild(option);
-    });
-    select.addEventListener("change", () => updateDraftFeedControl(key, select.value));
-    control.append(copy, select);
-    container.appendChild(control);
-  });
-}
-
-function applyDraftFineTuneChoice(target, value){
-  if (!target || !PREFERENCE_SYSTEM || ![-1, 1].includes(value)) return;
-  const current = FINE_TUNING?.selectedValue?.(draftPreferences.preferenceGraph, target) || 0;
-  if (current === value) return;
-  draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.applyTuningSignal(draftPreferences.preferenceGraph, {
-    targetType: target.targetType,
-    targetId: target.targetId,
-    value,
-  }, { domainId: target.domainId });
-  renderSettingsScreen();
-}
-
-function renderDraftFineTuning(container){
-  const sections = FINE_TUNING?.sections || [];
-  if (!sections.length){
-    container.innerHTML = '<div class="empty-state">Competition, team and player tuning is temporarily unavailable.</div>';
-    return;
-  }
-  sections.forEach(section => {
-    const wrapper = document.createElement("section");
-    wrapper.className = "filter-panel";
-    const heading = document.createElement("div");
-    heading.className = "tune-section-copy";
-    heading.innerHTML = `<h3>${section.title}</h3><p class="preference-help">${section.detail} These choices affect curated ranking only.</p>`;
-    const grid = document.createElement("div");
-    grid.className = "tune-card-grid";
-    section.targets.forEach(target => {
-      const value = FINE_TUNING.selectedValue(draftPreferences.preferenceGraph, target);
-      const card = document.createElement("article");
-      card.className = "tune-card";
-      card.dataset.tuneTarget = FINE_TUNING.targetKey(target);
-      card.innerHTML = `<span class="tune-card-glyph" aria-hidden="true">${glyphMarkup(target.glyph, { preferImage: true })}</span><strong>${target.label}</strong><span class="tune-card-copy">${target.detail}</span><span class="tune-card-actions"><button class="tune-choice${value === -1 ? " selected" : ""}" type="button" data-tune-value="-1" aria-pressed="${value === -1}">Less</button><button class="tune-choice${value === 1 ? " selected" : ""}" type="button" data-tune-value="1" aria-pressed="${value === 1}">More</button></span>`;
-      card.querySelectorAll("[data-tune-value]").forEach(button => {
-        button.addEventListener("click", () => applyDraftFineTuneChoice(target, Number(button.dataset.tuneValue)));
-      });
-      grid.appendChild(card);
-    });
-    wrapper.append(heading, grid);
-    container.appendChild(wrapper);
-  });
-}
-
-function renderFrothKnobsSettings(content){
-  content.innerHTML = `<div class="preference-stack">
-    <section class="filter-panel"><h3>Global Feed intent</h3><p class="preference-help">Choose the overall balance for the curated feed. Nothing is written until Save &amp; close.</p><div class="draft-feed-controls" id="draftFeedControls"></div></section>
-    <section class="filter-panel"><div class="froth-help-heading"><h3>Per-sport Froth</h3><button class="froth-help-button" type="button" id="frothHelpButton" aria-label="What does Froth mean?" aria-expanded="${frothHelpExpanded}" aria-controls="frothHelpCopy">?</button></div>
-      <div class="froth-help-copy" id="frothHelpCopy" ${frothHelpExpanded ? "" : "hidden"}><strong>Froth represents enthusiasm for a sport.</strong><ul><li>Casual keeps the biggest moments.</li><li>Like adds strong fixtures and followed teams.</li><li>Froth includes every available fixture for that sport in the curated feed.</li></ul><p>Inspector always shows All Fixtures, whatever the Froth setting.</p></div>
-      <p class="preference-help">Tune each followed sport without changing which sports you follow.</p><div class="froth-knob-list" id="frothKnobList"></div>
-    </section>
-    <div id="draftFineTuning"></div>
-  </div>`;
-  renderDraftFeedControls(document.getElementById("draftFeedControls"));
-  document.getElementById("frothHelpButton").addEventListener("click", () => {
-    frothHelpExpanded = !frothHelpExpanded;
-    renderSettingsScreen();
-    document.getElementById("frothHelpButton")?.focus({ preventScroll: true });
-  });
-  const knobList = document.getElementById("frothKnobList");
-  const domainIds = selectedPreferenceDomainIds(draftPreferences)
-    .filter(domainId => preferenceDomainById(domainId));
-  if (!domainIds.length){
-    knobList.innerHTML = '<div class="empty-state">Follow a sport in the Sports tab to add its Froth knob.</div>';
-  } else {
-    domainIds.forEach(domainId => {
-      const wrapper = document.createElement("div");
-      wrapper.innerHTML = inlineFrothControlMarkup(domainId);
-      knobList.appendChild(wrapper.firstElementChild);
-    });
-    bindInlineFrothControls(knobList);
-  }
-  renderDraftFineTuning(document.getElementById("draftFineTuning"));
-}
-
-function renderSportsSettings(body){
-  syncDraftPreferenceGraph();
-  body.innerHTML = `${wizardProgressMarkup()}${sportsFollowedTabsMarkup()}<div id="sportsFollowedContent"></div>`;
-  bindSportsFollowedTabs(body);
-  const content = document.getElementById("sportsFollowedContent");
-  if (sportsFollowedTab === "froth"){
-    renderFrothKnobsSettings(content);
-    return;
-  }
-
-  content.innerHTML = `<div class="preference-stack">
-    <div class="filter-panel">
-      <h3>Sports Followed</h3>
-      <p class="preference-help">Follow or unfollow sports here. Named tournaments and marquee events map to their underlying sport instead of becoming separate follow choices.</p>
-      <p class="preference-help">Editorial top picks and story highlights can still appear when you do not follow their sport; following controls the regular coverage around those highlights.</p>
-      ${selectionActionsMarkup("sports-global", "Sports")}
-      <div class="selector-category-list" id="selectorCategoryList" aria-label="Top-level selector categories"></div>
-    </div>
-    <div class="filter-panel" id="selectorChildrenPanel"></div>
-  </div>`;
-
-  const categoryList = document.getElementById("selectorCategoryList");
-  orderSelectorEntities(SELECTOR_TAXONOMY.categories || []).forEach(category => {
-    const row = document.createElement("div");
-    row.className = "selector-category-row";
-    const active = settingsSelectorCategory === category.id;
-    const selected = draftPreferences.selectedSelectorEntityIds.includes(category.id);
-    row.innerHTML = `<button class="selector-category-button${active ? " active" : ""}" type="button" data-open-selector-category="${category.id}" aria-current="${active ? "true" : "false"}">
-      <span aria-hidden="true">${glyphMarkup(category.glyph || "ui:filter")}</span><span class="choice-title">${selectorNewMarkerMarkup(category)}<span>${category.label}</span></span>
-    </button><button class="selector-follow-button${selected ? " selected" : ""}" type="button" data-follow-selector-category="${category.id}" aria-pressed="${selected ? "true" : "false"}">${selected ? "Following all" : "Follow all"}</button>`;
-    categoryList.appendChild(row);
-  });
-  categoryList.querySelectorAll("[data-open-selector-category]").forEach(button => {
-    button.addEventListener("click", () => {
-      settingsSelectorCategory = button.dataset.openSelectorCategory;
-      renderSettingsScreen();
-    });
-  });
-  categoryList.querySelectorAll("[data-follow-selector-category]").forEach(button => {
-    button.addEventListener("click", () => {
-      toggleSelectorEntityInDraft(button.dataset.followSelectorCategory);
-      renderSettingsScreen();
-    });
-  });
-
-  const childPanel = document.getElementById("selectorChildrenPanel");
-  if (settingsSelectorCategory === "category:special-events"){
-    childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Special Events</h3><div class="selector-path">Level 1 › Level 2 event groups</div></div>${selectionActionsMarkup("special-events", "Special Events")}</div><p class="preference-help">Marquee event groups map back to canonical events; no fixture is copied to appear here.</p><div class="choice-grid" id="specialEventGrid"></div><div class="filter-panel" id="commonwealthFilters"><div class="selector-section-heading"><div><h4>Commonwealth Games sport filters</h4><div class="selector-path">Special Events › Commonwealth Games › Level 3</div></div></div><p class="preference-help">Fixed Australian broadcast-priority order. Miscellaneous is permanently reserved at slot 10.</p><div class="commonwealth-filter-list" id="commonwealthFilterList"></div></div>`;
-    const specialGrid = document.getElementById("specialEventGrid");
-    orderSelectorEntitiesForDisplay(SELECTOR_TAXONOMY.specialEvents || [], draftPreferences).forEach(entity => {
-      const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
-      const wrapper = document.createElement("div");
-      wrapper.className = "selector-choice-stack";
-      wrapper.style.setProperty("--choice-color", SPORT_META[entity.canonicalSportKeys?.[0]]?.color || "var(--accent)");
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `choice-card selector-entity-card ${selected ? "selected followed" : "unfollowed"}`;
-      btn.dataset.selectorEntity = entity.id;
-      btn.style.setProperty("--choice-color", SPORT_META[entity.canonicalSportKeys?.[0]]?.color || "var(--accent)");
-      btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}${glyphMarkup(entity.glyph)}<span>${entity.label}</span><span class="follow-state">${selected ? "Following" : "Follow"}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
-      btn.addEventListener("click", () => {
-        handleSelectorDomainToggle(entity.id);
-        renderSettingsScreen();
-      });
-      wrapper.appendChild(btn);
-      specialGrid.appendChild(wrapper);
-    });
-
-    const commonwealthList = document.getElementById("commonwealthFilterList");
-    (SELECTOR_TAXONOMY.commonwealthDisciplines || []).slice().sort((a, b) => a.lockedSlot - b.lockedSlot).forEach(entity => {
-      const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `commonwealth-filter-row${selected ? " selected" : ""}`;
-      btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.innerHTML = `<span class="commonwealth-rank">${entity.lockedSlot}</span><span class="commonwealth-filter-label">${selectorNewMarkerMarkup(entity)}<span>${entity.label}</span></span><span class="commonwealth-lock">${entity.lockedSlot === 10 ? "Locked #10" : ""}</span>`;
-      btn.addEventListener("click", () => {
-        toggleSelectorEntityInDraft(entity.id);
-        renderSettingsScreen();
-      });
-      commonwealthList.appendChild(btn);
-    });
-    bindSelectionActions(
-      body,
-      "special-events",
-      () => setDraftSelectorCategory("category:special-events", true),
-      () => clearSelectorCategoryFromDraft("category:special-events")
-    );
-  } else {
-    childPanel.innerHTML = `<div class="selector-section-heading"><div><h3>Sports</h3><div class="selector-path">Level 1 › Level 2 sports and competitions</div></div></div><p class="preference-help">Choose the sports and competitions that belong in your feeds.</p><div class="choice-grid" id="sportsChoiceGrid"></div>`;
-    const grid = document.getElementById("sportsChoiceGrid");
-    orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES, draftPreferences)
-      .filter(entity => entity.parentId === "category:sports")
-      .forEach(entity => {
-      const selected = selectorEntityIsEffectivelySelected(entity.id, draftPreferences);
-      const wrapper = document.createElement("div");
-      wrapper.className = "selector-choice-stack";
-      wrapper.style.setProperty("--choice-color", entity.color);
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `choice-card selector-entity-card ${selected ? "selected followed" : "unfollowed"}`;
-      btn.dataset.selectorEntity = entity.id;
-      btn.style.setProperty("--choice-color", entity.color);
-      btn.setAttribute("aria-pressed", selected ? "true" : "false");
-      btn.innerHTML = `<div class="choice-title">${selectorNewMarkerMarkup(entity)}${glyphMarkup(entity.glyph)}<span>${entity.label}</span><span class="follow-state">${selected ? "Following" : "Follow"}</span></div><span class="selector-path">${entity.path.join(" › ")}</span><div class="choice-detail">${entity.detail}</div>`;
-      btn.addEventListener("click", () => {
-        handleSelectorDomainToggle(entity.id);
-        renderSettingsScreen();
-      });
-      wrapper.appendChild(btn);
-      grid.appendChild(wrapper);
-      const parentTemplate = preferenceDomainById(entity.id)?.templateId;
-      const revealChildren = selected && ["template:like", "template:froth", "template:custom"].includes(parentTemplate);
-      if (revealChildren){
-        (entity.childIds || []).forEach(childId => {
-          const child = selectorEntityById(childId);
-          if (!child) return;
-          const childSelected = selectorEntityIsEffectivelySelected(child.id, draftPreferences);
-          const childWrapper = document.createElement("div");
-          childWrapper.className = "selector-choice-stack selector-child-choice";
-          childWrapper.style.setProperty("--choice-color", child.color || entity.color);
-          const childButton = document.createElement("button");
-          childButton.type = "button";
-          childButton.className = `choice-card selector-entity-card ${childSelected ? "selected followed" : "unfollowed"}`;
-          childButton.dataset.selectorEntity = child.id;
-          childButton.setAttribute("aria-pressed", childSelected ? "true" : "false");
-          childButton.innerHTML = `<div class="choice-title">${glyphMarkup(child.glyph)}<span>${child.label}</span><span class="follow-state">${childSelected ? "Following" : "Follow"}</span></div><span class="selector-path">${entity.label} › ${child.label}</span><div class="choice-detail">${child.detail}</div>`;
-          childButton.addEventListener("click", () => {
-            handleSelectorDomainToggle(child.id);
-            renderSettingsScreen();
-          });
-          childWrapper.appendChild(childButton);
-          grid.appendChild(childWrapper);
-        });
-      }
-    });
-    COMING_SOON_SPORTS.forEach(label => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "choice-card disabled";
-      btn.disabled = true;
-      btn.innerHTML = `<div class="choice-title">${glyphMarkup("ui:plus")}<span>${label}</span></div><div class="choice-detail">Coming soon once reliable fixtures and broadcast mapping exist.</div>`;
-      grid.appendChild(btn);
-    });
-  }
-
-  bindSelectionActions(
-    body,
-    "sports-global",
-    () => setDraftSelectorCategory("category:sports", true),
-    () => clearSelectorCategoryFromDraft("category:sports")
-  );
-
-}
-
-const FROTH_TEMPLATE_STEPS = ["template:casual", "template:like", "template:froth"];
-
-function syncLegacySportDetailForTemplate(domainId, templateId){
-  const sportKeys = selectorEntityCanonicalSportKeys(selectorEntityById(domainId));
-  if (sportKeys.includes("wimbledon")){
-    if (templateId === "template:froth"){
-      draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: "froth", gender: "both", eventType: "both", round: "all" };
-    } else if (templateId === "template:custom"){
-      draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: "choose" };
-    } else {
-      draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: "like", gender: "both", eventType: "singles", round: "quarterfinal" };
-    }
-  }
-  if (sportKeys.includes("fifa")){
-    if (templateId === "template:froth"){
-      draftPreferences.fifa = { enthusiasm: "froth", stage: "quarterfinal", contenders: "all" };
-    } else if (templateId === "template:custom"){
-      draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), enthusiasm: "choose" };
-    } else {
-      draftPreferences.fifa = { enthusiasm: "like", stage: "semifinal", contenders: "title" };
-    }
-  }
-}
-
-function sportSpecificFrothDetailMarkup(domainId, templateId){
-  if (templateId !== "template:custom") return "";
-  const sportKeys = selectorEntityCanonicalSportKeys(selectorEntityById(domainId));
-  if (sportKeys.includes("wimbledon")){
-    return `<div class="froth-control"><div class="froth-control-head"><strong>Custom tennis detail</strong><span class="froth-value">Manual</span></div><div class="choice-detail">Tune tour, event type, and round coverage.</div><div class="choice-detail">Gender</div><div class="segmented-row" data-filter="gender"></div><div class="choice-detail">Event type</div><div class="segmented-row" data-filter="eventType"></div><div class="choice-detail">Round focus</div><div class="segmented-row" data-filter="round"></div></div>`;
-  }
-  if (sportKeys.includes("fifa")){
-    return `<div class="froth-control"><div class="froth-control-head"><strong>Custom World Cup detail</strong><span class="froth-value">Manual</span></div><div class="choice-detail">Tune stage and contender coverage.</div><div class="choice-detail">Stage focus</div><div class="segmented-row" data-filter="fifaStage"></div><div class="choice-detail">Team focus</div><div class="segmented-row" data-filter="fifaContenders"></div></div>`;
-  }
-  return "";
-}
-
-function inlineFrothControlMarkup(domainId){
-  const preference = preferenceDomainById(domainId) || { templateId: "template:like" };
-  const isCustom = preference.templateId === "template:custom";
-  const sliderIndex = Math.max(0, FROTH_TEMPLATE_STEPS.indexOf(preference.templateId));
-  const sliderTemplate = PREFERENCE_SYSTEM.templates.find(template => template.id === FROTH_TEMPLATE_STEPS[sliderIndex]);
-  return `<div class="froth-control" data-inline-froth="${domainId}">
-    <div class="froth-control-head"><strong>Froth level</strong><span class="froth-value">${isCustom ? "Custom" : sliderTemplate.name}</span></div>
-    <input class="froth-range" type="range" min="0" max="2" step="1" value="${sliderIndex}" data-domain-froth="${domainId}" aria-label="${preferenceDomainLabel(domainId)} froth level">
-    <div class="froth-scale" aria-hidden="true"><span>Casual</span><span>Like</span><span>Froth</span></div>
-    <label class="custom-mode${isCustom ? " selected" : ""}"><input type="radio" name="custom-${domainId}" data-domain-custom="${domainId}" ${isCustom ? "checked" : ""}><span><strong>Custom</strong><br>Choose sport-specific coverage yourself.</span></label>
-    ${sportSpecificFrothDetailMarkup(domainId, preference.templateId)}
-  </div>`;
-}
-
-function bindInlineFrothControls(root){
-  root.querySelectorAll("[data-domain-froth]").forEach(input => {
-    input.addEventListener("change", () => {
-      const templateId = FROTH_TEMPLATE_STEPS[Number(input.value)] || "template:like";
-      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.quickAddDomain(
-        draftPreferences.preferenceGraph,
-        input.dataset.domainFroth,
-        templateId
-      );
-      syncLegacySportDetailForTemplate(input.dataset.domainFroth, templateId);
-      renderSettingsScreen();
-    });
-  });
-  root.querySelectorAll("[data-domain-custom]").forEach(input => {
-    input.addEventListener("change", () => {
-      const domainId = input.dataset.domainCustom;
-      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.customiseDomain(draftPreferences.preferenceGraph, domainId);
-      syncLegacySportDetailForTemplate(domainId, "template:custom");
-      renderSettingsScreen();
-    });
-  });
-  const tennis = draftPreferences.tennis;
-  if (document.querySelector('.segmented-row[data-filter="gender"]')){
-    renderSegments("gender", [["both","Both"],["men","Men"],["women","Women"]], tennis.gender);
-    renderSegments("eventType", [["both","Both"],["singles","Singles"],["doubles","Doubles"]], tennis.eventType);
-    renderSegments("round", [["all","All"],["early","Early rounds"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Finals"]], tennis.round);
-  }
-  const fifa = draftPreferences.fifa || DEFAULT_PREFERENCES.fifa;
-  if (document.querySelector('.segmented-row[data-filter="fifaStage"]')){
-    renderFifaSegments("stage", [["all","All"],["quarterfinal","Quarterfinals"],["semifinal","Semifinals"],["final","Final"]], fifa.stage);
-    renderFifaSegments("contenders", [["all","All"],["title","Title contenders"],["australia","Australia"]], fifa.contenders);
-  }
 }
 
 function coverageModeFor(preference){
@@ -17907,195 +17837,6 @@ async function loadCanonicalPreferenceParticipants(){
   return loadCanonicalSportsData();
 }
 
-function renderCoverageSettings(body, { embedded = false } = {}){
-  syncDraftPreferenceGraph();
-  const supportedDomainIds = detailedCoverageDomainIds(draftPreferences);
-  const domainIds = settingsFocusedDomainId && supportedDomainIds.includes(settingsFocusedDomainId)
-    ? [settingsFocusedDomainId]
-    : supportedDomainIds;
-  const graph = draftPreferences.preferenceGraph;
-  body.innerHTML = `${embedded ? "" : wizardProgressMarkup()}<div class="preference-stack">
-    <p class="preference-help">Use detailed controls for selected sports marked Froth. Team, competitor, and competition choices keep their existing follow logic.</p>
-    <div class="template-domain-list" id="coverageDomainList"></div>
-  </div>`;
-  const list = document.getElementById("coverageDomainList");
-  if (!domainIds.length){
-    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">Set a selected sport to Froth in Sports Followed. Choices without a team, competitor, or competition model stay hidden here.</div>`;
-    if (!canonicalSportsData && !canonicalSportsDataLoading) loadCanonicalPreferenceParticipants();
-    return;
-  }
-  domainIds.forEach(domainId => {
-    const preference = preferenceDomainById(domainId);
-    const mode = coverageModeFor(preference);
-    const competitions = competitionsForPreferenceDomain(domainId);
-    const participants = participantsForPreferenceDomain(domainId);
-    const panel = document.createElement("section");
-    panel.className = "template-domain";
-    panel.innerHTML = `<h3>${preferenceDomainLabel(domainId)}</h3>
-      <div class="coverage-grid">
-        <button class="coverage-option${mode === "all" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="all"><strong>All fixtures</strong><span>Include the complete eligible schedule.</span></button>
-        <button class="coverage-option${mode === "majorFollowed" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorFollowed"><strong>Major + followed</strong><span>Important events plus followed teams or competitors.</span></button>
-        <button class="coverage-option${mode === "majorOnly" ? " selected" : ""}" type="button" data-coverage-domain="${domainId}" data-coverage-mode="majorOnly"><strong>Major events only</strong><span>The lightest, highest-signal schedule.</span></button>
-      </div>
-      ${competitions.map(competition => {
-        if (competition.standingsOnly){
-          const contextLabel = competition.standingsType === "singlesRanking"
-            ? "Competitor ranking context"
-            : competition.standingsType === "stageJerseys"
-              ? "Stage jersey context · Yellow and polkadot available; purple withheld because the official Tour publishes no purple classification"
-              : competition.standingsType === "conferenceStandings"
-                ? "Conference standings · W/L, win percentage and games behind"
-                : competition.standingsType === "medalTable"
-                  ? "Medal table · Gold, silver, bronze and total"
-              : "Championship standings context";
-          return `<div class="competition-preference"><strong>${competition.name}</strong><br><span>${contextLabel}</span></div>`;
-        }
-        const competitionPreference = graph.competitionPreferences.find(item => item.competitionId === competition.id);
-        return `<div class="competition-preference"><label class="viewing-toggle"><input type="checkbox" data-competition-enabled="${competition.id}" ${competitionPreference?.enabled === false ? "" : "checked"}><span><strong>${competition.name}</strong><br>Include this competition</span></label></div>`;
-      }).join("")}
-      ${!participants.length && competitions.length ? `<p class="preference-help">Team and player follows are managed in Standings.</p>` : ""}`;
-    list.appendChild(panel);
-  });
-
-  list.querySelectorAll("[data-coverage-domain]").forEach(button => {
-    button.addEventListener("click", () => {
-      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.setCoverageMode(
-        draftPreferences.preferenceGraph,
-        button.dataset.coverageDomain,
-        button.dataset.coverageMode
-      );
-      renderSettingsScreen();
-    });
-  });
-  list.querySelectorAll("[data-competition-enabled]").forEach(input => {
-    input.addEventListener("change", () => {
-      draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.upsertCompetitionPreference(draftPreferences.preferenceGraph, input.dataset.competitionEnabled, {
-        enabled: input.checked,
-        templateInheritedFromDomain: false,
-      });
-    });
-  });
-  if (domainIds.some(domainId => competitionsForPreferenceDomain(domainId).length)){
-    loadCanonicalPreferenceParticipants();
-  }
-}
-
-function hourOptions(selected){
-  const options = [];
-  for (let hour = 0; hour < 24; hour += 1){
-    const label = new Intl.DateTimeFormat("en-AU", { hour: "numeric", hour12: true }).format(new Date(2026, 0, 1, hour));
-    options.push(`<option value="${hour}" ${selected === hour ? "selected" : ""}>${label}</option>`);
-  }
-  return options.join("");
-}
-
-function updateDraftViewing(patch){
-  draftPreferences.preferenceGraph = PREFERENCE_SYSTEM.updateViewingPreference(
-    draftPreferences.preferenceGraph,
-    patch,
-    Object.keys(BROADCASTER_LIBRARY)
-  );
-  draftPreferences.selectedBroadcasters = draftPreferences.preferenceGraph.viewing.selectedBroadcasterIds.slice();
-}
-
-function renderViewingSettings(body, { providersOnly = false } = {}){
-  syncDraftPreferenceGraph();
-  const viewing = draftPreferences.preferenceGraph.viewing;
-  body.innerHTML = `${providersOnly ? "" : wizardProgressMarkup()}<div class="preference-stack">
-    <div class="filter-panel"><h3>TV & streaming</h3><p class="preference-help">Every available provider starts selected. Opt out only of services you cannot use; newly added providers will also start selected.</p>${selectionActionsMarkup("providers", "TV and streaming providers")}<div class="choice-grid" id="providerChoiceGrid"></div></div>
-    ${providersOnly ? "" : `<div class="filter-panel"><h3>Viewing window</h3><p class="preference-help">The recommended default is 7am–10pm AEST/AEDT. Turn the window off for Any time; 4/5 and 5/5 events can still use the high-stakes override.</p><label class="viewing-toggle"><input type="checkbox" id="viewingWindowEnabled" ${viewing.viewingWindowEnabled ? "checked" : ""}><span><strong>Use a viewing window</strong><br>${viewing.viewingWindowEnabled ? "Events inside these hours receive the strongest time fit." : "Any time — no viewing-window filter is applied."}</span></label><div class="viewing-window-grid"><label>Start hour<select id="viewingStartHour" ${viewing.viewingWindowEnabled ? "" : "disabled"}>${hourOptions(viewing.startHourLocal)}</select></label><label>End hour<select id="viewingEndHour" ${viewing.viewingWindowEnabled ? "" : "disabled"}>${hourOptions(viewing.endHourLocal)}</select></label></div><label class="viewing-toggle"><input type="checkbox" id="lateNightOverride" ${viewing.allowLateNightOverrides ? "checked" : ""}><span>Allow high-stakes late-night overrides</span></label></div>
-    <div class="filter-panel"><h3>${VECTOR_ASSETS.reminderMarkup(viewing.browserAlertsEnabled ? "on" : "off", { className: "semantic-badge-glyph" })} Calendar & reminders</h3><p class="preference-help">Calendar sync starts enabled for new profiles. Browser alerts are recommended, but remain off until you enable them and grant permission.</p><label class="viewing-toggle"><input type="checkbox" id="calendarSyncEnabled" ${viewing.calendarSyncEnabled ? "checked" : ""}><span>Keep Calendar sync enabled for this preference profile</span></label><label class="viewing-toggle"><input type="checkbox" id="browserAlertsEnabled" ${viewing.browserAlertsEnabled ? "checked" : ""}><span><strong>Enable browser alerts for priority events</strong><br>Recommended · asks permission only when you enable it</span></label><label class="field-label">Default reminder<select id="reminderLeadMinutes"><option value="15" ${viewing.reminderLeadMinutes.includes(15) ? "selected" : ""}>15 minutes before</option><option value="30" ${viewing.reminderLeadMinutes.includes(30) ? "selected" : ""}>30 minutes before</option><option value="60" ${viewing.reminderLeadMinutes.includes(60) ? "selected" : ""}>1 hour before</option><option value="120" ${viewing.reminderLeadMinutes.includes(120) ? "selected" : ""}>2 hours before</option><option value="1440" ${viewing.reminderLeadMinutes.includes(1440) ? "selected" : ""}>1 day before</option></select></label></div>`}
-  </div>`;
-  const grid = document.getElementById("providerChoiceGrid");
-  Object.entries(BROADCASTER_LIBRARY).forEach(([key, provider]) => {
-    const selected = draftPreferences.selectedBroadcasters.includes(key);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "choice-card" + (selected ? " selected" : "");
-    btn.setAttribute("aria-pressed", selected ? "true" : "false");
-    btn.innerHTML = `<div class="choice-title">${VECTOR_ASSETS.broadcastMarkup("live")}<span>${provider.label}</span></div><div class="choice-detail">Used where this provider is evidenced in current event data.</div>`;
-    btn.addEventListener("click", () => {
-      draftPreferences.selectedBroadcasters = toggleArrayValue(draftPreferences.selectedBroadcasters, key);
-      updateDraftViewing({ selectedBroadcasterIds: draftPreferences.selectedBroadcasters });
-      renderSettingsScreen();
-    });
-    grid.appendChild(btn);
-  });
-  bindSelectionActions(
-    body,
-    "providers",
-    () => { updateDraftViewing({ selectedBroadcasterIds: Object.keys(BROADCASTER_LIBRARY) }); },
-    () => { updateDraftViewing({ selectedBroadcasterIds: [] }); }
-  );
-  if (providersOnly) return;
-  document.getElementById("viewingWindowEnabled").addEventListener("change", event => {
-    updateDraftViewing({ viewingWindowEnabled: event.target.checked });
-    renderSettingsScreen();
-  });
-  document.getElementById("viewingStartHour").addEventListener("change", event => updateDraftViewing({ startHourLocal: Number(event.target.value) }));
-  document.getElementById("viewingEndHour").addEventListener("change", event => updateDraftViewing({ endHourLocal: Number(event.target.value) }));
-  document.getElementById("lateNightOverride").addEventListener("change", event => updateDraftViewing({ allowLateNightOverrides: event.target.checked }));
-  document.getElementById("calendarSyncEnabled").addEventListener("change", event => updateDraftViewing({ calendarSyncEnabled: event.target.checked }));
-  document.getElementById("browserAlertsEnabled").addEventListener("change", async event => {
-    if (!event.target.checked){
-      updateDraftViewing({ browserAlertsEnabled: false });
-      return;
-    }
-    const permission = await requestBrowserAlerts();
-    updateDraftViewing({ browserAlertsEnabled: permission === "granted" });
-    if (permission !== "granted"){
-      showToast(permission === "unsupported" ? "Browser alerts are not supported on this device." : "Browser alert permission was not granted.");
-      renderSettingsScreen();
-    }
-  });
-  document.getElementById("reminderLeadMinutes").addEventListener("change", event => updateDraftViewing({ reminderLeadMinutes: [Number(event.target.value)] }));
-}
-
-function renderProviderSettings(body){
-  renderViewingSettings(body, { providersOnly: true });
-}
-
-function renderPrivacySettings(body){
-  body.innerHTML = `<div class="preference-stack"><div class="filter-panel"><h3>Local venues</h3><p class="preference-help">Local games receive venue-aware ticket actions.</p>${selectionActionsMarkup("venues", "Local venues")}<div class="venue-choice-grid" id="localVenueGrid"></div></div></div>`;
-  const venueGrid = document.getElementById("localVenueGrid");
-  Object.entries(LOCAL_VENUE_OPTIONS).forEach(([id, venue]) => {
-    const selected = draftPreferences.localVenueIds.includes(id);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `venue-choice${selected ? " selected" : ""}`;
-    btn.textContent = `${selected ? "✓ " : ""}${venue.label}`;
-    btn.setAttribute("aria-pressed", selected ? "true" : "false");
-    btn.addEventListener("click", () => {
-      draftPreferences.localVenueIds = toggleArrayValue(draftPreferences.localVenueIds, id);
-      renderSettingsScreen();
-    });
-    venueGrid.appendChild(btn);
-  });
-  bindSelectionActions(
-    body,
-    "venues",
-    () => { draftPreferences.localVenueIds = Object.keys(LOCAL_VENUE_OPTIONS); },
-    () => { draftPreferences.localVenueIds = []; }
-  );
-}
-
-function renderAppearanceSettings(body){
-  const theme = normalizeThemePreference(draftPreferences.theme);
-  const themes = [
-    ["day", "ui:sun", "Day", "Light surfaces and dark text."],
-    ["night", "ui:watch", "Night", "Dark surfaces with restrained contrast."],
-    ["system", "ui:settings", "System", "Follow the device appearance automatically."],
-  ];
-  body.innerHTML = `<div class="theme-choice-list" role="radiogroup" aria-label="App theme">${themes.map(([value, glyph, label, detail]) => `<label class="theme-choice${theme === value ? " selected" : ""}"><input type="radio" name="theme" value="${value}" ${theme === value ? "checked" : ""}><strong>${glyphMarkup(glyph)} ${label}</strong><span>${detail}</span></label>`).join("")}</div>`;
-  body.querySelectorAll('input[name="theme"]').forEach(input => {
-    input.addEventListener("change", () => {
-      draftPreferences.theme = normalizeThemePreference(input.value);
-      applyThemePreference(draftPreferences.theme);
-      renderSettingsScreen();
-    });
-  });
-}
-
 function renderFeedbackSettings(body){
   body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingsport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
   const category = document.getElementById("feedbackCategory");
@@ -18137,6 +17878,109 @@ function renderFeedbackAppearanceSettings(body){
   stack.appendChild(appearance);
 }
 
+function startupMetaDraft(){
+  return FOLLOW_FIRST.normalizeMeta(draftPreferences.followFirst?.startupMeta || {});
+}
+
+function applyStartupMetaDraft(patch){
+  const current = startupMetaDraft();
+  const meta = FOLLOW_FIRST.normalizeMeta({ ...current, ...patch, source:"user" });
+  const seeded = FOLLOW_FIRST.applyMetaSeed(draftPreferences, meta);
+  draftPreferences = seeded.preferences;
+  syncDraftPreferenceGraph();
+  return meta;
+}
+
+async function resolveSetupLocation(query){
+  const response = await fetch(`/api/location?q=${encodeURIComponent(query)}`, { headers:{ Accept:"application/json" } });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok || !payload.location) throw new Error(payload.error || "That location could not be found.");
+  applyStartupMetaDraft({ location:{ ...payload.location, radiusKm:startupMetaDraft().location.radiusKm, mode:"home", source:payload.location.source || "places", updatedAt:new Date().toISOString() } });
+  renderSettingsScreen();
+}
+
+async function useCurrentSetupLocation(){
+  if (!navigator.geolocation) throw new Error("Location is not supported on this device.");
+  const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy:false, timeout:10000, maximumAge:300000 }));
+  const latitude = Number(position.coords.latitude.toFixed(2));
+  const longitude = Number(position.coords.longitude.toFixed(2));
+  let label = "Current location";
+  let region = "";
+  try{
+    const response = await fetch(`/api/location?lat=${latitude}&lng=${longitude}`, { headers:{ Accept:"application/json" } });
+    const payload = await response.json();
+    label = payload.location?.label || label;
+    region = payload.location?.region || region;
+  }catch(_error){ /* Rounded coordinates still provide a privacy-safe local centre. */ }
+  applyStartupMetaDraft({ location:{ label, region, countryCode:"AU", latitude, longitude, radiusKm:startupMetaDraft().location.radiusKm, mode:"automatic", source:"system", updatedAt:new Date().toISOString() } });
+  renderSettingsScreen();
+}
+
+function renderStartupMetadataSettings(body){
+  const meta = startupMetaDraft();
+  body.innerHTML = `${wizardProgressMarkup()}<div class="preference-stack">
+    <section class="filter-panel"><h3>What are you into?</h3><p class="preference-help">Choose at least one. These seed your sport follows and Aussies Only; you can refine clubs and players later.</p><div class="setup-choice-grid" id="startupSportsGrid"></div></section>
+    <section class="filter-panel"><h3>Major events</h3><p class="preference-help">Optional. Pick the big event families you actively want.</p><div class="setup-choice-grid" id="startupEventsGrid"></div></section>
+    <section class="filter-panel"><h3>Set location</h3><p class="preference-help">City, postcode or area only. Coordinates are rounded and the default radius is 20 km.</p><div class="setup-location-grid"><label class="field-label">City, postcode or area<input id="startupLocationQuery" type="search" value="${meta.location.label.replace(/"/g, "&quot;")}" maxlength="120" autocomplete="postal-code" placeholder="e.g. Sydney or 2000"></label><label class="field-label">Radius<select id="startupRadius">${[1,5,10,20,50,100,200,300].map(km => `<option value="${km}" ${meta.location.radiusKm === km ? "selected" : ""}>${km} km</option>`).join("")}</select></label></div><div class="account-sync-actions"><button class="btn ghost" type="button" id="findStartupLocationBtn">Find location</button><button class="btn ghost" type="button" id="useCurrentLocationBtn">Use current location</button></div><p class="preference-help" id="startupLocationStatus">${meta.location.label ? `${meta.location.label}${meta.location.region ? `, ${meta.location.region}` : ""} · ${meta.location.radiusKm} km` : "No location set yet."}</p></section>
+    <section class="filter-panel"><h3>Offers you might actually use</h3><p class="preference-help">Optional, lightweight ad relevance metadata. It does not change Feed eligibility.</p><div class="setup-choice-grid" id="startupOffersGrid"></div><label class="pilot-disclosure setup-consent"><input id="personalisedOffersConsent" type="checkbox" ${meta.personalisedOffersConsent ? "checked" : ""}><span><strong>Allow personalised offers later</strong>This is separate, optional consent. A Supabase admin can edit your seed preferences but cannot grant this consent for you.</span></label></section>
+    <section class="filter-panel"><h3>Create an account</h3><p class="preference-help">Optional for now. A verified account keeps this setup and future follows connected across devices.</p><div class="setup-location-grid"><label class="field-label">Email<input id="startupAccountEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com"></label><label class="field-label">Password<input id="startupAccountPassword" type="password" autocomplete="new-password" minlength="8" maxlength="1024" placeholder="8+ characters"></label></div><button class="btn ghost" id="startupCreateAccountBtn" type="button">Create verified account</button><p class="preference-help" id="startupAccountStatus" role="status" aria-live="polite">Or continue with a local profile.</p></section>
+  </div>`;
+  const renderChoices = (targetId, records, selectedIds, onChange) => {
+    const grid = document.getElementById(targetId);
+    records.forEach(record => {
+      const label = document.createElement("label");
+      label.className = "setup-choice";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.checked = selectedIds.includes(record.id);
+      input.addEventListener("change", () => onChange(record.id, input.checked));
+      label.append(input, document.createTextNode(record.label));
+      grid.appendChild(label);
+    });
+  };
+  renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SPORTS, meta.sports, (id, checked) => {
+    const sports = new Set(startupMetaDraft().sports);
+    if (checked) sports.add(id); else sports.delete(id);
+    if (!sports.size){ showToast("Choose at least one sport."); renderSettingsScreen(); return; }
+    applyStartupMetaDraft({ sports:Array.from(sports) });
+  });
+  renderChoices("startupEventsGrid", FOLLOW_FIRST.MAJOR_EVENT_FAMILIES, meta.majorEvents, (id, checked) => {
+    const events = new Set(startupMetaDraft().majorEvents);
+    if (checked) events.add(id); else events.delete(id);
+    applyStartupMetaDraft({ majorEvents:Array.from(events) });
+  });
+  renderChoices("startupOffersGrid", FOLLOW_FIRST.OFFER_INTERESTS, meta.offerInterests, (id, checked) => {
+    const offers = new Set(startupMetaDraft().offerInterests);
+    if (checked) offers.add(id); else offers.delete(id);
+    applyStartupMetaDraft({ offerInterests:Array.from(offers) });
+  });
+  document.getElementById("startupRadius").addEventListener("change", event => applyStartupMetaDraft({ location:{ ...startupMetaDraft().location, radiusKm:Number(event.target.value) } }));
+  document.getElementById("personalisedOffersConsent").addEventListener("change", event => applyStartupMetaDraft({ personalisedOffersConsent:event.target.checked, consentUpdatedAt:event.target.checked ? new Date().toISOString() : null }));
+  document.getElementById("findStartupLocationBtn").addEventListener("click", async () => {
+    const status = document.getElementById("startupLocationStatus");
+    status.textContent = "Finding that area…";
+    try{ await resolveSetupLocation(document.getElementById("startupLocationQuery").value.trim()); }
+    catch(error){ status.textContent = error.message; }
+  });
+  document.getElementById("useCurrentLocationBtn").addEventListener("click", async () => {
+    const status = document.getElementById("startupLocationStatus");
+    status.textContent = "Requesting your current area…";
+    try{ await useCurrentSetupLocation(); }
+    catch(error){ status.textContent = error.message || "Location permission was not granted."; }
+  });
+  document.getElementById("startupCreateAccountBtn").addEventListener("click", async () => {
+    const status = document.getElementById("startupAccountStatus");
+    const email = document.getElementById("startupAccountEmail").value.trim();
+    const password = document.getElementById("startupAccountPassword").value;
+    status.textContent = "Creating your account…";
+    try{
+      const result = await serverSyncClient.signUp(email, password, startupMetaDraft());
+      if (result.session){ await bootstrapServerPersistence(); status.textContent = "Account created and connected."; }
+      else status.textContent = "Check your email to verify the account, then sign in from Settings.";
+    }catch(error){ status.textContent = error.message || "The account could not be created."; }
+  });
+}
+
 function renderSettingsScreen(){
   const body = document.getElementById("settingsBody");
   const title = document.getElementById("settingsTitle");
@@ -18158,114 +18002,20 @@ function renderSettingsScreen(){
   const screens = {
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
-    pilot: ["Trust pilot", "Automatic, disclosed measurement for signed-in users, with opt-out."],
-    archive: ["Archive", "Review recently archived events and the rated cards you chose to preserve."],
-    sports: [settingsFirstRun ? "Sports followed & Tune · 1 of 2" : "Sports followed & Tune", settingsFirstRun ? "Pick sports, then set Feed intent and Froth knobs before saving once." : "Follow sports in one tab; set Feed intent, Froth and deep tuning in the other."],
-    viewing: [settingsFirstRun ? "Viewing preferences · 2 of 2" : "Viewing & reminders", "Providers are opt-out. Time windows and reminders are optional."],
-    calibration: [settingsFirstRun ? "Swipe calibration · 3 of 3" : "Swipe calibration", "Optional recognisable anchors teach the curated feed without changing complete fixture lists."],
-    providers: ["TV & streaming", "Choose the services available to you."],
-    privacy: ["Local venues", "Choose the venues that count as local."],
-    appearance: ["Appearance", "Choose Day, Night, or follow the device setting."],
-    feedback: ["Feedback & appearance", "Send feedback, adjust appearance, or review the optional trust pilot."],
+    subscriptions: ["Subscriptions", "Choose services to prioritise in View links."],
+    notifications: ["Notifications", "System reminders for the sporting start, defaulting to 15 minutes before."],
+    location: ["Set location", "Choose a home area or temporary travel location and radius."],
+    startup: ["Set up your Feed", "Three lightweight groups: what you follow, coarse location and optional offer interests."],
+    feedback: ["Feedback", "Send feedback to nothingsport."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
-  if (settingsSection === "account") renderAccountSettings(body);
-  else if (settingsSection === "pilot") renderPilotSettings(body);
-  else if (settingsSection === "archive") renderArchiveSettings(body);
-  else if (settingsSection === "sports") renderSportsSettings(body);
-  else if (settingsSection === "viewing") renderViewingSettings(body);
-  else if (settingsSection === "calibration") renderCalibrationSettings(body);
-  else if (settingsSection === "providers") renderProviderSettings(body);
-  else if (settingsSection === "privacy") renderPrivacySettings(body);
-  else if (settingsSection === "appearance") renderAppearanceSettings(body);
-  else if (settingsSection === "feedback") renderFeedbackAppearanceSettings(body);
+  if (settingsSection === "startup") renderStartupMetadataSettings(body);
+  else if (settingsSection === "account") renderAccountSettings(body);
+  else if (settingsSection === "subscriptions") renderSubscriptionSettings(body);
+  else if (settingsSection === "notifications") renderNotificationSettings(body);
+  else if (settingsSection === "location") renderLocationSettings(body);
+  else if (settingsSection === "feedback") renderFeedbackSettings(body);
   else renderSettingsMenu(body);
-}
-
-function renderTennisEnthusiasmChoices(activeValue){
-  const grid = document.getElementById("tennisEnthusiasmGrid");
-  const choices = [
-    ["like", "Like", "Both tours, singles only, quarterfinals and later."],
-    ["froth", "Froth", "Both tours, singles and doubles, all rounds."],
-    ["choose", "Let me choose", "Manual gender, event type, and round controls."],
-  ];
-  choices.forEach(([value, label, detail]) => {
-    const btn = document.createElement("button");
-    btn.className = "choice-card" + (value === activeValue ? " selected" : "");
-    btn.style.setProperty("--choice-color", "var(--c-tennis)");
-    btn.innerHTML = `
-      <div class="choice-title">${glyphMarkup("sport:tennis")}<span>${label}</span></div>
-      <div class="choice-detail">${detail}</div>
-    `;
-    btn.addEventListener("click", () => {
-      draftPreferences.tennis.enthusiasm = value;
-      if (value === "like"){
-        draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: value, gender: "both", eventType: "singles", round: "quarterfinal" };
-      }
-      if (value === "froth"){
-        draftPreferences.tennis = { ...draftPreferences.tennis, enthusiasm: value, gender: "both", eventType: "both", round: "all" };
-      }
-      renderSettingsScreen();
-    });
-    grid.appendChild(btn);
-  });
-}
-
-function renderSegments(filterName, options, activeValue){
-  const row = document.querySelector(`.segmented-row[data-filter="${filterName}"]`);
-  options.forEach(([value, label]) => {
-    const btn = document.createElement("button");
-    btn.className = "segment-btn" + (value === activeValue ? " active" : "");
-    btn.textContent = label;
-    btn.addEventListener("click", () => {
-      draftPreferences.tennis[filterName] = value;
-      renderSettingsScreen();
-    });
-    row.appendChild(btn);
-  });
-}
-
-function renderFifaEnthusiasmChoices(activeValue){
-  const grid = document.getElementById("fifaEnthusiasmGrid");
-  const choices = [
-    ["like", "Like", "Semifinals onward, title-contender bias."],
-    ["froth", "Froth", "Quarterfinals onward, all remaining knockout matches."],
-    ["choose", "Let me choose", "Manual stage and contender controls."],
-  ];
-  choices.forEach(([value, label, detail]) => {
-    const btn = document.createElement("button");
-    btn.className = "choice-card" + (value === activeValue ? " selected" : "");
-    btn.style.setProperty("--choice-color", "var(--c-football)");
-    btn.innerHTML = `
-      <div class="choice-title">${glyphMarkup("sport:football")}<span>${label}</span></div>
-      <div class="choice-detail">${detail}</div>
-    `;
-    btn.addEventListener("click", () => {
-      draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), enthusiasm: value };
-      if (value === "like"){
-        draftPreferences.fifa = { enthusiasm: value, stage: "semifinal", contenders: "title" };
-      }
-      if (value === "froth"){
-        draftPreferences.fifa = { enthusiasm: value, stage: "quarterfinal", contenders: "all" };
-      }
-      renderSettingsScreen();
-    });
-    grid.appendChild(btn);
-  });
-}
-
-function renderFifaSegments(filterName, options, activeValue){
-  const row = document.querySelector(`.segmented-row[data-filter="fifa${filterName[0].toUpperCase()}${filterName.slice(1)}"]`);
-  options.forEach(([value, label]) => {
-    const btn = document.createElement("button");
-    btn.className = "segment-btn" + (value === activeValue ? " active" : "");
-    btn.textContent = label;
-    btn.addEventListener("click", () => {
-      draftPreferences.fifa = { ...(draftPreferences.fifa || DEFAULT_PREFERENCES.fifa), [filterName]: value, enthusiasm: "choose" };
-      renderSettingsScreen();
-    });
-    row.appendChild(btn);
-  });
 }
 
 function productSportForPreferenceIdentifier(identifier){
@@ -18335,10 +18085,6 @@ function recordSavedPreferenceChanges(previous, next){
 }
 
 function saveSettingsPreferences(){
-  if (!draftPreferences.selectedBroadcasters.length){
-    showToast("Choose at least one provider.");
-    return;
-  }
   const viewportAnchor = settingsViewportAnchor;
   draftPreferences.onboardingComplete = true;
   syncDraftSelectorSports();
@@ -18353,6 +18099,10 @@ function saveSettingsPreferences(){
     : draftPreferences;
   const previousPreferences = clonePreferences(settingsDraftBaseline || userPreferences);
   savePreferences(reconciledDraft);
+  if (serverPersistence.user){
+    void serverSyncClient.saveMeta(userPreferences.followFirst.startupMeta)
+      .catch(error => console.warn("User metadata sync failed", error));
+  }
   recordSavedPreferenceChanges(previousPreferences, userPreferences);
   writeStorage(STORAGE_KEYS.selectorReleaseAcknowledgement, SELECTOR_TAXONOMY.version);
   applyThemePreference(userPreferences.theme);
@@ -18410,14 +18160,19 @@ document.getElementById("quickAddModal").addEventListener("click", event => {
 });
 document.getElementById("dismissTunePromptBtn").addEventListener("click", () => {
   recordTunePromptAction("dismissed");
+  const next = clonePreferences(userPreferences);
+  next.followFirst.refinement.deferred = true;
+  savePreferences(next);
   setTunePromptOpen(false);
 });
 document.getElementById("reviewSportsFromTuneBtn").addEventListener("click", () => {
   recordTunePromptAction("accepted");
   setTunePromptOpen(false);
-  openSettings({ section: "sports" });
-  sportsFollowedTab = "froth";
-  renderSettingsScreen();
+  const next = clonePreferences(userPreferences);
+  next.followFirst.refinement.completedAt = new Date().toISOString();
+  next.followFirst.refinement.deferred = false;
+  savePreferences(next);
+  activateTopLevelTab("follow");
 });
 document.getElementById("tunePromptModal").addEventListener("click", event => {
   if (event.target.id !== "tunePromptModal") return;
@@ -18562,92 +18317,14 @@ document.getElementById("standingsSpoilerModal").addEventListener("click", event
   setStandingsSpoilerModalOpen(false);
 });
 
-/* ============ CALENDAR SYNC + FEEDBACK ============ */
+/* ============ FEEDBACK ============ */
 function setUtilityModalOpen(id, open){
   const modal = document.getElementById(id);
   modal.classList.toggle("show", open);
   modal.setAttribute("aria-hidden", open ? "false" : "true");
 }
 
-function calendarSyncSummaryText(config = calendarSyncConfigForPreferences()){
-  const sportsCount = config.sports.length;
-  const providerCount = config.providers.length;
-  const parts = [
-    `${sportsCount} followed sport${sportsCount === 1 ? "" : "s"}`,
-    `${providerCount} provider${providerCount === 1 ? "" : "s"}`,
-  ];
-  if (config.allFixtures.length){
-    const allFixturesLabels = config.allFixtures.map(key => SPORT_META[key]?.label || key.toUpperCase());
-    parts.push(`All fixtures for ${allFixturesLabels.join(", ")}`);
-  }
-  if (config.followedParticipantIds.length){
-    parts.push(`${config.followedParticipantIds.length} followed ${config.followedParticipantIds.length === 1 ? "team or competitor" : "teams or competitors"}`);
-  }
-  if (config.mutedParticipantIds.length){
-    parts.push(`${config.mutedParticipantIds.length} muted`);
-  }
-  if (config.cwgDisciplines.length){
-    const labels = config.cwgDisciplines.map(discipline => (
-      (SELECTOR_TAXONOMY.commonwealthDisciplines || [])
-        .find(entity => entity.canonicalDiscipline === discipline)?.label
-      || discipline
-    ));
-    parts.push(`CWG ${labels.join(", ")}`);
-  }
-  return parts.join(" · ");
-}
-
-function renderCalendarSyncModal(){
-  const config = calendarSyncConfigForPreferences();
-  const subscriptionUrl = buildCalendarSyncUrl();
-  const enabled = Boolean(userPreferences.preferenceGraph?.viewing?.calendarSyncEnabled);
-  document.getElementById("calendarSyncSummary").textContent = calendarSyncSummaryText(config);
-  document.getElementById("calendarSyncState").textContent = enabled ? "Enabled" : "Ready";
-  document.getElementById("calendarSyncUrl").value = subscriptionUrl;
-  document.getElementById("subscribeCalendarSyncBtn").href = buildCalendarWebcalUrl();
-}
-
-function enableCalendarSyncPreference(){
-  if (userPreferences.preferenceGraph?.viewing?.calendarSyncEnabled) return;
-  const next = clonePreferences(userPreferences);
-  next.preferenceGraph = PREFERENCE_SYSTEM.updateViewingPreference(
-    next.preferenceGraph,
-    {
-      calendarSyncEnabled: true,
-      selectedBroadcasterIds: next.selectedBroadcasters,
-    },
-    Object.keys(BROADCASTER_LIBRARY)
-  );
-  savePreferences(next);
-}
-
-function openCalendarSyncModal(){
-  renderCalendarSyncModal();
-  document.getElementById("copyCalendarSyncLabel").textContent = "Copy link";
-  setUtilityModalOpen("calendarSyncModal", true);
-}
-
-async function copyCalendarSyncLink(){
-  const field = document.getElementById("calendarSyncUrl");
-  let copied = false;
-  try {
-    await navigator.clipboard.writeText(field.value);
-    copied = true;
-  } catch {
-    field.focus();
-    field.select();
-    copied = Boolean(document.execCommand?.("copy"));
-  }
-  if (!copied){
-    showToast("Could not copy automatically. Select the subscription URL and copy it manually.");
-    return;
-  }
-  enableCalendarSyncPreference();
-  renderCalendarSyncModal();
-  document.getElementById("copyCalendarSyncLabel").textContent = "Copied";
-  showToast("Calendar sync link copied.");
-}
-
+// Calendar export and subscription sync were removed. Reminders use Web Push.
 function updateFeedbackPreview(){
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
@@ -18667,146 +18344,7 @@ function submitFeedbackForm(evt){
   window.location.href = buildFeedbackSmsUrl(category, message);
 }
 
-document.getElementById("calendarSyncBtn").addEventListener("click", openCalendarSyncModal);
-document.getElementById("closeCalendarSyncBtn").addEventListener("click", () => setUtilityModalOpen("calendarSyncModal", false));
-document.getElementById("calendarSyncModal").addEventListener("click", evt => {
-  if (evt.target.id === "calendarSyncModal") setUtilityModalOpen("calendarSyncModal", false);
-});
-document.getElementById("copyCalendarSyncBtn").addEventListener("click", copyCalendarSyncLink);
-document.getElementById("subscribeCalendarSyncBtn").addEventListener("click", () => {
-  enableCalendarSyncPreference();
-  renderCalendarSyncModal();
-});
-
-/* ============ SINGLE-EVENT CALENDAR FILES ============ */
-function pad2(n){ return String(n).padStart(2,"0"); }
-
-function toICSDateUTC(dt){
-  // convert AEST (UTC+10, fixed, no DST) wall-clock time to UTC for the ICS UTC timestamp
-  const utcMs = dt.getTime() - (10*3600*1000) - (dt.getTimezoneOffset()*60000)*0;
-  // Since browser Date object was constructed from local wall-clock components assumed as AEST,
-  // we instead manually compute UTC by subtracting 10 hours from the AEST wall clock components.
-  return null;
-}
-
-function buildICSDateTimeAEST(dateStr, timeStr){
-  // dateStr YYYY-MM-DD, timeStr HH:MM -- these are AEST wall-clock values.
-  // TZID form for DTSTART/DTEND using Australia/Sydney (note: Sydney observes DST Oct-Apr,
-  // but per spec we treat as fixed UTC+10 AEST year-round for this app's purposes).
-  const [y,m,d] = dateStr.split("-");
-  const [hh,mm] = timeStr.split(":");
-  return `${y}${m}${d}T${hh}${mm}00`;
-}
-
-function addHoursToDateTimeStr(dateStr, timeStr, hoursToAdd){
-  const [y,m,d] = dateStr.split("-").map(Number);
-  const [hh,mm] = timeStr.split(":").map(Number);
-  const dt = new Date(y, m-1, d, hh, mm, 0);
-  dt.setHours(dt.getHours() + hoursToAdd);
-  const yy = dt.getFullYear();
-  const mo = pad2(dt.getMonth()+1);
-  const da = pad2(dt.getDate());
-  const ho = pad2(dt.getHours());
-  const mi = pad2(dt.getMinutes());
-  return `${yy}${mo}${da}T${ho}${mi}00`;
-}
-
-function escapeICS(str){
-  return String(str).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
-}
-
-function generateICS(events = getFilteredEvents()){
-  const lines = [];
-  lines.push("BEGIN:VCALENDAR");
-  lines.push("VERSION:2.0");
-  lines.push("PRODID:-//nothingsport//EN");
-  lines.push("CALSCALE:GREGORIAN");
-  lines.push("METHOD:PUBLISH");
-  lines.push("X-WR-CALNAME:nothingsport");
-  lines.push("X-WR-TIMEZONE:Australia/Sydney");
-
-  // VTIMEZONE block for Australia/Sydney with fixed AEST(+10)/AEDT(+11) rules
-  lines.push("BEGIN:VTIMEZONE");
-  lines.push("TZID:Australia/Sydney");
-  lines.push("BEGIN:STANDARD");
-  lines.push("DTSTART:19700405T030000");
-  lines.push("RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU");
-  lines.push("TZOFFSETFROM:+1100");
-  lines.push("TZOFFSETTO:+1000");
-  lines.push("TZNAME:AEST");
-  lines.push("END:STANDARD");
-  lines.push("BEGIN:DAYLIGHT");
-  lines.push("DTSTART:19701004T020000");
-  lines.push("RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU");
-  lines.push("TZOFFSETFROM:+1000");
-  lines.push("TZOFFSETTO:+1100");
-  lines.push("TZNAME:AEDT");
-  lines.push("END:DAYLIGHT");
-  lines.push("END:VTIMEZONE");
-
-  const nowStamp = new Date();
-  const dtstamp = `${nowStamp.getUTCFullYear()}${pad2(nowStamp.getUTCMonth()+1)}${pad2(nowStamp.getUTCDate())}T${pad2(nowStamp.getUTCHours())}${pad2(nowStamp.getUTCMinutes())}${pad2(nowStamp.getUTCSeconds())}Z`;
-
-  events.forEach(ev => {
-    const meta = SPORT_META[ev.key];
-    const dtStart = buildICSDateTimeAEST(ev.date, ev.time);
-    const durationHours = ev.liveWindow || 3;
-    const dtEnd = addHoursToDateTimeStr(ev.date, ev.time, durationHours);
-    const priorityEvent = isPriorityEvent(ev);
-    const actual = getActual(ev.id);
-
-    const descParts = [
-      `Sport: ${meta.label}`,
-      `Broadcaster: ${ev.broadcaster}`,
-      `Stakes: ${ev.stakesScore}/5`,
-      `Priority event: ${priorityEvent ? "YES" : "No"}`
-    ];
-    if (ev.venue) descParts.push(`Venue: ${ev.venue}`);
-    if (actual !== null) descParts.push(`Actual spectacle: ${actual}/10`);
-    const description = escapeICS(descParts.join("\n"));
-
-    lines.push("BEGIN:VEVENT");
-    lines.push(`UID:${ev.id}@sportscal`);
-    lines.push(`DTSTAMP:${dtstamp}`);
-    lines.push(`DTSTART;TZID=Australia/Sydney:${dtStart}`);
-    lines.push(`DTEND;TZID=Australia/Sydney:${dtEnd}`);
-    lines.push(`SUMMARY:${escapeICS(`${priorityEvent ? "[Priority] " : ""}${spoilerSafeDisplayTitle(ev)}`)}`);
-    if (ev.venue) lines.push(`LOCATION:${escapeICS(ev.venue)}`);
-    lines.push(`DESCRIPTION:${description}`);
-    lines.push(`CATEGORIES:${escapeICS(meta.label)}`);
-    lines.push("END:VEVENT");
-  });
-
-  lines.push("END:VCALENDAR");
-  return lines.join("\r\n");
-}
-
-function downloadICS(filename, icsContent){
-  const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-function safeFilenamePart(value){
-  return String(value || "event")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 48) || "event";
-}
-
-function downloadEventICS(ev){
-  const filename = `nothingsport-${safeFilenamePart(ev.name)}.ics`;
-  downloadICS(filename, generateICS([ev]));
-  showToast(`Calendar file created for ${ev.name}.`);
-}
-
+// Calendar export and subscription sync were removed. Reminders use Web Push.
 function startupFeedTaskDescriptors(){
   return [
     { name:"published feed", run:() => refreshFeedOnFirstLoad(), valid:value => Boolean(value && Number(value.eventCount) > 0) },
@@ -18826,8 +18364,14 @@ function runStartupPostLoadActions(){
   if (!userPreferences.onboardingComplete){
     openFirstRunSettingsAfterFeedAlignment();
   } else {
-    const weeklyPulsePromptScheduled = document.visibilityState === "visible" && registerWeeklyPulseAppOpen();
-    if (!weeklyPulsePromptScheduled) setTimeout(openSelectorOptInPrompt, 250);
+    if (FOLLOW_FIRST?.shouldPromptRefinement?.(userPreferences)){
+      const next = clonePreferences(userPreferences);
+      next.followFirst.refinement.promptedAt = new Date().toISOString();
+      savePreferences(next);
+      setTimeout(() => setTunePromptOpen(true, next.followFirst.feedback.entries.length), 250);
+      return;
+    }
+    if (document.visibilityState === "visible") registerWeeklyPulseAppOpen();
   }
 }
 
@@ -18941,6 +18485,22 @@ window.addEventListener("pagehide", () => loadingAudioPlayer?.stop?.(), { passiv
 window.addEventListener("online", () => {
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
 });
+if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.permissions?.query && navigator.geolocation){
+  navigator.permissions.query({ name:"geolocation" }).then(permission => {
+    if (permission.state !== "granted") return;
+    navigator.geolocation.watchPosition(position => {
+      const latitude = Number(position.coords.latitude.toFixed(2));
+      const longitude = Number(position.coords.longitude.toFixed(2));
+      const current = userPreferences.followFirst.location;
+      if (current.latitude === latitude && current.longitude === longitude) return;
+      const next = clonePreferences(userPreferences);
+      next.followFirst.location = FOLLOW_FIRST.normalizeLocation({ ...current, latitude, longitude, source:"system", updatedAt:new Date().toISOString() });
+      next.followFirst.startupMeta = FOLLOW_FIRST.normalizeMeta({ ...next.followFirst.startupMeta, location:next.followFirst.location });
+      savePreferences(next);
+      renderAll({ preserveViewport:true });
+    }, () => {}, { enableHighAccuracy:false, maximumAge:300000, timeout:10000 });
+  }).catch(() => {});
+}
 if ("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     startupCoordinator.controllerChanged();

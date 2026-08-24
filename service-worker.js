@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v132";
+const CACHE_NAME = "nothingsport-shell-v134";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -24,6 +24,7 @@ const APP_SHELL = [
   "/config/product-events.js",
   "/config/user-state-sync.js",
   "/config/server-sync.js",
+  "/config/follow-first.js",
   "/config/feed-controls.js",
   "/config/ticketing.js",
   "/config/major-events.js",
@@ -165,4 +166,17 @@ self.addEventListener("notificationclick", event => {
       return self.clients.openWindow ? self.clients.openWindow(targetUrl) : undefined;
     })
   );
+});
+
+self.addEventListener("push", event => {
+  let payload = {};
+  try{ payload = event.data?.json?.() || {}; }catch(_error){ payload = { body:event.data?.text?.() || "" }; }
+  event.waitUntil(self.registration.showNotification(payload.title || "nothingsport reminder", {
+    body:payload.body || "Your sport starts in 15 minutes.",
+    icon:"/icons/nothingsport-app-192.png",
+    badge:"/icons/nothingsport-app-192.png",
+    tag:payload.tag || "nothingsport-reminder",
+    renotify:true,
+    data:{ url:payload.url || "/" },
+  }));
 });

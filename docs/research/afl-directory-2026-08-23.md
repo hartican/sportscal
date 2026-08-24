@@ -2,7 +2,7 @@
 
 Checked: 2026-08-23 (AEST)
 
-The AFL directory is a source-backed priority-player shortlist for following, not a weekly team list or a complete contracted squad.
+The AFL directory is a source-backed current full squad list for following. The canonical refresh resolves the current AFL competition season, then publishes every player returned for all 18 clubs.
 
 - [AFL teams](https://www.afl.com.au/teams) establishes the 18 current club identities.
 - [Official AFL teams API](https://aflapi.afl.com.au/afl/v2/teams?pageSize=1000) and [competition season API](https://aflapi.afl.com.au/afl/v2/competitions/1/compseasons?pageSize=20) provide the refresh inputs.

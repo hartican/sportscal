@@ -42,14 +42,15 @@ assert.equal(calibration.primaryTargetForEvent(piastri).targetId, "competitor:f1
 assert.equal(calibration.primaryTargetForEvent({ id: "event:cricket", key: "cricket", name: "Test match" }).targetId, "sport:cricket", "unconfigured feed cards must still learn against a bounded sport target");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "calibration must remain available to the learning model without appearing in onboarding");
-assert(html.includes('id="calibrationMoreBtn"') && html.includes('id="calibrationLessBtn"') && html.includes('id="calibrationSkipBtn"'), "calibration must expose visible More, Less and Skip controls");
+assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect lightweight follows without a swipe calibration step");
 assert(html.includes('event.key === "ArrowRight"') && html.includes('event.key === "ArrowLeft"'), "curated cards must expose keyboard swipe equivalents");
-assert(html.includes("orderCuratedDayEvents(groups[dateStr])"), "learned signals must affect the next feed calculation");
+const learningScoreSource = html.match(/function eventLearningScore\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(!learningScoreSource.includes("feedback") && html.includes("FOLLOW_FIRST?.appendFeedback"), "MVP swipe weights must be stored as feedback without changing ranking or eligibility");
 assert(html.includes("cardRetained: true") && !html.includes("sessionDismissedEventIds"), "both swipe directions must retain the visible card list");
 assert(html.includes("window.setTimeout(() =>") && html.includes("}, 1400);"), "swipe feedback must remain visible for 1.4 seconds");
 assert(html.includes("future feed suggestions will adapt."), "swipe feedback must explain when the learning signal takes effect");
 assert(html.includes("swipeCoaching") && html.includes("dismissedAt") && html.includes("swipe-coaching"), "swipe coaching completion and hints must use the durable profile contract");
+assert(html.includes("firstSwipeAt") && html.includes("shouldPromptRefinement"), "the first swipe must offer Follow refinement");
 assert(html.includes('overlay.setAttribute("role", "status")') && html.includes("prefers-reduced-motion:reduce"), "swipe feedback must be announced politely and honour reduced motion");
 
-console.log("Swipe learning valid: canonical anchors, retained cards, 1.4-second feedback, durable coaching and reduced-motion handling passed.");
+console.log("Swipe feedback valid: weighted metadata, retained cards, first-swipe Follow refinement, keyboard access and reduced-motion handling passed.");

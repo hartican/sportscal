@@ -3,6 +3,12 @@
   "git": {
     "deploymentEnabled": false
   },
+  "crons": [
+    {
+      "path": "/api/notification-dispatch",
+      "schedule": "* * * * *"
+    }
+  ],
   "redirects": [
     {
       "source": "/sports_calendar.html",

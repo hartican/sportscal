@@ -84,11 +84,11 @@ assert(localSteps.some(step => step[0] === "scripts/validate-cross-device-sync.j
 assert(localSteps.some(step => step[0] === "scripts/validate-server-persistence.js"), "every canonical update must enforce durable trusted-device sessions and session-only opt-out");
 assert(localSteps.some(step => step[0] === "scripts/validate-swipe-learning.js"), "every canonical update must enforce bounded swipe learning and complete-fixture isolation");
 assert(localSteps.some(step => step[0] === "scripts/validate-tuning-ratings.js"), "every canonical update must enforce fine-tuning, compatible five-star ratings, and prompt fatigue controls");
-assert(localSteps.some(step => step[0] === "scripts/verify-nothingsport.js"), "every canonical update must enforce focused-sport retention and interface regressions");
+assert(localSteps.some(step => step[0] === "scripts/validate-follow-first.js"), "every canonical update must enforce the follow-first interface and persistence contract");
 assert(
-  localSteps.findIndex(step => step[0] === "scripts/verify-nothingsport.js")
+  localSteps.findIndex(step => step[0] === "scripts/validate-follow-first.js")
     > localSteps.findIndex(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"),
-  "the interface regression gate must inspect the fully published and result-complete feed"
+  "the follow-first interface gate must inspect the fully published and result-complete feed"
 );
 assert(
   localSteps.findIndex(step => step[0] === "scripts/verify-pilot-readiness.js")

@@ -105,7 +105,6 @@
         "startHourLocal",
         "endHourLocal",
         "allowLateNightOverrides",
-        "calendarSyncEnabled",
         "browserAlertsEnabled",
         "reminderLeadMinutes"
       ],
@@ -118,7 +117,6 @@
         "startHourLocal": { "type": "integer", "minimum": 0, "maximum": 23 },
         "endHourLocal": { "type": "integer", "minimum": 0, "maximum": 23 },
         "allowLateNightOverrides": { "type": "boolean" },
-        "calendarSyncEnabled": { "type": "boolean" },
         "browserAlertsEnabled": { "type": "boolean" },
         "reminderLeadMinutes": { "type": "array", "items": { "type": "integer", "minimum": 0, "maximum": 10080 }, "uniqueItems": true }
       }

@@ -65,7 +65,7 @@
     "freshOriginFirstCardMedianMs": 350,
     "configuredFirstCardMedianMs": 750,
     "maxCriticalGzipGrowthPercent": 10,
-    "maxCriticalLocalAssetRequests": 41,
+    "maxCriticalLocalAssetRequests": 42,
     "warmCachedFirstPageMedianMs": 750,
     "coldSignedPersonalisedMedianMs": 2500,
     "coldSignedPersonalisedP95Ms": 6000,

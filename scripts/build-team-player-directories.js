@@ -7,6 +7,9 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
 const CHECKED_AT = "2026-08-23T12:00:00.000Z";
+const AFL_COMPETITION_SEASONS_URL = "https://aflapi.afl.com.au/afl/v2/competitions/1/compseasons?pageSize=20";
+const AFL_SQUADS_URL = "https://aflapi.afl.com.au/afl/v2/squads";
+const NRL_PLAYERS_DATA_URL = "https://www.nrl.com/players/data";
 
 const NRL_PLAYERS = Object.freeze([
   ["team:nrl:322", "Adam Reynolds", "adam-reynolds", "Halfback", "broncos"],
@@ -111,7 +114,74 @@ function writeOrCheck(filePath, content, check){
   fs.writeFileSync(filePath, content);
 }
 
-function buildNrlDirectory(canonical){
+function slugify(value){
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+async function officialJson(url, headers = {}){
+  const response = await fetch(url, { headers:{ Accept:"application/json", "User-Agent":"nothingsport-directory-refresh/1.0", ...headers } });
+  if (!response.ok) throw new Error(`Official directory request failed (${response.status}): ${url}`);
+  return response.json();
+}
+
+async function refreshNrlPlayerRows(canonical){
+  const teams = canonical.participants.filter(participant => participant.type === "team" && participant.sportDomainId === "sport:nrl");
+  const first = await officialJson(`${NRL_PLAYERS_DATA_URL}?competition=111&team=0`, { Referer:"https://www.nrl.com/players/?competition=111" });
+  const filters = (first.filterTeams || []).filter(team => Number(team.value) > 0);
+  if (filters.length !== 17) throw new Error(`Expected 17 NRL club filters, received ${filters.length}`);
+  const byNickname = new Map(teams.flatMap(team => [team.displayName, team.canonicalName, team.shortName]
+    .filter(Boolean).map(name => [String(name).toLowerCase(), team.id])));
+  const clubPayloads = await Promise.all(filters.map(team => officialJson(
+    `${NRL_PLAYERS_DATA_URL}?competition=111&team=${encodeURIComponent(team.value)}`,
+    { Referer:"https://www.nrl.com/players/?competition=111" }
+  )));
+  const rows = clubPayloads.flatMap(payload => payload.profileGroups?.flatMap(group => group.profiles || []) || []);
+  const unique = new Map();
+  rows.forEach(profile => {
+    const displayName = `${profile.firstName || ""} ${profile.lastName || ""}`.trim();
+    const sourcePath = String(profile.url || "");
+    const slug = sourcePath.split("/").filter(Boolean).at(-1) || slugify(displayName);
+    const currentTeamId = byNickname.get(String(profile.teamNickName || "").toLowerCase());
+    if (!displayName || !slug || !currentTeamId) return;
+    unique.set(`competitor:nrl:${slug}`, [currentTeamId, displayName, slug, profile.position || "Player", sourcePath]);
+  });
+  if (unique.size < 500) throw new Error(`Expected a complete NRL player directory, received ${unique.size} players`);
+  return [...unique.values()].sort((a, b) => a[1].localeCompare(b[1]));
+}
+
+async function refreshAflPlayerRows(canonical){
+  const teams = canonical.participants
+    .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:afl" && participant.teamCode !== "TBD");
+  const seasons = await officialJson(AFL_COMPETITION_SEASONS_URL, { Origin:"https://www.afl.com.au", Referer:"https://www.afl.com.au/" });
+  const season = (seasons.compSeasons || []).find(item => /^2026\b/.test(item.name));
+  if (!season?.id) throw new Error("The current AFL competition season is unavailable");
+  const squads = await Promise.all(teams.map(team => {
+    const sourceTeamId = Number(team.metadata?.sourceTeamId);
+    const url = `${AFL_SQUADS_URL}?teamId=${sourceTeamId}&compSeasonId=${season.id}&pageSize=1000`;
+    return officialJson(url, { Origin:"https://www.afl.com.au", Referer:"https://www.afl.com.au/" });
+  }));
+  const rows = squads.flatMap(payload => {
+    const canonicalTeam = teams.find(team => team.metadata?.providerId === payload.squad?.team?.providerId);
+    return (payload.squad?.players || []).map(slot => {
+      const player = slot.player || {};
+      const displayName = `${player.firstName || ""} ${player.surname || ""}`.trim();
+      const slug = slugify(displayName);
+      const position = String(slot.position || "Player").toLowerCase().replace(/(^|_)([a-z])/g, (_match, prefix, letter) => `${prefix ? " " : ""}${letter.toUpperCase()}`);
+      return [canonicalTeam?.id || "", displayName, slug, position, player.id];
+    });
+  }).filter(row => row[0] && row[1] && row[2] && Number(row[4]) > 0);
+  const unique = new Map(rows.map(row => [`competitor:afl:${row[2]}`, row]));
+  if (unique.size < 650) throw new Error(`Expected a complete AFL player directory, received ${unique.size} players`);
+  return [...unique.values()].sort((a, b) => a[1].localeCompare(b[1]));
+}
+
+function buildNrlDirectory(canonical, playerRows = NRL_PLAYERS, checkedAt = CHECKED_AT){
   const leagueId = "competition:nrl-premiership-2026";
   const teams = canonical.participants
     .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:nrl")
@@ -126,14 +196,14 @@ function buildNrlDirectory(canonical){
     }))
     .sort((a, b) => a.displayName.localeCompare(b.displayName));
   const teamIds = new Set(teams.map(team => team.id));
-  const players = NRL_PLAYERS.map(([currentTeamId, displayName, slug, position, clubSlug]) => ({
+  const players = playerRows.map(([currentTeamId, displayName, slug, position, sourcePath]) => ({
     id: `competitor:nrl:${slug}`,
     displayName,
     sortName: displayName,
     currentTeamId,
     leagueId,
     position,
-    sourceUrl: `https://www.nrl.com/players/nrl-premiership/${clubSlug}/${slug}/`,
+    sourceUrl: sourcePath?.startsWith("/") ? `https://www.nrl.com${sourcePath}` : `https://www.nrl.com/players/nrl-premiership/${sourcePath || "players"}/${slug}/`,
     sourceRefs: ["source:nrl:players", "source:nrl:signings-2026"],
     active: true,
   }));
@@ -143,11 +213,11 @@ function buildNrlDirectory(canonical){
   return {
     schemaVersion: "nrl-directory.v1",
     seasonLabel: "2026",
-    generatedAt: CHECKED_AT,
+    generatedAt: checkedAt,
     sources: [
-      { id: "source:nrl:clubs", provider: "NRL", url: "https://www.nrl.com/clubs/", sourceType: "official", checkedAt: CHECKED_AT },
-      { id: "source:nrl:players", provider: "NRL", url: "https://www.nrl.com/players/?competition=111", sourceType: "official", checkedAt: CHECKED_AT },
-      { id: "source:nrl:signings-2026", provider: "NRL", url: "https://www.nrl.com/news/2026/01/01/2026-nrl-signings-tracker-the-latest-from-all-17-clubs/", sourceType: "official", checkedAt: CHECKED_AT },
+      { id: "source:nrl:clubs", provider: "NRL", url: "https://www.nrl.com/clubs/", sourceType: "official", checkedAt },
+      { id: "source:nrl:players", provider: "NRL", url: "https://www.nrl.com/players/?competition=111", sourceType: "official", checkedAt },
+      { id: "source:nrl:signings-2026", provider: "NRL", url: "https://www.nrl.com/news/2026/01/01/2026-nrl-signings-tracker-the-latest-from-all-17-clubs/", sourceType: "official", checkedAt },
     ],
     leagues: [{ id: leagueId, key: "nrl", displayName: "NRL Premiership", countryCode: "AU", seasonLabel: "2026", teamCount: teams.length, sourceRefs: ["source:nrl:clubs", "source:nrl:signings-2026"] }],
     teams,
@@ -155,7 +225,7 @@ function buildNrlDirectory(canonical){
   };
 }
 
-function buildAflDirectory(canonical){
+function buildAflDirectory(canonical, playerRows = AFL_PLAYERS, checkedAt = CHECKED_AT){
   const leagueId = "competition:afl-premiership-2026";
   const teams = canonical.participants
     .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:afl" && participant.teamCode !== "TBD")
@@ -170,27 +240,27 @@ function buildAflDirectory(canonical){
     }))
     .sort((a, b) => a.displayName.localeCompare(b.displayName));
   const teamIds = new Set(teams.map(team => team.id));
-  const players = AFL_PLAYERS.map(([currentTeamId, displayName, slug, position]) => ({
+  const players = playerRows.map(([currentTeamId, displayName, slug, position, profileId]) => ({
     id: `competitor:afl:${slug}`,
     displayName,
     sortName: displayName,
     currentTeamId,
     leagueId,
     position,
-    sourceUrl: `https://www.afl.com.au/players/${AFL_PLAYER_PROFILE_IDS[slug]}/${slug}`,
+    sourceUrl: `https://www.afl.com.au/players/${profileId || AFL_PLAYER_PROFILE_IDS[slug]}/${slug}`,
     sourceRefs: ["source:afl:players", "source:afl:teams"],
     active: true,
   }));
-  if (teams.length !== 18 || players.some(player => !teamIds.has(player.currentTeamId)) || players.some(player => !AFL_PLAYER_PROFILE_IDS[player.id.replace("competitor:afl:", "")])){
+  if (teams.length !== 18 || players.some(player => !teamIds.has(player.currentTeamId)) || players.some(player => !/^https:\/\/www\.afl\.com\.au\/players\/\d+\//.test(player.sourceUrl))){
     throw new Error("AFL directory inputs no longer match the canonical club set");
   }
   return {
     schemaVersion: "afl-directory.v1",
     seasonLabel: "2026",
-    generatedAt: CHECKED_AT,
+    generatedAt: checkedAt,
     sources: [
-      { id: "source:afl:teams", provider: "AFL", url: "https://www.afl.com.au/teams", sourceType: "official", checkedAt: CHECKED_AT },
-      { id: "source:afl:players", provider: "AFL", url: "https://aflapi.afl.com.au/afl/v2/squads?pageSize=1000", sourceType: "official", checkedAt: CHECKED_AT },
+      { id: "source:afl:teams", provider: "AFL", url: "https://www.afl.com.au/teams", sourceType: "official", checkedAt },
+      { id: "source:afl:players", provider: "AFL", url: "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000", sourceType: "official", checkedAt },
     ],
     leagues: [{ id: leagueId, key: "afl", displayName: "AFL Premiership", countryCode: "AU", seasonLabel: "2026", teamCount: teams.length, sourceRefs: ["source:afl:teams", "source:afl:players"] }],
     teams,
@@ -217,13 +287,24 @@ function publishDirectory({ filename, scriptGlobal, directory, indexFilename, in
   writeOrCheck(path.join(ROOT, "data/canonical", indexFilename.replace(/\.json$/, ".js")), `globalThis.${indexScriptGlobal} = ${JSON.stringify(index)};\n`, check);
 }
 
-function main(){
+function readPublishedDirectory(filename){
+  return JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical", filename), "utf8"));
+}
+
+async function main(){
   const check = process.argv.includes("--check");
   const canonical = readCanonical();
+  const checkedAt = new Date().toISOString();
+  const nrlDirectory = check
+    ? readPublishedDirectory("nrl-directory.v1.json")
+    : buildNrlDirectory(canonical, await refreshNrlPlayerRows(canonical), checkedAt);
+  const aflDirectory = check
+    ? readPublishedDirectory("afl-directory.v1.json")
+    : buildAflDirectory(canonical, await refreshAflPlayerRows(canonical), checkedAt);
   publishDirectory({
     filename: "nrl-directory.v1.json",
     scriptGlobal: "NOTHINGSPORTS_NRL_DIRECTORY_DATA",
-    directory: buildNrlDirectory(canonical),
+    directory: nrlDirectory,
     indexFilename: "nrl-follow-index.v1.json",
     indexScriptGlobal: "NOTHINGSPORTS_NRL_FOLLOW_INDEX",
     indexSchemaVersion: "nrl-follow-index.v1",
@@ -232,7 +313,7 @@ function main(){
   publishDirectory({
     filename: "afl-directory.v1.json",
     scriptGlobal: "NOTHINGSPORTS_AFL_DIRECTORY_DATA",
-    directory: buildAflDirectory(canonical),
+    directory: aflDirectory,
     indexFilename: "afl-follow-index.v1.json",
     indexScriptGlobal: "NOTHINGSPORTS_AFL_FOLLOW_INDEX",
     indexSchemaVersion: "afl-follow-index.v1",
@@ -241,5 +322,5 @@ function main(){
   console.log(`Team-player directories ${check ? "are current" : "written"}.`);
 }
 
-if (require.main === module) main();
-module.exports = { buildNrlDirectory, buildAflDirectory, buildIndex };
+if (require.main === module) main().catch(error => { console.error(error); process.exit(1); });
+module.exports = { buildNrlDirectory, buildAflDirectory, buildIndex, refreshNrlPlayerRows, refreshAflPlayerRows };

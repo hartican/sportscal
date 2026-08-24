@@ -1,6 +1,6 @@
 {
   "schemaVersion": "nrl-follow-index.v1",
-  "generatedAt": "2026-08-23T12:00:00.000Z",
+  "generatedAt": "2026-08-24T10:26:11.793Z",
   "teams": [
     {
       "id": "team:nrl:322",
@@ -73,123 +73,338 @@
   ],
   "players": [
     {
+      "id": "competitor:nrl:adam-christensen",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:adam-doueihi",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:adam-elliott",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:adam-pompey",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
       "id": "competitor:nrl:adam-reynolds",
       "currentTeamId": "team:nrl:322",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:reece-walsh",
+      "id": "competitor:nrl:addin-fonua-blake",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alexander--brimson",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alec-macdonald",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alekolasimi-jones",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alex-conti",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alex-johnston",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alex-seyfarth",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alex-twal",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ali-leiataua",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:allan-fitzgibbon",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:alofiana-khan-pereira",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:amare-milford",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:angus-crichton",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:antonio-verhoeven",
       "currentTeamId": "team:nrl:322",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:stephen-crichton",
-      "currentTeamId": "team:nrl:332",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:jacob-kiraz",
-      "currentTeamId": "team:nrl:332",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:reuben-cotter",
-      "currentTeamId": "team:nrl:326",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:jake-clifford",
-      "currentTeamId": "team:nrl:326",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:isaiya-katoa",
-      "currentTeamId": "team:nrl:9538",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:jamayne-isaako",
-      "currentTeamId": "team:nrl:9538",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:clinton-gutherson",
-      "currentTeamId": "team:nrl:330",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:valentine-holmes",
-      "currentTeamId": "team:nrl:330",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:mitchell-moses",
+      "id": "competitor:nrl:apa-twidle",
       "currentTeamId": "team:nrl:328",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:tallyn-da-silva",
+      "id": "competitor:nrl:apisai-koroisau",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:arama-hau",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:araz-nanva",
       "currentTeamId": "team:nrl:328",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:kalyn-ponga",
-      "currentTeamId": "team:nrl:325",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:greg-marzhew",
-      "currentTeamId": "team:nrl:325",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:isaah-yeo",
-      "currentTeamId": "team:nrl:329",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:nathan-cleary",
-      "currentTeamId": "team:nrl:329",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:cameron-murray",
+      "id": "competitor:nrl:ashton-ward",
       "currentTeamId": "team:nrl:335",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:latrell-mitchell",
+      "id": "competitor:nrl:asu-kepaoa",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ata-mariota",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ativalu-lisati",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:aublix-tawha",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bailey-hayward",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bailey-simonsson",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:beau-fermor",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ben-condon",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ben-hunt",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ben-talty",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ben-trbojevic",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:benaiah-ioelu",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:billy-burns",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:billy-scott",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:billy-smith",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:billy-walters",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:blaize-talagi",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:blake-lawrie",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:blake-mozer",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:blake-steep",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:blake-wilson",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:blayke-brailey",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bodhi-sharpley",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:braden-uele",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brad-schneider",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bradman-best",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:braidon-burns",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brandon-smith",
       "currentTeamId": "team:nrl:335",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:joseph-tapine",
-      "currentTeamId": "team:nrl:323",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:kaeo-weekes",
-      "currentTeamId": "team:nrl:323",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:james-tedesco",
-      "currentTeamId": "team:nrl:331",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:sam-walker",
-      "currentTeamId": "team:nrl:331",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:jamal-fogarty",
+      "id": "competitor:nrl:brandon-wakeham",
       "currentTeamId": "team:nrl:336",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:lehi-hopoate",
+      "id": "competitor:nrl:braydon-trindall",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brendan-piakura",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brent-woolf",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brian-kelly",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brian-pouniu",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brian-too",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:briton-nikora",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brock-gray",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:brodie-jones",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bronson-garlick",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bronson-xerri",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:bunty-afoa",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:caleb-navale",
       "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cameron-bukowski",
+      "currentTeamId": "team:nrl:322",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -198,7 +413,447 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:nicho-hynes",
+      "id": "competitor:nrl:cameron-munster",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cameron-murray",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:campbell--graham",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:casey-mclean",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:chanel-harris-tavita",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:charlie-guymer",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:charlie-murray",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:charnze-nicoll-klokstad",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:chevy-stewart",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:chris-randall",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:christian-tuipulotu",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:clayton-faulalo",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:clinton-gutherson",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:coby-black",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cody-hopwood",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cody-ramsey",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cody-walker",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:coen-hess",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:connelly-lemuelu",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:connor-tracey",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:connor-watson",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cooper-clarke",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:corey-horsburgh",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:corey-jensen",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:corey-waddell",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cory-paix",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:daine-laurie",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dallin-watene-zelezniak",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:daly-cherry-evans",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:damien-cook",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dane-gagai",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:daniel-atkinson",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:daniel-suluka-fifita",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:daniel-tupou",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:david-fale",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:david-fifita",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:davvy-moale",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dayne-jennings",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:de-la-salle-vaa",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dean-ieremia",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:deine-mariner",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:delouise-hoeter",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:demitric-sifakula",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:diesel-hagan",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dominic-young",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dylan-brown",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dylan-edwards",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dylan-egan",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dylan-lucas",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:dylan-walker",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:eddie-ieremia-toeava",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:edward-kosi",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:egan-butcher",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:eliesa-katoa",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:elijah-keung",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:elijah-rasmussen",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:emre-guler",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:enari-tuala",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:erin-clark",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ethan-bullemor",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ethan-king",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ethan-roberts",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ethan-sanders",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ethan-strange",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:euan-aitken",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ezra-mam",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:faaletino-tavana",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:felise-kaufusi",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:fetalaiga-pauga",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:finau-latu",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:fletcher-sharpe",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:fonua-pole",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:francis-manuleleua",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:francis-molo",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:freddy-lussick",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:gabriel-satrick",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:gehamat-shibasaki",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:gordon-chan-kum-tong",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:grant-anderson",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:greg-marzhew",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:griffin-neame",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:haele-finau",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:haizyn-mellars",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hame-sele",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hamish-stewart",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hamiso-tabuai-fidow",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:harrison-edwards",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:harrison-graham",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:harrison-hassett",
       "currentTeamId": "team:nrl:333",
       "leagueId": "competition:nrl-premiership-2026"
     },
@@ -208,18 +863,308 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:nick-meaney",
+      "id": "competitor:nrl:harry-hayes",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:haumole-olakauatu2",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hayden-buchanan",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hayden-watson",
       "currentTeamId": "team:nrl:324",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:tino-faasuamaleaui",
+      "id": "competitor:nrl:hayze-perham",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:heamasi-makasini",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:heilum-luki",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:herbie-farnworth",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hohepa-puru",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hudson-young",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hugo-hart",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hugo-peel",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:hugo-savala",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:isaah-yeo",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:isaiah-fagalilo",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:isaiah-iongi",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:isaiah-papalii",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:isaiah-tass",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:isaiya-katoa",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:iulio-afoa",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:izack-tago",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jmaine-hopgood",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-bostock",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-cogger",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-cole",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-de-belin",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-gosiewski",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-hetherington",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-howarth",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-todd",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-wighton",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jack-williams",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jackson-ford",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jackson-shereb",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-auloa",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-halangahu",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-host",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-kiraz",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-laban",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-liddle",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-preston",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-saifiti",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jacob-webster",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jaeman-salmon",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jahream-bula",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jahrome-hughes",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jai-arrow",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jai-bowden",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jaimin-jolliffe",
       "currentTeamId": "team:nrl:337",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:jayden-campbell",
-      "currentTeamId": "team:nrl:337",
+      "id": "competitor:nrl:jaiyden-hunt",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jak-goulding",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-averillo",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-clifford",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-clydsdale",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-elliott",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-simpkin",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-tago",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-trbojevic",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jake-turpin",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jamal-fogarty",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jamayne-isaako",
+      "currentTeamId": "team:nrl:9538",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -228,18 +1173,1688 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
+      "id": "competitor:nrl:james-schiller",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:james-tedesco",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:james-walsh",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jamie-humphreys",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jared-haywood",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jarome-luai",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jason-saab",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jason-salalilo",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jason-taumalolo",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:javon-andrews",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jaxon-purdue",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jayden-berrell",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jayden-brailey",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jayden-campbell",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jayden-sullivan",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jaydn-sua",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jaylan-de-groot",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jayze-tuigamala",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jed-reardon",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jensen-taumoepeau",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jeral-skelton",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ieremia-nanai",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jeremy-marshall-king",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jermaine-mcewen",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jerry-musu",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jesse-arthars",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jesse-colquhoun",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jesse-mclean",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jesse-ramien2",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ratu-rinakama",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jett-liu",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jezaiah-funa-iuta",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:joash-papalii",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jock-madden",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:joe-chan",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:joe-roddy",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:joey-walsh",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:john-bateman",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:john-radel",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jojo-fifita",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jonah-glover",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jonah-pezet",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jonathan-sua",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jordan-riki",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jordan-samrani",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jordan-uta",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:joseph-tapine",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josese-lanyon",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-addo-carr",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-curran",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-feledy",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-king",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-papalii",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-patston",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josh-rogers",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:joshua-coric",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josiah-karapani",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:josiah-pahulu",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:junior-paulo",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:junior-tupou",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jye-gray",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jye-linnane",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kade-dykes",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kade-reed",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kaeo-weekes",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kai-odonnell",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kai-pearce-paul",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kaiden-lahrs",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kalani-going",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kalyn-ponga",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kane-bradley",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kayliss-fatialofa",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:keano-kini",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:keaon-koloamatangi",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:keenan-palasia",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kelma-tuilagi",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kit-laulilii",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kitione-kautoga",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kayal-iro",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:klese-haas",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kobe-hetherington",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kodi-nikorima",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kontoni-staggs",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kulikefu-finefeuiaki",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kurt-capewell",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kurt-donoghoe",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kurt-mann",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kurtis-morrin",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:kyle-flanagan",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lachlan-broederlow",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lachlan-crouch",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lachlan-galvin",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lachlan-hubner",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lachlan-ilias",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:latrell-mitchell",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:latrell-siegwalt",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:latu-fainu",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lehi-hopoate",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:leka-halasima",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:leo-thompson",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lewis-symonds",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:liam-henry",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:liam-ison",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:liam-le-blanc",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:liam-martin",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:liam-sutton",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lindsay-collins",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lindsay-smith",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lipoi-hopoi",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lj-nonu",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:logan-spinks",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:loko-jnr-pasifiki-tonga",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:lorenzo-talataina",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luca-moretti",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luciano-leilua",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luke-brooks",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luke-cesari",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luke-garner",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luke-laulilii",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luke-metcalf",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luke-sommerton",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:luron-patea",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:makaia-tafua",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:manaia-waitere",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:marata-niukore",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:marcelo-montoya",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:marion-seve",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mark-nawaqanitawase",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mark-tuialii",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mason-barber",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mason-kira",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matt-croker",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mathew-feagai",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matt-burton",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matt-doorey",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matthew-arthur",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matthew-dufty",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matthew-humphries",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matthew-lodge",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matthew-timoko",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:matty-nicholson",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mavrik-geyer",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mawene-hiroti",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:max-feagai",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:max-king",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:max-mccarthy",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:max-plath",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:michael-asomua",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:michael-molo",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mitchell-kenny",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mitchell-barnett",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mitchell-jennings",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mitchell-moses",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mitchell-woods",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:moala-graham-taufa",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:moeaki-fotuaika",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:mohamed-alameddine",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:morgan-gannon",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:morgan-knowles",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:morgan-smithies",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:moses-leo",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:moses-leota",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:moses-suli",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:murray-taulagi",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:myles-martin",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nat-butcher",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nathan-brown",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nathan-cleary",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:naufahu-whyte",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:navren-willett",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nazareth-taua",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nicholas-hynes",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nicholas-lenaz",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:nick-meaney",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:niwhai-puru",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:noah-martin",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:oliver-pascoe",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:onitoni-large",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:oregon-kaufusi",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:oryn-keeley",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:owen-pattie",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:pasami-saulo",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:patrick-carrigan",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:patrick-herbert",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:patrick-kailahi",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:patrick-young",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:paul-alamoti",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:paul-bryan",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:payne-haas",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:peter-hola",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:peter-mamouzelos",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:peter-taateo",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:phillip-coates",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:phillip-sami",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:phoenix-crossland",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:preston-conn",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:preston-riki",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ray-stone",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:reece-foley",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:reece-robson",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:reece-walsh",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:reed-mahoney",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:reuben-cotter",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:reuben-garrick",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:rex-bassingthwaighte",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:richard-penisini",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:riley-jones",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:riley-pollard",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:riley-price",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:robert-derby",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:robert-toia",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:rocco-berry",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:roger-tuivasa-sheck",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ronald-philitoga",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ronald-volkman",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ronaldo-mulitalo",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:royce-hunt",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ryan-couchman",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ryan-hutchinson",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ryan-matterson",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ryda-talagi",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:ryley-smith",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:salesi-ataata",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:salesi-foketi",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sam-elliott",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:samuel-healey",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sam-mcintyre",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sam-tuivaiti",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sam-verrills",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sam-walker",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:samuel-hughes",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:samuel-stonestreet",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:samuela-fainu",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sandon-smith",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:savelio-tamale",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:saxon-pryke",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:scott-drinkwater",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:scott-sorensen",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sean-keppie",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sean-osullivan",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sean-russell",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sebastian-kris",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sebastian-sua",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:selwyn-cobbo",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:setu-tu",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:shawn-blore",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sialetili-faeamani",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:simi-sasagi",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:simione-laiafi",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sione-fainu",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sione-finau",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sione-fonua",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sione-katoa",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:siosifa-talakai",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:siosiua-taukeiaho",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sitili-tupouniua",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:siua-wong",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:solomone-saukuru",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:soni-luke",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:spencer-leniu",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:starford-toa",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:stefano-utoikamanu",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:stephen-crichton",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sualauvi-faalogo",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:suli-pole",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sunia-turuva",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:sunny-kama",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:taine-tuaupiki",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:talanoa-penitani",
+      "currentTeamId": "team:nrl:335",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tallyn-da-silva",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
       "id": "competitor:nrl:tanah-boyd",
       "currentTeamId": "team:nrl:321",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:apisai-koroisau",
+      "id": "competitor:nrl:taniela-paseka",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tanner-stowers-smith",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:taylan-may",
       "currentTeamId": "team:nrl:334",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:adam-doueihi",
+      "id": "competitor:nrl:taylor-losalu",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:te-maire-martin",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:teancum-brown",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:teig-wilton",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:terrell-may",
       "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tevita-naufahu",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:thomas-cant",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:thomas-duffy",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:thomas-flegler",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:thomas-hazelton",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:thomas-jenkins",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:thomas-mikaele",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tino-faasuamaleaui",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:toby-couchman",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:toby-rodwell",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:toby-rudolf",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:toby-winter",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tolu-koula",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tom-ale",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tomas-chester",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tom-dearden",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tom-gilbert",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tom-starling",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tom-trbojevic",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tommy-talau",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:toni-mataele",
+      "currentTeamId": "team:nrl:328",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tony-francis",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tony-sukkar",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:trai-fuller",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:trent-loiero",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:trent-toelau",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:trey-mooney",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tristan-hope",
+      "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tui-kamikamica",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tukimihia-simpkins",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tupou-francis",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tyler-peckham-harris",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tyran-wishart",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tyrell-sloan",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tyson-frizell",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:tyson-gamble",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:vaa-semu",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:valentine-holmes",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:vena-patuki-case",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:victor-radley",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:viliame-kikau",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:viliami-fifita",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:viliami-vailea",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:wayde-egan",
+      "currentTeamId": "team:nrl:321",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:will-warbrick",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:william-kennedy",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:wilson-de-courcey",
+      "currentTeamId": "team:nrl:325",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:xavier-kerrisk",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:xavier-savage",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:xavier-willison",
+      "currentTeamId": "team:nrl:322",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zac-garton",
+      "currentTeamId": "team:nrl:9538",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zac-herdegen",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zac-hosking",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zac-laybutt",
+      "currentTeamId": "team:nrl:326",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zaidas-muagututia",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zakauri-clarke",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zane-harrison",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:zyon-maiuu",
+      "currentTeamId": "team:nrl:332",
       "leagueId": "competition:nrl-premiership-2026"
     }
   ]

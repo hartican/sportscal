@@ -7,7 +7,9 @@ const {
   requestOrigin,
   supabaseConfig,
   supabaseRequest,
+  supabaseServiceRequest,
 } = require("../lib/supabase-server");
+const followFirst = require("../config/follow-first");
 
 function setPrivateResponseHeaders(response){
   response.setHeader("Cache-Control", "private, no-store, max-age=0");
@@ -53,6 +55,10 @@ function recoveryCallback(request, environment = process.env){
   return `${origin}/?auth=recovery`;
 }
 
+function signupCallback(request){
+  return `${recoveryCallback(request).replace(/\?auth=recovery$/, "")}?auth=confirmed`;
+}
+
 function publicUser(user){
   return {
     id: user.id,
@@ -87,6 +93,60 @@ module.exports = async function authHandler(request, response){
     }
 
     const body = requestBody(request);
+    if (body.action === "sign-up"){
+      const email = validEmail(body.email);
+      const password = validNewPassword(body.password);
+      if (!email){
+        response.status(400).json({ error:"Enter a valid email address.", code:"invalid_email" });
+        return;
+      }
+      if (!password){
+        response.status(400).json({ error:"Use between 8 and 1024 characters.", code:"invalid_password" });
+        return;
+      }
+      const meta = followFirst.normalizeMeta({ ...(body.meta || {}), source:"signup" });
+      const signup = await supabaseRequest(`/auth/v1/signup?redirect_to=${encodeURIComponent(signupCallback(request))}`, {
+        method:"POST",
+        body:{ email, password },
+      });
+      let metadataDeferred = false;
+      if (signup?.user?.id){
+        try{
+          await supabaseServiceRequest("/rest/v1/nothingsports_user_meta?on_conflict=user_id", {
+            method:"POST",
+            headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
+            body:{
+              user_id:signup.user.id,
+              schema_version:meta.schemaVersion,
+              revision:meta.revision,
+              seed_hash:meta.seedHash,
+              sports:meta.sports,
+              major_events:meta.majorEvents,
+              offer_interests:meta.offerInterests,
+              coarse_region:meta.location,
+              // Signup is performed by the server service role. Consent may only
+              // be granted later from the user's own authenticated session.
+              personalised_offers_consent:false,
+              consent_updated_at:null,
+              source:"signup",
+              updated_at:new Date().toISOString(),
+            },
+          });
+        }catch(_error){
+          // Account creation must not be rolled back by a transient metadata
+          // insert failure. The authenticated first session idempotently seeds it.
+          metadataDeferred = true;
+        }
+      }
+      response.status(200).json({
+        user:signup?.user ? publicUser(signup.user) : null,
+        session:signup?.access_token ? signup : null,
+        confirmationRequired:!signup?.access_token,
+        metadataDeferred,
+      });
+      return;
+    }
+
     if (body.action === "password-recovery-request"){
       const email = validEmail(body.email);
       if (!email){

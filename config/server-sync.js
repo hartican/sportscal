@@ -339,6 +339,22 @@
         }
         return { ...saved };
       },
+      async signUp(email, password, meta, { persist = true } = {}){
+        const payload = await jsonRequest("/api/auth", {
+          method:"POST",
+          body:JSON.stringify({ action:"sign-up", email, password, meta }),
+        });
+        if (!payload.session) return payload;
+        persistSession = persist !== false;
+        savePersistencePreference(persistSession);
+        const saved = saveSession(payload.session);
+        if (!saved){
+          const error = new Error("The sign-up response did not contain a valid session.");
+          error.code = "invalid_auth_session";
+          throw error;
+        }
+        return { ...payload, session:{ ...saved } };
+      },
       async requestPasswordRecovery(email){
         return jsonRequest("/api/auth", {
           method:"POST",
@@ -362,6 +378,22 @@
           user: payload.user,
           state: stateFromDatabaseRow(payload.state),
         };
+      },
+      async loadMeta(){
+        return authenticatedRequest("/api/user-meta");
+      },
+      async saveMeta(meta){
+        return authenticatedRequest("/api/user-meta", {
+          method:"PUT",
+          body:JSON.stringify({ meta }),
+        });
+      },
+      async notificationCommand(command, { authenticated = true } = {}){
+        const options = { method:"POST", body:JSON.stringify(command || {}) };
+        if (authenticated && (session || restoreStoredSession())){
+          return authenticatedRequest("/api/notifications", options);
+        }
+        return jsonRequest("/api/notifications", options);
       },
       async loadFeed({ cursor = 0, limit = 20 } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
