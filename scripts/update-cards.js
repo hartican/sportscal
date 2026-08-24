@@ -98,6 +98,7 @@ function buildSteps({ localOnly = false } = {}) {
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
+  ["scripts/build-paged-feed.js"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
   ["scripts/validate-phase5-premium-ranking.js"],

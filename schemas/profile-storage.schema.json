@@ -16,11 +16,10 @@
     "ratings",
     "eventUserState",
     "eventSpoilerState",
-    "surfacePresentation",
     "archivedEvents"
   ],
   "properties": {
-    "schemaVersion": { "const": 3 },
+    "schemaVersion": { "const": 4 },
     "profile": {
       "type": "object",
       "additionalProperties": false,
@@ -30,7 +29,7 @@
         "usernameLabel": { "type": "string", "minLength": 1 },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" },
-        "schemaVersion": { "const": 3 },
+        "schemaVersion": { "const": 4 },
         "onboardingCompleted": { "type": "boolean" },
         "timezone": { "type": "string", "minLength": 3 }
       }
@@ -44,7 +43,6 @@
     "ratings": { "type": "object" },
     "eventUserState": { "type": "object" },
     "eventSpoilerState": { "type": "object" },
-    "surfacePresentation": { "type": "object" },
     "archivedEvents": {
       "type": "array",
       "items": {

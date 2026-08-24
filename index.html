@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="118">
+<meta name="app-shell-version" content="119">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes — like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -5424,6 +5424,18 @@ body.header-compact-3 .brand .slogan{ display:none; }
     filter:none;
   }
 }
+
+.event-card,
+.major-event-card,
+.joint-tournament-card{
+  content-visibility: auto;
+  contain-intrinsic-size: 440px;
+}
+
+.feed-page-sentinel{
+  min-height: 1px;
+  width: 100%;
+}
 </style>
 </head>
 <body>
@@ -5705,6 +5717,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
 <script src="config/profile-storage.js"></script>
+<script src="config/disposable-storage.js"></script>
 <script src="config/product-events.js"></script>
 <script src="config/user-state-sync.js"></script>
 <script src="config/server-sync.js"></script>
@@ -6259,6 +6272,7 @@ const SCORE_BANDS = {
 
 const FEED_CONFIG = {
   metaUrl: "data/feed-meta.json",
+  manifestUrl: "data/feed/manifest.json",
   eventsUrl: "data/events.json",
   eventsScriptUrl: "data/events.js",
 };
@@ -6346,6 +6360,8 @@ const STORAGE_KEYS = {
 };
 
 const PROFILE_STORAGE = globalThis.NOTHINGSPORTS_PROFILE_STORAGE || null;
+const DISPOSABLE_STORAGE = globalThis.NOTHINGSPORTS_DISPOSABLE_STORAGE || null;
+const disposableStore = DISPOSABLE_STORAGE?.createStore?.() || null;
 const USER_STATE_SYNC = globalThis.NOTHINGSPORTS_USER_STATE_SYNC || null;
 const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
@@ -6359,9 +6375,11 @@ const productEventsQueue = PRODUCT_EVENTS && serverSyncClient
     })
   : null;
 let activeProfileBundle = null;
+let profileStorageBootstrapError = null;
 try{
   activeProfileBundle = PROFILE_STORAGE?.loadActiveProfile(localStorage) || null;
 }catch(error){
+  profileStorageBootstrapError = error;
   console.warn("Profile storage unavailable; using legacy local storage", error);
 }
 
@@ -6371,18 +6389,102 @@ function activeProfileSection(section, fallback){
 }
 
 function saveActiveProfileSection(section, value){
-  if (!PROFILE_STORAGE || !activeProfileBundle) return false;
+  if (!PROFILE_STORAGE || !activeProfileBundle){
+    if (profileStorageBootstrapError) notifyDurableStorageFailure(profileStorageBootstrapError);
+    return false;
+  }
   try{
     activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, section, value);
     return true;
   }catch(error){
     console.warn("Profile-scoped storage write failed", section, error);
+    notifyDurableStorageFailure(error);
+    retryDurableProfileWrite({ [section]: value });
+    return false;
+  }
+}
+
+async function retryDurableProfileWrite(sections){
+  if (!PROFILE_STORAGE || !activeProfileBundle || !disposableStore) return false;
+  await disposableStore.flush();
+  await disposableStore.evictExpired({ maxEntries: 0 });
+  try{
+    activeProfileBundle = PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle, sections);
+    durableStorageFailureNotified = false;
+    showToast("Preferences saved after clearing temporary feed data.");
+    queueServerStateSync();
+    return true;
+  }catch(error){
+    console.warn("Profile write retry failed; keeping the session copy and server sync fallback", error);
+    return false;
+  }
+}
+
+function saveActiveProfileSections(sections){
+  if (!PROFILE_STORAGE || !activeProfileBundle){
+    if (profileStorageBootstrapError) notifyDurableStorageFailure(profileStorageBootstrapError);
+    return false;
+  }
+  try{
+    activeProfileBundle = PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle, sections);
+    return true;
+  }catch(error){
+    console.warn("Profile-scoped storage write failed", error);
+    notifyDurableStorageFailure(error);
+    retryDurableProfileWrite(sections);
     return false;
   }
 }
 
 /* ============ STATE ============ */
 let activeFilter = "all";
+const FEED_PAGE_SIZE = 20;
+let publicFeedManifest = null;
+let publicFeedNextPageIndex = 0;
+let serverFeedNextCursor = null;
+let feedPageLoading = false;
+let feedPageObserver = null;
+let feedNavigationInteractionVersion = 0;
+let lastFeedPageInteractionVersion = 0;
+const feedPerformanceNow = () => globalThis.performance?.now?.() || 0;
+const feedPerformanceMetrics = {
+  schemaVersion: "feed-performance.v1",
+  navigationStartedAt: globalThis.performance?.timeOrigin || Date.now(),
+  feedReadyMs: null,
+  initialPayloadBytes: 0,
+  largestContentfulPaintMs: null,
+  interactionDurations: [],
+  longTasks: [],
+  storageFallbacks: [],
+};
+globalThis.NOTHINGSPORTS_FEED_PERFORMANCE = feedPerformanceMetrics;
+
+function recordFeedInteraction(name, startedAt){
+  const durationMs = Math.max(0, feedPerformanceNow() - startedAt);
+  feedPerformanceMetrics.interactionDurations.push({ name, durationMs });
+  feedPerformanceMetrics.interactionDurations = feedPerformanceMetrics.interactionDurations.slice(-40);
+  return durationMs;
+}
+
+function observeFeedPerformance(){
+  if (typeof PerformanceObserver !== "function") return;
+  try{
+    const lcpObserver = new PerformanceObserver(list => {
+      const entry = list.getEntries().at(-1);
+      if (entry) feedPerformanceMetrics.largestContentfulPaintMs = entry.startTime;
+    });
+    lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
+  }catch(_error){ /* unsupported performance entry type */ }
+  try{
+    const longTaskObserver = new PerformanceObserver(list => {
+      list.getEntries().forEach(entry => {
+        feedPerformanceMetrics.longTasks.push({ startTime: entry.startTime, durationMs: entry.duration });
+      });
+      feedPerformanceMetrics.longTasks = feedPerformanceMetrics.longTasks.slice(-40);
+    });
+    longTaskObserver.observe({ type: "longtask", buffered: true });
+  }catch(_error){ /* unsupported performance entry type */ }
+}
 let discoverySessionIncludedSportIds = [];
 let discoverySessionInitialized = false;
 let discoveryExpandedParentIds = new Set();
@@ -6501,9 +6603,25 @@ function writeStorage(key, value){
     return true;
   }catch(e){
     console.warn("Storage write failed", key, e);
-    showToast("Could not save locally. Browser storage may be full or disabled.");
     return false;
   }
+}
+
+let durableStorageFailureNotified = false;
+function storageFailureKind(error){
+  if (error?.name === "QuotaExceededError") return "quota";
+  if (error?.name === "SecurityError") return "blocked";
+  return "unavailable";
+}
+
+function notifyDurableStorageFailure(error){
+  if (durableStorageFailureNotified) return;
+  durableStorageFailureNotified = true;
+  const kind = storageFailureKind(error);
+  feedPerformanceMetrics.storageFallbacks.push({ kind, atMs: feedPerformanceNow() });
+  showToast(kind === "quota"
+    ? "Your preferences are safe for this session, but this device is out of storage. Clear browser site data to save them locally again."
+    : "Your preferences are safe for this session, but private or blocked storage prevents local saving.");
 }
 
 function uniqueArray(values){
@@ -6879,12 +6997,13 @@ function mergePreferences(saved){
 function saveActivePreferenceGraph(graph){
   if (!PROFILE_STORAGE || !activeProfileBundle || !graph) return false;
   try{
-    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "domainPreferences", graph.domainPreferences || []);
-    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "competitionPreferences", graph.competitionPreferences || []);
-    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "entityFollows", graph.entityFollows || []);
-    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "viewingPreference", graph.viewing || null);
-    activeProfileBundle = PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle, "learningPreference", graph.learning || null);
-    return true;
+    return saveActiveProfileSections({
+      domainPreferences: graph.domainPreferences || [],
+      competitionPreferences: graph.competitionPreferences || [],
+      entityFollows: graph.entityFollows || [],
+      viewingPreference: graph.viewing || null,
+      learningPreference: graph.learning || null,
+    });
   }catch(error){
     console.warn("Profile preference graph write failed", error);
     return false;
@@ -6922,19 +7041,21 @@ function savePreferences(next){
     ? SERVER_SYNC.mergeSettings(userPreferences || {}, next)
     : { ...(userPreferences || {}), ...(next || {}) };
   const clean = mergePreferences(mergedInput);
-  const legacySaved = writeStorage(STORAGE_KEYS.preferences, clean);
   const profilePreferences = { ...clean };
   delete profilePreferences.preferenceGraph;
-  const profileSaved = saveActiveProfileSection("preferences", profilePreferences);
-  const graphSaved = saveActivePreferenceGraph(clean.preferenceGraph);
-  if (legacySaved || profileSaved || graphSaved){
-    userPreferences = clean;
-    if (typeof activeEvents !== "undefined"){
-      rebuildDerivedCardCache(activeEvents);
-      scheduleBrowserReminders();
-    }
-    queueServerStateSync();
-  }
+  const graph = clean.preferenceGraph || {};
+  const profileSaved = saveActiveProfileSections({
+    preferences: profilePreferences,
+    domainPreferences: graph.domainPreferences || [],
+    competitionPreferences: graph.competitionPreferences || [],
+    entityFollows: graph.entityFollows || [],
+    viewingPreference: graph.viewing || null,
+    learningPreference: graph.learning || null,
+  });
+  userPreferences = clean;
+  if (typeof activeEvents !== "undefined") scheduleBrowserReminders();
+  queueServerStateSync();
+  return profileSaved;
 }
 
 function applyThemePreference(theme){
@@ -6970,7 +7091,6 @@ function loadRatings(){
 }
 
 function saveRatings(r){
-  writeStorage(STORAGE_KEYS.ratings, r);
   saveActiveProfileSection("ratings", r);
   queueServerStateSync();
 }
@@ -7021,7 +7141,6 @@ function migrateEventActionRecords(records){
 
 function saveEventActions(next){
   eventActions = next && typeof next === "object" ? next : {};
-  writeStorage(STORAGE_KEYS.eventUserState, eventActions);
   saveActiveProfileSection("eventUserState", eventActions);
   queueServerStateSync();
 }
@@ -7062,34 +7181,52 @@ function loadEventSpoilerState(actions = {}){
 
 function saveEventSpoilerState(next){
   eventSpoilerState = next && typeof next === "object" ? next : {};
-  writeStorage(STORAGE_KEYS.eventSpoilerState, eventSpoilerState);
   saveActiveProfileSection("eventSpoilerState", eventSpoilerState);
   queueServerStateSync();
 }
 
 function loadSurfacePresentation(){
-  const scoped = activeProfileSection("surfacePresentation", null);
-  if (scoped && typeof scoped === "object" && !Array.isArray(scoped)) return scoped;
   const current = readStorage(STORAGE_KEYS.surfacePresentation, null);
   const migrated = current && typeof current === "object" && !Array.isArray(current) ? current : {};
-  saveActiveProfileSection("surfacePresentation", migrated);
+  if (current){
+    disposableStore?.set("surfacePresentation", migrated);
+    disposableStore?.flush().then(async written => {
+      const verified = written ? await disposableStore.hydrate("surfacePresentation", null) : null;
+      if (verified && JSON.stringify(verified) === JSON.stringify(migrated)) localStorage.removeItem(STORAGE_KEYS.surfacePresentation);
+    });
+  }
+  disposableStore?.hydrate("surfacePresentation", migrated).then(value => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) return;
+    surfacePresentationState = value;
+  });
   return migrated;
 }
 
 function saveSurfacePresentation(next){
   surfacePresentationState = next && typeof next === "object" ? next : {};
-  writeStorage(STORAGE_KEYS.surfacePresentation, surfacePresentationState);
-  saveActiveProfileSection("surfacePresentation", surfacePresentationState);
+  disposableStore?.set("surfacePresentation", surfacePresentationState);
 }
 
 function loadDerivedCardCache(){
   const raw = readStorage(STORAGE_KEYS.derivedCardCache, null);
-  return CARD_LIFECYCLE?.normalizeCache(raw) || { schemaVersion: "derived-card-cache.unavailable", generatedAt: new Date().toISOString(), derivedCards: [] };
+  const initial = CARD_LIFECYCLE?.normalizeCache(raw) || { schemaVersion: "derived-card-cache.unavailable", generatedAt: new Date().toISOString(), derivedCards: [] };
+  if (raw){
+    disposableStore?.set("derivedCardCache", initial);
+    disposableStore?.flush().then(async written => {
+      const verified = written ? await disposableStore.hydrate("derivedCardCache", null) : null;
+      if (verified && JSON.stringify(verified) === JSON.stringify(initial)) localStorage.removeItem(STORAGE_KEYS.derivedCardCache);
+    });
+  }
+  disposableStore?.hydrate("derivedCardCache", initial).then(value => {
+    const hydrated = CARD_LIFECYCLE?.normalizeCache(value);
+    if (hydrated?.derivedCards?.length) derivedCardCache = hydrated;
+  });
+  return initial;
 }
 
 function saveDerivedCardCache(cache){
   derivedCardCache = cache;
-  writeStorage(STORAGE_KEYS.derivedCardCache, cache);
+  disposableStore?.set("derivedCardCache", cache);
   return cache;
 }
 
@@ -7129,6 +7266,19 @@ function rebuildDerivedCardCache(events = activeEvents, reference = nowAEST()){
     now: reference,
   });
   return saveDerivedCardCache(cache);
+}
+
+function appendDerivedCardCache(events, reference = nowAEST()){
+  if (!CARD_LIFECYCLE || !ENRICHMENT_ENGINE || !events.length) return derivedCardCache;
+  const pageCache = CARD_LIFECYCLE.materialize(events, {
+    profileId: activeProfileBundle?.profile?.id || "profile:local",
+    enrich: calculateEventEnrichment,
+    actionFor: getEventAction,
+    now: reference,
+  });
+  const cards = [...(derivedCardCache?.derivedCards || []), ...(pageCache?.derivedCards || [])]
+    .filter((card, index, all) => all.findIndex(item => item.canonicalEventId === card.canonicalEventId) === index);
+  return saveDerivedCardCache(CARD_LIFECYCLE.normalizeCache({ ...pageCache, derivedCards: cards }));
 }
 
 function purgeDerivedCardCache(reference = nowAEST()){
@@ -7915,8 +8065,8 @@ function loadLatestBundledEvents(){
   return reloadBundledEventsScript();
 }
 
-async function fetchJson(url){
-  const response = await fetch(url, { cache: "no-store" });
+async function fetchJson(url, { cache = "no-store" } = {}){
+  const response = await fetch(url, { cache });
   if (!response.ok){
     throw new Error(`${url} returned ${response.status}`);
   }
@@ -8311,24 +8461,43 @@ async function loadMajorEventsData(){
   return majorEventsDocument;
 }
 
-function applyFeedEvents(events, meta){
-  const mergedEvents = mergeFootballFixtureEvents(events);
-  activeEvents = SPORT_CONTEXT && canonicalSportsData
-    ? SPORT_CONTEXT.applyContextToEvents(mergedEvents, canonicalSportsData)
-    : mergedEvents;
-  normalizeEvents(activeEvents);
-  syncLegacyArchiveReferences(activeEvents);
-  rebuildDerivedCardCache(activeEvents);
+function mergeCanonicalEventPages(current, incoming){
+  const merged = new Map();
+  [...(current || []), ...(incoming || [])].forEach(event => {
+    const id = event?.canonicalEventId || event?.eventId || event?.id;
+    if (id) merged.set(String(id), event);
+  });
+  return Array.from(merged.values());
+}
+
+function applyFeedEvents(events, meta, { append = false } = {}){
+  const contextualEvents = SPORT_CONTEXT && canonicalSportsData
+    ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
+    : events;
+  if (append){
+    normalizeEvents(contextualEvents);
+    activeEvents = mergeCanonicalEventPages(activeEvents, contextualEvents);
+  } else {
+    activeEvents = mergeFootballFixtureEvents(contextualEvents);
+    normalizeEvents(activeEvents);
+  }
+  syncLegacyArchiveReferences(append ? contextualEvents : activeEvents);
+  if (append){
+    appendDerivedCardCache(contextualEvents);
+  } else {
+    rebuildDerivedCardCache(activeEvents);
+  }
   scheduleBrowserReminders();
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   if (meta?.publishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, meta.publishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
   if (!activeSportHubKey()) renderPreferenceSummary();
+  if (append && appendFeedPageToCurrentList(events)) return true;
   return renderFeedIfPresentationChanged({ preserveViewport: true });
 }
 
 function applyServerFeed(payload){
-  if (payload?.schemaVersion !== "server-feed.v1"){
+  if (!["server-feed.v1", "server-feed.v2"].includes(payload?.schemaVersion)){
     throw new Error("Server feed schema is not supported");
   }
   if (!Array.isArray(payload.events)){
@@ -8339,27 +8508,40 @@ function applyServerFeed(payload){
   if (!cache || cache.buildOrigin !== "server"){
     throw new Error("Server feed did not contain a central derived-card rebuild");
   }
+  const append = payload.schemaVersion === "server-feed.v2" && Number(payload.pagination?.cursor || 0) > 0;
+  const nextEvents = append ? mergeCanonicalEventPages(activeEvents, events) : events;
   activeEvents = SPORT_CONTEXT && canonicalSportsData
-    ? SPORT_CONTEXT.applyContextToEvents(events, canonicalSportsData)
-    : events;
+    ? SPORT_CONTEXT.applyContextToEvents(nextEvents, canonicalSportsData)
+    : nextEvents;
   normalizeEvents(activeEvents);
-  saveDerivedCardCache(cache);
+  const combinedCache = append ? CARD_LIFECYCLE?.normalizeCache?.({
+    ...cache,
+    derivedCards: [
+      ...(derivedCardCache?.derivedCards || []),
+      ...(cache.derivedCards || []),
+    ].filter((card, index, cards) => cards.findIndex(item => item.canonicalEventId === card.canonicalEventId) === index),
+  }) : cache;
+  saveDerivedCardCache(combinedCache || cache);
+  serverFeedNextCursor = payload.pagination?.nextCursor ?? null;
   syncLegacyArchiveReferences(activeEvents);
   scheduleBrowserReminders();
   if (payload.sourceVersion) writeStorage(STORAGE_KEYS.lastFeedVersion, payload.sourceVersion);
   if (payload.sourcePublishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, payload.sourcePublishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
   if (!activeSportHubKey()) renderPreferenceSummary();
-  const rendered = renderFeedIfPresentationChanged({ preserveViewport: true });
+  const rendered = append && appendFeedPageToCurrentList(events)
+    ? true
+    : renderFeedIfPresentationChanged({ preserveViewport: true });
   return {
     source: "server",
     eventCount: events.length,
-    cardCount: cache.derivedCards.length,
+    cardCount: combinedCache?.derivedCards?.length || cache.derivedCards.length,
     rendered,
   };
 }
 
 async function refreshRemoteFeed({ quiet = false } = {}){
+  const interactionStartedAt = feedPerformanceNow();
   const centralRebuildRequested = Boolean(
     serverSyncClient
     && serverPersistence.user
@@ -8374,23 +8556,27 @@ async function refreshRemoteFeed({ quiet = false } = {}){
       return { source: "bundled", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
     }
     if (centralRebuildRequested){
-      const result = applyServerFeed(await serverSyncClient.loadFeed());
+      const payload = await serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE });
+      feedPerformanceMetrics.initialPayloadBytes = new TextEncoder().encode(JSON.stringify(payload)).byteLength;
+      const result = applyServerFeed(payload);
       if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
       return result;
     }
-    const meta = await fetchJson(FEED_CONFIG.metaUrl);
-    const eventsPath = meta.eventsPath || meta.eventsUrl;
-    if (!eventsPath && meta.usesBundledEvents){
-      const rendered = applyFeedEvents(EVENTS.slice(), meta);
-      if (!quiet) showToast("Published feed loaded with current retention rules.");
-      return { source: "bundled", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length, rendered };
-    }
-    const payload = await fetchJson(eventsPath || FEED_CONFIG.eventsUrl);
+    const manifest = await fetchJson(FEED_CONFIG.manifestUrl, { cache: "default" });
+    if (manifest?.schemaVersion !== "public-feed.v2" || !manifest.pages?.length) throw new Error("Published feed manifest is unsupported");
+    publicFeedManifest = manifest;
+    publicFeedNextPageIndex = 1;
+    const payload = await fetchJson(manifest.pages[0].path, { cache: "default" });
+    feedPerformanceMetrics.initialPayloadBytes = new TextEncoder()
+      .encode(JSON.stringify({ manifest, payload })).byteLength;
     const events = coerceEventList(payload);
     if (!events.length){
       throw new Error("Remote feed did not contain usable events");
     }
-    const rendered = applyFeedEvents(events, meta);
+    const rendered = applyFeedEvents(events, {
+      version: manifest.sourceVersion,
+      publishedAt: manifest.sourcePublishedAt,
+    });
     if (!quiet) showToast(`Published feed loaded: ${events.length} events.`);
     return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
   }catch(err){
@@ -8420,7 +8606,58 @@ async function refreshRemoteFeed({ quiet = false } = {}){
         : "Published feed unavailable. Rebuilt from the bundled canonical schedule.");
     }
     return { source: "fallback", eventCount: activeEvents.length, cardCount: derivedCardCache.derivedCards.length, rendered };
+  }finally{
+    recordFeedInteraction("feed_refresh", interactionStartedAt);
   }
+}
+
+async function loadNextFeedPage(){
+  if (feedPageLoading) return false;
+  const signedIn = Boolean(serverSyncClient && serverPersistence.user && serverFeedNextCursor !== null);
+  const publicPage = publicFeedManifest?.pages?.[publicFeedNextPageIndex];
+  if (!signedIn && !publicPage) return false;
+  feedPageLoading = true;
+  const interactionStartedAt = feedPerformanceNow();
+  try{
+    if (signedIn){
+      applyServerFeed(await serverSyncClient.loadFeed({ cursor: serverFeedNextCursor, limit: FEED_PAGE_SIZE }));
+    } else {
+      const payload = await fetchJson(publicPage.path, { cache: "default" });
+      const events = coerceEventList(payload);
+      if (!events.length) throw new Error("Published feed page contained no usable events");
+      publicFeedNextPageIndex += 1;
+      applyFeedEvents(events, {
+        version: publicFeedManifest.sourceVersion,
+        publishedAt: publicFeedManifest.sourcePublishedAt,
+      }, { append: true });
+    }
+    return true;
+  }catch(error){
+    console.warn("Additional feed page unavailable", error);
+    return false;
+  }finally{
+    feedPageLoading = false;
+    recordFeedInteraction("feed_page_append", interactionStartedAt);
+  }
+}
+
+function observeFeedPageSentinel(container){
+  feedPageObserver?.disconnect();
+  const morePages = serverFeedNextCursor !== null || Boolean(publicFeedManifest?.pages?.[publicFeedNextPageIndex]);
+  if (!morePages || typeof IntersectionObserver !== "function") return;
+  const sentinel = document.createElement("div");
+  sentinel.className = "feed-page-sentinel";
+  sentinel.setAttribute("aria-hidden", "true");
+  container.appendChild(sentinel);
+  feedPageObserver = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    if (!startupFeedNavigationTouched) return;
+    if (feedNavigationInteractionVersion <= lastFeedPageInteractionVersion) return;
+    lastFeedPageInteractionVersion = feedNavigationInteractionVersion;
+    feedPageObserver?.disconnect();
+    void loadNextFeedPage();
+  }, { rootMargin: "900px 0px" });
+  feedPageObserver.observe(sentinel);
 }
 
 async function refreshFeedOnFirstLoad(){
@@ -12388,6 +12625,49 @@ function appendManualMustWatchQueue(container, events){
   return true;
 }
 
+function appendFeedPageToCurrentList(incomingEvents){
+  if (startupCoordinator.isHydrating() || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()) return false;
+  const container = document.getElementById("listView");
+  if (!container || !Array.isArray(incomingEvents)) return false;
+  const incomingIds = new Set(incomingEvents.map(event => event?.canonicalEventId || event?.eventId || event?.id).filter(Boolean));
+  const todayStr = formatDateKey(nowAEST());
+  const additions = getFilteredEvents().filter(event => {
+    const id = event?.canonicalEventId || event?.eventId || event?.id;
+    return incomingIds.has(id) && !getEventAction(event).archived && !eventIsAutoArchived(event);
+  });
+  if (additions.some(event => String(event.date || "") < todayStr)) return false;
+  container.querySelector(".feed-page-sentinel")?.remove();
+  const groups = groupEventsByDate(additions);
+  Object.keys(groups).sort().forEach(dateStr => {
+    let groupDiv = Array.from(container.querySelectorAll(".date-group"))
+      .find(group => group.dataset.feedDate === dateStr);
+    let grid = groupDiv?.querySelector(".cards-grid") || null;
+    if (!groupDiv){
+      groupDiv = document.createElement("div");
+      groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
+      groupDiv.dataset.feedDate = dateStr;
+      const heading = document.createElement("div");
+      heading.className = "date-heading";
+      heading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
+      grid = document.createElement("div");
+      grid.className = "cards-grid";
+      groupDiv.append(heading, grid);
+      container.appendChild(groupDiv);
+    }
+    orderCuratedDayEvents(groups[dateStr]).forEach(event => {
+      const id = event?.canonicalEventId || event?.eventId || event?.id;
+      if (grid.querySelector(`[data-feed-event-id="${CSS.escape(String(id))}"]`)) return;
+      const card = event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event);
+      card.dataset.feedEventId = String(id);
+      grid.appendChild(card);
+    });
+  });
+  observeFeedPageSentinel(container);
+  renderTabCounts();
+  committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
+  return true;
+}
+
 function renderListView(){
   const container = document.getElementById("listView");
   container.className = "";
@@ -12410,13 +12690,16 @@ function renderListView(){
     Object.keys(groups).sort().forEach(dateStr => {
       const groupDiv = document.createElement("div");
       groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
+      groupDiv.dataset.feedDate = dateStr;
       const heading = document.createElement("div");
       heading.className = "date-heading";
       heading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
       const grid = document.createElement("div");
       grid.className = "cards-grid";
       orderCuratedDayEvents(groups[dateStr]).forEach(event => {
-        grid.appendChild(event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event));
+        const card = event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event);
+        card.dataset.feedEventId = String(event?.canonicalEventId || event?.eventId || event?.id || "");
+        grid.appendChild(card);
       });
       groupDiv.append(heading, grid);
       container.appendChild(groupDiv);
@@ -12450,6 +12733,7 @@ function renderListView(){
     container.appendChild(empty);
     document.getElementById("emptyRefineFiltersBtn").addEventListener("click", () => openSettings());
   }
+  observeFeedPageSentinel(container);
   scheduleInitialCalendarJump();
 }
 
@@ -17010,16 +17294,18 @@ function downloadEventICS(ev){
 }
 
 function startupFeedTaskDescriptors(){
-  const tasks = [
-    { name:"canonical sports context", run:() => loadCanonicalSportsData(), valid:value => Boolean(value && Array.isArray(value.participants)) },
+  return [
     { name:"published feed", run:() => refreshFeedOnFirstLoad(), valid:value => Boolean(value && Number(value.eventCount) > 0) },
-    { name:"football identity directory", run:() => loadFootballDirectoryData(), valid:value => Boolean(value?.teams?.length) },
   ];
-  if (profileSelectsFootball()) tasks.push({ name:"football core fixtures", run:() => loadFootballCoreEvents(), valid:value => Array.isArray(value) && value.length > 0 });
-  if (profileHasFootballEntityFollow()) tasks.push({ name:"followed football fixtures", run:() => loadFootballFixturesForCurrentFollows(), valid:() => footballLeagueKeysForFollows().every(key => key === "premier-league" || footballFixtureEventsByBundle.has(`league:${key}`)) });
-  if (profileHasNrlEntityFollow()) tasks.push({ name:"NRL follow index", run:() => loadNrlFollowIndex(), valid:value => Boolean(value?.teams?.length) });
-  if (profileHasAflEntityFollow()) tasks.push({ name:"AFL follow index", run:() => loadAflFollowIndex(), valid:value => Boolean(value?.teams?.length) });
-  return tasks;
+}
+
+function loadDeferredStartupContext(){
+  const tasks = [loadCanonicalSportsData()];
+  if (profileSelectsFootball()) tasks.push(loadFootballDirectoryData(), loadFootballCoreEvents());
+  if (profileHasFootballEntityFollow()) tasks.push(loadFootballFixturesForCurrentFollows());
+  if (profileHasNrlEntityFollow()) tasks.push(loadNrlFollowIndex());
+  if (profileHasAflEntityFollow()) tasks.push(loadAflFollowIndex());
+  return Promise.allSettled(tasks);
 }
 
 let startupPostLoadHandled = false;
@@ -17027,8 +17313,11 @@ function completeStartupFeedHydration(){
   startupFeedState = { ...startupFeedState, phase:"ready", issues:[] };
   startupFeedRevealPending = true;
   startupCoordinator.markHydrationComplete();
+  feedPerformanceMetrics.feedReadyMs = feedPerformanceNow();
   if (!startupFeedNavigationTouched && activeTab === "feed" && activeView === "list") calendarInitialJumpPending = true;
   renderAll();
+  const defer = window.requestIdleCallback || (callback => window.setTimeout(callback, 250));
+  defer(() => { void loadDeferredStartupContext(); });
   if (startupPostLoadHandled) return;
   startupPostLoadHandled = true;
   if (!userPreferences.onboardingComplete){
@@ -17074,6 +17363,7 @@ function runStartupFeedBarrier(){
 
 /* ============ INIT ============ */
 applyThemePreference(userPreferences.theme);
+observeFeedPerformance();
 runStartupLogoLaunch();
 window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
   if (normalizeThemePreference(userPreferences.theme) === "system" && !draftPreferences) applyThemePreference("system");
@@ -17094,14 +17384,20 @@ renderAll();
 scheduleBrowserReminders();
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
-  window.addEventListener(eventName, () => { startupFeedNavigationTouched = true; }, { passive: true, once: true });
+  window.addEventListener(eventName, () => {
+    startupFeedNavigationTouched = true;
+    feedNavigationInteractionVersion += 1;
+  }, { passive: true });
 }
 runStartupFeedBarrier();
+const runDisposableMaintenance = () => { void disposableStore?.evictExpired?.(); };
+(window.requestIdleCallback || (callback => window.setTimeout(callback, 500)))(runDisposableMaintenance);
 let weeklyPulseWasHidden = document.visibilityState === "hidden";
 let installedServiceWorkerRegistration = null;
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden"){
     weeklyPulseWasHidden = true;
+    void disposableStore?.flush?.();
     return;
   }
   if (!weeklyPulseWasHidden) return;

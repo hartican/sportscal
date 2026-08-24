@@ -1,7 +1,7 @@
 {
   "schemaVersion": "feed-performance-audit.v1",
-  "measuredAt": "2026-08-21T00:00:00+10:00",
-  "method": "Codex in-app Chromium, local HTTP server, first visible .event-card after reload; seven warm reload samples per state",
+  "measuredAt": "2026-08-24T10:55:00+10:00",
+  "method": "Codex in-app Chromium at 390x844 against a local HTTP server; seven isolated navigations per state, reading the privacy-safe feed-performance.v1 session record after hydration",
   "baseline": {
     "ref": "a8128de",
     "shellVersion": "89",
@@ -29,6 +29,18 @@
       "medianMs": 594,
       "horizontalOverflow": false,
       "note": "Configured state exercises the long feed and remains below the separate configured-feed target."
+    },
+    "release4MissionCritical": {
+      "shellVersion": "119",
+      "visibleCanonicalRecords": 20,
+      "samplesMs": [73, 72, 73, 68, 73, 73, 68],
+      "medianMs": 73,
+      "feedRefreshSamplesMs": [13, 11, 12, 9, 13, 10, 10],
+      "feedRefreshMedianMs": 11,
+      "initialFeedPageRequests": 1,
+      "maximumInitialImageRequests": 16,
+      "horizontalOverflow": false,
+      "note": "Every run requested page-001 only before interaction. The 73ms median is 77.5% below the recorded 324ms Release 2 baseline."
     }
   },
   "targets": {

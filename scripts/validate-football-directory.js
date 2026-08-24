@@ -108,8 +108,8 @@ function validate(){
   assert(serverSource.includes("footballDirectory.expandedFollowLevels") && serverSource.includes("isCoreLeagueFootball"), "server feed must expand player follows and apply the core-league threshold");
   assert(!workerSource.match(/APP_SHELL[\s\S]*football-directory\.v1/), "the full football directory must not enter the critical install shell");
   assert(workerSource.includes('new Request(event.request.url, { method: "GET" })')
-    && workerSource.includes("cache.put(cacheKey, copy)")
-    && workerSource.includes("caches.match(cacheKey)"), "lazy football assets must use a normalised runtime cache key for offline replay");
+    && workerSource.includes("cache.put(cacheKey, response.clone())")
+    && workerSource.includes("cache.match(cacheKey)"), "lazy football assets must use a normalised runtime cache key for offline replay");
   assert(appSource.includes("async function loadFootballAsset")
     && /async function loadFootballAsset[\s\S]{0,500}const response = await fetch\(url\)/.test(appSource), "lazy football assets must remain runtime-cacheable");
   const malformed = directoryApi.parseSessionState("{bad", ["nrl"]);

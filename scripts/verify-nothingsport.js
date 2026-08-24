@@ -217,7 +217,7 @@ assert(html.includes("'Skyscraper Samba' by Scott Buckley - released under CC-BY
 assert(soundtrackSource.includes("audio.volume = 1") && soundtrackSource.includes("player.volume = 1"), "soundtrack playback must use full HTML media volume");
 assert(!/createOscillator|elevator|epic orchestral|heavy metal/i.test(soundtrackSource), "procedural and alternate soundtrack modes must be removed");
 assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
-assert(html.includes('PROFILE_STORAGE.saveSection(localStorage, activeProfileBundle'), "settings writes must target the stable profile id bundle");
+assert(html.includes('PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle'), "settings writes must target one stable profile transaction");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
 assert(html.includes('id="tuneNavBtn"') && html.includes('id="tuneSheet"'), "the feed must expose Tune directly from compact navigation");
 assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
@@ -319,7 +319,7 @@ assert(html.includes('const ONBOARDING_SECTIONS = ["sports", "viewing"]'), "Swip
 assert(html.includes("applyCuratedEventSwipe") && html.includes("sessionDismissedEventIds.add"), "curated event swipes must learn immediately and dismiss dislikes only for the session");
 assert(html.includes('source: "calibration"') && html.includes('source: "feed"') && preferenceSystemSource.includes('"tune"'), "learning signals must retain their calibration, feed, or Tune source");
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
-assert(html.includes('saveSection(localStorage, activeProfileBundle, "learningPreference"'), "local profile reloads must retain learning separately from canonical truth");
+assert(html.includes("learningPreference: graph.learning || null"), "local profile reloads must retain learning separately from canonical truth");
 assert(preferenceSystemSource.includes("function mergeLearning"), "preference migrations must retain a bounded learning merge helper");
 assert(html.includes("userPreferences = mergePreferences(state.preferences || {})"), "sign-in must hydrate the latest cloud preferences before tracking new session changes");
 assert(fineTuningSource.includes('id: "broad"') && fineTuningSource.includes('id: "teams"') && fineTuningSource.includes('id: "people"'), "Tune must progress from sports and marquee events through teams to players and event families");
@@ -368,8 +368,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v118"'), "the liquid launch and complete-feed gate release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="118">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v119"'), "the performance release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="119">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -398,7 +398,7 @@ brandAssets
   .forEach(asset => assert(!serviceWorkerSource.includes(`"/${asset}"`), `optional ${asset} must not delay shell installation`));
 assert(!serviceWorkerSource.includes("/assets/brand/web/nothingsport-logo-slogan.png"), "the offline shell must stop caching the stale slogan raster");
 assert(!serviceWorkerSource.includes('"/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"') && html.includes('preload="none"'), "the optional soundtrack must never delay app startup");
-assert(!serviceWorkerSource.includes('"/data/events.json"') && serviceWorkerSource.includes('"/data/events.js"'), "the shell must retain one offline event fallback without preloading the duplicate JSON feed");
+assert(!serviceWorkerSource.includes('"/data/events.json"') && !serviceWorkerSource.includes('"/data/events.js"') && serviceWorkerSource.includes('"/data/feed/page-001.json"'), "the shell must retain only the bounded first feed page for offline startup");
 assert(!serviceWorkerSource.includes('"/data/canonical/f1-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/tennis-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/cycling-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/nba-context-2026.json"') && !serviceWorkerSource.includes('"/data/canonical/cwg-context-2026.json"'), "optional standings and context data must load on demand");
 assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared sport-context adapter must be available in the offline app shell");
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
@@ -412,16 +412,16 @@ assert(html.includes("setServerStateBaseline(result.state)"), "the sync baseline
 assert(html.includes("startupSessionStateBaseline || stateBeforeHydration"), "startup hydration must preserve only settings changed during the current session");
 assert(html.includes("{ preferences: settingsDraftBaseline }") && html.includes("{ preferences: userPreferences }"), "an open Settings draft must inherit newer untouched values while retaining edited fields");
 assert(html.includes("eventUserState: eventActions"), "archive and saved-card state must be included in server truth");
-assert(serverSyncSource.includes('authenticatedRequest("/api/feed")'), "signed-in Refresh must request the authenticated central feed");
-assert(html.includes('payload?.schemaVersion !== "server-feed.v1"'), "the browser must reject an incompatible central feed response");
+assert(serverSyncSource.includes('authenticatedRequest(`/api/feed?${params.toString()}`)'), "signed-in Refresh must request a bounded authenticated feed page");
+assert(html.includes('["server-feed.v1", "server-feed.v2"].includes(payload?.schemaVersion)'), "the browser must accept v2 while retaining temporary v1 rollback compatibility");
 assert(html.includes('cache.buildOrigin !== "server"'), "the browser must require central card-cache provenance");
-assert(html.includes("applyServerFeed(await serverSyncClient.loadFeed())"), "signed-in Refresh must apply the server-built event and card pipeline");
+assert(html.includes("serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE })") && html.includes("const result = applyServerFeed(payload)"), "signed-in Refresh must apply the first bounded server-built page");
 assert(html.includes("cachedEventEnrichment(ev) || calculateEventEnrichment(ev)"), "rendering must consume the disposable enrichment snapshot before recalculating locally");
 assert(html.includes('canonicalSportsData && derivedCardCache?.buildOrigin !== "server"'), "late participant-data loading must not overwrite a central feed rebuild");
 assert(serverFeedSource.includes("cardLifecycle.materialize(enrichmentCandidates"), "central feed building must use the canonical derived-card lifecycle");
 assert(serverFeedSource.includes('buildOrigin: "server"'), "central feed cards must be marked as server-built");
 assert(serverFeedApiSource.includes("loadUserState(user.id, accessToken)"), "central feed rebuilding must load preferences under the authenticated RLS user");
-assert(serverFeedApiSource.includes('"Cache-Control", "private, no-store, max-age=0"'), "personalised feed responses must never enter a shared cache");
+assert(serverFeedApiSource.includes('"Cache-Control", "private, max-age=0, must-revalidate"') && serverFeedApiSource.includes('response.setHeader("ETag", etag)'), "personalised feed pages must remain private while supporting conditional validation");
 assert.match(serverSyncSource, /sessionStorage|SESSION_STORAGE_KEY/, "session-only auth must remain available for untrusted devices");
 assert(serverSyncSource.includes("persistentStorage = globalThis.localStorage"), "trusted-device auth must survive app restarts in local browser storage");
 assert(!serverSyncSource.includes("savedPassword") && !serverSyncSource.includes("passwordStorage"), "the server-sync storage layer must not introduce password persistence");
@@ -519,7 +519,7 @@ const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(e
 assert(spoilerControlSource.includes('visible ? "Hide results" : "Show results"'), "per-event result controls must use Show results and Hide results");
 assert(spoilerControlSource.includes('window.confirm("Show results for this event?")'), "the per-event confirmation must use result language");
 assert(!/Protect event details|Reveal event details/.test(html), "obsolete event-detail protection copy must be removed everywhere");
-assert(html.includes("applyFeedEvents(EVENTS.slice(), meta)"), "bundled-feed Refresh must run through the canonical lifecycle rebuild");
+assert(html.includes("applyFeedEvents(events, {") && html.includes("publicFeedManifest.sourceVersion"), "paged-feed Refresh must run each public page through the canonical lifecycle rebuild");
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
 assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
@@ -566,7 +566,7 @@ assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sp
 assert(canonicalSportsSchema.$defs.sportDomain.required.includes("supportsCompetitors"), "canonical sport domains must declare competitor support");
 assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("competitor"), "canonical participants must use the Competitor type");
 assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${JSON.stringify(canonicalSportsSchema)}`), "canonical taxonomy and schemas must use Competitor as the single participant term");
-assert.equal(profileStorageSchema.properties.schemaVersion.const, 3, "profile storage schema must be explicitly versioned");
+assert.equal(profileStorageSchema.properties.schemaVersion.const, 4, "profile storage schema must be explicitly versioned");
 assert(profileStorageSchema.required.includes("learningPreference"), "profile storage must preserve the v4 learning section across reloads");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v2", "enrichment must use an explicitly versioned disposable schema");
 assert(html.includes('<script src="config/storyline-overrides.js"></script>'), "the editorial override registry must load before the enrichment engine");
@@ -1358,7 +1358,7 @@ const legacyProfileStorage = memoryStorage({
 });
 const migratedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:00:00Z") });
 assert.match(migratedProfile.profile.id, /^profile:/, "legacy settings must migrate under a stable internal profile id");
-assert.equal(migratedProfile.schemaVersion, 3, "profile migration must land on the current schema version");
+assert.equal(migratedProfile.schemaVersion, 4, "profile migration must land on the current schema version");
 assert.equal(migratedProfile.preferences.theme, "day", "existing preference fields must survive the profile migration");
 assert.equal(migratedProfile.ratings["legacy-event"], 9, "existing ratings must survive the profile migration");
 assert.equal(migratedProfile.eventUserState["legacy-event"].archived, true, "existing event state must survive the profile migration");

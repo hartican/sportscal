@@ -313,9 +313,9 @@ async function run(){
       if (url === "/api/user-state"){
         return browserResponse({ user: authUser, state: databaseRow });
       }
-      if (url === "/api/feed"){
+      if (String(url).startsWith("/api/feed?")){
         return browserResponse({
-          schemaVersion: "server-feed.v1",
+          schemaVersion: "server-feed.v2",
           generatedAt: "2026-07-27T10:00:00.000Z",
           sourceVersion: "test",
           events: [],
@@ -325,6 +325,7 @@ async function run(){
             buildOrigin: "server",
             derivedCards: [],
           },
+          pagination: { cursor: 0, limit: 20, nextCursor: null, total: 0 },
           retention: {},
         });
       }

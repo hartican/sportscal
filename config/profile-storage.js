@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildProfileStorage(){
   "use strict";
 
-  const PROFILE_SCHEMA_VERSION = 3;
+  const PROFILE_SCHEMA_VERSION = 4;
   const INSTALL_SCHEMA_VERSION = 1;
   const CACHE_SCHEMA_VERSION = 2;
   const KEYS = Object.freeze({
@@ -126,7 +126,6 @@
       ratings: {},
       eventUserState: {},
       eventSpoilerState: {},
-      surfacePresentation: {},
       archivedEvents: [],
     };
   }
@@ -137,7 +136,6 @@
     bundle.ratings = firstLegacyValue(storage, LEGACY_KEYS.ratings, {});
     bundle.eventUserState = firstLegacyValue(storage, LEGACY_KEYS.eventUserState, {});
     bundle.eventSpoilerState = firstLegacyValue(storage, LEGACY_KEYS.eventSpoilerState, {});
-    bundle.surfacePresentation = firstLegacyValue(storage, LEGACY_KEYS.surfacePresentation, {});
     bundle.profile.onboardingCompleted = Boolean(bundle.preferences?.onboardingComplete);
     return bundle;
   }
@@ -166,7 +164,6 @@
       ratings: input.ratings && typeof input.ratings === "object" ? input.ratings : {},
       eventUserState: input.eventUserState && typeof input.eventUserState === "object" ? input.eventUserState : {},
       eventSpoilerState: input.eventSpoilerState && typeof input.eventSpoilerState === "object" ? input.eventSpoilerState : {},
-      surfacePresentation: input.surfacePresentation && typeof input.surfacePresentation === "object" ? input.surfacePresentation : {},
     };
     bundle.profile.onboardingCompleted = Boolean(
       input.profile?.onboardingCompleted ?? input.preferences?.onboardingComplete
@@ -182,6 +179,15 @@
       ? migrateBundle(stored, install.activeProfileId, now)
       : migrateLegacyBundle(storage, install.activeProfileId, now);
     writeStored(storage, key, bundle);
+    const verified = parseStored(storage, key, null);
+    if (verified?.schemaVersion === PROFILE_SCHEMA_VERSION){
+      [
+        ...LEGACY_KEYS.preferences,
+        ...LEGACY_KEYS.ratings,
+        ...LEGACY_KEYS.eventUserState,
+        ...LEGACY_KEYS.eventSpoilerState,
+      ].forEach(legacyKey => storage.removeItem?.(legacyKey));
+    }
     return clone(bundle);
   }
 
@@ -205,21 +211,31 @@
     return clone(migrated);
   }
 
-  function saveSection(storage, bundle, section, value, options){
-    if (!Object.prototype.hasOwnProperty.call(emptyBundle(bundle?.profile?.id || "profile:invalid"), section)){
-      throw new Error(`Unknown profile section: ${section}`);
-    }
+  function commitSections(storage, bundle, sections, options){
     const profileId = bundle?.profile?.id;
+    if (!profileId) throw new Error("A stable profile id is required");
+    const allowed = emptyBundle(profileId);
+    const incoming = sections && typeof sections === "object" && !Array.isArray(sections) ? sections : {};
+    Object.keys(incoming).forEach(section => {
+      if (!Object.prototype.hasOwnProperty.call(allowed, section) || section === "schemaVersion" || section === "profile"){
+        throw new Error(`Unknown profile section: ${section}`);
+      }
+    });
     const stored = profileId ? parseStored(storage, profileKey(profileId), null) : null;
     const latest = stored ? migrateBundle(stored, profileId, options?.now) : bundle;
-    const next = { ...latest, [section]: clone(value) };
-    if (section === "preferences"){
+    const next = { ...latest };
+    Object.entries(incoming).forEach(([section, value]) => { next[section] = clone(value); });
+    if (Object.prototype.hasOwnProperty.call(incoming, "preferences")){
       next.profile = {
         ...latest.profile,
-        onboardingCompleted: Boolean(value?.onboardingComplete),
+        onboardingCompleted: Boolean(incoming.preferences?.onboardingComplete),
       };
     }
     return saveBundle(storage, next, options);
+  }
+
+  function saveSection(storage, bundle, section, value, options){
+    return commitSections(storage, bundle, { [section]: value }, options);
   }
 
   function setUsernameLabel(storage, bundle, usernameLabel, options){
@@ -237,6 +253,7 @@
     KEYS,
     loadActiveProfile,
     saveBundle,
+    commitSections,
     saveSection,
     setUsernameLabel,
   });

@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const zlib = require("node:zlib");
 const cardLifecycle = require("../config/card-lifecycle");
 const feedPipeline = require("../lib/server-feed-pipeline");
 const feedHandler = require("../api/feed");
@@ -40,6 +41,7 @@ function responseStub(){
     setHeader(name, value){ this.headers[name] = value; },
     status(code){ this.statusCode = code; return this; },
     json(value){ this.body = value; return this; },
+    end(){ this.ended = true; return this; },
   };
 }
 
@@ -53,7 +55,7 @@ function fetchResponse(payload, status = 200){
 
 async function run(){
   const schema = JSON.parse(fs.readFileSync("schemas/server-feed-response.schema.json", "utf8"));
-  assert.equal(schema.properties.schemaVersion.const, "server-feed.v1");
+  assert.equal(schema.properties.schemaVersion.const, "server-feed.v2");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
 
@@ -243,7 +245,8 @@ async function run(){
     now,
   });
 
-  assert.equal(feed.schemaVersion, "server-feed.v1");
+  assert.equal(feed.schemaVersion, "server-feed.v2");
+  assert.deepEqual(feed.pagination, { cursor: 0, limit: 20, nextCursor: null, total: 5 });
   assert.equal(feed.sourcePublishedAt, "2026-07-27T08:00:00.000Z", "server feeds must retain the canonical publication time separately from per-user generation");
   assert.equal(feed.derivedCardCache.buildOrigin, "server");
   assert.equal(feed.retention.archiveDays, 7);
@@ -309,11 +312,23 @@ async function run(){
       headers: { authorization: "Bearer access-token" },
     }, response);
     assert.equal(response.statusCode, 200);
-    assert.equal(response.body.schemaVersion, "server-feed.v1");
+    assert.equal(response.body.schemaVersion, "server-feed.v2");
     assert.equal(response.body.sourcePublishedAt, require("../data/events.json").publishedAt, "authenticated feeds must expose the canonical publication time");
     assert.equal(response.body.derivedCardCache.buildOrigin, "server");
-    assert.equal(response.headers["Cache-Control"], "private, no-store, max-age=0");
+    assert(zlib.gzipSync(JSON.stringify(response.body)).length <= 250 * 1024, "the first authenticated feed page must remain below 250 KiB compressed");
+    assert.equal(response.headers["Cache-Control"], "private, max-age=0, must-revalidate");
+    assert(response.headers.ETag, "personalised feed pages must expose a validator");
     assert.equal(response.headers.Vary, "Authorization");
+    const conditionalResponse = responseStub();
+    await feedHandler({
+      method: "GET",
+      headers: {
+        authorization: "Bearer access-token",
+        "if-none-match": response.headers.ETag,
+      },
+    }, conditionalResponse);
+    assert.equal(conditionalResponse.statusCode, 304, "an unchanged personalised page must honour If-None-Match despite its generated timestamp");
+    assert.equal(conditionalResponse.ended, true);
     const f1Session = response.body.events.find(item => item.key === "f1" && /\b(?:Qualifying|Race)\b/i.test(item.name));
     assert(f1Session, "the authenticated feed must retain an F1 session card");
     assert.equal(f1Session.sportDomainId, "sport:f1", "central F1 cards must use the F1 preference domain");

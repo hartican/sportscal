@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v118";
+const CACHE_NAME = "nothingsport-shell-v119";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -19,6 +19,7 @@ const APP_SHELL = [
   "/config/sport-hubs.js",
   "/config/feed-refresh-lifecycle.js",
   "/config/profile-storage.js",
+  "/config/disposable-storage.js",
   "/config/product-events.js",
   "/config/user-state-sync.js",
   "/config/server-sync.js",
@@ -41,7 +42,8 @@ const APP_SHELL = [
   "/config/selector-taxonomy.js",
   "/config/discovery-catalogue.js",
   "/config/au-broadcast-weights.js",
-  "/data/events.js",
+  "/data/feed/manifest.json",
+  "/data/feed/page-001.json",
   "/data/feed-meta.json",
   // The generated script is retained only for no-network/direct-file recovery.
   // Live JSON remains network-first and is cached by the fetch handler after use.
@@ -91,25 +93,54 @@ self.addEventListener("activate", event => {
   );
 });
 
+async function staleWhileRevalidate(request, event, cacheKey = request){
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(cacheKey);
+  const network = fetch(request).then(response => {
+    if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
+    return response;
+  }).catch(() => null);
+  return cached || network || caches.match("/index.html");
+}
+
+async function cacheFirst(request, cacheKey = request){
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(cacheKey);
+  if (cached) return cached;
+  const response = await fetch(request);
+  if (response.ok) await cache.put(cacheKey, response.clone());
+  return response;
+}
+
+async function networkFirst(request, event, cacheKey = request){
+  const cache = await caches.open(CACHE_NAME);
+  try{
+    const response = await fetch(request);
+    if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
+    return response;
+  }catch(_error){
+    return cache.match(cacheKey).then(cached => cached || caches.match("/index.html"));
+  }
+}
+
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   const requestUrl = new URL(event.request.url);
+  const cacheKey = new Request(event.request.url, { method: "GET" });
+  if (requestUrl.origin !== self.location.origin) return;
   if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){
     event.respondWith(fetch(event.request));
     return;
   }
-  const cacheKey = new Request(event.request.url, { method: "GET" });
-  event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        if (response.ok){
-          const copy = response.clone();
-          event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(cacheKey, copy)));
-        }
-        return response;
-      })
-      .catch(() => caches.match(cacheKey).then(cached => cached || caches.match("/index.html")))
-  );
+  if (/^\/data\/(?:feed|canonical|football)\//.test(requestUrl.pathname)){
+    event.respondWith(staleWhileRevalidate(event.request, event, cacheKey));
+    return;
+  }
+  if (/^\/assets\//.test(requestUrl.pathname)){
+    event.respondWith(cacheFirst(event.request, cacheKey));
+    return;
+  }
+  event.respondWith(networkFirst(event.request, event, cacheKey));
 });
 
 self.addEventListener("notificationclick", event => {

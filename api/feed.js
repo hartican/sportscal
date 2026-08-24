@@ -1,5 +1,7 @@
 "use strict";
 
+const crypto = require("node:crypto");
+
 const eventFeed = require("../data/events.json");
 const canonicalSports = require("../data/canonical/afl-nrl-2026.json");
 const f1Context = require("../data/canonical/f1-context-2026.json");
@@ -23,7 +25,7 @@ const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports
 const contextualEvents = sportContext.applyContextToEvents(eventFeed.events, canonicalSportContext);
 
 function setPrivateResponseHeaders(response){
-  response.setHeader("Cache-Control", "private, no-store, max-age=0");
+  response.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
   response.setHeader("Pragma", "no-cache");
   response.setHeader("Vary", "Authorization");
 }
@@ -45,6 +47,10 @@ module.exports = async function feedHandler(request, response){
         payload: { code: "user_state_missing" },
       });
     }
+    const requestUrl = new URL(request.url || "/api/feed", "https://nothingsport.local");
+    const requestedLimit = request.url
+      ? Math.min(50, Math.max(1, Number(requestUrl.searchParams.get("limit") || 20)))
+      : eventFeed.events.length;
     const feed = buildServerFeed({
       events: contextualEvents,
       userId: user.id,
@@ -52,7 +58,23 @@ module.exports = async function feedHandler(request, response){
       participants: canonicalSportContext.participants,
       sourceVersion: eventFeed.version,
       sourcePublishedAt: eventFeed.publishedAt,
+      cursor: requestUrl.searchParams.get("cursor") || 0,
+      limit: requestedLimit,
     });
+    const etagSeed = {
+      sourceVersion: eventFeed.version,
+      sourcePublishedAt: eventFeed.publishedAt,
+      userId: user.id,
+      userState,
+      cursor: feed.pagination.cursor,
+      limit: feed.pagination.limit,
+    };
+    const etag = `"${crypto.createHash("sha256").update(JSON.stringify(etagSeed)).digest("base64url").slice(0, 24)}"`;
+    response.setHeader("ETag", etag);
+    if (request.headers?.["if-none-match"] === etag && typeof response.end === "function"){
+      response.status(304).end();
+      return;
+    }
     response.status(200).json(feed);
   }catch(error){
     const outgoing = publicError(error);

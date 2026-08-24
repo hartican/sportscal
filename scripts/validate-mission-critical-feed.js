@@ -1,0 +1,122 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+
+const ROOT = path.resolve(__dirname, "..");
+const profileStorage = require("../config/profile-storage");
+
+class CountingStorage {
+  constructor(entries = {}){
+    this.values = new Map(Object.entries(entries));
+    this.writes = 0;
+    this.writeBytes = 0;
+    this.failWrites = false;
+  }
+
+  getItem(key){
+    return this.values.has(key) ? this.values.get(key) : null;
+  }
+
+  setItem(key, value){
+    if (this.failWrites){
+      const error = new DOMException("Storage quota exceeded", "QuotaExceededError");
+      throw error;
+    }
+    const text = String(value);
+    this.values.set(key, text);
+    this.writes += 1;
+    this.writeBytes += Buffer.byteLength(text);
+  }
+
+  removeItem(key){
+    this.values.delete(key);
+  }
+
+  resetMetrics(){
+    this.writes = 0;
+    this.writeBytes = 0;
+  }
+}
+
+function read(relativePath){
+  return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
+}
+
+function validateProfileStorage(){
+  assert.equal(profileStorage.PROFILE_SCHEMA_VERSION, 4, "durable profiles must use schema v4");
+  assert.equal(typeof profileStorage.commitSections, "function", "profile storage must expose one transactional commitSections API");
+
+  const storage = new CountingStorage();
+  let bundle = profileStorage.loadActiveProfile(storage, { now: new Date("2026-08-24T00:00:00Z") });
+  storage.resetMetrics();
+  bundle = profileStorage.commitSections(storage, bundle, {
+    preferences: { onboardingComplete: true, feedIntent: "balanced" },
+    domainPreferences: [{ domainId: "sport:nrl", froth: 3 }],
+    competitionPreferences: [],
+    entityFollows: [],
+    viewingPreference: { spoilers: "standard" },
+    learningPreference: { version: 1 },
+  }, { now: new Date("2026-08-24T00:01:00Z") });
+  assert.equal(storage.writes, 1, "one settings save must perform one durable profile write");
+  assert.equal(bundle.schemaVersion, 4);
+  assert.equal(Object.prototype.hasOwnProperty.call(bundle, "surfacePresentation"), false, "surface history must not inflate the durable profile");
+
+  storage.failWrites = true;
+  assert.throws(
+    () => profileStorage.commitSections(storage, bundle, { ratings: { example: 8 } }),
+    error => error?.name === "QuotaExceededError",
+    "quota errors must remain classifiable by the runtime"
+  );
+
+  const legacyStorage = new CountingStorage({
+    ns_preferences_v1: JSON.stringify({ onboardingComplete: true, feedIntent: "focused" }),
+    ns_ratings_v1: JSON.stringify({ fixture: 9 }),
+  });
+  const migrated = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:02:00Z") });
+  assert.equal(migrated.schemaVersion, 4);
+  assert.equal(migrated.preferences.feedIntent, "focused");
+  assert.equal(migrated.ratings.fixture, 9);
+  assert.equal(legacyStorage.getItem("ns_preferences_v1"), null, "legacy preferences may be removed only after the v4 bundle reads back successfully");
+  const migratedAgain = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:03:00Z") });
+  assert.deepEqual(migratedAgain.preferences, migrated.preferences, "legacy migration must be idempotent");
+}
+
+function validateFeedContract(){
+  const index = read("index.html");
+  const serviceWorker = read("service-worker.js");
+  const serverPipeline = read("lib/server-feed-pipeline.js");
+  const manifestPath = path.join(ROOT, "data/feed/manifest.json");
+
+  assert(serverPipeline.includes('SERVER_FEED_SCHEMA_VERSION = "server-feed.v2"'), "the server feed must publish v2");
+  assert(fs.existsSync(manifestPath), "the anonymous paged feed manifest must be generated");
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  assert.equal(manifest.schemaVersion, "public-feed.v2");
+  assert.equal(manifest.pageSize, 20);
+  assert(manifest.pages.length > 1, "the public feed must be split into multiple pages");
+  const firstPagePath = path.join(ROOT, manifest.pages[0].path);
+  assert(fs.statSync(firstPagePath).size <= 250 * 1024, "the first public feed page must remain under 250 KiB uncompressed");
+
+  assert(index.includes("const FEED_PAGE_SIZE = 20"), "the browser must cap its initial feed window at 20 cards");
+  assert(index.includes("content-visibility: auto"), "feed cards must use content visibility containment");
+  assert(index.includes("feedPageObserver = new IntersectionObserver"), "feed pagination must be driven near the scroll boundary");
+  assert(index.includes("appendFeedPageToCurrentList") && index.includes("append && appendFeedPageToCurrentList(events)"), "later feed pages must append targeted date groups instead of rerendering the whole feed");
+  assert(index.includes("loadDeferredStartupContext"), "optional sporting context must be deferred until after the first feed is usable");
+  assert(index.includes("profileStorageBootstrapError") && index.includes("retryDurableProfileWrite"), "blocked storage must retain an in-memory profile and retry after disposable eviction");
+  assert(index.includes("JSON.stringify(verified) === JSON.stringify(migrated)"), "legacy disposable state must remain until IndexedDB read-back succeeds");
+  assert(index.includes('schemaVersion: "feed-performance.v1"'), "the browser must expose privacy-safe session performance measurements");
+  assert(serviceWorker.includes("staleWhileRevalidate"), "the service worker must use stale-while-revalidate for published data");
+}
+
+function main(){
+  validateProfileStorage();
+  validateFeedContract();
+  console.log("Mission-critical Release 1 contract valid: one durable settings write, disposable state removed from the profile, and a 20-card paged feed with deferred context.");
+}
+
+if (require.main === module) main();
+
+module.exports = { CountingStorage, validateFeedContract, validateProfileStorage };
