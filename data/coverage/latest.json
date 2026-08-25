@@ -318,8 +318,8 @@
     "publish": 0,
     "review": 6,
     "ignore": 0,
-    "highPriorityRecommendations": 5,
-    "auAvailabilityChanges": 4
+    "highPriorityRecommendations": 1,
+    "auAvailabilityChanges": 0
   },
   "candidates": [
     {
@@ -338,7 +338,7 @@
       "matchConfidence": 0.9,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
-      "priority": "high",
+      "priority": "normal",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
         "taxonomyStatus": "resolved",
@@ -399,7 +399,7 @@
         }
       ],
       "provisionalEvent": null,
-      "availabilityChange": "added_au_option",
+      "availabilityChange": null,
       "blockers": [
         "confidence_below_publish_threshold"
       ],
@@ -427,7 +427,7 @@
       "matchConfidence": 0.9,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
-      "priority": "high",
+      "priority": "normal",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
         "taxonomyStatus": "resolved",
@@ -488,7 +488,7 @@
         }
       ],
       "provisionalEvent": null,
-      "availabilityChange": "added_au_option",
+      "availabilityChange": null,
       "blockers": [
         "confidence_below_publish_threshold"
       ],
@@ -516,7 +516,7 @@
       "matchConfidence": 0.9,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
-      "priority": "high",
+      "priority": "normal",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
         "taxonomyStatus": "resolved",
@@ -577,7 +577,7 @@
         }
       ],
       "provisionalEvent": null,
-      "availabilityChange": "added_au_option",
+      "availabilityChange": null,
       "blockers": [
         "confidence_below_publish_threshold"
       ],
@@ -605,7 +605,7 @@
       "matchConfidence": 0.9,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
-      "priority": "high",
+      "priority": "normal",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
         "taxonomyStatus": "resolved",
@@ -666,7 +666,7 @@
         }
       ],
       "provisionalEvent": null,
-      "availabilityChange": "added_au_option",
+      "availabilityChange": null,
       "blockers": [
         "confidence_below_publish_threshold"
       ],

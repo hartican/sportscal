@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-08-23T05:40:00Z",
+  "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -12,7 +12,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Two bottom-half sides reach a late-season pressure game with Brisbane carrying the stronger head-to-head record.",
-        "contextSignals": ["current-ladder-position", "head-to-head-record", "late-season-stakes"],
+        "contextSignals": [
+          "current-ladder-position",
+          "head-to-head-record",
+          "late-season-stakes"
+        ],
         "sourceName": "Official NRL ladder",
         "sourceUrl": "https://www.nrl.com/ladder",
         "sourceCheckedAt": "{{ladderSourceCheckedAt}}",
@@ -35,7 +39,12 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "New Zealand's second-half control turned a narrow halftime deficit into a decisive series-opening win.",
-        "contextSignals": ["verified-result", "series-opener", "rivalry-history", "iconic-venue"],
+        "contextSignals": [
+          "verified-result",
+          "series-opener",
+          "rivalry-history",
+          "iconic-venue"
+        ],
         "sourceName": "SA Rugby official match report",
         "sourceUrl": "https://springboks.rugby/news-features/articles/2026/8/22/all-blacks-go-one-up-after-rgr-opener-in-joburg",
         "sourceCheckedAt": "2026-08-23T05:40:00Z",
@@ -56,7 +65,12 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Norris converted McLaren's session pace into pole while Verstappen starts his home race from seventh.",
-        "contextSignals": ["verified-result", "grid-position", "home-driver", "championship-context"],
+        "contextSignals": [
+          "verified-result",
+          "grid-position",
+          "home-driver",
+          "championship-context"
+        ],
         "sourceName": "Formula 1 official qualifying classification",
         "sourceUrl": "https://www.formula1.com/en/results/2026/races/1292/netherlands/qualifying",
         "sourceCheckedAt": "2026-08-23T05:40:00Z",
@@ -73,7 +87,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "A historic Top End return gives the Bangladesh series opener significance beyond the result.",
-        "contextSignals": ["venue-history", "series-opener", "new-test-venue"],
+        "contextSignals": [
+          "venue-history",
+          "series-opener",
+          "new-test-venue"
+        ],
         "sourceName": "Cricket Australia 2026 international schedule",
         "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
         "sourceCheckedAt": "2026-08-03T04:58:28Z",
@@ -90,7 +108,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "A new Test venue gives the two-match northern series a second historic setting.",
-        "contextSignals": ["new-test-venue", "series-second-test", "venue-history"],
+        "contextSignals": [
+          "new-test-venue",
+          "series-second-test",
+          "venue-history"
+        ],
         "sourceName": "Cricket Australia 2026 international schedule",
         "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
         "sourceCheckedAt": "2026-08-03T04:58:28Z",
@@ -107,7 +129,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Semifinal recovery meets the Golden Boot race and England's bronze-match history.",
-        "contextSignals": ["tournament-path", "golden-boot", "historical-stakes"],
+        "contextSignals": [
+          "tournament-path",
+          "golden-boot",
+          "historical-stakes"
+        ],
         "sourceName": "FIFA France v England match preview",
         "sourceUrl": "https://www.fifa.com/en/articles/france-v-england-live-stream-team-news-tickets-and-more",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -124,7 +150,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "The tournament's best attack faces its best defence with repeat-title history live.",
-        "contextSignals": ["tournament-form", "tactical-matchup", "title-history"],
+        "contextSignals": [
+          "tournament-form",
+          "tactical-matchup",
+          "title-history"
+        ],
         "sourceName": "FIFA Spain v Argentina final preview",
         "sourceUrl": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-v-argentina-live-stream-team-news-tickets-and-more",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -145,7 +175,12 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "A pole-winning title leader faces a reshuffled grid after Norris's penalty.",
-        "contextSignals": ["championship-standings", "qualifying-result", "grid-penalty", "tactical-recovery"],
+        "contextSignals": [
+          "championship-standings",
+          "qualifying-result",
+          "grid-penalty",
+          "tactical-recovery"
+        ],
         "sourceName": "Official Formula 1 Belgian Grand Prix qualifying report",
         "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-charges-to-pole-position-in-exhilarating-belgian-gp-qualifying.zpGgC6xi6e3QnZEOmi6qS",
         "sourceCheckedAt": "2026-07-19T09:14:41+10:00",
@@ -162,7 +197,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Selection trade-offs and recent individual form sharpen the MCG rivalry.",
-        "contextSignals": ["team-selection", "injury", "recent-form"],
+        "contextSignals": [
+          "team-selection",
+          "injury",
+          "recent-form"
+        ],
         "sourceName": "Official AFL Collingwood v Carlton match preview",
         "sourceUrl": "https://www.afl.com.au/afl/matches/8199",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -179,7 +218,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Selection changes and a coaching transition put Australia's accuracy under pressure.",
-        "contextSignals": ["team-selection", "recent-form", "coaching-transition"],
+        "contextSignals": [
+          "team-selection",
+          "recent-form",
+          "coaching-transition"
+        ],
         "sourceName": "Rugby Australia Wallabies team announcement",
         "sourceUrl": "https://wallabies.rugby/news/wallabies-team-confirmed-to-play-italy-in-perth-2026716",
         "sourceCheckedAt": "2026-07-18T18:30:00+10:00",
@@ -196,7 +239,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "A new late climb creates the stage's decisive general-classification ambush.",
-        "contextSignals": ["course-profile", "general-classification", "tactical-position"],
+        "contextSignals": [
+          "course-profile",
+          "general-classification",
+          "tactical-position"
+        ],
         "sourceName": "Official Tour de France Stage 14 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-14/mulhouse-le-markstein-1/1332949",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -213,7 +260,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Back-to-back steep climbs can reveal the definitive title contenders.",
-        "contextSignals": ["course-profile", "general-classification", "climbing-gradient"],
+        "contextSignals": [
+          "course-profile",
+          "general-classification",
+          "climbing-gradient"
+        ],
         "sourceName": "Official Tour de France Stage 15 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-15/champagnole-plateau-de-solaison-1/1332950",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -230,7 +281,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "A balanced time trial rewards complete riders and offers an immediate GC recovery chance.",
-        "contextSignals": ["course-profile", "general-classification", "pacing"],
+        "contextSignals": [
+          "course-profile",
+          "general-classification",
+          "pacing"
+        ],
         "sourceName": "Official Tour de France Stage 16 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-16/evian-les-bains-thonon-les-bains-c-l-m-individuel-1/1332951",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -247,7 +302,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "A summit finish balances breakaway freedom against a still-live podium fight.",
-        "contextSignals": ["summit-finish", "breakaway", "general-classification"],
+        "contextSignals": [
+          "summit-finish",
+          "breakaway",
+          "general-classification"
+        ],
         "sourceName": "Official Tour de France Stage 18 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-18/voiron-orcieres-merlette-1/1332954",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -264,7 +323,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "The first of two Alpe d'Huez finishes rewards attacks launched well before the final climb.",
-        "contextSignals": ["course-profile", "tactical-position", "summit-finish"],
+        "contextSignals": [
+          "course-profile",
+          "tactical-position",
+          "summit-finish"
+        ],
         "sourceName": "Official Tour de France Stage 19 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-19/gap-alpe-dhuez-1/1332955",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -281,7 +344,11 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Back-to-back Alpe d'Huez finishes make accumulated fatigue the decisive tactical fact.",
-        "contextSignals": ["course-profile", "fatigue", "general-classification"],
+        "contextSignals": [
+          "course-profile",
+          "fatigue",
+          "general-classification"
+        ],
         "sourceName": "Official Tour de France Stage 20 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-20/le-bourg-doisans-alpe-dhuez/1332956",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
@@ -298,10 +365,254 @@
       "editorialPreview": {
         "status": "journalistic",
         "angle": "Montmartre creates a Classics-style fight without eliminating the sprinters.",
-        "contextSignals": ["course-profile", "tactical-matchup", "sprint-finish"],
+        "contextSignals": [
+          "course-profile",
+          "tactical-matchup",
+          "sprint-finish"
+        ],
         "sourceName": "Official Tour de France Stage 21 route commentary",
         "sourceUrl": "https://www.letour.fr/en/news/2026/stage-21/thoiry-paris-champs-elysees-1/1332958",
         "sourceCheckedAt": "2026-07-18T20:22:00+10:00",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_26": {
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R13 Italian GP Qualifying.",
+      "fullSpiel": "R13 Italian GP Qualifying is scheduled for 2026-09-06 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+        "contextSignals": [
+          "fixture-specific",
+          "current-championship-standings",
+          "grid-setting"
+        ],
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/races",
+            "sourceType": "official"
+          }
+        ],
+        "digestFingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "Formula 1 official source",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_27": {
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
+      "fullSpiel": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+        "contextSignals": [
+          "fixture-specific",
+          "current-championship-standings",
+          "points-paying-session"
+        ],
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/races",
+            "sourceType": "official"
+          }
+        ],
+        "digestFingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "Formula 1 official source",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_28": {
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Qualifying.",
+      "fullSpiel": "R14 Spanish GP Qualifying is scheduled for 2026-09-13 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+        "contextSignals": [
+          "fixture-specific",
+          "current-championship-standings",
+          "grid-setting"
+        ],
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/races",
+            "sourceType": "official"
+          }
+        ],
+        "digestFingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "Formula 1 official source",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_29": {
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Race.",
+      "fullSpiel": "R14 Spanish GP Race is scheduled for 2026-09-14 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+        "contextSignals": [
+          "fixture-specific",
+          "current-championship-standings",
+          "points-paying-session"
+        ],
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/races",
+            "sourceType": "official"
+          }
+        ],
+        "digestFingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "Formula 1 official source",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_30": {
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
+      "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+        "contextSignals": [
+          "fixture-specific",
+          "current-championship-standings",
+          "grid-setting"
+        ],
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/races",
+            "sourceType": "official"
+          }
+        ],
+        "digestFingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "Formula 1 official source",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+        "needsPreviewRefresh": false
+      }
+    },
+    "evt_31": {
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
+      "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+        "contextSignals": [
+          "fixture-specific",
+          "current-championship-standings",
+          "points-paying-session"
+        ],
+        "evidenceReferences": [
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/drivers",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/team",
+            "sourceType": "official"
+          },
+          {
+            "title": "Formula 1 official source",
+            "url": "https://www.formula1.com/en/results/2026/races",
+            "sourceType": "official"
+          }
+        ],
+        "digestFingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "Formula 1 official source",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
         "needsPreviewRefresh": false
       }
     }

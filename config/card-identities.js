@@ -125,7 +125,12 @@
 
   const nrlCompetitionMark = officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/");
   const eventMarks = Object.freeze({
-    f1: wordmarkMark("competition:formula-one", "Formula One", "F1™", { light:"#ff1e00", dark:"#ffffff" }),
+    // Restore Formula One's previously shipped first-party media asset. The
+    // official SVG is a white transparent wordmark, so both themes keep the
+    // same contrast-safe dark identity frame instead of synthesising a mark.
+    f1: officialMark("competition:formula-one", "Formula One", "https://media.formula1.com/image/upload/v1677237319/etc/designs/fom-website/images/f1_logo.svg", "https://www.formula1.com/en/", {
+      logo: { backgroundLight:"dark", backgroundDark:"dark" },
+    }),
     "nrl-finals": Object.freeze({ ...vectorMark("event:nrl-finals", "NRL finals", "semantic:nrl-finals-trophy"), fallback:nrlCompetitionMark }),
     nrl: nrlCompetitionMark,
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),

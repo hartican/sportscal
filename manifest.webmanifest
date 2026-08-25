@@ -1,7 +1,7 @@
 {
   "name": "Nothingsport — Smart sports feed",
   "short_name": "nothingsport",
-  "description": "Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.",
+  "description": "Like having a sports-fanatic in your pocket.",
   "start_url": "/",
   "id": "/",
   "scope": "/",

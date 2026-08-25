@@ -65,7 +65,48 @@
         "Fan Week begins on 23 August and main-draw singles begin on 30 August.",
         "The women's singles final is scheduled for 12 September and the men's singles final for 13 September."
       ],
-      "subEvents": [],
+      "subEvents": [
+        {
+          "id": "major-session:us-open-2026:qualifying-aug-25",
+          "name": "Men's and women's singles qualifying · Day 2",
+          "stage": "Qualifying",
+          "roundLabel": "Day 2",
+          "startTimeUtc": "2026-08-25T14:00:00.000Z",
+          "venue": "USTA Billie Jean King National Tennis Center",
+          "stakesScore": 5,
+          "summary": "The official Fan Week schedule starts qualifying play at 10am local time. Individual court assignments remain on the order of play."
+        },
+        {
+          "id": "major-session:us-open-2026:mixed-doubles-early-rounds",
+          "name": "Mixed doubles · First and second rounds",
+          "stage": "Mixed doubles",
+          "roundLabel": "Rounds 1 and 2",
+          "startTimeUtc": "2026-08-25T14:00:00.000Z",
+          "venue": "USTA Billie Jean King National Tennis Center",
+          "stakesScore": 5,
+          "summary": "Mixed doubles first- and second-round play appears on the official 25 August schedule."
+        },
+        {
+          "id": "major-session:us-open-2026:mixed-doubles-finals",
+          "name": "Mixed doubles · Semifinals and final",
+          "stage": "Mixed doubles",
+          "roundLabel": "Semifinals and final",
+          "startTimeUtc": "2026-08-26T23:00:00.000Z",
+          "venue": "USTA Billie Jean King National Tennis Center",
+          "stakesScore": 5,
+          "summary": "The official schedule places the mixed doubles semifinals and final in the 7pm session."
+        },
+        {
+          "id": "major-session:us-open-2026:main-draw-opening-session",
+          "name": "Men's and women's singles · First round opening session",
+          "stage": "Main draw",
+          "roundLabel": "First round",
+          "startTimeUtc": "2026-08-30T15:00:00.000Z",
+          "venue": "USTA Billie Jean King National Tennis Center",
+          "stakesScore": 5,
+          "summary": "Main-draw singles begin at 11am local time. Matchups will refresh from the published order of play."
+        }
+      ],
       "ticketing": {
         "provider": "Ticketmaster",
         "status": "on_sale",
@@ -116,102 +157,702 @@
         {
           "id": "event:afl:cd_m20260142501",
           "name": "Wildcard Final - Melbourne v Carlton",
-          "roundLabel": "Wildcard Final",
-          "stage": "Wildcard",
+          "roundLabel": "Wildcard Finals",
+          "stage": "Wildcard Finals",
           "startTimeUtc": "2026-08-29T09:35:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Melbourne v Carlton at MCG."
+          "summary": "Official AFL schedule: Melbourne v Carlton at MCG.",
+          "participantIds": [
+            "team:afl:cd_t90",
+            "team:afl:cd_t30"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t90",
+              "participantId": "team:afl:cd_t90",
+              "name": "Melbourne"
+            },
+            {
+              "id": "team:afl:cd_t30",
+              "participantId": "team:afl:cd_t30",
+              "name": "Carlton"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142502",
           "name": "Wildcard Final - Western Bulldogs v Collingwood",
-          "roundLabel": "Wildcard Final",
-          "stage": "Wildcard",
+          "roundLabel": "Wildcard Finals",
+          "stage": "Wildcard Finals",
           "startTimeUtc": "2026-08-28T09:40:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Western Bulldogs v Collingwood at MCG."
+          "summary": "Official AFL schedule: Western Bulldogs v Collingwood at MCG.",
+          "participantIds": [
+            "team:afl:cd_t140",
+            "team:afl:cd_t40"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t140",
+              "participantId": "team:afl:cd_t140",
+              "name": "Western Bulldogs"
+            },
+            {
+              "id": "team:afl:cd_t40",
+              "participantId": "team:afl:cd_t40",
+              "name": "Collingwood"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142601",
           "name": "Qualifying & Elimination Final - Fremantle v Hawthorn",
-          "roundLabel": "Qualifying Final",
-          "stage": "Qualifying Final",
+          "roundLabel": "Qualifying & Elimination Finals",
+          "stage": "Qualifying & Elimination Finals",
           "startTimeUtc": "2026-09-03T10:10:00.000Z",
           "venue": "Optus Stadium",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Fremantle v Hawthorn at Optus Stadium."
+          "summary": "Official AFL schedule: Fremantle v Hawthorn at Optus Stadium.",
+          "participantIds": [
+            "team:afl:cd_t60",
+            "team:afl:cd_t80"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t60",
+              "participantId": "team:afl:cd_t60",
+              "name": "Fremantle"
+            },
+            {
+              "id": "team:afl:cd_t80",
+              "participantId": "team:afl:cd_t80",
+              "name": "Hawthorn"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142602",
           "name": "Qualifying & Elimination Final - Sydney Swans v Brisbane Lions",
-          "roundLabel": "Qualifying Final",
-          "stage": "Qualifying Final",
+          "roundLabel": "Qualifying & Elimination Finals",
+          "stage": "Qualifying & Elimination Finals",
           "startTimeUtc": "2026-09-05T05:15:00.000Z",
           "venue": "SCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Sydney Swans v Brisbane Lions at SCG."
+          "summary": "Official AFL schedule: Sydney Swans v Brisbane Lions at SCG.",
+          "participantIds": [
+            "team:afl:cd_t160",
+            "team:afl:cd_t20"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t160",
+              "participantId": "team:afl:cd_t160",
+              "name": "Sydney Swans"
+            },
+            {
+              "id": "team:afl:cd_t20",
+              "participantId": "team:afl:cd_t20",
+              "name": "Brisbane Lions"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142603",
           "name": "Qualifying & Elimination Final - Geelong Cats v Lowest-ranked WF Winner",
-          "roundLabel": "Elimination Final",
-          "stage": "Elimination Final",
+          "roundLabel": "Qualifying & Elimination Finals",
+          "stage": "Qualifying & Elimination Finals",
           "startTimeUtc": "2026-09-04T09:40:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Geelong Cats v Lowest-ranked WF Winner at MCG."
+          "summary": "Official AFL schedule: Geelong Cats v Lowest-ranked WF Winner at MCG.",
+          "participantIds": [
+            "team:afl:cd_t70",
+            "team:afl:cd_t3010"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t70",
+              "participantId": "team:afl:cd_t70",
+              "name": "Geelong Cats"
+            },
+            {
+              "id": "team:afl:cd_t3010",
+              "participantId": "team:afl:cd_t3010",
+              "name": "Lowest-ranked WF Winner"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142604",
           "name": "Qualifying & Elimination Final - Adelaide Crows v Highest-ranked WF Winner",
-          "roundLabel": "Elimination Final",
-          "stage": "Elimination Final",
+          "roundLabel": "Qualifying & Elimination Finals",
+          "stage": "Qualifying & Elimination Finals",
           "startTimeUtc": "2026-09-05T09:35:00.000Z",
           "venue": "Adelaide Oval",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Adelaide Crows v Highest-ranked WF Winner at Adelaide Oval."
+          "summary": "Official AFL schedule: Adelaide Crows v Highest-ranked WF Winner at Adelaide Oval.",
+          "participantIds": [
+            "team:afl:cd_t10",
+            "team:afl:cd_t3011"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t10",
+              "participantId": "team:afl:cd_t10",
+              "name": "Adelaide Crows"
+            },
+            {
+              "id": "team:afl:cd_t3011",
+              "participantId": "team:afl:cd_t3011",
+              "name": "Highest-ranked WF Winner"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142701",
           "name": "Semi Final 1 - loser of QF1 v winner of EF1",
-          "roundLabel": "Semi Final",
-          "stage": "Semi Final",
+          "roundLabel": "Semi Finals",
+          "stage": "Semi Finals",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
-          "summary": "First Semi Final. Teams, venue and time are pending first-week results."
+          "summary": "First Semi Final. Teams, venue and time are pending first-week results.",
+          "participantIds": [
+            "team:afl:cd_t3014",
+            "team:afl:cd_t3016"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t3014",
+              "participantId": "team:afl:cd_t3014",
+              "name": "Loser of QF1"
+            },
+            {
+              "id": "team:afl:cd_t3016",
+              "participantId": "team:afl:cd_t3016",
+              "name": "Winner of EF1"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142702",
           "name": "Semi Final 2 - loser of QF2 v winner of EF2",
-          "roundLabel": "Semi Final",
-          "stage": "Semi Final",
+          "roundLabel": "Semi Finals",
+          "stage": "Semi Finals",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
-          "summary": "Second Semi Final. Teams, venue and time are pending first-week results."
+          "summary": "Second Semi Final. Teams, venue and time are pending first-week results.",
+          "participantIds": [
+            "team:afl:cd_t3015",
+            "team:afl:cd_t3017"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t3015",
+              "participantId": "team:afl:cd_t3015",
+              "name": "Loser of QF2"
+            },
+            {
+              "id": "team:afl:cd_t3017",
+              "participantId": "team:afl:cd_t3017",
+              "name": "Winner of EF2"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142801",
           "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
-          "roundLabel": "Preliminary Final",
-          "stage": "Preliminary Final",
+          "roundLabel": "Preliminary Finals",
+          "stage": "Preliminary Finals",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
-          "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals."
+          "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+          "participantIds": [
+            "team:afl:cd_t3012",
+            "team:afl:cd_t3019"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t3012",
+              "participantId": "team:afl:cd_t3012",
+              "name": "Winner of QF1"
+            },
+            {
+              "id": "team:afl:cd_t3019",
+              "participantId": "team:afl:cd_t3019",
+              "name": "Winner of SF2"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142802",
           "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
-          "roundLabel": "Preliminary Final",
-          "stage": "Preliminary Final",
+          "roundLabel": "Preliminary Finals",
+          "stage": "Preliminary Finals",
           "startTimeUtc": null,
           "venue": "Venue TBC",
           "stakesScore": 5,
-          "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals."
+          "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+          "participantIds": [
+            "team:afl:cd_t3013",
+            "team:afl:cd_t3018"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t3013",
+              "participantId": "team:afl:cd_t3013",
+              "name": "Winner of QF2"
+            },
+            {
+              "id": "team:afl:cd_t3018",
+              "participantId": "team:afl:cd_t3018",
+              "name": "Winner of SF1"
+            }
+          ],
+          "broadcaster": "Kayo Sports",
+          "broadcasterIds": [
+            "kayo",
+            "foxtel",
+            "seven"
+          ],
+          "broadcastOptions": [
+            "Kayo Sports",
+            "Foxtel",
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "kayo",
+              "serviceId": "kayo",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "foxtel",
+              "serviceId": "foxtel",
+              "territory": "AU",
+              "accessType": "subscription",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            },
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         },
         {
           "id": "event:afl:cd_m20260142901",
@@ -221,7 +862,43 @@
           "startTimeUtc": "2026-09-26T04:30:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Winner of PF1 v Winner of PF2 at MCG."
+          "summary": "Official AFL schedule: Winner of PF1 v Winner of PF2 at MCG.",
+          "participantIds": [
+            "team:afl:cd_t3020",
+            "team:afl:cd_t3021"
+          ],
+          "participants": [
+            {
+              "id": "team:afl:cd_t3020",
+              "participantId": "team:afl:cd_t3020",
+              "name": "Winner of PF1"
+            },
+            {
+              "id": "team:afl:cd_t3021",
+              "participantId": "team:afl:cd_t3021",
+              "name": "Winner of PF2"
+            }
+          ],
+          "broadcaster": "7plus",
+          "broadcasterIds": [
+            "seven"
+          ],
+          "broadcastOptions": [
+            "7plus",
+            "Watch AFL"
+          ],
+          "viewingOptions": [
+            {
+              "providerId": "seven",
+              "serviceId": "seven",
+              "territory": "AU",
+              "accessType": "free",
+              "liveOrReplay": "live",
+              "rightsScope": "competition",
+              "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+              "verifiedAt": "2026-08-25T00:00:00.000Z"
+            }
+          ]
         }
       ],
       "sources": [
@@ -548,9 +1225,10 @@
       ]
     },
     {
-      "id": "major-event:uefa-champions-league-2026-27",
+      "id": "major-event:uefa-champions-league-2026-27:qualification",
       "kind": "tournament",
-      "name": "UEFA Champions League 2026/27",
+      "name": "UEFA Champions League · Qualification",
+      "phaseIdentity": "qualification",
       "sportKey": "football",
       "sportKeys": [
         "football"
@@ -561,27 +1239,221 @@
       "dateStatus": "confirmed",
       "season": 2026,
       "startDate": "2026-07-07",
-      "endDate": "2027-06-05",
+      "endDate": "2026-08-26",
       "timezone": "Europe/Madrid",
       "venue": "Multiple venues",
       "location": "Europe",
-      "summary": "Europe's leading club competition runs through the 2026/27 season and concludes at Estadio Metropolitano in Madrid on 5 June 2027.",
+      "summary": "The qualification phase determines the remaining clubs entering the league phase.",
       "details": [
-        "The league phase runs across eight matchdays from September 2026 to January 2027.",
-        "The knockout phase begins with play-offs in February, followed by the Round of 16, quarter-finals and semi-finals.",
-        "The Final is scheduled at Estadio Metropolitano, Madrid. Qualifiers, drawn ties and individual kick-off times remain source-published before they can be added to Fixtures.",
-        "No exact public seller endpoint is verified for the final, so the card does not display a ticket CTA."
+        "Drawn ties and individual kick-off times are added only when published by UEFA."
+      ],
+      "subEvents": [
+        {
+          "id": "major-match:ucl-2026-27:sabah-hapoel-second-leg",
+          "name": "Sabah v Hapoel Beer-Sheva",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-25T16:45:00.000Z",
+          "venue": "Bank Respublika Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "Sabah"
+            },
+            {
+              "name": "Hapoel Beer-Sheva"
+            }
+          ],
+          "summary": "Hapoel Beer-Sheva lead 2-1 after the first leg."
+        },
+        {
+          "id": "major-match:ucl-2026-27:lask-celtic-second-leg",
+          "name": "LASK v Celtic",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-25T19:00:00.000Z",
+          "venue": "Raiffeisen Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "LASK"
+            },
+            {
+              "name": "Celtic"
+            }
+          ],
+          "summary": "Celtic lead 3-0 after the first leg."
+        },
+        {
+          "id": "major-match:ucl-2026-27:bodo-nec-second-leg",
+          "name": "Bodø/Glimt v N.E.C.",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-25T19:00:00.000Z",
+          "venue": "Aspmyra Stadion",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "Bodø/Glimt"
+            },
+            {
+              "name": "N.E.C."
+            }
+          ],
+          "summary": "Bodø/Glimt lead 3-1 after the first leg."
+        },
+        {
+          "id": "major-match:ucl-2026-27:aek-levski-second-leg",
+          "name": "AEK Athens v Levski Sofia",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "OPAP Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "AEK Athens"
+            },
+            {
+              "name": "Levski Sofia"
+            }
+          ],
+          "summary": "The tie is level at 0-0 after the first leg."
+        },
+        {
+          "id": "major-match:ucl-2026-27:viking-dinamo-second-leg",
+          "name": "Viking v GNK Dinamo",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "Lyse Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "Viking"
+            },
+            {
+              "name": "GNK Dinamo"
+            }
+          ],
+          "summary": "The tie is level at 2-2 after the first leg."
+        },
+        {
+          "id": "major-match:ucl-2026-27:celje-slovan-second-leg",
+          "name": "Celje v Slovan Bratislava",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "Stadion Z'dežele",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "Celje"
+            },
+            {
+              "name": "Slovan Bratislava"
+            }
+          ],
+          "summary": "The tie is level at 1-1 after the first leg."
+        },
+        {
+          "id": "major-match:ucl-2026-27:lyon-fenerbahce-second-leg",
+          "name": "Lyon v Fenerbahçe",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "Groupama Stadium",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "name": "Lyon"
+            },
+            {
+              "name": "Fenerbahçe"
+            }
+          ],
+          "summary": "The tie is level at 1-1 after the first leg."
+        }
+      ],
+      "sources": [
+        {
+          "name": "UEFA 2026/27 Champions League dates and final",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "checkedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "name": "UEFA Champions League qualifying fixtures and results",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+          "checkedAt": "2026-08-25T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:uefa-champions-league-2026-27:league-phase",
+      "kind": "tournament",
+      "name": "UEFA Champions League · League phase",
+      "phaseIdentity": "league",
+      "sportKey": "football",
+      "sportKeys": [
+        "football"
+      ],
+      "sportLabel": "Football",
+      "competitionId": "competition:uefa-champions-league:2026-27",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2026,
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "timezone": "Europe/Madrid",
+      "venue": "Multiple venues",
+      "location": "Europe",
+      "summary": "Eight matchdays determine the league table and knockout qualification.",
+      "details": [
+        "Concrete matchups are surfaced chronologically as UEFA publishes the draw and kick-off times."
       ],
       "subEvents": [
         {
           "id": "major-stage:uefa-champions-league-2026-27:league-phase",
-          "name": "League phase - matchdays 1 to 8",
+          "name": "League phase · matchdays 1 to 8",
           "startTimeUtc": null,
           "venue": "Multiple venues",
           "stakesScore": 5,
           "dateLabel": "8 September 2026 to 27 January 2027",
           "summary": "Eight league-phase matchdays. Individual fixtures remain in the football fixture bundles."
-        },
+        }
+      ],
+      "sources": [
+        {
+          "name": "UEFA 2026/27 Champions League dates and final",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "checkedAt": "2026-08-23T06:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "major-event:uefa-champions-league-2026-27:knockout",
+      "kind": "tournament",
+      "name": "UEFA Champions League · Knockout phase",
+      "phaseIdentity": "knockout",
+      "sportKey": "football",
+      "sportKeys": [
+        "football"
+      ],
+      "sportLabel": "Football",
+      "competitionId": "competition:uefa-champions-league:2026-27",
+      "stakesScore": 5,
+      "dateStatus": "confirmed",
+      "season": 2027,
+      "startDate": "2027-02-16",
+      "endDate": "2027-06-05",
+      "timezone": "Europe/Madrid",
+      "venue": "Multiple venues",
+      "location": "Europe",
+      "summary": "The knockout phase progresses from play-offs to the final in Madrid.",
+      "details": [
+        "The source-backed draw appears here as teams and ties are confirmed."
+      ],
+      "subEvents": [
         {
           "id": "major-stage:uefa-champions-league-2026-27:knockout-play-offs",
           "name": "Knockout phase play-offs",

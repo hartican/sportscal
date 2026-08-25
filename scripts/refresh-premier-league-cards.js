@@ -10,6 +10,8 @@ const SEASON_ID = 841;
 const PAGE_SIZE = 100;
 const EXPECTED_FIXTURE_COUNT = 380;
 const EXPECTED_TEAM_COUNT = 20;
+const STAN_SPORT_URL = "https://www.stan.com.au/watch/sport/football/premier-league";
+const STAN_RIGHTS_VERIFIED_AT = "2026-08-25T00:00:00.000Z";
 const SYDNEY_FORMATTER = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Australia/Sydney",
   year: "numeric",
@@ -121,8 +123,21 @@ function cardForFixture(fixture, checkedAt){
     time,
     startTimeUtc,
     endTimeUtc: new Date(fixture.kickoff.millis + 2 * 60 * 60 * 1000).toISOString(),
-    broadcaster: "Broadcast details TBC",
-    broadcastOptions: [],
+    broadcaster: "Stan Sport",
+    broadcasterIds: ["stan"],
+    broadcastOptions: ["Stan Sport"],
+    viewingOptions: [{
+      providerId: "stan",
+      serviceId: "stan",
+      serviceLabel: "Stan Sport",
+      territory: "AU",
+      accessType: "subscription",
+      liveOrReplay: completed ? "replay" : "live",
+      rightsScope: "competition",
+      webUrl: STAN_SPORT_URL,
+      sourceUrl: STAN_SPORT_URL,
+      verifiedAt: STAN_RIGHTS_VERIFIED_AT,
+    }],
     venue: fixture.ground?.name || null,
     scheduleStatus: fixture.provisionalKickoff?.millis === fixture.kickoff?.millis ? "confirmed" : "provisional",
     status: completed ? "completed" : "upcoming",

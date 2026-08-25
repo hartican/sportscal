@@ -48,7 +48,7 @@ function runStep(args) {
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
   return {
-    localOnly: argv.includes("--local-only") || env.SKIP_RELEASE === "1",
+    localOnly: argv.includes("--local-only") || argv.includes("-p") || env.SKIP_RELEASE === "1",
   };
 }
 
@@ -114,6 +114,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/build-paged-feed.js"],
   ["scripts/build-code-inspector.js"],
+  ["scripts/refresh-f1-editorial.js"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
   ["scripts/validate-phase5-premium-ranking.js"],
@@ -156,6 +157,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-mobile-reliability-pass.js"],
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/validate-follow-first.js"],
+  ["scripts/validate-mobile-feed-events-brand-pass.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);
   return steps;

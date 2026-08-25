@@ -76,7 +76,7 @@ const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab=
 assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
 assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"') && html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "the compact primary navigation must expose Standings & Fixtures as the fourth destination");
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
-const requiredSlogan = "Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.";
+const requiredSlogan = "Like having a sports-fanatic in your pocket.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
 assert.equal(brand.metadataDescription, requiredSlogan, "metadata must use the supplied slogan exactly");
 assert(html.includes(`<title data-brand-copy="title">${brand.title}</title>`), "the document title must use the canonical nothingsport title");
@@ -91,7 +91,7 @@ assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requi
 assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["only from teams, players and Aussies Only follows", "Sport and major-event choices organise", "Likes and dislikes are saved as feedback", "Standings & Fixtures"].forEach(phrase => {
+["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "Likes and dislikes are saved as feedback", "Standings & Fixtures"].forEach(phrase => {
   assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
@@ -269,7 +269,7 @@ assert(html.includes('expanded ? "full" : "summary"'), "followed standings must 
 assert(html.includes('className = "standings-freshness-note"'), "standings must expose a visible freshness and source-delay notice");
 assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
 assert(html.includes("Standings refresh periodically and may briefly differ from official sources due to update delays."), "standings must disclose periodic update latency against official sources");
-assert(html.includes("appendDirectoryFollowOptions") && html.includes("setDirectoryEntityFollow"), "entity follow levels must be editable from the central Standings directory");
+assert(html.includes("buildDirectoryFollowButton") && html.includes("setDirectoryEntityFollow"), "entity follows must be editable in place from the central Follow directory");
 assert(html.includes('session.directorySportKey === "football"') && html.includes('session.directorySportKey === "nrl"') && html.includes('session.directorySportKey === "afl"'), "Teams & Players must expose NRL and AFL alongside Football");
 assert(html.includes("loadNrlDirectoryData") && html.includes("loadAflDirectoryData"), "NRL and AFL catalogues must load only when opened");
 assert(html.includes("profileHasNrlEntityFollow") && html.includes("profileHasAflEntityFollow"), "saved NRL and AFL player follows must restore their fixture expansion at startup");
@@ -364,8 +364,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v141"'), "the startup release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="141">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v144"'), "the startup release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="144">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -440,7 +440,7 @@ assert(html.includes('document.addEventListener("gesturestart"'), "native-app ge
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
 assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
-assert(html.includes('return "calendarTodayAnchor"'), "the persistent sports feed must retain its Today anchor");
+assert(html.includes('activeTab === "events" ? "eventsTodayAnchor" : "calendarTodayAnchor"'), "Feed and Events must retain distinct persistent Today anchors");
 assert(html.includes("startupFeedNavigationTouched") && html.includes('calendarInitialJumpPending = true;'), "initial Feed alignment must repeat after background loading unless the person has started navigating");
 assert(html.includes("function openFirstRunSettingsAfterFeedAlignment") && html.includes("window.requestAnimationFrame(() => openSettings({ firstRun: true }))"), "first-run Settings must capture its return position only after the Feed has aligned at Today");
 assert(html.includes("PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST())"), "the curated feed must split past, Today and future cards from one canonical timeline model");

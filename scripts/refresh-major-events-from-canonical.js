@@ -30,6 +30,7 @@ function reconcileAflFinals(catalogue, canonical){
     .filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""))
     .map(event => [event.id, event]));
   if (canonicalFinals.size !== record.subEvents.length) throw new Error("AFL Finals Series child count no longer matches the canonical AFL schedule.");
+  const participantNames = new Map((canonical.participants || []).map(participant => [participant.id, participant.displayName || participant.canonicalName || participant.shortName]));
 
   record.subEvents.forEach(subEvent => {
     const canonicalEvent = canonicalFinals.get(subEvent.id);
@@ -37,6 +38,28 @@ function reconcileAflFinals(catalogue, canonical){
     subEvent.startTimeUtc = canonicalEvent.startTimeUtc || null;
     subEvent.venue = venueLabel(canonicalEvent.venueName);
     subEvent.name = scheduledName(canonicalEvent, subEvent.name);
+    subEvent.roundLabel = canonicalEvent.roundLabel || subEvent.roundLabel || null;
+    subEvent.stage = canonicalEvent.roundLabel || subEvent.stage || null;
+    subEvent.participantIds = canonicalEvent.participantIds || [];
+    subEvent.participants = (canonicalEvent.participantIds || []).map(participantId => ({
+      id:participantId,
+      participantId,
+      name:participantNames.get(participantId) || canonicalEvent.displayName?.split(/\s+v\s+/i)?.[subEvent.participantIds.indexOf(participantId)] || "Finals seed TBC",
+    }));
+    const isGrandFinal = /grand final/i.test(canonicalEvent.roundLabel || "");
+    subEvent.broadcaster = isGrandFinal ? "7plus" : "Kayo Sports";
+    subEvent.broadcasterIds = isGrandFinal ? ["seven"] : ["kayo", "foxtel", "seven"];
+    subEvent.broadcastOptions = isGrandFinal ? ["7plus", "Watch AFL"] : ["Kayo Sports", "Foxtel", "7plus", "Watch AFL"];
+    subEvent.viewingOptions = subEvent.broadcasterIds.map(providerId => ({
+      providerId,
+      serviceId:providerId,
+      territory:"AU",
+      accessType:["kayo", "foxtel"].includes(providerId) ? "subscription" : "free",
+      liveOrReplay:"live",
+      rightsScope:"competition",
+      sourceUrl:"https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+      verifiedAt:"2026-08-25T00:00:00.000Z",
+    }));
     subEvent.summary = canonicalEvent.startTimeUtc
       ? `Official AFL schedule: ${canonicalEvent.displayName} at ${venueLabel(canonicalEvent.venueName)}.`
       : subEvent.summary;

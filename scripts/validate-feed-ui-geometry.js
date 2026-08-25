@@ -39,5 +39,6 @@ assert(html.includes("content-visibility:auto") && html.includes("contain-intrin
 assert(/\.cards-grid > \.event-card\{ padding:14px 14px 18px; \}/.test(html), "mobile Feed cards must retain 14px sides and 18px bottom whitespace");
 assert(html.includes("height:auto;") && html.includes("max-height:none;") && html.includes("overflow:visible;"), "compact cards must not clip a growing final row");
 assert(html.includes(".ticket-sale-card,.ticket-sale-card *{ min-width:0; }") && html.includes("overflow-wrap:anywhere"), "ticket-alert detail must wrap safely on iOS");
+assert(/\.code-inspector-fixture-side \.code-inspector-feed-action\{[\s\S]{0,140}flex:0 0 var\(--card-action-height\)/.test(html), "Standings fixture pin controls must not stretch to the full mobile row height");
 
 console.log(`Feed UI geometry contract valid across ${framedRoles.length} identity roles.`);

@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title data-brand-copy="title">Nothingsport — Smart sports feed</title>
 <meta name="theme-color" content="#0a0a0f">
-<meta name="description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
+<meta name="description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
 <meta name="application-name" content="NS">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="141">
+  <meta name="app-shell-version" content="144">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
-<meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
+<meta property="og:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
 <meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
-<meta name="twitter:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
+<meta name="twitter:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
 <meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/nothingsport-app-32.png" sizes="32x32" type="image/png">
@@ -287,6 +287,30 @@ header.top{
   letter-spacing:.035em;
   text-align:center;
 }
+
+.startup-loading-slogan{
+  width:min(32ch,88vw);
+  min-height:2.8em;
+  margin:0;
+  color:var(--text);
+  font:850 clamp(1rem,3.6vw,1.45rem)/1.35 'DM Sans',sans-serif;
+  letter-spacing:-.015em;
+  text-align:center;
+  text-wrap:balance;
+}
+.startup-loading-slogan::after{
+  content:"";
+  display:inline-block;
+  width:1px;
+  height:.9em;
+  margin-left:2px;
+  background:currentColor;
+  vertical-align:-.08em;
+  opacity:.72;
+  animation:startup-slogan-caret .72s steps(1,end) infinite;
+}
+.startup-loading-slogan.is-complete::after{ opacity:0; animation:none; }
+@keyframes startup-slogan-caret{ 0%,48%{ opacity:.72; } 49%,100%{ opacity:0; } }
 
 .startup-sound-enable{
   min-height:42px;
@@ -2081,6 +2105,11 @@ main{
 .major-event-ticket-row:empty{ display:none; }
 .major-event-ticket-link{ display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:48px; margin-right:auto; padding:9px 14px; border:2px solid var(--ticket-action-border); border-radius:6px; background:var(--ticket-action-bg); color:var(--ticket-action-text); box-shadow:0 2px 8px color-mix(in srgb, var(--ticket-action-bg) 22%, transparent); font-size:0.8rem; font-weight:850; text-decoration:none; }
 .major-event-ticket-link:hover{ background:var(--ticket-action-hover); }
+.major-event-logo{ position:relative; }
+.ticket-alert-new-badge{ position:absolute; top:-5px; right:-7px; display:grid; place-items:center; width:22px; height:22px; border:2px solid var(--bg-card); border-radius:999px; background:var(--accent); color:#05050a; font:950 .72rem/1 inherit; box-shadow:0 2px 8px rgba(0,0,0,.18); }
+.ticket-alert-tab-badge{ display:inline-grid; place-items:center; width:18px; height:18px; margin-left:6px; border-radius:999px; background:var(--accent); color:#05050a; font:950 .62rem/1 inherit; vertical-align:middle; }
+.ticket-sale-countdown{ flex:1 1 150px; min-height:34px; display:inline-flex; align-items:center; justify-content:center; padding:5px 9px; border:1px solid var(--border); border-radius:999px; color:var(--text); background:var(--panel); font:850 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.ticket-inventory-stamp{ min-height:22px; display:inline-flex; align-items:center; padding:3px 8px; border-radius:999px; background:var(--attention); color:#1b1200; font:900 .62rem/1 inherit; text-transform:uppercase; letter-spacing:.03em; }
 .major-event-follow{ margin-left:auto; min-height:48px; padding:8px 12px; border:1px solid var(--border); border-radius:7px; background:var(--bg-card); color:var(--text); font:750 0.74rem/1 'DM Sans', sans-serif; cursor:pointer; }
 .major-event-follow[aria-pressed="true"]{ border-color:var(--sport-color); color:var(--sport-color); }
 .major-event-expand-control{ display:inline-grid; place-items:center; width:48px; height:48px; flex:0 0 48px; padding:0; border:1px solid var(--border); border-radius:7px; background:var(--bg-card); color:var(--text); cursor:pointer; }
@@ -2118,6 +2147,16 @@ main{
 .ticket-sale-card .major-event-body{ grid-template-columns:1fr; }
 .ticket-sale-card h3{ margin:0; font-size:0.9rem; }
 .ticket-sale-card p{ margin:4px 0 0; color:var(--text-dim); font-size:0.74rem; line-height:1.4; }
+.major-event-draw{ min-width:0; margin:0; padding:12px; border-top:1px solid var(--border); background:var(--soft-fill); }
+.major-event-draw figcaption{ margin-bottom:9px; font-size:.78rem; font-weight:900; }
+.major-event-draw-scroll{ display:flex; gap:10px; min-width:0; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x proximity; padding-bottom:4px; }
+.major-event-draw-column{ flex:0 0 min(78vw,260px); min-width:0; padding:9px; border:1px solid var(--border); border-radius:10px; background:var(--bg-card); scroll-snap-align:start; }
+.major-event-draw-column h5{ margin:0 0 7px; font-size:.7rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; }
+.major-event-draw-page{ display:grid; gap:6px; }
+.major-event-draw-tie{ min-height:34px; display:flex; align-items:center; padding:6px 8px; border-left:3px solid var(--sport-color,var(--accent)); border-radius:6px; background:var(--panel); font-size:.68rem; font-weight:800; line-height:1.25; overflow-wrap:anywhere; }
+.major-event-draw-pager{ display:flex; gap:5px; margin-top:8px; }
+.major-event-draw-pager button{ width:28px; height:28px; border:1px solid var(--border); border-radius:999px; background:transparent; color:var(--text); font:800 .65rem/1 inherit; }
+.major-event-draw-pager button.active{ border-color:var(--accent); background:var(--accent); color:#05050a; }
 .major-event-marker{ display:grid; grid-template-columns:52px minmax(0, 1fr) auto; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border); border-left:4px solid var(--sport-color, var(--accent)); border-radius:8px; background:var(--bg-card); }
 .major-event-marker-logo{ display:grid; place-items:center; width:52px; height:44px; }
 .major-event-marker-logo .event-brand-logo,.major-event-marker-logo .event-sport-mark,.major-event-marker-logo .event-sport-logo{ width:100%; height:100%; object-fit:contain; }
@@ -2331,6 +2370,15 @@ main{
   flex:0 0 19px;
   border-radius:2px;
   box-shadow:0 1px 1px rgba(0,0,0,0.28);
+}
+
+.team-name-with-logo .team-name-logo-fallback.team-logo-monogram{
+  width:19px;
+  height:19px;
+  flex:0 0 19px;
+  border-width:1px;
+  font-size:.46rem;
+  letter-spacing:0;
 }
 
 .event-card:hover .team-logo,
@@ -5343,6 +5391,11 @@ footer.app-footer{
   max-height:calc(100% - 12px);
 }
 
+.identity-image-placeholder{ position:absolute; inset:0; z-index:0; }
+img[data-identity-image]{ z-index:1; }
+img[data-identity-image].identity-image-pending{ opacity:0; }
+img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .16s ease; }
+
 @media (max-width:720px){
   .event-hero-mark img{
     inset:5px;
@@ -5464,7 +5517,9 @@ footer.app-footer{
 .football-club-copy{ min-width:0; }
 .football-club-copy strong{ display:block; font-size:0.82rem; line-height:1.25; overflow-wrap:anywhere; }
 .football-club-copy span{ display:block; margin-top:3px; color:var(--text-dim); font-size:0.68rem; }
-.football-follow-select{ width:100%; min-height:34px; padding:6px 7px; border:1px solid var(--border); border-radius:6px; background:var(--panel); color:var(--text); font:750 0.68rem/1 inherit; }
+.football-follow-toggle{ width:100%; min-height:34px; padding:6px 8px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text-dim); font:800 0.68rem/1 inherit; cursor:pointer; white-space:nowrap; }
+.football-follow-toggle.active{ border-color:var(--accent); background:color-mix(in srgb,var(--accent) 14%,var(--panel)); color:var(--text); }
+.football-follow-toggle:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 .football-club-expand{ display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--border); border-radius:6px; background:transparent; color:var(--text); cursor:pointer; }
 .football-club-expand .vector-glyph{ width:15px; height:15px; transition:transform 160ms ease; }
 .football-club-expand[aria-expanded="true"] .vector-glyph{ transform:rotate(90deg); }
@@ -5616,6 +5671,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   }
   .event-card:hover{ transform: none; }
   .startup-launch{ pointer-events:none; }
+  .startup-loading-slogan::after{ display:none; }
   header.top,
   #calendarControls,
   #mainContent,
@@ -5773,6 +5829,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
   text-decoration:none;
   white-space:nowrap;
 }
+.code-inspector-fixture-side .code-inspector-feed-action{
+  flex:0 0 var(--card-action-height);
+  align-self:stretch;
+}
 .event-quick-action::after,
 .major-event-ticket-link::after,
 .major-event-match-action::after,
@@ -5807,11 +5867,12 @@ body.header-compact-3 .brand .slogan{ display:none; }
   margin-left:0;
 }
 .event-quick-action{ width:100%; }
-.event-quick-action span:last-child{ min-width:4.8em; }
-.event-quick-action .viewing-action-label{ min-width:0; }
+.event-quick-action span:last-child{ min-width:0; }
+.viewing-action-prefix{ white-space:nowrap; }
 .provider-action-mark{
-  flex:0 0 28px;
-  width:28px;
+  position:relative;
+  flex:0 0 68px;
+  width:68px;
   height:18px;
   display:inline-flex;
   align-items:center;
@@ -5820,8 +5881,12 @@ body.header-compact-3 .brand .slogan{ display:none; }
   border-radius:4px;
   background:var(--provider-mark-bg,var(--soft-fill));
 }
-.provider-action-logo{ display:block; width:100%; height:100%; object-fit:contain; }
+.provider-action-mark-fallback{ padding:0 2px; background:transparent; }
+.provider-action-text-fallback{ color:currentColor; font:900 .65rem/1 'DM Sans',sans-serif; white-space:nowrap; }
+.provider-action-logo{ position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .14s ease; }
+.provider-action-logo.is-decoded{ opacity:1; }
 .provider-action-mark .vector-glyph{ width:14px; height:14px; }
+.event-quick-action.viewing-tbc{ border-style:dashed; color:var(--text-dim); background:transparent; cursor:default; }
 .event-quick-explanation{ grid-column:1 / -1; margin:0; color:var(--text-dim); font-size:.66rem; line-height:1.35; overflow-wrap:anywhere; }
 .open-in-events-link,.major-event-marker-open{ border-color:color-mix(in srgb,var(--accent) 50%,var(--border)); color:var(--accent); }
 .major-event-ticket-link{ border-color:var(--ticket-action-border); background:var(--ticket-action-bg); color:var(--ticket-action-text); }
@@ -5838,7 +5903,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 }
 @media (max-width:360px){
   .event-quick-action{ padding-inline:6px; gap:4px; font-size:.56rem; }
-  .provider-action-mark{ flex-basis:20px; width:20px; height:15px; }
+  .provider-action-mark{ flex-basis:58px; width:58px; height:15px; }
 }
 [data-card-identity="competition:formula-one"]{
   background:transparent!important;
@@ -5973,6 +6038,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
     </div>
     <div id="startupProgressRing"></div>
+    <p class="startup-loading-slogan" id="startupLoadingSlogan" data-brand-copy="loadingDescriptor" aria-label="Like having a sports-fanatic in your pocket."></p>
     <p class="startup-progress-copy" id="startupProgressLabel">Preparing your Feed…</p>
     <button class="startup-sound-enable" id="enableLoadingSoundsBtn" type="button" hidden>Enable loading sounds</button>
   </div>
@@ -5986,7 +6052,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
       </div>
-      <div class="slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.</div>
+      <div class="slogan" data-brand-copy="descriptor">Like having a sports-fanatic in your pocket.</div>
     </div>
     <div class="header-actions">
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
@@ -6030,7 +6096,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 <footer class="app-footer">
   <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" loading="lazy" decoding="async">
-  <div class="footer-slogan" data-brand-copy="descriptor">Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.</div>
+  <div class="footer-slogan" data-brand-copy="descriptor">Like having a sports-fanatic in your pocket.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
 </footer>
 
@@ -6085,11 +6151,11 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="about-hero-copy">
         <h2 id="aboutTitle" data-brand-copy="title">Nothingsport — Smart sports feed</h2>
-        <p data-brand-copy="hero">The sports-fanatic mate who knows what you’re into.</p>
+        <p data-brand-copy="hero">Like having a sports-fanatic in your pocket.</p>
       </div>
     </div>
     <div class="about-body">
-      <p data-brand-copy="about">nothingsport builds your feed only from teams, players and Aussies Only follows. Sport and major-event choices organise the rest of the app without becoming hidden Feed rules. Likes and dislikes are saved as feedback for future recommendations without changing today’s feed. Open Standings & Fixtures for the complete code-level timetable and ladder context.</p>
+      <p data-brand-copy="about">nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Likes and dislikes are saved as feedback for future recommendations without changing today’s Feed rules. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a neutral TV fallback otherwise.</p>
     </div>
@@ -6410,6 +6476,36 @@ function renderLoadingProgress(state = loadingController.snapshot()){
   renderHeaderLoadingIndicator(state);
 }
 
+function startLoadingSloganTypewriter(durationMs = 2000){
+  const element = document.getElementById("startupLoadingSlogan");
+  if (!element) return;
+  const copy = String(BRAND_COPY.loadingDescriptor || BRAND_COPY.descriptor || "Like having a sports-fanatic in your pocket.");
+  element.setAttribute("aria-label", copy);
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches){
+    element.textContent = copy;
+    element.classList.add("is-complete");
+    return;
+  }
+  const segments = typeof Intl.Segmenter === "function"
+    ? [...new Intl.Segmenter("en", { granularity:"grapheme" }).segment(copy)].map(segment => segment.segment)
+    : Array.from(copy);
+  element.dataset.typewriterActive = "true";
+  element.textContent = "";
+  const startedAt = performance.now();
+  const draw = now => {
+    if (!element.isConnected) return;
+    const progress = Math.min(1, Math.max(0, (now - startedAt) / durationMs));
+    const visible = Math.min(segments.length, Math.ceil(progress * segments.length));
+    element.textContent = segments.slice(0, visible).join("");
+    if (progress < 1) window.requestAnimationFrame(draw);
+    else {
+      delete element.dataset.typewriterActive;
+      element.classList.add("is-complete");
+    }
+  };
+  window.requestAnimationFrame(draw);
+}
+
 function finishStartupLogoLaunch(overlay, flight = null){
   flight?.remove();
   document.body.classList.remove("startup-logo-in-flight");
@@ -6483,6 +6579,7 @@ function scheduleStartupLogoFunnel({ feedReady = false } = {}){
 
 function runStartupLogoLaunch(){
   startupLaunchStartedAt = performance.now();
+  startLoadingSloganTypewriter(2000);
   feedPerformanceMetrics.shellReadyMs = feedPerformanceNow();
   publishFeedPerformanceMetrics();
   loadingController.subscribe(renderLoadingProgress);
@@ -6532,6 +6629,16 @@ function identityImageSource(image){
 
 function installIdentityImageRecovery(image){
   image.dataset.identityImage = "true";
+  image.classList.add("identity-image-pending");
+  image.addEventListener("load", () => {
+    const reveal = () => {
+      if (!image.isConnected) return;
+      image.classList.remove("identity-image-pending");
+      image.classList.add("identity-image-decoded");
+    };
+    if (typeof image.decode === "function") image.decode().then(reveal, () => {});
+    else reveal();
+  });
   return image;
 }
 
@@ -6572,6 +6679,7 @@ function repairBrokenIdentityImages(root = document){
 }
 
 function scheduleIdentityImageRecovery(root = document.getElementById("listView") || document){
+  if (cardImageLoadingUnlocked) observeDeferredCardImages();
   if (identityRecoveryHandle !== null){
     if (typeof window.cancelIdleCallback === "function") window.cancelIdleCallback(identityRecoveryHandle);
     else window.clearTimeout(identityRecoveryHandle);
@@ -6675,7 +6783,15 @@ function renderEventIdentityMark(container, ev, meta){
   image.addEventListener("error", renderFallback, { once: true });
   container.classList.remove("has-sport-logo");
   container.classList.add("has-brand-logo");
-  container.replaceChildren(image);
+  const placeholder = document.createElement("span");
+  placeholder.className = "event-sport-mark identity-image-placeholder";
+  placeholder.innerHTML = glyphMarkup(meta.glyph, { label:meta.label, preferImage:true });
+  image.addEventListener("load", () => {
+    const removePlaceholder = () => placeholder.remove();
+    if (typeof image.decode === "function") image.decode().then(removePlaceholder, () => {});
+    else removePlaceholder();
+  }, { once:true });
+  container.replaceChildren(placeholder, image);
 }
 
 const INITIAL_CARD_IMAGE_BUDGET = 4;
@@ -6693,26 +6809,34 @@ function assignCardImageSource(image, source){
     return;
   }
   image.removeAttribute("src");
-  image.hidden = true;
-  image.addEventListener("load", () => { image.hidden = false; }, { once: true });
   image.dataset.deferredCardImage = source;
   deferredCardImages.add(image);
   if (cardImageLoadingUnlocked) observeDeferredCardImages();
 }
 
 function observeDeferredCardImages(){
-  if (typeof IntersectionObserver !== "function") return;
+  const activateImage = image => {
+    const source = image.dataset.deferredCardImage;
+    if (source){
+      activatedCardImageSources.add(source);
+      image.src = source;
+      delete image.dataset.deferredCardImage;
+    }
+    deferredCardImages.delete(image);
+  };
+  if (typeof IntersectionObserver !== "function"){
+    deferredCardImages.forEach(image => {
+      if (!image.isConnected) return;
+      const rect = image.getBoundingClientRect();
+      if (rect.bottom >= -160 && rect.top <= window.innerHeight + 160) activateImage(image);
+    });
+    return;
+  }
   deferredCardImageObserver ||= new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const image = entry.target;
-      const source = image.dataset.deferredCardImage;
-      if (source){
-        activatedCardImageSources.add(source);
-        image.src = source;
-        delete image.dataset.deferredCardImage;
-      }
-      deferredCardImages.delete(image);
+      activateImage(image);
       deferredCardImageObserver.unobserve(image);
     });
   }, { rootMargin: "160px 0px" });
@@ -6812,11 +6936,15 @@ function buildMatchupIdentity(ev, displayTitle){
       logo.width = 133;
       logo.height = 139;
       logo.referrerPolicy = "no-referrer";
-      logo.hidden = true;
       applyTeamLogoAsset(logo, mark, "primary", useDark);
       logo.addEventListener("load", () => {
-        slot.querySelectorAll(".matchup-team-logo-fallback,.team-logo-monogram").forEach(fallback => fallback.remove());
-        logo.hidden = false;
+        const reveal = () => {
+          if (!logo.isConnected) return;
+          slot.querySelectorAll(".matchup-team-logo-fallback,.team-logo-monogram").forEach(fallback => fallback.remove());
+          logo.hidden = false;
+        };
+        if (typeof logo.decode === "function") logo.decode().then(reveal, () => {});
+        else reveal();
       }, { once: true });
       logo.addEventListener("error", () => {
         logo.remove();
@@ -6871,11 +6999,9 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle){
     if (range.start > cursor) nameElement.append(document.createTextNode(displayTitle.slice(cursor, range.start)));
     const teamName = document.createElement("span");
     teamName.className = "team-name-with-logo";
-    const appendFlagFallback = () => {
-      const flagMarkup = COUNTRY_FLAGS?.flagMarkup?.(mark.fallbackCountryCode || mark.countryCode, { className: "team-logo-fallback", label: mark.label });
-      if (flagMarkup) teamName.insertAdjacentHTML("beforeend", flagMarkup);
-    };
+    const appendFlagFallback = () => appendTeamIdentityFallback(teamName, mark, mark.label, "team-logo-fallback team-name-logo-fallback");
     if (mark.url || mark?.logo?.primary){
+      appendFlagFallback();
       const logo = document.createElement("img");
       logo.className = "team-logo";
       logo.alt = "";
@@ -6883,10 +7009,15 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle){
       logo.decoding = "async";
       logo.referrerPolicy = "no-referrer";
       applyTeamLogoAsset(logo, mark, "icon");
-      logo.addEventListener("error", () => {
-        logo.remove();
-        appendFlagFallback();
-      }, { once: true });
+      logo.addEventListener("load", () => {
+        const reveal = () => {
+          if (!logo.isConnected) return;
+          teamName.querySelectorAll(".team-name-logo-fallback").forEach(fallback => fallback.remove());
+        };
+        if (typeof logo.decode === "function") logo.decode().then(reveal, () => {});
+        else reveal();
+      }, { once:true });
+      logo.addEventListener("error", () => logo.remove(), { once: true });
       teamName.appendChild(logo);
     } else {
       appendFlagFallback();
@@ -7221,6 +7352,7 @@ const STORAGE_KEYS = {
   preferences: "ns_preferences_v1",
   followedSports: "ns_followed_sports_v1",
   eventUserState: "ns_event_user_state_v1",
+  fixturePinQueue: "ns_fixture_pin_queue_v1",
   eventSpoilerState: "ns_event_spoiler_state_v1",
   surfacePresentation: "ns_surface_presentation_v1",
   selectorReleaseAcknowledgement: "ns_selector_release_ack_v1",
@@ -7831,7 +7963,7 @@ const BRAND_COPY = globalThis.NOTHINGSPORTS_BRAND || Object.freeze({});
 function syncBrandCopy(){
   document.querySelectorAll("[data-brand-copy]").forEach(element => {
     const nextCopy = BRAND_COPY[element.dataset.brandCopy];
-    if (typeof nextCopy === "string" && nextCopy) element.textContent = nextCopy;
+    if (typeof nextCopy === "string" && nextCopy && element.dataset.typewriterActive !== "true") element.textContent = nextCopy;
   });
   document.querySelectorAll("[data-brand-copy-content]").forEach(element => {
     const nextCopy = BRAND_COPY[element.dataset.brandCopyContent];
@@ -8125,6 +8257,70 @@ function saveEventActions(next){
   eventActions = next && typeof next === "object" ? next : {};
   saveActiveProfileSection("eventUserState", eventActions);
   queueServerStateSync();
+}
+
+function loadFixturePinQueue(){
+  const stored = readStorage(STORAGE_KEYS.fixturePinQueue, {});
+  return stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {};
+}
+
+let fixturePinQueue = loadFixturePinQueue();
+
+function saveFixturePinQueue(next){
+  fixturePinQueue = next && typeof next === "object" ? next : {};
+  writeStorage(STORAGE_KEYS.fixturePinQueue, fixturePinQueue);
+  return fixturePinQueue;
+}
+
+function queueFixturePinCommand(actionKey, action){
+  if (!actionKey || !action?.pinMutationId) return fixturePinQueue;
+  return saveFixturePinQueue({
+    ...fixturePinQueue,
+    [actionKey]: {
+      mutationId: action.pinMutationId,
+      enabled: Boolean(action.addedToFixtures),
+      queuedAt: action.lastActionAt || new Date().toISOString(),
+    },
+  });
+}
+
+function fixturePinAction(action){
+  return Boolean(action && typeof action === "object" && (
+    action.pinMutationId
+    || action.pinRevision
+    || action.addedFixture?.manualPin === true
+  ));
+}
+
+function serverAuthoritativeFixturePins(serverState, localState){
+  if (!serverState || !localState) return localState;
+  const next = typeof structuredClone === "function"
+    ? structuredClone(localState)
+    : JSON.parse(JSON.stringify(localState));
+  const serverActions = serverState.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
+  const localActions = next.eventUserState && typeof next.eventUserState === "object" ? next.eventUserState : {};
+  next.eventUserState = localActions;
+  const keys = new Set([...Object.keys(serverActions), ...Object.keys(localActions)]);
+  keys.forEach(key => {
+    if (fixturePinQueue[key]) return;
+    if (!fixturePinAction(serverActions[key]) && !fixturePinAction(localActions[key])) return;
+    if (serverActions[key]) localActions[key] = serverActions[key];
+    else delete localActions[key];
+  });
+  return next;
+}
+
+function clearAcknowledgedFixturePinCommands(serverState){
+  const serverActions = serverState?.eventUserState && typeof serverState.eventUserState === "object" ? serverState.eventUserState : {};
+  const next = { ...fixturePinQueue };
+  let changed = false;
+  Object.entries(fixturePinQueue).forEach(([key, command]) => {
+    if (serverActions[key]?.pinMutationId !== command?.mutationId) return;
+    delete next[key];
+    changed = true;
+  });
+  if (changed) saveFixturePinQueue(next);
+  return changed;
 }
 
 function loadEventSpoilerState(actions = {}){
@@ -8788,7 +8984,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
   serverSyncTimer = null;
   setServerPersistence({ state: "syncing", message: "Checking for newer choices…" });
   try{
-    const currentState = currentServerStatePayload();
+    let currentState = currentServerStatePayload();
     const baseline = serverStateBaseline || {
       state: emptyServerStatePayload(),
       updatedAt: null,
@@ -8797,6 +8993,10 @@ async function reconcileCurrentServerState({ notify = false } = {}){
       baseUpdatedAt: baseline.updatedAt,
     });
     let latest = await serverSyncClient.loadState();
+    currentState = serverAuthoritativeFixturePins(latest.state, currentState);
+    localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
+      baseUpdatedAt: baseline.updatedAt,
+    });
 
     if (!USER_STATE_SYNC.hasChanges(localPatch) && latest.state){
       if (latest.state.updatedAt !== baseline.updatedAt){
@@ -8832,9 +9032,14 @@ async function reconcileCurrentServerState({ notify = false } = {}){
       }catch(error){
         if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
         latest = await serverSyncClient.loadState();
+        currentState = serverAuthoritativeFixturePins(latest.state, currentState);
+        localPatch = USER_STATE_SYNC.createPatch(latest.state || emptyServerStatePayload(), currentState, {
+          baseUpdatedAt: latest.state?.updatedAt || null,
+        });
       }
     }
     if (!result?.state) throw new Error("The server did not return the reconciled profile.");
+    clearAcknowledgedFixturePinCommands(result.state);
     applyServerStatePreservingChanges(result.state, currentState);
     setServerStateBaseline(result.state);
     const lastSyncedAt = result.state?.updatedAt || new Date().toISOString();
@@ -10595,11 +10800,17 @@ function setMajorEventFixtureAdded(subEvent, parent, enabled){
   const fixture = majorEventFixtureSnapshot(subEvent, parent);
   if (!fixture) return false;
   const action = getEventAction(fixture);
-  updateEventAction(fixture, {
+  const mutationId = globalThis.crypto?.randomUUID?.()
+    || `pin_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
+  const nextAction = updateEventAction(fixture, {
     addedToFixtures: Boolean(enabled),
     addedToFixturesAt: enabled ? (action.addedToFixturesAt || new Date().toISOString()) : null,
     addedFixture:{ ...fixture, cardKind:"fixture", manualPin:true },
+    pinState: enabled ? "added" : "removed",
+    pinRevision: Math.max(0, Number(action.pinRevision) || 0) + 1,
+    pinMutationId: mutationId,
   });
+  queueFixturePinCommand(eventActionKey(fixture), nextAction);
   recordEventFeedAction(fixture, enabled ? "added_to_fixtures" : "removed_from_fixtures", { surface: "event_card", recommendationClass: "direct" });
   return true;
 }
@@ -13720,24 +13931,69 @@ function buildViewingProviderMark(viewing){
   mark.className = "provider-action-mark";
   mark.dataset.providerId = viewing.providerId;
   if (viewing.logoBackground) mark.style.setProperty("--provider-mark-bg", viewing.logoBackground);
+  const fallback = document.createElement("span");
+  fallback.className = "provider-action-text-fallback";
+  fallback.textContent = viewing.actionLabel || viewing.label;
+  fallback.hidden = false;
+  let image = null;
   const showFallback = () => {
     mark.classList.add("provider-action-mark-fallback");
-    mark.replaceChildren();
-    mark.innerHTML = glyphMarkup("ui:tv", { preferImage:true });
+    image?.remove();
+    fallback.hidden = false;
   };
   if (!viewing.logoPath){
+    mark.appendChild(fallback);
     showFallback();
     return mark;
   }
-  const image = document.createElement("img");
+  image = document.createElement("img");
   image.className = "provider-action-logo";
   image.alt = "";
   image.setAttribute("aria-hidden", "true");
   image.decoding = "async";
   image.addEventListener("error", showFallback, { once:true });
+  image.addEventListener("load", () => {
+    const reveal = () => {
+      if (!image?.isConnected) return;
+      image.classList.add("is-decoded");
+      fallback.hidden = true;
+    };
+    if (typeof image.decode === "function") image.decode().then(reveal, showFallback);
+    else reveal();
+  }, { once:true });
   image.src = viewing.logoPath;
-  mark.appendChild(image);
+  mark.append(fallback, image);
   return mark;
+}
+
+function offerProviderWebFallback(action, viewing){
+  if (!viewing?.webUrl || action.parentElement?.querySelector(`[data-provider-web-fallback="${CSS.escape(viewing.providerId)}"]`)) return;
+  const fallback = document.createElement("a");
+  fallback.className = "event-quick-action provider-web-fallback";
+  fallback.dataset.providerWebFallback = viewing.providerId;
+  fallback.href = viewing.webUrl;
+  fallback.target = "_blank";
+  fallback.rel = "noopener noreferrer external";
+  fallback.textContent = "Open in browser";
+  fallback.setAttribute("aria-label", `Open ${viewing.label} in the default browser`);
+  fallback.addEventListener("click", event => event.stopPropagation());
+  action.insertAdjacentElement("afterend", fallback);
+}
+
+function configureProviderLaunch(link, viewing){
+  const target = viewing.universalUrl || viewing.webUrl || viewing.url;
+  link.href = viewing.appScheme && !viewing.universalUrl ? viewing.appScheme : target;
+  if (!viewing.appScheme || viewing.universalUrl){
+    link.target = "_blank";
+    link.rel = "noopener noreferrer external";
+    return;
+  }
+  link.addEventListener("click", () => {
+    const startedAt = performance.now();
+    window.setTimeout(() => {
+      if (document.visibilityState === "visible" && performance.now() - startedAt >= 650) offerProviderWebFallback(link, viewing);
+    }, 700);
+  });
 }
 
 function appendEventQuickActions(container, ev){
@@ -13762,17 +14018,22 @@ function appendEventQuickActions(container, ev){
   if (viewing){
     const link = document.createElement("a");
     link.className = "event-quick-action";
-    link.href = viewing.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.title = `Watch on ${viewing.label}. Installed apps may open natively; otherwise this opens in your browser.`;
-    link.setAttribute("aria-label", `Watch on ${viewing.label}`);
-    const label = document.createElement("span");
-    label.className = "viewing-action-label";
-    label.textContent = `Watch on ${viewing.actionLabel || viewing.label}`;
-    link.append(buildViewingProviderMark(viewing), label);
+    configureProviderLaunch(link, viewing);
+    const verb = viewing.liveOrReplay === "replay" ? "Replay" : "Watch";
+    link.title = `${verb} on ${viewing.label}. Installed apps may open natively; otherwise use the browser fallback.`;
+    link.setAttribute("aria-label", `${verb} on ${viewing.label}`);
+    const prefix = document.createElement("span");
+    prefix.className = "viewing-action-prefix";
+    prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;
+    link.append(prefix, buildViewingProviderMark(viewing));
     link.addEventListener("click", event => event.stopPropagation());
     actions.appendChild(link);
+  } else {
+    const unavailable = document.createElement("span");
+    unavailable.className = "event-quick-action viewing-tbc";
+    unavailable.setAttribute("aria-label", "Viewing provider to be confirmed");
+    unavailable.textContent = "Viewing TBC";
+    actions.appendChild(unavailable);
   }
   container.appendChild(actions);
 }
@@ -14934,7 +15195,7 @@ function formatDateKey(dt){
 }
 
 function activeTodayAnchorId(){
-  return "calendarTodayAnchor";
+  return activeTab === "events" ? "eventsTodayAnchor" : "calendarTodayAnchor";
 }
 
 function focusedRecentPastDateKey(dateKeys, todayKey, filterValue = activeFilter){
@@ -14979,7 +15240,9 @@ function todayAnchorIsVisible(){
 function syncContextualJumpButton(){
   const button = document.getElementById("jumpTodayBtn");
   if (!button) return;
-  if (activeInspectorCodeId || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()){
+  const feedTimeline = activeTab === "feed" && activeView === "list" && !activeSportHubKey();
+  const eventsTimeline = activeTab === "events" && eventsViewTab === "major-events";
+  if (activeInspectorCodeId || (!feedTimeline && !eventsTimeline)){
     button.hidden = true;
     return;
   }
@@ -16090,15 +16353,26 @@ function directoryFollowLevel(participantId){
   return userPreferences.preferenceGraph?.entityFollows?.find(item => item.participantId === participantId)?.followLevel || "none";
 }
 
-function appendDirectoryFollowOptions(select, current){
-  const normalized = ["follow", "priority"].includes(current) ? "follow" : "none";
-  [["none", "Not followed"], ["follow", "Follow"]].forEach(([value, label]) => {
-    const option = document.createElement("option");
-    option.value = value;
-    option.textContent = label;
-    option.selected = normalized === value;
-    select.appendChild(option);
+function syncDirectoryFollowButton(button, participantId){
+  const followed = ["follow", "priority"].includes(directoryFollowLevel(participantId));
+  button.dataset.followLevel = followed ? "follow" : "none";
+  button.classList.toggle("active", followed);
+  button.setAttribute("aria-pressed", String(followed));
+  button.textContent = followed ? "Following" : "Follow";
+}
+
+function buildDirectoryFollowButton(participantId, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "football-follow-toggle";
+  button.setAttribute("aria-label", `Follow ${label}`);
+  syncDirectoryFollowButton(button, participantId);
+  button.addEventListener("click", () => {
+    const nextLevel = button.dataset.followLevel === "follow" ? "none" : "follow";
+    setDirectoryEntityFollow(participantId, nextLevel, { sportKey, leagueId, label });
+    syncDirectoryFollowButton(button, participantId);
   });
+  return button;
 }
 
 function footballLeagueKeyForId(leagueId){
@@ -16111,19 +16385,7 @@ function footballLeagueKeyForId(leagueId){
   }[leagueId] || null;
 }
 
-function preserveFollowRowAnchor(row, previousTop){
-  if (!row || !Number.isFinite(previousTop)) return;
-  window.requestAnimationFrame(() => {
-    if (!row.isConnected || activeTab !== "follow") return;
-    const delta = row.getBoundingClientRect().top - previousTop;
-    if (Math.abs(delta) > 0.5) window.scrollBy({ top:delta, behavior:"auto" });
-  });
-}
-
 function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
-  const activeControl = document.activeElement;
-  const changedRow = activeControl?.closest?.(".football-player-row, .football-club-head, .sport-directory-row, [data-participant-id]") || null;
-  const changedRowTop = changedRow?.getBoundingClientRect().top;
   const next = clonePreferences(userPreferences);
   const sportSelectorId = BASE_SPORT_SELECTOR_ENTITIES.some(entity => entity.id === `sport:${sportKey}`) ? `sport:${sportKey}` : null;
   if (["follow", "priority"].includes(followLevel) && sportSelectorId && !selectorEntityIsEffectivelySelected(sportSelectorId, next)){
@@ -16155,7 +16417,6 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
     });
   }
   renderTabCounts();
-  preserveFollowRowAnchor(changedRow, changedRowTop);
 }
 
 function buildDirectorySelect(label, value, options, onChange){
@@ -16246,11 +16507,7 @@ function buildFootballPlayerRow(player, sportKey = "football"){
   tier.className = "football-player-tier";
   tier.textContent = player.prominenceTier || "";
   tier.title = player.prominenceReason || "";
-  const follow = document.createElement("select");
-  follow.className = "football-follow-select";
-  follow.setAttribute("aria-label", `Follow setting for ${player.displayName}`);
-  appendDirectoryFollowOptions(follow, directoryFollowLevel(player.id));
-  follow.addEventListener("change", () => setDirectoryEntityFollow(player.id, follow.value, { sportKey, leagueId: player.leagueId, label: player.displayName }));
+  const follow = buildDirectoryFollowButton(player.id, { sportKey, leagueId: player.leagueId, label: player.displayName });
   if (player.prominenceTier) row.append(identity, position, tier, follow);
   else {
     row.classList.add("without-tier");
@@ -16285,11 +16542,7 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   const playerScope = ["nrl", "afl"].includes(sportKey) ? "current player" : "priority player";
   detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} ${playerScope}${players.length === 1 ? "" : "s"}`;
   copy.append(title, detail);
-  const follow = document.createElement("select");
-  follow.className = "football-follow-select";
-  follow.setAttribute("aria-label", `Follow setting for ${team.displayName}`);
-  appendDirectoryFollowOptions(follow, directoryFollowLevel(team.id));
-  follow.addEventListener("change", () => setDirectoryEntityFollow(team.id, follow.value, { sportKey, leagueId: team.leagueId, label: team.displayName }));
+  const follow = buildDirectoryFollowButton(team.id, { sportKey, leagueId: team.leagueId, label: team.displayName });
   const expander = document.createElement("button");
   expander.type = "button";
   expander.className = "football-club-expand";
@@ -16395,17 +16648,17 @@ function renderLegacyParticipantDirectory(container, sportKey){
     }
     container.appendChild(state);
     if (!followDirectoryChunkLoading.has(sportKey)){
-      const scrollY = window.scrollY;
       Promise.all([loadFootballDirectoryModule(), loadFollowDirectoryChunk(sportKey)])
-        .then(() => {
-          renderStandingsContext();
-          window.requestAnimationFrame(() => window.scrollTo({ top:scrollY, behavior:"auto" }));
-        }).catch(() => renderStandingsContext());
+        .then(() => renderStandingsContext())
+        .catch(() => renderStandingsContext());
     }
     return;
   }
   const filters = directoryFilters(sportKey);
-  const allRecords = chunk.records.map(record => ({ ...record, rank:record.ranking ?? record.ladderPosition ?? null }));
+  const allRecords = chunk.records.map(record => ({
+    ...record,
+    rank: FOLLOW_FIRST?.normalizeDirectoryRank?.(record.ranking ?? record.ladderPosition) ?? null,
+  }));
   const records = allRecords
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
@@ -16421,9 +16674,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
         if (Number.isFinite(left) || Number.isFinite(right)) return (Number.isFinite(right) ? right : -1) - (Number.isFinite(left) ? left : -1);
       }
       if (filters.sortMode === "table"){
-        const left = Number(first.rank);
-        const right = Number(second.rank);
-        if (Number.isFinite(left) || Number.isFinite(right)) return (Number.isFinite(left) ? left : Number.MAX_SAFE_INTEGER) - (Number.isFinite(right) ? right : Number.MAX_SAFE_INTEGER);
+        const left = first.rank;
+        const right = second.rank;
+        if (left !== null || right !== null) return (left ?? Number.MAX_SAFE_INTEGER) - (right ?? Number.MAX_SAFE_INTEGER);
       }
       return String(first.displayName || "").localeCompare(String(second.displayName || ""), "en-AU", { sensitivity:"base" });
     });
@@ -16465,7 +16718,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   }
   const hasValues = allRecords.some(record => Number.isFinite(Number(record.marketValue ?? record.marketValueEur)));
   toolbar.appendChild(buildDirectorySelect("Sort", filters.sortMode, [
-    ["table", allRecords.some(record => Number.isFinite(Number(record.rank))) ? "Ranking / ladder" : "Ranking / A–Z"],
+    ["table", allRecords.some(record => record.rank !== null) ? "Ranking / ladder" : "Ranking / A–Z"],
     ...(hasValues ? [["value", "Value"]] : []),
     ["alpha", "A–Z"],
   ], sortMode => {
@@ -16497,15 +16750,11 @@ function renderLegacyParticipantDirectory(container, sportKey){
     const name = document.createElement("strong");
     name.textContent = record.displayName;
     const detail = document.createElement("span");
-    const rankLabel = Number.isFinite(Number(record.rank)) ? ` · #${record.rank}` : "";
-    detail.textContent = `${record.sectionLabel || (record.type === "competitor" ? "Player" : record.type === "nationalSide" ? "National team" : "Team")}${rankLabel}`;
+    const rankLabel = record.rank !== null ? ` · #${record.rank}` : "";
+    detail.textContent = `${record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${rankLabel}`;
     copy.append(name, detail);
-    const select = document.createElement("select");
-    select.className = "football-follow-select";
-    select.setAttribute("aria-label", `Follow setting for ${record.displayName}`);
-    appendDirectoryFollowOptions(select, directoryFollowLevel(record.id));
-    select.addEventListener("change", () => setDirectoryEntityFollow(record.id, select.value, { sportKey, label: record.displayName }));
-    row.append(icon, copy, select);
+    const follow = buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
+    row.append(icon, copy, follow);
     list.appendChild(row);
   });
   if (!records.length){
@@ -16938,6 +17187,9 @@ function scheduleCardRetractionDuringScroll(){
 }
 window.addEventListener("scroll", scheduleCardRetractionDuringScroll, { passive: true });
 window.addEventListener("scroll", syncContextualJumpButton, { passive: true });
+window.addEventListener("scroll", () => {
+  if (cardImageLoadingUnlocked && typeof IntersectionObserver !== "function") observeDeferredCardImages();
+}, { passive:true });
 
 function majorEventDateLabel(record){
   if (!record?.startDate || record.dateStatus === "tbc") return "Dates TBC";
@@ -16999,7 +17251,7 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
   link.className = className;
   link.href = offer.url;
   link.target = "_blank";
-  link.rel = "noopener noreferrer";
+  link.rel = "noopener noreferrer external";
   link.innerHTML = glyphMarkup("ui:ticket", { preferImage: true });
   const label = document.createElement("span");
   label.textContent = offer.label;
@@ -17010,29 +17262,20 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
 }
 
 function prioritisedMajorEventSubEvents(record, limit = Infinity){
-  const followed = [];
-  const scheduled = [];
-  majorEventSubEvents(record).forEach((subEvent, order) => {
+  const scheduled = majorEventSubEvents(record).map((subEvent, order) => {
     const fixture = majorEventFixtureSnapshot(subEvent, record);
-    const candidate = { subEvent, fixture, order };
-    if (fixture && eventFollowReason(fixture)) followed.push(candidate);
-    else scheduled.push(candidate);
+    return { subEvent, fixture, order };
   });
-  const futureFirst = (left, right) => {
+  const chronological = (left, right) => {
     const leftTime = left.fixture ? eventDateTime(left.fixture).getTime() : Number.MAX_SAFE_INTEGER;
     const rightTime = right.fixture ? eventDateTime(right.fixture).getTime() : Number.MAX_SAFE_INTEGER;
+    if (!Number.isFinite(limit)) return leftTime - rightTime || left.order - right.order;
     const leftPast = leftTime < Date.now();
     const rightPast = rightTime < Date.now();
     return Number(leftPast) - Number(rightPast) || leftTime - rightTime || left.order - right.order;
   };
-  scheduled.sort(futureFirst);
-  followed.sort(futureFirst);
-  const selected = scheduled.slice(0, Number.isFinite(limit) ? limit : scheduled.length);
-  const selectedIds = new Set(selected.map(item => item.subEvent.id));
-  followed.forEach(item => {
-    if (!selectedIds.has(item.subEvent.id)) selected.push(item);
-  });
-  return Number.isFinite(limit) ? selected.slice(0, Math.max(limit, selected.length)) : [...scheduled, ...followed.filter(item => !selectedIds.has(item.subEvent.id))];
+  scheduled.sort(chronological);
+  return Number.isFinite(limit) ? scheduled.slice(0, limit) : scheduled;
 }
 
 function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Published matches", compact = false } = {}){
@@ -17053,7 +17296,14 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
     const copy = document.createElement("div");
     copy.className = "major-event-match-copy";
     const title = document.createElement("strong");
-    title.textContent = subEvent.name;
+    renderEventTitleIdentity(title, {
+      key:record.sportKey,
+      sport:record.sportLabel,
+      competitionId:record.competitionId,
+      name:subEvent.name,
+      participantIds:subEvent.participantIds || [],
+      participants:subEvent.participants || [],
+    }, subEvent.name);
     const detail = document.createElement("span");
     detail.textContent = fixture
       ? `${eventDateLabel(fixture)} - ${eventTimeLabel(fixture)} - ${subEvent.venue || record.venue}`
@@ -17072,18 +17322,24 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
     const button = document.createElement("button");
     button.type = "button";
     button.className = "major-event-match-action";
-    const action = fixture ? getEventAction(fixture) : null;
-    const added = Boolean(action?.addedToFixtures);
     button.disabled = !fixture;
-    button.setAttribute("aria-pressed", String(added));
-    button.textContent = fixture ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
+    const syncPinButton = () => {
+      const added = Boolean(fixture && getEventAction(fixture)?.addedToFixtures);
+      button.setAttribute("aria-pressed", String(added));
+      button.classList.toggle("active", added);
+      button.textContent = fixture ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
+      return added;
+    };
+    syncPinButton();
     if (!fixture) button.title = subEvent.dateLabel
       ? "A concrete drawn match and published start time are required before this schedule item can be added."
       : "A published start time is required before this match can be added.";
     button.addEventListener("click", () => {
-      if (!fixture || !setMajorEventFixtureAdded(subEvent, record, !added)) return;
-      renderAll({ preserveViewport: true });
-      showToast(added ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
+      const wasAdded = syncPinButton();
+      if (!fixture || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
+      syncPinButton();
+      renderTabCounts();
+      showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
     });
     row.append(copy, button);
     list.appendChild(row);
@@ -17118,6 +17374,71 @@ function buildMajorEventTablePreview(record){
     section.appendChild(module);
   });
   return section.children.length > 1 ? section : null;
+}
+
+function buildMajorEventDraw(record){
+  const subEvents = majorEventSubEvents(record);
+  if (subEvents.length < 2) return null;
+  const columns = new Map();
+  subEvents.forEach(subEvent => {
+    const stage = FOLLOW_FIRST?.normalizedFixtureGroupLabel?.(subEvent.stage || subEvent.roundLabel)
+      || subEvent.stage
+      || subEvent.roundLabel
+      || "Fixtures";
+    const entries = columns.get(stage) || [];
+    entries.push(subEvent);
+    columns.set(stage, entries);
+  });
+  const figure = document.createElement("figure");
+  figure.className = "major-event-draw";
+  figure.setAttribute("aria-label", `${record.name} draw`);
+  const caption = document.createElement("figcaption");
+  caption.textContent = "Published draw";
+  const scroller = document.createElement("div");
+  scroller.className = "major-event-draw-scroll";
+  columns.forEach((entries, stage) => {
+    const column = document.createElement("section");
+    column.className = "major-event-draw-column";
+    const heading = document.createElement("h5");
+    heading.textContent = stage;
+    column.appendChild(heading);
+    const pages = [];
+    for (let index = 0; index < entries.length; index += 5) pages.push(entries.slice(index, index + 5));
+    const page = document.createElement("div");
+    page.className = "major-event-draw-page";
+    const renderPage = pageIndex => {
+      page.replaceChildren();
+      (pages[pageIndex] || []).forEach(subEvent => {
+        const tie = document.createElement("div");
+        tie.className = "major-event-draw-tie";
+        const participants = (subEvent.participants || []).map(participant => participant.name).filter(Boolean);
+        tie.textContent = participants.length >= 2 ? participants.join(" v ") : subEvent.name || "Teams TBC";
+        page.appendChild(tie);
+      });
+    };
+    renderPage(0);
+    column.appendChild(page);
+    if (pages.length > 1){
+      const pager = document.createElement("div");
+      pager.className = "major-event-draw-pager";
+      pages.forEach((_entries, pageIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = String(pageIndex + 1);
+        button.setAttribute("aria-label", `${stage}, page ${pageIndex + 1}`);
+        button.classList.toggle("active", pageIndex === 0);
+        button.addEventListener("click", () => {
+          renderPage(pageIndex);
+          pager.querySelectorAll("button").forEach((item, index) => item.classList.toggle("active", index === pageIndex));
+        });
+        pager.appendChild(button);
+      });
+      column.appendChild(pager);
+    }
+    scroller.appendChild(column);
+  });
+  figure.append(caption, scroller);
+  return figure;
 }
 
 function buildMajorEventCard(record){
@@ -17159,7 +17480,8 @@ function buildMajorEventCard(record){
   ticketRow.className = "major-event-ticket-row";
   const ticketLink = buildMajorEventTicketLink(record);
   if (ticketLink) ticketRow.appendChild(ticketLink);
-  appendEventQuickActions(ticketRow, majorEventActionEvent(record));
+  const primaryFixture = prioritisedMajorEventSubEvents(record, 1)[0]?.fixture || majorEventActionEvent(record);
+  appendEventQuickActions(ticketRow, primaryFixture);
   const inspect = document.createElement("button");
   inspect.type = "button";
   inspect.className = "event-quick-action";
@@ -17209,6 +17531,10 @@ function buildMajorEventCard(record){
   identity.appendChild(facts);
 
   card.append(identity, ticketRow);
+  if (state === "opened"){
+    const draw = buildMajorEventDraw(record);
+    if (draw) card.appendChild(draw);
+  }
   const immediateSchedule = buildMajorEventSchedule(record, {
     limit: state === "compact" ? 1 : state === "selected" ? 3 : Infinity,
     headingText: state === "opened" ? "Published timetable" : state === "selected" ? "Next matches and line-ups" : "Next match or line-up",
@@ -17299,17 +17625,30 @@ function eventsDeepLinkFromLocation(){
   try{ return { type: match[1], id: decodeURIComponent(match[2]) }; }catch(_error){ return null; }
 }
 
+function resolveMajorEventId(eventId){
+  const requested = String(eventId || "");
+  const records = majorEventsDocument?.events || [];
+  if (records.some(record => record.id === requested)) return requested;
+  const related = records
+    .filter(record => record.id.startsWith(`${requested}:`))
+    .sort((first, second) => MAJOR_EVENTS.compareRecords(first, second, nowAEST()));
+  if (!related.length) return requested;
+  const reference = formatDateKey(nowAEST());
+  return related.find(record => (record.endDate || record.startDate || "") >= reference)?.id || related[related.length - 1].id;
+}
+
 function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
   if (!eventsDeepLinkReturnState){
     eventsDeepLinkReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY };
   }
   eventsViewTab = "major-events";
-  pendingMajorEventFocusId = eventId;
+  const resolvedEventId = resolveMajorEventId(eventId);
+  pendingMajorEventFocusId = resolvedEventId;
   pendingTicketAlertFocusId = null;
-  const record = majorEventsDocument?.events?.find(item => item.id === eventId);
+  const record = majorEventsDocument?.events?.find(item => item.id === resolvedEventId);
   if (record && cardStateForEvent(record) === "compact") setCardState(record, "selected");
-  const hash = eventsDeepLinkHash("major", eventId);
-  if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: eventId } }, "", hash);
+  const hash = eventsDeepLinkHash("major", resolvedEventId);
+  if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: resolvedEventId } }, "", hash);
   activateTopLevelTab("events", { preserveCardStates:true, resetViewport:false });
 }
 
@@ -17339,6 +17678,9 @@ function buildTicketSaleCard(record){
   card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
   card.style.setProperty("--sport-color", meta.color);
   const advanceState = ({ restoreFocus = false } = {}) => {
+    if (!getEventAction(majorEventActionEvent(record)).ticketAlertSeenAt){
+      updateEventAction(majorEventActionEvent(record), { ticketAlertSeenAt:new Date().toISOString() });
+    }
     setCardState(record, nextCardState(state));
     replaceCardPreservingViewport(card, buildTicketSaleCard(record), { restoreFocus });
   };
@@ -17347,6 +17689,14 @@ function buildTicketSaleCard(record){
   const logo = document.createElement("div");
   logo.className = "major-event-logo";
   renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
+  const alertAction = getEventAction(majorEventActionEvent(record));
+  if (!alertAction.ticketAlertSeenAt){
+    const newBadge = document.createElement("span");
+    newBadge.className = "ticket-alert-new-badge";
+    newBadge.textContent = "!";
+    newBadge.setAttribute("aria-label", "New ticket alert");
+    logo.appendChild(newBadge);
+  }
   const kicker = document.createElement("div");
   kicker.className = "major-event-kicker";
   kicker.textContent = "Ticket alert";
@@ -17368,7 +17718,43 @@ function buildTicketSaleCard(record){
   const actions = document.createElement("div");
   actions.className = "major-event-ticket-row";
   const ticket = buildMajorEventTicketLink(record);
-  if (ticket) actions.appendChild(ticket);
+  if (ticket){
+    ticket.addEventListener("click", () => {
+      if (!getEventAction(majorEventActionEvent(record)).ticketAlertSeenAt){
+        updateEventAction(majorEventActionEvent(record), { ticketAlertSeenAt:new Date().toISOString() });
+        card.querySelector(".ticket-alert-new-badge")?.remove();
+      }
+    });
+    actions.appendChild(ticket);
+  }
+  const saleStartTime = new Date(record.ticketing?.saleStartAt || "").getTime();
+  if (Number.isFinite(saleStartTime) && saleStartTime > Date.now()){
+    const countdown = document.createElement("span");
+    countdown.className = "ticket-sale-countdown";
+    countdown.dataset.saleStartAt = String(saleStartTime);
+    countdown.setAttribute("aria-label", "Time until ticket sale opens");
+    const updateCountdown = () => {
+      if (!countdown.isConnected) return;
+      const remaining = Math.max(0, saleStartTime - Date.now());
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+      countdown.textContent = remaining > 0
+        ? `On sale in ${days ? `${days}d ` : ""}${String(hours).padStart(2,"0")}:${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`
+        : "On sale now";
+      if (remaining > 0) window.setTimeout(updateCountdown, 1000);
+    };
+    updateCountdown();
+    actions.appendChild(countdown);
+  }
+  const inventoryTime = new Date(record.ticketing?.inventoryVerifiedAt || "").getTime();
+  if (record.ticketing?.inventoryStatus === "selling_quickly" && Date.now() - inventoryTime <= 86400000){
+    const inventory = document.createElement("span");
+    inventory.className = "ticket-inventory-stamp";
+    inventory.textContent = "Selling quickly";
+    actions.appendChild(inventory);
+  }
   const expand = document.createElement("button");
   expand.type = "button";
   expand.className = "major-event-expand-control";
@@ -17386,7 +17772,7 @@ function buildTicketSaleCard(record){
     event.preventDefault();
     advanceState({ restoreFocus: true });
   });
-  card.append(actions, identity);
+  card.append(identity, actions);
   if (state === "opened"){
     const body = document.createElement("div");
     body.className = "major-event-body";
@@ -17462,6 +17848,17 @@ function renderEventsView(){
     tab.id = `events-view-tab-${value}`;
     tab.setAttribute("aria-controls", "eventsViewPanel");
     tab.textContent = label;
+    if (value === "ticket-alerts" && majorEventsDocument){
+      const hasUnseen = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST()).alerts
+        .some(record => !getEventAction(majorEventActionEvent(record)).ticketAlertSeenAt);
+      if (hasUnseen){
+        const badge = document.createElement("span");
+        badge.className = "ticket-alert-tab-badge";
+        badge.textContent = "!";
+        badge.setAttribute("aria-label", "New ticket alerts");
+        tab.appendChild(badge);
+      }
+    }
     tab.addEventListener("click", () => {
       eventsViewTab = value;
       renderEventsView();
@@ -17506,9 +17903,6 @@ function renderEventsView(){
     return;
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST());
-  const followedEventFamilies = new Set(userPreferences.followFirst.followedMajorEventIds || []);
-  visible.events.sort((first, second) => Number(followedEventFamilies.has(second.id)) - Number(followedEventFamilies.has(first.id)));
-  visible.alerts.sort((first, second) => Number(followedEventFamilies.has(second.parentEventId)) - Number(followedEventFamilies.has(first.parentEventId)));
   if (pendingMajorEventFocusId){
     const pendingRecord = visible.events.find(record => record.id === pendingMajorEventFocusId);
     if (pendingRecord && cardStateForEvent(pendingRecord) === "compact") setCardState(pendingRecord, "selected");
@@ -17536,7 +17930,24 @@ function renderEventsView(){
     sectionTitle.className = "events-section-title";
     sectionTitle.textContent = "Major events";
     section.appendChild(sectionTitle);
-    visible.events.forEach(record => section.appendChild(buildMajorEventCard(record)));
+    let todayAnchorInserted = false;
+    const appendEventsTodayAnchor = () => {
+      if (todayAnchorInserted) return;
+      const anchor = document.createElement("div");
+      anchor.id = "eventsTodayAnchor";
+      anchor.className = "today-anchor events-today-anchor";
+      anchor.setAttribute("role", "separator");
+      anchor.setAttribute("aria-label", "Today in Events");
+      anchor.textContent = "Today";
+      section.appendChild(anchor);
+      todayAnchorInserted = true;
+    };
+    const referenceTime = nowAEST().getTime();
+    visible.events.forEach(record => {
+      if (!todayAnchorInserted && MAJOR_EVENTS.recordLifecycleTime(record, nowAEST()) >= referenceTime) appendEventsTodayAnchor();
+      section.appendChild(buildMajorEventCard(record));
+    });
+    appendEventsTodayAnchor();
     panel.appendChild(section);
   } else if (eventsViewTab === "major-events") {
     const empty = document.createElement("div");
@@ -17555,6 +17966,7 @@ function renderEventsView(){
   if (pendingTicketAlertFocusId){
     window.requestAnimationFrame(() => focusTicketAlertCard(pendingTicketAlertFocusId));
   }
+  window.requestAnimationFrame(syncContextualJumpButton);
 }
 
 function activateTopLevelTab(nextTab, { preserveCardStates = false, resetViewport = true } = {}){
@@ -17604,7 +18016,7 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
-  if (activeView !== "list"){
+  if (activeTab === "feed" && activeView !== "list"){
     activeView = "list";
     document.querySelectorAll(".view-toggle button").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.view === "list");
@@ -17737,7 +18149,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
     feedViewToggle.style.display = "none";
-    jumpTodayBtn.hidden = true;
+    jumpTodayBtn.hidden = false;
     listView.style.display = "flex";
     renderEventsView();
   } else if (activeTab === "follow"){
@@ -19157,7 +19569,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "subscriptions") renderSubscriptionSettings(body);
   else if (settingsSection === "notifications") renderNotificationSettings(body);
   else if (settingsSection === "location") renderLocationSettings(body);
-  else if (settingsSection === "feedback") renderFeedbackSettings(body);
+  else if (settingsSection === "feedback") renderFeedbackAppearanceSettings(body);
   else renderSettingsMenu(body);
 }
 

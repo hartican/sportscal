@@ -2,7 +2,7 @@
 
 Reference date: 2026-08-25
 
-Compared 6 live/delayed listings with 691 canonical events. Found 2 catalogue gaps, 0 ambiguous listings, 4 possible AU availability changes and 5 high-priority recommendations.
+Compared 6 live/delayed listings with 691 canonical events. Found 2 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 1 high-priority recommendations.
 
 ## Australian source health
 
@@ -23,10 +23,10 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 
 | Date | Candidate | Match | Confidence | Priority | Suggested action | AU option | Blockers |
 |---|---|---|---:|---|---|---|---|
-| 2026-08-23 | Brighton & Hove Albion v Aston Villa | matched → epl-2026-27-128929 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
-| 2026-08-23 | Manchester City v Bournemouth | matched → epl-2026-27-128930 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
-| 2026-08-24 | Newcastle United v Liverpool | matched → epl-2026-27-128931 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
-| 2026-08-25 | Fulham v Chelsea | matched → epl-2026-27-128932 | 0.90 | high | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-23 | Brighton & Hove Albion v Aston Villa | matched → epl-2026-27-128929 | 0.90 | normal | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-23 | Manchester City v Bournemouth | matched → epl-2026-27-128930 | 0.90 | normal | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-24 | Newcastle United v Liverpool | matched → epl-2026-27-128931 | 0.90 | normal | review | Stan Sport (included) | confidence_below_publish_threshold |
+| 2026-08-25 | Fulham v Chelsea | matched → epl-2026-27-128932 | 0.90 | normal | review | Stan Sport (included) | confidence_below_publish_threshold |
 | 2026-08-26 | US Open | new | 0.00 | normal | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-08-28 | UCI Mountain Bike World Championship | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 

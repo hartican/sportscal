@@ -4758,7 +4758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-07-30T00:00:00.000Z",
       "archetype": "quest"
     },
-    "lastReviewedAt": "2026-08-25T05:41:06.200Z",
+    "lastReviewedAt": "2026-08-25T10:53:03.699Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -5547,7 +5547,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -5688,7 +5688,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -5771,7 +5771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -5854,7 +5854,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6149,7 +6149,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6230,7 +6230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6315,7 +6315,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6398,7 +6398,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6481,7 +6481,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6564,7 +6564,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6701,7 +6701,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6883,7 +6883,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6966,7 +6966,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7049,7 +7049,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7132,7 +7132,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8026,7 +8026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8110,7 +8110,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8297,7 +8297,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8380,7 +8380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8463,7 +8463,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8703,7 +8703,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8786,7 +8786,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8869,7 +8869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9023,7 +9023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9168,7 +9168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9251,7 +9251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9334,7 +9334,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9747,7 +9747,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9830,7 +9830,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9913,7 +9913,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9996,7 +9996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10365,7 +10365,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10450,7 +10450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10533,7 +10533,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10616,7 +10616,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10699,7 +10699,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10782,7 +10782,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10865,7 +10865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10948,7 +10948,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11031,7 +11031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11114,7 +11114,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11197,7 +11197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11280,7 +11280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11445,7 +11445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11528,7 +11528,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11613,7 +11613,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11696,7 +11696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11779,7 +11779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11940,7 +11940,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12023,7 +12023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12106,7 +12106,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12189,7 +12189,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12272,7 +12272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12355,7 +12355,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12512,7 +12512,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12595,7 +12595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12678,7 +12678,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12761,7 +12761,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12844,7 +12844,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12925,7 +12925,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13008,7 +13008,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13091,7 +13091,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13174,7 +13174,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13255,7 +13255,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13338,7 +13338,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13421,7 +13421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13504,7 +13504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13597,7 +13597,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13681,7 +13681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13764,7 +13764,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13808,7 +13808,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128923",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -13836,8 +13836,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-08-21T19:00:00.000Z",
     "endTimeUtc": "2026-08-21T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -13849,10 +13868,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -13991,7 +14010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14074,7 +14093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14157,7 +14176,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14240,7 +14259,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14323,7 +14342,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14406,7 +14425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14489,7 +14508,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14533,7 +14552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128926",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -14561,8 +14580,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "21:30",
     "startTimeUtc": "2026-08-22T11:30:00.000Z",
     "endTimeUtc": "2026-08-22T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -14574,10 +14612,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -14644,7 +14682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "New Zealand recovered from a 13-12 halftime deficit and controlled the second half to win the opening Test at Ellis Park by 17 points.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-25T05:41:06.200Z",
+    "lastReviewedAt": "2026-08-25T10:53:03.699Z",
     "sourceTrust": "verified",
     "homeScore": 16,
     "awayScore": 33,
@@ -14659,7 +14697,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128925",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -14687,8 +14725,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-08-22T14:00:00.000Z",
     "endTimeUtc": "2026-08-22T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -14700,10 +14757,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -14726,7 +14783,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128927",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -14754,8 +14811,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-08-22T14:00:00.000Z",
     "endTimeUtc": "2026-08-22T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -14767,10 +14843,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -14793,7 +14869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128928",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -14821,8 +14897,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-08-22T14:00:00.000Z",
     "endTimeUtc": "2026-08-22T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -14834,10 +14929,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -14894,7 +14989,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128924",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -14922,8 +15017,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-08-22T16:30:00.000Z",
     "endTimeUtc": "2026-08-22T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -14935,10 +15049,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15000,7 +15114,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15083,7 +15197,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15166,7 +15280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15249,7 +15363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15332,7 +15446,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15376,7 +15490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128929",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -15404,8 +15518,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-08-23T13:00:00.000Z",
     "endTimeUtc": "2026-08-23T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -15417,10 +15550,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15443,7 +15576,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128930",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -15471,8 +15604,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-08-23T13:00:00.000Z",
     "endTimeUtc": "2026-08-23T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -15484,10 +15636,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15566,7 +15718,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128931",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -15594,8 +15746,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:30",
     "startTimeUtc": "2026-08-23T15:30:00.000Z",
     "endTimeUtc": "2026-08-23T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -15607,10 +15778,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15633,7 +15804,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128932",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -15661,8 +15832,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-08-24T19:00:00.000Z",
     "endTimeUtc": "2026-08-24T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "replay",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "completed",
@@ -15674,10 +15864,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15739,7 +15929,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15807,7 +15997,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15875,7 +16065,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15943,7 +16133,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15972,7 +16162,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128937",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16000,8 +16190,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-08-28T19:00:00.000Z",
     "endTimeUtc": "2026-08-28T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16013,10 +16222,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16071,7 +16280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16139,7 +16348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16207,7 +16416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16275,7 +16484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16304,7 +16513,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128939",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16332,8 +16541,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "21:30",
     "startTimeUtc": "2026-08-29T11:30:00.000Z",
     "endTimeUtc": "2026-08-29T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16345,10 +16573,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16364,7 +16592,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128934",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16392,8 +16620,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-08-29T14:00:00.000Z",
     "endTimeUtc": "2026-08-29T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16405,10 +16652,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16424,7 +16671,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128936",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16452,8 +16699,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-08-29T14:00:00.000Z",
     "endTimeUtc": "2026-08-29T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16465,10 +16731,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16484,7 +16750,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128942",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16512,8 +16778,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-08-29T16:30:00.000Z",
     "endTimeUtc": "2026-08-29T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16525,10 +16810,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16647,7 +16932,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16715,7 +17000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16744,7 +17029,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128935",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16772,8 +17057,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-08-30T13:00:00.000Z",
     "endTimeUtc": "2026-08-30T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16785,10 +17089,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16804,7 +17108,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128938",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16832,8 +17136,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-08-30T13:00:00.000Z",
     "endTimeUtc": "2026-08-30T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16845,10 +17168,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16864,7 +17187,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128941",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16892,8 +17215,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-08-30T13:00:00.000Z",
     "endTimeUtc": "2026-08-30T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16905,10 +17247,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16924,7 +17266,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128940",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -16952,8 +17294,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:30",
     "startTimeUtc": "2026-08-30T15:30:00.000Z",
     "endTimeUtc": "2026-08-30T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -16965,10 +17326,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -16984,7 +17345,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128933",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17012,8 +17373,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-08-31T19:00:00.000Z",
     "endTimeUtc": "2026-08-31T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -17025,10 +17405,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -17083,7 +17463,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17151,7 +17531,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17219,7 +17599,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17287,7 +17667,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17355,7 +17735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17384,7 +17764,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128949",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17412,8 +17792,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-09-04T19:00:00.000Z",
     "endTimeUtc": "2026-09-04T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -17425,10 +17824,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -17483,7 +17882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17551,7 +17950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17619,7 +18018,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17687,7 +18086,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17755,7 +18154,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17784,7 +18183,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128951",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17812,8 +18211,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "21:30",
     "startTimeUtc": "2026-09-05T11:30:00.000Z",
     "endTimeUtc": "2026-09-05T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -17825,10 +18243,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -17844,7 +18262,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128944",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17872,8 +18290,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-05T14:00:00.000Z",
     "endTimeUtc": "2026-09-05T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -17885,10 +18322,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -17904,7 +18341,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128945",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17932,8 +18369,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-05T14:00:00.000Z",
     "endTimeUtc": "2026-09-05T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -17945,10 +18401,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -17964,7 +18420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128947",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -17992,8 +18448,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-05T14:00:00.000Z",
     "endTimeUtc": "2026-09-05T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18005,10 +18480,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18024,7 +18499,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128950",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18052,8 +18527,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-05T14:00:00.000Z",
     "endTimeUtc": "2026-09-05T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18065,10 +18559,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18084,7 +18578,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128952",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18112,8 +18606,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-05T14:00:00.000Z",
     "endTimeUtc": "2026-09-05T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18125,10 +18638,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18150,11 +18663,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_26",
     "eventId": "evt_26",
     "displayTitleCompact": "R13 Italian GP Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R13 Italian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R13 Italian GP Qualifying.",
+    "fullSpiel": "R13 Italian GP Qualifying is scheduled for 2026-09-06 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official source",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+    "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -18165,7 +18678,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "sourceType": "official",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "f88f7919f361f586bdda0b6b1c4731c6fdb8b3010c14208eae8b3294d1caf892",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128948",
@@ -18174,7 +18720,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128948",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18202,8 +18748,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-09-05T16:30:00.000Z",
     "endTimeUtc": "2026-09-05T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18215,10 +18780,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18337,7 +18902,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -18405,7 +18970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -18434,7 +18999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128946",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18462,8 +19027,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-09-06T13:00:00.000Z",
     "endTimeUtc": "2026-09-06T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18475,10 +19059,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18500,11 +19084,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_27",
     "eventId": "evt_27",
     "displayTitleCompact": "R13 Italian GP Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
+    "fullSpiel": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official source",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+    "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -18520,20 +19104,47 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R13 Italian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "hookSpoilerOff": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
+      "hookSpoilerOn": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
+      "synopsisSpoilerOff": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "synopsisSpoilerOn": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-25T10:50:52.773Z",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "f88f7919f361f586bdda0b6b1c4731c6fdb8b3010c14208eae8b3294d1caf892",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "sourceType": "official"
   },
   {
     "id": "epl-2026-27-128943",
@@ -18542,7 +19153,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128943",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18570,8 +19181,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:30",
     "startTimeUtc": "2026-09-06T15:30:00.000Z",
     "endTimeUtc": "2026-09-06T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18583,10 +19213,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18707,7 +19337,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128953",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18735,8 +19365,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-12T14:00:00.000Z",
     "endTimeUtc": "2026-09-12T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18748,10 +19397,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18767,7 +19416,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128954",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18795,8 +19444,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-12T14:00:00.000Z",
     "endTimeUtc": "2026-09-12T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18808,10 +19476,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18827,7 +19495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128955",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18855,8 +19523,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-12T14:00:00.000Z",
     "endTimeUtc": "2026-09-12T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18868,10 +19555,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18887,7 +19574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128957",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18915,8 +19602,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-12T14:00:00.000Z",
     "endTimeUtc": "2026-09-12T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18928,10 +19634,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18947,7 +19653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128959",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -18975,8 +19681,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-12T14:00:00.000Z",
     "endTimeUtc": "2026-09-12T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -18988,10 +19713,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19013,11 +19738,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_28",
     "eventId": "evt_28",
     "displayTitleCompact": "R14 Spanish GP Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R14 Spanish GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Qualifying.",
+    "fullSpiel": "R14 Spanish GP Qualifying is scheduled for 2026-09-13 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official source",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+    "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -19028,7 +19753,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": false,
     "catchupEligible": false,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "sourceType": "official",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "f88f7919f361f586bdda0b6b1c4731c6fdb8b3010c14208eae8b3294d1caf892",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128962",
@@ -19037,7 +19795,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128962",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19065,8 +19823,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-09-12T16:30:00.000Z",
     "endTimeUtc": "2026-09-12T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19078,10 +19855,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19097,7 +19874,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128961",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19125,8 +19902,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-09-12T19:00:00.000Z",
     "endTimeUtc": "2026-09-12T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19138,10 +19934,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19157,7 +19953,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128956",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19185,8 +19981,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-09-13T13:00:00.000Z",
     "endTimeUtc": "2026-09-13T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19198,10 +20013,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19223,11 +20038,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_29",
     "eventId": "evt_29",
     "displayTitleCompact": "R14 Spanish GP Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R14 Spanish GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Race.",
+    "fullSpiel": "R14 Spanish GP Race is scheduled for 2026-09-14 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official source",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+    "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -19238,7 +20053,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "sourceType": "official",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "f88f7919f361f586bdda0b6b1c4731c6fdb8b3010c14208eae8b3294d1caf892",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128960",
@@ -19247,7 +20095,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128960",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19275,8 +20123,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:30",
     "startTimeUtc": "2026-09-13T15:30:00.000Z",
     "endTimeUtc": "2026-09-13T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19288,10 +20155,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19307,7 +20174,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128958",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19335,8 +20202,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-09-14T19:00:00.000Z",
     "endTimeUtc": "2026-09-14T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19348,10 +20234,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19367,7 +20253,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128964",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19395,8 +20281,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "05:00",
     "startTimeUtc": "2026-09-18T19:00:00.000Z",
     "endTimeUtc": "2026-09-18T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19408,10 +20313,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19475,7 +20380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128972",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19503,8 +20408,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "21:30",
     "startTimeUtc": "2026-09-19T11:30:00.000Z",
     "endTimeUtc": "2026-09-19T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19516,10 +20440,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19535,7 +20459,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128965",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19563,8 +20487,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-19T14:00:00.000Z",
     "endTimeUtc": "2026-09-19T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19576,10 +20519,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19595,7 +20538,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128966",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19623,8 +20566,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-19T14:00:00.000Z",
     "endTimeUtc": "2026-09-19T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19636,10 +20598,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19655,7 +20617,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128968",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19683,8 +20645,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-19T14:00:00.000Z",
     "endTimeUtc": "2026-09-19T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19696,10 +20677,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19715,7 +20696,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128969",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19743,8 +20724,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-19T14:00:00.000Z",
     "endTimeUtc": "2026-09-19T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19756,10 +20756,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19775,7 +20775,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128970",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19803,8 +20803,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-09-19T14:00:00.000Z",
     "endTimeUtc": "2026-09-19T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19816,10 +20835,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19835,7 +20854,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128971",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19863,8 +20882,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-09-19T16:30:00.000Z",
     "endTimeUtc": "2026-09-19T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19876,10 +20914,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19895,7 +20933,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128963",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19923,8 +20961,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:00",
     "startTimeUtc": "2026-09-20T13:00:00.000Z",
     "endTimeUtc": "2026-09-20T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19936,10 +20993,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19955,7 +21012,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128967",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -19983,8 +21040,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:30",
     "startTimeUtc": "2026-09-20T15:30:00.000Z",
     "endTimeUtc": "2026-09-20T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -19996,10 +21072,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20021,11 +21097,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_30",
     "eventId": "evt_30",
     "displayTitleCompact": "R15 Azerbaijan GP Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
+    "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official source",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+    "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -20041,20 +21117,47 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
-      "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
-      "synopsisSpoilerOff": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R15 Azerbaijan GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+      "hookSpoilerOff": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
+      "hookSpoilerOn": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
+      "synopsisSpoilerOff": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "synopsisSpoilerOn": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-25T10:50:52.773Z",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "f88f7919f361f586bdda0b6b1c4731c6fdb8b3010c14208eae8b3294d1caf892",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "sourceType": "official"
   },
   {
     "id": "event-afl-cd_m20260142901",
@@ -20102,7 +21205,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-08-25T07:05:45.412Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:38:55.945Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -20186,11 +21289,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "id": "evt_31",
     "eventId": "evt_31",
     "displayTitleCompact": "R15 Azerbaijan GP Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
+    "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official source",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+    "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -20206,20 +21309,47 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R15 Azerbaijan GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "hookSpoilerOff": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
+      "hookSpoilerOn": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
+      "synopsisSpoilerOff": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "synopsisSpoilerOn": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-25T10:50:52.773Z",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "f88f7919f361f586bdda0b6b1c4731c6fdb8b3010c14208eae8b3294d1caf892",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-08-25T10:53:03.428Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "sourceType": "official"
   },
   {
     "id": "rugby-australia-south-africa-2026-09-27",
@@ -20524,7 +21654,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128973",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20552,8 +21682,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "22:30",
     "startTimeUtc": "2026-10-10T11:30:00.000Z",
     "endTimeUtc": "2026-10-10T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20565,10 +21714,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20584,7 +21733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128974",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20612,8 +21761,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-10T14:00:00.000Z",
     "endTimeUtc": "2026-10-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20625,10 +21793,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20644,7 +21812,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128975",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20672,8 +21840,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-10T14:00:00.000Z",
     "endTimeUtc": "2026-10-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20685,10 +21872,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20704,7 +21891,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128979",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20732,8 +21919,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-10T14:00:00.000Z",
     "endTimeUtc": "2026-10-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20745,10 +21951,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20764,7 +21970,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128982",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20792,8 +21998,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-10T14:00:00.000Z",
     "endTimeUtc": "2026-10-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20805,10 +22030,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20854,7 +22079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128981",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20882,8 +22107,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "03:30",
     "startTimeUtc": "2026-10-10T16:30:00.000Z",
     "endTimeUtc": "2026-10-10T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20895,10 +22139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20914,7 +22158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128977",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -20942,8 +22186,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-10-11T13:00:00.000Z",
     "endTimeUtc": "2026-10-11T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -20955,10 +22218,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20974,7 +22237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128978",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21002,8 +22265,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-10-11T13:00:00.000Z",
     "endTimeUtc": "2026-10-11T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21015,10 +22297,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21082,7 +22364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128980",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21110,8 +22392,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-10-11T15:30:00.000Z",
     "endTimeUtc": "2026-10-11T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21123,10 +22424,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21142,7 +22443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128976",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21170,8 +22471,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "06:00",
     "startTimeUtc": "2026-10-12T19:00:00.000Z",
     "endTimeUtc": "2026-10-12T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21183,10 +22503,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21333,7 +22653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128986",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21361,8 +22681,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "22:30",
     "startTimeUtc": "2026-10-17T11:30:00.000Z",
     "endTimeUtc": "2026-10-17T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21374,10 +22713,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21393,7 +22732,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128984",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21421,8 +22760,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-17T14:00:00.000Z",
     "endTimeUtc": "2026-10-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21434,10 +22792,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21453,7 +22811,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128987",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21481,8 +22839,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-17T14:00:00.000Z",
     "endTimeUtc": "2026-10-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21494,10 +22871,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21513,7 +22890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128989",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21541,8 +22918,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-17T14:00:00.000Z",
     "endTimeUtc": "2026-10-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21554,10 +22950,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21573,7 +22969,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128990",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21601,8 +22997,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "03:30",
     "startTimeUtc": "2026-10-17T16:30:00.000Z",
     "endTimeUtc": "2026-10-17T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21614,10 +23029,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21692,7 +23107,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128983",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21720,8 +23135,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-10-18T13:00:00.000Z",
     "endTimeUtc": "2026-10-18T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21733,10 +23167,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21752,7 +23186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128985",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21780,8 +23214,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-10-18T13:00:00.000Z",
     "endTimeUtc": "2026-10-18T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21793,10 +23246,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21812,7 +23265,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128988",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21840,8 +23293,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2026-10-18T13:00:00.000Z",
     "endTimeUtc": "2026-10-18T15:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21853,10 +23325,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21872,7 +23344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128991",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21900,8 +23372,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:30",
     "startTimeUtc": "2026-10-18T15:30:00.000Z",
     "endTimeUtc": "2026-10-18T17:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21913,10 +23404,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21932,7 +23423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128992",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -21960,8 +23451,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "06:00",
     "startTimeUtc": "2026-10-19T19:00:00.000Z",
     "endTimeUtc": "2026-10-19T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -21973,10 +23483,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21992,7 +23502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128999",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22020,8 +23530,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "06:00",
     "startTimeUtc": "2026-10-23T19:00:00.000Z",
     "endTimeUtc": "2026-10-23T21:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22033,10 +23562,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22052,7 +23581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128994",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22080,8 +23609,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "22:30",
     "startTimeUtc": "2026-10-24T11:30:00.000Z",
     "endTimeUtc": "2026-10-24T13:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22093,10 +23641,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22112,7 +23660,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128993",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22140,8 +23688,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-24T14:00:00.000Z",
     "endTimeUtc": "2026-10-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22153,10 +23720,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22172,7 +23739,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128996",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22200,8 +23767,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-24T14:00:00.000Z",
     "endTimeUtc": "2026-10-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22213,10 +23799,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22232,7 +23818,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129000",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22260,8 +23846,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-24T14:00:00.000Z",
     "endTimeUtc": "2026-10-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22273,10 +23878,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22292,7 +23897,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128995",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22320,8 +23925,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "03:30",
     "startTimeUtc": "2026-10-24T16:30:00.000Z",
     "endTimeUtc": "2026-10-24T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22333,10 +23957,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22448,7 +24072,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128997",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22476,8 +24100,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-25T14:00:00.000Z",
     "endTimeUtc": "2026-10-25T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22489,10 +24132,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22508,7 +24151,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "128998",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22536,8 +24179,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-25T14:00:00.000Z",
     "endTimeUtc": "2026-10-25T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22549,10 +24211,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22568,7 +24230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129001",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22596,8 +24258,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-10-25T14:00:00.000Z",
     "endTimeUtc": "2026-10-25T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22609,10 +24290,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22628,7 +24309,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129002",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22656,8 +24337,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "03:30",
     "startTimeUtc": "2026-10-25T16:30:00.000Z",
     "endTimeUtc": "2026-10-25T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22669,10 +24369,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22861,7 +24561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129006",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22889,8 +24589,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "23:30",
     "startTimeUtc": "2026-10-31T12:30:00.000Z",
     "endTimeUtc": "2026-10-31T14:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22902,10 +24621,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22921,7 +24640,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129004",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -22949,8 +24668,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-10-31T15:00:00.000Z",
     "endTimeUtc": "2026-10-31T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -22962,10 +24700,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22981,7 +24719,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129005",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23009,8 +24747,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-10-31T15:00:00.000Z",
     "endTimeUtc": "2026-10-31T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23022,10 +24779,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23041,7 +24798,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129007",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23069,8 +24826,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-10-31T15:00:00.000Z",
     "endTimeUtc": "2026-10-31T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23082,10 +24858,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23101,7 +24877,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129008",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23129,8 +24905,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-10-31T15:00:00.000Z",
     "endTimeUtc": "2026-10-31T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23142,10 +24937,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23161,7 +24956,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129010",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23189,8 +24984,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-10-31T15:00:00.000Z",
     "endTimeUtc": "2026-10-31T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23202,10 +25016,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23221,7 +25035,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129012",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23249,8 +25063,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "04:30",
     "startTimeUtc": "2026-10-31T17:30:00.000Z",
     "endTimeUtc": "2026-10-31T19:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23262,10 +25095,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23311,7 +25144,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129003",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23339,8 +25172,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2026-11-01T14:00:00.000Z",
     "endTimeUtc": "2026-11-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23352,10 +25204,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23371,7 +25223,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129009",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23399,8 +25251,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "03:30",
     "startTimeUtc": "2026-11-01T16:30:00.000Z",
     "endTimeUtc": "2026-11-01T18:30:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23412,10 +25283,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23479,7 +25350,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129011",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23507,8 +25378,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-11-02T20:00:00.000Z",
     "endTimeUtc": "2026-11-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23520,10 +25410,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23578,7 +25468,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129013",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23606,8 +25496,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23619,10 +25528,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23638,7 +25547,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129014",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23666,8 +25575,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23679,10 +25607,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23698,7 +25626,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129015",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23726,8 +25654,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23739,10 +25686,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23758,7 +25705,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129016",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23786,8 +25733,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23799,10 +25765,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23818,7 +25784,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129017",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23846,8 +25812,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23859,10 +25844,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23878,7 +25863,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129018",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23906,8 +25891,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23919,10 +25923,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23938,7 +25942,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129019",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -23966,8 +25970,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -23979,10 +26002,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23998,7 +26021,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129020",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24026,8 +26049,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24039,10 +26081,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24058,7 +26100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129021",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24086,8 +26128,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24099,10 +26160,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24118,7 +26179,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129022",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24146,8 +26207,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-07T15:00:00.000Z",
     "endTimeUtc": "2026-11-07T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24159,10 +26239,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24651,7 +26731,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129023",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24679,8 +26759,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24692,10 +26791,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24711,7 +26810,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129024",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24739,8 +26838,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24752,10 +26870,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24771,7 +26889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129025",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24799,8 +26917,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24812,10 +26949,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24831,7 +26968,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129026",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24859,8 +26996,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24872,10 +27028,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24891,7 +27047,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129027",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24919,8 +27075,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24932,10 +27107,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24951,7 +27126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129028",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -24979,8 +27154,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -24992,10 +27186,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25011,7 +27205,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129029",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25039,8 +27233,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25052,10 +27265,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25071,7 +27284,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129030",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25099,8 +27312,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25112,10 +27344,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25131,7 +27363,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129031",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25159,8 +27391,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25172,10 +27423,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25191,7 +27442,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129032",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25219,8 +27470,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-21T15:00:00.000Z",
     "endTimeUtc": "2026-11-21T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25232,10 +27502,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25507,7 +27777,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129033",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25535,8 +27805,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25548,10 +27837,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25567,7 +27856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129034",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25595,8 +27884,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25608,10 +27916,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25627,7 +27935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129035",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25655,8 +27963,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25668,10 +27995,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25687,7 +28014,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129036",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25715,8 +28042,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25728,10 +28074,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25747,7 +28093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129037",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25775,8 +28121,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25788,10 +28153,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25807,7 +28172,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129038",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25835,8 +28200,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25848,10 +28232,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25867,7 +28251,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129039",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25895,8 +28279,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25908,10 +28311,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25927,7 +28330,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129040",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -25955,8 +28358,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -25968,10 +28390,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -25987,7 +28409,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129041",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26015,8 +28437,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26028,10 +28469,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26047,7 +28488,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129042",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26075,8 +28516,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-11-28T15:00:00.000Z",
     "endTimeUtc": "2026-11-28T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26088,10 +28548,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26303,7 +28763,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129043",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26331,8 +28791,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26344,10 +28823,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26363,7 +28842,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129044",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26391,8 +28870,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26404,10 +28902,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26423,7 +28921,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129045",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26451,8 +28949,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26464,10 +28981,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26483,7 +29000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129046",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26511,8 +29028,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26524,10 +29060,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26543,7 +29079,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129047",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26571,8 +29107,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26584,10 +29139,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26603,7 +29158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129048",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26631,8 +29186,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26644,10 +29218,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26663,7 +29237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129049",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26691,8 +29265,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26704,10 +29297,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26723,7 +29316,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129050",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26751,8 +29344,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26764,10 +29376,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26783,7 +29395,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129051",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26811,8 +29423,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26824,10 +29455,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26843,7 +29474,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129052",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26871,8 +29502,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-02T20:00:00.000Z",
     "endTimeUtc": "2026-12-02T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26884,10 +29534,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26933,7 +29583,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129053",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -26961,8 +29611,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -26974,10 +29643,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -26993,7 +29662,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129054",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27021,8 +29690,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27034,10 +29722,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27053,7 +29741,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129055",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27081,8 +29769,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27094,10 +29801,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27113,7 +29820,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129056",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27141,8 +29848,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27154,10 +29880,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27173,7 +29899,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129057",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27201,8 +29927,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27214,10 +29959,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27233,7 +29978,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129058",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27261,8 +30006,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27274,10 +30038,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27293,7 +30057,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129059",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27321,8 +30085,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27334,10 +30117,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27353,7 +30136,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129060",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27381,8 +30164,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27394,10 +30196,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27413,7 +30215,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129061",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27441,8 +30243,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27454,10 +30275,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27473,7 +30294,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129062",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27501,8 +30322,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-05T15:00:00.000Z",
     "endTimeUtc": "2026-12-05T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27514,10 +30354,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27650,7 +30490,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129063",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27678,8 +30518,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27691,10 +30550,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27710,7 +30569,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129064",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27738,8 +30597,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27751,10 +30629,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27770,7 +30648,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129065",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27798,8 +30676,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27811,10 +30708,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27830,7 +30727,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129066",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27858,8 +30755,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27871,10 +30787,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27890,7 +30806,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129067",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27918,8 +30834,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27931,10 +30866,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -27950,7 +30885,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129068",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -27978,8 +30913,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -27991,10 +30945,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28010,7 +30964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129069",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28038,8 +30992,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28051,10 +31024,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28070,7 +31043,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129070",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28098,8 +31071,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28111,10 +31103,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28130,7 +31122,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129071",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28158,8 +31150,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28171,10 +31182,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28190,7 +31201,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129072",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28218,8 +31229,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-12T15:00:00.000Z",
     "endTimeUtc": "2026-12-12T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28231,10 +31261,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28250,7 +31280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129073",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28278,8 +31308,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28291,10 +31340,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28310,7 +31359,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129074",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28338,8 +31387,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28351,10 +31419,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28370,7 +31438,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129075",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28398,8 +31466,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28411,10 +31498,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28430,7 +31517,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129076",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28458,8 +31545,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28471,10 +31577,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28490,7 +31596,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129077",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28518,8 +31624,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28531,10 +31656,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28550,7 +31675,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129078",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28578,8 +31703,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28591,10 +31735,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28610,7 +31754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129079",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28638,8 +31782,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28651,10 +31814,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28670,7 +31833,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129080",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28698,8 +31861,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28711,10 +31893,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28730,7 +31912,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129081",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28758,8 +31940,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28771,10 +31972,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28790,7 +31991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129082",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28818,8 +32019,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-19T15:00:00.000Z",
     "endTimeUtc": "2026-12-19T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -28831,10 +32051,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -28966,7 +32186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129083",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -28994,8 +32214,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29007,10 +32246,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29026,7 +32265,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129084",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29054,8 +32293,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29067,10 +32325,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29086,7 +32344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129085",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29114,8 +32372,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29127,10 +32404,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29146,7 +32423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129086",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29174,8 +32451,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29187,10 +32483,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29206,7 +32502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129087",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29234,8 +32530,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29247,10 +32562,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29266,7 +32581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129088",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29294,8 +32609,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29307,10 +32641,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29326,7 +32660,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129089",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29354,8 +32688,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29367,10 +32720,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29386,7 +32739,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129090",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29414,8 +32767,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29427,10 +32799,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29446,7 +32818,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129091",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29474,8 +32846,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29487,10 +32878,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29506,7 +32897,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129092",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29534,8 +32925,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2026-12-26T15:00:00.000Z",
     "endTimeUtc": "2026-12-26T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29547,10 +32957,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29566,7 +32976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129093",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29594,8 +33004,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29607,10 +33036,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29626,7 +33055,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129094",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29654,8 +33083,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29667,10 +33115,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29686,7 +33134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129095",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29714,8 +33162,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29727,10 +33194,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29746,7 +33213,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129096",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29774,8 +33241,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29787,10 +33273,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29806,7 +33292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129097",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29834,8 +33320,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29847,10 +33352,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29866,7 +33371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129098",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29894,8 +33399,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29907,10 +33431,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29926,7 +33450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129099",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -29954,8 +33478,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -29967,10 +33510,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -29986,7 +33529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129100",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30014,8 +33557,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30027,10 +33589,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30046,7 +33608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129101",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30074,8 +33636,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30087,10 +33668,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30106,7 +33687,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129102",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30134,8 +33715,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2026-12-30T20:00:00.000Z",
     "endTimeUtc": "2026-12-30T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30147,10 +33747,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30225,7 +33825,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129103",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30253,8 +33853,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30266,10 +33885,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30285,7 +33904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129104",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30313,8 +33932,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30326,10 +33964,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30345,7 +33983,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129105",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30373,8 +34011,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30386,10 +34043,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30405,7 +34062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129106",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30433,8 +34090,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30446,10 +34122,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30465,7 +34141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129107",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30493,8 +34169,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30506,10 +34201,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30525,7 +34220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129108",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30553,8 +34248,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30566,10 +34280,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30585,7 +34299,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129109",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30613,8 +34327,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30626,10 +34359,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30645,7 +34378,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129110",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30673,8 +34406,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30686,10 +34438,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30705,7 +34457,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129111",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30733,8 +34485,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30746,10 +34517,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30765,7 +34536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129112",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30793,8 +34564,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-02T15:00:00.000Z",
     "endTimeUtc": "2027-01-02T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30806,10 +34596,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30825,7 +34615,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129113",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30853,8 +34643,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30866,10 +34675,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30885,7 +34694,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129114",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30913,8 +34722,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30926,10 +34754,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -30945,7 +34773,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129115",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -30973,8 +34801,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -30986,10 +34833,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31005,7 +34852,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129116",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31033,8 +34880,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31046,10 +34912,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31065,7 +34931,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129117",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31093,8 +34959,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31106,10 +34991,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31125,7 +35010,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129118",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31153,8 +35038,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31166,10 +35070,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31185,7 +35089,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129119",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31213,8 +35117,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31226,10 +35149,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31245,7 +35168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129120",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31273,8 +35196,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31286,10 +35228,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31305,7 +35247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129121",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31333,8 +35275,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31346,10 +35307,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31365,7 +35326,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129122",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31393,8 +35354,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-01-06T20:00:00.000Z",
     "endTimeUtc": "2027-01-06T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31406,10 +35386,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31425,7 +35405,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129123",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31453,8 +35433,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31466,10 +35465,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31485,7 +35484,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129124",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31513,8 +35512,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31526,10 +35544,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31545,7 +35563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129125",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31573,8 +35591,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31586,10 +35623,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31605,7 +35642,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129126",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31633,8 +35670,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31646,10 +35702,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31665,7 +35721,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129127",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31693,8 +35749,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31706,10 +35781,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31725,7 +35800,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129128",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31753,8 +35828,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31766,10 +35860,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31785,7 +35879,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129129",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31813,8 +35907,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31826,10 +35939,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31845,7 +35958,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129130",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31873,8 +35986,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31886,10 +36018,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31905,7 +36037,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129131",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31933,8 +36065,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -31946,10 +36097,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -31965,7 +36116,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129132",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -31993,8 +36144,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-16T15:00:00.000Z",
     "endTimeUtc": "2027-01-16T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32006,10 +36176,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32082,7 +36252,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129133",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32110,8 +36280,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32123,10 +36312,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32142,7 +36331,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129134",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32170,8 +36359,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32183,10 +36391,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32202,7 +36410,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129135",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32230,8 +36438,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32243,10 +36470,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32262,7 +36489,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129136",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32290,8 +36517,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32303,10 +36549,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32322,7 +36568,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129137",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32350,8 +36596,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32363,10 +36628,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32382,7 +36647,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129138",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32410,8 +36675,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32423,10 +36707,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32442,7 +36726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129139",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32470,8 +36754,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32483,10 +36786,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32502,7 +36805,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129140",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32530,8 +36833,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32543,10 +36865,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32562,7 +36884,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129141",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32590,8 +36912,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32603,10 +36944,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32622,7 +36963,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129142",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32650,8 +36991,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-23T15:00:00.000Z",
     "endTimeUtc": "2027-01-23T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32663,10 +37023,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32682,7 +37042,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129143",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32710,8 +37070,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32723,10 +37102,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32742,7 +37121,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129144",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32770,8 +37149,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32783,10 +37181,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32802,7 +37200,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129145",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32830,8 +37228,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32843,10 +37260,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32862,7 +37279,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129146",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32890,8 +37307,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32903,10 +37339,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32922,7 +37358,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129147",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -32950,8 +37386,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -32963,10 +37418,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -32982,7 +37437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129148",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33010,8 +37465,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33023,10 +37497,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33042,7 +37516,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129149",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33070,8 +37544,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33083,10 +37576,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33102,7 +37595,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129150",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33130,8 +37623,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33143,10 +37655,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33162,7 +37674,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129151",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33190,8 +37702,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33203,10 +37734,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33222,7 +37753,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129152",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33250,8 +37781,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-01-30T15:00:00.000Z",
     "endTimeUtc": "2027-01-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33263,10 +37813,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33340,7 +37890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129153",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33368,8 +37918,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33381,10 +37950,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33400,7 +37969,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129154",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33428,8 +37997,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33441,10 +38029,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33460,7 +38048,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129155",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33488,8 +38076,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33501,10 +38108,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33520,7 +38127,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129156",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33548,8 +38155,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33561,10 +38187,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33580,7 +38206,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129157",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33608,8 +38234,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33621,10 +38266,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33640,7 +38285,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129158",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33668,8 +38313,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33681,10 +38345,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33700,7 +38364,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129159",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33728,8 +38392,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33741,10 +38424,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33760,7 +38443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129160",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33788,8 +38471,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33801,10 +38503,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33820,7 +38522,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129161",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33848,8 +38550,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33861,10 +38582,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33880,7 +38601,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129162",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33908,8 +38629,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-06T15:00:00.000Z",
     "endTimeUtc": "2027-02-06T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33921,10 +38661,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -33940,7 +38680,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129163",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -33968,8 +38708,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -33981,10 +38740,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34000,7 +38759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129164",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34028,8 +38787,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34041,10 +38819,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34060,7 +38838,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129165",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34088,8 +38866,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34101,10 +38898,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34120,7 +38917,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129166",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34148,8 +38945,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34161,10 +38977,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34180,7 +38996,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129167",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34208,8 +39024,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34221,10 +39056,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34240,7 +39075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129168",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34268,8 +39103,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34281,10 +39135,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34300,7 +39154,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129169",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34328,8 +39182,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34341,10 +39214,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34360,7 +39233,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129170",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34388,8 +39261,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34401,10 +39293,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34420,7 +39312,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129171",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34448,8 +39340,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34461,10 +39372,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34480,7 +39391,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129172",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34508,8 +39419,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-02-10T20:00:00.000Z",
     "endTimeUtc": "2027-02-10T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34521,10 +39451,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34540,7 +39470,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129173",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34568,8 +39498,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34581,10 +39530,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34600,7 +39549,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129174",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34628,8 +39577,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34641,10 +39609,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34660,7 +39628,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129175",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34688,8 +39656,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34701,10 +39688,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34720,7 +39707,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129176",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34748,8 +39735,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34761,10 +39767,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34780,7 +39786,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129177",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34808,8 +39814,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34821,10 +39846,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34840,7 +39865,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129178",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34868,8 +39893,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34881,10 +39925,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34900,7 +39944,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129179",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34928,8 +39972,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -34941,10 +40004,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -34960,7 +40023,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129180",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -34988,8 +40051,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35001,10 +40083,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35020,7 +40102,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129181",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35048,8 +40130,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35061,10 +40162,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35080,7 +40181,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129182",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35108,8 +40209,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-20T15:00:00.000Z",
     "endTimeUtc": "2027-02-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35121,10 +40241,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35140,7 +40260,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129183",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35168,8 +40288,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35181,10 +40320,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35200,7 +40339,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129184",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35228,8 +40367,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35241,10 +40399,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35260,7 +40418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129185",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35288,8 +40446,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35301,10 +40478,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35320,7 +40497,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129186",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35348,8 +40525,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35361,10 +40557,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35380,7 +40576,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129187",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35408,8 +40604,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35421,10 +40636,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35440,7 +40655,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129188",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35468,8 +40683,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35481,10 +40715,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35500,7 +40734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129189",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35528,8 +40762,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35541,10 +40794,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35560,7 +40813,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129190",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35588,8 +40841,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35601,10 +40873,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35620,7 +40892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129191",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35648,8 +40920,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35661,10 +40952,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35680,7 +40971,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129192",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35708,8 +40999,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-02-27T15:00:00.000Z",
     "endTimeUtc": "2027-02-27T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35721,10 +41031,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35740,7 +41050,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129193",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35768,8 +41078,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35781,10 +41110,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35800,7 +41129,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129194",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35828,8 +41157,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35841,10 +41189,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35860,7 +41208,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129195",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35888,8 +41236,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35901,10 +41268,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35920,7 +41287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129196",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -35948,8 +41315,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -35961,10 +41347,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -35980,7 +41366,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129197",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36008,8 +41394,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36021,10 +41426,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36040,7 +41445,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129198",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36068,8 +41473,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36081,10 +41505,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36100,7 +41524,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129199",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36128,8 +41552,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36141,10 +41584,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36160,7 +41603,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129200",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36188,8 +41631,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36201,10 +41663,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36220,7 +41682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129201",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36248,8 +41710,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36261,10 +41742,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36280,7 +41761,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129202",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36308,8 +41789,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "07:00",
     "startTimeUtc": "2027-03-03T20:00:00.000Z",
     "endTimeUtc": "2027-03-03T22:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36321,10 +41821,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36454,7 +41954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129203",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36482,8 +41982,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36495,10 +42014,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36514,7 +42033,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129204",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36542,8 +42061,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36555,10 +42093,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36574,7 +42112,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129205",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36602,8 +42140,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36615,10 +42172,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36634,7 +42191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129206",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36662,8 +42219,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36675,10 +42251,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36694,7 +42270,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129207",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36722,8 +42298,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36735,10 +42330,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36754,7 +42349,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129208",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36782,8 +42377,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36795,10 +42409,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36814,7 +42428,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129209",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36842,8 +42456,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36855,10 +42488,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36874,7 +42507,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129210",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36902,8 +42535,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36915,10 +42567,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36934,7 +42586,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129211",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -36962,8 +42614,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -36975,10 +42646,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -36994,7 +42665,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129212",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37022,8 +42693,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-13T15:00:00.000Z",
     "endTimeUtc": "2027-03-13T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37035,10 +42725,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37151,7 +42841,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129213",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37179,8 +42869,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37192,10 +42901,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37211,7 +42920,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129214",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37239,8 +42948,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37252,10 +42980,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37271,7 +42999,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129215",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37299,8 +43027,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37312,10 +43059,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37331,7 +43078,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129216",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37359,8 +43106,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37372,10 +43138,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37391,7 +43157,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129217",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37419,8 +43185,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37432,10 +43217,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37451,7 +43236,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129218",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37479,8 +43264,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37492,10 +43296,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37511,7 +43315,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129219",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37539,8 +43343,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37552,10 +43375,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37571,7 +43394,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129220",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37599,8 +43422,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37612,10 +43454,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37631,7 +43473,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129221",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37659,8 +43501,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37672,10 +43533,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37691,7 +43552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129222",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37719,8 +43580,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "02:00",
     "startTimeUtc": "2027-03-20T15:00:00.000Z",
     "endTimeUtc": "2027-03-20T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37732,10 +43612,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37751,7 +43631,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129223",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37779,8 +43659,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37792,10 +43691,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37811,7 +43710,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129224",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37839,8 +43738,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37852,10 +43770,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37871,7 +43789,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129225",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37899,8 +43817,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37912,10 +43849,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37931,7 +43868,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129226",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -37959,8 +43896,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -37972,10 +43928,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -37991,7 +43947,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129227",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38019,8 +43975,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38032,10 +44007,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38051,7 +44026,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129228",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38079,8 +44054,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38092,10 +44086,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38111,7 +44105,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129229",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38139,8 +44133,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38152,10 +44165,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38171,7 +44184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129230",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38199,8 +44212,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38212,10 +44244,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38231,7 +44263,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129231",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38259,8 +44291,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38272,10 +44323,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38291,7 +44342,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129232",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38319,8 +44370,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-10T14:00:00.000Z",
     "endTimeUtc": "2027-04-10T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38332,10 +44402,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38351,7 +44421,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129233",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38379,8 +44449,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38392,10 +44481,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38411,7 +44500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129234",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38439,8 +44528,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38452,10 +44560,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38471,7 +44579,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129235",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38499,8 +44607,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38512,10 +44639,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38531,7 +44658,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129236",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38559,8 +44686,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38572,10 +44718,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38591,7 +44737,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129237",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38619,8 +44765,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38632,10 +44797,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38651,7 +44816,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129238",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38679,8 +44844,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38692,10 +44876,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38711,7 +44895,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129239",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38739,8 +44923,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38752,10 +44955,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38771,7 +44974,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129240",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38799,8 +45002,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38812,10 +45034,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38831,7 +45053,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129241",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38859,8 +45081,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38872,10 +45113,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38891,7 +45132,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129242",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38919,8 +45160,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-17T14:00:00.000Z",
     "endTimeUtc": "2027-04-17T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38932,10 +45192,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -38951,7 +45211,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129243",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -38979,8 +45239,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -38992,10 +45271,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39011,7 +45290,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129244",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39039,8 +45318,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39052,10 +45350,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39071,7 +45369,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129245",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39099,8 +45397,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39112,10 +45429,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39131,7 +45448,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129246",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39159,8 +45476,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39172,10 +45508,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39191,7 +45527,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129247",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39219,8 +45555,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39232,10 +45587,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39251,7 +45606,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129248",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39279,8 +45634,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39292,10 +45666,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39311,7 +45685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129249",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39339,8 +45713,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39352,10 +45745,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39371,7 +45764,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129250",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39399,8 +45792,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39412,10 +45824,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39431,7 +45843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129251",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39459,8 +45871,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39472,10 +45903,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39491,7 +45922,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129252",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39519,8 +45950,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-04-24T14:00:00.000Z",
     "endTimeUtc": "2027-04-24T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39532,10 +45982,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39551,7 +46001,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129253",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39579,8 +46029,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39592,10 +46061,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39611,7 +46080,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129254",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39639,8 +46108,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39652,10 +46140,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39671,7 +46159,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129255",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39699,8 +46187,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39712,10 +46219,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39731,7 +46238,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129256",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39759,8 +46266,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39772,10 +46298,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39791,7 +46317,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129257",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39819,8 +46345,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39832,10 +46377,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39851,7 +46396,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129258",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39879,8 +46424,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39892,10 +46456,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39911,7 +46475,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129259",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39939,8 +46503,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -39952,10 +46535,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -39971,7 +46554,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129260",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -39999,8 +46582,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40012,10 +46614,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40031,7 +46633,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129261",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40059,8 +46661,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40072,10 +46693,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40091,7 +46712,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129262",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40119,8 +46740,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-01T14:00:00.000Z",
     "endTimeUtc": "2027-05-01T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40132,10 +46772,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40151,7 +46791,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129263",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40179,8 +46819,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40192,10 +46851,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40211,7 +46870,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129264",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40239,8 +46898,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40252,10 +46930,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40271,7 +46949,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129265",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40299,8 +46977,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40312,10 +47009,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40331,7 +47028,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129266",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40359,8 +47056,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40372,10 +47088,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40391,7 +47107,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129267",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40419,8 +47135,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40432,10 +47167,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40451,7 +47186,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129268",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40479,8 +47214,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40492,10 +47246,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40511,7 +47265,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129269",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40539,8 +47293,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40552,10 +47325,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40571,7 +47344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129270",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40599,8 +47372,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40612,10 +47404,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40631,7 +47423,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129271",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40659,8 +47451,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40672,10 +47483,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40691,7 +47502,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129272",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40719,8 +47530,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-08T14:00:00.000Z",
     "endTimeUtc": "2027-05-08T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40732,10 +47562,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40751,7 +47581,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129273",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40779,8 +47609,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40792,10 +47641,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40811,7 +47660,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129274",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40839,8 +47688,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40852,10 +47720,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40871,7 +47739,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129275",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40899,8 +47767,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40912,10 +47799,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40931,7 +47818,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129276",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -40959,8 +47846,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -40972,10 +47878,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -40991,7 +47897,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129277",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41019,8 +47925,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41032,10 +47957,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41051,7 +47976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129278",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41079,8 +48004,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41092,10 +48036,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41111,7 +48055,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129279",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41139,8 +48083,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41152,10 +48115,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41171,7 +48134,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129280",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41199,8 +48162,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41212,10 +48194,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41231,7 +48213,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129281",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41259,8 +48241,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41272,10 +48273,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41291,7 +48292,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129282",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41319,8 +48320,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-15T14:00:00.000Z",
     "endTimeUtc": "2027-05-15T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41332,10 +48352,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41351,7 +48371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129283",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41379,8 +48399,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Vitality Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41392,10 +48431,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Bournemouth v Chelsea is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41411,7 +48450,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129284",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41439,8 +48478,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Gtech Community Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41452,10 +48510,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brentford v Hull City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41471,7 +48529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129285",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41499,8 +48557,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "American Express Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41512,10 +48589,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brighton & Hove Albion v Liverpool is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41531,7 +48608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129286",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41559,8 +48636,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Hill Dickinson Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41572,10 +48668,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Everton v Arsenal is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41591,7 +48687,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129287",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41619,8 +48715,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Craven Cottage",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41632,10 +48747,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Fulham v Coventry City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41651,7 +48766,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129288",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41679,8 +48794,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Elland Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41692,10 +48826,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Leeds United v Sunderland is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41711,7 +48845,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129289",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41739,8 +48873,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Etihad Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41752,10 +48905,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester City v Aston Villa is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41771,7 +48924,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129290",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41799,8 +48952,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "St. James' Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41812,10 +48984,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle United v Crystal Palace is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41831,7 +49003,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129291",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41859,8 +49031,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The City Ground",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41872,10 +49063,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Nottingham Forest v Ipswich Town is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41891,7 +49082,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129292",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41919,8 +49110,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "00:00",
     "startTimeUtc": "2027-05-23T14:00:00.000Z",
     "endTimeUtc": "2027-05-23T16:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Tottenham Hotspur Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41932,10 +49142,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Tottenham Hotspur v Manchester United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -41951,7 +49161,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129293",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -41979,8 +49189,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Emirates Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -41992,10 +49221,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Arsenal v Brighton & Hove Albion is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42011,7 +49240,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129294",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42039,8 +49268,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Villa Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42052,10 +49300,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Aston Villa v Tottenham Hotspur is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42071,7 +49319,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129295",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42099,8 +49347,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stamford Bridge",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42112,10 +49379,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Chelsea v Brentford is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42131,7 +49398,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129296",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42159,8 +49426,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Coventry Building Society Arena",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42172,10 +49458,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Coventry City v Nottingham Forest is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42191,7 +49477,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129297",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42219,8 +49505,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Selhurst Park",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42232,10 +49537,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Crystal Palace v Leeds United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42251,7 +49556,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129298",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42279,8 +49584,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "The MKM Stadium",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42292,10 +49616,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Hull City v Newcastle United is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42311,7 +49635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129299",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42339,8 +49663,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Portman Road",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42352,10 +49695,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Ipswich Town v Everton is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42371,7 +49714,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129300",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42399,8 +49742,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Anfield",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42412,10 +49774,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Liverpool v Bournemouth is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42431,7 +49793,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129301",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42459,8 +49821,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Old Trafford",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42472,10 +49853,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Manchester United v Fulham is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -42491,7 +49872,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129302",
     "canonicalSourceName": "Premier League official fixture service",
     "canonicalSourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "canonicalSourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "canonicalSourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "canonicalSourceType": "official",
     "sport": "Football",
     "key": "premier-league",
@@ -42519,8 +49900,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "time": "01:00",
     "startTimeUtc": "2027-05-30T15:00:00.000Z",
     "endTimeUtc": "2027-05-30T17:00:00.000Z",
-    "broadcaster": "Broadcast details TBC",
-    "broadcastOptions": [],
+    "broadcaster": "Stan Sport",
+    "broadcasterIds": [
+      "stan"
+    ],
+    "broadcastOptions": [
+      "Stan Sport"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "stan",
+        "serviceId": "stan",
+        "serviceLabel": "Stan Sport",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "webUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
     "venue": "Stadium of Light",
     "scheduleStatus": "confirmed",
     "status": "upcoming",
@@ -42532,10 +49932,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sunderland v Manchester City is listed in the Premier League's official 2026/27 schedule. Kick-off and venue details will refresh from the league if the fixture moves.",
     "sourceName": "Premier League official fixture schedule",
     "sourceUrl": "https://www.premierleague.com/en/matches/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-25T07:06:07.001Z",
+    "sourceCheckedAt": "2026-08-25T11:39:20.601Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-25T07:06:07.001Z",
+    "lastReviewedAt": "2026-08-25T11:39:20.601Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,

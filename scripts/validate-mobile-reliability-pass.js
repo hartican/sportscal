@@ -22,15 +22,12 @@ assert(!f1Profile.signals.some(signal => signal.label === "Record Chase" && /qua
 assert(f1Profile.signals.some(signal => signal.label === "Record Chase" && /record|milestone/.test(signal.match)), "explicit record or milestone language must still support Record Chase");
 
 const f1Mark = identities.markForEvent({ key:"f1", name:"Azerbaijan GP Qualifying" });
-assert.equal(f1Mark.kind, "wordmark", "Formula One cards must use the rights-safe editorial wordmark treatment");
-assert.equal(f1Mark.wordmark, "F1™");
-assert.equal(f1Mark.themeColor?.light, "#ff1e00");
-assert.equal(f1Mark.themeColor?.dark, "#ffffff");
+assert.match(f1Mark.url || "", /^https:\/\/media\.formula1\.com\/.+f1_logo\.svg$/, "Formula One cards must use the restored official mark");
 assert.match(vectors.glyphMarkup("ui:tv"), /<svg|<img/, "provider actions must retain a local TV fallback");
 assert.match(vectors.glyphMarkup("semantic:nrl-finals-trophy"), /<svg|<img/, "NRL finals must have a local trophy glyph");
 
-assert(html.includes('label.textContent = `Watch on ${viewing.actionLabel || viewing.label}`'), "Feed and Events viewing actions must name their actual provider");
-assert(html.includes("buildViewingProviderMark(viewing)") && html.includes('className = "provider-action-logo"'), "provider actions must use a local mark with a stable fallback frame");
+assert(html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "Feed and Events viewing actions must put the provider mark after Watch on or Replay on");
+assert(html.includes("buildViewingProviderMark(viewing)") && html.includes('className = "provider-action-logo"') && html.includes('fallback.textContent = viewing.actionLabel || viewing.label'), "provider actions must use a local mark with a provider-name fallback in the same slot");
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
@@ -46,6 +43,10 @@ assert(/headers\.has\("range"\)[\s\S]{0,450}fetch\(event\.request\)/i.test(worke
 assert(/pathname\.startsWith\("\/assets\/audio\/"\)[\s\S]{0,450}fetch\(event\.request\)/.test(worker), "audio requests must bypass the whole-file asset cache");
 assert(html.includes("function repairBrokenIdentityImages") && html.includes("naturalWidth === 0"), "startup and tab renders must repair only broken identity images");
 assert(html.includes("function scheduleIdentityImageRecovery"), "broken-image recovery must be scheduled without rebuilding a screen");
+assert(/function scheduleIdentityImageRecovery[\s\S]{0,180}observeDeferredCardImages/.test(html), "tab renders must observe deferred identity images after their cards are connected");
+assert(/typeof IntersectionObserver !== "function"[\s\S]{0,420}getBoundingClientRect\(\)[\s\S]{0,420}activateImage/.test(html), "browsers without IntersectionObserver must still activate visible deferred logos without a rerender");
+const deferredImageSource = html.match(/function assignCardImageSource\(image, source\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(!deferredImageSource.includes("image.hidden = true"), "deferred identity images must remain observable behind their fixed fallback frame");
 assert(!/\.toast\.show\{[\s\S]{0,120}translate/i.test(html), "toast visibility must not animate its geometry");
 
 for (const payload of [incoming, published]){

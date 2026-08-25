@@ -8,7 +8,7 @@ const majorEvents = require("../config/major-events.js");
 const ticketing = require("../config/ticketing.js");
 const aflNrlCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 
-const REFERENCE = new Date("2026-08-23T12:00:00.000Z");
+const REFERENCE = new Date("2026-08-25T12:00:00.000Z");
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/major-events.schema.json", "utf8"));
 const html = fs.readFileSync("index.html", "utf8");
@@ -79,14 +79,16 @@ assert.equal(rugbyFinals.competitionScope, "international");
 assert(rugbyFinals.representativeCountryCodes.includes("AU"), "Australian national representation must be explicit metadata, not a title heuristic");
 assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Rugby placement sessions require a published label but no invented drawn fixture");
 
-const championsLeague = catalogue.events.find(record => record.id === "major-event:uefa-champions-league-2026-27");
-assert(championsLeague && championsLeague.subEvents.length === 6, "Football must retain the complete Champions League phase pathway");
-assert.equal(championsLeague.endDate, "2027-06-05");
-assert(championsLeague.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Football stages require source-published phase dates without materialising fictional fixtures");
+const championsLeaguePhases = catalogue.events.filter(record => record.id.startsWith("major-event:uefa-champions-league-2026-27:"));
+assert.deepEqual(championsLeaguePhases.map(record => record.phaseIdentity), ["qualification", "league", "knockout"], "long-running Champions League coverage must be split into chronological phase cards");
+assert.equal(championsLeaguePhases.flatMap(record => record.subEvents).length, 13, "Football must retain seven published qualification deciders plus the complete league and knockout pathway");
+assert.equal(championsLeaguePhases.at(-1).endDate, "2027-06-05");
+assert(championsLeaguePhases[0].subEvents.every(event => event.startTimeUtc && event.participants?.length === 2), "published Champions League qualification deciders must expose concrete times and teams");
+assert(championsLeaguePhases.slice(1).flatMap(record => record.subEvents).every(event => event.dateLabel && event.startTimeUtc === null), "future undrawn Football stages require source-published phase dates without fictional fixtures");
 
 const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], REFERENCE).map(event => event.id);
 assert(markerIds.includes(aflFinals.id) && markerIds.includes(nrlFinals.id) && markerIds.includes(rugbyFinals.id), "upcoming verified series require compact Fixtures markers");
-assert(!markerIds.includes(championsLeague.id), "a long-running tournament must remain in Events after its start marker leaves the seven-day Fixtures window");
+assert(!markerIds.some(id => id.startsWith("major-event:uefa-champions-league-2026-27:")), "long-running tournament phases must remain in Events instead of becoming Feed parents");
 assert.deepEqual(new Set(majorEvents.markerReplacementFixtureIds()), new Set(["event-afl-cd_m20260142901", "evt_81", "evt_82", "evt_83", "evt_84"]), "legacy weekly or lone-final placeholders must be replaced by their series marker");
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-grand-prix-2027-waitlist"));
@@ -115,8 +117,8 @@ const invalidCopies = [
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, stakesScore: 4 }) }, /stakes/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
-  [{ ...catalogue, publishedAt: "2026-08-24T00:00:00.000Z" }, /non-future/],
-  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-24T00:00:00.000Z" })) }) }, /future-dated source/],
+  [{ ...catalogue, publishedAt: "2026-08-26T00:00:00.000Z" }, /non-future/],
+  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-26T00:00:00.000Z" })) }) }, /future-dated source/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:australian-grand-prix-2027" ? { ...record, season: 2028 } : record) }, /TBC records/],
 ];
 invalidCopies.forEach(([document, message]) => {

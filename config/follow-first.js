@@ -53,14 +53,58 @@
   ]);
 
   const VIEWING_PROVIDERS = Object.freeze({
-    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", url:"https://kayosports.com.au/", paid:true, aliases:["kayo", "espn"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
-    stan:{ label:"Stan Sport", actionLabel:"Stan Sport", url:"https://www.stan.com.au/sport", paid:true, aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
-    foxtel:{ label:"Foxtel", actionLabel:"Foxtel", url:"https://www.foxtel.com.au/watch.html", paid:true, aliases:["foxtel", "fox sports"] },
-    optus:{ label:"Optus Sport", actionLabel:"Optus Sport", url:"https://sport.optus.com.au/", paid:true, aliases:["optus sport", "optus"] },
-    paramount:{ label:"Paramount+", actionLabel:"Paramount+", url:"https://www.paramountplus.com/au/", paid:true, aliases:["paramount+", "paramount plus", "paramount"] },
-    seven:{ label:"7plus", actionLabel:"7plus", url:"https://7plus.com.au/", paid:false, aliases:["7plus", "channel 7", "seven"] },
-    nine:{ label:"9Now", actionLabel:"9Now", url:"https://www.9now.com.au/", paid:false, aliases:["9now", "channel 9", "nine"] },
-    sbs:{ label:"SBS On Demand", actionLabel:"SBS", url:"https://www.sbs.com.au/ondemand/sport", paid:false, aliases:["sbs on demand", "sbs"] },
+    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo", "espn"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
+    foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel.svg", logoBackground:"#ffffff" },
+    stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/sport", appScheme:"stan://au.com.stan.and/", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
+    optus:{ label:"Optus Sport", actionLabel:"Optus Sport", webUrl:"https://sport.optus.com.au/", paid:true, territory:"AU", accessType:"subscription", aliases:["optus sport", "optus"] },
+    paramount:{ label:"Paramount+", actionLabel:"Paramount+", webUrl:"https://www.paramountplus.com/au/", paid:true, territory:"AU", accessType:"subscription", aliases:["paramount+", "paramount plus", "paramount"], logoPath:"assets/providers/paramount-plus.svg", logoBackground:"#ffffff" },
+    seven:{ label:"7plus", actionLabel:"7plus", webUrl:"https://7plus.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["7plus", "channel 7", "seven"] },
+    nine:{ label:"9Now", actionLabel:"9Now", webUrl:"https://www.9now.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["9now", "channel 9", "nine"] },
+    sbs:{ label:"SBS On Demand", actionLabel:"SBS", webUrl:"https://www.sbs.com.au/ondemand/sport", paid:false, territory:"AU", accessType:"free", aliases:["sbs on demand", "sbs"] },
+    "watch-afl":{ label:"Watch AFL", actionLabel:"Watch AFL", webUrl:"https://www.watchafl.com.au/", paid:true, territory:"ROW", accessType:"subscription", aliases:["watch afl", "watchafl"] },
+  });
+
+  const COMPETITION_VIEWING_RIGHTS = Object.freeze({
+    "competition:premier-league": Object.freeze({
+      competitionAliases:Object.freeze(["competition:premier-league", "premier-league"]),
+      providerIds:Object.freeze(["stan"]),
+      territory:"AU",
+      liveOrReplay:"both",
+      rightsScope:"competition",
+      sourceUrl:"https://www.stan.com.au/watch/sport/football/premier-league",
+      verifiedAt:"2026-08-25T00:00:00.000Z",
+      providerUrls:Object.freeze({ stan:"https://www.stan.com.au/watch/sport/football/premier-league" }),
+    }),
+    "competition:uefa-champions-league": Object.freeze({
+      competitionAliases:Object.freeze(["competition:uefa-champions-league", "uefa-champions-league"]),
+      providerIds:Object.freeze(["stan"]),
+      territory:"AU",
+      liveOrReplay:"both",
+      rightsScope:"competition",
+      sourceUrl:"https://www.stan.com.au/watch/sport/football/uefa-champions-league",
+      verifiedAt:"2026-08-25T00:00:00.000Z",
+      providerUrls:Object.freeze({ stan:"https://www.stan.com.au/watch/sport/football/uefa-champions-league" }),
+    }),
+    "competition:tennis:us-open": Object.freeze({
+      competitionAliases:Object.freeze(["competition:tennis:us-open", "us-open"]),
+      providerIds:Object.freeze(["stan"]),
+      territory:"AU",
+      liveOrReplay:"both",
+      rightsScope:"competition",
+      sourceUrl:"https://www.stan.com.au/watch/sport/tennis",
+      verifiedAt:"2026-08-25T00:00:00.000Z",
+      providerUrls:Object.freeze({ stan:"https://www.stan.com.au/watch/sport/tennis" }),
+    }),
+    "competition:afl": Object.freeze({
+      competitionAliases:Object.freeze(["competition:afl", "sport:afl", "afl"]),
+      providerIds:Object.freeze(["kayo", "foxtel", "seven", "watch-afl"]),
+      grandFinalProviderIds:Object.freeze(["seven", "watch-afl"]),
+      territory:"AU",
+      liveOrReplay:"live",
+      rightsScope:"competition",
+      sourceUrl:"https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+      verifiedAt:"2026-08-25T00:00:00.000Z",
+    }),
   });
 
   function uniqueAllowed(values, records){
@@ -369,27 +413,90 @@
       && (Number(refinement.distinctOpenCount) >= 3 || Boolean(refinement.firstSwipeAt));
   }
 
-  function viewingLink(event, selectedProviderIds = []){
+  function normalizeDirectoryRank(value){
+    if (value === null || value === undefined || String(value).trim() === "") return null;
+    const rank = Number(value);
+    return Number.isInteger(rank) && rank > 0 ? rank : null;
+  }
+
+  function directoryEntityLabel(record){
+    const explicit = String(record?.sectionLabel || "").trim();
+    if (explicit) return explicit;
+    const kind = String(record?.entityType || record?.type || "").toLowerCase();
+    if (["athlete", "competitor", "player"].includes(kind)) return "Player";
+    if (["nationalside", "national-side"].includes(kind)) return "National team";
+    return "Team";
+  }
+
+  function competitionRightsForEvent(event){
+    const tokens = [event?.competitionId, event?.sportDomainId, event?.sportId, event?.key, event?.competition, event?.competitionName]
+      .map(value => String(value || "").trim().toLowerCase())
+      .filter(Boolean);
+    return Object.values(COMPETITION_VIEWING_RIGHTS).find(rights => rights.competitionAliases.some(alias => (
+      tokens.some(token => token === alias || token.startsWith(`${alias}-`) || token.includes(alias.replace(/^competition:/, "")))
+    ))) || null;
+  }
+
+  function providerIdForOption(option){
+    if (typeof option === "string"){
+      const text = option.toLowerCase();
+      return Object.entries(VIEWING_PROVIDERS).find(([, provider]) => provider.aliases.some(alias => text.includes(alias)))?.[0] || null;
+    }
+    const direct = String(option?.providerId || option?.serviceId || "").trim().toLowerCase();
+    if (VIEWING_PROVIDERS[direct]) return direct;
+    const text = [option?.broadcasterName, option?.serviceLabel, option?.platform, option?.channelBrand].filter(Boolean).join(" ").toLowerCase();
+    return Object.entries(VIEWING_PROVIDERS).find(([, provider]) => provider.aliases.some(alias => text.includes(alias)))?.[0] || null;
+  }
+
+  function viewingOptions(event, selectedProviderIds = []){
     const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
-    const text = [event?.broadcaster, ...(event?.broadcastOptions || [])]
-      .map(value => typeof value === "string" ? value : [value?.broadcasterName, value?.serviceLabel, value?.platform, value?.channelBrand].filter(Boolean).join(" "))
-      .join(" ")
-      .toLowerCase();
+    const explicitOptions = [event?.broadcaster, ...(event?.broadcastOptions || []), ...(event?.viewingOptions || [])].filter(Boolean);
+    explicitOptions.map(providerIdForOption).filter(Boolean).forEach(id => broadcasterIds.add(id));
+    const rights = competitionRightsForEvent(event);
+    const isGrandFinal = /\bgrand\s+final\b/i.test([event?.stage, event?.roundLabel, event?.round, event?.name].filter(Boolean).join(" "));
+    const rightsProviderIds = rights ? [...(isGrandFinal && rights.grandFinalProviderIds ? rights.grandFinalProviderIds : rights.providerIds)] : [];
+    if (rightsProviderIds.length){
+      broadcasterIds.clear();
+      rightsProviderIds.forEach(id => broadcasterIds.add(id));
+    }
     const selectedOrder = new Map((selectedProviderIds || []).map((id, index) => [String(id), index]));
-    const matchedProviderIds = Object.entries(VIEWING_PROVIDERS)
-      .filter(([id, provider]) => broadcasterIds.has(id) || provider.aliases.some(alias => text.includes(alias)))
-      .map(([id]) => id)
+    const providerOrder = [...rightsProviderIds, ...Object.keys(VIEWING_PROVIDERS).filter(id => !rightsProviderIds.includes(id))];
+    const completed = ["completed", "past", "finished", "final"].includes(String(event?.status || event?.scheduleStatus || "").toLowerCase())
+      || Boolean(event?.scoreDisplay || event?.score || event?.canonicalResultScoreline);
+    return providerOrder
+      .filter(id => broadcasterIds.has(id))
       .sort((left, right) => {
+        if (rightsProviderIds.includes(left) && rightsProviderIds.includes(right)) return rightsProviderIds.indexOf(left) - rightsProviderIds.indexOf(right);
         const paidDelta = Number(VIEWING_PROVIDERS[right].paid) - Number(VIEWING_PROVIDERS[left].paid);
         if (paidDelta) return paidDelta;
         const leftSelected = selectedOrder.has(left) ? selectedOrder.get(left) : Number.MAX_SAFE_INTEGER;
         const rightSelected = selectedOrder.has(right) ? selectedOrder.get(right) : Number.MAX_SAFE_INTEGER;
         if (leftSelected !== rightSelected) return leftSelected - rightSelected;
-        return Object.keys(VIEWING_PROVIDERS).indexOf(left) - Object.keys(VIEWING_PROVIDERS).indexOf(right);
+        return providerOrder.indexOf(left) - providerOrder.indexOf(right);
+      })
+      .map(providerId => {
+        const provider = VIEWING_PROVIDERS[providerId];
+        const explicit = explicitOptions.find(option => providerIdForOption(option) === providerId);
+        const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
+        const webUrl = explicitObject.webUrl || explicitObject.url || rights?.providerUrls?.[providerId] || provider.webUrl;
+        return {
+          providerId,
+          ...provider,
+          webUrl,
+          url:provider.universalUrl || webUrl,
+          territory:explicitObject.territory || provider.territory || rights?.territory || "AU",
+          accessType:explicitObject.accessType || provider.accessType || (provider.paid ? "subscription" : "free"),
+          liveOrReplay:completed ? "replay" : "live",
+          rightsScope:explicitObject.rightsScope || rights?.rightsScope || "fixture",
+          sourceUrl:explicitObject.sourceUrl || rights?.sourceUrl || null,
+          verifiedAt:explicitObject.verifiedAt || rights?.verifiedAt || null,
+        };
       });
-    const providerId = matchedProviderIds[0];
-    const provider = VIEWING_PROVIDERS[providerId];
-    return provider ? { providerId, ...provider } : null;
+  }
+
+  function viewingLink(event, selectedProviderIds = [], { territory = "AU" } = {}){
+    const options = viewingOptions(event, selectedProviderIds);
+    return options.find(option => option.territory === territory || option.territory === "GLOBAL") || options[0] || null;
   }
 
   return Object.freeze({
@@ -403,6 +510,7 @@
     INTERNATIONAL_AUSTRALIA_SPORT_IDS,
     OFFER_INTERESTS,
     VIEWING_PROVIDERS,
+    COMPETITION_VIEWING_RIGHTS,
     normalizeLocation,
     normalizeMeta,
     migratePreferences,
@@ -416,6 +524,9 @@
     appendFeedback,
     registerOpen,
     shouldPromptRefinement,
+    normalizeDirectoryRank,
+    directoryEntityLabel,
+    viewingOptions,
     viewingLink,
   });
 });

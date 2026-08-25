@@ -53,11 +53,9 @@
   function activeTicketing(record, reference = new Date()){
     if (!["on_sale", "presale", "waitlist", "register_interest"].includes(record?.ticketing?.status)) return false;
     const referenceTime = reference instanceof Date ? reference.getTime() : new Date(reference).getTime();
-    const saleStartTime = record.ticketing.saleStartAt ? new Date(record.ticketing.saleStartAt).getTime() : null;
     const saleEndTime = record.ticketing.saleEndAt ? new Date(record.ticketing.saleEndAt).getTime() : null;
     if (!Number.isFinite(referenceTime)) return false;
-    return !(Number.isFinite(saleStartTime) && referenceTime < saleStartTime)
-      && !(Number.isFinite(saleEndTime) && referenceTime > saleEndTime);
+    return !(Number.isFinite(saleEndTime) && referenceTime > saleEndTime);
   }
 
   function inWindow(record, reference = new Date()){
@@ -81,15 +79,32 @@
     const parentIds = new Set(parents.map(record => record.id));
     const alerts = records.filter(record => record.kind === "ticket_sale" && parentIds.has(record.parentEventId) && activeTicketing(record, reference));
     return {
-      events: parents.slice().sort(compareRecords),
-      alerts: alerts.slice().sort(compareRecords),
+      events: parents.slice().sort((left, right) => compareRecords(left, right, reference)),
+      alerts: alerts.slice().sort((left, right) => compareRecords(left, right, reference)),
     };
   }
 
-  function compareRecords(left, right){
-    const leftDate = left.startDate || `${left.season || 9999}-12-31`;
-    const rightDate = right.startDate || `${right.season || 9999}-12-31`;
-    return leftDate.localeCompare(rightDate) || String(left.id).localeCompare(String(right.id));
+  function recordLifecycleTime(record, reference = new Date()){
+    const referenceTime = reference instanceof Date ? reference.getTime() : new Date(reference).getTime();
+    const concreteTimes = (record?.subEvents || [])
+      .map(subEvent => new Date(subEvent?.startTimeUtc || "").getTime())
+      .filter(Number.isFinite)
+      .sort((first, second) => first - second);
+    const nextConcreteTime = concreteTimes.find(time => time >= referenceTime);
+    if (Number.isFinite(nextConcreteTime)) return nextConcreteTime;
+    const ticketTime = new Date(record?.ticketing?.saleStartAt || "").getTime();
+    if (Number.isFinite(ticketTime) && ticketTime >= referenceTime) return ticketTime;
+    const phaseTime = new Date(`${record?.phaseStartDate || record?.startDate || ""}T00:00:00Z`).getTime();
+    if (Number.isFinite(phaseTime) && phaseTime >= referenceTime) return phaseTime;
+    const endTime = new Date(`${record?.phaseEndDate || record?.endDate || ""}T23:59:59Z`).getTime();
+    if (Number.isFinite(endTime)) return endTime;
+    if (Number.isFinite(phaseTime)) return phaseTime;
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  function compareRecords(left, right, reference = new Date()){
+    return recordLifecycleTime(left, reference) - recordLifecycleTime(right, reference)
+      || String(left.id).localeCompare(String(right.id));
   }
 
   function fixtureFromSubEvent(subEvent, parent){
@@ -124,14 +139,18 @@
       expected: Number(subEvent.expected || 8),
       participants: subEvent.participants || [],
       participantIds: subEvent.participantIds || [],
+      broadcaster: subEvent.broadcaster || parent.broadcaster || null,
+      broadcasterIds: subEvent.broadcasterIds || parent.broadcasterIds || [],
+      broadcastOptions: subEvent.broadcastOptions || parent.broadcastOptions || [],
+      viewingOptions: subEvent.viewingOptions || parent.viewingOptions || [],
       isInternational: subEvent.isInternational === true || parent.isInternational === true || parent.competitionScope === "international",
       competitionScope: subEvent.competitionScope || parent.competitionScope || "domestic",
       representativeCountryCodes: subEvent.representativeCountryCodes || parent.representativeCountryCodes || [],
       ticketing: subEvent.ticketing || parent.ticketing || null,
       sourceName: subEvent.sourceName || parent.sources?.[0]?.name,
       sourceUrl: subEvent.sourceUrl || parent.sources?.[0]?.url,
-      selectedSentence: subEvent.summary || `Selected from ${parent.name}.`,
-      fullSpiel: subEvent.summary || `Selected from ${parent.name}.`,
+      selectedSentence: subEvent.summary || "Exact matchup, venue and kickoff will be refreshed when the published schedule is confirmed.",
+      fullSpiel: subEvent.summary || "Exact matchup, venue and kickoff will be refreshed when the published schedule is confirmed.",
     };
   }
 
@@ -196,6 +215,10 @@
       if (record?.ticketing){
         const verifiedTime = new Date(record.ticketing.verifiedAt).getTime();
         if (!Number.isFinite(verifiedTime) || verifiedTime > referenceTime) errors.push(`${record?.id}: ticket verification must be valid and cannot be future-dated`);
+        if (record.ticketing.inventoryStatus === "selling_quickly"){
+          const inventoryTime = new Date(record.ticketing.inventoryVerifiedAt || "").getTime();
+          if (!Number.isFinite(inventoryTime) || referenceTime - inventoryTime > 24 * 60 * 60 * 1000) errors.push(`${record?.id}: selling quickly requires official inventory evidence checked within 24 hours`);
+        }
       }
       (record?.subEvents || []).forEach(subEvent => {
         if (!subEvent?.id || childIds.has(subEvent.id) || allEventIds.has(subEvent.id)) errors.push(`${record?.id}: duplicate or missing child id`);
@@ -208,5 +231,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, activeTicketing, inWindow, visibleRecords, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });

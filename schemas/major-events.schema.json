@@ -34,7 +34,9 @@
         "url": { "type": "string", "format": "uri", "pattern": "^https://" },
         "verifiedAt": { "type": "string", "format": "date-time" },
         "saleStartAt": { "type": ["string", "null"], "format": "date-time" },
-        "saleEndAt": { "type": ["string", "null"], "format": "date-time" }
+        "saleEndAt": { "type": ["string", "null"], "format": "date-time" },
+        "inventoryStatus": { "enum": ["available", "selling_quickly", "limited", "sold_out"] },
+        "inventoryVerifiedAt": { "type": ["string", "null"], "format": "date-time" }
       }
     },
     "subEvent": {
@@ -56,6 +58,10 @@
         "scoreDisplay": { "type": ["string", "null"] },
         "participants": { "type": "array" },
         "participantIds": { "type": "array", "items": { "type": "string" } },
+        "broadcaster": { "type": ["string", "null"] },
+        "broadcasterIds": { "type": "array", "items": { "type": "string" } },
+        "broadcastOptions": { "type": "array" },
+        "viewingOptions": { "type": "array" },
         "competitionScope": { "enum": ["domestic", "international"] },
         "isInternational": { "type": "boolean" },
         "representativeCountryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 3 } },
@@ -71,6 +77,7 @@
         "kind": { "enum": ["tournament", "major_event", "ticket_sale"] },
         "parentEventId": { "type": "string" },
         "name": { "type": "string", "minLength": 1 },
+        "phaseIdentity": { "enum": ["qualification", "league", "knockout", "finals", "main-draw"] },
         "sportKey": { "type": "string", "minLength": 1 },
         "sportKeys": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "sportLabel": { "type": "string", "minLength": 1 },
@@ -89,6 +96,14 @@
         "summary": { "type": "string", "minLength": 1 },
         "details": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
         "scheduleAdapter": { "type": "string" },
+        "drawType": { "type": "string" },
+        "draw": { "type": ["array", "object", "null"] },
+        "participantIdentities": { "type": "array" },
+        "currentPlayers": { "type": "array" },
+        "broadcaster": { "type": ["string", "null"] },
+        "broadcasterIds": { "type": "array", "items": { "type": "string" } },
+        "broadcastOptions": { "type": "array" },
+        "viewingOptions": { "type": "array" },
         "subEvents": { "type": "array", "items": { "$ref": "#/$defs/subEvent" } },
         "ticketing": { "$ref": "#/$defs/ticketing" },
         "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } }

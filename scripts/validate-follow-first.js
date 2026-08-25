@@ -149,7 +149,14 @@ assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(
 assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
 assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySportIds"), "per-sport Australia toggles must be retired from runtime UI");
 assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");
-assert(html.includes("appendEventQuickActions") && html.includes("Remind me") && html.includes("buildViewingProviderMark") && html.includes("Watch on ${viewing.actionLabel || viewing.label}"));
+assert(
+  html.includes("appendEventQuickActions")
+    && html.includes("Remind me")
+    && html.includes("buildViewingProviderMark")
+    && html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;')
+    && html.includes("fallback.textContent = viewing.actionLabel || viewing.label;"),
+  "viewing actions must read Watch on / Replay on followed by a provider logo with provider-name text fallback"
+);
 assert(/\.swipe-coaching[\s\S]{0,500}color:\s*#43b9ff/.test(html));
 assert(/\.swipe-coaching[\s\S]{0,500}font-size:\s*\.85rem/.test(html));
 assert(/\.swipe-coaching[\s\S]{0,500}opacity:\s*\.7/.test(html));

@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "nothingsport.f1-editorial-digest.v1",
+  "generatedAt": "2026-08-25T11:39:26.287Z",
+  "promptVersion": "f1-editorial.v1",
+  "fingerprint": "0ffb87127038b6d82266e2f55e4439c5d5d2f670d0b6806adb7d35bac6bb79e5",
+  "entries": [
+    {
+      "eventId": "evt_26",
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R13 Italian GP Qualifying.",
+      "fullSpiel": "R13 Italian GP Qualifying is scheduled for 2026-09-06 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_27",
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
+      "fullSpiel": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_28",
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Qualifying.",
+      "fullSpiel": "R14 Spanish GP Qualifying is scheduled for 2026-09-13 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_29",
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R14 Spanish GP Race.",
+      "fullSpiel": "R14 Spanish GP Race is scheduled for 2026-09-14 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_30",
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
+      "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_31",
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
+      "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-25T11:39:26.287Z",
+      "generationMode": "factual-fallback"
+    }
+  ]
+}

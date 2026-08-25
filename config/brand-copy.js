@@ -1,13 +1,14 @@
 (function attachNothingSportsBrand(root){
   const brand = Object.freeze({
-    version: "nothingsport-brand.v7",
+    version: "nothingsport-brand.v8",
     name: "nothingsport",
     title: "Nothingsport — Smart sports feed",
-    descriptor: "Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.",
-    hero: "The sports-fanatic mate who knows what you’re into.",
-    about: "nothingsport builds your feed only from teams, players and Aussies Only follows. Sport and major-event choices organise the rest of the app without becoming hidden Feed rules. Likes and dislikes are saved as feedback for future recommendations without changing today’s feed. Open Standings & Fixtures for the complete code-level timetable and ladder context.",
-    metadataDescription: "Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket.",
-    onboardingDescription: "Choose your sports and Aussies Only seed once, then refine teams and players in Follow.",
+    descriptor: "Like having a sports-fanatic in your pocket.",
+    loadingDescriptor: "Like having a sports-fanatic in your pocket.",
+    hero: "Like having a sports-fanatic in your pocket.",
+    about: "nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Likes and dislikes are saved as feedback for future recommendations without changing today’s Feed rules. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.",
+    metadataDescription: "Like having a sports-fanatic in your pocket.",
+    onboardingDescription: "Choose your sports and Australia-in-internationals seed once, then refine teams and players in Follow.",
     emptyStateDescription: "Nothing in your current filter deserves your time right now.",
     timezoneDescription: "Built around AEST/AEDT by default, with other time zones supported as your profile travels.",
   });
