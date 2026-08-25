@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-08-25T11:39:15.005Z",
+  "generatedAt": "2026-08-25T15:10:40.842Z",
   "sports": [
     {
       "key": "afl",
@@ -29,24 +29,24 @@
     {
       "key": "extreme",
       "label": "Extreme",
-      "status": "unavailable",
-      "recordCount": 0,
+      "status": "available",
+      "recordCount": 28,
       "jsonUrl": "data/follow-directory/extreme.v1.json",
       "scriptUrl": "data/follow-directory/extreme.v1.js"
     },
     {
       "key": "surf",
       "label": "Surfing",
-      "status": "unavailable",
-      "recordCount": 0,
+      "status": "available",
+      "recordCount": 20,
       "jsonUrl": "data/follow-directory/surf.v1.json",
       "scriptUrl": "data/follow-directory/surf.v1.js"
     },
     {
       "key": "skiing",
       "label": "Snow",
-      "status": "unavailable",
-      "recordCount": 0,
+      "status": "available",
+      "recordCount": 18,
       "jsonUrl": "data/follow-directory/skiing.v1.json",
       "scriptUrl": "data/follow-directory/skiing.v1.js"
     },
@@ -101,16 +101,16 @@
     {
       "key": "golf",
       "label": "Golf",
-      "status": "unavailable",
-      "recordCount": 0,
+      "status": "available",
+      "recordCount": 23,
       "jsonUrl": "data/follow-directory/golf.v1.json",
       "scriptUrl": "data/follow-directory/golf.v1.js"
     },
     {
       "key": "american-football",
       "label": "American Football",
-      "status": "unavailable",
-      "recordCount": 0,
+      "status": "available",
+      "recordCount": 32,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -157,8 +157,8 @@
     {
       "key": "boxing",
       "label": "Boxing",
-      "status": "unavailable",
-      "recordCount": 0,
+      "status": "available",
+      "recordCount": 8,
       "jsonUrl": "data/follow-directory/boxing.v1.json",
       "scriptUrl": "data/follow-directory/boxing.v1.js"
     },

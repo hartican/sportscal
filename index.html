@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="144">
+  <meta name="app-shell-version" content="145">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
@@ -535,12 +535,23 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 }
 
 .header-hydration-slot{
-  min-width:72px;
-  min-height:44px;
+  position:relative;
+  height:44px;
+  flex:0 0 72px;
+}
+
+#headerProgressRing,
+.header-date-badge{
+  position:absolute;
+  inset:0;
+}
+
+#headerProgressRing{
   display:grid;
   place-items:center;
-  align-self:stretch;
 }
+
+.header-hydration-slot > [hidden]{ display:none !important; }
 
 .header-date-badge{
   display:flex;
@@ -4879,6 +4890,7 @@ footer.app-footer{
   }
   .header-hydration-slot,
   .header-date-badge{ min-width:58px; }
+  .header-hydration-slot{ flex-basis:58px; }
   .header-actions .btn{
     width:100%;
     min-width:44px;

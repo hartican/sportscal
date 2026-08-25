@@ -155,6 +155,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-code-inspector-ui.js"],
   ["scripts/validate-events-fixture-ux.js"],
   ["scripts/validate-mobile-reliability-pass.js"],
+  ["scripts/validate-header-loader-overlay.js"],
+  ["scripts/validate-australian-viewing-rights.js"],
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-mobile-feed-events-brand-pass.js"],

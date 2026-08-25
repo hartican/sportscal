@@ -6,6 +6,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/follow-directory");
 const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.v1.json");
+const SUPPLEMENT_PATH = "data/canonical/follow-directory-supplement.v1.json";
 
 function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -91,6 +92,8 @@ function main(){
     "data/canonical/nba-context-2026.json", "data/canonical/cwg-context-2026.json",
   ].map(readJson);
   const sourceGeneratedAt = contexts.map(context => context.generatedAt).filter(Boolean);
+  const supplement = readJson(SUPPLEMENT_PATH);
+  if (supplement.generatedAt) sourceGeneratedAt.push(supplement.generatedAt);
   const rankByParticipant = new Map();
   contexts.forEach(context => (context.ladderSnapshots || []).forEach(snapshot => (snapshot.entries || []).forEach(entry => {
     const rank = Number(entry.rank ?? entry.position);
@@ -109,6 +112,17 @@ function main(){
     (group.sections || []).forEach(section => (section.teams || []).forEach(team => {
       chunks.get(key).set(team.id, normalizeRecord({ ...team, type:"team" }, { sourceRefs:[`catalogue:${key}`] }));
     }));
+  });
+  Object.entries(supplement.sports || {}).forEach(([key, sport]) => {
+    if (!chunks.has(key)) return;
+    const inheritedSources = (sport.sourceIds || []).map(sourceId => supplement.sources?.[sourceId]).filter(Boolean);
+    (sport.records || []).forEach(record => {
+      const recordSources = (record.sourceIds || []).map(sourceId => supplement.sources?.[sourceId]).filter(Boolean);
+      chunks.get(key).set(record.id, normalizeRecord(record, {
+        countryBasis:record.countryBasis || "official-roster",
+        sourceRefs:[...inheritedSources, ...recordSources],
+      }));
+    });
   });
   [
     ["afl", "data/canonical/afl-directory.v1.json"],

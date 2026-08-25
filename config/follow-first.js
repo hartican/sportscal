@@ -53,7 +53,7 @@
   ]);
 
   const VIEWING_PROVIDERS = Object.freeze({
-    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo", "espn"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
+    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
     foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel.svg", logoBackground:"#ffffff" },
     stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/sport", appScheme:"stan://au.com.stan.and/", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
     optus:{ label:"Optus Sport", actionLabel:"Optus Sport", webUrl:"https://sport.optus.com.au/", paid:true, territory:"AU", accessType:"subscription", aliases:["optus sport", "optus"] },
@@ -61,50 +61,65 @@
     seven:{ label:"7plus", actionLabel:"7plus", webUrl:"https://7plus.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["7plus", "channel 7", "seven"] },
     nine:{ label:"9Now", actionLabel:"9Now", webUrl:"https://www.9now.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["9now", "channel 9", "nine"] },
     sbs:{ label:"SBS On Demand", actionLabel:"SBS", webUrl:"https://www.sbs.com.au/ondemand/sport", paid:false, territory:"AU", accessType:"free", aliases:["sbs on demand", "sbs"] },
+    "nba-pass":{ label:"NBA League Pass", webUrl:"https://www.nba.com/watch/league-pass-stream", paid:true, aliases:[] },
+    dazn:{ label:"DAZN NFL Game Pass", webUrl:"https://www.dazn.com/en-AU/l/nfl-game-pass", paid:true, aliases:[] },
+    "prime-video":{ label:"Prime Video", webUrl:"https://www.primevideo.com/", paid:true, aliases:[] },
+    goodwood:{ label:"Goodwood", webUrl:"https://goodwood.com/", paid:false, aliases:[] },
+    youtube:{ label:"YouTube", actionLabel:"YouTube", webUrl:"https://www.youtube.com/", paid:false, territory:"GLOBAL", accessType:"free", aliases:["youtube", "you tube"] },
     "watch-afl":{ label:"Watch AFL", actionLabel:"Watch AFL", webUrl:"https://www.watchafl.com.au/", paid:true, territory:"ROW", accessType:"subscription", aliases:["watch afl", "watchafl"] },
   });
 
+  const RIGHTS_VERIFIED_AT = "2026-08-25T00:00:00.000Z";
+
+  function viewingRights(competitionAliases, providerIds, sourceUrl, overrides = {}){
+    return Object.freeze({
+      competitionAliases:Object.freeze(competitionAliases),
+      providerIds:Object.freeze(providerIds),
+      territory:"AU",
+      liveOrReplay:"both",
+      rightsScope:"competition",
+      sourceUrl,
+      verifiedAt:RIGHTS_VERIFIED_AT,
+      ...overrides,
+    });
+  }
+
   const COMPETITION_VIEWING_RIGHTS = Object.freeze({
-    "competition:premier-league": Object.freeze({
-      competitionAliases:Object.freeze(["competition:premier-league", "premier-league"]),
-      providerIds:Object.freeze(["stan"]),
-      territory:"AU",
-      liveOrReplay:"both",
-      rightsScope:"competition",
-      sourceUrl:"https://www.stan.com.au/watch/sport/football/premier-league",
-      verifiedAt:"2026-08-25T00:00:00.000Z",
-      providerUrls:Object.freeze({ stan:"https://www.stan.com.au/watch/sport/football/premier-league" }),
-    }),
-    "competition:uefa-champions-league": Object.freeze({
-      competitionAliases:Object.freeze(["competition:uefa-champions-league", "uefa-champions-league"]),
-      providerIds:Object.freeze(["stan"]),
-      territory:"AU",
-      liveOrReplay:"both",
-      rightsScope:"competition",
-      sourceUrl:"https://www.stan.com.au/watch/sport/football/uefa-champions-league",
-      verifiedAt:"2026-08-25T00:00:00.000Z",
-      providerUrls:Object.freeze({ stan:"https://www.stan.com.au/watch/sport/football/uefa-champions-league" }),
-    }),
-    "competition:tennis:us-open": Object.freeze({
-      competitionAliases:Object.freeze(["competition:tennis:us-open", "us-open"]),
-      providerIds:Object.freeze(["stan"]),
-      territory:"AU",
-      liveOrReplay:"both",
-      rightsScope:"competition",
-      sourceUrl:"https://www.stan.com.au/watch/sport/tennis",
-      verifiedAt:"2026-08-25T00:00:00.000Z",
-      providerUrls:Object.freeze({ stan:"https://www.stan.com.au/watch/sport/tennis" }),
-    }),
-    "competition:afl": Object.freeze({
-      competitionAliases:Object.freeze(["competition:afl", "sport:afl", "afl"]),
-      providerIds:Object.freeze(["kayo", "foxtel", "seven", "watch-afl"]),
-      grandFinalProviderIds:Object.freeze(["seven", "watch-afl"]),
-      territory:"AU",
-      liveOrReplay:"live",
-      rightsScope:"competition",
-      sourceUrl:"https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-      verifiedAt:"2026-08-25T00:00:00.000Z",
-    }),
+    "competition:premier-league":viewingRights(["competition:premier-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/premier-league", { sourceIsProvider:true }),
+    "competition:uefa-champions-league":viewingRights(["competition:uefa-champions-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/uefa-champions-league", { sourceIsProvider:true }),
+    "competition:tennis:us-open":viewingRights(["competition:tennis:us-open", "us-open"], ["stan"], "https://www.stan.com.au/watch/sport/tennis", { sourceIsProvider:true }),
+    "competition:afl":viewingRights(["competition:afl"], ["kayo", "foxtel", "seven", "watch-afl"], "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights", { liveOrReplay:"live", grandFinalProviderIds:Object.freeze(["seven"]) }),
+    "competition:nrl":viewingRights(["competition:nrl"], ["kayo", "foxtel"], null, { grandFinalProviderIds:Object.freeze(["nine"]) }),
+    "competition:rugby-league-world-cup":viewingRights(["competition:rugby-league-world-cup", "rlwc2026"], ["seven"], null, { matchPriority:1 }),
+    "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], ["stan"], "https://www.stan.com.au/watch/sport/rugby", { rightsScope:"sport", sourceIsProvider:true }),
+    "competition:formula-one":viewingRights(["competition:formula-one", "f1"], ["kayo", "foxtel"], null),
+    "competition:cricket-australia":viewingRights(["competition:cricket-australia", "boxing-day-test", "new-year-s-test", "the-ashes"], ["kayo", "foxtel", "seven"], null),
+    "competition:icc-cricket":viewingRights(["competition:icc", "icc-world-cup", "icc-champions-trophy"], ["prime-video"], null),
+    "competition:nba":viewingRights(["competition:nba"], ["nba-pass"], null),
+    "competition:nbl":viewingRights(["competition:nbl"], ["kayo", "foxtel"], null),
+    "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], null, { eventKeys:Object.freeze(["golf", "masters"]) }),
+    "competition:liv-golf":viewingRights(["competition:liv-golf"], ["seven"], null),
+    "competition:nfl":viewingRights(["competition:nfl", "american-football"], ["dazn"], null),
+    "competition:netball-2026":viewingRights(["competition:netball"], ["kayo", "foxtel"], null, { notAfter:"2026-12-31T23:59:59.999Z" }),
+    "competition:netball-2027":viewingRights(["competition:netball"], ["stan", "nine"], null, { notBefore:"2027-01-01T00:00:00.000Z", matchPriority:1 }),
+    "competition:a-leagues":viewingRights(["competition:a-league"], ["paramount"], null),
+    "competition:australian-national-football":viewingRights(["competition:afc-womens-asian-cup", "competition:afc-asian-cup", "competition:australia-cup", "socceroos", "matildas", "australia-cup"], ["paramount"], null),
+    "competition:fifa-world-cup-2026":viewingRights(["competition:fifa-world-cup-2026"], ["sbs"], null),
+    "competition:tennis-major":viewingRights(["competition:tennis:australian-open", "competition:tennis:roland-garros", "competition:tennis:wimbledon", "australian-open", "roland-garros", "french-open", "wimbledon"], ["stan"], null),
+    "competition:stan-motorsport":viewingRights(["competition:formula-e", "competition:indycar", "competition:asbk", "competition:mxgp"], ["stan"], null),
+    "competition:wec":viewingRights(["competition:wec", "le-mans"], ["stan"], null),
+    "competition:wrc":viewingRights(["competition:wrc"], ["stan"], null),
+    "competition:dakar":viewingRights(["competition:dakar", "paris-dakar"], ["sbs"], null),
+    "competition:goodwood":viewingRights(["competition:goodwood"], ["goodwood"], null, { territory:"GLOBAL" }),
+    "competition:road-cycling":viewingRights(["competition:tour-de-france", "competition:giro-ditalia", "competition:vuelta-a-espana"], ["sbs"], null),
+    "competition:x-games":viewingRights(["competition:x-games"], ["youtube"], "https://www.youtube.com/@XGames", { territory:"GLOBAL", sourceIsProvider:true }),
+    "competition:olympic-games":viewingRights(["competition:olympic-games", "olympics"], ["stan", "nine"], null),
+    "competition:commonwealth-games":viewingRights(["competition:commonwealth-games", "cwg"], ["seven"], null),
+    "competition:australian-hockey":viewingRights(["competition:hockey-one", "competition:hockeyroos", "competition:kookaburras"], ["seven"], null),
+    "competition:swimming-australia":viewingRights(["competition:swimming-australia", "pan-pacs"], ["nine"], null),
+    "competition:world-gymnastics":viewingRights(["competition:world-gymnastics", "competition:fig-gymnastics"], ["sbs"], null),
+    "competition:australian-athletics":viewingRights(["competition:australian-athletics", "world-u20-athletics"], ["seven"], null),
+    "competition:sydney-marathon":viewingRights(["competition:sydney-marathon"], ["sbs"], null),
   });
 
   function uniqueAllowed(values, records){
@@ -429,12 +444,21 @@
   }
 
   function competitionRightsForEvent(event){
-    const tokens = [event?.competitionId, event?.sportDomainId, event?.sportId, event?.key, event?.competition, event?.competitionName]
-      .map(value => String(value || "").trim().toLowerCase())
+    const tokens = [event?.competitionId, event?.majorEventId, event?.sportDomainId, event?.sportId, event?.key, event?.competition, event?.competitionName, event?.name]
+      .map(value => String(value || "").trim().toLowerCase().replace(/^(?:competition|sport):/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""))
       .filter(Boolean);
-    return Object.values(COMPETITION_VIEWING_RIGHTS).find(rights => rights.competitionAliases.some(alias => (
-      tokens.some(token => token === alias || token.startsWith(`${alias}-`) || token.includes(alias.replace(/^competition:/, "")))
-    ))) || null;
+    const eventTime = Date.parse(event?.startsAt || event?.sportingStartsAt || event?.start || event?.date || "");
+    const eventKey = String(event?.key || "").toLowerCase();
+    return [...Object.values(COMPETITION_VIEWING_RIGHTS)]
+      .sort((left, right) => (Number(right.matchPriority) || 0) - (Number(left.matchPriority) || 0))
+      .find(rights => {
+        if (rights.eventKeys && eventKey && !rights.eventKeys.includes(eventKey)) return false;
+        if (Number.isFinite(eventTime) && ((rights.notBefore && eventTime < Date.parse(rights.notBefore)) || (rights.notAfter && eventTime > Date.parse(rights.notAfter)))) return false;
+        return rights.competitionAliases.some(rawAlias => {
+          const alias = String(rawAlias || "").toLowerCase().replace(/^(?:competition|sport):/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+          return tokens.some(token => token === alias || (alias.length >= 3 && token.startsWith(`${alias}-`)) || (alias.length >= 4 && token.includes(alias)));
+        });
+      }) || null;
   }
 
   function providerIdForOption(option){
@@ -448,13 +472,30 @@
     return Object.entries(VIEWING_PROVIDERS).find(([, provider]) => provider.aliases.some(alias => text.includes(alias)))?.[0] || null;
   }
 
+  function trustedProviderIdForOption(event, option){
+    const providerId = providerIdForOption(option);
+    if (!providerId || (option && typeof option === "object" && option.sourceUrl && option.verifiedAt)) return providerId;
+    const text = typeof option === "string" ? option : [option?.broadcasterName, option?.serviceLabel, option?.platform, option?.channelBrand].filter(Boolean).join(" ");
+    if (/\b(?:supersport|eurosport|sky sports|watchespn|watch nrl)\b/i.test(text)) return null;
+    const key = String(event?.key || "").toLowerCase();
+    if (key === "wsl" && providerId === "paramount") return null;
+    if (["ski", "telemark"].includes(key) && /\bfis broadcast\b/i.test(text)) return null;
+    return providerId;
+  }
+
   function viewingOptions(event, selectedProviderIds = []){
     const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
     const explicitOptions = [event?.broadcaster, ...(event?.broadcastOptions || []), ...(event?.viewingOptions || [])].filter(Boolean);
-    explicitOptions.map(providerIdForOption).filter(Boolean).forEach(id => broadcasterIds.add(id));
+    explicitOptions.map(option => trustedProviderIdForOption(event, option)).filter(Boolean).forEach(id => broadcasterIds.add(id));
     const rights = competitionRightsForEvent(event);
     const isGrandFinal = /\bgrand\s+final\b/i.test([event?.stage, event?.roundLabel, event?.round, event?.name].filter(Boolean).join(" "));
-    const rightsProviderIds = rights ? [...(isGrandFinal && rights.grandFinalProviderIds ? rights.grandFinalProviderIds : rights.providerIds)] : [];
+    const fixtureProviderIds = Array.from(new Set(explicitOptions
+      .filter(option => option && typeof option === "object" && option.rightsScope === "fixture")
+      .map(option => trustedProviderIdForOption(event, option))
+      .filter(Boolean)));
+    const rightsProviderIds = fixtureProviderIds.length
+      ? fixtureProviderIds
+      : rights ? [...(isGrandFinal && rights.grandFinalProviderIds ? rights.grandFinalProviderIds : rights.providerIds)] : [];
     if (rightsProviderIds.length){
       broadcasterIds.clear();
       rightsProviderIds.forEach(id => broadcasterIds.add(id));
@@ -476,9 +517,9 @@
       })
       .map(providerId => {
         const provider = VIEWING_PROVIDERS[providerId];
-        const explicit = explicitOptions.find(option => providerIdForOption(option) === providerId);
+        const explicit = explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
         const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
-        const webUrl = explicitObject.webUrl || explicitObject.url || rights?.providerUrls?.[providerId] || provider.webUrl;
+        const webUrl = explicitObject.webUrl || explicitObject.url || rights?.providerUrls?.[providerId] || (rights?.sourceIsProvider ? rights.sourceUrl : null) || provider.webUrl;
         return {
           providerId,
           ...provider,
@@ -487,7 +528,7 @@
           territory:explicitObject.territory || provider.territory || rights?.territory || "AU",
           accessType:explicitObject.accessType || provider.accessType || (provider.paid ? "subscription" : "free"),
           liveOrReplay:completed ? "replay" : "live",
-          rightsScope:explicitObject.rightsScope || rights?.rightsScope || "fixture",
+          rightsScope:explicitObject.rightsScope || (fixtureProviderIds.length ? "fixture" : rights?.rightsScope) || "fixture",
           sourceUrl:explicitObject.sourceUrl || rights?.sourceUrl || null,
           verifiedAt:explicitObject.verifiedAt || rights?.verifiedAt || null,
         };
@@ -526,6 +567,7 @@
     shouldPromptRefinement,
     normalizeDirectoryRank,
     directoryEntityLabel,
+    competitionRightsForEvent,
     viewingOptions,
     viewingLink,
   });
