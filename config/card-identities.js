@@ -316,6 +316,64 @@
   const AFL_CREST_SOURCE = "https://www.afl.com.au/resources/v5.52.26/i/svg-output/icons.svg";
   const aflCrestAsset = (slug, variant = "") => `/assets/teams/afl/${slug}${variant}.svg`;
 
+  const NBA_LOGO_IDS = Object.freeze({
+    "team:nba:atlanta-hawks":1610612737, "team:nba:boston-celtics":1610612738,
+    "team:nba:brooklyn-nets":1610612751, "team:nba:charlotte-hornets":1610612766,
+    "team:nba:chicago-bulls":1610612741, "team:nba:cleveland-cavaliers":1610612739,
+    "team:nba:detroit-pistons":1610612765, "team:nba:indiana-pacers":1610612754,
+    "team:nba:miami-heat":1610612748, "team:nba:milwaukee-bucks":1610612749,
+    "team:nba:new-york-knicks":1610612752, "team:nba:orlando-magic":1610612753,
+    "team:nba:philadelphia-76ers":1610612755, "team:nba:toronto-raptors":1610612761,
+    "team:nba:washington-wizards":1610612764, "team:nba:dallas-mavericks":1610612742,
+    "team:nba:denver-nuggets":1610612743, "team:nba:golden-state-warriors":1610612744,
+    "team:nba:houston-rockets":1610612745, "team:nba:la-clippers":1610612746,
+    "team:nba:los-angeles-lakers":1610612747, "team:nba:memphis-grizzlies":1610612763,
+    "team:nba:minnesota-timberwolves":1610612750, "team:nba:new-orleans-pelicans":1610612740,
+    "team:nba:oklahoma-city-thunder":1610612760, "team:nba:phoenix-suns":1610612756,
+    "team:nba:portland-trail-blazers":1610612757, "team:nba:sacramento-kings":1610612758,
+    "team:nba:san-antonio-spurs":1610612759, "team:nba:utah-jazz":1610612762,
+  });
+  const NBA_TEAM_LABELS = Object.freeze(Object.fromEntries(Object.keys(NBA_LOGO_IDS).map(id => [id, id.split(":").at(-1).split("-").map(word => word === "la" ? "LA" : word[0].toUpperCase() + word.slice(1)).join(" ")])));
+  const nbaTeamMarks = Object.freeze(Object.fromEntries(Object.entries(NBA_LOGO_IDS).map(([id, nbaId]) => {
+    const label = NBA_TEAM_LABELS[id];
+    const url = `https://cdn.nba.com/logos/nba/${nbaId}/global/L/logo.svg`;
+    return [id, teamMark(id, label, url, "https://www.nba.com/teams", [label], id === "team:nba:toronto-raptors" ? "CA" : "US")];
+  })));
+
+  const FLAG_SOURCE = "https://github.com/lipis/flag-icons";
+  function nationalFlagGroup(prefix, records){
+    return Object.freeze(Object.fromEntries(records.map(([slug, label, countryCode, aliases = [label]]) => {
+      const id = `team:${prefix}:${slug}`;
+      return [id, nationalFlagMark(id, label, countryCode, FLAG_SOURCE, aliases)];
+    })));
+  }
+  const fifaNationalMarks = nationalFlagGroup("football:national", [
+    ["australia", "Australia", "AU"], ["turkiye", "Türkiye", "TR", ["Türkiye", "Turkey"]],
+    ["usa", "USA", "US", ["USA", "United States"]], ["paraguay", "Paraguay", "PY"],
+    ["egypt", "Egypt", "EG"], ["canada", "Canada", "CA"], ["morocco", "Morocco", "MA"],
+    ["france", "France", "FR"], ["brazil", "Brazil", "BR"], ["norway", "Norway", "NO"],
+    ["mexico", "Mexico", "MX"], ["england", "England", "GB"], ["portugal", "Portugal", "PT"],
+    ["spain", "Spain", "ES"], ["belgium", "Belgium", "BE"], ["argentina", "Argentina", "AR"],
+    ["switzerland", "Switzerland", "CH"], ["colombia", "Colombia", "CO"],
+  ]);
+  const rugbyLeagueNationalMarks = nationalFlagGroup("nrl:national", [
+    ["australia", "Australia", "AU"], ["new-zealand", "New Zealand", "NZ"],
+    ["fiji", "Fiji", "FJ"], ["cook-islands", "Cook Islands", "CK"],
+  ]);
+  const netballNationalMarks = nationalFlagGroup("netball:national", [
+    ["australia", "Australia", "AU"], ["england", "England", "GB"], ["malawi", "Malawi", "MW"],
+    ["south-africa", "South Africa", "ZA"], ["jamaica", "Jamaica", "JM"],
+  ]);
+  function participantsForMarks(marks){
+    return Object.freeze(Object.entries(marks).map(([id, mark]) => Object.freeze({
+      id, canonicalName:mark.label, displayName:mark.label, shortName:mark.label,
+      metadata:Object.freeze({ titleAliases:mark.aliases || [mark.label] }),
+    })));
+  }
+  const fifaNationalParticipants = participantsForMarks(fifaNationalMarks);
+  const rugbyLeagueNationalParticipants = participantsForMarks(rugbyLeagueNationalMarks);
+  const netballNationalParticipants = participantsForMarks(netballNationalMarks);
+
   const participantMarks = Object.freeze(Object.fromEntries([
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/", {
       logo: {
@@ -340,6 +398,10 @@
     ...Object.entries(rugbyTeamMarks),
     ...Object.entries(f1TeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
+    ...Object.entries(nbaTeamMarks),
+    ...Object.entries(fifaNationalMarks),
+    ...Object.entries(rugbyLeagueNationalMarks),
+    ...Object.entries(netballNationalMarks),
   ]));
   const identityParticipants = Object.freeze(Object.fromEntries(Object.entries(participantMarks).map(([id, mark]) => [id, Object.freeze({
     id,
@@ -404,6 +466,9 @@
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "premier-league") footballParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (["fifa", "football"].includes(event?.key)) fifaNationalParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (event?.key === "nrl") rugbyLeagueNationalParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (["netball", "cwg"].includes(event?.key)) netballNationalParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
   function directoryMarkForParticipant(participant){
@@ -423,6 +488,7 @@
     let label = String(value || "").trim();
     if (side === 0 && /\s[—–]\s/.test(label)) label = label.split(/\s[—–]\s/).pop().trim();
     if (side === 1 && /\s[—–]\s/.test(label)) label = label.split(/\s[—–]\s/)[0].trim();
+    label = label.replace(/\s+(?:[—–-])\s+(?:group|round|quarterfinal|semifinal|semi final|preliminary final|grand final|final)\b.*$/i, "").trim();
     return label || "Team";
   }
   function matchupSidesForEvent(event, participants, title = ""){

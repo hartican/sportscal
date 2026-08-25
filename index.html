@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="138">
+<meta name="app-shell-version" content="139">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -1760,7 +1760,7 @@ main{
 
 .matchup-identity-row{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+  grid-template-columns:minmax(0, 1fr) minmax(54px, auto) minmax(0, 1fr);
   place-items:center;
   gap:clamp(14px, 5vw, 30px);
   height:92px;
@@ -1770,7 +1770,7 @@ main{
 
 .matchup-team-name-row{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+  grid-template-columns:minmax(0, 1fr) minmax(28px, auto) minmax(0, 1fr);
   align-items:center;
   gap:clamp(18px, 7vw, 44px);
   margin:0 auto 2px;
@@ -1794,17 +1794,18 @@ main{
 }
 
 .matchup-vs{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
+  position:static;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:center;
   color:var(--text-faint);
   font-size:0.78rem;
   font-weight:800;
   text-transform:lowercase;
 }
 
-.matchup-stage-vs{ position:absolute; left:50%; transform:translateX(-50%); display:grid; place-items:center; gap:3px; align-self:center; }
-.matchup-stage-vs .matchup-vs{ position:static; transform:none; }
+.matchup-stage-slot{ min-width:54px; display:flex; align-items:flex-start; justify-content:center; align-self:start; padding-top:3px; position:relative; z-index:2; }
 .matchup-stage-badge{ padding:3px 7px; border:1px solid color-mix(in srgb,var(--sport-color) 70%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--sport-color) 13%,var(--bg-card)); color:var(--text); font-size:.58rem; font-weight:950; letter-spacing:.055em; line-height:1; text-transform:uppercase; }
 .follow-reason-tag{ display:inline-flex; align-items:center; width:fit-content; max-width:100%; margin:0 0 8px; padding:5px 9px; border:1px solid color-mix(in srgb,var(--accent) 38%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--accent) 8%,transparent); color:var(--accent); font-size:.66rem; font-weight:850; line-height:1.25; }
 .event-quick-actions{ display:flex; flex-wrap:wrap; gap:7px; margin-left:auto; }
@@ -4708,7 +4709,7 @@ main{
 /* ---------- Toast ---------- */
 .toast{
   position: fixed;
-  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%) translateY(20px);
   background: var(--bg-card);
@@ -4722,7 +4723,8 @@ main{
   z-index: 100;
   opacity: 0;
   pointer-events:none;
-  transition: all 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  contain: layout paint;
   text-align:center;
 }
 
@@ -5713,6 +5715,136 @@ body.header-compact-3 .brand .slogan{ display:none; }
   min-height: 1px;
   width: 100%;
 }
+
+/* Mobile-first interaction and spacing contract.  The painted controls stay
+   compact while the transparent pseudo-element preserves a 44px tap area. */
+:root{
+  --card-action-height:34px;
+  --card-action-pad-x:11px;
+  --card-tag-height:22px;
+  --card-pill-radius:999px;
+}
+.event-quick-action,
+.major-event-ticket-link,
+.major-event-match-action,
+.open-in-events-link,
+.major-event-marker-open,
+.ticket-link,
+.code-inspector-feed-action{
+  position:relative;
+  box-sizing:border-box;
+  min-width:0;
+  min-height:var(--card-action-height);
+  height:var(--card-action-height);
+  padding:5px var(--card-action-pad-x);
+  border:1px solid var(--border);
+  border-radius:var(--card-pill-radius);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background:var(--soft-fill);
+  color:var(--text);
+  font:800 .69rem/1 'DM Sans',sans-serif;
+  text-align:center;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.event-quick-action::after,
+.major-event-ticket-link::after,
+.major-event-match-action::after,
+.open-in-events-link::after,
+.major-event-marker-open::after,
+.ticket-link::after,
+.code-inspector-feed-action::after{
+  content:"";
+  position:absolute;
+  inset:-5px 0;
+}
+.event-quick-action:focus-visible,
+.major-event-ticket-link:focus-visible,
+.major-event-match-action:focus-visible,
+.open-in-events-link:focus-visible,
+.major-event-marker-open:focus-visible,
+.ticket-link:focus-visible,
+.code-inspector-feed-action:focus-visible{
+  outline:3px solid color-mix(in srgb,var(--accent) 70%,transparent);
+  outline-offset:3px;
+}
+.event-quick-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:center;
+  gap:10px;
+  width:100%;
+  margin-left:0;
+}
+.event-quick-action{ width:100%; }
+.event-quick-action span:last-child{ min-width:4.8em; }
+.event-quick-explanation{ grid-column:1 / -1; margin:0; color:var(--text-dim); font-size:.66rem; line-height:1.35; overflow-wrap:anywhere; }
+.open-in-events-link,.major-event-marker-open{ border-color:color-mix(in srgb,var(--accent) 50%,var(--border)); color:var(--accent); }
+.major-event-ticket-link{ border-color:var(--ticket-action-border); background:var(--ticket-action-bg); color:var(--ticket-action-text); }
+.new-tag,
+.follow-reason-tag,
+.matchup-stage-badge,
+.today-flag,
+.badge{
+  box-sizing:border-box;
+  min-height:var(--card-tag-height);
+  height:var(--card-tag-height);
+  padding:3px 7px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+  vertical-align:middle;
+}
+.follow-global-toggle{
+  width:100%;
+  min-height:58px;
+  margin:10px 0 12px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:var(--soft-fill);
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+}
+.follow-global-toggle.active{ border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.follow-global-toggle span{ min-width:0; display:grid; gap:3px; }
+.follow-global-toggle small{ color:var(--text-dim); font-size:.68rem; line-height:1.35; }
+.follow-global-toggle b{ flex:0 0 auto; color:var(--accent); text-transform:uppercase; font-size:.68rem; letter-spacing:.06em; }
+
+@media (max-width:430px){
+  .cards-grid{ gap:12px; }
+  .cards-grid > .event-card,
+  .cards-grid > .event-card.is-logo-led-matchup{
+    padding:12px 14px 18px;
+  }
+  .event-main > * + *{ margin-top:10px; }
+  .event-date-line,.event-meta-row,.rating-row,.badges{ gap:10px; }
+  .matchup-identity-row{
+    grid-template-columns:minmax(0,1fr) minmax(52px,auto) minmax(0,1fr);
+    gap:8px;
+    height:82px;
+    padding-inline:0;
+  }
+  .matchup-team-name-row{
+    grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);
+    gap:6px;
+    padding-inline:0;
+  }
+  .matchup-team-logo-slot{ width:min(100%,76px); height:78px; }
+  .matchup-stage-slot{ min-width:52px; }
+  .major-event-ticket-row{ gap:10px; }
+  .major-event-match-action,
+  .code-inspector-feed-action{ width:100%; min-height:var(--card-action-height); height:var(--card-action-height); }
+}
 </style>
 </head>
 <body>
@@ -5790,7 +5922,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
 </footer>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <div class="tune-sheet-backdrop" id="tuneSheet" aria-hidden="true">
   <section class="tune-sheet" role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle" aria-describedby="tuneSheetDescription">
@@ -6411,7 +6543,7 @@ function appendTeamIdentityFallback(container, mark, label, className = "team-lo
   const monogram = document.createElement("span");
   monogram.className = `${className} team-logo-monogram`;
   monogram.setAttribute("aria-label", label);
-  monogram.textContent = String(label || mark?.label || "?").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
+  monogram.textContent = String(label || mark?.label || "TBC").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "TBC";
   container.appendChild(monogram);
 }
 
@@ -6438,7 +6570,7 @@ function buildMatchupIdentity(ev, displayTitle){
   const row = document.createElement("div");
   row.className = "matchup-identity-row";
   row.setAttribute("aria-label", `${identities[0].label} versus ${identities[1].label}`);
-  identities.forEach(({ mark, label }) => {
+  const buildLogoSlot = ({ mark, label }) => {
     const slot = document.createElement("div");
     const surface = mark?.logo?.[useDark ? "backgroundDark" : "backgroundLight"] || "light";
     slot.className = `matchup-team-logo-slot matchup-logo-surface-${surface === "dark" ? "dark" : "light"}`;
@@ -6467,8 +6599,20 @@ function buildMatchupIdentity(ev, displayTitle){
       }, { once: true });
       slot.appendChild(logo);
     }
-    row.appendChild(slot);
-  });
+    return slot;
+  };
+  row.appendChild(buildLogoSlot(identities[0]));
+  const stageSlot = document.createElement("div");
+  stageSlot.className = "matchup-stage-slot";
+  const stageLabel = FOLLOW_FIRST?.stageLabel?.(ev) || "";
+  if (stageLabel){
+    const stage = document.createElement("span");
+    stage.className = "matchup-stage-badge";
+    stage.textContent = stageLabel;
+    stageSlot.appendChild(stage);
+  }
+  row.appendChild(stageSlot);
+  row.appendChild(buildLogoSlot(identities[1]));
   const teamNames = document.createElement("div");
   teamNames.className = "matchup-team-name-row";
   teamNames.setAttribute("aria-hidden", "true");
@@ -6478,20 +6622,10 @@ function buildMatchupIdentity(ev, displayTitle){
   const versus = document.createElement("span");
   versus.className = "matchup-vs";
   versus.textContent = "v";
-  const stageVersus = document.createElement("span");
-  stageVersus.className = "matchup-stage-vs";
-  const stageLabel = FOLLOW_FIRST?.stageLabel?.(ev) || "";
-  if (stageLabel){
-    const stage = document.createElement("span");
-    stage.className = "matchup-stage-badge";
-    stage.textContent = stageLabel;
-    stageVersus.appendChild(stage);
-  }
-  stageVersus.appendChild(versus);
   const secondTeam = document.createElement("span");
   secondTeam.className = "matchup-team-name";
   secondTeam.textContent = identities[1].label;
-  teamNames.append(firstTeam, stageVersus, secondTeam);
+  teamNames.append(firstTeam, versus, secondTeam);
   identity.append(row, teamNames);
   return identity;
 }
@@ -6841,6 +6975,12 @@ const AFL_DIRECTORY_CONFIG = Object.freeze({
   indexScriptUrl: "data/canonical/afl-follow-index.v1.js",
 });
 
+const FOLLOW_DIRECTORY_CONFIG = Object.freeze({
+  manifestUrl:"data/follow-directory/manifest.v1.json",
+  manifestScriptUrl:"data/follow-directory/manifest.v1.js",
+  chunkBaseUrl:"data/follow-directory",
+});
+
 const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
   defaultWeight: 0,
   profiles: [],
@@ -7135,6 +7275,11 @@ let aflDirectoryLoading = false;
 let aflDirectoryError = null;
 let aflFollowIndex = null;
 let aflFollowIndexLoading = null;
+let followDirectoryManifest = null;
+let followDirectoryManifestLoading = null;
+const followDirectoryChunks = new Map();
+const followDirectoryChunkLoading = new Map();
+const followDirectoryChunkErrors = new Map();
 let footballCoreLoading = null;
 const footballFixtureEventsByBundle = new Map();
 let footballDirectorySearchTimer = null;
@@ -7984,6 +8129,14 @@ async function localNotificationRegistration(){
   const registration = installedServiceWorkerRegistration
     || await navigator.serviceWorker.register("/service-worker.js");
   installedServiceWorkerRegistration = registration;
+  if (Notification.permission === "default" && userPreferences.followFirst?.notifications?.permissionPromptedAt){
+    throw new Error("Notification permission was already requested. Enable it in this app's system settings to use reminders.");
+  }
+  if (Notification.permission === "default"){
+    const prompted = clonePreferences(userPreferences);
+    prompted.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+    savePreferences(prompted);
+  }
   const permission = await requestBrowserAlerts();
   if (permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
   if (permission !== "granted") throw new Error("Notification permission was not granted.");
@@ -8798,6 +8951,57 @@ async function loadFootballAsset({ url, scriptUrl, globalName }){
     throw new Error(`${url} returned ${response.status}`);
   }
   return response.json();
+}
+
+async function loadFollowDirectoryManifest(){
+  if (followDirectoryManifest) return followDirectoryManifest;
+  if (followDirectoryManifestLoading) return followDirectoryManifestLoading;
+  followDirectoryManifestLoading = (async () => {
+    if (globalThis.location?.protocol === "file:"){
+      await loadDeferredScript(FOLLOW_DIRECTORY_CONFIG.manifestScriptUrl);
+      return globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST;
+    }
+    try { return await fetchJson(FOLLOW_DIRECTORY_CONFIG.manifestUrl, { cache:"no-cache" }); }
+    catch (_error){
+      await loadDeferredScript(FOLLOW_DIRECTORY_CONFIG.manifestScriptUrl);
+      return globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST;
+    }
+  })().then(manifest => {
+    if (!manifest || manifest.schemaVersion !== "follow-directory-manifest.v1") throw new Error("Follow directory manifest was unavailable");
+    followDirectoryManifest = manifest;
+    return manifest;
+  }).finally(() => { followDirectoryManifestLoading = null; });
+  return followDirectoryManifestLoading;
+}
+
+async function loadFollowDirectoryChunk(sportKey){
+  if (followDirectoryChunks.has(sportKey)) return followDirectoryChunks.get(sportKey);
+  if (followDirectoryChunkLoading.has(sportKey)) return followDirectoryChunkLoading.get(sportKey);
+  const loading = (async () => {
+    const manifest = await loadFollowDirectoryManifest();
+    const record = manifest.sports.find(item => item.key === sportKey);
+    if (!record) throw new Error(`${sportKey} is not in the Follow directory manifest`);
+    let chunk;
+    if (globalThis.location?.protocol === "file:"){
+      await loadDeferredScript(record.scriptUrl);
+      chunk = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS?.[sportKey];
+    } else {
+      try { chunk = await fetchJson(record.jsonUrl, { cache:"no-cache" }); }
+      catch (_error){
+        await loadDeferredScript(record.scriptUrl);
+        chunk = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS?.[sportKey];
+      }
+    }
+    if (!chunk || chunk.sportKey !== sportKey) throw new Error(`${sportKey} Follow directory chunk was invalid`);
+    followDirectoryChunks.set(sportKey, chunk);
+    followDirectoryChunkErrors.delete(sportKey);
+    return chunk;
+  })().catch(error => {
+    followDirectoryChunkErrors.set(sportKey, error);
+    throw error;
+  }).finally(() => followDirectoryChunkLoading.delete(sportKey));
+  followDirectoryChunkLoading.set(sportKey, loading);
+  return loading;
 }
 
 function pruneUnavailableFootballFollows(directory){
@@ -10163,7 +10367,7 @@ function setMajorEventFixtureAdded(subEvent, parent, enabled){
   updateEventAction(fixture, {
     addedToFixtures: Boolean(enabled),
     addedToFixturesAt: enabled ? (action.addedToFixturesAt || new Date().toISOString()) : null,
-    addedFixture: fixture,
+    addedFixture:{ ...fixture, cardKind:"fixture", manualPin:true },
   });
   recordEventFeedAction(fixture, enabled ? "added_to_fixtures" : "removed_from_fixtures", { surface: "event_card", recommendationClass: "direct" });
   return true;
@@ -10201,22 +10405,11 @@ function refreshAddedFixtureSnapshots(){
   return changed;
 }
 
-function mainFeedMajorEventMarkers(){
-  const markers = MAJOR_EVENTS?.markerEvents?.(userPreferences.followedSports, nowAEST()) || [];
-  if (!majorEventsDocument?.events?.length) return [];
-  return markers.filter(marker => {
-    const record = majorEventsDocument.events.find(candidate => candidate.id === marker.majorEventId);
-    return record && Boolean(eventFollowReason(majorEventActionEvent(record)));
-  });
-}
-
 function mergeMainFeedSpecialEvents(events){
-  const markers = mainFeedMajorEventMarkers();
-  const replacementIds = new Set(markers.flatMap(marker => marker.replacesFixtureIds || []));
   const merged = new Map(events
-    .filter(event => !replacementIds.has(String(event.eventId || event.id)))
+    .filter(event => event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event")
     .map(event => [String(event.eventId || event.id), event]));
-  const specialEvents = [...selectedMajorEventFixtures(), ...markers]
+  const specialEvents = selectedMajorEventFixtures()
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event));
   specialEvents.forEach(event => {
     const id = String(event.eventId || event.id);
@@ -11588,9 +11781,9 @@ function codeInspectorCoverageCopy(code){
 }
 
 function codeInspectorGroupLabel(fixture, groupingMode){
-  if (groupingMode === "stage") return fixture.stage || "Stage TBC";
+  if (groupingMode === "stage") return FOLLOW_FIRST?.normalizedFixtureGroupLabel?.(fixture.stage) || "Other fixtures";
   if (groupingMode === "round") return fixture.roundLabel && fixture.roundLabel !== "all"
-    ? fixture.roundLabel
+    ? FOLLOW_FIRST?.normalizedFixtureGroupLabel?.(fixture.roundLabel) || fixture.roundLabel
     : fixture.roundNumber !== null && fixture.roundNumber !== undefined && Number.isFinite(Number(fixture.roundNumber))
       ? `Round ${fixture.roundNumber}`
       : "Other fixtures";
@@ -11681,6 +11874,8 @@ function codeInspectorFixtureSnapshot(fixture){
     eventId:fixture.id,
     canonicalEventId:fixture.id,
     actionKey:fixture.id,
+    cardKind:"fixture",
+    manualPin:true,
     key:codeInspectorFixtureSportKey(fixture),
     sport:codeInspectorManifest?.codes?.find(code => code.id === fixture.codeId)?.label || codeInspectorFixtureSportKey(fixture),
     competitionId:fixture.competitionId || null,
@@ -11692,6 +11887,9 @@ function codeInspectorFixtureSnapshot(fixture){
     broadcaster:fixture.broadcaster || "",
     stage:fixture.stage || null,
     roundLabel:fixture.roundLabel || null,
+    competitionScope:fixture.competitionScope || null,
+    isInternational:fixture.isInternational === true || fixture.competitionScope === "international",
+    representativeCountryCodes:Array.isArray(fixture.representativeCountryCodes) ? fixture.representativeCountryCodes : [],
     participantIds:participantSlots.map(slot => slot.participantId).filter(Boolean),
     participants:participantSlots.map(slot => ({ id:slot.participantId || null, name:slot.label || "TBC" })),
     status:"scheduled",
@@ -11955,7 +12153,13 @@ function renderCodeInspector(){
     group.push(fixture);
     grouped.set(label, group);
   });
-  const groupLabels = [...grouped.keys()];
+  grouped.forEach(group => group.sort((first, second) => (
+    String(first.date || "9999-12-31").localeCompare(String(second.date || "9999-12-31"))
+    || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
+    || String(first.id || "").localeCompare(String(second.id || ""))
+  )));
+  const groupLabels = [...grouped.keys()].sort((first, second) => FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second)
+    ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
   if (!codeInspectorGroup || !grouped.has(codeInspectorGroup)){
     const todayKey = formatDateKey(nowAEST());
     const nextFixture = fixtures.find(fixture => fixture.date && fixture.date >= todayKey);
@@ -12046,15 +12250,6 @@ function followedParticipantLabel(participantId){
 }
 
 function eventFollowReason(ev){
-  if (getEventAction(ev).addedToFixtures){
-    return {
-      type:"manualPin",
-      entityKind:"fixture",
-      id:String(ev?.eventId || ev?.id || ""),
-      label:null,
-      displayTag:false,
-    };
-  }
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
     ...(TEAM_FOLLOW_CATALOGUE?.participantIdsForEvent?.(ev) || []),
@@ -12082,9 +12277,19 @@ function eventFollowReason(ev){
       displayTag:true,
     };
   }
+  if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
+    return {
+      type:"manualPin",
+      entityKind:"fixture",
+      id:String(ev?.eventId || ev?.id || ""),
+      label:null,
+      displayTag:false,
+    };
+  }
   const eligibilityEvent = {
     ...ev,
     participantIds:eventParticipantIds,
+    stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev)),
   };
   return FOLLOW_FIRST?.reasonForEvent?.(eligibilityEvent, userPreferences, {
     participantLabel:followedParticipantLabel,
@@ -13133,6 +13338,17 @@ async function toggleQuickReminder(ev, button){
   const action = getEventAction(ev);
   const enabled = !action.reminderRequested;
   button.disabled = true;
+  const actions = button.closest(".event-quick-actions");
+  const showExplanation = message => {
+    let explanation = actions?.querySelector(".event-quick-explanation");
+    if (!message){ explanation?.remove(); return; }
+    if (!explanation){
+      explanation = document.createElement("p");
+      explanation.className = "event-quick-explanation";
+      actions?.appendChild(explanation);
+    }
+    explanation.textContent = message;
+  };
   try{
     if (enabled){
       await localNotificationRegistration();
@@ -13141,13 +13357,18 @@ async function toggleQuickReminder(ev, button){
     }
     updateEventAction(ev, { reminderRequested:enabled });
     recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
+    if (enabled) recordWatchDecision(ev, "remind", { surface:"event_card" });
     button.setAttribute("aria-pressed", String(enabled));
     button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
+    showExplanation("");
     showToast(enabled
       ? `Local reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}. Keep nothingSport open.`
       : "Reminder removed.");
   }catch(error){
-    showToast(error?.message || "Notifications could not be enabled on this device.");
+    const message = error?.message || "Notifications could not be enabled on this device.";
+    button.setAttribute("aria-pressed", "false");
+    showExplanation(message);
+    showToast(message);
   }finally{
     button.disabled = false;
   }
@@ -13410,12 +13631,6 @@ function buildEventCard(ev, options = {}){
     const b = document.createElement("span");
     b.className = "badge editorial";
     b.innerHTML = `${VECTOR_ASSETS.editorialMarkup(enrichment.storyline.visibleLabel, { className: "semantic-badge-glyph", label: displayLabel, preferImage: true })}<span>${displayLabel}</span>`;
-    badges.appendChild(b);
-  }
-  if (ev.australianInterest){
-    const b = document.createElement("span");
-    b.className = "badge local-game";
-    b.innerHTML = `${glyphMarkup("ui:map-pin", { className: "semantic-badge-glyph", preferImage: true })}<span>AU interest</span>`;
     badges.appendChild(b);
   }
   if (recommendationProfile.label){
@@ -13777,11 +13992,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   if (!reminderEligible) reminder.title = "A reminder needs an exact or not-before published time.";
   reminder.addEventListener("click", () => {
     if (!reminderEligible) return;
-    const reminderOn = Boolean(action.reminderRequested);
-    updateEventAction(event, { reminderRequested: !reminderOn });
-    recordEventFeedAction(event, reminderOn ? "reminder_removed" : "reminder", { surface: "event_card", recommendationClass: "direct" });
-    if (!reminderOn) recordWatchDecision(event, "remind", { surface: "event_card" });
-    renderCurrentSection();
+    void toggleQuickReminder(event, reminder);
   });
   actions.append(reminder);
   row.append(orderCopy, copy, actions);
@@ -14078,17 +14289,8 @@ function jointTournamentFeedEvent(document = jointTournamentData){
 }
 
 function jointTournamentShouldSurface(document = jointTournamentData){
-  if (!jointTournamentIsActive(document)) return false;
-  const tournamentEvent = jointTournamentFeedEvent(document);
-  if (!tournamentEvent) return false;
-  const focused = activeFilter !== "all";
-  if (focused) return feedFilterMatchesEvent(activeFilter, tournamentEvent);
-  ensureDiscoverySessionInclusion();
-  if (!discoverySessionIncludedSportIds.includes("sport:tennis")) return false;
-  const profile = eventRecommendationProfile(tournamentEvent);
-  return userPreferences.feedIntent === "focused"
-    ? eventMeetsCoveragePreference(tournamentEvent)
-    : profile.eligible;
+  void document;
+  return false;
 }
 
 function appendJointTournamentCard(container){
@@ -15158,7 +15360,7 @@ function readStandingsDirectorySession(preferences = userPreferences){
     return {
       ...fallback,
       activeView: parsed.activeView === "directory" ? "directory" : "tables",
-      directorySportKey: ["football", "nrl", "afl", "rugby", "cricket", "tennis"].includes(parsed.directorySportKey) ? parsed.directorySportKey : "football",
+      directorySportKey: BASE_SPORT_SELECTOR_ENTITIES.some(entity => entity.id === `sport:${parsed.directorySportKey}`) ? parsed.directorySportKey : "football",
       filtersBySport: parsed.filtersBySport && typeof parsed.filtersBySport === "object" && !Array.isArray(parsed.filtersBySport) ? parsed.filtersBySport : {},
     };
   }catch(_error){
@@ -15183,6 +15385,8 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     teamId: typeof raw.teamId === "string" ? raw.teamId : "",
     birthCountryCode: typeof raw.birthCountryCode === "string" ? raw.birthCountryCode : "",
     prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
+    sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
+    genderCategory: ["male", "female", "mixed", "unknown"].includes(raw.genderCategory) ? raw.genderCategory : "",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
     expandedTeamId: typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "",
   };
@@ -15542,8 +15746,10 @@ function footballLeagueKeyForId(leagueId){
 }
 
 function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
+  const preservedScrollY = window.scrollY;
+  const preserveViewport = () => window.requestAnimationFrame(() => window.scrollTo({ top:preservedScrollY, behavior:"auto" }));
   const next = clonePreferences(userPreferences);
-  const sportSelectorId = ["football", "nrl", "afl"].includes(sportKey) ? `sport:${sportKey}` : null;
+  const sportSelectorId = BASE_SPORT_SELECTOR_ENTITIES.some(entity => entity.id === `sport:${sportKey}`) ? `sport:${sportKey}` : null;
   if (["follow", "priority"].includes(followLevel) && sportSelectorId && !selectorEntityIsEffectivelySelected(sportSelectorId, next)){
     next.selectedSelectorEntityIds = normalizeSelectorEntityIds([...(next.selectedSelectorEntityIds || []), sportSelectorId]);
     next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
@@ -15560,17 +15766,22 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
       const leagueKey = footballLeagueKeyForId(leagueId);
       await (leagueKey ? loadFootballLeagueFixtures(leagueKey) : loadFootballFixturesForCurrentFollows());
       rebuildDerivedCardCache(activeEvents);
-      renderAll({ preserveViewport: true });
+      if (activeTab !== "follow") renderAll({ preserveViewport: true });
+      else renderTabCounts();
+      preserveViewport();
     });
   }
   if (sportKey === "nrl" || sportKey === "afl"){
     const loadIndex = sportKey === "nrl" ? loadNrlFollowIndex : loadAflFollowIndex;
     void loadIndex().then(() => {
       rebuildDerivedCardCache(activeEvents);
-      renderAll({ preserveViewport: true });
+      if (activeTab !== "follow") renderAll({ preserveViewport: true });
+      else renderTabCounts();
+      preserveViewport();
     });
   }
-  renderStandingsContext();
+  renderTabCounts();
+  preserveViewport();
 }
 
 function buildDirectorySelect(label, value, options, onChange){
@@ -15631,11 +15842,13 @@ function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"
       updateDirectoryFilters(sportKey, { birthCountryCode }); renderStandingsContext();
     }));
   }
-  if (directory.players.some(player => player.prominenceTier)){
-    toolbar.appendChild(buildDirectorySelect("Prominence", filters.prominenceTier, [["", "All levels"], ["marquee", "Marquee"], ["established", "Established"], ["emerging", "Emerging"]], prominenceTier => {
-      updateDirectoryFilters(sportKey, { prominenceTier }); renderStandingsContext();
-    }));
-  }
+  const hasMarketValues = directory.players.some(player => Number.isFinite(Number(player.marketValue ?? player.marketValueEur)));
+  const sortOptions = [["table", sportKey === "football" ? "Table / ladder" : "Ranking / ladder"]];
+  if (hasMarketValues) sortOptions.push(["value", `Value · ${directory.valueSource?.label || "current source"}`]);
+  sortOptions.push(["alpha", "A–Z"]);
+  toolbar.appendChild(buildDirectorySelect("Sort", filters.sortMode, sortOptions, sortMode => {
+    updateDirectoryFilters(sportKey, { sortMode }); renderStandingsContext();
+  }));
   return toolbar;
 }
 
@@ -15768,8 +15981,8 @@ function renderFootballDirectory(container, {
   directory.appendChild(summary);
   const list = document.createElement("div");
   list.className = "football-club-list";
-  filtered.teams.sort((a, b) => a.displayName.localeCompare(b.displayName)).forEach(team => {
-    const players = (playersByTeam.get(team.id) || []).sort((a, b) => a.sortName.localeCompare(b.sortName));
+  filtered.teams.forEach(team => {
+    const players = playersByTeam.get(team.id) || [];
     const autoExpanded = Boolean(filters.query.trim() && players.length);
     list.appendChild(buildFootballClubRow(team, leagues.get(team.leagueId), players, autoExpanded || filters.expandedTeamId === team.id, sportKey));
   });
@@ -15784,18 +15997,59 @@ function renderFootballDirectory(container, {
 }
 
 function renderLegacyParticipantDirectory(container, sportKey){
-  const query = directoryFilters(sportKey).query.toLocaleLowerCase("en-AU");
-  const teamGroup = TEAM_FOLLOW_CATALOGUE.groups.find(group => group.domainId === `sport:${sportKey}`);
-  const teams = teamGroup?.sections.flatMap(section => section.teams.map(team => ({ ...team, sectionLabel: section.label }))) || [];
-  const canonicalDomainId = canonicalDomainIdForPreferenceDomain(`sport:${sportKey}`);
-  const canonicalParticipants = (canonicalSportsData?.participants || []).filter(participant => (
-    participant?.metadata?.active !== false
-    && ["team", "nationalSide", "competitor", "pair"].includes(participant.type)
-    && (participant.sportDomainId === canonicalDomainId || String(participant.sportDomainId || "").startsWith(`${canonicalDomainId}:`))
-  ));
-  const records = Array.from(new Map([...teams, ...canonicalParticipants]
-    .map(record => [record.id, record])).values())
-    .filter(record => !query || record.displayName.toLocaleLowerCase("en-AU").includes(query));
+  const chunk = followDirectoryChunks.get(sportKey);
+  if (!footballDirectoryApi || !chunk){
+    const state = document.createElement("div");
+    state.className = "standings-module football-directory-empty";
+    const failed = followDirectoryChunkErrors.has(sportKey);
+    state.textContent = failed
+      ? `${SPORT_META[sportKey]?.label || sportKey} teams and players are temporarily unavailable.`
+      : `Loading the current ${SPORT_META[sportKey]?.label || sportKey} directory…`;
+    if (failed){
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "btn ghost";
+      retry.textContent = "Retry";
+      retry.addEventListener("click", () => {
+        followDirectoryChunkErrors.delete(sportKey);
+        renderStandingsContext();
+      });
+      state.appendChild(retry);
+    }
+    container.appendChild(state);
+    if (!followDirectoryChunkLoading.has(sportKey)){
+      const scrollY = window.scrollY;
+      Promise.all([loadFootballDirectoryModule(), loadFollowDirectoryChunk(sportKey)])
+        .then(() => {
+          renderStandingsContext();
+          window.requestAnimationFrame(() => window.scrollTo({ top:scrollY, behavior:"auto" }));
+        }).catch(() => renderStandingsContext());
+    }
+    return;
+  }
+  const filters = directoryFilters(sportKey);
+  const allRecords = chunk.records.map(record => ({ ...record, rank:record.ranking ?? record.ladderPosition ?? null }));
+  const records = allRecords
+    .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
+    .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
+    .filter(record => Number.isFinite(footballDirectoryApi.searchMatchScore(record, filters.query)))
+    .sort((first, second) => {
+      if (filters.query){
+        const scoreDelta = footballDirectoryApi.searchMatchScore(first, filters.query) - footballDirectoryApi.searchMatchScore(second, filters.query);
+        if (scoreDelta) return scoreDelta;
+      }
+      if (filters.sortMode === "value"){
+        const left = Number(first.marketValue ?? first.marketValueEur);
+        const right = Number(second.marketValue ?? second.marketValueEur);
+        if (Number.isFinite(left) || Number.isFinite(right)) return (Number.isFinite(right) ? right : -1) - (Number.isFinite(left) ? left : -1);
+      }
+      if (filters.sortMode === "table"){
+        const left = Number(first.rank);
+        const right = Number(second.rank);
+        if (Number.isFinite(left) || Number.isFinite(right)) return (Number.isFinite(left) ? left : Number.MAX_SAFE_INTEGER) - (Number.isFinite(right) ? right : Number.MAX_SAFE_INTEGER);
+      }
+      return String(first.displayName || "").localeCompare(String(second.displayName || ""), "en-AU", { sensitivity:"base" });
+    });
   const directory = document.createElement("section");
   directory.className = "football-directory";
   const toolbar = document.createElement("div");
@@ -15805,7 +16059,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   field.textContent = "Search";
   const search = document.createElement("input");
   search.type = "search";
-  search.value = directoryFilters(sportKey).query;
+  search.value = filters.query;
   search.placeholder = "Team or player";
   search.addEventListener("input", () => {
     updateDirectoryFilters(sportKey, { query: search.value });
@@ -15819,11 +16073,31 @@ function renderLegacyParticipantDirectory(container, sportKey){
   });
   field.appendChild(search);
   toolbar.appendChild(field);
+  const countries = Array.from(new Set(allRecords.map(record => record.countryCode).filter(Boolean)))
+    .sort((first, second) => COUNTRY_FLAGS.countryName(first).localeCompare(COUNTRY_FLAGS.countryName(second)));
+  if (countries.length){
+    toolbar.appendChild(buildDirectorySelect("Country", filters.birthCountryCode, [["", "All countries"], ...countries.map(code => [code, COUNTRY_FLAGS.countryName(code)])], birthCountryCode => {
+      updateDirectoryFilters(sportKey, { birthCountryCode }); renderStandingsContext();
+    }));
+  }
+  const genders = Array.from(new Set(allRecords.map(record => record.genderCategory).filter(value => value && value !== "unknown")));
+  if (genders.length > 1){
+    toolbar.appendChild(buildDirectorySelect("M/F", filters.genderCategory, [["", "All"], ...genders.map(value => [value, value === "male" ? "Men" : value === "female" ? "Women" : "Mixed"])], genderCategory => {
+      updateDirectoryFilters(sportKey, { genderCategory }); renderStandingsContext();
+    }));
+  }
+  const hasValues = allRecords.some(record => Number.isFinite(Number(record.marketValue ?? record.marketValueEur)));
+  toolbar.appendChild(buildDirectorySelect("Sort", filters.sortMode, [
+    ["table", allRecords.some(record => Number.isFinite(Number(record.rank))) ? "Ranking / ladder" : "Ranking / A–Z"],
+    ...(hasValues ? [["value", "Value"]] : []),
+    ["alpha", "A–Z"],
+  ], sortMode => {
+    updateDirectoryFilters(sportKey, { sortMode }); renderStandingsContext();
+  }));
   directory.appendChild(toolbar);
-  if (!canonicalSportsData && !canonicalSportsDataLoading) void loadCanonicalSportsData();
   const list = document.createElement("div");
   list.className = "football-club-list";
-  records.sort((a, b) => a.displayName.localeCompare(b.displayName)).forEach(record => {
+  records.forEach(record => {
     const row = document.createElement("div");
     row.className = "football-club-head";
     const icon = document.createElement("span");
@@ -15840,16 +16114,14 @@ function renderLegacyParticipantDirectory(container, sportKey){
           || glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
       }, { once:true });
       icon.appendChild(image);
-    } else {
-      icon.innerHTML = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:record.displayName })
-        || glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
-    }
+    } else appendTeamIdentityFallback(icon, { countryCode:record.countryCode, fallbackCountryCode:record.countryCode, label:record.displayName }, record.displayName, "team-logo-fallback follow-directory-fallback");
     const copy = document.createElement("div");
     copy.className = "football-club-copy";
     const name = document.createElement("strong");
     name.textContent = record.displayName;
     const detail = document.createElement("span");
-    detail.textContent = record.sectionLabel || (record.type === "competitor" ? "Player" : record.type === "nationalSide" ? "National team" : "Team");
+    const rankLabel = Number.isFinite(Number(record.rank)) ? ` · #${record.rank}` : "";
+    detail.textContent = `${record.sectionLabel || (record.type === "competitor" ? "Player" : record.type === "nationalSide" ? "National team" : "Team")}${rankLabel}`;
     copy.append(name, detail);
     const select = document.createElement("select");
     select.className = "football-follow-select";
@@ -15859,6 +16131,14 @@ function renderLegacyParticipantDirectory(container, sportKey){
     row.append(icon, copy, select);
     list.appendChild(row);
   });
+  if (!records.length){
+    const empty = document.createElement("div");
+    empty.className = "football-directory-empty";
+    empty.textContent = chunk.status === "unavailable"
+      ? `No current source-backed ${SPORT_META[sportKey]?.label || sportKey} directory is published yet.`
+      : `No current ${SPORT_META[sportKey]?.label || sportKey} teams or players match these filters.`;
+    list.appendChild(empty);
+  }
   directory.appendChild(list);
   container.appendChild(directory);
 }
@@ -15905,12 +16185,9 @@ function saveFollowSport(sport, followed){
   renderAll({ preserveViewport:true });
 }
 
-function toggleAussiesOnly(sportId){
+function toggleAustraliaInternationals(){
   const next = clonePreferences(userPreferences);
-  const selected = new Set(next.followFirst.australiansOnlySportIds || []);
-  if (selected.has(sportId)) selected.delete(sportId);
-  else selected.add(sportId);
-  next.followFirst.australiansOnlySportIds = Array.from(selected);
+  next.followFirst.australiaInternationalsEnabled = next.followFirst.australiaInternationalsEnabled === false;
   savePreferences(next);
   renderAll({ preserveViewport:true });
 }
@@ -15984,6 +16261,14 @@ function renderFollowView(){
   const sportSection = document.createElement("section");
   sportSection.className = "follow-section-panel";
   sportSection.innerHTML = "<h3>Sports & Australia</h3><p class=\"preference-help\">Sport follows organise your choices. Australia in internationals is separate and only matches national teams or athletes explicitly representing Australia.</p>";
+  const australiaToggle = document.createElement("button");
+  const australiaOn = userPreferences.followFirst.australiaInternationalsEnabled !== false;
+  australiaToggle.type = "button";
+  australiaToggle.className = `follow-global-toggle${australiaOn ? " active" : ""}`;
+  australiaToggle.setAttribute("aria-pressed", String(australiaOn));
+  australiaToggle.innerHTML = `<span><strong>Australia in internationals</strong><small>Show explicit Australian representative fixtures for sports you follow.</small></span><b>${australiaOn ? "On" : "Off"}</b>`;
+  australiaToggle.addEventListener("click", toggleAustraliaInternationals);
+  sportSection.appendChild(australiaToggle);
   const sportGrid = document.createElement("div");
   sportGrid.className = "follow-sport-grid";
   orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES.filter(entity => Number(entity.level) === 2), userPreferences).forEach(entity => {
@@ -15999,17 +16284,6 @@ function renderFollowView(){
     follow.textContent = followed ? `Following ${sport.label}` : `Follow ${sport.label}`;
     follow.addEventListener("click", () => saveFollowSport(sport, !followed));
     card.appendChild(follow);
-    if (FOLLOW_FIRST.INTERNATIONAL_AUSTRALIA_SPORT_IDS.includes(sport.id)){
-      const aussies = document.createElement("button");
-      const aussiesOn = userPreferences.followFirst.australiansOnlySportIds.includes(sport.id);
-      aussies.type = "button";
-      aussies.className = "btn ghost";
-      aussies.disabled = !followed;
-      aussies.setAttribute("aria-pressed", String(aussiesOn));
-      aussies.textContent = aussiesOn ? "Australia in internationals on" : "Australia in internationals off";
-      aussies.addEventListener("click", () => toggleAussiesOnly(sport.id));
-      card.appendChild(aussies);
-    }
     sportGrid.appendChild(card);
   });
   sportSection.appendChild(sportGrid);
@@ -17010,7 +17284,7 @@ function renderTabCounts(){
         const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST());
         return visible.events.length + visible.alerts.length;
       })()
-    : mainFeedMajorEventMarkers().length;
+    : 0;
   document.getElementById("eventsTabCount").textContent = eventsCount;
   document.getElementById("followTabCount").textContent = (userPreferences.preferenceGraph?.entityFollows || [])
     .filter(item => ["follow", "priority"].includes(item.followLevel)).length;

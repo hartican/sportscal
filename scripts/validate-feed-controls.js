@@ -106,7 +106,7 @@ assert(html.includes('className = "badge discovery"') && !html.includes('classNa
 assert(html.includes('sessionOpenedEventIds.add(') && html.includes('label.className = "new-tag"'), "open signals must remain session-local while newly surfaced cards use the durable New lifecycle");
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must count Today as visible anywhere in the viewport");
 assert(!/buildJointTournamentMustWatchAction|jointTournamentIsMustWatch|action\.mustWatch \? 12/.test(html), "the removed Must Watch feature must not affect tournament actions or recommendation scoring");
-assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v138"'));
+assert(serviceWorker.includes('const CACHE_NAME = "nothingsport-shell-v139"'));
 assert(html.includes('button.dataset.jumpTarget = "today"') && html.includes('delete button.dataset.jumpTarget;'), "the contextual jump control must target only Today and hide when it is visible");
 assert(!html.includes('scrollActiveFeedToMustWatch'), "the removed queue must have no jump target");
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));

@@ -8,6 +8,7 @@ const html = fs.readFileSync("index.html", "utf8");
 const canonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
 const footballDirectory = JSON.parse(fs.readFileSync("data/canonical/football-directory.v1.json", "utf8"));
+const nbaContext = JSON.parse(fs.readFileSync("data/canonical/nba-context-2026.json", "utf8"));
 const eventPayload = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const activeEventKeys = [...new Set((eventPayload.events || eventPayload).map(event => event.key).filter(Boolean))].sort();
 const activeNrlTeams = canonical.participants.filter(participant => (
@@ -110,6 +111,14 @@ footballFixtureEvents.forEach(event => {
   assert.equal(sides.length, 2, `${event.id} must expose two ordered football sides`);
   assert(sides.every(side => side.mark?.url), `${event.id} must resolve both directory crests`);
 });
+const nbaTeams = nbaContext.participants.filter(participant => participant.type === "team");
+assert.equal(nbaTeams.length, 30, "the NBA identity registry must cover all current clubs");
+nbaTeams.forEach(team => {
+  const mark = identities.participantMarks[team.id];
+  assert(mark, `missing NBA club identity for ${team.displayName}`);
+  assert.match(mark.url || "", /^https:\/\/cdn\.nba\.com\/logos\/nba\/\d+\/global\/L\/logo\.svg$/, `${team.displayName} must use the NBA's first-party SVG mark`);
+  assert.equal(mark.provenance, "official-site");
+});
 for (const [competitionId, label] of [
   ["competition:bundesliga", "Bundesliga"], ["competition:la-liga", "LALIGA"], ["competition:serie-a", "Serie A"],
   ["competition:ligue-1", "Ligue 1"], ["competition:uefa-champions-league", "UEFA Champions League"],
@@ -169,6 +178,16 @@ rugbyCases.forEach(([title, labels]) => {
     .map(item => item.label);
   assert.deepEqual(labelsInTitleOrder, labels, `rugby identities must resolve ${title}`);
 });
+for (const [key, title, labels] of [
+  ["fifa", "Australia v Türkiye - Group D", ["Australia", "Türkiye"]],
+  ["fifa", "Morocco v Belgium - Quarterfinal", ["Morocco", "Belgium"]],
+  ["nrl", "Australia v Cook Islands — Rugby League World Cup", ["Australia", "Cook Islands"]],
+  ["cwg", "Netball — Australia v Malawi 🇦🇺", ["Australia", "Malawi"]],
+]){
+  const sides = identities.matchupSidesForEvent({ key }, [], title);
+  assert.deepEqual(sides.map(side => side.mark?.label), labels, `${title} must resolve two national flag identities`);
+  assert(sides.every(side => side.mark?.countryCode), `${title} must retain a country-backed fallback`);
+}
 const rugbyMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:rugby:"));
 assert.equal(rugbyMarks.length, 22, "the rugby registry must cover current internationals and all Super Rugby Pacific clubs");
 rugbyMarks.forEach(mark => {
@@ -182,5 +201,7 @@ assert.equal(identities.logoForTheme(identities.participantMarks["team:football:
 assert(html.includes('appendTeamIdentityFallback(slot, mark, label') && html.includes('logo.hidden = true'), "each matchup side must paint a placeholder before its crest downloads");
 assert(html.includes('logo.addEventListener("load"') && html.includes('logo.hidden = false'), "a successful crest must replace only its own placeholder");
 assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(html), "a failed crest must leave the other side and its own placeholder intact");
+assert(!html.includes('mark?.label || "?"'), "recognised teams must never display a generic question-mark placeholder");
+assert(html.includes('mark?.label || "TBC"'), "unresolved finals participants need a semantic seed/monogram fallback");
 
-console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, ${activeEventKeys.length} active sport/event identities, six football competition identities, and two-slot matchup fallbacks.`);
+console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nbaTeams.length} NBA and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, national flags, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);

@@ -34,6 +34,8 @@
       teamId: typeof raw.teamId === "string" ? raw.teamId : "",
       birthCountryCode: typeof raw.birthCountryCode === "string" ? raw.birthCountryCode.toUpperCase() : "",
       prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
+      sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
+      genderCategory: ["male", "female", "mixed", "unknown"].includes(raw.genderCategory) ? raw.genderCategory : "",
       query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
       expandedTeamId: typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "",
     };
@@ -83,23 +85,89 @@
     return (directory?.teams || []).filter(team => !leagueId || team.leagueId === leagueId);
   }
 
+  function normalizedSearchText(value){
+    return String(value || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/gi, " ")
+      .trim()
+      .toLocaleLowerCase("en-AU");
+  }
+
+  function boundedEditDistance(first, second, limit = 2){
+    const left = normalizedSearchText(first);
+    const right = normalizedSearchText(second);
+    if (Math.abs(left.length - right.length) > limit) return limit + 1;
+    const previous = Array.from({ length:right.length + 1 }, (_, index) => index);
+    for (let row = 1; row <= left.length; row += 1){
+      const current = [row];
+      let rowMinimum = current[0];
+      for (let column = 1; column <= right.length; column += 1){
+        const cost = left[row - 1] === right[column - 1] ? 0 : 1;
+        current[column] = Math.min(current[column - 1] + 1, previous[column] + 1, previous[column - 1] + cost);
+        rowMinimum = Math.min(rowMinimum, current[column]);
+      }
+      if (rowMinimum > limit) return limit + 1;
+      previous.splice(0, previous.length, ...current);
+    }
+    return previous[right.length];
+  }
+
+  function searchMatchScore(record, rawQuery){
+    const query = normalizedSearchText(rawQuery);
+    if (!query) return 0;
+    const queryTokens = query.split(/\s+/).filter(Boolean);
+    const aliases = unique([
+      record?.displayName,
+      record?.shortName,
+      record?.sortName,
+      record?.position,
+      ...(record?.aliases || []),
+      ...(record?.metadata?.titleAliases || []),
+    ]).map(normalizedSearchText).filter(Boolean);
+    if (aliases.some(alias => alias === query)) return 0;
+    if (aliases.some(alias => alias.startsWith(query))) return 1;
+    const candidateTokens = aliases.flatMap(alias => alias.split(/\s+/)).filter(Boolean);
+    if (queryTokens.every(token => candidateTokens.some(candidate => candidate === token || candidate.startsWith(token)))) return 2;
+    const allowedDistance = query.length >= 5 ? 2 : 1;
+    if (queryTokens.every(token => candidateTokens.some(candidate => boundedEditDistance(token, candidate, allowedDistance) <= allowedDistance))) return 3;
+    return Number.POSITIVE_INFINITY;
+  }
+
   function filteredDirectory(directory, rawFilters = {}){
     const filters = normalizeFilters(rawFilters);
-    const query = filters.query.trim().toLocaleLowerCase("en-AU");
     const teams = teamsForLeague(directory, filters.leagueId).filter(team => !filters.teamId || team.id === filters.teamId);
     const teamIds = new Set(teams.map(team => team.id));
     const players = (directory?.players || []).filter(player => {
       if (!teamIds.has(player.currentTeamId)) return false;
       if (filters.birthCountryCode && player.birthCountryCode !== filters.birthCountryCode) return false;
+      if (filters.genderCategory && String(player.genderCategory || player.gender || "unknown") !== filters.genderCategory) return false;
       if (filters.prominenceTier && player.prominenceTier !== filters.prominenceTier) return false;
-      if (!query) return true;
-      return [player.displayName, player.position, player.prominenceTier]
-        .filter(Boolean).join(" ").toLocaleLowerCase("en-AU").includes(query);
+      return Number.isFinite(searchMatchScore(player, filters.query));
     });
     const playerTeamIds = new Set(players.map(player => player.currentTeamId));
-    const visibleTeams = teams.filter(team => !query || playerTeamIds.has(team.id)
-      || [team.displayName, ...(team.aliases || [])].join(" ").toLocaleLowerCase("en-AU").includes(query));
-    return { teams: visibleTeams, players, playerTeamIds: Array.from(playerTeamIds) };
+    const visibleTeams = teams.filter(team => !filters.query || playerTeamIds.has(team.id)
+      || Number.isFinite(searchMatchScore(team, filters.query)));
+    const rankValue = record => Number(record?.ladderPosition ?? record?.rank ?? record?.ranking);
+    const marketValue = record => Number(record?.marketValue ?? record?.marketValueEur);
+    const compare = (first, second) => {
+      if (filters.query){
+        const scoreDelta = searchMatchScore(first, filters.query) - searchMatchScore(second, filters.query);
+        if (scoreDelta) return scoreDelta;
+      }
+      if (filters.sortMode === "value"){
+        const firstValue = marketValue(first);
+        const secondValue = marketValue(second);
+        if (Number.isFinite(firstValue) || Number.isFinite(secondValue)) return (Number.isFinite(secondValue) ? secondValue : -1) - (Number.isFinite(firstValue) ? firstValue : -1);
+      }
+      if (filters.sortMode === "table"){
+        const firstRank = rankValue(first);
+        const secondRank = rankValue(second);
+        if (Number.isFinite(firstRank) || Number.isFinite(secondRank)) return (Number.isFinite(firstRank) ? firstRank : Number.MAX_SAFE_INTEGER) - (Number.isFinite(secondRank) ? secondRank : Number.MAX_SAFE_INTEGER);
+      }
+      return String(first.sortName || first.displayName || "").localeCompare(String(second.sortName || second.displayName || ""), "en-AU", { sensitivity:"base" });
+    };
+    return { teams: visibleTeams.slice().sort(compare), players: players.slice().sort(compare), playerTeamIds: Array.from(playerTeamIds) };
   }
 
   return Object.freeze({
@@ -114,6 +182,9 @@
     playerTeamMap,
     isDirectoryPlayerId,
     expandedFollowLevels,
+    normalizedSearchText,
+    boundedEditDistance,
+    searchMatchScore,
     filteredDirectory,
   });
 });

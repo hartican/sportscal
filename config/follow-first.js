@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v2";
+  const SCHEMA_VERSION = "follow-first.v3";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -71,6 +71,7 @@
   }
 
   function roundCoordinate(value){
+    if (value === null || value === undefined || String(value).trim() === "") return null;
     const number = Number(value);
     return Number.isFinite(number) ? Number(number.toFixed(2)) : null;
   }
@@ -143,7 +144,7 @@
       schemaVersion:SCHEMA_VERSION,
       startupMeta:normalizeMeta({}),
       appliedSeedHash:null,
-      australiansOnlySportIds:[],
+      australiaInternationalsEnabled:true,
       followedMajorEventIds:[],
       location:normalizeLocation({}),
       subscriptions:[],
@@ -173,18 +174,17 @@
     const prior = source.followFirst && typeof source.followFirst === "object" ? source.followFirst : {};
     const defaults = defaultFollowFirst();
     const startupMeta = normalizeMeta(prior.startupMeta || source.startupMeta || {});
+    const { australiansOnlySportIds:_retiredAustraliansOnlySportIds, ...priorWithoutRetiredAustralia } = prior;
     return {
       ...source,
       version:Math.max(16, Number(source.version) || 0),
       followFirst:{
         ...defaults,
-        ...prior,
+        ...priorWithoutRetiredAustralia,
         schemaVersion:SCHEMA_VERSION,
         startupMeta,
         appliedSeedHash:String(prior.appliedSeedHash || "") || null,
-        australiansOnlySportIds:Array.from(new Set(Array.isArray(prior.australiansOnlySportIds)
-          ? prior.australiansOnlySportIds.map(String).filter(id => INTERNATIONAL_AUSTRALIA_SPORT_IDS.includes(id))
-          : [])),
+        australiaInternationalsEnabled:prior.australiaInternationalsEnabled !== false,
         followedMajorEventIds:uniqueAllowed(prior.followedMajorEventIds || startupMeta.majorEvents, MAJOR_EVENT_FAMILIES),
         location:normalizeLocation(prior.location || startupMeta.location),
         subscriptions:Array.from(new Set((Array.isArray(prior.subscriptions) ? prior.subscriptions : []).map(String).filter(id => VIEWING_PROVIDERS[id]))),
@@ -217,7 +217,7 @@
         ...current.followFirst,
         startupMeta:meta,
         appliedSeedHash:meta.seedHash,
-        australiansOnlySportIds:current.followFirst.australiansOnlySportIds.slice(),
+        australiaInternationalsEnabled:current.followFirst.australiaInternationalsEnabled !== false,
         followedMajorEventIds:meta.majorEvents.slice(),
         location:meta.location,
       },
@@ -252,8 +252,14 @@
         };
       }
     }
-    const sportAliases = { "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg" };
-    const sourceSportId = String(event?.sportId || event?.key || "");
+    const sportAliases = {
+      "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg",
+      fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football",
+      wimbledon:"tennis", tdf:"cycling", masters:"golf", nfl:"american-football",
+      ski:"telemark", skiing:"telemark", alpine:"telemark", freestyle:"telemark",
+      skateboard:"extreme", wsl:"surf", "big-wave":"surf",
+    };
+    const sourceSportId = String(event?.representativeSportKey || event?.sportId || event?.key || "");
     const sportId = sportAliases[sourceSportId] || sourceSportId;
     const representativeCountryCodes = Array.from(new Set([
       ...(Array.isArray(event?.representativeCountryCodes) ? event.representativeCountryCodes : []),
@@ -261,8 +267,29 @@
     ].map(value => String(value || "").toUpperCase()).filter(Boolean)));
     const representsAustralia = representativeCountryCodes.some(code => ["AU", "AUS"].includes(code));
     const international = event?.isInternational === true || event?.competitionScope === "international";
-    if (next.followFirst.australiansOnlySportIds.includes(sportId) && international && representsAustralia){
+    const followedSportIds = new Set((next.followedSports || []).map(String));
+    const sportFollowed = followedSportIds.has(sourceSportId) || followedSportIds.has(sportId);
+    if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
       return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
+    }
+    const concreteSportingCard = Boolean(
+      event?.date
+      && event?.time
+      && event?.majorEventMarker !== true
+      && event?.tournamentParent !== true
+      && event?.dateOnly !== true
+      && event?.cardKind !== "event"
+      && event?.kind !== "tournament"
+      && event?.kind !== "major_event"
+      && event?.kind !== "ticket_sale"
+    );
+    if (
+      sportFollowed
+      && concreteSportingCard
+      && Number(event?.stakesScore) >= 5
+      && !(international && representsAustralia && next.followFirst.australiaInternationalsEnabled === false)
+    ){
+      return { type:"sport-high-stakes", entityKind:"sport", id:sportId, label:null, displayTag:false };
     }
     return null;
   }
@@ -275,6 +302,34 @@
     if (/semi|\bsf\b/.test(value)) return "Semis";
     if (/grand final|elimination|\bfinals?\b/.test(value)) return "Finals";
     return "";
+  }
+
+  function finalsStageRank(value){
+    const label = String(value || "").trim().toLowerCase();
+    if (!label) return 9_000;
+    if (/^opening round$/.test(label)) return 0;
+    const round = label.match(/^round\s+(\d+)$/);
+    if (round) return Number(round[1]);
+    if (/wild\s*card/.test(label)) return 1_000;
+    if (/qualifying|elimination|\bqf\b/.test(label)) return 1_010;
+    if (/semi|\bsf\b/.test(label)) return 1_020;
+    if (/prelim/.test(label)) return 1_030;
+    if (/grand final/.test(label)) return 1_040;
+    if (/\bfinals?\b/.test(label)) return 1_050;
+    if (label === "all" || /\s+v\.?\s+/.test(label)) return 8_000;
+    return 5_000;
+  }
+
+  function normalizedFixtureGroupLabel(value){
+    const label = String(value || "").trim();
+    return !label || label.toLowerCase() === "all" || /\s+v\.?\s+/i.test(label)
+      ? "Other fixtures"
+      : label;
+  }
+
+  function compareFixtureGroupLabels(first, second){
+    return finalsStageRank(first) - finalsStageRank(second)
+      || String(first || "").localeCompare(String(second || ""), "en-AU", { numeric:true, sensitivity:"base" });
   }
 
   function appendFeedback(preferences, input){
@@ -341,6 +396,9 @@
     applyMetaSeed,
     reasonForEvent,
     stageLabel,
+    finalsStageRank,
+    normalizedFixtureGroupLabel,
+    compareFixtureGroupLabels,
     appendFeedback,
     registerOpen,
     shouldPromptRefinement,

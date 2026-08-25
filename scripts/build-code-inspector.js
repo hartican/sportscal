@@ -8,6 +8,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/code-inspector");
 const taxonomy = require("../config/canonical-sports-taxonomy");
+const followFirst = require("../config/follow-first");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
@@ -114,6 +115,8 @@ function normalizeFixture(event, codeId, extra = {}){
   const slots = participantSlots(event);
   const sydney = sydneyPartsFromUtc(event.startTimeUtc);
   const confirmedParticipants = slots.length > 0 && slots.every(slot => slot.participantId || (slot.label && !/\b(?:winner|loser|\d+(?:st|nd|rd|th)|tbc)\b/i.test(slot.label)));
+  const roundLabel = event.roundLabel || event.round || extra.roundLabel || null;
+  const stage = event.stage || extra.stage || null;
   return {
     id: stableId(event),
     codeId,
@@ -129,8 +132,12 @@ function normalizeFixture(event, codeId, extra = {}){
     detailsExpectedAt: event.detailsExpectedAt || extra.detailsExpectedAt || null,
     schedulingWindow: event.schedulingWindow || extra.schedulingWindow || null,
     roundNumber: Number.isInteger(event.roundNumber) ? event.roundNumber : null,
-    roundLabel: event.roundLabel || event.round || extra.roundLabel || null,
-    stage: event.stage || extra.stage || null,
+    roundLabel,
+    stage,
+    groupOrder:followFirst.finalsStageRank(roundLabel || stage),
+    competitionScope:event.competitionScope || null,
+    isInternational:event.isInternational === true || event.competitionScope === "international",
+    representativeCountryCodes:Array.isArray(event.representativeCountryCodes) ? event.representativeCountryCodes : [],
     expected: Number(event.expected || event.stakesScore || 0),
     broadcaster: event.broadcaster || (event.broadcasters || []).map(item => item.broadcasterName).filter(Boolean).join(" / ") || null,
     sourceCoverage: extra.sourceCoverage || "published-feed",

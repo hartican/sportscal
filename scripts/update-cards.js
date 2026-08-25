@@ -74,6 +74,9 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-team-player-directories.js"],
   ["scripts/build-team-player-directories.js", "--check"],
   ["scripts/validate-team-player-directories.js"],
+  ["scripts/build-follow-directories.js"],
+  ["scripts/build-follow-directories.js", "--check"],
+  ["scripts/validate-follow-directories.js"],
   ["scripts/validate-tennis-catalogue.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-card-identities.js"],
@@ -99,6 +102,7 @@ function buildSteps({ localOnly = false } = {}) {
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),
   ["scripts/refresh-premier-league-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ["scripts/apply-representative-metadata.js", "feeds/incoming/events.json"],
   ["scripts/apply-approved-coverage.js", "--write"],
   ["scripts/apply-approved-coverage.js", "--check"],
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json"],
@@ -106,6 +110,7 @@ function buildSteps({ localOnly = false } = {}) {
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
+  ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/build-paged-feed.js"],
   ["scripts/build-code-inspector.js"],
   ["scripts/apply-editorial-previews.js"],

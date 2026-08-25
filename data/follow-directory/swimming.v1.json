@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "follow-directory-chunk.v1",
+  "sportKey": "swimming",
+  "label": "Swimming",
+  "generatedAt": "2026-08-25T03:03:27.628Z",
+  "status": "available",
+  "sortBasis": "alphabetical-fallback",
+  "records": [
+    {
+      "id": "competitor:cwg:cameron-mcevoy",
+      "displayName": "Cameron McEvoy",
+      "shortName": "McEvoy",
+      "aliases": [
+        "Cameron McEvoy",
+        "McEvoy"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "unknown",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "position": "Swimming",
+      "identityId": "competitor:cwg:cameron-mcevoy",
+      "sourceRefs": []
+    },
+    {
+      "id": "competitor:cwg:kaylee-mckeown",
+      "displayName": "Kaylee McKeown",
+      "shortName": "McKeown",
+      "aliases": [
+        "Kaylee McKeown",
+        "McKeown"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "unknown",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "position": "Swimming",
+      "identityId": "competitor:cwg:kaylee-mckeown",
+      "sourceRefs": []
+    },
+    {
+      "id": "competitor:cwg:kyle-chalmers",
+      "displayName": "Kyle Chalmers",
+      "shortName": "Chalmers",
+      "aliases": [
+        "Kyle Chalmers",
+        "Chalmers"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "unknown",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "position": "Swimming",
+      "identityId": "competitor:cwg:kyle-chalmers",
+      "sourceRefs": []
+    },
+    {
+      "id": "competitor:cwg:lakeisha-patterson",
+      "displayName": "Lakeisha Patterson",
+      "shortName": "Patterson",
+      "aliases": [
+        "Lakeisha Patterson",
+        "Patterson"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "unknown",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "position": "Para Swimming",
+      "identityId": "competitor:cwg:lakeisha-patterson",
+      "sourceRefs": []
+    },
+    {
+      "id": "competitor:cwg:mollie-ocallaghan",
+      "displayName": "Mollie O’Callaghan",
+      "shortName": "O’Callaghan",
+      "aliases": [
+        "Mollie O'Callaghan",
+        "Mollie O’Callaghan",
+        "O'Callaghan",
+        "O’Callaghan"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "unknown",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "position": "Swimming",
+      "identityId": "competitor:cwg:mollie-ocallaghan",
+      "sourceRefs": []
+    },
+    {
+      "id": "competitor:cwg:tim-hodge",
+      "displayName": "Tim Hodge",
+      "shortName": "Hodge",
+      "aliases": [
+        "Tim Hodge",
+        "Hodge"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "unknown",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "position": "Para Swimming",
+      "identityId": "competitor:cwg:tim-hodge",
+      "sourceRefs": []
+    }
+  ]
+}

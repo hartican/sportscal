@@ -104,6 +104,8 @@ assert.equal(fixture.eventId, drawnMatch.id);
 assert.equal(fixture.date, "2026-10-15");
 assert.equal(fixture.time, "20:05");
 assert.equal(fixture.majorEventParentId, rlwc.id);
+assert.equal(fixture.cardKind, "fixture", "a pinned Event child must materialise as a normal fixture card");
+assert.equal(fixture.majorEventMarker, undefined, "a pinned child must not inherit its parent Event marker flags");
 assert.equal(majorEvents.fixtureFromSubEvent({ ...drawnMatch, startTimeUtc: null }, rlwc), null, "unknown times must not materialise in Fixtures");
 assert.equal(new Set([fixture.eventId, fixture.eventId]).size, 1, "the stable child ID is the deduplication boundary");
 
@@ -130,8 +132,10 @@ assert(worker.includes('"/config/major-events.js"') && worker.includes('"/schema
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
 assert(html.includes("addedToFixtures") && html.includes("addedFixture"), "selected match persistence must be wired into the browser state");
-assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event)'), "selected matches and parent markers must still respect an explicitly focused sport view");
-assert(html.includes("markers.flatMap(marker => marker.replacesFixtureIds || [])") && majorEvents.MARKERS.some(marker => Array.isArray(marker.replacesFixtureIds)), "legacy placeholders may be replaced only when their eligible follow-driven series marker is actually surfaced");
+assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event)'), "selected child fixtures must still respect an explicitly focused sport view");
+const feedMerger = html.match(/function mergeMainFeedSpecialEvents\(events\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(feedMerger.includes("selectedMajorEventFixtures()"), "Feed must include independently pinned Event children");
+assert(!feedMerger.includes("markerEvents") && !feedMerger.includes("mainFeedMajorEventMarkers") && feedMerger.includes('event?.majorEventMarker !== true'), "parent Event and tournament markers must never enter Feed");
 assert(html.includes("subEvent.dateLabel") && html.includes("concrete drawn match"), "published stage dates must render without making an un-drawn match addable");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

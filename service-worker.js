@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v138";
+const CACHE_NAME = "nothingsport-shell-v139";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -28,6 +28,7 @@ const APP_SHELL = [
   "/config/feed-controls.js",
   "/config/ticketing.js",
   "/config/major-events.js",
+  "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
   "/config/venue-registry.js",
@@ -47,6 +48,8 @@ const APP_SHELL = [
   "/data/feed/manifest.json",
   "/data/feed/page-001.json",
   "/data/feed-meta.json",
+  "/data/follow-directory/manifest.v1.json",
+  "/data/follow-directory/manifest.v1.js",
   // The generated script is retained only for no-network/direct-file recovery.
   // Live JSON remains network-first and is cached by the fetch handler after use.
   "/schemas/preference-graph.schema.json",
@@ -142,7 +145,7 @@ self.addEventListener("fetch", event => {
     event.respondWith(networkFirst(event.request, event, cacheKey));
     return;
   }
-  if (/^\/data\/(?:feed|canonical|football)\//.test(requestUrl.pathname)){
+  if (/^\/data\/(?:feed|canonical|football|follow-directory)\//.test(requestUrl.pathname)){
     event.respondWith(staleWhileRevalidate(event.request, event, cacheKey));
     return;
   }

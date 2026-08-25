@@ -5,6 +5,8 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const followFirst = require("../config/follow-first");
+const representativeEvents = require("../config/representative-events");
+const selectorTaxonomy = require("../config/selector-taxonomy");
 const { fixtureToCard } = require("./sync-canonical-fixtures-to-feed");
 
 const meta = followFirst.normalizeMeta({
@@ -22,18 +24,20 @@ assert.equal(meta.personalisedOffersConsent, false);
 const seeded = followFirst.applyMetaSeed({}, meta);
 assert.equal(seeded.changed, true);
 assert.deepEqual(seeded.preferences.selectedSelectorEntityIds, ["sport:afl", "sport:football"]);
-assert.deepEqual(seeded.preferences.followFirst.australiansOnlySportIds, [], "signup sport seeds must not silently enable Australia-only matching");
+assert.equal(seeded.preferences.followFirst.australiaInternationalsEnabled, true, "Australia in internationals is one default-on global preference");
 assert.equal(followFirst.applyMetaSeed(seeded.preferences, meta).changed, false);
 
 const followed = followFirst.migratePreferences({
-  followedSports:["afl"],
+  followedSports:["afl", "rugby"],
   followFirst:{ australiansOnlySportIds:["afl", "nrl", "rugby"] },
   preferenceGraph:{ entityFollows:[
     { participantId:"team:afl:test", followLevel:"follow" },
     { participantId:"competitor:rugby:test", followLevel:"follow" },
   ] },
 });
-assert.deepEqual(followed.followFirst.australiansOnlySportIds, ["rugby"], "domestic AFL and NRL must be removed idempotently from Aussies Only");
+assert.equal(followed.followFirst.australiaInternationalsEnabled, true, "legacy per-sport Australia selections migrate to the default global switch");
+assert.equal(Object.hasOwn(followed.followFirst, "australiansOnlySportIds"), false, "retired per-sport Australia state must not survive migration");
+assert.deepEqual(followFirst.migratePreferences(followed), followed, "the global Australia migration must be idempotent");
 const teamReason = followFirst.reasonForEvent({ key:"afl", participantIds:["team:afl:test"] }, followed, { participantLabel:() => "Test Club" });
 assert.equal(teamReason.label, "Because you follow Test Club");
 assert.equal(teamReason.entityKind, "team");
@@ -48,11 +52,39 @@ const australiaReason = followFirst.reasonForEvent({ key:"rugby", competitionSco
 assert.equal(australiaReason.entityKind, "national-representation");
 assert.equal(australiaReason.displayTag, false);
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
+const fiveOfFive = { key:"rugby", eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
+assert.equal(followFirst.reasonForEvent(fiveOfFive, followed)?.type, "sport-high-stakes", "a followed sport must surface concrete 5/5 fixtures");
+assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, tournamentParent:true }, followed), null, "tournament parents must never qualify through a sport follow");
+assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } }), null, "the global switch suppresses Australia-specific and high-stakes automatic eligibility");
+assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"], participantIds:["team:direct"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false }, preferenceGraph:{ entityFollows:[{ participantId:"team:direct", followLevel:"follow" }] } })?.entityKind, "team", "direct follows override the global Australia switch");
 assert.equal(followFirst.stageLabel({ stage:"Wildcard Final" }), "Wildcard");
 assert.equal(followFirst.stageLabel({ stage:"Preliminary Final" }), "Prelim");
 assert.equal(followFirst.stageLabel({ roundLabel:"Quarter-finals" }), "QF");
 assert.equal(followFirst.stageLabel({ stage:"Semi Final" }), "Semis");
 assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Finals");
+assert.deepEqual(["Round 27", "Wildcard Final", "Qualifying Final", "Elimination Final", "Semi Final", "Preliminary Final", "Grand Final"].sort(followFirst.compareFixtureGroupLabels), ["Round 27", "Wildcard Final", "Elimination Final", "Qualifying Final", "Semi Final", "Preliminary Final", "Grand Final"]);
+assert.equal(followFirst.normalizedFixtureGroupLabel("Australia v New Zealand"), "Other fixtures");
+
+const feedDocument = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
+const explicitAustralianEvents = (feedDocument.events || []).filter(event => representativeEvents.metadataForEventId(event.eventId || event.id));
+assert.equal(explicitAustralianEvents.length, 39, "all known title-only Australian representative fixtures require explicit registry metadata");
+explicitAustralianEvents.forEach(event => {
+  assert.equal(event.competitionScope, "international");
+  assert.equal(event.isInternational, true);
+  assert(event.representativeCountryCodes.includes("AUS"));
+  assert(event.representativeSportKey);
+});
+const allSportsPreferences = followFirst.migratePreferences({
+  followedSports:Array.from(new Set(selectorTaxonomy.exposedSportNodes.filter(node => Number(node.level) === 2).flatMap(node => node.canonicalSportKeys || []))),
+  followFirst:{ australiaInternationalsEnabled:true },
+  preferenceGraph:{ entityFollows:[] },
+});
+const allSportsEligible = (feedDocument.events || []).filter(event => followFirst.reasonForEvent({
+  ...event,
+  stakesScore:event.expected >= 10 ? 5 : event.expected >= 8 ? 4 : event.expected >= 6 ? 3 : event.expected >= 4 ? 2 : 1,
+}, allSportsPreferences));
+assert(allSportsEligible.some(event => Number(event.expected) >= 10), "an all-sports profile must receive concrete 5/5 sporting cards");
+assert(allSportsEligible.some(event => event.representativeCountryCodes?.includes("AUS")), "an all-sports profile must receive explicit Australian internationals by default");
 
 const finalsCard = fixtureToCard({
   id:"event:test:final", sourceId:"source:test", source:{ provider:"Official", sourceUrl:"https://example.com", checkedAt:"2026-08-24T00:00:00Z" },
@@ -107,6 +139,10 @@ assert(!fs.existsSync("api/calendar.js") && !fs.existsSync("lib/calendar-sync.js
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
 assert(html.includes('className = "follow-reason-tag"') && followFirstSource.includes("Because you follow"));
 assert(html.includes("followReason?.displayTag"), "visible follow context must respect the player-only display flag");
+assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev))"), "raw feed cards must derive their 5/5 sporting stakes before follow eligibility is evaluated");
+assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
+assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySportIds"), "per-sport Australia toggles must be retired from runtime UI");
+assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");
 assert(html.includes("appendEventQuickActions") && html.includes("Remind me") && html.includes("<span>View</span>"));
 assert(/\.swipe-coaching[\s\S]{0,500}color:\s*#43b9ff/.test(html));
 assert(/\.swipe-coaching[\s\S]{0,500}font-size:\s*\.85rem/.test(html));
