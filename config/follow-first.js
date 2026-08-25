@@ -53,14 +53,14 @@
   ]);
 
   const VIEWING_PROVIDERS = Object.freeze({
-    kayo:{ label:"Kayo Sports", url:"https://kayosports.com.au/" },
-    stan:{ label:"Stan Sport", url:"https://www.stan.com.au/sport" },
-    seven:{ label:"7plus", url:"https://7plus.com.au/" },
-    nine:{ label:"9Now", url:"https://www.9now.com.au/" },
-    sbs:{ label:"SBS On Demand", url:"https://www.sbs.com.au/ondemand/sport" },
-    foxtel:{ label:"Foxtel", url:"https://www.foxtel.com.au/watch.html" },
-    optus:{ label:"Optus Sport", url:"https://sport.optus.com.au/" },
-    paramount:{ label:"Paramount+", url:"https://www.paramountplus.com/au/" },
+    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", url:"https://kayosports.com.au/", paid:true, aliases:["kayo", "espn"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
+    stan:{ label:"Stan Sport", actionLabel:"Stan Sport", url:"https://www.stan.com.au/sport", paid:true, aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
+    foxtel:{ label:"Foxtel", actionLabel:"Foxtel", url:"https://www.foxtel.com.au/watch.html", paid:true, aliases:["foxtel", "fox sports"] },
+    optus:{ label:"Optus Sport", actionLabel:"Optus Sport", url:"https://sport.optus.com.au/", paid:true, aliases:["optus sport", "optus"] },
+    paramount:{ label:"Paramount+", actionLabel:"Paramount+", url:"https://www.paramountplus.com/au/", paid:true, aliases:["paramount+", "paramount plus", "paramount"] },
+    seven:{ label:"7plus", actionLabel:"7plus", url:"https://7plus.com.au/", paid:false, aliases:["7plus", "channel 7", "seven"] },
+    nine:{ label:"9Now", actionLabel:"9Now", url:"https://www.9now.com.au/", paid:false, aliases:["9now", "channel 9", "nine"] },
+    sbs:{ label:"SBS On Demand", actionLabel:"SBS", url:"https://www.sbs.com.au/ondemand/sport", paid:false, aliases:["sbs on demand", "sbs"] },
   });
 
   function uniqueAllowed(values, records){
@@ -370,10 +370,24 @@
   }
 
   function viewingLink(event, selectedProviderIds = []){
-    const text = [event?.broadcaster, ...(event?.broadcasterIds || []), ...(event?.broadcastOptions || [])].join(" ").toLowerCase();
-    const ordered = Array.from(new Set([...(selectedProviderIds || []), ...Object.keys(VIEWING_PROVIDERS)]));
-    const providerId = ordered.find(id => VIEWING_PROVIDERS[id] && text.includes(id))
-      || ordered.find(id => VIEWING_PROVIDERS[id]);
+    const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
+    const text = [event?.broadcaster, ...(event?.broadcastOptions || [])]
+      .map(value => typeof value === "string" ? value : [value?.broadcasterName, value?.serviceLabel, value?.platform, value?.channelBrand].filter(Boolean).join(" "))
+      .join(" ")
+      .toLowerCase();
+    const selectedOrder = new Map((selectedProviderIds || []).map((id, index) => [String(id), index]));
+    const matchedProviderIds = Object.entries(VIEWING_PROVIDERS)
+      .filter(([id, provider]) => broadcasterIds.has(id) || provider.aliases.some(alias => text.includes(alias)))
+      .map(([id]) => id)
+      .sort((left, right) => {
+        const paidDelta = Number(VIEWING_PROVIDERS[right].paid) - Number(VIEWING_PROVIDERS[left].paid);
+        if (paidDelta) return paidDelta;
+        const leftSelected = selectedOrder.has(left) ? selectedOrder.get(left) : Number.MAX_SAFE_INTEGER;
+        const rightSelected = selectedOrder.has(right) ? selectedOrder.get(right) : Number.MAX_SAFE_INTEGER;
+        if (leftSelected !== rightSelected) return leftSelected - rightSelected;
+        return Object.keys(VIEWING_PROVIDERS).indexOf(left) - Object.keys(VIEWING_PROVIDERS).indexOf(right);
+      });
+    const providerId = matchedProviderIds[0];
     const provider = VIEWING_PROVIDERS[providerId];
     return provider ? { providerId, ...provider } : null;
   }

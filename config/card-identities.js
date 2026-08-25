@@ -62,6 +62,36 @@
     });
   }
 
+  function wordmarkMark(id, label, wordmark, themeColor){
+    return Object.freeze({
+      id,
+      kind: "wordmark",
+      label,
+      wordmark,
+      themeColor: Object.freeze({ ...themeColor }),
+      assetClass: "open-use",
+      rightsStatus: "open-use",
+      provenance: "editorial-wordmark",
+      displayUse: "editorial-identification",
+      sourceUrl: "https://www.formula1.com/en/information/guidelines.4EOKE9RRqevL4niTK9kWyt",
+    });
+  }
+
+  function vectorMark(id, label, glyph, wordmark = ""){
+    return Object.freeze({
+      id,
+      kind: "vector",
+      label,
+      glyph,
+      wordmark,
+      assetClass: "open-use",
+      rightsStatus: "open-use",
+      provenance: "first-party",
+      displayUse: "editorial-identification",
+      sourceUrl: "https://www.nrl.com/operations/the-game/premiership-winners/",
+    });
+  }
+
   function nationalTeamMark(id, label, url, sourceUrl, aliases, fallbackCountryCode = "", options = {}){
     return Object.freeze({
       ...officialMark(id, label, url, sourceUrl, options),
@@ -93,14 +123,11 @@
     });
   }
 
+  const nrlCompetitionMark = officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/");
   const eventMarks = Object.freeze({
-    // Formula One publishes this transparent white wordmark in its own media
-    // library. It is paired with a dark contrast surface in the renderer;
-    // there is no need for an image filter or a made-up monochrome variant.
-    f1: officialMark("competition:formula-one", "Formula One", "https://media.formula1.com/image/upload/v1677237319/etc/designs/fom-website/images/f1_logo.svg", "https://www.formula1.com/en/", {
-      logo: { backgroundLight: "dark", backgroundDark: "dark" },
-    }),
-    nrl: officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/"),
+    f1: wordmarkMark("competition:formula-one", "Formula One", "F1™", { light:"#ff1e00", dark:"#ffffff" }),
+    "nrl-finals": Object.freeze({ ...vectorMark("event:nrl-finals", "NRL finals", "semantic:nrl-finals-trophy"), fallback:nrlCompetitionMark }),
+    nrl: nrlCompetitionMark,
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
@@ -412,6 +439,7 @@
   })])));
 
   const brandRules = Object.freeze([
+    Object.freeze({ id: "nrl-finals", pattern: /\bnrl-finals-series\b/i }),
     Object.freeze({ id: "roland-garros", pattern: /\b(?:roland garros|french open)\b/i }),
     Object.freeze({ id: "wimbledon", pattern: /\b(?:wimbledon|the championships)\b/i }),
     Object.freeze({ id: "cincinnati-open", pattern: /\bcincinnati open\b/i }),

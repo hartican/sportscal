@@ -65,10 +65,12 @@ assert.equal(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 Worl
 assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.label, "Rugby Australia", "rugby cards must use the Rugby Australia competition logo");
 assert.match(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.url || "", /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//, "rugby cards must use a visible Rugby Australia vector mark");
 const formulaOneMark = identities.markForEvent({ key: "f1", name: "British Grand Prix" });
-assert.equal(formulaOneMark?.label, "Formula One", "Formula One cards must carry the official competition mark");
-assert.match(formulaOneMark?.url || "", /^https:\/\/media\.formula1\.com\/image\/upload\/.*\/f1_logo\.svg$/, "Formula One cards must use Formula One's official SVG wordmark");
-assert.equal(formulaOneMark?.logo?.backgroundLight, "dark", "the white Formula One wordmark needs a contrast-safe light-theme surface");
-assert.equal(formulaOneMark?.logo?.backgroundDark, "dark", "the white Formula One wordmark needs a contrast-safe dark-theme surface");
+assert.equal(formulaOneMark?.label, "Formula One", "Formula One cards must retain an editorial competition identity");
+assert.equal(formulaOneMark?.kind, "wordmark", "Formula One cards must use the rights-safe editorial wordmark renderer");
+assert.equal(formulaOneMark?.wordmark, "F1™", "Formula One cards must render the compact editorial F1 wordmark");
+assert.equal(formulaOneMark?.themeColor?.light, "#ff1e00", "the day-mode Formula One wordmark must be red");
+assert.equal(formulaOneMark?.themeColor?.dark, "#ffffff", "the night-mode Formula One wordmark must be white");
+assert.equal(formulaOneMark?.url, undefined, "the editorial Formula One wordmark must not request the protected logo asset");
 const activeF1Teams = f1Context.participants.filter(participant => participant.type === "team" && participant.sportDomainId === "sport:motorsport" && participant.metadata?.active !== false);
 assert.equal(activeF1Teams.length, 11, "the 2026 Formula One grid must include all 11 constructor teams");
 activeF1Teams.forEach(team => {
@@ -130,7 +132,7 @@ activeEventKeys.forEach(key => {
   const mark = identities.markForEvent({ key, name: "Coverage check" });
   assert(mark, `missing a card identity for active ${key} coverage`);
   assert(["official-reference", "open-use"].includes(mark.assetClass), `${key} must use a vetted official or open-use competition mark`);
-  assert(mark.url || mark.glyph, `${key} must provide a high-quality image or vector mark`);
+  assert(mark.url || mark.glyph || mark.wordmark, `${key} must provide a high-quality image, vector or editorial wordmark`);
 });
 
 const exampleEvent = { key: "nrl", participantIds: ["team:nrl:322", "team:nrl:324"] };

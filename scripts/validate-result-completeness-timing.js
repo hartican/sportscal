@@ -49,7 +49,15 @@ try {
   const duringTournament = runCheck(tournamentOverview, "2026-08-13T09:00:00.000Z");
   assert.equal(duringTournament.status, 0, "an active tournament overview must not require a single-match score");
 
-  console.log("Result completeness timing valid: Tests and active tournament overview cards stay open while ordinary event windows still close normally.");
+  const ticketWatch = {
+    ...oneDayEvent,
+    id: "timing-ticket-watch",
+    narrativeType: "ticket-sale-watch",
+  };
+  const afterAlertWindow = runCheck(ticketWatch, "2026-08-20T09:00:00.000Z");
+  assert.equal(afterAlertWindow.status, 0, "a ticket-release watch must never require a sporting result");
+
+  console.log("Result completeness timing valid: Tests, tournament overviews and ticket watches stay open while ordinary event windows still close normally.");
 } finally {
   fs.rmSync(fixtureDir, { recursive: true, force: true });
 }

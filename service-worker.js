@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v139";
+const CACHE_NAME = "nothingsport-shell-v141";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -69,6 +69,8 @@ const APP_SHELL = [
   "/schemas/catalog-event.schema.json",
   "/manifest.webmanifest",
   "/assets/brand/web/nothingsport-logo.png",
+  "/assets/providers/kayo-sports-negative.svg",
+  "/assets/providers/stan-sport.jpg",
   "/assets/icons/sporticon/motorsports.svg",
   "/assets/icons/sporticon/rugby.svg",
   "/assets/icons/sporticon/tennis.svg",
@@ -133,6 +135,12 @@ self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   const cacheKey = new Request(event.request.url, { method: "GET" });
   if (requestUrl.origin !== self.location.origin) return;
+  // Safari requests HTML media in byte ranges. Partial responses cannot be
+  // stored in Cache Storage and must retain the original Range header.
+  if (event.request.headers.has("range") || requestUrl.pathname.startsWith("/assets/audio/")){
+    event.respondWith(fetch(event.request));
+    return;
+  }
   if (event.request.mode === "navigate"){
     event.respondWith(staleWhileRevalidate(event.request, event, new Request("/index.html")));
     return;

@@ -22,12 +22,16 @@ function expectedCloseAt(event) {
 }
 
 function isDueForResult(event) {
-  if (event.status === "completed") return true;
   // Tournament overview cards represent an active event window, not one
   // scoreable contest. They remain preview coverage until a verified match or
   // final result is available, so a daily order-of-play timestamp is never a
   // result deadline.
   if (event.cardType === "tournament_overview") return false;
+  // Ticket release watches represent an alert window, not a scoreable sporting
+  // contest. Their date can pass while the underlying future event remains
+  // unresolved, so they must never be forced through result completeness.
+  if (event.narrativeType === "ticket-sale-watch") return false;
+  if (event.status === "completed") return true;
   const expectedClose = expectedCloseAt(event);
   return Boolean(expectedClose && now.getTime() >= expectedClose.getTime());
 }

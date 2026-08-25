@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="139">
+<meta name="app-shell-version" content="141">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sports curator, tailored to your tastes. Like having a sports-fanatic mate in your pocket." data-brand-copy-content="metadataDescription">
@@ -2689,26 +2689,48 @@ main{
 .follow-context{
   display:flex;
   align-items:center;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
   gap:6px;
   margin-top:9px;
+  min-width:0;
+  overflow:hidden;
   font-size:0.7rem;
 }
 
 .follow-context-label{
+  flex:0 0 auto;
   color:var(--text-faint);
   font-weight:800;
   letter-spacing:0.04em;
   text-transform:uppercase;
 }
 
+.follow-context-list{
+  display:flex;
+  flex:1 1 auto;
+  align-items:center;
+  gap:6px;
+  min-width:0;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:3px 12px 5px 0;
+  scrollbar-width:none;
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+  mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 18px),transparent 100%);
+}
+
+.follow-context-list::-webkit-scrollbar{ display:none; }
+
 .follow-context-chip{
+  flex:0 0 auto;
   padding:4px 7px;
   border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 34%, var(--border));
   border-radius:999px;
   background:color-mix(in srgb, var(--sport-color, var(--accent)) 8%, transparent);
   color:var(--text-dim);
   font-weight:750;
+  white-space:nowrap;
 }
 
 .follow-context-chip.priority{
@@ -4711,7 +4733,7 @@ main{
   position: fixed;
   bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   left: 50%;
-  transform: translateX(-50%) translateY(20px);
+  transform: translateX(-50%);
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text);
@@ -4723,15 +4745,14 @@ main{
   z-index: 100;
   opacity: 0;
   pointer-events:none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.2s ease;
   contain: layout paint;
   text-align:center;
 }
 
 .toast.show{
   opacity:1;
-  transform: translateX(-50%) translateY(0);
-  pointer-events:auto;
+  pointer-events:none;
 }
 
 footer.app-footer{
@@ -5730,7 +5751,9 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .open-in-events-link,
 .major-event-marker-open,
 .ticket-link,
-.code-inspector-feed-action{
+.code-inspector-feed-action,
+.event-footer-button,
+.event-feedback-button{
   position:relative;
   box-sizing:border-box;
   min-width:0;
@@ -5756,7 +5779,9 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .open-in-events-link::after,
 .major-event-marker-open::after,
 .ticket-link::after,
-.code-inspector-feed-action::after{
+.code-inspector-feed-action::after,
+.event-footer-button::after,
+.event-feedback-button::after{
   content:"";
   position:absolute;
   inset:-5px 0;
@@ -5767,7 +5792,9 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .open-in-events-link:focus-visible,
 .major-event-marker-open:focus-visible,
 .ticket-link:focus-visible,
-.code-inspector-feed-action:focus-visible{
+.code-inspector-feed-action:focus-visible,
+.event-footer-button:focus-visible,
+.event-feedback-button:focus-visible{
   outline:3px solid color-mix(in srgb,var(--accent) 70%,transparent);
   outline-offset:3px;
 }
@@ -5781,9 +5808,94 @@ body.header-compact-3 .brand .slogan{ display:none; }
 }
 .event-quick-action{ width:100%; }
 .event-quick-action span:last-child{ min-width:4.8em; }
+.event-quick-action .viewing-action-label{ min-width:0; }
+.provider-action-mark{
+  flex:0 0 28px;
+  width:28px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:4px;
+  background:var(--provider-mark-bg,var(--soft-fill));
+}
+.provider-action-logo{ display:block; width:100%; height:100%; object-fit:contain; }
+.provider-action-mark .vector-glyph{ width:14px; height:14px; }
 .event-quick-explanation{ grid-column:1 / -1; margin:0; color:var(--text-dim); font-size:.66rem; line-height:1.35; overflow-wrap:anywhere; }
 .open-in-events-link,.major-event-marker-open{ border-color:color-mix(in srgb,var(--accent) 50%,var(--border)); color:var(--accent); }
 .major-event-ticket-link{ border-color:var(--ticket-action-border); background:var(--ticket-action-bg); color:var(--ticket-action-text); }
+.event-identity-wordmark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  color:inherit;
+  font:950 clamp(1.05rem,4vw,1.55rem)/1 'DM Sans',sans-serif;
+  letter-spacing:-.08em;
+  white-space:nowrap;
+}
+@media (max-width:360px){
+  .event-quick-action{ padding-inline:6px; gap:4px; font-size:.56rem; }
+  .provider-action-mark{ flex-basis:20px; width:20px; height:15px; }
+}
+[data-card-identity="competition:formula-one"]{
+  background:transparent!important;
+  border-color:transparent!important;
+}
+.event-compact-footer{
+  display:grid;
+  grid-template-columns:minmax(86px,1fr) 34px 34px minmax(104px,1fr);
+  align-items:center;
+  gap:7px;
+  margin-top:11px;
+  padding-top:10px;
+  border-top:1px solid var(--border);
+}
+.event-compact-footer.without-events-link{
+  grid-template-columns:minmax(96px,1fr) 34px 34px;
+  justify-content:start;
+}
+.event-footer-button,.event-feedback-button{ width:100%; }
+.event-feedback-button{ padding-inline:5px; }
+.event-feedback-button svg{ width:16px; height:16px; fill:currentColor; }
+.event-feedback-button.active{
+  border-color:var(--importance-color,var(--sport-color,var(--accent)));
+  background:color-mix(in srgb,var(--importance-color,var(--sport-color,var(--accent))) 18%,var(--soft-fill));
+}
+.event-footer-reset{
+  grid-column:1 / -1;
+  justify-self:start;
+  border:0;
+  background:transparent;
+  color:var(--text-dim);
+  font:750 .65rem/1.2 'DM Sans',sans-serif;
+  cursor:pointer;
+}
+.major-event-card[data-card-level="L0"] .major-event-identity{ padding:10px 14px 8px; }
+.major-event-card[data-card-level="L0"] .major-event-logo{ width:64px; height:54px; margin-bottom:5px; }
+.major-event-card[data-card-level="L0"] .major-event-kicker{ font-size:.62rem; }
+.major-event-card[data-card-level="L0"] .major-event-facts{ margin-top:5px; }
+.major-event-card[data-card-level="L0"] .major-event-ticket-row{ padding-block:7px; }
+.major-event-card[data-card-level="L0"] .major-event-schedule{ padding-block:10px 12px; }
+.major-event-schedule{ scroll-margin-top:calc(var(--sticky-top-bar-height,130px) + 12px); }
+.code-inspector-fixture-time{ align-items:center; }
+.code-inspector-status-stamp{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:20px;
+  padding:3px 7px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--text-dim);
+  background:var(--soft-fill);
+  font:900 .59rem/1 'DM Sans',sans-serif;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
 .new-tag,
 .follow-reason-tag,
 .matchup-stage-badge,
@@ -5979,7 +6091,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="about-body">
       <p data-brand-copy="about">nothingsport builds your feed only from teams, players and Aussies Only follows. Sport and major-event choices organise the rest of the app without becoming hidden Feed rules. Likes and dislikes are saved as feedback for future recommendations without changing today’s feed. Open Standings & Fixtures for the complete code-level timetable and ladder context.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
-      <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league, event, and provider marks are represented by neutral fallbacks unless explicit permission is recorded.</p>
+      <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a neutral TV fallback otherwise.</p>
     </div>
     <div class="about-actions">
       <button class="btn primary" id="closeAboutBtn">Close</button>
@@ -6406,6 +6518,85 @@ function glyphMarkup(key, options = {}){
   return VECTOR_ASSETS.glyphMarkup(key, options);
 }
 
+const IDENTITY_IMAGE_SELECTOR = "img[data-event-logo-light],img[data-team-logo-light],img[data-identity-image]";
+let identityRecoveryHandle = null;
+
+function identityImageSource(image){
+  return image.dataset.deferredCardImage
+    || image.getAttribute("src")
+    || image.currentSrc
+    || image.dataset.eventLogoLight
+    || image.dataset.teamLogoLight
+    || "";
+}
+
+function installIdentityImageRecovery(image){
+  image.dataset.identityImage = "true";
+  return image;
+}
+
+function revealIdentityImageFallback(image){
+  if (!image?.isConnected || image.naturalWidth > 0) return false;
+  const frame = image.closest(".identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head");
+  if (!frame) return false;
+  const existing = frame.querySelector(".team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark");
+  if (existing){
+    image.remove();
+    existing.hidden = false;
+    return true;
+  }
+  const fallback = document.createElement("span");
+  fallback.className = "team-logo-monogram identity-recovery-fallback";
+  fallback.setAttribute("aria-label", image.alt || "Identity unavailable");
+  fallback.textContent = String(image.alt || "Sport").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "SP";
+  image.replaceWith(fallback);
+  return true;
+}
+
+function retryBrokenIdentityImage(image){
+  if (!image?.isConnected || image.dataset.deferredCardImage || image.naturalWidth > 0) return false;
+  const source = identityImageSource(image);
+  if (!source) return revealIdentityImageFallback(image);
+  if (image.dataset.identityRetryAttempted === "true") return revealIdentityImageFallback(image);
+  image.dataset.identityRetryAttempted = "true";
+  image.removeAttribute("src");
+  window.requestAnimationFrame(() => {
+    if (image.isConnected) image.src = source;
+  });
+  return true;
+}
+
+function repairBrokenIdentityImages(root = document){
+  const images = Array.from(root.querySelectorAll?.(IDENTITY_IMAGE_SELECTOR) || []);
+  return images.filter(image => image.complete && image.naturalWidth === 0 && retryBrokenIdentityImage(image)).length;
+}
+
+function scheduleIdentityImageRecovery(root = document.getElementById("listView") || document){
+  if (identityRecoveryHandle !== null){
+    if (typeof window.cancelIdleCallback === "function") window.cancelIdleCallback(identityRecoveryHandle);
+    else window.clearTimeout(identityRecoveryHandle);
+  }
+  const run = () => {
+    identityRecoveryHandle = null;
+    repairBrokenIdentityImages(root?.isConnected ? root : document.getElementById("listView") || document);
+  };
+  identityRecoveryHandle = typeof window.requestIdleCallback === "function"
+    ? window.requestIdleCallback(run, { timeout:500 })
+    : window.setTimeout(run, 120);
+}
+
+if (typeof document !== "undefined") document.addEventListener("error", event => {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement) || !image.matches(IDENTITY_IMAGE_SELECTOR)) return;
+  if (image.dataset.identityRetryAttempted !== "true"){
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    retryBrokenIdentityImage(image);
+    return;
+  }
+  window.requestAnimationFrame(() => revealIdentityImageFallback(image));
+}, true);
+
 function sportMetaForEvent(ev){
   if (SPORT_META[ev?.key]) return SPORT_META[ev.key];
   const label = String(ev?.sport || ev?.key || "Sport")
@@ -6423,6 +6614,33 @@ function renderEventIdentityMark(container, ev, meta){
     container.replaceChildren();
     container.innerHTML = glyphMarkup(meta.glyph, { label: meta.label, preferImage: true });
   };
+  if (mark?.kind === "wordmark" && mark.wordmark){
+    container.classList.remove("has-brand-logo", "has-sport-logo");
+    container.dataset.identityWordmarkLight = mark.themeColor?.light || "#ff1e00";
+    container.dataset.identityWordmarkDark = mark.themeColor?.dark || "#ffffff";
+    const wordmark = document.createElement("span");
+    wordmark.className = "event-identity-wordmark";
+    wordmark.textContent = mark.wordmark;
+    wordmark.style.color = themeUsesDarkAssets() ? container.dataset.identityWordmarkDark : container.dataset.identityWordmarkLight;
+    container.replaceChildren(wordmark);
+    return;
+  }
+  if (mark?.kind === "vector" && mark.glyph){
+    const vectorEntry = VECTOR_ASSETS?.openUse?.[mark.glyph] || VECTOR_ASSETS?.custom?.[mark.glyph];
+    if (vectorEntry){
+      container.classList.remove("has-brand-logo");
+      container.classList.add("has-sport-logo");
+      const vector = document.createElement("span");
+      vector.className = "event-sport-mark nrl-finals-trophy-mark";
+      vector.innerHTML = glyphMarkup(mark.glyph, { className:"event-sport-logo", label:mark.label });
+      container.replaceChildren(vector);
+      return;
+    }
+    if (mark.fallback?.url){
+      ev = { ...ev, key:"nrl", brandId:null };
+      return renderEventIdentityMark(container, ev, meta);
+    }
+  }
   if (mark?.kind === "sport" && mark.glyph){
     container.classList.remove("has-brand-logo");
     container.classList.add("has-sport-logo");
@@ -6443,6 +6661,7 @@ function renderEventIdentityMark(container, ev, meta){
     return;
   }
   const image = document.createElement("img");
+  installIdentityImageRecovery(image);
   image.className = "event-brand-logo";
   const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: false }) || mark.url;
   const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: true }) || lightSource;
@@ -6508,6 +6727,7 @@ function themeUsesDarkAssets(){
 }
 
 function applyTeamLogoAsset(image, mark, context = "primary", useDark = themeUsesDarkAssets()){
+  installIdentityImageRecovery(image);
   const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context, useDark: false }) || mark?.url || "";
   const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context, useDark: true }) || lightSource;
   image.dataset.teamLogoLight = lightSource;
@@ -6531,6 +6751,10 @@ function syncThemeEventAssets(useDark){
     const nextSource = useDark ? image.dataset.eventLogoDark : image.dataset.eventLogoLight;
     if (image.dataset.deferredCardImage) image.dataset.deferredCardImage = nextSource;
     else if (nextSource && image.getAttribute("src") !== nextSource) image.setAttribute("src", nextSource);
+  });
+  document.querySelectorAll("[data-identity-wordmark-light]").forEach(container => {
+    const wordmark = container.querySelector(".event-identity-wordmark");
+    if (wordmark) wordmark.style.color = useDark ? container.dataset.identityWordmarkDark : container.dataset.identityWordmarkLight;
   });
 }
 
@@ -8202,7 +8426,7 @@ function renderSoundtrackToggle(){
 
 async function toggleSoundtrack(){
   if (!SOUNDTRACK){
-    showToast("Soundtrack playback is not available in this browser.");
+    showToast("Soundtrack could not start. Check your connection and tap again.");
     return false;
   }
   const toggle = document.getElementById("soundtrackToggle");
@@ -8222,7 +8446,7 @@ async function toggleSoundtrack(){
     SOUNDTRACK.stop();
     renderSoundtrackToggle();
     console.warn("Soundtrack playback failed", error);
-    showToast("Soundtrack playback is not available in this browser.");
+    showToast("Soundtrack could not start. Check your connection and tap again.");
     return false;
   }finally{
     toggle.disabled = false;
@@ -10246,14 +10470,21 @@ function buildFollowContext(contextItems){
   label.className = "follow-context-label";
   label.textContent = "Following";
   context.appendChild(label);
+  const list = document.createElement("div");
+  list.className = "follow-context-list";
+  list.setAttribute("role", "list");
+  list.tabIndex = 0;
+  list.setAttribute("aria-label", "Followed teams and players on this card");
   contextItems.forEach(item => {
     const chip = document.createElement("span");
     chip.className = `follow-context-chip${item.followLevel === "priority" ? " priority" : ""}`;
+    chip.setAttribute("role", "listitem");
     chip.textContent = item.followLevel === "priority"
       ? `${item.displayName} · priority`
       : item.displayName;
-    context.appendChild(chip);
+    list.appendChild(chip);
   });
+  context.appendChild(list);
   return context;
 }
 
@@ -11991,23 +12222,31 @@ function buildCodeInspectorFixture(fixture){
   if (!fixture.time) time.className = "code-inspector-tbc";
   timing.append(date, time);
   const snapshot = codeInspectorFixtureSnapshot(fixture);
-  const pin = document.createElement("button");
-  pin.type = "button";
-  pin.className = "event-quick-action code-inspector-feed-action";
-  const added = Boolean(snapshot && getEventAction(snapshot).addedToFixtures);
-  pin.disabled = !snapshot;
-  pin.setAttribute("aria-pressed", String(added));
-  pin.textContent = snapshot ? (added ? "Remove from Feed" : "Add to Feed") : (inspectorFixtureIsResult(fixture) ? "Finished" : "Time TBC");
-  pin.title = snapshot ? "Pin this one fixture to Feed without following either participant." : "Only concrete future fixtures with a published sporting start can be added.";
-  pin.addEventListener("click", event => {
-    event.stopPropagation();
-    if (!setCodeInspectorFixtureAdded(fixture, !added)) return;
-    renderCodeInspector();
-    showToast(added ? `${fixture.name} removed from Feed.` : `${fixture.name} added to Feed.`);
-  });
+  let pin = null;
+  if (snapshot){
+    pin = document.createElement("button");
+    pin.type = "button";
+    pin.className = "event-quick-action code-inspector-feed-action";
+    const added = Boolean(getEventAction(snapshot).addedToFixtures);
+    pin.setAttribute("aria-pressed", String(added));
+    pin.textContent = added ? "Remove from Feed" : "Add to Feed";
+    pin.title = "Pin this one fixture to Feed without following either participant.";
+    pin.addEventListener("click", event => {
+      event.stopPropagation();
+      if (!setCodeInspectorFixtureAdded(fixture, !added)) return;
+      renderCodeInspector();
+      showToast(added ? `${fixture.name} removed from Feed.` : `${fixture.name} added to Feed.`);
+    });
+  } else {
+    const statusStamp = document.createElement("span");
+    statusStamp.className = "code-inspector-status-stamp";
+    statusStamp.textContent = inspectorFixtureIsResult(fixture) ? "Finished" : "Time TBC";
+    timing.appendChild(statusStamp);
+  }
   const side = document.createElement("div");
   side.className = "code-inspector-fixture-side";
-  side.append(timing, pin);
+  side.appendChild(timing);
+  if (pin) side.appendChild(pin);
   row.append(main, side);
   if (expanded){
     const details = document.createElement("div");
@@ -12778,6 +13017,104 @@ function buildSpoilerOverrideControl(ev){
   return control;
 }
 
+function latestEventFeedbackDirection(ev){
+  const eventId = String(ev.eventId || ev.id);
+  return [...(userPreferences.followFirst?.feedback?.entries || [])]
+    .reverse()
+    .find(entry => entry.eventId === eventId)?.direction || null;
+}
+
+function buildSpoilerOverrideButton(ev, refreshCard){
+  const visible = isSpoilerVisible(ev);
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "event-footer-button";
+  button.textContent = userPreferences.feedControls?.spoilers === "strict"
+    ? "Results hidden"
+    : visible ? "Hide results" : "Show results";
+  button.disabled = userPreferences.feedControls?.spoilers === "strict";
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    if (visible){
+      hideSpoilersForEvent(ev);
+      refreshCard?.();
+      showToast("Results hidden for this event.");
+      return;
+    }
+    if (window.confirm("Show results for this event?")){
+      revealSpoilerDetails(ev);
+      refreshCard?.();
+      showToast("Results shown for this event.");
+    }
+  });
+  return button;
+}
+
+function buildEventFeedbackButtons(ev){
+  const directions = [
+    ["positive", "More like", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v10H4V10h3Zm2 10V10l4-6 1 1v4h5.1c.8 0 1.4.7 1.2 1.5l-1.2 7c-.1.9-.9 1.5-1.8 1.5H9Z"/></svg>'],
+    ["negative", "Less like", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>'],
+  ];
+  const buttons = directions.map(([direction, label, markup]) => {
+    const button = document.createElement("button");
+    const active = latestEventFeedbackDirection(ev) === direction;
+    button.type = "button";
+    button.className = `event-feedback-button${active ? " active" : ""}`;
+    button.setAttribute("aria-label", `${label} ${ev.name}`);
+    button.setAttribute("aria-pressed", String(active));
+    button.innerHTML = markup;
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      applyCuratedEventSwipe(ev, direction);
+      buttons.forEach((candidate, index) => {
+        const selected = directions[index][0] === direction;
+        candidate.classList.toggle("active", selected);
+        candidate.setAttribute("aria-pressed", String(selected));
+      });
+    });
+    return button;
+  });
+  return buttons;
+}
+
+function buildEventCompactFooter(ev, options = {}, refreshCard = null){
+  void options;
+  const footer = document.createElement("footer");
+  footer.className = "event-compact-footer";
+  footer.appendChild(buildSpoilerOverrideButton(ev, refreshCard));
+  buildEventFeedbackButtons(ev).forEach(button => footer.appendChild(button));
+
+  const majorEventId = eventMajorEventId(ev);
+  if (majorEventId){
+    const openEvents = document.createElement("button");
+    openEvents.type = "button";
+    openEvents.className = "event-footer-button open-in-events-link";
+    openEvents.textContent = "View in Events";
+    openEvents.addEventListener("click", event => {
+      event.stopPropagation();
+      openMajorEventInEvents(majorEventId);
+    });
+    footer.appendChild(openEvents);
+  } else {
+    footer.classList.add("without-events-link");
+  }
+
+  if (getEventSpoilerState(ev).override !== "inherit"){
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "event-footer-reset";
+    reset.textContent = "Use global results setting";
+    reset.addEventListener("click", event => {
+      event.stopPropagation();
+      resetSpoilerOverride(ev);
+      refreshCard?.();
+      showToast("This event now follows the global results setting.");
+    });
+    footer.appendChild(reset);
+  }
+  return footer;
+}
+
 function buildSpoilerFacts(ev){
   if (!isSpoilerVisible(ev)) return null;
   const facts = spoilerFactsForEvent(ev);
@@ -12836,6 +13173,10 @@ function nextCardState(current){
   if (current === "compact") return "selected";
   if (current === "selected") return "opened";
   return "compact";
+}
+
+function cardLevelForState(state){
+  return state === "opened" ? "L2" : state === "selected" ? "L1" : "L0";
 }
 
 function cardStateForEvent(ev){
@@ -13374,6 +13715,31 @@ async function toggleQuickReminder(ev, button){
   }
 }
 
+function buildViewingProviderMark(viewing){
+  const mark = document.createElement("span");
+  mark.className = "provider-action-mark";
+  mark.dataset.providerId = viewing.providerId;
+  if (viewing.logoBackground) mark.style.setProperty("--provider-mark-bg", viewing.logoBackground);
+  const showFallback = () => {
+    mark.classList.add("provider-action-mark-fallback");
+    mark.replaceChildren();
+    mark.innerHTML = glyphMarkup("ui:tv", { preferImage:true });
+  };
+  if (!viewing.logoPath){
+    showFallback();
+    return mark;
+  }
+  const image = document.createElement("img");
+  image.className = "provider-action-logo";
+  image.alt = "";
+  image.setAttribute("aria-hidden", "true");
+  image.decoding = "async";
+  image.addEventListener("error", showFallback, { once:true });
+  image.src = viewing.logoPath;
+  mark.appendChild(image);
+  return mark;
+}
+
 function appendEventQuickActions(container, ev){
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
@@ -13399,12 +13765,21 @@ function appendEventQuickActions(container, ev){
     link.href = viewing.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.title = `Open ${viewing.label}. Installed apps may open natively; otherwise this opens in your browser.`;
-    link.innerHTML = `${glyphMarkup("ui:external-link", { preferImage:true })}<span>View</span>`;
+    link.title = `Watch on ${viewing.label}. Installed apps may open natively; otherwise this opens in your browser.`;
+    link.setAttribute("aria-label", `Watch on ${viewing.label}`);
+    const label = document.createElement("span");
+    label.className = "viewing-action-label";
+    label.textContent = `Watch on ${viewing.actionLabel || viewing.label}`;
+    link.append(buildViewingProviderMark(viewing), label);
     link.addEventListener("click", event => event.stopPropagation());
     actions.appendChild(link);
   }
   container.appendChild(actions);
+}
+
+function eventMajorEventId(ev){
+  const eventId = String(ev?.majorEventId || ev?.parentMajorEventId || "").trim();
+  return eventId || null;
 }
 
 function buildEventCard(ev, options = {}){
@@ -13543,23 +13918,6 @@ function buildEventCard(ev, options = {}){
       tickets.setAttribute("aria-label", `${ticketOffer.label} for ${displayTitle} from ${ticketOffer.provider}`);
       tickets.addEventListener("click", evt => evt.stopPropagation());
       dateLine.appendChild(tickets);
-    }
-    const eventsRecordId = ev.majorEventId || ev.parentMajorEventId || null;
-    const hasEventsRecord = eventsRecordId && (
-      ev.majorEventMarker
-      || !majorEventsDocument
-      || majorEventsDocument.events?.some(record => record.id === eventsRecordId)
-    );
-    if (hasEventsRecord){
-      const openEvents = document.createElement("button");
-      openEvents.type = "button";
-      openEvents.className = "open-in-events-link";
-      openEvents.textContent = "Open in Events";
-      openEvents.addEventListener("click", event => {
-        event.stopPropagation();
-        openMajorEventInEvents(eventsRecordId);
-      });
-      dateLine.appendChild(openEvents);
     }
     appendEventQuickActions(dateLine, ev);
     if (!matchupIdentity) nameWrap.appendChild(dateLine);
@@ -13743,12 +14101,16 @@ function buildEventCard(ev, options = {}){
       `;
       mainDiv.appendChild(spoilerPanel);
     }
-    const spoilerControl = buildSpoilerOverrideControl(ev);
-    if (spoilerControl) mainDiv.appendChild(spoilerControl);
-    mainDiv.appendChild(buildEventActionPanel(ev, {
-      archived: options.archived,
-      autoArchived: options.autoArchived,
-    }));
+    if (options.archived){
+      mainDiv.appendChild(buildEventActionPanel(ev, {
+        archived: true,
+        autoArchived: options.autoArchived,
+      }));
+    } else {
+      mainDiv.appendChild(buildEventCompactFooter(ev, options, () => {
+        replaceCardPreservingViewport(card, buildEventCard(ev, options), { restoreFocus:false });
+      }));
+    }
   }
 
   if (state === "opened"){
@@ -13784,12 +14146,16 @@ function buildEventCard(ev, options = {}){
       ${ev.sourceName ? `<div class="event-detail-item"><strong>${sourceTrust?.label || "Source"}</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
     mainDiv.appendChild(details);
-    const spoilerControl = buildSpoilerOverrideControl(ev);
-    if (spoilerControl) mainDiv.appendChild(spoilerControl);
-    mainDiv.appendChild(buildEventActionPanel(ev, {
-      archived: options.archived,
-      autoArchived: options.autoArchived,
-    }));
+    if (options.archived){
+      mainDiv.appendChild(buildEventActionPanel(ev, {
+        archived: true,
+        autoArchived: options.autoArchived,
+      }));
+    } else {
+      mainDiv.appendChild(buildEventCompactFooter(ev, options, () => {
+        replaceCardPreservingViewport(card, buildEventCard(ev, options), { restoreFocus:false });
+      }));
+    }
   }
 
   card.appendChild(mainDiv);
@@ -15745,9 +16111,19 @@ function footballLeagueKeyForId(leagueId){
   }[leagueId] || null;
 }
 
+function preserveFollowRowAnchor(row, previousTop){
+  if (!row || !Number.isFinite(previousTop)) return;
+  window.requestAnimationFrame(() => {
+    if (!row.isConnected || activeTab !== "follow") return;
+    const delta = row.getBoundingClientRect().top - previousTop;
+    if (Math.abs(delta) > 0.5) window.scrollBy({ top:delta, behavior:"auto" });
+  });
+}
+
 function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
-  const preservedScrollY = window.scrollY;
-  const preserveViewport = () => window.requestAnimationFrame(() => window.scrollTo({ top:preservedScrollY, behavior:"auto" }));
+  const activeControl = document.activeElement;
+  const changedRow = activeControl?.closest?.(".football-player-row, .football-club-head, .sport-directory-row, [data-participant-id]") || null;
+  const changedRowTop = changedRow?.getBoundingClientRect().top;
   const next = clonePreferences(userPreferences);
   const sportSelectorId = BASE_SPORT_SELECTOR_ENTITIES.some(entity => entity.id === `sport:${sportKey}`) ? `sport:${sportKey}` : null;
   if (["follow", "priority"].includes(followLevel) && sportSelectorId && !selectorEntityIsEffectivelySelected(sportSelectorId, next)){
@@ -15768,7 +16144,6 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
       rebuildDerivedCardCache(activeEvents);
       if (activeTab !== "follow") renderAll({ preserveViewport: true });
       else renderTabCounts();
-      preserveViewport();
     });
   }
   if (sportKey === "nrl" || sportKey === "afl"){
@@ -15777,11 +16152,10 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
       rebuildDerivedCardCache(activeEvents);
       if (activeTab !== "follow") renderAll({ preserveViewport: true });
       else renderTabCounts();
-      preserveViewport();
     });
   }
   renderTabCounts();
-  preserveViewport();
+  preserveFollowRowAnchor(changedRow, changedRowTop);
 }
 
 function buildDirectorySelect(label, value, options, onChange){
@@ -15894,7 +16268,10 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   crest.className = "football-club-crest";
   const mark = CARD_IDENTITIES?.participantMarks?.[team.id];
   if (mark) applyTeamLogoAsset(crest, mark, "icon");
-  else crest.src = team.crestUrl || "";
+  else {
+    installIdentityImageRecovery(crest);
+    crest.src = team.crestUrl || "";
+  }
   crest.alt = `${team.displayName} crest`;
   crest.width = 38;
   crest.height = 38;
@@ -16576,6 +16953,7 @@ function majorEventIdentityEvent(record){
     sport: record.sportLabel,
     name: record.name,
     competitionId: record.competitionId,
+    brandId: /nrl-finals-series/i.test(String(record.id || "")) ? "nrl-finals-series" : null,
   };
 }
 
@@ -16662,6 +17040,8 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
   if (!subEvents.length) return null;
   const section = document.createElement("section");
   section.className = `major-event-schedule${compact ? " is-preview" : ""}`;
+  section.dataset.majorEventTimetable = record.id;
+  section.tabIndex = -1;
   const heading = document.createElement("h4");
   heading.textContent = headingText;
   const list = document.createElement("div");
@@ -16755,6 +17135,7 @@ function buildMajorEventCard(record){
   card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.majorEventId = record.id;
   card.dataset.cardState = state;
+  card.dataset.cardLevel = cardLevelForState(state);
   card.tabIndex = 0;
   card.setAttribute("aria-expanded", String(state !== "compact"));
   card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
@@ -16785,7 +17166,9 @@ function buildMajorEventCard(record){
   inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Timetable</span>`;
   inspect.addEventListener("click", event => {
     event.stopPropagation();
-    void openStandingsFixturesForEvent(record);
+    setCardState(record, "opened");
+    replaceCardPreservingViewport(card, buildMajorEventCard(record), { restoreFocus:false });
+    window.requestAnimationFrame(() => focusMajorEventTimetable(record.id));
   });
   ticketRow.appendChild(inspect);
   const expand = document.createElement("button");
@@ -16827,9 +17210,9 @@ function buildMajorEventCard(record){
 
   card.append(identity, ticketRow);
   const immediateSchedule = buildMajorEventSchedule(record, {
-    limit: state === "opened" ? Infinity : 3,
-    headingText: state === "opened" ? "Published timetable" : "Next matches and line-ups",
-    compact: state !== "opened",
+    limit: state === "compact" ? 1 : state === "selected" ? 3 : Infinity,
+    headingText: state === "opened" ? "Published timetable" : state === "selected" ? "Next matches and line-ups" : "Next match or line-up",
+    compact: state === "compact",
   });
   if (immediateSchedule) card.appendChild(immediateSchedule);
   else {
@@ -16863,11 +17246,24 @@ function buildMajorEventCard(record){
   return card;
 }
 
+function focusMajorEventTimetable(eventId){
+  const selector = `[data-major-event-timetable="${CSS.escape(String(eventId))}"]`;
+  const target = document.querySelector(selector);
+  if (!target) return false;
+  target.scrollIntoView({ behavior:"auto", block:"start" });
+  const desiredTop = Math.ceil(stickyFeedChromeHeight() + 12);
+  window.scrollBy({ top:target.getBoundingClientRect().top - desiredTop, behavior:"auto" });
+  target.focus({ preventScroll:true });
+  return true;
+}
+
 function focusMajorEventCard(eventId){
   const targetId = `major-event-card-${String(eventId || "").replace(/[^a-z0-9_-]/gi, "-")}`;
   const target = document.getElementById(targetId);
   if (!target) return false;
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  target.scrollIntoView({ behavior: "auto", block: "start" });
+  const desiredTop = Math.ceil(stickyFeedChromeHeight() + 12);
+  window.scrollBy({ top:target.getBoundingClientRect().top - desiredTop, behavior:"auto" });
   const restoreTargetFocus = () => {
     const current = document.getElementById(targetId);
     if (!current) return false;
@@ -16914,7 +17310,7 @@ function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
   if (record && cardStateForEvent(record) === "compact") setCardState(record, "selected");
   const hash = eventsDeepLinkHash("major", eventId);
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: eventId } }, "", hash);
-  activateTopLevelTab("events");
+  activateTopLevelTab("events", { preserveCardStates:true, resetViewport:false });
 }
 
 function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
@@ -16926,7 +17322,7 @@ function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
   pendingTicketAlertFocusId = alertId;
   const hash = eventsDeepLinkHash("alert", alertId);
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "alert", id: alertId } }, "", hash);
-  activateTopLevelTab("events");
+  activateTopLevelTab("events", { preserveCardStates:true, resetViewport:false });
 }
 
 function buildTicketSaleCard(record){
@@ -16937,6 +17333,7 @@ function buildTicketSaleCard(record){
   card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.ticketAlertId = record.id;
   card.dataset.cardState = state;
+  card.dataset.cardLevel = cardLevelForState(state);
   card.tabIndex = 0;
   card.setAttribute("aria-expanded", String(state !== "compact"));
   card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
@@ -17160,22 +17557,24 @@ function renderEventsView(){
   }
 }
 
-function activateTopLevelTab(nextTab){
+function activateTopLevelTab(nextTab, { preserveCardStates = false, resetViewport = true } = {}){
   if (activeInspectorCodeId){
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     closeCodeInspector({ restoreViewport: false });
   }
-  collapseAllCardStates();
+  if (!preserveCardStates) collapseAllCardStates();
   activeTab = nextTab;
   syncTopLevelNavigationState();
   if (activeTab === "feed") calendarInitialJumpPending = true;
   const shouldLoadEvents = activeTab === "events" && !majorEventsDocument && !majorEventsLoading;
   if (shouldLoadEvents) void loadMajorEventsData();
   else renderAll();
-  window.requestAnimationFrame(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-    document.querySelectorAll("#listView, #monthView, .code-inspector-panel, .events-feed, .follow-view").forEach(panel => { panel.scrollTop = 0; });
-  });
+  if (resetViewport){
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      document.querySelectorAll("#listView, #monthView, .code-inspector-panel, .events-feed, .follow-view").forEach(panel => { panel.scrollTop = 0; });
+    });
+  }
 }
 
 /* ============ TABS / VIEW SWITCHING ============ */
@@ -17249,29 +17648,22 @@ function renderCurrentSection(){
   clearPendingCardRetractionSpace();
   if (activeInspectorCodeId){
     renderCodeInspector();
-    return;
-  }
-  if (startupCoordinator.isHydrating()){
+  } else if (startupCoordinator.isHydrating()){
     renderStartupFeedLoading();
-    return;
-  }
-  if (activeTab === "events"){
+  } else if (activeTab === "events"){
     renderEventsView();
-    return;
-  }
-  if (activeTab === "follow"){
+  } else if (activeTab === "follow"){
     renderFollowView();
-    return;
-  }
-  if (activeTab === "standings"){
+  } else if (activeTab === "standings"){
     renderStandingsContext();
-    return;
-  }
-  if (activeSportHubKey()){
+  } else if (activeSportHubKey()){
     renderSportHub();
-    return;
+  } else if (activeView === "list"){
+    renderListView();
+  } else {
+    renderMonthView();
   }
-  if (activeView === "list") renderListView(); else renderMonthView();
+  scheduleIdentityImageRecovery(document.getElementById("listView") || document);
 }
 
 function renderTabCounts(){
@@ -17367,6 +17759,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   restoreViewportRenderAnchor(preservedViewportAnchor);
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
   scheduleFirstCardViewportFit();
+  scheduleIdentityImageRecovery(listView);
 }
 
 function firstNormalFeedCard(){
@@ -19141,6 +19534,7 @@ function completeStartupFeedHydration(){
     }
     loadingController.complete("first-viewport");
     scheduleStartupLogoFunnel({ feedReady:true });
+    scheduleIdentityImageRecovery(document.getElementById("listView") || document);
   });
   const defer = window.requestIdleCallback || (callback => window.setTimeout(callback, 250));
   defer(() => { void loadDeferredStartupContext(); });

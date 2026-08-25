@@ -263,7 +263,7 @@ function previewCopy(event){
       ? ["Grid-setting session with direct consequences for the race.", `${title}${venue} sets the grid and the strategic shape of the Grand Prix weekend.${broadcast}`]
       : ["A championship race with points, strategy, and Australian interest in play.", `${title}${venue} is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result.${broadcast}`],
     tdf: ["A Tour stage worth tracking for its terrain, breakaway chances, and general-classification impact.", `${title} brings a distinct route profile to the 2026 Tour. Follow the stage for the day's winner, jersey changes, and any time gaps among the overall contenders.${broadcast}`],
-    nrl: ["A finals appointment with the season narrowing and elimination pressure rising.", `${title}${venue} belongs in the calendar because every result reshapes the premiership path. Team details and the exact matchup should be refreshed when the finals bracket is confirmed.${broadcast}`],
+    nrl: ["A finals appointment with the season narrowing and elimination pressure rising.", `Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed.${broadcast}`],
     cricket: ["An Australian Test appointment with series context and a full-day viewing window.", `${title}${venue} opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop.${broadcast}`],
     rugby: ["A Wallabies Test with selection, form, and international stakes.", `${title}${venue} is a meaningful checkpoint in Australia's 2026 program. Track the confirmed venue, team news, and broadcast path as match week approaches.${broadcast}`],
     ski: ["A World Cup race where speed, conditions, and season standings converge.", `${title}${venue} is retained as a marquee winter-sport appointment. Exact start lists and conditions should be checked against the official FIS programme closer to race day.${broadcast}`],
@@ -300,10 +300,14 @@ function enrichEvent(event){
   }
 
   const [selectedSentence, fullSpiel] = previewCopy(event);
+  const unresolvedNrlFinal = event.key === "nrl"
+    && /final/i.test(event.name || "")
+    && event.status !== "completed"
+    && !(event.participantIds || []).length;
   return {
     ...event,
     selectedSentence: event.selectedSentence === PLACEHOLDER ? selectedSentence : event.selectedSentence,
-    fullSpiel: /remains available from the existing nothingsport card set/i.test(event.fullSpiel || "") ? fullSpiel : event.fullSpiel,
+    fullSpiel: unresolvedNrlFinal || /remains available from the existing nothingsport card set/i.test(event.fullSpiel || "") ? fullSpiel : event.fullSpiel,
     sourceCheckedAt: event.sourceCheckedAt || SOURCE_CHECKED_AT,
     narrativeType: isPast(event) ? "result-pending" : (event.narrativeType || event.round || "preview"),
   };
@@ -381,8 +385,8 @@ function enrichLegacyCards(feed, additions = []){
     .sort((first, second) => `${first.date}T${first.time}${first.id}`.localeCompare(`${second.date}T${second.time}${second.id}`));
   return normalizeFeed({
     ...feed,
-    version: "nothingsport-history-2026-07-16",
-    publishedAt: SOURCE_CHECKED_AT,
+    version: feed.version || "nothingsport-history-2026-07-16",
+    publishedAt: feed.publishedAt || new Date().toISOString(),
     sourceNote: "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
     events,
   });

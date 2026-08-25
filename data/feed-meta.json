@@ -1,23 +1,22 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-25T03:03:31.699Z",
+  "publishedAt": "2026-08-25T07:06:06.858Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
     "masters",
     "nba",
     "lemans",
+    "fifa",
     "wimbledon",
     "rugby",
     "tdf",
     "f1",
-    "cwg",
-    "afl",
     "nrl",
+    "afl",
+    "cwg",
     "cricket",
-    "ski",
-    "fifa",
     "premier-league",
     "skateboard",
     "wsl",
@@ -25,6 +24,7 @@
     "telemark",
     "rally",
     "big-wave",
+    "ski",
     "goodwood"
   ],
   "briefingWeekKey": "2026-W28",
@@ -61,6 +61,11 @@
         "firstEventDate": "2026-06-13",
         "lastEventDate": "2026-06-14"
       },
+      "fifa": {
+        "count": 20,
+        "firstEventDate": "2026-06-14",
+        "lastEventDate": "2026-07-20"
+      },
       "wimbledon": {
         "count": 32,
         "firstEventDate": "2026-07-03",
@@ -81,35 +86,25 @@
         "firstEventDate": "2026-07-05",
         "lastEventDate": "2027-03-07"
       },
-      "cwg": {
-        "count": 34,
-        "firstEventDate": "2026-07-24",
-        "lastEventDate": "2026-08-03"
+      "nrl": {
+        "count": 63,
+        "firstEventDate": "2026-07-18",
+        "lastEventDate": "2026-10-31"
       },
       "afl": {
         "count": 53,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-09-26"
       },
-      "nrl": {
-        "count": 63,
-        "firstEventDate": "2026-07-18",
-        "lastEventDate": "2026-10-31"
+      "cwg": {
+        "count": 34,
+        "firstEventDate": "2026-07-24",
+        "lastEventDate": "2026-08-03"
       },
       "cricket": {
         "count": 16,
         "firstEventDate": "2026-08-13",
         "lastEventDate": "2027-01-02"
-      },
-      "ski": {
-        "count": 4,
-        "firstEventDate": "2027-03-06",
-        "lastEventDate": "2027-03-20"
-      },
-      "fifa": {
-        "count": 20,
-        "firstEventDate": "2026-06-14",
-        "lastEventDate": "2026-07-20"
       },
       "premier-league": {
         "count": 380,
@@ -145,6 +140,11 @@
         "count": 2,
         "firstEventDate": "2027-01-22",
         "lastEventDate": "2027-02-07"
+      },
+      "ski": {
+        "count": 4,
+        "firstEventDate": "2027-03-06",
+        "lastEventDate": "2027-03-20"
       },
       "goodwood": {
         "count": 1,

@@ -6,7 +6,7 @@
   "use strict";
 
   const narrativeProfiles = Object.freeze(Object.fromEntries(Object.entries({
-    f1: { id: "narrative:motorsport-grand-prix", signals: [{ match: "record|pole|qualifying", label: "Record Chase", archetype: "quest" }, { match: "championship|decider", label: "Title Decider", archetype: "quest" }] },
+    f1: { id: "narrative:motorsport-grand-prix", signals: [{ match: "record|milestone|all-time", label: "Record Chase", archetype: "quest" }, { match: "championship|decider", label: "Title Decider", archetype: "quest" }] },
     rugby: { id: "narrative:rugby-test", signals: [{ match: "bledisloe|rival|derby", label: "Rivalry", archetype: "rivalry" }, { match: "final|decider", label: "Title Decider", archetype: "quest" }] },
     motorsport: { id: "narrative:motorsport-family", signals: [{ match: "stage|rally|endurance|finish|qualifying", label: "Title Decider", archetype: "quest" }, { match: "record|best lap|fastest", label: "Record Chase", archetype: "quest" }, { match: "podium|championship|winner", label: "Rivalry", archetype: "rivalry" }] },
     extreme: { id: "narrative:extreme-sport", signals: [{ match: "world cup|championship|title|final", label: "Title Decider", archetype: "quest" }, { match: "record|run|dirt|jump|crash", label: "Record Chase", archetype: "quest" }, { match: "trick|park|gravity", label: "Rivalry", archetype: "rivalry" }] },

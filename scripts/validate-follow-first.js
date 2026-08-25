@@ -65,6 +65,12 @@ assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Finals");
 assert.deepEqual(["Round 27", "Wildcard Final", "Qualifying Final", "Elimination Final", "Semi Final", "Preliminary Final", "Grand Final"].sort(followFirst.compareFixtureGroupLabels), ["Round 27", "Wildcard Final", "Elimination Final", "Qualifying Final", "Semi Final", "Preliminary Final", "Grand Final"]);
 assert.equal(followFirst.normalizedFixtureGroupLabel("Australia v New Zealand"), "Other fixtures");
 
+const paidViewing = followFirst.viewingLink({ broadcaster:"Nine / Kayo Sports" }, ["nine"]);
+assert.equal(paidViewing.providerId, "kayo", "an actual paid stream must be preferred over a free-to-air simulcast");
+assert.equal(paidViewing.actionLabel, "Kayo");
+assert.equal(followFirst.viewingLink({ broadcaster:"Stan Sport / 9Now" }, ["nine"]).providerId, "stan", "Stan Sport must win over a free-to-air option");
+assert.equal(followFirst.viewingLink({ broadcaster:"Provider TBC" }), null, "a viewing action must not invent an unrelated provider");
+
 const feedDocument = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const explicitAustralianEvents = (feedDocument.events || []).filter(event => representativeEvents.metadataForEventId(event.eventId || event.id));
 assert.equal(explicitAustralianEvents.length, 39, "all known title-only Australian representative fixtures require explicit registry metadata");
@@ -143,7 +149,7 @@ assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(
 assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
 assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySportIds"), "per-sport Australia toggles must be retired from runtime UI");
 assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");
-assert(html.includes("appendEventQuickActions") && html.includes("Remind me") && html.includes("<span>View</span>"));
+assert(html.includes("appendEventQuickActions") && html.includes("Remind me") && html.includes("buildViewingProviderMark") && html.includes("Watch on ${viewing.actionLabel || viewing.label}"));
 assert(/\.swipe-coaching[\s\S]{0,500}color:\s*#43b9ff/.test(html));
 assert(/\.swipe-coaching[\s\S]{0,500}font-size:\s*\.85rem/.test(html));
 assert(/\.swipe-coaching[\s\S]{0,500}opacity:\s*\.7/.test(html));

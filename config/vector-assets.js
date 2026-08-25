@@ -39,6 +39,7 @@
     "ui:filter": '<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>',
     "ui:palette": '<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-.9-.5-1.3-.3-.4-.5-.8-.5-1.2a2 2 0 0 1 2-2h2.1a4.9 4.9 0 0 0 4.9-4.9C22 5.9 17.5 2 12 2z"/>',
     "ui:music": '<path d="M9 18V5l12-2v13M9 9l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+    "ui:tv": '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="m8 2 4 3 4-3M8 22h8"/><path d="m10 9 5 3-5 3z"/>',
     "ui:message": '<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>',
     "ui:map-pin": '<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
     "ui:chevron-right": '<path d="m9 18 6-6-6-6"/>',
@@ -56,6 +57,7 @@
     "semantic:record-chase": '<path d="M4 20V14h4v6M10 20V9h4v11M16 20V4h4v16M3 20h18"/>',
     "semantic:title-decider": '<path d="M8 3h8v4a4 4 0 0 1-8 0zM12 11v5M8 21h8M9 16h6v5H9z"/><path d="M8 5H4v1a4 4 0 0 0 4 4M16 5h4v1a4 4 0 0 1-4 4"/>',
     "semantic:upset-watch": '<path d="M3 17 8 9l4 5 4-9 5 12M3 20h18"/>',
+    "semantic:nrl-finals-trophy": '<path d="M7 3h10v4a5 5 0 0 1-10 0V3Z"/><path d="M7 5H3v2a4 4 0 0 0 4 4M17 5h4v2a4 4 0 0 1-4 4M12 12v5M8 21h8M9 17h6v4H9Z"/><path d="M9.5 6.5h5"/>',
   };
 
   const openUse = Object.freeze({

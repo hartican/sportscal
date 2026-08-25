@@ -102,6 +102,7 @@ function buildSteps({ localOnly = false } = {}) {
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),
   ["scripts/refresh-premier-league-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ["scripts/enrich-legacy-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/apply-representative-metadata.js", "feeds/incoming/events.json"],
   ["scripts/apply-approved-coverage.js", "--write"],
   ["scripts/apply-approved-coverage.js", "--check"],
@@ -152,6 +153,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-feed-performance.js"],
   ["scripts/validate-code-inspector-ui.js"],
   ["scripts/validate-events-fixture-ux.js"],
+  ["scripts/validate-mobile-reliability-pass.js"],
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/validate-follow-first.js"],
   ];

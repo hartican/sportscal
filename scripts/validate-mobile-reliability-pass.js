@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const identities = require("../config/card-identities.js");
+const vectors = require("../config/vector-assets.js");
+const sportDomains = require("../config/sport-domain-registry.js");
+
+const html = fs.readFileSync("index.html", "utf8");
+const worker = fs.readFileSync("service-worker.js", "utf8");
+const incoming = JSON.parse(fs.readFileSync("feeds/incoming/events.json", "utf8"));
+const published = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
+
+assert(html.includes('className = "follow-context-list"'), "Following chips must render inside one dedicated horizontal rail");
+assert(html.includes("overflow-x:auto") && html.includes("scrollbar-width:none"), "the Following rail must scroll horizontally without wrapping the page");
+
+const f1Profile = sportDomains.narrativeProfiles.f1;
+assert(f1Profile, "Formula One must retain a narrative profile");
+assert(!f1Profile.signals.some(signal => signal.label === "Record Chase" && /qualifying|pole/.test(signal.match)), "ordinary qualifying and pole sessions must not imply a record chase");
+assert(f1Profile.signals.some(signal => signal.label === "Record Chase" && /record|milestone/.test(signal.match)), "explicit record or milestone language must still support Record Chase");
+
+const f1Mark = identities.markForEvent({ key:"f1", name:"Azerbaijan GP Qualifying" });
+assert.equal(f1Mark.kind, "wordmark", "Formula One cards must use the rights-safe editorial wordmark treatment");
+assert.equal(f1Mark.wordmark, "F1™");
+assert.equal(f1Mark.themeColor?.light, "#ff1e00");
+assert.equal(f1Mark.themeColor?.dark, "#ffffff");
+assert.match(vectors.glyphMarkup("ui:tv"), /<svg|<img/, "provider actions must retain a local TV fallback");
+assert.match(vectors.glyphMarkup("semantic:nrl-finals-trophy"), /<svg|<img/, "NRL finals must have a local trophy glyph");
+
+assert(html.includes('label.textContent = `Watch on ${viewing.actionLabel || viewing.label}`'), "Feed and Events viewing actions must name their actual provider");
+assert(html.includes("buildViewingProviderMark(viewing)") && html.includes('className = "provider-action-logo"'), "provider actions must use a local mark with a stable fallback frame");
+assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
+assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
+assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
+assert(html.includes('footer.className = "event-compact-footer"'), "expanded Feed cards must use one compact action footer");
+assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}buildEventFeedbackButtons[\s\S]{0,2200}View in Events/.test(html), "the compact footer must order results, feedback and View in Events together");
+
+assert(html.includes('card.dataset.cardLevel = cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels");
+assert(/limit:\s*state === "compact" \? 1\s*:\s*state === "selected" \? 3\s*:\s*Infinity/.test(html), "Events L0/L1/L2 must show one, three and all schedule rows");
+assert(/inspect\.addEventListener\("click"[\s\S]{0,500}setCardState\(record, "opened"\)[\s\S]{0,500}focusMajorEventTimetable/.test(html), "Timetable must open the corresponding Event at L2 instead of routing by sport");
+assert(html.includes('className = "code-inspector-status-stamp"'), "Finished and Time TBC must render as inline status stamps");
+
+assert(/headers\.has\("range"\)[\s\S]{0,450}fetch\(event\.request\)/i.test(worker), "service worker byte-range requests must bypass Cache Storage");
+assert(/pathname\.startsWith\("\/assets\/audio\/"\)[\s\S]{0,450}fetch\(event\.request\)/.test(worker), "audio requests must bypass the whole-file asset cache");
+assert(html.includes("function repairBrokenIdentityImages") && html.includes("naturalWidth === 0"), "startup and tab renders must repair only broken identity images");
+assert(html.includes("function scheduleIdentityImageRecovery"), "broken-image recovery must be scheduled without rebuilding a screen");
+assert(!/\.toast\.show\{[\s\S]{0,120}translate/i.test(html), "toast visibility must not animate its geometry");
+
+for (const payload of [incoming, published]){
+  const copy = (payload.events || []).flatMap(event => [event.fullSpiel, event.storyline?.synopsisSpoilerOff, event.storyline?.synopsisSpoilerOn]).filter(Boolean).join("\n");
+  assert.doesNotMatch(copy, /belongs in the calendar because/i, "generated Feed copy must not expose internal inclusion justification");
+  assert.match(copy, /Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed\./, "unresolved NRL finals must retain concise bracket-refresh guidance");
+}
+
+console.log("Mobile reliability pass valid: compact Feed and Events controls, local routing, stable viewport surfaces, range-safe audio, and targeted identity recovery passed.");

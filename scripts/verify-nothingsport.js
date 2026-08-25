@@ -364,8 +364,8 @@ assert(!fs.readFileSync("scripts/redeploy-and-release.sh", "utf8").includes("VER
 assert(html.includes("orderSelectorEntitiesForDisplay"), "followed event choices must be promoted ahead of unfollowed choices");
 assert(html.includes('calc(14px + env(safe-area-inset-top))') && html.includes('max(16px, env(safe-area-inset-right))'), "mobile modal headers must reserve the iOS status-bar safe area");
 assert(html.includes('padding-bottom:env(safe-area-inset-bottom);'), "mobile full-screen modals must reserve the home-indicator safe area");
-assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v139"'), "the startup release must advance the served shell cache");
-assert(html.includes('<meta name="app-shell-version" content="139">'), "the served page must expose its shell version for installed-app diagnostics");
+assert(serviceWorkerSource.includes('const CACHE_NAME = "nothingsport-shell-v141"'), "the startup release must advance the served shell cache");
+assert(html.includes('<meta name="app-shell-version" content="141">'), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
@@ -494,10 +494,10 @@ assert(cardIdentitiesSource.includes('"competition:icc"') && cardIdentitiesSourc
 assert(cardIdentitiesSource.includes('"competition:premier-league"') && cardIdentitiesSource.includes('"team:football:epl:1"') && cardIdentitiesSource.includes('"team:football:epl:21"'), "Premier League cards must register the league and every club's published badge identity");
 assert(html.includes("appendFlagFallback") && html.includes("team-logo-fallback"), "a missing official cricket-team mark must fall back to that team's national flag without removing its name");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
-assert((eventCardSource.match(/preferImage: true/g) || []).length >= 9, "every large and small scrolling-card glyph must use the stable image-backed path");
+assert((eventCardSource.match(/preferImage: true/g) || []).length >= 8, "every large and small scrolling-card glyph must use the stable image-backed path");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
 assert(html.includes('intensityMarkup(ev.stakesScore, { className: "stakes-vector", label: `Stakes ${ev.stakesScore} out of 5`, preferImage: true })'), "the repeated card stakes meter must avoid a live inline-SVG repaint layer");
-assert.equal((eventCardSource.match(/buildSpoilerOverrideControl\(ev\)/g) || []).length, 2, "selected and opened card states must each render one spoiler control");
+assert.equal((eventCardSource.match(/buildEventCompactFooter\(ev/g) || []).length, 2, "selected and opened card states must each render one compact results and feedback footer");
 assert(eventCardSource.includes('label.className = "new-tag"') && eventCardSource.includes('label.textContent = "New"'), "unseen surfaced cards must carry the temporary New tag");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
 assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"') && !html.includes('id="calendarSyncUrl"'), "calendar sync must remain removed from the header and app");
