@@ -46,6 +46,7 @@
       "sport:rugby": "sport:rugby",
       "sport:basketball": "sport:basketball",
       "sport:american-football": "sport:american-football",
+      "sport:ice-hockey": "sport:ice-hockey",
       "sport:multi-sport": "sport:multi-sport",
     };
     return domainGlyphs[domainId] || `sport:${canonicalSportKeys[0]}`;
@@ -75,11 +76,12 @@
     ["sport:athletics", "Athletics", "sport", null, ["athletics"], "sport:athletics", "sport:athletics", 150],
     ["sport:swimming", "Swimming", "sport", null, ["swimming"], "sport:swimming", "sport:swimming", 160],
     ["sport:netball", "Netball", "sport", null, ["netball"], "sport:netball", "sport:netball", 170],
-    ["sport:hockey", "Hockey", "sport", null, ["hockey"], "sport:hockey", "sport:hockey", 180],
-    ["sport:gymnastics", "Gymnastics", "sport", null, ["gymnastics"], "sport:gymnastics", "sport:gymnastics", 190],
-    ["sport:boxing", "Boxing", "sport", null, ["boxing"], "discipline:combat:boxing", "sport:boxing", 200],
-    ["sport:multi-sport", "Other Games Sports", "sport", null, ["cwg", "multi-sport"], "sport:multi-sport", "sport:multi-sport", 210],
-  ].map(([id, label, relationship, parentId, canonicalSportKeys, taxonomyNodeId, domainId, editorialOrder, childIds]) => freezeNode({
+    ["sport:ice-hockey", "Ice Hockey", "sport", null, ["ice-hockey", "nhl", "chl"], "sport:ice-hockey", "sport:ice-hockey", 180],
+    ["sport:hockey", "Field Hockey", "sport", null, ["hockey"], "sport:hockey", "sport:hockey", 190, null, false],
+    ["sport:gymnastics", "Gymnastics", "sport", null, ["gymnastics"], "sport:gymnastics", "sport:gymnastics", 200, null, false],
+    ["sport:boxing", "Boxing", "sport", null, ["boxing"], "discipline:combat:boxing", "sport:boxing", 210],
+    ["sport:multi-sport", "Commonwealth Games compatibility", "sport", null, ["cwg", "multi-sport"], "sport:multi-sport", "sport:multi-sport", 220, null, false],
+  ].map(([id, label, relationship, parentId, canonicalSportKeys, taxonomyNodeId, domainId, editorialOrder, childIds, exposed = true]) => freezeNode({
     id,
     level: parentId ? 3 : 2,
     label,
@@ -91,10 +93,10 @@
     taxonomyNodeId,
     domainId,
     childIds,
-    exposed: true,
-    selectable: true,
+    exposed,
+    selectable: exposed,
     glyph: sportNodeGlyph(id, domainId, canonicalSportKeys),
-    isNew: relationship === "parent" || relationship === "child",
+    isNew: exposed && (relationship === "parent" || relationship === "child" || id === "sport:ice-hockey"),
     introducedAt,
     editorialOrder,
   }));

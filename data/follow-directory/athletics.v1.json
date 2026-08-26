@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "athletics",
   "label": "Athletics",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -23,8 +23,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Athletics",
       "identityId": "competitor:cwg:camryn-rogers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -45,8 +51,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Athletics",
       "identityId": "competitor:cwg:eilish-mccolgan",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -67,8 +79,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Athletics",
       "identityId": "competitor:cwg:elaine-thompson-herah",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -88,8 +106,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Athletics",
       "identityId": "competitor:cwg:josh-kerr",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -110,8 +134,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Athletics",
       "identityId": "competitor:cwg:julien-alfred",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     }
   ]

@@ -12,21 +12,20 @@ function assert(condition, message){
 
 const expectedSportKeys = [
   "afl", "nrl", "motorsport", "extreme", "surf", "skiing", "rugby", "tennis", "football", "cycling",
-  "cricket", "nba", "golf", "american-football", "athletics", "swimming", "netball", "hockey", "gymnastics",
-  "boxing", "multi-sport",
+  "cricket", "nba", "golf", "american-football", "ice-hockey", "athletics", "swimming", "netball", "boxing",
 ];
 
 assert(
   rightsAudit.schemaVersion === "australian-viewing-rights.v1"
     && rightsAudit.territory === "AU"
     && JSON.stringify(rightsAudit.sports.map(sport => sport.key)) === JSON.stringify(expectedSportKeys),
-  "Australian viewing-rights audit must cover the 21 active Follow sport domains in manifest order",
+  "Australian viewing-rights audit must cover the nineteen exposed Follow sport domains in manifest order",
 );
 
 for (const audit of rightsAudit.sports){
   const sportKey = audit.key;
   assert(audit.label && audit.resolution, `${sportKey} audit entry needs a label and resolution basis`);
-  assert(audit.providerIds.length > 0, `${sportKey} audit entry needs at least one currently applicable provider`);
+  assert(audit.providerIds.length > 0 || sportKey === "ice-hockey", `${sportKey} audit entry needs a provider or an explicit competition-level unverified state`);
   for (const providerId of audit.providerIds){
     assert(followFirst.VIEWING_PROVIDERS[providerId], `${sportKey} references unknown provider ${providerId}`);
   }
@@ -35,7 +34,7 @@ for (const audit of rightsAudit.sports){
 for (const [rightsId, rights] of Object.entries(followFirst.COMPETITION_VIEWING_RIGHTS)){
   const evidence = rightsAudit.rules[rightsId];
   assert(rights.competitionAliases.length > 0, `${rightsId} needs matching aliases`);
-  assert(rights.providerIds.length > 0, `${rightsId} needs provider IDs`);
+  assert(rights.providerIds.length > 0 || rights.coverageStatus === "unverified", `${rightsId} needs provider IDs or an explicit unverified coverage state`);
   assert(/^https:\/\//.test(evidence?.sourceUrl), `${rightsId} needs a primary-source HTTPS URL in the non-critical audit`);
   assert(!Number.isNaN(Date.parse(rights.verifiedAt)), `${rightsId} needs a verification timestamp`);
   for (const providerId of [...rights.providerIds, ...(rights.grandFinalProviderIds || [])]){
@@ -58,6 +57,8 @@ const scenarios = [
   ["NBA", { key:"nba", competitionId:"competition:nba", name:"NBA Finals" }, ["nba-pass"]],
   ["NBL", { key:"basketball", competitionId:"competition:nbl-2026", name:"Sydney Kings v Perth Wildcats" }, ["kayo", "foxtel"]],
   ["NFL", { key:"american-football", competitionId:"competition:nfl", name:"Super Bowl" }, ["dazn"]],
+  ["NHL", { key:"ice-hockey", competitionId:"competition:nhl", name:"NHL regular season" }, []],
+  ["Champions Hockey League", { key:"ice-hockey", competitionId:"competition:chl", name:"CHL Game Day" }, ["iihf-tv"]],
   ["Golf majors", { key:"masters", competitionId:"competition:masters", name:"Masters final round" }, ["kayo", "foxtel"]],
   ["LIV Golf", { key:"golf", competitionId:"competition:liv-golf", name:"LIV Golf Adelaide" }, ["seven"]],
   ["Netball 2026", { key:"netball", competitionId:"competition:netball", startsAt:"2026-09-01T00:00:00.000Z" }, ["kayo", "foxtel"]],
@@ -68,9 +69,7 @@ const scenarios = [
   ["X Games", { key:"skateboard", name:"X Games Skateboarding Finals" }, ["youtube"]],
   ["Commonwealth Games", { key:"cwg", competitionId:"competition:commonwealth-games-2026" }, ["seven"]],
   ["Olympic Games", { competitionId:"competition:olympic-games-2028" }, ["stan", "nine"]],
-  ["Hockey One", { competitionId:"competition:hockey-one-2026" }, ["seven"]],
   ["Swimming Australia", { competitionId:"competition:swimming-australia-2026" }, ["nine"]],
-  ["World Gymnastics", { competitionId:"competition:world-gymnastics-2026" }, ["sbs"]],
 ];
 
 for (const [label, event, expectedProviders] of scenarios){

@@ -63,7 +63,6 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-tennis-ranking-refresh.js"],
   ["scripts/refresh-tennis-catalogue.js", "--enforce-freshness"],
   ["scripts/refresh-tennis-catalogue.js", "--check", "--enforce-freshness"],
-  ["scripts/refresh-cincinnati-tournament.js"],
   ["scripts/validate-joint-tennis-tournament.js"],
   ["scripts/build-tennis-context.js"],
   ["scripts/build-tennis-context.js", "--check"],
@@ -74,6 +73,10 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-team-player-directories.js"],
   ["scripts/build-team-player-directories.js", "--check"],
   ["scripts/validate-team-player-directories.js"],
+  ["scripts/refresh-nfl-ice-hockey.js"],
+  ["scripts/refresh-nfl-ice-hockey.js", "--check"],
+  ["scripts/refresh-swimming-directory.js"],
+  ["scripts/refresh-swimming-directory.js", "--check"],
   ["scripts/build-follow-directories.js"],
   ["scripts/build-follow-directories.js", "--check"],
   ["scripts/validate-follow-directories.js"],
@@ -160,6 +163,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-mobile-feed-events-brand-pass.js"],
+  ["scripts/validate-feed-sport-reliability-pass.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);
   return steps;

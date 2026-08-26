@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "tennis",
   "label": "Tennis",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -23,8 +23,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:aryna-sabalenka",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -44,8 +50,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jannik-sinner",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -65,8 +77,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alexander-zverev",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -86,8 +104,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:elena-rybakina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -107,8 +131,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:carlos-alcaraz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -128,8 +158,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:jessica-pegula",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -149,8 +185,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:coco-gauff",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -170,8 +212,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:felix-auger-aliassime",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -191,8 +239,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:mirra-andreeva",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -212,8 +266,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:novak-djokovic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -233,8 +293,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:flavio-cobolli",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -254,8 +320,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:linda-noskova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -275,8 +347,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alex-de-minaur",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -296,8 +374,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:karolina-muchova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -317,8 +401,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:daniil-medvedev",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -338,8 +428,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:iga-swiatek",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -359,8 +455,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ben-shelton",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -380,8 +482,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:elina-svitolina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -401,8 +509,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:amanda-anisimova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -422,8 +536,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:taylor-fritz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -443,8 +563,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:arthur-fils",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -464,8 +590,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:marta-kostyuk",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -485,8 +617,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:belinda-bencic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -506,8 +644,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:frances-tiafoe",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -527,8 +671,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:naomi-osaka",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -548,8 +698,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:rafael-jodar",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -569,8 +725,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:iva-jovic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -590,8 +752,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:lorenzo-musetti",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -611,8 +779,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:learner-tien",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -632,8 +806,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:victoria-mboko",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -653,8 +833,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alexander-bublik",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -674,8 +860,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:diana-shnaider",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -695,8 +887,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:brandon-nakashima",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -716,8 +914,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:sorana-cirstea",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -737,8 +941,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:alexandra-eala",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -758,8 +968,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jakub-mensik",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -779,8 +995,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ekaterina-alexandrova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -800,8 +1022,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jiri-lehecka",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -821,8 +1049,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:casper-ruud",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -842,8 +1076,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:jasmine-paolini",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -863,8 +1103,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:maja-chwalinska",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -884,8 +1130,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:tommy-paul",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -905,8 +1157,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:anna-kalinskaya",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -926,8 +1184,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:luciano-darderi",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -947,8 +1211,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:madison-keys",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -968,8 +1238,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:valentin-vacherot",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -989,8 +1265,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:andrey-rublev",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1010,8 +1292,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:elise-mertens",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1031,8 +1319,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:anastasia-potapova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1052,8 +1346,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:francisco-cerundolo",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1073,8 +1373,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:joao-fonseca",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1094,8 +1400,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:marie-bouzkova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1115,8 +1427,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alejandro-davidovich-fokina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1136,8 +1454,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:emma-navarro",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1157,8 +1481,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alejandro-tabilo",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1178,8 +1508,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:barbora-krejcikova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1199,8 +1535,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:arthur-rinderknech",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1220,8 +1562,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:sara-bejlek",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1241,8 +1589,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ann-li",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1262,8 +1616,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ugo-humbert",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1283,8 +1643,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:jelena-ostapenko",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1304,8 +1670,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:tomas-martin-etcheverry",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1325,8 +1697,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alexander-blockx",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1346,8 +1724,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:leylah-fernandez",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1367,8 +1751,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:cameron-norrie",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1388,8 +1778,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:maria-sakkari",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1409,8 +1805,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:hailey-baptiste",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1430,8 +1832,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:matteo-arnaldi",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1451,8 +1859,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:janice-tjen",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1472,8 +1886,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zizou-bergs",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1493,8 +1913,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:donna-vekic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1514,8 +1940,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ignacio-buse",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1535,8 +1967,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:arthur-fery",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1556,8 +1994,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:magdalena-frech",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1577,8 +2021,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:nikola-bartunkova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1598,8 +2048,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:raphael-collignon",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1619,8 +2075,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:daniel-merida",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1640,8 +2102,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:katerina-siniakova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1661,8 +2129,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:cristina-bucsa",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1682,8 +2156,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:luca-van-assche",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1703,8 +2183,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:nuno-borges",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1724,8 +2210,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:xinyu-wang",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1745,8 +2237,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:clara-tauson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1766,8 +2264,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:thiago-agustin-tirante",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1787,8 +2291,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:jaqueline-cristian",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1808,8 +2318,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:matteo-berrettini",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1829,8 +2345,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:daria-snigur",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1850,8 +2372,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jan-lennard-struff",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1871,8 +2399,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alex-michelsen",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1892,8 +2426,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:liudmila-samsonova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1913,8 +2453,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:hubert-hurkacz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1934,8 +2480,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:oleksandra-oliynykova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1955,8 +2507,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:denis-shapovalov",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1976,8 +2534,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:tamara-korpatsch",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -1997,8 +2561,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:lilli-tagger",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2018,8 +2588,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:mariano-navone",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2039,8 +2615,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:anhelina-kalinina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2060,8 +2642,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:karen-khachanov",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2081,8 +2669,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:diane-parry",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2102,8 +2696,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:sebastian-baez",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2123,8 +2723,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:daria-kasatkina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2144,8 +2750,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:talia-gibson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2165,8 +2777,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:kimberly-birrell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2186,8 +2804,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:maya-joint",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2207,8 +2831,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:james-duckworth",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2228,8 +2858,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:rinky-hijikata",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2249,8 +2885,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:adam-walton",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2270,8 +2912,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:aleksandar-vukic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2291,8 +2939,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:taylah-preston",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2312,8 +2966,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ajla-tomljanovic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2333,8 +2993,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:christopher-o-connell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2354,8 +3020,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:dane-sweeny",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2375,8 +3047,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:emerson-jones",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2396,8 +3074,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alexei-popyrin",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2417,8 +3101,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:maddison-inglis",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2438,8 +3128,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:priscilla-hon",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2459,8 +3155,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:alex-bolt",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2480,8 +3182,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:storm-hunter",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2501,8 +3209,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:bernard-tomic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2522,8 +3236,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:tristan-schoolkate",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2543,8 +3263,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:james-mccabe",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2564,8 +3290,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:olivia-gadecki",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2585,8 +3317,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:elena-micic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2606,8 +3344,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:lizette-cabrera",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2627,8 +3371,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:matthew-dellavedova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2648,8 +3398,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jordan-thompson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2669,8 +3425,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:edward-winter",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2690,8 +3452,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:philip-sekulic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2711,8 +3479,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jake-delaney",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2732,8 +3506,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:marc-polmans",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2753,8 +3533,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:cruz-hewitt",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2774,8 +3560,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:omar-jasika",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2795,8 +3587,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:thanasi-kokkinakis",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2816,8 +3614,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:tina-smith",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2837,8 +3641,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:alana-subasic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2858,8 +3668,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:moerani-bouzige",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2879,8 +3695,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:arina-rodionova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2900,8 +3722,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jason-kubler",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2921,8 +3749,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:blake-ellis",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2942,8 +3776,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:enzo-aguiard",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2963,8 +3803,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:tai-sach",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -2984,8 +3830,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:li-tu",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3005,8 +3857,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:tahlia-kokkinis",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3026,8 +3884,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:pavle-marinkov",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3047,8 +3911,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jacob-bradshaw",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3068,8 +3938,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:sarah-rokusek",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3089,8 +3965,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:melisa-ercan",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3110,8 +3992,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:chase-ferguson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3131,8 +4019,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:belle-thompson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3152,8 +4046,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:gabriella-da-silva-fick",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3173,8 +4073,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:stefani-webb",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3194,8 +4100,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:joshua-charlton",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3215,8 +4127,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:matt-hulme",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3236,8 +4154,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:thomas-fancutt",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3257,8 +4181,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:scott-jones",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3278,8 +4208,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:laquisa-khan",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3299,8 +4235,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:sam-ryan-ziegann",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3320,8 +4262,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:amy-stevens",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3341,8 +4289,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:jizelle-sibai",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3362,8 +4316,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:nick-kyrgios",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3383,8 +4343,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:astra-sharma",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3404,8 +4370,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ashleigh-simes",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3425,8 +4397,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:max-purcell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3446,8 +4424,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:benjamin-o-connell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3467,8 +4451,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:duje-markovina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3488,8 +4478,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:cara-korhonen",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3509,8 +4505,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:stefan-vujic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3530,8 +4532,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:alicia-smith",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3551,8 +4559,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:lachlan-james-mcfadzean",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3572,8 +4586,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:kody-pearson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3593,8 +4613,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:eva-lopez",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3614,8 +4640,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:alexandra-osborne",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3635,8 +4667,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ava-beck",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3656,8 +4694,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ava-monet-sycamore",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3677,8 +4721,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:mustafa-ege-sik",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3698,8 +4748,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:chen-dong",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3719,8 +4775,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:tori-russell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3740,8 +4802,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:renee-alame",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3761,8 +4829,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:sarah-mildren",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3782,8 +4856,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jesse-delaney",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3803,8 +4883,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:naomi-mckenzie",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3824,8 +4910,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zack-viiala",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3845,8 +4937,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:rianna-alame",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3866,8 +4964,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:oliver-anderson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3887,8 +4991,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ethan-cook",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3908,8 +5018,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ashton-mcleod",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3929,8 +5045,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:lily-taylor",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3950,8 +5072,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jeremy-zhang",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3971,8 +5099,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:elizabeth-ivanov",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -3992,8 +5126,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:tenika-mcgiffin",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4013,8 +5153,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:audrey-aulia",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4034,8 +5180,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ymerali-ibraimi",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4055,8 +5207,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:ty-host",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4076,8 +5234,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:daniel-jovanovski",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4097,8 +5261,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:angela-cui",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4118,8 +5288,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:arjun-mehrotra",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4139,8 +5315,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:hayden-jones",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4160,8 +5342,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jake-dembo",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4181,8 +5369,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:gurmanat-kaur-sandhu",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4202,8 +5396,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:adrian-arcon",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4223,8 +5423,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:stefan-storch",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4244,8 +5450,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jeremy-beale",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4265,8 +5477,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:caitlin-baker",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4286,8 +5504,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:larisa-arnautovic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4307,8 +5531,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:petra-hule",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4328,8 +5558,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zane-stevens",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4349,8 +5585,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:harrison-satara",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4370,8 +5612,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:noah-brownrigg",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4391,8 +5639,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:jack-bruce-smith",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4412,8 +5666,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:lawrence-bataljin",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4433,8 +5693,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:charlie-pade",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4454,8 +5720,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:derek-pham",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4475,8 +5747,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:taiki-takizawa",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4496,8 +5774,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:nikita-volonski",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4517,8 +5801,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:lachlan-vickery",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4538,8 +5828,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zac-hamill",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4559,8 +5855,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:thomas-nicholas-gadecki",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4580,8 +5882,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zaharije-zak-talic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4601,8 +5909,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zachary-adam-gedge",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4622,8 +5936,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:wta:ashlyn-krueger",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4643,8 +5963,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:grigor-dimitrov",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4664,8 +5990,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:roman-safiullin",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4685,8 +6017,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:shintaro-mochizuki",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -4706,8 +6044,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:tennis:atp:zachary-svajda",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     }
   ]

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "rugby",
   "label": "Rugby Union",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -24,8 +24,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:all-blacks",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -48,8 +54,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:argentina",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -71,8 +83,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:blues",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -94,8 +112,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:brumbies",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -117,8 +141,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:chiefs",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -140,8 +170,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:crusaders",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -163,8 +199,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:england",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -186,8 +228,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:france",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -209,8 +257,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:highlanders",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -232,8 +286,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:hurricanes",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -255,8 +315,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:ireland",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -279,8 +345,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:rebels",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -303,8 +375,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:reds",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -326,8 +404,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:scotland",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -350,8 +434,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:springboks",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -373,8 +463,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:wales",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -397,8 +493,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:wallabies",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -420,8 +522,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:waratahs",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]
@@ -444,8 +552,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:rugby:force",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
       ]

@@ -22,6 +22,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-premier-league-cont
 assert(localSteps.some(step => step[0] === "scripts/refresh-major-events-from-canonical.js"), "the canonical update must reconcile published AFL Finals Series slots before validating Events");
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
+assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-f1-editorial.js")
     < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js"),
@@ -46,10 +47,14 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-football-directory.j
 assert(localSteps.some(step => step[0] === "scripts/validate-football-directory.js"), "every canonical update must validate football clubs, players, follows, flags, session state, and lazy fixtures");
 assert(localSteps.some(step => step[0] === "scripts/build-team-player-directories.js" && step.includes("--check")), "every canonical update must reject stale NRL and AFL directory snapshots");
 assert(localSteps.some(step => step[0] === "scripts/validate-team-player-directories.js"), "every canonical update must validate NRL and AFL club coverage, player follow expansion, source URLs and lazy loading");
+assert(localSteps.some(step => step[0] === "scripts/refresh-nfl-ice-hockey.js" && step.length === 1), "every canonical update must refresh complete NFL and Ice Hockey directories");
+assert(localSteps.some(step => step[0] === "scripts/refresh-nfl-ice-hockey.js" && step.includes("--check")), "every canonical update must reject incomplete NFL and Ice Hockey snapshots");
+assert(localSteps.some(step => step[0] === "scripts/refresh-swimming-directory.js" && step.length === 1), "every canonical update must refresh the official-ranked Swimming directory");
+assert(localSteps.some(step => step[0] === "scripts/refresh-swimming-directory.js" && step.includes("--check")), "every canonical update must reject an incomplete Swimming directory");
 assert(localSteps.some(step => step[0] === "scripts/sync-tennis-tournaments-to-feed.js" && step.includes("--from-exports")), "the canonical update must project active marquee tennis from the reviewed provider exports");
 assert(localSteps.some(step => step[0] === "scripts/validate-sport-hierarchy.js"), "every canonical update must validate hierarchy compatibility for every published card");
 assert(localSteps.some(step => step[0] === "scripts/validate-discovery-catalogue.js"), "every canonical update must validate discovery hierarchy, event-follow migration, Sydney-window counts and session state");
-assert(localSteps.some(step => step[0] === "scripts/refresh-cincinnati-tournament.js"), "every canonical update must run the official Cincinnati-only tournament check");
+assert(!localSteps.some(step => step[0] === "scripts/refresh-cincinnati-tournament.js"), "the retired Cincinnati source must not re-enter the canonical update");
 assert(localSteps.some(step => step[0] === "scripts/validate-joint-tennis-tournament.js"), "every canonical update must reject joint-tournament schema, ID, date or spoiler failures");
 assert(localSteps.some(step => step[0] === "scripts/validate-major-events.js"), "every canonical update must fail closed on major-event evidence, dates, IDs and ticket endpoints");
 assert(localSteps.some(step => step[0] === "scripts/validate-card-polish.js"), "every canonical update must retain card, venue, score and local-ticket regressions");

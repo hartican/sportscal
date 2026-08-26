@@ -17,13 +17,11 @@
     { "key": "nba", "label": "Basketball", "resolution": "competition", "providerIds": ["nba-pass", "kayo", "foxtel"] },
     { "key": "golf", "label": "Golf", "resolution": "competition", "providerIds": ["kayo", "foxtel", "seven"] },
     { "key": "american-football", "label": "American Football", "resolution": "competition", "providerIds": ["dazn", "kayo", "foxtel", "seven"] },
+    { "key": "ice-hockey", "label": "Ice Hockey", "resolution": "competition-and-season", "providerIds": ["iihf-tv"] },
     { "key": "athletics", "label": "Athletics", "resolution": "event", "providerIds": ["seven", "sbs"] },
     { "key": "swimming", "label": "Swimming", "resolution": "competition", "providerIds": ["nine", "seven"] },
     { "key": "netball", "label": "Netball", "resolution": "competition-and-season", "providerIds": ["kayo", "foxtel", "stan", "nine"] },
-    { "key": "hockey", "label": "Hockey", "resolution": "competition", "providerIds": ["seven"] },
-    { "key": "gymnastics", "label": "Gymnastics", "resolution": "competition", "providerIds": ["sbs", "seven"] },
-    { "key": "boxing", "label": "Boxing", "resolution": "promotion-or-bout", "providerIds": ["stan"] },
-    { "key": "multi-sport", "label": "Other Games Sports", "resolution": "event", "providerIds": ["stan", "nine", "seven"] }
+    { "key": "boxing", "label": "Boxing", "resolution": "promotion-or-bout", "providerIds": ["stan"] }
   ],
   "rules": {
     "competition:premier-league": { "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league" },
@@ -41,6 +39,8 @@
     "competition:golf-majors": { "sourceUrl": "https://www.foxtel.com.au/watch/golf.html" },
     "competition:liv-golf": { "sourceUrl": "https://support.7plus.com.au/hc/en-au/articles/43185579048077-2026-LIV-Golf-on-7plus" },
     "competition:nfl": { "sourceUrl": "https://www.nfl.com/international/ways-to-watch/australia" },
+    "competition:nhl": { "sourceUrl": "https://www.nhl.com/info/how-to-watch-and-stream-nhl-games", "coverageStatus": "unverified-for-AU-2026-27" },
+    "competition:chl": { "sourceUrl": "https://www.chl.hockey/en/fans/where-to-watch" },
     "competition:netball-2026": { "sourceUrl": "https://netball.com.au/supernetball/broadcast" },
     "competition:netball-2027": { "sourceUrl": "https://netball.com.au/news/new-broadcast-deal-delivers-fans" },
     "competition:a-leagues": { "sourceUrl": "https://www.paramountanz.com.au/news/paramount-remains-the-home-of-australian-football/" },

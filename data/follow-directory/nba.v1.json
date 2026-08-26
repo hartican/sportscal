@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "nba",
   "label": "Basketball",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -21,8 +21,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:detroit-pistons",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -40,8 +46,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:oklahoma-city-thunder",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -59,8 +71,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:boston-celtics",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -78,8 +96,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:san-antonio-spurs",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -97,8 +121,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:denver-nuggets",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -116,8 +146,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:new-york-knicks",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -135,8 +171,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:cleveland-cavaliers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -154,8 +196,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:los-angeles-lakers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -173,8 +221,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:houston-rockets",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -192,8 +246,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:toronto-raptors",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -211,8 +271,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:atlanta-hawks",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -230,8 +296,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:minnesota-timberwolves",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -249,8 +321,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:philadelphia-76ers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -268,8 +346,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:phoenix-suns",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -287,8 +371,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:orlando-magic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -306,8 +396,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:portland-trail-blazers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -325,8 +421,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:charlotte-hornets",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -344,8 +446,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:la-clippers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -363,8 +471,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:golden-state-warriors",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -382,8 +496,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:miami-heat",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -401,8 +521,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:milwaukee-bucks",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -420,8 +546,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:new-orleans-pelicans",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -439,8 +571,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:chicago-bulls",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -458,8 +596,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:dallas-mavericks",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -477,8 +621,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:brooklyn-nets",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -496,8 +646,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:memphis-grizzlies",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -515,8 +671,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:indiana-pacers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -534,8 +696,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:sacramento-kings",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -553,8 +721,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:utah-jazz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -572,8 +746,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:nba:washington-wizards",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -594,8 +774,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:basketball:boomers",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:nba"
       ]
@@ -618,8 +804,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "team:basketball:opals",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "catalogue:nba"
       ]
@@ -642,8 +834,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:cade-cunningham",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -664,8 +862,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:chet-holmgren",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -685,8 +889,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:donovan-mitchell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -707,8 +917,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:jalen-brunson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -728,8 +944,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:jalen-duren",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -749,8 +971,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:jalen-johnson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -770,8 +998,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:jamal-murray",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -791,8 +1025,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:jaylen-brown",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -812,8 +1052,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:kawhi-leonard",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -834,8 +1080,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:kevin-durant",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -858,8 +1110,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:luka-doncic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -882,8 +1140,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:nikola-jokic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -905,8 +1169,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:shai-gilgeous-alexander",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -927,8 +1197,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:tyrese-maxey",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -950,8 +1226,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:nba:victor-wembanyama",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     }
   ]

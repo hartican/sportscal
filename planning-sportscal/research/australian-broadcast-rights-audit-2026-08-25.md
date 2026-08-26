@@ -2,7 +2,7 @@
 
 ## Scope and publication rule
 
-This audit covers all 21 active top-level sports in `data/follow-directory/manifest.v1.json` and the concrete competitions currently represented in `data/events.json` and `data/major-events.v1.json`. Sources were checked on **25 August 2026 (Australia/Sydney)**.
+This audit covers all 19 exposed top-level sports in `data/follow-directory/manifest.v1.json` and the concrete competitions currently represented in `data/events.json` and `data/major-events.v1.json`. Sources were checked on **25–26 August 2026 (Australia/Sydney)**. Field Hockey, Gymnastics and the misleading Other Games Sports fallback are no longer user-facing; their historical Commonwealth Games records remain internally compatible.
 
 Only first-party evidence is used: the broadcaster or streaming service, competition owner, league, federation or national governing body. A broad provider sports page establishes a competition only when it names that competition. It does not justify assigning that provider to every event in the sport.
 
@@ -47,6 +47,8 @@ The ordered provider list below is the recommended display and metadata order fo
 | ICC events | Prime Video | None unless an exact event has a separate FTA arrangement | Cricket Australia’s current viewing guide names Prime Video for ICC events | Event-specific; do not apply Cricket Australia home rights | [Cricket Australia viewing guide](https://www.cricket.com.au/news/4029663) |
 | NBA | NBA League Pass | Kayo/Foxtel for ESPN-selected games | NBA says every game is live on League Pass outside the US and Canada; Foxtel names NBA but does not establish all-game coverage | League Pass live and on demand in Australia; Kayo/Foxtel only when the fixture is in their schedule | [NBA League Pass blackout policy](https://support.watch.nba.com/hc/en-us/articles/115002481154-League-Pass-Blackouts), [Foxtel sports catalogue](https://www.foxtel.com.au/watch/sport.html/) |
 | NFL | DAZN NFL Game Pass | Kayo/Foxtel/ESPN or Disney+ for ESPN selection; 7plus/Seven FTA selection | NFL’s Australia page identifies DAZN as the complete Game Pass service, ESPN as a season selection and Seven as the FTA home | Game Pass covers preseason, regular season and postseason; selection services are fixture-specific | [NFL Australia ways to watch](https://www.nfl.com/international/ways-to-watch/australia) |
+| NHL 2026–27 | Viewing TBC | Official NHL game information | The NHL’s current official viewing page does not verify a complete Australian provider for 2026–27. Do not infer one from a foreign-market service or an older season. | Fixture status and results come from the official NHL schedule; a Watch action remains unavailable until Australian rights are verified | [NHL how to watch](https://www.nhl.com/info/how-to-watch-and-stream-nhl-games), [NHL teams](https://www.nhl.com/info/teams/) |
+| Champions Hockey League | IIHF.TV | Official CHL Gamecentre | The current official CHL viewing table assigns all other markets, including Australia, to IIHF.TV. Use a verified game permalink when published; otherwise use the IIHF.TV hub and retain the official CHL match as the information fallback. | All CHL games under the current catch-all; reverify each season and fail closed on geoblocking | [CHL where to watch](https://www.chl.hockey/en/fans/where-to-watch), [CHL Gamecentre](https://www.chl.hockey/en/schedule) |
 | Golf — Masters and the four majors / PGA, DP World Tour and Australian summer portfolio | Kayo Sports | Foxtel | Fox Sports is the only Australian service claiming all four majors; the 2026 Masters has every round live and on demand through Foxtel | Live; Foxtel Go/on-demand catch-up | [Foxtel 2026 Masters](https://www.foxtel.com.au/watch/golf/masters-tournament/2026.html), [Foxtel golf portfolio](https://www.foxtel.com.au/watch/golf.html) |
 | LIV Golf 2026 | None; free service | 7plus | Entire published 2026 calendar available free in Australia | Live and free; event replays | [7plus LIV Golf 2026](https://support.7plus.com.au/hc/en-au/articles/43185579048077-2026-LIV-Golf-on-7plus) |
 | Australian domestic athletics | None; free service | 7plus | National championships and domestic season are on Seven/7plus | Live for published meets; replays of domestic meets on 7plus | [Australian Athletics how to watch](https://www.athletics.com.au/fan-hub/how-to-watch-athletics/), [Seven partnership](https://www.athletics.com.au/news/seven-extends-deal-to-broadcast-australian-athletics/) |
@@ -62,7 +64,7 @@ The ordered provider list below is the recommended display and metadata order fo
 | Commonwealth Games 2026 | None; free exclusive | 7plus, Seven | Exclusive Australian rights across broadcast and digital | Live and free; no universal replay promise in the rights announcement | [Commonwealth Sport Australian deal](https://www.commonwealthsport.com/news/4247352/two-games-deal-with-australian-broadcaster-seven-announced) |
 | Olympic and Paralympic Games through Brisbane 2032 | Stan Sport | 9Now / Nine | Nine has exclusive Australian audiovisual rights across free and subscription platforms | Every sport/event distribution varies by Games; 9Now and Stan provide complete multi-stream coverage where announced | [Nine 2024–32 Olympic rights](https://www.nineforbrands.com.au/announcements/pdf/1781635), [Nine Olympic media hub](https://www.nineforbrands.com.au/olympic-and-paralympic-media-hub/) |
 
-## All 21 active sport domains
+## All 19 exposed sport domains
 
 | Active domain | Safe resolver strategy | Status |
 | --- | --- | --- |
@@ -80,13 +82,13 @@ The ordered provider list below is the recommended display and metadata order fo
 | Basketball | NBA → NBA League Pass, with Kayo/Foxtel only when ESPN-selected; NBL and national-team events need their own mappings | NBA ready; remainder event-specific |
 | Golf | Majors/PGA portfolio → Kayo/Foxtel; LIV → 7plus; other tours require competition mapping | Ready by competition |
 | American Football | NFL → DAZN Game Pass, then ESPN/Kayo/Foxtel/Disney+ selection and 7plus selection | Ready for NFL |
+| Ice Hockey | NHL → `Viewing TBC` until an Australian 2026–27 provider is verified; CHL → IIHF.TV under the current official all-other-markets table | NHL deliberately unresolved; CHL competition-level fallback ready, exact stream permalinks remain event-specific |
 | Athletics | Domestic → 7plus; World Athletics championships → Nine/9Now; Diamond League → Age of Sport; Continental Tour → Inside Track | Ready by competition |
 | Swimming | Swimming Australia and Pan Pacs → 9Now/Nine; multi-sport events inherit Games rights | Ready |
 | Netball | 2026 → Kayo/Foxtel/BINGE; from 2027 → Nine/9Now/Stan | Ready with date boundary |
-| Hockey | Hockey Australia portfolio through 2027 → 7plus | Ready for Australian teams/Hockey One |
-| Gymnastics | SBS only for named World events; federation YouTube for published domestic streams; Games inherit Games rights | Event-specific |
 | Boxing | PFL/Stan boxing cards → Stan; other boxing promotions and PPVs must be verified per fight | Event-specific; no sport-wide default |
-| Other Games Sports | Commonwealth Games → Seven/7plus; Olympics → Nine/9Now/Stan; no generic provider outside a parent Games competition | Ready by parent event |
+
+Historical Field Hockey, Gymnastics and Commonwealth Games discipline records retain their competition-specific mappings for old cards and deep links, but they no longer occupy top-level Follow or signup slots.
 
 ## Current-data corrections and blockers
 

@@ -9,7 +9,6 @@
   const PAST_WINDOW_DAYS = 7;
   const FORWARD_WINDOW_MONTHS = 12;
   const MARKERS = Object.freeze([
-    { id: "major-event:cincinnati-open-2026", name: "Cincinnati Open", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-08", endDate: "2026-08-23", stakesScore: 5 },
     { id: "major-event:us-open-2026", name: "US Open 2026", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-23", endDate: "2026-09-13", stakesScore: 5 },
     { id: "major-event:afl-finals-series-2026", name: "2026 Toyota AFL Finals Series", sportKey: "afl", sportKeys: ["afl"], startDate: "2026-08-28", endDate: "2026-09-26", stakesScore: 5, replacesFixtureIds: ["event-afl-cd_m20260142901"] },
     { id: "major-event:nrl-finals-series-2026", name: "2026 NRL Finals Series", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-09-12", endDate: "2026-10-04", stakesScore: 5, replacesFixtureIds: ["evt_81", "evt_82", "evt_83", "evt_84"] },
@@ -59,6 +58,7 @@
   }
 
   function inWindow(record, reference = new Date()){
+    if (record?.lifecycleStatus === "retired") return false;
     const today = dateKey(reference);
     if (!today) return false;
     const earliest = addDays(today, -PAST_WINDOW_DAYS);
@@ -75,7 +75,7 @@
 
   function visibleRecords(document, followedSports, reference = new Date()){
     const records = Array.isArray(document?.events) ? document.events : [];
-    const parents = records.filter(record => record.kind !== "ticket_sale" && record.stakesScore === 5 && followed(record, followedSports) && inWindow(record, reference));
+    const parents = records.filter(record => record.kind !== "ticket_sale" && record.lifecycleStatus !== "retired" && record.stakesScore === 5 && followed(record, followedSports) && inWindow(record, reference));
     const parentIds = new Set(parents.map(record => record.id));
     const alerts = records.filter(record => record.kind === "ticket_sale" && parentIds.has(record.parentEventId) && activeTicketing(record, reference));
     return {
@@ -114,6 +114,8 @@
     const parts = Object.fromEntries(new Intl.DateTimeFormat("en-AU", {
       timeZone: "Australia/Sydney", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
     }).formatToParts(instant).map(part => [part.type, part.value]));
+    const matchupSides = Array.isArray(subEvent.matchupSides) ? subEvent.matchupSides : [];
+    const matchupPlayers = matchupSides.flatMap(side => Array.isArray(side.players) ? side.players : []);
     return {
       id: subEvent.id,
       eventId: subEvent.id,
@@ -125,6 +127,8 @@
       competitionId: parent.competitionId,
       roundLabel: subEvent.roundLabel || subEvent.stage || null,
       stage: subEvent.stage || subEvent.roundLabel || null,
+      matchType:subEvent.matchType || null,
+      court:subEvent.court || null,
       majorEventId: parent.id,
       majorEventParentId: parent.id,
       manualPin: true,
@@ -134,11 +138,14 @@
       startTimeUtc: subEvent.startTimeUtc,
       venue: subEvent.venue || parent.venue,
       status: subEvent.status || "scheduled",
+      scheduleStatus:subEvent.scheduleStatus || "confirmed",
+      result:subEvent.result || null,
       ...(subEvent.scoreDisplay ? { scoreDisplay: subEvent.scoreDisplay, score: subEvent.scoreDisplay } : {}),
       stakesScore: Number(subEvent.stakesScore || parent.stakesScore || 5),
       expected: Number(subEvent.expected || 8),
-      participants: subEvent.participants || [],
-      participantIds: subEvent.participantIds || [],
+      matchupSides,
+      participants: subEvent.participants || matchupPlayers.map(player => ({ id:player.id, name:player.name, displayName:player.name, nationalityCode:player.nationalityCode, rank:player.rank, seed:player.seed })),
+      participantIds: subEvent.participantIds || matchupPlayers.map(player => player.id).filter(Boolean),
       broadcaster: subEvent.broadcaster || parent.broadcaster || null,
       broadcasterIds: subEvent.broadcasterIds || parent.broadcasterIds || [],
       broadcastOptions: subEvent.broadcastOptions || parent.broadcastOptions || [],
@@ -194,6 +201,11 @@
       if (!["tournament", "major_event", "ticket_sale"].includes(record?.kind)) errors.push(`${record?.id}: unsupported kind`);
       if (record?.stakesScore !== 5) errors.push(`${record?.id}: stakes must be 5/5`);
       if (!Array.isArray(record?.sources) || !record.sources.length) errors.push(`${record?.id}: official evidence is required`);
+      if (record?.lifecycleStatus === "retired"){
+        if (!record.retiredReason || !Number.isFinite(new Date(record.retiredAt || "").getTime()) || record.retiredDeepLinkBehaviour !== "safe-tombstone"){
+          errors.push(`${record?.id}: retired events require a dated safe tombstone reason`);
+        }
+      }
       (record?.sources || []).forEach(source => {
         const checkedTime = new Date(source?.checkedAt).getTime();
         if (!source?.name || !/^https:\/\//.test(source?.url || "") || !Number.isFinite(checkedTime) || checkedTime > referenceTime) errors.push(`${record?.id}: invalid or future-dated source evidence`);
@@ -202,7 +214,7 @@
         if (!record.startDate || (record.endDate && record.endDate < record.startDate)) errors.push(`${record?.id}: confirmed dates are invalid`);
         if (record.kind === "ticket_sale"){
           if (!activeTicketing(record, reference)) errors.push(`${record?.id}: ticket-sale alert is outside its active window`);
-        } else if (!record.endDate || !inWindow(record, reference)) {
+        } else if (!record.endDate || (record.lifecycleStatus !== "retired" && !inWindow(record, reference))) {
           errors.push(`${record?.id}: confirmed event falls outside the retention horizon`);
         }
       } else if (record?.dateStatus === "tbc"){

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cycling",
   "label": "Cycling",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -23,8 +23,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:alex-baudin",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -44,8 +50,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:alex-molenaar",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -65,8 +77,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Track Cycling",
       "identityId": "competitor:cwg:ellesse-andrews",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -86,8 +104,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Para Track Cycling",
       "identityId": "competitor:cwg:fin-graham",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -107,8 +131,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:isaac-del-toro",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -128,8 +158,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:jonas-vingegaard",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -149,8 +185,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:jordan-jegat",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -170,8 +212,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:juan-ayuso",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -191,8 +239,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:lenny-martinez",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -212,8 +266,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:mattias-skjelmose",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -233,8 +293,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:paul-seixas",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -254,8 +320,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:remco-evenepoel",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -275,8 +347,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:richard-carapaz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -297,8 +375,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:tadej-pogacar",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -318,8 +402,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:tom-pidcock",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     },
     {
@@ -340,8 +430,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": null,
       "identityId": "competitor:cycling:tdf:torstein-traeen",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": []
     }
   ]

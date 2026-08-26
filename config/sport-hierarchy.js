@@ -130,6 +130,11 @@
     ["competition:nfl", "National Football League", "competition", "discipline:american-football:professional", ["NFL"]],
     ["event-series:super-bowl", "Super Bowl", "event_series", "competition:nfl"],
 
+    ["sport:ice-hockey", "Ice Hockey", "sport"],
+    ["discipline:ice-hockey:professional", "Professional ice hockey", "discipline", "sport:ice-hockey"],
+    ["competition:nhl", "National Hockey League", "competition", "discipline:ice-hockey:professional", ["NHL"]],
+    ["competition:chl", "Champions Hockey League", "competition", "discipline:ice-hockey:professional", ["CHL"]],
+
     ["sport:multi-sport", "Multi-sport Games", "sport"],
     ["discipline:multi-sport:games", "Games", "discipline", "sport:multi-sport"],
     ["competition:commonwealth-games", "Commonwealth Games", "competition", "discipline:multi-sport:games"],
@@ -232,6 +237,9 @@
     basketball: "sport:basketball",
     golf: "sport:golf",
     "american-football": "sport:american-football",
+    "ice-hockey": "sport:ice-hockey",
+    nhl: "competition:nhl",
+    chl: "competition:chl",
     athletics: "sport:athletics",
     swimming: "sport:swimming",
     netball: "sport:netball",

@@ -46,7 +46,9 @@ assert(catalogue.events.filter(record => record.ticketing).every(record => ticke
 const publishedParents = catalogue.events.filter(record => record.kind !== "ticket_sale");
 assert(publishedParents.some(record => record.id === "major-event:australian-open-2027"));
 assert(publishedParents.some(record => record.id === "major-event:australian-grand-prix-2027" && record.dateStatus === "tbc"));
-assert(publishedParents.some(record => record.id === "major-event:cincinnati-open-2026"), "Cincinnati must remain during its seven-day retention window");
+const retiredCincinnati = publishedParents.find(record => record.id === "major-event:cincinnati-open-2026");
+assert(retiredCincinnati?.lifecycleStatus === "retired" && retiredCincinnati.retiredDeepLinkBehaviour === "safe-tombstone", "Cincinnati must remain only as a safe historical deep-link tombstone");
+assert(!majorEvents.visibleRecords(catalogue, ["tennis"], REFERENCE).events.some(record => record.id === retiredCincinnati.id), "retired Cincinnati must not surface in Events");
 const aflFinals = catalogue.events.find(record => record.id === "major-event:afl-finals-series-2026");
 assert(aflFinals, "the complete AFL Finals Series must replace the lone Grand Final event");
 assert.equal(aflFinals.subEvents.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final");

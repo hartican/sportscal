@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="145">
+  <meta name="app-shell-version" content="147">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
@@ -549,6 +549,17 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 #headerProgressRing{
   display:grid;
   place-items:center;
+  z-index:2;
+  pointer-events:none;
+  transform:translateZ(0);
+}
+
+.loading-indicator-overlay{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  contain:layout paint;
 }
 
 .header-hydration-slot > [hidden]{ display:none !important; }
@@ -5890,12 +5901,14 @@ body.header-compact-3 .brand .slogan{ display:none; }
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  border-radius:4px;
+  box-sizing:border-box;
+  padding:2px 7px;
+  border-radius:5px;
   background:var(--provider-mark-bg,var(--soft-fill));
 }
 .provider-action-mark-fallback{ padding:0 2px; background:transparent; }
 .provider-action-text-fallback{ color:currentColor; font:900 .65rem/1 'DM Sans',sans-serif; white-space:nowrap; }
-.provider-action-logo{ position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .14s ease; }
+.provider-action-logo{ position:absolute; inset:2px 7px; display:block; width:calc(100% - 14px); height:calc(100% - 4px); object-fit:contain; opacity:0; transition:opacity .14s ease; }
 .provider-action-logo.is-decoded{ opacity:1; }
 .provider-action-mark .vector-glyph{ width:14px; height:14px; }
 .event-quick-action.viewing-tbc{ border-style:dashed; color:var(--text-dim); background:transparent; cursor:default; }
@@ -5915,7 +5928,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 }
 @media (max-width:360px){
   .event-quick-action{ padding-inline:6px; gap:4px; font-size:.56rem; }
-  .provider-action-mark{ flex-basis:58px; width:58px; height:15px; }
+  .provider-action-mark{ flex-basis:58px; width:58px; height:16px; padding-inline:6px; }
 }
 [data-card-identity="competition:formula-one"]{
   background:transparent!important;
@@ -6072,7 +6085,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
-        <div id="headerProgressRing" hidden></div>
+        <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
       </div>
     </div>
@@ -6339,7 +6352,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/card-lifecycle.js"></script>
 <script src="config/reminder-engine.js"></script>
 <script src="config/soundtrack.js"></script>
-<script src="config/joint-tennis-tournament.js"></script>
 <script src="config/selector-taxonomy.js"></script>
 <script src="config/discovery-catalogue.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
@@ -6388,7 +6400,6 @@ let inSessionLoadingSequence = 0;
 
 function renderHeaderLoadingIndicator(startupState = loadingController.snapshot()){
   const headerHost = document.getElementById("headerProgressRing");
-  const dateBadge = document.getElementById("calendarDateBadge");
   const startupActive = document.body.classList.contains("startup-shell-visible") && startupState.phase !== "complete";
   const sessionActive = Boolean(inSessionLoading?.visible && !startupActive);
   const active = startupActive
@@ -6402,7 +6413,6 @@ function renderHeaderLoadingIndicator(startupState = loadingController.snapshot(
       headerHost.innerHTML = LOADING_PROGRESS.ringMarkup(active.state, { label:active.label, compact:true });
     }
   }
-  if (dateBadge) dateBadge.hidden = Boolean(active);
 }
 
 function beginInSessionLoading(label){
@@ -6639,7 +6649,7 @@ function identityImageSource(image){
     || "";
 }
 
-function installIdentityImageRecovery(image){
+function decodeIdentityImageInPlace(image){
   image.dataset.identityImage = "true";
   image.classList.add("identity-image-pending");
   image.addEventListener("load", () => {
@@ -6653,6 +6663,8 @@ function installIdentityImageRecovery(image){
   });
   return image;
 }
+
+const installIdentityImageRecovery = decodeIdentityImageInPlace;
 
 function revealIdentityImageFallback(image){
   if (!image?.isConnected || image.naturalWidth > 0) return false;
@@ -6907,6 +6919,14 @@ function appendTeamIdentityFallback(container, mark, label, className = "team-lo
   container.appendChild(monogram);
 }
 
+function appendClubIdentityFallback(container, label, className = "team-logo-fallback"){
+  const monogram = document.createElement("span");
+  monogram.className = `${className} team-logo-monogram`;
+  monogram.setAttribute("aria-label", `${label || "Team"} identity`);
+  monogram.textContent = String(label || "Team").split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase() || "TM";
+  container.appendChild(monogram);
+}
+
 function cardIdentityParticipants(){
   const directoryTeams = (footballDirectoryData?.teams || []).map(team => ({
     ...team,
@@ -7097,7 +7117,7 @@ const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
 const SOUNDTRACK = globalThis.NOTHINGSPORTS_SOUNDTRACK || null;
 const PRODUCT_EVENTS = globalThis.NOTHINGSPORTS_PRODUCT_EVENTS || null;
-const JOINT_TENNIS_TOURNAMENT = globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT || null;
+let JOINT_TENNIS_TOURNAMENT = globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT || null;
 
 const SPECIAL_EVENT_ONLY_SPORT_KEYS = new Set(["wimbledon", "fifa", "tdf", "masters", "lemans", "nfl", "cwg"]);
 const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
@@ -7300,6 +7320,7 @@ const MAJOR_EVENTS_CONFIG = Object.freeze({
 });
 
 const JOINT_TOURNAMENT_CONFIG = Object.freeze({
+  moduleScriptUrl: "config/joint-tennis-tournament.js",
   url: "data/canonical/joint-tennis-tournament-2026.json",
   scriptUrl: "data/canonical/joint-tennis-tournament-2026.js",
   tournamentId: "tournament:tennis:joint:cincinnati-open:2026",
@@ -7468,13 +7489,15 @@ function saveActiveProfileSections(sections){
 /* ============ STATE ============ */
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v2:first-page.v1";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v2:first-page.v2";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 let publicFeedManifest = null;
 let publicFeedNextPageIndex = 0;
 let serverFeedNextCursor = null;
 let feedPageLoading = false;
 let feedPageObserver = null;
+const warmedPublicFeedPages = new Set();
+let publicFeedWarmHandle = null;
 let feedNavigationInteractionVersion = 0;
 let lastFeedPageInteractionVersion = 0;
 const feedPerformanceNow = () => globalThis.performance?.now?.() || 0;
@@ -9770,6 +9793,11 @@ async function loadJointTournamentData(){
   jointTournamentLoading = true;
   jointTournamentError = null;
   try{
+    if (!JOINT_TENNIS_TOURNAMENT){
+      await loadDeferredScript(JOINT_TOURNAMENT_CONFIG.moduleScriptUrl);
+      JOINT_TENNIS_TOURNAMENT = globalThis.NOTHINGSPORTS_JOINT_TENNIS_TOURNAMENT || null;
+    }
+    if (!JOINT_TENNIS_TOURNAMENT) throw new Error("Joint tournament runtime was unavailable");
     const document = globalThis.location?.protocol === "file:"
       ? await reloadBundledJointTournamentScript()
       : await fetchJson(JOINT_TOURNAMENT_CONFIG.url);
@@ -9816,7 +9844,7 @@ async function loadMajorEventsData(){
     majorEventsDocument = payload;
     hydration?.progress(.9);
     if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload);
-    loadJointSchedule = payload.events.some(event => event.scheduleAdapter === "joint-tennis-tournament-2026");
+    loadJointSchedule = payload.events.some(event => event.lifecycleStatus !== "retired" && event.scheduleAdapter === "joint-tennis-tournament-2026");
     refreshAddedFixtureSnapshots();
   }catch(error){
     majorEventsError = error;
@@ -9868,7 +9896,9 @@ function applyFeedEvents(events, meta, { append = false } = {}){
 
 function personalisedFeedCacheKey(userId = serverSyncClient?.sessionSubject?.()){
   const subject = String(userId || "").trim();
-  return subject ? `personalised-feed:${subject}:${PERSONALISED_FEED_CACHE_VERSION}` : "";
+  const profileId = String(activeProfileBundle?.profile?.id || "profile:local").trim();
+  const profileRevision = String(activeProfileBundle?.profile?.updatedAt || "unversioned").trim();
+  return subject ? `personalised-feed:${subject}:${profileId}:${profileRevision}:${PERSONALISED_FEED_CACHE_VERSION}` : "";
 }
 
 function cachePersonalisedFeedPayload(payload, userId){
@@ -9986,6 +10016,7 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
       version: manifest.sourceVersion,
       publishedAt: manifest.sourcePublishedAt,
     });
+    warmNextFeedPageDuringIdle();
     if (!quiet) showToast(`Published feed loaded: ${events.length} events.`);
     return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
   }catch(err){
@@ -10021,6 +10052,24 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
   }
 }
 
+function warmNextFeedPageDuringIdle(){
+  const publicPage = publicFeedManifest?.pages?.[publicFeedNextPageIndex];
+  const path = String(publicPage?.path || "");
+  if (!path || warmedPublicFeedPages.has(path) || serverPersistence.user) return false;
+  warmedPublicFeedPages.add(path);
+  const warm = () => {
+    publicFeedWarmHandle = null;
+    fetch(path, { cache:"force-cache", credentials:"same-origin" }).catch(error => {
+      warmedPublicFeedPages.delete(path);
+      console.warn("Feed page warm-up unavailable", error);
+    });
+  };
+  publicFeedWarmHandle = typeof window.requestIdleCallback === "function"
+    ? window.requestIdleCallback(warm, { timeout:1800 })
+    : window.setTimeout(warm, 600);
+  return true;
+}
+
 async function loadNextFeedPage(){
   if (feedPageLoading) return false;
   const signedIn = Boolean(serverSyncClient && serverPersistence.user && serverFeedNextCursor !== null);
@@ -10042,6 +10091,7 @@ async function loadNextFeedPage(){
         version: publicFeedManifest.sourceVersion,
         publishedAt: publicFeedManifest.sourcePublishedAt,
       }, { append: true });
+      warmNextFeedPageDuringIdle();
     }
     hydration.progress(.9);
     pageLoaded = true;
@@ -12339,13 +12389,28 @@ function codeInspectorFixtureSnapshot(fixture){
     startTimeUtc:fixture.startTimeUtc || null,
     venue:fixture.venue || "Venue TBC",
     broadcaster:fixture.broadcaster || "",
+    viewingOptions:Array.isArray(fixture.viewingOptions) ? fixture.viewingOptions.map(option => ({ ...option })) : [],
+    sourceUrl:fixture.sourceUrl || null,
     stage:fixture.stage || null,
     roundLabel:fixture.roundLabel || null,
     competitionScope:fixture.competitionScope || null,
     isInternational:fixture.isInternational === true || fixture.competitionScope === "international",
     representativeCountryCodes:Array.isArray(fixture.representativeCountryCodes) ? fixture.representativeCountryCodes : [],
     participantIds:participantSlots.map(slot => slot.participantId).filter(Boolean),
-    participants:participantSlots.map(slot => ({ id:slot.participantId || null, name:slot.label || "TBC" })),
+    participantSlots:participantSlots.map(slot => ({ ...slot })),
+    participants:participantSlots.map(slot => ({
+      id:slot.participantId || null,
+      name:slot.label || "TBC",
+      displayName:slot.label || "TBC",
+      logoUrl:slot.logoUrl || null,
+      crestUrl:slot.logoUrl || null,
+      homeAway:slot.homeAway || null,
+    })),
+    matchupSides:participantSlots.map(slot => ({
+      id:slot.participantId || null,
+      label:slot.label || "TBC",
+      participants:[{ id:slot.participantId || null, name:slot.label || "TBC", logoUrl:slot.logoUrl || null }],
+    })),
     status:"scheduled",
     stakesScore:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
     expected:Number(fixture.expected || 7),
@@ -12372,6 +12437,7 @@ function setCodeInspectorFixtureAdded(fixture, enabled){
 function codeInspectorParticipantMark(slot, fixture){
   const direct = slot.participantId ? CARD_IDENTITIES?.participantMarks?.[slot.participantId] : null;
   if (direct) return direct;
+  if (slot.logoUrl) return { label:slot.label, url:slot.logoUrl, logo:{ primary:slot.logoUrl, dark:slot.logoUrl } };
   const event = { key:codeInspectorFixtureSportKey(fixture), name:slot.label || fixture.name, participantIds:[slot.participantId].filter(Boolean) };
   return CARD_IDENTITIES?.participantMarksForEvent?.(event, cardIdentityParticipants(), slot.label || fixture.name)?.[0]?.mark
     || (TEAM_FOLLOW_CATALOGUE?.teamsById?.[slot.participantId]?.countryCode
@@ -12475,7 +12541,30 @@ function buildCodeInspectorFixture(fixture){
     const details = document.createElement("div");
     details.className = "code-inspector-fixture-expanded";
     const round = FOLLOW_FIRST?.stageLabel?.(fixture) || fixture.stage || fixture.roundLabel || "Stage TBC";
-    details.innerHTML = `<strong>${round}</strong><span>${fixture.sourceCoverage === "official-canonical" ? "Official canonical fixture" : "Published fixture"}</span><span>${fixture.broadcaster || "Viewing provider TBC"}</span>`;
+    const roundLabel = document.createElement("strong");
+    roundLabel.textContent = round;
+    const sourceLabel = document.createElement("span");
+    sourceLabel.textContent = fixture.sourceCoverage === "official-canonical" ? "Official canonical fixture" : "Published fixture";
+    details.append(roundLabel, sourceLabel);
+    const viewing = FOLLOW_FIRST?.viewingLink?.(codeInspectorFixtureSnapshot(fixture) || fixture, userPreferences.followFirst?.subscriptions || []);
+    if (viewing){
+      const watch = document.createElement("a");
+      watch.className = "event-quick-action code-inspector-viewing-action";
+      configureProviderLaunch(watch, viewing);
+      const verb = viewing.liveOrReplay === "replay" ? "Replay" : "Watch";
+      watch.setAttribute("aria-label", `${verb} on ${viewing.label}`);
+      const prefix = document.createElement("span");
+      prefix.className = "viewing-action-prefix";
+      prefix.textContent = `${verb} on`;
+      watch.append(prefix, buildViewingProviderMark(viewing));
+      watch.addEventListener("click", event => event.stopPropagation());
+      details.appendChild(watch);
+    } else {
+      const unavailable = document.createElement("span");
+      unavailable.className = "code-inspector-status-stamp";
+      unavailable.textContent = "Viewing TBC";
+      details.appendChild(unavailable);
+    }
     row.appendChild(details);
   }
   const toggle = () => {
@@ -12500,6 +12589,44 @@ function codeInspectorStandingsSportKey(code){
 }
 
 function renderCodeInspectorStandings(panel, code){
+  const publishedStandings = codeInspectorChunk?.code?.id === code.id && Array.isArray(codeInspectorChunk.standings)
+    ? codeInspectorChunk.standings
+    : [];
+  if (publishedStandings.length){
+    const byCompetition = new Map();
+    publishedStandings.forEach(entry => {
+      const rows = byCompetition.get(entry.competitionId) || [];
+      rows.push(entry);
+      byCompetition.set(entry.competitionId, rows);
+    });
+    byCompetition.forEach((rows, competitionId) => {
+      const section = document.createElement("section");
+      section.className = "standings-module code-inspector-published-standings";
+      const title = document.createElement("h3");
+      title.textContent = competitionId === "competition:nhl" ? "NHL standings"
+        : competitionId === "competition:chl" ? "Champions Hockey League table"
+        : "NFL standings";
+      const list = document.createElement("div");
+      list.className = "code-inspector-fixtures";
+      rows.sort((first, second) => Number(first.rank || 999) - Number(second.rank || 999) || String(first.displayName).localeCompare(String(second.displayName))).forEach(entry => {
+        const row = document.createElement("article");
+        row.className = "code-inspector-fixture code-inspector-standing-row";
+        const label = document.createElement("strong");
+        label.textContent = `${entry.rank}. ${entry.displayName}`;
+        const facts = document.createElement("span");
+        const played = entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
+        const wins = entry.wins ?? entry.stats?.wins;
+        const losses = entry.losses ?? entry.stats?.losses;
+        const points = entry.points ?? entry.stats?.points;
+        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
+        row.append(label, facts);
+        list.appendChild(row);
+      });
+      section.append(title, list);
+      panel.appendChild(section);
+    });
+    return;
+  }
   const sportKey = codeInspectorStandingsSportKey(code);
   const competitions = (CANONICAL_TAXONOMY.competitions || [])
     .filter(competition => competition.supportsLadder)
@@ -16671,6 +16798,12 @@ function renderLegacyParticipantDirectory(container, sportKey){
     ...record,
     rank: FOLLOW_FIRST?.normalizeDirectoryRank?.(record.ranking ?? record.ladderPosition) ?? null,
   }));
+  const rosterCountries = new Map();
+  allRecords.filter(record => record.entityType === "athlete" && record.currentTeamId && record.countryCode).forEach(record => {
+    const countries = rosterCountries.get(record.currentTeamId) || new Set();
+    countries.add(record.countryCode);
+    rosterCountries.set(record.currentTeamId, countries);
+  });
   const records = allRecords
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
@@ -16744,23 +16877,38 @@ function renderLegacyParticipantDirectory(container, sportKey){
     row.className = "football-club-head";
     const icon = document.createElement("span");
     icon.className = "follow-directory-identity identity-frame";
-    const mark = CARD_IDENTITIES?.participantMarks?.[record.id];
+    const identityUrl = record.logoUrl || record.headshotUrl || null;
+    const mark = CARD_IDENTITIES?.participantMarks?.[record.id]
+      || (identityUrl ? { url:identityUrl, logo:{ primary:identityUrl, dark:record.logoDarkUrl || identityUrl } } : null);
+    const athlete = record.entityType === "athlete";
+    const nationalTeam = record.entityType === "team" && record.teamKind === "national";
+    const showNationalityFlag = athlete && (!record.currentTeamId || (rosterCountries.get(record.currentTeamId)?.size || 0) > 1);
     if (mark?.url || mark?.logo?.primary){
       const image = document.createElement("img");
-      image.alt = "";
+      image.alt = `${record.displayName} identity`;
       image.loading = "lazy";
       image.decoding = "async";
       applyTeamLogoAsset(image, mark, "icon");
       image.addEventListener("error", () => {
-        icon.innerHTML = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:record.displayName })
-          || glyphMarkup(SPORT_META[sportKey]?.glyph || "ui:filter");
+        icon.replaceChildren();
+        if (showNationalityFlag || nationalTeam){
+          const flag = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:record.displayName });
+          if (flag) icon.insertAdjacentHTML("beforeend", flag);
+          else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
+        } else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
       }, { once:true });
       icon.appendChild(image);
-    } else appendTeamIdentityFallback(icon, { countryCode:record.countryCode, fallbackCountryCode:record.countryCode, label:record.displayName }, record.displayName, "team-logo-fallback follow-directory-fallback");
+    } else if (showNationalityFlag || nationalTeam){
+      appendTeamIdentityFallback(icon, { countryCode:record.countryCode, fallbackCountryCode:record.countryCode, label:record.displayName }, record.displayName, "team-logo-fallback follow-directory-fallback");
+    } else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
     const copy = document.createElement("div");
     copy.className = "football-club-copy";
     const name = document.createElement("strong");
     name.textContent = record.displayName;
+    if (showNationalityFlag && record.countryCode){
+      const flag = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:`${record.displayName} nationality` });
+      if (flag) name.insertAdjacentHTML("afterbegin", `${flag} `);
+    }
     const detail = document.createElement("span");
     const rankLabel = record.rank !== null ? ` · #${record.rank}` : "";
     detail.textContent = `${record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${rankLabel}`;
@@ -17179,25 +17327,6 @@ function showToast(msg){
 /* ============ LIVE CLOCK ============ */
 // The clock itself is intentionally absent; this stable boundary keeps the
 // calendar/date test harness separate from DOM-only viewport behaviour.
-const CARD_RETRACTION_SCROLL_IDLE_MS = 180;
-let cardRetractionScrollTimer = null;
-let lastCardRetractionScrollY = window.scrollY;
-function scheduleCardRetractionDuringScroll(){
-  const currentScrollY = window.scrollY;
-  const scrollDirection = cardScrollDirection(lastCardRetractionScrollY, currentScrollY);
-  lastCardRetractionScrollY = currentScrollY;
-  if (scrollDirection === "up" && pendingCardRetractionSpaceCards.size){
-    clearPendingCardRetractionSpace();
-  } else {
-    scheduleCardRetractionSpaceCleanup();
-  }
-  if (cardRetractionScrollTimer !== null) window.clearTimeout(cardRetractionScrollTimer);
-  cardRetractionScrollTimer = window.setTimeout(() => {
-    cardRetractionScrollTimer = null;
-    collapseCardsOutsideActiveViewport();
-  }, CARD_RETRACTION_SCROLL_IDLE_MS);
-}
-window.addEventListener("scroll", scheduleCardRetractionDuringScroll, { passive: true });
 window.addEventListener("scroll", syncContextualJumpButton, { passive: true });
 window.addEventListener("scroll", () => {
   if (cardImageLoadingUnlocked && typeof IntersectionObserver !== "function") observeDeferredCardImages();
@@ -17925,6 +18054,16 @@ function renderEventsView(){
   panel.setAttribute("aria-labelledby", `events-view-tab-${eventsViewTab}`);
   panel.className = "events-section";
   container.appendChild(panel);
+  const retiredDeepLink = pendingMajorEventFocusId
+    ? majorEventsDocument.events.find(record => record.id === pendingMajorEventFocusId && record.lifecycleStatus === "retired")
+    : null;
+  if (retiredDeepLink){
+    const retiredNotice = document.createElement("div");
+    retiredNotice.className = "empty-state events-retired-deep-link";
+    retiredNotice.setAttribute("role", "status");
+    retiredNotice.textContent = `${retiredDeepLink.name} has been retired because its published schedule source failed. It will not appear in your current Events list.`;
+    panel.appendChild(retiredNotice);
+  }
   if (eventsViewTab === "ticket-alerts" && visible.alerts.length){
     const section = document.createElement("section");
     section.className = "events-section";

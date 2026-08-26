@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "boxing",
   "label": "Boxing",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -21,8 +21,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "75 kg",
       "identityId": "competitor:boxing:emma-sue-greentree",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -42,8 +48,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "65 kg",
       "identityId": "competitor:boxing:eve-bryson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -63,8 +75,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "65 kg",
       "identityId": "competitor:boxing:jacob-cassar",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -84,8 +102,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "55 kg",
       "identityId": "competitor:boxing:jye-dixon",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -105,8 +129,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "90 kg",
       "identityId": "competitor:boxing:lachlan-lawson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -126,8 +156,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "70 kg",
       "identityId": "competitor:boxing:lekeisha-pergoliti",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -147,8 +183,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "54 kg",
       "identityId": "competitor:boxing:monique-suraci",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]
@@ -168,8 +210,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "80 kg",
       "identityId": "competitor:boxing:paul-trainor",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
       ]

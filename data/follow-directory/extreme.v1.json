@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "extreme",
   "label": "Extreme",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-26T00:13:01Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -21,8 +21,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:arisa-trew",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -43,8 +49,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:ben-richards",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -65,8 +77,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:brandon-loupos",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -87,8 +105,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:chloe-covell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -109,8 +133,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:genki-watanabe",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -131,8 +161,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:jackson-strong",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -153,8 +189,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:jaie-toohey",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -175,8 +217,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:jarryd-mcneil",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -199,8 +247,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:jose-torres",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -221,8 +275,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:justin-dowell",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -243,8 +303,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:keefer-wilson",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -265,8 +331,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:keegan-palmer",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -287,8 +359,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:kieran-reilly",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -309,8 +387,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:kim-lea-mueller",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -331,8 +415,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:lara-lessmann",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -353,8 +443,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:liz-akama",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -375,8 +471,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:logan-martin",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -397,8 +499,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:mia-kretzer",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -419,8 +527,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:mike-varga",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -441,8 +555,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "BMX",
       "identityId": "competitor:xgames:nikita-ducarroz",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -463,8 +583,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:nyjah-huston",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -485,8 +611,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:rayssa-leal",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -507,8 +639,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:rob-adelberg",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -529,8 +667,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:sky-brown",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -551,8 +695,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:taka-higashino",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -573,8 +723,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:tom-richards",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -595,8 +751,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Moto X",
       "identityId": "competitor:xgames:vicki-golden",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
@@ -617,8 +779,14 @@
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": null,
       "position": "Skateboard",
       "identityId": "competitor:xgames:yuto-horigome",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"

@@ -11,11 +11,16 @@ const taxonomy = require("../config/canonical-sports-taxonomy");
 const followFirst = require("../config/follow-first");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
+const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
+const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.json");
 const majorEvents = require("../data/major-events.v1.json");
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
   participant.id,
   participant.displayName || participant.canonicalName || participant.shortName || null,
 ]));
+for (const participant of [...(canonicalAmericanFootball.teams || []), ...(canonicalIceHockey.teams || [])]){
+  canonicalParticipantNames.set(participant.id, participant.displayName || participant.shortName || null);
+}
 
 const CODE_KEYS = Object.freeze({
   "sport:afl": ["afl"],
@@ -31,6 +36,7 @@ const CODE_KEYS = Object.freeze({
   "sport:basketball": ["basketball", "nba"],
   "sport:golf": ["golf"],
   "sport:american-football": ["american-football", "nfl"],
+  "sport:ice-hockey": ["ice-hockey", "nhl", "chl"],
   "sport:skiing": ["skiing", "snow"],
   "sport:multi-sport": ["multi-sport", "cwg", "commonwealth-games"],
 });
@@ -79,6 +85,7 @@ function participantSlots(event){
       slot: slot.slot || index + 1,
       participantId: slot.participantId || null,
       label: slot.label || canonicalParticipantNames.get(slot.participantId) || null,
+      logoUrl:slot.logoUrl || null,
     }));
   }
   if (Array.isArray(event?.participantIds) && event.participantIds.length){
@@ -140,6 +147,9 @@ function normalizeFixture(event, codeId, extra = {}){
     representativeCountryCodes:Array.isArray(event.representativeCountryCodes) ? event.representativeCountryCodes : [],
     expected: Number(event.expected || event.stakesScore || 0),
     broadcaster: event.broadcaster || (event.broadcasters || []).map(item => item.broadcasterName).filter(Boolean).join(" / ") || null,
+    viewingOptions:Array.isArray(event.viewingOptions) ? event.viewingOptions : [],
+    sourceUrl:event.sourceUrl || null,
+    ticketUrl:event.ticketUrl || null,
     sourceCoverage: extra.sourceCoverage || "published-feed",
   };
 }
@@ -191,7 +201,11 @@ function codeFixtures(code){
   const published = feed.events.filter(event => eventMatchesCode(event, code));
   const canonical = ["sport:afl", "sport:nrl"].includes(code.id)
     ? canonicalAflNrl.events.filter(event => event.sportDomainId === code.id)
-    : [];
+    : code.id === "sport:american-football"
+      ? canonicalAmericanFootball.fixtures || []
+      : code.id === "sport:ice-hockey"
+        ? canonicalIceHockey.fixtures || []
+        : [];
   return mergeFixtureRecords(placeholders, [...published, ...canonical], code.id, new Set(canonical));
 }
 
@@ -201,6 +215,20 @@ function groupingMode(fixtures){
   return "competition-date";
 }
 
+function codeStandings(code){
+  const source = code.id === "sport:american-football"
+    ? canonicalAmericanFootball.standings || []
+    : code.id === "sport:ice-hockey"
+      ? canonicalIceHockey.standings || []
+      : [];
+  return source.map((entry, index) => ({
+    ...entry,
+    rank:Number.isFinite(Number(entry.rank)) ? Number(entry.rank) : index + 1,
+    displayName:canonicalParticipantNames.get(entry.participantId) || entry.participantId,
+    competitionId:entry.competitionId || (String(entry.participantId).startsWith("team:chl:") ? "competition:chl" : code.id === "sport:ice-hockey" ? "competition:nhl" : "competition:nfl"),
+  }));
+}
+
 function build(){
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   const codes = taxonomy.sportDomains.filter(code => code.isActive !== false).map(code => {
@@ -208,7 +236,7 @@ function build(){
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:nrl"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:nrl", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), `${JSON.stringify({
       schemaVersion: "code-inspector-chunk.v1",
       code: { id: code.id, slug: code.slug, name: code.name },
@@ -216,6 +244,7 @@ function build(){
       groupingMode: groupingMode(fixtures),
       freshAt: feed.publishedAt || null,
       fixtures,
+      standings:codeStandings(code),
     })}\n`);
     return {
       id: code.id,

@@ -33,6 +33,7 @@ function sportKeyForParticipant(participant){
   }
   const mappings = [
     ["sport:american-football", "american-football"], ["sport:rugby-union", "rugby"],
+    ["sport:ice-hockey", "ice-hockey"],
     ["sport:multi-sport", "multi-sport"], ["sport:basketball", "nba"],
     ["sport:motorsport", "motorsport"], ["sport:gymnastics", "gymnastics"],
     ["sport:athletics", "athletics"], ["sport:swimming", "swimming"],
@@ -72,8 +73,14 @@ function normalizeRecord(record, additions = {}){
     marketValue:Number.isFinite(Number(record.marketValue ?? record.marketValueEur)) ? Number(record.marketValue ?? record.marketValueEur) : null,
     currentTeamId:record.currentTeamId || null,
     leagueId:record.leagueId || null,
+    teamKind:record.teamKind || (record.isNationalTeam === true ? "national" : null),
     position:record.position || metadata.discipline || null,
-    identityId:String(record.id),
+    identityId:String(record.identityId || record.id),
+    logoUrl:record.logoUrl || null,
+    logoDarkUrl:record.logoDarkUrl || null,
+    headshotUrl:record.headshotUrl || null,
+    eventRanks:Array.isArray(record.eventRanks) ? record.eventRanks : [],
+    rankingBasis:record.rankingBasis || null,
     sourceRefs:Array.from(new Set([...(record.sourceRefs || []), ...(additions.sourceRefs || [])].filter(Boolean))),
   };
 }
@@ -128,11 +135,16 @@ function main(){
     ["afl", "data/canonical/afl-directory.v1.json"],
     ["nrl", "data/canonical/nrl-directory.v1.json"],
     ["football", "data/canonical/football-directory.v1.json"],
+    ["american-football", "data/canonical/american-football-directory.v1.json"],
+    ["ice-hockey", "data/canonical/ice-hockey-directory.v1.json"],
+    ["swimming", "data/canonical/swimming-directory.v1.json"],
   ].forEach(([key, relativePath]) => {
     const directory = readJson(relativePath);
+    if (["american-football", "ice-hockey", "swimming"].includes(key)) chunks.get(key)?.clear();
     if (directory.generatedAt) sourceGeneratedAt.push(directory.generatedAt);
-    (directory.teams || []).forEach(team => chunks.get(key).set(team.id, normalizeRecord({ ...team, type:"team" }, { genderCategory:"male", sourceRefs:team.sourceRefs })));
-    (directory.players || []).filter(player => player.active !== false).forEach(player => chunks.get(key).set(player.id, normalizeRecord({ ...player, type:"competitor" }, { genderCategory:"male", sourceRefs:player.sourceRefs })));
+    (directory.teams || []).forEach(team => chunks.get(key)?.set(team.id, normalizeRecord({ ...team, type:"team" }, { genderCategory:team.genderCategory || "male", sourceRefs:team.sourceRefs })));
+    (directory.players || []).filter(player => player.active !== false).forEach(player => chunks.get(key)?.set(player.id, normalizeRecord({ ...player, type:"competitor" }, { genderCategory:player.genderCategory || "male", sourceRefs:player.sourceRefs })));
+    (directory.athletes || []).filter(athlete => athlete.active !== false).forEach(athlete => chunks.get(key)?.set(athlete.id, normalizeRecord({ ...athlete, type:"competitor" }, { genderCategory:athlete.genderCategory, ranking:athlete.ranking, sourceRefs:athlete.sourceRefs })));
   });
 
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";

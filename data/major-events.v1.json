@@ -6,6 +6,10 @@
       "id": "major-event:cincinnati-open-2026",
       "kind": "tournament",
       "name": "Cincinnati Open",
+      "lifecycleStatus": "retired",
+      "retiredReason": "source-failed",
+      "retiredAt": "2026-08-25T12:00:00.000Z",
+      "retiredDeepLinkBehaviour": "safe-tombstone",
       "sportKey": "tennis",
       "sportKeys": [
         "tennis",
@@ -67,44 +71,249 @@
       ],
       "subEvents": [
         {
-          "id": "major-session:us-open-2026:qualifying-aug-25",
-          "name": "Men's and women's singles qualifying · Day 2",
-          "stage": "Qualifying",
-          "roundLabel": "Day 2",
-          "startTimeUtc": "2026-08-25T14:00:00.000Z",
-          "venue": "USTA Billie Jean King National Tennis Center",
+          "id": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
+          "stableMatchId": "usopen-2026-xd-serena-alcaraz-bencic-cobolli",
+          "cardKind": "fixture",
+          "name": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli",
+          "stage": "Mixed doubles",
+          "roundLabel": "Quarterfinal",
+          "matchType": "mixed-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-25",
+          "time": null,
+          "startTimeUtc": null,
+          "scheduleStatus": "time-unpublished",
+          "status": "completed",
+          "result": "Bencic / Cobolli won 5-4(4), 4-1",
+          "matchupSides": [
+            {
+              "id": "pair:tennis:serena-williams-carlos-alcaraz",
+              "name": "Williams / Alcaraz",
+              "players": [
+                {
+                  "id": "athlete:tennis:serena-williams",
+                  "name": "Serena Williams",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "US"
+                },
+                {
+                  "id": "athlete:tennis:carlos-alcaraz",
+                  "name": "Carlos Alcaraz",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "ES"
+                }
+              ]
+            },
+            {
+              "id": "pair:tennis:belinda-bencic-flavio-cobolli",
+              "name": "Bencic / Cobolli",
+              "players": [
+                {
+                  "id": "athlete:tennis:belinda-bencic",
+                  "name": "Belinda Bencic",
+                  "seed": 4,
+                  "rank": null,
+                  "nationalityCode": "CH"
+                },
+                {
+                  "id": "athlete:tennis:flavio-cobolli",
+                  "name": "Flavio Cobolli",
+                  "seed": 4,
+                  "rank": null,
+                  "nationalityCode": "IT"
+                }
+              ]
+            }
+          ],
+          "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
-          "summary": "The official Fan Week schedule starts qualifying play at 10am local time. Individual court assignments remain on the order of play."
+          "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html"
         },
         {
-          "id": "major-session:us-open-2026:mixed-doubles-early-rounds",
-          "name": "Mixed doubles · First and second rounds",
-          "stage": "Mixed doubles",
-          "roundLabel": "Rounds 1 and 2",
-          "startTimeUtc": "2026-08-25T14:00:00.000Z",
-          "venue": "USTA Billie Jean King National Tennis Center",
+          "id": "fixture:us-open-2026:federer-v-roddick",
+          "stableMatchId": "usopen-2026-exhibition-federer-roddick",
+          "cardKind": "fixture",
+          "name": "Roger Federer v Andy Roddick",
+          "stage": "Legends exhibition",
+          "roundLabel": "Opening singles set",
+          "matchType": "exhibition-singles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-25",
+          "time": "19:30",
+          "startTimeUtc": "2026-08-25T23:30:00.000Z",
+          "scheduleStatus": "confirmed-session-start",
+          "status": "scheduled",
+          "matchupSides": [
+            {
+              "id": "side:tennis:roger-federer",
+              "name": "Roger Federer",
+              "players": [
+                {
+                  "id": "athlete:tennis:roger-federer",
+                  "name": "Roger Federer",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "CH"
+                }
+              ]
+            },
+            {
+              "id": "side:tennis:andy-roddick",
+              "name": "Andy Roddick",
+              "players": [
+                {
+                  "id": "athlete:tennis:andy-roddick",
+                  "name": "Andy Roddick",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "US"
+                }
+              ]
+            }
+          ],
+          "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
-          "summary": "Mixed doubles first- and second-round play appears on the official 25 August schedule."
+          "viewingOptions": [
+            {
+              "providerId": "disney-plus",
+              "eventUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
+              "linkScope": "event",
+              "sourceUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
+              "verifiedAt": "2026-08-26T00:00:00.000Z"
+            }
+          ],
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html"
         },
         {
-          "id": "major-session:us-open-2026:mixed-doubles-finals",
-          "name": "Mixed doubles · Semifinals and final",
+          "id": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
+          "stableMatchId": "usopen-2026-exhibition-federer-mcenroe-roddick-agassi",
+          "cardKind": "fixture",
+          "name": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi",
+          "stage": "Legends exhibition",
+          "roundLabel": "Doubles set",
+          "matchType": "exhibition-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-25",
+          "time": "19:30",
+          "startTimeUtc": "2026-08-25T23:30:00.000Z",
+          "scheduleStatus": "within-confirmed-session",
+          "status": "scheduled",
+          "matchupSides": [
+            {
+              "id": "pair:tennis:federer-mcenroe",
+              "name": "Federer / McEnroe",
+              "players": [
+                {
+                  "id": "athlete:tennis:roger-federer",
+                  "name": "Roger Federer",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "CH"
+                },
+                {
+                  "id": "athlete:tennis:john-mcenroe",
+                  "name": "John McEnroe",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "US"
+                }
+              ]
+            },
+            {
+              "id": "pair:tennis:roddick-agassi",
+              "name": "Roddick / Agassi",
+              "players": [
+                {
+                  "id": "athlete:tennis:andy-roddick",
+                  "name": "Andy Roddick",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "US"
+                },
+                {
+                  "id": "athlete:tennis:andre-agassi",
+                  "name": "Andre Agassi",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "US"
+                }
+              ]
+            }
+          ],
+          "venue": "Arthur Ashe Stadium",
+          "stakesScore": 5,
+          "viewingOptions": [
+            {
+              "providerId": "disney-plus",
+              "eventUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
+              "linkScope": "event",
+              "sourceUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
+              "verifiedAt": "2026-08-26T00:00:00.000Z"
+            }
+          ],
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html"
+        },
+        {
+          "id": "fixture:us-open-2026:bencic-cobolli-v-svitolina-monfils",
+          "stableMatchId": "usopen-2026-xd-bencic-cobolli-svitolina-monfils",
+          "cardKind": "fixture",
+          "name": "Belinda Bencic / Flavio Cobolli v Elina Svitolina / Gael Monfils",
           "stage": "Mixed doubles",
-          "roundLabel": "Semifinals and final",
+          "roundLabel": "Semifinal",
+          "matchType": "mixed-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-26",
+          "time": "19:00",
           "startTimeUtc": "2026-08-26T23:00:00.000Z",
-          "venue": "USTA Billie Jean King National Tennis Center",
+          "scheduleStatus": "confirmed-session-start",
+          "status": "scheduled",
+          "matchupSides": [
+            {
+              "id": "pair:tennis:belinda-bencic-flavio-cobolli",
+              "name": "Bencic / Cobolli",
+              "players": [
+                {
+                  "id": "athlete:tennis:belinda-bencic",
+                  "name": "Belinda Bencic",
+                  "seed": 4,
+                  "rank": null,
+                  "nationalityCode": "CH"
+                },
+                {
+                  "id": "athlete:tennis:flavio-cobolli",
+                  "name": "Flavio Cobolli",
+                  "seed": 4,
+                  "rank": null,
+                  "nationalityCode": "IT"
+                }
+              ]
+            },
+            {
+              "id": "pair:tennis:elina-svitolina-gael-monfils",
+              "name": "Svitolina / Monfils",
+              "players": [
+                {
+                  "id": "athlete:tennis:elina-svitolina",
+                  "name": "Elina Svitolina",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "UA"
+                },
+                {
+                  "id": "athlete:tennis:gael-monfils",
+                  "name": "Gael Monfils",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "FR"
+                }
+              ]
+            }
+          ],
+          "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
-          "summary": "The official schedule places the mixed doubles semifinals and final in the 7pm session."
-        },
-        {
-          "id": "major-session:us-open-2026:main-draw-opening-session",
-          "name": "Men's and women's singles · First round opening session",
-          "stage": "Main draw",
-          "roundLabel": "First round",
-          "startTimeUtc": "2026-08-30T15:00:00.000Z",
-          "venue": "USTA Billie Jean King National Tennis Center",
-          "stakesScore": 5,
-          "summary": "Main-draw singles begin at 11am local time. Matchups will refresh from the published order of play."
+          "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html"
         }
       ],
       "ticketing": {

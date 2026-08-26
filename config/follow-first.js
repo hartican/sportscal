@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v3";
+  const SCHEMA_VERSION = "follow-first.v4";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -20,6 +20,9 @@
     { id:"f1", selectorId:"sport:f1", label:"Formula 1" },
     { id:"rugby", selectorId:"sport:rugby", label:"Rugby Union" },
     { id:"nba", selectorId:"sport:nba", label:"Basketball" },
+    { id:"american-football", selectorId:"sport:american-football", label:"American Football" },
+    { id:"ice-hockey", selectorId:"sport:ice-hockey", label:"Ice Hockey" },
+    { id:"swimming", selectorId:"sport:swimming", label:"Swimming" },
   ]);
 
   const MAJOR_EVENT_FAMILIES = Object.freeze([
@@ -30,8 +33,8 @@
     { id:"australian-grand-prix", label:"Australian Grand Prix", sportIds:["f1"] },
     { id:"fifa-world-cup", label:"FIFA World Cup", sportIds:["football"] },
     { id:"olympic-games", label:"Olympic Games", sportIds:[] },
+    { id:"commonwealth-games", label:"Commonwealth Games", sportIds:[] },
     { id:"wimbledon", label:"Wimbledon", sportIds:["tennis"] },
-    { id:"cincinnati-open", label:"Cincinnati Open", sportIds:["tennis"] },
     { id:"us-open", label:"US Open", sportIds:["tennis"] },
     { id:"rugby-league-world-cup", label:"Rugby League World Cup", sportIds:["nrl"] },
     { id:"nations-championship", label:"Nations Championship", sportIds:["rugby"] },
@@ -41,8 +44,13 @@
   const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
     "cricket", "football", "tennis", "f1", "rugby", "nba", "motorsport", "rally",
     "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
-    "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg", "multi-sport",
-    "athletics", "swimming", "netball", "hockey", "gymnastics", "boxing",
+    "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg",
+    "athletics", "swimming", "netball", "boxing",
+  ]);
+
+  const TENNIS_LEGENDS_WATCHLIST = Object.freeze([
+    "Roger Federer", "Serena Williams", "Venus Williams", "Rafael Nadal", "Andy Murray",
+    "Ash Barty", "Lleyton Hewitt", "Andre Agassi", "Andy Roddick", "John McEnroe",
   ]);
 
   const OFFER_INTERESTS = Object.freeze([
@@ -67,6 +75,7 @@
     goodwood:{ label:"Goodwood", webUrl:"https://goodwood.com/", paid:false, aliases:[] },
     youtube:{ label:"YouTube", actionLabel:"YouTube", webUrl:"https://www.youtube.com/", paid:false, territory:"GLOBAL", accessType:"free", aliases:["youtube", "you tube"] },
     "watch-afl":{ label:"Watch AFL", actionLabel:"Watch AFL", webUrl:"https://www.watchafl.com.au/", paid:true, territory:"ROW", accessType:"subscription", aliases:["watch afl", "watchafl"] },
+    "iihf-tv":{ label:"IIHF.TV", actionLabel:"IIHF.TV", webUrl:"https://iihf.tv/", paid:false, territory:"GLOBAL", accessType:"provider-specific", aliases:["iihf tv", "iihf.tv"] },
   });
 
   const RIGHTS_VERIFIED_AT = "2026-08-25T00:00:00.000Z";
@@ -100,6 +109,8 @@
     "competition:golf-majors":viewingRights(["competition:masters", "competition:pga-tour", "competition:dp-world-tour", "the-open"], ["kayo", "foxtel"], null, { eventKeys:Object.freeze(["golf", "masters"]) }),
     "competition:liv-golf":viewingRights(["competition:liv-golf"], ["seven"], null),
     "competition:nfl":viewingRights(["competition:nfl", "american-football"], ["dazn"], null),
+    "competition:nhl":viewingRights(["competition:nhl", "nhl"], [], "https://www.nhl.com/info/how-to-watch-and-stream-nhl-games", { coverageStatus:"unverified", rightsScope:"competition" }),
+    "competition:chl":viewingRights(["competition:chl", "champions-hockey-league"], ["iihf-tv"], "https://www.chl.hockey/en/fans/where-to-watch", { sourceIsProvider:false, providerUrls:Object.freeze({ "iihf-tv":"https://iihf.tv/" }) }),
     "competition:netball-2026":viewingRights(["competition:netball"], ["kayo", "foxtel"], null, { notAfter:"2026-12-31T23:59:59.999Z" }),
     "competition:netball-2027":viewingRights(["competition:netball"], ["stan", "nine"], null, { notBefore:"2027-01-01T00:00:00.000Z", matchPriority:1 }),
     "competition:a-leagues":viewingRights(["competition:a-league"], ["paramount"], null),
@@ -234,9 +245,21 @@
     const defaults = defaultFollowFirst();
     const startupMeta = normalizeMeta(prior.startupMeta || source.startupMeta || {});
     const { australiansOnlySportIds:_retiredAustraliansOnlySportIds, ...priorWithoutRetiredAustralia } = prior;
+    const retiredSportIds = new Set(["hockey", "gymnastics", "multi-sport", "sport:hockey", "sport:gymnastics", "sport:multi-sport"]);
+    const previousSportIds = [
+      ...(Array.isArray(source.followedSports) ? source.followedSports : []),
+      ...(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []),
+    ].map(String);
+    const followedCommonwealthGames = previousSportIds.some(id => ["multi-sport", "sport:multi-sport"].includes(id));
+    const followedMajorEventIds = uniqueAllowed([
+      ...(prior.followedMajorEventIds || startupMeta.majorEvents || []),
+      ...(followedCommonwealthGames ? ["commonwealth-games"] : []),
+    ], MAJOR_EVENT_FAMILIES);
     return {
       ...source,
       version:Math.max(16, Number(source.version) || 0),
+      followedSports:(Array.isArray(source.followedSports) ? source.followedSports : []).map(String).filter(id => !retiredSportIds.has(id)),
+      selectedSelectorEntityIds:(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []).map(String).filter(id => !retiredSportIds.has(id)),
       followFirst:{
         ...defaults,
         ...priorWithoutRetiredAustralia,
@@ -244,7 +267,7 @@
         startupMeta,
         appliedSeedHash:String(prior.appliedSeedHash || "") || null,
         australiaInternationalsEnabled:prior.australiaInternationalsEnabled !== false,
-        followedMajorEventIds:uniqueAllowed(prior.followedMajorEventIds || startupMeta.majorEvents, MAJOR_EVENT_FAMILIES),
+        followedMajorEventIds,
         location:normalizeLocation(prior.location || startupMeta.location),
         subscriptions:Array.from(new Set((Array.isArray(prior.subscriptions) ? prior.subscriptions : []).map(String).filter(id => VIEWING_PROVIDERS[id]))),
         notifications:{
@@ -295,6 +318,18 @@
     ].map(value => String(value || "")).filter(Boolean)));
   }
 
+  function eventParticipantNames(event){
+    return Array.from(new Set([
+      ...(Array.isArray(event?.participantNames) ? event.participantNames : []),
+      ...(Array.isArray(event?.participants) ? event.participants.flatMap(participant => [participant?.name, participant?.displayName, participant?.canonicalName]) : []),
+      ...(Array.isArray(event?.matchupSides) ? event.matchupSides.flatMap(side => [side?.name, ...(side?.players || []).flatMap(player => [player?.name, player?.displayName])]) : []),
+      event?.homeTeamName,
+      event?.awayTeamName,
+      event?.name,
+      event?.title,
+    ].map(value => String(value || "").trim()).filter(Boolean)));
+  }
+
   function reasonForEvent(event, preferences, { participantLabel = id => id } = {}){
     const next = migratePreferences(preferences);
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
@@ -315,6 +350,7 @@
       "rugby-union":"rugby", basketball:"nba", "multi-sport":"cwg",
       fifa:"football", "premier-league":"football", bundesliga:"football", "la-liga":"football", "serie-a":"football", "ligue-1":"football",
       wimbledon:"tennis", tdf:"cycling", masters:"golf", nfl:"american-football",
+      nhl:"ice-hockey", chl:"ice-hockey",
       ski:"telemark", skiing:"telemark", alpine:"telemark", freestyle:"telemark",
       skateboard:"extreme", wsl:"surf", "big-wave":"surf",
     };
@@ -328,9 +364,6 @@
     const international = event?.isInternational === true || event?.competitionScope === "international";
     const followedSportIds = new Set((next.followedSports || []).map(String));
     const sportFollowed = followedSportIds.has(sourceSportId) || followedSportIds.has(sportId);
-    if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
-      return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
-    }
     const concreteSportingCard = Boolean(
       event?.date
       && event?.time
@@ -342,6 +375,13 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
+    const participantText = eventParticipantNames(event).join(" ").toLowerCase();
+    if (sportId === "tennis" && sportFollowed && concreteSportingCard && TENNIS_LEGENDS_WATCHLIST.some(name => participantText.includes(name.toLowerCase()))){
+      return { type:"tennis-legends", entityKind:"athlete-watchlist", id:"tennis-legends", label:null, displayTag:false };
+    }
+    if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
+      return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
+    }
     if (
       sportFollowed
       && concreteSportingCard
@@ -519,7 +559,13 @@
         const provider = VIEWING_PROVIDERS[providerId];
         const explicit = explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
         const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
-        const webUrl = explicitObject.webUrl || explicitObject.url || rights?.providerUrls?.[providerId] || (rights?.sourceIsProvider ? rights.sourceUrl : null) || provider.webUrl;
+        const explicitUrl = explicitObject.webUrl || explicitObject.url || null;
+        const explicitScope = String(explicitObject.linkScope || explicitObject.rightsScope || "").toLowerCase();
+        const fixtureUrl = explicitScope === "fixture" ? explicitUrl : explicitObject.fixtureUrl || null;
+        const eventUrl = explicitScope === "event" ? explicitUrl : explicitObject.eventUrl || explicitObject.tournamentUrl || rights?.eventUrls?.[providerId] || null;
+        const sportUrl = explicitScope === "sport" ? explicitUrl : explicitObject.sportUrl || rights?.providerUrls?.[providerId] || (rights?.sourceIsProvider ? rights.sourceUrl : null) || provider.webUrl;
+        const webUrl = fixtureUrl || eventUrl || sportUrl;
+        const linkScope = fixtureUrl ? "fixture" : eventUrl ? "event" : "sport";
         return {
           providerId,
           ...provider,
@@ -529,8 +575,12 @@
           accessType:explicitObject.accessType || provider.accessType || (provider.paid ? "subscription" : "free"),
           liveOrReplay:completed ? "replay" : "live",
           rightsScope:explicitObject.rightsScope || (fixtureProviderIds.length ? "fixture" : rights?.rightsScope) || "fixture",
+          linkScope,
           sourceUrl:explicitObject.sourceUrl || rights?.sourceUrl || null,
           verifiedAt:explicitObject.verifiedAt || rights?.verifiedAt || null,
+          permalinkVerifiedAt:linkScope === "fixture"
+            ? explicitObject.permalinkVerifiedAt || explicitObject.verifiedAt || null
+            : null,
         };
       });
   }
@@ -549,6 +599,7 @@
     STARTUP_SPORTS,
     MAJOR_EVENT_FAMILIES,
     INTERNATIONAL_AUSTRALIA_SPORT_IDS,
+    TENNIS_LEGENDS_WATCHLIST,
     OFFER_INTERESTS,
     VIEWING_PROVIDERS,
     COMPETITION_VIEWING_RIGHTS,
