@@ -166,6 +166,16 @@ const twiceDislikedWimbledon = preferences.applyLearningSignal(dislikedWimbledon
   contextReferences: [{ targetType: "sport", targetId: "sport:tennis" }],
 });
 assert.equal(preferences.negativeContextCount(twiceDislikedWimbledon, [{ targetType: "sport", targetId: "sport:tennis" }]), 2, "repeated feed dislikes must accumulate for suppression");
+assert.equal(
+  preferences.softLearningScore(dislikedWimbledon, [{ targetType: "event_family", targetId: "special:wimbledon" }, { targetType: "sport", targetId: "sport:tennis" }]),
+  -2,
+  "one dislike must softly demote related suggestions without banning them"
+);
+assert.equal(
+  preferences.softLearningScore(twiceDislikedWimbledon, [{ targetType: "event_family", targetId: "special:wimbledon" }, { targetType: "sport", targetId: "sport:tennis" }]),
+  -4,
+  "repeated related dislikes may progressively demote optional suggestions"
+);
 
 const promptCadence = [1, 4, 10, 25, 50, 100, 150];
 assert.deepEqual(

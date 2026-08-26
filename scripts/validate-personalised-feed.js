@@ -40,5 +40,15 @@ assert.deepEqual(feed.splitTimeline([
 assert.equal(feed.eventStart({ id: "tbc", date: "2026-08-19", timeTbc: true }), null, "timeless TBC fixtures must not receive a false start");
 assert.equal(feed.eventStart({ id: "timeless", date: "2026-08-19" }), null, "a date without an explicit date-only contract must stay out of Fixtures");
 assert(feed.eventStart({ id: "tournament", date: "2026-08-19", dateOnly: true }), "genuine date-only tournaments must receive a deterministic Sydney start-of-day");
+assert.deepEqual(
+  feed.timelineBoundaryPresentation({ retainedPast: [todayLate], today: [], future: [future] }, now),
+  { todayCopy: "Nothing else today", nextDateBadge: "Tomorrow" },
+  "an empty remainder of today must not put an unexplained Today divider above tomorrow's earlier clock time"
+);
+assert.deepEqual(
+  feed.timelineBoundaryPresentation({ retainedPast: [pastLate], today: [todayLate], future: [future] }, now),
+  { todayCopy: "Today", nextDateBadge: "Tomorrow" },
+  "today must remain the boundary label when an upcoming card still exists today"
+);
 
 console.log("Personalised feed valid: one canonical ascending timeline with stable ties and no Must Watch queue.");

@@ -89,6 +89,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-discovery-catalogue.js"],
   ["scripts/validate-preference-taxonomy.js"],
   ["scripts/validate-preference-system.js"],
+  ["scripts/validate-card-dismissal-learning.js"],
   ["scripts/validate-feed-controls.js"],
   ["scripts/validate-loading-progress.js"],
   ["scripts/validate-fixtures-contract.js"],

@@ -91,7 +91,7 @@ assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requi
 assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "Likes and dislikes are saved as feedback", "Standings & Fixtures"].forEach(phrase => {
+["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "A dislike removes that exact card and softly tunes future suggestions", "Standings & Fixtures"].forEach(phrase => {
   assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
@@ -313,7 +313,7 @@ assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferen
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
 assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "Swipe Calibration must remain BTS and absent from onboarding");
-assert(html.includes("applyCuratedEventSwipe") && html.includes("cardRetained: true") && !html.includes("sessionDismissedEventIds"), "curated event swipes must learn without removing or reordering the current card list");
+assert(html.includes("applyCuratedEventSwipe") && html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && !html.includes("sessionDismissedEventIds"), "curated event swipes must persistently dismiss exact cards while retaining positive cards");
 assert(html.includes('source: "calibration"') && html.includes("FOLLOW_FIRST?.appendFeedback") && html.includes("targetType:target.targetType"), "calibration and feed feedback must retain their distinct bounded metadata paths");
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
 assert(html.includes("learningPreference: graph.learning || null"), "local profile reloads must retain learning separately from canonical truth");
@@ -1205,6 +1205,8 @@ assert.deepEqual(
     watchLater: false,
     archived: true,
     saved: true,
+    dismissed: false,
+    dismissedAt: null,
     lastActionAt: null,
   },
   "legacy Save and Must Watch actions must migrate into Archive without retaining obsolete fields"

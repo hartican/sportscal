@@ -136,7 +136,7 @@ assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.deepEqual(
   Array.from(settingsMenu.matchAll(/settingsMenuItem\("[^"]+",\s*"[^"]+",\s*"([^"]+)"/g), match => match[1]),
-  ["Account", "Subscriptions", "Notifications", "Set location", "Feedback"],
+  ["Account", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"'));

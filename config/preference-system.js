@@ -633,6 +633,14 @@
     }, 0);
   }
 
+  function softLearningScore(graph, targetReferences){
+    const direct = learningScore(graph, targetReferences);
+    const repeatedNegativeContexts = negativeContextCount(graph, targetReferences);
+    const directAdjustment = Math.round(direct * 0.25);
+    const repetitionAdjustment = Math.min(8, Math.max(0, repeatedNegativeContexts - 1) * 2);
+    return Math.max(-12, Math.min(12, directAdjustment - repetitionAdjustment));
+  }
+
   return Object.freeze({
     SCHEMA_VERSION,
     TAXONOMY_VERSION: hierarchy?.schemaVersion || "sport-hierarchy-unavailable",
@@ -673,5 +681,6 @@
     recordTunePrompt,
     learningScore,
     negativeContextCount,
+    softLearningScore,
   });
 });

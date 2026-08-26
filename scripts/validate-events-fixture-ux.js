@@ -29,8 +29,8 @@ assert(html.includes('className = "major-event-ticket-link event-quick-action"')
 
 assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
-assert(html.includes("metaRow.appendChild(expectedBlock)") && html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "stakes, tags and status must share the metadata rail while swipes retain the visible list");
-assert(html.includes("cardRetained: true") && html.includes("}, 1400);"), "swipes must retain cards and show their feedback for 1.4 seconds");
-assert(html.includes('copy.textContent = `${direction === "positive" ? "Liked" : "Not for me"} — future feed suggestions will adapt.`'), "both swipe directions must explain that future suggestions will adapt");
+assert(html.includes("metaRow.appendChild(expectedBlock)") && html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "stakes, tags and status must share the metadata rail while dismissal stays durable");
+assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && html.includes("}, 1400);"), "likes must retain cards with feedback while dislikes dismiss exact editions");
+assert(html.includes('copy.textContent = "Liked — future feed suggestions will adapt."') && html.includes('actionLabel:"Undo"'), "feedback must explain learning and keep dismissal recoverable");
 
-console.log("Events and fixture UX valid: accessible tabs, deep links, keyed expansion, compact identities, stable viewport and retained-card swipe feedback passed.");
+console.log("Events and fixture UX valid: accessible tabs, deep links, keyed expansion, compact identities, stable viewport and recoverable swipe dismissal passed.");

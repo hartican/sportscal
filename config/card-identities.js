@@ -131,7 +131,7 @@
     f1: officialMark("competition:formula-one", "Formula One", "https://media.formula1.com/image/upload/v1677237319/etc/designs/fom-website/images/f1_logo.svg", "https://www.formula1.com/en/", {
       logo: { backgroundLight:"dark", backgroundDark:"dark" },
     }),
-    "nrl-finals": Object.freeze({ ...vectorMark("event:nrl-finals", "NRL finals", "semantic:nrl-finals-trophy"), fallback:nrlCompetitionMark }),
+    "nrl-finals": Object.freeze({ ...nrlCompetitionMark, id:"event:nrl-finals", label:"NRL Finals" }),
     nrl: nrlCompetitionMark,
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
@@ -458,6 +458,11 @@
     "competition:serie-a": eventMarks["serie-a"],
     "competition:ligue-1": eventMarks["ligue-1"],
     "competition:uefa-champions-league": eventMarks["uefa-champions-league"],
+    "competition:tennis:us-open": eventMarks["us-open"],
+    "competition:tennis:australian-open": eventMarks["australian-open"],
+    "tournament:tennis:joint:cincinnati-open": eventMarks["cincinnati-open"],
+    "competition:afl:premiership": eventMarks.afl,
+    "competition:nrl:premiership": eventMarks.nrl,
   });
   function eventSearchText(event){ return [event?.brandId, event?.competitionId, event?.series, event?.tournament, event?.name, event?.displayTitleCompact, event?.spoilerSafeTitle].filter(Boolean).join(" "); }
   function cricketOrganisationMarkForEvent(event){
@@ -475,7 +480,19 @@
     if (event?.key === "cricket") return cricketOrganisationMarkForEvent(event);
     return eventMarks[event?.key] || sportMarks[event?.key] || null;
   }
-  function markForCompetitionId(competitionId){ return competitionMarks[String(competitionId || "")] || null; }
+  function markForCompetitionId(competitionId){
+    const id = String(competitionId || "");
+    if (competitionMarks[id]) return competitionMarks[id];
+    const versionlessId = id.replace(/:(?:19|20)\d{2}(?:-\d{2})?(?::.*)?$/, "");
+    if (competitionMarks[versionlessId]) return competitionMarks[versionlessId];
+    if (/^competition:uefa-champions-league(?::|$)/.test(id)) return eventMarks["uefa-champions-league"];
+    if (/^competition:tennis:us-open(?::|$)/.test(id)) return eventMarks["us-open"];
+    if (/^competition:tennis:australian-open(?::|$)/.test(id)) return eventMarks["australian-open"];
+    if (/^tournament:tennis:joint:cincinnati-open(?::|$)/.test(id)) return eventMarks["cincinnati-open"];
+    if (/^competition:afl(?::|$)/.test(id)) return eventMarks.afl;
+    if (/^competition:nrl(?::|$)/.test(id)) return eventMarks.nrl;
+    return null;
+  }
   function normalize(value){ return String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("en"); }
   function participantAliases(participant){ return Array.from(new Set([...(Array.isArray(participant?.metadata?.titleAliases) ? participant.metadata.titleAliases : []), participant?.shortName, participant?.displayName, participant?.canonicalName].map(value => String(value || "").trim()).filter(Boolean))).sort((left, right) => right.length - left.length); }
   function aliasRange(title, participant){

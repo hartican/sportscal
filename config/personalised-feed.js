@@ -61,6 +61,17 @@
     return result;
   }
 
+  function timelineBoundaryPresentation(timeline, now = new Date()){
+    const reference = now instanceof Date ? now : new Date(now);
+    const tomorrow = new Date(reference.getTime());
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    const firstFuture = Array.isArray(timeline?.future) ? timeline.future[0] : null;
+    return {
+      todayCopy: Array.isArray(timeline?.today) && timeline.today.length ? "Today" : "Nothing else today",
+      nextDateBadge: firstFuture && sydneyDateKey(eventStart(firstFuture)) === sydneyDateKey(tomorrow) ? "Tomorrow" : "",
+    };
+  }
+
   function compareChronological(first, second){
     return (eventStart(first)?.getTime() || Number.MAX_SAFE_INTEGER) - (eventStart(second)?.getTime() || Number.MAX_SAFE_INTEGER)
       || eventId(first).localeCompare(eventId(second));
@@ -95,5 +106,6 @@
     sortChronological,
     sydneyDateKey,
     splitTimeline,
+    timelineBoundaryPresentation,
   });
 });

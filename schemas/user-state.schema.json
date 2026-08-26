@@ -69,6 +69,9 @@
         "watchedAt": { "type": ["string", "null"], "format": "date-time" },
         "saved": { "type": "boolean" },
         "archived": { "type": "boolean" },
+        "dismissed": { "type": "boolean" },
+        "dismissedAt": { "type": ["string", "null"], "format": "date-time" },
+        "dismissalSource": { "enum": ["feed", "events", "hidden_restore", null] },
         "lastActionAt": { "type": ["string", "null"], "format": "date-time" }
       }
     }

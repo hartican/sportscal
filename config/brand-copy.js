@@ -6,7 +6,7 @@
     descriptor: "Like having a sports-fanatic in your pocket.",
     loadingDescriptor: "Like having a sports-fanatic in your pocket.",
     hero: "Like having a sports-fanatic in your pocket.",
-    about: "nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Likes and dislikes are saved as feedback for future recommendations without changing today’s Feed rules. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.",
+    about: "nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.",
     metadataDescription: "Like having a sports-fanatic in your pocket.",
     onboardingDescription: "Choose your sports and Australia-in-internationals seed once, then refine teams and players in Follow.",
     emptyStateDescription: "Nothing in your current filter deserves your time right now.",

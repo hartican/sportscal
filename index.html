@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="155">
+  <meta name="app-shell-version" content="156">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
@@ -1781,6 +1781,12 @@ main{
 
 .event-card.swipe-negative{
   border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
+}
+.event-card.is-dismissing{
+  opacity:0;
+  transform:translate3d(-42px,0,0) scale(.985);
+  transition:opacity .2s ease,transform .22s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
 }
 
 .event-card.mode-calendar{
@@ -4822,8 +4828,15 @@ main{
 
 .toast.show{
   opacity:1;
-  pointer-events:none;
+  pointer-events:auto;
 }
+.toast-action{ margin-left:12px; border:0; border-bottom:1px solid currentColor; padding:2px 0; background:transparent; color:var(--accent); font:900 .82rem/1 inherit; cursor:pointer; }
+.hidden-event-list{ display:grid; gap:9px; }
+.hidden-event-row{ display:grid; grid-template-columns:46px minmax(0,1fr) auto; align-items:center; gap:11px; padding:10px; border:1px solid var(--border); border-radius:12px; background:var(--soft-fill); }
+.hidden-event-row .event-icon{ width:42px; height:42px; }
+.hidden-event-copy{ min-width:0; display:grid; gap:3px; }
+.hidden-event-copy strong{ overflow-wrap:anywhere; }
+.hidden-event-copy span{ color:var(--text-dim); font-size:.72rem; }
 
 footer.app-footer{
   max-width: 1100px;
@@ -5982,6 +5995,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   border-color:var(--importance-color,var(--sport-color,var(--accent)));
   background:color-mix(in srgb,var(--importance-color,var(--sport-color,var(--accent))) 18%,var(--soft-fill));
 }
+.event-inline-feedback{ display:flex; justify-content:flex-end; gap:7px; margin-top:7px; }
+.event-inline-feedback .event-feedback-button{ flex:0 0 38px; width:38px; }
 .event-footer-reset{
   grid-column:1 / -1;
   justify-self:start;
@@ -6208,7 +6223,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       </div>
     </div>
     <div class="about-body">
-      <p data-brand-copy="about">nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Likes and dislikes are saved as feedback for future recommendations without changing today’s Feed rules. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p>
+      <p data-brand-copy="about">nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a neutral TV fallback otherwise.</p>
     </div>
@@ -8312,7 +8327,11 @@ function migrateEventActionRecords(records){
       ...cleanAction,
       watchLater: false,
       saved: Boolean(action.saved || wasSavedForLater),
-      archived: Boolean(action.archived || action.dismissed || wasSavedForLater),
+      archived: Boolean(action.archived || wasSavedForLater),
+      dismissed: Boolean(action.dismissed),
+      dismissedAt: action.dismissed && !Number.isNaN(Date.parse(action.dismissedAt || action.lastActionAt || ""))
+        ? new Date(action.dismissedAt || action.lastActionAt).toISOString()
+        : null,
       lastActionAt: action.lastActionAt || null,
     }];
   }));
@@ -10680,6 +10699,9 @@ function defaultEventAction(ev){
     watchedAt: null,
     saved: false,
     archived: false,
+    dismissed: false,
+    dismissedAt: null,
+    dismissalSource: null,
     lastActionAt: null,
   };
 }
@@ -10750,10 +10772,15 @@ function eventLearningScore(ev){
   const action = getEventAction(ev);
   const eventId = String(ev.eventId || ev.id);
   const openedSignal = sessionOpenedEventIds.has(eventId) && !cardViewStates[eventId] ? 2 : 0;
+  const learnedSignal = PREFERENCE_SYSTEM?.softLearningScore?.(
+    userPreferences.preferenceGraph,
+    eventLearningReferences(ev)
+  ) || 0;
   const localSignals = openedSignal
     + (action.addedToFixtures ? 12 : 0)
     + (action.saved ? 10 : 0)
-    + (action.watched ? 6 : 0);
+    + (action.watched ? 6 : 0)
+    + learnedSignal;
   return Math.max(-30, Math.min(30, localSignals));
 }
 
@@ -11141,7 +11168,7 @@ function partitionSurfacedEvents(events, options = {}){
 function topNineEvents(reference = nowAEST()){
   const weekEnd = new Date(reference.getTime() + 7 * 24 * 3600 * 1000);
   const candidates = getPreferenceMatchedEvents(reference)
-    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev, reference))
+    .filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev, reference))
     .filter(ev => eventDateTime(ev) >= reference && eventDateTime(ev) <= weekEnd)
     .filter(ev => eventEnrichment(ev).intensity >= SCORE_BANDS.topStorylines.minStakes);
   return orderSurfacedEvents(candidates, { topNine: true, reference }).slice(0, SURFACE_CONFIG.topNineLimit);
@@ -13225,7 +13252,7 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
 
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
-  list = list.filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev));
+  list = list.filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev));
   if (activeTab === "feed" && activeFilter === "all"){
     list = list.filter(discoveryEventIncludedForSession);
   }
@@ -13936,12 +13963,74 @@ function recordTunePromptAction(action){
   });
 }
 
+function restoreDismissedEvent(ev, { message = true } = {}){
+  updateEventAction(ev, {
+    dismissed:false,
+    dismissedAt:null,
+    dismissalSource:"hidden_restore",
+  });
+  renderAll({ preserveViewport:true });
+  if (settingsSection === "hidden" && document.getElementById("settingsModal")?.classList.contains("show")){
+    renderSettingsScreen();
+  }
+  if (message) showToast(`${spoilerSafeDisplayTitle(ev)} is back in your feed.`);
+}
+
+function dismissEventCard(ev, { previousPreferences, previousAction, card = null, showTunePrompt = false, feedbackCount = 0 } = {}){
+  const surface = activeTab === "events" ? "events" : "feed";
+  updateEventAction(ev, {
+    dismissed:true,
+    dismissedAt:new Date().toISOString(),
+    dismissalSource:surface,
+  });
+  card?.classList.add("is-dismissing");
+  let undone = false;
+  const undo = () => {
+    if (undone) return;
+    undone = true;
+    const key = eventActionKey(ev);
+    const restoredActions = { ...eventActions };
+    if (previousAction && Object.keys(previousAction).length) restoredActions[key] = previousAction;
+    else delete restoredActions[key];
+    saveEventActions(restoredActions);
+    if (previousPreferences){
+      const restoredPreferences = clonePreferences(userPreferences);
+      restoredPreferences.followFirst.feedback = clonePreferences(previousPreferences).followFirst.feedback;
+      restoredPreferences.preferenceGraph.learning = clonePreferences(previousPreferences).preferenceGraph.learning;
+      savePreferences(restoredPreferences);
+    }
+    renderAll({ preserveViewport:true });
+    showToast(`${spoilerSafeDisplayTitle(ev)} restored.`);
+  };
+  showToast(`${spoilerSafeDisplayTitle(ev)} dismissed.`, { actionLabel:"Undo", onAction:undo, duration:4200 });
+  window.setTimeout(() => {
+    if (undone) return;
+    renderAll({ preserveViewport:true });
+  }, 230);
+  if (showTunePrompt){
+    window.setTimeout(() => {
+      if (undone || !getEventAction(ev).dismissed) return;
+      const prompted = clonePreferences(userPreferences);
+      prompted.followFirst.refinement.promptedAt = new Date().toISOString();
+      savePreferences(prompted);
+      recordProductEvent({
+        eventName:"tune_prompt",
+        surface:"curated_feed",
+        properties:{ action:"shown", dislikeCount:feedbackCount },
+      });
+      setTunePromptOpen(true, feedbackCount);
+    }, 4400);
+  }
+}
+
 function applyCuratedEventSwipe(ev, direction){
   if (!["positive", "negative"].includes(direction)) return;
   const eventId = String(ev.eventId || ev.id);
-  const card = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
-    .find(candidate => candidate.dataset.eventId === eventId);
+  const card = Array.from(document.querySelectorAll(".event-card[data-event-id],.major-event-card[data-major-event-id]"))
+    .find(candidate => candidate.dataset.eventId === eventId || candidate.dataset.majorEventId === eventId);
   if (card?.dataset.swipeFeedbackActive === "true") return;
+  const previousPreferences = clonePreferences(userPreferences);
+  const previousAction = eventActions[eventActionKey(ev)] ? { ...eventActions[eventActionKey(ev)] } : null;
   const recommendationContext = productRecommendationContext(ev);
   const target = SWIPE_CALIBRATION?.primaryTargetForEvent?.(ev) || {
     targetType: "event",
@@ -13954,6 +14043,14 @@ function applyCuratedEventSwipe(ev, direction){
     targetType:target.targetType,
     targetId:target.targetId,
   }) || clonePreferences(userPreferences);
+  if (PREFERENCE_SYSTEM?.applyLearningSignal && next.preferenceGraph){
+    next.preferenceGraph = PREFERENCE_SYSTEM.applyLearningSignal(next.preferenceGraph, {
+      targetType:target.targetType,
+      targetId:target.targetId,
+      value:direction === "negative" ? -1 : 1,
+      source:"feed",
+    }, { contextReferences:eventLearningReferences(ev) });
+  }
   next.followFirst.refinement.firstSwipeAt ||= new Date().toISOString();
   const feedbackCount = next.followFirst.feedback.entries.length;
   const showTunePrompt = FOLLOW_FIRST?.shouldPromptRefinement?.(next) || false;
@@ -13965,10 +14062,19 @@ function applyCuratedEventSwipe(ev, direction){
     eventName: "swipe",
     surface: "curated_feed",
     ...productEventContextForEvent(ev),
-    properties: { direction, targetType: target.targetType, cardRetained: true, ...recommendationContext },
+    properties: { direction, targetType: target.targetType, cardRetained: direction === "positive", ...recommendationContext },
   });
   if (showTunePrompt) suppressSessionRatingPrompt();
+  if (direction === "negative"){
+    dismissEventCard(ev, { previousPreferences, previousAction, card, showTunePrompt, feedbackCount });
+    return;
+  }
   if (card){
+    card.querySelectorAll(".event-feedback-button").forEach(button => {
+      const selected = String(button.getAttribute("aria-label") || "").startsWith("More like ");
+      button.classList.toggle("active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
     card.dataset.swipeFeedbackActive = "true";
     card.querySelector(".swipe-coaching")?.remove();
     const overlay = document.createElement("div");
@@ -13982,7 +14088,7 @@ function applyCuratedEventSwipe(ev, direction){
     icon.innerHTML = VECTOR_ASSETS.glyphMarkup(direction === "positive" ? "ui:plus" : "ui:minus");
     const copy = document.createElement("span");
     copy.className = "swipe-feedback-copy";
-    copy.textContent = `${direction === "positive" ? "Liked" : "Not for me"} — future feed suggestions will adapt.`;
+    copy.textContent = "Liked — future feed suggestions will adapt.";
     overlay.append(icon, copy);
     card.appendChild(overlay);
     window.setTimeout(() => {
@@ -14591,6 +14697,13 @@ function buildEventCard(ev, options = {}){
   }
 
   if (ratingRow.childElementCount) mainDiv.appendChild(ratingRow);
+  if (state === "compact" && swipeEligible){
+    const feedback = document.createElement("div");
+    feedback.className = "event-inline-feedback";
+    feedback.setAttribute("aria-label", "Event feedback");
+    buildEventFeedbackButtons(ev).forEach(button => feedback.appendChild(button));
+    mainDiv.appendChild(feedback);
+  }
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
@@ -15201,7 +15314,7 @@ function temporaryTodayMoreEvents(filtered, todayStr){
   return activeEvents
     .filter(ev => ev.date === todayStr)
     .filter(eventMeetsDerivedRetention)
-    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev))
+    .filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev))
     .filter(ev => Number(ev.stakesScore) < SCORE_BANDS.minimumStakes || !followed.has(ev.key))
     .filter(ev => !visibleIds.has(ev.eventId || ev.id))
     .sort((first, second) => eventDateTime(first) - eventDateTime(second));
@@ -15302,7 +15415,7 @@ function appendFeedPageToCurrentList(incomingEvents){
   const todayStr = formatDateKey(nowAEST());
   const additions = getFilteredEvents().filter(event => {
     const id = event?.canonicalEventId || event?.eventId || event?.id;
-    return incomingIds.has(id) && !getEventAction(event).archived && !eventIsAutoArchived(event);
+    return incomingIds.has(id) && !getEventAction(event).archived && !getEventAction(event).dismissed && !eventIsAutoArchived(event);
   });
   if (additions.some(event => String(event.date || "") < todayStr)) return false;
   container.querySelector(".feed-page-sentinel")?.remove();
@@ -15368,15 +15481,21 @@ function renderListView(){
     today: filtered.filter(event => event.date === todayStr),
     future: filtered.filter(event => event.date > todayStr),
   };
-  const appendDateGroups = events => {
+  const boundaryPresentation = PERSONALISED_FEED?.timelineBoundaryPresentation?.(timeline, nowAEST()) || {
+    todayCopy:timeline.today.length ? "Today" : "Nothing else today",
+    nextDateBadge:"",
+  };
+  const appendDateGroups = (events, { future = false } = {}) => {
     const groups = groupEventsByDate(events);
-    Object.keys(groups).sort().forEach(dateStr => {
+    Object.keys(groups).sort().forEach((dateStr, groupIndex) => {
       const groupDiv = document.createElement("div");
       groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
       groupDiv.dataset.feedDate = dateStr;
       const heading = document.createElement("div");
       heading.className = "date-heading";
-      heading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
+      const relativeBadge = dateStr === todayStr ? "TODAY"
+        : future && groupIndex === 0 ? boundaryPresentation.nextDateBadge : "";
+      heading.innerHTML = fmtDateHeading(dateStr) + (relativeBadge ? ` <span class="today-flag">${relativeBadge}</span>` : "");
       const grid = document.createElement("div");
       grid.className = "cards-grid";
       orderCuratedDayEvents(groups[dateStr]).forEach(event => {
@@ -15398,16 +15517,16 @@ function renderListView(){
     anchor.className = "today-anchor";
     anchor.id = "calendarTodayAnchor";
     anchor.setAttribute("role", "separator");
-    anchor.setAttribute("aria-label", `Today, ${fmtDateHeading(todayStr)}`);
-    anchor.textContent = "Today";
+    anchor.setAttribute("aria-label", `${boundaryPresentation.todayCopy}, ${fmtDateHeading(todayStr)}`);
+    anchor.textContent = boundaryPresentation.todayCopy;
     container.appendChild(anchor);
-    appendTodayFallback(container, baseFiltered, todayStr);
+    if (timeline.today.length) appendTodayFallback(container, baseFiltered, todayStr);
     todayAnchorInserted = true;
   };
 
   appendTodayAnchor();
   appendDateGroups(timeline.today);
-  appendDateGroups(timeline.future);
+  appendDateGroups(timeline.future, { future:true });
   appendFocusedArchiveRecovery(container, focusedArchived);
   if (!filtered.length && !focusedArchived.length){
     const empty = document.createElement("div");
@@ -17213,7 +17332,7 @@ function renderFollowView(){
   const title = document.createElement("h2");
   title.textContent = "Follow";
   const detail = document.createElement("p");
-  detail.textContent = "Automatic Feed cards come from saved teams, players and Australian national representation. Likes and dislikes stay feedback-only.";
+  detail.textContent = "Automatic Feed cards come from saved teams, players and Australian national representation. A dislike hides that exact card and gently tunes later suggestions; it does not ban related events.";
   headCopy.append(title, detail);
   if (userPreferences.followFirst.refinement.deferred && !userPreferences.followFirst.refinement.completedAt){
     const notice = document.createElement("span");
@@ -17561,12 +17680,24 @@ function buildFeedbackSmsUrl(category, message, date = new Date()){
 
 /* ============ TOAST ============ */
 let toastTimer;
-function showToast(msg){
+function showToast(msg, { actionLabel = "", onAction = null, duration = 3200 } = {}){
   const toast = document.getElementById("toast");
-  toast.textContent = msg;
+  toast.replaceChildren(document.createTextNode(msg));
+  if (actionLabel && typeof onAction === "function"){
+    const action = document.createElement("button");
+    action.type = "button";
+    action.className = "toast-action";
+    action.textContent = actionLabel;
+    action.addEventListener("click", () => {
+      clearTimeout(toastTimer);
+      toast.classList.remove("show");
+      onAction();
+    }, { once:true });
+    toast.appendChild(action);
+  }
   toast.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), duration);
 }
 
 /* ============ LIVE CLOCK ============ */
@@ -17903,6 +18034,7 @@ function buildMajorEventDraw(record){
 
 function buildMajorEventCard(record){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
+  const actionEvent = majorEventActionEvent(record);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   card.className = [
@@ -17910,11 +18042,13 @@ function buildMajorEventCard(record){
     "mode-events",
     "major-event-card",
     "events-feed-card",
+    "is-swipe-eligible",
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
   ].filter(Boolean).join(" ");
   card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.majorEventId = record.id;
+  card.dataset.eventId = actionEvent.eventId || actionEvent.id;
   card.dataset.cardState = state;
   card.dataset.cardLevel = cardLevelForState(state);
   card.tabIndex = 0;
@@ -17932,10 +18066,18 @@ function buildMajorEventCard(record){
     advanceState();
   });
   card.addEventListener("keydown", event => {
-    if (event.target !== card || !["Enter", " "].includes(event.key)) return;
+    if (event.target !== card) return;
+    if (["ArrowLeft", "ArrowRight"].includes(event.key)){
+      event.preventDefault();
+      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative");
+      return;
+    }
+    if (!["Enter", " "].includes(event.key)) return;
     event.preventDefault();
     advanceState({ restoreFocus: true });
   });
+  card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight Enter Space");
+  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction));
 
   const ticketRow = document.createElement("div");
   ticketRow.className = "major-event-ticket-row";
@@ -17957,6 +18099,7 @@ function buildMajorEventCard(record){
     toggleMajorEventFollow(familyId);
   });
   ticketRow.appendChild(familyFollow);
+  buildEventFeedbackButtons(actionEvent).forEach(button => ticketRow.appendChild(button));
   const inspect = document.createElement("button");
   inspect.type = "button";
   inspect.className = "event-quick-action";
@@ -18145,11 +18288,13 @@ function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
 
 function buildTicketSaleCard(record){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
+  const actionEvent = majorEventActionEvent(record);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
-  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
+  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", "is-swipe-eligible", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
   card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.ticketAlertId = record.id;
+  card.dataset.eventId = actionEvent.eventId || actionEvent.id;
   card.dataset.cardState = state;
   card.dataset.cardLevel = cardLevelForState(state);
   card.tabIndex = 0;
@@ -18157,8 +18302,8 @@ function buildTicketSaleCard(record){
   card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
   card.style.setProperty("--sport-color", meta.color);
   const advanceState = ({ restoreFocus = false } = {}) => {
-    if (!getEventAction(majorEventActionEvent(record)).ticketAlertSeenAt){
-      updateEventAction(majorEventActionEvent(record), { ticketAlertSeenAt:new Date().toISOString() });
+    if (!getEventAction(actionEvent).ticketAlertSeenAt){
+      updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
     }
     setCardState(record, nextCardState(state));
     replaceCardPreservingViewport(card, buildTicketSaleCard(record), { restoreFocus });
@@ -18168,7 +18313,7 @@ function buildTicketSaleCard(record){
   const logo = document.createElement("div");
   logo.className = "major-event-logo";
   renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
-  const alertAction = getEventAction(majorEventActionEvent(record));
+  const alertAction = getEventAction(actionEvent);
   if (!alertAction.ticketAlertSeenAt){
     const newBadge = document.createElement("span");
     newBadge.className = "ticket-alert-new-badge";
@@ -18199,8 +18344,8 @@ function buildTicketSaleCard(record){
   const ticket = buildMajorEventTicketLink(record);
   if (ticket){
     ticket.addEventListener("click", () => {
-      if (!getEventAction(majorEventActionEvent(record)).ticketAlertSeenAt){
-        updateEventAction(majorEventActionEvent(record), { ticketAlertSeenAt:new Date().toISOString() });
+      if (!getEventAction(actionEvent).ticketAlertSeenAt){
+        updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
         card.querySelector(".ticket-alert-new-badge")?.remove();
       }
     });
@@ -18234,6 +18379,7 @@ function buildTicketSaleCard(record){
     inventory.textContent = "Selling quickly";
     actions.appendChild(inventory);
   }
+  buildEventFeedbackButtons(actionEvent).forEach(button => actions.appendChild(button));
   const expand = document.createElement("button");
   expand.type = "button";
   expand.className = "major-event-expand-control";
@@ -18247,10 +18393,18 @@ function buildTicketSaleCard(record){
     advanceState();
   });
   card.addEventListener("keydown", event => {
-    if (event.target !== card || !["Enter", " "].includes(event.key)) return;
+    if (event.target !== card) return;
+    if (["ArrowLeft", "ArrowRight"].includes(event.key)){
+      event.preventDefault();
+      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative");
+      return;
+    }
+    if (!["Enter", " "].includes(event.key)) return;
     event.preventDefault();
     advanceState({ restoreFocus: true });
   });
+  card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight Enter Space");
+  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction));
   card.append(identity, actions);
   if (state === "opened"){
     const body = document.createElement("div");
@@ -18382,6 +18536,8 @@ function renderEventsView(){
     return;
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
+  visible.events = visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed);
+  visible.alerts = visible.alerts.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed);
   if (pendingMajorEventFocusId){
     const pendingRecord = visible.events.find(record => record.id === pendingMajorEventFocusId);
     if (pendingRecord && cardStateForEvent(pendingRecord) === "compact") setCardState(pendingRecord, "selected");
@@ -18578,13 +18734,14 @@ function renderCurrentSection(){
 
 function renderTabCounts(){
   const feedCount = getPreferenceMatchedEvents()
-    .filter(ev => !getEventAction(ev).archived && !eventIsAutoArchived(ev))
+    .filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev))
     .length;
   document.getElementById("feedTabCount").textContent = feedCount;
   const eventsCount = majorEventsDocument
     ? (() => {
         const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
-        return visible.events.length + visible.alerts.length;
+        return visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed).length
+          + visible.alerts.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed).length;
       })()
     : 0;
   document.getElementById("eventsTabCount").textContent = eventsCount;
@@ -19659,11 +19816,13 @@ function renderPilotSettings(body){
 }
 
 function renderSettingsMenu(body){
+  const hiddenCount = dismissedEventEntries().length;
   body.innerHTML = `<div class="settings-menu">
     ${settingsMenuItem("account", "ui:radio", "Account", accountSettingsSummary())}
     ${settingsMenuItem("subscriptions", "ui:watch", "Subscriptions", `${draftPreferences.followFirst.subscriptions.length} preferred viewing service${draftPreferences.followFirst.subscriptions.length === 1 ? "" : "s"}`)}
     ${settingsMenuItem("notifications", "ui:bell", "Notifications", draftPreferences.followFirst.notifications.enabled ? "15 minutes before kickoff or race start" : "Off")}
     ${settingsMenuItem("location", "ui:map-pin", "Set location", draftPreferences.followFirst.location.label || "Not set")}
+    ${settingsMenuItem("hidden", "ui:archive", "Hidden events", `${hiddenCount} dismissed card${hiddenCount === 1 ? "" : "s"}`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to nothingsport")}
   </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   bindSettingsMenuNavigation(body);
@@ -19788,6 +19947,55 @@ function renderArchiveSettings(body){
     })));
     section.appendChild(grid);
     list.appendChild(section);
+  });
+}
+
+function dismissedEventEntries(){
+  const byId = new Map();
+  activeEvents.forEach(event => {
+    if (!getEventAction(event).dismissed) return;
+    byId.set(String(event.eventId || event.id), { event, label:spoilerSafeDisplayTitle(event), kind:"Feed event" });
+  });
+  (majorEventsDocument?.events || []).forEach(record => {
+    const event = majorEventActionEvent(record);
+    if (!getEventAction(event).dismissed) return;
+    byId.set(String(event.eventId || event.id), { event, label:record.name, kind:"Major event" });
+  });
+  return [...byId.values()].sort((first, second) => {
+    const firstAt = Date.parse(getEventAction(first.event).dismissedAt || "") || 0;
+    const secondAt = Date.parse(getEventAction(second.event).dismissedAt || "") || 0;
+    return secondAt - firstAt || first.label.localeCompare(second.label);
+  });
+}
+
+function renderHiddenEventsSettings(body){
+  const entries = dismissedEventEntries();
+  body.innerHTML = `<div class="preference-stack"><p class="preference-help">Dismissed cards stay out of Feed and Events. Restoring a card makes that exact edition eligible again; future editions were never blocked.</p><div class="hidden-event-list" id="settingsHiddenEventList"></div></div>`;
+  const list = document.getElementById("settingsHiddenEventList");
+  if (!entries.length){
+    list.innerHTML = `<div class="empty-state" style="padding:24px 12px">No hidden events.</div>`;
+    return;
+  }
+  entries.forEach(entry => {
+    const row = document.createElement("article");
+    row.className = "hidden-event-row";
+    const identity = document.createElement("div");
+    identity.className = "event-icon";
+    renderEventIdentityMark(identity, entry.event, sportMetaForEvent(entry.event));
+    const copy = document.createElement("div");
+    copy.className = "hidden-event-copy";
+    const title = document.createElement("strong");
+    title.textContent = entry.label;
+    const detail = document.createElement("span");
+    detail.textContent = `${entry.kind} · hidden ${new Date(getEventAction(entry.event).dismissedAt || Date.now()).toLocaleDateString("en-AU", { day:"numeric", month:"short", year:"numeric" })}`;
+    copy.append(title, detail);
+    const restore = document.createElement("button");
+    restore.type = "button";
+    restore.className = "btn ghost";
+    restore.textContent = "Restore";
+    restore.addEventListener("click", () => restoreDismissedEvent(entry.event));
+    row.append(identity, copy, restore);
+    list.appendChild(row);
   });
 }
 
@@ -20044,7 +20252,7 @@ function renderSettingsScreen(){
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
   document.getElementById("resetPreferencesBtn").hidden = settingsSection === "calibration";
-  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && settingsSection === "archive"
+  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["archive", "hidden"].includes(settingsSection)
     ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
     ? "Next"
@@ -20059,6 +20267,7 @@ function renderSettingsScreen(){
     notifications: ["Notifications", "System reminders for the sporting start, defaulting to 15 minutes before."],
     location: ["Set location", "Choose a home area or temporary travel location and radius."],
     startup: ["Set up your Feed", "Three lightweight groups: what you follow, coarse location and optional offer interests."],
+    hidden: ["Hidden events", "Restore exact event editions you previously dismissed."],
     feedback: ["Feedback", "Send feedback to nothingsport."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
@@ -20067,6 +20276,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "subscriptions") renderSubscriptionSettings(body);
   else if (settingsSection === "notifications") renderNotificationSettings(body);
   else if (settingsSection === "location") renderLocationSettings(body);
+  else if (settingsSection === "hidden") renderHiddenEventsSettings(body);
   else if (settingsSection === "feedback") renderFeedbackAppearanceSettings(body);
   else renderSettingsMenu(body);
 }
