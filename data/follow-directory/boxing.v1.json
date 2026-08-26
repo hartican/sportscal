@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "boxing",
   "label": "Boxing",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -31,7 +31,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:eve-bryson",
@@ -58,7 +63,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:jacob-cassar",
@@ -85,7 +95,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:jye-dixon",
@@ -112,7 +127,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:lachlan-lawson",
@@ -139,7 +159,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:lekeisha-pergoliti",
@@ -166,7 +191,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:monique-suraci",
@@ -193,7 +223,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:boxing:paul-trainor",
@@ -220,7 +255,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.boxing.org.au/news/team-announcement-australian-boxing-team-glasgow"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

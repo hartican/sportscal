@@ -105,7 +105,7 @@ assert.equal(championsLeaguePhases.reduce((total, event) => total + event.subEve
 assert(championsLeaguePhases.slice(1).every(event => event.subEvents.length > 0), "league and knockout phases must remain distinct populated Event cards");
 
 assert(html.includes("index += 5") && html.includes("entries.slice(index, index + 5)"), "L2 event draws must paginate after five mobile rows");
-assert(html.includes('limit: state === "compact" ? 1 : state === "selected" ? 3 : Infinity'), "Events L0/L1 must expose exactly one/three chronological fixtures");
+assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline(record, nowAEST()'), "Events L0/L1/L2 must use the chronological card-local Now timeline");
 assert(html.includes('fallback.textContent = viewing.actionLabel || viewing.label;'), "Watch on provider logos must retain a provider-name text fallback");
 assert(html.includes("serverAuthoritativeFixturePins"), "server fixture-pin state must override the local backup outside pending offline commands");
 assert(html.includes("pinMutationId"), "fixture pin mutations must be idempotently identifiable");

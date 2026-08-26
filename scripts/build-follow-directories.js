@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/follow-directory");
 const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.v1.json");
 const SUPPLEMENT_PATH = "data/canonical/follow-directory-supplement.v1.json";
+const TENNIS_WATCH_POOL_PATH = "data/canonical/tennis-watch-pool-2026.json";
 
 function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -56,6 +57,22 @@ function normalizeGender(value){
   return "unknown";
 }
 
+function normalizedNameKey(value){
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function tennisGenderForParticipant(participant){
+  const domain = String(participant?.sportDomainId || "").toLowerCase();
+  if (domain.includes(":wta")) return "female";
+  if (domain.includes(":atp")) return "male";
+  return null;
+}
+
 function normalizeRecord(record, additions = {}){
   const metadata = record?.metadata || {};
   return {
@@ -64,7 +81,7 @@ function normalizeRecord(record, additions = {}){
     shortName:record.shortName || null,
     aliases:Array.from(new Set([...(record.aliases || []), ...(metadata.titleAliases || [])].filter(Boolean))),
     entityType:record.type === "competitor" || String(record.id).startsWith("competitor:") ? "athlete" : "team",
-    current:record.active !== false && metadata.active !== false,
+    current:additions.current ?? (record.active !== false && metadata.active !== false),
     countryCode:String(record.countryCode || record.birthCountryCode || additions.countryCode || "").toUpperCase() || null,
     countryBasis:record.birthCountryBasis || additions.countryBasis || (record.countryCode ? "official-record" : null),
     genderCategory:normalizeGender(record.genderCategory || record.gender || metadata.gender || additions.genderCategory),
@@ -82,6 +99,11 @@ function normalizeRecord(record, additions = {}){
     eventRanks:Array.isArray(record.eventRanks) ? record.eventRanks : [],
     rankingBasis:record.rankingBasis || null,
     sourceRefs:Array.from(new Set([...(record.sourceRefs || []), ...(additions.sourceRefs || [])].filter(Boolean))),
+    watchPoolMember:Boolean(additions.watchPoolMember ?? record.watchPoolMember),
+    statusCategory:additions.statusCategory || record.statusCategory || null,
+    collectionIds:Array.from(new Set([...(record.collectionIds || []), ...(additions.collectionIds || [])].filter(Boolean))),
+    sourceCheckedAt:additions.sourceCheckedAt || record.sourceCheckedAt || null,
+    sourceReviewAfter:additions.sourceReviewAfter || record.sourceReviewAfter || null,
   };
 }
 
@@ -100,7 +122,9 @@ function main(){
   ].map(readJson);
   const sourceGeneratedAt = contexts.map(context => context.generatedAt).filter(Boolean);
   const supplement = readJson(SUPPLEMENT_PATH);
+  const tennisWatchPool = readJson(TENNIS_WATCH_POOL_PATH);
   if (supplement.generatedAt) sourceGeneratedAt.push(supplement.generatedAt);
+  if (tennisWatchPool.generatedAt) sourceGeneratedAt.push(tennisWatchPool.generatedAt);
   const rankByParticipant = new Map();
   contexts.forEach(context => (context.ladderSnapshots || []).forEach(snapshot => (snapshot.entries || []).forEach(entry => {
     const rank = Number(entry.rank ?? entry.position);
@@ -111,7 +135,10 @@ function main(){
   contexts.forEach(context => (context.participants || []).forEach(participant => {
     const key = sportKeyForParticipant(participant);
     if (!key || !chunks.has(key) || participant?.metadata?.active === false) return;
-    chunks.get(key).set(participant.id, normalizeRecord(participant, { ranking:rankByParticipant.get(participant.id) }));
+    chunks.get(key).set(participant.id, normalizeRecord(participant, {
+      ranking:rankByParticipant.get(participant.id),
+      genderCategory:key === "tennis" ? tennisGenderForParticipant(participant) : null,
+    }));
   }));
   (catalogue.groups || []).forEach(group => {
     const key = String(group.domainId || "").replace(/^sport:/, "");
@@ -147,6 +174,46 @@ function main(){
     (directory.athletes || []).filter(athlete => athlete.active !== false).forEach(athlete => chunks.get(key)?.set(athlete.id, normalizeRecord({ ...athlete, type:"competitor" }, { genderCategory:athlete.genderCategory, ranking:athlete.ranking, sourceRefs:athlete.sourceRefs })));
   });
 
+  const tennisChunk = chunks.get("tennis");
+  const tennisByName = new Map([...tennisChunk.values()].map(record => [normalizedNameKey(record.displayName), record]));
+  (tennisWatchPool.players || []).forEach(player => {
+    const nameKey = normalizedNameKey(player.displayName);
+    const existing = tennisByName.get(nameKey) || null;
+    if (existing) tennisChunk.delete(existing.id);
+    const merged = normalizeRecord({
+      ...(existing || {}),
+      ...player,
+      type:"competitor",
+      active:player.current,
+      aliases:Array.from(new Set([...(existing?.aliases || []), ...(player.aliases || [])])),
+      sourceRefs:Array.from(new Set([...(existing?.sourceRefs || []), player.sourceUrl].filter(Boolean))),
+    }, {
+      current:player.current,
+      genderCategory:player.genderCategory || existing?.genderCategory,
+      ranking:existing?.ranking,
+      countryCode:player.countryCode || existing?.countryCode,
+      countryBasis:"official-player-record",
+      watchPoolMember:true,
+      statusCategory:player.statusCategory,
+      collectionIds:player.collectionIds,
+      sourceCheckedAt:player.sourceCheckedAt,
+      sourceReviewAfter:player.sourceReviewAfter || tennisWatchPool.sourceReviewAfter,
+      sourceRefs:[player.sourceUrl],
+    });
+    tennisChunk.set(player.id, merged);
+    tennisByName.set(nameKey, merged);
+  });
+
+  const tennisCollections = (tennisWatchPool.collections || []).map(collection => ({
+    ...collection,
+    memberIds:Array.from(new Set(collection.memberIds || [])),
+    sourceGeneratedAt:tennisWatchPool.generatedAt,
+  }));
+  tennisChunk.forEach((record, recordId) => {
+    const collectionIds = tennisCollections.filter(collection => collection.memberIds.includes(recordId)).map(collection => collection.id);
+    if (collectionIds.length) tennisChunk.set(recordId, { ...record, collectionIds:Array.from(new Set([...(record.collectionIds || []), ...collectionIds])) });
+  });
+
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   const manifest = {
     schemaVersion:"follow-directory-manifest.v1",
@@ -177,6 +244,7 @@ function main(){
       status:sport.status,
       sortBasis:records.some(record => Number.isFinite(record.ranking) || Number.isFinite(record.ladderPosition)) ? "ranking-or-ladder-then-alphabetical" : "alphabetical-fallback",
       records,
+      ...(sport.key === "tennis" ? { collections:tennisCollections } : {}),
     };
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.json`), `${JSON.stringify(payload, null, 2)}\n`, checkOnly) || changed;
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.js`), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS[${JSON.stringify(sport.key)}] = ${JSON.stringify(payload)};\n`, checkOnly) || changed;

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "rugby",
   "label": "Rugby Union",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -34,7 +34,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:argentina",
@@ -64,7 +69,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:blues",
@@ -93,7 +103,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:brumbies",
@@ -122,7 +137,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:chiefs",
@@ -151,7 +171,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:crusaders",
@@ -180,7 +205,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:england",
@@ -209,7 +239,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:france",
@@ -238,7 +273,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:highlanders",
@@ -267,7 +307,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:hurricanes",
@@ -296,7 +341,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:ireland",
@@ -325,7 +375,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:rebels",
@@ -355,7 +410,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:reds",
@@ -385,7 +445,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:scotland",
@@ -414,7 +479,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:springboks",
@@ -444,7 +514,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:wales",
@@ -473,7 +548,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:wallabies",
@@ -503,7 +583,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:waratahs",
@@ -532,7 +617,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:rugby:force",
@@ -562,7 +652,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:rugby"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

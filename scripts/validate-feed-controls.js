@@ -108,7 +108,7 @@ assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump mus
 assert(!/buildJointTournamentMustWatchAction|jointTournamentIsMustWatch|action\.mustWatch \? 12/.test(html), "the removed Must Watch feature must not affect tournament actions or recommendation scoring");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion && serviceWorker.includes(`const CACHE_NAME = "nothingsport-shell-v${shellVersion}"`));
-assert(html.includes('button.dataset.jumpTarget = "today"') && html.includes('delete button.dataset.jumpTarget;'), "the contextual jump control must target only Today and hide when it is visible");
+assert(html.includes('button.dataset.jumpTarget = eventsTimeline ? "event-now" : "today"') && html.includes('delete button.dataset.jumpTarget;'), "the contextual jump control must use Today in Feed, card-local Now in Events, and hide when its target is visible");
 assert(!html.includes('scrollActiveFeedToMustWatch'), "the removed queue must have no jump target");
 assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 

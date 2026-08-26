@@ -21,8 +21,9 @@ assert(html.includes("replaceCardPreservingViewport(card, buildMajorEventCard(re
 assert(/function replaceCardPreservingViewport[\s\S]{0,1200}getBoundingClientRect\(\)\.top[\s\S]{0,500}window\.scrollTo/.test(html), "keyed card replacement must restore the tapped card's viewport top");
 assert(html.includes('.major-event-logo{ display:grid; place-items:center; width:88px; height:90px;') && html.includes('.major-event-logo{ width:74px; height:70px;'), "Events identities must share the compact desktop and mobile fixture frames");
 assert(html.includes("renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta)"), "both Events card types must use the shared official identity renderer");
-assert(html.includes('headingText: state === "opened" ? "Published timetable" : state === "selected" ? "Next matches and line-ups" : "Next match or line-up"'), "Events cards must expose one immediate matchup at L0 and expand progressively");
-assert(html.includes('lineup.textContent = lineupNames.length >= 2') && html.includes('"Line-up TBC"'), "Events cards must use published line-ups or an explicit TBC state");
+assert(html.includes("(primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record)"), "Events with TBC or follows-only starts must retain safe card actions without passing a null fixture");
+assert(html.includes('level: cardLevelForState(state)') && html.includes('headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up"'), "Events cards must expose one immediate matchup at L0 and expand progressively around Now");
+assert(html.includes("majorEventMatchupLineup") && html.includes('"Match-up TBC"'), "Events cards must use grouped published matchups with flags or an explicit TBC state");
 assert(!html.includes('aboutHeading.textContent = "Event detail"'), "the generic Event detail preamble must be removed");
 assert(html.includes('className = "major-event-ticket-link event-quick-action"'), "Buy tickets must share the Remind me and provider viewing-action pill geometry");
 

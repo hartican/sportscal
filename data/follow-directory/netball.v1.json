@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "netball",
   "label": "Netball",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -34,7 +34,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:netball"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:liz-watson",
@@ -61,7 +66,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

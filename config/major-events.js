@@ -49,6 +49,13 @@
     return keys.some(key => selected.has(key));
   }
 
+  function eventFamilyId(record){
+    return String(record?.eventFamilyId || record?.familyId || record?.id || "")
+      .replace(/^major-event:/, "")
+      .replace(/:\d{4}(?:-\d{2})?.*$/, "")
+      .replace(/-\d{4}(?:-\d{2})?.*$/, "");
+  }
+
   function activeTicketing(record, reference = new Date()){
     if (!["on_sale", "presale", "waitlist", "register_interest"].includes(record?.ticketing?.status)) return false;
     const referenceTime = reference instanceof Date ? reference.getTime() : new Date(reference).getTime();
@@ -73,15 +80,92 @@
       && activeTicketing(record, reference);
   }
 
-  function visibleRecords(document, followedSports, reference = new Date()){
+  function visibleRecords(document, followedInput, reference = new Date()){
+    const followedSports = Array.isArray(followedInput) ? followedInput : followedInput?.followedSports || [];
+    const followedEventFamilyIds = new Set(Array.isArray(followedInput?.followedEventFamilyIds) ? followedInput.followedEventFamilyIds : []);
     const records = Array.isArray(document?.events) ? document.events : [];
-    const parents = records.filter(record => record.kind !== "ticket_sale" && record.lifecycleStatus !== "retired" && record.stakesScore === 5 && followed(record, followedSports) && inWindow(record, reference));
+    const parents = records.filter(record => record.kind !== "ticket_sale"
+      && record.lifecycleStatus !== "retired"
+      && record.stakesScore === 5
+      && (followed(record, followedSports) || followedEventFamilyIds.has(eventFamilyId(record)))
+      && inWindow(record, reference));
     const parentIds = new Set(parents.map(record => record.id));
     const alerts = records.filter(record => record.kind === "ticket_sale" && parentIds.has(record.parentEventId) && activeTicketing(record, reference));
     return {
       events: parents.slice().sort((left, right) => compareRecords(left, right, reference)),
       alerts: alerts.slice().sort((left, right) => compareRecords(left, right, reference)),
     };
+  }
+
+  function subEventTimelineTime(subEvent){
+    const direct = new Date(subEvent?.startTimeUtc || "").getTime();
+    if (Number.isFinite(direct)) return direct;
+    const session = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
+    if (Number.isFinite(session)) return session + Math.max(0, Number(subEvent?.sequenceInSession) || 0) * 1000;
+    const result = new Date(subEvent?.resultPublishedAt || subEvent?.statusUpdatedAt || "").getTime();
+    if (Number.isFinite(result)) return result;
+    const date = new Date(`${subEvent?.date || ""}T12:00:00Z`).getTime();
+    return Number.isFinite(date) ? date : Number.MAX_SAFE_INTEGER;
+  }
+
+  function effectiveSubEventStatus(subEvent, reference = new Date()){
+    const status = String(subEvent?.status || "scheduled").toLowerCase();
+    if (status === "completed") return "completed";
+    if (status === "live") return "live";
+    if (["cancelled", "postponed"].includes(status)) return status;
+    const time = subEventTimelineTime(subEvent);
+    return Number.isFinite(time) && time < new Date(reference).getTime() ? "awaiting-result" : "upcoming";
+  }
+
+  function timelineDisplayDate(time, timeZone){
+    const date = new Date(time);
+    if (!Number.isFinite(time) || Number.isNaN(date.getTime())) return "Date TBC";
+    return new Intl.DateTimeFormat("en-AU", { timeZone, weekday:"short", day:"numeric", month:"short" }).format(date);
+  }
+
+  function timelineDisplayTime(subEvent, timeZone){
+    if (subEvent?.timePrecision === "follows") return "Follows";
+    if (["unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
+    const direct = new Date(subEvent?.startTimeUtc || "").getTime();
+    if (!Number.isFinite(direct)) return "Time TBC";
+    return new Intl.DateTimeFormat("en-AU", { timeZone, hour:"numeric", minute:"2-digit", hour12:true })
+      .format(new Date(direct)).replace(/\s/g, "").toLowerCase();
+  }
+
+  function phaseTimeline(record, reference = new Date(), { level = "L2", timeZone = "Australia/Sydney", includeOlder = false } = {}){
+    const referenceTime = new Date(reference).getTime();
+    const earliestDate = addDays(dateKey(reference, timeZone), -2);
+    const items = (record?.subEvents || []).map((subEvent, sourceOrder) => {
+      const sortTime = subEventTimelineTime(subEvent);
+      return {
+        subEvent,
+        sourceOrder,
+        sortTime,
+        localDate:dateKey(sortTime, timeZone),
+        effectiveStatus:effectiveSubEventStatus(subEvent, reference),
+        displayDate:timelineDisplayDate(sortTime, timeZone),
+        displayTime:timelineDisplayTime(subEvent, timeZone),
+      };
+    }).sort((first, second) => first.sortTime - second.sortTime || first.sourceOrder - second.sourceOrder);
+    const retained = includeOlder ? items : items.filter(item => item.localDate >= earliestDate || item.sortTime >= referenceTime);
+    const recentAll = retained.filter(item => item.sortTime < referenceTime || ["completed", "awaiting-result"].includes(item.effectiveStatus));
+    const upcomingAll = retained.filter(item => item.sortTime >= referenceTime && !["completed", "awaiting-result"].includes(item.effectiveStatus));
+    const recent = level === "L1"
+      ? recentAll.slice()
+        .sort((first, second) => Number(second.subEvent?.previewPriority || 0) - Number(first.subEvent?.previewPriority || 0)
+          || second.sortTime - first.sortTime
+          || second.sourceOrder - first.sourceOrder)
+        .slice(0, 2)
+        .sort((first, second) => first.sortTime - second.sortTime || first.sourceOrder - second.sourceOrder)
+      : recentAll;
+    const upcoming = level === "L0" ? upcomingAll.slice(0, 1) : level === "L1" ? upcomingAll.slice(0, 3) : upcomingAll;
+    if (level === "L0" && !upcoming.length && recentAll.length) recent.push(recentAll.at(-1));
+    return { recent, upcoming, items:[...recent, { marker:"now" }, ...upcoming], hasOlder:items.some(item => item.localDate < earliestDate) };
+  }
+
+  function activeEditionForFamily(document, familyId, reference = new Date()){
+    const matches = (document?.events || []).filter(record => record.kind !== "ticket_sale" && eventFamilyId(record) === familyId && record.lifecycleStatus !== "retired");
+    return matches.sort((first, second) => compareRecords(first, second, reference))[0] || null;
   }
 
   function recordLifecycleTime(record, reference = new Date()){
@@ -107,6 +191,60 @@
       || String(left.id).localeCompare(String(right.id));
   }
 
+  function matchupSideLabels(event){
+    if (Array.isArray(event?.matchupSides) && event.matchupSides.length === 2){
+      return event.matchupSides.map(side => {
+        const playerNames = (side?.players || []).map(player => player?.displayName || player?.name).filter(Boolean);
+        return playerNames.length ? playerNames.join(" / ") : String(side?.displayName || side?.name || "").trim();
+      }).filter(Boolean);
+    }
+    if (Array.isArray(event?.participantSlots) && event.participantSlots.length === 2){
+      return event.participantSlots.map(slot => String(slot?.displayName || slot?.label || slot?.name || "").trim()).filter(Boolean);
+    }
+    if (Array.isArray(event?.participants) && event.participants.length === 2){
+      return event.participants.map(participant => String(participant?.displayName || participant?.name || participant?.label || "").trim()).filter(Boolean);
+    }
+    return [];
+  }
+
+  function fixtureAliasIds(subEvent){
+    return Array.from(new Set([
+      subEvent?.id,
+      subEvent?.stableMatchId,
+      ...(Array.isArray(subEvent?.legacyEventIds) ? subEvent.legacyEventIds : []),
+    ].map(value => String(value || "").trim()).filter(Boolean)));
+  }
+
+  function fixturePinReconciliationPlan(document, actions){
+    const records = Array.isArray(document?.events) ? document.events : [];
+    const actionEntries = Object.entries(actions && typeof actions === "object" ? actions : {});
+    const claimedSourceKeys = new Set();
+    const plan = [];
+    records.filter(record => record?.kind !== "ticket_sale").forEach(parent => {
+      (parent.subEvents || []).forEach(subEvent => {
+        const fixture = fixtureFromSubEvent(subEvent, parent);
+        if (!fixture) return;
+        const aliases = new Set(fixtureAliasIds(subEvent).filter(alias => alias !== fixture.actionKey));
+        if (!aliases.size) return;
+        actionEntries.forEach(([sourceKey, action]) => {
+          if (claimedSourceKeys.has(sourceKey) || !action?.addedToFixtures) return;
+          const actionIds = [
+            sourceKey,
+            action.eventId,
+            action.addedFixture?.id,
+            action.addedFixture?.eventId,
+            action.addedFixture?.canonicalEventId,
+            action.addedFixture?.actionKey,
+          ].map(value => String(value || "").trim()).filter(Boolean);
+          if (!actionIds.some(id => aliases.has(id))) return;
+          claimedSourceKeys.add(sourceKey);
+          plan.push({ sourceKey, targetKey:fixture.actionKey, fixture, parentEventId:parent.id });
+        });
+      });
+    });
+    return plan;
+  }
+
   function fixtureFromSubEvent(subEvent, parent){
     if (!subEvent?.id || !subEvent?.startTimeUtc) return null;
     const instant = new Date(subEvent.startTimeUtc);
@@ -116,6 +254,10 @@
     }).formatToParts(instant).map(part => [part.type, part.value]));
     const matchupSides = Array.isArray(subEvent.matchupSides) ? subEvent.matchupSides : [];
     const matchupPlayers = matchupSides.flatMap(side => Array.isArray(side.players) ? side.players : []);
+    const sideLabels = matchupSideLabels(subEvent);
+    const displayName = matchupSides.length === 2 && sideLabels.length === 2
+      ? sideLabels.join(" v ")
+      : subEvent.name;
     return {
       id: subEvent.id,
       eventId: subEvent.id,
@@ -125,6 +267,8 @@
       key: parent.sportKey,
       sport: parent.sportLabel,
       competitionId: parent.competitionId,
+      stableMatchId: subEvent.stableMatchId || null,
+      legacyEventIds: Array.isArray(subEvent.legacyEventIds) ? [...subEvent.legacyEventIds] : [],
       roundLabel: subEvent.roundLabel || subEvent.stage || null,
       stage: subEvent.stage || subEvent.roundLabel || null,
       matchType:subEvent.matchType || null,
@@ -132,7 +276,8 @@
       majorEventId: parent.id,
       majorEventParentId: parent.id,
       manualPin: true,
-      name: subEvent.name,
+      name: displayName,
+      displayTitleCompact: displayName,
       date: `${parts.year}-${parts.month}-${parts.day}`,
       time: `${parts.hour}:${parts.minute}`,
       startTimeUtc: subEvent.startTimeUtc,
@@ -199,6 +344,7 @@
       if (!record?.id || eventIds.has(record.id)) errors.push(`duplicate or missing event id: ${record?.id || "(missing)"}`);
       eventIds.add(record?.id);
       if (!["tournament", "major_event", "ticket_sale"].includes(record?.kind)) errors.push(`${record?.id}: unsupported kind`);
+      if (record?.kind !== "ticket_sale" && (!record.eventFamilyId || !record.editionId || !record.phaseId)) errors.push(`${record?.id}: event family, edition and phase identities are required`);
       if (record?.stakesScore !== 5) errors.push(`${record?.id}: stakes must be 5/5`);
       if (!Array.isArray(record?.sources) || !record.sources.length) errors.push(`${record?.id}: official evidence is required`);
       if (record?.lifecycleStatus === "retired"){
@@ -238,10 +384,17 @@
         if (!subEvent?.name || !subEvent?.venue || !Number.isFinite(Number(subEvent?.stakesScore))) errors.push(`${subEvent?.id}: incomplete child fixture`);
         if (!Object.prototype.hasOwnProperty.call(subEvent || {}, "startTimeUtc")) errors.push(`${subEvent?.id}: child start time state is required`);
         if (subEvent?.startTimeUtc && !Number.isFinite(new Date(subEvent.startTimeUtc).getTime())) errors.push(`${subEvent?.id}: invalid UTC start time`);
+        if (subEvent?.timePrecision === "follows" && subEvent?.startTimeUtc) errors.push(`${subEvent?.id}: follows records cannot invent an exact start`);
+        if (Array.isArray(subEvent?.matchupSides) && subEvent.matchupSides.length){
+          if (subEvent.matchupSides.length !== 2) errors.push(`${subEvent?.id}: announced matchups require exactly two grouped sides`);
+          subEvent.matchupSides.forEach(side => (side.players || []).forEach(player => {
+            if (!player?.id || !player?.name || !player?.nationalityCode) errors.push(`${subEvent?.id}: announced individual players require canonical IDs, names and nationality codes`);
+          }));
+        }
       });
     });
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, activeEditionForFamily, matchupSideLabels, fixtureAliasIds, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });

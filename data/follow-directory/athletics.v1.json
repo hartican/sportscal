@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "athletics",
   "label": "Athletics",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -31,7 +31,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:eilish-mccolgan",
@@ -59,7 +64,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:elaine-thompson-herah",
@@ -87,7 +97,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:josh-kerr",
@@ -114,7 +129,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:julien-alfred",
@@ -142,7 +162,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

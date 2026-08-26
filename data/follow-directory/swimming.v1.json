@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "swimming",
   "label": "Swimming",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -47,7 +47,12 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:ea14ecfd-1f36-43b2-978c-27d6020860bb",
@@ -142,7 +147,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:d6117761-dd4a-4b0c-8063-5619b80c7c55",
@@ -224,7 +234,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:bfd02c82-7801-48ef-bfb9-cb573fd16841",
@@ -306,7 +321,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:8f78308a-1fee-48b8-857c-e4e71a922d41",
@@ -388,7 +408,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:86b9f783-93ca-4836-92de-3d9441a2732d",
@@ -535,7 +560,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:8b8fdb62-acad-428f-85a4-411259601686",
@@ -591,7 +621,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:627b5aeb-3121-45bf-82f3-0b03296db615",
@@ -686,7 +721,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:69eeb36b-4c3d-4746-a01c-497f5195205c",
@@ -768,7 +808,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:49f04b9b-2901-4ff5-af1d-c4a226b41a19",
@@ -863,7 +908,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:c0e6fcb4-ed0f-4ca4-b80c-d573d74da798",
@@ -906,7 +956,12 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:4fccc590-61e6-42e7-aec7-b1fc4027722a",
@@ -1001,7 +1056,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:4436920a-0324-4ad2-a4ed-083de6535217",
@@ -1096,7 +1156,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:689282f3-1c96-43e0-8be1-b51ffe2fdfe9",
@@ -1178,7 +1243,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:67853191-d5f7-4fa5-8d30-de063388da53",
@@ -1299,7 +1369,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:6a2eb4b2-576e-468c-a24e-e6d9941415a6",
@@ -1381,7 +1456,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:1d73e719-4f45-4cdd-bcdf-6dfb93e75f4a",
@@ -1502,7 +1582,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:256a3899-691a-451a-a873-06b677fb74f0",
@@ -1558,7 +1643,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:6786d06d-8679-49ad-b540-f773861ae8c4",
@@ -1640,7 +1730,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:d31fef89-ed82-44ae-a852-fe9f9b732f83",
@@ -1709,7 +1804,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:05e08717-1f13-4a25-963d-367643c8ca65",
@@ -1765,7 +1865,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:06c9bf09-399c-454f-857d-8dd2a8f665e2",
@@ -1834,7 +1939,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:429ffc71-7fd8-4e04-b0ca-538b6e825114",
@@ -1903,7 +2013,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:3394c1f0-fa06-431f-8480-4a3af9eb549e",
@@ -2011,7 +2126,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:107cdd56-dd02-47b4-8ce5-cf3b4d8620bd",
@@ -2093,7 +2213,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:9287c8a1-f70b-44b9-9047-65ca5f6c0e90",
@@ -2136,7 +2261,12 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:04df123e-d8c3-4988-a3b6-57cae4afe7d6",
@@ -2205,7 +2335,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:b75959a8-af60-4533-af59-51ff40d4e34a",
@@ -2274,7 +2409,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:091a7b91-c68b-400d-8145-56428b3d113f",
@@ -2330,7 +2470,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:4e790aca-5e0b-424d-a540-5e415bb23c1b",
@@ -2412,7 +2557,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:e2c969db-911a-4c45-92f3-dd1bbfe3aa6c",
@@ -2468,7 +2618,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:31164f9e-df1a-43e7-a5f3-4ac3883d8b50",
@@ -2511,7 +2666,12 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:045b9527-0cc2-4905-b723-b914d54b34e0",
@@ -2606,7 +2766,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:a39f25de-82a9-468f-973e-54c4f9bd9a7f",
@@ -2688,7 +2853,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:a7b99a0e-521f-4b45-bf21-31ae0bc9aee6",
@@ -2809,7 +2979,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:4d52d7b2-93e4-4cac-b596-194dc52064a9",
@@ -2891,7 +3066,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:33a00cf5-dc3d-47ac-9217-d5d0d3c3f306",
@@ -2947,7 +3127,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:05453b97-e1e5-43e0-9461-f928d02ba7e8",
@@ -3003,7 +3188,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:952095ee-8bcb-4449-8334-ee1d87f386e5",
@@ -3059,7 +3249,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:0cfd58c9-cf76-4388-8c9b-df1fab661124",
@@ -3102,7 +3297,12 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:30a8f1fe-bc2f-49d8-a81b-8a0f8462e6b6",
@@ -3197,7 +3397,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:dc1be0cf-0c89-4165-862c-9fa6c1cc2d00",
@@ -3266,7 +3471,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:2fe04ba9-6e9c-448b-a631-0175c83efca4",
@@ -3400,7 +3610,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:de31bcae-096d-4c13-96b4-9b8e1e7919d7",
@@ -3456,7 +3671,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:d008561e-f38b-444b-b78c-9241aeeb3223",
@@ -3551,7 +3771,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=800&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=1500&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:9aa89358-d8bf-4d72-9edd-5682133d972d",
@@ -3620,7 +3845,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:badcee0b-ca9b-488a-863a-90431482561e",
@@ -3715,7 +3945,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:38a7fce7-19e4-4a1f-b74f-60885c0bd7d9",
@@ -3784,7 +4019,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:b45aaa47-bc46-4e7f-824c-b9a62f6e6f7d",
@@ -3840,7 +4080,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:9a61d98f-00aa-41b9-bf06-c6e7730eda49",
@@ -3909,7 +4154,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:0f3d38c6-c7c7-4562-b45a-7378e466f940",
@@ -3965,7 +4215,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:807bbc03-4322-4b07-b59a-0faf43ac7791",
@@ -4008,7 +4263,12 @@
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:3cce56e2-849f-48f2-907f-20941725a428",
@@ -4090,7 +4350,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:9735b9ab-d13f-41d9-b568-41f3b6aba5e1",
@@ -4185,7 +4450,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:cda0b598-9bfa-4ac6-bc12-09af9231c12d",
@@ -4254,7 +4524,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:c97dcd72-5874-41e2-89de-ad5133e2cc4a",
@@ -4323,7 +4598,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:0f88fc56-4655-4ded-bade-472b66ff410c",
@@ -4379,7 +4659,12 @@
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:c307f206-181a-44ae-a01c-796e0ff143c5",
@@ -4461,7 +4746,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:60163a2b-86c4-4625-8e73-32a5abb08c9f",
@@ -4530,7 +4820,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "athlete:swimming:eaf0854a-b220-4cf2-af80-d50533f669e4",
@@ -4599,7 +4894,12 @@
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

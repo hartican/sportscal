@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "skiing",
   "label": "Snow",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -32,7 +32,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:valentino-guseli",
@@ -60,7 +65,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:yiming-su",
@@ -88,7 +98,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:scotty-james",
@@ -116,7 +131,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:alex-ferreira",
@@ -144,7 +164,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:ayumu-hirano",
@@ -172,7 +197,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:chloe-kim",
@@ -200,7 +230,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:eileen-gu",
@@ -228,7 +263,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:emily-arthur",
@@ -256,7 +296,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:gaon-choi",
@@ -284,7 +329,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:hiroaki-kunitake",
@@ -312,7 +362,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:josie-baff",
@@ -340,7 +395,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:kokomo-murase",
@@ -368,7 +428,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:mathilde-gremaud",
@@ -396,7 +461,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:mia-brookes",
@@ -424,7 +494,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:tess-coady",
@@ -452,7 +527,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:tess-ledeux",
@@ -480,7 +560,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:snow:zoi-sadowski-synnott",
@@ -508,7 +593,12 @@
       "sourceRefs": [
         "https://www.fis-ski.com/DB/v2/download/competition-attachment/c363abdc-64da-11f1-b635-1866da7ef77e",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

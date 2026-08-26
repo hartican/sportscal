@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -33,7 +33,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:australia",
@@ -63,7 +68,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:bangladesh",
@@ -92,7 +102,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:brisbane-heat",
@@ -121,7 +136,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:england",
@@ -150,7 +170,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:hobart-hurricanes",
@@ -179,7 +204,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:india",
@@ -208,7 +238,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:melbourne-renegades",
@@ -237,7 +272,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:melbourne-stars",
@@ -266,7 +306,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:new-zealand",
@@ -295,7 +340,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:pakistan",
@@ -324,7 +374,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:perth-scorchers",
@@ -353,7 +408,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:south-africa",
@@ -382,7 +442,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:sri-lanka",
@@ -411,7 +476,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:sydney-sixers",
@@ -440,7 +510,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:sydney-thunder",
@@ -469,7 +544,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:cricket:west-indies",
@@ -498,7 +578,12 @@
       "rankingBasis": null,
       "sourceRefs": [
         "catalogue:cricket"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

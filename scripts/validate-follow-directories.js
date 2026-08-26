@@ -20,7 +20,9 @@ manifest.sports.forEach(sport => {
   chunk.records.forEach(record => {
     assert.ok(record.id && record.displayName, `${sport.key}: identity fields required`);
     assert.ok(["male", "female", "mixed", "unknown"].includes(record.genderCategory));
-    assert.equal(record.current, true, `${record.id}: historical or inactive records are forbidden`);
+    if (sport.key !== "tennis" || !record.watchPoolMember){
+      assert.equal(record.current, true, `${record.id}: historical or inactive records are forbidden outside the explicit Tennis watch pool`);
+    }
   });
   const ordered = chunk.records.map(record => record.ranking ?? record.ladderPosition ?? Number.MAX_SAFE_INTEGER);
   assert.deepEqual(ordered, [...ordered].sort((a, b) => a - b), `${sport.key}: null ranks must sort after ranked records`);
@@ -44,4 +46,11 @@ const football = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directo
 const lucas = football.records.find(record => record.displayName === "Lucas Herrington");
 assert.ok(lucas, "Lucas Herrington must remain in the current Football directory");
 assert.ok(Number.isFinite(runtime.searchMatchScore(lucas, "Harrington")), "one-character Football search variants must match");
+const tennis = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
+assert.equal(tennis.records.filter(record => record.watchPoolMember).length, 50, "Tennis must expose exactly fifty watch-pool players");
+assert.equal(tennis.collections.length, 6, "Tennis must expose the six hierarchical collections");
+assert.equal(new Set(tennis.records.map(record => record.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())).size, tennis.records.length, "Tennis player rows must be deduplicated by name");
+for (const collectionId of ["collection:tennis:mens-top-10", "collection:tennis:womens-top-10"]){
+  assert.equal(tennis.collections.find(collection => collection.id === collectionId)?.memberIds.length, 10, `${collectionId}: current top ten must contain ten players`);
+}
 console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search and current-only records.`);

@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "extreme",
   "label": "Extreme",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -32,7 +32,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:ben-richards",
@@ -60,7 +65,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:brandon-loupos",
@@ -88,7 +98,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:chloe-covell",
@@ -116,7 +131,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:genki-watanabe",
@@ -144,7 +164,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:jackson-strong",
@@ -172,7 +197,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:jaie-toohey",
@@ -200,7 +230,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:jarryd-mcneil",
@@ -228,7 +263,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:jose-torres",
@@ -258,7 +298,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:justin-dowell",
@@ -286,7 +331,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:keefer-wilson",
@@ -314,7 +364,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:keegan-palmer",
@@ -342,7 +397,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:kieran-reilly",
@@ -370,7 +430,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:kim-lea-mueller",
@@ -398,7 +463,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:lara-lessmann",
@@ -426,7 +496,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:liz-akama",
@@ -454,7 +529,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:logan-martin",
@@ -482,7 +562,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:mia-kretzer",
@@ -510,7 +595,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:mike-varga",
@@ -538,7 +628,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:nikita-ducarroz",
@@ -566,7 +661,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:nyjah-huston",
@@ -594,7 +694,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:rayssa-leal",
@@ -622,7 +727,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:rob-adelberg",
@@ -650,7 +760,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:sky-brown",
@@ -678,7 +793,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:taka-higashino",
@@ -706,7 +826,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:tom-richards",
@@ -734,7 +859,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:vicki-golden",
@@ -762,7 +892,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:xgames:yuto-horigome",
@@ -790,7 +925,12 @@
       "sourceRefs": [
         "https://www.xgames.com/events/sacramento-2026/",
         "https://www.xgames.com/athletes/"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

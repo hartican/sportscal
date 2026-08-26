@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "surf",
   "label": "Surfing",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -32,7 +32,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:luana-silva",
@@ -60,7 +65,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:caitlin-simmers",
@@ -88,7 +98,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:caroline-marks",
@@ -116,7 +131,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:erin-brooks",
@@ -144,7 +164,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:ethan-ewing",
@@ -172,7 +197,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:filipe-toledo",
@@ -200,7 +230,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:george-pittar",
@@ -228,7 +263,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:griffin-colapinto",
@@ -256,7 +296,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:isabella-nichols",
@@ -284,7 +329,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:italo-ferreira",
@@ -312,7 +362,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:jack-robinson",
@@ -340,7 +395,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:joel-vaughan",
@@ -368,7 +428,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:kanoa-igarashi",
@@ -396,7 +461,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:leonardo-fioravanti",
@@ -424,7 +494,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:liam-obrien",
@@ -452,7 +527,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:molly-picklum",
@@ -480,7 +560,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:ryan-callinan",
@@ -508,7 +593,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:tyler-wright",
@@ -536,7 +626,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:wsl:yago-dora",
@@ -564,7 +659,12 @@
       "sourceRefs": [
         "https://www.worldsurfleague.com/athletes/tour/mct/olympics?page=rankings&regionId=1&seasonNumber=1&sort=4450&sortOrder=desc&tourCode=MCT&year=2024",
         "https://www.worldsurfleague.com/events/2025/ct?month=may"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

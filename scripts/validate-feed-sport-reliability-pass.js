@@ -30,7 +30,7 @@ for (const requiredId of ["american-football", "ice-hockey", "swimming"]){
   assert(startupIds.includes(requiredId), `${requiredId} must be offered during signup`);
 }
 assert(!followFirst.MAJOR_EVENT_FAMILIES.some(event => event.id === "cincinnati-open"), "failed Cincinnati must not remain a followable major event");
-assert.equal(followFirst.TENNIS_LEGENDS_WATCHLIST.length, 10, "Tennis must ship a ten-name legends and exhibitions watchlist");
+assert.equal(followFirst.TENNIS_LEGENDS_WATCHLIST, undefined, "the retired hard-coded Tennis legends eligibility shortcut must stay removed");
 const legacyPreferences = {
   followedSports:["sport:multi-sport", "sport:hockey", "sport:gymnastics"],
   selectedSelectorEntityIds:["sport:multi-sport", "sport:hockey", "sport:gymnastics"],

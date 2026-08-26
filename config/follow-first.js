@@ -5,11 +5,14 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v4";
+  const SCHEMA_VERSION = "follow-first.v5";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
   const MAX_RADIUS_KM = 300;
+  const CODE_INTERACTION_WEIGHTS = Object.freeze({ open:1, expand:2, follow:3, pin:4, reminder:5, watch:6, replay:6 });
+  const CODE_INTERACTION_RETENTION_MS = 90 * 24 * 60 * 60 * 1000;
+  const CODE_INTERACTION_HALF_LIFE_MS = 30 * 24 * 60 * 60 * 1000;
 
   const STARTUP_SPORTS = Object.freeze([
     { id:"afl", selectorId:"sport:afl", label:"AFL" },
@@ -46,11 +49,6 @@
     "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
     "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg",
     "athletics", "swimming", "netball", "boxing",
-  ]);
-
-  const TENNIS_LEGENDS_WATCHLIST = Object.freeze([
-    "Roger Federer", "Serena Williams", "Venus Williams", "Rafael Nadal", "Andy Murray",
-    "Ash Barty", "Lleyton Hewitt", "Andre Agassi", "Andy Roddick", "John McEnroe",
   ]);
 
   const OFFER_INTERESTS = Object.freeze([
@@ -216,12 +214,27 @@
       appliedSeedHash:null,
       australiaInternationalsEnabled:true,
       followedMajorEventIds:[],
+      collectionFollows:[],
+      codeInteractions:[],
       location:normalizeLocation({}),
       subscriptions:[],
       notifications:{ enabled:false, defaultLeadMinutes:15, permissionPromptedAt:null },
       refinement:{ distinctOpenCount:0, lastOpenId:null, firstSwipeAt:null, promptedAt:null, completedAt:null, deferred:false },
       feedback:{ schemaVersion:FEEDBACK_SCHEMA_VERSION, sequence:0, entries:[] },
     };
+  }
+
+  function normalizeCollectionFollows(input){
+    return Array.from(new Set((Array.isArray(input) ? input : []).map(value => String(value || "").trim()).filter(value => /^collection:/.test(value)))).slice(0, 120);
+  }
+
+  function normalizeCodeInteractions(input){
+    const cutoff = Date.now() - CODE_INTERACTION_RETENTION_MS;
+    return (Array.isArray(input) ? input : []).map(entry => ({
+      codeId:String(entry?.codeId || "").trim(),
+      type:String(entry?.type || "").trim(),
+      occurredAt:!Number.isNaN(Date.parse(entry?.occurredAt || "")) ? new Date(entry.occurredAt).toISOString() : null,
+    })).filter(entry => entry.codeId && CODE_INTERACTION_WEIGHTS[entry.type] && entry.occurredAt && new Date(entry.occurredAt).getTime() >= cutoff).slice(-500);
   }
 
   function normalizeFeedback(input){
@@ -268,6 +281,8 @@
         appliedSeedHash:String(prior.appliedSeedHash || "") || null,
         australiaInternationalsEnabled:prior.australiaInternationalsEnabled !== false,
         followedMajorEventIds,
+        collectionFollows:normalizeCollectionFollows(prior.collectionFollows),
+        codeInteractions:normalizeCodeInteractions(prior.codeInteractions),
         location:normalizeLocation(prior.location || startupMeta.location),
         subscriptions:Array.from(new Set((Array.isArray(prior.subscriptions) ? prior.subscriptions : []).map(String).filter(id => VIEWING_PROVIDERS[id]))),
         notifications:{
@@ -280,6 +295,68 @@
         feedback:normalizeFeedback(prior.feedback),
       },
     };
+  }
+
+  function setCollectionFollow(preferences, collectionId, followed){
+    const next = migratePreferences(preferences);
+    const selected = new Set(next.followFirst.collectionFollows);
+    if (followed) selected.add(String(collectionId));
+    else selected.delete(String(collectionId));
+    return migratePreferences({ ...next, followFirst:{ ...next.followFirst, collectionFollows:[...selected] } });
+  }
+
+  function effectiveParticipantFollow(participantId, preferences, collectionsById = {}){
+    const next = migratePreferences(preferences);
+    const explicit = (next.preferenceGraph?.entityFollows || []).find(item => item.participantId === participantId);
+    if (explicit?.followLevel === "mute") return { followed:false, source:"mute", followLevel:"mute", collectionIds:[] };
+    if (["follow", "priority"].includes(explicit?.followLevel)) return { followed:true, source:"explicit", followLevel:explicit.followLevel, collectionIds:[] };
+    const collectionIds = next.followFirst.collectionFollows.filter(collectionId => collectionsById?.[collectionId]?.memberIds?.includes(participantId));
+    return collectionIds.length
+      ? { followed:true, source:"collection", followLevel:"follow", collectionIds }
+      : { followed:false, source:"none", followLevel:null, collectionIds:[] };
+  }
+
+  function recordCodeInteraction(preferences, input){
+    const next = migratePreferences(preferences);
+    const type = String(input?.type || "");
+    const codeId = String(input?.codeId || "");
+    if (!codeId || !CODE_INTERACTION_WEIGHTS[type]) return next;
+    const occurredAt = new Date(input?.occurredAt || Date.now()).toISOString();
+    return migratePreferences({
+      ...next,
+      followFirst:{ ...next.followFirst, codeInteractions:[...next.followFirst.codeInteractions, { codeId, type, occurredAt }].slice(-500) },
+    });
+  }
+
+  function codeAffinityScore(codeId, preferences, reference = new Date()){
+    const referenceTime = new Date(reference).getTime();
+    const next = migratePreferences(preferences);
+    const selectedSelectors = new Set(next.selectedSelectorEntityIds || []);
+    const followedSports = new Set(next.followedSports || []);
+    const codeSlug = String(codeId || "").replace(/^sport:/, "");
+    const sportAliases = {
+      "rugby-union":"rugby",
+      "american-football":"nfl",
+      "ice-hockey":"ice-hockey",
+      "multi-sport":"cwg",
+    };
+    const relatedSportFollowed = selectedSelectors.has(codeId)
+      || followedSports.has(codeSlug)
+      || followedSports.has(sportAliases[codeSlug]);
+    return next.followFirst.codeInteractions.reduce((score, interaction) => {
+      if (interaction.codeId !== codeId) return score;
+      const age = referenceTime - new Date(interaction.occurredAt).getTime();
+      if (!Number.isFinite(age) || age < 0 || age > CODE_INTERACTION_RETENTION_MS) return score;
+      return score + CODE_INTERACTION_WEIGHTS[interaction.type] * Math.pow(.5, age / CODE_INTERACTION_HALF_LIFE_MS);
+    }, relatedSportFollowed ? CODE_INTERACTION_WEIGHTS.follow : 0);
+  }
+
+  function sortCodesByAffinity(codes, preferences, reference = new Date()){
+    return [...(codes || [])].sort((first, second) => (
+      codeAffinityScore(second.id, preferences, reference) - codeAffinityScore(first.id, preferences, reference)
+      || Number(second.fixtureCount || 0) - Number(first.fixtureCount || 0)
+      || String(first.label || first.name || "").localeCompare(String(second.label || second.name || ""), "en-AU", { sensitivity:"base" })
+    ));
   }
 
   function selectorIdsForSports(sportIds){
@@ -330,7 +407,7 @@
     ].map(value => String(value || "").trim()).filter(Boolean)));
   }
 
-  function reasonForEvent(event, preferences, { participantLabel = id => id } = {}){
+  function reasonForEvent(event, preferences, { participantLabel = id => id, collectionsById = {} } = {}){
     const next = migratePreferences(preferences);
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     for (const id of participantIds(event)){
@@ -344,6 +421,10 @@
           label:`Because you follow ${participantLabel(id)}`,
           displayTag:entityKind === "athlete",
         };
+      }
+      const inherited = effectiveParticipantFollow(id, next, collectionsById);
+      if (inherited.source === "collection"){
+        return { type:"collection", entityKind:"athlete", id, label:null, displayTag:false, collectionIds:inherited.collectionIds };
       }
     }
     const sportAliases = {
@@ -375,10 +456,6 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
-    const participantText = eventParticipantNames(event).join(" ").toLowerCase();
-    if (sportId === "tennis" && sportFollowed && concreteSportingCard && TENNIS_LEGENDS_WATCHLIST.some(name => participantText.includes(name.toLowerCase()))){
-      return { type:"tennis-legends", entityKind:"athlete-watchlist", id:"tennis-legends", label:null, displayTag:false };
-    }
     if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
       return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
     }
@@ -596,16 +673,21 @@
     FEEDBACK_SCHEMA_VERSION,
     DEFAULT_RADIUS_KM,
     MAX_RADIUS_KM,
+    CODE_INTERACTION_WEIGHTS,
     STARTUP_SPORTS,
     MAJOR_EVENT_FAMILIES,
     INTERNATIONAL_AUSTRALIA_SPORT_IDS,
-    TENNIS_LEGENDS_WATCHLIST,
     OFFER_INTERESTS,
     VIEWING_PROVIDERS,
     COMPETITION_VIEWING_RIGHTS,
     normalizeLocation,
     normalizeMeta,
     migratePreferences,
+    setCollectionFollow,
+    effectiveParticipantFollow,
+    recordCodeInteraction,
+    codeAffinityScore,
+    sortCodesByAffinity,
     selectorIdsForSports,
     applyMetaSeed,
     reasonForEvent,

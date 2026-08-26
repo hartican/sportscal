@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cycling",
   "label": "Cycling",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -31,7 +31,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:alex-molenaar",
@@ -58,7 +63,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:ellesse-andrews",
@@ -85,7 +95,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cwg:fin-graham",
@@ -112,7 +127,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:isaac-del-toro",
@@ -139,7 +159,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:jonas-vingegaard",
@@ -166,7 +191,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:jordan-jegat",
@@ -193,7 +223,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:juan-ayuso",
@@ -220,7 +255,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:lenny-martinez",
@@ -247,7 +287,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:mattias-skjelmose",
@@ -274,7 +319,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:paul-seixas",
@@ -301,7 +351,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:remco-evenepoel",
@@ -328,7 +383,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:richard-carapaz",
@@ -355,7 +415,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:tadej-pogacar",
@@ -383,7 +448,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:tom-pidcock",
@@ -410,7 +480,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:cycling:tdf:torstein-traeen",
@@ -438,7 +513,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

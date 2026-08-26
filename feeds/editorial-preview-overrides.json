@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-previews.v1",
-  "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+  "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
   "events": {
     "nrl-raiders-broncos-2026-08-21": {
       "selectedSentence": "Round 25 puts {{homeRankOrdinal}}-placed Canberra against {{awayRankOrdinal}}-placed Brisbane, with the Broncos holding a 24-17 edge across their 42 previous meetings.",
@@ -381,7 +381,7 @@
       "fullSpiel": "R13 Italian GP Qualifying is scheduled for 2026-09-06 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -408,11 +408,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "908682ca3c44b523a6bc91d8abe2435d626c2790756b3fadcb59c8c9d6e7602a",
+        "digestFingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+        "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
         "needsPreviewRefresh": false
       }
     },
@@ -421,7 +421,7 @@
       "fullSpiel": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -448,11 +448,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "908682ca3c44b523a6bc91d8abe2435d626c2790756b3fadcb59c8c9d6e7602a",
+        "digestFingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+        "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
         "needsPreviewRefresh": false
       }
     },
@@ -461,7 +461,7 @@
       "fullSpiel": "R14 Spanish GP Qualifying is scheduled for 2026-09-13 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -488,11 +488,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "908682ca3c44b523a6bc91d8abe2435d626c2790756b3fadcb59c8c9d6e7602a",
+        "digestFingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+        "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
         "needsPreviewRefresh": false
       }
     },
@@ -501,7 +501,7 @@
       "fullSpiel": "R14 Spanish GP Race is scheduled for 2026-09-14 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -528,11 +528,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "908682ca3c44b523a6bc91d8abe2435d626c2790756b3fadcb59c8c9d6e7602a",
+        "digestFingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+        "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
         "needsPreviewRefresh": false
       }
     },
@@ -541,7 +541,7 @@
       "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -568,11 +568,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "908682ca3c44b523a6bc91d8abe2435d626c2790756b3fadcb59c8c9d6e7602a",
+        "digestFingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+        "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
         "needsPreviewRefresh": false
       }
     },
@@ -581,7 +581,7 @@
       "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
       "sourceType": "official",
       "editorialPreview": {
         "status": "journalistic",
@@ -608,11 +608,11 @@
             "sourceType": "official"
           }
         ],
-        "digestFingerprint": "908682ca3c44b523a6bc91d8abe2435d626c2790756b3fadcb59c8c9d6e7602a",
+        "digestFingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
         "promptVersion": "f1-editorial.v1",
         "sourceName": "Formula 1 official source",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-08-26T00:09:22.219Z",
+        "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
         "needsPreviewRefresh": false
       }
     }

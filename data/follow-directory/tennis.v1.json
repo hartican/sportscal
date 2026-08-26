@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "tennis",
   "label": "Tennis",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -17,7 +17,7 @@
       "current": true,
       "countryCode": "BY",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1,
       "ladderPosition": null,
       "marketValue": null,
@@ -31,7 +31,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jannik-sinner",
@@ -44,7 +51,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1,
       "ladderPosition": null,
       "marketValue": null,
@@ -58,7 +65,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:alexander-zverev",
@@ -71,7 +85,7 @@
       "current": true,
       "countryCode": "DE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 2,
       "ladderPosition": null,
       "marketValue": null,
@@ -85,7 +99,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:elena-rybakina",
@@ -98,7 +119,7 @@
       "current": true,
       "countryCode": "KZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 2,
       "ladderPosition": null,
       "marketValue": null,
@@ -112,7 +133,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:carlos-alcaraz",
@@ -125,7 +153,7 @@
       "current": true,
       "countryCode": "ES",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 3,
       "ladderPosition": null,
       "marketValue": null,
@@ -139,7 +167,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:jessica-pegula",
@@ -152,7 +187,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 3,
       "ladderPosition": null,
       "marketValue": null,
@@ -166,7 +201,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:coco-gauff",
@@ -179,7 +221,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 4,
       "ladderPosition": null,
       "marketValue": null,
@@ -193,7 +235,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:felix-auger-aliassime",
@@ -206,7 +255,7 @@
       "current": true,
       "countryCode": "CA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 4,
       "ladderPosition": null,
       "marketValue": null,
@@ -220,7 +269,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:mirra-andreeva",
@@ -233,7 +289,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 5,
       "ladderPosition": null,
       "marketValue": null,
@@ -247,10 +303,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:novak-djokovic",
+      "id": "athlete:tennis:novak-djokovic",
       "displayName": "Novak Djokovic",
       "shortName": "Djokovic",
       "aliases": [
@@ -259,10 +322,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "RS",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 5,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -274,7 +337,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.atptour.com/en/players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:flavio-cobolli",
@@ -287,7 +360,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 6,
       "ladderPosition": null,
       "marketValue": null,
@@ -301,7 +374,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:linda-noskova",
@@ -314,7 +394,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 6,
       "ladderPosition": null,
       "marketValue": null,
@@ -328,11 +408,18 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:alex-de-minaur",
-      "displayName": "Alex De Minaur",
+      "id": "athlete:tennis:alex-de-minaur",
+      "displayName": "Alex de Minaur",
       "shortName": "Minaur",
       "aliases": [
         "Minaur"
@@ -340,10 +427,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 7,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -355,7 +442,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/alex-de-minaur"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:karolina-muchova",
@@ -368,7 +465,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 7,
       "ladderPosition": null,
       "marketValue": null,
@@ -382,7 +479,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:daniil-medvedev",
@@ -395,7 +499,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 8,
       "ladderPosition": null,
       "marketValue": null,
@@ -409,7 +513,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:iga-swiatek",
@@ -422,7 +533,7 @@
       "current": true,
       "countryCode": "PL",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 8,
       "ladderPosition": null,
       "marketValue": null,
@@ -436,7 +547,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ben-shelton",
@@ -449,7 +567,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 9,
       "ladderPosition": null,
       "marketValue": null,
@@ -463,7 +581,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:elina-svitolina",
@@ -476,7 +601,7 @@
       "current": true,
       "countryCode": "UA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 9,
       "ladderPosition": null,
       "marketValue": null,
@@ -490,7 +615,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:amanda-anisimova",
@@ -503,7 +635,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 10,
       "ladderPosition": null,
       "marketValue": null,
@@ -517,7 +649,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:womens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:taylor-fritz",
@@ -530,7 +669,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 10,
       "ladderPosition": null,
       "marketValue": null,
@@ -544,7 +683,14 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [
+        "collection:tennis:mens-top-10"
+      ],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:arthur-fils",
@@ -557,7 +703,7 @@
       "current": true,
       "countryCode": "FR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 11,
       "ladderPosition": null,
       "marketValue": null,
@@ -571,7 +717,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:marta-kostyuk",
@@ -584,7 +735,7 @@
       "current": true,
       "countryCode": "UA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 11,
       "ladderPosition": null,
       "marketValue": null,
@@ -598,7 +749,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:belinda-bencic",
@@ -611,7 +767,7 @@
       "current": true,
       "countryCode": "CH",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 12,
       "ladderPosition": null,
       "marketValue": null,
@@ -625,7 +781,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:frances-tiafoe",
@@ -638,7 +799,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 12,
       "ladderPosition": null,
       "marketValue": null,
@@ -652,7 +813,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:naomi-osaka",
@@ -665,7 +831,7 @@
       "current": true,
       "countryCode": "JP",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 13,
       "ladderPosition": null,
       "marketValue": null,
@@ -679,7 +845,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:rafael-jodar",
@@ -692,7 +863,7 @@
       "current": true,
       "countryCode": "ES",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 13,
       "ladderPosition": null,
       "marketValue": null,
@@ -706,7 +877,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:iva-jovic",
@@ -719,7 +895,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 14,
       "ladderPosition": null,
       "marketValue": null,
@@ -733,7 +909,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:lorenzo-musetti",
@@ -746,7 +927,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 14,
       "ladderPosition": null,
       "marketValue": null,
@@ -760,7 +941,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:learner-tien",
@@ -773,7 +959,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 15,
       "ladderPosition": null,
       "marketValue": null,
@@ -787,7 +973,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:victoria-mboko",
@@ -800,7 +991,7 @@
       "current": true,
       "countryCode": "CA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 15,
       "ladderPosition": null,
       "marketValue": null,
@@ -814,7 +1005,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:alexander-bublik",
@@ -827,7 +1023,7 @@
       "current": true,
       "countryCode": "KZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 16,
       "ladderPosition": null,
       "marketValue": null,
@@ -841,7 +1037,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:diana-shnaider",
@@ -854,7 +1055,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 16,
       "ladderPosition": null,
       "marketValue": null,
@@ -868,7 +1069,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:brandon-nakashima",
@@ -881,7 +1087,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 17,
       "ladderPosition": null,
       "marketValue": null,
@@ -895,7 +1101,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:sorana-cirstea",
@@ -908,7 +1119,7 @@
       "current": true,
       "countryCode": "RO",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 17,
       "ladderPosition": null,
       "marketValue": null,
@@ -922,7 +1133,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:alexandra-eala",
@@ -935,7 +1151,7 @@
       "current": true,
       "countryCode": "PH",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 18,
       "ladderPosition": null,
       "marketValue": null,
@@ -949,7 +1165,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jakub-mensik",
@@ -962,7 +1183,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 18,
       "ladderPosition": null,
       "marketValue": null,
@@ -976,7 +1197,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:ekaterina-alexandrova",
@@ -989,7 +1215,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 19,
       "ladderPosition": null,
       "marketValue": null,
@@ -1003,7 +1229,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jiri-lehecka",
@@ -1016,7 +1247,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 19,
       "ladderPosition": null,
       "marketValue": null,
@@ -1030,7 +1261,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:casper-ruud",
@@ -1043,7 +1279,7 @@
       "current": true,
       "countryCode": "NO",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 20,
       "ladderPosition": null,
       "marketValue": null,
@@ -1057,7 +1293,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:jasmine-paolini",
@@ -1070,7 +1311,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 20,
       "ladderPosition": null,
       "marketValue": null,
@@ -1084,7 +1325,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:maja-chwalinska",
@@ -1097,7 +1343,7 @@
       "current": true,
       "countryCode": "PL",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 21,
       "ladderPosition": null,
       "marketValue": null,
@@ -1111,7 +1357,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:tommy-paul",
@@ -1124,7 +1375,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 21,
       "ladderPosition": null,
       "marketValue": null,
@@ -1138,7 +1389,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:anna-kalinskaya",
@@ -1151,7 +1407,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 22,
       "ladderPosition": null,
       "marketValue": null,
@@ -1165,7 +1421,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:luciano-darderi",
@@ -1178,7 +1439,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 22,
       "ladderPosition": null,
       "marketValue": null,
@@ -1192,7 +1453,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:madison-keys",
@@ -1205,7 +1471,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 23,
       "ladderPosition": null,
       "marketValue": null,
@@ -1219,7 +1485,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:valentin-vacherot",
@@ -1232,7 +1503,7 @@
       "current": true,
       "countryCode": "MC",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 23,
       "ladderPosition": null,
       "marketValue": null,
@@ -1246,7 +1517,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:andrey-rublev",
@@ -1259,7 +1535,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 24,
       "ladderPosition": null,
       "marketValue": null,
@@ -1273,7 +1549,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:elise-mertens",
@@ -1286,7 +1567,7 @@
       "current": true,
       "countryCode": "BE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 24,
       "ladderPosition": null,
       "marketValue": null,
@@ -1300,7 +1581,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:anastasia-potapova",
@@ -1313,7 +1599,7 @@
       "current": true,
       "countryCode": "AT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 25,
       "ladderPosition": null,
       "marketValue": null,
@@ -1327,7 +1613,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:francisco-cerundolo",
@@ -1340,7 +1631,7 @@
       "current": true,
       "countryCode": "AR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 25,
       "ladderPosition": null,
       "marketValue": null,
@@ -1354,7 +1645,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:joao-fonseca",
@@ -1367,7 +1663,7 @@
       "current": true,
       "countryCode": "BR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 26,
       "ladderPosition": null,
       "marketValue": null,
@@ -1381,7 +1677,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:marie-bouzkova",
@@ -1394,7 +1695,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 26,
       "ladderPosition": null,
       "marketValue": null,
@@ -1408,7 +1709,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:alejandro-davidovich-fokina",
@@ -1421,7 +1727,7 @@
       "current": true,
       "countryCode": "ES",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 27,
       "ladderPosition": null,
       "marketValue": null,
@@ -1435,7 +1741,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:emma-navarro",
@@ -1448,7 +1759,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 27,
       "ladderPosition": null,
       "marketValue": null,
@@ -1462,7 +1773,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:alejandro-tabilo",
@@ -1475,7 +1791,7 @@
       "current": true,
       "countryCode": "CL",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 28,
       "ladderPosition": null,
       "marketValue": null,
@@ -1489,7 +1805,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:barbora-krejcikova",
@@ -1502,7 +1823,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 28,
       "ladderPosition": null,
       "marketValue": null,
@@ -1516,7 +1837,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:arthur-rinderknech",
@@ -1529,7 +1855,7 @@
       "current": true,
       "countryCode": "FR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 29,
       "ladderPosition": null,
       "marketValue": null,
@@ -1543,7 +1869,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:sara-bejlek",
@@ -1556,7 +1887,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 29,
       "ladderPosition": null,
       "marketValue": null,
@@ -1570,7 +1901,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:ann-li",
@@ -1583,7 +1919,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 30,
       "ladderPosition": null,
       "marketValue": null,
@@ -1597,7 +1933,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ugo-humbert",
@@ -1610,7 +1951,7 @@
       "current": true,
       "countryCode": "FR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 30,
       "ladderPosition": null,
       "marketValue": null,
@@ -1624,7 +1965,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:jelena-ostapenko",
@@ -1637,7 +1983,7 @@
       "current": true,
       "countryCode": "LV",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 31,
       "ladderPosition": null,
       "marketValue": null,
@@ -1651,7 +1997,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:tomas-martin-etcheverry",
@@ -1664,7 +2015,7 @@
       "current": true,
       "countryCode": "AR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 31,
       "ladderPosition": null,
       "marketValue": null,
@@ -1678,7 +2029,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:alexander-blockx",
@@ -1691,7 +2047,7 @@
       "current": true,
       "countryCode": "BE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 32,
       "ladderPosition": null,
       "marketValue": null,
@@ -1705,7 +2061,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:leylah-fernandez",
@@ -1718,7 +2079,7 @@
       "current": true,
       "countryCode": "CA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 32,
       "ladderPosition": null,
       "marketValue": null,
@@ -1732,7 +2093,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:cameron-norrie",
@@ -1745,7 +2111,7 @@
       "current": true,
       "countryCode": "GB",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 33,
       "ladderPosition": null,
       "marketValue": null,
@@ -1759,7 +2125,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:maria-sakkari",
@@ -1772,7 +2143,7 @@
       "current": true,
       "countryCode": "GR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 33,
       "ladderPosition": null,
       "marketValue": null,
@@ -1786,7 +2157,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:hailey-baptiste",
@@ -1799,7 +2175,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 34,
       "ladderPosition": null,
       "marketValue": null,
@@ -1813,7 +2189,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:matteo-arnaldi",
@@ -1826,7 +2207,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 34,
       "ladderPosition": null,
       "marketValue": null,
@@ -1840,7 +2221,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:janice-tjen",
@@ -1853,7 +2239,7 @@
       "current": true,
       "countryCode": "ID",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 35,
       "ladderPosition": null,
       "marketValue": null,
@@ -1867,7 +2253,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:zizou-bergs",
@@ -1880,7 +2271,7 @@
       "current": true,
       "countryCode": "BE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 35,
       "ladderPosition": null,
       "marketValue": null,
@@ -1894,7 +2285,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:donna-vekic",
@@ -1907,7 +2303,7 @@
       "current": true,
       "countryCode": "HR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 36,
       "ladderPosition": null,
       "marketValue": null,
@@ -1921,7 +2317,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ignacio-buse",
@@ -1934,7 +2335,7 @@
       "current": true,
       "countryCode": "PE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 36,
       "ladderPosition": null,
       "marketValue": null,
@@ -1948,7 +2349,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:arthur-fery",
@@ -1961,7 +2367,7 @@
       "current": true,
       "countryCode": "GB",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 37,
       "ladderPosition": null,
       "marketValue": null,
@@ -1975,7 +2381,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:magdalena-frech",
@@ -1988,7 +2399,7 @@
       "current": true,
       "countryCode": "PL",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 37,
       "ladderPosition": null,
       "marketValue": null,
@@ -2002,7 +2413,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:nikola-bartunkova",
@@ -2015,7 +2431,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 38,
       "ladderPosition": null,
       "marketValue": null,
@@ -2029,7 +2445,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:raphael-collignon",
@@ -2042,7 +2463,7 @@
       "current": true,
       "countryCode": "BE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 38,
       "ladderPosition": null,
       "marketValue": null,
@@ -2056,7 +2477,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:daniel-merida",
@@ -2069,7 +2495,7 @@
       "current": true,
       "countryCode": "ES",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 39,
       "ladderPosition": null,
       "marketValue": null,
@@ -2083,7 +2509,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:katerina-siniakova",
@@ -2096,7 +2527,7 @@
       "current": true,
       "countryCode": "CZ",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 39,
       "ladderPosition": null,
       "marketValue": null,
@@ -2110,7 +2541,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:cristina-bucsa",
@@ -2123,7 +2559,7 @@
       "current": true,
       "countryCode": "ES",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 40,
       "ladderPosition": null,
       "marketValue": null,
@@ -2137,7 +2573,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:luca-van-assche",
@@ -2150,7 +2591,7 @@
       "current": true,
       "countryCode": "FR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 40,
       "ladderPosition": null,
       "marketValue": null,
@@ -2164,7 +2605,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:nuno-borges",
@@ -2177,7 +2623,7 @@
       "current": true,
       "countryCode": "PT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 41,
       "ladderPosition": null,
       "marketValue": null,
@@ -2191,7 +2637,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:xinyu-wang",
@@ -2204,7 +2655,7 @@
       "current": true,
       "countryCode": "CN",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 41,
       "ladderPosition": null,
       "marketValue": null,
@@ -2218,7 +2669,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:clara-tauson",
@@ -2231,7 +2687,7 @@
       "current": true,
       "countryCode": "DK",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 42,
       "ladderPosition": null,
       "marketValue": null,
@@ -2245,7 +2701,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:thiago-agustin-tirante",
@@ -2258,7 +2719,7 @@
       "current": true,
       "countryCode": "AR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 42,
       "ladderPosition": null,
       "marketValue": null,
@@ -2272,7 +2733,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:jaqueline-cristian",
@@ -2285,7 +2751,7 @@
       "current": true,
       "countryCode": "RO",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 43,
       "ladderPosition": null,
       "marketValue": null,
@@ -2299,7 +2765,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:matteo-berrettini",
@@ -2312,7 +2783,7 @@
       "current": true,
       "countryCode": "IT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 43,
       "ladderPosition": null,
       "marketValue": null,
@@ -2326,7 +2797,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:daria-snigur",
@@ -2339,7 +2815,7 @@
       "current": true,
       "countryCode": "UA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 44,
       "ladderPosition": null,
       "marketValue": null,
@@ -2353,7 +2829,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jan-lennard-struff",
@@ -2366,7 +2847,7 @@
       "current": true,
       "countryCode": "DE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 44,
       "ladderPosition": null,
       "marketValue": null,
@@ -2380,7 +2861,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:alex-michelsen",
@@ -2393,7 +2879,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 45,
       "ladderPosition": null,
       "marketValue": null,
@@ -2407,7 +2893,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:liudmila-samsonova",
@@ -2420,7 +2911,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 45,
       "ladderPosition": null,
       "marketValue": null,
@@ -2434,7 +2925,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:hubert-hurkacz",
@@ -2447,7 +2943,7 @@
       "current": true,
       "countryCode": "PL",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 46,
       "ladderPosition": null,
       "marketValue": null,
@@ -2461,7 +2957,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:oleksandra-oliynykova",
@@ -2474,7 +2975,7 @@
       "current": true,
       "countryCode": "UA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 46,
       "ladderPosition": null,
       "marketValue": null,
@@ -2488,7 +2989,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:denis-shapovalov",
@@ -2501,7 +3007,7 @@
       "current": true,
       "countryCode": "CA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 47,
       "ladderPosition": null,
       "marketValue": null,
@@ -2515,7 +3021,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:tamara-korpatsch",
@@ -2528,7 +3039,7 @@
       "current": true,
       "countryCode": "DE",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 47,
       "ladderPosition": null,
       "marketValue": null,
@@ -2542,7 +3053,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:lilli-tagger",
@@ -2555,7 +3071,7 @@
       "current": true,
       "countryCode": "AT",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 48,
       "ladderPosition": null,
       "marketValue": null,
@@ -2569,7 +3085,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:mariano-navone",
@@ -2582,7 +3103,7 @@
       "current": true,
       "countryCode": "AR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 48,
       "ladderPosition": null,
       "marketValue": null,
@@ -2596,7 +3117,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:anhelina-kalinina",
@@ -2609,7 +3135,7 @@
       "current": true,
       "countryCode": "UA",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 49,
       "ladderPosition": null,
       "marketValue": null,
@@ -2623,7 +3149,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:karen-khachanov",
@@ -2636,7 +3167,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 49,
       "ladderPosition": null,
       "marketValue": null,
@@ -2650,7 +3181,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:diane-parry",
@@ -2663,7 +3199,7 @@
       "current": true,
       "countryCode": "FR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 50,
       "ladderPosition": null,
       "marketValue": null,
@@ -2677,7 +3213,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:sebastian-baez",
@@ -2690,7 +3231,7 @@
       "current": true,
       "countryCode": "AR",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 50,
       "ladderPosition": null,
       "marketValue": null,
@@ -2704,7 +3245,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:daria-kasatkina",
@@ -2717,7 +3263,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 59,
       "ladderPosition": null,
       "marketValue": null,
@@ -2731,10 +3277,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:wta:talia-gibson",
+      "id": "athlete:tennis:talia-gibson",
       "displayName": "Talia Gibson",
       "shortName": "Gibson",
       "aliases": [
@@ -2743,10 +3294,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 61,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2758,10 +3309,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:wta:kimberly-birrell",
+      "id": "athlete:tennis:kimberly-birrell",
       "displayName": "Kimberly Birrell",
       "shortName": "Birrell",
       "aliases": [
@@ -2770,10 +3330,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 69,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2785,10 +3345,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "wildcard-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:wta:maya-joint",
+      "id": "athlete:tennis:maya-joint",
       "displayName": "Maya Joint",
       "shortName": "Joint",
       "aliases": [
@@ -2797,10 +3366,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 75,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2812,10 +3381,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:james-duckworth",
+      "id": "athlete:tennis:james-duckworth",
       "displayName": "James Duckworth",
       "shortName": "Duckworth",
       "aliases": [
@@ -2824,10 +3402,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 79,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2839,10 +3417,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/james-duckworth"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:rinky-hijikata",
+      "id": "athlete:tennis:rinky-hijikata",
       "displayName": "Rinky Hijikata",
       "shortName": "Hijikata",
       "aliases": [
@@ -2851,10 +3438,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 85,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2866,10 +3453,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/rinky-hijikata"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:adam-walton",
+      "id": "athlete:tennis:adam-walton",
       "displayName": "Adam Walton",
       "shortName": "Walton",
       "aliases": [
@@ -2878,10 +3474,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 93,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2893,10 +3489,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:aleksandar-vukic",
+      "id": "athlete:tennis:aleksandar-vukic",
       "displayName": "Aleksandar Vukic",
       "shortName": "Vukic",
       "aliases": [
@@ -2905,10 +3510,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 95,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2920,7 +3525,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/aleksandar-vukic"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:taylah-preston",
@@ -2933,7 +3547,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 100,
       "ladderPosition": null,
       "marketValue": null,
@@ -2947,10 +3561,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:wta:ajla-tomljanovic",
+      "id": "athlete:tennis:ajla-tomljanovic",
       "displayName": "Ajla Tomljanovic",
       "shortName": "Tomljanovic",
       "aliases": [
@@ -2959,10 +3578,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 103,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -2974,11 +3593,21 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/ajla-tomljanovic"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:christopher-o-connell",
-      "displayName": "Christopher O'connell",
+      "id": "athlete:tennis:christopher-oconnell",
+      "displayName": "Christopher O'Connell",
       "shortName": "O'connell",
       "aliases": [
         "O'connell"
@@ -2986,10 +3615,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 105,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3001,7 +3630,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/christopher-oconnell"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:dane-sweeny",
@@ -3014,7 +3652,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 122,
       "ladderPosition": null,
       "marketValue": null,
@@ -3028,10 +3666,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:wta:emerson-jones",
+      "id": "athlete:tennis:emerson-jones",
       "displayName": "Emerson Jones",
       "shortName": "Jones",
       "aliases": [
@@ -3040,10 +3683,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 126,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3055,10 +3698,19 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:alexei-popyrin",
+      "id": "athlete:tennis:alexei-popyrin",
       "displayName": "Alexei Popyrin",
       "shortName": "Popyrin",
       "aliases": [
@@ -3067,10 +3719,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 130,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3082,7 +3734,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/alexei-popyrin"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:maddison-inglis",
@@ -3095,7 +3756,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 134,
       "ladderPosition": null,
       "marketValue": null,
@@ -3109,10 +3770,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:wta:priscilla-hon",
+      "id": "athlete:tennis:priscilla-hon",
       "displayName": "Priscilla Hon",
       "shortName": "Hon",
       "aliases": [
@@ -3121,10 +3787,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 156,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3136,7 +3802,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "wildcard-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:alex-bolt",
@@ -3149,7 +3824,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 164,
       "ladderPosition": null,
       "marketValue": null,
@@ -3163,10 +3838,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:wta:storm-hunter",
+      "id": "athlete:tennis:storm-hunter",
       "displayName": "Storm Hunter",
       "shortName": "Hunter",
       "aliases": [
@@ -3175,10 +3855,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 169,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3190,10 +3870,20 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/storm-hunter"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
-      "id": "competitor:tennis:atp:bernard-tomic",
+      "id": "athlete:tennis:bernard-tomic",
       "displayName": "Bernard Tomic",
       "shortName": "Tomic",
       "aliases": [
@@ -3202,10 +3892,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 179,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3217,7 +3907,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/bernard-tomic"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:tristan-schoolkate",
@@ -3230,7 +3930,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 180,
       "ladderPosition": null,
       "marketValue": null,
@@ -3244,7 +3944,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:james-mccabe",
@@ -3257,7 +3962,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 242,
       "ladderPosition": null,
       "marketValue": null,
@@ -3271,10 +3976,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:wta:olivia-gadecki",
+      "id": "athlete:tennis:olivia-gadecki",
       "displayName": "Olivia Gadecki",
       "shortName": "Gadecki",
       "aliases": [
@@ -3283,10 +3993,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
       "ranking": 258,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3298,7 +4008,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/olivia-gadecki"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:elena-micic",
@@ -3311,7 +4030,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 273,
       "ladderPosition": null,
       "marketValue": null,
@@ -3325,7 +4044,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:lizette-cabrera",
@@ -3338,7 +4062,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 294,
       "ladderPosition": null,
       "marketValue": null,
@@ -3352,7 +4076,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:matthew-dellavedova",
@@ -3365,7 +4094,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 299,
       "ladderPosition": null,
       "marketValue": null,
@@ -3379,10 +4108,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:jordan-thompson",
+      "id": "athlete:tennis:jordan-thompson",
       "displayName": "Jordan Thompson",
       "shortName": "Thompson",
       "aliases": [
@@ -3391,10 +4125,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 333,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3406,7 +4140,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/jordan-thompson"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:edward-winter",
@@ -3419,7 +4162,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 342,
       "ladderPosition": null,
       "marketValue": null,
@@ -3433,7 +4176,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:philip-sekulic",
@@ -3446,7 +4194,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 350,
       "ladderPosition": null,
       "marketValue": null,
@@ -3460,7 +4208,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jake-delaney",
@@ -3473,7 +4226,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 358,
       "ladderPosition": null,
       "marketValue": null,
@@ -3487,7 +4240,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:marc-polmans",
@@ -3500,7 +4258,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 366,
       "ladderPosition": null,
       "marketValue": null,
@@ -3514,10 +4272,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:cruz-hewitt",
+      "id": "athlete:tennis:cruz-hewitt",
       "displayName": "Cruz Hewitt",
       "shortName": "Hewitt",
       "aliases": [
@@ -3526,10 +4289,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 368,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3541,7 +4304,16 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "emerging",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:omar-jasika",
@@ -3554,7 +4326,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 402,
       "ladderPosition": null,
       "marketValue": null,
@@ -3568,10 +4340,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:thanasi-kokkinakis",
+      "id": "athlete:tennis:thanasi-kokkinakis",
       "displayName": "Thanasi Kokkinakis",
       "shortName": "Kokkinakis",
       "aliases": [
@@ -3580,10 +4357,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 412,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3595,7 +4372,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/thanasi-kokkinakis"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:tina-smith",
@@ -3608,7 +4395,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 419,
       "ladderPosition": null,
       "marketValue": null,
@@ -3622,7 +4409,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:alana-subasic",
@@ -3635,7 +4427,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 441,
       "ladderPosition": null,
       "marketValue": null,
@@ -3649,7 +4441,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:moerani-bouzige",
@@ -3662,7 +4459,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 454,
       "ladderPosition": null,
       "marketValue": null,
@@ -3676,7 +4473,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:arina-rodionova",
@@ -3689,7 +4491,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 460,
       "ladderPosition": null,
       "marketValue": null,
@@ -3703,22 +4505,27 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:jason-kubler",
+      "id": "athlete:tennis:jason-kubler",
       "displayName": "Jason Kubler",
       "shortName": "Kubler",
       "aliases": [
         "Kubler"
       ],
       "entityType": "athlete",
-      "current": true,
+      "current": false,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 469,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -3730,7 +4537,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/jason-kubler"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:blake-ellis",
@@ -3743,7 +4560,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 470,
       "ladderPosition": null,
       "marketValue": null,
@@ -3757,7 +4574,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:enzo-aguiard",
@@ -3770,7 +4592,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 508,
       "ladderPosition": null,
       "marketValue": null,
@@ -3784,7 +4606,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:tai-sach",
@@ -3797,7 +4624,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 518,
       "ladderPosition": null,
       "marketValue": null,
@@ -3811,7 +4638,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:li-tu",
@@ -3824,7 +4656,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 529,
       "ladderPosition": null,
       "marketValue": null,
@@ -3838,7 +4670,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:tahlia-kokkinis",
@@ -3851,7 +4688,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 539,
       "ladderPosition": null,
       "marketValue": null,
@@ -3865,7 +4702,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:pavle-marinkov",
@@ -3878,7 +4720,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 541,
       "ladderPosition": null,
       "marketValue": null,
@@ -3892,7 +4734,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jacob-bradshaw",
@@ -3905,7 +4752,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 587,
       "ladderPosition": null,
       "marketValue": null,
@@ -3919,7 +4766,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:sarah-rokusek",
@@ -3932,7 +4784,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 596,
       "ladderPosition": null,
       "marketValue": null,
@@ -3946,7 +4798,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:melisa-ercan",
@@ -3959,7 +4816,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 636,
       "ladderPosition": null,
       "marketValue": null,
@@ -3973,7 +4830,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:chase-ferguson",
@@ -3986,7 +4848,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 640,
       "ladderPosition": null,
       "marketValue": null,
@@ -4000,7 +4862,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:belle-thompson",
@@ -4013,7 +4880,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 668,
       "ladderPosition": null,
       "marketValue": null,
@@ -4027,7 +4894,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:gabriella-da-silva-fick",
@@ -4040,7 +4912,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 696,
       "ladderPosition": null,
       "marketValue": null,
@@ -4054,7 +4926,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:stefani-webb",
@@ -4067,7 +4944,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 732,
       "ladderPosition": null,
       "marketValue": null,
@@ -4081,7 +4958,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:joshua-charlton",
@@ -4094,7 +4976,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 746,
       "ladderPosition": null,
       "marketValue": null,
@@ -4108,7 +4990,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:matt-hulme",
@@ -4121,7 +5008,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 751,
       "ladderPosition": null,
       "marketValue": null,
@@ -4135,7 +5022,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:thomas-fancutt",
@@ -4148,7 +5040,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 790,
       "ladderPosition": null,
       "marketValue": null,
@@ -4162,7 +5054,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:scott-jones",
@@ -4175,7 +5072,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 792,
       "ladderPosition": null,
       "marketValue": null,
@@ -4189,7 +5086,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:laquisa-khan",
@@ -4202,7 +5104,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 808,
       "ladderPosition": null,
       "marketValue": null,
@@ -4216,7 +5118,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:sam-ryan-ziegann",
@@ -4229,7 +5136,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 812,
       "ladderPosition": null,
       "marketValue": null,
@@ -4243,7 +5150,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:amy-stevens",
@@ -4256,7 +5168,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 869,
       "ladderPosition": null,
       "marketValue": null,
@@ -4270,7 +5182,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:jizelle-sibai",
@@ -4283,7 +5200,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 902,
       "ladderPosition": null,
       "marketValue": null,
@@ -4297,10 +5214,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:nick-kyrgios",
+      "id": "athlete:tennis:nick-kyrgios",
       "displayName": "Nick Kyrgios",
       "shortName": "Kyrgios",
       "aliases": [
@@ -4309,10 +5231,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 911,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -4324,7 +5246,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/nick-kyrgios"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:astra-sharma",
@@ -4337,7 +5269,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 915,
       "ladderPosition": null,
       "marketValue": null,
@@ -4351,7 +5283,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:ashleigh-simes",
@@ -4364,7 +5301,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 944,
       "ladderPosition": null,
       "marketValue": null,
@@ -4378,10 +5315,15 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
-      "id": "competitor:tennis:atp:max-purcell",
+      "id": "athlete:tennis:max-purcell",
       "displayName": "Max Purcell",
       "shortName": "Purcell",
       "aliases": [
@@ -4390,10 +5332,10 @@
       "entityType": "athlete",
       "current": true,
       "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
       "ranking": 945,
-      "ladderPosition": null,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
@@ -4405,7 +5347,17 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/max-purcell"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:benjamin-o-connell",
@@ -4418,7 +5370,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 976,
       "ladderPosition": null,
       "marketValue": null,
@@ -4432,7 +5384,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:duje-markovina",
@@ -4445,7 +5402,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1005,
       "ladderPosition": null,
       "marketValue": null,
@@ -4459,7 +5416,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:cara-korhonen",
@@ -4472,7 +5434,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1049,
       "ladderPosition": null,
       "marketValue": null,
@@ -4486,7 +5448,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:stefan-vujic",
@@ -4499,7 +5466,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1052,
       "ladderPosition": null,
       "marketValue": null,
@@ -4513,7 +5480,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:alicia-smith",
@@ -4526,7 +5498,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1063,
       "ladderPosition": null,
       "marketValue": null,
@@ -4540,7 +5512,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:lachlan-james-mcfadzean",
@@ -4553,7 +5530,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1108,
       "ladderPosition": null,
       "marketValue": null,
@@ -4567,7 +5544,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:kody-pearson",
@@ -4580,7 +5562,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1118,
       "ladderPosition": null,
       "marketValue": null,
@@ -4594,7 +5576,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:eva-lopez",
@@ -4607,7 +5594,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1120,
       "ladderPosition": null,
       "marketValue": null,
@@ -4621,7 +5608,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:alexandra-osborne",
@@ -4634,7 +5626,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1131,
       "ladderPosition": null,
       "marketValue": null,
@@ -4648,7 +5640,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:ava-beck",
@@ -4661,7 +5658,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1135,
       "ladderPosition": null,
       "marketValue": null,
@@ -4675,7 +5672,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:ava-monet-sycamore",
@@ -4688,7 +5690,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1140,
       "ladderPosition": null,
       "marketValue": null,
@@ -4702,7 +5704,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:mustafa-ege-sik",
@@ -4715,7 +5722,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1145,
       "ladderPosition": null,
       "marketValue": null,
@@ -4729,7 +5736,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:chen-dong",
@@ -4742,7 +5754,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1157,
       "ladderPosition": null,
       "marketValue": null,
@@ -4756,7 +5768,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:tori-russell",
@@ -4769,7 +5786,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1164,
       "ladderPosition": null,
       "marketValue": null,
@@ -4783,7 +5800,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:renee-alame",
@@ -4796,7 +5818,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1188,
       "ladderPosition": null,
       "marketValue": null,
@@ -4810,7 +5832,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:sarah-mildren",
@@ -4823,7 +5850,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1227,
       "ladderPosition": null,
       "marketValue": null,
@@ -4837,7 +5864,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jesse-delaney",
@@ -4850,7 +5882,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1236,
       "ladderPosition": null,
       "marketValue": null,
@@ -4864,7 +5896,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:naomi-mckenzie",
@@ -4877,7 +5914,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1276,
       "ladderPosition": null,
       "marketValue": null,
@@ -4891,7 +5928,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:zack-viiala",
@@ -4904,7 +5946,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1278,
       "ladderPosition": null,
       "marketValue": null,
@@ -4918,7 +5960,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:rianna-alame",
@@ -4931,7 +5978,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1292,
       "ladderPosition": null,
       "marketValue": null,
@@ -4945,7 +5992,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:oliver-anderson",
@@ -4958,7 +6010,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1299,
       "ladderPosition": null,
       "marketValue": null,
@@ -4972,7 +6024,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ethan-cook",
@@ -4985,7 +6042,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1301,
       "ladderPosition": null,
       "marketValue": null,
@@ -4999,7 +6056,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ashton-mcleod",
@@ -5012,7 +6074,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1311,
       "ladderPosition": null,
       "marketValue": null,
@@ -5026,7 +6088,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:lily-taylor",
@@ -5039,7 +6106,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1329,
       "ladderPosition": null,
       "marketValue": null,
@@ -5053,7 +6120,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jeremy-zhang",
@@ -5066,7 +6138,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1334,
       "ladderPosition": null,
       "marketValue": null,
@@ -5080,7 +6152,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:elizabeth-ivanov",
@@ -5093,7 +6170,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1337,
       "ladderPosition": null,
       "marketValue": null,
@@ -5107,7 +6184,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:tenika-mcgiffin",
@@ -5120,7 +6202,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1343,
       "ladderPosition": null,
       "marketValue": null,
@@ -5134,7 +6216,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:audrey-aulia",
@@ -5147,7 +6234,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1348,
       "ladderPosition": null,
       "marketValue": null,
@@ -5161,7 +6248,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ymerali-ibraimi",
@@ -5174,7 +6266,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1349,
       "ladderPosition": null,
       "marketValue": null,
@@ -5188,7 +6280,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:ty-host",
@@ -5201,7 +6298,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1375,
       "ladderPosition": null,
       "marketValue": null,
@@ -5215,7 +6312,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:daniel-jovanovski",
@@ -5228,7 +6330,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1404,
       "ladderPosition": null,
       "marketValue": null,
@@ -5242,7 +6344,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:angela-cui",
@@ -5255,7 +6362,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1416,
       "ladderPosition": null,
       "marketValue": null,
@@ -5269,7 +6376,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:arjun-mehrotra",
@@ -5282,7 +6394,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1431,
       "ladderPosition": null,
       "marketValue": null,
@@ -5296,7 +6408,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:hayden-jones",
@@ -5309,7 +6426,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1458,
       "ladderPosition": null,
       "marketValue": null,
@@ -5323,7 +6440,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jake-dembo",
@@ -5336,7 +6458,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1467,
       "ladderPosition": null,
       "marketValue": null,
@@ -5350,7 +6472,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:gurmanat-kaur-sandhu",
@@ -5363,7 +6490,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1480,
       "ladderPosition": null,
       "marketValue": null,
@@ -5377,7 +6504,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:adrian-arcon",
@@ -5390,7 +6522,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1486,
       "ladderPosition": null,
       "marketValue": null,
@@ -5404,7 +6536,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:stefan-storch",
@@ -5417,7 +6554,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1490,
       "ladderPosition": null,
       "marketValue": null,
@@ -5431,7 +6568,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jeremy-beale",
@@ -5444,7 +6586,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1504,
       "ladderPosition": null,
       "marketValue": null,
@@ -5458,7 +6600,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:caitlin-baker",
@@ -5471,7 +6618,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1517,
       "ladderPosition": null,
       "marketValue": null,
@@ -5485,7 +6632,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:larisa-arnautovic",
@@ -5498,7 +6650,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1517,
       "ladderPosition": null,
       "marketValue": null,
@@ -5512,7 +6664,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:wta:petra-hule",
@@ -5525,7 +6682,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": 1517,
       "ladderPosition": null,
       "marketValue": null,
@@ -5539,7 +6696,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:zane-stevens",
@@ -5552,7 +6714,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1542,
       "ladderPosition": null,
       "marketValue": null,
@@ -5566,7 +6728,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:harrison-satara",
@@ -5579,7 +6746,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1611,
       "ladderPosition": null,
       "marketValue": null,
@@ -5593,7 +6760,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:noah-brownrigg",
@@ -5606,7 +6778,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1649,
       "ladderPosition": null,
       "marketValue": null,
@@ -5620,7 +6792,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:jack-bruce-smith",
@@ -5633,7 +6810,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1701,
       "ladderPosition": null,
       "marketValue": null,
@@ -5647,7 +6824,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:lawrence-bataljin",
@@ -5660,7 +6842,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1708,
       "ladderPosition": null,
       "marketValue": null,
@@ -5674,7 +6856,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:charlie-pade",
@@ -5687,7 +6874,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1774,
       "ladderPosition": null,
       "marketValue": null,
@@ -5701,7 +6888,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:derek-pham",
@@ -5714,7 +6906,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1799,
       "ladderPosition": null,
       "marketValue": null,
@@ -5728,7 +6920,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:taiki-takizawa",
@@ -5741,7 +6938,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1820,
       "ladderPosition": null,
       "marketValue": null,
@@ -5755,7 +6952,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:nikita-volonski",
@@ -5768,7 +6970,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 1991,
       "ladderPosition": null,
       "marketValue": null,
@@ -5782,7 +6984,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:lachlan-vickery",
@@ -5795,7 +7002,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 2080,
       "ladderPosition": null,
       "marketValue": null,
@@ -5809,7 +7016,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:zac-hamill",
@@ -5822,7 +7034,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 2080,
       "ladderPosition": null,
       "marketValue": null,
@@ -5836,7 +7048,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:thomas-nicholas-gadecki",
@@ -5849,7 +7066,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 2153,
       "ladderPosition": null,
       "marketValue": null,
@@ -5863,7 +7080,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:zaharije-zak-talic",
@@ -5876,7 +7098,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 2153,
       "ladderPosition": null,
       "marketValue": null,
@@ -5890,7 +7112,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:tennis:atp:zachary-adam-gedge",
@@ -5903,7 +7130,7 @@
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": 2260,
       "ladderPosition": null,
       "marketValue": null,
@@ -5917,7 +7144,187 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:tennis:alicia-molik",
+      "displayName": "Alicia Molik",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:alicia-molik",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:andre-agassi",
+      "displayName": "Andre Agassi",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:andre-agassi",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:andy-murray",
+      "displayName": "Andy Murray",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "GB",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:andy-murray",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.atptour.com/en/players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:andy-roddick",
+      "displayName": "Andy Roddick",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:andy-roddick",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:ash-barty",
+      "displayName": "Ash Barty",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:ash-barty",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/ash-barty"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:wta:ashlyn-krueger",
@@ -5930,7 +7337,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "female",
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
@@ -5944,7 +7351,218 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:tennis:billie-jean-king",
+      "displayName": "Billie Jean King",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:billie-jean-king",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:bjorn-borg",
+      "displayName": "Bjorn Borg",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "SE",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:bjorn-borg",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:chris-evert",
+      "displayName": "Chris Evert",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:chris-evert",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:daria-saville",
+      "displayName": "Daria Saville",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:daria-saville",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/daria-saville"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:destanee-aiava",
+      "displayName": "Destanee Aiava",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:destanee-aiava",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/news-and-events/pro-tournaments/australian-players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "wildcard-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-wildcards-emerging"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:evonne-goolagong-cawley",
+      "displayName": "Evonne Goolagong Cawley",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:evonne-goolagong-cawley",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:grigor-dimitrov",
@@ -5957,7 +7575,7 @@
       "current": true,
       "countryCode": "BG",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
@@ -5971,7 +7589,430 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:tennis:jelena-dokic",
+      "displayName": "Jelena Dokic",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:jelena-dokic",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:john-mcenroe",
+      "displayName": "John McEnroe",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:john-mcenroe",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:john-millman",
+      "displayName": "John Millman",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:john-millman",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/john-millman"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:lleyton-hewitt",
+      "displayName": "Lleyton Hewitt",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:lleyton-hewitt",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/lleyton-hewitt"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:margaret-court",
+      "displayName": "Margaret Court",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:margaret-court",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:mark-philippoussis",
+      "displayName": "Mark Philippoussis",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:mark-philippoussis",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:martina-navratilova",
+      "displayName": "Martina Navratilova",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:martina-navratilova",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:pat-rafter",
+      "displayName": "Pat Rafter",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:pat-rafter",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/pat-rafter"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:pete-sampras",
+      "displayName": "Pete Sampras",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:pete-sampras",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:rafael-nadal",
+      "displayName": "Rafael Nadal",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "ES",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:rafael-nadal",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.atptour.com/en/players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:rod-laver",
+      "displayName": "Rod Laver",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:rod-laver",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/rod-laver"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:aussie-heroes"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:roger-federer",
+      "displayName": "Roger Federer",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "CH",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:roger-federer",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:roman-safiullin",
@@ -5984,7 +8025,7 @@
       "current": true,
       "countryCode": "RU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
@@ -5998,7 +8039,82 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:tennis:samantha-stosur",
+      "displayName": "Samantha Stosur",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "AU",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:samantha-stosur",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennis.com.au/player-profiles/samantha-stosur"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:serena-williams",
+      "displayName": "Serena Williams",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:serena-williams",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/serena_williams_returns_to_write_a_new_us_open_chapter_in_2026.html"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "retired-exhibition",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:shintaro-mochizuki",
@@ -6011,7 +8127,7 @@
       "current": true,
       "countryCode": "JP",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
@@ -6025,7 +8141,81 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:tennis:steffi-graf",
+      "displayName": "Steffi Graf",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "DE",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:steffi-graf",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tennisfame.com/hall-of-famers"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "achievement-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
+    },
+    {
+      "id": "athlete:tennis:venus-williams",
+      "displayName": "Venus Williams",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": false,
+      "countryCode": "US",
+      "countryBasis": "official-player-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:venus-williams",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.wtatennis.com/players"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "return-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:return-exhibition-watch"
+      ],
+      "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "competitor:tennis:atp:zachary-svajda",
@@ -6038,7 +8228,7 @@
       "current": true,
       "countryCode": "US",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
+      "genderCategory": "male",
       "ranking": null,
       "ladderPosition": null,
       "marketValue": null,
@@ -6052,7 +8242,141 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    }
+  ],
+  "collections": [
+    {
+      "id": "collection:tennis:all-time-greats",
+      "parentId": "sport:tennis",
+      "label": "All-time greats",
+      "sortOrder": 10,
+      "memberIds": [
+        "athlete:tennis:roger-federer",
+        "athlete:tennis:serena-williams",
+        "athlete:tennis:venus-williams",
+        "athlete:tennis:rafael-nadal",
+        "athlete:tennis:andy-murray",
+        "athlete:tennis:ash-barty",
+        "athlete:tennis:lleyton-hewitt",
+        "athlete:tennis:andre-agassi",
+        "athlete:tennis:andy-roddick",
+        "athlete:tennis:john-mcenroe",
+        "athlete:tennis:novak-djokovic",
+        "athlete:tennis:steffi-graf",
+        "athlete:tennis:martina-navratilova",
+        "athlete:tennis:billie-jean-king",
+        "athlete:tennis:chris-evert",
+        "athlete:tennis:pete-sampras",
+        "athlete:tennis:bjorn-borg",
+        "athlete:tennis:rod-laver",
+        "athlete:tennis:evonne-goolagong-cawley",
+        "athlete:tennis:pat-rafter",
+        "athlete:tennis:margaret-court"
+      ],
+      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:aussie-heroes",
+      "parentId": "sport:tennis",
+      "label": "Aussie heroes",
+      "sortOrder": 20,
+      "memberIds": [
+        "athlete:tennis:ash-barty",
+        "athlete:tennis:lleyton-hewitt",
+        "athlete:tennis:rod-laver",
+        "athlete:tennis:evonne-goolagong-cawley",
+        "athlete:tennis:pat-rafter",
+        "athlete:tennis:nick-kyrgios",
+        "athlete:tennis:alex-de-minaur",
+        "athlete:tennis:thanasi-kokkinakis",
+        "athlete:tennis:bernard-tomic"
+      ],
+      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:aussie-wildcards-emerging",
+      "parentId": "sport:tennis",
+      "label": "Aussie wildcards & emerging",
+      "sortOrder": 30,
+      "memberIds": [
+        "athlete:tennis:cruz-hewitt",
+        "athlete:tennis:rinky-hijikata",
+        "athlete:tennis:olivia-gadecki",
+        "athlete:tennis:maya-joint",
+        "athlete:tennis:emerson-jones",
+        "athlete:tennis:talia-gibson",
+        "athlete:tennis:destanee-aiava",
+        "athlete:tennis:adam-walton",
+        "athlete:tennis:kimberly-birrell",
+        "athlete:tennis:priscilla-hon"
+      ],
+      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:return-exhibition-watch",
+      "parentId": "sport:tennis",
+      "label": "Return & exhibition watch",
+      "sortOrder": 40,
+      "memberIds": [
+        "athlete:tennis:roger-federer",
+        "athlete:tennis:serena-williams",
+        "athlete:tennis:venus-williams",
+        "athlete:tennis:rafael-nadal",
+        "athlete:tennis:andy-murray",
+        "athlete:tennis:ash-barty",
+        "athlete:tennis:lleyton-hewitt",
+        "athlete:tennis:andre-agassi",
+        "athlete:tennis:andy-roddick",
+        "athlete:tennis:john-mcenroe",
+        "athlete:tennis:nick-kyrgios",
+        "athlete:tennis:thanasi-kokkinakis",
+        "athlete:tennis:bernard-tomic"
+      ],
+      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:mens-top-10",
+      "parentId": "sport:tennis",
+      "label": "Men's current top 10",
+      "sortOrder": 50,
+      "memberIds": [
+        "competitor:tennis:atp:jannik-sinner",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:felix-auger-aliassime",
+        "athlete:tennis:novak-djokovic",
+        "competitor:tennis:atp:flavio-cobolli",
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:ben-shelton",
+        "competitor:tennis:atp:taylor-fritz"
+      ],
+      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:womens-top-10",
+      "parentId": "sport:tennis",
+      "label": "Women's current top 10",
+      "sortOrder": 60,
+      "memberIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:elena-rybakina",
+        "competitor:tennis:wta:jessica-pegula",
+        "competitor:tennis:wta:coco-gauff",
+        "competitor:tennis:wta:mirra-andreeva",
+        "competitor:tennis:wta:linda-noskova",
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:iga-swiatek",
+        "competitor:tennis:wta:elina-svitolina",
+        "competitor:tennis:wta:amanda-anisimova"
+      ],
+      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
     }
   ]
 }

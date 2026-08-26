@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="147">
+  <meta name="app-shell-version" content="155">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
@@ -5755,6 +5755,20 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .major-event-schedule.is-preview{ padding-top:12px; }
 .major-event-schedule h4,.major-event-table-preview h4{ margin:0 0 9px; font-size:.78rem; }
 .major-event-lineup{ color:var(--text); font-weight:750; overflow-wrap:anywhere; }
+.events-now-marker{ position:relative; display:flex; align-items:center; gap:8px; min-height:22px; margin:4px 0; color:var(--text-dim); font:900 .67rem/1 'DM Sans',sans-serif; letter-spacing:.13em; text-transform:uppercase; scroll-margin-top:calc(var(--sticky-top-bar-height,130px) + 12px); }
+.events-now-marker::before,.events-now-marker::after{ content:""; flex:1; height:1px; background:var(--border); }
+.events-now-marker.is-active{ color:var(--accent); }
+.events-now-marker.is-active::before,.events-now-marker.is-active::after{ background:color-mix(in srgb,var(--accent) 62%,var(--border)); }
+.major-event-matchup-sides{ display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:7px; margin-top:7px; color:var(--text); }
+.major-event-matchup-side{ display:flex; min-width:0; flex-direction:column; gap:4px; }
+.major-event-matchup-side:last-child{ text-align:right; }
+.major-event-matchup-player{ display:inline-flex; min-width:0; align-items:center; gap:5px; font:750 .72rem/1.22 'DM Sans',sans-serif; }
+.major-event-matchup-side:last-child .major-event-matchup-player{ justify-content:flex-end; }
+.major-event-matchup-player .country-flag,.major-event-matchup-player img{ flex:0 0 auto; width:18px; height:12px; object-fit:cover; border-radius:2px; }
+.major-event-matchup-v{ align-self:center; color:var(--text-dim); font:900 .7rem/1 'DM Sans',sans-serif; }
+.major-event-match.is-completed,.major-event-match.is-awaiting-result{ opacity:.84; }
+.major-event-older-history{ min-height:34px; padding:6px 12px; border:1px solid var(--border); border-radius:999px; background:var(--soft-fill); color:var(--text); font:800 .7rem/1.2 'DM Sans',sans-serif; }
+.major-event-family-follow.active{ border-color:var(--accent); color:var(--accent); }
 .major-event-immediate-tbc{ margin:0; padding:14px 16px 18px; border-top:1px solid var(--border); color:var(--text-dim); font-size:.76rem; }
 .major-event-table-preview{ min-width:0; padding:14px 16px 18px; border-top:1px solid var(--border); }
 .major-event-table-module + .major-event-table-module{ margin-top:12px; }
@@ -5773,6 +5787,20 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .follow-section-panel > h3{ margin:0 0 5px; }
 .follow-sport-card{ flex-wrap:wrap; }
 .follow-sport-card .btn{ flex:1 1 180px; min-height:44px; white-space:normal; }
+.follow-sport-expand{ flex:0 1 auto; min-height:44px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--soft-fill); color:var(--text); font:800 .7rem/1.2 'DM Sans',sans-serif; }
+.tennis-follow-collections{ flex:1 0 100%; display:grid; gap:7px; padding-top:8px; border-top:1px solid var(--border); color:var(--text-dim); font-size:.72rem; }
+.tennis-collection-toggle{ display:flex; width:100%; min-width:0; min-height:44px; align-items:center; justify-content:space-between; gap:10px; padding:8px 10px; border:1px solid var(--border); border-radius:12px; background:var(--panel); color:var(--text); text-align:left; }
+.tennis-collection-toggle span{ display:grid; min-width:0; gap:2px; }
+.tennis-collection-toggle small{ color:var(--text-dim); font-size:.65rem; line-height:1.25; }
+.tennis-collection-toggle b{ flex:0 0 auto; color:var(--text-dim); }
+.tennis-collection-toggle.active{ border-color:var(--c-tennis); background:color-mix(in srgb,var(--c-tennis) 12%,var(--panel)); }
+.tennis-collection-toggle.active b{ color:var(--c-tennis); }
+.follow-collection-chips{ display:flex!important; flex-wrap:wrap; gap:4px; margin-top:5px!important; }
+.follow-collection-chips > span{ display:inline-flex!important; align-items:center; min-height:20px; margin:0!important; padding:3px 7px; border:1px solid color-mix(in srgb,var(--c-tennis) 38%,var(--border)); border-radius:999px; color:var(--text-dim); font-size:.58rem!important; line-height:1!important; }
+.follow-event-family{ display:grid; gap:7px; padding:9px; }
+.follow-event-family-toggle,.follow-event-family-open{ min-height:40px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); font:800 .7rem/1.2 'DM Sans',sans-serif; }
+.follow-event-family-open{ color:var(--accent); }
+.follow-event-family-open:disabled{ color:var(--text-dim); opacity:.65; }
 
 .code-inspector-fixture{ cursor:pointer; }
 .code-inspector-fixture:hover,.code-inspector-fixture.is-expanded{ border-color:color-mix(in srgb,var(--sport-color) 55%,var(--border)); }
@@ -6320,7 +6348,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/card-identities.js"></script>
 <script src="config/card-results.js"></script>
 <script src="config/ticketing.js"></script>
-<script src="config/major-events.js"></script>
 <script src="config/country-flags.js"></script>
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
@@ -6365,7 +6392,7 @@ const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
 const CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES;
 const CARD_RESULTS = globalThis.NOTHINGSPORTS_CARD_RESULTS;
 const TICKETING = globalThis.NOTHINGSPORTS_TICKETING;
-const MAJOR_EVENTS = globalThis.NOTHINGSPORTS_MAJOR_EVENTS;
+let MAJOR_EVENTS = globalThis.NOTHINGSPORTS_MAJOR_EVENTS || null;
 const COUNTRY_FLAGS = globalThis.NOTHINGSPORTS_COUNTRY_FLAGS || null;
 const SOURCE_TRUST = globalThis.NOTHINGSPORTS_SOURCE_TRUST || null;
 const VENUE_REGISTRY = globalThis.NOTHINGSPORTS_VENUE_REGISTRY || null;
@@ -7316,6 +7343,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
+  moduleScriptUrl: "config/major-events.js",
   url: "data/major-events.v1.json",
 });
 
@@ -7611,8 +7639,10 @@ let majorEventsLoading = false;
 let majorEventsError = null;
 let pendingMajorEventFocusId = null;
 let pendingTicketAlertFocusId = null;
+let activeMajorEventNowId = null;
 let eventsViewTab = "major-events";
 let followViewSection = "teams-players";
+let expandedFollowSportId = null;
 let eventsDeepLinkReturnState = null;
 let headerCompactionFrame = null;
 let feedFilterRefreshInFlight = null;
@@ -8705,6 +8735,9 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
 }
 
 let userPreferences = loadPreferences();
+if (userPreferences.followFirst?.collectionFollows?.some(id => String(id).startsWith("collection:tennis:"))){
+  void loadFollowDirectoryChunk("tennis").catch(() => {});
+}
 let ratings = loadRatings();
 let eventActions = loadEventActions();
 let eventSpoilerState = loadEventSpoilerState(eventActions);
@@ -9823,10 +9856,16 @@ async function loadMajorEventsData(){
   const hydration = startupFunnelFinished ? beginInSessionLoading("Loading Events") : null;
   majorEventsLoading = true;
   majorEventsError = null;
+  const moduleRequest = MAJOR_EVENTS ? Promise.resolve(MAJOR_EVENTS) : loadDeferredScript(MAJOR_EVENTS_CONFIG.moduleScriptUrl).then(() => {
+    MAJOR_EVENTS = globalThis.NOTHINGSPORTS_MAJOR_EVENTS || null;
+    if (!MAJOR_EVENTS) throw new Error("Major Events runtime was unavailable");
+    return MAJOR_EVENTS;
+  });
   const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url);
   renderAll({ preserveViewport: true });
   let loadJointSchedule = false;
   try{
+    await moduleRequest;
     let payload;
     let loadedFromStorage = false;
     try{
@@ -10890,12 +10929,51 @@ function refreshAddedFixtureSnapshots(){
   if (!majorEventsDocument?.events?.length) return false;
   let nextActions = eventActions;
   let changed = false;
+  const queuedCommands = [];
+  const mutationId = () => globalThis.crypto?.randomUUID?.()
+    || `pin_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
+  const migrations = MAJOR_EVENTS?.fixturePinReconciliationPlan?.(majorEventsDocument, eventActions) || [];
+  migrations.forEach(({ sourceKey, targetKey, fixture }) => {
+    const source = nextActions[sourceKey] || eventActions[sourceKey];
+    if (!source?.addedToFixtures || !fixture) return;
+    if (!changed) nextActions = { ...eventActions };
+    const target = nextActions[targetKey] || {};
+    const migratedAt = new Date().toISOString();
+    const targetAction = {
+      ...defaultEventAction(fixture),
+      ...target,
+      eventId:fixture.eventId,
+      startTime:`${fixture.date}T${fixture.time}`,
+      addedToFixtures:true,
+      addedToFixturesAt:target.addedToFixturesAt || source.addedToFixturesAt || migratedAt,
+      addedFixture:{ ...fixture, cardKind:"fixture", manualPin:true },
+      pinState:"added",
+      pinRevision:Math.max(Number(target.pinRevision) || 0, Number(source.pinRevision) || 0) + 1,
+      pinMutationId:mutationId(),
+      migratedFromEventId:source.eventId || source.addedFixture?.eventId || sourceKey,
+      lastActionAt:migratedAt,
+    };
+    const retiredSourceAction = {
+      ...source,
+      addedToFixtures:false,
+      addedFixture:null,
+      pinState:"migrated",
+      pinRevision:Math.max(0, Number(source.pinRevision) || 0) + 1,
+      pinMutationId:mutationId(),
+      migratedToEventId:fixture.eventId,
+      lastActionAt:migratedAt,
+    };
+    nextActions[targetKey] = targetAction;
+    nextActions[sourceKey] = retiredSourceAction;
+    queuedCommands.push([targetKey, targetAction], [sourceKey, retiredSourceAction]);
+    changed = true;
+  });
   majorEventsDocument.events.filter(record => record.kind !== "ticket_sale").forEach(parent => {
     majorEventSubEvents(parent).forEach(subEvent => {
       const fixture = majorEventFixtureSnapshot(subEvent, parent);
       if (!fixture) return;
       const key = eventActionKey(fixture);
-      const current = eventActions[key];
+      const current = nextActions[key];
       if (!current?.addedToFixtures) return;
       const previous = JSON.stringify(current.addedFixture || null);
       const replacement = JSON.stringify(fixture);
@@ -10905,7 +10983,10 @@ function refreshAddedFixtureSnapshots(){
       changed = true;
     });
   });
-  if (changed) saveEventActions(nextActions);
+  if (changed){
+    queuedCommands.forEach(([key, action]) => queueFixturePinCommand(key, action));
+    saveEventActions(nextActions);
+  }
   return changed;
 }
 
@@ -11888,6 +11969,15 @@ function codeInspectorCodeIsFollowed(codeId, preferences = userPreferences){
     .includes(codeId);
 }
 
+function recordCodeAffinity(codeId, type){
+  if (!FOLLOW_FIRST?.recordCodeInteraction || !codeId || !type) return;
+  savePreferences(FOLLOW_FIRST.recordCodeInteraction(userPreferences, {
+    codeId,
+    type,
+    occurredAt:new Date().toISOString(),
+  }));
+}
+
 function prepareCodeInspectorIdentity(identity, label, { eager = false } = {}){
   identity.querySelectorAll("img").forEach(image => {
     image.loading = eager ? "eager" : "lazy";
@@ -11945,7 +12035,10 @@ function buildDiscoveryBrowseRow(code){
   open.dataset.discoveryTuneControl = "open";
   open.textContent = "Inspect";
   open.setAttribute("aria-label", `Inspect ${code.label} fixtures`);
-  open.addEventListener("click", () => openCodeInspector(code.id));
+  open.addEventListener("click", () => {
+    recordCodeAffinity(code.id, "open");
+    openCodeInspector(code.id);
+  });
   actions.appendChild(open);
   row.append(main, actions);
   return row;
@@ -11989,13 +12082,12 @@ function renderTuneSheetContents(){
       });
     return;
   }
-  const codes = [...codeInspectorManifest.codes];
-  const followedCodes = codes.filter(code => codeInspectorCodeIsFollowed(code.id));
-  const remainingCodes = codes.filter(code => !codeInspectorCodeIsFollowed(code.id));
-  followedCodes.forEach(code => list.appendChild(buildDiscoveryBrowseRow(code)));
-  if (!followedCodes.length){
-    list.innerHTML = '<div class="empty-state" style="padding:16px">No followed code yet. Every published code remains available below.</div>';
-  }
+  const codes = FOLLOW_FIRST?.sortCodesByAffinity
+    ? FOLLOW_FIRST.sortCodesByAffinity(codeInspectorManifest.codes, userPreferences, nowAEST())
+    : [...codeInspectorManifest.codes].sort((first, second) => Number(second.fixtureCount || 0) - Number(first.fixtureCount || 0) || first.label.localeCompare(second.label));
+  const primaryCodes = codes.slice(0, 6);
+  const remainingCodes = codes.slice(6);
+  primaryCodes.forEach(code => list.appendChild(buildDiscoveryBrowseRow(code)));
   remainingCodes.forEach(code => moreList.appendChild(buildDiscoveryBrowseRow(code)));
   more.hidden = remainingCodes.length === 0;
   if (summary) summary.textContent = `${codes.length} canonical codes · fixtures can be pinned to Feed`;
@@ -12523,6 +12615,7 @@ function buildCodeInspectorFixture(fixture){
     pin.addEventListener("click", event => {
       event.stopPropagation();
       if (!setCodeInspectorFixtureAdded(fixture, !added)) return;
+      if (!added) recordCodeAffinity(fixture.codeId, "pin");
       renderCodeInspector();
       showToast(added ? `${fixture.name} removed from Feed.` : `${fixture.name} added to Feed.`);
     });
@@ -12568,6 +12661,7 @@ function buildCodeInspectorFixture(fixture){
     row.appendChild(details);
   }
   const toggle = () => {
+    if (!expanded) recordCodeAffinity(fixture.codeId, "expand");
     codeInspectorExpandedFixtureId = expanded ? null : fixture.id;
     renderCodeInspector();
     window.requestAnimationFrame(() => document.querySelector(`[data-inspector-fixture-id="${CSS.escape(fixture.id)}"]`)?.focus({ preventScroll:true }));
@@ -12841,6 +12935,7 @@ function followedParticipantLabel(participantId){
 function eventFollowReason(ev){
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
+    ...(Array.isArray(ev?.matchupSides) ? ev.matchupSides.flatMap(side => (side.players || []).map(player => player.id)) : []),
     ...(TEAM_FOLLOW_CATALOGUE?.participantIdsForEvent?.(ev) || []),
     ev?.homeParticipantId,
     ev?.awayParticipantId,
@@ -12882,6 +12977,7 @@ function eventFollowReason(ev){
   };
   return FOLLOW_FIRST?.reasonForEvent?.(eligibilityEvent, userPreferences, {
     participantLabel:followedParticipantLabel,
+    collectionsById:followCollectionsById(),
   }) || null;
 }
 
@@ -14049,6 +14145,7 @@ async function toggleQuickReminder(ev, button){
     updateEventAction(ev, { reminderRequested:enabled });
     recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
     if (enabled) recordWatchDecision(ev, "remind", { surface:"event_card" });
+    if (enabled) recordCodeAffinity(codeIdForEvent(ev), "reminder");
     button.setAttribute("aria-pressed", String(enabled));
     button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
     showExplanation("");
@@ -14063,6 +14160,12 @@ async function toggleQuickReminder(ev, button){
   }finally{
     button.disabled = false;
   }
+}
+
+function codeIdForEvent(ev){
+  const aliases = { f1:"motorsport", rugby:"rugby-union", fifa:"football", "premier-league":"football", nba:"basketball", nfl:"american-football", nhl:"ice-hockey", chl:"ice-hockey" };
+  const key = aliases[ev?.sportKey || ev?.sportId || ev?.key] || ev?.sportKey || ev?.sportId || ev?.key;
+  return key ? `sport:${key}` : null;
 }
 
 function buildViewingProviderMark(viewing){
@@ -14165,7 +14268,10 @@ function appendEventQuickActions(container, ev){
     prefix.className = "viewing-action-prefix";
     prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;
     link.append(prefix, buildViewingProviderMark(viewing));
-    link.addEventListener("click", event => event.stopPropagation());
+    link.addEventListener("click", event => {
+      event.stopPropagation();
+      recordCodeAffinity(codeIdForEvent(ev), viewing.liveOrReplay === "replay" ? "replay" : "watch");
+    });
     actions.appendChild(link);
   } else {
     const unavailable = document.createElement("span");
@@ -15385,16 +15491,19 @@ function syncContextualJumpButton(){
     button.hidden = true;
     return;
   }
-  const todayVisible = todayAnchorIsVisible();
-  if (todayVisible){
+  const marker = eventsTimeline && activeMajorEventNowId
+    ? document.querySelector(`[data-events-now-for="${CSS.escape(activeMajorEventNowId)}"]`)
+    : null;
+  const targetVisible = eventsTimeline ? feedAnchorIsVisible(marker) : todayAnchorIsVisible();
+  if (targetVisible || (eventsTimeline && !marker)){
     button.hidden = true;
     delete button.dataset.jumpTarget;
     return;
   }
   button.hidden = false;
-  button.dataset.jumpTarget = "today";
-  button.setAttribute("aria-label", "Jump to today in the sports feed");
-  button.innerHTML = `${glyphMarkup("ui:jump", { preferImage: true })} Jump to Today`;
+  button.dataset.jumpTarget = eventsTimeline ? "event-now" : "today";
+  button.setAttribute("aria-label", eventsTimeline ? "Jump to now in the active event" : "Jump to today in the sports feed");
+  button.innerHTML = `${glyphMarkup("ui:jump", { preferImage: true })} ${eventsTimeline ? "Jump to Now" : "Jump to Today"}`;
 }
 
 function scheduleInitialCalendarJump(){
@@ -16492,12 +16601,21 @@ function directoryFollowLevel(participantId){
   return userPreferences.preferenceGraph?.entityFollows?.find(item => item.participantId === participantId)?.followLevel || "none";
 }
 
+function followCollectionsById(){
+  const collections = {};
+  followDirectoryChunks.forEach(chunk => (chunk.collections || []).forEach(collection => { collections[collection.id] = collection; }));
+  return collections;
+}
+
 function syncDirectoryFollowButton(button, participantId){
-  const followed = ["follow", "priority"].includes(directoryFollowLevel(participantId));
+  const effective = FOLLOW_FIRST?.effectiveParticipantFollow?.(participantId, userPreferences, followCollectionsById())
+    || { followed:["follow", "priority"].includes(directoryFollowLevel(participantId)), source:"explicit" };
+  const followed = effective.followed;
   button.dataset.followLevel = followed ? "follow" : "none";
+  button.dataset.followSource = effective.source || "none";
   button.classList.toggle("active", followed);
   button.setAttribute("aria-pressed", String(followed));
-  button.textContent = followed ? "Following" : "Follow";
+  button.textContent = followed ? (effective.source === "collection" ? "Following via group" : "Following") : "Follow";
 }
 
 function buildDirectoryFollowButton(participantId, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
@@ -16507,7 +16625,12 @@ function buildDirectoryFollowButton(participantId, { sportKey = "football", leag
   button.setAttribute("aria-label", `Follow ${label}`);
   syncDirectoryFollowButton(button, participantId);
   button.addEventListener("click", () => {
-    const nextLevel = button.dataset.followLevel === "follow" ? "none" : "follow";
+    const explicitLevel = directoryFollowLevel(participantId);
+    const nextLevel = button.dataset.followLevel === "follow"
+      ? (button.dataset.followSource === "collection" || ["follow", "priority"].includes(explicitLevel) && Object.values(followCollectionsById()).some(collection => (
+          userPreferences.followFirst.collectionFollows.includes(collection.id) && collection.memberIds.includes(participantId)
+        )) ? "mute" : "none")
+      : explicitLevel === "mute" ? "none" : "follow";
     setDirectoryEntityFollow(participantId, nextLevel, { sportKey, leagueId, label });
     syncDirectoryFollowButton(button, participantId);
   });
@@ -16913,6 +17036,18 @@ function renderLegacyParticipantDirectory(container, sportKey){
     const rankLabel = record.rank !== null ? ` · #${record.rank}` : "";
     detail.textContent = `${record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${rankLabel}`;
     copy.append(name, detail);
+    if (Array.isArray(record.collectionIds) && record.collectionIds.length){
+      const chips = document.createElement("span");
+      chips.className = "follow-collection-chips";
+      record.collectionIds.forEach(collectionId => {
+        const collection = followCollectionsById()[collectionId];
+        if (!collection) return;
+        const chip = document.createElement("span");
+        chip.textContent = collection.label;
+        chips.appendChild(chip);
+      });
+      if (chips.childElementCount) copy.appendChild(chips);
+    }
     const follow = buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
     row.append(icon, copy, follow);
     list.appendChild(row);
@@ -16979,13 +17114,93 @@ function toggleAustraliaInternationals(){
 }
 
 function toggleMajorEventFollow(eventId){
+  const stableScrollY = window.scrollY;
   const next = clonePreferences(userPreferences);
   const selected = new Set(next.followFirst.followedMajorEventIds || []);
   if (selected.has(eventId)) selected.delete(eventId);
   else selected.add(eventId);
   next.followFirst.followedMajorEventIds = Array.from(selected);
   savePreferences(next);
+  if (activeTab === "follow" && followViewSection === "major-events"){
+    const followed = selected.has(eventId);
+    const familyCard = Array.from(document.querySelectorAll(".follow-event-family[data-event-family-id]"))
+      .find(card => card.dataset.eventFamilyId === eventId);
+    const button = familyCard?.querySelector(".follow-event-family-toggle");
+    familyCard?.classList.toggle("selected", followed);
+    if (button){
+      button.setAttribute("aria-pressed", String(followed));
+      button.textContent = `${followed ? "Unfollow" : "Follow"} ${button.dataset.eventFamilyLabel || "Event"}`;
+    }
+    const summary = document.querySelector('[data-follow-summary="event-families"]');
+    if (summary) summary.textContent = `${selected.size} event families`;
+    const restore = () => {
+      if (Math.abs(window.scrollY - stableScrollY) >= 0.5){
+        window.scrollTo({ top:stableScrollY, behavior:"auto" });
+      }
+    };
+    restore();
+    window.requestAnimationFrame(() => {
+      restore();
+      window.requestAnimationFrame(restore);
+    });
+    return;
+  }
   renderAll({ preserveViewport:true });
+}
+
+function majorEventVisibilityPreferences(){
+  return {
+    followedSports:userPreferences.followedSports,
+    followedEventFamilyIds:userPreferences.followFirst.followedMajorEventIds,
+  };
+}
+
+function renderTennisFollowCollections(container){
+  const chunk = followDirectoryChunks.get("tennis");
+  const panel = document.createElement("div");
+  panel.className = "tennis-follow-collections";
+  panel.setAttribute("aria-label", "Tennis follow collections");
+  if (!chunk){
+    panel.textContent = followDirectoryChunkErrors.has("tennis") ? "Tennis groups are temporarily unavailable. Tap to retry." : "Loading Tennis groups…";
+    panel.addEventListener("click", () => {
+      followDirectoryChunkErrors.delete("tennis");
+      void loadFollowDirectoryChunk("tennis").then(() => renderFollowView());
+    }, { once:true });
+    if (!followDirectoryChunkLoading.has("tennis")) void loadFollowDirectoryChunk("tennis").then(() => {
+      if (activeTab === "follow" && followViewSection === "sports-australia" && expandedFollowSportId === "tennis") renderFollowView();
+    });
+    container.appendChild(panel);
+    return panel;
+  }
+  (chunk.collections || []).slice().sort((first, second) => Number(first.sortOrder || 0) - Number(second.sortOrder || 0)).forEach(collection => {
+    const selected = userPreferences.followFirst.collectionFollows.includes(collection.id);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `tennis-collection-toggle${selected ? " active" : ""}`;
+    button.setAttribute("aria-pressed", String(selected));
+    const copy = document.createElement("span");
+    const label = document.createElement("strong");
+    label.textContent = collection.label;
+    const detail = document.createElement("small");
+    detail.textContent = `${collection.memberIds.length} players · inherited follow with individual opt-out`;
+    const state = document.createElement("b");
+    state.textContent = selected ? "On" : "Off";
+    copy.append(label, detail);
+    button.append(copy, state);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      const enabled = button.getAttribute("aria-pressed") !== "true";
+      savePreferences(FOLLOW_FIRST.setCollectionFollow(userPreferences, collection.id, enabled));
+      button.setAttribute("aria-pressed", String(enabled));
+      button.classList.toggle("active", enabled);
+      button.querySelector("b").textContent = enabled ? "On" : "Off";
+      renderTabCounts();
+      showToast(`${collection.label}: ${enabled ? "followed" : "not followed"}.`);
+    });
+    panel.appendChild(button);
+  });
+  container.appendChild(panel);
+  return panel;
 }
 
 function renderFollowView(){
@@ -17012,7 +17227,7 @@ function renderFollowView(){
     .filter(follow => ["follow", "priority"].includes(follow.followLevel));
   const summary = document.createElement("div");
   summary.className = "follow-summary";
-  summary.innerHTML = `<strong>${entityFollows.length} team/player follow${entityFollows.length === 1 ? "" : "s"}</strong><span>${userPreferences.followedSports.length} sports</span><span>${userPreferences.followFirst.followedMajorEventIds.length} event families</span>`;
+  summary.innerHTML = `<strong>${entityFollows.length} team/player follow${entityFollows.length === 1 ? "" : "s"}</strong><span>${userPreferences.followedSports.length} sports</span><span data-follow-summary="event-families">${userPreferences.followFirst.followedMajorEventIds.length} event families</span>`;
   container.appendChild(summary);
 
   const sectionTabs = document.createElement("div");
@@ -17070,6 +17285,21 @@ function renderFollowView(){
     follow.textContent = followed ? `Following ${sport.label}` : `Follow ${sport.label}`;
     follow.addEventListener("click", () => saveFollowSport(sport, !followed));
     card.appendChild(follow);
+    if (sport.id === "tennis"){
+      const expand = document.createElement("button");
+      const expanded = expandedFollowSportId === "tennis";
+      expand.type = "button";
+      expand.className = "follow-sport-expand";
+      expand.setAttribute("aria-expanded", String(expanded));
+      expand.textContent = expanded ? "Hide Tennis groups" : "Explore Tennis groups";
+      expand.addEventListener("click", event => {
+        event.stopPropagation();
+        expandedFollowSportId = expanded ? null : "tennis";
+        renderFollowView();
+      });
+      card.appendChild(expand);
+      if (expanded) renderTennisFollowCollections(card);
+    }
     sportGrid.appendChild(card);
   });
   sportSection.appendChild(sportGrid);
@@ -17082,15 +17312,30 @@ function renderFollowView(){
   events.innerHTML = "<h3>Major events</h3><p class=\"preference-help\">Keep event families handy in Events and future Follow suggestions. They do not bypass Feed eligibility.</p>";
   const eventGrid = document.createElement("div");
   eventGrid.className = "setup-choice-grid";
+  if (!majorEventsDocument && !majorEventsLoading) void loadMajorEventsData().then(() => {
+    if (activeTab === "follow" && followViewSection === "major-events") renderFollowView();
+  });
   FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.forEach(record => {
     const selected = userPreferences.followFirst.followedMajorEventIds.includes(record.id);
+    const familyCard = document.createElement("div");
+    familyCard.className = `choice-card follow-event-family${selected ? " selected" : ""}`;
+    familyCard.dataset.eventFamilyId = record.id;
     const button = document.createElement("button");
     button.type = "button";
-    button.className = `choice-card${selected ? " selected" : ""}`;
+    button.className = "follow-event-family-toggle";
+    button.dataset.eventFamilyLabel = record.label;
     button.setAttribute("aria-pressed", String(selected));
-    button.textContent = `${selected ? "✓ " : ""}${record.label}`;
+    button.textContent = `${selected ? "Unfollow" : "Follow"} ${record.label}`;
     button.addEventListener("click", () => toggleMajorEventFollow(record.id));
-    eventGrid.appendChild(button);
+    const activeEdition = MAJOR_EVENTS?.activeEditionForFamily?.(majorEventsDocument, record.id, nowAEST()) || null;
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "follow-event-family-open";
+    open.textContent = activeEdition ? "Open in Events" : "Next edition not published yet";
+    open.disabled = !activeEdition;
+    if (activeEdition) open.addEventListener("click", () => openMajorEventInEvents(activeEdition.id));
+    familyCard.append(button, open);
+    eventGrid.appendChild(familyCard);
   });
   events.appendChild(eventGrid);
   container.appendChild(events);
@@ -17403,25 +17648,63 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
 }
 
 function prioritisedMajorEventSubEvents(record, limit = Infinity){
-  const scheduled = majorEventSubEvents(record).map((subEvent, order) => {
-    const fixture = majorEventFixtureSnapshot(subEvent, record);
-    return { subEvent, fixture, order };
-  });
-  const chronological = (left, right) => {
-    const leftTime = left.fixture ? eventDateTime(left.fixture).getTime() : Number.MAX_SAFE_INTEGER;
-    const rightTime = right.fixture ? eventDateTime(right.fixture).getTime() : Number.MAX_SAFE_INTEGER;
-    if (!Number.isFinite(limit)) return leftTime - rightTime || left.order - right.order;
-    const leftPast = leftTime < Date.now();
-    const rightPast = rightTime < Date.now();
-    return Number(leftPast) - Number(rightPast) || leftTime - rightTime || left.order - right.order;
-  };
-  scheduled.sort(chronological);
+  const scheduled = majorEventSubEvents(record).map((subEvent, order) => ({
+    subEvent,
+    fixture:majorEventFixtureSnapshot(subEvent, record),
+    order,
+    sortTime:MAJOR_EVENTS.subEventTimelineTime?.(subEvent) ?? Number.MAX_SAFE_INTEGER,
+  }));
+  scheduled.sort((left, right) => left.sortTime - right.sortTime || left.order - right.order);
   return Number.isFinite(limit) ? scheduled.slice(0, limit) : scheduled;
 }
 
-function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Published matches", compact = false } = {}){
-  const subEvents = prioritisedMajorEventSubEvents(record, limit);
-  if (!subEvents.length) return null;
+function majorEventMatchupLineup(subEvent){
+  const sides = Array.isArray(subEvent?.matchupSides) ? subEvent.matchupSides : [];
+  if (sides.length !== 2) return null;
+  const matchup = document.createElement("div");
+  matchup.className = "major-event-matchup-sides";
+  sides.forEach((side, sideIndex) => {
+    if (sideIndex){
+      const versus = document.createElement("span");
+      versus.className = "major-event-matchup-v";
+      versus.textContent = "v";
+      matchup.appendChild(versus);
+    }
+    const group = document.createElement("span");
+    group.className = "major-event-matchup-side";
+    const players = Array.isArray(side.players) ? side.players : [];
+    if (players.length){
+      players.forEach(player => {
+        const person = document.createElement("span");
+        person.className = "major-event-matchup-player";
+        const countryCode = player.nationalityCode || player.countryCode;
+        if (countryCode){
+          const flag = COUNTRY_FLAGS?.flagMarkup?.(countryCode, { label:`${player.name || player.displayName} nationality` });
+          if (flag) person.insertAdjacentHTML("beforeend", flag);
+        }
+        const name = document.createElement("span");
+        name.textContent = player.name || player.displayName || "Player TBC";
+        person.appendChild(name);
+        group.appendChild(person);
+      });
+    } else group.textContent = side.name || side.displayName || "Side TBC";
+    matchup.appendChild(group);
+  });
+  return matchup;
+}
+
+function majorEventTimelineDateLabel(item){
+  const todayKey = MAJOR_EVENTS.dateKey?.(nowAEST()) || formatDateKey(nowAEST());
+  const tomorrow = new Date(`${todayKey}T00:00:00Z`);
+  tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+  const tomorrowKey = tomorrow.toISOString().slice(0, 10);
+  return item.localDate === tomorrowKey ? `Tomorrow · ${item.displayDate}` : item.displayDate;
+}
+
+function buildMajorEventSchedule(record, { level = "L2", headingText = "Published matches", compact = false, includeOlder = false } = {}){
+  const timeline = MAJOR_EVENTS.phaseTimeline(record, nowAEST(), { level, timeZone:"Australia/Sydney", includeOlder });
+  const timelineItems = timeline.items;
+  if (!timelineItems.length) return null;
   const section = document.createElement("section");
   section.className = `major-event-schedule${compact ? " is-preview" : ""}`;
   section.dataset.majorEventTimetable = record.id;
@@ -17430,9 +17713,21 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
   heading.textContent = headingText;
   const list = document.createElement("div");
   list.className = "major-event-schedule-list";
-  subEvents.forEach(({ subEvent, fixture }) => {
+  timelineItems.forEach(item => {
+    if (item.marker === "now"){
+      const marker = document.createElement("div");
+      marker.className = `events-now-marker${activeMajorEventNowId === record.id ? " is-active" : ""}`;
+      marker.dataset.eventsNowFor = record.id;
+      marker.setAttribute("role", "separator");
+      marker.setAttribute("aria-label", `Now in ${record.name}`);
+      marker.innerHTML = "<span>Now</span>";
+      list.appendChild(marker);
+      return;
+    }
+    const { subEvent } = item;
+    const fixture = majorEventFixtureSnapshot(subEvent, record);
     const row = document.createElement("article");
-    row.className = "major-event-match";
+    row.className = `major-event-match is-${item.effectiveStatus}`;
     row.dataset.matchId = subEvent.id;
     const copy = document.createElement("div");
     copy.className = "major-event-match-copy";
@@ -17446,15 +17741,20 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
       participants:subEvent.participants || [],
     }, subEvent.name);
     const detail = document.createElement("span");
-    detail.textContent = fixture
-      ? `${eventDateLabel(fixture)} - ${eventTimeLabel(fixture)} - ${subEvent.venue || record.venue}`
-      : [subEvent.dateLabel, subEvent.venue || record.venue || "Venue TBC", subEvent.dateLabel ? null : "Time not confirmed"].filter(Boolean).join(" - ");
+    const statusLabel = item.effectiveStatus === "completed" ? "Completed"
+      : item.effectiveStatus === "awaiting-result" ? "Awaiting result"
+      : item.effectiveStatus === "live" ? "Live" : null;
+    detail.textContent = [majorEventTimelineDateLabel(item), item.displayTime, statusLabel, subEvent.venue || record.venue || "Venue TBC"].filter(Boolean).join(" · ");
     copy.append(title, detail);
-    const lineupNames = (subEvent.participants || []).map(participant => participant.name).filter(Boolean);
-    const lineup = document.createElement("span");
-    lineup.className = "major-event-lineup";
-    lineup.textContent = lineupNames.length >= 2 ? `Line-up: ${lineupNames.join(" v ")}` : "Line-up TBC";
-    copy.appendChild(lineup);
+    const matchup = majorEventMatchupLineup(subEvent);
+    if (matchup) copy.appendChild(matchup);
+    else {
+      const matchupSideLabels = MAJOR_EVENTS?.matchupSideLabels?.(subEvent) || [];
+      const lineup = document.createElement("span");
+      lineup.className = "major-event-lineup";
+      lineup.textContent = matchupSideLabels.length === 2 ? matchupSideLabels.join(" v ") : "Match-up TBC";
+      copy.appendChild(lineup);
+    }
     if (subEvent.status === "completed" && subEvent.scoreDisplay && userPreferences.showSpoilers){
       const score = document.createElement("span");
       score.textContent = CARD_RESULTS?.scoreLine?.(fixture || subEvent, subEvent.name, { score: subEvent.scoreDisplay }) || subEvent.scoreDisplay;
@@ -17463,21 +17763,24 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
     const button = document.createElement("button");
     button.type = "button";
     button.className = "major-event-match-action";
-    button.disabled = !fixture;
+    const pinEligible = Boolean(fixture && item.effectiveStatus === "upcoming" && subEvent.timePrecision !== "follows");
+    button.disabled = !pinEligible;
     const syncPinButton = () => {
-      const added = Boolean(fixture && getEventAction(fixture)?.addedToFixtures);
+      const added = Boolean(pinEligible && getEventAction(fixture)?.addedToFixtures);
       button.setAttribute("aria-pressed", String(added));
       button.classList.toggle("active", added);
-      button.textContent = fixture ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
+      button.textContent = pinEligible ? (added ? "Remove from Feed" : "Add to Feed")
+        : item.effectiveStatus === "completed" ? "Completed"
+        : item.displayTime === "Follows" ? "Start follows" : "Time not confirmed";
       return added;
     };
     syncPinButton();
-    if (!fixture) button.title = subEvent.dateLabel
+    if (!pinEligible) button.title = subEvent.dateLabel
       ? "A concrete drawn match and published start time are required before this schedule item can be added."
       : "A published start time is required before this match can be added.";
     button.addEventListener("click", () => {
       const wasAdded = syncPinButton();
-      if (!fixture || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
+      if (!pinEligible || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
       syncPinButton();
       renderTabCounts();
       showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
@@ -17485,6 +17788,17 @@ function buildMajorEventSchedule(record, { limit = Infinity, headingText = "Publ
     row.append(copy, button);
     list.appendChild(row);
   });
+  if (level === "L2" && timeline.hasOlder && !includeOlder){
+    const older = document.createElement("button");
+    older.type = "button";
+    older.className = "major-event-older-history";
+    older.textContent = "Show older published results";
+    older.addEventListener("click", () => {
+      const expanded = buildMajorEventSchedule(record, { level:"L2", headingText, compact:false, includeOlder:true });
+      if (expanded) replaceCardPreservingViewport(section, expanded);
+    });
+    list.appendChild(older);
+  }
   section.append(heading, list);
   return section;
 }
@@ -17552,8 +17866,13 @@ function buildMajorEventDraw(record){
       (pages[pageIndex] || []).forEach(subEvent => {
         const tie = document.createElement("div");
         tie.className = "major-event-draw-tie";
+        const matchupSideLabels = MAJOR_EVENTS?.matchupSideLabels?.(subEvent) || [];
         const participants = (subEvent.participants || []).map(participant => participant.name).filter(Boolean);
-        tie.textContent = participants.length >= 2 ? participants.join(" v ") : subEvent.name || "Teams TBC";
+        tie.textContent = matchupSideLabels.length === 2
+          ? matchupSideLabels.join(" v ")
+          : participants.length >= 2
+            ? participants.join(" v ")
+            : subEvent.name || "Teams TBC";
         page.appendChild(tie);
       });
     };
@@ -17604,6 +17923,7 @@ function buildMajorEventCard(record){
   card.style.setProperty("--sport-color", meta.color);
 
   const advanceState = ({ restoreFocus = false } = {}) => {
+    activeMajorEventNowId = record.id;
     setCardState(record, nextCardState(state));
     replaceCardPreservingViewport(card, buildMajorEventCard(record), { restoreFocus });
   };
@@ -17621,14 +17941,29 @@ function buildMajorEventCard(record){
   ticketRow.className = "major-event-ticket-row";
   const ticketLink = buildMajorEventTicketLink(record);
   if (ticketLink) ticketRow.appendChild(ticketLink);
-  const primaryFixture = prioritisedMajorEventSubEvents(record, 1)[0]?.fixture || majorEventActionEvent(record);
+  const primaryTimeline = MAJOR_EVENTS.phaseTimeline(record, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
+  const primaryItem = primaryTimeline.upcoming[0] || primaryTimeline.recent.at(-1) || null;
+  const primaryFixture = (primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record);
   appendEventQuickActions(ticketRow, primaryFixture);
+  const familyId = MAJOR_EVENTS.eventFamilyId(record);
+  const familyFollowed = userPreferences.followFirst.followedMajorEventIds.includes(familyId);
+  const familyFollow = document.createElement("button");
+  familyFollow.type = "button";
+  familyFollow.className = `event-quick-action major-event-family-follow${familyFollowed ? " active" : ""}`;
+  familyFollow.setAttribute("aria-pressed", String(familyFollowed));
+  familyFollow.textContent = familyFollowed ? "Unfollow Event" : "Follow Event";
+  familyFollow.addEventListener("click", event => {
+    event.stopPropagation();
+    toggleMajorEventFollow(familyId);
+  });
+  ticketRow.appendChild(familyFollow);
   const inspect = document.createElement("button");
   inspect.type = "button";
   inspect.className = "event-quick-action";
   inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Timetable</span>`;
   inspect.addEventListener("click", event => {
     event.stopPropagation();
+    activeMajorEventNowId = record.id;
     setCardState(record, "opened");
     replaceCardPreservingViewport(card, buildMajorEventCard(record), { restoreFocus:false });
     window.requestAnimationFrame(() => focusMajorEventTimetable(record.id));
@@ -17677,8 +18012,8 @@ function buildMajorEventCard(record){
     if (draw) card.appendChild(draw);
   }
   const immediateSchedule = buildMajorEventSchedule(record, {
-    limit: state === "compact" ? 1 : state === "selected" ? 3 : Infinity,
-    headingText: state === "opened" ? "Published timetable" : state === "selected" ? "Next matches and line-ups" : "Next match or line-up",
+    level: cardLevelForState(state),
+    headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up",
     compact: state === "compact",
   });
   if (immediateSchedule) card.appendChild(immediateSchedule);
@@ -17717,6 +18052,7 @@ function focusMajorEventTimetable(eventId){
   const selector = `[data-major-event-timetable="${CSS.escape(String(eventId))}"]`;
   const target = document.querySelector(selector);
   if (!target) return false;
+  activeMajorEventNowId = eventId;
   target.scrollIntoView({ behavior:"auto", block:"start" });
   const desiredTop = Math.ceil(stickyFeedChromeHeight() + 12);
   window.scrollBy({ top:target.getBoundingClientRect().top - desiredTop, behavior:"auto" });
@@ -17728,6 +18064,7 @@ function focusMajorEventCard(eventId){
   const targetId = `major-event-card-${String(eventId || "").replace(/[^a-z0-9_-]/gi, "-")}`;
   const target = document.getElementById(targetId);
   if (!target) return false;
+  activeMajorEventNowId = eventId;
   target.scrollIntoView({ behavior: "auto", block: "start" });
   const desiredTop = Math.ceil(stickyFeedChromeHeight() + 12);
   window.scrollBy({ top:target.getBoundingClientRect().top - desiredTop, behavior:"auto" });
@@ -17784,6 +18121,7 @@ function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
   }
   eventsViewTab = "major-events";
   const resolvedEventId = resolveMajorEventId(eventId);
+  activeMajorEventNowId = resolvedEventId;
   pendingMajorEventFocusId = resolvedEventId;
   pendingTicketAlertFocusId = null;
   const record = majorEventsDocument?.events?.find(item => item.id === resolvedEventId);
@@ -17990,7 +18328,7 @@ function renderEventsView(){
     tab.setAttribute("aria-controls", "eventsViewPanel");
     tab.textContent = label;
     if (value === "ticket-alerts" && majorEventsDocument){
-      const hasUnseen = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST()).alerts
+      const hasUnseen = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST()).alerts
         .some(record => !getEventAction(majorEventActionEvent(record)).ticketAlertSeenAt);
       if (hasUnseen){
         const badge = document.createElement("span");
@@ -18043,7 +18381,7 @@ function renderEventsView(){
     container.appendChild(empty);
     return;
   }
-  const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST());
+  const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
   if (pendingMajorEventFocusId){
     const pendingRecord = visible.events.find(record => record.id === pendingMajorEventFocusId);
     if (pendingRecord && cardStateForEvent(pendingRecord) === "compact") setCardState(pendingRecord, "selected");
@@ -18094,6 +18432,7 @@ function renderEventsView(){
       todayAnchorInserted = true;
     };
     const referenceTime = nowAEST().getTime();
+    if (!visible.events.some(record => record.id === activeMajorEventNowId)) activeMajorEventNowId = visible.events[0].id;
     visible.events.forEach(record => {
       if (!todayAnchorInserted && MAJOR_EVENTS.recordLifecycleTime(record, nowAEST()) >= referenceTime) appendEventsTodayAnchor();
       section.appendChild(buildMajorEventCard(record));
@@ -18167,6 +18506,14 @@ document.querySelectorAll(".view-toggle button").forEach(btn => {
 
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
+  if (activeTab === "events" && eventsViewTab === "major-events" && activeMajorEventNowId){
+    const marker = document.querySelector(`[data-events-now-for="${CSS.escape(activeMajorEventNowId)}"]`);
+    if (marker){
+      const top = window.scrollY + marker.getBoundingClientRect().top - stickyFeedChromeHeight() - 12;
+      window.scrollTo({ top:Math.max(0, top), behavior:"smooth" });
+    }
+    return;
+  }
   if (activeTab === "feed" && activeView !== "list"){
     activeView = "list";
     document.querySelectorAll(".view-toggle button").forEach(btn => {
@@ -18236,7 +18583,7 @@ function renderTabCounts(){
   document.getElementById("feedTabCount").textContent = feedCount;
   const eventsCount = majorEventsDocument
     ? (() => {
-        const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, userPreferences.followedSports, nowAEST());
+        const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
         return visible.events.length + visible.alerts.length;
       })()
     : 0;

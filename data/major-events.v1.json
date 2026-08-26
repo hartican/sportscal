@@ -4,6 +4,10 @@
   "events": [
     {
       "id": "major-event:cincinnati-open-2026",
+      "eventFamilyId": "cincinnati-open",
+      "editionId": "cincinnati-open-2026",
+      "phaseId": "main-draw",
+      "phaseLabel": "Main draw",
       "kind": "tournament",
       "name": "Cincinnati Open",
       "lifecycleStatus": "retired",
@@ -47,6 +51,12 @@
     },
     {
       "id": "major-event:us-open-2026",
+      "eventFamilyId": "us-open",
+      "editionId": "us-open-2026",
+      "phaseId": "mixed-doubles-and-exhibitions",
+      "phaseLabel": "Mixed doubles and exhibitions",
+      "phaseStartDate": "2026-08-25",
+      "phaseEndDate": "2026-08-26",
       "kind": "tournament",
       "name": "US Open 2026",
       "sportKey": "tennis",
@@ -71,6 +81,75 @@
       ],
       "subEvents": [
         {
+          "id": "fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool",
+          "stableMatchId": "5104",
+          "cardKind": "fixture",
+          "name": "Serena Williams / Carlos Alcaraz v Erin Routliffe / Lloyd Glasspool",
+          "stage": "Mixed doubles",
+          "roundLabel": "Opening round",
+          "matchType": "mixed-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-25",
+          "time": "14:00",
+          "startTimeUtc": "2026-08-25T18:00:00.000Z",
+          "sessionId": "us-open-2026-mixed-doubles-day-1",
+          "sessionStartTimeUtc": "2026-08-25T18:00:00.000Z",
+          "sequenceInSession": 1,
+          "timePrecision": "session-start",
+          "scheduleStatus": "confirmed",
+          "status": "completed",
+          "statusUpdatedAt": "2026-08-25T18:58:00.000Z",
+          "resultPublishedAt": "2026-08-25T18:58:00.000Z",
+          "result": "Williams / Alcaraz won 5-3, 4-1",
+          "scoreDisplay": "Williams / Alcaraz 5-3, 4-1 Routliffe / Glasspool",
+          "previewPriority": 1,
+          "matchupSides": [
+            {
+              "id": "pair:tennis:serena-williams-carlos-alcaraz",
+              "name": "Williams / Alcaraz",
+              "players": [
+                {
+                  "id": "athlete:tennis:serena-williams",
+                  "name": "Serena Williams",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "US"
+                },
+                {
+                  "id": "athlete:tennis:carlos-alcaraz",
+                  "name": "Carlos Alcaraz",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "ES"
+                }
+              ]
+            },
+            {
+              "id": "pair:tennis:erin-routliffe-lloyd-glasspool",
+              "name": "Routliffe / Glasspool",
+              "players": [
+                {
+                  "id": "athlete:tennis:erin-routliffe",
+                  "name": "Erin Routliffe",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "NZ"
+                },
+                {
+                  "id": "athlete:tennis:lloyd-glasspool",
+                  "name": "Lloyd Glasspool",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "GB"
+                }
+              ]
+            }
+          ],
+          "venue": "Arthur Ashe Stadium",
+          "stakesScore": 5,
+          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
+        },
+        {
           "id": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
           "stableMatchId": "usopen-2026-xd-serena-alcaraz-bencic-cobolli",
           "cardKind": "fixture",
@@ -82,9 +161,17 @@
           "date": "2026-08-25",
           "time": null,
           "startTimeUtc": null,
-          "scheduleStatus": "time-unpublished",
+          "sessionId": "us-open-2026-mixed-doubles-day-1",
+          "sessionStartTimeUtc": "2026-08-25T18:00:00.000Z",
+          "sequenceInSession": 2,
+          "timePrecision": "follows",
+          "scheduleStatus": "confirmed",
           "status": "completed",
+          "statusUpdatedAt": "2026-08-25T21:00:00.000Z",
+          "resultPublishedAt": "2026-08-25T21:00:00.000Z",
           "result": "Bencic / Cobolli won 5-4(4), 4-1",
+          "scoreDisplay": "Bencic / Cobolli 5-4(4), 4-1 Williams / Alcaraz",
+          "previewPriority": 3,
           "matchupSides": [
             {
               "id": "pair:tennis:serena-williams-carlos-alcaraz",
@@ -141,10 +228,19 @@
           "matchType": "exhibition-singles",
           "court": "Arthur Ashe Stadium",
           "date": "2026-08-25",
-          "time": "19:30",
-          "startTimeUtc": "2026-08-25T23:30:00.000Z",
-          "scheduleStatus": "confirmed-session-start",
-          "status": "scheduled",
+          "time": "20:00",
+          "startTimeUtc": "2026-08-26T00:00:00.000Z",
+          "sessionId": "us-open-2026-legends-night",
+          "sessionStartTimeUtc": "2026-08-26T00:00:00.000Z",
+          "sequenceInSession": 1,
+          "timePrecision": "session-start",
+          "scheduleStatus": "confirmed",
+          "status": "completed",
+          "statusUpdatedAt": "2026-08-26T00:35:00.000Z",
+          "resultPublishedAt": "2026-08-26T00:35:00.000Z",
+          "result": "Roger Federer won 6-3",
+          "previewPriority": 2,
+          "scoreDisplay": "Federer 6-3 Roddick",
           "matchupSides": [
             {
               "id": "side:tennis:roger-federer",
@@ -196,10 +292,17 @@
           "matchType": "exhibition-doubles",
           "court": "Arthur Ashe Stadium",
           "date": "2026-08-25",
-          "time": "19:30",
-          "startTimeUtc": "2026-08-25T23:30:00.000Z",
-          "scheduleStatus": "within-confirmed-session",
-          "status": "scheduled",
+          "time": null,
+          "startTimeUtc": null,
+          "sessionId": "us-open-2026-legends-night",
+          "sessionStartTimeUtc": "2026-08-26T00:00:00.000Z",
+          "sequenceInSession": 2,
+          "timePrecision": "follows",
+          "scheduleStatus": "confirmed",
+          "status": "completed",
+          "statusUpdatedAt": "2026-08-26T00:43:00.000Z",
+          "resultPublishedAt": "2026-08-26T00:43:00.000Z",
+          "scoreDisplay": "7-5",
           "matchupSides": [
             {
               "id": "pair:tennis:federer-mcenroe",
@@ -258,8 +361,11 @@
         {
           "id": "fixture:us-open-2026:bencic-cobolli-v-svitolina-monfils",
           "stableMatchId": "usopen-2026-xd-bencic-cobolli-svitolina-monfils",
+          "legacyEventIds": [
+            "major-session:us-open-2026:mixed-doubles-finals"
+          ],
           "cardKind": "fixture",
-          "name": "Belinda Bencic / Flavio Cobolli v Elina Svitolina / Gael Monfils",
+          "name": "Elina Svitolina / Gael Monfils v Belinda Bencic / Flavio Cobolli",
           "stage": "Mixed doubles",
           "roundLabel": "Semifinal",
           "matchType": "mixed-doubles",
@@ -267,29 +373,14 @@
           "date": "2026-08-26",
           "time": "19:00",
           "startTimeUtc": "2026-08-26T23:00:00.000Z",
-          "scheduleStatus": "confirmed-session-start",
+          "sessionId": "us-open-2026-mixed-doubles-finals",
+          "sessionStartTimeUtc": "2026-08-26T23:00:00.000Z",
+          "sequenceInSession": 1,
+          "timePrecision": "session-start",
+          "scheduleStatus": "confirmed",
           "status": "scheduled",
+          "statusUpdatedAt": "2026-08-26T01:00:00.000Z",
           "matchupSides": [
-            {
-              "id": "pair:tennis:belinda-bencic-flavio-cobolli",
-              "name": "Bencic / Cobolli",
-              "players": [
-                {
-                  "id": "athlete:tennis:belinda-bencic",
-                  "name": "Belinda Bencic",
-                  "seed": 4,
-                  "rank": null,
-                  "nationalityCode": "CH"
-                },
-                {
-                  "id": "athlete:tennis:flavio-cobolli",
-                  "name": "Flavio Cobolli",
-                  "seed": 4,
-                  "rank": null,
-                  "nationalityCode": "IT"
-                }
-              ]
-            },
             {
               "id": "pair:tennis:elina-svitolina-gael-monfils",
               "name": "Svitolina / Monfils",
@@ -309,11 +400,96 @@
                   "nationalityCode": "FR"
                 }
               ]
+            },
+            {
+              "id": "pair:tennis:belinda-bencic-flavio-cobolli",
+              "name": "Bencic / Cobolli",
+              "players": [
+                {
+                  "id": "athlete:tennis:belinda-bencic",
+                  "name": "Belinda Bencic",
+                  "seed": 4,
+                  "rank": null,
+                  "nationalityCode": "CH"
+                },
+                {
+                  "id": "athlete:tennis:flavio-cobolli",
+                  "name": "Flavio Cobolli",
+                  "seed": 4,
+                  "rank": null,
+                  "nationalityCode": "IT"
+                }
+              ]
             }
           ],
           "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
           "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html"
+        },
+        {
+          "id": "fixture:us-open-2026:andreeva-rublev-v-muchova-mensik",
+          "stableMatchId": "usopen-2026-xd-andreeva-rublev-muchova-mensik",
+          "cardKind": "fixture",
+          "name": "Karolina Muchova / Jakub Mensik v Mirra Andreeva / Andrey Rublev",
+          "stage": "Mixed doubles",
+          "roundLabel": "Semifinal",
+          "matchType": "mixed-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-26",
+          "time": null,
+          "startTimeUtc": null,
+          "sessionId": "us-open-2026-mixed-doubles-finals",
+          "sessionStartTimeUtc": "2026-08-26T23:00:00.000Z",
+          "sequenceInSession": 2,
+          "timePrecision": "follows",
+          "scheduleStatus": "confirmed",
+          "status": "scheduled",
+          "statusUpdatedAt": "2026-08-26T01:00:00.000Z",
+          "matchupSides": [
+            {
+              "id": "pair:tennis:karolina-muchova-jakub-mensik",
+              "name": "Muchova / Mensik",
+              "players": [
+                {
+                  "id": "athlete:tennis:karolina-muchova",
+                  "name": "Karolina Muchova",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "CZ"
+                },
+                {
+                  "id": "athlete:tennis:jakub-mensik",
+                  "name": "Jakub Mensik",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "CZ"
+                }
+              ]
+            },
+            {
+              "id": "pair:tennis:mirra-andreeva-andrey-rublev",
+              "name": "Andreeva / Rublev",
+              "players": [
+                {
+                  "id": "athlete:tennis:mirra-andreeva",
+                  "name": "Mirra Andreeva",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "RU"
+                },
+                {
+                  "id": "athlete:tennis:andrey-rublev",
+                  "name": "Andrey Rublev",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "RU"
+                }
+              ]
+            }
+          ],
+          "venue": "Arthur Ashe Stadium",
+          "stakesScore": 5,
+          "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/andreeva-rublev_defeat_shnaider-ruud_in_2026_us_open_mixed_doubles.html"
         }
       ],
       "ticketing": {
@@ -339,6 +515,10 @@
     },
     {
       "id": "major-event:afl-finals-series-2026",
+      "eventFamilyId": "afl-finals",
+      "editionId": "afl-finals-2026",
+      "phaseId": "finals",
+      "phaseLabel": "Finals",
       "kind": "major_event",
       "name": "2026 Toyota AFL Finals Series",
       "sportKey": "afl",
@@ -1125,6 +1305,10 @@
     },
     {
       "id": "major-event:nrl-finals-series-2026",
+      "eventFamilyId": "nrl-finals",
+      "editionId": "nrl-finals-2026",
+      "phaseId": "finals",
+      "phaseLabel": "Finals",
       "kind": "major_event",
       "name": "2026 NRL Finals Series",
       "sportKey": "nrl",
@@ -1262,6 +1446,10 @@
     },
     {
       "id": "major-event:rlwc-2026",
+      "eventFamilyId": "rugby-league-world-cup",
+      "editionId": "rugby-league-world-cup-2026",
+      "phaseId": "tournament",
+      "phaseLabel": "Tournament",
       "kind": "tournament",
       "name": "Rugby League World Cup 2026",
       "sportKey": "nrl",
@@ -1342,6 +1530,10 @@
     },
     {
       "id": "major-event:nations-championship-finals-2026",
+      "eventFamilyId": "nations-championship",
+      "editionId": "nations-championship-2026",
+      "phaseId": "finals",
+      "phaseLabel": "Finals",
       "kind": "major_event",
       "name": "2026 Nations Championship Finals Weekend",
       "sportKey": "rugby",
@@ -1435,6 +1627,10 @@
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:qualification",
+      "eventFamilyId": "uefa-champions-league",
+      "editionId": "uefa-champions-league-2026-27",
+      "phaseId": "qualification",
+      "phaseLabel": "Qualification",
       "kind": "tournament",
       "name": "UEFA Champions League · Qualification",
       "phaseIdentity": "qualification",
@@ -1599,6 +1795,10 @@
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:league-phase",
+      "eventFamilyId": "uefa-champions-league",
+      "editionId": "uefa-champions-league-2026-27",
+      "phaseId": "league-phase",
+      "phaseLabel": "League phase",
       "kind": "tournament",
       "name": "UEFA Champions League · League phase",
       "phaseIdentity": "league",
@@ -1641,6 +1841,10 @@
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:knockout",
+      "eventFamilyId": "uefa-champions-league",
+      "editionId": "uefa-champions-league-2026-27",
+      "phaseId": "knockout",
+      "phaseLabel": "Knockout phase",
       "kind": "tournament",
       "name": "UEFA Champions League · Knockout phase",
       "phaseIdentity": "knockout",
@@ -1719,6 +1923,10 @@
     },
     {
       "id": "major-event:australian-open-2027",
+      "eventFamilyId": "australian-open",
+      "editionId": "australian-open-2027",
+      "phaseId": "main-draw",
+      "phaseLabel": "Main draw",
       "kind": "tournament",
       "name": "Australian Open 2027",
       "sportKey": "tennis",
@@ -1765,6 +1973,10 @@
     },
     {
       "id": "major-event:australian-grand-prix-2027",
+      "eventFamilyId": "australian-grand-prix",
+      "editionId": "australian-grand-prix-2027",
+      "phaseId": "race-weekend",
+      "phaseLabel": "Race weekend",
       "kind": "major_event",
       "name": "Formula 1 Australian Grand Prix 2027",
       "sportKey": "f1",

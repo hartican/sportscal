@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "motorsport",
   "label": "Motorsport",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -29,7 +29,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:mercedes",
@@ -54,7 +59,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:ferrari",
@@ -79,7 +89,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:lewis-hamilton",
@@ -104,7 +119,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:george-russell",
@@ -129,7 +149,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:mclaren",
@@ -154,7 +179,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:charles-leclerc",
@@ -179,7 +209,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:red-bull-racing",
@@ -204,7 +239,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:lando-norris",
@@ -229,7 +269,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:racing-bulls",
@@ -254,7 +299,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:alpine",
@@ -279,7 +329,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:max-verstappen",
@@ -304,7 +359,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:haas",
@@ -329,7 +389,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:oscar-piastri",
@@ -354,7 +419,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:audi",
@@ -379,7 +449,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:isack-hadjar",
@@ -404,7 +479,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:liam-lawson",
@@ -429,7 +509,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:williams",
@@ -454,7 +539,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:aston-martin",
@@ -479,7 +569,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:pierre-gasly",
@@ -504,7 +599,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:arvid-lindblad",
@@ -529,7 +629,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:f1:cadillac",
@@ -554,7 +659,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:franco-colapinto",
@@ -579,7 +689,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:oliver-bearman",
@@ -604,7 +719,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:gabriel-bortoleto",
@@ -629,7 +749,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:carlos-sainz",
@@ -654,7 +779,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:alexander-albon",
@@ -679,7 +809,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:esteban-ocon",
@@ -704,7 +839,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:nico-hulkenberg",
@@ -729,7 +869,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:fernando-alonso",
@@ -754,7 +899,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:lance-stroll",
@@ -779,7 +929,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:valtteri-bottas",
@@ -804,7 +959,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:f1:sergio-perez",
@@ -829,7 +989,12 @@
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
-      "sourceRefs": []
+      "sourceRefs": [],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

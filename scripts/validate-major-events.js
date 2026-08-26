@@ -101,6 +101,61 @@ assert(tennis.events.some(record => record.id === "major-event:australian-open-2
 assert(tennis.alerts.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(!tennis.events.some(record => record.sportKey === "nrl"), "Events must respect followed sports");
 
+const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
+const usOpenMixedSemifinals = usOpen.subEvents.filter(event => event.matchType === "mixed-doubles" && event.roundLabel === "Semifinal");
+assert.equal(usOpenMixedSemifinals.length, 2, "the published US Open mixed-doubles semifinal draw must contain both named matchups");
+assert.deepEqual(
+  usOpenMixedSemifinals.map(event => majorEvents.matchupSideLabels(event)),
+  [
+    ["Elina Svitolina / Gael Monfils", "Belinda Bencic / Flavio Cobolli"],
+    ["Karolina Muchova / Jakub Mensik", "Mirra Andreeva / Andrey Rublev"],
+  ],
+  "US Open semifinal children must retain the announced two-player sides"
+);
+usOpenMixedSemifinals.forEach((event, index) => {
+  const pinned = majorEvents.fixtureFromSubEvent(event, usOpen);
+  if (index === 1){
+    assert.equal(event.timePrecision, "follows", `${event.id} must retain official session order without an invented start`);
+    assert.equal(pinned, null, `${event.id} cannot be pinned until its exact sporting start is published`);
+    return;
+  }
+  assert.equal(pinned.name, majorEvents.matchupSideLabels(event).join(" v "), `${event.id} must become a named Feed fixture`);
+  assert.equal(pinned.displayTitleCompact, pinned.name, `${event.id} must not fall back to a generic round/session title`);
+  assert.equal(pinned.participants.length, 4, `${event.id} must persist all four contestants in the pin snapshot`);
+  assert(pinned.participants.every(participant => participant.nationalityCode), `${event.id} must retain every announced player's country flag identity`);
+  assert.equal(pinned.matchupSides.length, 2, `${event.id} must persist the two grouped doubles sides`);
+});
+const legacyMixedSessionId = "major-session:us-open-2026:mixed-doubles-finals";
+const legacyPinPlan = majorEvents.fixturePinReconciliationPlan(catalogue, {
+  [legacyMixedSessionId]: {
+    eventId: legacyMixedSessionId,
+    addedToFixtures: true,
+    addedFixture: {
+      eventId: legacyMixedSessionId,
+      actionKey: legacyMixedSessionId,
+      name: "Mixed doubles · Semifinals and final",
+      cardKind: "fixture",
+      manualPin: true,
+    },
+  },
+});
+assert.equal(legacyPinPlan.length, 1, "the old generic US Open session pin must reconcile exactly once");
+assert.equal(legacyPinPlan[0].sourceKey, legacyMixedSessionId);
+assert.equal(legacyPinPlan[0].fixture.name, "Elina Svitolina / Gael Monfils v Belinda Bencic / Flavio Cobolli", "legacy generic pins must be repopulated with the first published concrete semifinal");
+
+catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => {
+  const sideLabels = majorEvents.matchupSideLabels(subEvent);
+  if (!sideLabels.length) return;
+  assert.equal(sideLabels.length, 2, `${subEvent.id} must expose exactly two matchup sides when contestants are published`);
+  const fixture = majorEvents.fixtureFromSubEvent(subEvent, parent);
+  if (!fixture) return;
+  if (subEvent.matchupSides?.length === 2){
+    assert.equal(fixture.name, sideLabels.join(" v "), `${subEvent.id} must preserve its published matchup when pinned to Feed`);
+  } else {
+    assert.match(fixture.name, new RegExp(sideLabels.map(label => label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join(".*v.*"), "i"), `${subEvent.id} must retain both published sides in its Feed title`);
+  }
+}));
+
 const rlwc = catalogue.events.find(record => record.id === "major-event:rlwc-2026");
 const drawnMatch = rlwc.subEvents[0];
 const fixture = majorEvents.fixtureFromSubEvent(drawnMatch, rlwc);
@@ -129,6 +184,7 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");

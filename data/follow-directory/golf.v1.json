@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "golf",
   "label": "Golf",
-  "generatedAt": "2026-08-26T00:13:01Z",
+  "generatedAt": "2026-08-26T04:39:58Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -33,7 +33,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:scottie-scheffler",
@@ -62,7 +67,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:jeeno-thitikul",
@@ -91,7 +101,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:rory-mcilroy",
@@ -120,7 +135,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:haeran-ryu",
@@ -149,7 +169,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:hyojoo-kim",
@@ -178,7 +203,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:lottie-woad",
@@ -207,7 +237,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:charley-hull",
@@ -236,7 +271,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:miyu-yamashita",
@@ -265,7 +305,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:sam-burns",
@@ -294,7 +339,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:ruoning-yin",
@@ -323,7 +373,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:hannah-green",
@@ -352,7 +407,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:sei-young-kim",
@@ -381,7 +441,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:brooke-henderson",
@@ -410,7 +475,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:lydia-ko",
@@ -439,7 +509,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:minjee-lee",
@@ -468,7 +543,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:si-woo-kim",
@@ -497,7 +577,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:ryan-fox",
@@ -526,7 +611,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:michael-brennan",
@@ -555,7 +645,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:adam-scott",
@@ -584,7 +679,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:lucas-herbert",
@@ -613,7 +713,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:marc-leishman",
@@ -642,7 +747,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:golf:min-woo-lee",
@@ -671,7 +781,12 @@
         "https://www.owgr.com/news/world-no-1-scottie-scheffler-extends-summit-lead-with-dominant-tpc-southwind-win",
         "https://www.owgr.com/events/the-154th-open-11468",
         "https://www.rolexrankings.com/rankings"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }
