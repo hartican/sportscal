@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title data-brand-copy="title">Nothingsport — Smart sports feed</title>
 <meta name="theme-color" content="#0a0a0f">
-<meta name="description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
+<meta name="description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta name="application-name" content="NS">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -14,13 +14,13 @@
   <meta name="app-shell-version" content="156">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
-<meta property="og:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
+<meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
-<meta name="twitter:description" content="Like having a sports-fanatic in your pocket." data-brand-copy-content="metadataDescription">
+<meta name="twitter:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/nothingsport-app-32.png" sizes="32x32" type="image/png">
@@ -6106,7 +6106,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <img class="startup-launch-fallback" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="" decoding="async">
     </div>
     <div id="startupProgressRing"></div>
-    <p class="startup-loading-slogan" id="startupLoadingSlogan" data-brand-copy="loadingDescriptor" aria-label="Like having a sports-fanatic in your pocket."></p>
+    <p class="startup-loading-slogan" id="startupLoadingSlogan" data-brand-copy="loadingDescriptor" aria-label="Live sport, nothing missed."></p>
     <p class="startup-progress-copy" id="startupProgressLabel">Preparing your Feed…</p>
     <button class="startup-sound-enable" id="enableLoadingSoundsBtn" type="button" hidden>Enable loading sounds</button>
   </div>
@@ -6120,7 +6120,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
       </div>
-      <div class="slogan" data-brand-copy="descriptor">Like having a sports-fanatic in your pocket.</div>
+      <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>
     <div class="header-actions">
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
@@ -6164,7 +6164,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 <footer class="app-footer">
   <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" loading="lazy" decoding="async">
-  <div class="footer-slogan" data-brand-copy="descriptor">Like having a sports-fanatic in your pocket.</div>
+  <div class="footer-slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
 </footer>
 
@@ -6219,7 +6219,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="about-hero-copy">
         <h2 id="aboutTitle" data-brand-copy="title">Nothingsport — Smart sports feed</h2>
-        <p data-brand-copy="hero">Like having a sports-fanatic in your pocket.</p>
+        <p data-brand-copy="hero">Live sport, nothing missed.</p>
       </div>
     </div>
     <div class="about-body">
@@ -6543,7 +6543,7 @@ function renderLoadingProgress(state = loadingController.snapshot()){
 function startLoadingSloganTypewriter(durationMs = 2000){
   const element = document.getElementById("startupLoadingSlogan");
   if (!element) return;
-  const copy = String(BRAND_COPY.loadingDescriptor || BRAND_COPY.descriptor || "Like having a sports-fanatic in your pocket.");
+  const copy = String(BRAND_COPY.loadingDescriptor || BRAND_COPY.descriptor || "Live sport, nothing missed.");
   element.setAttribute("aria-label", copy);
   if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches){
     element.textContent = copy;

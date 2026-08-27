@@ -76,7 +76,7 @@ const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab=
 assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
 assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"') && html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "the compact primary navigation must expose Standings & Fixtures as the fourth destination");
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
-const requiredSlogan = "Like having a sports-fanatic in your pocket.";
+const requiredSlogan = "Live sport, nothing missed.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
 assert.equal(brand.metadataDescription, requiredSlogan, "metadata must use the supplied slogan exactly");
 assert(html.includes(`<title data-brand-copy="title">${brand.title}</title>`), "the document title must use the canonical nothingsport title");
@@ -96,10 +96,13 @@ assert(!brand.about.includes(requiredSlogan), "About must expand the positioning
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
 assert(!notFoundHtml.includes("nothingsport-logo-slogan.png"), "the not-found route must not render the stale slogan raster");
-const retiredSlogan = "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.";
+const retiredSlogans = [
+  ["Like having a sports-fanatic", "in your pocket."].join(" "),
+  "Smart sports feed. Nothing boring. Nothing spoiled. No big moments missed.",
+];
 assert(
-  ![html, JSON.stringify(brand), JSON.stringify(manifest), notFoundHtml].some(source => source.includes(retiredSlogan)),
-  "the superseded smart-feed slogan must be removed from every brand surface",
+  ![html, JSON.stringify(brand), JSON.stringify(manifest), notFoundHtml].some(source => retiredSlogans.some(slogan => source.includes(slogan))),
+  "superseded slogans must be removed from every brand surface",
 );
 assert(!html.includes("Sports feed orchestrator") && !html.includes("Your sports, orchestrated."), "superseded slogan copy must be removed from app and share surfaces");
 assert(!/right live games/i.test(html), "superseded right-live-games copy must be removed");
