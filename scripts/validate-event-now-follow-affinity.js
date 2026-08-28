@@ -10,6 +10,7 @@ const ROOT = path.resolve(__dirname, "..");
 const majorEvents = require(path.join(ROOT, "config/major-events.js"));
 const followFirst = require(path.join(ROOT, "config/follow-first.js"));
 const usOpenRefresh = require(path.join(ROOT, "scripts/refresh-us-open-events.js"));
+const { fixtureIdentityKey } = require(path.join(ROOT, "scripts/lib/major-event-fixture-identity.js"));
 
 const reference = new Date("2026-08-28T14:00:00.000Z");
 const usOpen = JSON.parse(fs.readFileSync(path.join(ROOT, "data/major-events.v1.json"), "utf8"))
@@ -25,7 +26,11 @@ const timeline = majorEvents.phaseTimeline(usOpen, reference, { level:"L1", time
 assert.doesNotThrow(() => majorEvents.phaseTimeline({ subEvents:[{ id:"fixture:tbc", date:null, startTimeUtc:null, sessionStartTimeUtc:null }] }, reference), "unpublished Event dates must render an honest TBC state rather than crash Events");
 const officialQualifyingFixtures = usOpen.subEvents.filter(event => event.id.startsWith("fixture:us-open-2026:official:"));
 assert(usOpenSnapshot.scheduleFeeds.length > 1, "the US Open snapshot must retain every released competition day rather than only the current schedule");
-assert.equal(officialQualifyingFixtures.length, usOpenRefresh.fixturesFromSnapshot(usOpenSnapshot).length, "the current US Open edition must retain every released official fixture");
+assert.deepEqual(
+  usOpen.subEvents.map(fixtureIdentityKey).filter(Boolean).sort(),
+  usOpenRefresh.fixturesFromSnapshot(usOpenSnapshot).map(fixtureIdentityKey).filter(Boolean).sort(),
+  "the current US Open edition must retain every unique released official fixture"
+);
 const currentOfficialSourceUrls = new Set(usOpenRefresh.currentScheduleDays(usOpenSnapshot).map(day => day.feedUrl));
 const currentOfficialFixtures = officialQualifyingFixtures.filter(event => currentOfficialSourceUrls.has(event.sourceUrl));
 assert(currentOfficialFixtures.length, "the current released US Open day must retain detailed fixtures");

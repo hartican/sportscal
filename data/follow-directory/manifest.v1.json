@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-08-28T07:45:04Z",
+  "generatedAt": "2026-08-28T08:19:49.634Z",
   "sports": [
     {
       "key": "afl",
@@ -142,7 +142,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1374,
+      "recordCount": 1485,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },

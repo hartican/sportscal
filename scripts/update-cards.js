@@ -90,6 +90,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-identity-fallback-lifecycle.js"],
   ["scripts/validate-card-polish.js"],
   ["scripts/validate-major-events.js"],
+  ["scripts/validate-major-event-duplicates.js"],
   ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-discovery-catalogue.js"],
   ["scripts/validate-preference-taxonomy.js"],

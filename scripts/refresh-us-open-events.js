@@ -5,6 +5,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const countryFlags = require("../config/country-flags.js");
+const { deduplicateFixtures } = require("./lib/major-event-fixture-identity.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const CATALOGUE_PATH = path.join(ROOT, "data", "major-events.v1.json");
@@ -281,6 +282,7 @@ function mergeCatalogue(catalogue, snapshot){
       const rightTime = new Date(right.startTimeUtc || right.sessionStartTimeUtc).getTime() + Math.max(0, Number(right.sequenceInSession) || 0) * 1000;
       return leftTime - rightTime || left.id.localeCompare(right.id);
     });
+    const mergedSubEvents = deduplicateFixtures([...handCurated, ...officialFixtures]);
     const isMainDraw = currentFixtures.some(fixture => !/qualifying/.test(fixture.matchType));
     const officialSource = {
       name:"US Open official released order of play",
@@ -294,7 +296,7 @@ function mergeCatalogue(catalogue, snapshot){
       phaseStartDate:isMainDraw ? "2026-08-30" : "2026-08-23",
       phaseEndDate:isMainDraw ? "2026-09-13" : "2026-08-28",
       phaseIdentity:isMainDraw ? "main-draw" : "qualification",
-      subEvents:[...handCurated, ...officialFixtures],
+      subEvents:mergedSubEvents,
       sources:[officialSource, ...(event.sources || []).filter(source => source.url !== officialSource.url)],
     };
   });

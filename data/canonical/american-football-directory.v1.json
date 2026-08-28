@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-08-28T07:45:04Z",
+  "generatedAt": "2026-08-28T08:16:52Z",
   "season": 2026,
   "competitions": [
     {
@@ -45814,7 +45814,7 @@
       "countryBasis": "published-player-record",
       "genderCategory": "male",
       "identityId": "athlete:nfl:4682643",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4682643.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4682643.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4682643/camron-stewart"
       ]

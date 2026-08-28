@@ -100,9 +100,9 @@
           "status": "completed",
           "statusUpdatedAt": "2026-08-25T18:58:00.000Z",
           "resultPublishedAt": "2026-08-25T18:58:00.000Z",
-          "result": "Williams / Alcaraz won 5-3, 4-1",
           "scoreDisplay": "Williams / Alcaraz 5-3, 4-1 Routliffe / Glasspool",
-          "previewPriority": 1,
+          "result": "Williams / Alcaraz won 5-3, 4-1",
+          "previewPriority": 4,
           "matchupSides": [
             {
               "id": "pair:tennis:serena-williams-carlos-alcaraz",
@@ -147,6 +147,8 @@
           ],
           "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
+          "marquee": true,
+          "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
         },
         {
@@ -169,9 +171,9 @@
           "status": "completed",
           "statusUpdatedAt": "2026-08-25T21:00:00.000Z",
           "resultPublishedAt": "2026-08-25T21:00:00.000Z",
-          "result": "Bencic / Cobolli won 5-4(4), 4-1",
           "scoreDisplay": "Bencic / Cobolli 5-4(4), 4-1 Williams / Alcaraz",
-          "previewPriority": 3,
+          "result": "Bencic / Cobolli won 5-4(4), 4-1",
+          "previewPriority": 4,
           "matchupSides": [
             {
               "id": "pair:tennis:serena-williams-carlos-alcaraz",
@@ -216,6 +218,8 @@
           ],
           "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
+          "marquee": true,
+          "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
           "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html"
         },
         {
@@ -238,9 +242,9 @@
           "status": "completed",
           "statusUpdatedAt": "2026-08-26T00:35:00.000Z",
           "resultPublishedAt": "2026-08-26T00:35:00.000Z",
-          "result": "Roger Federer won 6-3",
-          "previewPriority": 2,
           "scoreDisplay": "Federer 6-3 Roddick",
+          "result": "Roger Federer won 6-3",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:roger-federer",
@@ -271,6 +275,9 @@
           ],
           "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
+          "marquee": true,
+          "summary": "US Open 2026 · Exhibition Singles · Semifinals · Arthur Ashe Stadium.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html",
           "viewingOptions": [
             {
               "providerId": "disney-plus",
@@ -279,8 +286,7 @@
               "sourceUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
               "verifiedAt": "2026-08-26T00:00:00.000Z"
             }
-          ],
-          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html"
+          ]
         },
         {
           "id": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
@@ -303,6 +309,8 @@
           "statusUpdatedAt": "2026-08-26T00:43:00.000Z",
           "resultPublishedAt": "2026-08-26T00:43:00.000Z",
           "scoreDisplay": "7-5",
+          "result": "Roger Federer / John McEnroe 7-5 Andre Agassi / Andy Roddick",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "pair:tennis:federer-mcenroe",
@@ -347,6 +355,9 @@
           ],
           "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
+          "marquee": true,
+          "summary": "US Open 2026 · Exhibition Doubles · Semifinals · Arthur Ashe Stadium.",
+          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html",
           "viewingOptions": [
             {
               "providerId": "disney-plus",
@@ -355,8 +366,7 @@
               "sourceUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
               "verifiedAt": "2026-08-26T00:00:00.000Z"
             }
-          ],
-          "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html"
+          ]
         },
         {
           "id": "fixture:us-open-2026:official:mc:13101",
@@ -8538,77 +8548,6 @@
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
         },
         {
-          "id": "fixture:us-open-2026:official:xd:5104",
-          "stableMatchId": "usopen-2026-xd-5104",
-          "cardKind": "fixture",
-          "name": "Serena Williams / Carlos Alcaraz v Erin Routliffe / Lloyd Glasspool",
-          "stage": "Mixed doubles",
-          "roundLabel": "Round 1",
-          "matchType": "mixed-doubles",
-          "court": "Arthur Ashe Stadium",
-          "date": "2026-08-25",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-3:court-aa:session-1",
-          "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-          "sequenceInSession": 4,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "completed",
-          "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-          "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-          "scoreDisplay": "Serena Williams / Carlos Alcaraz 5-3 4-1 Erin Routliffe / Lloyd Glasspool",
-          "result": "Serena Williams / Carlos Alcaraz 5-3 4-1 Erin Routliffe / Lloyd Glasspool",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:serena-williams-carlos-alcaraz",
-              "name": "Serena Williams / Carlos Alcaraz",
-              "players": [
-                {
-                  "id": "athlete:tennis:serena-williams",
-                  "name": "Serena Williams",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                },
-                {
-                  "id": "athlete:tennis:carlos-alcaraz",
-                  "name": "Carlos Alcaraz",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "ES"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:erin-routliffe-lloyd-glasspool",
-              "name": "Erin Routliffe / Lloyd Glasspool",
-              "players": [
-                {
-                  "id": "athlete:tennis:erin-routliffe",
-                  "name": "Erin Routliffe",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "NZ"
-                },
-                {
-                  "id": "athlete:tennis:lloyd-glasspool",
-                  "name": "Lloyd Glasspool",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "GB"
-                }
-              ]
-            }
-          ],
-          "venue": "Arthur Ashe Stadium",
-          "stakesScore": 4,
-          "marquee": true,
-          "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
-        },
-        {
           "id": "fixture:us-open-2026:official:mq:11149",
           "stableMatchId": "usopen-2026-mq-11149",
           "cardKind": "fixture",
@@ -9054,205 +8993,6 @@
           "venue": "Court 4",
           "stakesScore": 3,
           "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 4.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:xd:5202",
-          "stableMatchId": "usopen-2026-xd-5202",
-          "cardKind": "fixture",
-          "name": "Belinda Bencic / Flavio Cobolli v Serena Williams / Carlos Alcaraz",
-          "stage": "Mixed doubles",
-          "roundLabel": "Round 2",
-          "matchType": "mixed-doubles",
-          "court": "Arthur Ashe Stadium",
-          "date": "2026-08-25",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-3:court-aa:session-1",
-          "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-          "sequenceInSession": 5,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "completed",
-          "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-          "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-          "scoreDisplay": "Belinda Bencic / Flavio Cobolli 5(7)-4(4) 4-1 Serena Williams / Carlos Alcaraz",
-          "result": "Belinda Bencic / Flavio Cobolli 5(7)-4(4) 4-1 Serena Williams / Carlos Alcaraz",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:belinda-bencic-flavio-cobolli",
-              "name": "Belinda Bencic / Flavio Cobolli",
-              "players": [
-                {
-                  "id": "athlete:tennis:belinda-bencic",
-                  "name": "Belinda Bencic",
-                  "seed": 4,
-                  "rank": null,
-                  "nationalityCode": "CH"
-                },
-                {
-                  "id": "athlete:tennis:flavio-cobolli",
-                  "name": "Flavio Cobolli",
-                  "seed": 4,
-                  "rank": null,
-                  "nationalityCode": "IT"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:serena-williams-carlos-alcaraz",
-              "name": "Serena Williams / Carlos Alcaraz",
-              "players": [
-                {
-                  "id": "athlete:tennis:serena-williams",
-                  "name": "Serena Williams",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                },
-                {
-                  "id": "athlete:tennis:carlos-alcaraz",
-                  "name": "Carlos Alcaraz",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "ES"
-                }
-              ]
-            }
-          ],
-          "venue": "Arthur Ashe Stadium",
-          "stakesScore": 4,
-          "marquee": true,
-          "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:es:53101",
-          "stableMatchId": "usopen-2026-es-53101",
-          "cardKind": "fixture",
-          "name": "Roger Federer v Andy Roddick",
-          "stage": "Exhibition Singles",
-          "roundLabel": "Semifinals",
-          "matchType": "us-open-exhibition-singles",
-          "court": "Arthur Ashe Stadium",
-          "date": "2026-08-25",
-          "time": "20:00",
-          "startTimeUtc": "2026-08-26T00:00:00.000Z",
-          "sessionId": "us-open-2026:day-3:court-aa:session-2",
-          "sessionStartTimeUtc": "2026-08-26T00:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "completed",
-          "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-          "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-          "scoreDisplay": "Roger Federer 6-3 Andy Roddick",
-          "result": "Roger Federer 6-3 Andy Roddick",
-          "previewPriority": 5,
-          "matchupSides": [
-            {
-              "id": "side:tennis:roger-federer",
-              "name": "Roger Federer",
-              "players": [
-                {
-                  "id": "athlete:tennis:roger-federer",
-                  "name": "Roger Federer",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "CH"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:andy-roddick",
-              "name": "Andy Roddick",
-              "players": [
-                {
-                  "id": "athlete:tennis:andy-roddick",
-                  "name": "Andy Roddick",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            }
-          ],
-          "venue": "Arthur Ashe Stadium",
-          "stakesScore": 5,
-          "marquee": true,
-          "summary": "US Open 2026 · Exhibition Singles · Semifinals · Arthur Ashe Stadium.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:ed:54101",
-          "stableMatchId": "usopen-2026-ed-54101",
-          "cardKind": "fixture",
-          "name": "Roger Federer / John McEnroe v Andre Agassi / Andy Roddick",
-          "stage": "Exhibition Doubles",
-          "roundLabel": "Semifinals",
-          "matchType": "us-open-exhibition-doubles",
-          "court": "Arthur Ashe Stadium",
-          "date": "2026-08-25",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-3:court-aa:session-2",
-          "sessionStartTimeUtc": "2026-08-26T00:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "completed",
-          "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-          "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-          "scoreDisplay": "Roger Federer / John McEnroe 7-5 Andre Agassi / Andy Roddick",
-          "result": "Roger Federer / John McEnroe 7-5 Andre Agassi / Andy Roddick",
-          "previewPriority": 5,
-          "matchupSides": [
-            {
-              "id": "side:tennis:roger-federer-john-mcenroe",
-              "name": "Roger Federer / John McEnroe",
-              "players": [
-                {
-                  "id": "athlete:tennis:roger-federer",
-                  "name": "Roger Federer",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "CH"
-                },
-                {
-                  "id": "athlete:tennis:john-mcenroe",
-                  "name": "John McEnroe",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:andre-agassi-andy-roddick",
-              "name": "Andre Agassi / Andy Roddick",
-              "players": [
-                {
-                  "id": "athlete:tennis:andre-agassi",
-                  "name": "Andre Agassi",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                },
-                {
-                  "id": "athlete:tennis:andy-roddick",
-                  "name": "Andy Roddick",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            }
-          ],
-          "venue": "Arthur Ashe Stadium",
-          "stakesScore": 5,
-          "marquee": true,
-          "summary": "US Open 2026 · Exhibition Doubles · Semifinals · Arthur Ashe Stadium.",
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json"
         },
         {
@@ -15021,7 +14761,7 @@
         {
           "name": "US Open official released order of play",
           "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
-          "checkedAt": "2026-08-28T07:44:46.242Z"
+          "checkedAt": "2026-08-28T08:19:35.408Z"
         },
         {
           "name": "US Open 2026 schedule",
