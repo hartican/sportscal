@@ -59,7 +59,10 @@ assert(html.includes("--events-text-accent: #006f85") && html.includes("color:va
 assert(html.includes('id="startupSportsGrid"') && html.includes("Choose at least one"), "startup sport choices must remain lightweight and require one selection");
 assert.equal(userStateSchema.$defs.eventAction.properties.addedToFixtures.type, "boolean");
 assert.deepEqual(userStateSchema.$defs.eventAction.properties.addedToFixturesAt.type, ["string", "null"]);
-assert(userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.some(branch => branch.required?.includes("startTimeUtc")), "persisted child fixtures must require a confirmed UTC start");
+const persistedFixture = userStateSchema.$defs.eventAction.properties.addedFixture.anyOf.find(branch => branch.type === "object");
+assert(persistedFixture.required.includes("startTimeUtc"), "persisted child fixtures must retain an explicit exact-time state");
+assert(persistedFixture.properties.startTimeUtc.anyOf.some(branch => branch.type === "null"), "session-relative Follows fixtures must persist without an invented exact UTC start");
+assert(persistedFixture.properties.timePrecision.enum.includes("follows") && persistedFixture.properties.sessionStartTimeUtc, "persisted child fixtures must retain their published session-relative timing contract");
 assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion && worker.includes(`nothingsport-shell-v${shellVersion}`), "the polished card UI must ship in a matching offline shell version");

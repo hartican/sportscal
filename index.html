@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="162">
+<meta name="app-shell-version" content="163">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6405,7 +6405,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=162")
+  : loadDeferredScript("config/national-team-identities.js?v=163")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -10962,6 +10962,29 @@ function majorEventSubEvents(record){
   });
 }
 
+function followedMajorEventParticipants(){
+  const follows = userPreferences.preferenceGraph?.entityFollows || [];
+  const muted = new Set(follows.filter(item => item.followLevel === "mute").map(item => item.participantId));
+  const ids = new Set(follows.filter(item => ["follow", "priority"].includes(item.followLevel)).map(item => item.participantId));
+  const collections = followCollectionsById();
+  (userPreferences.followFirst?.collectionFollows || []).forEach(collectionId => {
+    (collections[collectionId]?.memberIds || []).forEach(id => ids.add(id));
+  });
+  muted.forEach(id => ids.delete(id));
+  return {
+    ids:[...ids],
+    names:[...ids].map(followedParticipantLabel),
+  };
+}
+
+function visibleMajorEventSubEvents(record){
+  const followed = followedMajorEventParticipants();
+  return majorEventSubEvents(record).filter(subEvent => MAJOR_EVENTS.subEventMeetsDisplayPolicy(subEvent, {
+    followedParticipantIds:followed.ids,
+    followedParticipantNames:followed.names,
+  }));
+}
+
 function majorEventFixtureSnapshot(subEvent, parent){
   return MAJOR_EVENTS?.fixtureFromSubEvent?.(subEvent, parent) || null;
 }
@@ -13004,6 +13027,7 @@ function eventMatchesSportPreferences(ev){
 
 function followedParticipantLabel(participantId){
   return canonicalSportsData?.participants?.find(item => item.id === participantId)?.displayName
+    || (directoryFollowIndex().players || []).find(item => item.id === participantId)?.displayName
     || [...(footballDirectoryData?.players || []), ...(nrlDirectoryData?.players || []), ...(aflDirectoryData?.players || [])].find(item => item.id === participantId)?.displayName
     || [...(footballDirectoryData?.teams || []), ...(nrlDirectoryData?.teams || []), ...(aflDirectoryData?.teams || [])].find(item => item.id === participantId)?.displayName
     || TEAM_FOLLOW_CATALOGUE?.teamsById?.[participantId]?.displayName
@@ -14143,6 +14167,7 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
 }
 
 function eventReminderTiming(ev){
+  if (ev.timePrecision === "follows") return null;
   if (ev.startTimeUtc && !Number.isNaN(Date.parse(ev.startTimeUtc))){
     return { startsAt:new Date(ev.startTimeUtc).toISOString(), fallback:false };
   }
@@ -17840,7 +17865,7 @@ function majorEventIdentityEvent(record){
 }
 
 function majorEventActionEvent(record){
-  const fixtures = majorEventSubEvents(record)
+  const fixtures = visibleMajorEventSubEvents(record)
     .map(subEvent => majorEventFixtureSnapshot(subEvent, record))
     .filter(Boolean)
     .sort((first, second) => eventDateTime(first) - eventDateTime(second));
@@ -17893,7 +17918,7 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
 }
 
 function prioritisedMajorEventSubEvents(record, limit = Infinity){
-  const scheduled = majorEventSubEvents(record).map((subEvent, order) => ({
+  const scheduled = visibleMajorEventSubEvents(record).map((subEvent, order) => ({
     subEvent,
     fixture:majorEventFixtureSnapshot(subEvent, record),
     order,
@@ -17947,13 +17972,9 @@ function majorEventTimelineDateLabel(item){
 }
 
 function buildMajorEventSchedule(record, { level = "L2", headingText = "Published matches", compact = false, includeOlder = false } = {}){
-  const timeline = MAJOR_EVENTS.phaseTimeline(record, nowAEST(), { level, timeZone:"Australia/Sydney", includeOlder });
+  const timeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level, timeZone:"Australia/Sydney", includeOlder });
   const timelineItems = compact
-    ? (() => {
-        const immediate = timeline.items.find(item => item.subEvent) || null;
-        const nowMarker = timeline.items.find(item => item.marker === "now") || null;
-        return [nowMarker, immediate].filter(Boolean);
-      })()
+    ? MAJOR_EVENTS.compactPhaseTimelineItems(timeline)
     : timeline.items;
   if (!timelineItems.length) return null;
   const section = document.createElement("section");
@@ -18014,21 +18035,19 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     const button = document.createElement("button");
     button.type = "button";
     button.className = "major-event-match-action";
-    const pinEligible = Boolean(fixture && item.effectiveStatus === "upcoming" && subEvent.timePrecision !== "follows");
+    const pinEligible = Boolean(fixture);
     button.disabled = !pinEligible;
     const syncPinButton = () => {
       const added = Boolean(pinEligible && getEventAction(fixture)?.addedToFixtures);
       button.setAttribute("aria-pressed", String(added));
       button.classList.toggle("active", added);
-      button.textContent = pinEligible ? (added ? "Remove from Feed" : "Add to Feed")
-        : item.effectiveStatus === "completed" ? "Completed"
-        : item.displayTime === "Follows" ? "Start follows" : "Time not confirmed";
+      button.textContent = pinEligible ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
       return added;
     };
     syncPinButton();
-    if (!pinEligible) button.title = subEvent.dateLabel
-      ? "A concrete drawn match and published start time are required before this schedule item can be added."
-      : "A published start time is required before this match can be added.";
+    button.title = pinEligible
+      ? "Pin this match to Feed without following either side."
+      : "A published exact or session-relative start is required before this match can be added.";
     button.addEventListener("click", () => {
       const wasAdded = syncPinButton();
       if (!pinEligible || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
@@ -18211,7 +18230,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   ticketRow.className = "major-event-ticket-row";
   const ticketLink = buildMajorEventTicketLink(record);
   if (ticketLink) ticketRow.appendChild(ticketLink);
-  const primaryTimeline = MAJOR_EVENTS.phaseTimeline(record, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
+  const primaryTimeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
   const primaryItem = primaryTimeline.upcoming[0] || primaryTimeline.recent.at(-1) || null;
   const primaryFixture = (primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record);
   appendEventQuickActions(ticketRow, primaryFixture);

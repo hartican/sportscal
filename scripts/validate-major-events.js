@@ -107,7 +107,7 @@ assert(!tennis.events.some(record => record.sportKey === "nrl"), "Events must re
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
 const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
 const officialUsOpenFixtures = usOpen.subEvents.filter(event => event.id.startsWith(AUTO_ID_PREFIX));
-assert.equal(officialUsOpenFixtures.length, expectedOfficialUsOpenFixtures.length, "US Open Events must include every fixture from the latest released official day");
+assert.equal(officialUsOpenFixtures.length, expectedOfficialUsOpenFixtures.length, "US Open Events must include every fixture from every released official competition day");
 assert.deepEqual(officialUsOpenFixtures.map(event => event.id), expectedOfficialUsOpenFixtures.map(event => event.id), "US Open Events IDs must remain stable against official match IDs");
 assert.equal(usOpen.competitionId, "competition:tennis:us-open:2026", "US Open parent and child fixtures must inherit the tournament graphic identity");
 assert.equal(usOpen.phaseIdentity, "qualification", "the current US Open card must identify the released qualifying phase without pretending the main draw is published");
@@ -117,11 +117,23 @@ assert(officialUsOpenFixtures.every(event => event.matchupSides.length === 2), "
 assert(officialUsOpenFixtures.flatMap(event => event.matchupSides).flatMap(side => side.players).every(player => player.nationalityCode), "every released US Open player must retain the official country identity when available");
 assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1).every(event => event.startTimeUtc && event.timePrecision === "session-start"), "first matches on each US Open court must use the published session start");
 assert(officialUsOpenFixtures.filter(event => event.sequenceInSession > 1).every(event => !event.startTimeUtc && event.timePrecision === "follows"), "later US Open court matches must say follows rather than inventing a start time");
-officialUsOpenFixtures.filter(event => event.startTimeUtc).forEach(event => {
+officialUsOpenFixtures.forEach(event => {
   const fixture = majorEvents.fixtureFromSubEvent(event, usOpen);
+  assert(fixture, `${event.id} must be pinnable from Events even when completed or published as Follows`);
   assert.equal(fixture.name, majorEvents.matchupSideLabels(event).join(" v "), `${event.id} must materialise as a fully named Feed fixture`);
   assert.equal(fixture.competitionId, usOpen.competitionId, `${event.id} must inherit the US Open logo identity`);
+  if (event.timePrecision === "follows") assert.equal(fixture.startTimeUtc, null, `${event.id} must not invent an exact start when pinned`);
 });
+
+const eventFixtureAudit = catalogue.events.filter(record => record.kind !== "ticket_sale").flatMap(parent => (parent.subEvents || []).map(subEvent => ({ parent, subEvent })));
+eventFixtureAudit.forEach(({ subEvent }) => {
+  assert(Number.isInteger(subEvent.stakesScore) && subEvent.stakesScore >= 1 && subEvent.stakesScore <= 5, `${subEvent.id} must declare 1-5 stakes for the shared Event fixture filter`);
+  const baselineVisible = majorEvents.subEventMeetsDisplayPolicy(subEvent);
+  assert.equal(baselineVisible, subEvent.stakesScore >= 4 || majorEvents.subEventIsMarquee(subEvent), `${subEvent.id} must be hidden when unfollowed and below 4/5 unless explicitly marquee`);
+  const identity = majorEvents.subEventParticipantIdentity(subEvent);
+  if (identity.ids[0] || identity.names[0]) assert(majorEvents.subEventMeetsDisplayPolicy(subEvent, { followedParticipantIds:identity.ids.slice(0, 1), followedParticipantNames:identity.names.slice(0, 1) }), `${subEvent.id} must surface for a followed participant at any stakes level`);
+});
+assert(eventFixtureAudit.some(({ subEvent }) => subEvent.stakesScore < 4), "the Event audit must exercise hidden early-round or low-stakes fixtures");
 
 catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => {
   const sideLabels = majorEvents.matchupSideLabels(subEvent);
@@ -176,6 +188,7 @@ assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFil
 const feedMerger = html.match(/function mergeMainFeedSpecialEvents\(events\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(feedMerger.includes("selectedMajorEventFixtures()"), "Feed must include independently pinned Event children");
 assert(!feedMerger.includes("markerEvents") && !feedMerger.includes("mainFeedMajorEventMarkers") && feedMerger.includes('event?.majorEventMarker !== true'), "parent Event and tournament markers must never enter Feed");
-assert(html.includes("subEvent.dateLabel") && html.includes("concrete drawn match"), "published stage dates must render without making an un-drawn match addable");
+assert(html.includes("visibleMajorEventSubEvents") && html.includes("subEventMeetsDisplayPolicy"), "every Event timetable must apply the followed-or-4-plus-or-marquee fixture rule");
+assert(html.includes("const pinEligible = Boolean(fixture);") && html.includes('added ? "Remove from Feed" : "Add to Feed"'), "past and session-relative published matches must support an explicit Feed pin");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

@@ -49,6 +49,7 @@
         "sessionStartTimeUtc": { "type": ["string", "null"], "format": "date-time" },
         "sequenceInSession": { "type": "integer", "minimum": 0 },
         "previewPriority": { "type": "integer", "minimum": 0 },
+        "marquee": { "type": "boolean" },
         "timePrecision": { "enum": ["exact", "session-start", "follows", "date-only", "unpublished"] },
         "statusUpdatedAt": { "type": "string", "format": "date-time" },
         "resultPublishedAt": { "type": "string", "format": "date-time" },

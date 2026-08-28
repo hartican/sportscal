@@ -16,8 +16,23 @@ const TOURNAMENT_YEAR = 2026;
 const CHECK_ONLY = process.argv.includes("--check");
 
 const NEUTRAL_PLAYER_COUNTRY_OVERRIDES = Object.freeze({
+  wta330151: "RU", // Erika Andreeva
+  wta332575: "RU", // Alevtina Ibragimova
+  wta322333: "RU", // Anastasia Gasanova
+  wta320759: "BY", // Iryna Shymanovich
   wta330905: "RU", // Elena Pridankina; official match feed suppresses the nation field.
+  wta329250: "BY", // Aliona Falei
+  wta330466: "RU", // Polina Iatcenko
+  wta320760: "BY", // Aryna Sabalenka
+  wta331809: "RU", // Mirra Andreeva
+  atpre44: "RU", // Andrey Rublev
+  wta330482: "RU", // Diana Shnaider
+  wta317790: "BY", // Aliaksandra Sasnovich
   wta335303: "RU", // Kristina Liutova; official match feed suppresses the nation field.
+  wta330723: "RU", // Tatiana Prozorova
+  wta330102: "RU", // Julia Avdeeva
+  wta328578: "RU", // Darya Astakhova
+  wta332168: "RU", // Alexandra Shubladze
 });
 
 const EVENT_LABELS = Object.freeze({
@@ -77,6 +92,19 @@ function statusForMatch(match){
   if (/cancel/.test(status)) return "cancelled";
   if (/progress|playing|live/.test(status)) return "live";
   return "scheduled";
+}
+
+function stakesPolicyForMatch(eventCode, roundLabel, courtName){
+  const round = compactWhitespace(roundLabel).toLowerCase();
+  const qualifying = /q$/.test(String(eventCode || "").toLowerCase()) || /qualif/.test(round);
+  const marquee = /arthur ashe/i.test(courtName || "") && !qualifying;
+  let stakesScore = qualifying ? 3 : 2;
+  if (/\b(?:final|championship)\b/.test(round) && !/semi|quarter|qualif/.test(round)) stakesScore = 5;
+  else if (/semi.?final/.test(round)) stakesScore = 5;
+  else if (/quarter.?final|round of 16|fourth round/.test(round)) stakesScore = 4;
+  else if (/third round|round 3/.test(round)) stakesScore = 3;
+  if (marquee) stakesScore = Math.max(4, stakesScore);
+  return { stakesScore, marquee };
 }
 
 function playerFromTeam(team, suffix){
@@ -150,6 +178,7 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
   const score = scoreDisplay(match, sideLabels);
   const courtName = compactWhitespace(match?.courtName || court?.courtName || "USTA Billie Jean King National Tennis Center");
   const roundLabel = compactWhitespace(match?.roundName || match?.roundNameShort || "Round TBC");
+  const stakesPolicy = stakesPolicyForMatch(eventCode, roundLabel, courtName);
   const date = sourceDate(day);
   const stableMatchId = `usopen-2026-${eventCode.toLowerCase()}-${sourceMatchId}`;
   return {
@@ -174,10 +203,11 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     ...(status === "completed" ? { resultPublishedAt:capturedAt } : {}),
     ...(score ? { scoreDisplay:score } : {}),
     ...(status === "completed" && score ? { result:score } : {}),
-    previewPriority:status === "live" ? 5 : status === "postponed" ? 4 : startTimeUtc ? 3 : 2,
+    previewPriority:status === "live" ? 5 : status === "postponed" ? 4 : stakesPolicy.stakesScore,
     matchupSides,
     venue:courtName,
-    stakesScore:5,
+    stakesScore:stakesPolicy.stakesScore,
+    ...(stakesPolicy.marquee ? { marquee:true } : {}),
     summary:`US Open 2026 · ${eventLabel.stage} · ${roundLabel} · ${courtName}.`,
     sourceUrl,
   };
@@ -197,13 +227,13 @@ function validateSnapshot(snapshot){
 function fixturesFromSnapshot(snapshot){
   validateSnapshot(snapshot);
   const dayByFeedUrl = new Map(snapshot.scheduleDays.eventDays.filter(day => day?.feedUrl).map(day => [day.feedUrl, day]));
-  const fixtures = snapshot.scheduleFeeds.flatMap(feed => {
+  const imported = snapshot.scheduleFeeds.flatMap(feed => {
     const day = dayByFeedUrl.get(feed.sourceUrl);
     if (!day) throw new Error(`US Open snapshot cannot map ${feed.sourceUrl} to a released day`);
     return feed.payload.courts.flatMap(court => (court.matches || []).map(match => fixtureFromMatch(match, court, day, feed.sourceUrl, snapshot.capturedAt)));
   });
-  const ids = fixtures.map(fixture => fixture.id);
-  if (!fixtures.length || new Set(ids).size !== ids.length) throw new Error("US Open official fixtures are empty or contain duplicate IDs");
+  const fixtures = [...new Map(imported.map(fixture => [fixture.id, fixture])).values()];
+  if (!fixtures.length) throw new Error("US Open official fixtures are empty");
   return fixtures.sort((left, right) => {
     const leftTime = new Date(left.startTimeUtc || left.sessionStartTimeUtc).getTime();
     const rightTime = new Date(right.startTimeUtc || right.sessionStartTimeUtc).getTime();
@@ -211,15 +241,47 @@ function fixturesFromSnapshot(snapshot){
   });
 }
 
+function releasedScheduleDays(snapshot){
+  const feedUrls = new Set((snapshot?.scheduleFeeds || []).map(feed => feed?.sourceUrl));
+  return (snapshot?.scheduleDays?.eventDays || []).filter(day => day?.released && day?.practice !== true && feedUrls.has(day?.feedUrl));
+}
+
+function currentScheduleDays(snapshot){
+  const released = releasedScheduleDays(snapshot);
+  const current = released.filter(day => day.currentDay === true);
+  return current.length ? current : released.slice(-1);
+}
+
+function preserveResultTimestamps(fixture, previous){
+  if (!previous || previous.status !== fixture.status || previous.scoreDisplay !== fixture.scoreDisplay || previous.result !== fixture.result) return fixture;
+  return {
+    ...fixture,
+    ...(previous.statusUpdatedAt ? { statusUpdatedAt:previous.statusUpdatedAt } : {}),
+    ...(previous.resultPublishedAt ? { resultPublishedAt:previous.resultPublishedAt } : {}),
+  };
+}
+
 function mergeCatalogue(catalogue, snapshot){
-  const fixtures = fixturesFromSnapshot(snapshot);
+  const snapshotFixtures = fixturesFromSnapshot(snapshot);
+  const currentFeedUrls = new Set(currentScheduleDays(snapshot).map(day => day.feedUrl));
+  const currentFixtures = snapshotFixtures.filter(fixture => currentFeedUrls.has(fixture.sourceUrl));
   const events = catalogue.events.map(event => {
     if (event.id !== US_OPEN_ID) return event;
-    const sourceDates = fixtures.map(fixture => fixture.date).filter(Boolean).sort();
+    const sourceDates = currentFixtures.map(fixture => fixture.date).filter(Boolean).sort();
     const latestSourceDate = sourceDates.at(-1);
+    const previousById = new Map((event.subEvents || []).map(subEvent => [subEvent.id, subEvent]));
+    const fixtures = snapshotFixtures.map(fixture => preserveResultTimestamps(fixture, previousById.get(fixture.id)));
+    const fixtureIds = new Set(fixtures.map(fixture => fixture.id));
+    const retainedOfficialHistory = (event.subEvents || []).filter(subEvent => subEvent.id.startsWith(AUTO_ID_PREFIX))
+      .filter(subEvent => !fixtureIds.has(subEvent.id) && subEvent.date && subEvent.date < latestSourceDate);
     const handCurated = (event.subEvents || []).filter(subEvent => !subEvent.id.startsWith(AUTO_ID_PREFIX))
       .filter(subEvent => subEvent.status === "completed" || !subEvent.date || subEvent.date >= latestSourceDate);
-    const isMainDraw = fixtures.some(fixture => !/qualifying/.test(fixture.matchType));
+    const officialFixtures = [...retainedOfficialHistory, ...fixtures].sort((left, right) => {
+      const leftTime = new Date(left.startTimeUtc || left.sessionStartTimeUtc).getTime() + Math.max(0, Number(left.sequenceInSession) || 0) * 1000;
+      const rightTime = new Date(right.startTimeUtc || right.sessionStartTimeUtc).getTime() + Math.max(0, Number(right.sequenceInSession) || 0) * 1000;
+      return leftTime - rightTime || left.id.localeCompare(right.id);
+    });
+    const isMainDraw = currentFixtures.some(fixture => !/qualifying/.test(fixture.matchType));
     const officialSource = {
       name:"US Open official released order of play",
       url:snapshot.scheduleDaysSourceUrl || SCHEDULE_DAYS_URL,
@@ -232,7 +294,7 @@ function mergeCatalogue(catalogue, snapshot){
       phaseStartDate:isMainDraw ? "2026-08-30" : "2026-08-23",
       phaseEndDate:isMainDraw ? "2026-09-13" : "2026-08-28",
       phaseIdentity:isMainDraw ? "main-draw" : "qualification",
-      subEvents:[...handCurated, ...fixtures],
+      subEvents:[...handCurated, ...officialFixtures],
       sources:[officialSource, ...(event.sources || []).filter(source => source.url !== officialSource.url)],
     };
   });
@@ -252,10 +314,8 @@ async function fetchJson(url){
 async function fetchOfficialSnapshot(){
   const scheduleDays = await fetchJson(SCHEDULE_DAYS_URL);
   const released = (scheduleDays?.eventDays || []).filter(day => day?.released && day?.feedUrl && day?.practice !== true);
-  const current = released.filter(day => day.currentDay === true);
-  const selected = current.length ? current : released.slice(-1);
-  if (!selected.length) throw new Error("US Open official schedule has no released competition day");
-  const payloads = await Promise.all(selected.map(async day => ({ sourceUrl:day.feedUrl, payload:await fetchJson(day.feedUrl) })));
+  if (!released.length) throw new Error("US Open official schedule has no released competition day");
+  const payloads = await Promise.all(released.map(async day => ({ sourceUrl:day.feedUrl, payload:await fetchJson(day.feedUrl) })));
   return {
     schemaVersion:"us-open-official-schedule-snapshot.v1",
     tournament:"US Open 2026",
@@ -309,4 +369,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, mergeCatalogue, sourceDate, statusForMatch };
+module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, mergeCatalogue, releasedScheduleDays, sourceDate, stakesPolicyForMatch, statusForMatch };

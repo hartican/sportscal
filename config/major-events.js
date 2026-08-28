@@ -163,6 +163,47 @@
     return { recent, upcoming, items:[...recent, { marker:"now" }, ...upcoming], hasOlder:items.some(item => item.localDate < earliestDate) };
   }
 
+  function compactPhaseTimelineItems(timeline){
+    const items = Array.isArray(timeline?.items) ? timeline.items : [];
+    const markerIndex = items.findIndex(item => item?.marker === "now");
+    if (markerIndex < 0) return items.find(item => item?.subEvent) ? [items.find(item => item?.subEvent)] : [];
+    const marker = items[markerIndex];
+    const upcoming = items.slice(markerIndex + 1).find(item => item?.subEvent) || null;
+    if (upcoming) return [marker, upcoming];
+    const recent = items.slice(0, markerIndex).reverse().find(item => item?.subEvent) || null;
+    return recent ? [recent, marker] : [marker];
+  }
+
+  function normalizedParticipantName(value){
+    return String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  function subEventParticipantIdentity(subEvent){
+    const players = [
+      ...(Array.isArray(subEvent?.matchupSides) ? subEvent.matchupSides.flatMap(side => side?.players || []) : []),
+      ...(Array.isArray(subEvent?.participants) ? subEvent.participants : []),
+    ];
+    return {
+      ids:Array.from(new Set([
+        ...(Array.isArray(subEvent?.participantIds) ? subEvent.participantIds : []),
+        ...players.flatMap(player => [player?.id, player?.playerId, player?.participantId]),
+      ].map(value => String(value || "").trim()).filter(Boolean))),
+      names:Array.from(new Set(players.map(player => normalizedParticipantName(player?.name || player?.displayName || player?.label)).filter(Boolean))),
+    };
+  }
+
+  function subEventIsMarquee(subEvent){
+    return subEvent?.marquee === true || subEvent?.isMarquee === true || subEvent?.cardVariant === "marquee";
+  }
+
+  function subEventMeetsDisplayPolicy(subEvent, { followedParticipantIds = [], followedParticipantNames = [] } = {}){
+    const identity = subEventParticipantIdentity(subEvent);
+    const followedIds = new Set(followedParticipantIds.map(value => String(value || "").trim()).filter(Boolean));
+    const followedNames = new Set(followedParticipantNames.map(normalizedParticipantName).filter(Boolean));
+    const followed = identity.ids.some(id => followedIds.has(id)) || identity.names.some(name => followedNames.has(name));
+    return followed || Number(subEvent?.stakesScore || 0) >= 4 || subEventIsMarquee(subEvent);
+  }
+
   function activeEditionForFamily(document, familyId, reference = new Date()){
     const matches = (document?.events || []).filter(record => record.kind !== "ticket_sale" && eventFamilyId(record) === familyId && record.lifecycleStatus !== "retired");
     return matches.sort((first, second) => compareRecords(first, second, reference))[0] || null;
@@ -246,9 +287,14 @@
   }
 
   function fixtureFromSubEvent(subEvent, parent){
-    if (!subEvent?.id || !subEvent?.startTimeUtc) return null;
-    const instant = new Date(subEvent.startTimeUtc);
-    if (Number.isNaN(instant.getTime())) return null;
+    const directTime = new Date(subEvent?.startTimeUtc || "").getTime();
+    const sessionTime = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
+    const follows = subEvent?.timePrecision === "follows" && Number.isFinite(sessionTime);
+    const timelineTime = Number.isFinite(directTime)
+      ? directTime
+      : follows ? sessionTime + Math.max(0, Number(subEvent?.sequenceInSession) || 0) * 1000 : NaN;
+    if (!subEvent?.id || !Number.isFinite(timelineTime)) return null;
+    const instant = new Date(timelineTime);
     const parts = Object.fromEntries(new Intl.DateTimeFormat("en-AU", {
       timeZone: "Australia/Sydney", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
     }).formatToParts(instant).map(part => [part.type, part.value]));
@@ -280,7 +326,12 @@
       displayTitleCompact: displayName,
       date: `${parts.year}-${parts.month}-${parts.day}`,
       time: `${parts.hour}:${parts.minute}`,
-      startTimeUtc: subEvent.startTimeUtc,
+      startTimeUtc: Number.isFinite(directTime) ? new Date(directTime).toISOString() : null,
+      timelineSortTimeUtc:instant.toISOString(),
+      sessionStartTimeUtc:subEvent.sessionStartTimeUtc || null,
+      sequenceInSession:Number(subEvent.sequenceInSession) || 0,
+      timePrecision:subEvent.timePrecision || (Number.isFinite(directTime) ? "exact" : "follows"),
+      ...(follows ? { displayTimeLabel:`Follows · ${subEvent.venue || parent.venue || "Venue TBC"}` } : {}),
       venue: subEvent.venue || parent.venue,
       status: subEvent.status || "scheduled",
       scheduleStatus:subEvent.scheduleStatus || "confirmed",
@@ -382,6 +433,8 @@
         if (!subEvent?.id || childIds.has(subEvent.id) || allEventIds.has(subEvent.id)) errors.push(`${record?.id}: duplicate or missing child id`);
         childIds.add(subEvent?.id);
         if (!subEvent?.name || !subEvent?.venue || !Number.isFinite(Number(subEvent?.stakesScore))) errors.push(`${subEvent?.id}: incomplete child fixture`);
+        if (!Number.isInteger(subEvent?.stakesScore) || subEvent.stakesScore < 1 || subEvent.stakesScore > 5) errors.push(`${subEvent?.id}: child stakes must be an integer from 1 to 5`);
+        if (Object.prototype.hasOwnProperty.call(subEvent || {}, "marquee") && typeof subEvent.marquee !== "boolean") errors.push(`${subEvent?.id}: marquee must be boolean when published`);
         if (!Object.prototype.hasOwnProperty.call(subEvent || {}, "startTimeUtc")) errors.push(`${subEvent?.id}: child start time state is required`);
         if (subEvent?.startTimeUtc && !Number.isFinite(new Date(subEvent.startTimeUtc).getTime())) errors.push(`${subEvent?.id}: invalid UTC start time`);
         if (subEvent?.timePrecision === "follows" && subEvent?.startTimeUtc) errors.push(`${subEvent?.id}: follows records cannot invent an exact start`);
@@ -396,5 +449,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, activeEditionForFamily, matchupSideLabels, fixtureAliasIds, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureAliasIds, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });

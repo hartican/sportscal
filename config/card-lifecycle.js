@@ -22,8 +22,8 @@
   }
 
   function eventStart(event){
-    if (event?.startTimeUtc){
-      const parsed = new Date(event.startTimeUtc);
+    if (event?.startTimeUtc || event?.timelineSortTimeUtc){
+      const parsed = new Date(event.startTimeUtc || event.timelineSortTimeUtc);
       if (!Number.isNaN(parsed.getTime())) return parsed;
     }
     if (event?.date){
@@ -59,7 +59,7 @@
   }
 
   function isRetentionExemptAction(action = {}){
-    return Boolean(isSavedAction(action) || action.archived);
+    return Boolean(isSavedAction(action) || action.archived || action.addedToFixtures);
   }
 
   function lifecycleState(event, {

@@ -36,9 +36,11 @@ assert.equal(lifecycle.isWithinRetention(expired, now), false);
 assert.equal(lifecycle.isWithinRetention(future, now), true);
 assert.equal(lifecycle.lifecycleState(expired, { action: { watchLater: true }, now }).state, "saved");
 assert.equal(lifecycle.lifecycleState(expired, { action: { archived: true }, now }).state, "saved", "a manual Archive action must remain retention-exempt indefinitely");
+assert.equal(lifecycle.lifecycleState(expired, { action: { addedToFixtures: true }, now }).state, "saved", "a manually pinned past fixture must remain in Feed until it is removed");
 assert.equal(lifecycle.isWithinRetention(expired, now, { action: { archived: true } }), true, "a manual archive must survive beyond day fourteen");
 assert.equal(lifecycle.shouldAutoArchive(archived, now), true);
 assert.equal(lifecycle.shouldAutoArchive(expired, now, { archived: true }), false, "a manual archive must not be mistaken for automatic expiry");
+assert.equal(lifecycle.shouldAutoArchive(expired, now, { addedToFixtures: true }), false, "a manual Feed pin must not be auto-archived");
 
 const cache = lifecycle.materialize([expired, archived, recent, future], {
   profileId: "profile:test",

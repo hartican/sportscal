@@ -74,7 +74,7 @@
   }
 
   function eventStart(event){
-    const utc = Date.parse(event?.startTimeUtc || "");
+    const utc = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
     if (Number.isFinite(utc)) return new Date(utc);
     const match = `${event?.date || ""}T${event?.time || "00:00"}`.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
     if (!match) return null;

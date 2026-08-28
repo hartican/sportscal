@@ -36,7 +36,7 @@ assert(html.includes('footer.className = "event-compact-footer"'), "expanded Fee
 assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}buildEventFeedbackButtons[\s\S]{0,2200}View in Events/.test(html), "the compact footer must order results, feedback and View in Events together");
 
 assert(html.includes('card.dataset.cardLevel = cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels");
-assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline(record, nowAEST()'), "Events L0/L1/L2 must show the bounded around-Now timeline and complete two-day L2 window");
+assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");
 assert(/inspect\.addEventListener\("click"[\s\S]{0,500}setCardState\(record, "opened"\)[\s\S]{0,500}focusMajorEventTimetable/.test(html), "Timetable must open the corresponding Event at L2 instead of routing by sport");
 assert(html.includes('className = "code-inspector-status-stamp"'), "Finished and Time TBC must render as inline status stamps");
 
