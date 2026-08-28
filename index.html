@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title data-brand-copy="title">Nothingsport — Smart sports feed</title>
+<title data-brand-copy="title">Nothing Sport — Smart sports feed</title>
 <meta name="theme-color" content="#0a0a0f">
 <meta name="description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
-<meta name="application-name" content="NS">
+<meta name="application-name" content="Nothing Sport">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="NS">
+<meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="163">
+<meta name="app-shell-version" content="164">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
+<meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
+<meta name="twitter:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta name="twitter:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta name="twitter:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -4870,6 +4870,90 @@ footer.app-footer{
   line-height:1.6;
 }
 
+.footer-copyright{
+  margin-top:12px;
+  color:var(--text-dim);
+  line-height:1.55;
+}
+
+.footer-socials{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px auto 0;
+}
+
+.footer-social-link,
+.footer-social-placeholder{
+  position:relative;
+  min-height:44px;
+  max-width:100%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:9px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--soft-fill);
+  color:var(--text-dim);
+  font:800 .72rem/1.15 'DM Sans',sans-serif;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+.footer-social-placeholder{
+  appearance:none;
+  cursor:not-allowed;
+  opacity:.72;
+}
+
+.footer-social-link:focus-visible,
+.footer-social-placeholder:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+
+.footer-social-placeholder::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 8px);
+  z-index:4;
+  transform:translate(-50%,4px);
+  padding:6px 8px;
+  border:1px solid var(--border);
+  border-radius:7px;
+  background:var(--bg-card);
+  color:var(--text);
+  box-shadow:var(--shadow);
+  font-size:.66rem;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .14s ease,transform .14s ease;
+}
+
+.footer-social-placeholder:hover::after,
+.footer-social-placeholder:focus-visible::after{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.footer-socials .vector-glyph{
+  width:17px;
+  height:17px;
+  flex:0 0 17px;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px){
   .header-actions{
@@ -6095,7 +6179,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 </head>
 <body>
 
-<div class="startup-launch" id="startupLaunch" role="status" aria-live="polite" aria-label="Loading nothingsport">
+<div class="startup-launch" id="startupLaunch" role="status" aria-live="polite" aria-label="Loading Nothing Sport">
   <div class="startup-launch-content">
     <div class="startup-launch-mark" id="startupLaunchMark">
       <span class="startup-launch-glass" aria-hidden="true"></span>
@@ -6119,7 +6203,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <div class="header-inner">
     <div class="brand">
       <div class="brand-title-row">
-        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" fetchpriority="high" decoding="async"></h1>
+        <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>
@@ -6164,9 +6248,15 @@ body.header-compact-3 .brand .slogan{ display:none; }
 </main>
 
 <footer class="app-footer">
-  <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothingsport" loading="lazy" decoding="async">
+  <img class="footer-brand-logo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" loading="lazy" decoding="async">
   <div class="footer-slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
   <div class="footer-utility-line">Spoiler-safe by default &middot; AEST/AEDT by default &middot; Published feed time shown above</div>
+  <div class="footer-copyright" data-brand-copy="copyright">Copyright ©&nbsp;2026&nbsp;Nothing Sport. All Rights Reserved.</div>
+  <div class="footer-socials" aria-label="Follow Nothing Sport">
+    <a class="footer-social-link" href="https://www.instagram.com/_nothingsport/" target="_blank" rel="noopener noreferrer external" aria-label="Follow Nothing Sport on Instagram at @_nothingsport"><span data-vector-glyph="social:instagram"></span><span>@_nothingsport</span></a>
+    <button class="footer-social-placeholder" type="button" aria-disabled="true" aria-label="Nothing Sport on X, @nothingsport, coming soon" title="coming soon" data-tooltip="coming soon"><span data-vector-glyph="social:x"></span><span>@nothingsport</span></button>
+    <button class="footer-social-placeholder" type="button" aria-disabled="true" aria-label="Nothing Sport on LinkedIn, @nothingsport, coming soon" title="coming soon" data-tooltip="coming soon"><span data-vector-glyph="social:linkedin"></span><span>@nothingsport</span></button>
+  </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -6201,7 +6291,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
         <button class="settings-icon-btn" id="settingsBackBtn" type="button" aria-label="Back to Settings" hidden>‹</button>
         <div>
           <h2 id="settingsTitle">Settings</h2>
-          <p id="settingsCopy" data-brand-copy="onboardingDescription">Choose what you follow once. nothingsport keeps the feed smart, spoiler-safe and focused on moments worth your attention.</p>
+          <p id="settingsCopy" data-brand-copy="onboardingDescription">Choose what you follow once. Nothing Sport keeps the feed smart, spoiler-safe and focused on moments worth your attention.</p>
         </div>
       </div>
       <button class="settings-icon-btn" id="closeSettingsBtn" type="button" aria-label="Close Settings">×</button>
@@ -6219,12 +6309,12 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="onboarding-head about-hero">
       <img class="about-hero-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="about-hero-copy">
-        <h2 id="aboutTitle" data-brand-copy="title">Nothingsport — Smart sports feed</h2>
+        <h2 id="aboutTitle" data-brand-copy="title">Nothing Sport — Smart sports feed</h2>
         <p data-brand-copy="hero">Live sport, nothing missed.</p>
       </div>
     </div>
     <div class="about-body">
-      <p data-brand-copy="about">nothingsport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p>
+      <p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a neutral TV fallback otherwise.</p>
     </div>
@@ -6239,7 +6329,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="onboarding-head">
       <div>
         <h2 id="passwordRecoveryTitle">Set a new password</h2>
-        <p id="passwordRecoveryCopy">Choose a password for your nothingsport account. This reset session stays separate from your normal profile.</p>
+        <p id="passwordRecoveryCopy">Choose a password for your Nothing Sport account. This reset session stays separate from your normal profile.</p>
       </div>
     </div>
     <div class="onboarding-body" id="passwordRecoveryBody">
@@ -6314,7 +6404,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       </div>
     </div>
     <div class="onboarding-body">
-      <p class="preference-help">This prompt appears less often as nothingsport learns. It never blocks the feed.</p>
+      <p class="preference-help">This prompt appears less often as Nothing Sport learns. It never blocks the feed.</p>
     </div>
     <div class="onboarding-actions">
       <button class="btn ghost" type="button" id="dismissTunePromptBtn">Not now</button>
@@ -6328,7 +6418,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="onboarding-head">
       <div>
         <h2 id="pilotPulsePromptTitle">Weekly trust pulse</h2>
-        <p>Help us check whether nothingsport is earning your trust before you decide what to watch.</p>
+        <p>Help us check whether Nothing Sport is earning your trust before you decide what to watch.</p>
       </div>
     </div>
     <div class="onboarding-body">
@@ -6405,7 +6495,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=163")
+  : loadDeferredScript("config/national-team-identities.js?v=164")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -8658,7 +8748,7 @@ async function requestBrowserAlerts(){
 
 async function localNotificationRegistration(){
   if (typeof Notification === "undefined") throw new Error("Local notifications are not supported in this browser.");
-  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add nothingsport to your Home Screen before enabling local reminders.");
+  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add Nothing Sport to your Home Screen before enabling local reminders.");
   if (!("serviceWorker" in navigator)) throw new Error("Local notifications are not supported in this browser.");
   const registration = installedServiceWorkerRegistration
     || await navigator.serviceWorker.register("/service-worker.js");
@@ -9127,7 +9217,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
         lastSyncedAt: latest.state.updatedAt,
         message: "",
       });
-      if (notify) showToast("Loaded your latest nothingsport settings.");
+      if (notify) showToast("Loaded your latest Nothing Sport settings.");
       return latest;
     }
 
@@ -14207,7 +14297,7 @@ function iosPushRequiresHomeScreen(){
 
 async function pushServiceWorkerRegistration(){
   if (!("serviceWorker" in navigator)) throw new Error("Notifications are not supported in this browser.");
-  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add nothingsport to your Home Screen before enabling notifications.");
+  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add Nothing Sport to your Home Screen before enabling notifications.");
   if (!("PushManager" in window) || typeof Notification === "undefined") throw new Error("Web Push is not supported on this device.");
   const registration = installedServiceWorkerRegistration
     || await navigator.serviceWorker.register("/service-worker.js");
@@ -14309,7 +14399,7 @@ async function toggleQuickReminder(ev, button){
     button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
     showExplanation("");
     showToast(enabled
-      ? `Local reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}. Keep nothingSport open.`
+      ? `Local reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}. Keep Nothing Sport open.`
       : "Reminder removed.");
   }catch(error){
     const message = error?.message || "Notifications could not be enabled on this device.";
@@ -14407,8 +14497,8 @@ function appendEventQuickActions(container, ev){
   reminder.disabled = !timing || Date.parse(timing.startsAt) <= Date.now();
   reminder.setAttribute("aria-pressed", String(Boolean(getEventAction(ev).reminderRequested)));
   reminder.title = timing?.fallback
-    ? "15 minutes before the published broadcast time because a kickoff or race start is not available. Local reminder—keep nothingSport open."
-    : "15 minutes before kickoff or race start. Local reminder—keep nothingSport open.";
+    ? "15 minutes before the published broadcast time because a kickoff or race start is not available. Local reminder—keep Nothing Sport open."
+    : "15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open.";
   reminder.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${getEventAction(ev).reminderRequested ? "Reminder on" : "Remind me"}</span>`;
   reminder.addEventListener("click", event => {
     event.stopPropagation();
@@ -17798,15 +17888,15 @@ function formatFeedbackTimestamp(date = new Date()){
 
 function buildFeedbackMessage(category, message, date = new Date()){
   return [
-    "nothingsport feedback",
-    "Meta: nothingsport feedback form",
+    "Nothing Sport feedback",
+    "Meta: Nothing Sport feedback form",
     `Timestamp: ${formatFeedbackTimestamp(date)}`,
     `Category: ${category}`,
     "",
     "Message:",
     String(message || "").trim() || "(No message entered)",
     "",
-    "Sent from nothingsport",
+    "Sent from Nothing Sport",
   ].join("\n");
 }
 
@@ -19722,7 +19812,7 @@ function renderAccountSettings(body){
     persistenceControl.className = "pilot-disclosure";
     persistenceControl.htmlFor = "keepAccountSignedIn";
     persistenceControl.innerHTML = `<input id="keepAccountSignedIn" type="checkbox" ${persistentSession ? "checked" : ""}>
-      <span><strong>Keep me signed in on this device</strong>${persistentSession ? "This device securely retains the Supabase session; your password is never saved by nothingsport." : "Your account remains signed in only until this browser or Home Screen app session ends."}</span>`;
+      <span><strong>Keep me signed in on this device</strong>${persistentSession ? "This device securely retains the Supabase session; your password is never saved by Nothing Sport." : "Your account remains signed in only until this browser or Home Screen app session ends."}</span>`;
     controls.appendChild(persistenceControl);
     document.getElementById("keepAccountSignedIn").addEventListener("change", event => {
       const persist = event.target.checked;
@@ -19803,7 +19893,7 @@ function renderAccountSettings(body){
     </label>
     <label class="pilot-disclosure" for="keepAccountSignedIn">
       <input id="keepAccountSignedIn" type="checkbox" ${serverSyncClient?.prefersPersistentSession?.() !== false ? "checked" : ""}>
-      <span><strong>Keep me signed in on this device</strong>Stores a rotating Supabase session locally after sign-in. Nothingsport does not save your password.</span>
+      <span><strong>Keep me signed in on this device</strong>Stores a rotating Supabase session locally after sign-in. Nothing Sport does not save your password.</span>
     </label>
     <button class="btn primary" type="submit">Sign in</button>
     <button class="btn ghost" type="button" id="createAccountBtn">Create account</button>
@@ -19827,7 +19917,7 @@ function renderAccountSettings(body){
       await serverSyncClient.signIn(email, password, { persist });
       await bootstrapServerPersistence();
       showToast(serverPersistence.user
-        ? "Signed in. Your nothingsport profile is connected."
+        ? "Signed in. Your Nothing Sport profile is connected."
         : (serverPersistence.message || "Sign-in could not be completed."));
     }catch(error){
       setServerPersistence({
@@ -19865,7 +19955,7 @@ function renderPilotSettings(body){
   body.innerHTML = `<div class="preference-stack">
     <div class="filter-panel">
       <h3>Closed trust pilot</h3>
-      <p class="preference-help">Signed-in measurement is active automatically to help test whether nothingsport becomes the place you check before deciding what to watch. Turning it off stops future measurement and clears anything waiting to send; the app remains fully usable.</p>
+      <p class="preference-help">Signed-in measurement is active automatically to help test whether Nothing Sport becomes the place you check before deciding what to watch. Turning it off stops future measurement and clears anything waiting to send; the app remains fully usable.</p>
       <label class="pilot-disclosure" for="pilotMeasurementEnabled">
         <input id="pilotMeasurementEnabled" type="checkbox" ${enabled ? "checked" : ""}>
         <span><strong>Product measurement active</strong>Share fixed categorical events for viewed opportunities, fixture checks, card opens, save/archive/reinstate, reminder changes, watched, follow/unfollow, swipes, feed-control changes, ratings, tune prompts and the current pulse. Event context is limited to sport, competition/event IDs, recommendation class and cold-start state. No free text, messages, credentials, precise location, contact information or client-supplied user IDs are stored in product events.</span>
@@ -19879,7 +19969,7 @@ function renderPilotSettings(body){
         ? `<p class="preference-help">Pulse complete for ${currentSurveyId}. Thanks.</p>`
         : `<p class="preference-help">Five fixed choices for this survey release. There is no free-text response.</p>
           <form class="pilot-pulse" id="pilotPulseForm">
-            <fieldset><legend>Which best matches how you usually use nothingsport?</legend><div class="pilot-choice-grid">
+            <fieldset><legend>Which best matches how you usually use Nothing Sport?</legend><div class="pilot-choice-grid">
               <label><input type="radio" name="pilotCohort" value="curator" required>Only the best events</label>
               <label><input type="radio" name="pilotCohort" value="hybrid">Curation plus fixture checks</label>
               <label><input type="radio" name="pilotCohort" value="completist">Every fixture in followed sports</label>
@@ -19889,7 +19979,7 @@ function renderPilotSettings(body){
               <label><input type="radio" name="crossCheck" value="once">Once</label>
               <label><input type="radio" name="crossCheck" value="multiple">Multiple times</label>
             </div></fieldset>
-            <fieldset><legend>Did nothingsport miss a fixture you cared about?</legend><div class="pilot-choice-grid">
+            <fieldset><legend>Did Nothing Sport miss a fixture you cared about?</legend><div class="pilot-choice-grid">
               <label><input type="radio" name="missedFixtures" value="none" required>None</label>
               <label><input type="radio" name="missedFixtures" value="one">One</label>
               <label><input type="radio" name="missedFixtures" value="multiple">Multiple</label>
@@ -19980,7 +20070,7 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("notifications", "ui:bell", "Notifications", draftPreferences.followFirst.notifications.enabled ? "15 minutes before kickoff or race start" : "Off")}
     ${settingsMenuItem("location", "ui:map-pin", "Set location", draftPreferences.followFirst.location.label || "Not set")}
     ${settingsMenuItem("hidden", "ui:archive", "Hidden events", `${hiddenCount} dismissed card${hiddenCount === 1 ? "" : "s"}`)}
-    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to nothingsport")}
+    ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to Nothing Sport")}
   </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
   bindSettingsMenuNavigation(body);
   document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
@@ -20028,7 +20118,7 @@ function renderSubscriptionSettings(body){
 
 function renderNotificationSettings(body){
   const enabled = draftPreferences.followFirst.notifications.enabled;
-  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Local notifications</h3><p class="preference-help">Reminders default to 15 minutes before kickoff or race start. A published broadcast time is used only when the sporting start is unavailable.</p><p class="local-reminder-notice">15 minutes before kickoff or race start. Local reminder—keep nothingSport open. Reliable background iPhone delivery is not enabled in this release.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn local notifications off" : "Enable local notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${enabled ? "Enabled on this installation while the app remains active." : "On iPhone and iPad, install nothingSport to the Home Screen first."}</p></section></div>`;
+  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Local notifications</h3><p class="preference-help">Reminders default to 15 minutes before kickoff or race start. A published broadcast time is used only when the sporting start is unavailable.</p><p class="local-reminder-notice">15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open. Reliable background iPhone delivery is not enabled in this release.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn local notifications off" : "Enable local notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${enabled ? "Enabled on this installation while the app remains active." : "On iPhone and iPad, install Nothing Sport to the Home Screen first."}</p></section></div>`;
   document.getElementById("notificationPermissionBtn").addEventListener("click", async () => {
     const status = document.getElementById("notificationPermissionStatus");
     if (enabled){
@@ -20256,7 +20346,7 @@ async function loadCanonicalPreferenceParticipants(){
 }
 
 function renderFeedbackSettings(body){
-  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what nothingsport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
+  body.innerHTML = `<form id="feedbackForm"><div class="preference-stack"><label class="field-label" for="feedbackCategory">Category<select id="feedbackCategory" required><option>Add a sport</option><option>Add a competition</option><option>Bug report</option><option selected>General feedback</option><option>Feature request</option></select></label><label class="field-label" for="feedbackMessage">Message<textarea id="feedbackMessage" maxlength="800" required placeholder="Tell us what should change or what Nothing Sport is missing."></textarea></label><div class="sms-preview" id="feedbackPreview" aria-live="polite"></div><button class="btn primary" type="submit">Open SMS composer</button><p class="preference-help">Creates a prefilled SMS to 0437 041 326. Nothing is sent until you press Send in Messages.</p></div></form>`;
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
   category.addEventListener("change", updateFeedbackPreview);
@@ -20276,7 +20366,7 @@ function renderFeedbackAppearanceSettings(body){
   ];
   const appearance = document.createElement("section");
   appearance.className = "filter-panel";
-  appearance.innerHTML = `<h3>Appearance</h3><p class="preference-help">Choose how nothingsport looks on this device.</p><div class="theme-choice-list" role="radiogroup" aria-label="App theme">${themes.map(([value, label]) => `<label class="theme-choice${theme === value ? " selected" : ""}"><input type="radio" name="theme" value="${value}" ${theme === value ? "checked" : ""}><strong>${label}</strong></label>`).join("")}</div>`;
+  appearance.innerHTML = `<h3>Appearance</h3><p class="preference-help">Choose how Nothing Sport looks on this device.</p><div class="theme-choice-list" role="radiogroup" aria-label="App theme">${themes.map(([value, label]) => `<label class="theme-choice${theme === value ? " selected" : ""}"><input type="radio" name="theme" value="${value}" ${theme === value ? "checked" : ""}><strong>${label}</strong></label>`).join("")}</div>`;
   appearance.querySelectorAll('input[name="theme"]').forEach(input => {
     input.addEventListener("change", () => {
       draftPreferences.theme = normalizeThemePreference(input.value);
@@ -20425,7 +20515,7 @@ function renderSettingsScreen(){
     location: ["Set location", "Choose a home area or temporary travel location and radius."],
     startup: ["Set up your Feed", "Three lightweight groups: what you follow, coarse location and optional offer interests."],
     hidden: ["Hidden events", "Restore exact event editions you previously dismissed."],
-    feedback: ["Feedback", "Send feedback to nothingsport."],
+    feedback: ["Feedback", "Send feedback to Nothing Sport."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
   if (settingsSection === "startup") renderStartupMetadataSettings(body);

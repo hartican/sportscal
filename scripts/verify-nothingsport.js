@@ -169,7 +169,7 @@ assert(html.includes('src="config/server-sync.js"'), "password sessions and serv
 assert(userStateSyncSource.includes('const PATCH_SCHEMA_VERSION = "user-state-patch.v1"'), "cross-device state changes must use a versioned patch contract");
 assert(serverSyncSource.includes("async savePatch(patch)"), "the browser client must send field-level patches instead of stale full snapshots");
 assert(html.includes('autocomplete="current-password"') && html.includes('id="accountSignInForm"'), "Account settings must expose accessible email/password sign-in");
-assert(html.includes('id="keepAccountSignedIn"') && html.includes("Nothingsport does not save your password."), "password sign-in must default to a transparent trusted-device session choice");
+assert(html.includes('id="keepAccountSignedIn"') && html.includes("Nothing Sport does not save your password."), "password sign-in must default to a transparent trusted-device session choice");
 assert(serverSyncSource.includes('action: "password-sign-in"') && serverSyncSource.includes("async signIn(email, password,"), "the browser sync client must use the password sign-in contract");
 assert(serverSyncSource.includes("PERSISTENT_SESSION_STORAGE_KEY") && serverSyncSource.includes("setSessionPersistence(persist)"), "trusted devices must retain rotating sessions without retaining passwords");
 assert(authApiSource.includes('"/auth/v1/token?grant_type=password"'), "the Auth API must exchange credentials through Supabase password Auth");
@@ -217,7 +217,7 @@ assert(
   "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
 );
 assert(html.includes("async function toggleQuickReminder") && html.includes("await localNotificationRegistration()"), "Remind me must enable the local reminder from the user gesture");
-assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep nothingSport open."), "local reminder UI must disclose its active-app delivery limit");
+assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open."), "local reminder UI must disclose its active-app delivery limit");
 assert(html.includes('id="soundtrackToggle"'), "background audio must use an explicit top-bar toggle");
 assert(html.includes('class="soundtrack-toggle-state">OFF</span>'), "the soundtrack toggle must expose an ON/OFF state");
 assert(html.includes('id="soundtrackAudio"') && html.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "the supplied Skyscraper Samba recording must be the sole audio source");
@@ -2066,9 +2066,9 @@ const summerTimestamp = app.formatFeedbackTimestamp(new Date("2026-12-16T10:00:0
 assert.match(winterTimestamp, /AEST$/, "winter feedback timestamps must use AEST");
 assert.match(summerTimestamp, /AEDT$/, "summer feedback timestamps must use AEDT");
 const feedbackMessage = app.buildFeedbackMessage("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z"));
-assert.match(feedbackMessage, /^nothingsport feedback/);
+assert.match(feedbackMessage, /^Nothing Sport feedback/);
 assert.match(feedbackMessage, /Category: Bug report/);
-assert.match(feedbackMessage, /Sent from nothingsport$/);
+assert.match(feedbackMessage, /Sent from Nothing Sport$/);
 assert.match(app.buildFeedbackSmsUrl("Bug report", "Calendar card overlaps", new Date("2026-07-16T10:00:00Z")), /^sms:0437041326\?&body=/);
 
 console.log("nothingsport phase rules verified");

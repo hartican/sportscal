@@ -27,7 +27,7 @@
     {
       id: "teams",
       title: "Competitions & teams",
-      detail: "Tell nothingsport which recurring competitions and teams deserve more weight.",
+      detail: "Tell Nothing Sport which recurring competitions and teams deserve more weight.",
       targets: [
         ["competition", "competition:nrl-premiership-2026", "NRL Premiership", "The complete Australian rugby league season.", "sport:nrl", "sport:rugby"],
         ["competition", "competition:afl-premiership-2026", "AFL Premiership", "The complete Australian football season.", "sport:afl", "sport:australian-football"],

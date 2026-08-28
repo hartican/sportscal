@@ -240,7 +240,7 @@
       ...(storyline ? { storyline } : {}),
       updatedAt: isoTimestamp(enriched.updatedAt || enriched.sourceCheckedAt),
       source: {
-        name: String(enriched.source?.provider || enriched.sourceName || "Legacy nothingsport feed"),
+        name: String(enriched.source?.provider || enriched.sourceName || "Legacy Nothing Sport feed"),
         url: String(enriched.source?.sourceUrl || enriched.sourceUrl || "calendar://legacy/nothingsport"),
         checkedAt: isoTimestamp(enriched.source?.checkedAt || enriched.sourceCheckedAt || enriched.updatedAt),
       },

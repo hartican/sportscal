@@ -15,6 +15,9 @@ const updateSource = fs.readFileSync("scripts/refresh-f1-editorial.js", "utf8");
 const majorEventDocument = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const published = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 
+assert.equal(brand.name, "Nothing Sport");
+assert.equal(brand.stylisedName, "nothing SPORT");
+assert.equal(brand.title, "Nothing Sport — Smart sports feed");
 assert.equal(brand.descriptor, "Live sport, nothing missed.");
 assert.equal(brand.loadingDescriptor, brand.descriptor, "top bar and startup must share the official abbreviated slogan");
 assert.match(brand.about, /live sports curator, tailored to your tastes/i);

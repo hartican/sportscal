@@ -58,7 +58,7 @@ module.exports = async function notificationDispatchHandler(request, response){
           keys:{ p256dh:installation.p256dh, auth:installation.auth_key },
         }, JSON.stringify({
           title:`Starts in 15 minutes: ${reminder.title}`,
-          body:`Sporting start at ${startLabel}. Tap to open nothingsport.`,
+          body:`Sporting start at ${startLabel}. Tap to open Nothing Sport.`,
           tag:`nothingsport-${reminder.event_id}`,
           url:reminder.viewing_url || `/?event=${encodeURIComponent(reminder.event_id)}`,
         }), { TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });

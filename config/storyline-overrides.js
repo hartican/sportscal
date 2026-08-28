@@ -13,7 +13,7 @@
       archetype: "title_decider",
       expectedSpectacle: 6,
       reviewedAt: "2026-07-30T00:00:00.000Z",
-      reviewedBy: "nothingSport editorial",
+      reviewedBy: "Nothing Sport editorial",
       note: "Manual podium-decider treatment retained from the reviewed World Cup card set.",
     }),
     "nrl-raiders-rabbitohs-2026-07-18": Object.freeze({
@@ -28,13 +28,13 @@
       expectedSpectacle: 8,
       actualSpectacle: 8,
       reviewedAt: "2026-07-30T00:00:00.000Z",
-      reviewedBy: "nothingSport editorial",
+      reviewedBy: "Nothing Sport editorial",
       note: "Reviewed result-aware storyline with distinct spoiler states.",
     }),
     "rugby-australia-italy-2026-07-18": Object.freeze({
       stakes: 4,
       reviewedAt: "2026-07-30T00:00:00.000Z",
-      reviewedBy: "nothingSport editorial",
+      reviewedBy: "Nothing Sport editorial",
       note: "Manual international-Test significance retained from the reviewed card set.",
     }),
     "evt_84": Object.freeze({
@@ -45,7 +45,7 @@
       cardVariant: "marquee",
       forceSurface: "homeMustWatch",
       reviewedAt: "2026-08-13T00:00:00.000Z",
-      reviewedBy: "nothingSport editorial",
+      reviewedBy: "Nothing Sport editorial",
       note: "Flagship NRL Grand Final treatment.",
     }),
   });
@@ -59,7 +59,7 @@
       cardVariant: "marquee",
       forceSurface: "homeMustWatch",
       reviewedAt: "2026-08-14T00:00:00.000Z",
-      reviewedBy: "nothingSport editorial",
+      reviewedBy: "Nothing Sport editorial",
       note: "Current active WTA 1000 tournament overview receives the reviewed flagship coverage guarantee.",
     }),
   });

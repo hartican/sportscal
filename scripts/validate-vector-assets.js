@@ -46,6 +46,14 @@ Object.values(vectorAssets.openUse).filter(entry => entry.render === "mask").for
 assert(serviceWorker.includes('/config/vector-assets.js') && serviceWorker.includes('/config/sport-domain-registry.js'), "the configuration-led asset system must be part of the offline shell");
 assert(fs.existsSync("assets/licenses/SPORTICON-APACHE-2.0.txt"), "Sporticon Apache 2.0 notice must ship");
 assert(fs.existsSync("assets/licenses/LUCIDE-ISC.txt"), "Lucide ISC notice must ship");
+assert(fs.existsSync("assets/licenses/SIMPLE-ICONS-CC0-1.0.txt"), "Simple Icons provenance and trademark caveats must ship");
+for (const key of ["social:instagram", "social:x", "social:linkedin"]){
+  const entry = vectorAssets.openUse[key];
+  assert.equal(entry?.library, "Simple Icons", `${key} must be sourced from Simple Icons`);
+  assert.equal(entry?.license, "CC0-1.0", `${key} must record the Simple Icons project licence`);
+  assert.match(entry?.disclaimer || "", /DISCLAIMER\.md/, `${key} must retain the Simple Icons trademark disclaimer`);
+  assert.match(vectorAssets.glyphMarkup(key, { label:key }), /<svg\b/, `${key} must render as a local vector`);
+}
 
 Object.values(vectorAssets.officialPermitted).forEach(entry => {
   assert(entry.permissionBasis, `${entry.key} must record a permission basis`);

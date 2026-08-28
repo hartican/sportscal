@@ -1,11 +1,11 @@
-const CACHE_NAME = "nothingsport-shell-v163";
+const CACHE_NAME = "nothingsport-shell-v164";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
-  "/config/national-team-identities.js?v=163",
+  "/config/national-team-identities.js?v=164",
   "/config/card-identities.js",
   "/config/card-results.js",
   "/config/country-flags.js",
@@ -246,7 +246,7 @@ self.addEventListener("notificationclick", event => {
 self.addEventListener("push", event => {
   let payload = {};
   try{ payload = event.data?.json?.() || {}; }catch(_error){ payload = { body:event.data?.text?.() || "" }; }
-  event.waitUntil(self.registration.showNotification(payload.title || "nothingsport reminder", {
+  event.waitUntil(self.registration.showNotification(payload.title || "Nothing Sport reminder", {
     body:payload.body || "Your sport starts in 15 minutes.",
     icon:"/icons/nothingsport-app-192.png",
     badge:"/icons/nothingsport-app-192.png",

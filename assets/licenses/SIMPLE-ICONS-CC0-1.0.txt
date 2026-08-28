@@ -1,0 +1,11 @@
+Simple Icons social glyph provenance
+
+Source: https://github.com/simple-icons/simple-icons
+Project licence: CC0 1.0 Universal
+Licence text: https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md
+Legal disclaimer: https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md
+
+The CC0 dedication for the Simple Icons project does not waive or grant third-party
+trademark rights. Instagram, X and LinkedIn marks remain subject to their respective
+owners' brand and trademark rules. Recheck the individual icon metadata, official
+brand guidance and the Simple Icons disclaimer before materially changing their use.
