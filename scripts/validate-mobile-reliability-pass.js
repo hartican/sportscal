@@ -44,6 +44,7 @@ assert(/pathname\.startsWith\("\/assets\/audio\/"\)[\s\S]{0,450}fetch\(event\.re
 assert(html.includes("function repairBrokenIdentityImages") && html.includes("naturalWidth === 0"), "startup and tab renders must repair only broken identity images");
 assert(html.includes("function scheduleIdentityImageRecovery"), "broken-image recovery must be scheduled without rebuilding a screen");
 assert(/function scheduleIdentityImageRecovery[\s\S]{0,180}observeDeferredCardImages/.test(html), "tab renders must observe deferred identity images after their cards are connected");
+assert(/loadingController\.complete\("first-viewport"\)[\s\S]{0,240}unlockDeferredCardImageLoading\(\)[\s\S]{0,240}scheduleIdentityImageRecovery/.test(html), "first-viewport completion must activate visible deferred identity images without waiting for user interaction");
 assert(/typeof IntersectionObserver !== "function"[\s\S]{0,420}getBoundingClientRect\(\)[\s\S]{0,420}activateImage/.test(html), "browsers without IntersectionObserver must still activate visible deferred logos without a rerender");
 const deferredImageSource = html.match(/function assignCardImageSource\(image, source\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(!deferredImageSource.includes("image.hidden = true"), "deferred identity images must remain observable behind their fixed fallback frame");

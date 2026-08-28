@@ -6911,6 +6911,11 @@ function observeDeferredCardImages(){
   });
 }
 
+function unlockDeferredCardImageLoading(){
+  cardImageLoadingUnlocked = true;
+  observeDeferredCardImages();
+}
+
 function themeUsesDarkAssets(){
   return document.documentElement.dataset.theme === "night"
     || (document.documentElement.dataset.theme === "system" && window.matchMedia?.("(prefers-color-scheme: dark)").matches);
@@ -20653,6 +20658,7 @@ function completeStartupFeedHydration(){
       publishFeedPerformanceMetrics();
     }
     loadingController.complete("first-viewport");
+    unlockDeferredCardImageLoading();
     scheduleStartupLogoFunnel({ feedReady:true });
     scheduleIdentityImageRecovery(document.getElementById("listView") || document);
   });
@@ -20723,8 +20729,7 @@ for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => {
     startupFeedNavigationTouched = true;
     feedNavigationInteractionVersion += 1;
-    cardImageLoadingUnlocked = true;
-    observeDeferredCardImages();
+    unlockDeferredCardImageLoading();
   }, { passive: true });
 }
 runStartupFeedBarrier();
