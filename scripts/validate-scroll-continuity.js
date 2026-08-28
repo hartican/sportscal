@@ -37,6 +37,7 @@ assert.match(transaction, /maxScrollY/, "the transaction must clamp compensation
 const anchorSelection = sourceOf("scrollContinuityAnchorFor");
 assert.match(anchorSelection, /targetRect\.top >= viewportTop[\s\S]*targetRect\.bottom <= viewportBottom/, "a fully visible tapped card must be the preferred anchor");
 assert.match(anchorSelection, /candidate !== target[\s\S]*candidate\.getBoundingClientRect\(\)\.top >= downstreamTop/, "a covered or off-screen target must fall forward to a different stable downstream item");
+assert.match(anchorSelection, /!target\?\.contains\?\.\(candidate\)/, "the fallback anchor must not select a keyed detail row nested inside the expanding target");
 
 const mathContext = {};
 vm.createContext(mathContext);

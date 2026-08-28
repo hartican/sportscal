@@ -13778,7 +13778,7 @@ function scrollContinuityAnchorFor(target){
   if (targetRect && targetRect.top >= viewportTop && targetRect.bottom <= viewportBottom) return target;
   const list = target?.closest?.("[data-scroll-list]") || document;
   const candidates = Array.from(list.querySelectorAll("[data-scroll-key]"))
-    .filter(candidate => candidate !== target);
+    .filter(candidate => candidate !== target && !target?.contains?.(candidate));
   const downstreamTop = Math.max(viewportTop, Number(targetRect?.top) || viewportTop);
   return candidates.find(candidate => candidate.getBoundingClientRect().top >= downstreamTop)
     || candidates.find(candidate => candidate.getBoundingClientRect().bottom > viewportTop)
