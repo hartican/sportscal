@@ -1,8 +1,8 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-08-26T04:40:19.054Z",
+  "generatedAt": "2026-08-28T05:26:48.246Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "0bde7f29aab4a9a253136ac8f2cce8c9d6de5b6dc89127bbb5d339a8e436b328",
+  "fingerprint": "a84cf142bd28fd21abbe93e03b2166b7fc02f5532e30ed6ea810b2a31475b60e",
   "entries": [
     {
       "eventId": "evt_26",
@@ -34,7 +34,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -67,7 +67,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -100,7 +100,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -133,7 +133,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -166,7 +166,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -199,7 +199,73 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-26T04:40:19.054Z",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_32",
+      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Qualifying.",
+      "fullSpiel": "R16 Singapore GP Qualifying is scheduled for 2026-10-11 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
+      "generationMode": "factual-fallback"
+    },
+    {
+      "eventId": "evt_33",
+      "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
+      "fullSpiel": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-08-28T05:26:48.246Z",
       "generationMode": "factual-fallback"
     }
   ]

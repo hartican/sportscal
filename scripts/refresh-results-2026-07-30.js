@@ -22,6 +22,8 @@ const refreshedResultSourceCheckedAt = "2026-08-20T18:21:12.000Z";
 const refreshedResultReviewedAt = "2026-08-20T18:21:12.000Z";
 const releaseResultSourceCheckedAt = "2026-08-24T05:40:00.000Z";
 const releaseResultReviewedAt = "2026-08-24T05:40:00.000Z";
+const currentReleaseSourceCheckedAt = "2026-08-28T05:20:00.000Z";
+const currentReleaseReviewedAt = "2026-08-28T05:20:00.000Z";
 
 const official = (sourceName, sourceUrl, result) => ({
   ...result,
@@ -86,6 +88,15 @@ const releaseOfficial = (sourceName, sourceUrl, result) => ({
   lastReviewedAt: releaseResultReviewedAt,
 });
 
+const currentReleaseOfficial = (sourceName, sourceUrl, result) => ({
+  ...result,
+  sourceName,
+  sourceUrl,
+  sourceCheckedAt: currentReleaseSourceCheckedAt,
+  sourceType: "official",
+  lastReviewedAt: currentReleaseReviewedAt,
+});
+
 const results = {
   "cricket-australia-bangladesh-first-test-2026": refreshedOfficial(
     "Cricket Australia Darwin first Test match report",
@@ -100,6 +111,22 @@ const results = {
         loser: "Australia",
         summary: "Bangladesh defeated Australia by nine wickets in Darwin.",
         marginText: "Bangladesh by 9 wickets",
+      },
+    }
+  ),
+  "cricket-australia-bangladesh-second-test-2026": currentReleaseOfficial(
+    "Cricket Australia Mackay second Test match report",
+    "https://www.cricket.com.au/news/4565090/match-report-australia-beat-bangladesh-innings-victory-day-two-second-test-mackay-highlights-scores-mitchell-starc-ten-wickets-pat-cummins-cameron-green-fifty?tags=9037",
+    {
+      score: "Australia beat Bangladesh by an innings and 51 runs",
+      outcomeText: "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay.",
+      recapText: "Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory.",
+      resultLabels: ["Australia by an innings and 51 runs", "Second Test", "Official result"],
+      consensusResult: {
+        winner: "Australia",
+        loser: "Bangladesh",
+        summary: "Australia defeated Bangladesh by an innings and 51 runs in Mackay.",
+        marginText: "Australia by an innings and 51 runs",
       },
     }
   ),

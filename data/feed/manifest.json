@@ -1,171 +1,171 @@
 {
   "schemaVersion": "public-feed.v2",
   "sourceVersion": "nothingsport-marquee-visibility-2026-08-03-v1",
-  "sourcePublishedAt": "2026-08-26T04:40:13.093Z",
+  "sourcePublishedAt": "2026-08-28T05:26:42.553Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 691,
-  "eventCount": 507,
+  "eventCount": 505,
   "pages": [
     {
       "index": 0,
       "path": "data/feed/page-001.json",
       "eventCount": 20,
-      "firstEventId": "event:nrl:129992601",
-      "lastEventId": "event:premier-league:128940"
+      "firstEventId": "event:nrl:129992602",
+      "lastEventId": "event:premier-league:128933"
     },
     {
       "index": 1,
       "path": "data/feed/page-002.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128933",
-      "lastEventId": "event:premier-league:128948"
+      "firstEventId": "event:nrl:129992701",
+      "lastEventId": "rugby-argentina-australia-mendoza-2026-09-06"
     },
     {
       "index": 2,
       "path": "data/feed/page-003.json",
       "eventCount": 20,
-      "firstEventId": "rugby-argentina-australia-mendoza-2026-09-06",
-      "lastEventId": "event:premier-league:128958"
+      "firstEventId": "event:nrl:129992707",
+      "lastEventId": "event:premier-league:128964"
     },
     {
       "index": 3,
       "path": "data/feed/page-004.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128964",
-      "lastEventId": "rugby-new-zealand-australia-2026-10-10"
+      "firstEventId": "evt_82",
+      "lastEventId": "event:premier-league:128973"
     },
     {
       "index": 4,
       "path": "data/feed/page-005.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128973",
-      "lastEventId": "evt_88"
+      "firstEventId": "event:premier-league:128974",
+      "lastEventId": "event:premier-league:128983"
     },
     {
       "index": 5,
       "path": "data/feed/page-006.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128983",
-      "lastEventId": "rlwc-australia-cook-islands-2026"
+      "firstEventId": "event:premier-league:128985",
+      "lastEventId": "event:premier-league:129006"
     },
     {
       "index": 6,
       "path": "data/feed/page-007.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129006",
-      "lastEventId": "event:premier-league:129019"
+      "firstEventId": "event:premier-league:129004",
+      "lastEventId": "event:premier-league:129020"
     },
     {
       "index": 7,
       "path": "data/feed/page-008.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129020",
-      "lastEventId": "event:premier-league:129029"
+      "firstEventId": "event:premier-league:129021",
+      "lastEventId": "event:premier-league:129030"
     },
     {
       "index": 8,
       "path": "data/feed/page-009.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129030",
-      "lastEventId": "cricket-australia-england-fourth-t20-2026"
+      "firstEventId": "event:premier-league:129031",
+      "lastEventId": "evt_43"
     },
     {
       "index": 9,
       "path": "data/feed/page-010.json",
       "eventCount": 20,
-      "firstEventId": "evt_43",
-      "lastEventId": "event:premier-league:129059"
+      "firstEventId": "cricket-australia-england-fifth-t20-2026",
+      "lastEventId": "event:premier-league:129060"
     },
     {
       "index": 10,
       "path": "data/feed/page-011.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129060",
-      "lastEventId": "event:premier-league:129077"
+      "firstEventId": "event:premier-league:129061",
+      "lastEventId": "event:premier-league:129078"
     },
     {
       "index": 11,
       "path": "data/feed/page-012.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129078",
-      "lastEventId": "event:premier-league:129095"
+      "firstEventId": "event:premier-league:129079",
+      "lastEventId": "event:premier-league:129096"
     },
     {
       "index": 12,
       "path": "data/feed/page-013.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129096",
-      "lastEventId": "event:premier-league:129114"
+      "firstEventId": "event:premier-league:129097",
+      "lastEventId": "event:premier-league:129115"
     },
     {
       "index": 13,
       "path": "data/feed/page-014.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129115",
-      "lastEventId": "event:premier-league:129133"
+      "firstEventId": "event:premier-league:129116",
+      "lastEventId": "event:premier-league:129134"
     },
     {
       "index": 14,
       "path": "data/feed/page-015.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129134",
-      "lastEventId": "calendar-nothingsport-manual-seed-big-wave-pipe-masters-2026"
+      "firstEventId": "event:premier-league:129135",
+      "lastEventId": "event:premier-league:129153"
     },
     {
       "index": 15,
       "path": "data/feed/page-016.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129153",
-      "lastEventId": "event:premier-league:129172"
+      "firstEventId": "event:premier-league:129154",
+      "lastEventId": "event:premier-league:129173"
     },
     {
       "index": 16,
       "path": "data/feed/page-017.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129173",
-      "lastEventId": "event:premier-league:129192"
+      "firstEventId": "event:premier-league:129174",
+      "lastEventId": "event:premier-league:129193"
     },
     {
       "index": 17,
       "path": "data/feed/page-018.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129193",
-      "lastEventId": "event:premier-league:129209"
+      "firstEventId": "event:premier-league:129194",
+      "lastEventId": "event:premier-league:129210"
     },
     {
       "index": 18,
       "path": "data/feed/page-019.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129210",
-      "lastEventId": "event:premier-league:129227"
+      "firstEventId": "event:premier-league:129211",
+      "lastEventId": "event:premier-league:129228"
     },
     {
       "index": 19,
       "path": "data/feed/page-020.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129228",
-      "lastEventId": "event:premier-league:129247"
+      "firstEventId": "event:premier-league:129229",
+      "lastEventId": "event:premier-league:129248"
     },
     {
       "index": 20,
       "path": "data/feed/page-021.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129248",
-      "lastEventId": "event:premier-league:129267"
+      "firstEventId": "event:premier-league:129249",
+      "lastEventId": "event:premier-league:129268"
     },
     {
       "index": 21,
       "path": "data/feed/page-022.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129268",
-      "lastEventId": "event:premier-league:129287"
+      "firstEventId": "event:premier-league:129269",
+      "lastEventId": "event:premier-league:129288"
     },
     {
       "index": 22,
       "path": "data/feed/page-023.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129288",
+      "firstEventId": "event:premier-league:129289",
       "lastEventId": "event:premier-league:128931"
     },
     {
@@ -185,9 +185,9 @@
     {
       "index": 25,
       "path": "data/feed/page-026.json",
-      "eventCount": 7,
+      "eventCount": 5,
       "firstEventId": "event:afl:cd_m20260142305",
-      "lastEventId": "event:nrl:129992401"
+      "lastEventId": "event:afl:cd_m20260142303"
     }
   ]
 }

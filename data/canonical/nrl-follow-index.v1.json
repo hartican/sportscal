@@ -1,6 +1,6 @@
 {
   "schemaVersion": "nrl-follow-index.v1",
-  "generatedAt": "2026-08-26T04:39:53.270Z",
+  "generatedAt": "2026-08-28T05:26:26.508Z",
   "teams": [
     {
       "id": "team:nrl:322",
@@ -163,6 +163,11 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
+      "id": "competitor:nrl:angus-hinchey",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
       "id": "competitor:nrl:antonio-verhoeven",
       "currentTeamId": "team:nrl:322",
       "leagueId": "competition:nrl-premiership-2026"
@@ -255,6 +260,11 @@
     {
       "id": "competitor:nrl:billy-burns",
       "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:billy-phillips",
+      "currentTeamId": "team:nrl:329",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -518,8 +528,18 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
+      "id": "competitor:nrl:cooper-bai",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
       "id": "competitor:nrl:cooper-clarke",
       "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:cooper-toy",
+      "currentTeamId": "team:nrl:332",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -760,6 +780,11 @@
     {
       "id": "competitor:nrl:finau-latu",
       "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:fletcher-baker",
+      "currentTeamId": "team:nrl:336",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -1013,6 +1038,11 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
+      "id": "competitor:nrl:jack-underhill",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
       "id": "competitor:nrl:jack-wighton",
       "currentTeamId": "team:nrl:335",
       "leagueId": "competition:nrl-premiership-2026"
@@ -1220,6 +1250,11 @@
     {
       "id": "competitor:nrl:javon-andrews",
       "currentTeamId": "team:nrl:334",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
+      "id": "competitor:nrl:jaxen-edgar",
+      "currentTeamId": "team:nrl:329",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -2458,6 +2493,11 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
+      "id": "competitor:nrl:siulagi-pio",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026"
+    },
+    {
       "id": "competitor:nrl:solomone-saukuru",
       "currentTeamId": "team:nrl:334",
       "leagueId": "competition:nrl-premiership-2026"
@@ -2728,11 +2768,6 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:tyran-wishart",
-      "currentTeamId": "team:nrl:324",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
       "id": "competitor:nrl:tyrell-sloan",
       "currentTeamId": "team:nrl:330",
       "leagueId": "competition:nrl-premiership-2026"
@@ -2768,11 +2803,6 @@
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
-      "id": "competitor:nrl:viliame-kikau",
-      "currentTeamId": "team:nrl:332",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
       "id": "competitor:nrl:viliami-fifita",
       "currentTeamId": "team:nrl:337",
       "leagueId": "competition:nrl-premiership-2026"
@@ -2785,11 +2815,6 @@
     {
       "id": "competitor:nrl:wayde-egan",
       "currentTeamId": "team:nrl:321",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:will-warbrick",
-      "currentTeamId": "team:nrl:324",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {
@@ -2845,16 +2870,6 @@
     {
       "id": "competitor:nrl:zakauri-clarke",
       "currentTeamId": "team:nrl:329",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:zane-harrison",
-      "currentTeamId": "team:nrl:337",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:zyon-maiuu",
-      "currentTeamId": "team:nrl:332",
       "leagueId": "competition:nrl-premiership-2026"
     }
   ]

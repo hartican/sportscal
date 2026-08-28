@@ -1,8 +1,9 @@
 (function attachNothingSportsTeamFollowCatalogue(root, factory){
-  const api = factory();
+  const nodeNationalTeamIdentities = typeof module !== "undefined" && module.exports ? require("./national-team-identities.js") : null;
+  const api = factory(() => root.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || nodeNationalTeamIdentities);
   root.NOTHINGSPORTS_TEAM_FOLLOW_CATALOGUE = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsTeamFollowCatalogue(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsTeamFollowCatalogue(getNationalTeamIdentities){
   "use strict";
 
   const NATIONAL_COUNTRY_CODES = Object.freeze({
@@ -19,7 +20,7 @@
     "team:nrl:kiwis":"NZ", "team:nrl:kiwi-ferns":"NZ",
   });
 
-  const groups = [
+  const baseGroups = [
     ["sport:rugby", "Rugby", [
       ["International", [
         ["team:rugby:wallabies", "Wallabies", ["Australia", "Wallabies"]],
@@ -142,14 +143,54 @@
     }))),
   }));
 
-  const allTeams = Object.freeze(groups.flatMap(group => group.sections.flatMap(section => section.teams)));
-  const teamsById = Object.freeze(Object.fromEntries(allTeams.map(team => [team.id, team])));
+  const nationalTeamRecord = team => Object.freeze({
+    id:team.id,
+    displayName:team.displayName,
+    aliases:team.aliases,
+    countryCode:team.countryCode,
+    gender:team.gender,
+    type:"nationalSide",
+    teamKind:"national",
+    isNationalTeam:true,
+    sportDomainId:team.sportDomainId,
+    logoUrl:team.assetPath,
+    logoDarkUrl:team.assetPath,
+    identityId:team.id,
+    assetKind:team.assetKind,
+    sourceUrl:team.sourceUrl,
+    sourceRefs:Object.freeze([team.sourceUrl]),
+  });
+  const baseByDomain = new Map(baseGroups.map(group => [group.domainId, group]));
+  let derivedRegistry = null;
+  let derivedCatalogue = null;
+  function currentCatalogue(){
+    const nationalTeamIdentities = getNationalTeamIdentities();
+    if (derivedCatalogue && derivedRegistry === nationalTeamIdentities) return derivedCatalogue;
+    const registryDomains = Array.from(new Set((nationalTeamIdentities?.allTeams || []).map(team => team.sportDomainId)));
+    const groups = Object.freeze(Array.from(new Set([...baseByDomain.keys(), ...registryDomains])).map(domainId => {
+      const base = baseByDomain.get(domainId);
+      const domesticSections = (base?.sections || []).filter(section => section.label !== "International");
+      const nationalTeams = (nationalTeamIdentities?.teamsForDomain(domainId) || []).map(nationalTeamRecord);
+      return Object.freeze({
+        domainId,
+        label:base?.label || domainId.replace(/^sport:/, "").replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase()),
+        sections:Object.freeze([...(nationalTeams.length ? [Object.freeze({ label:"International", teams:Object.freeze(nationalTeams) })] : []), ...domesticSections]),
+      });
+    }));
+    const allTeams = Object.freeze(groups.flatMap(group => group.sections.flatMap(section => section.teams)));
+    derivedRegistry = nationalTeamIdentities;
+    derivedCatalogue = Object.freeze({ groups, allTeams, teamsById:Object.freeze(Object.fromEntries(allTeams.map(team => [team.id, team]))) });
+    return derivedCatalogue;
+  }
 
   function teamsForDomain(domainId){
-    return groups.find(group => group.domainId === domainId)?.sections || [];
+    return currentCatalogue().groups.find(group => group.domainId === domainId)?.sections || [];
   }
 
   function participantIdsForEvent(event){
+    const nationalTeamIdentities = getNationalTeamIdentities();
+    const nationalIds = nationalTeamIdentities?.participantIdsForEvent(event) || [];
+    if (nationalIds.length) return nationalIds;
     const sportKey = String(event?.key || "");
     const domainId = sportKey === "rugby" ? "sport:rugby"
       : sportKey === "cricket" ? "sport:cricket"
@@ -172,5 +213,13 @@
     return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
-  return Object.freeze({ version: "team-follow-catalogue.v1", groups: Object.freeze(groups), allTeams, teamsById, teamsForDomain, participantIdsForEvent });
+  return Object.freeze({
+    version:"team-follow-catalogue.v2",
+    get groups(){ return currentCatalogue().groups; },
+    get allTeams(){ return currentCatalogue().allTeams; },
+    get teamsById(){ return currentCatalogue().teamsById; },
+    teamsForDomain,
+    participantIdsForEvent,
+    get nationalTeamIdentities(){ return getNationalTeamIdentities(); },
+  });
 });

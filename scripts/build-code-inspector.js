@@ -9,6 +9,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/code-inspector");
 const taxonomy = require("../config/canonical-sports-taxonomy");
 const followFirst = require("../config/follow-first");
+const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
@@ -20,6 +21,9 @@ const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).m
 ]));
 for (const participant of [...(canonicalAmericanFootball.teams || []), ...(canonicalIceHockey.teams || [])]){
   canonicalParticipantNames.set(participant.id, participant.displayName || participant.shortName || null);
+}
+for (const participant of nationalTeamIdentities.participants){
+  canonicalParticipantNames.set(participant.id, participant.displayName);
 }
 
 const CODE_KEYS = Object.freeze({
@@ -80,20 +84,26 @@ function eventMatchesCode(event, code){
 }
 
 function participantSlots(event){
+  const nationalTeams = nationalTeamIdentities.identitiesForEvent(event);
   if (Array.isArray(event?.participantSlots) && event.participantSlots.length){
     return event.participantSlots.map((slot, index) => ({
       slot: slot.slot || index + 1,
-      participantId: slot.participantId || null,
-      label: slot.label || canonicalParticipantNames.get(slot.participantId) || null,
-      logoUrl:slot.logoUrl || null,
+      participantId: nationalTeamIdentities.canonicalId(slot.participantId) || nationalTeams[index]?.id || null,
+      label: slot.label || canonicalParticipantNames.get(nationalTeamIdentities.canonicalId(slot.participantId)) || nationalTeams[index]?.displayName || null,
+      logoUrl:nationalTeams[index]?.assetPath || slot.logoUrl || null,
     }));
   }
   if (Array.isArray(event?.participantIds) && event.participantIds.length){
-    return event.participantIds.slice(0, 2).map((participantId, index) => ({
+    return event.participantIds.slice(0, 2).map(nationalTeamIdentities.canonicalId).map((participantId, index) => ({
       slot: index + 1,
       participantId,
-      label: canonicalParticipantNames.get(participantId) || null,
+      label: canonicalParticipantNames.get(participantId) || nationalTeams[index]?.displayName || null,
+      logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || null,
     }));
+  }
+  if (nationalTeams.length === 2){
+    const labels = String(event?.name || "").split(" - ").at(-1).split(/\s+v\s+/i);
+    return nationalTeams.map((team, index) => ({ slot:index + 1, participantId:team.id, label:labels[index]?.trim() || team.displayName, logoUrl:team.assetPath }));
   }
   const matchup = String(event?.name || "").split(" - ").at(-1).split(/\s+v\s+/i);
   if (matchup.length === 2){

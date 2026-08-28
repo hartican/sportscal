@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-26T04:40:20.432Z",
+  "generatedAt": "2026-08-28T05:26:49.407Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 163,
-    "completed": 121,
-    "upcoming": 42,
+    "completed": 122,
+    "upcoming": 41,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1383,7 +1383,7 @@
     },
     {
       "id": "cwg-glasgow-2026-netball-australia-england",
-      "name": "Netball — Australia v England 🇦🇺",
+      "name": "Netball — Australia v England",
       "sport": "Commonwealth Games",
       "date": "2026-07-26",
       "status": "completed",
@@ -1511,7 +1511,7 @@
     },
     {
       "id": "cwg-glasgow-2026-netball-australia-malawi",
-      "name": "Netball — Australia v Malawi 🇦🇺",
+      "name": "Netball — Australia v Malawi",
       "sport": "Commonwealth Games",
       "date": "2026-07-29",
       "status": "completed",
@@ -1559,7 +1559,7 @@
     },
     {
       "id": "cwg-glasgow-2026-netball-australia-south-africa",
-      "name": "Netball — Australia v South Africa 🇦🇺",
+      "name": "Netball — Australia v South Africa",
       "sport": "Commonwealth Games",
       "date": "2026-07-30",
       "status": "completed",
@@ -1687,7 +1687,7 @@
     },
     {
       "id": "aflw-australia-ireland-2026-08-01",
-      "name": "AFLW — Australia v Ireland 🇦🇺",
+      "name": "AFLW — Australia v Ireland",
       "sport": "AFLW",
       "date": "2026-08-01",
       "status": "completed",
@@ -1735,7 +1735,7 @@
     },
     {
       "id": "cwg-glasgow-2026-netball-australia-jamaica-semifinal",
-      "name": "Netball — Australia v Jamaica 🇦🇺",
+      "name": "Netball — Australia v Jamaica",
       "sport": "Commonwealth Games",
       "date": "2026-08-01",
       "status": "completed",
@@ -1831,7 +1831,7 @@
     },
     {
       "id": "cwg-glasgow-2026-netball-australia-england-bronze",
-      "name": "Netball — Australia v England bronze medal 🇦🇺",
+      "name": "Netball — Australia v England bronze medal",
       "sport": "Commonwealth Games",
       "date": "2026-08-02",
       "status": "completed",
@@ -1930,7 +1930,7 @@
       "name": "Australia v Bangladesh — Second Test",
       "sport": "Cricket",
       "date": "2026-08-22",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

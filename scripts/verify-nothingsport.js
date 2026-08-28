@@ -20,6 +20,7 @@ const discoveryCatalogueSource = fs.readFileSync("config/discovery-catalogue.js"
 const canonicalTaxonomySource = fs.readFileSync("config/canonical-sports-taxonomy.js", "utf8");
 const sportHierarchySource = fs.readFileSync("config/sport-hierarchy.js", "utf8");
 const personalisedFeedSource = fs.readFileSync("config/personalised-feed.js", "utf8");
+const nationalTeamIdentitiesSource = fs.readFileSync("config/national-team-identities.js", "utf8");
 const teamFollowCatalogueSource = fs.readFileSync("config/team-follow-catalogue.js", "utf8");
 const eventTaxonomyCompatSource = fs.readFileSync("config/event-taxonomy-compat.js", "utf8");
 const preferenceTaxonomySource = fs.readFileSync("config/preference-taxonomy.js", "utf8");
@@ -492,7 +493,7 @@ assert(html.includes('mark?.kind === "sport"') && html.includes('className: "eve
 assert(html.includes('className = "event-sport-wordmark"') && html.includes("mark.wordmark"), "Formula One, rugby, and cricket sport marks must retain a visible text identity beside their open-use glyph");
 assert(cardIdentitiesSource.includes('"competition:icc"') && cardIdentitiesSource.includes('"team:cricket:australia"') && cardIdentitiesSource.includes('"team:cricket:bangladesh"'), "cricket cards must register the ICC match mark and official team identities");
 assert(cardIdentitiesSource.includes('"competition:premier-league"') && cardIdentitiesSource.includes('"team:football:epl:1"') && cardIdentitiesSource.includes('"team:football:epl:21"'), "Premier League cards must register the league and every club's published badge identity");
-assert(html.includes("appendFlagFallback") && html.includes("team-logo-fallback"), "a missing official cricket-team mark must fall back to that team's national flag without removing its name");
+assert(html.includes("appendTeamIdentityFallback") && html.includes("team-logo-fallback") && html.includes('mark?.isNationalTeam || mark?.teamKind === "national"'), "a missing national-team mark must retain a semantic placeholder without falling back to a flag or monogram");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 8, "every large and small scrolling-card glyph must use the stable image-backed path");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
@@ -623,7 +624,9 @@ assert.equal(cwgContext.ladderSnapshots[0]?.entries.length, 24, "the Glasgow 202
 const contextualCwgEvents = sportContext.applyContextToEvents(publishedFeed.events.filter(event => event.key === "cwg"), cwgContext);
 assert.equal(contextualCwgEvents.length, 34, "the repaired CWG card set must remain intact after competitor resolution");
 assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-swimming-closing-finals")?.participantIds?.length, 6, "CWG swimming cards must resolve only the calibrated swimming follow field");
-assert.equal(contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-netball-australia-england-bronze")?.participantIds?.[0], "competitor:cwg:liz-watson", "Australian CWG netball cards must resolve the surfaced Australian competitor");
+const contextualCwgNetball = contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-netball-australia-england-bronze");
+assert.deepEqual(contextualCwgNetball?.participantIds?.slice(0, 2), ["team:netball:diamonds", "team:netball:england-roses"], "CWG netball cards must retain canonical national-team participants");
+assert(contextualCwgNetball?.participantIds?.includes("competitor:cwg:liz-watson"), "Australian CWG netball cards must also retain the surfaced Australian competitor");
 assert(!contextualCwgEvents.find(event => event.id === "cwg-glasgow-2026-boxing-finals-one")?.participantIds?.length, "unsupported CWG disciplines must not inherit competitor follows");
 assert(html.includes('["cwgContext", "data/canonical/cwg-context-2026.json"]'), "the browser must load the CWG context bundle");
 assert(serverFeedApiSource.includes('require("../data/canonical/cwg-context-2026.json")'), "the authenticated server feed must load the same CWG context bundle");
@@ -836,6 +839,7 @@ vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-do
 vm.runInContext(canonicalTaxonomySource, sandbox, { filename: "config/canonical-sports-taxonomy.js" });
 vm.runInContext(sportHierarchySource, sandbox, { filename: "config/sport-hierarchy.js" });
 vm.runInContext(personalisedFeedSource, sandbox, { filename: "config/personalised-feed.js" });
+vm.runInContext(nationalTeamIdentitiesSource, sandbox, { filename: "config/national-team-identities.js" });
 vm.runInContext(teamFollowCatalogueSource, sandbox, { filename: "config/team-follow-catalogue.js" });
 vm.runInContext(eventTaxonomyCompatSource, sandbox, { filename: "config/event-taxonomy-compat.js" });
 vm.runInContext(preferenceTaxonomySource, sandbox, { filename: "config/preference-taxonomy.js" });

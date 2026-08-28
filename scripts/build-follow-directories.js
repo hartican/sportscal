@@ -112,9 +112,21 @@ function main(){
   global.window = global;
   const taxonomy = require(path.join(ROOT, "config/selector-taxonomy.js"));
   const catalogue = require(path.join(ROOT, "config/team-follow-catalogue.js"));
-  const sports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2)
+  const nationalTeamIdentities = require(path.join(ROOT, "config/national-team-identities.js"));
+  const exposedSports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2)
     .map(entity => ({ key:entity.id.replace(/^sport:/, ""), label:entity.label }));
-  const chunks = new Map(sports.map(sport => [sport.key, new Map()]));
+  const sportsByKey = new Map(exposedSports.map(sport => [sport.key, sport]));
+  const nationalSportLabels = { hockey:"Hockey", "multi-sport":"Multi-sport" };
+  nationalTeamIdentities.allTeams.forEach(team => {
+    const key = sportKeyForParticipant(team);
+    if (!key || sportsByKey.has(key)) return;
+    sportsByKey.set(key, {
+      key,
+      label:nationalSportLabels[key] || key.split("-").map(part => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(" "),
+    });
+  });
+  const directorySports = [...sportsByKey.values()];
+  const chunks = new Map(directorySports.map(sport => [sport.key, new Map()]));
   const contexts = [
     "data/canonical/afl-nrl-2026.json", "data/canonical/f1-context-2026.json",
     "data/canonical/tennis-context-2026.json", "data/canonical/cycling-context-2026.json",
@@ -214,11 +226,31 @@ function main(){
     if (collectionIds.length) tennisChunk.set(recordId, { ...record, collectionIds:Array.from(new Set([...(record.collectionIds || []), ...collectionIds])) });
   });
 
+  // National identities are the final authority after supplemental and sport
+  // directories have been merged, so those sources cannot silently erase the
+  // national team kind or replace the canonical local artwork.
+  nationalTeamIdentities.allTeams.forEach(team => {
+    const key = sportKeyForParticipant(team);
+    if (!chunks.has(key)) return;
+    const existing = chunks.get(key).get(team.id) || {};
+    chunks.get(key).set(team.id, normalizeRecord({
+      ...existing,
+      ...team,
+      type:"team",
+      teamKind:"national",
+      isNationalTeam:true,
+      identityId:team.id,
+      logoUrl:team.assetPath,
+      logoDarkUrl:team.assetPath,
+      sourceRefs:Array.from(new Set([...(existing.sourceRefs || []), team.sourceUrl])),
+    }, { countryCode:team.countryCode, genderCategory:team.gender, sourceRefs:[team.sourceUrl] }));
+  });
+
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   const manifest = {
     schemaVersion:"follow-directory-manifest.v1",
     generatedAt,
-    sports:sports.map(sport => {
+    sports:exposedSports.map(sport => {
       const records = [...chunks.get(sport.key).values()];
       return {
         ...sport,
@@ -231,7 +263,16 @@ function main(){
   };
   let changed = writeIfChanged(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, checkOnly);
   changed = writeIfChanged(path.join(OUTPUT_DIR, "manifest.v1.js"), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST = ${JSON.stringify(manifest)};\n`, checkOnly) || changed;
-  manifest.sports.forEach(sport => {
+  const manifestByKey = new Map(manifest.sports.map(sport => [sport.key, sport]));
+  directorySports.forEach(directorySport => {
+    const supportRecords = [...chunks.get(directorySport.key).values()];
+    const sport = manifestByKey.get(directorySport.key) || {
+      ...directorySport,
+      status:supportRecords.length ? "available" : "unavailable",
+      recordCount:supportRecords.length,
+      jsonUrl:`data/follow-directory/${directorySport.key}.v1.json`,
+      scriptUrl:`data/follow-directory/${directorySport.key}.v1.js`,
+    };
     const records = [...chunks.get(sport.key).values()].sort((first, second) => (
       (first.ranking ?? first.ladderPosition ?? Number.MAX_SAFE_INTEGER) - (second.ranking ?? second.ladderPosition ?? Number.MAX_SAFE_INTEGER)
       || first.displayName.localeCompare(second.displayName, "en-AU", { sensitivity:"base" })
@@ -249,7 +290,8 @@ function main(){
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.json`), `${JSON.stringify(payload, null, 2)}\n`, checkOnly) || changed;
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.js`), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS[${JSON.stringify(sport.key)}] = ${JSON.stringify(payload)};\n`, checkOnly) || changed;
   });
-  console.log(`${checkOnly ? "Checked" : changed ? "Built" : "Unchanged"} ${manifest.sports.length} lazy Follow directory chunks (${manifest.sports.reduce((sum, sport) => sum + sport.recordCount, 0)} records).`);
+  const supportCount = directorySports.length - manifest.sports.length;
+  console.log(`${checkOnly ? "Checked" : changed ? "Built" : "Unchanged"} ${manifest.sports.length} lazy Follow directory chunks plus ${supportCount} national-identity support chunks (${directorySports.reduce((sum, sport) => sum + chunks.get(sport.key).size, 0)} records).`);
 }
 
 main();

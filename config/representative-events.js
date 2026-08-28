@@ -1,8 +1,9 @@
 (function attachNothingSportsRepresentativeEvents(root, factory){
-  const api = factory();
+  const nationalTeamIdentities = root.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || (typeof module !== "undefined" && module.exports ? require("./national-team-identities.js") : null);
+  const api = factory(nationalTeamIdentities);
   root.NOTHINGSPORTS_REPRESENTATIVE_EVENTS = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildRepresentativeEvents(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildRepresentativeEvents(nationalTeamIdentities){
   "use strict";
 
   const EVENTS_BY_SPORT = Object.freeze({
@@ -52,7 +53,14 @@
 
   function applyToEvent(event){
     const metadata = metadataForEventId(event?.eventId || event?.id);
-    return metadata ? { ...event, ...metadata, representativeCountryCodes:[...metadata.representativeCountryCodes] } : event;
+    if (!metadata) return event;
+    const participantIds = nationalTeamIdentities?.participantIdsForEvent({ ...event, representativeSportKey:metadata.representativeSportKey }) || [];
+    return {
+      ...event,
+      ...metadata,
+      representativeCountryCodes:[...metadata.representativeCountryCodes],
+      ...(participantIds.length === 2 ? { participantIds } : {}),
+    };
   }
 
   return Object.freeze({ EVENTS_BY_SPORT, metadataByEventId, metadataForEventId, applyToEvent });

@@ -1,8 +1,9 @@
 (function attachNothingSportsCardIdentities(root, factory){
-  const api = factory();
+  const nodeNationalTeamIdentities = typeof module !== "undefined" && module.exports ? require("./national-team-identities.js") : null;
+  const api = factory(() => root.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || nodeNationalTeamIdentities);
   root.NOTHINGSPORTS_CARD_IDENTITIES = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsCardIdentities(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsCardIdentities(getNationalTeamIdentities){
   "use strict";
 
   const OFFICIAL_REFERENCE_USE = Object.freeze({
@@ -98,20 +99,6 @@
       ...officialMark(id, label, url, sourceUrl, options),
       aliases: Object.freeze(aliases),
       fallbackCountryCode,
-    });
-  }
-
-  function nationalFlagMark(id, label, countryCode, sourceUrl, aliases){
-    return Object.freeze({
-      id,
-      label,
-      countryCode,
-      aliases: Object.freeze(aliases),
-      assetClass: "open-use",
-      rightsStatus: "open-use",
-      provenance: "licensed-library",
-      displayUse: "editorial-identification",
-      sourceUrl,
     });
   }
 
@@ -224,7 +211,7 @@
     "team:cricket:bangladesh": nationalTeamMark("team:cricket:bangladesh", "Bangladesh Cricket Board", "https://www.tigercricket.com.bd/public/images/2016/12/cropped-Bangladesh-Cricket-Team-LogoW-1-192x192.png", "https://www.tigercricket.com.bd/public/", ["Bangladesh"], "BD"),
     "team:cricket:england": nationalTeamMark("team:cricket:england", "England and Wales Cricket Board", "https://resources.ecb.co.uk/ecb/document/2023/06/07/0d9368e6-932a-4bf2-90a3-509a0c4b1cc2/ECB.co.uk.png", "https://www.ecb.co.uk/", ["England"], "GB"),
     "team:cricket:new-zealand": nationalTeamMark("team:cricket:new-zealand", "New Zealand Cricket", "https://www.nzc.nz/dist/img/nzc-logo-vert-2.svg", "https://www.nzc.nz/", ["New Zealand"], "NZ"),
-    "team:cricket:south-africa": nationalFlagMark("team:cricket:south-africa", "South Africa cricket", "ZA", "https://www.cricket.co.za/", ["South Africa"]),
+    "team:cricket:south-africa": nationalTeamMark("team:cricket:south-africa", "South Africa cricket", "assets/identities/national/cricket/south-africa.jpg", "https://www.cricket.co.za/", ["South Africa", "Proteas"]),
   });
   const cricketParticipants = Object.freeze(Object.entries(cricketTeamMarks).map(([id, mark]) => Object.freeze({
     id,
@@ -383,41 +370,7 @@
     return [id, teamMark(id, label, url, "https://www.nba.com/teams", [label], id === "team:nba:toronto-raptors" ? "CA" : "US")];
   })));
 
-  const FLAG_SOURCE = "https://github.com/lipis/flag-icons";
-  function nationalFlagGroup(prefix, records){
-    return Object.freeze(Object.fromEntries(records.map(([slug, label, countryCode, aliases = [label]]) => {
-      const id = `team:${prefix}:${slug}`;
-      return [id, nationalFlagMark(id, label, countryCode, FLAG_SOURCE, aliases)];
-    })));
-  }
-  const fifaNationalMarks = nationalFlagGroup("football:national", [
-    ["australia", "Australia", "AU"], ["turkiye", "Türkiye", "TR", ["Türkiye", "Turkey"]],
-    ["usa", "USA", "US", ["USA", "United States"]], ["paraguay", "Paraguay", "PY"],
-    ["egypt", "Egypt", "EG"], ["canada", "Canada", "CA"], ["morocco", "Morocco", "MA"],
-    ["france", "France", "FR"], ["brazil", "Brazil", "BR"], ["norway", "Norway", "NO"],
-    ["mexico", "Mexico", "MX"], ["england", "England", "GB"], ["portugal", "Portugal", "PT"],
-    ["spain", "Spain", "ES"], ["belgium", "Belgium", "BE"], ["argentina", "Argentina", "AR"],
-    ["switzerland", "Switzerland", "CH"], ["colombia", "Colombia", "CO"],
-  ]);
-  const rugbyLeagueNationalMarks = nationalFlagGroup("nrl:national", [
-    ["australia", "Australia", "AU"], ["new-zealand", "New Zealand", "NZ"],
-    ["fiji", "Fiji", "FJ"], ["cook-islands", "Cook Islands", "CK"],
-  ]);
-  const netballNationalMarks = nationalFlagGroup("netball:national", [
-    ["australia", "Australia", "AU"], ["england", "England", "GB"], ["malawi", "Malawi", "MW"],
-    ["south-africa", "South Africa", "ZA"], ["jamaica", "Jamaica", "JM"],
-  ]);
-  function participantsForMarks(marks){
-    return Object.freeze(Object.entries(marks).map(([id, mark]) => Object.freeze({
-      id, canonicalName:mark.label, displayName:mark.label, shortName:mark.label,
-      metadata:Object.freeze({ titleAliases:mark.aliases || [mark.label] }),
-    })));
-  }
-  const fifaNationalParticipants = participantsForMarks(fifaNationalMarks);
-  const rugbyLeagueNationalParticipants = participantsForMarks(rugbyLeagueNationalMarks);
-  const netballNationalParticipants = participantsForMarks(netballNationalMarks);
-
-  const participantMarks = Object.freeze(Object.fromEntries([
+  const baseParticipantMarks = Object.freeze(Object.fromEntries([
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/", {
       logo: {
         light: `https://www.nrl.com/.theme/${slug}/badge.svg`,
@@ -442,17 +395,36 @@
     ...Object.entries(f1TeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
     ...Object.entries(nbaTeamMarks),
-    ...Object.entries(fifaNationalMarks),
-    ...Object.entries(rugbyLeagueNationalMarks),
-    ...Object.entries(netballNationalMarks),
   ]));
-  const identityParticipants = Object.freeze(Object.fromEntries(Object.entries(participantMarks).map(([id, mark]) => [id, Object.freeze({
+  const nationalMarks = () => getNationalTeamIdentities()?.participantMarks || {};
+  const participantMarks = new Proxy({ ...baseParticipantMarks }, {
+    get:(target, property) => nationalMarks()[property] || target[property],
+    ownKeys:target => Array.from(new Set([...Reflect.ownKeys(target), ...Reflect.ownKeys(nationalMarks())])),
+    getOwnPropertyDescriptor(target, property){
+      const descriptor = Reflect.getOwnPropertyDescriptor(target, property);
+      if (descriptor) return descriptor;
+      const value = nationalMarks()[property];
+      return value ? { configurable:true, enumerable:true, writable:false, value } : undefined;
+    },
+  });
+  const baseIdentityParticipants = Object.freeze(Object.fromEntries(Object.entries(baseParticipantMarks).map(([id, mark]) => [id, Object.freeze({
     id,
     canonicalName: mark.label,
     displayName: mark.label,
     shortName: mark.label,
     metadata: Object.freeze({ titleAliases: mark.aliases || [mark.label] }),
   })])));
+  const nationalParticipantForId = id => getNationalTeamIdentities()?.participantsById?.[id] || null;
+  const identityParticipants = new Proxy({ ...baseIdentityParticipants }, {
+    get:(target, property) => nationalParticipantForId(property) || target[property],
+    ownKeys:target => Array.from(new Set([...Reflect.ownKeys(target), ...Reflect.ownKeys(getNationalTeamIdentities()?.participantsById || {})])),
+    getOwnPropertyDescriptor(target, property){
+      const descriptor = Reflect.getOwnPropertyDescriptor(target, property);
+      if (descriptor) return descriptor;
+      const value = nationalParticipantForId(property);
+      return value ? { configurable:true, enumerable:true, writable:false, value } : undefined;
+    },
+  });
   const participantIdPrefixesByEventKey = Object.freeze({
     afl: Object.freeze(["team:afl:"]),
     nrl: Object.freeze(["team:nrl:"]),
@@ -543,7 +515,9 @@
   function participantMarksForEvent(event, participants, title = ""){
     const participantList = Array.isArray(participants) ? participants : []; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
     const addParticipant = participant => { const mark = participantMarks[participant?.id] || directoryMarkForParticipant(participant); if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
-    (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
+    const nationalTeamIdentities = getNationalTeamIdentities();
+    (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => nationalTeamIdentities?.canonicalId(participantId) || participantId).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
+    (nationalTeamIdentities?.identitiesForEvent({ ...event, name:title || event?.name }) || []).map(team => nationalTeamIdentities.participantsById[team.id]).forEach(addParticipant);
     if (resolved.length < 2 && /\s+v\.?\s+/i.test(title)){
       const registeredPrefixes = participantIdPrefixesByEventKey[event?.key] || [];
       const registeredParticipants = Object.values(identityParticipants).filter(participant => registeredPrefixes.some(prefix => participant.id.startsWith(prefix)));
@@ -555,9 +529,10 @@
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "premier-league") footballParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
-    if (["fifa", "football"].includes(event?.key)) fifaNationalParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
-    if (event?.key === "nrl") rugbyLeagueNationalParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
-    if (["netball", "cwg"].includes(event?.key)) netballNationalParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    const nationalParticipants = nationalTeamIdentities?.participants || [];
+    if (["fifa", "football"].includes(event?.key)) nationalParticipants.filter(participant => participant.id.startsWith("team:football:") && aliasRange(title, participant)).forEach(addParticipant);
+    if (event?.key === "nrl") nationalParticipants.filter(participant => participant.id.startsWith("team:nrl:") && aliasRange(title, participant)).forEach(addParticipant);
+    if (["netball", "cwg"].includes(event?.key)) nationalParticipants.filter(participant => participant.id.startsWith("team:netball:") && aliasRange(title, participant)).forEach(addParticipant);
     return resolved;
   }
   function directoryMarkForParticipant(participant){
@@ -597,5 +572,5 @@
     const themedContext = `${context}${useDark ? "Dark" : "Light"}`;
     return assets[themedContext] || assets[useDark ? "dark" : "light"] || assets[context] || assets.primary || mark?.url || "";
   }
-  return Object.freeze({ schemaVersion: "card-identities.v3", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: true }), eventMarks, sportMarks, participantMarks, brandRules, competitionMarks, markForCompetitionId, markForEvent, participantMarksForEvent, matchupSidesForEvent, isTeamSportMatchup, participantAliases, aliasRange, logoForTheme });
+  return Object.freeze({ schemaVersion: "card-identities.v4", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", nationalTeamFallbackOrder:Object.freeze(["team-logo", "federation-crest", "coat-of-arms"]), nationalTeamFlags:false, displayUse: "editorial-identification", bundledCopies: true }), get nationalTeamIdentities(){ return getNationalTeamIdentities(); }, eventMarks, sportMarks, participantMarks, brandRules, competitionMarks, markForCompetitionId, markForEvent, participantMarksForEvent, matchupSidesForEvent, isTeamSportMatchup, participantAliases, aliasRange, logoForTheme });
 });

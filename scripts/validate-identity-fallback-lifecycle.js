@@ -39,7 +39,7 @@ const matchup = sourceOf("buildMatchupIdentity");
 assert.match(matchup, /appendTeamIdentityFallback[\s\S]*applyTeamLogoAsset/, "matchup logos must use the shared fallback and loaded-image lifecycle");
 
 const title = sourceOf("renderEventTitleIdentity");
-assert.match(title, /appendFlagFallback[\s\S]*applyTeamLogoAsset/, "inline team logos must use the shared fallback and loaded-image lifecycle");
+assert.match(title, /appendTeamIdentityFallback[\s\S]*applyTeamLogoAsset/, "inline team logos must use the shared fallback and loaded-image lifecycle");
 
 function imageHarness({ complete = false } = {}){
   const classes = new Set();

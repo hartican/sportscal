@@ -1,12 +1,12 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-08-26T04:39:58Z",
+  "generatedAt": "2026-08-28T05:26:30Z",
   "sports": [
     {
       "key": "afl",
       "label": "AFL",
       "status": "available",
-      "recordCount": 841,
+      "recordCount": 843,
       "jsonUrl": "data/follow-directory/afl.v1.json",
       "scriptUrl": "data/follow-directory/afl.v1.js"
     },
@@ -14,7 +14,7 @@
       "key": "nrl",
       "label": "NRL",
       "status": "available",
-      "recordCount": 578,
+      "recordCount": 583,
       "jsonUrl": "data/follow-directory/nrl.v1.json",
       "scriptUrl": "data/follow-directory/nrl.v1.js"
     },
@@ -54,7 +54,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 19,
+      "recordCount": 21,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -70,7 +70,7 @@
       "key": "football",
       "label": "Football",
       "status": "available",
-      "recordCount": 1550,
+      "recordCount": 1562,
       "jsonUrl": "data/follow-directory/football.v1.json",
       "scriptUrl": "data/follow-directory/football.v1.js"
     },
@@ -110,7 +110,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 3053,
+      "recordCount": 3055,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -134,7 +134,7 @@
       "key": "netball",
       "label": "Netball",
       "status": "available",
-      "recordCount": 2,
+      "recordCount": 7,
       "jsonUrl": "data/follow-directory/netball.v1.json",
       "scriptUrl": "data/follow-directory/netball.v1.js"
     },
@@ -142,7 +142,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1322,
+      "recordCount": 1321,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },

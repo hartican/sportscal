@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-<meta name="app-shell-version" content="160">
+<meta name="app-shell-version" content="161">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6401,6 +6401,16 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/au-broadcast-weights.js"></script>
 <script>
 /* ============ DATA ============ */
+// Provenance for the complete national-team library is loaded alongside the
+// first feed page, keeping hashes and permission notes out of the app shell.
+const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
+  ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
+  : loadDeferredScript("config/national-team-identities.js")
+    .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
+    .catch(error => {
+      console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
+      return null;
+    });
 // The current feed is fetched as JSON. The generated script is loaded only as
 // an offline/direct-file fallback so it cannot block the first paint.
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
@@ -6976,6 +6986,14 @@ function syncThemeEventAssets(useDark){
 }
 
 function appendTeamIdentityFallback(container, mark, label, className = "team-logo-fallback"){
+  if (mark?.isNationalTeam || mark?.teamKind === "national"){
+    const unavailable = document.createElement("span");
+    unavailable.className = `${className} national-team-logo-unavailable`;
+    unavailable.setAttribute("role", "img");
+    unavailable.setAttribute("aria-label", `${label || mark?.label || "National team"} official identity unavailable`);
+    container.appendChild(unavailable);
+    return;
+  }
   const flagMarkup = COUNTRY_FLAGS?.flagMarkup?.(mark?.fallbackCountryCode || mark?.countryCode, { className, label });
   if (flagMarkup){
     container.insertAdjacentHTML("beforeend", flagMarkup);
@@ -10203,8 +10221,9 @@ async function refreshFeedOnFirstLoad(){
   const accountTask = storedSession
     ? bootstrapServerPersistence({ session:storedSession, checkStatus:false })
     : Promise.resolve(setServerPersistence({ state:"checking", user:null, message:"" }));
-  const feedTask = refreshRemoteFeed({ quiet:true, signedInHint:Boolean(storedSession) })
+  const remoteFeedTask = refreshRemoteFeed({ quiet:true, signedInHint:Boolean(storedSession) })
     .finally(() => { networkFeedSettled = true; });
+  const feedTask = Promise.all([nationalTeamIdentityReady, remoteFeedTask]).then(([, feed]) => feed);
   const cachedFeedTask = sessionUserId
     ? restoreCachedPersonalisedFeed(sessionUserId).then(payload => {
         if (!payload || networkFeedSettled) return null;
@@ -17203,15 +17222,18 @@ function renderLegacyParticipantDirectory(container, sportKey){
       applyTeamLogoAsset(image, mark, "icon");
       image.addEventListener("error", () => {
         icon.replaceChildren();
-        if (showNationalityFlag || nationalTeam){
+        if (showNationalityFlag){
           const flag = COUNTRY_FLAGS?.flagMarkup?.(record.countryCode, { label:record.displayName });
           if (flag) icon.insertAdjacentHTML("beforeend", flag);
           else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
-        } else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
+        } else if (nationalTeam) appendTeamIdentityFallback(icon, { isNationalTeam:true, teamKind:"national", label:record.displayName }, record.displayName, "team-logo-fallback follow-directory-fallback");
+        else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
       }, { once:true });
       icon.appendChild(image);
-    } else if (showNationalityFlag || nationalTeam){
+    } else if (showNationalityFlag){
       appendTeamIdentityFallback(icon, { countryCode:record.countryCode, fallbackCountryCode:record.countryCode, label:record.displayName }, record.displayName, "team-logo-fallback follow-directory-fallback");
+    } else if (nationalTeam){
+      appendTeamIdentityFallback(icon, { isNationalTeam:true, teamKind:"national", label:record.displayName }, record.displayName, "team-logo-fallback follow-directory-fallback");
     } else appendClubIdentityFallback(icon, record.displayName, "team-logo-fallback follow-directory-fallback");
     const copy = document.createElement("div");
     copy.className = "football-club-copy";

@@ -8,6 +8,10 @@ const ROOT = path.resolve(__dirname, "..");
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
 assert.equal(manifest.sports.length, 19, "all nineteen exposed top-level sports require lazy chunks");
+for (const supportKey of ["hockey", "multi-sport"]){
+  const supportChunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${supportKey}.v1.json`), "utf8"));
+  assert(supportChunk.records.some(record => record.teamKind === "national"), `${supportKey}: hidden national-team support data must remain current without becoming a top-level Follow category`);
+}
 manifest.sports.forEach(sport => {
   assert.equal(sport.status, "available", `${sport.key}: every active sport must expose a populated lazy directory`);
   assert.ok(sport.recordCount > 0, `${sport.key}: populated directory cannot be empty`);

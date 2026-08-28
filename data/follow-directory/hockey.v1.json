@@ -2,57 +2,82 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "hockey",
   "label": "Hockey",
-  "generatedAt": "2026-08-25T15:10:40.842Z",
+  "generatedAt": "2026-08-28T05:26:30Z",
   "status": "available",
-  "sortBasis": "alphabetical-fallback",
+  "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
     {
       "id": "team:hockey:hockeyroos",
       "displayName": "Hockeyroos",
-      "shortName": null,
+      "shortName": "Hockeyroos",
       "aliases": [
-        "Australia Women",
-        "Hockeyroos"
+        "Hockeyroos",
+        "Australia Women"
       ],
       "entityType": "team",
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
-      "ranking": null,
-      "ladderPosition": null,
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": "national",
       "position": null,
       "identityId": "team:hockey:hockeyroos",
+      "logoUrl": "assets/identities/national/hockey/hockeyroos.png",
+      "logoDarkUrl": "assets/identities/national/hockey/hockeyroos.png",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
+        "https://www.hockey.org.au/teams/hockeyroos",
         "catalogue:hockey"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "team:hockey:kookaburras",
       "displayName": "Kookaburras",
-      "shortName": null,
+      "shortName": "Kookaburras",
       "aliases": [
-        "Australia Men",
-        "Kookaburras"
+        "Kookaburras",
+        "Australia",
+        "Australia Men"
       ],
       "entityType": "team",
       "current": true,
       "countryCode": "AU",
       "countryBasis": "official-record",
-      "genderCategory": "unknown",
-      "ranking": null,
-      "ladderPosition": null,
+      "genderCategory": "male",
+      "ranking": 0,
+      "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
       "leagueId": null,
+      "teamKind": "national",
       "position": null,
       "identityId": "team:hockey:kookaburras",
+      "logoUrl": "assets/identities/national/hockey/kookaburras.svg",
+      "logoDarkUrl": "assets/identities/national/hockey/kookaburras.svg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
       "sourceRefs": [
+        "https://www.hockey.org.au/teams/kookaburras",
         "catalogue:hockey"
-      ]
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     }
   ]
 }

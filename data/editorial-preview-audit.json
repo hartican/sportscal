@@ -1,12 +1,28 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-26T04:40:20.302Z",
+  "generatedAt": "2026-08-28T05:26:49.298Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 0,
-    "passed": 0,
+    "due": 1,
+    "passed": 1,
     "failed": 0
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "evt_27",
+      "name": "R13 Italian GP Race",
+      "sport": "F1",
+      "date": "2026-09-07",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "issues": []
+    }
+  ]
 }

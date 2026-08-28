@@ -35,7 +35,8 @@ function pngMetadata(path){
   };
 }
 
-assert.equal(identities.schemaVersion, "card-identities.v3");
+assert.equal(identities.schemaVersion, "card-identities.v4");
+assert.equal(identities.policy.nationalTeamFlags, false, "national-team card slots must never resolve to flags");
 assert.equal(activeNrlTeams.length, 17, "the current NRL competition must expose 17 active teams");
 activeNrlTeams.forEach(team => {
   const mark = identities.participantMarks[team.id];
@@ -187,10 +188,10 @@ assert.equal(identities.matchupSidesForEvent({ key:"tennis" }, [], "Player A v P
 
 const cricketResolved = identities.participantMarksForEvent({ key: "cricket" }, [], "Australia v Bangladesh — First Test");
 assert.deepEqual(cricketResolved.map(item => identities.aliasRange("Australia v Bangladesh — First Test", item.participant)?.text), ["Australia", "Bangladesh"]);
-assert.equal(cricketResolved[0].mark.label, "Cricket Australia");
-assert.equal(cricketResolved[1].mark.label, "Bangladesh Cricket Board");
-assert.match(cricketResolved[0].mark.url, /^https:\/\/vignette\.wikia\.nocookie\.net\/logopedia\/images\/a\/af\/1280px-Australia_cricket_logo\.svg\.png\//, "Australia must use the national team coat-of-arms crest rather than a Cricket Australia wordmark");
-assert.match(cricketResolved[1].mark.url, /^https:\/\/www\.tigercricket\.com\.bd\/public\/images\/2016\/12\/cropped-Bangladesh-Cricket-Team-LogoW-1-192x192\.png$/, "Bangladesh must use the official men's tiger crest rather than the board animation");
+assert.equal(cricketResolved[0].mark.label, "Australia cricket");
+assert.equal(cricketResolved[1].mark.label, "Bangladesh cricket");
+assert.equal(cricketResolved[0].mark.url, "assets/identities/national/cricket/australia.jpg", "Australia must use its locally stored official cricket identity");
+assert.equal(cricketResolved[1].mark.url, "assets/identities/national/cricket/bangladesh.jpg", "Bangladesh must use its locally stored official cricket identity");
 assert.notEqual(cricketResolved[0].mark.url, cricketResolved[1].mark.url, "Australia and Bangladesh must retain clearly distinct team identities");
 
 const rugbyCases = [
@@ -218,22 +219,24 @@ rugbyCases.forEach(([title, labels]) => {
     .map(item => item.label);
   assert.deepEqual(labelsInTitleOrder, labels, `rugby identities must resolve ${title}`);
 });
-for (const [key, title, labels] of [
-  ["fifa", "Australia v Türkiye - Group D", ["Australia", "Türkiye"]],
-  ["fifa", "Morocco v Belgium - Quarterfinal", ["Morocco", "Belgium"]],
-  ["nrl", "Australia v Cook Islands — Rugby League World Cup", ["Australia", "Cook Islands"]],
-  ["cwg", "Netball — Australia v Malawi 🇦🇺", ["Australia", "Malawi"]],
+for (const [key, title, ids] of [
+  ["fifa", "Australia v Türkiye - Group D", ["team:football:socceroos", "team:football:turkiye"]],
+  ["fifa", "Morocco v Belgium - Quarterfinal", ["team:football:morocco", "team:football:belgium"]],
+  ["nrl", "Australia v Cook Islands — Rugby League World Cup", ["team:nrl:kangaroos", "team:nrl:cook-islands-aitu"]],
+  ["cwg", "Netball — Australia v Malawi 🇦🇺", ["team:netball:diamonds", "team:netball:malawi-queens"]],
 ]){
   const sides = identities.matchupSidesForEvent({ key }, [], title);
-  assert.deepEqual(sides.map(side => side.mark?.label), labels, `${title} must resolve two national flag identities`);
-  assert(sides.every(side => side.mark?.countryCode), `${title} must retain a country-backed fallback`);
+  assert.deepEqual(sides.map(side => side.mark?.id), ids, `${title} must resolve two sport-specific national-team identities`);
+  assert(sides.every(side => side.mark?.isNationalTeam && /^assets\/identities\/national\//.test(side.mark?.url || "")), `${title} must use locally stored national-team artwork`);
+  assert(sides.every(side => !("countryCode" in side.mark) && !("fallbackCountryCode" in side.mark)), `${title} must not expose a flag fallback`);
 }
 const rugbyMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:rugby:"));
 assert.equal(rugbyMarks.length, 22, "the rugby registry must cover current internationals and all Super Rugby Pacific clubs");
 rugbyMarks.forEach(mark => {
-  assert.match(mark.url, /^https:\/\/(?:d26phqdbpt0w91\.cloudfront\.net|images\.allblacks\.com|super\.rugby)\//, `rugby mark must have a vetted official asset: ${mark.label}`);
-  assert.equal(mark.provenance, "official-site");
-  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", /^https:\/\//, `${mark.label} must expose the ${asset} logo asset`));
+  if (mark.isNationalTeam) assert.match(mark.url, /^assets\/identities\/national\/rugby\//, `national rugby mark must use a local official asset: ${mark.label}`);
+  else assert.match(mark.url, /^https:\/\/(?:d26phqdbpt0w91\.cloudfront\.net|images\.allblacks\.com|super\.rugby)\//, `club rugby mark must have a vetted official asset: ${mark.label}`);
+  assert.equal(mark.provenance, mark.isNationalTeam ? "official-governing-body" : "official-site");
+  ["primary", "light", "dark", "icon", "iconLight", "iconDark"].forEach(asset => assert.match(mark.logo?.[asset] || "", mark.isNationalTeam ? /^assets\/identities\/national\/rugby\// : /^https:\/\//, `${mark.label} must expose the ${asset} logo asset`));
 });
 const nrlBroncos = identities.participantMarks["team:nrl:322"];
 assert.notEqual(identities.logoForTheme(nrlBroncos, { context: "primary", useDark: false }), identities.logoForTheme(nrlBroncos, { context: "primary", useDark: true }), "NRL primary logos must use the league's official light and dark assets");
@@ -244,4 +247,4 @@ assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(ht
 assert(!html.includes('mark?.label || "?"'), "recognised teams must never display a generic question-mark placeholder");
 assert(html.includes('mark?.label || "TBC"'), "unresolved finals participants need a semantic seed/monogram fallback");
 
-console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nbaTeams.length} NBA and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, national flags, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);
+console.log(`Card identities valid: ${activeNrlTeams.length} NRL, ${activeAflTeams.length} AFL, ${nbaTeams.length} NBA and ${footballParticipants.length} football team marks across ${footballFixtureEvents.length} fixtures, local national-team identities, ${activeEventKeys.length} active sport/event identities, and two-slot matchup fallbacks.`);

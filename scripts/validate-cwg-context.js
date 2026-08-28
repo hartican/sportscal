@@ -5,6 +5,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const sportContext = require("../config/sport-context");
+const nationalTeamIdentities = require("../config/national-team-identities");
 
 const context = JSON.parse(fs.readFileSync("data/canonical/cwg-context-2026.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/sport-context.schema.json", "utf8"));
@@ -105,8 +106,12 @@ contextualEvents.forEach(event => {
     return;
   }
   assert.equal(event.sportDomainId, "special:commonwealth-games");
-  assert.equal(event.participantIds.length, expectedScopeSizes.get(matchedDiscipline), `${event.id} must receive only its discipline's competitor field`);
-  assert(event.participantIds.every(participantId => participantsById.get(participantId)?.type === "competitor"));
+  const nationalTeamIds = event.participantIds.filter(participantId => nationalTeamIdentities.teamForId(participantId));
+  const competitorIds = event.participantIds.filter(participantId => participantsById.get(participantId)?.type === "competitor");
+  assert.equal(competitorIds.length, expectedScopeSizes.get(matchedDiscipline), `${event.id} must receive only its discipline's competitor field`);
+  if (matchedDiscipline === "Netball") assert.equal(nationalTeamIds.length, 2, `${event.id} must retain both canonical national-team participants`);
+  else assert.equal(nationalTeamIds.length, 0, `${event.id} must not inherit national-team participants outside a team matchup`);
+  assert.equal(event.participantIds.length, nationalTeamIds.length + competitorIds.length, `${event.id} must contain only its national teams and surfaced discipline competitors`);
 });
 const boxingFinal = contextualEvents.find(event => event.id === "cwg-glasgow-2026-boxing-finals-one");
 assert(boxingFinal && !boxingFinal.participantIds?.length, "boxing cards must remain free of unsupported competitor follows");
