@@ -238,8 +238,8 @@ rugbyMarks.forEach(mark => {
 const nrlBroncos = identities.participantMarks["team:nrl:322"];
 assert.notEqual(identities.logoForTheme(nrlBroncos, { context: "primary", useDark: false }), identities.logoForTheme(nrlBroncos, { context: "primary", useDark: true }), "NRL primary logos must use the league's official light and dark assets");
 assert.equal(identities.logoForTheme(identities.participantMarks["team:football:epl:1"], { context: "icon", useDark: false }), identities.participantMarks["team:football:epl:1"].logo.iconLight, "small-format contexts must select an explicit icon asset rather than resize the primary reference");
-assert(html.includes('appendTeamIdentityFallback(slot, mark, label') && html.includes('logo.hidden = true'), "each matchup side must paint a placeholder before its crest downloads");
-assert(html.includes('logo.addEventListener("load"') && html.includes('logo.hidden = false'), "a successful crest must replace only its own placeholder");
+assert(html.includes('appendTeamIdentityFallback(slot, mark, label') && html.includes('identity-image-pending'), "each matchup side must paint a placeholder before its crest downloads");
+assert(html.includes('function finalizeLoadedIdentityImage(image)') && html.includes('frame.querySelectorAll(IDENTITY_FALLBACK_SELECTOR).forEach(fallback => fallback.remove())') && html.includes('image.hidden = false'), "a successful crest must remove its own placeholder through the shared loaded-image lifecycle");
 assert(/logo\.addEventListener\("error", \(\) => \{\s*logo\.remove\(\);/.test(html), "a failed crest must leave the other side and its own placeholder intact");
 assert(!html.includes('mark?.label || "?"'), "recognised teams must never display a generic question-mark placeholder");
 assert(html.includes('mark?.label || "TBC"'), "unresolved finals participants need a semantic seed/monogram fallback");

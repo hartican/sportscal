@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="159">
+<meta name="app-shell-version" content="160">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6682,6 +6682,8 @@ function glyphMarkup(key, options = {}){
 }
 
 const IDENTITY_IMAGE_SELECTOR = "img[data-event-logo-light],img[data-team-logo-light],img[data-identity-image]";
+const IDENTITY_FRAME_SELECTOR = ".identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head";
+const IDENTITY_FALLBACK_SELECTOR = ".team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark";
 let identityRecoveryHandle = null;
 
 function identityImageSource(image){
@@ -6696,25 +6698,47 @@ function identityImageSource(image){
 function decodeIdentityImageInPlace(image){
   image.dataset.identityImage = "true";
   image.classList.add("identity-image-pending");
-  image.addEventListener("load", () => {
-    const reveal = () => {
-      if (!image.isConnected) return;
-      image.classList.remove("identity-image-pending");
-      image.classList.add("identity-image-decoded");
-    };
-    if (typeof image.decode === "function") image.decode().then(reveal, () => {});
+  const reveal = () => {
+    if (!image.isConnected || image.naturalWidth <= 0) return;
+    finalizeLoadedIdentityImage(image);
+  };
+  const decode = () => {
+    if (typeof image.decode === "function") image.decode().then(reveal, reveal);
     else reveal();
+  };
+  image.addEventListener("load", decode);
+  window.queueMicrotask?.(() => {
+    if (image.complete && image.naturalWidth > 0) decode();
   });
   return image;
 }
 
 const installIdentityImageRecovery = decodeIdentityImageInPlace;
 
+function finalizeLoadedIdentityImage(image){
+  if (!image || (image.naturalWidth <= 0 && !image.classList.contains("identity-image-decoded"))) return false;
+  const frame = image.closest(IDENTITY_FRAME_SELECTOR);
+  if (!frame) return false;
+  frame.querySelectorAll(IDENTITY_FALLBACK_SELECTOR).forEach(fallback => fallback.remove());
+  image.hidden = false;
+  image.classList.remove("identity-image-pending");
+  image.classList.add("identity-image-decoded");
+  return true;
+}
+
+function finalizeLoadedIdentityImages(root){
+  root?.querySelectorAll?.(IDENTITY_IMAGE_SELECTOR).forEach(image => {
+    if ((image.complete && image.naturalWidth > 0) || image.classList.contains("identity-image-decoded")){
+      finalizeLoadedIdentityImage(image);
+    }
+  });
+}
+
 function revealIdentityImageFallback(image){
   if (!image?.isConnected || image.naturalWidth > 0) return false;
-  const frame = image.closest(".identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head");
+  const frame = image.closest(IDENTITY_FRAME_SELECTOR);
   if (!frame) return false;
-  const existing = frame.querySelector(".team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark");
+  const existing = frame.querySelector(IDENTITY_FALLBACK_SELECTOR);
   if (existing){
     image.remove();
     existing.hidden = false;
@@ -6837,8 +6861,8 @@ function renderEventIdentityMark(container, ev, meta){
     return;
   }
   const image = document.createElement("img");
-  installIdentityImageRecovery(image);
   image.className = "event-brand-logo";
+  installIdentityImageRecovery(image);
   const logoContext = container.matches(".event-hero-mark,.major-event-logo") ? "primary" : "icon";
   const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context:logoContext, useDark: false }) || mark.url;
   const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context:logoContext, useDark: true }) || lightSource;
@@ -6855,11 +6879,6 @@ function renderEventIdentityMark(container, ev, meta){
   const placeholder = document.createElement("span");
   placeholder.className = "event-sport-mark identity-image-placeholder";
   placeholder.innerHTML = glyphMarkup(meta.glyph, { label:meta.label, preferImage:true });
-  image.addEventListener("load", () => {
-    const removePlaceholder = () => placeholder.remove();
-    if (typeof image.decode === "function") image.decode().then(removePlaceholder, () => {});
-    else removePlaceholder();
-  }, { once:true });
   container.replaceChildren(placeholder, image);
 }
 
@@ -7019,15 +7038,6 @@ function buildMatchupIdentity(ev, displayTitle){
       logo.height = 139;
       logo.referrerPolicy = "no-referrer";
       applyTeamLogoAsset(logo, mark, "primary", useDark);
-      logo.addEventListener("load", () => {
-        const reveal = () => {
-          if (!logo.isConnected) return;
-          slot.querySelectorAll(".matchup-team-logo-fallback,.team-logo-monogram").forEach(fallback => fallback.remove());
-          logo.hidden = false;
-        };
-        if (typeof logo.decode === "function") logo.decode().then(reveal, () => {});
-        else reveal();
-      }, { once: true });
       logo.addEventListener("error", () => {
         logo.remove();
       }, { once: true });
@@ -7091,14 +7101,6 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle){
       logo.decoding = "async";
       logo.referrerPolicy = "no-referrer";
       applyTeamLogoAsset(logo, mark, "icon");
-      logo.addEventListener("load", () => {
-        const reveal = () => {
-          if (!logo.isConnected) return;
-          teamName.querySelectorAll(".team-name-logo-fallback").forEach(fallback => fallback.remove());
-        };
-        if (typeof logo.decode === "function") logo.decode().then(reveal, () => {});
-        else reveal();
-      }, { once:true });
       logo.addEventListener("error", () => logo.remove(), { once: true });
       teamName.appendChild(logo);
     } else {
@@ -12625,10 +12627,6 @@ function buildCodeInspectorFixture(fixture){
       logo.decoding = "async";
       logo.hidden = true;
       applyTeamLogoAsset(logo, mark, "icon");
-      logo.addEventListener("load", () => {
-        frame.querySelectorAll(".team-logo-fallback,.team-logo-monogram").forEach(fallback => fallback.remove());
-        logo.hidden = false;
-      }, { once: true });
       logo.addEventListener("error", () => logo.remove(), { once: true });
       frame.appendChild(logo);
     }
@@ -13727,7 +13725,14 @@ function syncElementAttributes(element, replacement){
 function stableDescendantKey(element){
   if (!(element instanceof Element)) return null;
   if (element.dataset.scrollStable) return `stable:${element.dataset.scrollStable}`;
-  if (element.tagName === "IMG") return `img:${element.getAttribute("src") || ""}:${element.className || ""}`;
+  if (element.tagName === "IMG"){
+    const source = element.dataset.teamLogoLight || element.dataset.eventLogoLight || element.getAttribute("src") || "";
+    const stableClasses = Array.from(element.classList)
+      .filter(className => !/^identity-image-(?:pending|decoded)$/.test(className))
+      .sort()
+      .join(".");
+    return `img:${source}:${stableClasses}`;
+  }
   if (element.tagName === "PICTURE") return `picture:${element.querySelector("img")?.getAttribute("src") || ""}`;
   return null;
 }
@@ -13753,6 +13758,7 @@ function patchElementInPlace(element, replacement){
   preserveStableDescendants(element, replacement);
   syncElementAttributes(element, replacement);
   element.replaceChildren(...replacement.childNodes);
+  finalizeLoadedIdentityImages(element);
   return true;
 }
 

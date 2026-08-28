@@ -66,6 +66,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-fixtures-contract.j
 assert(localSteps.some(step => step[0] === "scripts/validate-code-inspector-ui.js"), "every canonical update must cover every canonical code through the read-only Inspector contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-events-fixture-ux.js"), "every canonical update must validate Events tabs, compact fixture density, viewport stability and retained-card swipe learning");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-ui-geometry.js"), "every canonical update must reject identity escapes, collisions, overflow and missing reserved geometry");
+assert(localSteps.some(step => step[0] === "scripts/validate-identity-fallback-lifecycle.js"), "every canonical update must reject simultaneous loaded logos and temporary fallbacks");
 assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--enforce-freshness") && !step.includes("--check")), "every canonical update must regenerate the broadcaster-led weekly and next-seven-day coverage report from approved inputs");
 assert(localSteps.some(step => step[0] === "scripts/scan-broadcaster-coverage.js" && step.includes("--check") && step.includes("--enforce-freshness")), "every canonical update must reject stale broadcaster inputs and report artifacts");
 assert(localSteps.some(step => step[0] === "scripts/validate-broadcaster-discovery.js"), "every canonical update must enforce source-adapter, matching, AU availability and editorial queue contracts");

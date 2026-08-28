@@ -83,6 +83,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-tennis-catalogue.js"],
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-card-identities.js"],
+  ["scripts/validate-identity-fallback-lifecycle.js"],
   ["scripts/validate-card-polish.js"],
   ["scripts/validate-major-events.js"],
   ["scripts/validate-sport-hierarchy.js"],
