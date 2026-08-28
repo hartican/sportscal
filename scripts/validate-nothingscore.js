@@ -5,15 +5,15 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const nsc = require("../config/nothingscore");
 const enrichment = require("../config/enrichment-engine");
-const marquee = require("../api/nothingscore-marquee");
-const nothingscoreApi = require("../api/nothingscore");
+const marquee = require("../lib/nothingscore-marquee-handler");
+const nothingscoreApi = require("../lib/nothingscore-handler");
 
 const read = file => fs.readFileSync(file, "utf8");
 const html = read("index.html");
 const sql = read("supabase/nothingscore.sql");
-const api = read("api/nothingscore.js");
+const api = read("lib/nothingscore-handler.js");
 const server = read("lib/nothingscore-server.js");
-const marqueeApi = read("api/nothingscore-marquee.js");
+const marqueeApi = read("lib/nothingscore-marquee-handler.js");
 const sync = read("config/server-sync.js");
 const worker = read("service-worker.js");
 
@@ -129,6 +129,8 @@ assert.match(marqueeApi, /start|extend|stop|status/);
 assert.match(sync, /ids\.slice\(0, 50\)/);
 assert.match(sync, /authenticatedRequest\("\/api\/nothingscore"/);
 assert.match(sync, /authenticatedRequest\("\/api\/nothingscore-marquee"/);
+assert.match(read("api/participation.js"), /routeMode === "nothingscore"[\s\S]+routeMode === "nothingscore-marquee"/);
+assert.equal(JSON.parse(read("vercel.json")).rewrites.filter(rule => rule.source.startsWith("/api/nothingscore")).length, 2);
 assert.match(html, /src="config\/nothingscore\.js"[\s\S]+src="config\/enrichment-engine\.js"/);
 assert.match(html, /summary\.className = "nsc-summary"/);
 assert.match(html, /buildNothingscoreContributors/);

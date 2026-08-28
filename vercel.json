@@ -18,6 +18,14 @@
   ],
   "rewrites": [
     {
+      "source": "/api/nothingscore",
+      "destination": "/api/participation?mode=nothingscore"
+    },
+    {
+      "source": "/api/nothingscore-marquee",
+      "destination": "/api/participation?mode=nothingscore-marquee"
+    },
+    {
       "source": "/live",
       "destination": "/participate.html"
     },

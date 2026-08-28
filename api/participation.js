@@ -4,6 +4,8 @@ const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
 const { SupabaseRequestError, publicError, requestOrigin, supabaseServiceRequest } = require("../lib/supabase-server");
+const nothingscoreHandler = require("../lib/nothingscore-handler");
+const nothingscoreMarqueeHandler = require("../lib/nothingscore-marquee-handler");
 
 const COOKIE_NAME = "__Host-ns_marquee_guest";
 const DEVICES = "nothingsports_fixture_devices";
@@ -86,6 +88,9 @@ function publicFixture(candidate, nowMs){
 }
 
 module.exports = async function participationHandler(request, response){
+  const routeMode = queryValue(request, "mode");
+  if (routeMode === "nothingscore") return nothingscoreHandler(request, response);
+  if (routeMode === "nothingscore-marquee") return nothingscoreMarqueeHandler(request, response);
   response.setHeader("Cache-Control", "private, no-store, max-age=0");
   response.setHeader("Vary", "Cookie");
   try{
