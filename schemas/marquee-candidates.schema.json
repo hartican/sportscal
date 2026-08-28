@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsport.vercel.app/schemas/marquee-candidates.schema.json",
+  "title": "Nothing Sport marquee campaign candidates",
+  "type": "object",
+  "required": ["schemaVersion", "sourceRevision", "generatedAt", "shadowMode", "summary", "candidates", "excluded"],
+  "properties": {
+    "schemaVersion": { "const": "marquee-candidates.v1" },
+    "sourceRevision": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "shadowMode": { "const": true },
+    "summary": {
+      "type": "object",
+      "required": ["stakesFiveFuture", "eligible", "actionable", "late"],
+      "properties": {
+        "stakesFiveFuture": { "type": "integer", "minimum": 0 },
+        "eligible": { "type": "integer", "minimum": 0 },
+        "actionable": { "type": "integer", "minimum": 0 },
+        "late": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["campaignId", "campaignRevision", "contentHash", "state", "actionable", "late", "eventId", "eligibilityEvidence", "timing", "source", "material", "drafts", "channels", "participation"],
+        "properties": {
+          "campaignId": { "type": "string", "pattern": "^marquee_[a-f0-9]{16}$" },
+          "campaignRevision": { "const": 1 },
+          "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "state": { "enum": ["watching", "draft", "needs_review", "approved", "scheduled", "connector_blocked", "partially_published", "published", "needs_reapproval", "failed", "cancelled"] },
+          "actionable": { "type": "boolean" },
+          "late": { "type": "boolean" },
+          "eventId": { "type": "string", "minLength": 1 },
+          "proposedSendAt": { "type": "string", "format": "date-time" },
+          "eligibilityEvidence": { "type": "object" },
+          "timing": { "type": "object" },
+          "source": { "type": "object" },
+          "material": { "type": "object" },
+          "drafts": { "type": "object" },
+          "channels": { "type": "object" },
+          "participation": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "excluded": { "type": "array" }
+  },
+  "additionalProperties": false
+}

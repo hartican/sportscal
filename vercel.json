@@ -15,5 +15,19 @@
       "destination": "/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/live",
+      "destination": "/participate.html"
+    },
+    {
+      "source": "/fixture/:eventId",
+      "destination": "/participate.html?eventId=:eventId"
+    },
+    {
+      "source": "/admin/comms",
+      "destination": "/admin-comms.html"
+    }
   ]
 }

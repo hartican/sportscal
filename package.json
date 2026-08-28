@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "description": "Follow-first smart sports feed",
   "dependencies": {
+    "sharp": "^0.35.4",
+    "svix": "^1.99.1",
     "web-push": "^3.6.7"
   }
 }

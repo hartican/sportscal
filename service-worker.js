@@ -1,8 +1,10 @@
-const CACHE_NAME = "nothingsport-shell-v165";
+const CACHE_NAME = "nothingsport-shell-v166";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
+  "/participate.html",
+  "/admin-comms.html",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
   "/config/national-team-identities.js?v=165",
@@ -26,6 +28,7 @@ const APP_SHELL = [
   "/config/event-action-identity.js",
   "/config/user-state-sync.js",
   "/config/chat-contract.js",
+  "/config/marquee-campaigns.js",
   "/config/server-sync.js",
   "/config/follow-first.js",
   "/config/feed-controls.js",
@@ -51,6 +54,7 @@ const APP_SHELL = [
   "/data/feed/manifest.json",
   "/data/feed/page-001.json",
   "/data/feed-meta.json",
+  "/data/marquee-candidates.v1.json",
   "/data/follow-directory/manifest.v1.json",
   "/data/follow-directory/manifest.v1.js",
   // The generated script is retained only for no-network/direct-file recovery.
@@ -63,6 +67,7 @@ const APP_SHELL = [
   "/schemas/tennis-catalogue.schema.json",
   "/schemas/joint-tennis-tournament.schema.json",
   "/schemas/major-events.schema.json",
+  "/schemas/marquee-candidates.schema.json",
   "/schemas/product-events.schema.json",
   "/schemas/user-state-patch.schema.json",
   "/schemas/enriched-event.schema.json",
@@ -204,6 +209,14 @@ self.addEventListener("fetch", event => {
   // stored in Cache Storage and must retain the original Range header.
   if (event.request.headers.has("range") || requestUrl.pathname.startsWith("/assets/audio/")){
     event.respondWith(fetch(event.request));
+    return;
+  }
+  if (event.request.mode === "navigate" && (/^\/fixture\//.test(requestUrl.pathname) || requestUrl.pathname === "/live")){
+    event.respondWith(networkFirst(event.request, event, new Request("/participate.html")));
+    return;
+  }
+  if (event.request.mode === "navigate" && requestUrl.pathname === "/admin/comms"){
+    event.respondWith(networkFirst(event.request, event, new Request("/admin-comms.html")));
     return;
   }
   if (event.request.mode === "navigate"){

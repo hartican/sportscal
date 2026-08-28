@@ -410,6 +410,12 @@
         if (q) params.set("q", q);
         return authenticatedRequest(`/api/chat?${params.toString()}`);
       },
+      async commsRequest(command = null){
+        return authenticatedRequest("/api/comms", command ? {
+          method:"POST",
+          body:JSON.stringify(command),
+        } : {});
+      },
       async loadFeed({ cursor = 0, limit = 20 } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
         return authenticatedRequest(`/api/feed?${params.toString()}`);

@@ -17,6 +17,8 @@ CARD_OUTPUT_FILES=(
   "data/events.js"
   "data/events.json"
   "data/feed-meta.json"
+  "data/marquee-candidates.v1.json"
+  "assets/marquee"
   "feeds/incoming/events.json"
 )
 
