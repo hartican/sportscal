@@ -7,6 +7,7 @@ const nsc = require("../config/nothingscore");
 const enrichment = require("../config/enrichment-engine");
 const marquee = require("../lib/nothingscore-marquee-handler");
 const nothingscoreApi = require("../lib/nothingscore-handler");
+const nothingscoreServer = require("../lib/nothingscore-server");
 
 const read = file => fs.readFileSync(file, "utf8");
 const html = read("index.html");
@@ -52,6 +53,8 @@ assert.equal(nsc.normaliseHandle("@Pilot_One"), "pilot_one");
 assert.equal(nsc.normaliseHandle("bad-handle"), "");
 assert.equal(nothingscoreApi._test.fullDisplayName("Jack Hartican"), true);
 assert.equal(nothingscoreApi._test.fullDisplayName("J H"), false, "initials must not be accepted as a public display name");
+assert.equal(nothingscoreServer.canonicalEventId("major-match:rlwc-2026:australia-new-zealand"), "rlwc-australia-new-zealand-2026", "major-event and canonical feed fixtures must share one public social record");
+assert.equal(nothingscoreServer.eventFor("major-match:rlwc-2026:australia-new-zealand")?.eventId, "rlwc-australia-new-zealand-2026");
 
 const pulseNow = new Date("2026-08-29T10:10:00.000Z");
 const pulse = nsc.pulseAggregate([
