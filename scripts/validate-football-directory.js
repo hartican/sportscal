@@ -135,7 +135,7 @@ function validate(){
   };
   const multiClubMatch = directoryApi.filteredDirectory(syntheticMultiClubDirectory, { query: "smith" });
   assert(new Set(multiClubMatch.playerTeamIds).size >= 2, "a shared player-name query must support simultaneous multi-club expansion");
-  assert(appSource.includes("autoExpanded || filters.expandedTeamId === team.id"), "every club with a matching player must auto-expand without collapsing another match");
+  assert(appSource.includes("autoExpanded || filters.expandedTeamIds.includes(team.id)"), "every club with a matching player must auto-expand without collapsing another expanded club");
   const malformed = directoryApi.parseSessionState("{bad");
   assert.equal(malformed.activeView, "tables");
   assert.equal(Object.hasOwn(malformed, "selectedSportKeys"), false, "durable selected sports must never leak into the transient session contract");

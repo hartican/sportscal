@@ -266,7 +266,7 @@ assert(!html.includes("data-domain-ls") && !html.includes("data-standings-visibi
 assert(!html.includes("renderStandingsSettings") && !html.includes("renderTemplateSettings"), "standalone standings visibility and Froth screens must be removed");
 assert(html.includes('id="standingsSpoilerModal"'), "standings must expose a spoiler warning modal");
 assert(html.includes('id="standingsContext"'), "supported table content must resolve into the dedicated Standings destination");
-assert(html.includes('expander.dataset.standingsExpander = competition.id') && html.includes('standingsCompetitionExpansion[competition.id] = !expanded'), "each standings component must expose a direct expand and retract control");
+assert(html.includes('expander.dataset.standingsExpander = competition.id') && html.includes('standingsCompetitionExpansion[competition.id] = standingsCompetitionExpansion[competition.id] !== true'), "each standings component must expose a direct expand and retract control");
 assert(html.includes("function selectedStandingsSportKeys") && html.includes("sessionStorage.setItem(STANDINGS_DIRECTORY_SESSION_KEY"), "Tune and Standings filters must remain session-only");
 assert(html.includes("function toggleStandingsPin") && html.includes('pin.textContent = pinned ? "Pinned" : "Pin"'), "each Standings card must provide a persistent Pin control");
 assert(html.includes("function orderStandingsCompetitions") && html.includes("standingsFrothRank"), "Standings must order pins first, then Froth level and recent pin time");
@@ -457,14 +457,14 @@ assert(html.includes("jumpTodayBtn.hidden = hubActive"), "Jump to Today must rem
 assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
 assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
-assert(html.includes('card.dataset.eventId = ev.eventId || ev.id'), "expanded cards must expose their event identity for viewport retraction");
+assert(html.includes('card.dataset.eventId = ev.eventId || ev.id') && html.includes('card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`'), "expanded cards must expose stable event and scroll identities");
 const scrollRetractionSchedulerSource = html.match(/function scheduleCardRetractionDuringScroll\(\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.equal(scrollRetractionSchedulerSource, "", "scrolling must not schedule expanded-card retraction");
 assert(!/window\.addEventListener\(["']scroll["'][\s\S]{0,240}(?:collapseCardsOutsideActiveViewport|scheduleCardRetractionDuringScroll)/.test(html), "scrolling must never collapse or rebuild an expanded card");
 assert(!/setInterval\(\(\) => \{[\s\S]*?renderCurrentSection\(true\);[\s\S]*?\}, 30000\)/.test(html), "the live clock must not rebuild every card and icon on a repeating timer");
-assert(html.includes("Expanded cards represent the user's current reading focus, so only one remains open."), "opening another card must remain the only automatic collapse path");
-assert(html.includes("replaceCardPreservingViewport(card, buildEventCard(ev, options)"), "user-triggered card replacement must retain the visible anchor");
-assert(html.includes("anchor.card?.isConnected") && html.includes("card: anchorCard || null"), "user-triggered viewport restoration must retain the exact anchored card when it remains connected");
+assert(html.includes("next[eventId] = state") && !html.includes("only one remains open"), "opening another card must retain every independently expanded card");
+assert(html.includes("refreshExpandableCard(interactionCard, buildEventCard") && html.includes("function mutateWithScrollContinuity"), "user-triggered expansion must patch the keyed card through the shared anchor transaction");
+assert(html.includes("anchor?.isConnected") && html.includes("captureKeyedScrollNodes"), "user-triggered viewport restoration must retain the exact keyed DOM node when it remains connected");
 assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "past cards must render revealed result summaries");
 assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "revealed past cards must build their score line before rendering the title stack");
 assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
@@ -937,13 +937,7 @@ globalThis.__test = {
   topNineEvents,
   cardStateForEvent,
   setCardState,
-  collapseCardStates,
-  collapseAllCardStates,
-  isCardActivelyViewed,
   scrollOffsetToPreserveAnchor,
-  cardRetractionSpaceForHeights,
-  cardRetractionVisualOffset,
-  cardScrollDirection,
   getFilteredEvents,
   focusedArchivedEvents,
   getPreferenceMatchedEvents,
@@ -1961,11 +1955,12 @@ app.setPreferences({ showSpoilers: false });
 app.setCardState(pastA, "opened");
 assert.equal(app.cardStateForEvent(pastA), "opened", "the actively viewed card must retain its expanded state");
 app.setCardState(pastB, "selected");
-assert.equal(app.cardStateForEvent(pastA), "compact", "opening a new card must retract the previous card");
+assert.equal(app.cardStateForEvent(pastA), "opened", "opening a new card must retain the previous expanded card");
 assert.equal(app.cardStateForEvent(pastB), "selected", "the new active card must remain selected");
 assert.equal(app.cardStateForEvent(pastB), "selected", "scrolling cannot alter the current expanded state");
-assert.equal(app.collapseCardStates([pastB.eventId]), true, "a deliberate collapse action must still clear the expanded card state");
-assert.equal(app.cardStateForEvent(pastB), "compact", "a deliberately collapsed card must return to compact");
+app.setCardState(pastB, "compact");
+assert.equal(app.cardStateForEvent(pastB), "compact", "cycling a card to compact must clear only that card's expanded state");
+assert.equal(app.cardStateForEvent(pastA), "opened", "collapsing one card must retain other independently expanded cards");
 assert.equal(app.isSpoilerVisible(pastA), false, "PAST events must be spoiler-protected by default");
 assert.equal(app.isSpoilerVisible(nextRound), false, "future events must inherit global spoiler protection");
 nextRound.spoilerSafeTitle = "World Cup Semifinal";

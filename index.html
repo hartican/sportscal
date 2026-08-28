@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="158">
+  <meta name="app-shell-version" content="159">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1535,6 +1535,7 @@ main{
   display:flex;
   flex-direction:column;
   gap: 10px;
+  overflow-anchor:none;
 }
 
 .premium-surface{
@@ -1672,7 +1673,7 @@ main{
   display:flex;
   gap: 14px;
   align-items:flex-start;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
   position: relative;
   cursor: pointer;
   overflow:hidden;
@@ -2118,7 +2119,7 @@ main{
   overflow:hidden;
   scroll-margin-top:130px;
   cursor:pointer;
-  transition:all 0.15s ease;
+  transition:background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 .events-feed-card[data-card-state="compact"]{ min-height:0; }
 .major-event-card:focus{ outline:2px solid var(--accent); outline-offset:3px; }
@@ -5486,8 +5487,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .starting-round-select{ width:100%; min-height:48px; padding:0 14px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); color:var(--text); font:800 .83rem/1 'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif; }
 .code-inspector-group + .code-inspector-group{ margin-top:20px; }
 .code-inspector-group h3{ margin-bottom:9px; color:var(--text-dim); font-size:.82rem; }
-.code-inspector-fixtures{ display:flex; flex-direction:column; gap:8px; }
-.code-inspector-fixture{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:13px 14px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); content-visibility:auto; contain-intrinsic-size:auto 92px; }
+.code-inspector-fixtures{ display:flex; flex-direction:column; gap:8px; overflow-anchor:none; }
+.code-inspector-fixture{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:13px 14px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); }
+.code-inspector-fixture:not(.is-expanded){ content-visibility:auto; contain-intrinsic-size:auto 92px; }
 .code-inspector-fixture h4{ font-size:.85rem; line-height:1.35; }
 .code-inspector-fixture p{ margin-top:4px; color:var(--text-dim); font-size:.7rem; line-height:1.4; }
 .code-inspector-participants{ display:flex; flex-direction:column; gap:5px; margin-top:7px; }
@@ -5544,7 +5546,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .football-directory-field input,
 .football-directory-field select{ width:100%; min-height:38px; padding:8px 9px; border:1px solid var(--border); border-radius:6px; background:var(--panel); color:var(--text); font:700 0.75rem/1.2 inherit; }
 .football-directory-summary{ color:var(--text-dim); font-size:0.72rem; line-height:1.45; }
-.football-club-list{ border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--bg-card); }
+.football-club-list{ border:1px solid var(--border); border-radius:8px; overflow:hidden; overflow-anchor:none; background:var(--bg-card); }
 .football-club-row + .football-club-row{ border-top:1px solid var(--border); }
 .football-club-head{ display:grid; grid-template-columns:42px minmax(0,1fr) 116px 36px; align-items:center; gap:10px; min-height:58px; padding:8px 10px; }
 .football-club-crest{ width:38px; height:38px; object-fit:contain; }
@@ -5576,6 +5578,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   border-radius:16px;
   background:linear-gradient(145deg, color-mix(in srgb, var(--c-tennis) 10%, var(--bg-card)), var(--bg-card));
   overflow:hidden;
+  overflow-anchor:none;
 }
 
 .joint-tournament-head{
@@ -5718,11 +5721,11 @@ body.header-compact-3 .brand .slogan{ display:none; }
   }
 }
 
-.event-card,
-.major-event-card,
-.joint-tournament-card{
-  content-visibility: auto;
-  contain-intrinsic-size: 440px;
+.events-feed,
+.follow-sport-grid,
+.standings-context,
+.standings-sport-content{
+  overflow-anchor:none;
 }
 
 /* Fixture-first correction pass: content may grow, but controls and the final
@@ -7648,7 +7651,7 @@ let codeInspectorChunkLoading = null;
 let codeInspectorTab = "all-fixtures";
 let codeInspectorPlayersExpanded = false;
 let codeInspectorGroup = "";
-let codeInspectorExpandedFixtureId = null;
+const codeInspectorExpandedFixtureIds = new Set();
 let leagueCoveragePromptDismissed = new Set();
 let jointTournamentData = null;
 let jointTournamentLoading = false;
@@ -7663,7 +7666,7 @@ let pendingTicketAlertFocusId = null;
 let activeMajorEventNowId = null;
 let eventsViewTab = "major-events";
 let followViewSection = "teams-players";
-let expandedFollowSportId = null;
+const expandedFollowSportIds = new Set();
 let eventsDeepLinkReturnState = null;
 let headerCompactionFrame = null;
 let feedFilterRefreshInFlight = null;
@@ -10307,7 +10310,6 @@ function setActiveFeedFilter(nextFilter, {
       sportHubState.selectedRoundNumber = roundNumber;
     }
   }
-  collapseAllCardStates();
   todayMoreReveal = false;
   calendarInitialJumpPending = !previousHubKey && !nextHubKey;
   renderAll();
@@ -12310,7 +12312,6 @@ async function openCodeInspector(codeId, { pushHistory = true } = {}){
   activeInspectorCodeId = codeId;
   codeInspectorTab = "all-fixtures";
   codeInspectorGroup = "";
-  codeInspectorExpandedFixtureId = null;
   codeInspectorChunk = null;
   sportHubState.activeTab = "all-fixtures";
   closeTuneSheet({ restoreFocus: false, restoreViewport: false });
@@ -12348,7 +12349,6 @@ function closeCodeInspector({ restoreViewport = true, preserveReturnState = fals
   codeInspectorChunk = null;
   codeInspectorTab = "all-fixtures";
   codeInspectorGroup = "";
-  codeInspectorExpandedFixtureId = null;
   if (returnState){
     activeTab = returnState.activeTab;
     activeView = returnState.activeView;
@@ -12476,9 +12476,11 @@ function renderCodeInspectorPlayers(panel, fixtures){
     : ordered.filter((player, index) => index < 3 || followed.has(player.id));
   const list = document.createElement("div");
   list.className = "code-inspector-fixtures";
+  list.dataset.scrollList = "inspector-players";
   visible.forEach(player => {
     const row = document.createElement("article");
     row.className = "code-inspector-fixture";
+    row.dataset.scrollKey = `inspector-player:${player.id}`;
     const copy = document.createElement("div");
     const title = document.createElement("h4");
     title.textContent = player.label;
@@ -12496,8 +12498,13 @@ function renderCodeInspectorPlayers(panel, fixtures){
     expander.setAttribute("aria-expanded", String(codeInspectorPlayersExpanded));
     expander.innerHTML = `<span>${codeInspectorPlayersExpanded ? "Top 3 + followed" : "Show all players & teams"}</span>${glyphMarkup("ui:chevron-right")}`;
     expander.addEventListener("click", () => {
-      codeInspectorPlayersExpanded = !codeInspectorPlayersExpanded;
-      renderCodeInspector();
+      mutateWithScrollContinuity(list, () => {
+        codeInspectorPlayersExpanded = !codeInspectorPlayersExpanded;
+        renderCodeInspector();
+      }, {
+        restoreFocus:true,
+        focusTarget:".code-inspector-panel > .standings-table-expander",
+      });
     });
     panel.appendChild(expander);
   }
@@ -12585,9 +12592,10 @@ function codeInspectorParticipantMark(slot, fixture){
 
 function buildCodeInspectorFixture(fixture){
   const row = document.createElement("article");
-  const expanded = codeInspectorExpandedFixtureId === fixture.id;
+  const expanded = codeInspectorExpandedFixtureIds.has(fixture.id);
   row.className = `code-inspector-fixture${expanded ? " is-expanded" : ""}`;
   row.dataset.inspectorFixtureId = fixture.id;
+  row.dataset.scrollKey = `inspector-fixture:${fixture.id}`;
   row.tabIndex = 0;
   row.setAttribute("role", "button");
   row.setAttribute("aria-expanded", String(expanded));
@@ -12662,7 +12670,7 @@ function buildCodeInspectorFixture(fixture){
       event.stopPropagation();
       if (!setCodeInspectorFixtureAdded(fixture, !added)) return;
       if (!added) recordCodeAffinity(fixture.codeId, "pin");
-      renderCodeInspector();
+      mutateWithScrollContinuity(row, renderCodeInspector);
       showToast(added ? `${fixture.name} removed from Feed.` : `${fixture.name} added to Feed.`);
     });
   } else {
@@ -12707,10 +12715,16 @@ function buildCodeInspectorFixture(fixture){
     row.appendChild(details);
   }
   const toggle = () => {
-    if (!expanded) recordCodeAffinity(fixture.codeId, "expand");
-    codeInspectorExpandedFixtureId = expanded ? null : fixture.id;
-    renderCodeInspector();
-    window.requestAnimationFrame(() => document.querySelector(`[data-inspector-fixture-id="${CSS.escape(fixture.id)}"]`)?.focus({ preventScroll:true }));
+    const currentlyExpanded = codeInspectorExpandedFixtureIds.has(fixture.id);
+    if (!currentlyExpanded) recordCodeAffinity(fixture.codeId, "expand");
+    mutateWithScrollContinuity(row, () => {
+      if (currentlyExpanded) codeInspectorExpandedFixtureIds.delete(fixture.id);
+      else codeInspectorExpandedFixtureIds.add(fixture.id);
+      renderCodeInspector();
+    }, {
+      restoreFocus:true,
+      focusTarget:`[data-inspector-fixture-id="${CSS.escape(fixture.id)}"]`,
+    });
   };
   row.addEventListener("click", event => {
     if (event.target.closest("a,button,input,select,textarea")) return;
@@ -12781,6 +12795,7 @@ function renderCodeInspectorStandings(panel, code){
 function renderCodeInspector(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
+  container.dataset.scrollList = "code-inspector";
   const code = codeInspectorManifest?.codes?.find(candidate => candidate.id === activeInspectorCodeId);
   if (!code){
     container.innerHTML = '<div class="empty-state">Loading Standings &amp; Fixtures…</div>';
@@ -12926,6 +12941,7 @@ function renderCodeInspector(){
     groupTitle.textContent = label;
     const list = document.createElement("div");
     list.className = "code-inspector-fixtures";
+    list.dataset.scrollList = `inspector-group:${label}`;
     grouped.get(label).forEach(fixture => list.appendChild(buildCodeInspectorFixture(fixture)));
     section.append(groupTitle, list);
     panel.appendChild(section);
@@ -13677,167 +13693,169 @@ function cardStateForEvent(ev){
 
 function setCardState(ev, state){
   const eventId = ev.eventId || ev.id;
+  const next = { ...cardViewStates };
   if (state === "compact"){
-    const next = { ...cardViewStates };
     delete next[eventId];
     cardViewStates = next;
     return;
   }
-  // Expanded cards represent the user's current reading focus, so only one remains open.
-  cardViewStates = { [eventId]: state };
-}
-
-function collapseCardStates(eventIds){
-  const next = { ...cardViewStates };
-  let changed = false;
-  eventIds.forEach(eventId => {
-    if (!next[eventId]) return;
-    delete next[eventId];
-    changed = true;
-  });
-  if (changed) cardViewStates = next;
-  return changed;
-}
-
-function collapseAllCardStates(){
-  const eventIds = Object.keys(cardViewStates);
-  if (!eventIds.length) return false;
-  cardViewStates = {};
-  return true;
-}
-
-function isCardActivelyViewed(rect, viewportTop, viewportBottom){
-  return rect.bottom > viewportTop && rect.top < viewportBottom;
+  next[eventId] = state;
+  cardViewStates = next;
 }
 
 function scrollOffsetToPreserveAnchor(anchorTopBefore, anchorTopAfter){
   return anchorTopAfter - anchorTopBefore;
 }
 
-function captureViewportRetractionAnchor(collapsingCards, viewportTop){
-  const collapsingAboveIds = new Set(
-    collapsingCards
-      .filter(({ rect }) => rect.bottom <= viewportTop)
-      .map(({ card }) => card.dataset.eventId)
-      .filter(Boolean)
-  );
-  if (!collapsingAboveIds.size) return null;
-
-  const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
-    .find(card => !collapsingAboveIds.has(card.dataset.eventId) && card.getBoundingClientRect().bottom > viewportTop);
-  if (!anchorCard) return null;
-  return {
-    eventId: anchorCard.dataset.eventId,
-    top: anchorCard.getBoundingClientRect().top,
-  };
+function scrollCorrectionForAnchor(anchorTopBefore, anchorTopAfter, currentScrollY, maxScrollY){
+  const offset = scrollOffsetToPreserveAnchor(anchorTopBefore, anchorTopAfter);
+  const desiredScrollY = Math.max(0, Math.min(maxScrollY, currentScrollY + offset));
+  return desiredScrollY - currentScrollY;
 }
 
-const CARD_RETRACTION_SPACE_SETTLE_MS = 140;
-const pendingCardRetractionSpaceCards = new Set();
-let cardRetractionSpaceTimer = null;
-
-function replaceCollapsedCardsInPlace(collapsingCards){
-  const replacementCards = [];
-  collapsingCards.forEach(({ card, rect }) => {
-    const eventId = card.dataset.eventId;
-    const ev = activeEvents.find(candidate => String(candidate.eventId || candidate.id) === eventId);
-    if (!ev || !card.isConnected) return;
-    const mode = card.dataset.cardMode || "calendar";
-    const seenTimer = surfaceSeenTimers.get(card);
-    if (seenTimer) clearTimeout(seenTimer);
-    surfaceSeenTimers.delete(card);
-    surfaceSeenObserver?.unobserve(card);
-    const replacementCard = buildEventCard(ev, { mode });
-    replacementCard.style.transition = "none";
-    card.replaceWith(replacementCard);
-    replacementCards.push({
-      card: replacementCard,
-      previousHeight: rect.height,
-      preserveSpace: rect.bottom <= stickyFeedChromeHeight() + 12,
-    });
-  });
-  return replacementCards;
+function scrollKeyForElement(element){
+  return element?.dataset?.scrollKey || null;
 }
 
-function clearPendingCardRetractionSpace(){
-  if (cardRetractionSpaceTimer !== null){
-    window.clearTimeout(cardRetractionSpaceTimer);
-    cardRetractionSpaceTimer = null;
-  }
-  const cards = Array.from(pendingCardRetractionSpaceCards).filter(card => card.isConnected);
-  pendingCardRetractionSpaceCards.clear();
-  if (!cards.length) return false;
-  const anchor = captureViewportRenderAnchor();
-  cards.forEach(card => {
-    card.style.marginBottom = "";
-    card.style.transform = "";
-    delete card.dataset.retractionSpace;
+function syncElementAttributes(element, replacement){
+  Array.from(element.attributes).forEach(attribute => {
+    if (!replacement.hasAttribute(attribute.name)) element.removeAttribute(attribute.name);
   });
-  restoreViewportRenderAnchor(anchor);
+  Array.from(replacement.attributes).forEach(attribute => element.setAttribute(attribute.name, attribute.value));
+}
+
+function stableDescendantKey(element){
+  if (!(element instanceof Element)) return null;
+  if (element.dataset.scrollStable) return `stable:${element.dataset.scrollStable}`;
+  if (element.tagName === "IMG") return `img:${element.getAttribute("src") || ""}:${element.className || ""}`;
+  if (element.tagName === "PICTURE") return `picture:${element.querySelector("img")?.getAttribute("src") || ""}`;
+  return null;
+}
+
+function preserveStableDescendants(element, replacement){
+  const existing = new Map();
+  element.querySelectorAll("[data-scroll-stable],img,picture").forEach(node => {
+    const key = stableDescendantKey(node);
+    if (!key) return;
+    const matches = existing.get(key) || [];
+    matches.push(node);
+    existing.set(key, matches);
+  });
+  replacement.querySelectorAll("[data-scroll-stable],img,picture").forEach(node => {
+    const key = stableDescendantKey(node);
+    const retained = key ? existing.get(key)?.shift() : null;
+    if (retained && retained.tagName === node.tagName) node.replaceWith(retained);
+  });
+}
+
+function patchElementInPlace(element, replacement){
+  if (!element || !replacement || element.tagName !== replacement.tagName) return false;
+  preserveStableDescendants(element, replacement);
+  syncElementAttributes(element, replacement);
+  element.replaceChildren(...replacement.childNodes);
+  return true;
+}
+
+function captureKeyedScrollNodes(){
+  return new Map(Array.from(document.querySelectorAll("[data-scroll-key]"))
+    .map(element => [scrollKeyForElement(element), element])
+    .filter(([key]) => Boolean(key)));
+}
+
+function reconcileKeyedScrollNodes(previousNodes){
+  Array.from(document.querySelectorAll("[data-scroll-key]")).forEach(replacement => {
+    const previous = previousNodes.get(scrollKeyForElement(replacement));
+    if (!previous || previous === replacement || previous.isConnected || previous.tagName !== replacement.tagName) return;
+    patchElementInPlace(previous, replacement);
+    replacement.replaceWith(previous);
+  });
+}
+
+function scrollContinuityAnchorFor(target){
+  const viewportTop = stickyFeedChromeHeight() + 12;
+  const viewportBottom = window.innerHeight - 12;
+  const targetRect = target?.getBoundingClientRect?.();
+  if (targetRect && targetRect.top >= viewportTop && targetRect.bottom <= viewportBottom) return target;
+  const list = target?.closest?.("[data-scroll-list]") || document;
+  const candidates = Array.from(list.querySelectorAll("[data-scroll-key]"))
+    .filter(candidate => candidate !== target);
+  const downstreamTop = Math.max(viewportTop, Number(targetRect?.top) || viewportTop);
+  return candidates.find(candidate => candidate.getBoundingClientRect().top >= downstreamTop)
+    || candidates.find(candidate => candidate.getBoundingClientRect().bottom > viewportTop)
+    || target
+    || null;
+}
+
+function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null } = {}){
+  if (typeof mutate !== "function") return false;
+  const anchor = scrollContinuityAnchorFor(target);
+  const anchorKey = scrollKeyForElement(anchor);
+  const anchorTop = anchor?.getBoundingClientRect?.().top;
+  const previousNodes = captureKeyedScrollNodes();
+  mutate();
+  reconcileKeyedScrollNodes(previousNodes);
   window.requestAnimationFrame(() => {
-    cards.filter(card => card.isConnected).forEach(card => {
-      card.style.transition = "";
-    });
+    const currentAnchor = anchor?.isConnected
+      ? anchor
+      : anchorKey
+        ? Array.from(document.querySelectorAll("[data-scroll-key]")).find(element => scrollKeyForElement(element) === anchorKey)
+        : null;
+    if (currentAnchor && Number.isFinite(anchorTop)){
+      const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
+      if (Math.abs(correction) >= 0.5) window.scrollBy(0, correction);
+    }
+    if (restoreFocus){
+      const requestedFocus = typeof focusTarget === "string"
+        ? document.querySelector(focusTarget)
+        : focusTarget?.isConnected
+          ? focusTarget
+          : target?.isConnected
+            ? target
+            : anchorKey
+              ? Array.from(document.querySelectorAll("[data-scroll-key]")).find(element => scrollKeyForElement(element) === anchorKey)
+              : null;
+      requestedFocus?.focus?.({ preventScroll:true });
+    }
   });
   return true;
 }
 
-function scheduleCardRetractionSpaceCleanup(){
-  if (!pendingCardRetractionSpaceCards.size) return;
-  if (cardRetractionSpaceTimer !== null) window.clearTimeout(cardRetractionSpaceTimer);
-  cardRetractionSpaceTimer = window.setTimeout(clearPendingCardRetractionSpace, CARD_RETRACTION_SPACE_SETTLE_MS);
+let scrollMomentumActive = false;
+let scrollMomentumIdleTimer = null;
+let pendingScrollIdleMutation = null;
+
+function flushScrollIdleMutation(){
+  scrollMomentumActive = false;
+  if (scrollMomentumIdleTimer !== null) window.clearTimeout(scrollMomentumIdleTimer);
+  scrollMomentumIdleTimer = null;
+  const mutation = pendingScrollIdleMutation;
+  pendingScrollIdleMutation = null;
+  if (mutation) mutation();
 }
 
-function cardRetractionSpaceForHeights(previousHeight, compactHeight){
-  return Math.max(0, Number(previousHeight || 0) - Number(compactHeight || 0));
+function noteScrollMomentum(){
+  scrollMomentumActive = true;
+  if (scrollMomentumIdleTimer !== null) window.clearTimeout(scrollMomentumIdleTimer);
+  scrollMomentumIdleTimer = window.setTimeout(flushScrollIdleMutation, 150);
 }
 
-function cardRetractionVisualOffset(retainedHeight){
-  return Math.max(0, Number(retainedHeight || 0));
-}
-
-function cardScrollDirection(previousScrollY, currentScrollY){
-  if (currentScrollY < previousScrollY) return "up";
-  if (currentScrollY > previousScrollY) return "down";
-  return "still";
-}
-
-function retainCollapsedCardSpace(retractionAnchor, replacementCards){
-  if (!retractionAnchor) return false;
-  const retainedCards = replacementCards.filter(({ preserveSpace }) => preserveSpace);
-  retainedCards.forEach(({ card, previousHeight }) => {
-    const retainedHeight = cardRetractionSpaceForHeights(previousHeight, card.getBoundingClientRect().height);
-    if (retainedHeight < 0.5) return;
-    const visualOffset = cardRetractionVisualOffset(retainedHeight);
-    card.style.marginBottom = `${retainedHeight}px`;
-    card.style.transform = `translateY(${visualOffset}px)`;
-    card.dataset.retractionSpace = String(retainedHeight);
-    pendingCardRetractionSpaceCards.add(card);
-  });
-  if (!retainedCards.length || !pendingCardRetractionSpaceCards.size) return false;
-
-  const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
-    .find(card => card.dataset.eventId === retractionAnchor.eventId);
-  const spacingCard = retainedCards[retainedCards.length - 1].card;
-  if (anchorCard){
-    const correction = retractionAnchor.top - anchorCard.getBoundingClientRect().top;
-    const retainedHeight = Number(spacingCard.dataset.retractionSpace || 0);
-    const correctedHeight = Math.max(0, retainedHeight + correction);
-    spacingCard.style.marginBottom = `${correctedHeight}px`;
-    spacingCard.style.transform = `translateY(${cardRetractionVisualOffset(correctedHeight)}px)`;
-    spacingCard.dataset.retractionSpace = String(correctedHeight);
+function queueScrollIdleMutation(mutation){
+  if (!scrollMomentumActive){
+    mutation();
+    return false;
   }
-  scheduleCardRetractionSpaceCleanup();
+  pendingScrollIdleMutation = mutation;
   return true;
 }
 
 function captureViewportRenderAnchor(){
   const viewportTop = stickyFeedChromeHeight() + 12;
-  const anchorCard = Array.from(document.querySelectorAll(".event-card[data-event-id]"))
+  const anchorCard = Array.from(document.querySelectorAll("[data-scroll-key]"))
     .find(card => card.getBoundingClientRect().bottom > viewportTop);
   return {
     card: anchorCard || null,
-    eventId: anchorCard?.dataset.eventId || null,
+    scrollKey: scrollKeyForElement(anchorCard),
     top: anchorCard?.getBoundingClientRect().top || null,
     scrollY: window.scrollY,
   };
@@ -13847,9 +13865,9 @@ function restoreViewportRenderAnchor(anchor){
   if (!anchor) return;
   const anchorCard = anchor.card?.isConnected
     ? anchor.card
-    : anchor.eventId
-    ? Array.from(document.querySelectorAll(".event-card[data-event-id]"))
-      .find(card => card.dataset.eventId === anchor.eventId)
+    : anchor.scrollKey
+    ? Array.from(document.querySelectorAll("[data-scroll-key]"))
+      .find(card => scrollKeyForElement(card) === anchor.scrollKey)
     : null;
   if (anchorCard && Number.isFinite(anchor.top)){
     const offset = scrollOffsetToPreserveAnchor(anchor.top, anchorCard.getBoundingClientRect().top);
@@ -13858,50 +13876,6 @@ function restoreViewportRenderAnchor(anchor){
   }
   const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
   window.scrollTo({ top: Math.min(anchor.scrollY, maxScrollY), behavior: "auto" });
-}
-
-function replaceCardPreservingViewport(card, replacement, { restoreFocus = false } = {}){
-  if (!card?.isConnected || !replacement) return false;
-  const top = card.getBoundingClientRect().top;
-  card.replaceWith(replacement);
-  const restorePosition = () => {
-    if (!replacement.isConnected) return;
-    const offset = scrollOffsetToPreserveAnchor(top, replacement.getBoundingClientRect().top);
-    if (Math.abs(offset) >= 0.5){
-      window.scrollTo({ top: window.scrollY + offset, behavior: "auto" });
-    }
-  };
-  const settle = () => {
-    restorePosition();
-    if (restoreFocus) replacement.focus({ preventScroll: true });
-  };
-  // Correct synchronously before browser scroll anchoring can make the replacement
-  // appear to jump, then settle again after the click task and late image geometry.
-  restorePosition();
-  window.setTimeout(restorePosition, 0);
-  window.setTimeout(settle, 80);
-  if (typeof window.requestAnimationFrame === "function"){
-    window.requestAnimationFrame(() => window.requestAnimationFrame(settle));
-  }
-  return true;
-}
-
-function collapseCardsOutsideActiveViewport(){
-  const expandedCards = Array.from(document.querySelectorAll(".event-card.is-selected, .event-card.is-opened"));
-  if (!expandedCards.length) return false;
-  const viewportTop = stickyFeedChromeHeight() + 12;
-  const viewportBottom = window.innerHeight - 12;
-  const collapsingCards = expandedCards
-    .map(card => ({ card, rect: card.getBoundingClientRect() }))
-    .filter(({ rect }) => !isCardActivelyViewed(rect, viewportTop, viewportBottom));
-  const retractionAnchor = captureViewportRetractionAnchor(collapsingCards, viewportTop);
-  const eventIds = collapsingCards
-    .map(({ card }) => card.dataset.eventId)
-    .filter(Boolean);
-  if (!collapseCardStates(eventIds)) return false;
-  const replacementCards = replaceCollapsedCardsInPlace(collapsingCards);
-  retainCollapsedCardSpace(retractionAnchor, replacementCards);
-  return true;
 }
 
 function bindHorizontalLearningSwipe(element, onDirection, { threshold = 68 } = {}){
@@ -14423,6 +14397,18 @@ function eventMajorEventId(ev){
   return eventId || null;
 }
 
+function refreshExpandableCard(card, replacement, { restoreFocus = false, focusTarget = null } = {}){
+  const replacementSeenTimer = surfaceSeenTimers.get(replacement);
+  if (replacementSeenTimer) window.clearTimeout(replacementSeenTimer);
+  surfaceSeenTimers.delete(replacement);
+  surfaceSeenObserver?.unobserve(replacement);
+  productExposureObserver?.unobserve(replacement);
+  return mutateWithScrollContinuity(card, () => patchElementInPlace(card, replacement), {
+    restoreFocus,
+    focusTarget:focusTarget || card,
+  });
+}
+
 function buildEventCard(ev, options = {}){
   const meta = sportMetaForEvent(ev);
   const status = getEventStatus(ev);
@@ -14454,6 +14440,7 @@ function buildEventCard(ev, options = {}){
     && !activeSportHubKey();
 
   const card = document.createElement("article");
+  const interactionCard = options.interactionCard || card;
   card.className = [
     "event-card",
     matchupIdentity ? "is-logo-led-matchup" : "",
@@ -14472,6 +14459,7 @@ function buildEventCard(ev, options = {}){
     swipeEligible ? "is-swipe-eligible" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
+  card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
   card.dataset.cardState = state;
   card.dataset.cardMode = mode;
   card.dataset.feedBucket = presentation.feedBucket;
@@ -14483,13 +14471,14 @@ function buildEventCard(ev, options = {}){
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
   const advanceCardState = () => {
-    if (state === "compact"){
+    const currentState = cardStateForEvent(ev);
+    if (currentState === "compact"){
       const eventId = String(ev.eventId || ev.id);
       if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", options);
       sessionOpenedEventIds.add(eventId);
     }
-    setCardState(ev, nextCardState(state));
-    replaceCardPreservingViewport(card, buildEventCard(ev, options), { restoreFocus: document.activeElement === card });
+    setCardState(ev, nextCardState(currentState));
+    refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), { restoreFocus: document.activeElement === interactionCard });
   };
   if (expandable){
     card.addEventListener("click", event => {
@@ -14726,12 +14715,15 @@ function buildEventCard(ev, options = {}){
   }
 
   if (ratingRow.childElementCount) mainDiv.appendChild(ratingRow);
+  const expansionRegion = document.createElement("div");
+  expansionRegion.className = "event-expansion-region";
+  expansionRegion.dataset.scrollDetailRegion = String(ev.eventId || ev.id);
   if (state === "compact" && swipeEligible){
     const feedback = document.createElement("div");
     feedback.className = "event-inline-feedback";
     feedback.setAttribute("aria-label", "Event feedback");
     buildEventFeedbackButtons(ev).forEach(button => feedback.appendChild(button));
-    mainDiv.appendChild(feedback);
+    expansionRegion.appendChild(feedback);
   }
   mainDiv.id = `${nameEl.id}-details`;
 
@@ -14739,7 +14731,7 @@ function buildEventCard(ev, options = {}){
     const selected = document.createElement("div");
     selected.className = "event-selected-copy";
     selected.textContent = selectedSentenceForDisplay(ev);
-    mainDiv.appendChild(selected);
+    expansionRegion.appendChild(selected);
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
       spoilerPanel.className = "spoiler-panel";
@@ -14747,16 +14739,16 @@ function buildEventCard(ev, options = {}){
         <strong>Spoiler details hidden</strong>
         <p>The spoiler-safe recap is shown above. Scores, outcomes, and full result details stay protected.</p>
       `;
-      mainDiv.appendChild(spoilerPanel);
+      expansionRegion.appendChild(spoilerPanel);
     }
     if (options.archived){
-      mainDiv.appendChild(buildEventActionPanel(ev, {
+      expansionRegion.appendChild(buildEventActionPanel(ev, {
         archived: true,
         autoArchived: options.autoArchived,
       }));
     } else {
-      mainDiv.appendChild(buildEventCompactFooter(ev, options, () => {
-        replaceCardPreservingViewport(card, buildEventCard(ev, options), { restoreFocus:false });
+      expansionRegion.appendChild(buildEventCompactFooter(ev, options, () => {
+        refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), { restoreFocus:false });
       }));
     }
   }
@@ -14765,7 +14757,7 @@ function buildEventCard(ev, options = {}){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
     spiel.textContent = eventSpielForDisplay(ev);
-    mainDiv.appendChild(spiel);
+    expansionRegion.appendChild(spiel);
 
     if (enrichment.editorialOverride){
       const editorialNote = document.createElement("p");
@@ -14773,7 +14765,7 @@ function buildEventCard(ev, options = {}){
       const reviewedAt = new Date(enrichment.editorialOverride.reviewedAt);
       const reviewedLabel = Number.isNaN(reviewedAt.getTime()) ? "reviewed" : `reviewed ${reviewedAt.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`;
       editorialNote.textContent = `Editorially reviewed · ${reviewedLabel}`;
-      mainDiv.appendChild(editorialNote);
+      expansionRegion.appendChild(editorialNote);
     }
 
     if (spoilerProtected){
@@ -14783,7 +14775,7 @@ function buildEventCard(ev, options = {}){
         <strong>Spoiler details hidden</strong>
         <p>This ${status} event has a spoiler-safe recap above. Reveal it only when you are ready for the result-aware version.</p>
       `;
-      mainDiv.appendChild(spoilerPanel);
+      expansionRegion.appendChild(spoilerPanel);
     }
 
     const details = document.createElement("div");
@@ -14793,22 +14785,23 @@ function buildEventCard(ev, options = {}){
       <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
       ${ev.sourceName ? `<div class="event-detail-item"><strong>${sourceTrust?.label || "Source"}</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
-    mainDiv.appendChild(details);
+    expansionRegion.appendChild(details);
     if (options.archived){
-      mainDiv.appendChild(buildEventActionPanel(ev, {
+      expansionRegion.appendChild(buildEventActionPanel(ev, {
         archived: true,
         autoArchived: options.autoArchived,
       }));
     } else {
-      mainDiv.appendChild(buildEventCompactFooter(ev, options, () => {
-        replaceCardPreservingViewport(card, buildEventCard(ev, options), { restoreFocus:false });
+      expansionRegion.appendChild(buildEventCompactFooter(ev, options, () => {
+        refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), { restoreFocus:false });
       }));
     }
   }
 
+  if (expansionRegion.childElementCount) mainDiv.appendChild(expansionRegion);
   card.appendChild(mainDiv);
-  observeNewSurfaceItem(card, ev, presentation);
-  if (!options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
+  if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
+  if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;
     observeProductOpportunity(card, `card:${canonicalId}`, {
       eventName: "opportunity_exposed",
@@ -14968,6 +14961,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
   const row = document.createElement("article");
   row.className = "joint-match";
   row.dataset.matchId = match.matchId;
+  row.dataset.scrollKey = `joint-match:${savedSection ? "saved" : "schedule"}:${match.matchId}`;
   const order = tournamentDocument.schedule.matches.findIndex(item => item.matchId === match.matchId) + 1;
   const orderCopy = document.createElement("div");
   orderCopy.className = "joint-match-order";
@@ -15079,6 +15073,7 @@ function buildJointTournamentDays(tournamentDocument){
     heading.textContent = jointTournamentDayLabel(group.date, tournamentDocument);
     const list = globalThis.document.createElement("div");
     list.className = "joint-match-list";
+    list.dataset.scrollList = `joint-tournament-day:${group.date}`;
     group.matches.forEach(match => list.appendChild(buildJointTournamentMatch(match, tournamentDocument)));
     section.append(heading, list);
     const groupMatchIds = new Set(group.matches.map(match => match.matchId));
@@ -15103,11 +15098,14 @@ function jointTournamentDateRange(tournamentDocument){
 }
 
 function setJointTournamentDrilldown(panel){
-  jointTournamentNavigationOpen = true;
-  jointTournamentDrilldownPanel = panel;
-  renderAll({ preserveViewport: true });
-  window.requestAnimationFrame(() => {
-    document.getElementById(`jointTournamentDrilldown-${panel}`)?.focus?.({ preventScroll: true });
+  const card = document.getElementById("cincinnatiTournamentCard");
+  mutateWithScrollContinuity(card, () => {
+    jointTournamentNavigationOpen = true;
+    jointTournamentDrilldownPanel = panel;
+    renderAll();
+  }, {
+    restoreFocus:true,
+    focusTarget:`#jointTournamentDrilldown-${panel}`,
   });
 }
 
@@ -15213,7 +15211,7 @@ function buildJointTournamentTablesPanel(){
     body.innerHTML = `<p class="joint-overview">${canonicalSportsDataError ? "Rankings are temporarily unavailable." : "Loading ATP and WTA rankings…"}</p>`;
     if (!canonicalSportsDataLoading){
       loadCanonicalSportsData().then(() => {
-        if (jointTournamentDrilldownPanel === "tables") renderAll({ preserveViewport: true });
+        if (jointTournamentDrilldownPanel === "tables") queueScrollIdleMutation(() => renderAll({ preserveViewport:true }));
       });
     }
     return section;
@@ -15241,6 +15239,7 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   card.className = ["joint-tournament-card", `mode-${mode}`].filter(Boolean).join(" ");
   card.id = "cincinnatiTournamentCard";
   card.dataset.tournamentId = spoilerView.tournament.tournamentId;
+  card.dataset.scrollKey = `joint-tournament:${spoilerView.tournament.tournamentId}`;
   card.dataset.cardState = jointTournamentNavigationOpen ? "opened" : "compact";
   const head = globalThis.document.createElement("header");
   head.className = "joint-tournament-head";
@@ -15256,10 +15255,15 @@ function buildJointTournamentCard(tournamentDocument = jointTournamentData, { mo
   openGlyph.textContent = "›";
   head.append(identity, openGlyph);
   const toggleNavigation = () => {
-    jointTournamentNavigationOpen = !jointTournamentNavigationOpen;
-    if (!jointTournamentNavigationOpen) jointTournamentDrilldownPanel = null;
-    renderAll({ preserveViewport: true });
-    window.requestAnimationFrame(() => document.querySelector("#cincinnatiTournamentCard .joint-tournament-head")?.focus?.({ preventScroll: true }));
+    const liveCard = document.getElementById("cincinnatiTournamentCard") || card;
+    mutateWithScrollContinuity(liveCard, () => {
+      jointTournamentNavigationOpen = !jointTournamentNavigationOpen;
+      if (!jointTournamentNavigationOpen) jointTournamentDrilldownPanel = null;
+      renderAll();
+    }, {
+      restoreFocus:true,
+      focusTarget:"#cincinnatiTournamentCard .joint-tournament-head",
+    });
   };
   head.addEventListener("click", toggleNavigation);
   head.addEventListener("keydown", event => {
@@ -15438,6 +15442,10 @@ function appendPremiumRail(container, items, { id, title, description, className
 
 function appendFeedPageToCurrentList(incomingEvents){
   if (startupCoordinator.isHydrating() || activeTab !== "feed" || activeView !== "list" || activeSportHubKey()) return false;
+  if (scrollMomentumActive){
+    queueScrollIdleMutation(() => appendFeedPageToCurrentList(incomingEvents));
+    return true;
+  }
   const container = document.getElementById("listView");
   if (!container || !Array.isArray(incomingEvents)) return false;
   const incomingIds = new Set(incomingEvents.map(event => event?.canonicalEventId || event?.eventId || event?.id).filter(Boolean));
@@ -15493,6 +15501,7 @@ function renderListView(){
   const container = document.getElementById("listView");
   container.className = "";
   container.innerHTML = "";
+  container.dataset.scrollList = "feed";
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
   const baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
@@ -16403,8 +16412,19 @@ function updateStandingsDirectorySession(patch){
   return writeStandingsDirectorySession({ ...readStandingsDirectorySession(), ...patch });
 }
 
+function normalizeExpandedTeamIds(raw = {}){
+  const legacyExpandedTeamId = typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "";
+  return Array.isArray(raw.expandedTeamIds)
+    ? Array.from(new Set(raw.expandedTeamIds.filter(value => typeof value === "string" && value)))
+    : legacyExpandedTeamId
+      ? [legacyExpandedTeamId]
+      : [];
+}
+
 function directoryFilters(sportKey = readStandingsDirectorySession().directorySportKey){
   const raw = readStandingsDirectorySession().filtersBySport?.[sportKey] || {};
+  const legacyExpandedTeamId = typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "";
+  const expandedTeamIds = normalizeExpandedTeamIds(raw);
   return {
     leagueId: typeof raw.leagueId === "string" ? raw.leagueId : "",
     teamId: typeof raw.teamId === "string" ? raw.teamId : "",
@@ -16413,7 +16433,8 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
     genderCategory: ["male", "female", "mixed", "unknown"].includes(raw.genderCategory) ? raw.genderCategory : "",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
-    expandedTeamId: typeof raw.expandedTeamId === "string" ? raw.expandedTeamId : "",
+    expandedTeamIds,
+    expandedTeamId: legacyExpandedTeamId,
   };
 }
 
@@ -16814,7 +16835,7 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
       const leagueKey = footballLeagueKeyForId(leagueId);
       await (leagueKey ? loadFootballLeagueFixtures(leagueKey) : loadFootballFixturesForCurrentFollows());
       rebuildDerivedCardCache(activeEvents);
-      if (activeTab !== "follow") renderAll({ preserveViewport: true });
+      if (activeTab !== "follow") queueScrollIdleMutation(() => renderAll({ preserveViewport:true }));
       else renderTabCounts();
     });
   }
@@ -16822,7 +16843,7 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
     const loadIndex = sportKey === "nrl" ? loadNrlFollowIndex : loadAflFollowIndex;
     void loadIndex().then(() => {
       rebuildDerivedCardCache(activeEvents);
-      if (activeTab !== "follow") renderAll({ preserveViewport: true });
+      if (activeTab !== "follow") queueScrollIdleMutation(() => renderAll({ preserveViewport:true }));
       else renderTabCounts();
     });
   }
@@ -16870,14 +16891,14 @@ function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"
   toolbar.appendChild(searchField);
   const leagueOptions = [["", "All leagues"], ...directory.leagues.map(league => [league.id, league.displayName])];
   toolbar.appendChild(buildDirectorySelect("League", filters.leagueId, leagueOptions, leagueId => {
-    updateDirectoryFilters(sportKey, { leagueId, teamId: "", expandedTeamId: "" }); renderStandingsContext();
+    updateDirectoryFilters(sportKey, { leagueId, teamId: "", expandedTeamIds: [], expandedTeamId: "" }); renderStandingsContext();
   }));
   const teamOptions = [["", "All clubs"], ...directory.teams
     .filter(team => !filters.leagueId || team.leagueId === filters.leagueId)
     .sort((a, b) => a.displayName.localeCompare(b.displayName))
     .map(team => [team.id, team.displayName])];
   toolbar.appendChild(buildDirectorySelect("Club", filters.teamId, teamOptions, teamId => {
-    updateDirectoryFilters(sportKey, { teamId, expandedTeamId: teamId }); renderStandingsContext();
+    updateDirectoryFilters(sportKey, { teamId, expandedTeamIds: teamId ? [teamId] : [], expandedTeamId: "" }); renderStandingsContext();
   }));
   const countries = Array.from(new Set(directory.players.map(player => player.birthCountryCode).filter(Boolean))).sort((a, b) => (
     COUNTRY_FLAGS.countryName(a).localeCompare(COUNTRY_FLAGS.countryName(b))
@@ -16900,6 +16921,7 @@ function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"
 function buildFootballPlayerRow(player, sportKey = "football"){
   const row = document.createElement("div");
   row.className = "football-player-row";
+  row.dataset.scrollKey = `directory-player:${sportKey}:${player.id}`;
   const identity = document.createElement("div");
   identity.className = "football-player-name";
   if (player.birthCountryCode){
@@ -16929,10 +16951,12 @@ function buildFootballPlayerRow(player, sportKey = "football"){
 function buildFootballClubRow(team, league, players, expanded, sportKey = "football"){
   const row = document.createElement("section");
   row.className = "football-club-row";
+  row.dataset.scrollKey = `directory-team:${sportKey}:${team.id}`;
   const head = document.createElement("div");
   head.className = "football-club-head";
   const crest = document.createElement("img");
   crest.className = "football-club-crest";
+  crest.dataset.scrollStable = `directory-crest:${sportKey}:${team.id}`;
   const mark = CARD_IDENTITIES?.participantMarks?.[team.id];
   if (mark) applyTeamLogoAsset(crest, mark, "icon");
   else {
@@ -16960,9 +16984,18 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   expander.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} ${team.displayName} players`);
   expander.innerHTML = glyphMarkup("ui:chevron-right");
   expander.addEventListener("click", () => {
-    updateDirectoryFilters(sportKey, { expandedTeamId: expanded ? "" : team.id });
-    renderStandingsContext();
-    window.requestAnimationFrame(() => document.querySelector(`[data-directory-team-id="${CSS.escape(team.id)}"] .football-club-expand`)?.focus({ preventScroll: true }));
+    const liveRow = Array.from(document.querySelectorAll("[data-scroll-key]"))
+      .find(element => element.dataset.scrollKey === `directory-team:${sportKey}:${team.id}`) || row;
+    const current = new Set(directoryFilters(sportKey).expandedTeamIds);
+    if (current.has(team.id)) current.delete(team.id);
+    else current.add(team.id);
+    mutateWithScrollContinuity(liveRow, () => {
+      updateDirectoryFilters(sportKey, { expandedTeamIds:Array.from(current), expandedTeamId:"" });
+      renderStandingsContext();
+    }, {
+      restoreFocus:true,
+      focusTarget:`[data-directory-team-id="${CSS.escape(team.id)}"] .football-club-expand`,
+    });
   });
   head.append(crest, copy, follow, expander);
   row.dataset.directoryTeamId = team.id;
@@ -17021,10 +17054,11 @@ function renderFootballDirectory(container, {
   directory.appendChild(summary);
   const list = document.createElement("div");
   list.className = "football-club-list";
+  list.dataset.scrollList = `directory-teams:${sportKey}`;
   filtered.teams.forEach(team => {
     const players = playersByTeam.get(team.id) || [];
     const autoExpanded = Boolean(filters.query.trim() && players.length);
-    list.appendChild(buildFootballClubRow(team, leagues.get(team.leagueId), players, autoExpanded || filters.expandedTeamId === team.id, sportKey));
+    list.appendChild(buildFootballClubRow(team, leagues.get(team.leagueId), players, autoExpanded || filters.expandedTeamIds.includes(team.id), sportKey));
   });
   if (!filtered.teams.length){
     const empty = document.createElement("div");
@@ -17059,8 +17093,8 @@ function renderLegacyParticipantDirectory(container, sportKey){
     container.appendChild(state);
     if (!followDirectoryChunkLoading.has(sportKey)){
       Promise.all([loadFootballDirectoryModule(), loadFollowDirectoryChunk(sportKey)])
-        .then(() => renderStandingsContext())
-        .catch(() => renderStandingsContext());
+        .then(() => queueScrollIdleMutation(renderStandingsContext))
+        .catch(() => queueScrollIdleMutation(renderStandingsContext));
     }
     return;
   }
@@ -17143,6 +17177,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
   directory.appendChild(toolbar);
   const list = document.createElement("div");
   list.className = "football-club-list";
+  list.dataset.scrollList = `directory-participants:${sportKey}`;
   records.forEach(record => {
     const row = document.createElement("div");
     row.className = "football-club-head";
@@ -17262,7 +17297,6 @@ function toggleAustraliaInternationals(){
 }
 
 function toggleMajorEventFollow(eventId){
-  const stableScrollY = window.scrollY;
   const next = clonePreferences(userPreferences);
   const selected = new Set(next.followFirst.followedMajorEventIds || []);
   if (selected.has(eventId)) selected.delete(eventId);
@@ -17274,22 +17308,17 @@ function toggleMajorEventFollow(eventId){
     const familyCard = Array.from(document.querySelectorAll(".follow-event-family[data-event-family-id]"))
       .find(card => card.dataset.eventFamilyId === eventId);
     const button = familyCard?.querySelector(".follow-event-family-toggle");
-    familyCard?.classList.toggle("selected", followed);
-    if (button){
-      button.setAttribute("aria-pressed", String(followed));
-      button.textContent = `${followed ? "Unfollow" : "Follow"} ${button.dataset.eventFamilyLabel || "Event"}`;
-    }
-    const summary = document.querySelector('[data-follow-summary="event-families"]');
-    if (summary) summary.textContent = `${selected.size} event families`;
-    const restore = () => {
-      if (Math.abs(window.scrollY - stableScrollY) >= 0.5){
-        window.scrollTo({ top:stableScrollY, behavior:"auto" });
+    mutateWithScrollContinuity(familyCard, () => {
+      familyCard?.classList.toggle("selected", followed);
+      if (button){
+        button.setAttribute("aria-pressed", String(followed));
+        button.textContent = `${followed ? "Unfollow" : "Follow"} ${button.dataset.eventFamilyLabel || "Event"}`;
       }
-    };
-    restore();
-    window.requestAnimationFrame(() => {
-      restore();
-      window.requestAnimationFrame(restore);
+      const summary = document.querySelector('[data-follow-summary="event-families"]');
+      if (summary) summary.textContent = `${selected.size} event families`;
+    }, {
+      restoreFocus:true,
+      focusTarget:button,
     });
     return;
   }
@@ -17312,10 +17341,10 @@ function renderTennisFollowCollections(container){
     panel.textContent = followDirectoryChunkErrors.has("tennis") ? "Tennis groups are temporarily unavailable. Tap to retry." : "Loading Tennis groups…";
     panel.addEventListener("click", () => {
       followDirectoryChunkErrors.delete("tennis");
-      void loadFollowDirectoryChunk("tennis").then(() => renderFollowView());
+      void loadFollowDirectoryChunk("tennis").then(() => queueScrollIdleMutation(renderFollowView));
     }, { once:true });
     if (!followDirectoryChunkLoading.has("tennis")) void loadFollowDirectoryChunk("tennis").then(() => {
-      if (activeTab === "follow" && followViewSection === "sports-australia" && expandedFollowSportId === "tennis") renderFollowView();
+      if (activeTab === "follow" && followViewSection === "sports-australia" && expandedFollowSportIds.has("tennis")) queueScrollIdleMutation(renderFollowView);
     });
     container.appendChild(panel);
     return panel;
@@ -17355,6 +17384,7 @@ function renderFollowView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
   container.className = "follow-view";
+  container.dataset.scrollList = "follow";
   const head = document.createElement("header");
   head.className = "follow-view-head";
   const headCopy = document.createElement("div");
@@ -17420,11 +17450,13 @@ function renderFollowView(){
   sportSection.appendChild(australiaToggle);
   const sportGrid = document.createElement("div");
   sportGrid.className = "follow-sport-grid";
+  sportGrid.dataset.scrollList = "follow-sports";
   orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES.filter(entity => Number(entity.level) === 2), userPreferences).forEach(entity => {
     const sport = { id:entity.canonicalSportKeys?.[0] || entity.id.replace(/^sport:/, ""), selectorId:entity.id, label:entity.label };
     const followed = selectorEntityIsEffectivelySelected(entity.id, userPreferences);
     const card = document.createElement("div");
     card.className = `follow-sport-card${followed ? " active" : ""}`;
+    card.dataset.scrollKey = `follow-sport:${sport.id}`;
     card.style.setProperty("--sport-color", SPORT_META[sport.id]?.color || "var(--accent)");
     const follow = document.createElement("button");
     follow.type = "button";
@@ -17435,15 +17467,23 @@ function renderFollowView(){
     card.appendChild(follow);
     if (sport.id === "tennis"){
       const expand = document.createElement("button");
-      const expanded = expandedFollowSportId === "tennis";
+      const expanded = expandedFollowSportIds.has("tennis");
       expand.type = "button";
       expand.className = "follow-sport-expand";
       expand.setAttribute("aria-expanded", String(expanded));
       expand.textContent = expanded ? "Hide Tennis groups" : "Explore Tennis groups";
       expand.addEventListener("click", event => {
         event.stopPropagation();
-        expandedFollowSportId = expanded ? null : "tennis";
-        renderFollowView();
+        const liveCard = document.querySelector('[data-scroll-key="follow-sport:tennis"]') || card;
+        const currentlyExpanded = expandedFollowSportIds.has("tennis");
+        mutateWithScrollContinuity(liveCard, () => {
+          if (currentlyExpanded) expandedFollowSportIds.delete("tennis");
+          else expandedFollowSportIds.add("tennis");
+          renderFollowView();
+        }, {
+          restoreFocus:true,
+          focusTarget:'[data-scroll-key="follow-sport:tennis"] .follow-sport-expand',
+        });
       });
       card.appendChild(expand);
       if (expanded) renderTennisFollowCollections(card);
@@ -17460,14 +17500,16 @@ function renderFollowView(){
   events.innerHTML = "<h3>Major events</h3><p class=\"preference-help\">Keep event families handy in Events and future Follow suggestions. They do not bypass Feed eligibility.</p>";
   const eventGrid = document.createElement("div");
   eventGrid.className = "setup-choice-grid";
+  eventGrid.dataset.scrollList = "follow-major-events";
   if (!majorEventsDocument && !majorEventsLoading) void loadMajorEventsData().then(() => {
-    if (activeTab === "follow" && followViewSection === "major-events") renderFollowView();
+    if (activeTab === "follow" && followViewSection === "major-events") queueScrollIdleMutation(renderFollowView);
   });
   FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.forEach(record => {
     const selected = userPreferences.followFirst.followedMajorEventIds.includes(record.id);
     const familyCard = document.createElement("div");
     familyCard.className = `choice-card follow-event-family${selected ? " selected" : ""}`;
     familyCard.dataset.eventFamilyId = record.id;
+    familyCard.dataset.scrollKey = `follow-event-family:${record.id}`;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "follow-event-family-toggle";
@@ -17494,6 +17536,8 @@ function renderStandingsContext(options = {}){
   const container = options.container || document.getElementById("standingsContext");
   if (!container) return;
   container.innerHTML = "";
+  const scrollScope = container.id || options.sectionLabel || "standings";
+  container.dataset.scrollList = `standings:${scrollScope}`;
   if (!embedded && activeTab === "follow"){
     renderFollowView();
     return;
@@ -17583,10 +17627,13 @@ function renderStandingsContext(options = {}){
     const sportContent = document.createElement("div");
     sportContent.className = "standings-sport-content";
     sportContent.id = `ranking-standings-${sportKey}`;
+    sportContent.dataset.scrollList = `standings:${scrollScope}:${sportKey}`;
 
     sportCompetitions.forEach(competition => {
       const module = document.createElement("section");
       module.className = "standings-module";
+      const moduleScrollKey = `standings:${scrollScope}:${competition.id}`;
+      module.dataset.scrollKey = moduleScrollKey;
       const head = document.createElement("div");
       head.className = "standings-head";
       const copy = document.createElement("div");
@@ -17635,8 +17682,15 @@ function renderStandingsContext(options = {}){
           );
           expander.innerHTML = `<span>${expanded ? "Full standings" : "Top 3 + followed"}</span>${glyphMarkup("ui:chevron-right")}`;
           expander.addEventListener("click", () => {
-            standingsCompetitionExpansion[competition.id] = !expanded;
-            renderStandingsContext(options);
+            const liveModule = Array.from(document.querySelectorAll("[data-scroll-key]"))
+              .find(element => element.dataset.scrollKey === moduleScrollKey) || module;
+            mutateWithScrollContinuity(liveModule, () => {
+              standingsCompetitionExpansion[competition.id] = standingsCompetitionExpansion[competition.id] !== true;
+              renderStandingsContext(options);
+            }, {
+              restoreFocus:true,
+              focusTarget:`[data-scroll-key="${CSS.escape(moduleScrollKey)}"] [data-standings-expander="${CSS.escape(competition.id)}"]`,
+            });
           });
           module.appendChild(expander);
         }
@@ -17734,8 +17788,10 @@ function showToast(msg, { actionLabel = "", onAction = null, duration = 3200 } =
 // calendar/date test harness separate from DOM-only viewport behaviour.
 window.addEventListener("scroll", syncContextualJumpButton, { passive: true });
 window.addEventListener("scroll", () => {
+  noteScrollMomentum();
   if (cardImageLoadingUnlocked && typeof IntersectionObserver !== "function") observeDeferredCardImages();
 }, { passive:true });
+window.addEventListener("scrollend", flushScrollIdleMutation, { passive:true });
 
 function majorEventDateLabel(record){
   if (!record?.startDate || record.dateStatus === "tbc") return "Dates TBC";
@@ -17864,7 +17920,13 @@ function majorEventTimelineDateLabel(item){
 
 function buildMajorEventSchedule(record, { level = "L2", headingText = "Published matches", compact = false, includeOlder = false } = {}){
   const timeline = MAJOR_EVENTS.phaseTimeline(record, nowAEST(), { level, timeZone:"Australia/Sydney", includeOlder });
-  const timelineItems = timeline.items;
+  const timelineItems = compact
+    ? (() => {
+        const immediate = timeline.items.find(item => item.subEvent) || null;
+        const nowMarker = timeline.items.find(item => item.marker === "now") || null;
+        return [nowMarker, immediate].filter(Boolean);
+      })()
+    : timeline.items;
   if (!timelineItems.length) return null;
   const section = document.createElement("section");
   section.className = `major-event-schedule${compact ? " is-preview" : ""}`;
@@ -17956,7 +18018,10 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     older.textContent = "Show older published results";
     older.addEventListener("click", () => {
       const expanded = buildMajorEventSchedule(record, { level:"L2", headingText, compact:false, includeOlder:true });
-      if (expanded) replaceCardPreservingViewport(section, expanded);
+      if (expanded) mutateWithScrollContinuity(section.closest("[data-scroll-key]") || section, () => patchElementInPlace(section, expanded), {
+        restoreFocus:true,
+        focusTarget:section,
+      });
     });
     list.appendChild(older);
   }
@@ -17975,7 +18040,7 @@ function buildMajorEventTablePreview(record){
     const state = document.createElement("p");
     state.textContent = canonicalSportsDataError ? "Rankings unavailable." : "Rankings loading…";
     section.appendChild(state);
-    if (!canonicalSportsDataLoading) void loadCanonicalSportsData().then(() => renderAll({ preserveViewport:true }));
+    if (!canonicalSportsDataLoading) void loadCanonicalSportsData().then(() => queueScrollIdleMutation(() => renderAll({ preserveViewport:true })));
     return section;
   }
   jointTournamentRankingCompetitions().forEach(competition => {
@@ -18062,11 +18127,12 @@ function buildMajorEventDraw(record){
   return figure;
 }
 
-function buildMajorEventCard(record){
+function buildMajorEventCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
+  const eventCard = interactionCard || card;
   card.className = [
     "event-card",
     "mode-events",
@@ -18079,6 +18145,7 @@ function buildMajorEventCard(record){
   card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.majorEventId = record.id;
   card.dataset.eventId = actionEvent.eventId || actionEvent.id;
+  card.dataset.scrollKey = `major-event:${record.id}`;
   card.dataset.cardState = state;
   card.dataset.cardLevel = cardLevelForState(state);
   card.tabIndex = 0;
@@ -18088,8 +18155,11 @@ function buildMajorEventCard(record){
 
   const advanceState = ({ restoreFocus = false } = {}) => {
     activeMajorEventNowId = record.id;
-    setCardState(record, nextCardState(state));
-    replaceCardPreservingViewport(card, buildMajorEventCard(record), { restoreFocus });
+    setCardState(record, nextCardState(cardStateForEvent(record)));
+    refreshExpandableCard(eventCard, buildMajorEventCard(record, { interactionCard:eventCard }), {
+      restoreFocus,
+      focusTarget:`[data-scroll-key="major-event:${CSS.escape(record.id)}"] .major-event-expand-control`,
+    });
   };
   card.addEventListener("click", event => {
     if (event.target.closest("a, button, input, select, textarea")) return;
@@ -18138,7 +18208,7 @@ function buildMajorEventCard(record){
     event.stopPropagation();
     activeMajorEventNowId = record.id;
     setCardState(record, "opened");
-    replaceCardPreservingViewport(card, buildMajorEventCard(record), { restoreFocus:false });
+    refreshExpandableCard(eventCard, buildMajorEventCard(record, { interactionCard:eventCard }), { restoreFocus:false });
     window.requestAnimationFrame(() => focusMajorEventTimetable(record.id));
   });
   ticketRow.appendChild(inspect);
@@ -18156,6 +18226,7 @@ function buildMajorEventCard(record){
   identity.className = "major-event-identity";
   const logo = document.createElement("div");
   logo.className = "major-event-logo";
+  logo.dataset.scrollStable = `major-event-logo:${record.id}`;
   renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
   const kicker = document.createElement("div");
   kicker.className = "major-event-kicker";
@@ -18301,7 +18372,7 @@ function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
   if (record && cardStateForEvent(record) === "compact") setCardState(record, "selected");
   const hash = eventsDeepLinkHash("major", resolvedEventId);
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "major", id: resolvedEventId } }, "", hash);
-  activateTopLevelTab("events", { preserveCardStates:true, resetViewport:false });
+  activateTopLevelTab("events", { resetViewport:false });
 }
 
 function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
@@ -18313,18 +18384,20 @@ function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
   pendingTicketAlertFocusId = alertId;
   const hash = eventsDeepLinkHash("alert", alertId);
   if (pushHistory && window.location.hash !== hash) history.pushState({ eventsDeepLink: { type: "alert", id: alertId } }, "", hash);
-  activateTopLevelTab("events", { preserveCardStates:true, resetViewport:false });
+  activateTopLevelTab("events", { resetViewport:false });
 }
 
-function buildTicketSaleCard(record){
+function buildTicketSaleCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
+  const eventCard = interactionCard || card;
   card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", "is-swipe-eligible", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
   card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.ticketAlertId = record.id;
   card.dataset.eventId = actionEvent.eventId || actionEvent.id;
+  card.dataset.scrollKey = `ticket-alert:${record.id}`;
   card.dataset.cardState = state;
   card.dataset.cardLevel = cardLevelForState(state);
   card.tabIndex = 0;
@@ -18335,13 +18408,17 @@ function buildTicketSaleCard(record){
     if (!getEventAction(actionEvent).ticketAlertSeenAt){
       updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
     }
-    setCardState(record, nextCardState(state));
-    replaceCardPreservingViewport(card, buildTicketSaleCard(record), { restoreFocus });
+    setCardState(record, nextCardState(cardStateForEvent(record)));
+    refreshExpandableCard(eventCard, buildTicketSaleCard(record, { interactionCard:eventCard }), {
+      restoreFocus,
+      focusTarget:`[data-scroll-key="ticket-alert:${CSS.escape(record.id)}"] .major-event-expand-control`,
+    });
   };
   const identity = document.createElement("header");
   identity.className = "major-event-identity";
   const logo = document.createElement("div");
   logo.className = "major-event-logo";
+  logo.dataset.scrollStable = `ticket-alert-logo:${record.id}`;
   renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
   const alertAction = getEventAction(actionEvent);
   if (!alertAction.ticketAlertSeenAt){
@@ -18376,7 +18453,7 @@ function buildTicketSaleCard(record){
     ticket.addEventListener("click", () => {
       if (!getEventAction(actionEvent).ticketAlertSeenAt){
         updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
-        card.querySelector(".ticket-alert-new-badge")?.remove();
+        eventCard.querySelector(".ticket-alert-new-badge")?.remove();
       }
     });
     actions.appendChild(ticket);
@@ -18488,6 +18565,7 @@ function renderEventsView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
   container.className = "events-feed";
+  container.dataset.scrollList = "events";
   const heading = document.createElement("header");
   heading.className = "events-feed-heading";
   const headingCopy = document.createElement("div");
@@ -18645,12 +18723,11 @@ function renderEventsView(){
   window.requestAnimationFrame(syncContextualJumpButton);
 }
 
-function activateTopLevelTab(nextTab, { preserveCardStates = false, resetViewport = true } = {}){
+function activateTopLevelTab(nextTab, { resetViewport = true } = {}){
   if (activeInspectorCodeId){
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     closeCodeInspector({ restoreViewport: false });
   }
-  if (!preserveCardStates) collapseAllCardStates();
   activeTab = nextTab;
   syncTopLevelNavigationState();
   if (activeTab === "feed") calendarInitialJumpPending = true;
@@ -18681,7 +18758,6 @@ window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
 document.querySelectorAll(".view-toggle button").forEach(btn => {
   btn.addEventListener("click", () => {
-    collapseAllCardStates();
     document.querySelectorAll(".view-toggle button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     activeView = btn.dataset.view;
@@ -18729,6 +18805,10 @@ function currentFeedPresentationFingerprint(){
 
 function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
   if (startupCoordinator.isHydrating()) return false;
+  if (scrollMomentumActive){
+    queueScrollIdleMutation(() => renderFeedIfPresentationChanged({ preserveViewport }));
+    return true;
+  }
   const nextFingerprint = currentFeedPresentationFingerprint();
   const shouldRender = !FEED_REFRESH_LIFECYCLE
     || FEED_REFRESH_LIFECYCLE.shouldRenderUpdate(committedFeedPresentationFingerprint, nextFingerprint);
@@ -18741,7 +18821,6 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
 }
 
 function renderCurrentSection(){
-  clearPendingCardRetractionSpace();
   if (activeInspectorCodeId){
     renderCodeInspector();
   } else if (startupCoordinator.isHydrating()){
@@ -18780,9 +18859,13 @@ function renderTabCounts(){
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
-  clearPendingCardRetractionSpace();
+  if (preserveViewport || viewportAnchor){
+    const anchorTarget = viewportAnchor?.card?.isConnected
+      ? viewportAnchor.card
+      : scrollContinuityAnchorFor(document.querySelector("[data-scroll-key]"));
+    return mutateWithScrollContinuity(anchorTarget, () => renderAll());
+  }
   syncTopLevelNavigationState();
-  const preservedViewportAnchor = viewportAnchor || (preserveViewport ? captureViewportRenderAnchor() : null);
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();
   renderFilters();
@@ -18853,9 +18936,7 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     listView.classList.add("is-startup-revealed");
     startupFeedRevealPending = false;
   }
-  restoreViewportRenderAnchor(preservedViewportAnchor);
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
-  scheduleFirstCardViewportFit();
   scheduleIdentityImageRecovery(listView);
 }
 
@@ -18873,25 +18954,24 @@ function scheduleFirstCardViewportFit(){
   if (headerCompactionFrame !== null) window.cancelAnimationFrame(headerCompactionFrame);
   headerCompactionFrame = window.requestAnimationFrame(() => {
     headerCompactionFrame = null;
-    document.body.classList.remove("header-compact-1", "header-compact-2", "header-compact-3");
-    delete document.body.dataset.firstCardResidualScroll;
-    if (activeTab !== "feed" || activeView !== "list" || window.innerWidth > 420 || window.scrollY > 64){
-      syncFeedFilterDockOffset();
-      return;
-    }
-    const levels = ["header-compact-1", "header-compact-2", "header-compact-3"];
-    const applyNext = index => {
-      const residual = firstCardResidualScroll();
-      if (residual === null) return;
-      if (residual <= 0 || index >= levels.length){
-        document.body.dataset.firstCardResidualScroll = String(residual);
+    const anchor = firstNormalFeedCard();
+    mutateWithScrollContinuity(anchor, () => {
+      document.body.classList.remove("header-compact-1", "header-compact-2", "header-compact-3");
+      delete document.body.dataset.firstCardResidualScroll;
+      if (activeTab !== "feed" || activeView !== "list" || window.innerWidth > 420 || window.scrollY > 64){
         syncFeedFilterDockOffset();
         return;
       }
-      document.body.classList.add(levels[index]);
-      window.requestAnimationFrame(() => applyNext(index + 1));
-    };
-    applyNext(0);
+      const levels = ["header-compact-1", "header-compact-2", "header-compact-3"];
+      let residual = firstCardResidualScroll();
+      for (const level of levels){
+        if (residual === null || residual <= 0) break;
+        document.body.classList.add(level);
+        residual = firstCardResidualScroll();
+      }
+      if (residual !== null) document.body.dataset.firstCardResidualScroll = String(residual);
+      syncFeedFilterDockOffset();
+    });
   });
 }
 
@@ -20746,6 +20826,7 @@ if (typeof ResizeObserver === "function"){
 updateCalendarDate();
 setInterval(updateCalendarDate, 60 * 1000);
 renderAll();
+scheduleFirstCardViewportFit();
 void syncAppRouteFromLocation();
 scheduleBrowserReminders();
 bindPasswordRecoveryFlow();

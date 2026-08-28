@@ -17,8 +17,9 @@ assert(html.includes("pendingMajorEventFocusId") && html.includes("pendingTicket
 assert(/function focusMajorEventCard[\s\S]{0,900}requestAnimationFrame\(restoreTargetFocus\)[\s\S]{0,500}setTimeout/.test(html), "major-event deep links must restore focus after late Events rerenders");
 
 assert(html.includes('card.dataset.cardState = state') && html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"'), "both Events card types must expose compact, selected and opened states");
-assert(html.includes("replaceCardPreservingViewport(card, buildMajorEventCard(record)") && html.includes("replaceCardPreservingViewport(card, buildTicketSaleCard(record)"), "Events card interactions must replace only the keyed card");
-assert(/function replaceCardPreservingViewport[\s\S]{0,1200}getBoundingClientRect\(\)\.top[\s\S]{0,500}window\.scrollTo/.test(html), "keyed card replacement must restore the tapped card's viewport top");
+assert(html.includes("refreshExpandableCard(eventCard, buildMajorEventCard(record") && html.includes("refreshExpandableCard(eventCard, buildTicketSaleCard(record"), "Events expansion must patch the stable keyed card");
+assert(/function mutateWithScrollContinuity[\s\S]{0,2600}getBoundingClientRect\(\)\.top[\s\S]{0,900}window\.scrollBy/.test(html), "the shared transaction must restore the selected anchor with one measured correction");
+assert(html.includes('card.dataset.scrollKey = `major-event:${record.id}`') && html.includes('card.dataset.scrollKey = `ticket-alert:${record.id}`'), "both Events collections must expose stable scroll identities");
 assert(html.includes('.major-event-logo{ display:grid; place-items:center; width:88px; height:90px;') && html.includes('.major-event-logo{ width:74px; height:70px;'), "Events identities must share the compact desktop and mobile fixture frames");
 assert(html.includes("renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta)"), "both Events card types must use the shared official identity renderer");
 assert(html.includes("(primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record)"), "Events with TBC or follows-only starts must retain safe card actions without passing a null fixture");

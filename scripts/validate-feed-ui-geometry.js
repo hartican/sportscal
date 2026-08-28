@@ -35,7 +35,8 @@ assert(html.includes('logo.loading = "lazy"') && html.includes('image.loading = 
 assert(html.includes("identity.replaceChildren(fallback)") && html.includes("logo.hidden = true") && html.includes("fallback.remove()"), "image failure and load handling must prevent a visible image/fallback collision");
 assert(html.includes("function auditFeedUiGeometry"), "the app must expose deterministic live geometry checks for responsive browser QA");
 assert(html.includes('type: "horizontal-overflow"') && html.includes('type: "identity-escape"') && html.includes('type: "identity-overlap"') && html.includes('type: "image-fallback-collision"'), "the live geometry audit must reject every required collision class");
-assert(html.includes("content-visibility:auto") && html.includes("contain-intrinsic-size"), "fixture-heavy cards must reserve off-screen geometry");
+assert(!/\.event-card,\s*\n\.major-event-card,\s*\n\.joint-tournament-card[\s\S]{0,160}contain-intrinsic-size:\s*440px/.test(html), "variable-height feed cards must not use a shared intrinsic estimate");
+assert(/\.code-inspector-fixture:not\(\.is-expanded\)\{ content-visibility:auto; contain-intrinsic-size:auto 92px; \}/.test(html), "only fixed compact Inspector rows may reserve their measured 92px geometry");
 assert(/\.cards-grid > \.event-card\{ padding:14px 14px 18px; \}/.test(html), "mobile Feed cards must retain 14px sides and 18px bottom whitespace");
 assert(html.includes("height:auto;") && html.includes("max-height:none;") && html.includes("overflow:visible;"), "compact cards must not clip a growing final row");
 assert(html.includes(".ticket-sale-card,.ticket-sale-card *{ min-width:0; }") && html.includes("overflow-wrap:anywhere"), "ticket-alert detail must wrap safely on iOS");

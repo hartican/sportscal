@@ -92,8 +92,8 @@ assert(html.includes('id="startupLaunch"') && html.includes('class="startup-laun
 assert(html.includes('class="startup-launch-original"') && html.includes('src="assets/brand/web/nothingsport-logo.png"'), "the liquid fill must reveal the exact original logo pixels");
 assert(html.includes("-webkit-mask:var(--startup-logo-mask)") && html.includes("@keyframes startup-original-logo-fill"), "the glass silhouette and original logo must use the existing alpha mask and rising fill");
 assert(html.includes("startup-launch-meniscus") && html.includes("@keyframes startup-meniscus-rise"), "the rising fill must carry an uneven viscous meniscus");
-assert(html.includes("@keyframes startup-logo-shine") && html.includes("animation:startup-logo-shine .18s"), "the completed original logo must receive a bounded specular settle");
-assert(html.includes("window.setTimeout(() => {") && html.includes("}, 480);") && html.includes("duration:360"), "the launch must reveal the usable shell and complete its header flight in under one second");
+assert(html.includes("@keyframes startup-logo-shine") && /animation:startup-logo-shine \.(?:[1-9]\d*)s/.test(html), "the completed original logo must receive a bounded specular settle");
+assert(html.includes("window.setTimeout(() => {") && html.includes("}, duration + 220);") && html.includes("LOADING_PROGRESS?.FUNNEL_DURATION_MS || 1000"), "the launch must reveal the usable shell and retain a bounded header-flight fallback");
 assert(html.includes("startup-logo-flight") && html.includes("getElementById(\"headerBrandLogo\")") && html.includes("getBoundingClientRect()"), "the final logo must FLIP into the real responsive header bounds");
 assert(html.includes("startup-shell-visible") && html.includes("transition-delay:40ms"), "the app screen must use a short stagger behind the logo flight");
 assert(/@media \(prefers-reduced-motion: reduce\)[\s\S]*#mainContent[\s\S]*animation:none !important/.test(html), "reduced-motion users must bypass the delayed screen transition");
@@ -139,39 +139,30 @@ async function validateServiceWorkerActivation(){
   assert.equal(navigations, 0, "worker activation must never navigate a live Home Screen app during startup");
 }
 
-function validateScrollIdleRetraction(){
-  const schedulerSource = html.match(/function scheduleCardRetractionDuringScroll\(\)\{[\s\S]*?\n\}/);
-  assert(schedulerSource, "the card retraction scheduler must remain independently testable");
+function validateScrollIdleMutationQueue(){
+  const queueSource = html.match(/let scrollMomentumActive = false;[\s\S]*?function queueScrollIdleMutation\(mutation\)\{[\s\S]*?\n\}/);
+  assert(queueSource, "the scroll-idle mutation queue must remain independently testable");
   let idleTask = null;
-  let collapses = 0;
+  const applied = [];
   const sandbox = {
-    CARD_RETRACTION_SCROLL_IDLE_MS: 180,
-    cardRetractionFrame: null,
-    cardRetractionScrollTimer: null,
-    lastCardRetractionScrollY: 0,
-    pendingCardRetractionSpaceCards: new Set(),
-    cardScrollDirection(){ return "down"; },
-    clearPendingCardRetractionSpace(){},
-    scheduleCardRetractionSpaceCleanup(){},
-    collapseCardsOutsideActiveViewport(){ collapses += 1; },
     window: {
-      scrollY: 120,
-      requestAnimationFrame(callback){ callback(); return 1; },
       clearTimeout(){ idleTask = null; },
       setTimeout(callback, delay){
-        assert.equal(delay, 180, "card retraction must use the bounded scroll-idle delay");
+        assert.equal(delay, 150, "background list mutations must use the bounded scroll-idle fallback");
         idleTask = callback;
         return 1;
       },
     },
   };
   vm.createContext(sandbox);
-  vm.runInContext(`${schedulerSource[0]}\nglobalThis.__scheduleRetraction = scheduleCardRetractionDuringScroll;`, sandbox, { filename: "index.html" });
-  sandbox.__scheduleRetraction();
-  assert.equal(collapses, 0, "active scrolling must not destroy and rebuild card icons");
-  assert.equal(typeof idleTask, "function", "card retraction must be queued until scrolling settles");
+  vm.runInContext(`${queueSource[0]}\nglobalThis.__note = noteScrollMomentum; globalThis.__queue = queueScrollIdleMutation;`, sandbox, { filename: "index.html" });
+  sandbox.__note();
+  sandbox.__queue(() => applied.push("stale"));
+  sandbox.__queue(() => applied.push("latest"));
+  assert.deepEqual(applied, [], "active momentum must not rebuild a visible list");
+  assert.equal(typeof idleTask, "function", "the latest mutation must remain queued until scrolling settles");
   idleTask();
-  assert.equal(collapses, 1, "expanded cards must still retract once scrolling is idle");
+  assert.deepEqual(applied, ["latest"], "only the latest background mutation may flush after scrolling settles");
 }
 
 async function validateDirectFileBundleReload(){
@@ -223,7 +214,7 @@ async function validateDirectFileBundleReload(){
 Promise.all([
   validateServiceWorkerActivation(),
   validateDirectFileBundleReload(),
-  Promise.resolve().then(validateScrollIdleRetraction),
+  Promise.resolve().then(validateScrollIdleMutationQueue),
 ])
   .then(() => console.log("Refresh lifecycle valid: first load is automatic, unchanged hydration is render-gated, and direct-file recovery reloads the generated feed."))
   .catch(error => {
