@@ -6,6 +6,8 @@ Cross-device writes use the versioned `user-state-patch.v1` contract. Each clien
 
 The closed trust pilot has a separate append-only `product_events` table. It accepts only the versioned fixed-choice contract in `config/product-events.js`; it stores no free text, social content, precise location, or contact information.
 
+Web Push installations/reminders and private fixture chat use separate forced-RLS, server-only tables. `anon` and `authenticated` have no direct table privileges. The authenticated Vercel APIs verify the caller first, then use the server-only Supabase service role for only those commands; the credential never enters browser code. Chat room access is based solely on `nothingsports_chat_members`, not follows.
+
 The Phase 2 tennis catalogue has separate public-reference tables in `nothingsports-tennis-catalogue.sql`. Clients receive read-only access; only a trusted server-side ingestion job may write reviewed or licensed provider snapshots. Do not apply that migration until the provider contract and deployment environment are approved.
 
 The Phase 3 broadcaster-discovery queue has private service-role-only tables in `nothingsports-coverage-candidates.sql`. Both tables use forced RLS and revoke every privilege from `anon` and `authenticated`; the browser never needs direct access. Do not apply the migration until a licensed provider and server-side ingestion environment are approved. Repository reports remain the operational MVP.
@@ -18,11 +20,14 @@ The Phase 3 broadcaster-discovery queue has private service-role-only tables in 
 4. Run `nothingsports-tsdr.sql` to verify the weekly TSDR and fixed-choice pulse queries. Product users cannot run these administrative read queries.
 5. Run `harden-nothingsports-security.sql` to revoke direct execution of the internal `public.rls_auto_enable()` helper from `PUBLIC`, `anon` and `authenticated`.
 6. Run `nothingsports-pilot-readout.sql` on demand as an administrator and pass its JSON export through `scripts/evaluate-pilot-readout.js`. The query creates no view or client-readable object and groups pulses by explicit survey version.
-7. In Authentication > Sign In / Providers, keep Email enabled. In Authentication > General Configuration, turn off `Allow new users to sign up` for the closed pilot; existing users can still sign in. Enable leaked-password protection in Authentication security settings.
-8. Create approved pilot accounts in Authentication > Users with a confirmed email and password. The app exposes password sign-in only and has no public sign-up route.
+7. Run `follow-first-user-meta-and-notifications.sql` for the user metadata and server-only Web Push tables.
+8. Run `private-fixture-chat.sql` for private room/profile/member/message tables, enforcement triggers and the hourly seven-day purge job. Confirm every chat table has RLS enabled and forced, with no `anon` or `authenticated` table privileges.
+9. In Authentication > Sign In / Providers, keep Email enabled. In Authentication > General Configuration, turn off `Allow new users to sign up` for the closed pilot; existing users can still sign in. Enable leaked-password protection in Authentication security settings.
+10. Create approved pilot accounts in Authentication > Users with a confirmed email and password. The app exposes password sign-in only and has no public sign-up route.
    - `Keep me signed in on this device` is enabled by default. It stores the rotating Supabase access/refresh session in that browser or Home Screen app, never the password. Sign out clears both persistent and session-only copies on that device.
-9. Add `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` to the Vercel project for Production, Preview, and Development as appropriate. A legacy `SUPABASE_ANON_KEY` is accepted as a compatibility fallback.
-10. Do not add or expose a Supabase service-role or secret key. All state and product-event writes use the signed-in user's access token and the tables' RLS policies. Rotate any secret key that has ever been shared or committed.
+11. Add `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` to the Vercel project for Production, Preview, and Development as appropriate. A legacy `SUPABASE_ANON_KEY` is accepted as a compatibility fallback.
+12. Add `SUPABASE_SERVICE_ROLE_KEY` only as a sensitive server-side Vercel setting for the notification and chat APIs. Never prefix it with a public/client build convention, return it from an API, inject it into HTML, or commit it. Durable user state and product-event writes continue to use the signed-in user's access token and RLS.
+13. Add `CHAT_ADMIN_EMAILS` as a sensitive, comma-separated list of exact authenticated account emails. Missing or empty values fail closed and expose no chat admin controls.
 
 The ongoing measurement and operational-readiness checklist is documented in `docs/pilot/phase6-runbook.md`.
 

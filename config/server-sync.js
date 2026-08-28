@@ -395,6 +395,21 @@
         }
         return jsonRequest("/api/notifications", options);
       },
+      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "" } = {}, command = null){
+        if (command){
+          return authenticatedRequest("/api/chat", {
+            method:"POST",
+            body:JSON.stringify(command),
+          });
+        }
+        const params = new URLSearchParams();
+        if (mode) params.set("mode", mode);
+        if (roomId) params.set("roomId", roomId);
+        if (after) params.set("after", after);
+        if (before) params.set("before", before);
+        if (q) params.set("q", q);
+        return authenticatedRequest(`/api/chat?${params.toString()}`);
+      },
       async loadFeed({ cursor = 0, limit = 20 } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
         return authenticatedRequest(`/api/feed?${params.toString()}`);

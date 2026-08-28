@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="164">
+<meta name="app-shell-version" content="165">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5359,6 +5359,190 @@ footer.app-footer{
   padding:16px 20px calc(20px + env(safe-area-inset-bottom));
 }
 
+/* ---------- Private fixture chat ---------- */
+.chat-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:260;
+  display:none;
+  justify-content:flex-end;
+  background:rgba(3,3,8,0.62);
+  backdrop-filter:blur(8px);
+}
+.chat-backdrop.show{ display:flex; }
+.chat-drawer{
+  width:min(460px, 100%);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border-left:1px solid var(--border);
+  background:var(--panel-bg);
+  box-shadow:-28px 0 80px rgba(0,0,0,0.48);
+}
+.chat-head{
+  flex:0 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:calc(16px + env(safe-area-inset-top)) 18px 14px;
+  border-bottom:1px solid var(--border);
+}
+.chat-head-copy{ min-width:0; }
+.chat-head h2{ font-size:1rem; overflow-wrap:anywhere; }
+.chat-head p{ margin-top:4px; color:var(--text-dim); font-size:.72rem; line-height:1.4; }
+.chat-close{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg-card);
+  color:var(--text);
+  cursor:pointer;
+  font:800 1.2rem/1 inherit;
+}
+.chat-body{
+  min-height:0;
+  flex:1 1 auto;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:16px 18px;
+}
+.chat-connection{
+  color:var(--text-dim);
+  font-size:.7rem;
+}
+.chat-connection[data-state="connected"]{ color:var(--success); }
+.chat-connection[data-state="retrying"]{ color:var(--attention); }
+.chat-disclosure{
+  margin:0 0 14px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--text-dim);
+  background:var(--bg-card);
+  font-size:.7rem;
+  line-height:1.5;
+}
+.chat-room-list,
+.chat-message-list,
+.chat-member-list,
+.chat-user-results{ display:grid; gap:8px; }
+.chat-room-row,
+.chat-member-row,
+.chat-user-row{
+  width:100%;
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg-card);
+  color:var(--text);
+  text-align:left;
+}
+button.chat-room-row{ cursor:pointer; }
+.chat-room-row strong,
+.chat-room-row span{ display:block; }
+.chat-room-row span{ margin-top:3px; color:var(--text-dim); font-size:.68rem; }
+.chat-unread{
+  min-width:24px;
+  height:24px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:var(--accent);
+  color:#05070a;
+  font-size:.68rem;
+  font-weight:900;
+}
+.chat-message{
+  max-width:88%;
+  justify-self:start;
+  padding:9px 11px;
+  border:1px solid var(--border);
+  border-radius:12px 12px 12px 4px;
+  background:var(--bg-card);
+}
+.chat-message.own{
+  justify-self:end;
+  border-color:color-mix(in srgb, var(--accent) 48%, var(--border));
+  border-radius:12px 12px 4px 12px;
+}
+.chat-message-meta{
+  display:flex;
+  gap:8px;
+  align-items:baseline;
+  margin-bottom:4px;
+  color:var(--text-dim);
+  font-size:.63rem;
+}
+.chat-message-meta strong{ color:var(--text); font-size:.68rem; }
+.chat-message-body{ white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; line-height:1.45; }
+.chat-new-messages{
+  position:sticky;
+  bottom:8px;
+  min-height:44px;
+  margin:10px auto 0;
+  display:none;
+}
+.chat-new-messages.show{ display:flex; }
+.chat-composer{
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  gap:8px;
+  padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+  border-top:1px solid var(--border);
+  background:var(--panel-bg);
+}
+.chat-composer textarea{
+  min-height:48px;
+  max-height:140px;
+  resize:vertical;
+}
+.chat-composer .btn{ min-width:76px; }
+.chat-form{ display:grid; gap:12px; }
+.chat-form-actions{ display:flex; flex-wrap:wrap; gap:8px; }
+.chat-form .field-label input,
+.chat-form .field-label textarea{ width:100%; }
+.chat-section-title{ margin:18px 0 8px; font-size:.82rem; }
+.chat-empty{ color:var(--text-dim); font-size:.76rem; line-height:1.5; }
+.event-chat-action{ white-space:nowrap; }
+.active-chat-count{ min-width:20px; text-align:center; font-variant-numeric:tabular-nums; }
+body.chat-open{ overflow:hidden; }
+
+@media (max-width: 640px){
+  .chat-backdrop{ align-items:flex-end; }
+  .chat-drawer{
+    width:100%;
+    height:min(86dvh, 760px);
+    border-left:0;
+    border-top:1px solid var(--border);
+    border-radius:22px 22px 0 0;
+    box-shadow:0 -28px 80px rgba(0,0,0,0.48);
+  }
+  .chat-body{ padding-inline:max(14px, env(safe-area-inset-left)); }
+  .chat-composer{
+    padding-left:max(14px, env(safe-area-inset-left));
+    padding-right:max(14px, env(safe-area-inset-right));
+  }
+  .header-actions{
+    grid-template-columns:minmax(80px, 1fr) repeat(4, 44px) 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .chat-backdrop,
+  .chat-drawer{ scroll-behavior:auto; }
+}
+
 .tune-section + .tune-section{
   margin-top:20px;
   padding-top:18px;
@@ -6211,6 +6395,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
       <button class="btn ghost" id="aboutBtn" aria-label="About"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
+      <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
@@ -6449,6 +6634,26 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </div>
 </div>
 
+<div class="chat-backdrop" id="chatBackdrop" aria-hidden="true">
+  <aside class="chat-drawer" id="chatDrawer" role="dialog" aria-modal="true" aria-labelledby="chatTitle" aria-describedby="chatSubtitle">
+    <header class="chat-head">
+      <div class="chat-head-copy">
+        <h2 id="chatTitle">Active chats</h2>
+        <p id="chatSubtitle">Private fixture rooms for invited members.</p>
+        <p class="chat-connection" id="chatConnection" data-state="idle" role="status" aria-live="polite">Idle</p>
+      </div>
+      <button class="chat-close" id="closeChatBtn" type="button" aria-label="Close chat">×</button>
+    </header>
+    <div class="chat-body" id="chatBody"></div>
+    <button class="btn primary chat-new-messages" id="chatNewMessagesBtn" type="button">New messages</button>
+    <form class="chat-composer" id="chatComposer" hidden>
+      <label class="sr-only" for="chatMessageInput">Message</label>
+      <textarea id="chatMessageInput" maxlength="500" rows="2" placeholder="Write a message or emoji" required></textarea>
+      <button class="btn primary" type="submit">Send</button>
+    </form>
+  </aside>
+</div>
+
 <script src="config/brand-copy.js"></script>
 <script src="config/vector-assets.js"></script>
 <script src="config/card-identities.js"></script>
@@ -6472,6 +6677,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/product-events.js"></script>
 <script src="config/event-action-identity.js"></script>
 <script src="config/user-state-sync.js"></script>
+<script src="config/chat-contract.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/feed-controls.js"></script>
 <script src="config/personalised-feed.js"></script>
@@ -6495,7 +6701,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=164")
+  : loadDeferredScript("config/national-team-identities.js?v=165")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7571,6 +7777,7 @@ const DISPOSABLE_STORAGE = globalThis.NOTHINGSPORTS_DISPOSABLE_STORAGE || null;
 const disposableStore = DISPOSABLE_STORAGE?.createStore?.() || null;
 const EVENT_ACTION_IDENTITY = globalThis.NOTHINGSPORTS_EVENT_ACTION_IDENTITY || null;
 const USER_STATE_SYNC = globalThis.NOTHINGSPORTS_USER_STATE_SYNC || null;
+const CHAT = globalThis.NOTHINGSPORTS_CHAT || null;
 const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.createClient()
@@ -7865,6 +8072,20 @@ let serverPersistence = {
   lastSyncedAt: null,
   message: "",
 };
+let chatState = {
+  isAdmin:false,
+  profile:{ displayName:null },
+  rooms:[],
+  currentRoom:null,
+  messages:[],
+  olderCursor:null,
+  activeSignature:"",
+};
+let chatActiveTimer = null;
+let chatRoomTimer = null;
+let chatPollFailures = 0;
+let chatPreviousFocus = null;
+let chatSetupFixture = null;
 let productEventOwnerId = null;
 let productExposureObserver = null;
 const productExposureTargets = new WeakMap();
@@ -9090,6 +9311,7 @@ function setServerPersistence(patch){
   if (settingsOpen && ["account", "pilot"].includes(settingsSection) && draftPreferences){
     renderSettingsScreen();
   }
+  syncChatSessionState(previousOwnerId, nextOwnerId);
   return serverPersistence;
 }
 
@@ -14505,6 +14727,7 @@ function appendEventQuickActions(container, ev){
     void toggleQuickReminder(ev, reminder);
   });
   actions.appendChild(reminder);
+  appendFixtureChatActions(actions, ev);
   const viewing = FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []);
   if (viewing){
     const link = document.createElement("a");
@@ -20826,6 +21049,666 @@ document.getElementById("standingsSpoilerModal").addEventListener("click", event
   pendingStandingsReveal = null;
   setStandingsSpoilerModalOpen(false);
 });
+
+/* ============ PRIVATE FIXTURE CHAT ============ */
+function chatFixtureId(event){
+  return String(event?.canonicalEventId || event?.eventId || event?.id || "").trim();
+}
+
+function chatRoomsForFixture(event){
+  const fixtureId = chatFixtureId(event);
+  return chatState.rooms.filter(room => room.canonicalFixtureId === fixtureId);
+}
+
+function chatFixtureEligible(event){
+  const startsAt = Date.parse(event?.startTimeUtc || "");
+  if (!Number.isFinite(startsAt)) return false;
+  const status = String(event?.status || "").toLowerCase();
+  if (["cancelled", "postponed", "completed", "past"].includes(status)) return false;
+  const liveWindow = Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;
+  return startsAt > Date.now() || Date.now() <= startsAt + liveWindow;
+}
+
+function appendFixtureChatActions(container, event){
+  if (!serverPersistence.user || !serverSyncClient?.chatRequest || !CHAT) return;
+  const rooms = chatRoomsForFixture(event);
+  if (rooms.length){
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "event-quick-action event-chat-action";
+    open.textContent = `Chat · ${rooms.length}`;
+    open.setAttribute("aria-label", `Open ${rooms.length} private ${rooms.length === 1 ? "chat" : "chats"} for ${event.name}`);
+    open.addEventListener("click", clickEvent => {
+      clickEvent.stopPropagation();
+      openFixtureChats(event);
+    });
+    container.appendChild(open);
+  }
+  if (chatState.isAdmin && chatFixtureEligible(event)){
+    const setup = document.createElement("button");
+    setup.type = "button";
+    setup.className = "event-quick-action event-chat-action";
+    setup.textContent = "Set up chat";
+    setup.setAttribute("aria-label", `Set up a private chat for ${event.name}`);
+    setup.addEventListener("click", clickEvent => {
+      clickEvent.stopPropagation();
+      openChatSetup(event);
+    });
+    container.appendChild(setup);
+  }
+}
+
+function updateActiveChatButton(){
+  const button = document.getElementById("activeChatsBtn");
+  const count = document.getElementById("activeChatCount");
+  const signedIn = Boolean(serverPersistence.user && serverSyncClient?.chatRequest);
+  const unread = chatState.rooms.reduce((sum, room) => sum + Number(room.unreadCount || 0), 0);
+  button.hidden = !signedIn;
+  count.textContent = String(unread || chatState.rooms.length || 0);
+  button.setAttribute("aria-label", unread
+    ? `Active chats, ${unread} unread ${unread === 1 ? "message" : "messages"}`
+    : `Active chats, ${chatState.rooms.length} open ${chatState.rooms.length === 1 ? "room" : "rooms"}`);
+}
+
+function chatConnection(message, state = "idle"){
+  const status = document.getElementById("chatConnection");
+  status.textContent = message;
+  status.dataset.state = state;
+}
+
+function setChatDrawerOpen(open){
+  const backdrop = document.getElementById("chatBackdrop");
+  backdrop.classList.toggle("show", open);
+  backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+  document.body.classList.toggle("chat-open", open);
+  if (open){
+    chatPreviousFocus = document.activeElement;
+    window.requestAnimationFrame(() => document.getElementById("closeChatBtn").focus());
+  } else {
+    window.clearTimeout(chatRoomTimer);
+    chatRoomTimer = null;
+    chatState.currentRoom = null;
+    chatState.messages = [];
+    chatState.olderCursor = null;
+    document.getElementById("chatComposer").hidden = true;
+    document.getElementById("chatNewMessagesBtn").classList.remove("show");
+    chatPreviousFocus?.focus?.();
+    chatPreviousFocus = null;
+  }
+}
+
+function setChatHeading(title, subtitle){
+  document.getElementById("chatTitle").textContent = title;
+  document.getElementById("chatSubtitle").textContent = subtitle;
+}
+
+function chatRoomRow(room){
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "chat-room-row";
+  const copy = document.createElement("span");
+  const name = document.createElement("strong");
+  name.textContent = room.roomName;
+  const fixture = document.createElement("span");
+  fixture.textContent = room.fixture?.name || "Fixture chat";
+  copy.append(name, fixture);
+  button.appendChild(copy);
+  if (room.unreadCount){
+    const unread = document.createElement("span");
+    unread.className = "chat-unread";
+    unread.textContent = String(room.unreadCount);
+    unread.setAttribute("aria-label", `${room.unreadCount} unread messages`);
+    button.appendChild(unread);
+  }
+  button.addEventListener("click", () => { void openChatRoom(room.roomId); });
+  return button;
+}
+
+function renderActiveChats(){
+  chatSetupFixture = null;
+  chatState.currentRoom = null;
+  chatState.messages = [];
+  chatState.olderCursor = null;
+  setChatHeading("Active chats", "Private fixture rooms for invited members.");
+  chatConnection(navigator.onLine ? "Connected" : "Offline — polling paused", navigator.onLine ? "connected" : "retrying");
+  const body = document.getElementById("chatBody");
+  body.replaceChildren();
+  document.getElementById("chatComposer").hidden = true;
+  const disclosure = document.createElement("p");
+  disclosure.className = "chat-disclosure";
+  disclosure.textContent = "Rooms are private to invited members. App admins can inspect open rooms and retain read-only access for seven days after closure.";
+  body.appendChild(disclosure);
+  if (!chatState.rooms.length){
+    const empty = document.createElement("p");
+    empty.className = "chat-empty";
+    empty.textContent = chatState.isAdmin
+      ? "There are no open rooms. Use Set up chat on an upcoming or live fixture."
+      : "You have no active fixture chats.";
+    body.appendChild(empty);
+    return;
+  }
+  const list = document.createElement("div");
+  list.className = "chat-room-list";
+  chatState.rooms.forEach(room => list.appendChild(chatRoomRow(room)));
+  body.appendChild(list);
+}
+
+function openActiveChats(){
+  setChatDrawerOpen(true);
+  renderActiveChats();
+  void refreshChatActive({ rerenderOpenList:true });
+}
+
+function renderFixtureRoomChooser(event){
+  chatState.currentRoom = null;
+  chatState.messages = [];
+  chatState.olderCursor = null;
+  const rooms = chatRoomsForFixture(event);
+  setChatHeading(event.name || "Fixture chats", rooms.length === 1 ? "One private room" : `${rooms.length} private rooms`);
+  const body = document.getElementById("chatBody");
+  body.replaceChildren();
+  document.getElementById("chatComposer").hidden = true;
+  const list = document.createElement("div");
+  list.className = "chat-room-list";
+  rooms.forEach(room => list.appendChild(chatRoomRow(room)));
+  body.appendChild(list);
+  if (chatState.isAdmin && chatFixtureEligible(event)){
+    const setup = document.createElement("button");
+    setup.type = "button";
+    setup.className = "btn ghost";
+    setup.textContent = "Set up another room";
+    setup.addEventListener("click", () => openChatSetup(event));
+    body.appendChild(setup);
+  }
+}
+
+function openFixtureChats(event){
+  const rooms = chatRoomsForFixture(event);
+  setChatDrawerOpen(true);
+  if (rooms.length === 1) void openChatRoom(rooms[0].roomId);
+  else renderFixtureRoomChooser(event);
+}
+
+function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
+  const label = document.createElement("label");
+  label.className = "field-label";
+  label.textContent = "Find existing accounts";
+  const input = document.createElement("input");
+  input.type = "search";
+  input.autocomplete = "off";
+  input.placeholder = "At least 3 characters";
+  input.minLength = CHAT.LIMITS.userSearchMin;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "btn ghost";
+  button.textContent = "Search";
+  const results = document.createElement("div");
+  results.className = "chat-user-results";
+  const status = document.createElement("p");
+  status.className = "chat-empty";
+  status.setAttribute("role", "status");
+  label.appendChild(input);
+  host.append(label, button, status, results);
+  button.addEventListener("click", async () => {
+    results.replaceChildren();
+    status.textContent = "Searching…";
+    try{
+      const payload = await serverSyncClient.chatRequest({ mode:"users", q:input.value.trim() });
+      const visible = payload.users.filter(account => !exclude.has(account.accountId));
+      status.textContent = visible.length ? "Choose accounts to invite." : "No matching accounts are available.";
+      visible.forEach(account => {
+        const row = document.createElement("label");
+        row.className = "chat-user-row";
+        const copy = document.createElement("span");
+        const name = document.createElement("strong");
+        name.textContent = account.displayName || "Display name not set";
+        const email = document.createElement("span");
+        email.textContent = account.email;
+        copy.append(name, email);
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = account.accountId;
+        checkbox.addEventListener("change", () => onSelection?.(account, checkbox.checked));
+        row.append(copy, checkbox);
+        results.appendChild(row);
+      });
+    }catch(error){
+      status.textContent = error.message || "Account search is unavailable.";
+    }
+  });
+}
+
+function openChatSetup(event){
+  if (!chatState.isAdmin) return;
+  chatSetupFixture = event;
+  chatState.currentRoom = null;
+  chatState.messages = [];
+  chatState.olderCursor = null;
+  setChatDrawerOpen(true);
+  setChatHeading("Set up chat", event.name || "Upcoming fixture");
+  chatConnection("Admin setup", "connected");
+  document.getElementById("chatComposer").hidden = true;
+  const body = document.getElementById("chatBody");
+  body.replaceChildren();
+  const disclosure = document.createElement("p");
+  disclosure.className = "chat-disclosure";
+  disclosure.textContent = "Invited members and app admins can read the open room. Closing is irreversible; app admins retain read-only access for seven days before permanent purge.";
+  const form = document.createElement("form");
+  form.className = "chat-form";
+  const nameLabel = document.createElement("label");
+  nameLabel.className = "field-label";
+  nameLabel.textContent = "Room name";
+  const nameInput = document.createElement("input");
+  nameInput.required = true;
+  nameInput.maxLength = CHAT.LIMITS.roomNameMax;
+  nameInput.placeholder = "Watch party";
+  nameLabel.appendChild(nameInput);
+  const selected = new Set();
+  form.appendChild(nameLabel);
+  renderAdminUserSearch(form, {
+    exclude:new Set([serverPersistence.user?.id].filter(Boolean)),
+    onSelection(account, checked){
+      if (checked) selected.add(account.accountId);
+      else selected.delete(account.accountId);
+    },
+  });
+  const submit = document.createElement("button");
+  submit.type = "submit";
+  submit.className = "btn primary";
+  submit.textContent = "Create room";
+  form.appendChild(submit);
+  form.addEventListener("submit", async submitEvent => {
+    submitEvent.preventDefault();
+    submit.disabled = true;
+    chatConnection("Creating room…");
+    try{
+      const payload = await serverSyncClient.chatRequest({}, {
+        action:"create-room",
+        canonicalFixtureId:chatFixtureId(event),
+        roomName:nameInput.value,
+        memberIds:[...selected],
+      });
+      await refreshChatActive();
+      await openChatRoom(payload.room.roomId);
+    }catch(error){
+      chatConnection(error.message || "The room could not be created.", "retrying");
+      submit.disabled = false;
+    }
+  });
+  body.append(disclosure, form);
+}
+
+function chatMessageElement(message){
+  const item = document.createElement("article");
+  item.className = `chat-message${message.own ? " own" : ""}`;
+  const meta = document.createElement("div");
+  meta.className = "chat-message-meta";
+  const sender = document.createElement("strong");
+  sender.textContent = message.senderName;
+  const time = document.createElement("time");
+  time.dateTime = message.sentAt;
+  time.textContent = new Intl.DateTimeFormat("en-AU", {
+    hour:"numeric", minute:"2-digit", timeZone:"Australia/Sydney",
+  }).format(new Date(message.sentAt));
+  const body = document.createElement("div");
+  body.className = "chat-message-body";
+  body.textContent = message.body;
+  meta.append(sender, time);
+  item.append(meta, body);
+  return item;
+}
+
+function renderChatDisplayNameForm(host){
+  const form = document.createElement("form");
+  form.className = "chat-form";
+  const label = document.createElement("label");
+  label.className = "field-label";
+  label.textContent = "Chat display name";
+  const input = document.createElement("input");
+  input.required = true;
+  input.minLength = CHAT.LIMITS.displayNameMin;
+  input.maxLength = CHAT.LIMITS.displayNameMax;
+  input.autocomplete = "nickname";
+  const help = document.createElement("p");
+  help.className = "chat-empty";
+  help.textContent = "Use 2–30 characters. Members see this name; your email stays private.";
+  const save = document.createElement("button");
+  save.type = "submit";
+  save.className = "btn primary";
+  save.textContent = "Save display name";
+  label.appendChild(input);
+  form.append(label, help, save);
+  form.addEventListener("submit", async submitEvent => {
+    submitEvent.preventDefault();
+    save.disabled = true;
+    try{
+      const payload = await serverSyncClient.chatRequest({}, { action:"set-display-name", displayName:input.value });
+      chatState.profile = payload.profile;
+      renderOpenChatRoom();
+    }catch(error){
+      help.textContent = error.message || "The display name could not be saved.";
+      save.disabled = false;
+    }
+  });
+  host.appendChild(form);
+}
+
+function renderChatAdminControls(host, room){
+  if (!chatState.isAdmin || room.status !== "open") return;
+  const heading = document.createElement("h3");
+  heading.className = "chat-section-title";
+  heading.textContent = "Room members";
+  const list = document.createElement("div");
+  list.className = "chat-member-list";
+  const memberIds = new Set();
+  room.members.forEach(member => {
+    if (member.accountId) memberIds.add(member.accountId);
+    const row = document.createElement("div");
+    row.className = "chat-member-row";
+    const name = document.createElement("span");
+    name.textContent = member.displayName;
+    row.appendChild(name);
+    if (member.accountId && member.accountId !== serverPersistence.user?.id){
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "btn ghost";
+      remove.textContent = "Remove";
+      remove.setAttribute("aria-label", `Remove ${member.displayName} from this chat`);
+      remove.addEventListener("click", async () => {
+        remove.disabled = true;
+        try{
+          await serverSyncClient.chatRequest({}, { action:"remove-member", roomId:room.roomId, accountId:member.accountId });
+          await openChatRoom(room.roomId);
+        }catch(error){
+          chatConnection(error.message || "Member removal failed.", "retrying");
+          remove.disabled = false;
+        }
+      });
+      row.appendChild(remove);
+    }
+    list.appendChild(row);
+  });
+  const add = document.createElement("section");
+  add.className = "chat-form";
+  const selected = new Set();
+  renderAdminUserSearch(add, {
+    exclude:memberIds,
+    onSelection(account, checked){
+      if (checked) selected.add(account.accountId);
+      else selected.delete(account.accountId);
+    },
+  });
+  const addButton = document.createElement("button");
+  addButton.type = "button";
+  addButton.className = "btn ghost";
+  addButton.textContent = "Add selected members";
+  addButton.addEventListener("click", async () => {
+    if (!selected.size) return;
+    addButton.disabled = true;
+    try{
+      await serverSyncClient.chatRequest({}, { action:"add-members", roomId:room.roomId, memberIds:[...selected] });
+      await openChatRoom(room.roomId);
+    }catch(error){
+      chatConnection(error.message || "Members could not be added.", "retrying");
+      addButton.disabled = false;
+    }
+  });
+  add.appendChild(addButton);
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "btn ghost";
+  close.textContent = "Close room permanently";
+  close.addEventListener("click", async () => {
+    close.disabled = true;
+    try{
+      const payload = await serverSyncClient.chatRequest({}, { action:"close-room", roomId:room.roomId });
+      chatState.currentRoom = { ...room, ...payload.room, readOnly:true };
+      renderOpenChatRoom({ autoScroll:false });
+      void refreshChatActive();
+    }catch(error){
+      chatConnection(error.message || "The room could not be closed.", "retrying");
+      close.disabled = false;
+    }
+  });
+  host.append(heading, list, add, close);
+}
+
+function renderOpenChatRoom({ autoScroll = true, showNew = false } = {}){
+  const room = chatState.currentRoom;
+  if (!room) return;
+  setChatHeading(room.roomName, room.fixture?.name || "Private fixture chat");
+  const body = document.getElementById("chatBody");
+  body.replaceChildren();
+  const disclosure = document.createElement("p");
+  disclosure.className = "chat-disclosure";
+  disclosure.textContent = room.status === "closed"
+    ? "This room is closed. Members lost access immediately; app admins may inspect this read-only transcript until its permanent purge seven days after closure."
+    : "Invited members and app admins can read this open room. If an admin closes it, members lose access immediately and admins retain read-only access for seven days before purge.";
+  const list = document.createElement("div");
+  list.className = "chat-message-list";
+  list.setAttribute("role", "log");
+  list.setAttribute("aria-live", "polite");
+  if (chatState.olderCursor){
+    const older = document.createElement("button");
+    older.type = "button";
+    older.className = "btn ghost";
+    older.textContent = "Load older messages";
+    older.addEventListener("click", () => { void loadOlderChatMessages(older); });
+    list.appendChild(older);
+  }
+  if (!chatState.messages.length){
+    const empty = document.createElement("p");
+    empty.className = "chat-empty";
+    empty.textContent = "No messages yet.";
+    list.appendChild(empty);
+  } else {
+    chatState.messages.forEach(message => list.appendChild(chatMessageElement(message)));
+  }
+  body.append(disclosure, list);
+  if (!chatState.profile.displayName && !room.readOnly) renderChatDisplayNameForm(body);
+  renderChatAdminControls(body, room);
+  const composer = document.getElementById("chatComposer");
+  composer.hidden = Boolean(room.readOnly || !chatState.profile.displayName);
+  const newer = document.getElementById("chatNewMessagesBtn");
+  newer.classList.toggle("show", Boolean(showNew));
+  if (autoScroll) body.scrollTop = body.scrollHeight;
+  chatConnection(room.status === "closed" ? "Closed · admin read-only" : (navigator.onLine ? "Connected" : "Offline — polling paused"), room.status === "closed" || !navigator.onLine ? "retrying" : "connected");
+}
+
+function mergeChatMessages(messages){
+  const byId = new Map(chatState.messages.map(message => [message.messageId, message]));
+  (messages || []).forEach(message => byId.set(message.messageId, message));
+  chatState.messages = [...byId.values()].sort((first, second) => Date.parse(first.sentAt) - Date.parse(second.sentAt));
+}
+
+async function openChatRoom(roomId){
+  window.clearTimeout(chatRoomTimer);
+  chatRoomTimer = null;
+  chatConnection("Connecting…");
+  try{
+    const payload = await serverSyncClient.chatRequest({ roomId });
+    chatState.currentRoom = payload.room;
+    chatState.messages = payload.messages || [];
+    chatState.olderCursor = payload.olderCursor || null;
+    renderOpenChatRoom({ autoScroll:true });
+    if (!payload.room.readOnly){
+      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:new Date().toISOString() }).catch(() => null);
+    }
+    chatPollFailures = 0;
+    scheduleChatRoomPoll(CHAT.POLLING.roomMs);
+  }catch(error){
+    chatConnection(error.message || "Chat could not be opened.", "retrying");
+    const body = document.getElementById("chatBody");
+    body.replaceChildren();
+    const message = document.createElement("p");
+    message.className = "chat-empty";
+    message.textContent = error.message || "Chat could not be opened.";
+    body.appendChild(message);
+  }
+}
+
+async function loadOlderChatMessages(button){
+  const room = chatState.currentRoom;
+  const before = chatState.olderCursor;
+  if (!room || !before) return;
+  button.disabled = true;
+  const body = document.getElementById("chatBody");
+  const previousHeight = body.scrollHeight;
+  try{
+    const payload = await serverSyncClient.chatRequest({ roomId:room.roomId, before });
+    chatState.currentRoom = payload.room;
+    mergeChatMessages(payload.messages);
+    chatState.olderCursor = payload.olderCursor || null;
+    renderOpenChatRoom({ autoScroll:false });
+    body.scrollTop += body.scrollHeight - previousHeight;
+  }catch(error){
+    chatConnection(error.message || "Older messages could not be loaded.", "retrying");
+    button.disabled = false;
+  }
+}
+
+function scheduleChatRoomPoll(delay){
+  window.clearTimeout(chatRoomTimer);
+  if (!chatState.currentRoom || chatState.currentRoom.status !== "open") return;
+  chatRoomTimer = window.setTimeout(pollChatRoom, delay);
+}
+
+async function pollChatRoom(){
+  if (!chatState.currentRoom) return;
+  if (document.visibilityState !== "visible" || !navigator.onLine){
+    chatConnection(!navigator.onLine ? "Offline — polling paused" : "Background — polling paused", "retrying");
+    return;
+  }
+  const body = document.getElementById("chatBody");
+  const atBottom = body.scrollHeight - body.scrollTop - body.clientHeight < 56;
+  const after = chatState.messages.at(-1)?.sentAt || "";
+  try{
+    const payload = await serverSyncClient.chatRequest({ roomId:chatState.currentRoom.roomId, after });
+    const beforeCount = chatState.messages.length;
+    chatState.currentRoom = payload.room;
+    mergeChatMessages(payload.messages);
+    const added = chatState.messages.length > beforeCount;
+    if (added || payload.room.status !== "open") renderOpenChatRoom({ autoScroll:atBottom, showNew:added && !atBottom });
+    if (added && !payload.room.readOnly){
+      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId:payload.room.roomId, readAt:new Date().toISOString() }).catch(() => null);
+      void refreshChatActive();
+    }
+    chatPollFailures = 0;
+    chatConnection("Connected", "connected");
+    scheduleChatRoomPoll(CHAT.POLLING.roomMs);
+  }catch(error){
+    chatPollFailures += 1;
+    chatConnection("Connection interrupted · retrying", "retrying");
+    scheduleChatRoomPoll(CHAT.POLLING.failureMs);
+  }
+}
+
+async function refreshChatActive({ rerenderOpenList = false } = {}){
+  if (!serverPersistence.user || !serverSyncClient?.chatRequest || document.visibilityState === "hidden" || !navigator.onLine) return null;
+  try{
+    const payload = await serverSyncClient.chatRequest({ mode:"active" });
+    const signature = JSON.stringify({ admin:payload.isAdmin, rooms:payload.rooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
+    const changed = signature !== chatState.activeSignature;
+    chatState = {
+      ...chatState,
+      isAdmin:Boolean(payload.isAdmin),
+      profile:payload.profile || { displayName:null },
+      rooms:payload.rooms || [],
+      activeSignature:signature,
+    };
+    updateActiveChatButton();
+    if (rerenderOpenList && document.getElementById("chatBackdrop").classList.contains("show") && !chatState.currentRoom) renderActiveChats();
+    if (changed) renderAll({ preserveViewport:true });
+    scheduleChatActivePoll(CHAT.POLLING.activeMs);
+    return payload;
+  }catch(error){
+    scheduleChatActivePoll(CHAT.POLLING.failureMs);
+    return null;
+  }
+}
+
+function scheduleChatActivePoll(delay = CHAT?.POLLING?.activeMs || 30_000){
+  window.clearTimeout(chatActiveTimer);
+  if (!serverPersistence.user || !serverSyncClient?.chatRequest) return;
+  chatActiveTimer = window.setTimeout(() => { void refreshChatActive(); }, delay);
+}
+
+function syncChatSessionState(previousOwnerId, nextOwnerId){
+  if (!CHAT || !serverSyncClient?.chatRequest) return;
+  if (!nextOwnerId){
+    window.clearTimeout(chatActiveTimer);
+    window.clearTimeout(chatRoomTimer);
+    chatState = { isAdmin:false, profile:{ displayName:null }, rooms:[], currentRoom:null, messages:[], olderCursor:null, activeSignature:"" };
+    updateActiveChatButton();
+    if (document.getElementById("chatBackdrop")?.classList.contains("show")) setChatDrawerOpen(false);
+    return;
+  }
+  if (previousOwnerId !== nextOwnerId || !chatActiveTimer) void refreshChatActive();
+}
+
+document.getElementById("activeChatsBtn").addEventListener("click", openActiveChats);
+document.getElementById("closeChatBtn").addEventListener("click", () => setChatDrawerOpen(false));
+document.getElementById("chatBackdrop").addEventListener("click", event => {
+  if (event.target.id === "chatBackdrop") setChatDrawerOpen(false);
+});
+document.getElementById("chatNewMessagesBtn").addEventListener("click", () => {
+  const body = document.getElementById("chatBody");
+  body.scrollTop = body.scrollHeight;
+  document.getElementById("chatNewMessagesBtn").classList.remove("show");
+});
+document.getElementById("chatComposer").addEventListener("submit", async event => {
+  event.preventDefault();
+  const input = document.getElementById("chatMessageInput");
+  const room = chatState.currentRoom;
+  if (!room || room.readOnly) return;
+  const body = CHAT.messageBody(input.value);
+  if (!body){
+    chatConnection("Messages must contain 1–500 Unicode characters.", "retrying");
+    return;
+  }
+  const submit = event.currentTarget.querySelector('button[type="submit"]');
+  submit.disabled = true;
+  try{
+    const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
+    const payload = await serverSyncClient.chatRequest({}, { action:"send-message", roomId:room.roomId, clientId, body });
+    mergeChatMessages([payload.message]);
+    input.value = "";
+    renderOpenChatRoom({ autoScroll:true });
+    void refreshChatActive();
+  }catch(error){
+    chatConnection(error.message || "The message could not be sent.", "retrying");
+  }finally{
+    submit.disabled = false;
+    input.focus();
+  }
+});
+document.addEventListener("keydown", event => {
+  const backdrop = document.getElementById("chatBackdrop");
+  if (!backdrop.classList.contains("show")) return;
+  if (event.key === "Escape"){
+    event.preventDefault();
+    setChatDrawerOpen(false);
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = [...document.getElementById("chatDrawer").querySelectorAll('button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), a[href]')]
+    .filter(element => !element.hidden && element.getClientRects().length);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (event.shiftKey && document.activeElement === first){ event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  void refreshChatActive();
+  if (chatState.currentRoom) scheduleChatRoomPoll(0);
+});
+window.addEventListener("online", () => {
+  void refreshChatActive();
+  if (chatState.currentRoom) scheduleChatRoomPoll(0);
+});
+window.addEventListener("offline", () => chatConnection("Offline — polling paused", "retrying"));
 
 /* ============ FEEDBACK ============ */
 function setUtilityModalOpen(id, open){
