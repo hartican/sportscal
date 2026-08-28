@@ -84,7 +84,7 @@ assert.deepEqual(Array.from(normalizationContext.normalize({ expandedTeamIds:["a
 assert.match(html, /window\.addEventListener\("scrollend", flushScrollIdleMutation/, "native scrollend must flush queued background updates");
 assert.match(sourceOf("noteScrollMomentum"), /setTimeout\(flushScrollIdleMutation, 150\)/, "browsers without scrollend need the 150ms idle fallback");
 
-assert.match(html, /content="161"/, "the app shell version must advance to 161");
-assert.match(worker, /nothingsport-shell-v161/, "the service-worker cache must advance with the app shell");
+assert.match(html, /content="162"/, "the app shell version must advance to 162");
+assert.match(worker, /nothingsport-shell-v162/, "the service-worker cache must advance with the app shell");
 
 console.log("Scroll continuity validation passed.");

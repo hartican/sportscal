@@ -53,12 +53,13 @@ assert.equal(cardIdentities.schemaVersion, "card-identities.v4");
 assert.equal(cardIdentities.policy.nationalTeamFlags, false);
 assert.equal(catalogue.allTeams.filter(team => team.teamKind === "national").length, 58, "Follow must consume all 58 registry identities");
 assert.doesNotMatch(html, /<script src="config\/national-team-identities\.js"><\/script>/, "the full provenance registry must stay out of the critical app shell");
-assert.match(html, /const nationalTeamIdentityReady[\s\S]*loadDeferredScript\("config\/national-team-identities\.js"\)/, "the national registry must load concurrently with the first feed page");
+assert.match(html, /const nationalTeamIdentityReady[\s\S]*loadDeferredScript\("config\/national-team-identities\.js\?v=162"\)/, "the national registry must load concurrently with the first feed page through a shell-versioned URL");
 assert.match(html, /Promise\.all\(\[nationalTeamIdentityReady, remoteFeedTask\]\)/, "the first national-team card must wait for the canonical registry");
 assert.match(html, /if \(mark\?\.isNationalTeam \|\| mark\?\.teamKind === "national"\)/, "national-team broken images need an explicit no-flag fallback branch");
 assert.match(html, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
 assert.doesNotMatch(html, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
-assert.match(serviceWorkerSource, /nothingsport-shell-v161/, "the application-shell cache must be bumped for the identity library");
+assert.match(serviceWorkerSource, /nothingsport-shell-v162/, "the application-shell cache must be bumped for the identity library");
+assert.match(serviceWorkerSource, /"\/config\/national-team-identities\.js\?v=162"/, "the offline shell must cache the exact versioned registry URL used at runtime");
 
 const regressionCases = [
   [{ key:"nrl", name:"Australia v New Zealand" }, ["team:nrl:kangaroos", "team:nrl:kiwis"]],
