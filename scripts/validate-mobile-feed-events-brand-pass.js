@@ -60,7 +60,10 @@ assert(html.includes('fallback.textContent = viewing.actionLabel || viewing.labe
 assert(html.includes('rel = "noopener noreferrer external"'), "web fallbacks must leave the standalone PWA in a separate external window");
 
 const f1Mark = identities.markForEvent({ key:"f1", name:"Australian Grand Prix" });
-assert.match(f1Mark?.url || "", /^https:\/\/media\.formula1\.com\/.+f1_logo\.svg$/);
+assert.equal(f1Mark?.url, "assets/identities/f1/formula-one-red-512.png");
+assert.equal(identities.logoForTheme(f1Mark, { context:"primary", useDark:false }), "assets/identities/f1/formula-one-red-512.png");
+assert.equal(identities.logoForTheme(f1Mark, { context:"primary", useDark:true }), "assets/identities/f1/formula-one-red-512.png");
+assert.equal(identities.logoForTheme(f1Mark, { context:"icon", useDark:false }), "assets/identities/f1/formula-one-red-256.png");
 assert.notEqual(f1Mark?.kind, "wordmark", "the generated F1 editorial wordmark must be retired");
 assert.match(updateSource, /model:"gpt-5\.6-luna"/);
 assert.match(updateSource, /store:false/);
@@ -114,6 +117,7 @@ assert(!/preserveFollowRowAnchor|window\.scrollTo\([^)]*follow/i.test(html), "Fo
 
 assert(worker.includes('/assets/providers/stan-sport'), "the installed shell must include the Stan Sport provider mark");
 assert(worker.includes('/assets/providers/foxtel.svg') && worker.includes('/assets/providers/paramount-plus.svg'), "provider marks must be available offline with the installed shell");
+assert(worker.includes('/assets/identities/f1/formula-one-red-512.png') && worker.includes('/assets/identities/f1/formula-one-red-256.png'), "responsive Formula One marks must be available in the installed shell");
 assert(/headers\.has\("range"\)[\s\S]{0,450}fetch\(event\.request\)/i.test(worker), "audio byte ranges must continue bypassing Cache Storage");
 
 console.log(`Mobile Feed/Events/brand pass valid: ${eplEvents.length} EPL cards resolve Stan Sport, provider-first actions and exact brand copy passed.`);

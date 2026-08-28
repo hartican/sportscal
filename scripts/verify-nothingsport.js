@@ -30,6 +30,7 @@ const sportContextSource = fs.readFileSync("config/sport-context.js", "utf8");
 const sportHubsSource = fs.readFileSync("config/sport-hubs.js", "utf8");
 const profileStorageSource = fs.readFileSync("config/profile-storage.js", "utf8");
 const productEventsSource = fs.readFileSync("config/product-events.js", "utf8");
+const eventActionIdentitySource = fs.readFileSync("config/event-action-identity.js", "utf8");
 const userStateSyncSource = fs.readFileSync("config/user-state-sync.js", "utf8");
 const pilotReadoutSource = fs.readFileSync("config/pilot-readout.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
@@ -161,6 +162,7 @@ assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asse
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
 assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
 assert(html.includes('src="config/product-events.js"'), "the fixed pilot-measurement contract must load before app state");
+assert(html.includes('src="config/event-action-identity.js"'), "stable event-action identity must load before durable user state");
 assert(html.includes('src="config/user-state-sync.js"'), "the field-level user-state contract must load before server sync");
 assert(html.includes('src="config/server-sync.js"'), "password sessions and server-state sync must load before app state");
 assert(userStateSyncSource.includes('const PATCH_SCHEMA_VERSION = "user-state-patch.v1"'), "cross-device state changes must use a versioned patch contract");
@@ -376,6 +378,7 @@ assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWo
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
+assert(serviceWorkerSource.includes('"/config/event-action-identity.js"'), "stable event-action identity must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/user-state-sync.js"'), "the field-level user-state contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/swipe-calibration.js"'), "recognisable swipe anchors must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the refresh render gate must be available in the offline shell");
@@ -840,6 +843,7 @@ vm.runInContext(sportContextSource, sandbox, { filename: "config/sport-context.j
 vm.runInContext(sportHubsSource, sandbox, { filename: "config/sport-hubs.js" });
 vm.runInContext(profileStorageSource, sandbox, { filename: "config/profile-storage.js" });
 vm.runInContext(productEventsSource, sandbox, { filename: "config/product-events.js" });
+vm.runInContext(eventActionIdentitySource, sandbox, { filename: "config/event-action-identity.js" });
 vm.runInContext(preferenceSystemSource, sandbox, { filename: "config/preference-system.js" });
 vm.runInContext(enrichmentEngineSource, sandbox, { filename: "config/enrichment-engine.js" });
 vm.runInContext(cardLifecycleSource, sandbox, { filename: "config/card-lifecycle.js" });

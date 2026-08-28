@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const assert = require("node:assert/strict");
+const crypto = require("node:crypto");
 const fs = require("node:fs");
 const identities = require("../config/card-identities.js");
 const html = fs.readFileSync("index.html", "utf8");
@@ -21,6 +22,18 @@ const activeAflTeams = canonical.participants.filter(participant => (
   && participant.sportDomainId === "sport:afl"
   && participant.teamCode !== "TBD"
 ));
+
+function pngMetadata(path){
+  const source = fs.readFileSync(path);
+  assert.equal(source.subarray(1, 4).toString("ascii"), "PNG", `${path} must be a PNG`);
+  return {
+    width:source.readUInt32BE(16),
+    height:source.readUInt32BE(20),
+    colorType:source[25],
+    hasAlpha:[4, 6].includes(source[25]) || source.includes(Buffer.from("tRNS")),
+    sha256:crypto.createHash("sha256").update(source).digest("hex"),
+  };
+}
 
 assert.equal(identities.schemaVersion, "card-identities.v3");
 assert.equal(activeNrlTeams.length, 17, "the current NRL competition must expose 17 active teams");
@@ -70,8 +83,25 @@ assert.equal(identities.markForEvent({ key: "rugby", name: "Australia v Ireland"
 assert.match(identities.markForEvent({ key: "rugby", name: "Australia v Ireland" })?.url || "", /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//, "rugby cards must use a visible Rugby Australia vector mark");
 const formulaOneMark = identities.markForEvent({ key: "f1", name: "British Grand Prix" });
 assert.equal(formulaOneMark?.label, "Formula One", "Formula One cards must retain an editorial competition identity");
-assert.match(formulaOneMark?.url || "", /^https:\/\/media\.formula1\.com\/.+f1_logo\.svg$/, "Formula One cards must use the restored official Formula 1-hosted mark");
-assert.equal(formulaOneMark?.provenance, "official-site");
+assert.equal(formulaOneMark?.url, "assets/identities/f1/formula-one-red-512.png", "Formula One cards must use the supplied local red mark");
+assert.equal(formulaOneMark?.provenance, "user-supplied-reference");
+assert.equal(formulaOneMark?.assetSource, "project-owner-supplied");
+assert.match(formulaOneMark?.sourceUrl || "", /^https:\/\/www\.formula1\.com\/en\/information\/guidelines\./);
+assert.equal(formulaOneMark?.logo.light, formulaOneMark?.logo.primary, "day mode must use the red primary Formula One mark");
+assert.equal(formulaOneMark?.logo.dark, formulaOneMark?.logo.primary, "night mode must use the same red Formula One mark");
+assert.equal(formulaOneMark?.logo.iconLight, "assets/identities/f1/formula-one-red-256.png");
+assert.equal(formulaOneMark?.logo.iconDark, "assets/identities/f1/formula-one-red-256.png");
+assert.equal(formulaOneMark?.logo.backgroundLight, "light");
+assert.equal(formulaOneMark?.logo.backgroundDark, "light");
+const f1Master = pngMetadata("assets/identities/f1/formula-one-red-master.png");
+const f1Primary = pngMetadata(formulaOneMark.logo.primary);
+const f1Compact = pngMetadata(formulaOneMark.logo.icon);
+assert.deepEqual([f1Master.width, f1Master.height, f1Master.hasAlpha], [2000, 500, true]);
+assert.equal(f1Master.sha256, "a036826b72e31ed81a3c8040e6f457a05a1532c66c4096e141e6d9836bde797e", "the committed master must remain byte-identical to the supplied file");
+assert.deepEqual([f1Primary.width, f1Primary.height, f1Primary.hasAlpha], [512, 128, true]);
+assert.deepEqual([f1Compact.width, f1Compact.height, f1Compact.hasAlpha], [256, 64, true]);
+assert.match(html, /const logoContext = container\.matches\("\.event-hero-mark,\.major-event-logo"\) \? "primary" : "icon";/, "hero and compact contexts must request the correct local F1 size");
+assert.doesNotMatch(html, /\[data-card-identity="competition:formula-one"\][^{]*\{[^}]*background:#092e4f/, "the red Formula One mark must not retain the old dark backing tile");
 const activeF1Teams = f1Context.participants.filter(participant => participant.type === "team" && participant.sportDomainId === "sport:motorsport" && participant.metadata?.active !== false);
 assert.equal(activeF1Teams.length, 11, "the 2026 Formula One grid must include all 11 constructor teams");
 activeF1Teams.forEach(team => {

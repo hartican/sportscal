@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v157";
+const CACHE_NAME = "nothingsport-shell-v158";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -22,6 +22,7 @@ const APP_SHELL = [
   "/config/profile-storage.js",
   "/config/disposable-storage.js",
   "/config/product-events.js",
+  "/config/event-action-identity.js",
   "/config/user-state-sync.js",
   "/config/server-sync.js",
   "/config/follow-first.js",
@@ -69,6 +70,8 @@ const APP_SHELL = [
   "/schemas/catalog-event.schema.json",
   "/manifest.webmanifest",
   "/assets/brand/web/nothingsport-logo.png",
+  "/assets/identities/f1/formula-one-red-512.png",
+  "/assets/identities/f1/formula-one-red-256.png",
   "/assets/providers/kayo-sports-negative.svg",
   "/assets/providers/stan-sport.jpg",
   "/assets/providers/foxtel.svg",

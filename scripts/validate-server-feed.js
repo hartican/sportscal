@@ -70,6 +70,33 @@ async function run(){
     "summer Sydney event times must use AEDT"
   );
 
+  const correctedKickoffBefore = event("event:fixture:123", "2026-07-27T13:00:00.000Z", {
+    canonicalEventId: "event:fixture:123",
+  });
+  const correctedKickoffAfter = {
+    ...correctedKickoffBefore,
+    time: "13:30",
+    startTimeUtc: "2026-07-27T13:30:00.000Z",
+  };
+  assert.equal(
+    feedPipeline.eventActionKey(correctedKickoffBefore),
+    feedPipeline.eventActionKey(correctedKickoffAfter),
+    "the signed-in server feed must retain an edition action across schedule corrections"
+  );
+  const canonicalAliasEvent = event("provider-fixture-123", "2026-07-27T13:00:00.000Z", {
+    canonicalEventId:"event:fixture:123",
+  });
+  assert.equal(
+    feedPipeline.eventActionFor(canonicalAliasEvent, {
+      "provider-fixture-123:2026-07-27T13:00": {
+        eventId:"provider-fixture-123",
+        dismissed:true,
+      },
+    }).dismissed,
+    true,
+    "the server feed must resolve legacy provider ids through the canonical event aliases"
+  );
+
   const migratedCataloguePreferences = {
     preferenceGraph: {
       domainPreferences: [

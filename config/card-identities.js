@@ -42,8 +42,9 @@
       fit: options.fit || "contain",
       assetClass: "official-reference",
       rightsStatus: "official-reference",
-      provenance: "reference-library",
+      provenance: options.provenance || "reference-library",
       displayUse: "editorial-identification",
+      ...(options.assetSource ? { assetSource:options.assetSource } : {}),
     });
   }
 
@@ -125,11 +126,21 @@
 
   const nrlCompetitionMark = officialMark("competition:nrl", "NRL", "https://www.nrl.com/siteassets/.lookups/sponsors/2026-special/together-round/nrl-logo.svg", "https://www.nrl.com/clubs/");
   const eventMarks = Object.freeze({
-    // Restore Formula One's previously shipped first-party media asset. The
-    // official SVG is a white transparent wordmark, so both themes keep the
-    // same contrast-safe dark identity frame instead of synthesising a mark.
-    f1: officialMark("competition:formula-one", "Formula One", "https://media.formula1.com/image/upload/v1677237319/etc/designs/fom-website/images/f1_logo.svg", "https://www.formula1.com/en/", {
-      logo: { backgroundLight:"dark", backgroundDark:"dark" },
+    // The project-owner supplied red trademark reference remains readable on
+    // both themes and avoids a network dependency for the competition mark.
+    f1: referenceMark("competition:formula-one", "Formula One", "assets/identities/f1/formula-one-red-512.png", "https://www.formula1.com/en/information/guidelines.4EOKE9RRqevL4niTK9kWyt", {
+      provenance:"user-supplied-reference",
+      assetSource:"project-owner-supplied",
+      logo: {
+        primary:"assets/identities/f1/formula-one-red-512.png",
+        light:"assets/identities/f1/formula-one-red-512.png",
+        dark:"assets/identities/f1/formula-one-red-512.png",
+        icon:"assets/identities/f1/formula-one-red-256.png",
+        iconLight:"assets/identities/f1/formula-one-red-256.png",
+        iconDark:"assets/identities/f1/formula-one-red-256.png",
+        backgroundLight:"light",
+        backgroundDark:"light",
+      },
     }),
     "nrl-finals": Object.freeze({ ...nrlCompetitionMark, id:"event:nrl-finals", label:"NRL Finals" }),
     nrl: nrlCompetitionMark,
@@ -586,5 +597,5 @@
     const themedContext = `${context}${useDark ? "Dark" : "Light"}`;
     return assets[themedContext] || assets[useDark ? "dark" : "light"] || assets[context] || assets.primary || mark?.url || "";
   }
-  return Object.freeze({ schemaVersion: "card-identities.v3", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: false }), eventMarks, sportMarks, participantMarks, brandRules, competitionMarks, markForCompetitionId, markForEvent, participantMarksForEvent, matchupSidesForEvent, isTeamSportMatchup, participantAliases, aliasRange, logoForTheme });
+  return Object.freeze({ schemaVersion: "card-identities.v3", policy: Object.freeze({ protectedMarks: "official-reference-or-open-use-sport-mark", displayUse: "editorial-identification", bundledCopies: true }), eventMarks, sportMarks, participantMarks, brandRules, competitionMarks, markForCompetitionId, markForEvent, participantMarksForEvent, matchupSidesForEvent, isTeamSportMatchup, participantAliases, aliasRange, logoForTheme });
 });

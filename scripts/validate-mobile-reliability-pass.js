@@ -22,7 +22,8 @@ assert(!f1Profile.signals.some(signal => signal.label === "Record Chase" && /qua
 assert(f1Profile.signals.some(signal => signal.label === "Record Chase" && /record|milestone/.test(signal.match)), "explicit record or milestone language must still support Record Chase");
 
 const f1Mark = identities.markForEvent({ key:"f1", name:"Azerbaijan GP Qualifying" });
-assert.match(f1Mark.url || "", /^https:\/\/media\.formula1\.com\/.+f1_logo\.svg$/, "Formula One cards must use the restored official mark");
+assert.equal(f1Mark.url, "assets/identities/f1/formula-one-red-512.png", "Formula One cards must use the supplied local red mark");
+assert.equal(f1Mark.logo.icon, "assets/identities/f1/formula-one-red-256.png", "compact Formula One cards must use the smaller local derivative");
 assert.match(vectors.glyphMarkup("ui:tv"), /<svg|<img/, "provider actions must retain a local TV fallback");
 assert.match(vectors.glyphMarkup("semantic:nrl-finals-trophy"), /<svg|<img/, "NRL finals must have a local trophy glyph");
 

@@ -43,6 +43,8 @@
       "type": "object",
       "additionalProperties": true,
       "properties": {
+        "actionKey": { "type": "string" },
+        "canonicalEventId": { "type": "string" },
         "eventId": { "type": "string" },
         "startTime": { "type": "string" },
         "addedToFixtures": { "type": "boolean" },

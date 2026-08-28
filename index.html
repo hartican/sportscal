@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NS">
 
-  <meta name="app-shell-version" content="157">
+  <meta name="app-shell-version" content="158">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothingsport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2001,7 +2001,7 @@ main{
   border-color:color-mix(in srgb, var(--sport-color) 38%, #d9dee4);
 }
 
-.event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo:is([data-card-identity="competition:formula-one"], [data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
+.event-card.is-logo-led-matchup .matchup-competition-icon.has-brand-logo:is([data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
   background:#092e4f;
   border-color:#2b6c99;
 }
@@ -2046,7 +2046,6 @@ main{
   border:0;
   overflow:visible;
 }
-.event-hero-mark[data-card-identity="competition:formula-one"],
 .event-hero-mark[data-card-identity="competition:icc"],
 .event-hero-mark[data-card-identity="organisation:cricket-australia"]{
   background:#092e4f;
@@ -2147,7 +2146,6 @@ main{
 .major-event-identity{ padding:12px 16px 10px; text-align:center; }
 .major-event-logo{ display:grid; place-items:center; width:88px; height:90px; margin:0 auto 8px; padding:4px; }
 .major-event-logo .event-brand-logo,.major-event-logo .event-sport-mark,.major-event-logo .event-sport-logo{ width:100%; height:100%; object-fit:contain; }
-.major-event-logo[data-card-identity="competition:formula-one"]{ background:#092e4f; border-radius:8px; }
 .major-event-kicker{ color:var(--events-text-accent); font-size:0.69rem; font-weight:850; text-transform:uppercase; }
 .major-event-identity h3{ margin:3px 0 5px; font:700 1.08rem/1.18 'Cardo', Georgia, serif; }
 .major-event-summary{ max-width:760px; margin:0 auto; color:var(--text-dim); font-size:0.82rem; line-height:1.5; }
@@ -2245,7 +2243,7 @@ main{
   overflow:hidden;
 }
 
-.event-icon.has-brand-logo:is([data-card-identity="competition:formula-one"], [data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
+.event-icon.has-brand-logo:is([data-card-identity="competition:icc"], [data-card-identity="organisation:cricket-australia"]){
   background:#092e4f;
   border-color:#2b6c99;
 }
@@ -6379,6 +6377,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/profile-storage.js"></script>
 <script src="config/disposable-storage.js"></script>
 <script src="config/product-events.js"></script>
+<script src="config/event-action-identity.js"></script>
 <script src="config/user-state-sync.js"></script>
 <script src="config/server-sync.js"></script>
 <script src="config/feed-controls.js"></script>
@@ -6837,8 +6836,9 @@ function renderEventIdentityMark(container, ev, meta){
   const image = document.createElement("img");
   installIdentityImageRecovery(image);
   image.className = "event-brand-logo";
-  const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: false }) || mark.url;
-  const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context: "icon", useDark: true }) || lightSource;
+  const logoContext = container.matches(".event-hero-mark,.major-event-logo") ? "primary" : "icon";
+  const lightSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context:logoContext, useDark: false }) || mark.url;
+  const darkSource = CARD_IDENTITIES?.logoForTheme?.(mark, { context:logoContext, useDark: true }) || lightSource;
   image.dataset.eventLogoLight = lightSource;
   image.dataset.eventLogoDark = darkSource;
   assignCardImageSource(image, themeUsesDarkAssets() ? darkSource : lightSource);
@@ -7456,6 +7456,7 @@ const STORAGE_KEYS = {
 const PROFILE_STORAGE = globalThis.NOTHINGSPORTS_PROFILE_STORAGE || null;
 const DISPOSABLE_STORAGE = globalThis.NOTHINGSPORTS_DISPOSABLE_STORAGE || null;
 const disposableStore = DISPOSABLE_STORAGE?.createStore?.() || null;
+const EVENT_ACTION_IDENTITY = globalThis.NOTHINGSPORTS_EVENT_ACTION_IDENTITY || null;
 const USER_STATE_SYNC = globalThis.NOTHINGSPORTS_USER_STATE_SYNC || null;
 const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
@@ -8320,7 +8321,7 @@ function loadEventActions(){
 }
 
 function migrateEventActionRecords(records){
-  return Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
+  const normalized = Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
     if (!action || typeof action !== "object") return [key, action];
     const { mustWatch:_legacyMustWatch, mustWatchAddedAt:_legacyMustWatchAddedAt, mustWatchSeenAt:_legacyMustWatchSeenAt, ...cleanAction } = action;
     const wasSavedForLater = Boolean(
@@ -8340,6 +8341,7 @@ function migrateEventActionRecords(records){
       lastActionAt: action.lastActionAt || null,
     }];
   }));
+  return EVENT_ACTION_IDENTITY?.migrateActions?.(normalized) || normalized;
 }
 
 function saveEventActions(next){
@@ -10688,12 +10690,15 @@ function isPriorityEvent(ev){
 }
 
 function eventActionKey(ev){
-  if (ev.actionKey) return String(ev.actionKey);
-  return `${ev.eventId || ev.id}:${ev.date}T${ev.time}`;
+  return EVENT_ACTION_IDENTITY?.stableKey?.(ev)
+    || String(ev?.actionKey || ev?.canonicalEventId || ev?.eventId || ev?.id || "");
 }
 
 function defaultEventAction(ev){
+  const canonicalEventId = ev?.canonicalEventId ? String(ev.canonicalEventId) : null;
   return {
+    actionKey: eventActionKey(ev),
+    ...(canonicalEventId ? { canonicalEventId } : {}),
     eventId: ev.eventId || ev.id,
     startTime: `${ev.date}T${ev.time}`,
     addedToFixtures: false,
@@ -10711,8 +10716,14 @@ function defaultEventAction(ev){
   };
 }
 
+function storedEventAction(ev){
+  return EVENT_ACTION_IDENTITY?.resolveAction?.(ev, eventActions).action
+    || eventActions[eventActionKey(ev)]
+    || null;
+}
+
 function getEventAction(ev){
-  const saved = eventActions[eventActionKey(ev)] || {};
+  const saved = storedEventAction(ev) || {};
   const archivedByReference = archivedEventRefs?.some(reference => reference.canonicalEventId === (ev.eventId || ev.id));
   const action = { ...defaultEventAction(ev), ...saved, archived: Boolean(saved.archived || archivedByReference) };
   return action;
@@ -10883,11 +10894,14 @@ function updateEventAction(ev, patch){
   const nextAction = {
     ...getEventAction(ev),
     ...patch,
+    actionKey:key,
+    ...(ev.canonicalEventId ? { canonicalEventId:String(ev.canonicalEventId) } : {}),
     eventId: ev.eventId || ev.id,
     startTime: `${ev.date}T${ev.time}`,
     lastActionAt: new Date().toISOString(),
   };
-  saveEventActions({ ...eventActions, [key]: nextAction });
+  saveEventActions(EVENT_ACTION_IDENTITY?.writeAction?.(eventActions, ev, nextAction)
+    || { ...eventActions, [key]: nextAction });
   rebuildDerivedCardCache(activeEvents);
   scheduleBrowserReminders();
   return nextAction;
@@ -11516,12 +11530,12 @@ function buildEventActionPanel(ev, options = {}){
       .reverse().find(entry => entry.eventId === eventId);
     const positive = latestFeedback?.direction === "positive";
     const negative = latestFeedback?.direction === "negative";
-    makeActionButton("", `thumb-control${positive ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "positive"), {
+    makeActionButton("", `thumb-control${positive ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "positive", { card:row.closest(".event-card") }), {
       pressed: positive,
       ariaLabel: `More like ${ev.name}`,
       iconMarkup: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v10H4V10h3Zm2 10V10l4-6 1 1v4h5.1c.8 0 1.4.7 1.2 1.5l-1.2 7c-.1.9-.9 1.5-1.8 1.5H9Z"/></svg>',
     });
-    makeActionButton("", `thumb-control${negative ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "negative"), {
+    makeActionButton("", `thumb-control${negative ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "negative", { card:row.closest(".event-card") }), {
       pressed: negative,
       ariaLabel: `Less like ${ev.name}`,
       iconMarkup: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>',
@@ -13543,7 +13557,7 @@ function buildEventFeedbackButtons(ev){
     button.innerHTML = markup;
     button.addEventListener("click", event => {
       event.stopPropagation();
-      applyCuratedEventSwipe(ev, direction);
+      applyCuratedEventSwipe(ev, direction, { card:event.currentTarget.closest(".event-card") });
       buttons.forEach((candidate, index) => {
         const selected = directions[index][0] === direction;
         candidate.classList.toggle("active", selected);
@@ -13993,10 +14007,16 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
   const undo = () => {
     if (undone) return;
     undone = true;
-    const key = eventActionKey(ev);
-    const restoredActions = { ...eventActions };
-    if (previousAction && Object.keys(previousAction).length) restoredActions[key] = previousAction;
-    else delete restoredActions[key];
+    const restoredActions = EVENT_ACTION_IDENTITY?.writeAction?.(
+      eventActions,
+      ev,
+      previousAction && Object.keys(previousAction).length ? previousAction : null
+    ) || { ...eventActions };
+    if (!EVENT_ACTION_IDENTITY){
+      const key = eventActionKey(ev);
+      if (previousAction && Object.keys(previousAction).length) restoredActions[key] = previousAction;
+      else delete restoredActions[key];
+    }
     saveEventActions(restoredActions);
     if (previousPreferences){
       const restoredPreferences = clonePreferences(userPreferences);
@@ -14028,14 +14048,18 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
   }
 }
 
-function applyCuratedEventSwipe(ev, direction){
+function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
   if (!["positive", "negative"].includes(direction)) return;
   const eventId = String(ev.eventId || ev.id);
-  const card = Array.from(document.querySelectorAll(".event-card[data-event-id],.major-event-card[data-major-event-id]"))
-    .find(candidate => candidate.dataset.eventId === eventId || candidate.dataset.majorEventId === eventId);
   if (card?.dataset.swipeFeedbackActive === "true") return;
+  if (direction === "negative" && getEventAction(ev).dismissed){
+    card?.classList.add("is-dismissing");
+    window.setTimeout(() => renderAll({ preserveViewport:true }), 230);
+    return;
+  }
   const previousPreferences = clonePreferences(userPreferences);
-  const previousAction = eventActions[eventActionKey(ev)] ? { ...eventActions[eventActionKey(ev)] } : null;
+  const savedAction = storedEventAction(ev);
+  const previousAction = savedAction ? { ...savedAction } : null;
   const recommendationContext = productRecommendationContext(ev);
   const target = SWIPE_CALIBRATION?.primaryTargetForEvent?.(ev) || {
     targetType: "event",
@@ -14480,9 +14504,9 @@ function buildEventCard(ev, options = {}){
     card.addEventListener("keydown", event => {
       if (event.target !== card || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
       event.preventDefault();
-      applyCuratedEventSwipe(ev, event.key === "ArrowRight" ? "positive" : "negative");
+      applyCuratedEventSwipe(ev, event.key === "ArrowRight" ? "positive" : "negative", { card });
     });
-    bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(ev, direction));
+    bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(ev, direction, { card }));
     if (!userPreferences.swipeCoaching?.dismissedAt){
       const coaching = document.createElement("div");
       coaching.className = "swipe-coaching";
@@ -17746,6 +17770,7 @@ function majorEventActionEvent(record){
   ]));
   return {
     ...(nextFixture || {}),
+    actionKey: record.id,
     id: record.id,
     eventId: record.id,
     key: record.sportKey,
@@ -18074,7 +18099,7 @@ function buildMajorEventCard(record){
     if (event.target !== card) return;
     if (["ArrowLeft", "ArrowRight"].includes(event.key)){
       event.preventDefault();
-      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative");
+      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative", { card });
       return;
     }
     if (!["Enter", " "].includes(event.key)) return;
@@ -18082,7 +18107,7 @@ function buildMajorEventCard(record){
     advanceState({ restoreFocus: true });
   });
   card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight Enter Space");
-  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction));
+  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction, { card }));
 
   const ticketRow = document.createElement("div");
   ticketRow.className = "major-event-ticket-row";
@@ -18401,7 +18426,7 @@ function buildTicketSaleCard(record){
     if (event.target !== card) return;
     if (["ArrowLeft", "ArrowRight"].includes(event.key)){
       event.preventDefault();
-      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative");
+      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative", { card });
       return;
     }
     if (!["Enter", " "].includes(event.key)) return;
@@ -18409,7 +18434,7 @@ function buildTicketSaleCard(record){
     advanceState({ restoreFocus: true });
   });
   card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight Enter Space");
-  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction));
+  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction, { card }));
   card.append(identity, actions);
   if (state === "opened"){
     const body = document.createElement("div");
