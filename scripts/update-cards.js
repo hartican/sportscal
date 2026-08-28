@@ -59,6 +59,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-premier-league-context.js", "--check"],
   ["scripts/validate-premier-league-context.js"],
   ["scripts/refresh-major-events-from-canonical.js"],
+  ["scripts/refresh-us-open-events.js"],
+  ["scripts/refresh-us-open-events.js", "--check"],
   ["scripts/apply-national-team-identities.js", "data/major-events.v1.json"],
   ["scripts/refresh-tennis-ranking-exports.js"],
   ["scripts/validate-tennis-ranking-refresh.js"],

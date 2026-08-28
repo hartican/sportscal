@@ -10,38 +10,26 @@ const ROOT = path.resolve(__dirname, "..");
 const majorEvents = require(path.join(ROOT, "config/major-events.js"));
 const followFirst = require(path.join(ROOT, "config/follow-first.js"));
 
-const reference = new Date("2026-08-26T11:41:00+10:00");
+const reference = new Date("2026-08-28T14:00:00.000Z");
 const usOpen = JSON.parse(fs.readFileSync(path.join(ROOT, "data/major-events.v1.json"), "utf8"))
   .events.find(record => record.id === "major-event:us-open-2026");
 assert(usOpen, "US Open phase record is required");
 assert.equal(usOpen.eventFamilyId, "us-open");
 assert.equal(usOpen.editionId, "us-open-2026");
-assert.equal(usOpen.phaseId, "mixed-doubles-and-exhibitions");
+assert.equal(usOpen.phaseId, "qualifying");
+assert.equal(usOpen.phaseIdentity, "qualification");
 
 const timeline = majorEvents.phaseTimeline(usOpen, reference, { level:"L1", timeZone:"Australia/Sydney" });
 assert.doesNotThrow(() => majorEvents.phaseTimeline({ subEvents:[{ id:"fixture:tbc", date:null, startTimeUtc:null, sessionStartTimeUtc:null }] }, reference), "unpublished Event dates must render an honest TBC state rather than crash Events");
-assert.deepEqual(
-  timeline.recent.map(item => item.subEvent.id),
-  [
-    "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
-    "fixture:us-open-2026:federer-v-roddick",
-  ],
-  "L1 must keep the requested Williams/Alcaraz and Federer/Roddick completed matchups immediately above Now"
-);
-assert.deepEqual(
-  timeline.upcoming.map(item => item.subEvent.id),
-  [
-    "fixture:us-open-2026:bencic-cobolli-v-svitolina-monfils",
-    "fixture:us-open-2026:andreeva-rublev-v-muchova-mensik",
-  ],
-  "L1 must keep the announced semifinals below Now"
-);
-assert.equal(timeline.upcoming[0].displayTime, "9:00am");
-assert.equal(timeline.upcoming[0].displayDate, "Thu, 27 Aug");
-assert.equal(timeline.upcoming[1].displayTime, "Follows");
-assert.equal(timeline.upcoming[1].effectiveStatus, "upcoming");
-const completeTimeline = majorEvents.phaseTimeline(usOpen, reference, { level:"L2", timeZone:"Australia/Sydney" });
-assert(completeTimeline.recent.some(item => item.subEvent.id === "fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool" && item.effectiveStatus === "completed"), "both published Williams/Alcaraz matches must remain in the complete timeline");
+const officialQualifyingFixtures = usOpen.subEvents.filter(event => event.id.startsWith("fixture:us-open-2026:official:"));
+assert.equal(officialQualifyingFixtures.length, 23, "the current US Open phase must retain every fixture from the released official qualifying day");
+assert.equal(timeline.upcoming.length, 3, "L1 must preview the next three released US Open fixtures below Now");
+assert(timeline.upcoming.every(item => item.subEvent.id.startsWith("fixture:us-open-2026:official:")), "L1 upcoming rows must come from the current official order of play");
+assert(officialQualifyingFixtures.some(event => event.timePrecision === "follows" && !event.startTimeUtc), "later court matches must retain follows timing rather than an invented start");
+assert(officialQualifyingFixtures.some(event => event.timePrecision === "session-start" && event.startTimeUtc), "first court matches must retain the published session start");
+const completeTimeline = majorEvents.phaseTimeline(usOpen, reference, { level:"L2", timeZone:"Australia/Sydney", includeOlder:true });
+assert.equal(completeTimeline.upcoming.filter(item => item.subEvent.id.startsWith("fixture:us-open-2026:official:")).length, 23, "L2 must expose the complete released US Open qualifying order of play");
+assert(completeTimeline.recent.some(item => item.subEvent.id === "fixture:us-open-2026:federer-v-roddick" && item.effectiveStatus === "completed"), "completed exhibition history must remain above Now while qualifying is current");
 
 const familyOnly = majorEvents.visibleRecords(
   { events:[{ ...usOpen, sportKeys:["tennis"] }] },

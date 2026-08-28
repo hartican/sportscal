@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-08-28T05:33:13Z",
+  "generatedAt": "2026-08-28T06:59:02Z",
   "season": 2026,
   "competitions": [
     {
@@ -27000,7 +27000,7 @@
       "countryBasis": "published-player-record",
       "genderCategory": "male",
       "identityId": "athlete:nfl:4569727",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4569727.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4569727.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4569727/louis-hansen"
       ]

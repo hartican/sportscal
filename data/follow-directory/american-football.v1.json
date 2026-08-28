@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "american-football",
   "label": "American Football",
-  "generatedAt": "2026-08-28T05:40:04.148Z",
+  "generatedAt": "2026-08-28T06:59:12.088Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -69896,7 +69896,7 @@
       "identityId": "athlete:nfl:4569727",
       "logoUrl": null,
       "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4569727.png",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4569727.png",
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
