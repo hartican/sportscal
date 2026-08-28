@@ -141,6 +141,13 @@ const resolved = identities.participantMarksForEvent(exampleEvent, activeNrlTeam
 assert.deepEqual(resolved.map(item => item.participant.shortName), ["BB", "MS"]);
 assert.deepEqual(resolved.map(item => identities.aliasRange("Broncos v Storm", item.participant)?.text), ["Broncos", "Storm"]);
 assert.deepEqual(identities.matchupSidesForEvent(exampleEvent, activeNrlTeams, "Broncos v Storm").map(side => side.label), ["Broncos", "Storm"]);
+const savedAflFixtureTitle = "Wildcard Final - Western Bulldogs v Collingwood";
+const savedAflFixtureSides = identities.matchupSidesForEvent({ key:"afl", name:savedAflFixtureTitle }, [], savedAflFixtureTitle);
+assert.deepEqual(
+  savedAflFixtureSides.map(side => side.mark?.id || null),
+  ["participant:team:afl:cd_t140", "participant:team:afl:cd_t40"],
+  "saved AFL fixtures without participant IDs must resolve both club crests on their first render",
+);
 assert.equal(identities.matchupSidesForEvent({ key:"football" }, [], "Team A v Team B").length, 2, "a team matchup with no marks must still expose two ordered placeholder slots");
 assert.equal(identities.matchupSidesForEvent({ key:"football" }, [footballParticipants[0]], `${footballParticipants[0].displayName} v Unknown XI`).length, 2, "a one-crest matchup must retain the opposing placeholder slot");
 assert.equal(identities.matchupSidesForEvent({ key:"tennis" }, [], "Player A v Player B").length, 0, "individual tennis fixtures must not be converted into team-logo cards");

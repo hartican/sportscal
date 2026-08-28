@@ -442,6 +442,27 @@
     shortName: mark.label,
     metadata: Object.freeze({ titleAliases: mark.aliases || [mark.label] }),
   })])));
+  const participantIdPrefixesByEventKey = Object.freeze({
+    afl: Object.freeze(["team:afl:"]),
+    nrl: Object.freeze(["team:nrl:"]),
+    rugby: Object.freeze(["team:rugby:"]),
+    cricket: Object.freeze(["team:cricket:"]),
+    f1: Object.freeze(["team:f1:"]),
+    motorsport: Object.freeze(["team:f1:"]),
+    "premier-league": Object.freeze(["team:football:epl:"]),
+    bundesliga: Object.freeze(["team:football:"]),
+    "la-liga": Object.freeze(["team:football:"]),
+    "serie-a": Object.freeze(["team:football:"]),
+    "ligue-1": Object.freeze(["team:football:"]),
+    fifa: Object.freeze(["team:football:"]),
+    football: Object.freeze(["team:football:"]),
+    nba: Object.freeze(["team:nba:", "team:basketball:"]),
+    basketball: Object.freeze(["team:nba:", "team:basketball:"]),
+    netball: Object.freeze(["team:netball:"]),
+    hockey: Object.freeze(["team:hockey:"]),
+    cwg: Object.freeze(["team:cwg:"]),
+    "multi-sport": Object.freeze(["team:cwg:"]),
+  });
 
   const brandRules = Object.freeze([
     Object.freeze({ id: "nrl-finals", pattern: /\bnrl-finals-series\b/i }),
@@ -512,7 +533,14 @@
     const participantList = Array.isArray(participants) ? participants : []; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
     const addParticipant = participant => { const mark = participantMarks[participant?.id] || directoryMarkForParticipant(participant); if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
     (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
-    if (resolved.length < 2 && /\s+v\.?\s+/i.test(title)) participantList.filter(participant => participantMarks[participant.id] || participant.crestUrl).filter(participant => aliasRange(title, participant)).forEach(addParticipant);
+    if (resolved.length < 2 && /\s+v\.?\s+/i.test(title)){
+      const registeredPrefixes = participantIdPrefixesByEventKey[event?.key] || [];
+      const registeredParticipants = Object.values(identityParticipants).filter(participant => registeredPrefixes.some(prefix => participant.id.startsWith(prefix)));
+      [...participantList, ...registeredParticipants]
+        .filter(participant => participantMarks[participant.id] || participant.crestUrl)
+        .filter(participant => aliasRange(title, participant))
+        .forEach(addParticipant);
+    }
     if (event?.key === "cricket") cricketParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "rugby") rugbyParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
     if (event?.key === "premier-league") footballParticipants.filter(participant => aliasRange(title, participant)).forEach(addParticipant);
