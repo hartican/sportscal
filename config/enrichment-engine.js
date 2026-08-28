@@ -17,8 +17,27 @@
   });
   const STORYLINE_OVERRIDES = root.NOTHINGSPORTS_STORYLINE_OVERRIDES
     || (typeof require === "function" ? require("./storyline-overrides.js") : null);
+  const browserNothingscore = Object.freeze({
+    HEAT_LABELS:Object.freeze(["Routine","Interesting","Notable","Major","Essential"]),
+    PULSE_LABELS:Object.freeze(["Flat","Solid","Strong","Exceptional","Unforgettable"]),
+    IMPACT_LABELS:Object.freeze(["Flat","Solid","Strong","Exceptional","Unforgettable"]),
+    HEAT_TAGS:Object.freeze(["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]),
+    IMPACT_TAGS:Object.freeze(["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]),
+    blendHeatWithStakes(stakes,heatScore,support){
+      const clamp=(value,minimum,maximum)=>Math.max(minimum,Math.min(maximum,Number(value)||0));
+      const effectiveSupport=Math.max(0,Number(support)||0);
+      const weight=effectiveSupport < 3 ? 0 : effectiveSupport < 10 ? .25 : effectiveSupport < 25 ? .5 : .75;
+      const canonical=clamp(stakes,1,5),heat=Number.isFinite(Number(heatScore))?clamp(heatScore,1,5):canonical;
+      return{score:Math.round((canonical*(1-weight)+heat*weight)*10)/10,heatWeight:weight,stakesWeight:1-weight};
+    },
+    labelFor(phase,score){
+      const index=Math.max(0,Math.min(4,Math.round(Math.max(1,Math.min(5,Number(score)||0)))-1));
+      return(phase==="heat"?this.HEAT_LABELS:phase==="impact"?this.IMPACT_LABELS:this.PULSE_LABELS)[index];
+    },
+  });
   const NOTHINGSCORE = root.NOTHINGSPORTS_NOTHINGSCORE
-    || (typeof require === "function" ? require("./nothingscore.js") : null);
+    || (typeof require === "function" ? require("./nothingscore.js") : browserNothingscore);
+  if (!root.NOTHINGSPORTS_NOTHINGSCORE) root.NOTHINGSPORTS_NOTHINGSCORE = NOTHINGSCORE;
   const ALLOWED_ARCHETYPES = new Set([
     "monster",
     "ragsToRiches",

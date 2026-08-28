@@ -179,7 +179,7 @@ assert(packageDocument.dependencies["web-push"]);
 assert(html.includes("localNotificationRegistration") && html.includes("deliverBrowserReminder"));
 const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
 assert(!quickReminderSource.includes("ensureWebPushReminder") && !quickReminderSource.includes("removeWebPushReminder"), "release reminders must remain local-only");
-assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep nothingSport open."));
+assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open."));
 assert(notificationApi.includes("remind_at") && notificationApi.includes("15 * 60 * 1000"));
 assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));

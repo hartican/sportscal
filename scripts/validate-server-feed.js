@@ -371,10 +371,10 @@ async function run(){
     ], "central Wimbledon men's cards must resolve only named ATP competitors");
     const womensFinal = response.body.events.find(item => item.id === "wimbledon-final-noskova-muchova-2026");
     assert(womensFinal, "the authenticated feed must retain the saved Wimbledon women's final card");
-    assert.deepEqual(womensFinal.participantIds, [
+    assert.deepEqual([...womensFinal.participantIds].sort(), [
       "competitor:tennis:wta:karolina-muchova",
       "competitor:tennis:wta:linda-noskova",
-    ], "central Wimbledon women's cards must resolve only named WTA competitors");
+    ].sort(), "central Wimbledon women's cards must resolve only named WTA competitors regardless of home/away display order");
     const tourFinal = response.body.events.find(item => item.id === "evt_66");
     assert(tourFinal, "the authenticated feed must retain the recent Tour de France final stage");
     assert.equal(tourFinal.sportDomainId, "special:tour-de-france", "central Tour cards must use the Special Event preference domain");
