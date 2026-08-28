@@ -17,6 +17,8 @@
   });
   const STORYLINE_OVERRIDES = root.NOTHINGSPORTS_STORYLINE_OVERRIDES
     || (typeof require === "function" ? require("./storyline-overrides.js") : null);
+  const NOTHINGSCORE = root.NOTHINGSPORTS_NOTHINGSCORE
+    || (typeof require === "function" ? require("./nothingscore.js") : null);
   const ALLOWED_ARCHETYPES = new Set([
     "monster",
     "ragsToRiches",
@@ -387,6 +389,16 @@
     if (!canonicalEventId) throw new Error("enrichEvent requires a canonical event id");
     const override = editorialOverrideFor(event);
     const stakes = numericStakes(event, override);
+    const nothingscore = typeof context.nothingscoreForEvent === "function"
+      ? context.nothingscoreForEvent(event)
+      : event.nothingscoreSnapshot || null;
+    const heat = nothingscore?.aggregates?.heat || (nothingscore?.phase === "heat" ? nothingscore.aggregate : null);
+    const impact = nothingscore?.aggregates?.impact || (nothingscore?.phase === "impact" ? nothingscore.aggregate : null);
+    const heatBlend = NOTHINGSCORE?.blendHeatWithStakes?.(stakes, heat?.score, heat?.support) || { score:stakes, heatWeight:0, stakesWeight:1 };
+    const impactEligible = nothingscore?.phase === "impact"
+      && Number(impact?.support || 0) >= 10
+      && Boolean(event.replayEligible || event.highlightEligible);
+    const surfacingStakes = impactEligible ? Math.max(heatBlend.score, Number(impact?.score || 0)) : heatBlend.score;
     const intensity = numericIntensity(event, stakes, override);
     const interest = clamp(userInterestScore(event, context), 0, 5);
     const follows = clamp(followBoost(event, context.preferenceGraph), 0, 5);
@@ -397,7 +409,7 @@
     const timeWindow = clamp(timeWindowFitScore(event, context, stakes), 0, 5);
     const editorialBoost = override ? 5 : 0;
     const mustWatchScore = Math.round(clamp(
-      stakes * 12
+      surfacingStakes * 12
       + intensity * 4
       + interest * 4
       + follows * 2
@@ -409,7 +421,9 @@
       100
     ));
     const scoreReasons = [
-      `Stakes ${stakes}/5 contributed ${stakes * 12} points.`,
+      heatBlend.heatWeight
+        ? `Heat blended ${Math.round(heatBlend.heatWeight * 100)}% with Stakes for surfacing; canonical Stakes remains ${stakes}/5.`
+        : `Stakes ${stakes}/5 contributed ${stakes * 12} points.`,
       `Storyline intensity ${intensity}/5 contributed ${intensity * 4} points.`,
       interest ? `Your sport or competition interest added ${interest * 4} points.` : "No explicit sport or competition interest boost applied.",
       follows ? `A followed participant added ${follows * 2} points.` : "No followed-participant boost applied.",
@@ -442,14 +456,17 @@
       followContext,
       broadcasterFitScore: broadcaster,
       stakesScore: stakes,
+      surfacingStakesScore: surfacingStakes,
+      nothingscoreBlend:heatBlend,
+      nothingscoreProminence:nothingscore?.phase === "pulse" ? Number(nothingscore.aggregate?.score || 0) * 1000 + Number(nothingscore.watchingCount || 0) : impactEligible ? Number(impact?.score || 0) * 100 : 0,
       australiaRelevanceScore: australia,
       availabilityScore: availability,
       timeWindowFitScore: timeWindow,
       editorialBoost,
       mustWatchScore,
       intensity,
-      cardVariant: variantForSignificance(stakes, intensity, mustWatchScore, override),
-      premiumSurface: override?.forceSurface || (mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "homeMustWatch" : stakes >= 4 ? "topStorylines" : "sportFeed"),
+      cardVariant: variantForSignificance(surfacingStakes, intensity, mustWatchScore, override),
+      premiumSurface: override?.forceSurface || (mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "homeMustWatch" : surfacingStakes >= 4 ? "topStorylines" : "sportFeed"),
       editorialOverride: override ? {
         reviewedAt: override.reviewedAt,
         reviewedBy: override.reviewedBy,
@@ -467,6 +484,8 @@
       .sort((first, second) => {
         const scoreDifference = second.enrichment.mustWatchScore - first.enrichment.mustWatchScore;
         if (scoreDifference) return scoreDifference;
+        const socialDifference = Number(second.enrichment.nothingscoreProminence || 0) - Number(first.enrichment.nothingscoreProminence || 0);
+        if (socialDifference) return socialDifference;
         const affinityDifference = (second.enrichment.userInterestScore + second.enrichment.followBoost)
           - (first.enrichment.userInterestScore + first.enrichment.followBoost);
         if (affinityDifference) return affinityDifference;
@@ -497,7 +516,7 @@
     const selectedIds = new Set(mustWatch.map(item => item.enrichment.canonicalEventId));
     const topStorylines = ranked.filter(item => (
       !selectedIds.has(item.enrichment.canonicalEventId)
-      && item.enrichment.stakesScore >= PREMIUM_SURFACE_POLICY.topStorylineMinimumStakes
+      && item.enrichment.surfacingStakesScore >= PREMIUM_SURFACE_POLICY.topStorylineMinimumStakes
     )).slice(0, topStorylineLimit);
     return { mustWatch, topStorylines };
   }

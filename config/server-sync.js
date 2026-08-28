@@ -416,6 +416,20 @@
           body:JSON.stringify(command),
         } : {});
       },
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "" } = {}, command = null){
+        if (command){
+          return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
+        }
+        const params = new URLSearchParams();
+        if (Array.isArray(ids) && ids.length) params.set("ids", ids.slice(0, 50).join(","));
+        if (eventId) params.set("eventId", eventId);
+        if (leaderboard) params.set("leaderboard", leaderboard);
+        const target = `/api/nothingscore?${params.toString()}`;
+        return session || restoreStoredSession() ? authenticatedRequest(target) : jsonRequest(target);
+      },
+      async nothingscoreMarquee(command){
+        return authenticatedRequest("/api/nothingscore-marquee", { method:"POST", body:JSON.stringify(command || {}) });
+      },
       async loadFeed({ cursor = 0, limit = 20 } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
         return authenticatedRequest(`/api/feed?${params.toString()}`);

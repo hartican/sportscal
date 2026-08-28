@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="166">
+<meta name="app-shell-version" content="167">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5518,6 +5518,90 @@ button.chat-room-row{ cursor:pointer; }
 .active-chat-count{ min-width:20px; text-align:center; font-variant-numeric:tabular-nums; }
 body.chat-open{ overflow:hidden; }
 
+/* ---------- Nothingscore fixture social layer ---------- */
+.nsc-summary{
+  margin-top:8px;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px 10px;
+  color:var(--text-dim);
+  font-size:.68rem;
+  line-height:1.35;
+}
+.nsc-summary strong{ color:var(--text); font-size:.73rem; }
+.nsc-phase{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 7px;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 45%, var(--border));
+  border-radius:999px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 10%, transparent);
+  color:var(--text);
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.nsc-live-dot{ width:7px; height:7px; border-radius:50%; background:#ff4154; box-shadow:0 0 0 3px rgba(255,65,84,.14); }
+.nsc-panel{
+  margin-top:12px;
+  padding:13px;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 36%, var(--border));
+  border-radius:14px;
+  background:color-mix(in srgb, var(--bg-card) 90%, var(--sport-color, var(--accent)) 10%);
+}
+.nsc-panel-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.nsc-panel-head h4{ font-size:.82rem; }
+.nsc-panel-head p,.nsc-note{ margin-top:4px; color:var(--text-dim); font-size:.68rem; line-height:1.45; }
+.nsc-score-large{ flex:0 0 auto; color:var(--text); font-size:1.15rem; font-weight:950; font-variant-numeric:tabular-nums; }
+.nsc-choice-row{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; margin-top:12px; }
+.nsc-choice{
+  min-height:52px;
+  display:grid;
+  place-items:center;
+  gap:2px;
+  padding:6px 3px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--panel-bg);
+  color:var(--text);
+  cursor:pointer;
+  font:inherit;
+}
+.nsc-choice strong{ font-size:.8rem; }
+.nsc-choice span{ color:var(--text-dim); font-size:.58rem; line-height:1.1; text-align:center; }
+.nsc-choice[aria-pressed="true"]{ border-color:var(--accent); background:color-mix(in srgb, var(--accent) 16%, var(--panel-bg)); }
+.nsc-choice:disabled{ opacity:.48; cursor:not-allowed; }
+.nsc-wave{ display:flex; align-items:center; justify-content:center; gap:2px; height:16px; }
+.nsc-wave i{ width:2px; border-radius:2px; background:currentColor; }
+.nsc-wave i:nth-child(1),.nsc-wave i:nth-child(5){ height:5px; }
+.nsc-wave i:nth-child(2),.nsc-wave i:nth-child(4){ height:10px; }
+.nsc-wave i:nth-child(3){ height:15px; }
+.nsc-tags,.nsc-actions{ display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+.nsc-tag{ display:inline-flex; align-items:center; gap:5px; padding:6px 8px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:.64rem; }
+.nsc-tag:has(input:checked){ border-color:var(--accent); color:var(--text); background:color-mix(in srgb, var(--accent) 12%, transparent); }
+.nsc-contributors{ display:grid; gap:7px; margin-top:12px; }
+.nsc-contributor{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 10px; border-top:1px solid var(--border); }
+.nsc-contributor-copy{ min-width:0; }
+.nsc-contributor-copy strong,.nsc-contributor-copy span{ display:block; overflow-wrap:anywhere; }
+.nsc-contributor-copy span{ margin-top:2px; color:var(--text-dim); font-size:.63rem; }
+.nsc-report{ border:0; background:transparent; color:var(--text-dim); cursor:pointer; font:700 .62rem/1.2 inherit; }
+.nsc-status{ min-height:1em; margin-top:8px; color:var(--text-dim); font-size:.66rem; }
+.nsc-impact-burst{ animation:nsc-burst .7s ease-out; }
+@keyframes nsc-burst{ 0%{ box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent); } 100%{ box-shadow:0 0 0 28px transparent; } }
+.nsc-backdrop{ z-index:270; }
+.nsc-drawer{ width:min(500px,100%); }
+.nsc-leaderboard-tabs{ display:flex; gap:7px; margin-bottom:12px; }
+.nsc-board{ display:grid; gap:7px; }
+.nsc-board-row{ display:grid; grid-template-columns:28px minmax(0,1fr) auto; align-items:center; gap:9px; padding:10px 11px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); }
+.nsc-board-row small{ display:block; margin-top:2px; color:var(--text-dim); }
+.nsc-board-points{ font-weight:950; font-variant-numeric:tabular-nums; }
+.nsc-profile-form{ display:grid; gap:10px; margin-bottom:16px; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); }
+.nsc-profile-form input{ width:100%; }
+.nsc-sound-setting{ margin:0 0 14px; }
+body.nsc-open{ overflow:hidden; }
+
 @media (max-width: 640px){
   .chat-backdrop{ align-items:flex-end; }
   .chat-drawer{
@@ -5534,13 +5618,19 @@ body.chat-open{ overflow:hidden; }
     padding-right:max(14px, env(safe-area-inset-right));
   }
   .header-actions{
-    grid-template-columns:minmax(80px, 1fr) repeat(4, 44px) 58px;
+    grid-template-columns:repeat(7, minmax(0, 1fr));
   }
+  .spoiler-home-label::after{ display:none; content:""; }
+}
+
+@media (max-width: 350px){
+  .header-actions{ grid-template-columns:repeat(4, minmax(44px, 1fr)); }
 }
 
 @media (prefers-reduced-motion: reduce){
   .chat-backdrop,
   .chat-drawer{ scroll-behavior:auto; }
+  .nsc-impact-burst{ animation:none; }
 }
 
 .tune-section + .tune-section{
@@ -6396,6 +6486,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn ghost" id="aboutBtn" aria-label="About"><span data-vector-glyph="ui:info"></span> <span class="full-label">About</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
+      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-haspopup="dialog" aria-controls="nothingscoreDrawer" aria-label="Nothingscore"><span aria-hidden="true">NSC</span> <span class="full-label">Scores</span></button>
       <button class="btn ghost soundtrack-toggle" id="soundtrackToggle" type="button" role="switch" aria-checked="false" aria-describedby="soundtrackAttribution" title="Play Skyscraper Samba by Scott Buckley"><span data-vector-glyph="ui:music"></span> <span class="full-label">Soundtrack</span><span class="soundtrack-toggle-state">OFF</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
@@ -6654,6 +6745,19 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
+<div class="chat-backdrop nsc-backdrop" id="nothingscoreBackdrop" aria-hidden="true">
+  <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="dialog" aria-modal="true" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
+    <header class="chat-head">
+      <div class="chat-head-copy">
+        <h2 id="nothingscoreTitle">Nothingscore</h2>
+        <p id="nothingscoreSubtitle">What the pilot thinks before, during and after the fixture.</p>
+      </div>
+      <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Close Nothingscore">×</button>
+    </header>
+    <div class="chat-body" id="nothingscoreBody"></div>
+  </aside>
+</div>
+
 <script src="config/brand-copy.js"></script>
 <script src="config/vector-assets.js"></script>
 <script src="config/card-identities.js"></script>
@@ -6688,6 +6792,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/fine-tuning.js"></script>
 <script src="config/rating-system.js"></script>
 <script src="config/storyline-overrides.js"></script>
+<script src="config/nothingscore.js"></script>
 <script src="config/enrichment-engine.js"></script>
 <script src="config/card-lifecycle.js"></script>
 <script src="config/reminder-engine.js"></script>
@@ -6701,7 +6806,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=165")
+  : loadDeferredScript("config/national-team-identities.js?v=167")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7478,6 +7583,7 @@ const FINE_TUNING = globalThis.NOTHINGSPORTS_FINE_TUNING || null;
 const RATING_SYSTEM = globalThis.NOTHINGSPORTS_RATING_SYSTEM || null;
 const SPORT_CONTEXT = globalThis.NOTHINGSPORTS_SPORT_CONTEXT || null;
 const SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
+const NOTHINGSCORE = globalThis.NOTHINGSPORTS_NOTHINGSCORE || null;
 const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
 const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
@@ -8086,6 +8192,21 @@ let chatRoomTimer = null;
 let chatPollFailures = 0;
 let chatPreviousFocus = null;
 let chatSetupFixture = null;
+const nothingscoreSnapshots = new Map();
+const nothingscoreLoadedAt = new Map();
+const nothingscorePendingIds = new Set();
+const nothingscoreDetailLoading = new Set();
+const nothingscoreWatching = new Set();
+const nothingscoreHeartbeatFailures = new Map();
+let nothingscoreViewer = { signedIn:false, pilot:false, profile:null };
+let nothingscoreBatchTimer = null;
+let nothingscorePollTimer = null;
+let nothingscoreHeartbeatTimer = null;
+let nothingscorePollFailures = 0;
+let nothingscoreRenderQueued = false;
+let nothingscorePreviousFocus = null;
+let nothingscoreLeaderboardPeriod = "weekly";
+const NOTHINGSCORE_SOUND_KEY = "ns_nothingscore_sound_v1";
 let productEventOwnerId = null;
 let productExposureObserver = null;
 const productExposureTargets = new WeakMap();
@@ -9312,6 +9433,7 @@ function setServerPersistence(patch){
     renderSettingsScreen();
   }
   syncChatSessionState(previousOwnerId, nextOwnerId);
+  syncNothingscoreSessionState(previousOwnerId, nextOwnerId);
   return serverPersistence;
 }
 
@@ -11071,6 +11193,7 @@ function enrichmentContextForEvent(ev){
     selectedBroadcasterIds: userPreferences.selectedBroadcasters,
     participants: canonicalPreferenceParticipants,
     narrativeProfile: SPORT_DOMAIN_REGISTRY.byKey[ev.key]?.narrativeProfile,
+    nothingscoreForEvent: event => nothingscoreSnapshots.get(String(event.canonicalEventId || event.eventId || event.id || "")) || null,
   };
 }
 
@@ -11136,7 +11259,8 @@ function eventLearningScore(ev){
 }
 
 function eventEnrichment(ev){
-  const base = cachedEventEnrichment(ev) || calculateEventEnrichment(ev);
+  const socialId = String(ev.canonicalEventId || ev.eventId || ev.id || "");
+  const base = nothingscoreSnapshots.has(socialId) ? calculateEventEnrichment(ev) : (cachedEventEnrichment(ev) || calculateEventEnrichment(ev));
   const learningScore = eventLearningScore(ev);
   return {
     ...base,
@@ -14422,6 +14546,7 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     next.swipeCoaching = { dismissedAt: new Date().toISOString() };
   }
   savePreferences(next);
+  if (direction === "positive") void publishPositiveNothingscoreLike(ev);
   recordProductEvent({
     eventName: "swipe",
     surface: "curated_feed",
@@ -14772,7 +14897,446 @@ function refreshExpandableCard(card, replacement, { restoreFocus = false, focusT
   });
 }
 
+function nothingscoreEventId(ev){
+  return String(ev?.canonicalEventId || ev?.eventId || ev?.id || "");
+}
+
+function nothingscoreSnapshotFor(ev){
+  return nothingscoreSnapshots.get(nothingscoreEventId(ev)) || null;
+}
+
+function nothingscoreQueueRender(){
+  if (nothingscoreRenderQueued || startupCoordinator.isHydrating()) return;
+  nothingscoreRenderQueued = true;
+  window.requestAnimationFrame(() => {
+    nothingscoreRenderQueued = false;
+    renderAll({ preserveViewport:true });
+  });
+}
+
+function mergeNothingscoreSnapshot(snapshot){
+  const eventId = String(snapshot?.eventId || "");
+  if (!eventId) return false;
+  const previous = nothingscoreSnapshots.get(eventId) || null;
+  const merged = {
+    ...previous,
+    ...snapshot,
+    ...(snapshot.contributors === undefined && previous?.contributors !== undefined ? { contributors:previous.contributors } : {}),
+  };
+  const fingerprint = value => JSON.stringify({
+    phase:value?.phase,
+    aggregate:value?.aggregate,
+    aggregates:value?.aggregates,
+    watchingCount:value?.watchingCount,
+    currentUser:value?.currentUser,
+    contributors:value?.contributors,
+  });
+  nothingscoreSnapshots.set(eventId, merged);
+  nothingscoreLoadedAt.set(eventId, Date.now());
+  return fingerprint(previous) !== fingerprint(merged);
+}
+
+async function loadNothingscoreBatch(ids, { rerender = true } = {}){
+  if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return null;
+  const requested = [...new Set((ids || []).map(String).filter(Boolean))].slice(0, 50);
+  if (!requested.length) return null;
+  const payload = await serverSyncClient.nothingscoreRequest({ ids:requested });
+  let changed = false;
+  (payload.snapshots || []).forEach(snapshot => { changed = mergeNothingscoreSnapshot(snapshot) || changed; });
+  if (payload.viewer) nothingscoreViewer = payload.viewer;
+  if (changed && rerender) nothingscoreQueueRender();
+  return payload;
+}
+
+async function flushNothingscoreBatch(){
+  window.clearTimeout(nothingscoreBatchTimer);
+  nothingscoreBatchTimer = null;
+  const ids = [...nothingscorePendingIds].slice(0, 50);
+  ids.forEach(id => nothingscorePendingIds.delete(id));
+  if (!ids.length) return;
+  try{
+    await loadNothingscoreBatch(ids);
+  }catch(error){
+    console.warn("Nothingscore summary refresh paused", error);
+  }finally{
+    if (nothingscorePendingIds.size) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
+  }
+}
+
+function registerNothingscoreEvent(ev, { force = false } = {}){
+  if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return;
+  const eventId = nothingscoreEventId(ev);
+  if (!eventId) return;
+  const snapshot = nothingscoreSnapshots.get(eventId);
+  const maxAge = snapshot?.phase === "pulse" ? 25_000 : 5 * 60_000;
+  if (!force && Date.now() - Number(nothingscoreLoadedAt.get(eventId) || 0) < maxAge) return;
+  nothingscorePendingIds.add(eventId);
+  if (!nothingscoreBatchTimer) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
+}
+
+async function loadNothingscoreDetail(ev){
+  const eventId = nothingscoreEventId(ev);
+  if (!eventId || nothingscoreDetailLoading.has(eventId) || nothingscoreSnapshots.get(eventId)?.contributors !== undefined) return;
+  nothingscoreDetailLoading.add(eventId);
+  try{
+    const payload = await serverSyncClient.nothingscoreRequest({ eventId });
+    if (payload.viewer) nothingscoreViewer = payload.viewer;
+    if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
+  }catch(error){
+    console.warn("Nothingscore contributor detail unavailable", error);
+  }finally{
+    nothingscoreDetailLoading.delete(eventId);
+  }
+}
+
+function nothingscorePhaseCopy(phase){
+  if (phase === "pulse") return { name:"Pulse", detail:"Live feeling", labels:NOTHINGSCORE.PULSE_LABELS };
+  if (phase === "impact") return { name:"Impact", detail:"How it landed", labels:NOTHINGSCORE.IMPACT_LABELS };
+  return { name:"Heat", detail:"Pre-fixture anticipation", labels:NOTHINGSCORE.HEAT_LABELS };
+}
+
+function buildNothingscoreSummary(ev){
+  const eventId = nothingscoreEventId(ev);
+  const snapshot = nothingscoreSnapshots.get(eventId);
+  const summary = document.createElement("div");
+  summary.className = "nsc-summary";
+  summary.dataset.nscEventId = eventId;
+  if (!snapshot){
+    summary.setAttribute("aria-label", "Nothingscore loading");
+    const phase = document.createElement("span");
+    phase.className = "nsc-phase";
+    phase.textContent = "NSC";
+    const copy = document.createElement("span");
+    copy.textContent = "Building";
+    summary.append(phase, copy);
+    return summary;
+  }
+  const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
+  const aggregate = snapshot.aggregate || {};
+  const contributors = Number(aggregate.contributorCount ?? aggregate.uniqueContributors ?? aggregate.ratingCount ?? 0);
+  const phase = document.createElement("span");
+  phase.className = "nsc-phase";
+  if (snapshot.phase === "pulse"){
+    const dot = document.createElement("i");
+    dot.className = "nsc-live-dot";
+    dot.setAttribute("aria-hidden", "true");
+    phase.appendChild(dot);
+  }
+  phase.append(document.createTextNode(phaseCopy.name));
+  const score = document.createElement("strong");
+  score.textContent = aggregate.building || aggregate.score == null ? `NSC building · ${aggregate.likeCount || 0} likes` : `${Number(aggregate.score).toFixed(1)}/5 · ${NOTHINGSCORE.labelFor(snapshot.phase, aggregate.score)}`;
+  const people = document.createElement("span");
+  people.textContent = `${contributors} contributor${contributors === 1 ? "" : "s"} · ${aggregate.likeCount || 0} like${aggregate.likeCount === 1 ? "" : "s"}`;
+  summary.append(phase, score, people);
+  if (snapshot.phase === "pulse"){
+    const watching = document.createElement("span");
+    watching.textContent = `${snapshot.watchingCount || 0} Watching Now`;
+    summary.appendChild(watching);
+  }
+  return summary;
+}
+
+function nothingscoreStatus(panel, message){
+  const status = panel?.querySelector?.(".nsc-status");
+  if (status) status.textContent = message || "";
+}
+
+function nothingscoreSoundEnabled(){
+  try{ return localStorage.getItem(NOTHINGSCORE_SOUND_KEY) === "on"; }catch(_error){ return false; }
+}
+
+function playNothingscoreImpactSound(){
+  if (!nothingscoreSoundEnabled()) return;
+  try{
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const audio = new AudioContext();
+    [523.25, 659.25, 783.99].forEach((frequency, index) => {
+      const oscillator = audio.createOscillator(), gain = audio.createGain();
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(.0001, audio.currentTime + index * .06);
+      gain.gain.exponentialRampToValueAtTime(.08, audio.currentTime + index * .06 + .02);
+      gain.gain.exponentialRampToValueAtTime(.0001, audio.currentTime + index * .06 + .22);
+      oscillator.connect(gain).connect(audio.destination);
+      oscillator.start(audio.currentTime + index * .06);
+      oscillator.stop(audio.currentTime + index * .06 + .24);
+    });
+    window.setTimeout(() => audio.close().catch(() => null), 700);
+  }catch(_error){ /* Browser audio policy, mute state or device support may block the opt-in cue. */ }
+}
+
+async function submitNothingscoreAction(command, panel, { success = "Your Nothingscore is in.", impactBurst = false } = {}){
+  if (!serverSyncClient?.nothingscoreRequest) return null;
+  nothingscoreStatus(panel, "Saving…");
+  panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = true; });
+  try{
+    const result = await serverSyncClient.nothingscoreRequest({}, command);
+    nothingscoreStatus(panel, `${success}${result.pointsAwarded ? ` +${result.pointsAwarded} points.` : ""}`);
+    if (impactBurst){
+      panel.classList.remove("nsc-impact-burst");
+      void panel.offsetWidth;
+      panel.classList.add("nsc-impact-burst");
+      playNothingscoreImpactSound();
+    }
+    if (command.eventId){
+      const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
+      if (payload.viewer) nothingscoreViewer = payload.viewer;
+      if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
+    }
+    return result;
+  }catch(error){
+    nothingscoreStatus(panel, error.message || "That could not be saved just now.");
+    return null;
+  }finally{
+    panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = false; });
+  }
+}
+
+function buildNothingscoreChoices(ev, snapshot, panel){
+  const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
+  const current = snapshot.currentUser?.contribution || null;
+  const pulsePromptReady = snapshot.phase !== "pulse" || Date.now() >= Date.parse(snapshot.timing?.startTimeUtc || "") + 5 * 60_000 || Boolean(current);
+  const choices = document.createElement("div");
+  choices.className = "nsc-choice-row";
+  choices.setAttribute("aria-label", `${phaseCopy.name} rating`);
+  for (let value = 1; value <= 5; value += 1){
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "nsc-choice";
+    button.setAttribute("aria-pressed", String(Number(current?.rating) === value));
+    button.disabled = !pulsePromptReady;
+    if (snapshot.phase === "pulse"){
+      const wave = document.createElement("span");
+      wave.className = "nsc-wave";
+      wave.setAttribute("aria-hidden", "true");
+      wave.innerHTML = "<i></i><i></i><i></i><i></i><i></i>";
+      button.appendChild(wave);
+    }
+    const number = document.createElement("strong");
+    number.textContent = String(value);
+    const label = document.createElement("span");
+    label.textContent = phaseCopy.labels[value - 1];
+    button.append(number, label);
+    button.addEventListener("click", () => {
+      const tags = [...panel.querySelectorAll('.nsc-tag input:checked')].map(input => input.value);
+      const action = snapshot.phase === "pulse" ? "pulse" : "rate";
+      void submitNothingscoreAction({ action, eventId:nothingscoreEventId(ev), rating:value, tags }, panel, {
+        success:snapshot.phase === "pulse" ? "Pulse updated. Come back in another five-minute beat." : "Thanks — your take helps the pilot see the fixture more clearly.",
+        impactBurst:snapshot.phase === "impact" && value === 5,
+      });
+    });
+    choices.appendChild(button);
+  }
+  panel.appendChild(choices);
+  if (!pulsePromptReady){
+    const note = document.createElement("p");
+    note.className = "nsc-note";
+    note.textContent = "Pulse opens about five minutes into the live window.";
+    panel.appendChild(note);
+  }
+  if (["heat", "impact"].includes(snapshot.phase)){
+    const tags = document.createElement("div");
+    tags.className = "nsc-tags";
+    const allowed = snapshot.phase === "heat" ? NOTHINGSCORE.HEAT_TAGS : NOTHINGSCORE.IMPACT_TAGS;
+    allowed.forEach(tag => {
+      const label = document.createElement("label");
+      label.className = "nsc-tag";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = tag;
+      input.checked = (current?.tags || []).includes(tag);
+      input.disabled = Number(current?.rating || 0) < 4;
+      const copy = document.createElement("span");
+      copy.textContent = tag;
+      label.append(input, copy);
+      input.addEventListener("change", () => {
+        if (Number(current?.rating || 0) < 4) return;
+        const selected = [...tags.querySelectorAll("input:checked")].slice(0, 3);
+        tags.querySelectorAll("input:checked").forEach(item => { if (!selected.includes(item)) item.checked = false; });
+        void submitNothingscoreAction({ action:"rate", eventId:nothingscoreEventId(ev), rating:Number(current.rating), tags:selected.map(item => item.value) }, panel, { success:"Tags updated." });
+      });
+      tags.appendChild(label);
+    });
+    panel.appendChild(tags);
+    const note = document.createElement("p");
+    note.className = "nsc-note";
+    note.textContent = "Ratings of 4 or 5 can carry up to three tags.";
+    panel.appendChild(note);
+  }
+}
+
+function buildNothingscoreContributors(snapshot, panel){
+  const contributors = document.createElement("div");
+  contributors.className = "nsc-contributors";
+  const title = document.createElement("strong");
+  title.textContent = "Pilot contributors";
+  contributors.appendChild(title);
+  if (snapshot.contributors === undefined){
+    const loading = document.createElement("p");
+    loading.className = "nsc-note";
+    loading.textContent = "Loading names…";
+    contributors.appendChild(loading);
+  } else if (!snapshot.contributors.length){
+    const empty = document.createElement("p");
+    empty.className = "nsc-note";
+    empty.textContent = "No public contributors yet. A first take gives the next viewer something useful to build on.";
+    contributors.appendChild(empty);
+  } else {
+    snapshot.contributors.forEach(contributor => {
+      const row = document.createElement("div");
+      row.className = "nsc-contributor";
+      const copy = document.createElement("div");
+      copy.className = "nsc-contributor-copy";
+      const name = document.createElement("strong");
+      name.textContent = contributor.displayName;
+      const details = document.createElement("span");
+      details.textContent = [contributor.handle, `${Number(contributor.rating).toFixed(1)}/5`, ...(contributor.tags || [])].filter(Boolean).join(" · ");
+      copy.append(name, details);
+      row.appendChild(copy);
+      if (contributor.profileId && nothingscoreViewer.signedIn && contributor.profileId !== nothingscoreViewer.profile?.profileId){
+        const reportWrap = document.createElement("div");
+        reportWrap.className = "nsc-actions";
+        const reason = document.createElement("select");
+        reason.setAttribute("aria-label", `Reason to report ${contributor.displayName}`);
+        [["offensive","Offensive"],["impersonation","Impersonation"],["misleading","Misleading"],["privacy","Privacy"],["other_fixed","Other"]].forEach(([value,label]) => {
+          const option = document.createElement("option"); option.value = value; option.textContent = label; reason.appendChild(option);
+        });
+        const report = document.createElement("button");
+        report.type = "button";
+        report.className = "nsc-report";
+        report.textContent = "Report username";
+        report.addEventListener("click", () => { void submitNothingscoreAction({ action:"report", targetProfileId:contributor.profileId, reason:reason.value }, panel, { success:"Username report received." }); });
+        reportWrap.append(reason, report);
+        row.appendChild(reportWrap);
+      }
+      contributors.appendChild(row);
+    });
+  }
+  panel.appendChild(contributors);
+}
+
+function buildNothingscorePanel(ev, snapshot, state){
+  const panel = document.createElement("section");
+  panel.className = "nsc-panel";
+  panel.dataset.nscPanel = nothingscoreEventId(ev);
+  const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
+  const aggregate = snapshot.aggregate || {};
+  const head = document.createElement("div");
+  head.className = "nsc-panel-head";
+  const heading = document.createElement("div");
+  const title = document.createElement("h4");
+  title.textContent = `${phaseCopy.name} · ${phaseCopy.detail}`;
+  const explainer = document.createElement("p");
+  explainer.textContent = snapshot.phase === "pulse" ? "A fresh ten-minute view, with each person represented by their mean across live buckets." : snapshot.phase === "impact" ? "Impact combines post-fixture takes with the frozen live Pulse seed." : "Heat can help eligible fixture surfacing, but never rewrites chronology or your follows.";
+  heading.append(title, explainer);
+  const score = document.createElement("div");
+  score.className = "nsc-score-large";
+  score.textContent = aggregate.score == null ? "Building" : `${Number(aggregate.score).toFixed(1)}/5`;
+  head.append(heading, score);
+  panel.appendChild(head);
+
+  const status = document.createElement("p");
+  status.className = "nsc-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  panel.appendChild(status);
+
+  if (!nothingscoreViewer.signedIn){
+    const note = document.createElement("p");
+    note.className = "nsc-note";
+    note.textContent = serverPersistence.user ? "Checking your pilot access…" : "Everyone can read Nothingscore. Sign in to take part in the closed pilot.";
+    panel.appendChild(note);
+  } else if (!nothingscoreViewer.pilot){
+    const note = document.createElement("p");
+    note.className = "nsc-note";
+    note.textContent = "This account can view the score. Contributions are limited to approved pilot members.";
+    panel.appendChild(note);
+  } else if (!nothingscoreViewer.profile || nothingscoreViewer.profile.visibility === "deleted"){
+    const create = document.createElement("button");
+    create.type = "button";
+    create.className = "btn primary";
+    create.textContent = "Create public pilot profile";
+    create.addEventListener("click", openNothingscoreDrawer);
+    panel.appendChild(create);
+  } else {
+    buildNothingscoreChoices(ev, snapshot, panel);
+    const actions = document.createElement("div");
+    actions.className = "nsc-actions";
+    const like = document.createElement("button");
+    like.type = "button";
+    like.className = "btn ghost";
+    like.textContent = snapshot.currentUser?.liked ? "Liked" : "Like this fixture";
+    like.setAttribute("aria-pressed", String(Boolean(snapshot.currentUser?.liked)));
+    like.addEventListener("click", () => { void submitNothingscoreAction({ action:"like", eventId:nothingscoreEventId(ev), active:!snapshot.currentUser?.liked }, panel, { success:snapshot.currentUser?.liked ? "Public like removed; your private feed choices are unchanged." : "Public like added. Your private feed learning remains separate." }); });
+    actions.appendChild(like);
+    if (snapshot.phase === "pulse"){
+      const watching = document.createElement("button");
+      watching.type = "button";
+      watching.className = "btn primary";
+      watching.textContent = snapshot.currentUser?.watching || nothingscoreWatching.has(nothingscoreEventId(ev)) ? "Watching Now ✓" : "Watching Now";
+      watching.addEventListener("click", async () => {
+        const result = await submitNothingscoreAction({ action:"watching", eventId:nothingscoreEventId(ev) }, panel, { success:"Watching Now is live for this fixture." });
+        if (result){ nothingscoreWatching.add(nothingscoreEventId(ev)); scheduleNothingscoreHeartbeat(60_000); }
+      });
+      actions.appendChild(watching);
+    }
+    panel.appendChild(actions);
+  }
+  if (state === "opened") buildNothingscoreContributors(snapshot, panel);
+  return panel;
+}
+
+async function publishPositiveNothingscoreLike(ev){
+  if (!serverPersistence.user || !serverSyncClient?.nothingscoreRequest) return;
+  try{
+    await serverSyncClient.nothingscoreRequest({}, { action:"like", eventId:nothingscoreEventId(ev), active:true });
+    registerNothingscoreEvent(ev, { force:true });
+  }catch(_error){ /* Local learning remains valid for signed-out or non-pilot users. */ }
+}
+
+function visiblePulseNothingscoreIds(){
+  return [...document.querySelectorAll('.event-card[data-nsc-phase="pulse"]')]
+    .filter(card => card.getClientRects().length)
+    .map(card => card.dataset.eventId)
+    .filter(Boolean);
+}
+
+function scheduleNothingscorePoll(delay = 30_000){
+  window.clearTimeout(nothingscorePollTimer);
+  if (document.visibilityState === "hidden" || nothingscorePollFailures >= 3) return;
+  nothingscorePollTimer = window.setTimeout(async () => {
+    const ids = visiblePulseNothingscoreIds();
+    try{
+      if (ids.length) await loadNothingscoreBatch(ids);
+      nothingscorePollFailures = 0;
+      scheduleNothingscorePoll(30_000);
+    }catch(_error){
+      nothingscorePollFailures += 1;
+      scheduleNothingscorePoll(30_000);
+    }
+  }, delay);
+}
+
+function scheduleNothingscoreHeartbeat(delay = 60_000){
+  window.clearTimeout(nothingscoreHeartbeatTimer);
+  if (!nothingscoreWatching.size || document.visibilityState === "hidden") return;
+  nothingscoreHeartbeatTimer = window.setTimeout(async () => {
+    for (const eventId of [...nothingscoreWatching]){
+      try{
+        await serverSyncClient.nothingscoreRequest({}, { action:"watching", eventId });
+        nothingscoreHeartbeatFailures.set(eventId, 0);
+      }catch(_error){
+        const failures = Number(nothingscoreHeartbeatFailures.get(eventId) || 0) + 1;
+        nothingscoreHeartbeatFailures.set(eventId, failures);
+        if (failures >= 3) nothingscoreWatching.delete(eventId);
+      }
+    }
+    scheduleNothingscoreHeartbeat(60_000);
+  }, delay);
+}
+
 function buildEventCard(ev, options = {}){
+  registerNothingscoreEvent(ev);
   const meta = sportMetaForEvent(ev);
   const status = getEventStatus(ev);
   const presentation = surfacePresentationForEvent(ev);
@@ -14830,6 +15394,7 @@ function buildEventCard(ev, options = {}){
   card.dataset.intensity = String(enrichment.intensity);
   card.dataset.mustWatchScore = String(enrichment.mustWatchScore);
   card.dataset.recommendationClassification = recommendationProfile.classification;
+  card.dataset.nscPhase = nothingscoreSnapshotFor(ev)?.phase || "loading";
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
@@ -15041,6 +15606,7 @@ function buildEventCard(ev, options = {}){
     metaRow.appendChild(broadcaster);
   }
   mainDiv.appendChild(metaRow);
+  mainDiv.appendChild(buildNothingscoreSummary(ev));
   const followContext = buildFollowContext(enrichment.followContext);
   if (followContext) mainDiv.appendChild(followContext);
   const jerseyContext = buildStageJerseyContext(ev);
@@ -15081,6 +15647,11 @@ function buildEventCard(ev, options = {}){
   const expansionRegion = document.createElement("div");
   expansionRegion.className = "event-expansion-region";
   expansionRegion.dataset.scrollDetailRegion = String(ev.eventId || ev.id);
+  const socialSnapshot = nothingscoreSnapshotFor(ev);
+  if (state !== "compact" && socialSnapshot){
+    if (state === "opened") void loadNothingscoreDetail(ev);
+    expansionRegion.appendChild(buildNothingscorePanel(ev, socialSnapshot, state));
+  }
   if (state === "compact" && swipeEligible){
     const feedback = document.createElement("div");
     feedback.className = "event-inline-feedback";
@@ -21645,6 +22216,281 @@ function syncChatSessionState(previousOwnerId, nextOwnerId){
   }
   if (previousOwnerId !== nextOwnerId || !chatActiveTimer) void refreshChatActive();
 }
+
+function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
+  if (!NOTHINGSCORE || previousOwnerId === nextOwnerId) return;
+  nothingscoreSnapshots.clear();
+  nothingscoreLoadedAt.clear();
+  nothingscoreViewer = { signedIn:false, pilot:false, profile:null };
+  if (!nextOwnerId){
+    nothingscoreWatching.clear();
+    window.clearTimeout(nothingscoreHeartbeatTimer);
+  }
+  activeEvents.slice(0, 50).forEach(event => registerNothingscoreEvent(event, { force:true }));
+  nothingscoreQueueRender();
+  if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show")) void refreshNothingscoreDrawer();
+}
+
+async function refreshNothingscoreViewer(){
+  const event = activeEvents[0] || EVENTS[0] || null;
+  if (!event) return null;
+  const payload = await serverSyncClient.nothingscoreRequest({ eventId:nothingscoreEventId(event) });
+  if (payload.viewer) nothingscoreViewer = payload.viewer;
+  if (payload.detail) mergeNothingscoreSnapshot(payload.detail);
+  return payload.viewer || null;
+}
+
+function setNothingscoreDrawerOpen(open){
+  const backdrop = document.getElementById("nothingscoreBackdrop");
+  backdrop.classList.toggle("show", open);
+  backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+  document.body.classList.toggle("nsc-open", open);
+  if (open){
+    nothingscorePreviousFocus = document.activeElement;
+    renderNothingscoreDrawer();
+    document.getElementById("closeNothingscoreBtn").focus();
+  } else {
+    nothingscorePreviousFocus?.focus?.();
+    nothingscorePreviousFocus = null;
+  }
+}
+
+function openNothingscoreDrawer(){
+  setNothingscoreDrawerOpen(true);
+  void refreshNothingscoreDrawer();
+}
+
+function nothingscoreProfileForm(){
+  const form = document.createElement("form");
+  form.className = "nsc-profile-form";
+  const heading = document.createElement("strong");
+  heading.textContent = nothingscoreViewer.profile?.visibility === "visible" ? "Public pilot profile" : "Create or restore your public pilot profile";
+  const disclosure = document.createElement("p");
+  disclosure.className = "nsc-note";
+  disclosure.textContent = "Your complete display name and unique lowercase handle appear beside contributions. Email and account identifiers are never shown.";
+  const displayLabel = document.createElement("label");
+  displayLabel.className = "field-label";
+  displayLabel.textContent = "Display name";
+  const display = document.createElement("input");
+  display.name = "displayName";
+  display.required = true;
+  display.minLength = 2;
+  display.maxLength = 80;
+  display.autocomplete = "name";
+  display.value = nothingscoreViewer.profile?.visibility === "visible" ? String(nothingscoreViewer.profile.displayName || "") : "";
+  displayLabel.appendChild(display);
+  const handleLabel = document.createElement("label");
+  handleLabel.className = "field-label";
+  handleLabel.textContent = "Handle";
+  const handle = document.createElement("input");
+  handle.name = "handle";
+  handle.required = true;
+  handle.minLength = 3;
+  handle.maxLength = 24;
+  handle.pattern = "[a-z0-9_]{3,24}";
+  handle.autocapitalize = "none";
+  handle.spellcheck = false;
+  handle.placeholder = "your_handle";
+  handle.value = nothingscoreViewer.profile?.visibility === "visible" ? String(nothingscoreViewer.profile.handle || "").replace(/^@/, "") : "";
+  handleLabel.appendChild(handle);
+  const save = document.createElement("button");
+  save.type = "submit";
+  save.className = "btn primary";
+  save.textContent = "Save public profile";
+  const status = document.createElement("p");
+  status.className = "nsc-status";
+  status.setAttribute("role", "status");
+  form.append(heading, disclosure, displayLabel, handleLabel, save, status);
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    save.disabled = true;
+    status.textContent = "Saving…";
+    try{
+      await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
+      await refreshNothingscoreViewer();
+      renderNothingscoreDrawer();
+      nothingscoreQueueRender();
+    }catch(error){
+      status.textContent = error.message || "That profile could not be saved.";
+      save.disabled = false;
+    }
+  });
+  return form;
+}
+
+async function setNothingscoreProfileVisibility(visibility){
+  await serverSyncClient.nothingscoreRequest({}, { action:"profile-visibility", visibility });
+  await refreshNothingscoreViewer();
+  renderNothingscoreDrawer();
+  nothingscoreQueueRender();
+}
+
+function renderNothingscoreDrawer(){
+  const body = document.getElementById("nothingscoreBody");
+  body.replaceChildren();
+  const sound = document.createElement("label");
+  sound.className = "pilot-disclosure nsc-sound-setting";
+  const soundInput = document.createElement("input");
+  soundInput.type = "checkbox";
+  soundInput.checked = nothingscoreSoundEnabled();
+  const soundCopy = document.createElement("span");
+  soundCopy.innerHTML = "<strong>5/5 Impact sound</strong>Separately opt in to a short celebration cue. It stays off by default and browser mute or audio policies still win.";
+  sound.append(soundInput, soundCopy);
+  soundInput.addEventListener("change", () => {
+    try{ localStorage.setItem(NOTHINGSCORE_SOUND_KEY, soundInput.checked ? "on" : "off"); }catch(_error){ /* The switch remains session-only if storage is blocked. */ }
+  });
+  body.appendChild(sound);
+
+  const profileSection = document.createElement("section");
+  if (!serverPersistence.user){
+    const copy = document.createElement("p");
+    copy.className = "chat-disclosure";
+    copy.textContent = "Nothingscore is public to read. Sign in from Settings if you are an approved pilot member and want to contribute.";
+    const signIn = document.createElement("button");
+    signIn.type = "button";
+    signIn.className = "btn primary";
+    signIn.textContent = "Open sign in";
+    signIn.addEventListener("click", () => { setNothingscoreDrawerOpen(false); settingsSection = "account"; openSettings(); });
+    profileSection.append(copy, signIn);
+  } else if (!nothingscoreViewer.signedIn){
+    const copy = document.createElement("p");
+    copy.className = "chat-disclosure";
+    copy.textContent = "Checking this account's pilot access…";
+    profileSection.appendChild(copy);
+  } else if (!nothingscoreViewer.pilot){
+    const copy = document.createElement("p");
+    copy.className = "chat-disclosure";
+    copy.textContent = "This account can view all Nothingscore results. Contributions remain limited to approved closed-pilot members.";
+    profileSection.appendChild(copy);
+  } else {
+    profileSection.appendChild(nothingscoreProfileForm());
+    if (nothingscoreViewer.profile && nothingscoreViewer.profile.visibility !== "deleted"){
+      const actions = document.createElement("div");
+      actions.className = "nsc-actions";
+      const hide = document.createElement("button");
+      hide.type = "button";
+      hide.className = "btn ghost";
+      hide.textContent = nothingscoreViewer.profile.visibility === "hidden" ? "Profile hidden" : "Hide public name";
+      hide.disabled = nothingscoreViewer.profile.visibility === "hidden";
+      hide.addEventListener("click", () => { void setNothingscoreProfileVisibility("hidden").catch(error => showToast(error.message || "Profile could not be hidden.")); });
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "btn ghost";
+      remove.textContent = "Delete public profile";
+      remove.addEventListener("click", () => {
+        if (window.confirm("Delete your public Nothingscore name and handle? Existing aggregate scores remain, but your name becomes 'Hidden contributor'.")) void setNothingscoreProfileVisibility("deleted").catch(error => showToast(error.message || "Profile could not be deleted."));
+      });
+      actions.append(hide, remove);
+      profileSection.appendChild(actions);
+    }
+  }
+  body.appendChild(profileSection);
+
+  const heading = document.createElement("h3");
+  heading.className = "chat-section-title";
+  heading.textContent = "Pilot leaderboard";
+  const tabs = document.createElement("div");
+  tabs.className = "nsc-leaderboard-tabs";
+  [["weekly","This week"],["all-time","All time"]].forEach(([period,label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `btn ${nothingscoreLeaderboardPeriod === period ? "primary" : "ghost"}`;
+    button.textContent = label;
+    button.addEventListener("click", () => { nothingscoreLeaderboardPeriod = period; renderNothingscoreDrawer(); void loadNothingscoreLeaderboard(); });
+    tabs.appendChild(button);
+  });
+  const board = document.createElement("div");
+  board.className = "nsc-board";
+  board.id = "nothingscoreLeaderboard";
+  board.textContent = "Loading leaderboard…";
+  body.append(heading, tabs, board);
+}
+
+async function loadNothingscoreLeaderboard(){
+  const board = document.getElementById("nothingscoreLeaderboard");
+  if (!board) return;
+  try{
+    const payload = await serverSyncClient.nothingscoreRequest({ leaderboard:nothingscoreLeaderboardPeriod });
+    if (!board.isConnected) return;
+    board.replaceChildren();
+    if (!payload.entries?.length){
+      const empty = document.createElement("p");
+      empty.className = "nsc-note";
+      empty.textContent = "No pilot points yet. Early contributors set the pace.";
+      board.appendChild(empty);
+      return;
+    }
+    payload.entries.forEach((entry, index) => {
+      const row = document.createElement("div");
+      row.className = "nsc-board-row";
+      const rank = document.createElement("strong");
+      rank.textContent = String(index + 1);
+      const identity = document.createElement("div");
+      const name = document.createElement("strong");
+      name.textContent = entry.displayName;
+      const details = document.createElement("small");
+      const eligibility = entry.influencerEligible ? " · Influencer review eligible" : entry.risingEligible ? " · Rising eligible" : "";
+      details.textContent = `${entry.handle || "Private profile"} · ${entry.uniqueFixtures} fixture${entry.uniqueFixtures === 1 ? "" : "s"}${eligibility}`;
+      identity.append(name, details);
+      const points = document.createElement("span");
+      points.className = "nsc-board-points";
+      points.textContent = `${entry.points} pts`;
+      row.append(rank, identity, points);
+      board.appendChild(row);
+    });
+  }catch(error){
+    board.textContent = error.message || "Leaderboard temporarily unavailable.";
+  }
+}
+
+async function refreshNothingscoreDrawer(){
+  try{ await refreshNothingscoreViewer(); }catch(_error){ /* Read-only leaderboard still remains available. */ }
+  if (!document.getElementById("nothingscoreBackdrop").classList.contains("show")) return;
+  renderNothingscoreDrawer();
+  await loadNothingscoreLeaderboard();
+}
+
+document.getElementById("nothingscoreBtn").addEventListener("click", openNothingscoreDrawer);
+document.getElementById("closeNothingscoreBtn").addEventListener("click", () => setNothingscoreDrawerOpen(false));
+document.getElementById("nothingscoreBackdrop").addEventListener("click", event => {
+  if (event.target.id === "nothingscoreBackdrop") setNothingscoreDrawerOpen(false);
+});
+document.addEventListener("keydown", event => {
+  const backdrop = document.getElementById("nothingscoreBackdrop");
+  if (!backdrop.classList.contains("show")) return;
+  if (event.key === "Escape"){
+    event.preventDefault();
+    setNothingscoreDrawerOpen(false);
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = [...document.getElementById("nothingscoreDrawer").querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), a[href]')]
+    .filter(element => !element.hidden && element.getClientRects().length);
+  if (!focusable.length) return;
+  const first = focusable[0], last = focusable.at(-1);
+  if (event.shiftKey && document.activeElement === first){ event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden"){
+    window.clearTimeout(nothingscorePollTimer);
+    window.clearTimeout(nothingscoreHeartbeatTimer);
+    return;
+  }
+  nothingscorePollFailures = 0;
+  scheduleNothingscorePoll(0);
+  if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat(0);
+});
+window.addEventListener("online", () => {
+  nothingscorePollFailures = 0;
+  scheduleNothingscorePoll(0);
+  if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat(0);
+});
+window.addEventListener("offline", () => {
+  window.clearTimeout(nothingscorePollTimer);
+  window.clearTimeout(nothingscoreHeartbeatTimer);
+});
+scheduleNothingscorePoll(30_000);
 
 document.getElementById("activeChatsBtn").addEventListener("click", openActiveChats);
 document.getElementById("closeChatBtn").addEventListener("click", () => setChatDrawerOpen(false));

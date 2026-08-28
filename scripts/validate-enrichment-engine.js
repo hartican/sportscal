@@ -123,7 +123,7 @@ const toronto = engine.enrichEvent({
 }, { preferenceGraph: graph });
 assert.equal(toronto.cardVariant, "marquee", "editorial overrides must support flagship card treatment");
 assert.equal(toronto.premiumSurface, "homeMustWatch");
-assert.equal(toronto.editorialOverride.reviewedBy, "nothingSport editorial");
+assert.equal(toronto.editorialOverride.reviewedBy, "Nothing Sport editorial");
 
 const competitorGraph = preferences.setEntityFollow(
   preferences.createPreferenceGraph({
