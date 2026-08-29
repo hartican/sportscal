@@ -100,6 +100,10 @@ assert.equal(buildServerFeed({
 const realMadrid = resolveUserFollowFixtures({ events:[], userState:state(follow("team:football:club:real-madrid")) }).events[0];
 const deduped = resolveUserFollowFixtures({ events:[realMadrid], userState:state(follow("team:football:club:real-madrid")) });
 assert.equal(deduped.events.filter(event => event.canonicalEventId === realMadrid.canonicalEventId).length, 1, "base and follow source fixtures must deduplicate by canonical id");
+const publishedLiverpool = require("../data/events.json").events.find(event => event.canonicalEventId === "event:premier-league:128939");
+const semanticLiverpool = resolveUserFollowFixtures({ events:[publishedLiverpool], userState:state(follow("team:football:epl:10")) });
+assert.equal(semanticLiverpool.events.filter(event => event.name === "Liverpool v Nottingham Forest").length, 1, "the curated and source-bundle versions of a fixture must deduplicate even when provider ids differ");
+assert.equal(semanticLiverpool.events.find(event => event.name === "Liverpool v Nottingham Forest").canonicalEventId, publishedLiverpool.canonicalEventId, "semantic deduplication must preserve the curated canonical identity");
 
 const nbaGame = {
   gameId:"0022600088",
