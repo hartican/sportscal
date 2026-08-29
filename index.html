@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="174">
+<meta name="app-shell-version" content="175">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7888,7 +7888,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=174",
+  moduleScriptUrl: "config/major-events.js?v=175",
   url: "data/major-events.v1.json",
 });
 
@@ -11651,11 +11651,23 @@ function refreshAddedFixtureSnapshots(){
   return changed;
 }
 
+function mainFeedFixtureSemanticKey(event){
+  const participantIds = Array.from(new Set([
+    ...(Array.isArray(event?.participantIds) ? event.participantIds : []),
+    ...(Array.isArray(event?.participantSlots) ? event.participantSlots.map(slot => slot?.participantId) : []),
+    event?.homeParticipantId,
+    event?.awayParticipantId,
+  ].map(value => String(value || "").trim()).filter(Boolean))).sort();
+  const parsedStart = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
+  if (participantIds.length < 2 || !Number.isFinite(parsedStart)) return "";
+  return `${new Date(parsedStart).toISOString()}|${participantIds.join("|")}`;
+}
+
 function mergeMainFeedSpecialEvents(events){
   const merged = new Map(events
     .filter(event => event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event")
     .map(event => [String(event.eventId || event.id), event]));
-  const semanticKey = event => MAJOR_EVENTS?.fixtureSemanticKey?.(event) || "";
+  const semanticKey = mainFeedFixtureSemanticKey;
   const surfacedSemanticKeys = new Set([...merged.values()].map(semanticKey).filter(Boolean));
   const canonicalEditorialBySemanticKey = new Map([...EVENTS, ...activeEvents].map(event => [semanticKey(event), event])
     .filter(([key, event]) => key && event?.editorialNarrative));
