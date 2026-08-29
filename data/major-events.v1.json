@@ -15088,16 +15088,16 @@
         },
         {
           "id": "event:afl:cd_m20260142603",
-          "name": "Qualifying & Elimination Final - Geelong Cats v Lowest-ranked WF Winner",
+          "name": "Qualifying & Elimination Final - Geelong Cats v Carlton",
           "roundLabel": "Qualifying & Elimination Finals",
           "stage": "Qualifying & Elimination Finals",
           "startTimeUtc": "2026-09-04T09:40:00.000Z",
           "venue": "MCG",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Geelong Cats v Lowest-ranked WF Winner at MCG.",
+          "summary": "Official AFL schedule: Geelong Cats v Carlton at MCG.",
           "participantIds": [
             "team:afl:cd_t70",
-            "team:afl:cd_t3010"
+            "team:afl:cd_t30"
           ],
           "participants": [
             {
@@ -15106,9 +15106,9 @@
               "name": "Geelong Cats"
             },
             {
-              "id": "team:afl:cd_t3010",
-              "participantId": "team:afl:cd_t3010",
-              "name": "Lowest-ranked WF Winner"
+              "id": "team:afl:cd_t30",
+              "participantId": "team:afl:cd_t30",
+              "name": "Carlton"
             }
           ],
           "broadcaster": "Kayo Sports",
@@ -15158,16 +15158,16 @@
         },
         {
           "id": "event:afl:cd_m20260142604",
-          "name": "Qualifying & Elimination Final - Adelaide Crows v Highest-ranked WF Winner",
+          "name": "Qualifying & Elimination Final - Adelaide Crows v Western Bulldogs",
           "roundLabel": "Qualifying & Elimination Finals",
           "stage": "Qualifying & Elimination Finals",
           "startTimeUtc": "2026-09-05T09:35:00.000Z",
           "venue": "Adelaide Oval",
           "stakesScore": 5,
-          "summary": "Official AFL schedule: Adelaide Crows v Highest-ranked WF Winner at Adelaide Oval.",
+          "summary": "Official AFL schedule: Adelaide Crows v Western Bulldogs at Adelaide Oval.",
           "participantIds": [
             "team:afl:cd_t10",
-            "team:afl:cd_t3011"
+            "team:afl:cd_t140"
           ],
           "participants": [
             {
@@ -15176,9 +15176,9 @@
               "name": "Adelaide Crows"
             },
             {
-              "id": "team:afl:cd_t3011",
-              "participantId": "team:afl:cd_t3011",
-              "name": "Highest-ranked WF Winner"
+              "id": "team:afl:cd_t140",
+              "participantId": "team:afl:cd_t140",
+              "name": "Western Bulldogs"
             }
           ],
           "broadcaster": "Kayo Sports",

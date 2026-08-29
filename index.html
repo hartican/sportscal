@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="168">
+<meta name="app-shell-version" content="169">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2709,6 +2709,11 @@ main{
 .badge.upcoming{
   background: rgba(0,229,255,0.15);
   color: #00e5ff;
+}
+
+.badge.live{
+  background:rgba(38,195,106,.18);
+  color:#42df84;
 }
 
 .badge.past{
@@ -6805,7 +6810,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=168")
+  : loadDeferredScript("config/national-team-identities.js?v=169")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7963,7 +7968,7 @@ function saveActiveProfileSections(sections){
 /* ============ STATE ============ */
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v2:first-page.v2";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v1";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 let publicFeedManifest = null;
 let publicFeedNextPageIndex = 0;
@@ -8167,6 +8172,8 @@ const sessionOpenedEventIds = new Set();
 let serverSyncApplying = false;
 let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
+let followFeedRefreshPending = false;
+let followFeedRefreshInFlight = null;
 let serverStatusRequest = null;
 let serverStateBaseline = null;
 let startupSessionStateBaseline = null;
@@ -8693,6 +8700,10 @@ function loadPreferences(){
 }
 
 function savePreferences(next){
+  const priorFollowState = JSON.stringify({
+    entities:(userPreferences?.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
+    collections:(userPreferences?.followFirst?.collectionFollows || []).slice().sort(),
+  });
   const mergedInput = SERVER_SYNC?.mergeSettings
     ? SERVER_SYNC.mergeSettings(userPreferences || {}, next)
     : { ...(userPreferences || {}), ...(next || {}) };
@@ -8709,8 +8720,13 @@ function savePreferences(next){
     learningPreference: graph.learning || null,
   });
   userPreferences = clean;
+  const nextFollowState = JSON.stringify({
+    entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
+    collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
+  });
   if (typeof activeEvents !== "undefined") scheduleBrowserReminders();
   queueServerStateSync();
+  if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined") void requestFeedRebuildAfterFollowChange();
   return profileSaved;
 }
 
@@ -10424,7 +10440,7 @@ function personalisedFeedCacheKey(userId = serverSyncClient?.sessionSubject?.())
 
 function cachePersonalisedFeedPayload(payload, userId){
   const key = personalisedFeedCacheKey(userId);
-  const firstPage = payload?.schemaVersion === "server-feed.v2"
+  const firstPage = payload?.schemaVersion === "server-feed.v3"
     && Number(payload.pagination?.cursor || 0) === 0
     && Array.isArray(payload.events)
     && payload.events.length > 0;
@@ -10438,7 +10454,7 @@ async function restoreCachedPersonalisedFeed(userId){
   const key = personalisedFeedCacheKey(userId);
   if (!key || !disposableStore?.hydrate) return null;
   const payload = await disposableStore.hydrate(key, null);
-  if (payload?.schemaVersion !== "server-feed.v2" || Number(payload.pagination?.cursor || 0) !== 0) return null;
+  if (payload?.schemaVersion !== "server-feed.v3" || Number(payload.pagination?.cursor || 0) !== 0) return null;
   return payload;
 }
 
@@ -10448,7 +10464,7 @@ function clearCachedPersonalisedFeed(userId){
 }
 
 function applyServerFeed(payload){
-  if (!["server-feed.v1", "server-feed.v2"].includes(payload?.schemaVersion)){
+  if (payload?.schemaVersion !== "server-feed.v3"){
     throw new Error("Server feed schema is not supported");
   }
   if (!Array.isArray(payload.events)){
@@ -10459,7 +10475,7 @@ function applyServerFeed(payload){
   if (!cache || cache.buildOrigin !== "server"){
     throw new Error("Server feed did not contain a central derived-card rebuild");
   }
-  const append = payload.schemaVersion === "server-feed.v2" && Number(payload.pagination?.cursor || 0) > 0;
+  const append = payload.schemaVersion === "server-feed.v3" && Number(payload.pagination?.cursor || 0) > 0;
   const nextEvents = append ? mergeCanonicalEventPages(activeEvents, events) : events;
   activeEvents = SPORT_CONTEXT && canonicalSportsData
     ? SPORT_CONTEXT.applyContextToEvents(nextEvents, canonicalSportsData)
@@ -10571,6 +10587,29 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
     hydration?.complete();
     recordFeedInteraction("feed_refresh", interactionStartedAt);
   }
+}
+
+async function requestFeedRebuildAfterFollowChange(){
+  followFeedRefreshPending = true;
+  if (followFeedRefreshInFlight) return followFeedRefreshInFlight;
+  if (!serverSyncClient || !serverPersistence.user || globalThis.navigator?.onLine === false) return false;
+  followFeedRefreshInFlight = (async () => {
+    try{
+      await syncCurrentServerState();
+      await clearCachedPersonalisedFeed(serverPersistence.user?.id || serverSyncClient.sessionSubject?.());
+      const rebuilt = await refreshRemoteFeed({ quiet:true, signedInHint:true });
+      if (rebuilt?.source !== "server") throw new Error("The personalised server feed is still unavailable");
+      followFeedRefreshPending = false;
+      return true;
+    }catch(error){
+      followFeedRefreshPending = true;
+      console.warn("Follow feed rebuild deferred until the connection recovers", error);
+      return false;
+    }finally{
+      followFeedRefreshInFlight = null;
+    }
+  })();
+  return followFeedRefreshInFlight;
 }
 
 function warmNextFeedPageDuringIdle(){
@@ -15522,7 +15561,12 @@ function buildEventCard(ev, options = {}){
 
   const badges = document.createElement("div");
   badges.className = "badges";
-  if (status !== "past"){
+  if (status === "live"){
+    const b = document.createElement("span");
+    b.className = "badge live";
+    b.textContent = "Live Now";
+    badges.appendChild(b);
+  } else if (status !== "past"){
     const b = document.createElement("span");
     b.className = "badge upcoming";
     b.textContent = "Coming Up";
@@ -22725,6 +22769,7 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("pagehide", () => loadingAudioPlayer?.stop?.(), { passive:true });
 window.addEventListener("online", () => {
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
+  if (followFeedRefreshPending) void requestFeedRebuildAfterFollowChange();
 });
 if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.permissions?.query && navigator.geolocation){
   navigator.permissions.query({ name:"geolocation" }).then(permission => {

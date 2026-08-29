@@ -369,7 +369,7 @@ async function run(){
       }
       if (String(url).startsWith("/api/feed?")){
         return browserResponse({
-          schemaVersion: "server-feed.v2",
+          schemaVersion: "server-feed.v3",
           generatedAt: "2026-07-27T10:00:00.000Z",
           sourceVersion: "test",
           events: [],

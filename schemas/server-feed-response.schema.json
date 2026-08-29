@@ -16,7 +16,7 @@
   ],
   "properties": {
     "schemaVersion": {
-      "const": "server-feed.v2"
+      "const": "server-feed.v3"
     },
     "generatedAt": {
       "type": "string",

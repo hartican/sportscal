@@ -418,12 +418,12 @@ assert(html.includes("startupSessionStateBaseline || stateBeforeHydration"), "st
 assert(html.includes("{ preferences: settingsDraftBaseline }") && html.includes("{ preferences: userPreferences }"), "an open Settings draft must inherit newer untouched values while retaining edited fields");
 assert(html.includes("eventUserState: eventActions"), "archive and saved-card state must be included in server truth");
 assert(serverSyncSource.includes('authenticatedRequest(`/api/feed?${params.toString()}`)'), "signed-in Refresh must request a bounded authenticated feed page");
-assert(html.includes('["server-feed.v1", "server-feed.v2"].includes(payload?.schemaVersion)'), "the browser must accept v2 while retaining temporary v1 rollback compatibility");
+assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the browser must accept only v3 so stale personalised v2 pages cannot flash");
 assert(html.includes('cache.buildOrigin !== "server"'), "the browser must require central card-cache provenance");
 assert(html.includes("serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE })") && html.includes("const result = applyServerFeed(payload)"), "signed-in Refresh must apply the first bounded server-built page");
 assert(html.includes("cachedEventEnrichment(ev) || calculateEventEnrichment(ev)"), "rendering must consume the disposable enrichment snapshot before recalculating locally");
 assert(html.includes('canonicalSportsData && derivedCardCache?.buildOrigin !== "server"'), "late participant-data loading must not overwrite a central feed rebuild");
-assert(serverFeedSource.includes("cardLifecycle.materialize(enrichmentCandidates"), "central feed building must use the canonical derived-card lifecycle");
+assert(serverFeedSource.includes("cardLifecycle.materialize(pageEvents"), "central feed building must materialise exactly the eligible paged events through the canonical lifecycle");
 assert(serverFeedSource.includes('buildOrigin: "server"'), "central feed cards must be marked as server-built");
 assert(serverFeedApiSource.includes("loadUserState(user.id, accessToken)"), "central feed rebuilding must load preferences under the authenticated RLS user");
 assert(serverFeedApiSource.includes('"Cache-Control", "private, max-age=0, must-revalidate"') && serverFeedApiSource.includes('response.setHeader("ETag", etag)'), "personalised feed pages must remain private while supporting conditional validation");

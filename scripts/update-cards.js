@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const { spawnSync } = require("child_process");
+const crypto = require("node:crypto");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 
 function discoverCanonicalFixtureBundles() {
@@ -43,7 +45,11 @@ function runStep(args) {
 
   console.log(`\n> ${display}`);
   const result = spawnSync(runner, commandArgs, { stdio: "inherit" });
-  if (result.status !== 0) process.exit(result.status || 1);
+  if (result.status !== 0) {
+    const error = new Error(`${display} failed with exit code ${result.status || 1}`);
+    error.exitCode = result.status || 1;
+    throw error;
+  }
 }
 
 function parseOptions(argv = process.argv.slice(2), env = process.env) {
@@ -54,6 +60,7 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
+  ["scripts/snapshot-active-follows.js"],
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/refresh-premier-league-context.js"],
   ["scripts/refresh-premier-league-context.js", "--check"],
@@ -79,6 +86,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-team-player-directories.js"],
   ["scripts/refresh-nfl-ice-hockey.js"],
   ["scripts/refresh-nfl-ice-hockey.js", "--check"],
+  ["scripts/refresh-official-follow-fixtures.js"],
+  ["scripts/refresh-official-follow-fixtures.js", "--check"],
   ["scripts/refresh-swimming-directory.js"],
   ["scripts/refresh-swimming-directory.js", "--check"],
   ["scripts/build-follow-directories.js"],
@@ -124,6 +133,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
+  ["scripts/build-follow-fixtures.js"],
+  ["scripts/build-follow-fixtures.js", "--check"],
   ["scripts/build-paged-feed.js"],
   ["scripts/build-code-inspector.js"],
   ["scripts/validate-national-team-identities.js"],
@@ -165,6 +176,9 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-product-events.js"],
   ["scripts/validate-cross-device-sync.js"],
   ["scripts/validate-server-persistence.js"],
+  ["scripts/validate-server-feed.js"],
+  ["scripts/validate-followed-fixture-surfacing.js"],
+  ["scripts/validate-follow-fixture-resolver.js"],
   ["scripts/validate-update-cards.js"],
   ["scripts/validate-source-and-venues.js"],
   ["scripts/validate-feed-performance.js"],
@@ -178,6 +192,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-mobile-feed-events-brand-pass.js"],
   ["scripts/validate-feed-sport-reliability-pass.js"],
+  ["scripts/audit-followed-fixture-coverage.js"],
   ];
   if (!localOnly) steps.push(["scripts/redeploy-and-release.sh"]);
   return steps;
@@ -186,17 +201,33 @@ function buildSteps({ localOnly = false } = {}) {
 function main() {
   const options = parseOptions();
   const steps = buildSteps(options);
+  const snapshotDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-follow-snapshot-"));
+  fs.chmodSync(snapshotDirectory, 0o700);
+  process.env.FOLLOW_SNAPSHOT_PATH = path.join(snapshotDirectory, "active-follows.enc.json");
+  process.env.FOLLOW_SNAPSHOT_KEY = crypto.randomBytes(32).toString("base64");
   if (options.localOnly) {
     console.log("Local-only update selected: refresh and validation will run without commit, push, or deployment.");
   }
-  for (const args of steps) {
-    runStep(args);
-  }
+  try {
+    for (const args of steps) {
+      runStep(args);
+    }
 
-  console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.`);
+    console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, followed fixtures recomputed from the current server snapshot, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.`);
+  } finally {
+    delete process.env.FOLLOW_SNAPSHOT_PATH;
+    delete process.env.FOLLOW_SNAPSHOT_KEY;
+    fs.rmSync(snapshotDirectory, { recursive:true, force:true });
+  }
 }
 
-if (require.main === module) main();
+if (require.main === module) {
+  try { main(); }
+  catch (error) {
+    console.error(error.message);
+    process.exitCode = error.exitCode || 1;
+  }
+}
 
 module.exports = {
   buildSteps,

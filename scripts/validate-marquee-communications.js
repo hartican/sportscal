@@ -66,7 +66,7 @@ async function main(){
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
-  assert.match(worker, /nothingsport-shell-v168/);
+  assert.match(worker, /nothingsport-shell-v169/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));
   assert.ok(vercel.rewrites.some(rule => rule.source === "/fixture/:eventId"));

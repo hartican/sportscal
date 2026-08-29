@@ -1,6 +1,6 @@
 {
   "schemaVersion": "nrl-follow-index.v1",
-  "generatedAt": "2026-08-28T08:19:49.634Z",
+  "generatedAt": "2026-08-29T13:39:53.541Z",
   "teams": [
     {
       "id": "team:nrl:322",
@@ -260,11 +260,6 @@
     {
       "id": "competitor:nrl:billy-burns",
       "currentTeamId": "team:nrl:333",
-      "leagueId": "competition:nrl-premiership-2026"
-    },
-    {
-      "id": "competitor:nrl:billy-phillips",
-      "currentTeamId": "team:nrl:329",
       "leagueId": "competition:nrl-premiership-2026"
     },
     {

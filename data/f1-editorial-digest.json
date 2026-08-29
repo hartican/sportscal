@@ -1,8 +1,8 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-08-28T08:20:12.625Z",
+  "generatedAt": "2026-08-29T13:40:20.744Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "b356ac9e18c4500db396ca0fc71893cd12857b63893e2be5623e948280018d05",
+  "fingerprint": "574456ffa613a612e2c9f8fc0cd1fa1f1116b52b678d1ae556b965f61fdd61a9",
   "entries": [
     {
       "eventId": "evt_26",
@@ -34,7 +34,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -67,7 +67,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -100,7 +100,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -133,7 +133,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -166,7 +166,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -199,7 +199,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -232,7 +232,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -265,7 +265,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-28T08:20:12.625Z",
+      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
       "generationMode": "factual-fallback"
     }
   ]

@@ -15,6 +15,19 @@ const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" })
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");
 assert(!environmentLocalSteps.some(step => step[0] === releaseStep), "SKIP_RELEASE=1 must suppress the nested release even if a caller omits --local-only");
+assert.equal(localSteps[0][0], "scripts/snapshot-active-follows.js", "every run must start from a fresh server-only follow snapshot");
+assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.length === 1), "every update must refresh the official NBA, Hockey Australia and Diamonds source bundles");
+assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.includes("--check")), "every update must reject an invalid official follow-source artifact");
+assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1), "every update must regenerate the compact fixture-only follow artifact");
+assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.includes("--check")), "every update must reject identifying fields or duplicate ids in the compact artifact");
+assert(localSteps.some(step => step[0] === "scripts/audit-followed-fixture-coverage.js"), "every update must audit every anonymised profile before completion");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.length === 1)
+    < localSteps.findIndex(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1)
+    && localSteps.findIndex(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1)
+      < localSteps.findIndex(step => step[0] === "scripts/audit-followed-fixture-coverage.js"),
+  "official source refresh, compact generation and anonymised audit must run in that order"
+);
 assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"), "local-only updates must still refresh canonical sports data");
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && !step.includes("--check")), "every canonical update must refresh the official EPL league table");
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && step.includes("--check")), "every canonical update must reject an incomplete published EPL snapshot");
@@ -129,6 +142,12 @@ const tournamentCheckScript = fs.readFileSync(path.join(projectRoot, "scripts/ch
 const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-and-release.sh"), "utf8");
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
+const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-cards.js"), "utf8");
+assert.match(updaterSource, /crypto\.randomBytes\(32\)\.toString\("base64"\)/, "follow snapshots must use an ephemeral 256-bit encryption key");
+assert.match(updaterSource, /fs\.chmodSync\(snapshotDirectory, 0o700\)/, "the temporary snapshot directory must be owner-only");
+assert.match(updaterSource, /finally[^]*fs\.rmSync\(snapshotDirectory, \{ recursive:true, force:true \}\)/, "the snapshot must be deleted even after a failed update step");
+const followSnapshotSource = fs.readFileSync(path.join(projectRoot, "scripts/snapshot-active-follows.js"), "utf8");
+assert.match(followSnapshotSource, /FOLLOW_SNAPSHOT_PRELOADED_PATH[^]*readSnapshot[^]*encryptSnapshot/, "connector-captured profiles must remain encrypted at rest before the canonical updater accepts them");
 
 assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p --local-only/, "the wrapper must explicitly suppress update-cards' nested release so each run deploys once");
 assert.match(wrapperScript, /\$WEBSITE_URL\/service-worker\.js/, "the release wrapper must verify the served service worker");

@@ -19,7 +19,9 @@ const {
 } = require("../lib/supabase-server");
 const {
   buildServerFeed,
+  SERVER_FEED_SCHEMA_VERSION,
 } = require("../lib/server-feed-pipeline");
+const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 
 const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
 const contextualEvents = sportContext.applyContextToEvents(eventFeed.events, canonicalSportContext);
@@ -51,11 +53,20 @@ module.exports = async function feedHandler(request, response){
     const requestedLimit = request.url
       ? Math.min(50, Math.max(1, Number(requestUrl.searchParams.get("limit") || 20)))
       : eventFeed.events.length;
+    const resolved = resolveUserFollowFixtures({
+      events:contextualEvents,
+      userState,
+    });
+    const feedParticipants = new Map(canonicalSportContext.participants.map(participant => [participant.id, participant]));
+    resolved.participants.forEach(participant => feedParticipants.set(participant.id, {
+      ...(feedParticipants.get(participant.id) || {}),
+      ...participant,
+    }));
     const feed = buildServerFeed({
-      events: contextualEvents,
+      events: resolved.events,
       userId: user.id,
       userState,
-      participants: canonicalSportContext.participants,
+      participants: Array.from(feedParticipants.values()),
       sourceVersion: eventFeed.version,
       sourcePublishedAt: eventFeed.publishedAt,
       cursor: requestUrl.searchParams.get("cursor") || 0,
@@ -66,6 +77,8 @@ module.exports = async function feedHandler(request, response){
       sourcePublishedAt: eventFeed.publishedAt,
       userId: user.id,
       userState,
+      schemaVersion: SERVER_FEED_SCHEMA_VERSION,
+      followFixtureVersion: resolved.sourceVersion,
       cursor: feed.pagination.cursor,
       limit: feed.pagination.limit,
     };

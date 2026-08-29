@@ -130,7 +130,7 @@ function validateFeedContract(){
   const serverPipeline = read("lib/server-feed-pipeline.js");
   const manifestPath = path.join(ROOT, "data/feed/manifest.json");
 
-  assert(serverPipeline.includes('SERVER_FEED_SCHEMA_VERSION = "server-feed.v2"'), "the server feed must publish v2");
+  assert(serverPipeline.includes('SERVER_FEED_SCHEMA_VERSION = "server-feed.v3"'), "the server feed must publish v3");
   assert(fs.existsSync(manifestPath), "the anonymous paged feed manifest must be generated");
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.schemaVersion, "public-feed.v2");
@@ -141,7 +141,7 @@ function validateFeedContract(){
 
   assert(index.includes("const FEED_PAGE_SIZE = 20"), "the browser must cap its initial feed window at 20 cards");
   assert(index.includes("const INITIAL_CARD_IMAGE_BUDGET = 4") && index.includes("assignCardImageSource"), "the browser must cap first-viewport card identity requests at four and defer the rest until interaction");
-  assert(index.includes("content-visibility: auto"), "feed cards must use content visibility containment");
+  assert(index.includes(".events-feed,") && index.includes("overflow-anchor:none"), "feed surfaces must preserve the reviewed scroll-anchor contract");
   assert(index.includes("feedPageObserver = new IntersectionObserver"), "feed pagination must be driven near the scroll boundary");
   assert(index.includes("appendFeedPageToCurrentList") && index.includes("append && appendFeedPageToCurrentList(events)"), "later feed pages must append targeted date groups instead of rerendering the whole feed");
   assert(index.includes("loadDeferredStartupContext"), "optional sporting context must be deferred until after the first feed is usable");
