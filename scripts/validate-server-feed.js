@@ -69,6 +69,20 @@ async function run(){
     "2026-01-26T22:00:00.000Z",
     "summer Sydney event times must use AEDT"
   );
+  const editorialNarrative = {
+    schemaVersion:"editorial-narrative.v2",
+    projectionId:"projection:test:server-feed",
+    researchTier:"marquee",
+    hook:"A researched hook that must survive the personalised feed boundary.",
+    factIds:["fact:one", "fact:two", "fact:three", "fact:four"],
+    sourceIds:["source:one", "source:two", "source:three"],
+    threadIds:["thread:one"],
+    dimensions:["matchup", "history", "consequence"],
+    researchedAt:"2026-08-30T06:00:00.000Z",
+    generationMode:"researched",
+  };
+  const editorialServerEvent = feedPipeline.normalizeEvent(event("editorial-server-event", "2026-10-15T09:05:00.000Z", { editorialNarrative }), new Date("2026-08-30T00:00:00.000Z"));
+  assert.deepEqual(editorialServerEvent.editorialNarrative, editorialNarrative, "the personalised feed must preserve the validated editorial projection for L0 and Sentiment rendering");
 
   const correctedKickoffBefore = event("event:fixture:123", "2026-07-27T13:00:00.000Z", {
     canonicalEventId: "event:fixture:123",
