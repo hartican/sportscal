@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="175">
+<meta name="app-shell-version" content="176">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7888,8 +7888,26 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=175",
+  moduleScriptUrl: "config/major-events.js?v=176",
   url: "data/major-events.v1.json",
+});
+
+// Compatibility projection for a saved pre-canonical Events child. The
+// release validator keeps this copy aligned with the canonical researched card.
+const PINNED_FIXTURE_EDITORIAL_NARRATIVES = Object.freeze({
+  "major-match:rlwc-2026:australia-new-zealand":Object.freeze({
+    schemaVersion:"editorial-narrative.v2",
+    projectionId:"projection:feed:rlwc-australia-new-zealand-2026",
+    researchTier:"marquee",
+    hook:"The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+    threadIds:["thread:rlwc:2026:kangaroos-kiwis-opener", "thread:rlwc:2026:three-tournaments-one-world-cup"],
+    factIds:["fact:rlwc-aus-nz:opening-match", "fact:rlwc-aus-nz:recent-champions", "fact:rlwc-aus-nz:pool-path", "fact:rlwc-aus-nz:2008-precedent"],
+    sourceIds:["source:rlwc2026:competition-rules", "source:rlwc2026:fixtures-announced", "source:nrl:2026-kiwis-record-book-plan", "source:nrl:2026-six-months-to-rlwc"],
+    dimensions:["matchup", "form", "consequence", "history"],
+    researchedAt:"2026-08-30T06:00:00.000Z",
+    refreshAfter:"2026-10-01T12:00:00.000Z",
+    generationMode:"researched",
+  }),
 });
 
 const JOINT_TOURNAMENT_CONFIG = Object.freeze({
@@ -11678,8 +11696,9 @@ function mergeMainFeedSpecialEvents(events){
     const key = semanticKey(event);
     if (merged.has(id) || (key && surfacedSemanticKeys.has(key))) return;
     const editorialMatch = key ? canonicalEditorialBySemanticKey.get(key) : null;
-    merged.set(id, !event.editorialNarrative && editorialMatch?.editorialNarrative
-      ? { ...event, editorialNarrative:editorialMatch.editorialNarrative }
+    const editorialNarrative = editorialMatch?.editorialNarrative || PINNED_FIXTURE_EDITORIAL_NARRATIVES[id] || null;
+    merged.set(id, !event.editorialNarrative && editorialNarrative
+      ? { ...event, editorialNarrative }
       : event);
     if (key) surfacedSemanticKeys.add(key);
   });

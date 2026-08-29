@@ -163,9 +163,9 @@ assert.match(html, /This week/);
 assert.match(html, /All time/);
 assert.match(html, /Report username/);
 assert.match(html, /NSC building/);
-assert.match(worker, /nothingsport-shell-v175/);
+assert.match(worker, /nothingsport-shell-v176/);
 assert.doesNotMatch(worker, /"\/config\/nothingscore\.js"/);
-assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "175");
+assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "176");
 
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert(inlineScript);
