@@ -32,6 +32,6 @@ assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && htm
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
 assert(html.includes("metaRow.appendChild(expectedBlock)") && html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "stakes, tags and status must share the metadata rail while dismissal stays durable");
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && html.includes("}, 1400);"), "likes must retain cards with feedback while dislikes dismiss exact editions");
-assert(html.includes('copy.textContent = "Liked — future feed suggestions will adapt."') && html.includes('actionLabel:"Undo"'), "feedback must explain learning and keep dismissal recoverable");
+assert(html.includes('"Liked — future feed suggestions will adapt."') && html.includes('"Like removed — future feed suggestions will no longer use it."') && html.includes('actionLabel:"Undo"'), "feedback must explain reversible learning and keep dismissal recoverable");
 
 console.log("Events and fixture UX valid: accessible tabs, deep links, keyed expansion, compact identities, stable viewport and recoverable swipe dismissal passed.");

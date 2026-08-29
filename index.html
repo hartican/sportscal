@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="176">
+<meta name="app-shell-version" content="177">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7888,7 +7888,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=176",
+  moduleScriptUrl: "config/major-events.js?v=177",
   url: "data/major-events.v1.json",
 });
 
@@ -7900,6 +7900,7 @@ const PINNED_FIXTURE_EDITORIAL_NARRATIVES = Object.freeze({
     projectionId:"projection:feed:rlwc-australia-new-zealand-2026",
     researchTier:"marquee",
     hook:"The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+    synopsis:"Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
     threadIds:["thread:rlwc:2026:kangaroos-kiwis-opener", "thread:rlwc:2026:three-tournaments-one-world-cup"],
     factIds:["fact:rlwc-aus-nz:opening-match", "fact:rlwc-aus-nz:recent-champions", "fact:rlwc-aus-nz:pool-path", "fact:rlwc-aus-nz:2008-precedent"],
     sourceIds:["source:rlwc2026:competition-rules", "source:rlwc2026:fixtures-announced", "source:nrl:2026-kiwis-record-book-plan", "source:nrl:2026-six-months-to-rlwc"],
@@ -12082,6 +12083,15 @@ function editorialNarrativeHookForDisplay(record){
   return narrative.hook || "";
 }
 
+function editorialNarrativeCopyForDisplay(record, state){
+  if (!["selected", "opened"].includes(state)) return "";
+  const narrative = record?.editorialNarrative;
+  if (!narrative || !/^editorial-narrative\.v(?:1|2)$/.test(String(narrative.schemaVersion || ""))) return "";
+  const completed = record.status === "completed" || getEventStatus(record) === "past";
+  if (completed && isSpoilerVisible(record)) return narrative.synopsisSpoilerOn || narrative.synopsis || "";
+  return narrative.synopsis || "";
+}
+
 function buildEditorialSentiment(record){
   const memory = record?.editorialNarrative?.sentiment;
   const contributors = Number(memory?.uniqueContributorCount || 0);
@@ -14276,9 +14286,9 @@ function buildEventFeedbackButtons(ev){
     button.innerHTML = markup;
     button.addEventListener("click", event => {
       event.stopPropagation();
-      applyCuratedEventSwipe(ev, direction, { card:event.currentTarget.closest(".event-card") });
+      const result = applyCuratedEventSwipe(ev, direction, { card:event.currentTarget.closest(".event-card") });
       buttons.forEach((candidate, index) => {
-        const selected = directions[index][0] === direction;
+        const selected = result?.active === true && directions[index][0] === direction;
         candidate.classList.toggle("active", selected);
         candidate.setAttribute("aria-pressed", String(selected));
       });
@@ -14734,14 +14744,15 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
 }
 
 function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
-  if (!["positive", "negative"].includes(direction)) return;
+  if (!["positive", "negative"].includes(direction)) return { active:false };
   const eventId = String(ev.eventId || ev.id);
-  if (card?.dataset.swipeFeedbackActive === "true") return;
+  if (card?.dataset.swipeFeedbackActive === "true" && !(direction === "positive" && latestEventFeedbackDirection(ev) === "positive")) return { active:latestEventFeedbackDirection(ev) === direction };
   if (direction === "negative" && getEventAction(ev).dismissed){
     card?.classList.add("is-dismissing");
     window.setTimeout(() => renderAll({ preserveViewport:true }), 230);
-    return;
+    return { active:true, dismissed:true };
   }
+  const togglingOff = direction === "positive" && latestEventFeedbackDirection(ev) === "positive";
   const previousPreferences = clonePreferences(userPreferences);
   const savedAction = storedEventAction(ev);
   const previousAction = savedAction ? { ...savedAction } : null;
@@ -14751,13 +14762,18 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     targetId: String(ev.eventId || ev.id),
     label: spoilerSafeDisplayTitle(ev),
   };
-  let next = FOLLOW_FIRST?.appendFeedback?.(userPreferences, {
+  let next = FOLLOW_FIRST?.toggleFeedback?.(userPreferences, {
     eventId,
     direction,
     targetType:target.targetType,
     targetId:target.targetId,
   }) || clonePreferences(userPreferences);
-  if (PREFERENCE_SYSTEM?.applyLearningSignal && next.preferenceGraph){
+  if (next.preferenceGraph && togglingOff && PREFERENCE_SYSTEM?.removeLearningSignal){
+    next.preferenceGraph = PREFERENCE_SYSTEM.removeLearningSignal(next.preferenceGraph, {
+      targetType:target.targetType,
+      targetId:target.targetId,
+    });
+  } else if (PREFERENCE_SYSTEM?.applyLearningSignal && next.preferenceGraph){
     next.preferenceGraph = PREFERENCE_SYSTEM.applyLearningSignal(next.preferenceGraph, {
       targetType:target.targetType,
       targetId:target.targetId,
@@ -14772,26 +14788,27 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     next.swipeCoaching = { dismissedAt: new Date().toISOString() };
   }
   savePreferences(next);
-  if (direction === "positive") void publishPositiveNothingscoreLike(ev);
+  if (direction === "positive") void publishPositiveNothingscoreLike(ev, !togglingOff);
   recordProductEvent({
     eventName: "swipe",
     surface: "curated_feed",
     ...productEventContextForEvent(ev),
-    properties: { direction, targetType: target.targetType, cardRetained: direction === "positive", ...recommendationContext },
+    properties: { direction, active:!togglingOff, targetType: target.targetType, cardRetained: direction === "positive", ...recommendationContext },
   });
   if (showTunePrompt) suppressSessionRatingPrompt();
   if (direction === "negative"){
     dismissEventCard(ev, { previousPreferences, previousAction, card, showTunePrompt, feedbackCount });
-    return;
+    return { active:true, dismissed:true };
   }
   if (card){
-    card.querySelectorAll(".event-feedback-button").forEach(button => {
-      const selected = String(button.getAttribute("aria-label") || "").startsWith("More like ");
+    card.querySelectorAll(".event-feedback-button, .thumb-control").forEach(button => {
+      const selected = !togglingOff && String(button.getAttribute("aria-label") || "").startsWith("More like ");
       button.classList.toggle("active", selected);
       button.setAttribute("aria-pressed", String(selected));
     });
     card.dataset.swipeFeedbackActive = "true";
     card.querySelector(".swipe-coaching")?.remove();
+    card.querySelector(".swipe-feedback-overlay")?.remove();
     const overlay = document.createElement("div");
     overlay.className = "swipe-feedback-overlay";
     overlay.setAttribute("role", "status");
@@ -14803,7 +14820,9 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     icon.innerHTML = VECTOR_ASSETS.glyphMarkup(direction === "positive" ? "ui:plus" : "ui:minus");
     const copy = document.createElement("span");
     copy.className = "swipe-feedback-copy";
-    copy.textContent = "Liked — future feed suggestions will adapt.";
+    copy.textContent = togglingOff
+      ? "Like removed — future feed suggestions will no longer use it."
+      : "Liked — future feed suggestions will adapt.";
     overlay.append(icon, copy);
     card.appendChild(overlay);
     window.setTimeout(() => {
@@ -14827,6 +14846,7 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     savePreferences(prompted);
     setTunePromptOpen(true, feedbackCount);
   }
+  return { active:!togglingOff };
 }
 
 function eventReminderTiming(ev){
@@ -15512,10 +15532,10 @@ function buildNothingscorePanel(ev, snapshot, state){
   return panel;
 }
 
-async function publishPositiveNothingscoreLike(ev){
+async function publishPositiveNothingscoreLike(ev, active = true){
   if (!serverPersistence.user || !serverSyncClient?.nothingscoreRequest) return;
   try{
-    await serverSyncClient.nothingscoreRequest({}, { action:"like", eventId:nothingscoreEventId(ev), active:true });
+    await serverSyncClient.nothingscoreRequest({}, { action:"like", eventId:nothingscoreEventId(ev), active:Boolean(active) });
     registerNothingscoreEvent(ev, { force:true });
   }catch(_error){ /* Local learning remains valid for signed-out or non-pilot users. */ }
 }
@@ -15890,7 +15910,7 @@ function buildEventCard(ev, options = {}){
   if (state === "selected"){
     const selected = document.createElement("div");
     selected.className = "event-selected-copy";
-    selected.textContent = selectedSentenceForDisplay(ev);
+    selected.textContent = editorialNarrativeCopyForDisplay(ev, state) || selectedSentenceForDisplay(ev);
     expansionRegion.appendChild(selected);
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
@@ -15916,7 +15936,7 @@ function buildEventCard(ev, options = {}){
   if (state === "opened"){
     const spiel = document.createElement("div");
     spiel.className = "event-opened-copy";
-    spiel.textContent = eventSpielForDisplay(ev);
+    spiel.textContent = editorialNarrativeCopyForDisplay(ev, state) || eventSpielForDisplay(ev);
     expansionRegion.appendChild(spiel);
 
     if (enrichment.editorialOverride){
@@ -19410,6 +19430,13 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   }
 
   if (state !== "compact"){
+    const editorialCopy = editorialNarrativeCopyForDisplay(record, state);
+    if (editorialCopy){
+      const narrative = document.createElement("div");
+      narrative.className = state === "opened" ? "event-opened-copy" : "event-selected-copy";
+      narrative.textContent = editorialCopy;
+      identity.appendChild(narrative);
+    }
     const sentiment = buildEditorialSentiment(record);
     if (sentiment) identity.appendChild(sentiment);
   }

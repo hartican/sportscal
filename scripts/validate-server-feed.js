@@ -80,6 +80,7 @@ async function run(){
     projectionId:"projection:test:server-feed",
     researchTier:"marquee",
     hook:"A researched hook that must survive the personalised feed boundary.",
+    synopsis:"A researched synopsis must survive the personalised feed boundary so selected and opened cards never fall back to structural schedule copy.",
     factIds:["fact:one", "fact:two", "fact:three", "fact:four"],
     sourceIds:["source:one", "source:two", "source:three"],
     threadIds:["thread:one"],

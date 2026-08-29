@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-knowledge.v2",
-  "updatedAt": "2026-08-30T06:00:00.000Z",
+  "updatedAt": "2026-08-30T08:45:00.000Z",
   "subjects": [
     {
       "id": "competition:tennis:cincinnati-open",
@@ -191,6 +191,261 @@
       "id": "event:f1:australian-gp-2027",
       "kind": "event",
       "name": "Formula 1 Australian Grand Prix 2027"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t150",
+      "kind": "team",
+      "name": "West Coast Eagles"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t80",
+      "kind": "team",
+      "name": "Hawthorn"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-131",
+      "kind": "team",
+      "name": "Brighton & Hove Albion"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-2",
+      "kind": "team",
+      "name": "Aston Villa"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-11",
+      "kind": "team",
+      "name": "Manchester City"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-127",
+      "kind": "team",
+      "name": "AFC Bournemouth"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-23",
+      "kind": "team",
+      "name": "Newcastle United"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-10",
+      "kind": "team",
+      "name": "Liverpool"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-34",
+      "kind": "team",
+      "name": "Fulham"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-4",
+      "kind": "team",
+      "name": "Chelsea"
+    },
+    {
+      "id": "subject:rolling:team-nrl-322",
+      "kind": "team",
+      "name": "Broncos"
+    },
+    {
+      "id": "subject:rolling:team-nrl-324",
+      "kind": "team",
+      "name": "Storm"
+    },
+    {
+      "id": "subject:rolling:team-nrl-336",
+      "kind": "team",
+      "name": "Sea Eagles"
+    },
+    {
+      "id": "subject:rolling:team-nrl-330",
+      "kind": "team",
+      "name": "Dragons"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t140",
+      "kind": "team",
+      "name": "Western Bulldogs"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t40",
+      "kind": "team",
+      "name": "Collingwood"
+    },
+    {
+      "id": "subject:rolling:team-nrl-329",
+      "kind": "team",
+      "name": "Panthers"
+    },
+    {
+      "id": "subject:rolling:team-nrl-332",
+      "kind": "team",
+      "name": "Bulldogs"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-6",
+      "kind": "team",
+      "name": "Crystal Palace"
+    },
+    {
+      "id": "subject:rolling:team-nrl-337",
+      "kind": "team",
+      "name": "Titans"
+    },
+    {
+      "id": "subject:rolling:team-nrl-335",
+      "kind": "team",
+      "name": "Rabbitohs"
+    },
+    {
+      "id": "subject:rolling:team-nrl-331",
+      "kind": "team",
+      "name": "Roosters"
+    },
+    {
+      "id": "subject:rolling:team-nrl-9538",
+      "kind": "team",
+      "name": "Dolphins"
+    },
+    {
+      "id": "subject:rolling:team-nrl-326",
+      "kind": "team",
+      "name": "Cowboys"
+    },
+    {
+      "id": "subject:rolling:team-nrl-334",
+      "kind": "team",
+      "name": "Wests Tigers"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t90",
+      "kind": "team",
+      "name": "Melbourne"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t30",
+      "kind": "team",
+      "name": "Carlton"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-15",
+      "kind": "team",
+      "name": "Nottingham Forest"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-7",
+      "kind": "team",
+      "name": "Everton"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-5",
+      "kind": "team",
+      "name": "Coventry City"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-41",
+      "kind": "team",
+      "name": "Hull City"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-21",
+      "kind": "team",
+      "name": "Tottenham Hotspur"
+    },
+    {
+      "id": "subject:rolling:team-nrl-321",
+      "kind": "team",
+      "name": "Warriors"
+    },
+    {
+      "id": "subject:rolling:team-nrl-325",
+      "kind": "team",
+      "name": "Knights"
+    },
+    {
+      "id": "subject:rolling:team-nrl-328",
+      "kind": "team",
+      "name": "Eels"
+    },
+    {
+      "id": "subject:rolling:team-nrl-333",
+      "kind": "team",
+      "name": "Sharks"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-9",
+      "kind": "team",
+      "name": "Leeds United"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-130",
+      "kind": "team",
+      "name": "Brentford"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-29",
+      "kind": "team",
+      "name": "Sunderland"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-12",
+      "kind": "team",
+      "name": "Manchester United"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-8",
+      "kind": "team",
+      "name": "Ipswich Town"
+    },
+    {
+      "id": "subject:rolling:team-football-epl-1",
+      "kind": "team",
+      "name": "Arsenal"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t60",
+      "kind": "team",
+      "name": "Fremantle"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t70",
+      "kind": "team",
+      "name": "Geelong Cats"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t160",
+      "kind": "team",
+      "name": "Sydney Swans"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t20",
+      "kind": "team",
+      "name": "Brisbane Lions"
+    },
+    {
+      "id": "subject:rolling:team-nrl-323",
+      "kind": "team",
+      "name": "Raiders"
+    },
+    {
+      "id": "subject:rolling:team-afl-cd-t10",
+      "kind": "team",
+      "name": "Adelaide Crows"
+    },
+    {
+      "id": "subject:rolling:f1-leader",
+      "kind": "athlete",
+      "name": "2026 Formula 1 championship leader"
+    },
+    {
+      "id": "subject:rolling:f1-season",
+      "kind": "series",
+      "name": "2026 Formula 1 season"
+    },
+    {
+      "id": "subject:rolling:afl-finals",
+      "kind": "series",
+      "name": "2026 AFL Finals Series"
     }
   ],
   "sources": [
@@ -396,6 +651,13 @@
       "url": "https://www.rugby.com.au/news/argentina-v-wallabies-first-test-preview-predictions-facts-stats-players-teams-rugby-2026829",
       "sourceType": "official",
       "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2026-jujuy-result",
+      "name": "Rugby Australia — Wallabies win in Jujuy",
+      "url": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T08:45:00.000Z"
     },
     {
       "id": "source:rugbyau:2026-wallabies-schedule",
@@ -655,6 +917,41 @@
       "url": "https://www.formula1.com/en/information/australia-melbourne-grand-prix-circuit.4LZLnnP4nXDFVVD01EdvvG",
       "sourceType": "official",
       "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rolling:competition-afl-premiership-2026:ladder",
+      "name": "AFL current AFL table",
+      "url": "https://www.afl.com.au/ladder",
+      "sourceType": "official",
+      "checkedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "source:rolling:competition-premier-league-2026-27:ladder",
+      "name": "Premier League current Premier League table",
+      "url": "https://www.premierleague.com/en/tables/premier-league/2026-27",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "source:rolling:competition-nrl-premiership-2026:ladder",
+      "name": "NRL Match Centre / Champion Data current NRL table",
+      "url": "https://www.nrl.com/ladder",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "source:rolling:f1:driver-standings",
+      "name": "Formula 1 current driver standings",
+      "url": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "checkedAt": "2026-07-27T00:30:00.000Z"
+    },
+    {
+      "id": "source:rolling:afl:finals-bracket",
+      "name": "AFL finals bracket",
+      "url": "https://www.afl.com.au/afl/matches/9028",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T21:21:20.081Z"
     }
   ],
   "narrativeFacts": [
@@ -1985,6 +2282,696 @@
         "source:f1:albert-park-circuit"
       ],
       "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t150:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t150"
+      ],
+      "statement": "West Coast Eagles are 16th after 23 matches, with 4 wins and 16 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:arg-aus-jujuy:result",
+      "subjectIds": [
+        "team:rugby:wallabies",
+        "team:rugby:argentina"
+      ],
+      "statement": "Australia defeated Argentina 27-21 in Jujuy to extend the Wallabies' winning start under Les Kiss before the second Test in Mendoza.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rugbyau:2026-jujuy-result"
+      ],
+      "observedAt": "2026-08-30T08:45:00.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t80:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t80"
+      ],
+      "statement": "Hawthorn are 4th after 23 matches, with 15 wins and 64 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-131"
+      ],
+      "statement": "Brighton & Hove Albion are 5th on 3 points after 1 league matches, with a goal difference of +4.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-2"
+      ],
+      "statement": "Aston Villa are 17th on 0 points after 1 league matches, with a goal difference of -4.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-11"
+      ],
+      "statement": "Manchester City are 1st on 6 points after 2 league matches, with a goal difference of +4.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-127"
+      ],
+      "statement": "AFC Bournemouth are 12th on 1 points after 2 league matches, with a goal difference of -1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-23"
+      ],
+      "statement": "Newcastle United are 3rd on 4 points after 2 league matches, with a goal difference of +2.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-10"
+      ],
+      "statement": "Liverpool are 11th on 2 points after 2 league matches, with a goal difference of +0.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-34"
+      ],
+      "statement": "Fulham are 14th on 0 points after 1 league matches, with a goal difference of -1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-4"
+      ],
+      "statement": "Chelsea are 8th on 3 points after 1 league matches, with a goal difference of +1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-322:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-322"
+      ],
+      "statement": "Broncos are 15th after 23 matches, with 7 wins and 20 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-324:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-324"
+      ],
+      "statement": "Storm are 11th after 23 matches, with 10 wins and 26 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-336:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-336"
+      ],
+      "statement": "Sea Eagles are 9th after 23 matches, with 11 wins and 28 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-330:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-330"
+      ],
+      "statement": "Dragons are 17th after 23 matches, with 4 wins and 14 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t140:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t140"
+      ],
+      "statement": "Western Bulldogs are 8th after 23 matches, with 13 wins and 54 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t40:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t40"
+      ],
+      "statement": "Collingwood are 9th after 23 matches, with 12 wins and 52 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-329:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-329"
+      ],
+      "statement": "Panthers are 1st after 23 matches, with 17 wins and 40 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-332:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-332"
+      ],
+      "statement": "Bulldogs are 10th after 23 matches, with 11 wins and 28 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-6"
+      ],
+      "statement": "Crystal Palace are 19th on 0 points after 2 league matches, with a goal difference of -5.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-337:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-337"
+      ],
+      "statement": "Titans are 16th after 23 matches, with 6 wins and 18 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-335:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-335"
+      ],
+      "statement": "Rabbitohs are 6th after 23 matches, with 13 wins and 32 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-331:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-331"
+      ],
+      "statement": "Roosters are 4th after 23 matches, with 16 wins and 38 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-9538:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-9538"
+      ],
+      "statement": "Dolphins are 3rd after 23 matches, with 16 wins and 38 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-326:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-326"
+      ],
+      "statement": "Cowboys are 8th after 23 matches, with 13 wins and 32 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-334:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-334"
+      ],
+      "statement": "Wests Tigers are 14th after 23 matches, with 8 wins and 22 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t90:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t90"
+      ],
+      "statement": "Melbourne are 7th after 23 matches, with 15 wins and 60 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t30:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t30"
+      ],
+      "statement": "Carlton are 10th after 23 matches, with 12 wins and 50 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-15"
+      ],
+      "statement": "Nottingham Forest are 13th on 1 points after 2 league matches, with a goal difference of -1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-7"
+      ],
+      "statement": "Everton are 4th on 4 points after 2 league matches, with a goal difference of +2.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-5"
+      ],
+      "statement": "Coventry City are 18th on 0 points after 2 league matches, with a goal difference of -4.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-41"
+      ],
+      "statement": "Hull City are 2nd on 6 points after 2 league matches, with a goal difference of +3.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-21"
+      ],
+      "statement": "Tottenham Hotspur are 20th on 0 points after 2 league matches, with a goal difference of -5.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-321"
+      ],
+      "statement": "Warriors are 2nd after 22 matches, with 16 wins and 38 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-325"
+      ],
+      "statement": "Knights are 7th after 23 matches, with 14 wins and 32 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-328:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-328"
+      ],
+      "statement": "Eels are 13th after 22 matches, with 8 wins and 22 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-333:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-333"
+      ],
+      "statement": "Sharks are 5th after 22 matches, with 14 wins and 34 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-9"
+      ],
+      "statement": "Leeds United are 10th on 3 points after 1 league matches, with a goal difference of +1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-130"
+      ],
+      "statement": "Brentford are 7th on 3 points after 1 league matches, with a goal difference of +3.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-29"
+      ],
+      "statement": "Sunderland are 15th on 0 points after 1 league matches, with a goal difference of -1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-12"
+      ],
+      "statement": "Manchester United are 16th on 0 points after 1 league matches, with a goal difference of -2.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-8"
+      ],
+      "statement": "Ipswich Town are 9th on 3 points after 1 league matches, with a goal difference of +1.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-1"
+      ],
+      "statement": "Arsenal are 6th on 3 points after 1 league matches, with a goal difference of +3.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:24.012Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t60:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t60"
+      ],
+      "statement": "Fremantle are 1st after 23 matches, with 19 wins and 76 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t70:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t70"
+      ],
+      "statement": "Geelong Cats are 5th after 23 matches, with 15 wins and 60 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t160:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t160"
+      ],
+      "statement": "Sydney Swans are 2nd after 23 matches, with 18 wins and 72 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t20:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t20"
+      ],
+      "statement": "Brisbane Lions are 3rd after 23 matches, with 16 wins and 64 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-nrl-premiership-2026:team-nrl-323:standing",
+      "subjectIds": [
+        "subject:rolling:team-nrl-323"
+      ],
+      "statement": "Raiders are 12th after 23 matches, with 10 wins and 26 ladder points in the current NRL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t10:standing",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t10"
+      ],
+      "statement": "Adelaide Crows are 6th after 23 matches, with 15 wins and 60 ladder points in the current AFL table.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "observedAt": "2026-08-23T12:15:37.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:f1:leader",
+      "subjectIds": [
+        "subject:rolling:f1-leader"
+      ],
+      "statement": "Kimi Antonelli leads the 2026 drivers' championship with 219 points, 50 ahead of Lewis Hamilton.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rolling:f1:driver-standings"
+      ],
+      "observedAt": "2026-07-26T23:59:00.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:f1:qualifying-consequence",
+      "subjectIds": [
+        "subject:rolling:f1-season"
+      ],
+      "statement": "In a Formula 1 weekend, qualifying sets the starting grid and track-position baseline for the race.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rolling:f1:driver-standings"
+      ],
+      "observedAt": "2026-07-26T23:59:00.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:f1:race-consequence",
+      "subjectIds": [
+        "subject:rolling:f1-season"
+      ],
+      "statement": "In a Formula 1 weekend, the race awards the championship points that convert weekend pace into the title standings.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rolling:f1:driver-standings"
+      ],
+      "observedAt": "2026-07-26T23:59:00.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:rolling:afl:grand-final-path",
+      "subjectIds": [
+        "subject:rolling:afl-finals"
+      ],
+      "statement": "The two preliminary-final winners advance to the AFL Grand Final, where the premiership is decided in a single match at the MCG.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:rolling:afl:finals-bracket"
+      ],
+      "observedAt": "2026-08-29T21:21:20.081Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -2400,6 +3387,658 @@
       ],
       "status": "active",
       "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t150",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t150"
+      ],
+      "title": "West Coast Eagles — current AFL path",
+      "summary": "West Coast Eagles's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t150:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t80",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t80"
+      ],
+      "title": "Hawthorn — current AFL path",
+      "summary": "Hawthorn's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t80:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-131",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-131"
+      ],
+      "title": "Brighton & Hove Albion — current Premier League path",
+      "summary": "Brighton & Hove Albion's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-2",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-2"
+      ],
+      "title": "Aston Villa — current Premier League path",
+      "summary": "Aston Villa's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-11",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-11"
+      ],
+      "title": "Manchester City — current Premier League path",
+      "summary": "Manchester City's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-127",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-127"
+      ],
+      "title": "AFC Bournemouth — current Premier League path",
+      "summary": "AFC Bournemouth's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-23",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-23"
+      ],
+      "title": "Newcastle United — current Premier League path",
+      "summary": "Newcastle United's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-10",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-10"
+      ],
+      "title": "Liverpool — current Premier League path",
+      "summary": "Liverpool's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-34",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-34"
+      ],
+      "title": "Fulham — current Premier League path",
+      "summary": "Fulham's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-4",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-4"
+      ],
+      "title": "Chelsea — current Premier League path",
+      "summary": "Chelsea's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-322",
+      "subjectIds": [
+        "subject:rolling:team-nrl-322"
+      ],
+      "title": "Broncos — current NRL path",
+      "summary": "Broncos's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-322:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-324",
+      "subjectIds": [
+        "subject:rolling:team-nrl-324"
+      ],
+      "title": "Storm — current NRL path",
+      "summary": "Storm's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-324:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-336",
+      "subjectIds": [
+        "subject:rolling:team-nrl-336"
+      ],
+      "title": "Sea Eagles — current NRL path",
+      "summary": "Sea Eagles's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-336:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-330",
+      "subjectIds": [
+        "subject:rolling:team-nrl-330"
+      ],
+      "title": "Dragons — current NRL path",
+      "summary": "Dragons's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-330:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t140",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t140"
+      ],
+      "title": "Western Bulldogs — current AFL path",
+      "summary": "Western Bulldogs's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t140:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t40",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t40"
+      ],
+      "title": "Collingwood — current AFL path",
+      "summary": "Collingwood's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t40:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-329",
+      "subjectIds": [
+        "subject:rolling:team-nrl-329"
+      ],
+      "title": "Panthers — current NRL path",
+      "summary": "Panthers's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-329:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-332",
+      "subjectIds": [
+        "subject:rolling:team-nrl-332"
+      ],
+      "title": "Bulldogs — current NRL path",
+      "summary": "Bulldogs's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-332:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-6",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-6"
+      ],
+      "title": "Crystal Palace — current Premier League path",
+      "summary": "Crystal Palace's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-337",
+      "subjectIds": [
+        "subject:rolling:team-nrl-337"
+      ],
+      "title": "Titans — current NRL path",
+      "summary": "Titans's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-337:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-335",
+      "subjectIds": [
+        "subject:rolling:team-nrl-335"
+      ],
+      "title": "Rabbitohs — current NRL path",
+      "summary": "Rabbitohs's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-335:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-331",
+      "subjectIds": [
+        "subject:rolling:team-nrl-331"
+      ],
+      "title": "Roosters — current NRL path",
+      "summary": "Roosters's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-331:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-9538",
+      "subjectIds": [
+        "subject:rolling:team-nrl-9538"
+      ],
+      "title": "Dolphins — current NRL path",
+      "summary": "Dolphins's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-9538:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-326",
+      "subjectIds": [
+        "subject:rolling:team-nrl-326"
+      ],
+      "title": "Cowboys — current NRL path",
+      "summary": "Cowboys's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-326:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-334",
+      "subjectIds": [
+        "subject:rolling:team-nrl-334"
+      ],
+      "title": "Wests Tigers — current NRL path",
+      "summary": "Wests Tigers's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-334:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t90",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t90"
+      ],
+      "title": "Melbourne — current AFL path",
+      "summary": "Melbourne's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t90:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t30",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t30"
+      ],
+      "title": "Carlton — current AFL path",
+      "summary": "Carlton's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t30:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-15",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-15"
+      ],
+      "title": "Nottingham Forest — current Premier League path",
+      "summary": "Nottingham Forest's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-7",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-7"
+      ],
+      "title": "Everton — current Premier League path",
+      "summary": "Everton's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-5",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-5"
+      ],
+      "title": "Coventry City — current Premier League path",
+      "summary": "Coventry City's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-41",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-41"
+      ],
+      "title": "Hull City — current Premier League path",
+      "summary": "Hull City's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-21",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-21"
+      ],
+      "title": "Tottenham Hotspur — current Premier League path",
+      "summary": "Tottenham Hotspur's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-321",
+      "subjectIds": [
+        "subject:rolling:team-nrl-321"
+      ],
+      "title": "Warriors — current NRL path",
+      "summary": "Warriors's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-325",
+      "subjectIds": [
+        "subject:rolling:team-nrl-325"
+      ],
+      "title": "Knights — current NRL path",
+      "summary": "Knights's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-328",
+      "subjectIds": [
+        "subject:rolling:team-nrl-328"
+      ],
+      "title": "Eels — current NRL path",
+      "summary": "Eels's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-328:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-333",
+      "subjectIds": [
+        "subject:rolling:team-nrl-333"
+      ],
+      "title": "Sharks — current NRL path",
+      "summary": "Sharks's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-333:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-9",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-9"
+      ],
+      "title": "Leeds United — current Premier League path",
+      "summary": "Leeds United's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-130",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-130"
+      ],
+      "title": "Brentford — current Premier League path",
+      "summary": "Brentford's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-29",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-29"
+      ],
+      "title": "Sunderland — current Premier League path",
+      "summary": "Sunderland's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-12",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-12"
+      ],
+      "title": "Manchester United — current Premier League path",
+      "summary": "Manchester United's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-8",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-8"
+      ],
+      "title": "Ipswich Town — current Premier League path",
+      "summary": "Ipswich Town's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-football-epl-1",
+      "subjectIds": [
+        "subject:rolling:team-football-epl-1"
+      ],
+      "title": "Arsenal — current Premier League path",
+      "summary": "Arsenal's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current Premier League path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:24.012Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t60",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t60"
+      ],
+      "title": "Fremantle — current AFL path",
+      "summary": "Fremantle's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t60:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t70",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t70"
+      ],
+      "title": "Geelong Cats — current AFL path",
+      "summary": "Geelong Cats's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t70:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t160",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t160"
+      ],
+      "title": "Sydney Swans — current AFL path",
+      "summary": "Sydney Swans's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t160:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t20",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t20"
+      ],
+      "title": "Brisbane Lions — current AFL path",
+      "summary": "Brisbane Lions's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t20:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:team-nrl-323",
+      "subjectIds": [
+        "subject:rolling:team-nrl-323"
+      ],
+      "title": "Raiders — current NRL path",
+      "summary": "Raiders's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current NRL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-323:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
+    },
+    {
+      "id": "thread:rolling:team-afl-cd-t10",
+      "subjectIds": [
+        "subject:rolling:team-afl-cd-t10"
+      ],
+      "title": "Adelaide Crows — current AFL path",
+      "summary": "Adelaide Crows's position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current AFL path, instead of repeating schedule or venue information.",
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t10:standing"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-23T12:15:37.000Z"
+    },
+    {
+      "id": "thread:rolling:f1-title",
+      "subjectIds": [
+        "subject:rolling:f1-leader",
+        "subject:rolling:f1-season"
+      ],
+      "title": "2026 Formula 1 title pressure",
+      "summary": "The championship lead is carried across qualifying and race cards so each session explains what its sporting consequence means for the title fight, rather than stopping at the timetable.",
+      "factIds": [
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:race-consequence"
+      ],
+      "status": "active",
+      "updatedAt": "2026-07-26T23:59:00.000Z"
+    },
+    {
+      "id": "thread:rolling:afl-finals-path",
+      "subjectIds": [
+        "subject:rolling:afl-finals"
+      ],
+      "title": "2026 AFL finals path",
+      "summary": "The finals bracket is carried from week to week so undrawn fixtures can explain what must happen next without inventing teams, results or a schedule-based editorial angle.",
+      "factIds": [
+        "fact:rolling:afl:grand-final-path"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-29T21:21:20.081Z"
     }
   ],
   "audienceMemories": [],
@@ -2716,27 +4355,31 @@
         "rugby-argentina-australia-jujuy-2026-08-30"
       ],
       "stakes": 3,
-      "hook": "Three straight Wallabies wins meet an Argentina side that took the latest chapter of an increasingly even rivalry.",
-      "synopsis": "Australia enters Jujuy with three consecutive wins but a completely changed starting forward pack. Argentina won the latest meeting after the teams split their two Tests in Argentina in 2024, giving the first leg its own form and selection tension before Mendoza.",
+      "hook": "The first Jujuy Test is complete, with the two-match Argentina chapter moving to Mendoza and the outcome protected here.",
+      "synopsis": "Australia arrived in Jujuy on an unbeaten three-match run but with a completely changed starting forward pack. The recent Argentina rivalry had split evenly across the previous two Tests, giving this opening leg form and selection tension without exposing its outcome.",
       "threadIds": [
         "thread:rugby:wallabies:2026-argentina-two-test-tour"
       ],
       "factIds": [
         "fact:arg-aus-jujuy:wallabies-form",
         "fact:arg-aus-jujuy:pack-reset",
-        "fact:arg-aus-jujuy:recent-rivalry"
+        "fact:arg-aus-jujuy:recent-rivalry",
+        "fact:arg-aus-jujuy:result"
       ],
       "sourceIds": [
+        "source:rugbyau:2026-jujuy-result",
         "source:rugbyau:2026-jujuy-team",
         "source:rugbyau:2026-jujuy-preview"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
-      "refreshAfter": "2026-08-30T08:00:00.000Z",
+      "researchedAt": "2026-08-30T08:45:00.000Z",
+      "refreshAfter": null,
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-08-30T06:00:00.000Z"
-      }
+        "reviewedAt": "2026-08-30T08:45:00.000Z"
+      },
+      "hookSpoilerOn": "Australia held out Argentina 27-21 in Jujuy to extend its winning start under Les Kiss.",
+      "synopsisSpoilerOn": "Australia beat Argentina 27-21 after building an early lead and resisting the home side's second-half pressure. The result extends the Wallabies' winning start under Les Kiss and turns the second Test in Mendoza into Argentina's immediate response chapter."
     },
     {
       "id": "projection:feed:argentina-australia-mendoza-2026",
@@ -3208,6 +4851,2025 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142409",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142409"
+      ],
+      "stakes": 2,
+      "hook": "West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
+      "synopsis": "West Coast Eagles and Hawthorn arrived at Round 24 inside a live AFL story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden.",
+      "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. The current table now has West Coast Eagles 16th on 16 points and Hawthorn 4th on 64, keeping the result connected to the wider AFL path.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t150",
+        "thread:rolling:team-afl-cd-t80"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t150:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t80:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128929",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128929"
+      ],
+      "stakes": 3,
+      "hook": "Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Brighton & Hove Albion and Aston Villa arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 12-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. The current table now has Brighton & Hove Albion 5th on 3 points and Aston Villa 17th on 0, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-131",
+        "thread:rolling:team-football-epl-2"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128930",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128930"
+      ],
+      "stakes": 3,
+      "hook": "Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Manchester City and AFC Bournemouth arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 11-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early.",
+      "synopsisSpoilerOn": "Manchester City defeated Bournemouth 2-1. The current table now has Manchester City 1st on 6 points and AFC Bournemouth 12th on 1, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-11",
+        "thread:rolling:team-football-epl-127"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128931",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128931"
+      ],
+      "stakes": 3,
+      "hook": "Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Newcastle United and Liverpool arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the.",
+      "synopsisSpoilerOn": "Newcastle United drew Liverpool 2-2. The current table now has Newcastle United 3rd on 4 points and Liverpool 11th on 2, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-23",
+        "thread:rolling:team-football-epl-10"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128932",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128932"
+      ],
+      "stakes": 3,
+      "hook": "Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Fulham and Chelsea arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 6-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Chelsea defeated Fulham 3-2. Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden.",
+      "synopsisSpoilerOn": "Chelsea defeated Fulham 3-2. The current table now has Fulham 14th on 0 points and Chelsea 8th on 3, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-34",
+        "thread:rolling:team-football-epl-4"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992601",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992601"
+      ],
+      "stakes": 2,
+      "hook": "Broncos and Storm met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "synopsis": "Broncos and Storm arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Storm defeated Broncos 46-20. Broncos and Storm met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Storm defeated Broncos 46-20. The current table now has Broncos 15th on 20 points and Storm 11th on 26, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-322",
+        "thread:rolling:team-nrl-324"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-322:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-324:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992602",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992602"
+      ],
+      "stakes": 2,
+      "hook": "Sea Eagles and Dragons met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "synopsis": "Sea Eagles and Dragons arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Sea Eagles defeated Dragons 44-10. Sea Eagles and Dragons met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Sea Eagles defeated Dragons 44-10. The current table now has Sea Eagles 9th on 28 points and Dragons 17th on 14, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-336",
+        "thread:rolling:team-nrl-330"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-336:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-330:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142502",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142502"
+      ],
+      "stakes": 2,
+      "hook": "Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
+      "synopsis": "Western Bulldogs and Collingwood arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The current table now has Western Bulldogs 8th on 54 points and Collingwood 9th on 52, keeping the result connected to the wider AFL path.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t140",
+        "thread:rolling:team-afl-cd-t40"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t140:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t40:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992603",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992603"
+      ],
+      "stakes": 2,
+      "hook": "Panthers and Bulldogs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsis": "Panthers and Bulldogs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Panthers defeated Bulldogs 24-10. Panthers and Bulldogs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Panthers defeated Bulldogs 24-10. The current table now has Panthers 1st on 40 points and Bulldogs 10th on 28, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-329",
+        "thread:rolling:team-nrl-332"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-329:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-332:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128937",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128937"
+      ],
+      "stakes": 3,
+      "hook": "Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Crystal Palace and Manchester City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 18-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early.",
+      "synopsisSpoilerOn": "Manchester City defeated Crystal Palace 4-1. The current table now has Crystal Palace 19th on 0 points and Manchester City 1st on 6, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-6",
+        "thread:rolling:team-football-epl-11"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992604",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992604"
+      ],
+      "stakes": 2,
+      "hook": "Titans and Rabbitohs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsis": "Titans and Rabbitohs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Rabbitohs defeated Titans 42-22. Titans and Rabbitohs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Rabbitohs defeated Titans 42-22. The current table now has Titans 16th on 18 points and Rabbitohs 6th on 32, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-337",
+        "thread:rolling:team-nrl-335"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-337:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-335:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992605",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992605"
+      ],
+      "stakes": 2,
+      "hook": "Roosters and Dolphins met in Round 26 with a direct finals-position contest; the outcome stays hidden here.",
+      "synopsis": "Roosters and Dolphins arrived at Round 26 inside a live NRL story: a direct finals-position contest. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Dolphins defeated Roosters 26-12. Roosters and Dolphins met in Round 26 with a direct finals-position contest; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Dolphins defeated Roosters 26-12. The current table now has Roosters 4th on 38 points and Dolphins 3rd on 38, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-331",
+        "thread:rolling:team-nrl-9538"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-331:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-9538:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992606",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992606"
+      ],
+      "stakes": 2,
+      "hook": "Cowboys and Wests Tigers met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsis": "Cowboys and Wests Tigers arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Cowboys defeated Wests Tigers 24-10. Cowboys and Wests Tigers met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden.",
+      "synopsisSpoilerOn": "Cowboys defeated Wests Tigers 24-10. The current table now has Cowboys 8th on 32 points and Wests Tigers 14th on 22, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-326",
+        "thread:rolling:team-nrl-334"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-326:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-334:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142501",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142501"
+      ],
+      "stakes": 2,
+      "hook": "Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
+      "synopsis": "Melbourne and Carlton arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. The current table now has Melbourne 7th on 60 points and Carlton 10th on 50, keeping the result connected to the wider AFL path.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t90",
+        "thread:rolling:team-afl-cd-t30"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t90:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t30:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128939",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128939"
+      ],
+      "stakes": 3,
+      "hook": "Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Liverpool and Nottingham Forest arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 2-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the.",
+      "synopsisSpoilerOn": "Liverpool drew Nottingham Forest 2-2. The current table now has Liverpool 11th on 2 points and Nottingham Forest 13th on 1, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-10",
+        "thread:rolling:team-football-epl-15"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128934",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128934"
+      ],
+      "stakes": 3,
+      "hook": "AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "AFC Bournemouth and Everton arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Bournemouth drew Everton 1-1. AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome.",
+      "synopsisSpoilerOn": "Bournemouth drew Everton 1-1. The current table now has AFC Bournemouth 12th on 1 points and Everton 4th on 4, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-127",
+        "thread:rolling:team-football-epl-7"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128936",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128936"
+      ],
+      "stakes": 3,
+      "hook": "Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Coventry City and Hull City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 16-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Hull City defeated Coventry City 1-0. Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the.",
+      "synopsisSpoilerOn": "Hull City defeated Coventry City 1-0. The current table now has Coventry City 18th on 0 points and Hull City 2nd on 6, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-5",
+        "thread:rolling:team-football-epl-41"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128942",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128942"
+      ],
+      "stakes": 3,
+      "hook": "Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in the early table; the outcome stays hidden here.",
+      "synopsis": "Tottenham Hotspur and Newcastle United arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 17-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in.",
+      "synopsisSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. The current table now has Tottenham Hotspur 20th on 0 points and Newcastle United 3rd on 4, keeping the result connected to the wider Premier League path.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-21",
+        "thread:rolling:team-football-epl-23"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992607",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992607"
+      ],
+      "stakes": 2,
+      "hook": "Warriors enter 2nd and Knights 7th; a direct finals-position contest.",
+      "synopsis": "Warriors are 2nd with 38 points, while Knights are 7th with 32. That makes this more than a date in Round 26: it is a direct finals-position contest, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-321",
+        "thread:rolling:team-nrl-325"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992608",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992608"
+      ],
+      "stakes": 2,
+      "hook": "Eels enter 13th and Sharks 5th; a finals contender meeting a side capable of disrupting the run-in.",
+      "synopsis": "Eels are 13th with 22 points, while Sharks are 5th with 34. That makes this more than a date in Round 26: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-328",
+        "thread:rolling:team-nrl-333"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-328:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-333:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128935",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128935"
+      ],
+      "stakes": 3,
+      "hook": "Chelsea enter 8th and Brighton & Hove Albion 5th; a chance to compress or widen the 3-place gap in the early table.",
+      "synopsis": "Chelsea are 8th with 3 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-4",
+        "thread:rolling:team-football-epl-131"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128938",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128938"
+      ],
+      "stakes": 3,
+      "hook": "Leeds United enter 10th and Brentford 7th; a chance to compress or widen the 3-place gap in the early table.",
+      "synopsis": "Leeds United are 10th with 3 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-9",
+        "thread:rolling:team-football-epl-130"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128941",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128941"
+      ],
+      "stakes": 3,
+      "hook": "Sunderland enter 15th and Fulham 14th; a chance to compress or widen the 1-place gap in the early table.",
+      "synopsis": "Sunderland are 15th with 0 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-29",
+        "thread:rolling:team-football-epl-34"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128940",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128940"
+      ],
+      "stakes": 3,
+      "hook": "Manchester United enter 16th and Ipswich Town 9th; a chance to compress or widen the 7-place gap in the early table.",
+      "synopsis": "Manchester United are 16th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-12",
+        "thread:rolling:team-football-epl-8"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128933",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128933"
+      ],
+      "stakes": 3,
+      "hook": "Aston Villa enter 17th and Arsenal 6th; a chance to compress or widen the 11-place gap in the early table.",
+      "synopsis": "Aston Villa are 17th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 11-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-2",
+        "thread:rolling:team-football-epl-1"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992701",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992701"
+      ],
+      "stakes": 2,
+      "hook": "Bulldogs enter 10th and Broncos 15th; a late-season test of where both clubs finish.",
+      "synopsis": "Bulldogs are 10th with 28 points, while Broncos are 15th with 20. That makes this more than a date in Round 27: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-332",
+        "thread:rolling:team-nrl-322"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-332:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-322:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142601",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142601"
+      ],
+      "stakes": 2,
+      "hook": "Fremantle enter 1st and Hawthorn 4th; a qualifying final where one side earns a week off and the other retains a second chance.",
+      "synopsis": "Fremantle are 1st with 76 points, while Hawthorn are 4th with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t60",
+        "thread:rolling:team-afl-cd-t80"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t60:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t80:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992702",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992702"
+      ],
+      "stakes": 2,
+      "hook": "Titans enter 16th and Dolphins 3rd; a finals contender meeting a side capable of disrupting the run-in.",
+      "synopsis": "Titans are 16th with 18 points, while Dolphins are 3rd with 38. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-337",
+        "thread:rolling:team-nrl-9538"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-337:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-9538:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142603",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142603"
+      ],
+      "stakes": 2,
+      "hook": "Geelong Cats enter 5th and Carlton 10th; a sudden-death final with no second chance.",
+      "synopsis": "Geelong Cats are 5th with 60 points, while Carlton are 10th with 50. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t70",
+        "thread:rolling:team-afl-cd-t30"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t70:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t30:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992703",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992703"
+      ],
+      "stakes": 2,
+      "hook": "Rabbitohs enter 6th and Roosters 4th; a direct finals-position contest.",
+      "synopsis": "Rabbitohs are 6th with 32 points, while Roosters are 4th with 38. That makes this more than a date in Round 27: it is a direct finals-position contest, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-335",
+        "thread:rolling:team-nrl-331"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-335:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-331:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128949",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128949"
+      ],
+      "stakes": 3,
+      "hook": "Ipswich Town enter 9th and Liverpool 11th; a chance to compress or widen the 2-place gap in the early table.",
+      "synopsis": "Ipswich Town are 9th with 3 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-8",
+        "thread:rolling:team-football-epl-10"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992704",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992704"
+      ],
+      "stakes": 2,
+      "hook": "Warriors enter 2nd and Sea Eagles 9th; a finals contender meeting a side capable of disrupting the run-in.",
+      "synopsis": "Warriors are 2nd with 38 points, while Sea Eagles are 9th with 28. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-321",
+        "thread:rolling:team-nrl-336"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-336:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142602",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142602"
+      ],
+      "stakes": 2,
+      "hook": "Sydney Swans enter 2nd and Brisbane Lions 3rd; a qualifying final where one side earns a week off and the other retains a second chance.",
+      "synopsis": "Sydney Swans are 2nd with 72 points, while Brisbane Lions are 3rd with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t160",
+        "thread:rolling:team-afl-cd-t20"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t160:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t20:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992705",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992705"
+      ],
+      "stakes": 2,
+      "hook": "Cowboys enter 8th and Raiders 12th; a finals contender meeting a side capable of disrupting the run-in.",
+      "synopsis": "Cowboys are 8th with 32 points, while Raiders are 12th with 26. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-326",
+        "thread:rolling:team-nrl-323"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-326:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-323:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992706",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992706"
+      ],
+      "stakes": 2,
+      "hook": "Sharks enter 5th and Storm 11th; a finals contender meeting a side capable of disrupting the run-in.",
+      "synopsis": "Sharks are 5th with 34 points, while Storm are 11th with 26. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-333",
+        "thread:rolling:team-nrl-324"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-333:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-324:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142604",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142604"
+      ],
+      "stakes": 2,
+      "hook": "Adelaide Crows enter 6th and Western Bulldogs 8th; a sudden-death final with no second chance.",
+      "synopsis": "Adelaide Crows are 6th with 60 points, while Western Bulldogs are 8th with 54. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-afl-cd-t10",
+        "thread:rolling:team-afl-cd-t140"
+      ],
+      "factIds": [
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t10:standing",
+        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t140:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-afl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128951",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128951"
+      ],
+      "stakes": 3,
+      "hook": "Newcastle United enter 3rd and AFC Bournemouth 12th; a chance to compress or widen the 9-place gap in the early table.",
+      "synopsis": "Newcastle United are 3rd with 4 points, while AFC Bournemouth are 12th with 1. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-23",
+        "thread:rolling:team-football-epl-127"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128944",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128944"
+      ],
+      "stakes": 3,
+      "hook": "Brentford enter 7th and Sunderland 15th; a chance to compress or widen the 8-place gap in the early table.",
+      "synopsis": "Brentford are 7th with 3 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 8-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-130",
+        "thread:rolling:team-football-epl-29"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128945",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128945"
+      ],
+      "stakes": 3,
+      "hook": "Brighton & Hove Albion enter 5th and Leeds United 10th; a chance to compress or widen the 5-place gap in the early table.",
+      "synopsis": "Brighton & Hove Albion are 5th with 3 points, while Leeds United are 10th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-131",
+        "thread:rolling:team-football-epl-9"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128947",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128947"
+      ],
+      "stakes": 3,
+      "hook": "Fulham enter 14th and Crystal Palace 19th; a chance to compress or widen the 5-place gap in the early table.",
+      "synopsis": "Fulham are 14th with 0 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-34",
+        "thread:rolling:team-football-epl-6"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128950",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128950"
+      ],
+      "stakes": 3,
+      "hook": "Manchester City enter 1st and Coventry City 18th; a chance to compress or widen the 17-place gap in the early table.",
+      "synopsis": "Manchester City are 1st with 6 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 17-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-11",
+        "thread:rolling:team-football-epl-5"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128952",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128952"
+      ],
+      "stakes": 3,
+      "hook": "Nottingham Forest enter 13th and Tottenham Hotspur 20th; a chance to compress or widen the 7-place gap in the early table.",
+      "synopsis": "Nottingham Forest are 13th with 1 points, while Tottenham Hotspur are 20th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-15",
+        "thread:rolling:team-football-epl-21"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:evt-26",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_26"
+      ],
+      "stakes": 3,
+      "hook": "Kimi Antonelli leads by 50 points into R13 Italian GP Qualifying; this session sets the grid and determines who controls the race start.",
+      "synopsis": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R13 Italian GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:qualifying-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128948",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128948"
+      ],
+      "stakes": 3,
+      "hook": "Hull City enter 2nd and Aston Villa 17th; a chance to compress or widen the 15-place gap in the early table.",
+      "synopsis": "Hull City are 2nd with 6 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-41",
+        "thread:rolling:team-football-epl-2"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992707",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992707"
+      ],
+      "stakes": 2,
+      "hook": "Dragons enter 17th and Eels 13th; a late-season test of where both clubs finish.",
+      "synopsis": "Dragons are 17th with 14 points, while Eels are 13th with 22. That makes this more than a date in Round 27: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-330",
+        "thread:rolling:team-nrl-328"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-330:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-328:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-nrl-129992708",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992708"
+      ],
+      "stakes": 2,
+      "hook": "Panthers enter 1st and Wests Tigers 14th; a finals contender meeting a side capable of disrupting the run-in.",
+      "synopsis": "Panthers are 1st with 40 points, while Wests Tigers are 14th with 22. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-nrl-329",
+        "thread:rolling:team-nrl-334"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-329:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-334:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128946",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128946"
+      ],
+      "stakes": 3,
+      "hook": "Everton enter 4th and Manchester United 16th; a chance to compress or widen the 12-place gap in the early table.",
+      "synopsis": "Everton are 4th with 4 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 12-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-7",
+        "thread:rolling:team-football-epl-12"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128943",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128943"
+      ],
+      "stakes": 3,
+      "hook": "Arsenal enter 6th and Chelsea 8th; a chance to compress or widen the 2-place gap in the early table.",
+      "synopsis": "Arsenal are 6th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-1",
+        "thread:rolling:team-football-epl-4"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128953",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128953"
+      ],
+      "stakes": 3,
+      "hook": "Aston Villa enter 17th and Nottingham Forest 13th; a chance to compress or widen the 4-place gap in the early table.",
+      "synopsis": "Aston Villa are 17th with 0 points, while Nottingham Forest are 13th with 1. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 4-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-2",
+        "thread:rolling:team-football-epl-15"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128954",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128954"
+      ],
+      "stakes": 3,
+      "hook": "AFC Bournemouth enter 12th and Brentford 7th; a chance to compress or widen the 5-place gap in the early table.",
+      "synopsis": "AFC Bournemouth are 12th with 1 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-127",
+        "thread:rolling:team-football-epl-130"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128955",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128955"
+      ],
+      "stakes": 3,
+      "hook": "Chelsea enter 8th and Hull City 2nd; a chance to compress or widen the 6-place gap in the early table.",
+      "synopsis": "Chelsea are 8th with 3 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 6-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-4",
+        "thread:rolling:team-football-epl-41"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128957",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128957"
+      ],
+      "stakes": 3,
+      "hook": "Crystal Palace enter 19th and Ipswich Town 9th; a chance to compress or widen the 10-place gap in the early table.",
+      "synopsis": "Crystal Palace are 19th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 10-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-6",
+        "thread:rolling:team-football-epl-8"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128959",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128959"
+      ],
+      "stakes": 3,
+      "hook": "Liverpool enter 11th and Fulham 14th; a chance to compress or widen the 3-place gap in the early table.",
+      "synopsis": "Liverpool are 11th with 2 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-10",
+        "thread:rolling:team-football-epl-34"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:evt-28",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_28"
+      ],
+      "stakes": 3,
+      "hook": "Kimi Antonelli leads by 50 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
+      "synopsis": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:qualifying-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128962",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128962"
+      ],
+      "stakes": 3,
+      "hook": "Tottenham Hotspur enter 20th and Everton 4th; a chance to compress or widen the 16-place gap in the early table.",
+      "synopsis": "Tottenham Hotspur are 20th with 0 points, while Everton are 4th with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 16-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-21",
+        "thread:rolling:team-football-epl-7"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128961",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128961"
+      ],
+      "stakes": 3,
+      "hook": "Sunderland enter 15th and Arsenal 6th; a chance to compress or widen the 9-place gap in the early table.",
+      "synopsis": "Sunderland are 15th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-29",
+        "thread:rolling:team-football-epl-1"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128956",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128956"
+      ],
+      "stakes": 3,
+      "hook": "Coventry City enter 18th and Brighton & Hove Albion 5th; a chance to compress or widen the 13-place gap in the early table.",
+      "synopsis": "Coventry City are 18th with 0 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 13-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-5",
+        "thread:rolling:team-football-epl-131"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:evt-29",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_29"
+      ],
+      "stakes": 3,
+      "hook": "Kimi Antonelli leads by 50 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
+      "synopsis": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:race-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128960",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128960"
+      ],
+      "stakes": 3,
+      "hook": "Manchester United enter 16th and Manchester City 1st; a chance to compress or widen the 15-place gap in the early table.",
+      "synopsis": "Manchester United are 16th with 0 points, while Manchester City are 1st with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-12",
+        "thread:rolling:team-football-epl-11"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128958",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128958"
+      ],
+      "stakes": 3,
+      "hook": "Leeds United enter 10th and Newcastle United 3rd; a chance to compress or widen the 7-place gap in the early table.",
+      "synopsis": "Leeds United are 10th with 3 points, while Newcastle United are 3rd with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-9",
+        "thread:rolling:team-football-epl-23"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128964",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128964"
+      ],
+      "stakes": 3,
+      "hook": "Brentford enter 7th and Chelsea 8th; a chance to compress or widen the 1-place gap in the early table.",
+      "synopsis": "Brentford are 7th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-130",
+        "thread:rolling:team-football-epl-4"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128972",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128972"
+      ],
+      "stakes": 3,
+      "hook": "Tottenham Hotspur enter 20th and Aston Villa 17th; a chance to compress or widen the 3-place gap in the early table.",
+      "synopsis": "Tottenham Hotspur are 20th with 0 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-21",
+        "thread:rolling:team-football-epl-2"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128965",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128965"
+      ],
+      "stakes": 3,
+      "hook": "Brighton & Hove Albion enter 5th and Arsenal 6th; a chance to compress or widen the 1-place gap in the early table.",
+      "synopsis": "Brighton & Hove Albion are 5th with 3 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-131",
+        "thread:rolling:team-football-epl-1"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128966",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128966"
+      ],
+      "stakes": 3,
+      "hook": "Everton enter 4th and Ipswich Town 9th; a chance to compress or widen the 5-place gap in the early table.",
+      "synopsis": "Everton are 4th with 4 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-7",
+        "thread:rolling:team-football-epl-8"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128968",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128968"
+      ],
+      "stakes": 3,
+      "hook": "Leeds United enter 10th and Crystal Palace 19th; a chance to compress or widen the 9-place gap in the early table.",
+      "synopsis": "Leeds United are 10th with 3 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-9",
+        "thread:rolling:team-football-epl-6"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128970",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128970"
+      ],
+      "stakes": 3,
+      "hook": "Newcastle United enter 3rd and Hull City 2nd; a chance to compress or widen the 1-place gap in the early table.",
+      "synopsis": "Newcastle United are 3rd with 4 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-23",
+        "thread:rolling:team-football-epl-41"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128971",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128971"
+      ],
+      "stakes": 3,
+      "hook": "Nottingham Forest enter 13th and Coventry City 18th; a chance to compress or widen the 5-place gap in the early table.",
+      "synopsis": "Nottingham Forest are 13th with 1 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-15",
+        "thread:rolling:team-football-epl-5"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128963",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128963"
+      ],
+      "stakes": 3,
+      "hook": "AFC Bournemouth enter 12th and Liverpool 11th; a chance to compress or widen the 1-place gap in the early table.",
+      "synopsis": "AFC Bournemouth are 12th with 1 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-127",
+        "thread:rolling:team-football-epl-10"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128969",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128969"
+      ],
+      "stakes": 3,
+      "hook": "Manchester City enter 1st and Sunderland 15th; a chance to compress or widen the 14-place gap in the early table.",
+      "synopsis": "Manchester City are 1st with 6 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 14-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-11",
+        "thread:rolling:team-football-epl-29"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:epl-2026-27-128967",
+      "targetType": "feed-event",
+      "targetIds": [
+        "epl-2026-27-128967"
+      ],
+      "stakes": 3,
+      "hook": "Fulham enter 14th and Manchester United 16th; a chance to compress or widen the 2-place gap in the early table.",
+      "synopsis": "Fulham are 14th with 0 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "threadIds": [
+        "thread:rolling:team-football-epl-34",
+        "thread:rolling:team-football-epl-12"
+      ],
+      "factIds": [
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
+        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-premier-league-2026-27:ladder"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:rolling:event-afl-cd-m20260142901",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142901"
+      ],
+      "stakes": 2,
+      "hook": "The preliminary finals decide both names, but the destination is fixed: one match at the MCG for the premiership.",
+      "synopsis": "This card stays alive before the finalists are known because it is the endpoint of both preliminary-final paths. Once those teams are settled, the chapter changes from qualification to the season's single premiership decider at the MCG.",
+      "threadIds": [
+        "thread:rolling:afl-finals-path"
+      ],
+      "factIds": [
+        "fact:rolling:afl:grand-final-path"
+      ],
+      "sourceIds": [
+        "source:rolling:afl:finals-bracket"
+      ],
+      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T08:30:00.000Z"
       }
     }
   ]

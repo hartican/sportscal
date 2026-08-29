@@ -15,6 +15,7 @@ const {
 const WRITE = process.argv.includes("--write");
 const KNOWLEDGE_PATH = path.resolve("data/editorial-knowledge.v1.json");
 const FEED_PATH = path.resolve("feeds/incoming/events.json");
+const PUBLISHED_FEED_PATH = path.resolve("data/events.json");
 const MAJOR_EVENTS_PATH = path.resolve("data/major-events.v1.json");
 
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
@@ -26,14 +27,20 @@ function main(){
   if (issues.length) throw new Error(`Editorial knowledge invalid:\n- ${issues.join("\n- ")}`);
   const indexes = indexesFor(knowledge);
 
+  function applyFeed(document){
+    let applied = 0;
+    document.events = document.events.map(event => {
+      const projection = projectionForTarget(knowledge, "feed-event", event);
+      if (!projection) return event;
+      applied += 1;
+      return applyToFeedEvent(event, projection, indexes);
+    });
+    return applied;
+  }
   const feed = readJson(FEED_PATH);
-  let feedApplied = 0;
-  feed.events = feed.events.map(event => {
-    const projection = projectionForTarget(knowledge, "feed-event", event);
-    if (!projection) return event;
-    feedApplied += 1;
-    return applyToFeedEvent(event, projection, indexes);
-  });
+  const publishedFeed = readJson(PUBLISHED_FEED_PATH);
+  const feedApplied = applyFeed(feed);
+  applyFeed(publishedFeed);
 
   const majorEvents = readJson(MAJOR_EVENTS_PATH);
   let majorApplied = 0;
@@ -53,6 +60,7 @@ function main(){
 
   if (WRITE){
     writeJson(FEED_PATH, feed);
+    writeJson(PUBLISHED_FEED_PATH, publishedFeed);
     writeJson(MAJOR_EVENTS_PATH, majorEvents);
   }
   console.log(`${WRITE ? "Applied" : "Would apply"} ${feedApplied} feed and ${majorApplied} major-event editorial projections.`);

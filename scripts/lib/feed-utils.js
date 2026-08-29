@@ -195,6 +195,8 @@ function validateFeed(feed) {
         if (!String(narrative.projectionId || "").trim()) errors.push(`${prefix}.editorialNarrative.projectionId is required.`);
         if (!["standard", "featured", "marquee"].includes(narrative.researchTier)) errors.push(`${prefix}.editorialNarrative.researchTier is unsupported.`);
         if (!String(narrative.hook || "").trim() || String(narrative.hook || "").length > 180) errors.push(`${prefix}.editorialNarrative.hook must be a non-empty string of 180 characters or fewer.`);
+        if (narrative.schemaVersion === "editorial-narrative.v2" && (String(narrative.synopsis || "").trim().length < 80 || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be 80-700 characters for v2 projections.`);
+        if (narrative.synopsis !== undefined && (!String(narrative.synopsis || "").trim() || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be a non-empty string of 700 characters or fewer when present.`);
         [["threadIds", 1], ["factIds", 1], ["sourceIds", 1], ["dimensions", 1]].forEach(([field, minimum]) => {
           if (!Array.isArray(narrative[field]) || narrative[field].filter(Boolean).length < minimum || new Set(narrative[field]).size !== narrative[field].length) errors.push(`${prefix}.editorialNarrative.${field} must contain unique values.`);
         });

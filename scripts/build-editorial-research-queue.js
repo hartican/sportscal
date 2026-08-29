@@ -11,7 +11,12 @@ const DAY_MS = 86400000;
 const OUTPUT_PATH = path.resolve("data/editorial-research-queue.v1.json");
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 function writeJson(filePath, value){ fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`); }
-function stakesFor(record){ return Number(record?.storyline?.stakes || record?.stakesScore || 0); }
+function stakesFor(record){
+  const stored = Number(record?.storyline?.stakes || record?.stakesScore || 0);
+  if (stored) return stored;
+  const expected = Number(record?.expected || 0);
+  return expected >= 10 ? 5 : expected >= 8 ? 4 : expected >= 6 ? 3 : expected >= 4 ? 2 : 1;
+}
 function idFor(record){ return String(record?.canonicalEventId || record?.eventId || record?.id || ""); }
 function eventTime(record){
   if (record?.startDate && !record?.date) return Date.parse(`${record.startDate}T00:00:00+10:00`);

@@ -528,6 +528,26 @@
     });
   }
 
+  function toggleFeedback(preferences, input){
+    const next = migratePreferences(preferences);
+    const feedback = normalizeFeedback(next.followFirst.feedback);
+    const eventId = String(input?.eventId || "");
+    const direction = input?.direction === "negative" ? "negative" : "positive";
+    const latest = [...feedback.entries].reverse().find(entry => entry.eventId === eventId);
+    if (direction !== "positive" || latest?.direction !== "positive") return appendFeedback(next, input);
+    return migratePreferences({
+      ...next,
+      followFirst:{
+        ...next.followFirst,
+        feedback:{
+          schemaVersion:FEEDBACK_SCHEMA_VERSION,
+          sequence:feedback.sequence + 1,
+          entries:feedback.entries.filter(entry => entry.eventId !== eventId),
+        },
+      },
+    });
+  }
+
   function registerOpen(preferences, openId){
     const next = migratePreferences(preferences);
     const refinement = { ...next.followFirst.refinement };
@@ -696,6 +716,7 @@
     normalizedFixtureGroupLabel,
     compareFixtureGroupLabels,
     appendFeedback,
+    toggleFeedback,
     registerOpen,
     shouldPromptRefinement,
     normalizeDirectoryRank,

@@ -22,7 +22,12 @@ function eventTime(event){
   if (Number.isFinite(direct)) return direct;
   return new Date(`${event.date || ""}T${event.time || "00:00"}:00+10:00`).getTime();
 }
-function stakesFor(event){ return Number(event.storyline?.stakes || event.stakesScore || 0); }
+function stakesFor(event){
+  const stored = Number(event.storyline?.stakes || event.stakesScore || 0);
+  if (stored) return stored;
+  const expected = Number(event.expected || 0);
+  return expected >= 10 ? 5 : expected >= 8 ? 4 : expected >= 6 ? 3 : expected >= 4 ? 2 : 1;
+}
 function byIdentity(records){
   const index = new Map();
   records.forEach(record => [record.id, record.eventId, record.canonicalEventId].filter(Boolean).forEach(id => index.set(id, record)));
@@ -43,6 +48,7 @@ function assertProjected(record, projection, label){
   assert(projection, `${label} needs a persistent editorial projection`);
   assert.equal(record.editorialNarrative?.projectionId, projection.id, `${label} must publish its projection id`);
   assert.equal(record.editorialNarrative?.hook, projection.hook, `${label} must publish the researched hook`);
+  assert.equal(record.editorialNarrative?.synopsis, projection.synopsis, `${label} must publish the researched L1/L2 synopsis`);
   const requirement = TIER_REQUIREMENTS[projection.stakes];
   const expectedTier = projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard";
   assert.equal(record.editorialNarrative?.schemaVersion, "editorial-narrative.v2", `${label} must publish the v2 projection writer`);
@@ -105,7 +111,9 @@ assert(eventSchema.$defs.editorialNarrative.properties.sentiment, "the feed sche
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /state === "compact" && enrichment\.stakesScore >= 2[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(ev\)\)/, "stakes 2+ feed cards must reveal only validated editorial hooks at L0");
+assert.match(html, /state === "compact"[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(ev\)\)/, "researched feed cards must reveal their validated editorial hooks at L0");
+assert.match(html, /editorialNarrativeCopyForDisplay\(ev, state\)[^]*selectedSentenceForDisplay\(ev\)/, "selected Feed cards must prefer validated editorial copy to structural fallback text");
+assert.match(html, /editorialNarrativeCopyForDisplay\(record, state\)/, "selected and opened Major Events cards must render their validated editorial copy");
 assert.match(html, /state === "compact"[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(record\)\)/, "major-event cards must reveal only validated editorial hooks at L0");
 assert.doesNotMatch(html, /buildEditorialL0Hook\((?:selectedSentenceForDisplay\(ev\)|record\.summary)/, "schedule and structural fallback copy must never be relabelled Why it matters");
 assert.match(html, /editorial-l0-hook-label[^]*Why it matters/, "L0 hooks need a visible editorial label");

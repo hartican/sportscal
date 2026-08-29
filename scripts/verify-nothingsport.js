@@ -320,7 +320,7 @@ assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
 assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "Swipe Calibration must remain BTS and absent from onboarding");
 assert(html.includes("applyCuratedEventSwipe") && html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && !html.includes("sessionDismissedEventIds"), "curated event swipes must persistently dismiss exact cards while retaining positive cards");
-assert(html.includes('source: "calibration"') && html.includes("FOLLOW_FIRST?.appendFeedback") && html.includes("targetType:target.targetType"), "calibration and feed feedback must retain their distinct bounded metadata paths");
+assert(html.includes('source: "calibration"') && html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "calibration and feed feedback must retain their distinct bounded metadata paths");
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
 assert(html.includes("learningPreference: graph.learning || null"), "local profile reloads must retain learning separately from canonical truth");
 assert(preferenceSystemSource.includes("function mergeLearning"), "preference migrations must retain a bounded learning merge helper");

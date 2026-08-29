@@ -45,7 +45,7 @@ const html = fs.readFileSync("index.html", "utf8");
 assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect lightweight follows without a swipe calibration step");
 assert(html.includes('event.key === "ArrowRight"') && html.includes('event.key === "ArrowLeft"'), "curated cards must expose keyboard swipe equivalents");
 const learningScoreSource = html.match(/function eventLearningScore\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
-assert(learningScoreSource.includes("softLearningScore") && html.includes("FOLLOW_FIRST?.appendFeedback"), "swipe weights must softly influence ranking while retaining bounded feedback history");
+assert(learningScoreSource.includes("softLearningScore") && html.includes("FOLLOW_FIRST?.toggleFeedback"), "swipe weights must softly influence ranking while retaining bounded and reversible feedback history");
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && !html.includes("sessionDismissedEventIds"), "likes must retain cards while dislikes durably dismiss exact editions");
 assert(html.includes("window.setTimeout(() =>") && html.includes("}, 1400);"), "swipe feedback must remain visible for 1.4 seconds");
 assert(html.includes("future feed suggestions will adapt."), "swipe feedback must explain when the learning signal takes effect");

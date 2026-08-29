@@ -188,6 +188,7 @@ function editorialNarrativeFor(projection, indexes){
     projectionId:projection.id,
     researchTier:projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard",
     hook:projection.hook,
+    synopsis:projection.synopsis,
     ...(projection.hookSpoilerOn ? { hookSpoilerOn:projection.hookSpoilerOn } : {}),
     ...(projection.synopsisSpoilerOn ? { synopsisSpoilerOn:projection.synopsisSpoilerOn } : {}),
     threadIds:[...projection.threadIds],
@@ -204,7 +205,7 @@ function editorialNarrativeFor(projection, indexes){
 function applyToFeedEvent(event, projection, indexes){
   const primarySource = indexes.sources.get(projection.sourceIds[0]);
   const narrative = editorialNarrativeFor(projection, indexes);
-  const contextSignals = narrative.dimensions.map(value => `narrative:${value}`);
+  const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
   return {
     ...event,
@@ -228,6 +229,7 @@ function applyToFeedEvent(event, projection, indexes){
     storyline:{
       ...(event.storyline || {}),
       stakes:projection.stakes,
+      arcStage:event.status === "completed" ? "recap" : "preview",
       hookSpoilerOff:projection.hook,
       hookSpoilerOn:projection.hookSpoilerOn || projection.hook,
       synopsisSpoilerOff:projection.synopsis,

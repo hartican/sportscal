@@ -34,11 +34,18 @@
       "type": "object",
       "additionalProperties": false,
       "required": ["schemaVersion", "projectionId", "researchTier", "hook", "threadIds", "factIds", "sourceIds", "dimensions", "researchedAt", "generationMode"],
+      "allOf": [
+        {
+          "if": { "properties": { "schemaVersion": { "const": "editorial-narrative.v2" } }, "required": ["schemaVersion"] },
+          "then": { "required": ["synopsis"] }
+        }
+      ],
       "properties": {
         "schemaVersion": { "enum": ["editorial-narrative.v1", "editorial-narrative.v2"] },
         "projectionId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._-]*$" },
         "researchTier": { "enum": ["standard", "featured", "marquee"] },
         "hook": { "type": "string", "minLength": 20, "maxLength": 180 },
+        "synopsis": { "type": "string", "minLength": 80, "maxLength": 700 },
         "hookSpoilerOn": { "type": "string", "minLength": 1, "maxLength": 180 },
         "synopsisSpoilerOn": { "type": "string", "minLength": 1, "maxLength": 700 },
         "threadIds": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },

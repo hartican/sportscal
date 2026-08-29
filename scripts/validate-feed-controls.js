@@ -118,7 +118,7 @@ assert.match(html, /dateLine\.appendChild\(dateChip\);[\s\S]+buildEventTimingSta
 assert.match(html, /\.event-timing-state\.starts-soon[\s\S]+\.event-timing-state\.live-now[\s\S]+\.event-timing-state\.just-finished/, "all three semantic timing states need distinct visible treatments");
 assert.match(html, /\.event-timing-state\.live-now::before[\s\S]+background:#ff3b4d/, "Live Now needs a restrained red dot");
 assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{ animation:none/, "reduced-motion users must keep the static red state without pulse animation");
-assert(html.includes("FOLLOW_FIRST?.appendFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata");
+assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata with reversible likes");
 assert(html.includes('className = "badge discovery"') && !html.includes('className = "badge availability"'), "discovery remains labelled while availability classifications stay behind the scenes");
 assert(html.includes('sessionOpenedEventIds.add(') && html.includes('label.className = "new-tag"'), "open signals must remain session-local while newly surfaced cards use the durable New lifecycle");
 assert(html.includes('rect.top <= window.innerHeight'), "the contextual jump must count Today as visible anywhere in the viewport");

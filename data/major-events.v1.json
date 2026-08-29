@@ -68,6 +68,7 @@
         "projectionId": "projection:major:cincinnati-open-2026",
         "researchTier": "marquee",
         "hook": "Fils left Cincinnati with a first Masters 1000 title, while Gauff's second crown reopened a proven road from Ohio to New York.",
+        "synopsis": "Arthur Fils returned from a long absence to become the youngest French Masters 1000 champion of the series era. Coco Gauff won Cincinnati for the second time and carried a genuine continuity line into the US Open: her first Cincinnati title in 2023 immediately preceded her first major, a precedent rather than a prediction.",
         "threadIds": [
           "thread:tennis:cincinnati:gauff-fils-2026-aftermath"
         ],
@@ -14839,6 +14840,7 @@
         "projectionId": "projection:major:us-open-2026",
         "researchTier": "marquee",
         "hook": "Sinner's withdrawal has redrawn the men's contest, while Sabalenka starts a bid to join the US Open's three-peat company.",
+        "synopsis": "Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
         "threadIds": [
           "thread:tennis:us-open-2026:defenders-open-draw"
         ],
@@ -15690,6 +15692,7 @@
         "projectionId": "projection:major:afl-finals-2026",
         "researchTier": "marquee",
         "hook": "The first wildcard weekend has turned Carlton's 1–8 recovery and Arty Jones' breakout into two sudden-death paths through September.",
+        "synopsis": "Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
         "threadIds": [
           "thread:afl:finals-2026:first-wildcard-road"
         ],
@@ -15881,6 +15884,7 @@
         "projectionId": "projection:major:nrl-finals-2026",
         "researchTier": "marquee",
         "hook": "The finalists are locked, but an unsettled top four means eight known teams still do not know the shape of their September road.",
+        "synopsis": "Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
         "threadIds": [
           "thread:nrl:finals-2026:locked-eight-open-order"
         ],
@@ -16018,6 +16022,7 @@
         "projectionId": "projection:major:rlwc-2026",
         "researchTier": "marquee",
         "hook": "Three World Cups, 53 matches and one month begin with the men's defending champions against the Pacific Cup holders.",
+        "synopsis": "The 2026 programme joins men's, women's and wheelchair tournaments rather than treating them as detached events. Australia v New Zealand opens a 31-day path through pool qualification to finals in Wollongong and Brisbane, with current champions supplying the first persistent thread.",
         "threadIds": [
           "thread:rlwc:2026:three-tournaments-one-world-cup",
           "thread:rlwc:2026:kangaroos-kiwis-opener"
@@ -16168,6 +16173,7 @@
         "projectionId": "projection:major:nations-championship-finals-2026",
         "researchTier": "marquee",
         "hook": "The first title is a first-versus-first final, but every Twickenham match also counts toward the Hemisphere Crown.",
+        "synopsis": "Separate North and South tables converge across six placement matches from 27–29 November. First against first decides the inaugural Nations Championship, while every pairing contributes to the Hemisphere Crown and the current July tables remain provisional until November resumes.",
         "threadIds": [
           "thread:rugby:nations-championship-2026:twickenham-finals"
         ],
@@ -16381,6 +16387,7 @@
         "projectionId": "projection:major:ucl-qualification-2026-27",
         "researchTier": "marquee",
         "hook": "LASK's five-goal comeback from a 3–0 first-leg deficit supplied the defining route into a seven-club qualifying class.",
+        "synopsis": "Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
         "threadIds": [
           "thread:football:ucl-2026-27:qualification-road"
         ],
@@ -16483,6 +16490,7 @@
         "projectionId": "projection:major:ucl-league-phase-2026-27",
         "researchTier": "marquee",
         "hook": "AEK and LASK carry qualification straight into opening night, as Paris begins a rare chase for a third consecutive title.",
+        "synopsis": "The league phase asks each of 36 clubs to face eight different opponents across 144 matches. AEK Athens v LASK opens a direct line from qualification, while first-time Champions League entrant LASK and first-time European participant Como enter the same table as back-to-back champion Paris Saint-Germain. The opening story is continuity, not a blank group-stage reset.",
         "threadIds": [
           "thread:football:ucl-2026-27:qualification-road",
           "thread:football:ucl-2026-27:league-phase"
@@ -16613,6 +16621,7 @@
         "projectionId": "projection:major:ucl-knockout-2027",
         "researchTier": "marquee",
         "hook": "Eight clubs skip February; sixteen must survive it; twelve leave Europe before the road to Madrid narrows.",
+        "synopsis": "The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
         "threadIds": [
           "thread:football:ucl-2026-27:league-phase",
           "thread:football:ucl-2026-27:league-to-knockout"
@@ -16714,6 +16723,7 @@
         "projectionId": "projection:major:australian-open-2027",
         "researchTier": "marquee",
         "hook": "Melbourne's three-week tournament returns with two first-time 2026 champions carrying very different title defences into an unknown draw.",
+        "synopsis": "Opening Week and the 17–31 January main draw create a three-week arc before the singles finals. Alcaraz and Rybakina return as first-time Australian Open champions, while capped early Ground Passes and the record 2026 audience add a real scale consequence without inventing entrants or seeds.",
         "threadIds": [
           "thread:tennis:ao-2027:defenders-and-challengers"
         ],
@@ -16810,6 +16820,7 @@
         "projectionId": "projection:major:australian-gp-2027",
         "researchTier": "marquee",
         "hook": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.",
+        "synopsis": "Formula 1 is contracted to return to Melbourne through 2035, but the 2027 date and ticket packages remain unconfirmed. Albert Park's fast temporary-road character supplies durable context while the card remains explicitly TBC instead of turning a planning date into a fixture.",
         "threadIds": [
           "thread:f1:australian-gp-2027:date-watch"
         ],

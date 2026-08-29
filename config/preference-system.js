@@ -482,6 +482,19 @@
     return touch(next);
   }
 
+  function removeLearningSignal(graph, signal){
+    const next = cloneGraph(graph);
+    const learning = normalizeLearning(next.learning);
+    const targetType = LEARNING_TARGET_TYPES.includes(signal?.targetType) ? signal.targetType : null;
+    const targetId = typeof signal?.targetId === "string" ? signal.targetId.trim() : "";
+    if (targetType && targetId){
+      const key = `${targetType}:${targetId}`;
+      learning.signals = learning.signals.filter(item => `${item.targetType}:${item.targetId}` !== key);
+    }
+    next.learning = learning;
+    return touch(next);
+  }
+
   function isMeaningfullyTuned(input){
     const learning = normalizeLearning(input?.learning || input);
     return (
@@ -671,6 +684,7 @@
     setEntityFollow,
     updateViewingPreference,
     applyLearningSignal,
+    removeLearningSignal,
     applyTuningSignal,
     completeTuningSession,
     isMeaningfullyTuned,

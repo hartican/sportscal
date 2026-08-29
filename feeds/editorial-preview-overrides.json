@@ -656,6 +656,34 @@
         "needsPreviewRefresh": false
       }
     },
+    "rugby-argentina-australia-jujuy-2026-08-30": {
+      "status": "completed",
+      "score": "Argentina 21-27 Australia",
+      "homeScore": 21,
+      "awayScore": 27,
+      "outcomeText": "Australia defeated Argentina 27-21.",
+      "recapText": "Australia held out Argentina 27-21 in Jujuy, extending the Wallabies' winning start under Les Kiss before the second Test in Mendoza.",
+      "resultLabels": [
+        "Australia 27-21 Argentina"
+      ],
+      "sourceName": "Rugby Australia — Wallabies win in Jujuy",
+      "sourceUrl": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
+      "sourceCheckedAt": "2026-08-30T08:45:00.000Z",
+      "sourceType": "official",
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "The first result in a two-Test Argentina chapter",
+        "contextSignals": [
+          "fixture-specific",
+          "result-aware",
+          "two-test-series"
+        ],
+        "sourceName": "Rugby Australia — Wallabies win in Jujuy",
+        "sourceUrl": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
+        "sourceCheckedAt": "2026-08-30T08:45:00.000Z",
+        "needsPreviewRefresh": false
+      }
+    },
     "evt_33": {
       "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
       "fullSpiel": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
