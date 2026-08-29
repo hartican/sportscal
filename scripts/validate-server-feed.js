@@ -58,7 +58,7 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
-  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "editorial-alias-dedupe.v1");
+  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "editorial-alias-dedupe.v2");
   assert.match(
     fs.readFileSync("api/feed.js", "utf8"),
     /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,
@@ -244,6 +244,18 @@ async function run(){
       },
     },
     event_user_state: {
+      "major-match:rlwc-2026:australia-new-zealand": {
+        eventId:"major-match:rlwc-2026:australia-new-zealand",
+        addedToFixtures:true,
+        addedFixture:{
+          id:"major-match:rlwc-2026:australia-new-zealand",
+          eventId:"major-match:rlwc-2026:australia-new-zealand",
+          date:"2026-10-15",
+          time:"20:05",
+          startTimeUtc:"2026-10-15T09:05:00.000Z",
+          participantIds:["team:nrl:kangaroos", "team:nrl:kiwis"],
+        },
+      },
       [feedPipeline.eventActionKey(savedEvent)]: {
         eventId: savedEvent.eventId,
         watchLater: true,
@@ -362,6 +374,10 @@ async function run(){
     assert.equal(response.body.schemaVersion, "server-feed.v3");
     assert.equal(response.body.sourcePublishedAt, require("../data/events.json").publishedAt, "authenticated feeds must expose the canonical publication time");
     assert.equal(response.body.derivedCardCache.buildOrigin, "server");
+    const rlwcOpener = response.body.events.find(item => item.id === "rlwc-australia-new-zealand-2026");
+    assert(rlwcOpener, "a selected Major Events child must resolve to the curated event in the authenticated Feed");
+    assert.equal(rlwcOpener.editorialNarrative?.projectionId, "projection:feed:rlwc-australia-new-zealand-2026", "the resolved World Cup opener must carry its validated L0 projection before pagination");
+    assert(!response.body.events.some(item => item.id === "major-match:rlwc-2026:australia-new-zealand"), "the selected alias must not compete with its curated event in the authenticated Feed");
     assert(zlib.gzipSync(JSON.stringify(response.body)).length <= 250 * 1024, "the first authenticated feed page must remain below 250 KiB compressed");
     assert.equal(response.headers["Cache-Control"], "private, max-age=0, must-revalidate");
     assert(response.headers.ETag, "personalised feed pages must expose a validator");

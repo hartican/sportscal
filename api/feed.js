@@ -27,6 +27,13 @@ const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
 const contextualEvents = sportContext.applyContextToEvents(eventFeed.events, canonicalSportContext);
 
+function selectedFixtureEvents(userState){
+  const actions = userState?.event_user_state || userState?.eventUserState || {};
+  return Object.values(actions)
+    .filter(action => action?.addedToFixtures && action?.addedFixture?.eventId)
+    .map(action => action.addedFixture);
+}
+
 function setPrivateResponseHeaders(response){
   response.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
   response.setHeader("Pragma", "no-cache");
@@ -55,7 +62,7 @@ module.exports = async function feedHandler(request, response){
       ? Math.min(50, Math.max(1, Number(requestUrl.searchParams.get("limit") || 20)))
       : eventFeed.events.length;
     const resolved = resolveUserFollowFixtures({
-      events:contextualEvents,
+      events:[...contextualEvents, ...selectedFixtureEvents(userState)],
       userState,
     });
     const feedParticipants = new Map(canonicalSportContext.participants.map(participant => [participant.id, participant]));
