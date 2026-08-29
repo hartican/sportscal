@@ -8,6 +8,7 @@ const os = require("node:os");
 const path = require("node:path");
 const { decryptSnapshot, encryptSnapshot } = require("../lib/follow-snapshot");
 const {
+  eventParticipantIds,
   expandedFollowEntityIds,
   resolveUserFollowFixtures,
 } = require("../lib/follow-fixture-resolver");
@@ -104,6 +105,12 @@ const publishedLiverpool = require("../data/events.json").events.find(event => e
 const semanticLiverpool = resolveUserFollowFixtures({ events:[publishedLiverpool], userState:state(follow("team:football:epl:10")) });
 assert.equal(semanticLiverpool.events.filter(event => event.name === "Liverpool v Nottingham Forest").length, 1, "the curated and source-bundle versions of a fixture must deduplicate even when provider ids differ");
 assert.equal(semanticLiverpool.events.find(event => event.name === "Liverpool v Nottingham Forest").canonicalEventId, publishedLiverpool.canonicalEventId, "semantic deduplication must preserve the curated canonical identity");
+const publishedWorldCupOpener = require("../data/events.json").events.find(event => event.id === "rlwc-australia-new-zealand-2026");
+const semanticWorldCupOpener = resolveUserFollowFixtures({ events:[publishedWorldCupOpener], userState:state(follow("team:nrl:kangaroos")) });
+const worldCupOpeners = semanticWorldCupOpener.events.filter(event => event.startTimeUtc && Date.parse(event.startTimeUtc) === Date.parse(publishedWorldCupOpener.startTimeUtc) && eventParticipantIds(event).includes("team:nrl:kangaroos") && eventParticipantIds(event).includes("team:nrl:kiwis"));
+assert.equal(worldCupOpeners.length, 1, "Major Events and Feed aliases of the World Cup opener must collapse to one fixture across competition ids and equivalent ISO timestamps");
+assert.equal(worldCupOpeners[0].id, publishedWorldCupOpener.id, "semantic deduplication must retain the curated World Cup identity");
+assert.equal(worldCupOpeners[0].editorialNarrative?.projectionId, "projection:feed:rlwc-australia-new-zealand-2026", "the central World Cup card must retain its researched L0 editorial projection");
 
 const nbaGame = {
   gameId:"0022600088",
