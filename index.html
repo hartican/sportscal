@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="173">
+<meta name="app-shell-version" content="174">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7888,7 +7888,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js",
+  moduleScriptUrl: "config/major-events.js?v=174",
   url: "data/major-events.v1.json",
 });
 
@@ -11655,11 +11655,21 @@ function mergeMainFeedSpecialEvents(events){
   const merged = new Map(events
     .filter(event => event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event")
     .map(event => [String(event.eventId || event.id), event]));
+  const semanticKey = event => MAJOR_EVENTS?.fixtureSemanticKey?.(event) || "";
+  const surfacedSemanticKeys = new Set([...merged.values()].map(semanticKey).filter(Boolean));
+  const canonicalEditorialBySemanticKey = new Map([...EVENTS, ...activeEvents].map(event => [semanticKey(event), event])
+    .filter(([key, event]) => key && event?.editorialNarrative));
   const specialEvents = selectedMajorEventFixtures()
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event));
   specialEvents.forEach(event => {
     const id = String(event.eventId || event.id);
-    if (!merged.has(id)) merged.set(id, event);
+    const key = semanticKey(event);
+    if (merged.has(id) || (key && surfacedSemanticKeys.has(key))) return;
+    const editorialMatch = key ? canonicalEditorialBySemanticKey.get(key) : null;
+    merged.set(id, !event.editorialNarrative && editorialMatch?.editorialNarrative
+      ? { ...event, editorialNarrative:editorialMatch.editorialNarrative }
+      : event);
+    if (key) surfacedSemanticKeys.add(key);
   });
   return [...merged.values()];
 }

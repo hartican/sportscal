@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v173";
+const CACHE_NAME = "nothingsport-shell-v174";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -33,7 +33,7 @@ const APP_SHELL = [
   "/config/follow-first.js",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js",
+  "/config/major-events.js?v=174",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",

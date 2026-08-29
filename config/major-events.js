@@ -248,6 +248,19 @@
     return [];
   }
 
+  function fixtureSemanticKey(event){
+    const participantIds = Array.from(new Set([
+      ...(Array.isArray(event?.participantIds) ? event.participantIds : []),
+      ...(Array.isArray(event?.participantSlots) ? event.participantSlots.map(slot => slot?.participantId) : []),
+      event?.homeParticipantId,
+      event?.awayParticipantId,
+    ].map(value => String(value || "").trim()).filter(Boolean))).sort();
+    const rawStart = String(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
+    const parsedStart = Date.parse(rawStart);
+    if (participantIds.length < 2 || !Number.isFinite(parsedStart)) return "";
+    return `${new Date(parsedStart).toISOString()}|${participantIds.join("|")}`;
+  }
+
   function fixtureAliasIds(subEvent){
     return Array.from(new Set([
       subEvent?.id,
@@ -449,5 +462,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureAliasIds, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });
