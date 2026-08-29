@@ -5081,14 +5081,14 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "recap",
-        "expectedSpectacle": 7,
-        "hookSpoilerOff": "R10 Belgian GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "R10 Belgian GP Race is complete; the key moments are protected until you choose to reveal them.",
         "hookSpoilerOn": "Kimi Antonelli won the Belgian Grand Prix after retaking the lead from Charles Leclerc late on.",
-        "synopsisSpoilerOff": "R10 Belgian GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOff": "R10 Belgian GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
         "synopsisSpoilerOn": "The FIA reports that Antonelli passed Leclerc with 10 laps left and won by 1.952 seconds after 44 laps, with Verstappen completing the podium and Russell retiring.",
         "intensitySource": "computed"
       },
-      "lastReviewedAt": "2026-08-29T13:40:21.012Z",
+      "lastReviewedAt": "2026-08-14T02:56:19.695Z",
       "startTimeUtc": "2026-07-19T13:00:00Z",
       "endTimeUtc": "2026-07-19T16:00:00Z",
       "sourceType": "reputable",
@@ -21536,11 +21536,11 @@
       "id": "evt_83",
       "eventId": "evt_83",
       "displayTitleCompact": "NRL Preliminary Finals",
-      "selectedSentence": "A finals appointment with the season narrowing and elimination pressure rising.",
-      "fullSpiel": "Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-      "sourceName": "Bundled nothingsport seed data",
-      "sourceUrl": "https://github.com/hartican/sportscal",
-      "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+      "selectedSentence": "A locked final eight containing first-time Dolphins must survive two rounds before the preliminary finals decide who reaches Accor Stadium.",
+      "fullSpiel": "The NRL field is known before its full route is. Penrith has secured a top-two finish, South Sydney is back after missing September since 2022, and the Dolphins have qualified for the first time. The preliminary-final pairings remain deliberately unresolved until official seeding and earlier finals results determine them.",
+      "sourceName": "NRL — 2026 top eight locked after Round 26",
+      "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+      "sourceCheckedAt": "2026-08-29T19:30:00.000Z",
       "broadcastOptions": [
         "Nine / Kayo Sports"
       ],
@@ -21557,20 +21557,64 @@
         "arcStage": "preview",
         "expectedSpectacle": 9,
         "archetype": "elimination",
-        "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
-        "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
-        "synopsisSpoilerOff": "Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-        "synopsisSpoilerOn": "Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-        "intensitySource": "computed"
+        "hookSpoilerOff": "A locked final eight containing first-time Dolphins must survive two rounds before the preliminary finals decide who reaches Accor Stadium.",
+        "hookSpoilerOn": "A locked final eight containing first-time Dolphins must survive two rounds before the preliminary finals decide who reaches Accor Stadium.",
+        "synopsisSpoilerOff": "The NRL field is known before its full route is. Penrith has secured a top-two finish, South Sydney is back after missing September since 2022, and the Dolphins have qualified for the first time. The preliminary-final pairings remain deliberately unresolved until official seeding and earlier finals results determine them.",
+        "synopsisSpoilerOn": "The NRL field is known before its full route is. Penrith has secured a top-two finish, South Sydney is back after missing September since 2022, and the Dolphins have qualified for the first time. The preliminary-final pairings remain deliberately unresolved until official seeding and earlier finals results determine them.",
+        "intensitySource": "computed",
+        "lastReviewedAt": "2026-08-29T19:30:00.000Z"
       },
-      "lastReviewedAt": "2026-08-25T05:05:01.295Z",
+      "lastReviewedAt": "2026-08-29T19:30:00.000Z",
       "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+        "status": "journalistic",
+        "angle": "Eight finalists locked, but their routes remain open",
+        "contextSignals": [
+          "narrative:matchup",
+          "narrative:path",
+          "narrative:form",
+          "narrative:history",
+          "narrative:schedule"
+        ],
+        "sourceName": "NRL — 2026 top eight locked after Round 26",
+        "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+        "sourceCheckedAt": "2026-08-29T19:30:00.000Z",
+        "needsPreviewRefresh": false
       },
-      "sourceTrust": "unverified"
+      "sourceTrust": "unverified",
+      "sourceType": "official",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:feed:nrl-preliminary-finals-2026",
+        "researchTier": "marquee",
+        "hook": "A locked final eight containing first-time Dolphins must survive two rounds before the preliminary finals decide who reaches Accor Stadium.",
+        "threadIds": [
+          "thread:nrl:finals-2026:locked-eight-open-order"
+        ],
+        "factIds": [
+          "fact:nrl-finals-2026:locked-eight",
+          "fact:nrl-finals-2026:top-four-race",
+          "fact:nrl-finals-2026:rabbitohs-return",
+          "fact:nrl-finals-2026:newcomer-new-champion",
+          "fact:nrl-finals-2026:warriors-chase",
+          "fact:nrl-finals-2026:destination"
+        ],
+        "sourceIds": [
+          "source:nrl:2026-locked-eight",
+          "source:nrl:2026-warriors",
+          "source:nrl:2026-grand-final",
+          "source:nrl:2026-season"
+        ],
+        "dimensions": [
+          "matchup",
+          "path",
+          "form",
+          "history",
+          "schedule"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-09-01T12:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "sport": "F1",
@@ -21786,11 +21830,11 @@
       "id": "evt_84",
       "eventId": "evt_84",
       "displayTitleCompact": "NRL Grand Final",
-      "selectedSentence": "A finals appointment with the season narrowing and elimination pressure rising.",
-      "fullSpiel": "Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-      "sourceName": "Bundled nothingsport seed data",
-      "sourceUrl": "https://github.com/hartican/sportscal",
-      "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+      "selectedSentence": "Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight.",
+      "fullSpiel": "The 4 October decider will crown a different champion after reigning premier Brisbane missed the finals. The Dolphins have made the eight for the first time, South Sydney is back for the first time since 2022, and the Warriors are still chasing the club's first premiership after Grand Final defeats in 2002 and 2011.",
+      "sourceName": "NRL — 2026 top eight locked after Round 26",
+      "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+      "sourceCheckedAt": "2026-08-29T19:30:00.000Z",
       "broadcastOptions": [
         "Nine / Kayo Sports"
       ],
@@ -21807,21 +21851,64 @@
         "arcStage": "preview",
         "expectedSpectacle": 10,
         "archetype": "title_decider",
-        "hookSpoilerOff": "A finals appointment with the season narrowing and elimination pressure rising.",
-        "hookSpoilerOn": "A finals appointment with the season narrowing and elimination pressure rising.",
-        "synopsisSpoilerOff": "Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
-        "synopsisSpoilerOn": "Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed. Watch via Nine / Kayo Sports.",
+        "hookSpoilerOff": "Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight.",
+        "hookSpoilerOn": "Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight.",
+        "synopsisSpoilerOff": "The 4 October decider will crown a different champion after reigning premier Brisbane missed the finals. The Dolphins have made the eight for the first time, South Sydney is back for the first time since 2022, and the Warriors are still chasing the club's first premiership after Grand Final defeats in 2002 and 2011.",
+        "synopsisSpoilerOn": "The 4 October decider will crown a different champion after reigning premier Brisbane missed the finals. The Dolphins have made the eight for the first time, South Sydney is back for the first time since 2022, and the Warriors are still chasing the club's first premiership after Grand Final defeats in 2002 and 2011.",
         "intensitySource": "manual",
-        "lastReviewedAt": "2026-08-13T00:00:00.000Z"
+        "lastReviewedAt": "2026-08-29T19:30:00.000Z"
       },
-      "lastReviewedAt": "2026-08-25T05:05:01.295Z",
+      "lastReviewedAt": "2026-08-29T19:30:00.000Z",
       "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+        "status": "journalistic",
+        "angle": "Eight finalists locked, but their routes remain open",
+        "contextSignals": [
+          "narrative:matchup",
+          "narrative:path",
+          "narrative:form",
+          "narrative:history",
+          "narrative:schedule"
+        ],
+        "sourceName": "NRL — 2026 top eight locked after Round 26",
+        "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+        "sourceCheckedAt": "2026-08-29T19:30:00.000Z",
+        "needsPreviewRefresh": false
       },
-      "sourceTrust": "unverified"
+      "sourceTrust": "unverified",
+      "sourceType": "official",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:feed:nrl-grand-final-2026",
+        "researchTier": "marquee",
+        "hook": "Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight.",
+        "threadIds": [
+          "thread:nrl:finals-2026:locked-eight-open-order"
+        ],
+        "factIds": [
+          "fact:nrl-finals-2026:locked-eight",
+          "fact:nrl-finals-2026:top-four-race",
+          "fact:nrl-finals-2026:rabbitohs-return",
+          "fact:nrl-finals-2026:newcomer-new-champion",
+          "fact:nrl-finals-2026:warriors-chase",
+          "fact:nrl-finals-2026:destination"
+        ],
+        "sourceIds": [
+          "source:nrl:2026-locked-eight",
+          "source:nrl:2026-warriors",
+          "source:nrl:2026-grand-final",
+          "source:nrl:2026-season"
+        ],
+        "dimensions": [
+          "matchup",
+          "path",
+          "form",
+          "history",
+          "schedule"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-09-01T12:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "sport": "Cricket",
