@@ -185,6 +185,6 @@ assert(html.includes("requestFeedRebuildAfterFollowChange"), "follow changes mus
 assert.match(html, /await syncCurrentServerState\(\);[^]*await clearCachedPersonalisedFeed[^]*await refreshRemoteFeed/, "the follow rebuild must complete server sync before fetching the new page");
 assert.match(html, /followFeedRefreshPending = true[^]*navigator\?\.onLine === false/, "offline follow changes must stay pending locally");
 assert.match(html, /window\.addEventListener\("online"[^]*followFeedRefreshPending[^]*requestFeedRebuildAfterFollowChange/, "pending follow refreshes must retry on reconnection");
-assert(html.includes('b.textContent = "Live Now"'), "live cards must display explicit Live Now signage");
+assert.match(html, /function buildEventTimingStateChip[^]*chip\.textContent = timing\.label[^]*event-date-line[^]*appendChild\(timingChip\)/, "live cards must display the shared explicit timing signage beside their start time");
 
 console.log("Follow fixture resolver valid: source adapters, player expansion, mutes, deduplication, private snapshots, cache invalidation and offline retry passed.");

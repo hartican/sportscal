@@ -1,285 +1,24 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-29T13:40:14.488Z",
+  "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-29T21:22:12.838Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
-    "stakesFiveFuture": 6,
-    "eligible": 2,
+    "stakesFiveFuture": 5,
+    "eligible": 0,
     "actionable": 0,
     "late": 0
   },
-  "candidates": [
-    {
-      "campaignId": "marquee_cd90a197f744002d",
-      "campaignRevision": 1,
-      "contentHash": "194eb77b5567fbcf27e06b4682a3302471fc91f3ed192cc4a334ef60c7e0e077",
-      "state": "watching",
-      "actionable": false,
-      "late": false,
-      "eventId": "rlwc-australia-new-zealand-2026",
-      "proposedSendAt": "2026-10-13T09:05:00.000Z",
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "atomicType": "match",
-        "confirmedUtcStart": true,
-        "finish": "derived_from_live_window",
-        "status": "upcoming",
-        "sourceCheckedAt": "2026-07-15T03:30:00.000Z"
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-15T09:05:00.000Z",
-        "endTimeUtc": "2026-10-15T12:05:00.000Z",
-        "liveWindowHours": 3,
-        "endDerived": true,
-        "sydneyStart": {
-          "day": "Thu",
-          "date": "Thu 15 Oct 2026",
-          "time": "8:05 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Thu",
-          "date": "Thu 15 Oct 2026",
-          "time": "11:05 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "Official NRL Rugby League World Cup match centre",
-        "url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
-        "checkedAt": "2026-07-15T03:30:00.000Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-29T13:40:14.488Z"
-      },
-      "material": {
-        "title": "Australia v New Zealand",
-        "participants": [
-          "Australia",
-          "New Zealand"
-        ],
-        "sport": "Rugby League",
-        "competition": "all",
-        "startTimeUtc": "2026-10-15T09:05:00.000Z",
-        "endTimeUtc": "2026-10-15T12:05:00.000Z",
-        "venue": "Allianz Stadium, Sydney",
-        "broadcaster": "Seven / 7plus Sport",
-        "stakes": 5,
-        "source": {
-          "name": "Official NRL Rugby League World Cup match centre",
-          "url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-1/australia-v-new-zealand/",
-          "checkedAt": "2026-07-15T03:30:00.000Z"
-        }
-      },
-      "drafts": {
-        "hook": "Australia and New Zealand open their Rugby League World Cup campaigns in Sydney.",
-        "instagram": {
-          "account": "@_nothingsports",
-          "caption": "UNMISSABLE: Australia v New Zealand. Thu 15 Oct 2026 at 8:05 pm AEDT. 5/5 stakes. Australia and New Zealand open their Rugby League World Cup campaigns in Sydney. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Thu 15 Oct 2026 at 8:05 pm AEDT.",
-          "image": {
-            "path": "/assets/marquee/marquee_cd90a197f744002d-194eb77b5567.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-194eb77b5567.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true
-          }
-        },
-        "email": {
-          "subject": "5/5 stakes: Australia v New Zealand — Thu 8:05 pm",
-          "preheader": "Join the watch party, then rate the fixture after it finishes.",
-          "topic": "Marquee fixture alerts",
-          "joinUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d",
-          "ratingUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d&intent=rate"
-        },
-        "when": {
-          "day": "Thu",
-          "date": "Thu 15 Oct 2026",
-          "time": "8:05 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Thu",
-          "date": "Thu 15 Oct 2026",
-          "time": "11:05 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "channels": {
-        "instagram": {
-          "status": "connector_blocked",
-          "adapter": "instagram-mcp",
-          "reason": "requested_connector_not_installed",
-          "enabled": false
-        },
-        "email": {
-          "status": "connector_blocked",
-          "adapter": "resend-broadcasts",
-          "reason": "operator_sender_configuration_required",
-          "enabled": false
-        },
-        "x": {
-          "enabled": false
-        },
-        "linkedin": {
-          "enabled": false
-        },
-        "facebook": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_cd90a197f744002d",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d",
-        "ratingWindow": {
-          "opensAt": "2026-10-15T12:05:00.000Z",
-          "closesAt": "2026-10-22T12:05:00.000Z"
-        }
-      }
-    },
-    {
-      "campaignId": "marquee_4b6a6fbfdd6ce674",
-      "campaignRevision": 1,
-      "contentHash": "7115eb936cad436c1751d3847ab7796a54b30a21209ce114a67c901d7aee5bc9",
-      "state": "watching",
-      "actionable": false,
-      "late": false,
-      "eventId": "rugby-australia-new-zealand-2026-10-17",
-      "proposedSendAt": "2026-10-15T04:45:00.000Z",
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "atomicType": "test",
-        "confirmedUtcStart": true,
-        "finish": "derived_from_live_window",
-        "status": "upcoming",
-        "sourceCheckedAt": "2026-07-15T03:30:00.000Z"
-      },
-      "timing": {
-        "startTimeUtc": "2026-10-17T04:45:00.000Z",
-        "endTimeUtc": "2026-10-17T07:45:00.000Z",
-        "liveWindowHours": 3,
-        "endDerived": true,
-        "sydneyStart": {
-          "day": "Sat",
-          "date": "Sat 17 Oct 2026",
-          "time": "3:45 pm",
-          "timezone": "AEDT"
-        },
-        "sydneyFinish": {
-          "day": "Sat",
-          "date": "Sat 17 Oct 2026",
-          "time": "6:45 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "source": {
-        "name": "Rugby Australia 2026 Wallabies fixture",
-        "url": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-        "checkedAt": "2026-07-15T03:30:00.000Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-29T13:40:14.488Z"
-      },
-      "material": {
-        "title": "Australia v New Zealand",
-        "participants": [
-          "Wallabies",
-          "New Zealand"
-        ],
-        "sport": "Rugby Union",
-        "competition": "all",
-        "startTimeUtc": "2026-10-17T04:45:00.000Z",
-        "endTimeUtc": "2026-10-17T07:45:00.000Z",
-        "venue": "Accor Stadium, Sydney",
-        "broadcaster": "Stan Sport",
-        "stakes": 5,
-        "source": {
-          "name": "Rugby Australia 2026 Wallabies fixture",
-          "url": "https://www.rugby.com.au/news/golden-hour-family-friendly-kick-off-times-confirmed-for-wallabies-tests-2026419",
-          "checkedAt": "2026-07-15T03:30:00.000Z"
-        }
-      },
-      "drafts": {
-        "hook": "The home Bledisloe Test gives Sydney a major Saturday afternoon Wallabies window.",
-        "instagram": {
-          "account": "@_nothingsports",
-          "caption": "UNMISSABLE: Australia v New Zealand. Sat 17 Oct 2026 at 3:45 pm AEDT. 5/5 stakes. The home Bledisloe Test gives Sydney a major Saturday afternoon Wallabies window. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Sat 17 Oct 2026 at 3:45 pm AEDT.",
-          "image": {
-            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-7115eb936cad.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-7115eb936cad.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true
-          }
-        },
-        "email": {
-          "subject": "5/5 stakes: Australia v New Zealand — Sat 3:45 pm",
-          "preheader": "Join the watch party, then rate the fixture after it finishes.",
-          "topic": "Marquee fixture alerts",
-          "joinUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674",
-          "ratingUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674&intent=rate"
-        },
-        "when": {
-          "day": "Sat",
-          "date": "Sat 17 Oct 2026",
-          "time": "3:45 pm",
-          "timezone": "AEDT"
-        },
-        "finish": {
-          "day": "Sat",
-          "date": "Sat 17 Oct 2026",
-          "time": "6:45 pm",
-          "timezone": "AEDT"
-        }
-      },
-      "channels": {
-        "instagram": {
-          "status": "connector_blocked",
-          "adapter": "instagram-mcp",
-          "reason": "requested_connector_not_installed",
-          "enabled": false
-        },
-        "email": {
-          "status": "connector_blocked",
-          "adapter": "resend-broadcasts",
-          "reason": "operator_sender_configuration_required",
-          "enabled": false
-        },
-        "x": {
-          "enabled": false
-        },
-        "linkedin": {
-          "enabled": false
-        },
-        "facebook": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_4b6a6fbfdd6ce674",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674",
-        "ratingWindow": {
-          "opensAt": "2026-10-17T07:45:00.000Z",
-          "closesAt": "2026-10-24T07:45:00.000Z"
-        }
-      }
-    }
-  ],
+  "candidates": [],
   "excluded": [
-    {
-      "eventId": "calendar-nothingsport-manual-seed-telemark-world-cup-finals-2026",
-      "title": "Telemark World Cup Finals",
-      "reasons": [
-        "missing_source_provenance"
-      ]
-    },
     {
       "eventId": "evt_104",
       "title": "Shahdag — Moguls World Cup Finals",
       "reasons": [
         "not_explicitly_atomic",
         "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
       ]
     },
     {
@@ -288,7 +27,8 @@
       "reasons": [
         "not_explicitly_atomic",
         "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
       ]
     },
     {
@@ -298,6 +38,20 @@
         "not_explicitly_atomic",
         "unconfirmed_utc_start",
         "missing_finish_or_live_window"
+      ]
+    },
+    {
+      "eventId": "rlwc-australia-new-zealand-2026",
+      "title": "Australia v New Zealand — Rugby League World Cup",
+      "reasons": [
+        "stale_source_provenance"
+      ]
+    },
+    {
+      "eventId": "rugby-australia-new-zealand-2026-10-17",
+      "title": "Australia v New Zealand",
+      "reasons": [
+        "stale_source_provenance"
       ]
     }
   ]

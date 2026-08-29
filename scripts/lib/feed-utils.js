@@ -191,7 +191,7 @@ function validateFeed(feed) {
       if (!narrative || typeof narrative !== "object" || Array.isArray(narrative)) {
         errors.push(`${prefix}.editorialNarrative must be an object if present.`);
       } else {
-        if (narrative.schemaVersion !== "editorial-narrative.v1") errors.push(`${prefix}.editorialNarrative.schemaVersion must be editorial-narrative.v1.`);
+        if (!["editorial-narrative.v1", "editorial-narrative.v2"].includes(narrative.schemaVersion)) errors.push(`${prefix}.editorialNarrative.schemaVersion must be editorial-narrative.v1 or editorial-narrative.v2.`);
         if (!String(narrative.projectionId || "").trim()) errors.push(`${prefix}.editorialNarrative.projectionId is required.`);
         if (!["standard", "featured", "marquee"].includes(narrative.researchTier)) errors.push(`${prefix}.editorialNarrative.researchTier is unsupported.`);
         if (!String(narrative.hook || "").trim() || String(narrative.hook || "").length > 180) errors.push(`${prefix}.editorialNarrative.hook must be a non-empty string of 180 characters or fewer.`);
@@ -201,6 +201,19 @@ function validateFeed(feed) {
         if (!isDateTime(narrative.researchedAt)) errors.push(`${prefix}.editorialNarrative.researchedAt must be an ISO date-time.`);
         if (narrative.refreshAfter !== undefined && narrative.refreshAfter !== null && !isDateTime(narrative.refreshAfter)) errors.push(`${prefix}.editorialNarrative.refreshAfter must be null or an ISO date-time.`);
         if (!["researched", "source-derived-fallback"].includes(narrative.generationMode)) errors.push(`${prefix}.editorialNarrative.generationMode is unsupported.`);
+        if (narrative.sentiment !== undefined) {
+          const sentiment = narrative.sentiment;
+          if (!sentiment || typeof sentiment !== "object" || Array.isArray(sentiment)) errors.push(`${prefix}.editorialNarrative.sentiment must be an object if present.`);
+          else {
+            if (!String(sentiment.sourceEventId || "").trim()) errors.push(`${prefix}.editorialNarrative.sentiment.sourceEventId is required.`);
+            if (!Number.isFinite(Number(sentiment.impactScore)) || sentiment.impactScore < 1 || sentiment.impactScore > 5) errors.push(`${prefix}.editorialNarrative.sentiment.impactScore must be 1-5.`);
+            if (!Number.isInteger(sentiment.uniqueContributorCount) || sentiment.uniqueContributorCount < 3) errors.push(`${prefix}.editorialNarrative.sentiment.uniqueContributorCount must be at least 3.`);
+            if (!Array.isArray(sentiment.leadingTags) || sentiment.leadingTags.length > 3) errors.push(`${prefix}.editorialNarrative.sentiment.leadingTags must contain up to three labels.`);
+            if (!isDateTime(sentiment.capturedAt) || !isDateTime(sentiment.expiresAt)) errors.push(`${prefix}.editorialNarrative.sentiment timestamps must be ISO date-times.`);
+            if (!["source", "carried"].includes(sentiment.relationship)) errors.push(`${prefix}.editorialNarrative.sentiment.relationship is unsupported.`);
+            if (/\b(?:userId|user_id|profileId|profile_id|persona|rawRatings|ratings|contributors)\b/.test(JSON.stringify(sentiment))) errors.push(`${prefix}.editorialNarrative.sentiment contains private or raw fields.`);
+          }
+        }
         if (narrative.researchTier === "marquee") {
           if ((narrative.factIds || []).length < 4) errors.push(`${prefix}.editorialNarrative.factIds needs four facts for marquee coverage.`);
           if ((narrative.sourceIds || []).length < 3) errors.push(`${prefix}.editorialNarrative.sourceIds needs three sources for marquee coverage.`);

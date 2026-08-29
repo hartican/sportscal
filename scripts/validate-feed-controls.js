@@ -18,6 +18,18 @@ assert.equal(feedControls.EXPERIMENT_FLAGS.balancedDiscovery, true);
 assert.equal(feedControls.EXPERIMENT_FLAGS.firstImpressionDiscoveryCap, 1);
 assert.deepEqual(feedControls.normalize({ froth: "invalid", scope: "invalid" }), feedControls.DEFAULT_CONTROLS);
 assert.equal(feedControls.eventStart({ date: "2026-08-13", time: "19:00" }).toISOString(), "2026-08-13T09:00:00.000Z", "legacy local times must be interpreted in Australia/Sydney");
+assert.equal(feedControls.eventStart({ date: "2026-08-13", timeTbc: true }), null, "time-TBC records must not receive a timing state");
+assert.equal(feedControls.eventStart({ date: "2026-08-13", dateOnly: true }), null, "date-only records must not receive a timing state");
+
+const timedEvent = { startTimeUtc:"2026-08-13T09:00:00.000Z", endTimeUtc:"2026-08-13T11:00:00.000Z", liveWindow:4 };
+assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T07:59:59.999Z")), null);
+assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T08:00:00.000Z")).key, "starts-soon", "Starts Soon begins exactly 60 minutes before start");
+assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T09:00:00.000Z")).key, "live-now", "Live Now begins at the exact start");
+assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T11:00:00.000Z")).key, "just-finished", "an explicit end immediately becomes Just Finished");
+assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T13:59:59.999Z")).key, "just-finished");
+assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T14:00:00.000Z")), null, "Just Finished expires exactly three hours after the end");
+assert.equal(feedControls.timingState({ startTimeUtc:timedEvent.startTimeUtc, liveWindow:2 }, new Date("2026-08-13T11:00:00.000Z")).key, "just-finished", "liveWindow supplies the derived end");
+["cancelled", "canceled", "postponed"].forEach(status => assert.equal(feedControls.timingState({ ...timedEvent, status }, new Date("2026-08-13T09:30:00.000Z")), null));
 
 const viewingEvent = {
   date: "2026-08-13",
@@ -101,6 +113,11 @@ assert(
   "Standings & Fixtures may pin a concrete one-off fixture while Follow remains the only automatic eligibility control"
 );
 assert(html.includes("function renderFeedControls()") && html.includes("function eventRecommendationProfile(ev)"));
+assert(!html.includes('b.textContent = "Coming Up"') && !html.includes('b.textContent = "PAST"'), "generic Coming Up and Past badges must stay removed");
+assert.match(html, /dateLine\.appendChild\(dateChip\);[\s\S]+buildEventTimingStateChip\(ev, timingState\)[\s\S]+dateLine\.appendChild\(timingChip\)/, "timing state must sit immediately beside the start-time rail, including matchup cards");
+assert.match(html, /\.event-timing-state\.starts-soon[\s\S]+\.event-timing-state\.live-now[\s\S]+\.event-timing-state\.just-finished/, "all three semantic timing states need distinct visible treatments");
+assert.match(html, /\.event-timing-state\.live-now::before[\s\S]+background:#ff3b4d/, "Live Now needs a restrained red dot");
+assert.match(html, /@media \(prefers-reduced-motion:reduce\)[\s\S]+\.event-timing-state\.live-now\{ animation:none/, "reduced-motion users must keep the static red state without pulse animation");
 assert(html.includes("FOLLOW_FIRST?.appendFeedback") && html.includes("targetType:target.targetType"), "curated swipes must retain weighted target metadata");
 assert(html.includes('className = "badge discovery"') && !html.includes('className = "badge availability"'), "discovery remains labelled while availability classifications stay behind the scenes");
 assert(html.includes('sessionOpenedEventIds.add(') && html.includes('label.className = "new-tag"'), "open signals must remain session-local while newly surfaced cards use the durable New lifecycle");

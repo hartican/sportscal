@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-29T13:40:14.488Z",
+  "publishedAt": "2026-08-29T21:22:12.838Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -18,10 +18,8 @@
     "cwg",
     "cricket",
     "premier-league",
-    "skateboard",
     "wsl",
     "downhill-mtb",
-    "telemark",
     "rally",
     "big-wave",
     "ski",
@@ -111,11 +109,6 @@
         "firstEventDate": "2026-08-22",
         "lastEventDate": "2027-05-31"
       },
-      "skateboard": {
-        "count": 1,
-        "firstEventDate": "2026-09-11",
-        "lastEventDate": "2026-09-11"
-      },
       "wsl": {
         "count": 1,
         "firstEventDate": "2026-10-02",
@@ -125,11 +118,6 @@
         "count": 1,
         "firstEventDate": "2026-11-05",
         "lastEventDate": "2026-11-05"
-      },
-      "telemark": {
-        "count": 1,
-        "firstEventDate": "2026-11-20",
-        "lastEventDate": "2026-11-20"
       },
       "rally": {
         "count": 2,
@@ -143,7 +131,7 @@
       },
       "ski": {
         "count": 4,
-        "firstEventDate": "2027-03-06",
+        "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
       },
       "goodwood": {

@@ -130,6 +130,10 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/refresh-f1-editorial.js", "feeds/incoming/events.json"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
+  ["scripts/snapshot-editorial-nothingscore.js", "--write"],
+  ["scripts/snapshot-editorial-nothingscore.js", "--check"],
+  ["scripts/build-editorial-research-queue.js", "--write"],
+  ["scripts/update-editorial-audience-memory.js", "--write"],
   ["scripts/apply-editorial-narratives.js", "--write"],
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
@@ -138,6 +142,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
   ["scripts/validate-editorial-narratives.js"],
+  ["scripts/validate-editorial-audience-memory.js"],
   ["scripts/build-follow-fixtures.js"],
   ["scripts/build-follow-fixtures.js", "--check"],
   ["scripts/build-paged-feed.js"],

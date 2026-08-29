@@ -155,12 +155,13 @@ function spoilerContractIssues(event, now = new Date()) {
   const status = lifecycleFor(event, now);
   const completed = status === "completed";
   const storyline = event.storyline || {};
+  const researchedPreview = event.editorialNarrative?.schemaVersion === "editorial-narrative.v2";
   const rootCopy = `${event.selectedSentence || ""}\n${event.fullSpiel || ""}`;
 
   if (completed && RESULT_LEAK.test(rootCopy)) {
     issues.push("default selectedSentence/fullSpiel leaks a completed result");
   }
-  if (!completed && PREVIEW_LEAK.test(rootCopy)) {
+  if (!completed && !researchedPreview && PREVIEW_LEAK.test(rootCopy)) {
     issues.push("upcoming selectedSentence/fullSpiel contains completed-result language");
   }
 
@@ -175,7 +176,7 @@ function spoilerContractIssues(event, now = new Date()) {
       if (RESULT_LEAK.test(off)) issues.push("storyline spoiler-OFF copy leaks a result");
       if (off.trim() && off === on) issues.push("completed storyline spoiler ON/OFF copy is identical");
       if (PREVIEW_TENSE.test(on)) issues.push("completed storyline spoiler-ON copy still reads as a preview");
-    } else if (PREVIEW_LEAK.test(`${off}\n${on}`)) {
+    } else if (!researchedPreview && PREVIEW_LEAK.test(`${off}\n${on}`)) {
       issues.push("upcoming storyline copy contains completed-result language");
     }
   }

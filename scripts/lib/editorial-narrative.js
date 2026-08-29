@@ -6,13 +6,16 @@ const ISO_DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 const SOURCE_TYPES = new Set(["official", "broadcaster", "reputable"]);
 const SUBJECT_KINDS = new Set(["athlete", "team", "competition", "series", "event"]);
 const DIMENSIONS = new Set(["format", "path", "form", "matchup", "history", "consequence", "venue", "schedule"]);
+const SUBSTANTIVE_DIMENSIONS = new Set(["path", "form", "matchup", "history", "consequence"]);
 const TARGET_TYPES = new Set(["feed-event", "major-event"]);
 const GENERATION_MODES = new Set(["researched", "source-derived-fallback"]);
 const TIER_REQUIREMENTS = Object.freeze({
-  3: Object.freeze({ facts:1, sources:1, dimensions:1 }),
-  4: Object.freeze({ facts:2, sources:2, dimensions:2 }),
+  2: Object.freeze({ facts:1, sources:1, dimensions:1 }),
+  3: Object.freeze({ facts:2, sources:1, dimensions:1 }),
+  4: Object.freeze({ facts:3, sources:2, dimensions:2 }),
   5: Object.freeze({ facts:4, sources:3, dimensions:3 }),
 });
+const FORBIDDEN_MEMORY_KEYS = new Set(["userId", "user_id", "profileId", "profile_id", "persona", "personas", "weight", "weights", "rawRatings", "ratings", "contributors"]);
 
 function nonEmpty(value){ return typeof value === "string" && value.trim().length > 0; }
 function isIsoDateTime(value){ return nonEmpty(value) && ISO_DATE_TIME.test(value) && !Number.isNaN(new Date(value).getTime()); }
@@ -27,9 +30,9 @@ function duplicateIds(records){
 function validateKnowledge(document){
   const issues = [];
   if (!document || typeof document !== "object" || Array.isArray(document)) return ["Editorial knowledge must be a JSON object."];
-  if (document.schemaVersion !== "editorial-knowledge.v1") issues.push("schemaVersion must be editorial-knowledge.v1.");
+  if (document.schemaVersion !== "editorial-knowledge.v2") issues.push("schemaVersion must be editorial-knowledge.v2.");
   if (!isIsoDateTime(document.updatedAt)) issues.push("updatedAt must be an ISO UTC date-time.");
-  ["subjects", "sources", "narrativeFacts", "narrativeThreads", "eventProjections"].forEach(field => {
+  ["subjects", "sources", "narrativeFacts", "narrativeThreads", "audienceMemories", "eventProjections"].forEach(field => {
     if (!Array.isArray(document[field])) issues.push(`${field} must be an array.`);
   });
   if (issues.length) return issues;
@@ -39,6 +42,7 @@ function validateKnowledge(document){
     ["sources", document.sources],
     ["narrativeFacts", document.narrativeFacts],
     ["narrativeThreads", document.narrativeThreads],
+    ["audienceMemories", document.audienceMemories],
     ["eventProjections", document.eventProjections],
   ];
   collections.forEach(([label, records]) => {
@@ -84,6 +88,29 @@ function validateKnowledge(document){
     if (!isIsoDateTime(thread.updatedAt)) issues.push(`${thread.id}.updatedAt must be an ISO UTC date-time.`);
   });
 
+  const audienceMemories = new Map(document.audienceMemories.map(memory => [memory.id, memory]));
+  document.audienceMemories.forEach(memory => {
+    const visit = value => {
+      if (!value || typeof value !== "object") return;
+      Object.entries(value).forEach(([key, item]) => {
+        if (FORBIDDEN_MEMORY_KEYS.has(key)) issues.push(`${memory.id} contains forbidden identity or raw-rating field ${key}.`);
+        visit(item);
+      });
+    };
+    visit(memory);
+    if (!nonEmpty(memory.sourceEventId)) issues.push(`${memory.id}.sourceEventId is required.`);
+    if (!Array.isArray(memory.linkedThreadIds) || !memory.linkedThreadIds.length) issues.push(`${memory.id}.linkedThreadIds is required.`);
+    (memory.linkedThreadIds || []).forEach(id => { if (!threads.has(id)) issues.push(`${memory.id} references unknown thread ${id}.`); });
+    if (!Array.isArray(memory.subjectIds) || !memory.subjectIds.length) issues.push(`${memory.id}.subjectIds is required.`);
+    (memory.subjectIds || []).forEach(id => { if (!subjects.has(id)) issues.push(`${memory.id} references unknown subject ${id}.`); });
+    if (!Number.isFinite(Number(memory.impactScore)) || Number(memory.impactScore) < 1 || Number(memory.impactScore) > 5) issues.push(`${memory.id}.impactScore must be 1-5.`);
+    if (!Number.isInteger(memory.uniqueContributorCount) || memory.uniqueContributorCount < 3) issues.push(`${memory.id}.uniqueContributorCount must be at least 3.`);
+    if (!Array.isArray(memory.leadingTags) || memory.leadingTags.length > 3 || memory.leadingTags.some(tag => !nonEmpty(tag))) issues.push(`${memory.id}.leadingTags must contain up to three labels.`);
+    if (!isIsoDateTime(memory.capturedAt)) issues.push(`${memory.id}.capturedAt must be an ISO UTC date-time.`);
+    if (!isIsoDateTime(memory.expiresAt)) issues.push(`${memory.id}.expiresAt must be an ISO UTC date-time.`);
+    if (memory.carryProjectionId !== undefined && memory.carryProjectionId !== null && !ID_PATTERN.test(memory.carryProjectionId)) issues.push(`${memory.id}.carryProjectionId must be null or a stable projection id.`);
+  });
+
   const projectionTargets = new Set();
   const hooks = new Map();
   document.eventProjections.forEach(projection => {
@@ -95,7 +122,7 @@ function validateKnowledge(document){
       projectionTargets.add(targetKey);
     });
     const requirement = TIER_REQUIREMENTS[projection.stakes];
-    if (!requirement) issues.push(`${projection.id}.stakes must be 3, 4 or 5.`);
+    if (!requirement) issues.push(`${projection.id}.stakes must be 2, 3, 4 or 5.`);
     if (!nonEmpty(projection.hook) || projection.hook.length < 20 || projection.hook.length > 180) issues.push(`${projection.id}.hook must be 20-180 characters.`);
     if (!nonEmpty(projection.synopsis) || projection.synopsis.length < 80 || projection.synopsis.length > 700) issues.push(`${projection.id}.synopsis must be 80-700 characters.`);
     if (GENERIC_COPY.test(`${projection.hook}\n${projection.synopsis}`)) issues.push(`${projection.id} contains generic fixture filler instead of an editorial angle.`);
@@ -108,10 +135,14 @@ function validateKnowledge(document){
     if (requirement && (projection.factIds || []).length < requirement.facts) issues.push(`${projection.id} needs at least ${requirement.facts} facts for stakes ${projection.stakes}.`);
     if (requirement && (projection.sourceIds || []).length < requirement.sources) issues.push(`${projection.id} needs at least ${requirement.sources} sources for stakes ${projection.stakes}.`);
     if (requirement && dimensions.length < requirement.dimensions) issues.push(`${projection.id} needs at least ${requirement.dimensions} narrative dimensions for stakes ${projection.stakes}.`);
+    if (!dimensions.some(dimension => SUBSTANTIVE_DIMENSIONS.has(dimension))) issues.push(`${projection.id} needs at least one path, form, matchup, history or consequence fact.`);
     factSourceIds.forEach(id => { if (!(projection.sourceIds || []).includes(id)) issues.push(`${projection.id}.sourceIds must include fact source ${id}.`); });
     if (!isIsoDateTime(projection.researchedAt)) issues.push(`${projection.id}.researchedAt must be an ISO UTC date-time.`);
     if (projection.refreshAfter !== undefined && projection.refreshAfter !== null && !isIsoDateTime(projection.refreshAfter)) issues.push(`${projection.id}.refreshAfter must be null or an ISO UTC date-time.`);
     if (!GENERATION_MODES.has(projection.generationMode)) issues.push(`${projection.id}.generationMode is unsupported.`);
+    if (projection.hookSpoilerOn !== undefined && (!nonEmpty(projection.hookSpoilerOn) || projection.hookSpoilerOn.length > 180)) issues.push(`${projection.id}.hookSpoilerOn must be 1-180 characters when supplied.`);
+    if (projection.synopsisSpoilerOn !== undefined && (!nonEmpty(projection.synopsisSpoilerOn) || projection.synopsisSpoilerOn.length > 700)) issues.push(`${projection.id}.synopsisSpoilerOn must be 1-700 characters when supplied.`);
+    if (projection.audienceMemoryId !== undefined && !audienceMemories.has(projection.audienceMemoryId)) issues.push(`${projection.id} references unknown audience memory ${projection.audienceMemoryId}.`);
     if (projection.originalityReview?.method !== "independent-summary-no-source-prose-retained" || !isIsoDateTime(projection.originalityReview?.reviewedAt)) issues.push(`${projection.id}.originalityReview must record the independent-summary review.`);
     const normalizedHook = String(projection.hook || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
     if (normalizedHook){
@@ -131,6 +162,7 @@ function indexesFor(document){
     sources:new Map(document.sources.map(source => [source.id, source])),
     facts:new Map(document.narrativeFacts.map(fact => [fact.id, fact])),
     threads:new Map(document.narrativeThreads.map(thread => [thread.id, thread])),
+    audienceMemories:new Map((document.audienceMemories || []).map(memory => [memory.id, memory])),
   };
 }
 
@@ -141,11 +173,23 @@ function projectionForTarget(document, targetType, record){
 
 function editorialNarrativeFor(projection, indexes){
   const dimensions = unique(projection.factIds.map(id => indexes.facts.get(id)?.dimension).filter(Boolean));
+  const memory = projection.audienceMemoryId ? indexes.audienceMemories.get(projection.audienceMemoryId) : null;
+  const sentiment = memory ? {
+    sourceEventId:memory.sourceEventId,
+    impactScore:Number(memory.impactScore),
+    uniqueContributorCount:memory.uniqueContributorCount,
+    leadingTags:[...memory.leadingTags],
+    capturedAt:memory.capturedAt,
+    expiresAt:memory.expiresAt,
+    relationship:projection.targetIds.includes(memory.sourceEventId) ? "source" : "carried",
+  } : undefined;
   return {
-    schemaVersion:"editorial-narrative.v1",
+    schemaVersion:"editorial-narrative.v2",
     projectionId:projection.id,
     researchTier:projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard",
     hook:projection.hook,
+    ...(projection.hookSpoilerOn ? { hookSpoilerOn:projection.hookSpoilerOn } : {}),
+    ...(projection.synopsisSpoilerOn ? { synopsisSpoilerOn:projection.synopsisSpoilerOn } : {}),
     threadIds:[...projection.threadIds],
     factIds:[...projection.factIds],
     sourceIds:[...projection.sourceIds],
@@ -153,6 +197,7 @@ function editorialNarrativeFor(projection, indexes){
     researchedAt:projection.researchedAt,
     refreshAfter:projection.refreshAfter ?? null,
     generationMode:projection.generationMode,
+    ...(sentiment ? { sentiment } : {}),
   };
 }
 
@@ -184,9 +229,9 @@ function applyToFeedEvent(event, projection, indexes){
       ...(event.storyline || {}),
       stakes:projection.stakes,
       hookSpoilerOff:projection.hook,
-      hookSpoilerOn:projection.hook,
+      hookSpoilerOn:projection.hookSpoilerOn || projection.hook,
       synopsisSpoilerOff:projection.synopsis,
-      synopsisSpoilerOn:projection.synopsis,
+      synopsisSpoilerOn:projection.synopsisSpoilerOn || projection.synopsis,
       lastReviewedAt:projection.researchedAt,
     },
   };
@@ -208,6 +253,7 @@ function applyToMajorEvent(record, projection, indexes){
 
 module.exports = {
   GENERIC_COPY,
+  SUBSTANTIVE_DIMENSIONS,
   TIER_REQUIREMENTS,
   applyToFeedEvent,
   applyToMajorEvent,

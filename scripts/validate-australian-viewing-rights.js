@@ -91,7 +91,7 @@ const events = fs.readdirSync(feedDir)
   .flatMap(name => JSON.parse(fs.readFileSync(path.join(feedDir, name), "utf8")).events || []);
 
 const permittedViewingTbcNames = new Set([
-  "WSL Margaret River Pro", "UCI Downhill MTB World Cup", "Telemark World Cup Finals",
+  "WSL Margaret River Pro", "UCI Downhill MTB World Cup",
   "Kvitfjell — Men's Downhill World Cup", "Kvitfjell — Men's Super-G World Cup",
   "Shahdag — Moguls World Cup Finals", "Sun Valley — Men's Alpine Finals Downhill", "Pipe Masters Big Wave Championship",
 ]);

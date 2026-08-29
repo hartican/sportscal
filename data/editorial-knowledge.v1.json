@@ -1,268 +1,3214 @@
 {
-  "schemaVersion": "editorial-knowledge.v1",
-  "updatedAt": "2026-08-29T19:30:00.000Z",
+  "schemaVersion": "editorial-knowledge.v2",
+  "updatedAt": "2026-08-30T06:00:00.000Z",
   "subjects": [
-    { "id": "competition:tennis:cincinnati-open", "kind": "competition", "name": "Cincinnati Open" },
-    { "id": "athlete:tennis:arthur-fils", "kind": "athlete", "name": "Arthur Fils" },
-    { "id": "athlete:tennis:coco-gauff", "kind": "athlete", "name": "Coco Gauff" },
-    { "id": "competition:tennis:us-open", "kind": "competition", "name": "US Open" },
-    { "id": "athlete:tennis:carlos-alcaraz", "kind": "athlete", "name": "Carlos Alcaraz" },
-    { "id": "athlete:tennis:alexander-zverev", "kind": "athlete", "name": "Alexander Zverev" },
-    { "id": "athlete:tennis:aryna-sabalenka", "kind": "athlete", "name": "Aryna Sabalenka" },
-    { "id": "series:afl:finals-2026", "kind": "series", "name": "2026 Toyota AFL Finals Series" },
-    { "id": "team:afl:carlton", "kind": "team", "name": "Carlton" },
-    { "id": "team:afl:western-bulldogs", "kind": "team", "name": "Western Bulldogs" },
-    { "id": "athlete:afl:arty-jones", "kind": "athlete", "name": "Arty Jones" },
-    { "id": "series:nrl:finals-2026", "kind": "series", "name": "2026 NRL Finals Series" },
-    { "id": "team:nrl:warriors", "kind": "team", "name": "Warriors" },
-    { "id": "team:nrl:dolphins", "kind": "team", "name": "Dolphins" },
-    { "id": "team:nrl:rabbitohs", "kind": "team", "name": "Rabbitohs" },
-    { "id": "competition:football:uefa-champions-league", "kind": "competition", "name": "UEFA Champions League" },
-    { "id": "team:football:lask", "kind": "team", "name": "LASK" },
-    { "id": "team:football:paris-saint-germain", "kind": "team", "name": "Paris Saint-Germain" }
+    {
+      "id": "competition:tennis:cincinnati-open",
+      "kind": "competition",
+      "name": "Cincinnati Open"
+    },
+    {
+      "id": "athlete:tennis:arthur-fils",
+      "kind": "athlete",
+      "name": "Arthur Fils"
+    },
+    {
+      "id": "athlete:tennis:coco-gauff",
+      "kind": "athlete",
+      "name": "Coco Gauff"
+    },
+    {
+      "id": "competition:tennis:us-open",
+      "kind": "competition",
+      "name": "US Open"
+    },
+    {
+      "id": "athlete:tennis:carlos-alcaraz",
+      "kind": "athlete",
+      "name": "Carlos Alcaraz"
+    },
+    {
+      "id": "athlete:tennis:alexander-zverev",
+      "kind": "athlete",
+      "name": "Alexander Zverev"
+    },
+    {
+      "id": "athlete:tennis:aryna-sabalenka",
+      "kind": "athlete",
+      "name": "Aryna Sabalenka"
+    },
+    {
+      "id": "series:afl:finals-2026",
+      "kind": "series",
+      "name": "2026 Toyota AFL Finals Series"
+    },
+    {
+      "id": "team:afl:carlton",
+      "kind": "team",
+      "name": "Carlton"
+    },
+    {
+      "id": "team:afl:western-bulldogs",
+      "kind": "team",
+      "name": "Western Bulldogs"
+    },
+    {
+      "id": "athlete:afl:arty-jones",
+      "kind": "athlete",
+      "name": "Arty Jones"
+    },
+    {
+      "id": "series:nrl:finals-2026",
+      "kind": "series",
+      "name": "2026 NRL Finals Series"
+    },
+    {
+      "id": "team:nrl:warriors",
+      "kind": "team",
+      "name": "Warriors"
+    },
+    {
+      "id": "team:nrl:dolphins",
+      "kind": "team",
+      "name": "Dolphins"
+    },
+    {
+      "id": "team:nrl:rabbitohs",
+      "kind": "team",
+      "name": "Rabbitohs"
+    },
+    {
+      "id": "competition:football:uefa-champions-league",
+      "kind": "competition",
+      "name": "UEFA Champions League"
+    },
+    {
+      "id": "team:football:lask",
+      "kind": "team",
+      "name": "LASK"
+    },
+    {
+      "id": "team:football:paris-saint-germain",
+      "kind": "team",
+      "name": "Paris Saint-Germain"
+    },
+    {
+      "id": "series:f1:2026",
+      "kind": "series",
+      "name": "2026 Formula 1 season"
+    },
+    {
+      "id": "event:f1:dutch-gp-2026",
+      "kind": "event",
+      "name": "2026 Dutch Grand Prix"
+    },
+    {
+      "id": "event:f1:italian-gp-2026",
+      "kind": "event",
+      "name": "2026 Italian Grand Prix"
+    },
+    {
+      "id": "event:f1:azerbaijan-gp-2026",
+      "kind": "event",
+      "name": "2026 Azerbaijan Grand Prix"
+    },
+    {
+      "id": "athlete:f1:lando-norris",
+      "kind": "athlete",
+      "name": "Lando Norris"
+    },
+    {
+      "id": "athlete:f1:kimi-antonelli",
+      "kind": "athlete",
+      "name": "Kimi Antonelli"
+    },
+    {
+      "id": "team:rugby:wallabies",
+      "kind": "team",
+      "name": "Australia Wallabies"
+    },
+    {
+      "id": "team:rugby:argentina",
+      "kind": "team",
+      "name": "Argentina"
+    },
+    {
+      "id": "team:rugby:springboks",
+      "kind": "team",
+      "name": "South Africa Springboks"
+    },
+    {
+      "id": "team:rugby:all-blacks",
+      "kind": "team",
+      "name": "New Zealand All Blacks"
+    },
+    {
+      "id": "series:rugby:wallabies-argentina-2026",
+      "kind": "series",
+      "name": "Australia tour of Argentina 2026"
+    },
+    {
+      "id": "series:rugby:bledisloe-2026",
+      "kind": "series",
+      "name": "Bledisloe Cup 2026"
+    },
+    {
+      "id": "competition:rlwc:2026",
+      "kind": "competition",
+      "name": "Rugby League World Cup 2026"
+    },
+    {
+      "id": "team:rl:australia-kangaroos",
+      "kind": "team",
+      "name": "Australia Kangaroos"
+    },
+    {
+      "id": "team:rl:new-zealand-kiwis",
+      "kind": "team",
+      "name": "New Zealand Kiwis"
+    },
+    {
+      "id": "competition:fis:freestyle-world-cup",
+      "kind": "competition",
+      "name": "FIS Freestyle World Cup"
+    },
+    {
+      "id": "event:fis:shahdag-2027",
+      "kind": "event",
+      "name": "Shahdag Moguls and Aerials World Cup 2027"
+    },
+    {
+      "id": "competition:rugby:nations-championship-2026",
+      "kind": "competition",
+      "name": "Nations Championship 2026"
+    },
+    {
+      "id": "competition:tennis:australian-open",
+      "kind": "competition",
+      "name": "Australian Open"
+    },
+    {
+      "id": "event:f1:australian-gp-2027",
+      "kind": "event",
+      "name": "Formula 1 Australian Grand Prix 2027"
+    }
   ],
   "sources": [
-    { "id": "source:cincinnati:about", "name": "Cincinnati Open — About the tournament", "url": "https://cincinnatiopen.com/about/about-the-tournament/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:cincinnati:fils-final", "name": "ATP Tour — Fils wins the 2026 Cincinnati final", "url": "https://www.atptour.com/en/news/fils-tiafoe-cincinnati-2026-final", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:cincinnati:gauff-final", "name": "Cincinnati Open — Gauff claims second Cincinnati crown", "url": "https://cincinnatiopen.com/news/coco-claims-second-cincinnati-crown/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:us-open:2026-schedule", "name": "US Open — 2026 tournament schedule", "url": "https://www.usopen.org/en_US/about/eventschedule.html", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:us-open:2026-mens-draw", "name": "US Open — 2026 men's singles draw preview", "url": "https://www.usopen.org/en_US/news/articles/2026-08-27/carlos_alcaraz_alexander_zverev_lead_mens_singles_draw_at_the_2026_us_open.html", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:us-open:2026-sabalenka", "name": "US Open — Sabalenka's 2026 three-peat pursuit", "url": "https://www.usopen.org/amp/en_US/news/articles/2026-08-28/aryna_sabalenkas_nyc_success_fuels_quest_for_three-peat_at_2026_us_open.html", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:us-open:2026-american-men", "name": "US Open — 2026 American men's draw outlook", "url": "https://www.usopen.org/en_US/news/articles/2026-08-27/jodar_tiafoe_and_more_poised_for_success_at_2026_us_open.html", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:afl:2026-wildcard-format", "name": "AFL — 2026 wildcard finals explained", "url": "https://www.afl.com.au/news/1589531/what-is-wildcard-round-and-how-does-it-work-rankings-system-explained-finals-history-and-more/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:afl:2026-bulldogs-wildcard", "name": "AFL — Bulldogs defeat Collingwood in the wildcard final", "url": "https://www.afl.com.au/news/1596213/heartbreak-for-magpies-as-late-miss-sees-bulldogs-steal-wildcard-win/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:afl:2026-arty-jones", "name": "AFL — Arty Jones' first finals performance", "url": "https://www.afl.com.au/news/1596216/the-finals-performance-that-could-change-everything-for-western-bulldogs-arty-jones", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:afl:2026-carlton-wildcard", "name": "AFL — Carlton defeat Melbourne in the wildcard final", "url": "https://www.afl.com.au/news/1597454/blues-fairytale-run-continues-after-epic-wildcard-finish-against-demons", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:afl:2026-week-two", "name": "AFL — 2026 finals week-two fixture", "url": "https://www.afl.com.au/news/1597385/finals-fixture-ticket-details-schedule-confirmed-for-week-two-of-the-2026-finals-series/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:afl:2026-grand-final-time", "name": "AFL — 2026 Grand Final time", "url": "https://www.afl.com.au/news/1486947", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:nrl:2026-locked-eight", "name": "NRL — 2026 top eight locked after Round 26", "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:nrl:2026-warriors", "name": "NRL — Warriors' 2026 finals and Grand Final pursuit", "url": "https://www.nrl.com/news/2026/08/18/warriors-fans-lead-the-charge-for-tickets-to-the-big-dance/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:nrl:2026-grand-final", "name": "NRL — 2026 NRL and NRLW Grand Final", "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:nrl:2026-season", "name": "NRL — 2026 premiership schedule", "url": "https://www.nrl.com/news/2025/11/14/2026-nrl-telstra-premiership-schedule/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-qualifying", "name": "UEFA — 2026/27 Champions League qualifying results and format", "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-teams", "name": "UEFA — 2026/27 Champions League league-phase teams", "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-opponents", "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents", "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-draw", "name": "UEFA — 2026/27 Champions League league-phase draw", "url": "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-fixtures", "name": "UEFA — 2026/27 Champions League league-phase fixtures", "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-holders", "name": "UEFA — Paris join the back-to-back Champions League winners", "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "source:uefa:ucl-2026-27-season", "name": "UEFA — 2026/27 Champions League dates, format and final", "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/", "sourceType": "official", "checkedAt": "2026-08-29T19:30:00.000Z" }
+    {
+      "id": "source:cincinnati:about",
+      "name": "Cincinnati Open — About the tournament",
+      "url": "https://cincinnatiopen.com/about/about-the-tournament/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:cincinnati:fils-final",
+      "name": "ATP Tour — Fils wins the 2026 Cincinnati final",
+      "url": "https://www.atptour.com/en/news/fils-tiafoe-cincinnati-2026-final",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:cincinnati:gauff-final",
+      "name": "Cincinnati Open — Gauff claims second Cincinnati crown",
+      "url": "https://cincinnatiopen.com/news/coco-claims-second-cincinnati-crown/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:us-open:2026-schedule",
+      "name": "US Open — 2026 tournament schedule",
+      "url": "https://www.usopen.org/en_US/about/eventschedule.html",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:us-open:2026-mens-draw",
+      "name": "US Open — 2026 men's singles draw preview",
+      "url": "https://www.usopen.org/en_US/news/articles/2026-08-27/carlos_alcaraz_alexander_zverev_lead_mens_singles_draw_at_the_2026_us_open.html",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:us-open:2026-sabalenka",
+      "name": "US Open — Sabalenka's 2026 three-peat pursuit",
+      "url": "https://www.usopen.org/amp/en_US/news/articles/2026-08-28/aryna_sabalenkas_nyc_success_fuels_quest_for_three-peat_at_2026_us_open.html",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:us-open:2026-american-men",
+      "name": "US Open — 2026 American men's draw outlook",
+      "url": "https://www.usopen.org/en_US/news/articles/2026-08-27/jodar_tiafoe_and_more_poised_for_success_at_2026_us_open.html",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:afl:2026-wildcard-format",
+      "name": "AFL — 2026 wildcard finals explained",
+      "url": "https://www.afl.com.au/news/1589531/what-is-wildcard-round-and-how-does-it-work-rankings-system-explained-finals-history-and-more/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:afl:2026-bulldogs-wildcard",
+      "name": "AFL — Bulldogs defeat Collingwood in the wildcard final",
+      "url": "https://www.afl.com.au/news/1596213/heartbreak-for-magpies-as-late-miss-sees-bulldogs-steal-wildcard-win/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:afl:2026-arty-jones",
+      "name": "AFL — Arty Jones' first finals performance",
+      "url": "https://www.afl.com.au/news/1596216/the-finals-performance-that-could-change-everything-for-western-bulldogs-arty-jones",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:afl:2026-carlton-wildcard",
+      "name": "AFL — Carlton defeat Melbourne in the wildcard final",
+      "url": "https://www.afl.com.au/news/1597454/blues-fairytale-run-continues-after-epic-wildcard-finish-against-demons",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:afl:2026-week-two",
+      "name": "AFL — 2026 finals week-two fixture",
+      "url": "https://www.afl.com.au/news/1597385/finals-fixture-ticket-details-schedule-confirmed-for-week-two-of-the-2026-finals-series/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:afl:2026-grand-final-time",
+      "name": "AFL — 2026 Grand Final time",
+      "url": "https://www.afl.com.au/news/1486947",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-locked-eight",
+      "name": "NRL — 2026 top eight locked after Round 26",
+      "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-warriors",
+      "name": "NRL — Warriors' 2026 finals and Grand Final pursuit",
+      "url": "https://www.nrl.com/news/2026/08/18/warriors-fans-lead-the-charge-for-tickets-to-the-big-dance/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-grand-final",
+      "name": "NRL — 2026 NRL and NRLW Grand Final",
+      "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-season",
+      "name": "NRL — 2026 premiership schedule",
+      "url": "https://www.nrl.com/news/2025/11/14/2026-nrl-telstra-premiership-schedule/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-qualifying",
+      "name": "UEFA — 2026/27 Champions League qualifying results and format",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-teams",
+      "name": "UEFA — 2026/27 Champions League league-phase teams",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-opponents",
+      "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-draw",
+      "name": "UEFA — 2026/27 Champions League league-phase draw",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-fixtures",
+      "name": "UEFA — 2026/27 Champions League league-phase fixtures",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-holders",
+      "name": "UEFA — Paris join the back-to-back Champions League winners",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-season",
+      "name": "UEFA — 2026/27 Champions League dates, format and final",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "source:fia:f1-2026-dutch-race-report",
+      "name": "FIA — 2026 Dutch Grand Prix report",
+      "url": "https://www.fia.com/news/f1-norris-wins-dramatic-dutch-grand-prix-ahead-antonelli-and-russell-verstappen-crashes",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:2026-dutch-race-report",
+      "name": "Formula 1 — 2026 Dutch Grand Prix race report",
+      "url": "https://www.formula1.com/en/latest/article/norris-wins-dramatic-dutch-grand-prix-from-antonelli-and-russell-as-verstappen-crashes-out.Zn7iYevVGp5eHzFkTEAz7",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:2026-zandvoort-lowdown",
+      "name": "Formula 1 — Zandvoort 2026 weekend analysis",
+      "url": "https://www.formula1.com/en/latest/article/zandvoort-lowdown-all-the-key-moments-as-norris-wins-again-and-verstappen-suffers-dramatic-home-exit.7ixG14EpkWpHk28GCH7lKC",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2026-jujuy-team",
+      "name": "Rugby Australia — Wallabies team for Jujuy",
+      "url": "https://www.rugby.com.au/news/wallabies-team-confirmed-to-play-argentina-in-jujuy-2026827",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2026-jujuy-preview",
+      "name": "Rugby Australia — Argentina v Wallabies first Test preview",
+      "url": "https://www.rugby.com.au/news/argentina-v-wallabies-first-test-preview-predictions-facts-stats-players-teams-rugby-2026829",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2026-wallabies-schedule",
+      "name": "Rugby Australia — 2026 Wallabies Test schedule",
+      "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:2026-italy-race-hub",
+      "name": "Formula 1 — 2026 Italian Grand Prix hub",
+      "url": "https://www.formula1.com/en/racing/2026/italy",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:2026-driver-standings-0830",
+      "name": "Formula 1 — 2026 driver standings",
+      "url": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:monza-history-and-character",
+      "name": "Formula 1 — Monza history and circuit character",
+      "url": "https://www.formula1.com/en/latest/article/what-makes-the-italian-grand-prix-special-and-why-you-should-see-it.iAdwIYmBJXcxJQlnKgGfw",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:nrl:finals-format-explainer",
+      "name": "NRL — finals progression explainer",
+      "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-top-eight-locked-0829",
+      "name": "NRL — 2026 top eight locked",
+      "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-warriors-grand-final-history",
+      "name": "NRL — Warriors finals and Grand Final history",
+      "url": "https://www.nrl.com/news/2026/08/18/warriors-fans-lead-the-charge-for-tickets-to-the-big-dance/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:2026-azerbaijan-race-hub",
+      "name": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
+      "url": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:fia:2026-calendar-current",
+      "name": "FIA — current 2026 sporting calendars",
+      "url": "https://www.fia.com/news/2026-fia-sporting-calendars-approved-world-motor-sport-council",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2026-home-test-venues",
+      "name": "Rugby Australia — 2026 home Test venues",
+      "url": "https://www.rugby.com.au/news/venues-confirmed-as-tickets-go-on-sale-for-2026-wallabies-home-tests-2026215",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2025-ellis-park-result",
+      "name": "Rugby Australia — 2025 Ellis Park result",
+      "url": "https://www.rugby.com.au/news/how-to-watch-wallabies-springboks-live-scores-blog-match-report-results-updates-2025816",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2025-cape-town-result",
+      "name": "Rugby Australia — 2025 Cape Town result",
+      "url": "https://www.rugby.com.au/news/wallabies-springboks-match-report-cape-town-rugby-championship-2025823",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rlwc2026:competition-rules",
+      "name": "RLWC 2026 — competition rules",
+      "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rlwc2026:fixtures-announced",
+      "name": "RLWC 2026 — fixtures and tournament scale",
+      "url": "https://www.rlwc2026.com/news/2026-rugby-league-world-cup-fixtures-announced",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-kiwis-record-book-plan",
+      "name": "NRL — Kiwis' 2026 World Cup opener context",
+      "url": "https://www.nrl.com/news/2026/05/07/kiwis-unveil-plan-to-rewrite-record-books-in-world-cup-opener/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:nrl:2026-six-months-to-rlwc",
+      "name": "NRL — Australia and New Zealand World Cup build",
+      "url": "https://www.nrl.com/news/2026/04/15/six-months-to-go-kiwis-gearing-up-for-kangaroos-showdown/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2025-bledisloe-auckland",
+      "name": "Rugby Australia — 2025 Bledisloe Auckland result",
+      "url": "https://www.rugby.com.au/news/all-blacks-wallabies-match-report-bledisloe-cup-auckland-rugby-championship-2025927",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2025-bledisloe-perth",
+      "name": "Rugby Australia — 2025 Bledisloe Perth result",
+      "url": "https://www.rugby.com.au/news/all-blacks-wallabies-match-report-perth-bledisloe-cup-rugby-championship-2025104",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:rugbyau:2027-world-cup-pools",
+      "name": "Rugby Australia — 2027 World Cup pool fixtures",
+      "url": "https://www.rugby.com.au/news/wallabies-2027-rugby-world-cup-pool-fixtures-new-zealand-chile-hong-kong-china-202622",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:fis:freestyle-calendar-2026-27",
+      "name": "FIS — 2026/27 Moguls and Aerials calendar",
+      "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:fis:shahdag-2026-27-preview",
+      "name": "FIS — 2026/27 freestyle season preview",
+      "url": "https://www.fis-ski.com/freestyle/news/moguls-aerials-2025-26/sneak-peek-2026-27-fis-freestyle-world-cup-calendar",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:fis:shahdag-2026-cancellation",
+      "name": "FIS — Shahdag 2026 cancellation notice",
+      "url": "https://www.fis-ski.com/freestyle/news/moguls-aerials-2025-26/fis-moguls-world-cup-event-in-shahdag-azerbaijan-cancelled",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:sixnations:nations-2026-format-venues",
+      "name": "Six Nations — Nations Championship format and venues",
+      "url": "https://www.sixnationsrugby.com/en/m6n/news/iconic-venues-confirmed-for-nations-championships-southern-series",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:sixnations:nations-2026-exact-schedule",
+      "name": "Six Nations — Nations Championship Finals schedule",
+      "url": "https://www.sixnationsrugby.com/en/m6n/news/50-days-to-go-countdown-to-nations-championship-begins",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:worldrugby:nations-2026-tables",
+      "name": "World Rugby — Nations Championship 2026 tables",
+      "url": "https://www.world.rugby/beta/en/tournaments/nations-championship/2026/pools",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:sixnations:nations-2026-trophy",
+      "name": "Six Nations — Nations Championship trophies",
+      "url": "https://www.sixnationsrugby.com/en/m6n/news/nations-championship-rugby-trophy-unveiled",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-2026-27-overview",
+      "name": "UEFA — 2026/27 Champions League overview",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-new-format",
+      "name": "UEFA — league-to-knockout format",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:uefa:ucl-paris-back-to-back",
+      "name": "UEFA — Paris retain the Champions League",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:ao:2027-dates-announced",
+      "name": "Australian Open — 2027 dates",
+      "url": "https://ausopen.com/articles/news/australian-open-2027-dates-announced",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:ao:2027-ticket-sale",
+      "name": "Australian Open — 2027 tickets and attendance context",
+      "url": "https://ausopen.com/articles/news/australian-open-2027-tickets-on-sale-earlier-ever",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:ao:2026-alcaraz-title",
+      "name": "Australian Open — Alcaraz completes career Slam",
+      "url": "https://ausopen.com/articles/news/major-milestone-alcaraz-completes-slam-set-ao-2026-title",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:ao:2026-rybakina-title",
+      "name": "Australian Open — Rybakina wins 2026 title",
+      "url": "https://ausopen.com/articles/news/resilient-rybakina-beats-sabalenka-ao-2026-title",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:agpc:2027-interest",
+      "name": "Australian Grand Prix Corporation — 2027 interest register",
+      "url": "https://www.grandprix.com.au/tickets/register-your-interest",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:agpc:2027-travel-faq",
+      "name": "Australian Grand Prix Corporation — 2027 travel FAQ",
+      "url": "https://travel.grandprix.com.au/",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:melbourne-contract-2035",
+      "name": "Formula 1 — Melbourne agreement through 2035",
+      "url": "https://www.formula1.com/en/latest/article/formula-1-to-race-in-melbourne-until-2035-in-new-agreement.7EeElN0gG4wOKY1OJwHV94",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "source:f1:albert-park-circuit",
+      "name": "Formula 1 — Albert Park circuit profile",
+      "url": "https://www.formula1.com/en/information/australia-melbourne-grand-prix-circuit.4LZLnnP4nXDFVVD01EdvvG",
+      "sourceType": "official",
+      "checkedAt": "2026-08-30T06:00:00.000Z"
+    }
   ],
   "narrativeFacts": [
-    { "id": "fact:cincinnati-2026:level-and-place", "subjectIds": ["competition:tennis:cincinnati-open"], "statement": "Cincinnati is a combined ATP Masters 1000 and WTA 1000 tournament at the Lindner Family Tennis Center, and its 2026 finals were played on 23 August.", "dimension": "format", "sourceIds": ["source:cincinnati:about"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:cincinnati-2026:fils-title", "subjectIds": ["competition:tennis:cincinnati-open", "athlete:tennis:arthur-fils"], "statement": "Arthur Fils beat Frances Tiafoe in three sets for his first Masters 1000 title after returning from an absence of nearly eight months in 2025.", "dimension": "form", "sourceIds": ["source:cincinnati:fils-final"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:cincinnati-2026:french-drought", "subjectIds": ["athlete:tennis:arthur-fils"], "statement": "Fils became the youngest French Masters 1000 champion of the series era and ended a 12-year wait for a French winner at that level.", "dimension": "history", "sourceIds": ["source:cincinnati:fils-final"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:cincinnati-2026:gauff-title", "subjectIds": ["competition:tennis:cincinnati-open", "athlete:tennis:coco-gauff"], "statement": "Coco Gauff beat Jessica Pegula for her first title of 2026 and her second Cincinnati crown, three years after her first win there preceded a US Open title.", "dimension": "consequence", "sourceIds": ["source:cincinnati:gauff-final"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-12-31T23:59:59.000Z" },
-
-    { "id": "fact:us-open-2026:stage", "subjectIds": ["competition:tennis:us-open"], "statement": "The US Open singles main draws run from 30 August to 13 September, with the women's final on 12 September and the men's final on 13 September.", "dimension": "schedule", "sourceIds": ["source:us-open:2026-schedule"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-14T00:00:00.000Z" },
-    { "id": "fact:us-open-2026:mens-draw-reset", "subjectIds": ["competition:tennis:us-open", "athlete:tennis:alexander-zverev", "athlete:tennis:carlos-alcaraz"], "statement": "Jannik Sinner withdrew injured before the draw, leaving Alexander Zverev as top seed and defending champion Carlos Alcaraz returning after roughly five months out with a wrist injury.", "dimension": "matchup", "sourceIds": ["source:us-open:2026-mens-draw"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-08-31T12:00:00.000Z" },
-    { "id": "fact:us-open-2026:mens-bottom-half", "subjectIds": ["competition:tennis:us-open", "athlete:tennis:carlos-alcaraz"], "statement": "Every former men's US Open champion in the 2026 draw landed in the bottom half, concentrating all five proven New York winners on one side of the bracket.", "dimension": "path", "sourceIds": ["source:us-open:2026-mens-draw"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-01T12:00:00.000Z" },
-    { "id": "fact:us-open-2026:sabalenka-threepeat", "subjectIds": ["competition:tennis:us-open", "athlete:tennis:aryna-sabalenka"], "statement": "Aryna Sabalenka enters as the two-time defending women's champion; a third straight title would match the Open Era three-peats of Chris Evert and Serena Williams.", "dimension": "history", "sourceIds": ["source:us-open:2026-sabalenka"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-13T00:00:00.000Z" },
-    { "id": "fact:us-open-2026:american-drought", "subjectIds": ["competition:tennis:us-open"], "statement": "Six American men are seeded, but the United States has not produced a US Open men's singles champion since Andy Roddick in 2003.", "dimension": "history", "sourceIds": ["source:us-open:2026-american-men"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-14T00:00:00.000Z" },
-
-    { "id": "fact:afl-finals-2026:new-format", "subjectIds": ["series:afl:finals-2026"], "statement": "The 2026 season introduced the AFL's first wildcard finals: the top six had the opening weekend off while seventh played 10th and eighth played ninth for the last two places in the final eight.", "dimension": "format", "sourceIds": ["source:afl:2026-wildcard-format"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:afl-finals-2026:wildcard-results", "subjectIds": ["series:afl:finals-2026", "team:afl:carlton", "team:afl:western-bulldogs"], "statement": "The Western Bulldogs edged Collingwood 96–93 and Carlton beat Melbourne 74–55 to survive the inaugural wildcard weekend.", "dimension": "form", "sourceIds": ["source:afl:2026-bulldogs-wildcard", "source:afl:2026-carlton-wildcard"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:afl-finals-2026:week-two-path", "subjectIds": ["series:afl:finals-2026", "team:afl:carlton", "team:afl:western-bulldogs"], "statement": "Week two contains Fremantle v Hawthorn and Sydney v Brisbane in qualifying finals, plus Geelong v Carlton and Adelaide v Western Bulldogs in sudden-death elimination finals.", "dimension": "path", "sourceIds": ["source:afl:2026-week-two"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-06T12:00:00.000Z" },
-    { "id": "fact:afl-finals-2026:carlton-revival", "subjectIds": ["series:afl:finals-2026", "team:afl:carlton"], "statement": "Carlton recovered from a 1–8 start to finish 10th under the new format, then won its wildcard final to reach a sudden-death meeting with Geelong.", "dimension": "form", "sourceIds": ["source:afl:2026-wildcard-format", "source:afl:2026-carlton-wildcard", "source:afl:2026-week-two"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-06T12:00:00.000Z" },
-    { "id": "fact:afl-finals-2026:bulldogs-jones", "subjectIds": ["series:afl:finals-2026", "team:afl:western-bulldogs", "athlete:afl:arty-jones"], "statement": "Arty Jones kicked a career-high four goals, one in every quarter, in his first AFL final as the Bulldogs recorded their first Melbourne finals win since the 2016 Grand Final.", "dimension": "history", "sourceIds": ["source:afl:2026-arty-jones"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:afl-finals-2026:destination", "subjectIds": ["series:afl:finals-2026"], "statement": "The 2026 AFL Grand Final is scheduled for the MCG on Saturday 26 September at 2:30pm AEST.", "dimension": "schedule", "sourceIds": ["source:afl:2026-grand-final-time"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-26T06:00:00.000Z" },
-
-    { "id": "fact:nrl-finals-2026:locked-eight", "subjectIds": ["series:nrl:finals-2026", "team:nrl:warriors", "team:nrl:dolphins", "team:nrl:rabbitohs"], "statement": "After Saturday of Round 26, the finalists were locked: Panthers, Warriors, Dolphins, Roosters, Sharks, Rabbitohs, Knights and Cowboys.", "dimension": "matchup", "sourceIds": ["source:nrl:2026-locked-eight"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:nrl-finals-2026:top-four-race", "subjectIds": ["series:nrl:finals-2026"], "statement": "Penrith had secured a top-two finish and a home final, but the remaining top-four order was still open and would determine qualifying-final access and home advantage.", "dimension": "path", "sourceIds": ["source:nrl:2026-locked-eight"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-01T12:00:00.000Z" },
-    { "id": "fact:nrl-finals-2026:rabbitohs-return", "subjectIds": ["series:nrl:finals-2026", "team:nrl:rabbitohs"], "statement": "South Sydney secured its first finals appearance since 2022, while North Queensland took the last available place with its Round 26 win over Wests Tigers.", "dimension": "form", "sourceIds": ["source:nrl:2026-locked-eight"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:nrl-finals-2026:newcomer-new-champion", "subjectIds": ["series:nrl:finals-2026", "team:nrl:dolphins"], "statement": "The Dolphins reached the finals for the first time, while reigning premier Brisbane finished outside the locked eight, guaranteeing a different champion in 2026.", "dimension": "history", "sourceIds": ["source:nrl:2026-locked-eight", "source:nrl:2026-season"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:nrl-finals-2026:warriors-chase", "subjectIds": ["series:nrl:finals-2026", "team:nrl:warriors"], "statement": "The Warriors are pursuing their first premiership after Grand Final losses in 2002 and 2011, in what is their third finals appearance in four seasons.", "dimension": "history", "sourceIds": ["source:nrl:2026-warriors"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:nrl-finals-2026:destination", "subjectIds": ["series:nrl:finals-2026"], "statement": "The NRL and NRLW Grand Finals are scheduled for Sunday 4 October at Accor Stadium in Sydney.", "dimension": "schedule", "sourceIds": ["source:nrl:2026-grand-final"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-10-04T12:00:00.000Z" },
-
-    { "id": "fact:ucl-qualifying-2026-27:window", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "Champions League qualification ran from 7 July to 26 August through three qualifying rounds and a play-off round, with champions and league paths from the second round onward.", "dimension": "format", "sourceIds": ["source:uefa:ucl-2026-27-qualifying"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-qualifying-2026-27:seven-places", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "Twenty-nine clubs entered the league phase directly, leaving qualification to decide the final seven places in the 36-team field.", "dimension": "consequence", "sourceIds": ["source:uefa:ucl-2026-27-qualifying", "source:uefa:ucl-2026-27-opponents"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-qualifying-2026-27:survivors", "subjectIds": ["competition:football:uefa-champions-league", "team:football:lask"], "statement": "AEK Athens, Viking, Slovan Bratislava, Sabah, LASK, Bodø/Glimt and Fenerbahçe won the seven play-off ties and moved into the league-phase draw.", "dimension": "matchup", "sourceIds": ["source:uefa:ucl-2026-27-qualifying", "source:uefa:ucl-2026-27-opponents"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-qualifying-2026-27:lask-comeback", "subjectIds": ["competition:football:uefa-champions-league", "team:football:lask"], "statement": "LASK overturned a 3–0 first-leg defeat at Celtic by winning the return 5–1 after extra time, advancing 5–4 on aggregate to reach the Champions League for the first time.", "dimension": "history", "sourceIds": ["source:uefa:ucl-2026-27-qualifying", "source:uefa:ucl-2026-27-teams"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-qualifying-2026-27:extra-time-survival", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "Sabah and Slovan Bratislava also needed extra time to survive their play-offs, while Fenerbahçe edged Lyon 3–2 across two legs.", "dimension": "form", "sourceIds": ["source:uefa:ucl-2026-27-qualifying"], "observedAt": "2026-08-29T19:30:00.000Z" },
-
-    { "id": "fact:ucl-league-2026-27:scale", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "The league phase contains 36 clubs and 144 matches over eight matchdays, with each club playing eight different opponents once rather than a conventional round-robin group.", "dimension": "format", "sourceIds": ["source:uefa:ucl-2026-27-draw"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-league-2026-27:draw-logic", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "Each club drew two opponents from every coefficient pot, one home and one away, with same-association meetings blocked and no more than two opponents from another association.", "dimension": "path", "sourceIds": ["source:uefa:ucl-2026-27-opponents"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-league-2026-27:calendar", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "Matchday one runs from 8 to 10 September, and the league phase ends on 27 January 2027 with 18 simultaneous matches settling the table.", "dimension": "schedule", "sourceIds": ["source:uefa:ucl-2026-27-fixtures"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2027-01-28T00:00:00.000Z" },
-    { "id": "fact:ucl-league-2026-27:opening-bridge", "subjectIds": ["competition:football:uefa-champions-league", "team:football:lask"], "statement": "Opening night carries qualification into the league phase immediately, with AEK Athens hosting fellow qualifier LASK among the first published fixtures.", "dimension": "matchup", "sourceIds": ["source:uefa:ucl-2026-27-fixtures"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2026-09-09T00:00:00.000Z" },
-    { "id": "fact:ucl-league-2026-27:holders", "subjectIds": ["competition:football:uefa-champions-league", "team:football:paris-saint-germain"], "statement": "Paris Saint-Germain enter as back-to-back champions and only the second club to retain the trophy in the Champions League era, making a third straight title a live historical pursuit.", "dimension": "history", "sourceIds": ["source:uefa:ucl-2026-27-holders"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2027-06-06T00:00:00.000Z" },
-    { "id": "fact:ucl-league-2026-27:new-ground", "subjectIds": ["competition:football:uefa-champions-league", "team:football:lask"], "statement": "The field includes LASK in its first Champions League campaign and Como in the club's first European season, while Viking makes only its second group or league-phase appearance.", "dimension": "history", "sourceIds": ["source:uefa:ucl-2026-27-teams"], "observedAt": "2026-08-29T19:30:00.000Z" },
-    { "id": "fact:ucl-league-2026-27:destination", "subjectIds": ["competition:football:uefa-champions-league"], "statement": "The season ends with the final on 5 June 2027 at Atlético de Madrid's Estadio Metropolitano.", "dimension": "venue", "sourceIds": ["source:uefa:ucl-2026-27-season"], "observedAt": "2026-08-29T19:30:00.000Z", "expiresAt": "2027-06-06T00:00:00.000Z" }
+    {
+      "id": "fact:cincinnati-2026:level-and-place",
+      "subjectIds": [
+        "competition:tennis:cincinnati-open"
+      ],
+      "statement": "Cincinnati is a combined ATP Masters 1000 and WTA 1000 tournament at the Lindner Family Tennis Center, and its 2026 finals were played on 23 August.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:cincinnati:about"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:cincinnati-2026:fils-title",
+      "subjectIds": [
+        "competition:tennis:cincinnati-open",
+        "athlete:tennis:arthur-fils"
+      ],
+      "statement": "Arthur Fils beat Frances Tiafoe in three sets for his first Masters 1000 title after returning from an absence of nearly eight months in 2025.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:cincinnati:fils-final"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:cincinnati-2026:french-drought",
+      "subjectIds": [
+        "athlete:tennis:arthur-fils"
+      ],
+      "statement": "Fils became the youngest French Masters 1000 champion of the series era and ended a 12-year wait for a French winner at that level.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:cincinnati:fils-final"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:cincinnati-2026:gauff-title",
+      "subjectIds": [
+        "competition:tennis:cincinnati-open",
+        "athlete:tennis:coco-gauff"
+      ],
+      "statement": "Coco Gauff beat Jessica Pegula for her first title of 2026 and her second Cincinnati crown, three years after her first win there preceded a US Open title.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:cincinnati:gauff-final"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-12-31T23:59:59.000Z"
+    },
+    {
+      "id": "fact:us-open-2026:stage",
+      "subjectIds": [
+        "competition:tennis:us-open"
+      ],
+      "statement": "The US Open singles main draws run from 30 August to 13 September, with the women's final on 12 September and the men's final on 13 September.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:us-open:2026-schedule"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-14T00:00:00.000Z"
+    },
+    {
+      "id": "fact:us-open-2026:mens-draw-reset",
+      "subjectIds": [
+        "competition:tennis:us-open",
+        "athlete:tennis:alexander-zverev",
+        "athlete:tennis:carlos-alcaraz"
+      ],
+      "statement": "Jannik Sinner withdrew injured before the draw, leaving Alexander Zverev as top seed and defending champion Carlos Alcaraz returning after roughly five months out with a wrist injury.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:us-open:2026-mens-draw"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-08-31T12:00:00.000Z"
+    },
+    {
+      "id": "fact:us-open-2026:mens-bottom-half",
+      "subjectIds": [
+        "competition:tennis:us-open",
+        "athlete:tennis:carlos-alcaraz"
+      ],
+      "statement": "Every former men's US Open champion in the 2026 draw landed in the bottom half, concentrating all five proven New York winners on one side of the bracket.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:us-open:2026-mens-draw"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-01T12:00:00.000Z"
+    },
+    {
+      "id": "fact:us-open-2026:sabalenka-threepeat",
+      "subjectIds": [
+        "competition:tennis:us-open",
+        "athlete:tennis:aryna-sabalenka"
+      ],
+      "statement": "Aryna Sabalenka enters as the two-time defending women's champion; a third straight title would match the Open Era three-peats of Chris Evert and Serena Williams.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:us-open:2026-sabalenka"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "fact:us-open-2026:american-drought",
+      "subjectIds": [
+        "competition:tennis:us-open"
+      ],
+      "statement": "Six American men are seeded, but the United States has not produced a US Open men's singles champion since Andy Roddick in 2003.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:us-open:2026-american-men"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-14T00:00:00.000Z"
+    },
+    {
+      "id": "fact:afl-finals-2026:new-format",
+      "subjectIds": [
+        "series:afl:finals-2026"
+      ],
+      "statement": "The 2026 season introduced the AFL's first wildcard finals: the top six had the opening weekend off while seventh played 10th and eighth played ninth for the last two places in the final eight.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:afl:2026-wildcard-format"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:afl-finals-2026:wildcard-results",
+      "subjectIds": [
+        "series:afl:finals-2026",
+        "team:afl:carlton",
+        "team:afl:western-bulldogs"
+      ],
+      "statement": "The Western Bulldogs edged Collingwood 96–93 and Carlton beat Melbourne 74–55 to survive the inaugural wildcard weekend.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:afl:2026-bulldogs-wildcard",
+        "source:afl:2026-carlton-wildcard"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:afl-finals-2026:week-two-path",
+      "subjectIds": [
+        "series:afl:finals-2026",
+        "team:afl:carlton",
+        "team:afl:western-bulldogs"
+      ],
+      "statement": "Week two contains Fremantle v Hawthorn and Sydney v Brisbane in qualifying finals, plus Geelong v Carlton and Adelaide v Western Bulldogs in sudden-death elimination finals.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:afl:2026-week-two"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-06T12:00:00.000Z"
+    },
+    {
+      "id": "fact:afl-finals-2026:carlton-revival",
+      "subjectIds": [
+        "series:afl:finals-2026",
+        "team:afl:carlton"
+      ],
+      "statement": "Carlton recovered from a 1–8 start to finish 10th under the new format, then won its wildcard final to reach a sudden-death meeting with Geelong.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:afl:2026-wildcard-format",
+        "source:afl:2026-carlton-wildcard",
+        "source:afl:2026-week-two"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-06T12:00:00.000Z"
+    },
+    {
+      "id": "fact:afl-finals-2026:bulldogs-jones",
+      "subjectIds": [
+        "series:afl:finals-2026",
+        "team:afl:western-bulldogs",
+        "athlete:afl:arty-jones"
+      ],
+      "statement": "Arty Jones kicked a career-high four goals, one in every quarter, in his first AFL final as the Bulldogs recorded their first Melbourne finals win since the 2016 Grand Final.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:afl:2026-arty-jones"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:afl-finals-2026:destination",
+      "subjectIds": [
+        "series:afl:finals-2026"
+      ],
+      "statement": "The 2026 AFL Grand Final is scheduled for the MCG on Saturday 26 September at 2:30pm AEST.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:afl:2026-grand-final-time"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-26T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-finals-2026:locked-eight",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:warriors",
+        "team:nrl:dolphins",
+        "team:nrl:rabbitohs"
+      ],
+      "statement": "After Saturday of Round 26, the finalists were locked: Panthers, Warriors, Dolphins, Roosters, Sharks, Rabbitohs, Knights and Cowboys.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:nrl:2026-locked-eight"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:nrl-finals-2026:top-four-race",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "Penrith had secured a top-two finish and a home final, but the remaining top-four order was still open and would determine qualifying-final access and home advantage.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:nrl:2026-locked-eight"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-01T12:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-finals-2026:rabbitohs-return",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:rabbitohs"
+      ],
+      "statement": "South Sydney secured its first finals appearance since 2022, while North Queensland took the last available place with its Round 26 win over Wests Tigers.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:nrl:2026-locked-eight"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:nrl-finals-2026:newcomer-new-champion",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:dolphins"
+      ],
+      "statement": "The Dolphins reached the finals for the first time, while reigning premier Brisbane finished outside the locked eight, guaranteeing a different champion in 2026.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:nrl:2026-locked-eight",
+        "source:nrl:2026-season"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:nrl-finals-2026:warriors-chase",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:warriors"
+      ],
+      "statement": "The Warriors are pursuing their first premiership after Grand Final losses in 2002 and 2011, in what is their third finals appearance in four seasons.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:nrl:2026-warriors"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:nrl-finals-2026:destination",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The NRL and NRLW Grand Finals are scheduled for Sunday 4 October at Accor Stadium in Sydney.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:nrl:2026-grand-final"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-10-04T12:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-qualifying-2026-27:window",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Champions League qualification ran from 7 July to 26 August through three qualifying rounds and a play-off round, with champions and league paths from the second round onward.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-qualifying"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-qualifying-2026-27:seven-places",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Twenty-nine clubs entered the league phase directly, leaving qualification to decide the final seven places in the 36-team field.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-qualifying",
+        "source:uefa:ucl-2026-27-opponents"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-qualifying-2026-27:survivors",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:lask"
+      ],
+      "statement": "AEK Athens, Viking, Slovan Bratislava, Sabah, LASK, Bodø/Glimt and Fenerbahçe won the seven play-off ties and moved into the league-phase draw.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-qualifying",
+        "source:uefa:ucl-2026-27-opponents"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-qualifying-2026-27:lask-comeback",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:lask"
+      ],
+      "statement": "LASK overturned a 3–0 first-leg defeat at Celtic by winning the return 5–1 after extra time, advancing 5–4 on aggregate to reach the Champions League for the first time.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-qualifying",
+        "source:uefa:ucl-2026-27-teams"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-qualifying-2026-27:extra-time-survival",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Sabah and Slovan Bratislava also needed extra time to survive their play-offs, while Fenerbahçe edged Lyon 3–2 across two legs.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-qualifying"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:scale",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "The league phase contains 36 clubs and 144 matches over eight matchdays, with each club playing eight different opponents once rather than a conventional round-robin group.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-draw"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:draw-logic",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Each club drew two opponents from every coefficient pot, one home and one away, with same-association meetings blocked and no more than two opponents from another association.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-opponents"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:calendar",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Matchday one runs from 8 to 10 September, and the league phase ends on 27 January 2027 with 18 simultaneous matches settling the table.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-fixtures"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2027-01-28T00:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:opening-bridge",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:lask"
+      ],
+      "statement": "Opening night carries qualification into the league phase immediately, with AEK Athens hosting fellow qualifier LASK among the first published fixtures.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-fixtures"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2026-09-09T00:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:holders",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:paris-saint-germain"
+      ],
+      "statement": "Paris Saint-Germain enter as back-to-back champions and only the second club to retain the trophy in the Champions League era, making a third straight title a live historical pursuit.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-holders"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2027-06-06T00:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:new-ground",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:lask"
+      ],
+      "statement": "The field includes LASK in its first Champions League campaign and Como in the club's first European season, while Viking makes only its second group or league-phase appearance.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-teams"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "fact:ucl-league-2026-27:destination",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "The season ends with the final on 5 June 2027 at Atlético de Madrid's Estadio Metropolitano.",
+      "dimension": "venue",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-season"
+      ],
+      "observedAt": "2026-08-29T19:30:00.000Z",
+      "expiresAt": "2027-06-06T00:00:00.000Z"
+    },
+    {
+      "id": "fact:evt25:norris-second-straight-win",
+      "subjectIds": [
+        "series:f1:2026",
+        "event:f1:dutch-gp-2026",
+        "athlete:f1:lando-norris"
+      ],
+      "statement": "Lando Norris won after also winning in Hungary, giving him consecutive Grand Prix victories late in the 2026 season.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fia:f1-2026-dutch-race-report",
+        "source:f1:2026-dutch-race-report"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt25:antonelli-pass",
+      "subjectIds": [
+        "series:f1:2026",
+        "event:f1:dutch-gp-2026",
+        "athlete:f1:kimi-antonelli",
+        "athlete:f1:lando-norris"
+      ],
+      "statement": "Kimi Antonelli led after the restart before Norris closed the gap and reclaimed the effective lead on lap 54.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:f1:2026-zandvoort-lowdown"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt25:last-zandvoort",
+      "subjectIds": [
+        "event:f1:dutch-gp-2026"
+      ],
+      "statement": "Formula 1 described 2026 as Zandvoort's final scheduled Dutch Grand Prix weekend, adding finality without ruling out a future return.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:f1:2026-zandvoort-lowdown"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:arg-aus-jujuy:wallabies-form",
+      "subjectIds": [
+        "team:rugby:wallabies",
+        "team:rugby:argentina"
+      ],
+      "statement": "Australia entered Jujuy on three straight wins; a fourth would be its longest same-calendar-year run since 2021.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:rugbyau:2026-jujuy-preview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-08-30T08:00:00.000Z"
+    },
+    {
+      "id": "fact:arg-aus-jujuy:pack-reset",
+      "subjectIds": [
+        "team:rugby:wallabies"
+      ],
+      "statement": "Australia named a completely changed starting forward pack for Jujuy, with Allan Alaalatoa captaining the side.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:rugbyau:2026-jujuy-team"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-08-30T08:00:00.000Z"
+    },
+    {
+      "id": "fact:arg-aus-jujuy:recent-rivalry",
+      "subjectIds": [
+        "team:rugby:wallabies",
+        "team:rugby:argentina"
+      ],
+      "statement": "The teams split their two Argentina Tests in 2024, and Argentina won the most recent meeting before this tour.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:rugbyau:2026-jujuy-preview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:arg-aus-mendoza:two-test-consequence",
+      "subjectIds": [
+        "series:rugby:wallabies-argentina-2026",
+        "team:rugby:wallabies",
+        "team:rugby:argentina"
+      ],
+      "statement": "Mendoza is the second meeting in seven days, so its honest result-specific stakes depend on the outcome of the Jujuy Test.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "id": "fact:arg-aus-mendoza:tour-bridge",
+      "subjectIds": [
+        "series:rugby:wallabies-argentina-2026",
+        "team:rugby:wallabies"
+      ],
+      "statement": "The Argentina pair begins a demanding run before home Tests against South Africa and New Zealand, making Mendoza a bridge in the season.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:arg-aus-mendoza:official-time",
+      "subjectIds": [
+        "series:rugby:wallabies-argentina-2026"
+      ],
+      "statement": "Rugby Australia schedules the second Test at Estadio Malvinas Argentinas for 7:00am AEST on 6 September.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:rugbyau:2026-jujuy-team"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "id": "fact:evt27:antonelli-home-leader",
+      "subjectIds": [
+        "series:f1:2026",
+        "event:f1:italian-gp-2026",
+        "athlete:f1:kimi-antonelli"
+      ],
+      "statement": "Italian Kimi Antonelli arrives at his home Grand Prix leading the drivers' championship.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:f1:2026-driver-standings-0830"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-09-06T13:00:00.000Z"
+    },
+    {
+      "id": "fact:evt27:norris-momentum",
+      "subjectIds": [
+        "series:f1:2026",
+        "athlete:f1:lando-norris",
+        "athlete:f1:kimi-antonelli"
+      ],
+      "statement": "Norris arrives after consecutive wins in Hungary and the Netherlands, while Antonelli finished third and second in those races.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:f1:2026-driver-standings-0830",
+        "source:f1:2026-dutch-race-report"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-09-05T13:00:00.000Z"
+    },
+    {
+      "id": "fact:evt27:monza-tradeoff",
+      "subjectIds": [
+        "event:f1:italian-gp-2026"
+      ],
+      "statement": "Monza's full-throttle sections reward low drag, while heavy braking into its chicanes still demands stability.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:f1:monza-history-and-character"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-week1:locked-eight",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The 2026 finalists are Panthers, Warriors, Dolphins, Roosters, Sharks, Rabbitohs, Knights and Cowboys, while their seed order remained live.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:nrl:2026-top-eight-locked-0829"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-09-07T12:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-week1:two-paths",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The top four enter qualifying finals with a second chance, while fifth to eighth begin in sudden-death elimination finals.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:nrl:finals-format-explainer"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-week1:new-and-returning",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:dolphins",
+        "team:nrl:rabbitohs"
+      ],
+      "statement": "The Dolphins have reached their first NRL finals and South Sydney its first since 2022, while Brisbane's absence guarantees a new champion.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:nrl:2026-top-eight-locked-0829"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-week2:semifinal-path",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The qualifying-final losers host the elimination-final winners in Week 2, leaving all four clubs in sudden death.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:nrl:finals-format-explainer"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-week2:rest-versus-survival",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "Week 1 qualifying winners skip Week 2 and advance directly to preliminary finals, creating a rest-versus-continuity contrast.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:nrl:finals-format-explainer"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-week2:destination",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "Each semi-final winner moves within one victory of the Grand Final at Accor Stadium on 4 October.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:nrl:2026-grand-final"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-prelim:entry-path",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The two Week 1 qualifying-final winners return after a bye and meet the Week 2 semi-final winners.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:nrl:finals-format-explainer"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-prelim:single-game-consequence",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "Each preliminary final is sudden death: the winner reaches the Grand Final and the loser finishes one game short.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:nrl:finals-format-explainer"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-prelim:rest-versus-momentum",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The structural matchup is a rested qualifying winner against a semi-final survivor carrying consecutive knockout football.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:nrl:finals-format-explainer"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-prelim:warriors-history",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:warriors"
+      ],
+      "statement": "The Warriors are chasing a first premiership after Grand Final losses in 2002 and 2011, if they remain alive at this stage.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:nrl:2026-warriors-grand-final-history"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nrl-prelim:destination",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "statement": "The two preliminary-final winners advance to the NRL Grand Final at Accor Stadium on 4 October.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:nrl:2026-grand-final"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt30:setup-conflict",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026"
+      ],
+      "statement": "Baku demands precision and downforce through the narrow old town but low drag for its long straight, forcing a qualifying compromise.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt30:walls-and-grid",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026"
+      ],
+      "statement": "Street walls make small qualifying errors expensive even though the race's long straight later creates passing chances.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt30:title-state-not-frozen",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026",
+        "series:f1:2026"
+      ],
+      "statement": "Italy and Madrid precede Baku, so the championship leader and points gap must be refreshed rather than frozen from August.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:f1:2026-driver-standings-0830",
+        "source:fia:2026-calendar-current"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-09-25T12:00:00.000Z"
+    },
+    {
+      "id": "fact:evt31:distance",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026"
+      ],
+      "statement": "The Azerbaijan Grand Prix is scheduled for 51 laps and 306.049 kilometres around the 6.003-kilometre Baku City Circuit.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt31:passing-versus-walls",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026"
+      ],
+      "statement": "The long run to Turn 1 supports slipstream passing, while the old-town walls leave little recovery space.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:evt31:first-azerbaijan-upset",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026"
+      ],
+      "statement": "Baku first hosted Formula 1 in 2016, and the first Azerbaijan Grand Prix in 2017 produced Daniel Ricciardo's upset win.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:aus-rsa-perth:venue-and-trophy",
+      "subjectIds": [
+        "team:rugby:wallabies",
+        "team:rugby:springboks"
+      ],
+      "statement": "The Wallabies host the Springboks at Optus Stadium for the Mandela Plate, with South Africa entering as back-to-back world champion.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rugbyau:2026-home-test-venues"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:aus-rsa-perth:2025-split",
+      "subjectIds": [
+        "team:rugby:wallabies",
+        "team:rugby:springboks"
+      ],
+      "statement": "Australia won 38–22 at Ellis Park in 2025 before South Africa answered 30–22 in Cape Town a week later.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:rugbyau:2025-ellis-park-result",
+        "source:rugbyau:2025-cape-town-result"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:aus-rsa-perth:season-path",
+      "subjectIds": [
+        "team:rugby:wallabies"
+      ],
+      "statement": "The Perth Test precedes Australia's two Bledisloe matches and continues the build toward the 2027 home World Cup.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc-aus-nz:opening-match",
+      "subjectIds": [
+        "competition:rlwc:2026",
+        "team:rl:australia-kangaroos",
+        "team:rl:new-zealand-kiwis"
+      ],
+      "statement": "Australia and New Zealand open the men's World Cup at Allianz Stadium on 15 October.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:rlwc2026:fixtures-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc-aus-nz:recent-champions",
+      "subjectIds": [
+        "team:rl:australia-kangaroos",
+        "team:rl:new-zealand-kiwis"
+      ],
+      "statement": "Australia arrives as defending World Cup holder and 2025 Ashes winner, while New Zealand won the 2025 Pacific Cup.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:nrl:2026-kiwis-record-book-plan",
+        "source:nrl:2026-six-months-to-rlwc"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc-aus-nz:pool-path",
+      "subjectIds": [
+        "competition:rlwc:2026"
+      ],
+      "statement": "Australia and New Zealand share Pool A with Cook Islands and Fiji, with only the top two reaching the semi-finals.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rlwc2026:competition-rules",
+        "source:rlwc2026:fixtures-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc-aus-nz:2008-precedent",
+      "subjectIds": [
+        "team:rl:australia-kangaroos",
+        "team:rl:new-zealand-kiwis"
+      ],
+      "statement": "New Zealand lost the 2008 tournament opener to Australia but later beat the Kangaroos in the final, so opening night does not settle the arc.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:nrl:2026-kiwis-record-book-plan"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:bledisloe-sydney:second-test",
+      "subjectIds": [
+        "series:rugby:bledisloe-2026",
+        "team:rugby:wallabies",
+        "team:rugby:all-blacks"
+      ],
+      "statement": "The Accor Stadium Test is the second Bledisloe match, one week after Eden Park, and Australia's final home Test of 2026.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:bledisloe-sydney:stakes-depend-on-auckland",
+      "subjectIds": [
+        "series:rugby:bledisloe-2026"
+      ],
+      "statement": "Whether Sydney is a decider, a retention chance or a dead rubber depends on the first Test result and must not be assumed early.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-10-10T12:00:00.000Z"
+    },
+    {
+      "id": "fact:bledisloe-sydney:nz-long-hold",
+      "subjectIds": [
+        "series:rugby:bledisloe-2026",
+        "team:rugby:all-blacks"
+      ],
+      "statement": "New Zealand has held the Bledisloe Cup since 2003 and won both Tests in 2025.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:rugbyau:2025-bledisloe-auckland",
+        "source:rugbyau:2025-bledisloe-perth"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:bledisloe-sydney:same-ground-2027",
+      "subjectIds": [
+        "series:rugby:bledisloe-2026",
+        "team:rugby:wallabies",
+        "team:rugby:all-blacks"
+      ],
+      "statement": "Australia and New Zealand are scheduled to meet in the 2027 World Cup pool stage at the same Sydney stadium.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:rugbyau:2027-world-cup-pools"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:shahdag:current-window",
+      "subjectIds": [
+        "competition:fis:freestyle-world-cup",
+        "event:fis:shahdag-2027"
+      ],
+      "statement": "The current FIS calendar lists Shahdag competition from 5 to 7 March 2027.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fis:freestyle-calendar-2026-27"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2027-03-08T00:00:00.000Z"
+    },
+    {
+      "id": "fact:shahdag:programme",
+      "subjectIds": [
+        "competition:fis:freestyle-world-cup",
+        "event:fis:shahdag-2027"
+      ],
+      "statement": "The final stop currently includes women's and men's Moguls, Dual Moguls and Aerials.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:fis:freestyle-calendar-2026-27",
+        "source:fis:shahdag-2026-27-preview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:shahdag:season-path",
+      "subjectIds": [
+        "competition:fis:freestyle-world-cup"
+      ],
+      "statement": "FIS places seven Moguls, six Dual Moguls and six Aerials events before the Shahdag finale.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fis:shahdag-2026-27-preview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:shahdag:globe-consequence",
+      "subjectIds": [
+        "competition:fis:freestyle-world-cup"
+      ],
+      "statement": "FIS describes Shahdag as the season's final battle for the Crystal Globes.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fis:shahdag-2026-27-preview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:shahdag:2026-cancellation",
+      "subjectIds": [
+        "event:fis:shahdag-2027"
+      ],
+      "statement": "The planned 2026 final was cancelled when conditions, travel and airport capacity could not guarantee competition quality.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fis:shahdag-2026-cancellation"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc2026:scale",
+      "subjectIds": [
+        "competition:rlwc:2026"
+      ],
+      "statement": "The programme spans 31 days, 53 matches and 26 teams across men's, women's and wheelchair tournaments in three countries.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:rlwc2026:fixtures-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc2026:opening-and-finals",
+      "subjectIds": [
+        "competition:rlwc:2026"
+      ],
+      "statement": "The tournament opens with Australia against New Zealand, while the men's and women's finals are at Suncorp Stadium on 15 November.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:rlwc2026:fixtures-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc2026:parallel-tournaments",
+      "subjectIds": [
+        "competition:rlwc:2026"
+      ],
+      "statement": "The men's, women's and wheelchair World Cups run concurrently rather than as detached competitions.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:rlwc2026:fixtures-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc2026:qualification-paths",
+      "subjectIds": [
+        "competition:rlwc:2026"
+      ],
+      "statement": "Only the top two teams from men's Pool A and each women's pool advance to their semi-finals.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:rlwc2026:competition-rules"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:rlwc2026:current-champions",
+      "subjectIds": [
+        "competition:rlwc:2026",
+        "team:rl:australia-kangaroos",
+        "team:rl:new-zealand-kiwis"
+      ],
+      "statement": "Australia enters as defending men's champion and New Zealand as 2025 Pacific Cup champion.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:nrl:2026-kiwis-record-book-plan",
+        "source:nrl:2026-six-months-to-rlwc"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nations-2026:format",
+      "subjectIds": [
+        "competition:rugby:nations-championship-2026"
+      ],
+      "statement": "Six northern teams play six southern teams across July and November, with results forming separate North and South tables.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:sixnations:nations-2026-format-venues"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nations-2026:finals-pairings",
+      "subjectIds": [
+        "competition:rugby:nations-championship-2026"
+      ],
+      "statement": "Finals Weekend pairs matching table positions at Twickenham, with first against first deciding the title.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:sixnations:nations-2026-format-venues",
+        "source:sixnations:nations-2026-exact-schedule"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:nations-2026:tables",
+      "subjectIds": [
+        "competition:rugby:nations-championship-2026"
+      ],
+      "statement": "France led the provisional North table after July, while South Africa and New Zealand shared the lead in the South.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:worldrugby:nations-2026-tables"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z",
+      "expiresAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "fact:nations-2026:double-prize",
+      "subjectIds": [
+        "competition:rugby:nations-championship-2026"
+      ],
+      "statement": "The inaugural weekend awards a Nations Championship title and a Hemisphere Crown, so every placement match contributes.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:sixnations:nations-2026-trophy"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-knockout-2027:league-path",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "The league's top eight advance directly to the round of 16, ninth to 24th enter play-offs and the bottom 12 leave Europe.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-overview",
+        "source:uefa:ucl-new-format"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-knockout-2027:seeding",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Teams ninth to 16th are seeded against 17th to 24th in the play-offs and in principle host the second leg.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:uefa:ucl-new-format"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-knockout-2027:calendar",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "The knockout play-offs begin on 16 and 17 February, and the season ends with the 5 June final in Madrid.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-overview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-knockout-2027:madrid-final",
+      "subjectIds": [
+        "competition:football:uefa-champions-league"
+      ],
+      "statement": "Estadio Metropolitano will host Madrid's sixth European Cup or Champions League final and the stadium's second.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-overview"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ucl-knockout-2027:holders",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:paris-saint-germain"
+      ],
+      "statement": "Paris enters as back-to-back champion, making a third consecutive title a valid season thread rather than a forecast.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:uefa:ucl-paris-back-to-back"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ao2027:three-week-window",
+      "subjectIds": [
+        "competition:tennis:australian-open"
+      ],
+      "statement": "Melbourne Park runs Opening Week from 11 to 16 January and the main draw from 17 to 31 January.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:ao:2027-dates-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ao2027:finals-dates",
+      "subjectIds": [
+        "competition:tennis:australian-open"
+      ],
+      "statement": "The women's singles final is scheduled for 30 January and the men's singles final for 31 January.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:ao:2027-dates-announced"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ao2027:alcaraz-defence",
+      "subjectIds": [
+        "competition:tennis:australian-open",
+        "athlete:tennis:carlos-alcaraz"
+      ],
+      "statement": "Carlos Alcaraz will be defending the men's title after becoming the youngest man to complete a career Grand Slam in 2026.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:ao:2026-alcaraz-title"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ao2027:rybakina-defence",
+      "subjectIds": [
+        "competition:tennis:australian-open"
+      ],
+      "statement": "Elena Rybakina will be defending the women's title after winning her first Australian Open and second major in 2026.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:ao:2026-rybakina-title"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ao2027:record-demand",
+      "subjectIds": [
+        "competition:tennis:australian-open"
+      ],
+      "statement": "The 2026 event drew more than 1.36 million visits, and first-week Ground Pass allocations for 2027 are capped.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:ao:2027-ticket-sale"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ausgp-2027:return-confirmed",
+      "subjectIds": [
+        "event:f1:australian-gp-2027"
+      ],
+      "statement": "The Australian Grand Prix Corporation confirms Formula 1 will return to Albert Park in 2027.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:agpc:2027-interest"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ausgp-2027:date-unconfirmed",
+      "subjectIds": [
+        "event:f1:australian-gp-2027"
+      ],
+      "statement": "The organiser's travel guidance says the 2027 event is still awaiting an official date.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:agpc:2027-travel-faq"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ausgp-2027:tickets-waitlist",
+      "subjectIds": [
+        "event:f1:australian-gp-2027"
+      ],
+      "statement": "Registration is open, but event packages and prices will be published later.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:agpc:2027-interest",
+        "source:agpc:2027-travel-faq"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ausgp:melbourne-through-2035",
+      "subjectIds": [
+        "event:f1:australian-gp-2027"
+      ],
+      "statement": "Melbourne's Formula 1 hosting agreement runs through 2035.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:f1:melbourne-contract-2035"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "fact:ausgp:track-character",
+      "subjectIds": [
+        "event:f1:australian-gp-2027"
+      ],
+      "statement": "Albert Park is a fast temporary public-road circuit that gains grip through the weekend and rewards a responsive front end.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:f1:albert-park-circuit"
+      ],
+      "observedAt": "2026-08-30T06:00:00.000Z"
+    }
   ],
   "narrativeThreads": [
     {
       "id": "thread:tennis:cincinnati:gauff-fils-2026-aftermath",
-      "subjectIds": ["competition:tennis:cincinnati-open", "athlete:tennis:arthur-fils", "athlete:tennis:coco-gauff"],
+      "subjectIds": [
+        "competition:tennis:cincinnati-open",
+        "athlete:tennis:arthur-fils",
+        "athlete:tennis:coco-gauff"
+      ],
       "title": "Two title runs leave Cincinnati",
       "summary": "Cincinnati closed with two useful career markers rather than a generic lead-in to New York: Arthur Fils returned from a long absence to claim his first Masters 1000 title, while Coco Gauff's second Cincinnati crown revived the precedent of her 2023 Cincinnati-to-US Open run without pretending that history will repeat.",
-      "factIds": ["fact:cincinnati-2026:level-and-place", "fact:cincinnati-2026:fils-title", "fact:cincinnati-2026:french-drought", "fact:cincinnati-2026:gauff-title"],
+      "factIds": [
+        "fact:cincinnati-2026:level-and-place",
+        "fact:cincinnati-2026:fils-title",
+        "fact:cincinnati-2026:french-drought",
+        "fact:cincinnati-2026:gauff-title"
+      ],
       "status": "resolved",
       "updatedAt": "2026-08-29T19:30:00.000Z"
     },
     {
       "id": "thread:tennis:us-open-2026:defenders-open-draw",
-      "subjectIds": ["competition:tennis:us-open", "athlete:tennis:carlos-alcaraz", "athlete:tennis:alexander-zverev", "athlete:tennis:aryna-sabalenka"],
+      "subjectIds": [
+        "competition:tennis:us-open",
+        "athlete:tennis:carlos-alcaraz",
+        "athlete:tennis:alexander-zverev",
+        "athlete:tennis:aryna-sabalenka"
+      ],
       "title": "A redrawn men's field and Sabalenka's three-peat",
       "summary": "The singles draws open with two distinct pressure lines. Sinner's withdrawal has reset the men's seeding and crowded every former champion into the bottom half, while Sabalenka begins a bid for three straight New York titles. The American men's 23-year home drought remains a separate, persistent measure of the fortnight.",
-      "factIds": ["fact:us-open-2026:stage", "fact:us-open-2026:mens-draw-reset", "fact:us-open-2026:mens-bottom-half", "fact:us-open-2026:sabalenka-threepeat", "fact:us-open-2026:american-drought"],
+      "factIds": [
+        "fact:us-open-2026:stage",
+        "fact:us-open-2026:mens-draw-reset",
+        "fact:us-open-2026:mens-bottom-half",
+        "fact:us-open-2026:sabalenka-threepeat",
+        "fact:us-open-2026:american-drought"
+      ],
       "status": "active",
       "updatedAt": "2026-08-29T19:30:00.000Z"
     },
     {
       "id": "thread:afl:finals-2026:first-wildcard-road",
-      "subjectIds": ["series:afl:finals-2026", "team:afl:carlton", "team:afl:western-bulldogs", "athlete:afl:arty-jones"],
+      "subjectIds": [
+        "series:afl:finals-2026",
+        "team:afl:carlton",
+        "team:afl:western-bulldogs",
+        "athlete:afl:arty-jones"
+      ],
       "title": "The first wildcard survivors enter the final eight",
       "summary": "The AFL's first wildcard weekend did more than add two matches. Carlton converted a recovery from 1–8 into a place in the final eight, and the Bulldogs survived by three points behind four goals from first-final player Arty Jones. Both now enter sudden-death week-two matches while the top-six sides begin their own routes to the MCG.",
-      "factIds": ["fact:afl-finals-2026:new-format", "fact:afl-finals-2026:wildcard-results", "fact:afl-finals-2026:week-two-path", "fact:afl-finals-2026:carlton-revival", "fact:afl-finals-2026:bulldogs-jones", "fact:afl-finals-2026:destination"],
+      "factIds": [
+        "fact:afl-finals-2026:new-format",
+        "fact:afl-finals-2026:wildcard-results",
+        "fact:afl-finals-2026:week-two-path",
+        "fact:afl-finals-2026:carlton-revival",
+        "fact:afl-finals-2026:bulldogs-jones",
+        "fact:afl-finals-2026:destination"
+      ],
       "status": "active",
       "updatedAt": "2026-08-29T19:30:00.000Z"
     },
     {
       "id": "thread:nrl:finals-2026:locked-eight-open-order",
-      "subjectIds": ["series:nrl:finals-2026", "team:nrl:warriors", "team:nrl:dolphins", "team:nrl:rabbitohs"],
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:warriors",
+        "team:nrl:dolphins",
+        "team:nrl:rabbitohs"
+      ],
       "title": "Eight finalists locked, but their routes remain open",
       "summary": "The NRL finalists are known before their seeding is. Penrith has secured a top-two finish, South Sydney is back in September for the first time since 2022, and the Dolphins have reached the finals for the first time. Brisbane's absence guarantees a new champion, with the field eventually narrowing to the 4 October decider at Accor Stadium.",
-      "factIds": ["fact:nrl-finals-2026:locked-eight", "fact:nrl-finals-2026:top-four-race", "fact:nrl-finals-2026:rabbitohs-return", "fact:nrl-finals-2026:newcomer-new-champion", "fact:nrl-finals-2026:warriors-chase", "fact:nrl-finals-2026:destination"],
+      "factIds": [
+        "fact:nrl-finals-2026:locked-eight",
+        "fact:nrl-finals-2026:top-four-race",
+        "fact:nrl-finals-2026:rabbitohs-return",
+        "fact:nrl-finals-2026:newcomer-new-champion",
+        "fact:nrl-finals-2026:warriors-chase",
+        "fact:nrl-finals-2026:destination"
+      ],
       "status": "active",
       "updatedAt": "2026-08-29T19:30:00.000Z"
     },
     {
       "id": "thread:football:ucl-2026-27:qualification-road",
-      "subjectIds": ["competition:football:uefa-champions-league", "team:football:lask"],
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:lask"
+      ],
       "title": "Seven survivors complete the league-phase field",
       "summary": "Qualification supplied the last seven clubs in the 36-team Champions League field and left a persistent set of survival stories. LASK owns the sharpest: a 3–0 first-leg deficit became a 5–4 aggregate win and the club's first Champions League place. Those qualifiers now carry their path directly into the league-phase schedule.",
-      "factIds": ["fact:ucl-qualifying-2026-27:window", "fact:ucl-qualifying-2026-27:seven-places", "fact:ucl-qualifying-2026-27:survivors", "fact:ucl-qualifying-2026-27:lask-comeback", "fact:ucl-qualifying-2026-27:extra-time-survival"],
+      "factIds": [
+        "fact:ucl-qualifying-2026-27:window",
+        "fact:ucl-qualifying-2026-27:seven-places",
+        "fact:ucl-qualifying-2026-27:survivors",
+        "fact:ucl-qualifying-2026-27:lask-comeback",
+        "fact:ucl-qualifying-2026-27:extra-time-survival"
+      ],
       "status": "resolved",
       "updatedAt": "2026-08-29T19:30:00.000Z"
     },
     {
       "id": "thread:football:ucl-2026-27:league-phase",
-      "subjectIds": ["competition:football:uefa-champions-league", "team:football:lask", "team:football:paris-saint-germain"],
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:lask",
+        "team:football:paris-saint-germain"
+      ],
       "title": "Qualification stories meet a 144-match title defence",
       "summary": "The 36-team league phase begins by carrying its qualifying stories forward, including an opening-night meeting between AEK Athens and LASK. Over eight different opponents and 144 matches, those new arrivals share the field with Paris Saint-Germain's pursuit of a third consecutive title before the table is settled by 18 simultaneous matches in January.",
-      "factIds": ["fact:ucl-league-2026-27:scale", "fact:ucl-league-2026-27:draw-logic", "fact:ucl-league-2026-27:calendar", "fact:ucl-league-2026-27:opening-bridge", "fact:ucl-league-2026-27:holders", "fact:ucl-league-2026-27:new-ground", "fact:ucl-league-2026-27:destination"],
+      "factIds": [
+        "fact:ucl-league-2026-27:scale",
+        "fact:ucl-league-2026-27:draw-logic",
+        "fact:ucl-league-2026-27:calendar",
+        "fact:ucl-league-2026-27:opening-bridge",
+        "fact:ucl-league-2026-27:holders",
+        "fact:ucl-league-2026-27:new-ground",
+        "fact:ucl-league-2026-27:destination"
+      ],
       "status": "active",
       "updatedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "id": "thread:f1:2026:norris-late-summer-charge",
+      "subjectIds": [
+        "series:f1:2026",
+        "athlete:f1:lando-norris",
+        "athlete:f1:kimi-antonelli"
+      ],
+      "title": "Norris closes on Antonelli",
+      "summary": "Norris's consecutive victories have changed the late-summer pressure around championship leader Antonelli. Zandvoort resolved one race and Monza opens the next chapter at Antonelli's home event.",
+      "factIds": [
+        "fact:evt25:norris-second-straight-win",
+        "fact:evt25:antonelli-pass",
+        "fact:evt27:antonelli-home-leader",
+        "fact:evt27:norris-momentum"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:f1:zandvoort:final-race",
+      "subjectIds": [
+        "event:f1:dutch-gp-2026",
+        "athlete:f1:lando-norris"
+      ],
+      "title": "The last scheduled Zandvoort race",
+      "summary": "The completed Dutch Grand Prix combines a late pass, a second consecutive Norris win and the finality of Formula 1's last scheduled Zandvoort weekend without pretending the circuit can never return.",
+      "factIds": [
+        "fact:evt25:norris-second-straight-win",
+        "fact:evt25:antonelli-pass",
+        "fact:evt25:last-zandvoort"
+      ],
+      "status": "resolved",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rugby:wallabies:2026-argentina-two-test-tour",
+      "subjectIds": [
+        "series:rugby:wallabies-argentina-2026",
+        "team:rugby:wallabies",
+        "team:rugby:argentina"
+      ],
+      "title": "A seven-day Argentina series",
+      "summary": "Australia enters the first Test with form and a reshaped pack, while the second Test remains an explicit response chapter whose sweep, split or recovery stakes cannot be known before Jujuy finishes.",
+      "factIds": [
+        "fact:arg-aus-jujuy:wallabies-form",
+        "fact:arg-aus-jujuy:pack-reset",
+        "fact:arg-aus-jujuy:recent-rivalry",
+        "fact:arg-aus-mendoza:two-test-consequence",
+        "fact:arg-aus-mendoza:tour-bridge",
+        "fact:arg-aus-mendoza:official-time"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:f1:monza:home-pressure",
+      "subjectIds": [
+        "event:f1:italian-gp-2026",
+        "athlete:f1:kimi-antonelli",
+        "athlete:f1:lando-norris"
+      ],
+      "title": "Antonelli brings the lead home",
+      "summary": "The Italian Grand Prix places championship leader Antonelli before a home crowd just as Norris arrives with consecutive victories. Monza's low-drag and braking compromise gives that title tension a circuit-specific test.",
+      "factIds": [
+        "fact:evt27:antonelli-home-leader",
+        "fact:evt27:norris-momentum",
+        "fact:evt27:monza-tradeoff"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:nrl:finals-2026:week-one-paths",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "title": "Eight teams split into two finals paths",
+      "summary": "The 2026 finalists are known before their precise order. Week 1 separates the double-chance route from sudden death while the Dolphins' first finals and South Sydney's return make the bracket more than a timetable.",
+      "factIds": [
+        "fact:nrl-week1:locked-eight",
+        "fact:nrl-week1:two-paths",
+        "fact:nrl-week1:new-and-returning"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:nrl:finals-2026:week-two-sudden-death",
+      "subjectIds": [
+        "series:nrl:finals-2026"
+      ],
+      "title": "Week 2 removes every safety net",
+      "summary": "The qualifying losers meet the elimination winners in two sudden-death semi-finals. The teams are not yet known, but the path is: survive and move within one match of Accor Stadium.",
+      "factIds": [
+        "fact:nrl-week2:semifinal-path",
+        "fact:nrl-week2:rest-versus-survival",
+        "fact:nrl-week2:destination"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:nrl:finals-2026:one-win-from-accor",
+      "subjectIds": [
+        "series:nrl:finals-2026",
+        "team:nrl:warriors"
+      ],
+      "title": "One win from Accor Stadium",
+      "summary": "Rested qualifying winners meet the Week 2 survivors in sudden-death preliminary finals. Team-specific arcs remain conditional, including the Warriors' pursuit of a first premiership.",
+      "factIds": [
+        "fact:nrl-prelim:entry-path",
+        "fact:nrl-prelim:single-game-consequence",
+        "fact:nrl-prelim:rest-versus-momentum",
+        "fact:nrl-prelim:warriors-history",
+        "fact:nrl-prelim:destination"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:f1:baku:risk-reward",
+      "subjectIds": [
+        "event:f1:azerbaijan-gp-2026",
+        "series:f1:2026"
+      ],
+      "title": "Baku's walls and passing straight",
+      "summary": "Qualifying and race day share one persistent circuit tension: low drag and slipstream opportunity on the long straight against precision and damage risk through the narrow old town.",
+      "factIds": [
+        "fact:evt30:setup-conflict",
+        "fact:evt30:walls-and-grid",
+        "fact:evt30:title-state-not-frozen",
+        "fact:evt31:distance",
+        "fact:evt31:passing-versus-walls",
+        "fact:evt31:first-azerbaijan-upset"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rugby:wallabies:2026-mandela-plate",
+      "subjectIds": [
+        "team:rugby:wallabies",
+        "team:rugby:springboks"
+      ],
+      "title": "The Mandela Plate reaches Perth",
+      "summary": "Australia and South Africa bring a recently split two-Test history to Optus Stadium. The Perth fixture also sits immediately before the Wallabies' Bledisloe block and inside the longer 2027 home World Cup build.",
+      "factIds": [
+        "fact:aus-rsa-perth:venue-and-trophy",
+        "fact:aus-rsa-perth:2025-split",
+        "fact:aus-rsa-perth:season-path"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rlwc:2026:kangaroos-kiwis-opener",
+      "subjectIds": [
+        "competition:rlwc:2026",
+        "team:rl:australia-kangaroos",
+        "team:rl:new-zealand-kiwis"
+      ],
+      "title": "Champions meet on opening night",
+      "summary": "The men's World Cup begins with the defending champion against the Pacific Cup winner. The opener shapes a four-team pool in which only two sides advance, but history warns against treating it as the whole tournament.",
+      "factIds": [
+        "fact:rlwc-aus-nz:opening-match",
+        "fact:rlwc-aus-nz:recent-champions",
+        "fact:rlwc-aus-nz:pool-path",
+        "fact:rlwc-aus-nz:2008-precedent"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rugby:bledisloe:2026-two-test-series",
+      "subjectIds": [
+        "series:rugby:bledisloe-2026",
+        "team:rugby:wallabies",
+        "team:rugby:all-blacks"
+      ],
+      "title": "Sydney depends on Auckland",
+      "summary": "The second Bledisloe Test closes Australia's home season, but its immediate trophy stakes depend on the Eden Park opener. The same Sydney ground then carries the rivalry into a 2027 World Cup pool match.",
+      "factIds": [
+        "fact:bledisloe-sydney:second-test",
+        "fact:bledisloe-sydney:stakes-depend-on-auckland",
+        "fact:bledisloe-sydney:nz-long-hold",
+        "fact:bledisloe-sydney:same-ground-2027"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:fis-freestyle:2026-27:shahdag-crystal-globes",
+      "subjectIds": [
+        "competition:fis:freestyle-world-cup",
+        "event:fis:shahdag-2027"
+      ],
+      "title": "Shahdag's return decides the globes",
+      "summary": "The corrected 5–7 March programme is the last scheduled Moguls, Dual Moguls and Aerials stop. It returns to the venue whose previous final was cancelled, with the Crystal Globes as the consequence rather than a generic season close.",
+      "factIds": [
+        "fact:shahdag:current-window",
+        "fact:shahdag:programme",
+        "fact:shahdag:season-path",
+        "fact:shahdag:globe-consequence",
+        "fact:shahdag:2026-cancellation"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rlwc:2026:three-tournaments-one-world-cup",
+      "subjectIds": [
+        "competition:rlwc:2026"
+      ],
+      "title": "Three World Cups run together",
+      "summary": "The 2026 programme joins men's, women's and wheelchair tournaments across 53 matches and 31 days. Its opening champions' matchup starts a pool path that ends with three finals across Brisbane and Wollongong.",
+      "factIds": [
+        "fact:rlwc2026:scale",
+        "fact:rlwc2026:opening-and-finals",
+        "fact:rlwc2026:parallel-tournaments",
+        "fact:rlwc2026:qualification-paths",
+        "fact:rlwc2026:current-champions"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:rugby:nations-championship-2026:twickenham-finals",
+      "subjectIds": [
+        "competition:rugby:nations-championship-2026"
+      ],
+      "title": "Every Twickenham placement counts",
+      "summary": "The inaugural finals pair matching positions from separate hemisphere tables. First against first decides the title, while all six matches contribute to the Hemisphere Crown across 27–29 November.",
+      "factIds": [
+        "fact:nations-2026:format",
+        "fact:nations-2026:finals-pairings",
+        "fact:nations-2026:tables",
+        "fact:nations-2026:double-prize"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:football:ucl-2026-27:league-to-knockout",
+      "subjectIds": [
+        "competition:football:uefa-champions-league",
+        "team:football:paris-saint-germain"
+      ],
+      "title": "League position shapes February",
+      "summary": "The 36-team league does more than select survivors: its top eight skip February, the next 16 enter seeded play-offs and the bottom 12 leave Europe before the road to Madrid narrows.",
+      "factIds": [
+        "fact:ucl-knockout-2027:league-path",
+        "fact:ucl-knockout-2027:seeding",
+        "fact:ucl-knockout-2027:calendar",
+        "fact:ucl-knockout-2027:madrid-final",
+        "fact:ucl-knockout-2027:holders"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:tennis:ao-2027:defenders-and-challengers",
+      "subjectIds": [
+        "competition:tennis:australian-open",
+        "athlete:tennis:carlos-alcaraz"
+      ],
+      "title": "Two first-time champions return",
+      "summary": "The Australian Open's three-week Melbourne programme returns with Alcaraz and Rybakina carrying their first Australian titles into draws that are not yet known, after a record-scale 2026 event.",
+      "factIds": [
+        "fact:ao2027:three-week-window",
+        "fact:ao2027:finals-dates",
+        "fact:ao2027:alcaraz-defence",
+        "fact:ao2027:rybakina-defence",
+        "fact:ao2027:record-demand"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
+    },
+    {
+      "id": "thread:f1:australian-gp-2027:date-watch",
+      "subjectIds": [
+        "event:f1:australian-gp-2027"
+      ],
+      "title": "Melbourne is confirmed, the date is not",
+      "summary": "Formula 1's return to Albert Park is secured by a long hosting agreement, but the 2027 date and ticket release remain unconfirmed. Circuit character is durable context without inventing a race weekend.",
+      "factIds": [
+        "fact:ausgp-2027:return-confirmed",
+        "fact:ausgp-2027:date-unconfirmed",
+        "fact:ausgp-2027:tickets-waitlist",
+        "fact:ausgp:melbourne-through-2035",
+        "fact:ausgp:track-character"
+      ],
+      "status": "active",
+      "updatedAt": "2026-08-30T06:00:00.000Z"
     }
   ],
+  "audienceMemories": [],
   "eventProjections": [
     {
       "id": "projection:major:cincinnati-open-2026",
       "targetType": "major-event",
-      "targetIds": ["major-event:cincinnati-open-2026"],
+      "targetIds": [
+        "major-event:cincinnati-open-2026"
+      ],
       "stakes": 5,
       "hook": "Fils left Cincinnati with a first Masters 1000 title, while Gauff's second crown reopened a proven road from Ohio to New York.",
       "synopsis": "Arthur Fils returned from a long absence to become the youngest French Masters 1000 champion of the series era. Coco Gauff won Cincinnati for the second time and carried a genuine continuity line into the US Open: her first Cincinnati title in 2023 immediately preceded her first major, a precedent rather than a prediction.",
-      "threadIds": ["thread:tennis:cincinnati:gauff-fils-2026-aftermath"],
-      "factIds": ["fact:cincinnati-2026:level-and-place", "fact:cincinnati-2026:fils-title", "fact:cincinnati-2026:french-drought", "fact:cincinnati-2026:gauff-title"],
-      "sourceIds": ["source:cincinnati:about", "source:cincinnati:fils-final", "source:cincinnati:gauff-final"],
+      "threadIds": [
+        "thread:tennis:cincinnati:gauff-fils-2026-aftermath"
+      ],
+      "factIds": [
+        "fact:cincinnati-2026:level-and-place",
+        "fact:cincinnati-2026:fils-title",
+        "fact:cincinnati-2026:french-drought",
+        "fact:cincinnati-2026:gauff-title"
+      ],
+      "sourceIds": [
+        "source:cincinnati:about",
+        "source:cincinnati:fils-final",
+        "source:cincinnati:gauff-final"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": null,
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
     },
     {
       "id": "projection:major:us-open-2026",
       "targetType": "major-event",
-      "targetIds": ["major-event:us-open-2026"],
+      "targetIds": [
+        "major-event:us-open-2026"
+      ],
       "stakes": 5,
       "hook": "Sinner's withdrawal has redrawn the men's contest, while Sabalenka starts a bid to join the US Open's three-peat company.",
       "synopsis": "Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-      "threadIds": ["thread:tennis:us-open-2026:defenders-open-draw"],
-      "factIds": ["fact:us-open-2026:stage", "fact:us-open-2026:mens-draw-reset", "fact:us-open-2026:mens-bottom-half", "fact:us-open-2026:sabalenka-threepeat", "fact:us-open-2026:american-drought"],
-      "sourceIds": ["source:us-open:2026-schedule", "source:us-open:2026-mens-draw", "source:us-open:2026-sabalenka", "source:us-open:2026-american-men"],
+      "threadIds": [
+        "thread:tennis:us-open-2026:defenders-open-draw"
+      ],
+      "factIds": [
+        "fact:us-open-2026:stage",
+        "fact:us-open-2026:mens-draw-reset",
+        "fact:us-open-2026:mens-bottom-half",
+        "fact:us-open-2026:sabalenka-threepeat",
+        "fact:us-open-2026:american-drought"
+      ],
+      "sourceIds": [
+        "source:us-open:2026-schedule",
+        "source:us-open:2026-mens-draw",
+        "source:us-open:2026-sabalenka",
+        "source:us-open:2026-american-men"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": "2026-08-31T12:00:00.000Z",
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
     },
     {
       "id": "projection:major:afl-finals-2026",
       "targetType": "major-event",
-      "targetIds": ["major-event:afl-finals-series-2026"],
+      "targetIds": [
+        "major-event:afl-finals-series-2026"
+      ],
       "stakes": 5,
       "hook": "The first wildcard weekend has turned Carlton's 1–8 recovery and Arty Jones' breakout into two sudden-death paths through September.",
       "synopsis": "Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-      "threadIds": ["thread:afl:finals-2026:first-wildcard-road"],
-      "factIds": ["fact:afl-finals-2026:new-format", "fact:afl-finals-2026:wildcard-results", "fact:afl-finals-2026:week-two-path", "fact:afl-finals-2026:carlton-revival", "fact:afl-finals-2026:bulldogs-jones", "fact:afl-finals-2026:destination"],
-      "sourceIds": ["source:afl:2026-wildcard-format", "source:afl:2026-bulldogs-wildcard", "source:afl:2026-arty-jones", "source:afl:2026-carlton-wildcard", "source:afl:2026-week-two", "source:afl:2026-grand-final-time"],
+      "threadIds": [
+        "thread:afl:finals-2026:first-wildcard-road"
+      ],
+      "factIds": [
+        "fact:afl-finals-2026:new-format",
+        "fact:afl-finals-2026:wildcard-results",
+        "fact:afl-finals-2026:week-two-path",
+        "fact:afl-finals-2026:carlton-revival",
+        "fact:afl-finals-2026:bulldogs-jones",
+        "fact:afl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:afl:2026-wildcard-format",
+        "source:afl:2026-bulldogs-wildcard",
+        "source:afl:2026-arty-jones",
+        "source:afl:2026-carlton-wildcard",
+        "source:afl:2026-week-two",
+        "source:afl:2026-grand-final-time"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": "2026-09-03T10:00:00.000Z",
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
     },
     {
       "id": "projection:major:nrl-finals-2026",
       "targetType": "major-event",
-      "targetIds": ["major-event:nrl-finals-series-2026"],
+      "targetIds": [
+        "major-event:nrl-finals-series-2026"
+      ],
       "stakes": 5,
       "hook": "The finalists are locked, but an unsettled top four means eight known teams still do not know the shape of their September road.",
       "synopsis": "Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-      "threadIds": ["thread:nrl:finals-2026:locked-eight-open-order"],
-      "factIds": ["fact:nrl-finals-2026:locked-eight", "fact:nrl-finals-2026:top-four-race", "fact:nrl-finals-2026:rabbitohs-return", "fact:nrl-finals-2026:newcomer-new-champion", "fact:nrl-finals-2026:warriors-chase", "fact:nrl-finals-2026:destination"],
-      "sourceIds": ["source:nrl:2026-locked-eight", "source:nrl:2026-warriors", "source:nrl:2026-grand-final", "source:nrl:2026-season"],
+      "threadIds": [
+        "thread:nrl:finals-2026:locked-eight-open-order"
+      ],
+      "factIds": [
+        "fact:nrl-finals-2026:locked-eight",
+        "fact:nrl-finals-2026:top-four-race",
+        "fact:nrl-finals-2026:rabbitohs-return",
+        "fact:nrl-finals-2026:newcomer-new-champion",
+        "fact:nrl-finals-2026:warriors-chase",
+        "fact:nrl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:nrl:2026-locked-eight",
+        "source:nrl:2026-warriors",
+        "source:nrl:2026-grand-final",
+        "source:nrl:2026-season"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": "2026-09-01T12:00:00.000Z",
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
     },
     {
       "id": "projection:feed:nrl-preliminary-finals-2026",
       "targetType": "feed-event",
-      "targetIds": ["evt_83"],
+      "targetIds": [
+        "evt_83"
+      ],
       "stakes": 5,
-      "hook": "A locked final eight containing first-time Dolphins must survive two rounds before the preliminary finals decide who reaches Accor Stadium.",
-      "synopsis": "The NRL field is known before its full route is. Penrith has secured a top-two finish, South Sydney is back after missing September since 2022, and the Dolphins have qualified for the first time. The preliminary-final pairings remain deliberately unresolved until official seeding and earlier finals results determine them.",
-      "threadIds": ["thread:nrl:finals-2026:locked-eight-open-order"],
-      "factIds": ["fact:nrl-finals-2026:locked-eight", "fact:nrl-finals-2026:top-four-race", "fact:nrl-finals-2026:rabbitohs-return", "fact:nrl-finals-2026:newcomer-new-champion", "fact:nrl-finals-2026:warriors-chase", "fact:nrl-finals-2026:destination"],
-      "sourceIds": ["source:nrl:2026-locked-eight", "source:nrl:2026-warriors", "source:nrl:2026-grand-final", "source:nrl:2026-season"],
-      "researchedAt": "2026-08-29T19:30:00.000Z",
-      "refreshAfter": "2026-09-01T12:00:00.000Z",
+      "hook": "One win from Accor: rested qualifying winners meet the teams that survived the sudden-death middle week.",
+      "synopsis": "The preliminary finals join two paths: Week 1 qualifying winners return from a bye against teams that have survived the semi-finals. Both games are sudden death, team-specific stories remain conditional, and the winners reach the 4 October Grand Final.",
+      "threadIds": [
+        "thread:nrl:finals-2026:locked-eight-open-order",
+        "thread:nrl:finals-2026:one-win-from-accor"
+      ],
+      "factIds": [
+        "fact:nrl-prelim:entry-path",
+        "fact:nrl-prelim:single-game-consequence",
+        "fact:nrl-prelim:rest-versus-momentum",
+        "fact:nrl-prelim:warriors-history",
+        "fact:nrl-prelim:destination"
+      ],
+      "sourceIds": [
+        "source:nrl:finals-format-explainer",
+        "source:nrl:2026-top-eight-locked-0829",
+        "source:nrl:2026-warriors-grand-final-history",
+        "source:nrl:2026-grand-final"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-21T12:00:00.000Z",
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
     },
     {
       "id": "projection:feed:nrl-grand-final-2026",
       "targetType": "feed-event",
-      "targetIds": ["evt_84"],
+      "targetIds": [
+        "evt_84"
+      ],
       "stakes": 5,
       "hook": "Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight.",
       "synopsis": "The 4 October decider will crown a different champion after reigning premier Brisbane missed the finals. The Dolphins have made the eight for the first time, South Sydney is back for the first time since 2022, and the Warriors are still chasing the club's first premiership after Grand Final defeats in 2002 and 2011.",
-      "threadIds": ["thread:nrl:finals-2026:locked-eight-open-order"],
-      "factIds": ["fact:nrl-finals-2026:locked-eight", "fact:nrl-finals-2026:top-four-race", "fact:nrl-finals-2026:rabbitohs-return", "fact:nrl-finals-2026:newcomer-new-champion", "fact:nrl-finals-2026:warriors-chase", "fact:nrl-finals-2026:destination"],
-      "sourceIds": ["source:nrl:2026-locked-eight", "source:nrl:2026-warriors", "source:nrl:2026-grand-final", "source:nrl:2026-season"],
+      "threadIds": [
+        "thread:nrl:finals-2026:locked-eight-open-order"
+      ],
+      "factIds": [
+        "fact:nrl-finals-2026:locked-eight",
+        "fact:nrl-finals-2026:top-four-race",
+        "fact:nrl-finals-2026:rabbitohs-return",
+        "fact:nrl-finals-2026:newcomer-new-champion",
+        "fact:nrl-finals-2026:warriors-chase",
+        "fact:nrl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:nrl:2026-locked-eight",
+        "source:nrl:2026-warriors",
+        "source:nrl:2026-grand-final",
+        "source:nrl:2026-season"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": "2026-09-01T12:00:00.000Z",
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
     },
     {
       "id": "projection:major:ucl-qualification-2026-27",
       "targetType": "major-event",
-      "targetIds": ["major-event:uefa-champions-league-2026-27:qualification"],
+      "targetIds": [
+        "major-event:uefa-champions-league-2026-27:qualification"
+      ],
       "stakes": 5,
       "hook": "LASK's five-goal comeback from a 3–0 first-leg deficit supplied the defining route into a seven-club qualifying class.",
       "synopsis": "Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
-      "threadIds": ["thread:football:ucl-2026-27:qualification-road"],
-      "factIds": ["fact:ucl-qualifying-2026-27:window", "fact:ucl-qualifying-2026-27:seven-places", "fact:ucl-qualifying-2026-27:survivors", "fact:ucl-qualifying-2026-27:lask-comeback", "fact:ucl-qualifying-2026-27:extra-time-survival"],
-      "sourceIds": ["source:uefa:ucl-2026-27-qualifying", "source:uefa:ucl-2026-27-teams", "source:uefa:ucl-2026-27-opponents"],
+      "threadIds": [
+        "thread:football:ucl-2026-27:qualification-road"
+      ],
+      "factIds": [
+        "fact:ucl-qualifying-2026-27:window",
+        "fact:ucl-qualifying-2026-27:seven-places",
+        "fact:ucl-qualifying-2026-27:survivors",
+        "fact:ucl-qualifying-2026-27:lask-comeback",
+        "fact:ucl-qualifying-2026-27:extra-time-survival"
+      ],
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-qualifying",
+        "source:uefa:ucl-2026-27-teams",
+        "source:uefa:ucl-2026-27-opponents"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": null,
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
     },
     {
       "id": "projection:major:ucl-league-phase-2026-27",
       "targetType": "major-event",
-      "targetIds": ["major-event:uefa-champions-league-2026-27:league-phase"],
+      "targetIds": [
+        "major-event:uefa-champions-league-2026-27:league-phase"
+      ],
       "stakes": 5,
       "hook": "AEK and LASK carry qualification straight into opening night, as Paris begins a rare chase for a third consecutive title.",
       "synopsis": "The league phase asks each of 36 clubs to face eight different opponents across 144 matches. AEK Athens v LASK opens a direct line from qualification, while first-time Champions League entrant LASK and first-time European participant Como enter the same table as back-to-back champion Paris Saint-Germain. The opening story is continuity, not a blank group-stage reset.",
-      "threadIds": ["thread:football:ucl-2026-27:qualification-road", "thread:football:ucl-2026-27:league-phase"],
-      "factIds": ["fact:ucl-league-2026-27:scale", "fact:ucl-league-2026-27:draw-logic", "fact:ucl-league-2026-27:calendar", "fact:ucl-league-2026-27:opening-bridge", "fact:ucl-league-2026-27:holders", "fact:ucl-league-2026-27:new-ground", "fact:ucl-league-2026-27:destination"],
-      "sourceIds": ["source:uefa:ucl-2026-27-draw", "source:uefa:ucl-2026-27-opponents", "source:uefa:ucl-2026-27-fixtures", "source:uefa:ucl-2026-27-holders", "source:uefa:ucl-2026-27-teams", "source:uefa:ucl-2026-27-season"],
+      "threadIds": [
+        "thread:football:ucl-2026-27:qualification-road",
+        "thread:football:ucl-2026-27:league-phase"
+      ],
+      "factIds": [
+        "fact:ucl-league-2026-27:scale",
+        "fact:ucl-league-2026-27:draw-logic",
+        "fact:ucl-league-2026-27:calendar",
+        "fact:ucl-league-2026-27:opening-bridge",
+        "fact:ucl-league-2026-27:holders",
+        "fact:ucl-league-2026-27:new-ground",
+        "fact:ucl-league-2026-27:destination"
+      ],
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-draw",
+        "source:uefa:ucl-2026-27-opponents",
+        "source:uefa:ucl-2026-27-fixtures",
+        "source:uefa:ucl-2026-27-holders",
+        "source:uefa:ucl-2026-27-teams",
+        "source:uefa:ucl-2026-27-season"
+      ],
       "researchedAt": "2026-08-29T19:30:00.000Z",
       "refreshAfter": "2026-09-09T00:00:00.000Z",
       "generationMode": "researched",
-      "originalityReview": { "method": "independent-summary-no-source-prose-retained", "reviewedAt": "2026-08-29T19:30:00.000Z" }
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-29T19:30:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:dutch-gp-race-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_25"
+      ],
+      "stakes": 4,
+      "hook": "The final scheduled Dutch Grand Prix is complete, with its result protected until you choose to reveal it.",
+      "synopsis": "Zandvoort's final scheduled Formula 1 weekend has a result-aware chapter ready behind spoiler protection. The persistent story joins the late-summer championship momentum to the circuit's farewell without exposing the outcome in the default view.",
+      "threadIds": [
+        "thread:f1:zandvoort:final-race",
+        "thread:f1:2026:norris-late-summer-charge"
+      ],
+      "factIds": [
+        "fact:evt25:norris-second-straight-win",
+        "fact:evt25:antonelli-pass",
+        "fact:evt25:last-zandvoort"
+      ],
+      "sourceIds": [
+        "source:fia:f1-2026-dutch-race-report",
+        "source:f1:2026-dutch-race-report",
+        "source:f1:2026-zandvoort-lowdown"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": null,
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      },
+      "hookSpoilerOn": "Norris won the last scheduled race at Zandvoort after hunting down championship leader Antonelli.",
+      "synopsisSpoilerOn": "Lando Norris followed his Hungary victory by catching and passing Kimi Antonelli after the restart at Zandvoort. The win closed Formula 1's final scheduled Dutch Grand Prix weekend and carried a two-race streak into the next chapter at Monza."
+    },
+    {
+      "id": "projection:feed:argentina-australia-jujuy-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-argentina-australia-jujuy-2026-08-30"
+      ],
+      "stakes": 3,
+      "hook": "Three straight Wallabies wins meet an Argentina side that took the latest chapter of an increasingly even rivalry.",
+      "synopsis": "Australia enters Jujuy with three consecutive wins but a completely changed starting forward pack. Argentina won the latest meeting after the teams split their two Tests in Argentina in 2024, giving the first leg its own form and selection tension before Mendoza.",
+      "threadIds": [
+        "thread:rugby:wallabies:2026-argentina-two-test-tour"
+      ],
+      "factIds": [
+        "fact:arg-aus-jujuy:wallabies-form",
+        "fact:arg-aus-jujuy:pack-reset",
+        "fact:arg-aus-jujuy:recent-rivalry"
+      ],
+      "sourceIds": [
+        "source:rugbyau:2026-jujuy-team",
+        "source:rugbyau:2026-jujuy-preview"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-08-30T08:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:argentina-australia-mendoza-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-argentina-australia-mendoza-2026-09-06"
+      ],
+      "stakes": 3,
+      "hook": "The second Test is the response leg of a seven-day Argentina series; its real stakes wait on what happens in Jujuy.",
+      "synopsis": "Mendoza is explicitly linked to the first Test rather than treated as a duplicate fixture. It may become a sweep, split or recovery chapter after Jujuy, and it also moves Australia into the home stretch against South Africa and New Zealand.",
+      "threadIds": [
+        "thread:rugby:wallabies:2026-argentina-two-test-tour"
+      ],
+      "factIds": [
+        "fact:arg-aus-mendoza:two-test-consequence",
+        "fact:arg-aus-mendoza:tour-bridge",
+        "fact:arg-aus-mendoza:official-time"
+      ],
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule",
+        "source:rugbyau:2026-jujuy-team"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-08-30T09:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:italian-gp-race-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_27"
+      ],
+      "stakes": 4,
+      "hook": "Italy's championship leader comes home with Norris suddenly carrying the winning streak.",
+      "synopsis": "Kimi Antonelli reaches Monza with the championship lead and the pressure of a home Grand Prix. Lando Norris arrives after consecutive wins, while the circuit turns that rivalry into a low-drag and heavy-braking setup compromise rather than a generic next race.",
+      "threadIds": [
+        "thread:f1:2026:norris-late-summer-charge",
+        "thread:f1:monza:home-pressure"
+      ],
+      "factIds": [
+        "fact:evt27:antonelli-home-leader",
+        "fact:evt27:norris-momentum",
+        "fact:evt27:monza-tradeoff"
+      ],
+      "sourceIds": [
+        "source:f1:2026-italy-race-hub",
+        "source:f1:2026-driver-standings-0830",
+        "source:f1:2026-dutch-race-report",
+        "source:f1:monza-history-and-character"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-05T13:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:nrl-finals-week-one-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_81"
+      ],
+      "stakes": 4,
+      "hook": "The eight are known; the unresolved order decides who gets a second chance and who starts in sudden death.",
+      "synopsis": "The finalists include the Dolphins for the first time and South Sydney for the first time since 2022. Week 1 splits them between top-four qualifying finals with a safety net and elimination finals without one, while the final seed order remains a live development.",
+      "threadIds": [
+        "thread:nrl:finals-2026:locked-eight-open-order",
+        "thread:nrl:finals-2026:week-one-paths"
+      ],
+      "factIds": [
+        "fact:nrl-week1:locked-eight",
+        "fact:nrl-week1:two-paths",
+        "fact:nrl-week1:new-and-returning"
+      ],
+      "sourceIds": [
+        "source:nrl:2026-top-eight-locked-0829",
+        "source:nrl:finals-format-explainer"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-07T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:nrl-finals-week-two-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_82"
+      ],
+      "stakes": 4,
+      "hook": "Week 2 is the collision between the top-four sides denied a rest and the elimination winners still alive.",
+      "synopsis": "The teams cannot be named before Week 1 resolves, but the consequence is fixed: qualifying-final losers host elimination survivors in two sudden-death semi-finals. Each winner moves within one match of the Grand Final at Accor Stadium.",
+      "threadIds": [
+        "thread:nrl:finals-2026:week-two-sudden-death"
+      ],
+      "factIds": [
+        "fact:nrl-week2:semifinal-path",
+        "fact:nrl-week2:rest-versus-survival",
+        "fact:nrl-week2:destination"
+      ],
+      "sourceIds": [
+        "source:nrl:finals-format-explainer",
+        "source:nrl:2026-grand-final"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-14T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:azerbaijan-gp-qualifying-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_30"
+      ],
+      "stakes": 4,
+      "hook": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
+      "synopsis": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
+      "threadIds": [
+        "thread:f1:baku:risk-reward"
+      ],
+      "factIds": [
+        "fact:evt30:setup-conflict",
+        "fact:evt30:walls-and-grid",
+        "fact:evt30:title-state-not-frozen"
+      ],
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub",
+        "source:f1:2026-driver-standings-0830",
+        "source:fia:2026-calendar-current"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-23T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:azerbaijan-gp-race-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_31"
+      ],
+      "stakes": 4,
+      "hook": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
+      "synopsis": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
+      "threadIds": [
+        "thread:f1:baku:risk-reward"
+      ],
+      "factIds": [
+        "fact:evt31:distance",
+        "fact:evt31:passing-versus-walls",
+        "fact:evt31:first-azerbaijan-upset"
+      ],
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub",
+        "source:fia:2026-calendar-current"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-25T14:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:australia-south-africa-perth-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-australia-south-africa-2026-09-27"
+      ],
+      "stakes": 4,
+      "hook": "The Mandela Plate reaches Perth one year after Australia and South Africa traded emphatic wins across two Tests.",
+      "synopsis": "Australia's 38–22 Ellis Park win and South Africa's 30–22 response in Cape Town give the next meeting recent matchup substance. At Optus Stadium, the Mandela Plate also leads directly into the Wallabies' Bledisloe block and longer home World Cup build.",
+      "threadIds": [
+        "thread:rugby:wallabies:2026-mandela-plate"
+      ],
+      "factIds": [
+        "fact:aus-rsa-perth:venue-and-trophy",
+        "fact:aus-rsa-perth:2025-split",
+        "fact:aus-rsa-perth:season-path"
+      ],
+      "sourceIds": [
+        "source:rugbyau:2026-home-test-venues",
+        "source:rugbyau:2025-ellis-park-result",
+        "source:rugbyau:2025-cape-town-result",
+        "source:rugbyau:2026-wallabies-schedule"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-09-21T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:rlwc-australia-new-zealand-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rlwc-australia-new-zealand-2026"
+      ],
+      "stakes": 5,
+      "hook": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+      "synopsis": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+      "threadIds": [
+        "thread:rlwc:2026:kangaroos-kiwis-opener",
+        "thread:rlwc:2026:three-tournaments-one-world-cup"
+      ],
+      "factIds": [
+        "fact:rlwc-aus-nz:opening-match",
+        "fact:rlwc-aus-nz:recent-champions",
+        "fact:rlwc-aus-nz:pool-path",
+        "fact:rlwc-aus-nz:2008-precedent"
+      ],
+      "sourceIds": [
+        "source:rlwc2026:competition-rules",
+        "source:rlwc2026:fixtures-announced",
+        "source:nrl:2026-kiwis-record-book-plan",
+        "source:nrl:2026-six-months-to-rlwc"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-10-01T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:bledisloe-sydney-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "rugby-australia-new-zealand-2026-10-17"
+      ],
+      "stakes": 5,
+      "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+      "synopsis": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+      "threadIds": [
+        "thread:rugby:bledisloe:2026-two-test-series"
+      ],
+      "factIds": [
+        "fact:bledisloe-sydney:second-test",
+        "fact:bledisloe-sydney:stakes-depend-on-auckland",
+        "fact:bledisloe-sydney:nz-long-hold",
+        "fact:bledisloe-sydney:same-ground-2027"
+      ],
+      "sourceIds": [
+        "source:rugbyau:2026-wallabies-schedule",
+        "source:rugbyau:2025-bledisloe-auckland",
+        "source:rugbyau:2025-bledisloe-perth",
+        "source:rugbyau:2027-world-cup-pools"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-10-10T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:feed:shahdag-moguls-finals-2027",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_104"
+      ],
+      "stakes": 5,
+      "hook": "The Crystal Globes return to the venue whose last scheduled final was cancelled by conditions and travel constraints.",
+      "synopsis": "The corrected 5–7 March Shahdag programme is the last scheduled Moguls, Dual Moguls and Aerials stop. It follows a cancelled 2026 visit and a full season path, making the return and the Crystal Globes the verified stakes without predicting conditions or entrants.",
+      "threadIds": [
+        "thread:fis-freestyle:2026-27:shahdag-crystal-globes"
+      ],
+      "factIds": [
+        "fact:shahdag:current-window",
+        "fact:shahdag:programme",
+        "fact:shahdag:season-path",
+        "fact:shahdag:globe-consequence",
+        "fact:shahdag:2026-cancellation"
+      ],
+      "sourceIds": [
+        "source:fis:freestyle-calendar-2026-27",
+        "source:fis:shahdag-2026-27-preview",
+        "source:fis:shahdag-2026-cancellation"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-12-01T00:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:major:rlwc-2026",
+      "targetType": "major-event",
+      "targetIds": [
+        "major-event:rlwc-2026"
+      ],
+      "stakes": 5,
+      "hook": "Three World Cups, 53 matches and one month begin with the men's defending champions against the Pacific Cup holders.",
+      "synopsis": "The 2026 programme joins men's, women's and wheelchair tournaments rather than treating them as detached events. Australia v New Zealand opens a 31-day path through pool qualification to finals in Wollongong and Brisbane, with current champions supplying the first persistent thread.",
+      "threadIds": [
+        "thread:rlwc:2026:three-tournaments-one-world-cup",
+        "thread:rlwc:2026:kangaroos-kiwis-opener"
+      ],
+      "factIds": [
+        "fact:rlwc2026:scale",
+        "fact:rlwc2026:opening-and-finals",
+        "fact:rlwc2026:parallel-tournaments",
+        "fact:rlwc2026:qualification-paths",
+        "fact:rlwc2026:current-champions"
+      ],
+      "sourceIds": [
+        "source:rlwc2026:fixtures-announced",
+        "source:rlwc2026:competition-rules",
+        "source:nrl:2026-kiwis-record-book-plan",
+        "source:nrl:2026-six-months-to-rlwc"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-10-01T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:major:nations-championship-finals-2026",
+      "targetType": "major-event",
+      "targetIds": [
+        "major-event:nations-championship-finals-2026"
+      ],
+      "stakes": 5,
+      "hook": "The first title is a first-versus-first final, but every Twickenham match also counts toward the Hemisphere Crown.",
+      "synopsis": "Separate North and South tables converge across six placement matches from 27–29 November. First against first decides the inaugural Nations Championship, while every pairing contributes to the Hemisphere Crown and the current July tables remain provisional until November resumes.",
+      "threadIds": [
+        "thread:rugby:nations-championship-2026:twickenham-finals"
+      ],
+      "factIds": [
+        "fact:nations-2026:format",
+        "fact:nations-2026:finals-pairings",
+        "fact:nations-2026:tables",
+        "fact:nations-2026:double-prize"
+      ],
+      "sourceIds": [
+        "source:sixnations:nations-2026-format-venues",
+        "source:sixnations:nations-2026-exact-schedule",
+        "source:worldrugby:nations-2026-tables",
+        "source:sixnations:nations-2026-trophy"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-11-01T00:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:major:ucl-knockout-2027",
+      "targetType": "major-event",
+      "targetIds": [
+        "major-event:uefa-champions-league-2026-27:knockout"
+      ],
+      "stakes": 5,
+      "hook": "Eight clubs skip February; sixteen must survive it; twelve leave Europe before the road to Madrid narrows.",
+      "synopsis": "The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+      "threadIds": [
+        "thread:football:ucl-2026-27:league-phase",
+        "thread:football:ucl-2026-27:league-to-knockout"
+      ],
+      "factIds": [
+        "fact:ucl-knockout-2027:league-path",
+        "fact:ucl-knockout-2027:seeding",
+        "fact:ucl-knockout-2027:calendar",
+        "fact:ucl-knockout-2027:madrid-final",
+        "fact:ucl-knockout-2027:holders"
+      ],
+      "sourceIds": [
+        "source:uefa:ucl-2026-27-overview",
+        "source:uefa:ucl-new-format",
+        "source:uefa:ucl-paris-back-to-back"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2027-01-28T00:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:major:australian-open-2027",
+      "targetType": "major-event",
+      "targetIds": [
+        "major-event:australian-open-2027"
+      ],
+      "stakes": 5,
+      "hook": "Melbourne's three-week tournament returns with two first-time 2026 champions carrying very different title defences into an unknown draw.",
+      "synopsis": "Opening Week and the 17–31 January main draw create a three-week arc before the singles finals. Alcaraz and Rybakina return as first-time Australian Open champions, while capped early Ground Passes and the record 2026 audience add a real scale consequence without inventing entrants or seeds.",
+      "threadIds": [
+        "thread:tennis:ao-2027:defenders-and-challengers"
+      ],
+      "factIds": [
+        "fact:ao2027:three-week-window",
+        "fact:ao2027:finals-dates",
+        "fact:ao2027:alcaraz-defence",
+        "fact:ao2027:rybakina-defence",
+        "fact:ao2027:record-demand"
+      ],
+      "sourceIds": [
+        "source:ao:2027-dates-announced",
+        "source:ao:2027-ticket-sale",
+        "source:ao:2026-alcaraz-title",
+        "source:ao:2026-rybakina-title"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-12-01T00:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
+    },
+    {
+      "id": "projection:major:australian-gp-2027",
+      "targetType": "major-event",
+      "targetIds": [
+        "major-event:australian-grand-prix-2027"
+      ],
+      "stakes": 5,
+      "hook": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.",
+      "synopsis": "Formula 1 is contracted to return to Melbourne through 2035, but the 2027 date and ticket packages remain unconfirmed. Albert Park's fast temporary-road character supplies durable context while the card remains explicitly TBC instead of turning a planning date into a fixture.",
+      "threadIds": [
+        "thread:f1:australian-gp-2027:date-watch"
+      ],
+      "factIds": [
+        "fact:ausgp-2027:return-confirmed",
+        "fact:ausgp-2027:date-unconfirmed",
+        "fact:ausgp-2027:tickets-waitlist",
+        "fact:ausgp:melbourne-through-2035",
+        "fact:ausgp:track-character"
+      ],
+      "sourceIds": [
+        "source:agpc:2027-interest",
+        "source:agpc:2027-travel-faq",
+        "source:f1:melbourne-contract-2035",
+        "source:f1:albert-park-circuit"
+      ],
+      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "refreshAfter": "2026-10-01T00:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-08-30T06:00:00.000Z"
+      }
     }
   ]
 }

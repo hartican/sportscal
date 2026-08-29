@@ -35,17 +35,34 @@
       "additionalProperties": false,
       "required": ["schemaVersion", "projectionId", "researchTier", "hook", "threadIds", "factIds", "sourceIds", "dimensions", "researchedAt", "generationMode"],
       "properties": {
-        "schemaVersion": { "const": "editorial-narrative.v1" },
+        "schemaVersion": { "enum": ["editorial-narrative.v1", "editorial-narrative.v2"] },
         "projectionId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._-]*$" },
         "researchTier": { "enum": ["standard", "featured", "marquee"] },
         "hook": { "type": "string", "minLength": 20, "maxLength": 180 },
+        "hookSpoilerOn": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "synopsisSpoilerOn": { "type": "string", "minLength": 1, "maxLength": 700 },
         "threadIds": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "factIds": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "sourceIds": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "dimensions": { "type": "array", "minItems": 1, "items": { "type": "string" }, "uniqueItems": true },
         "researchedAt": { "type": "string", "format": "date-time" },
         "refreshAfter": { "type": ["string", "null"], "format": "date-time" },
-        "generationMode": { "enum": ["researched", "source-derived-fallback"] }
+        "generationMode": { "enum": ["researched", "source-derived-fallback"] },
+        "sentiment": { "$ref": "#/$defs/editorialSentiment" }
+      }
+    },
+    "editorialSentiment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceEventId", "impactScore", "uniqueContributorCount", "leadingTags", "capturedAt", "expiresAt", "relationship"],
+      "properties": {
+        "sourceEventId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._-]*$" },
+        "impactScore": { "type": "number", "minimum": 1, "maximum": 5 },
+        "uniqueContributorCount": { "type": "integer", "minimum": 3 },
+        "leadingTags": { "type": "array", "maxItems": 3, "items": { "type": "string", "minLength": 1, "maxLength": 60 }, "uniqueItems": true },
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "relationship": { "enum": ["source", "carried"] }
       }
     },
     "event": {

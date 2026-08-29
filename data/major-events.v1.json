@@ -64,7 +64,7 @@
         }
       ],
       "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v1",
+        "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:major:cincinnati-open-2026",
         "researchTier": "marquee",
         "hook": "Fils left Cincinnati with a first Masters 1000 title, while Gauff's second crown reopened a proven road from Ohio to New York.",
@@ -14835,7 +14835,7 @@
       ],
       "phaseIdentity": "qualification",
       "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v1",
+        "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:major:us-open-2026",
         "researchTier": "marquee",
         "hook": "Sinner's withdrawal has redrawn the men's contest, while Sabalenka starts a bid to join the US Open's three-peat company.",
@@ -15686,7 +15686,7 @@
         }
       ],
       "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v1",
+        "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:major:afl-finals-2026",
         "researchTier": "marquee",
         "hook": "The first wildcard weekend has turned Carlton's 1–8 recovery and Arty Jones' breakout into two sudden-death paths through September.",
@@ -15877,7 +15877,7 @@
         }
       ],
       "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v1",
+        "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:major:nrl-finals-2026",
         "researchTier": "marquee",
         "hook": "The finalists are locked, but an unsettled top four means eight known teams still do not know the shape of their September road.",
@@ -15991,8 +15991,61 @@
           "name": "Ticketmaster RLWC 2026 fixture listing",
           "url": "https://www.ticketmaster.com.au/rugby-league-world-cup-2026-tickets/artist/1167790",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "RLWC 2026 — fixtures and tournament scale",
+          "url": "https://www.rlwc2026.com/news/2026-rugby-league-world-cup-fixtures-announced",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "RLWC 2026 — competition rules",
+          "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "NRL — Kiwis' 2026 World Cup opener context",
+          "url": "https://www.nrl.com/news/2026/05/07/kiwis-unveil-plan-to-rewrite-record-books-in-world-cup-opener/",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "NRL — Australia and New Zealand World Cup build",
+          "url": "https://www.nrl.com/news/2026/04/15/six-months-to-go-kiwis-gearing-up-for-kangaroos-showdown/",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:rlwc-2026",
+        "researchTier": "marquee",
+        "hook": "Three World Cups, 53 matches and one month begin with the men's defending champions against the Pacific Cup holders.",
+        "threadIds": [
+          "thread:rlwc:2026:three-tournaments-one-world-cup",
+          "thread:rlwc:2026:kangaroos-kiwis-opener"
+        ],
+        "factIds": [
+          "fact:rlwc2026:scale",
+          "fact:rlwc2026:opening-and-finals",
+          "fact:rlwc2026:parallel-tournaments",
+          "fact:rlwc2026:qualification-paths",
+          "fact:rlwc2026:current-champions"
+        ],
+        "sourceIds": [
+          "source:rlwc2026:fixtures-announced",
+          "source:rlwc2026:competition-rules",
+          "source:nrl:2026-kiwis-record-book-plan",
+          "source:nrl:2026-six-months-to-rlwc"
+        ],
+        "dimensions": [
+          "format",
+          "path",
+          "history",
+          "consequence",
+          "form"
+        ],
+        "researchedAt": "2026-08-30T06:00:00.000Z",
+        "refreshAfter": "2026-10-01T12:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:nations-championship-finals-2026",
@@ -16016,8 +16069,8 @@
       "stakesScore": 5,
       "dateStatus": "confirmed",
       "season": 2026,
-      "startDate": "2026-11-28",
-      "endDate": "2026-11-30",
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-29",
       "timezone": "Europe/London",
       "venue": "Allianz Stadium, Twickenham",
       "location": "London, England",
@@ -16088,8 +16141,58 @@
           "name": "Rugby Australia 2026 Nations Championship fixtures",
           "url": "https://www.rugby.com.au/news/2026-nations-rugby-championship-fixtures-schedule-how-to-watch-international-rugby-wallabies-fixtures-2026-2026630",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Six Nations — Nations Championship format and venues",
+          "url": "https://www.sixnationsrugby.com/en/m6n/news/iconic-venues-confirmed-for-nations-championships-southern-series",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Six Nations — Nations Championship Finals schedule",
+          "url": "https://www.sixnationsrugby.com/en/m6n/news/50-days-to-go-countdown-to-nations-championship-begins",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "World Rugby — Nations Championship 2026 tables",
+          "url": "https://www.world.rugby/beta/en/tournaments/nations-championship/2026/pools",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Six Nations — Nations Championship trophies",
+          "url": "https://www.sixnationsrugby.com/en/m6n/news/nations-championship-rugby-trophy-unveiled",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:nations-championship-finals-2026",
+        "researchTier": "marquee",
+        "hook": "The first title is a first-versus-first final, but every Twickenham match also counts toward the Hemisphere Crown.",
+        "threadIds": [
+          "thread:rugby:nations-championship-2026:twickenham-finals"
+        ],
+        "factIds": [
+          "fact:nations-2026:format",
+          "fact:nations-2026:finals-pairings",
+          "fact:nations-2026:tables",
+          "fact:nations-2026:double-prize"
+        ],
+        "sourceIds": [
+          "source:sixnations:nations-2026-format-venues",
+          "source:sixnations:nations-2026-exact-schedule",
+          "source:worldrugby:nations-2026-tables",
+          "source:sixnations:nations-2026-trophy"
+        ],
+        "dimensions": [
+          "format",
+          "path",
+          "form",
+          "consequence"
+        ],
+        "researchedAt": "2026-08-30T06:00:00.000Z",
+        "refreshAfter": "2026-11-01T00:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:qualification",
@@ -16274,7 +16377,7 @@
         }
       ],
       "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v1",
+        "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:major:ucl-qualification-2026-27",
         "researchTier": "marquee",
         "hook": "LASK's five-goal comeback from a 3–0 first-leg deficit supplied the defining route into a seven-club qualifying class.",
@@ -16376,7 +16479,7 @@
         }
       ],
       "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v1",
+        "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:major:ucl-league-phase-2026-27",
         "researchTier": "marquee",
         "hook": "AEK and LASK carry qualification straight into opening night, as Paris begins a rare chase for a third consecutive title.",
@@ -16490,11 +16593,52 @@
       ],
       "sources": [
         {
-          "name": "UEFA 2026/27 Champions League dates and final",
+          "name": "UEFA — 2026/27 Champions League overview",
           "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "checkedAt": "2026-08-23T06:00:00.000Z"
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "UEFA — league-to-knockout format",
+          "url": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "UEFA — Paris retain the Champions League",
+          "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:ucl-knockout-2027",
+        "researchTier": "marquee",
+        "hook": "Eight clubs skip February; sixteen must survive it; twelve leave Europe before the road to Madrid narrows.",
+        "threadIds": [
+          "thread:football:ucl-2026-27:league-phase",
+          "thread:football:ucl-2026-27:league-to-knockout"
+        ],
+        "factIds": [
+          "fact:ucl-knockout-2027:league-path",
+          "fact:ucl-knockout-2027:seeding",
+          "fact:ucl-knockout-2027:calendar",
+          "fact:ucl-knockout-2027:madrid-final",
+          "fact:ucl-knockout-2027:holders"
+        ],
+        "sourceIds": [
+          "source:uefa:ucl-2026-27-overview",
+          "source:uefa:ucl-new-format",
+          "source:uefa:ucl-paris-back-to-back"
+        ],
+        "dimensions": [
+          "path",
+          "consequence",
+          "schedule",
+          "history"
+        ],
+        "researchedAt": "2026-08-30T06:00:00.000Z",
+        "refreshAfter": "2027-01-28T00:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:australian-open-2027",
@@ -16543,8 +16687,59 @@
           "name": "Australian Open 2027 sale guide",
           "url": "https://ausopen.com/articles/news/your-guide-australian-open-2027-ticket-pre-sales",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Open — 2027 dates",
+          "url": "https://ausopen.com/articles/news/australian-open-2027-dates-announced",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Open — 2027 tickets and attendance context",
+          "url": "https://ausopen.com/articles/news/australian-open-2027-tickets-on-sale-earlier-ever",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Open — Alcaraz completes career Slam",
+          "url": "https://ausopen.com/articles/news/major-milestone-alcaraz-completes-slam-set-ao-2026-title",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Open — Rybakina wins 2026 title",
+          "url": "https://ausopen.com/articles/news/resilient-rybakina-beats-sabalenka-ao-2026-title",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:australian-open-2027",
+        "researchTier": "marquee",
+        "hook": "Melbourne's three-week tournament returns with two first-time 2026 champions carrying very different title defences into an unknown draw.",
+        "threadIds": [
+          "thread:tennis:ao-2027:defenders-and-challengers"
+        ],
+        "factIds": [
+          "fact:ao2027:three-week-window",
+          "fact:ao2027:finals-dates",
+          "fact:ao2027:alcaraz-defence",
+          "fact:ao2027:rybakina-defence",
+          "fact:ao2027:record-demand"
+        ],
+        "sourceIds": [
+          "source:ao:2027-dates-announced",
+          "source:ao:2027-ticket-sale",
+          "source:ao:2026-alcaraz-title",
+          "source:ao:2026-rybakina-title"
+        ],
+        "dimensions": [
+          "format",
+          "path",
+          "history",
+          "consequence"
+        ],
+        "researchedAt": "2026-08-30T06:00:00.000Z",
+        "refreshAfter": "2026-12-01T00:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:australian-grand-prix-2027",
@@ -16588,8 +16783,60 @@
           "name": "Formula 1 Australian Grand Prix 2027 ticketing",
           "url": "https://ticketing.formula1.com/australia/",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Grand Prix Corporation — 2027 interest register",
+          "url": "https://www.grandprix.com.au/tickets/register-your-interest",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Australian Grand Prix Corporation — 2027 travel FAQ",
+          "url": "https://travel.grandprix.com.au/",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Formula 1 — Melbourne agreement through 2035",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-to-race-in-melbourne-until-2035-in-new-agreement.7EeElN0gG4wOKY1OJwHV94",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
+        },
+        {
+          "name": "Formula 1 — Albert Park circuit profile",
+          "url": "https://www.formula1.com/en/information/australia-melbourne-grand-prix-circuit.4LZLnnP4nXDFVVD01EdvvG",
+          "checkedAt": "2026-08-30T06:00:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:australian-gp-2027",
+        "researchTier": "marquee",
+        "hook": "Melbourne's 2027 return is certain; the date, ticket release and next Albert Park storyline are not.",
+        "threadIds": [
+          "thread:f1:australian-gp-2027:date-watch"
+        ],
+        "factIds": [
+          "fact:ausgp-2027:return-confirmed",
+          "fact:ausgp-2027:date-unconfirmed",
+          "fact:ausgp-2027:tickets-waitlist",
+          "fact:ausgp:melbourne-through-2035",
+          "fact:ausgp:track-character"
+        ],
+        "sourceIds": [
+          "source:agpc:2027-interest",
+          "source:agpc:2027-travel-faq",
+          "source:f1:melbourne-contract-2035",
+          "source:f1:albert-park-circuit"
+        ],
+        "dimensions": [
+          "path",
+          "schedule",
+          "consequence",
+          "history",
+          "matchup"
+        ],
+        "researchedAt": "2026-08-30T06:00:00.000Z",
+        "refreshAfter": "2026-10-01T00:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "ticket-sale:australian-open-2027-general-sale",

@@ -54,7 +54,7 @@ assert(!/\.toast\.show\{[\s\S]{0,120}translate/i.test(html), "toast visibility m
 for (const payload of [incoming, published]){
   const copy = (payload.events || []).flatMap(event => [event.fullSpiel, event.storyline?.synopsisSpoilerOff, event.storyline?.synopsisSpoilerOn]).filter(Boolean).join("\n");
   assert.doesNotMatch(copy, /belongs in the calendar because/i, "generated Feed copy must not expose internal inclusion justification");
-  assert.match(copy, /Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed\./, "unresolved NRL finals must retain concise bracket-refresh guidance");
+  assert.doesNotMatch(copy, /Exact matchup, venue and kickoff will be refreshed when the finals bracket is confirmed\./, "explicit uncertainty notes belong in editorial standards, not card copy");
 }
 
 console.log("Mobile reliability pass valid: compact Feed and Events controls, local routing, stable viewport surfaces, range-safe audio, and targeted identity recovery passed.");

@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="170">
+<meta name="app-shell-version" content="171">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2736,19 +2736,58 @@ main{
   white-space:nowrap;
 }
 
-.badge.upcoming{
-  background: rgba(0,229,255,0.15);
-  color: #00e5ff;
+.event-timing-state{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  min-width:0;
+  padding:3px 8px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font-size:.65rem;
+  font-weight:800;
+  letter-spacing:.03em;
+  line-height:1.2;
+  text-transform:uppercase;
+  white-space:nowrap;
 }
 
-.badge.live{
-  background:rgba(38,195,106,.18);
-  color:#42df84;
+.event-timing-state.starts-soon{
+  border-color:rgba(255,196,61,.34);
+  background:rgba(255,196,61,.12);
+  color:#ffd66e;
 }
 
-.badge.past{
-  background: rgba(255,255,255,0.06);
-  color: var(--text-faint);
+.event-timing-state.live-now{
+  border-color:rgba(255,77,91,.42);
+  background:rgba(255,77,91,.12);
+  color:#ff8791;
+  animation:live-now-soft-glow 2.4s ease-in-out infinite;
+}
+
+.event-timing-state.live-now::before{
+  content:"";
+  width:6px;
+  height:6px;
+  flex:0 0 6px;
+  border-radius:50%;
+  background:#ff3b4d;
+  box-shadow:0 0 0 2px rgba(255,59,77,.13);
+}
+
+.event-timing-state.just-finished{
+  border-color:rgba(66,223,132,.34);
+  background:rgba(66,223,132,.12);
+  color:#7ee787;
+}
+
+@keyframes live-now-soft-glow{
+  0%,100%{ box-shadow:0 0 0 rgba(255,59,77,0); }
+  50%{ box-shadow:0 0 14px rgba(255,59,77,.28); }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .event-timing-state.live-now{ animation:none; box-shadow:0 0 8px rgba(255,59,77,.18); }
 }
 
 .badge.editorial{
@@ -2789,6 +2828,28 @@ main{
   display:flex;
   align-items:center;
   gap: 5px;
+}
+
+.event-date-line .event-timing-state{ flex:0 0 auto; }
+
+.editorial-sentiment{
+  margin:10px 0 0;
+  padding:9px 10px;
+  border:1px solid rgba(196,162,255,.22);
+  border-radius:10px;
+  background:rgba(153,102,255,.07);
+  color:var(--text-muted);
+  font-size:.76rem;
+  line-height:1.45;
+}
+
+.editorial-sentiment strong{
+  display:block;
+  margin-bottom:2px;
+  color:#cbb4ff;
+  font-size:.66rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
 }
 
 .event-meta-row .sport-tag{
@@ -6626,6 +6687,11 @@ body.header-compact-3 .brand .slogan{ display:none; }
     </div>
     <div class="about-body">
       <p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p>
+      <details class="asset-attribution">
+        <summary>Editorial standards</summary>
+        <p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p>
+        <p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p>
+      </details>
       <p class="asset-attribution" id="soundtrackAttribution">'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0. <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">www.scottbuckley.com.au</a></p>
       <p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a neutral TV fallback otherwise.</p>
     </div>
@@ -6840,7 +6906,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=170")
+  : loadDeferredScript("config/national-team-identities.js?v=171")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -11110,9 +11176,8 @@ function fmtDateHeading(dateStr){
 function getEventStatus(ev){
   const start = eventDateTime(ev);
   const now = nowAEST();
-  const liveWindowMs = (ev.liveWindow || 3) * 3600 * 1000;
-  const end = new Date(start.getTime() + liveWindowMs);
-  if (now >= start && now <= end) return "live";
+  const timing = FEED_CONTROLS?.timingState?.(ev, now);
+  if (timing?.key === "live-now") return "live";
   if (now < start) return "upcoming";
   return "past";
 }
@@ -11966,6 +12031,42 @@ function buildEditorialL0Hook(copy){
   text.textContent = value;
   hook.append(label, text);
   return hook;
+}
+
+function editorialNarrativeHookForDisplay(record){
+  const narrative = record?.editorialNarrative;
+  if (!narrative || !/^editorial-narrative\.v(?:1|2)$/.test(String(narrative.schemaVersion || ""))) return "";
+  const completed = record.status === "completed" || getEventStatus(record) === "past";
+  if (completed && isSpoilerVisible(record)) return narrative.hookSpoilerOn || narrative.hook || "";
+  return narrative.hook || "";
+}
+
+function buildEditorialSentiment(record){
+  const memory = record?.editorialNarrative?.sentiment;
+  const contributors = Number(memory?.uniqueContributorCount || 0);
+  const impact = Number(memory?.impactScore);
+  const expiry = Date.parse(memory?.expiresAt || "");
+  if (!memory || contributors < 3 || !Number.isFinite(impact) || (Number.isFinite(expiry) && expiry <= Date.now())) return null;
+  const wrapper = document.createElement("aside");
+  wrapper.className = "editorial-sentiment";
+  wrapper.setAttribute("aria-label", "Sentiment from the previous narrative chapter");
+  const label = document.createElement("strong");
+  label.textContent = "Sentiment";
+  const chapter = memory.relationship === "source" ? "This chapter" : "Previous chapter";
+  const tags = Array.isArray(memory.leadingTags) ? memory.leadingTags.filter(Boolean).slice(0, 3) : [];
+  const copy = document.createElement("span");
+  copy.textContent = `${chapter}: ${impact.toFixed(1)}/5 Impact from ${contributors} contributors${tags.length ? ` · ${tags.join(", ")}.` : "."}`;
+  wrapper.append(label, copy);
+  return wrapper;
+}
+
+function buildEventTimingStateChip(event, timing = FEED_CONTROLS?.timingState?.(event, nowAEST())){
+  if (!timing) return null;
+  const chip = document.createElement("span");
+  chip.className = `event-timing-state ${timing.key}`;
+  chip.textContent = timing.label;
+  chip.setAttribute("aria-label", timing.ariaLabel || timing.label);
+  return chip;
 }
 
 function eventSpielForDisplay(ev){
@@ -15076,7 +15177,7 @@ async function loadNothingscoreDetail(ev){
 function nothingscorePhaseCopy(phase){
   if (phase === "pulse") return { name:"Pulse", detail:"Live feeling", labels:NOTHINGSCORE.PULSE_LABELS };
   if (phase === "impact") return { name:"Impact", detail:"How it landed", labels:NOTHINGSCORE.IMPACT_LABELS };
-  return { name:"Heat", detail:"Pre-fixture anticipation", labels:NOTHINGSCORE.HEAT_LABELS };
+  return { name:"Anticipation", detail:"Pre-fixture anticipation", labels:NOTHINGSCORE.HEAT_LABELS };
 }
 
 function buildNothingscoreSummary(ev){
@@ -15253,7 +15354,7 @@ function buildNothingscoreContributors(snapshot, panel){
   const contributors = document.createElement("div");
   contributors.className = "nsc-contributors";
   const title = document.createElement("strong");
-  title.textContent = "Pilot contributors";
+  title.textContent = "Contributors";
   contributors.appendChild(title);
   if (snapshot.contributors === undefined){
     const loading = document.createElement("p");
@@ -15311,7 +15412,7 @@ function buildNothingscorePanel(ev, snapshot, state){
   const title = document.createElement("h4");
   title.textContent = `${phaseCopy.name} · ${phaseCopy.detail}`;
   const explainer = document.createElement("p");
-  explainer.textContent = snapshot.phase === "pulse" ? "A fresh ten-minute view, with each person represented by their mean across live buckets." : snapshot.phase === "impact" ? "Impact combines post-fixture takes with the frozen live Pulse seed." : "Heat can help eligible fixture surfacing, but never rewrites chronology or your follows.";
+  explainer.textContent = snapshot.phase === "pulse" ? "A fresh ten-minute view, with each person represented by their mean across live buckets." : snapshot.phase === "impact" ? "Impact combines post-fixture takes with the frozen live Pulse seed." : "Anticipation can help eligible fixture surfacing, but never rewrites chronology or your follows.";
   heading.append(title, explainer);
   const score = document.createElement("div");
   score.className = "nsc-score-large";
@@ -15423,6 +15524,7 @@ function buildEventCard(ev, options = {}){
   registerNothingscoreEvent(ev);
   const meta = sportMetaForEvent(ev);
   const status = getEventStatus(ev);
+  const timingState = FEED_CONTROLS?.timingState?.(ev, nowAEST()) || null;
   const presentation = surfacePresentationForEvent(ev);
   const enrichment = eventEnrichment(ev);
   const actual = getActual(ev.id);
@@ -15549,6 +15651,8 @@ function buildEventCard(ev, options = {}){
     dateChip.className = "event-date-chip";
     dateChip.textContent = `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
     dateLine.appendChild(dateChip);
+    const timingChip = buildEventTimingStateChip(ev, timingState);
+    if (timingChip) dateLine.appendChild(timingChip);
     const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
     if (ticketOffer){
       const tickets = document.createElement("a");
@@ -15607,22 +15711,6 @@ function buildEventCard(ev, options = {}){
 
   const badges = document.createElement("div");
   badges.className = "badges";
-  if (status === "live"){
-    const b = document.createElement("span");
-    b.className = "badge live";
-    b.textContent = "Live Now";
-    badges.appendChild(b);
-  } else if (status !== "past"){
-    const b = document.createElement("span");
-    b.className = "badge upcoming";
-    b.textContent = "Coming Up";
-    badges.appendChild(b);
-  } else {
-    const b = document.createElement("span");
-    b.className = "badge past";
-    b.textContent = "PAST";
-    badges.appendChild(b);
-  }
   if (localGame){
     const b = document.createElement("span");
     b.className = "badge local-game";
@@ -15695,8 +15783,8 @@ function buildEventCard(ev, options = {}){
     metaRow.appendChild(broadcaster);
   }
   mainDiv.appendChild(metaRow);
-  if (state === "compact" && enrichment.stakesScore >= 3){
-    const editorialHook = buildEditorialL0Hook(selectedSentenceForDisplay(ev));
+  if (state === "compact" && enrichment.stakesScore >= 2){
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(ev));
     if (editorialHook) mainDiv.appendChild(editorialHook);
   }
   mainDiv.appendChild(buildNothingscoreSummary(ev));
@@ -15744,6 +15832,10 @@ function buildEventCard(ev, options = {}){
   if (state !== "compact" && socialSnapshot){
     if (state === "opened") void loadNothingscoreDetail(ev);
     expansionRegion.appendChild(buildNothingscorePanel(ev, socialSnapshot, state));
+  }
+  if (state !== "compact"){
+    const sentiment = buildEditorialSentiment(ev);
+    if (sentiment) expansionRegion.appendChild(sentiment);
   }
   if (state === "compact" && swipeEligible){
     const feedback = document.createElement("div");
@@ -15807,10 +15899,8 @@ function buildEventCard(ev, options = {}){
 
     const details = document.createElement("div");
     details.className = "event-detail-grid";
-    const sourceTrust = SOURCE_TRUST?.sourceTrustForEvent?.(ev);
     details.innerHTML = `
       <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
-      ${ev.sourceName ? `<div class="event-detail-item"><strong>${sourceTrust?.label || "Source"}</strong>${ev.sourceUrl ? `<a href="${ev.sourceUrl}" target="_blank" rel="noopener">${ev.sourceName}</a>` : ev.sourceName}</div>` : ""}
     `;
     expansionRegion.appendChild(details);
     if (options.archived){
@@ -19274,8 +19364,13 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   identity.append(logo, kicker, title);
   identity.appendChild(facts);
   if (state === "compact"){
-    const editorialHook = buildEditorialL0Hook(record.editorialNarrative?.hook || record.summary);
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(record));
     if (editorialHook) identity.appendChild(editorialHook);
+  }
+
+  if (state !== "compact"){
+    const sentiment = buildEditorialSentiment(record);
+    if (sentiment) identity.appendChild(sentiment);
   }
 
   card.append(identity, ticketRow);
@@ -19298,24 +19393,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const tablePreview = buildMajorEventTablePreview(record);
   if (tablePreview && state !== "compact") card.appendChild(tablePreview);
   if (state === "opened"){
-    const body = document.createElement("div");
-    body.className = "major-event-body";
-    const sources = document.createElement("section");
-    const sourcesHeading = document.createElement("h4");
-    sourcesHeading.textContent = "Official sources";
-    const sourceList = document.createElement("div");
-    sourceList.className = "major-event-sources";
-    record.sources.forEach(source => {
-      const link = document.createElement("a");
-      link.href = source.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = source.name;
-      sourceList.appendChild(link);
-    });
-    sources.append(sourcesHeading, sourceList);
-    body.appendChild(sources);
-    card.appendChild(body);
+    card.dataset.editorialProvenance = record.editorialNarrative ? "validated" : "structural";
   }
   return card;
 }

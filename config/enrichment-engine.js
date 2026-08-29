@@ -441,7 +441,7 @@
     ));
     const scoreReasons = [
       heatBlend.heatWeight
-        ? `Heat blended ${Math.round(heatBlend.heatWeight * 100)}% with Stakes for surfacing; canonical Stakes remains ${stakes}/5.`
+        ? `Anticipation blended ${Math.round(heatBlend.heatWeight * 100)}% with Stakes for surfacing; canonical Stakes remains ${stakes}/5.`
         : `Stakes ${stakes}/5 contributed ${stakes * 12} points.`,
       `Storyline intensity ${intensity}/5 contributed ${intensity * 4} points.`,
       interest ? `Your sport or competition interest added ${interest * 4} points.` : "No explicit sport or competition interest boost applied.",

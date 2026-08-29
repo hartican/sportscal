@@ -38,6 +38,10 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" &
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
 assert(localSteps.some(step => step[0] === "scripts/apply-editorial-narratives.js" && step.includes("--write")), "every canonical update must project persistent stakes-led editorial before publication");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
+assert(localSteps.some(step => step[0] === "scripts/snapshot-editorial-nothingscore.js" && step.includes("--write")), "every canonical update must snapshot privacy-safe Nothingscore aggregates before composing editorial work");
+assert(localSteps.some(step => step[0] === "scripts/build-editorial-research-queue.js" && step.includes("--write")), "every canonical update must recalculate the rolling stakes-2+ editorial queue");
+assert(localSteps.some(step => step[0] === "scripts/update-editorial-audience-memory.js" && step.includes("--write")), "every canonical update must update qualifying Sentiment memory before projection");
+assert(localSteps.some(step => step[0] === "scripts/validate-editorial-audience-memory.js"), "every canonical update must validate Sentiment privacy, threshold, expiry and explicit carry rules");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
 assert(
@@ -51,6 +55,12 @@ assert(
     && localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js")
       < localSteps.findIndex(step => step[0] === "scripts/enrich-storyline-cards.js")
     && localSteps.findIndex(step => step[0] === "scripts/enrich-storyline-cards.js")
+      < localSteps.findIndex(step => step[0] === "scripts/snapshot-editorial-nothingscore.js")
+    && localSteps.findIndex(step => step[0] === "scripts/snapshot-editorial-nothingscore.js")
+      < localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
+    && localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
+      < localSteps.findIndex(step => step[0] === "scripts/update-editorial-audience-memory.js")
+    && localSteps.findIndex(step => step[0] === "scripts/update-editorial-audience-memory.js")
       < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js")
     && localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js")
       < localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),

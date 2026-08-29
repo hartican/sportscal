@@ -15,6 +15,9 @@
   const NEGATIVE_SUPPRESSION_COUNT = 2;
   const FIRST_IMPRESSION_DEPTH = 10;
   const FIRST_IMPRESSION_DISCOVERY_CAP = 1;
+  const STARTS_SOON_MS = 60 * 60 * 1000;
+  const JUST_FINISHED_MS = 3 * 60 * 60 * 1000;
+  const NON_PLAYING_STATUSES = new Set(["cancelled", "canceled", "postponed"]);
   const EXPERIMENT_FLAGS = Object.freeze({
     controlledDiscovery: true,
     balancedDiscovery: true,
@@ -74,9 +77,12 @@
   }
 
   function eventStart(event){
+    if (event?.timeTbc === true || event?.startTimeTbc === true || event?.dateOnly === true) return null;
+    if (NON_PLAYING_STATUSES.has(String(event?.status || "").toLowerCase())) return null;
     const utc = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
     if (Number.isFinite(utc)) return new Date(utc);
-    const match = `${event?.date || ""}T${event?.time || "00:00"}`.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
+    if (!event?.time || /tbc/i.test(String(event.time))) return null;
+    const match = `${event?.date || ""}T${event.time}`.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
     if (!match) return null;
     const [, year, month, day, hour, minute] = match.map(Number);
     const assumedUtc = Date.UTC(year, month - 1, day, hour, minute);
@@ -126,13 +132,30 @@
   }
 
   function isLiveNow(event, now){
-    if (String(event?.status || "").toLowerCase() === "live") return true;
+    return timingState(event, now)?.key === "live-now";
+  }
+
+  function timingState(event, now = new Date()){
     const start = eventStart(event);
-    if (!start) return false;
-    const end = Date.parse(event?.endTimeUtc || "");
-    const fallbackEnd = start.getTime() + Math.max(1, Number(event?.liveWindow) || 3) * 3600000;
+    if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);
-    return start <= reference && reference.getTime() <= (Number.isFinite(end) ? end : fallbackEnd);
+    if (Number.isNaN(reference.getTime())) return null;
+    const startMs = start.getTime();
+    const explicitEnd = Date.parse(event?.endTimeUtc || "");
+    const liveWindowHours = Number(event?.liveWindow);
+    const derivedEnd = startMs + Math.max(1, Number.isFinite(liveWindowHours) ? liveWindowHours : 3) * 3600000;
+    const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
+    const nowMs = reference.getTime();
+    if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
+      return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
+    }
+    if (nowMs >= startMs && nowMs < endMs){
+      return Object.freeze({ key:"live-now", label:"Live Now", ariaLabel:"Live now" });
+    }
+    if (nowMs >= endMs && nowMs < endMs + JUST_FINISHED_MS){
+      return Object.freeze({ key:"just-finished", label:"Just Finished", ariaLabel:"Just finished" });
+    }
+    return null;
   }
 
   function matchesAvailability(event, value){
@@ -271,12 +294,15 @@
     NEGATIVE_SUPPRESSION_COUNT,
     FIRST_IMPRESSION_DEPTH,
     FIRST_IMPRESSION_DISCOVERY_CAP,
+    STARTS_SOON_MS,
+    JUST_FINISHED_MS,
     EXPERIMENT_FLAGS,
     normalize,
     accessTypes,
     eventStart,
     friendlyWindow,
     isLiveNow,
+    timingState,
     matchesAvailability,
     matchesTiming,
     isPremierLeagueEvent,

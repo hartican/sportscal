@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-29T13:40:22.908Z",
+  "generatedAt": "2026-08-29T21:27:33.438Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,9 +12,9 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 163,
+    "totalMajorCards": 161,
     "completed": 122,
-    "upcoming": 41,
+    "upcoming": 39,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1977,23 +1977,7 @@
       "id": "evt_27",
       "name": "R13 Italian GP Race",
       "sport": "F1",
-      "date": "2026-09-07",
-      "status": "upcoming",
-      "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
-      "id": "calendar-nothingsport-manual-seed-x-games-skateboarding-finals-2026",
-      "name": "X Games Skateboarding Finals",
-      "sport": "Skateboarding",
-      "date": "2026-09-11",
+      "date": "2026-09-06",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
@@ -2358,22 +2342,6 @@
       "issues": []
     },
     {
-      "id": "calendar-nothingsport-manual-seed-telemark-world-cup-finals-2026",
-      "name": "Telemark World Cup Finals",
-      "sport": "Telemark",
-      "date": "2026-11-20",
-      "status": "upcoming",
-      "stakes": 5,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
       "id": "evt_41",
       "name": "R20 Las Vegas GP Race",
       "sport": "F1",
@@ -2550,6 +2518,22 @@
       "issues": []
     },
     {
+      "id": "evt_104",
+      "name": "Shahdag — Moguls World Cup Finals",
+      "sport": "Ski",
+      "date": "2027-03-05",
+      "status": "upcoming",
+      "stakes": 5,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
       "id": "evt_101",
       "name": "Kvitfjell — Men's Downhill World Cup",
       "sport": "Ski",
@@ -2572,22 +2556,6 @@
       "date": "2027-03-07",
       "status": "upcoming",
       "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
-      "id": "evt_104",
-      "name": "Shahdag — Moguls World Cup Finals",
-      "sport": "Ski",
-      "date": "2027-03-15",
-      "status": "upcoming",
-      "stakes": 5,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
       "hasSpoilerOnCopy": true,

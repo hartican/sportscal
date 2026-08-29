@@ -516,8 +516,8 @@ assert(html.includes("applyFeedEvents(events, {") && html.includes("publicFeedMa
 assert(html.includes('id="feedbackForm"'), "Feedback must use a structured SMS form");
 assert(html.includes("Add a competition") && html.includes("Feature request"), "Feedback must expose the standard categories");
 assert(html.includes("0437 041 326"), "Feedback UI must identify the configured SMS recipient");
-assert(html.includes("b.textContent = \"Coming Up\""), "future cards must use the Coming Up status tag");
-assert(html.includes("b.textContent = \"PAST\""), "completed cards must use the PAST status tag");
+assert(!html.includes("b.textContent = \"Coming Up\"") && !html.includes("b.textContent = \"PAST\""), "generic future and past status tags must remain removed");
+assert(html.includes('chip.className = `event-timing-state ${timing.key}`') && html.includes('timing.label'), "cards must render the shared Starts Soon, Live Now and Just Finished resolver beside time");
 assert(spoilerControlSource, "an individual spoiler control must exist");
 assert(!/getEventStatus\(ev\)\s*!==\s*["']past["']/.test(spoilerControlSource), "individual spoiler controls must not be limited to past events");
 

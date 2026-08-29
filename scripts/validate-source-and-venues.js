@@ -68,6 +68,14 @@ const audit = venues.audit(feed.events);
 assert.equal(audit.total, new Set(feed.events.map(event => event.venue).filter(Boolean)).size, "the venue audit must inspect every currently published venue");
 assert(audit.audited >= 87, "the registry must contain the researched venue aliases and context-specific identities");
 assert.deepEqual(audit.unclassified, [], "every current venue input must be resolved or carry an explicit editorial disposition");
-assert.equal(audit.pending.length, 8, "only route, competition-placeholder and quarantined inputs may remain unresolved");
+assert.deepEqual(audit.pending, [
+  "2026 NBA Finals",
+  "Belfort",
+  "Chalon-sur-Saône",
+  "Le Markstein",
+  "Marrakech to Ouarzazate",
+  "Nairobi to Malindi",
+  "Tour de France 2026",
+], "only reviewed route and competition-placeholder inputs may remain unresolved");
 
 console.log(`Source trust and venue registry valid: ${audit.total} current venues scanned; ${audit.audited} reviewed aliases, ${audit.pending.length} queued for editorial venue review.`);
