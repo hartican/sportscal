@@ -58,6 +58,12 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
+  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "editorial-alias-dedupe.v1");
+  assert.match(
+    fs.readFileSync("api/feed.js", "utf8"),
+    /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,
+    "a server-side composition change must invalidate the authenticated HTTP response even when its source data version is unchanged"
+  );
 
   assert.equal(
     feedPipeline.sydneyLocalDateToUtc("2026-07-27", "09:00").toISOString(),

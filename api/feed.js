@@ -19,6 +19,7 @@ const {
 } = require("../lib/supabase-server");
 const {
   buildServerFeed,
+  SERVER_FEED_BUILD_VERSION,
   SERVER_FEED_SCHEMA_VERSION,
 } = require("../lib/server-feed-pipeline");
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
@@ -77,6 +78,7 @@ module.exports = async function feedHandler(request, response){
       sourcePublishedAt: eventFeed.publishedAt,
       userId: user.id,
       userState,
+      buildVersion: SERVER_FEED_BUILD_VERSION,
       schemaVersion: SERVER_FEED_SCHEMA_VERSION,
       followFixtureVersion: resolved.sourceVersion,
       cursor: feed.pagination.cursor,
