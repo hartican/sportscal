@@ -1,0 +1,219 @@
+"use strict";
+
+const GENERIC_COPY = /\b(?:exact matchup|date tbc|time tbc|schedule copy|main context and watch details|season narrowing|coming up, with the main context)\b/i;
+const ID_PATTERN = /^[a-z0-9][a-z0-9:._-]*$/;
+const ISO_DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
+const SOURCE_TYPES = new Set(["official", "broadcaster", "reputable"]);
+const SUBJECT_KINDS = new Set(["athlete", "team", "competition", "series", "event"]);
+const DIMENSIONS = new Set(["format", "path", "form", "matchup", "history", "consequence", "venue", "schedule"]);
+const TARGET_TYPES = new Set(["feed-event", "major-event"]);
+const GENERATION_MODES = new Set(["researched", "source-derived-fallback"]);
+const TIER_REQUIREMENTS = Object.freeze({
+  3: Object.freeze({ facts:1, sources:1, dimensions:1 }),
+  4: Object.freeze({ facts:2, sources:2, dimensions:2 }),
+  5: Object.freeze({ facts:4, sources:3, dimensions:3 }),
+});
+
+function nonEmpty(value){ return typeof value === "string" && value.trim().length > 0; }
+function isIsoDateTime(value){ return nonEmpty(value) && ISO_DATE_TIME.test(value) && !Number.isNaN(new Date(value).getTime()); }
+function idFor(record){ return String(record?.eventId || record?.id || ""); }
+function unique(values){ return Array.from(new Set(values)); }
+
+function duplicateIds(records){
+  const seen = new Set();
+  return records.map(record => record?.id).filter(id => seen.has(id) || !seen.add(id));
+}
+
+function validateKnowledge(document){
+  const issues = [];
+  if (!document || typeof document !== "object" || Array.isArray(document)) return ["Editorial knowledge must be a JSON object."];
+  if (document.schemaVersion !== "editorial-knowledge.v1") issues.push("schemaVersion must be editorial-knowledge.v1.");
+  if (!isIsoDateTime(document.updatedAt)) issues.push("updatedAt must be an ISO UTC date-time.");
+  ["subjects", "sources", "narrativeFacts", "narrativeThreads", "eventProjections"].forEach(field => {
+    if (!Array.isArray(document[field])) issues.push(`${field} must be an array.`);
+  });
+  if (issues.length) return issues;
+
+  const collections = [
+    ["subjects", document.subjects],
+    ["sources", document.sources],
+    ["narrativeFacts", document.narrativeFacts],
+    ["narrativeThreads", document.narrativeThreads],
+    ["eventProjections", document.eventProjections],
+  ];
+  collections.forEach(([label, records]) => {
+    duplicateIds(records).forEach(id => issues.push(`${label} contains duplicate id ${id}.`));
+    records.forEach((record, index) => {
+      if (!ID_PATTERN.test(record?.id || "")) issues.push(`${label}[${index}].id must be a stable lowercase editorial id.`);
+    });
+  });
+
+  const subjects = new Map(document.subjects.map(subject => [subject.id, subject]));
+  const sources = new Map(document.sources.map(source => [source.id, source]));
+  const facts = new Map(document.narrativeFacts.map(fact => [fact.id, fact]));
+  const threads = new Map(document.narrativeThreads.map(thread => [thread.id, thread]));
+
+  document.subjects.forEach(subject => {
+    if (!SUBJECT_KINDS.has(subject.kind)) issues.push(`${subject.id}.kind is unsupported.`);
+    if (!nonEmpty(subject.name)) issues.push(`${subject.id}.name is required.`);
+  });
+  document.sources.forEach(source => {
+    if (!nonEmpty(source.name)) issues.push(`${source.id}.name is required.`);
+    if (!/^https:\/\//.test(source.url || "")) issues.push(`${source.id}.url must be https.`);
+    if (!SOURCE_TYPES.has(source.sourceType)) issues.push(`${source.id}.sourceType is unsupported.`);
+    if (!isIsoDateTime(source.checkedAt)) issues.push(`${source.id}.checkedAt must be an ISO UTC date-time.`);
+  });
+  document.narrativeFacts.forEach(fact => {
+    if (!Array.isArray(fact.subjectIds) || !fact.subjectIds.length) issues.push(`${fact.id}.subjectIds is required.`);
+    (fact.subjectIds || []).forEach(id => { if (!subjects.has(id)) issues.push(`${fact.id} references unknown subject ${id}.`); });
+    if (!nonEmpty(fact.statement) || fact.statement.length < 20 || fact.statement.length > 320) issues.push(`${fact.id}.statement must be 20-320 characters.`);
+    if (!DIMENSIONS.has(fact.dimension)) issues.push(`${fact.id}.dimension is unsupported.`);
+    if (!Array.isArray(fact.sourceIds) || !fact.sourceIds.length) issues.push(`${fact.id}.sourceIds is required.`);
+    (fact.sourceIds || []).forEach(id => { if (!sources.has(id)) issues.push(`${fact.id} references unknown source ${id}.`); });
+    if (!isIsoDateTime(fact.observedAt)) issues.push(`${fact.id}.observedAt must be an ISO UTC date-time.`);
+    if (fact.expiresAt !== undefined && fact.expiresAt !== null && !isIsoDateTime(fact.expiresAt)) issues.push(`${fact.id}.expiresAt must be null or an ISO UTC date-time.`);
+  });
+  document.narrativeThreads.forEach(thread => {
+    if (!Array.isArray(thread.subjectIds) || !thread.subjectIds.length) issues.push(`${thread.id}.subjectIds is required.`);
+    (thread.subjectIds || []).forEach(id => { if (!subjects.has(id)) issues.push(`${thread.id} references unknown subject ${id}.`); });
+    if (!nonEmpty(thread.title)) issues.push(`${thread.id}.title is required.`);
+    if (!nonEmpty(thread.summary) || thread.summary.length < 80 || thread.summary.length > 700) issues.push(`${thread.id}.summary must be 80-700 characters.`);
+    if (!Array.isArray(thread.factIds) || !thread.factIds.length) issues.push(`${thread.id}.factIds is required.`);
+    (thread.factIds || []).forEach(id => { if (!facts.has(id)) issues.push(`${thread.id} references unknown fact ${id}.`); });
+    if (!["active", "resolved", "dormant"].includes(thread.status)) issues.push(`${thread.id}.status is unsupported.`);
+    if (!isIsoDateTime(thread.updatedAt)) issues.push(`${thread.id}.updatedAt must be an ISO UTC date-time.`);
+  });
+
+  const projectionTargets = new Set();
+  const hooks = new Map();
+  document.eventProjections.forEach(projection => {
+    if (!TARGET_TYPES.has(projection.targetType)) issues.push(`${projection.id}.targetType is unsupported.`);
+    if (!Array.isArray(projection.targetIds) || !projection.targetIds.length) issues.push(`${projection.id}.targetIds is required.`);
+    (projection.targetIds || []).forEach(targetId => {
+      const targetKey = `${projection.targetType}:${targetId}`;
+      if (projectionTargets.has(targetKey)) issues.push(`${targetKey} has more than one editorial projection.`);
+      projectionTargets.add(targetKey);
+    });
+    const requirement = TIER_REQUIREMENTS[projection.stakes];
+    if (!requirement) issues.push(`${projection.id}.stakes must be 3, 4 or 5.`);
+    if (!nonEmpty(projection.hook) || projection.hook.length < 20 || projection.hook.length > 180) issues.push(`${projection.id}.hook must be 20-180 characters.`);
+    if (!nonEmpty(projection.synopsis) || projection.synopsis.length < 80 || projection.synopsis.length > 700) issues.push(`${projection.id}.synopsis must be 80-700 characters.`);
+    if (GENERIC_COPY.test(`${projection.hook}\n${projection.synopsis}`)) issues.push(`${projection.id} contains generic fixture filler instead of an editorial angle.`);
+    if (!Array.isArray(projection.threadIds) || !projection.threadIds.length) issues.push(`${projection.id}.threadIds is required.`);
+    (projection.threadIds || []).forEach(id => { if (!threads.has(id)) issues.push(`${projection.id} references unknown thread ${id}.`); });
+    (projection.factIds || []).forEach(id => { if (!facts.has(id)) issues.push(`${projection.id} references unknown fact ${id}.`); });
+    (projection.sourceIds || []).forEach(id => { if (!sources.has(id)) issues.push(`${projection.id} references unknown source ${id}.`); });
+    const dimensions = unique((projection.factIds || []).map(id => facts.get(id)?.dimension).filter(Boolean));
+    const factSourceIds = unique((projection.factIds || []).flatMap(id => facts.get(id)?.sourceIds || []));
+    if (requirement && (projection.factIds || []).length < requirement.facts) issues.push(`${projection.id} needs at least ${requirement.facts} facts for stakes ${projection.stakes}.`);
+    if (requirement && (projection.sourceIds || []).length < requirement.sources) issues.push(`${projection.id} needs at least ${requirement.sources} sources for stakes ${projection.stakes}.`);
+    if (requirement && dimensions.length < requirement.dimensions) issues.push(`${projection.id} needs at least ${requirement.dimensions} narrative dimensions for stakes ${projection.stakes}.`);
+    factSourceIds.forEach(id => { if (!(projection.sourceIds || []).includes(id)) issues.push(`${projection.id}.sourceIds must include fact source ${id}.`); });
+    if (!isIsoDateTime(projection.researchedAt)) issues.push(`${projection.id}.researchedAt must be an ISO UTC date-time.`);
+    if (projection.refreshAfter !== undefined && projection.refreshAfter !== null && !isIsoDateTime(projection.refreshAfter)) issues.push(`${projection.id}.refreshAfter must be null or an ISO UTC date-time.`);
+    if (!GENERATION_MODES.has(projection.generationMode)) issues.push(`${projection.id}.generationMode is unsupported.`);
+    if (projection.originalityReview?.method !== "independent-summary-no-source-prose-retained" || !isIsoDateTime(projection.originalityReview?.reviewedAt)) issues.push(`${projection.id}.originalityReview must record the independent-summary review.`);
+    const normalizedHook = String(projection.hook || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    if (normalizedHook){
+      if (hooks.has(normalizedHook)) issues.push(`${projection.id} duplicates the hook from ${hooks.get(normalizedHook)}.`);
+      else hooks.set(normalizedHook, projection.id);
+    }
+    (projection.sourceIds || []).forEach(sourceId => {
+      const sourceName = String(sources.get(sourceId)?.name || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+      if (sourceName && normalizedHook === sourceName) issues.push(`${projection.id}.hook duplicates a source title.`);
+    });
+  });
+  return issues;
+}
+
+function indexesFor(document){
+  return {
+    sources:new Map(document.sources.map(source => [source.id, source])),
+    facts:new Map(document.narrativeFacts.map(fact => [fact.id, fact])),
+    threads:new Map(document.narrativeThreads.map(thread => [thread.id, thread])),
+  };
+}
+
+function projectionForTarget(document, targetType, record){
+  const ids = unique([record?.id, record?.eventId, record?.canonicalEventId].map(value => String(value || "")).filter(Boolean));
+  return document.eventProjections.find(projection => projection.targetType === targetType && projection.targetIds.some(id => ids.includes(id))) || null;
+}
+
+function editorialNarrativeFor(projection, indexes){
+  const dimensions = unique(projection.factIds.map(id => indexes.facts.get(id)?.dimension).filter(Boolean));
+  return {
+    schemaVersion:"editorial-narrative.v1",
+    projectionId:projection.id,
+    researchTier:projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard",
+    hook:projection.hook,
+    threadIds:[...projection.threadIds],
+    factIds:[...projection.factIds],
+    sourceIds:[...projection.sourceIds],
+    dimensions,
+    researchedAt:projection.researchedAt,
+    refreshAfter:projection.refreshAfter ?? null,
+    generationMode:projection.generationMode,
+  };
+}
+
+function applyToFeedEvent(event, projection, indexes){
+  const primarySource = indexes.sources.get(projection.sourceIds[0]);
+  const narrative = editorialNarrativeFor(projection, indexes);
+  const contextSignals = narrative.dimensions.map(value => `narrative:${value}`);
+  const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
+  return {
+    ...event,
+    selectedSentence:projection.hook,
+    fullSpiel:projection.synopsis,
+    sourceName:primarySource.name,
+    sourceUrl:primarySource.url,
+    sourceType:primarySource.sourceType,
+    sourceCheckedAt:primarySource.checkedAt,
+    lastReviewedAt:projection.researchedAt,
+    editorialNarrative:narrative,
+    editorialPreview:{
+      status:"journalistic",
+      angle:threadTitle,
+      contextSignals,
+      sourceName:primarySource.name,
+      sourceUrl:primarySource.url,
+      sourceCheckedAt:primarySource.checkedAt,
+      needsPreviewRefresh:false,
+    },
+    storyline:{
+      ...(event.storyline || {}),
+      stakes:projection.stakes,
+      hookSpoilerOff:projection.hook,
+      hookSpoilerOn:projection.hook,
+      synopsisSpoilerOff:projection.synopsis,
+      synopsisSpoilerOn:projection.synopsis,
+      lastReviewedAt:projection.researchedAt,
+    },
+  };
+}
+
+function applyToMajorEvent(record, projection, indexes){
+  const editorialSources = projection.sourceIds.map(id => indexes.sources.get(id)).map(source => ({
+    name:source.name,
+    url:source.url,
+    checkedAt:source.checkedAt,
+  }));
+  const sourcesByUrl = new Map([...(record.sources || []), ...editorialSources].map(source => [source.url, source]));
+  return {
+    ...record,
+    editorialNarrative:editorialNarrativeFor(projection, indexes),
+    sources:Array.from(sourcesByUrl.values()),
+  };
+}
+
+module.exports = {
+  GENERIC_COPY,
+  TIER_REQUIREMENTS,
+  applyToFeedEvent,
+  applyToMajorEvent,
+  editorialNarrativeFor,
+  idFor,
+  indexesFor,
+  projectionForTarget,
+  validateKnowledge,
+};

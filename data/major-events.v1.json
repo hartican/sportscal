@@ -46,8 +46,52 @@
           "name": "Cincinnati Open order of play",
           "url": "https://cincinnatiopen.com/score-center/order-of-play/",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "Cincinnati Open — About the tournament",
+          "url": "https://cincinnatiopen.com/about/about-the-tournament/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "ATP Tour — Fils wins the 2026 Cincinnati final",
+          "url": "https://www.atptour.com/en/news/fils-tiafoe-cincinnati-2026-final",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "Cincinnati Open — Gauff claims second Cincinnati crown",
+          "url": "https://cincinnatiopen.com/news/coco-claims-second-cincinnati-crown/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:major:cincinnati-open-2026",
+        "researchTier": "marquee",
+        "hook": "Fils left Cincinnati with a first Masters 1000 title, while Gauff's second crown reopened a proven road from Ohio to New York.",
+        "threadIds": [
+          "thread:tennis:cincinnati:gauff-fils-2026-aftermath"
+        ],
+        "factIds": [
+          "fact:cincinnati-2026:level-and-place",
+          "fact:cincinnati-2026:fils-title",
+          "fact:cincinnati-2026:french-drought",
+          "fact:cincinnati-2026:gauff-title"
+        ],
+        "sourceIds": [
+          "source:cincinnati:about",
+          "source:cincinnati:fils-final",
+          "source:cincinnati:gauff-final"
+        ],
+        "dimensions": [
+          "format",
+          "form",
+          "history",
+          "consequence"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": null,
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:us-open-2026",
@@ -14764,17 +14808,63 @@
           "checkedAt": "2026-08-28T08:19:35.408Z"
         },
         {
-          "name": "US Open 2026 schedule",
+          "name": "US Open — 2026 tournament schedule",
           "url": "https://www.usopen.org/en_US/about/eventschedule.html",
-          "checkedAt": "2026-08-23T06:00:00.000Z"
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         },
         {
           "name": "US Open ticket FAQ",
           "url": "https://www.usopen.org/en_US/tickets/tickets_faq.html",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "US Open — 2026 men's singles draw preview",
+          "url": "https://www.usopen.org/en_US/news/articles/2026-08-27/carlos_alcaraz_alexander_zverev_lead_mens_singles_draw_at_the_2026_us_open.html",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "US Open — Sabalenka's 2026 three-peat pursuit",
+          "url": "https://www.usopen.org/amp/en_US/news/articles/2026-08-28/aryna_sabalenkas_nyc_success_fuels_quest_for_three-peat_at_2026_us_open.html",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "US Open — 2026 American men's draw outlook",
+          "url": "https://www.usopen.org/en_US/news/articles/2026-08-27/jodar_tiafoe_and_more_poised_for_success_at_2026_us_open.html",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         }
       ],
-      "phaseIdentity": "qualification"
+      "phaseIdentity": "qualification",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:major:us-open-2026",
+        "researchTier": "marquee",
+        "hook": "Sinner's withdrawal has redrawn the men's contest, while Sabalenka starts a bid to join the US Open's three-peat company.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:afl-finals-series-2026",
@@ -15563,8 +15653,73 @@
           "name": "AFL 2026 Finals and Grand Final dates",
           "url": "https://www.afl.com.au/news/1582665/price-freeze-on-entry-level-finals-tickets-for-11th-straight-year",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "AFL — 2026 wildcard finals explained",
+          "url": "https://www.afl.com.au/news/1589531/what-is-wildcard-round-and-how-does-it-work-rankings-system-explained-finals-history-and-more/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "AFL — Bulldogs defeat Collingwood in the wildcard final",
+          "url": "https://www.afl.com.au/news/1596213/heartbreak-for-magpies-as-late-miss-sees-bulldogs-steal-wildcard-win/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "AFL — Arty Jones' first finals performance",
+          "url": "https://www.afl.com.au/news/1596216/the-finals-performance-that-could-change-everything-for-western-bulldogs-arty-jones",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "AFL — Carlton defeat Melbourne in the wildcard final",
+          "url": "https://www.afl.com.au/news/1597454/blues-fairytale-run-continues-after-epic-wildcard-finish-against-demons",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "AFL — 2026 finals week-two fixture",
+          "url": "https://www.afl.com.au/news/1597385/finals-fixture-ticket-details-schedule-confirmed-for-week-two-of-the-2026-finals-series/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "AFL — 2026 Grand Final time",
+          "url": "https://www.afl.com.au/news/1486947",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:major:afl-finals-2026",
+        "researchTier": "marquee",
+        "hook": "The first wildcard weekend has turned Carlton's 1–8 recovery and Arty Jones' breakout into two sudden-death paths through September.",
+        "threadIds": [
+          "thread:afl:finals-2026:first-wildcard-road"
+        ],
+        "factIds": [
+          "fact:afl-finals-2026:new-format",
+          "fact:afl-finals-2026:wildcard-results",
+          "fact:afl-finals-2026:week-two-path",
+          "fact:afl-finals-2026:carlton-revival",
+          "fact:afl-finals-2026:bulldogs-jones",
+          "fact:afl-finals-2026:destination"
+        ],
+        "sourceIds": [
+          "source:afl:2026-wildcard-format",
+          "source:afl:2026-bulldogs-wildcard",
+          "source:afl:2026-arty-jones",
+          "source:afl:2026-carlton-wildcard",
+          "source:afl:2026-week-two",
+          "source:afl:2026-grand-final-time"
+        ],
+        "dimensions": [
+          "format",
+          "form",
+          "path",
+          "history",
+          "schedule"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-09-03T10:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:nrl-finals-series-2026",
@@ -15696,16 +15851,64 @@
       },
       "sources": [
         {
-          "name": "NRL 2026 Grand Final official tickets",
+          "name": "NRL — 2026 NRL and NRLW Grand Final",
           "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-          "checkedAt": "2026-08-23T06:00:00.000Z"
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         },
         {
           "name": "NRL 2026 official draw",
           "url": "https://www.nrl.com/globalassets/nrl-draw-2026---final.pdf",
           "checkedAt": "2026-08-23T06:00:00.000Z"
+        },
+        {
+          "name": "NRL — 2026 top eight locked after Round 26",
+          "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "NRL — Warriors' 2026 finals and Grand Final pursuit",
+          "url": "https://www.nrl.com/news/2026/08/18/warriors-fans-lead-the-charge-for-tickets-to-the-big-dance/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "NRL — 2026 premiership schedule",
+          "url": "https://www.nrl.com/news/2025/11/14/2026-nrl-telstra-premiership-schedule/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:major:nrl-finals-2026",
+        "researchTier": "marquee",
+        "hook": "The finalists are locked, but an unsettled top four means eight known teams still do not know the shape of their September road.",
+        "threadIds": [
+          "thread:nrl:finals-2026:locked-eight-open-order"
+        ],
+        "factIds": [
+          "fact:nrl-finals-2026:locked-eight",
+          "fact:nrl-finals-2026:top-four-race",
+          "fact:nrl-finals-2026:rabbitohs-return",
+          "fact:nrl-finals-2026:newcomer-new-champion",
+          "fact:nrl-finals-2026:warriors-chase",
+          "fact:nrl-finals-2026:destination"
+        ],
+        "sourceIds": [
+          "source:nrl:2026-locked-eight",
+          "source:nrl:2026-warriors",
+          "source:nrl:2026-grand-final",
+          "source:nrl:2026-season"
+        ],
+        "dimensions": [
+          "matchup",
+          "path",
+          "form",
+          "history",
+          "schedule"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-09-01T12:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:rlwc-2026",
@@ -16053,8 +16256,54 @@
           "name": "UEFA Champions League qualifying fixtures and results",
           "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
           "checkedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League qualifying results and format",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase teams",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:major:ucl-qualification-2026-27",
+        "researchTier": "marquee",
+        "hook": "LASK's five-goal comeback from a 3–0 first-leg deficit supplied the defining route into a seven-club qualifying class.",
+        "threadIds": [
+          "thread:football:ucl-2026-27:qualification-road"
+        ],
+        "factIds": [
+          "fact:ucl-qualifying-2026-27:window",
+          "fact:ucl-qualifying-2026-27:seven-places",
+          "fact:ucl-qualifying-2026-27:survivors",
+          "fact:ucl-qualifying-2026-27:lask-comeback",
+          "fact:ucl-qualifying-2026-27:extra-time-survival"
+        ],
+        "sourceIds": [
+          "source:uefa:ucl-2026-27-qualifying",
+          "source:uefa:ucl-2026-27-teams",
+          "source:uefa:ucl-2026-27-opponents"
+        ],
+        "dimensions": [
+          "format",
+          "consequence",
+          "matchup",
+          "history",
+          "form"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": null,
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:league-phase",
@@ -16096,11 +16345,74 @@
       ],
       "sources": [
         {
-          "name": "UEFA 2026/27 Champions League dates and final",
+          "name": "UEFA — 2026/27 Champions League dates, format and final",
           "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
-          "checkedAt": "2026-08-23T06:00:00.000Z"
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase draw",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase fixtures",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — Paris join the back-to-back Champions League winners",
+          "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase teams",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
         }
-      ]
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v1",
+        "projectionId": "projection:major:ucl-league-phase-2026-27",
+        "researchTier": "marquee",
+        "hook": "AEK and LASK carry qualification straight into opening night, as Paris begins a rare chase for a third consecutive title.",
+        "threadIds": [
+          "thread:football:ucl-2026-27:qualification-road",
+          "thread:football:ucl-2026-27:league-phase"
+        ],
+        "factIds": [
+          "fact:ucl-league-2026-27:scale",
+          "fact:ucl-league-2026-27:draw-logic",
+          "fact:ucl-league-2026-27:calendar",
+          "fact:ucl-league-2026-27:opening-bridge",
+          "fact:ucl-league-2026-27:holders",
+          "fact:ucl-league-2026-27:new-ground",
+          "fact:ucl-league-2026-27:destination"
+        ],
+        "sourceIds": [
+          "source:uefa:ucl-2026-27-draw",
+          "source:uefa:ucl-2026-27-opponents",
+          "source:uefa:ucl-2026-27-fixtures",
+          "source:uefa:ucl-2026-27-holders",
+          "source:uefa:ucl-2026-27-teams",
+          "source:uefa:ucl-2026-27-season"
+        ],
+        "dimensions": [
+          "format",
+          "path",
+          "schedule",
+          "matchup",
+          "history",
+          "venue"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-09-09T00:00:00.000Z",
+        "generationMode": "researched"
+      }
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:knockout",

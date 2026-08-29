@@ -123,6 +123,7 @@
         "venue": { "type": "string" },
         "location": { "type": "string" },
         "summary": { "type": "string", "minLength": 1 },
+        "editorialNarrative": { "$ref": "event-feed.schema.json#/$defs/editorialNarrative" },
         "details": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
         "scheduleAdapter": { "type": "string" },
         "drawType": { "type": "string" },

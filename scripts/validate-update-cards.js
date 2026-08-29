@@ -36,12 +36,32 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-major-events-from-ca
 assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && !step.includes("--check")), "every canonical update must refresh detailed US Open Events fixtures from the official released order of play");
 assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && step.includes("--check")), "every canonical update must reject stale US Open Events fixtures");
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
+assert(localSteps.some(step => step[0] === "scripts/apply-editorial-narratives.js" && step.includes("--write")), "every canonical update must project persistent stakes-led editorial before publication");
+assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-f1-editorial.js")
     < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js"),
   "F1 editorial must be refreshed before editorial overrides are applied to the incoming feed"
+);
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/refresh-f1-editorial.js")
+    < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js")
+    && localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js")
+      < localSteps.findIndex(step => step[0] === "scripts/enrich-storyline-cards.js")
+    && localSteps.findIndex(step => step[0] === "scripts/enrich-storyline-cards.js")
+      < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js")
+    && localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js")
+      < localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
+  "research, preview composition, storyline enrichment and persistent narratives must complete before the feed is published once"
+);
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/publish-feed.js")
+    < localSteps.findIndex(step => step[0] === "scripts/validate-editorial-narratives.js")
+    && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-narratives.js")
+      < localSteps.findIndex(step => step[0] === "scripts/build-paged-feed.js"),
+  "published editorial must pass its quality gate before derived feed pages are built"
 );
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-major-events-from-canonical.js")

@@ -12,7 +12,7 @@ const ticketing = require("../config/ticketing.js");
 const aflNrlCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const usOpenScheduleSnapshot = JSON.parse(fs.readFileSync("feeds/provider-exports/tennis/us-open-2026-official-schedule.json", "utf8"));
 
-const REFERENCE = new Date("2026-08-29T00:00:00.000Z");
+const REFERENCE = new Date("2026-08-30T06:00:00.000Z");
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/major-events.schema.json", "utf8"));
 const html = fs.readFileSync("index.html", "utf8");
@@ -170,8 +170,8 @@ const invalidCopies = [
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, stakesScore: 4 }) }, /stakes/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
-  [{ ...catalogue, publishedAt: "2026-08-30T00:00:00.000Z" }, /non-future/],
-  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-30T00:00:00.000Z" })) }) }, /future-dated source/],
+  [{ ...catalogue, publishedAt: "2026-08-31T00:00:00.000Z" }, /non-future/],
+  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-31T00:00:00.000Z" })) }) }, /future-dated source/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:australian-grand-prix-2027" ? { ...record, season: 2028 } : record) }, /TBC records/],
 ];
 invalidCopies.forEach(([document, message]) => {

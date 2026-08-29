@@ -186,6 +186,28 @@ function validateFeed(feed) {
         });
       }
     }
+    if (event.editorialNarrative !== undefined) {
+      const narrative = event.editorialNarrative;
+      if (!narrative || typeof narrative !== "object" || Array.isArray(narrative)) {
+        errors.push(`${prefix}.editorialNarrative must be an object if present.`);
+      } else {
+        if (narrative.schemaVersion !== "editorial-narrative.v1") errors.push(`${prefix}.editorialNarrative.schemaVersion must be editorial-narrative.v1.`);
+        if (!String(narrative.projectionId || "").trim()) errors.push(`${prefix}.editorialNarrative.projectionId is required.`);
+        if (!["standard", "featured", "marquee"].includes(narrative.researchTier)) errors.push(`${prefix}.editorialNarrative.researchTier is unsupported.`);
+        if (!String(narrative.hook || "").trim() || String(narrative.hook || "").length > 180) errors.push(`${prefix}.editorialNarrative.hook must be a non-empty string of 180 characters or fewer.`);
+        [["threadIds", 1], ["factIds", 1], ["sourceIds", 1], ["dimensions", 1]].forEach(([field, minimum]) => {
+          if (!Array.isArray(narrative[field]) || narrative[field].filter(Boolean).length < minimum || new Set(narrative[field]).size !== narrative[field].length) errors.push(`${prefix}.editorialNarrative.${field} must contain unique values.`);
+        });
+        if (!isDateTime(narrative.researchedAt)) errors.push(`${prefix}.editorialNarrative.researchedAt must be an ISO date-time.`);
+        if (narrative.refreshAfter !== undefined && narrative.refreshAfter !== null && !isDateTime(narrative.refreshAfter)) errors.push(`${prefix}.editorialNarrative.refreshAfter must be null or an ISO date-time.`);
+        if (!["researched", "source-derived-fallback"].includes(narrative.generationMode)) errors.push(`${prefix}.editorialNarrative.generationMode is unsupported.`);
+        if (narrative.researchTier === "marquee") {
+          if ((narrative.factIds || []).length < 4) errors.push(`${prefix}.editorialNarrative.factIds needs four facts for marquee coverage.`);
+          if ((narrative.sourceIds || []).length < 3) errors.push(`${prefix}.editorialNarrative.sourceIds needs three sources for marquee coverage.`);
+          if ((narrative.dimensions || []).length < 3) errors.push(`${prefix}.editorialNarrative.dimensions needs three dimensions for marquee coverage.`);
+        }
+      }
+    }
     if (event.editorialPreview !== undefined) {
       const preview = event.editorialPreview;
       if (!preview || typeof preview !== "object" || Array.isArray(preview)) {
