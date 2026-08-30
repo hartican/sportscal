@@ -317,13 +317,14 @@
       if (/final/i.test(subject)) return `One match in Madrid decides the European champion after every qualifying and knockout route converges.`;
     }
 
-    return `${subject} is the next consequence-bearing chapter of ${String(parent?.name || "this major event").trim()}.`;
+    return "";
   }
 
   function inheritedEditorialNarrative(subEvent, parent){
     const narrative = parent?.editorialNarrative;
     if (!narrative) return null;
     const hook = childEditorialHook(subEvent, parent);
+    if (!hook) return null;
     return {
       ...narrative,
       projectionId:`${narrative.projectionId}:child:${subEvent.id}`,

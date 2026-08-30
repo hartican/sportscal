@@ -152,6 +152,12 @@ surfacedEventFixtureAudit.forEach(({ parent, subEvent }) => {
   assert(resolvedEditorial.dimensions?.some(dimension => ["path", "form", "matchup", "history", "consequence"].includes(dimension)), `${subEvent.id} editorial must retain a substantive dimension`);
 });
 assert(surfacedEventFixtureAudit.length >= 60, "the Events editorial gate must cover the comprehensive surfaced fixture catalogue");
+const unsupportedFutureChild = majorEvents.editorialRecordForSubEvent(
+  { id:"major-match:future-family:unknown", name:"Team A v Team B", stakesScore:5, status:"scheduled" },
+  { id:"major-event:future-family", name:"Future family", sportKey:"football", sportLabel:"Football", editorialNarrative:aflFinals.editorialNarrative },
+  []
+);
+assert.equal(unsupportedFutureChild.editorialNarrative, undefined, "an unrecognised future Event family must fail the editorial gate instead of receiving generic filler");
 
 catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => {
   const sideLabels = majorEvents.matchupSideLabels(subEvent);
@@ -213,11 +219,11 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=184"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=185"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=184"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=185"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert.match(html, /const editorialRecord = MAJOR_EVENTS\.editorialRecordForSubEvent\(subEvent, record, \[\.\.\.EVENTS, \.\.\.activeEvents\]\);[\s\S]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\)\)/, "every Events timetable card must render a validated L0 editorial hook");
 assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, \[\.\.\.EVENTS, \.\.\.activeEvents\]\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
