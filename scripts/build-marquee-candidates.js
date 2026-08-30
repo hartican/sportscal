@@ -100,6 +100,7 @@ function candidateFor(event, evidence, feedMeta, nowMs){
   const drafts = marquee.draftCopy(event, timing);
   const proposedSendAt = new Date(Date.parse(timing.startTimeUtc) - marquee.SEND_LEAD_MS).toISOString();
   const fixtureUrl = `${PUBLIC_ORIGIN}/fixture/${encodeURIComponent(evidence.fixtureId)}?source=marquee&campaign=${campaignId}`;
+  const ratingUrl = `${fixtureUrl}&intent=rate`;
   return {
     campaignId, campaignRevision:1, contentHash, state:state.state, actionable:state.actionable, late:state.late,
     eventId:evidence.fixtureId, proposedSendAt,
@@ -108,7 +109,20 @@ function candidateFor(event, evidence, feedMeta, nowMs){
     source:{ ...evidence.source, revision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}` }, material,
     drafts:{
       hook:drafts.hook, instagram:{ account:"@_nothingsports", caption:drafts.caption, altText:drafts.altText },
-      email:{ subject:drafts.subject, preheader:drafts.preheader, topic:"Marquee fixture alerts", joinUrl:fixtureUrl, ratingUrl:`${fixtureUrl}&intent=rate` },
+      email:{
+        subject:drafts.subject,
+        preheader:drafts.preheader,
+        headline:drafts.headline,
+        bodyParagraphs:drafts.bodyParagraphs,
+        timingLine:drafts.timingLine,
+        broadcastLine:drafts.broadcastLine,
+        topic:"Marquee fixture alerts",
+        primaryCta:{ label:"Open the fixture", url:fixtureUrl },
+        secondaryCta:{ label:"Rate it after the finish", url:ratingUrl },
+        suggestedSendAt:{ utc:proposedSendAt, sydney:marquee.sydneyParts(proposedSendAt) },
+        joinUrl:fixtureUrl,
+        ratingUrl,
+      },
       when:drafts.when, finish:drafts.finish,
     },
     channels:{
@@ -136,7 +150,11 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
   }
   candidates.sort((a, b) => a.timing.startTimeUtc.localeCompare(b.timing.startTimeUtc) || a.eventId.localeCompare(b.eventId));
   const logoData = fs.readFileSync(BRAND_LOGO).toString("base64");
-  for (const candidate of candidates) candidate.drafts.instagram.image = await generateImage(candidate, logoData);
+  for (const candidate of candidates){
+    const image = await generateImage(candidate, logoData);
+    candidate.drafts.instagram.image = image;
+    candidate.drafts.email.image = { ...image, altText:candidate.drafts.instagram.altText };
+  }
   const artifact = {
     schemaVersion:marquee.SCHEMA_VERSION, sourceRevision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}`,
     generatedAt:new Date(nowMs).toISOString(), shadowMode:true,

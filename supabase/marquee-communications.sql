@@ -9,21 +9,77 @@ create table if not exists public.nothingsports_marquee_campaigns (
   source_revision text not null,
   campaign_revision integer not null default 1 check (campaign_revision > 0),
   content_hash text not null check (content_hash ~ '^[a-f0-9]{64}$'),
-  state text not null check (state in ('watching','draft','needs_review','approved','scheduled','connector_blocked','partially_published','published','needs_reapproval','failed','cancelled')),
+  state text not null constraint nothingsports_marquee_campaigns_state_check check (state in ('watching','draft','needs_review','approved','exported','scheduled','connector_blocked','partially_published','published','needs_reapproval','failed','cancelled')),
   candidate jsonb not null,
   draft_copy jsonb not null,
   approved_copy jsonb,
   proposed_send_at timestamptz not null,
   approved_by uuid references auth.users(id) on delete set null,
   approved_at timestamptz,
+  exported_by uuid references auth.users(id) on delete set null,
+  exported_at timestamptz,
+  export_snapshot jsonb,
+  export_format text,
+  export_stale boolean not null default false,
   scheduled_at timestamptz,
   published_at timestamptz,
   correction_required boolean not null default false,
   late boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  check ((approved_at is null and approved_by is null and approved_copy is null) or (approved_at is not null and approved_by is not null and approved_copy is not null))
+  check ((approved_at is null and approved_by is null and approved_copy is null) or (approved_at is not null and approved_by is not null and approved_copy is not null)),
+  constraint nothingsports_marquee_export_snapshot_check check (
+    (exported_at is null and export_snapshot is null and export_format is null)
+    or (exported_at is not null and export_snapshot is not null and export_format = 'mailchimp-manual.v1')
+  )
 );
+
+-- Additive upgrade for deployments created from the earlier approval-and-delivery schema.
+alter table public.nothingsports_marquee_campaigns add column if not exists exported_by uuid references auth.users(id) on delete set null;
+alter table public.nothingsports_marquee_campaigns add column if not exists exported_at timestamptz;
+alter table public.nothingsports_marquee_campaigns add column if not exists export_snapshot jsonb;
+alter table public.nothingsports_marquee_campaigns add column if not exists export_format text;
+alter table public.nothingsports_marquee_campaigns add column if not exists export_stale boolean not null default false;
+
+alter table public.nothingsports_marquee_campaigns drop constraint if exists nothingsports_marquee_campaigns_state_check;
+alter table public.nothingsports_marquee_campaigns add constraint nothingsports_marquee_campaigns_state_check
+  check (state in ('watching','draft','needs_review','approved','exported','scheduled','connector_blocked','partially_published','published','needs_reapproval','failed','cancelled'));
+
+update public.nothingsports_marquee_campaigns
+set state = 'exported',
+    exported_by = coalesce(exported_by, approved_by),
+    exported_at = coalesce(exported_at, approved_at),
+    export_format = 'mailchimp-manual.v1',
+    export_snapshot = coalesce(export_snapshot, jsonb_build_object(
+      'schemaVersion', 'mailchimp-manual.v1',
+      'legacy', true,
+      'campaignId', campaign_id,
+      'campaignRevision', campaign_revision,
+      'contentHash', content_hash,
+      'exportedAt', approved_at,
+      'draftCopy', approved_copy
+    )),
+    export_stale = true,
+    updated_at = now()
+where approved_at is not null
+  and approved_copy is not null
+  and state in ('approved', 'connector_blocked');
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'nothingsports_marquee_export_snapshot_check'
+      and conrelid = 'public.nothingsports_marquee_campaigns'::regclass
+  ) then
+    alter table public.nothingsports_marquee_campaigns
+      add constraint nothingsports_marquee_export_snapshot_check check (
+        (exported_at is null and export_snapshot is null and export_format is null)
+        or (exported_at is not null and export_snapshot is not null and export_format = 'mailchimp-manual.v1')
+      );
+  end if;
+end
+$$;
 
 create table if not exists public.nothingsports_marquee_subscribers (
   subscriber_id uuid primary key default gen_random_uuid(),

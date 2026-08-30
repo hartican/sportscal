@@ -24,12 +24,12 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["campaignId", "campaignRevision", "contentHash", "state", "actionable", "late", "eventId", "eligibilityEvidence", "timing", "source", "material", "drafts", "channels", "participation"],
+        "required": ["campaignId", "campaignRevision", "contentHash", "state", "actionable", "late", "eventId", "proposedSendAt", "eligibilityEvidence", "timing", "source", "material", "drafts", "channels", "participation"],
         "properties": {
           "campaignId": { "type": "string", "pattern": "^marquee_[a-f0-9]{16}$" },
           "campaignRevision": { "const": 1 },
           "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-          "state": { "enum": ["watching", "draft", "needs_review", "approved", "scheduled", "connector_blocked", "partially_published", "published", "needs_reapproval", "failed", "cancelled"] },
+          "state": { "enum": ["watching", "draft", "needs_review", "approved", "exported", "scheduled", "connector_blocked", "partially_published", "published", "needs_reapproval", "failed", "cancelled"] },
           "actionable": { "type": "boolean" },
           "late": { "type": "boolean" },
           "eventId": { "type": "string", "minLength": 1 },
@@ -38,7 +38,30 @@
           "timing": { "type": "object" },
           "source": { "type": "object" },
           "material": { "type": "object" },
-          "drafts": { "type": "object" },
+          "drafts": {
+            "type": "object",
+            "required": ["hook", "instagram", "email", "when", "finish"],
+            "properties": {
+              "email": {
+                "type": "object",
+                "required": ["subject", "preheader", "headline", "bodyParagraphs", "timingLine", "broadcastLine", "primaryCta", "secondaryCta", "image", "suggestedSendAt"],
+                "properties": {
+                  "subject": { "type": "string", "minLength": 1, "maxLength": 150 },
+                  "preheader": { "type": "string", "minLength": 1, "maxLength": 150 },
+                  "headline": { "type": "string", "minLength": 1, "maxLength": 240 },
+                  "bodyParagraphs": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "type": "string", "minLength": 1, "maxLength": 4000 } },
+                  "timingLine": { "type": "string", "minLength": 1, "maxLength": 500 },
+                  "broadcastLine": { "type": "string", "maxLength": 500 },
+                  "primaryCta": { "$ref": "#/$defs/cta" },
+                  "secondaryCta": { "$ref": "#/$defs/cta" },
+                  "image": { "$ref": "#/$defs/image" },
+                  "suggestedSendAt": { "$ref": "#/$defs/suggestedSendAt" }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          },
           "channels": { "type": "object" },
           "participation": { "type": "object" }
         },
@@ -46,6 +69,39 @@
       }
     },
     "excluded": { "type": "array" }
+  },
+  "$defs": {
+    "cta": {
+      "type": "object",
+      "required": ["label", "url"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "url": { "type": "string", "pattern": "^https://" }
+      },
+      "additionalProperties": false
+    },
+    "image": {
+      "type": "object",
+      "required": ["path", "publicUrl", "width", "height", "mimeType", "altText"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/assets/marquee/" },
+        "publicUrl": { "type": "string", "pattern": "^https://" },
+        "width": { "const": 1080 },
+        "height": { "const": 1350 },
+        "mimeType": { "const": "image/jpeg" },
+        "altText": { "type": "string", "minLength": 1, "maxLength": 1000 }
+      },
+      "additionalProperties": true
+    },
+    "suggestedSendAt": {
+      "type": "object",
+      "required": ["utc", "sydney"],
+      "properties": {
+        "utc": { "type": "string", "format": "date-time" },
+        "sydney": { "type": "object" }
+      },
+      "additionalProperties": false
+    }
   },
   "additionalProperties": false
 }

@@ -8,9 +8,8 @@ const {
 const marquee = require("../config/marquee-campaigns");
 
 const CAMPAIGNS = "nothingsports_marquee_campaigns";
-const SUBSCRIBERS = "nothingsports_marquee_subscribers";
-const DELIVERIES = "nothingsports_marquee_deliveries";
 const ARTIFACT = path.join(__dirname, "../data/marquee-candidates.v1.json");
+const EXPORT_SCHEMA_VERSION = "mailchimp-manual.v1";
 
 class CommsError extends Error {
   constructor(message, status = 400, code = "invalid_comms_request"){ super(message); this.status = status; this.code = code; }
@@ -35,6 +34,144 @@ function campaignPayload(candidate, state = candidate.state){
     updated_at:new Date().toISOString(),
   };
 }
+function editableState(state){ return ["watching", "draft", "needs_review", "needs_reapproval", "failed", "connector_blocked"].includes(state); }
+function paragraphs(value){
+  const source = Array.isArray(value) ? value : String(value || "").split(/\n\s*\n/);
+  return source.map(item => clean(item, 4000)).filter(Boolean).slice(0, 8);
+}
+function cta(value, fallbackLabel = ""){
+  const label = clean(value?.label || fallbackLabel, 120);
+  const url = clean(value?.url, 2000);
+  return label && /^https:\/\//i.test(url) ? { label, url } : null;
+}
+function plainTextFor({ headline, bodyParagraphs, timingLine, broadcastLine, primaryCta, secondaryCta }){
+  return [
+    headline,
+    ...bodyParagraphs,
+    timingLine,
+    broadcastLine,
+    primaryCta ? `${primaryCta.label}: ${primaryCta.url}` : "",
+    secondaryCta ? `${secondaryCta.label}: ${secondaryCta.url}` : "",
+  ].filter(Boolean).join("\n\n");
+}
+function mailchimpPack(current, exportedAt = new Date().toISOString()){
+  const candidate = current?.candidate || {};
+  const draft = current?.draft_copy || candidate.drafts || {};
+  const email = draft.email || {};
+  const instagram = draft.instagram || {};
+  const material = candidate.material || {};
+  const image = email.image || instagram.image || {};
+  const subject = clean(email.subject, 150);
+  const previewText = clean(email.preheader, 150);
+  const headline = clean(email.headline || material.title, 240);
+  const bodyParagraphs = paragraphs(email.bodyParagraphs || email.body);
+  const timingLine = clean(email.timingLine, 500);
+  const broadcastLine = clean(email.broadcastLine, 500);
+  const primaryCta = cta(email.primaryCta, "Open the fixture");
+  const secondaryCta = cta(email.secondaryCta, "Rate it after the finish");
+  const imageUrl = clean(image.publicUrl || image.path, 2000);
+  const altText = clean(image.altText || instagram.altText, 1000);
+  if (!subject || !previewText || !headline || !bodyParagraphs.length || !primaryCta || !/^https:\/\//i.test(imageUrl) || !altText){
+    throw new CommsError("Complete the subject, headline, body, fixture link, image and alt text before export.", 409, "mailchimp_export_incomplete");
+  }
+  const pack = {
+    schemaVersion:EXPORT_SCHEMA_VERSION,
+    campaignId:clean(current.campaign_id, 80),
+    campaignRevision:Number(current.campaign_revision || 1),
+    contentHash:clean(current.content_hash, 64),
+    exportedAt:new Date(exportedAt).toISOString(),
+    suggestedSendAt:{
+      utc:clean(current.proposed_send_at, 64),
+      sydney:email.suggestedSendAt?.sydney || marquee.sydneyParts(current.proposed_send_at),
+    },
+    subject, previewText, headline, bodyParagraphs, timingLine, broadcastLine,
+    primaryCta, secondaryCta,
+    image:{
+      url:imageUrl,
+      path:clean(image.path, 2000),
+      altText,
+      width:Number(image.width || 0),
+      height:Number(image.height || 0),
+      mimeType:clean(image.mimeType, 100),
+    },
+    plainText:plainTextFor({ headline, bodyParagraphs, timingLine, broadcastLine, primaryCta, secondaryCta }),
+    source:{
+      name:clean(candidate.source?.name, 500),
+      url:clean(candidate.source?.url, 2000),
+      checkedAt:clean(candidate.source?.checkedAt, 64),
+      revision:clean(candidate.source?.revision, 500),
+    },
+    fixture:{
+      eventId:clean(current.event_id, 500),
+      title:clean(material.title, 500),
+      startTimeUtc:clean(candidate.timing?.startTimeUtc, 64),
+      endTimeUtc:clean(candidate.timing?.endTimeUtc, 64),
+      fixtureUrl:primaryCta.url,
+    },
+    social:{ caption:clean(instagram.caption, 2200), altText:clean(instagram.altText, 1000) },
+  };
+  return pack;
+}
+function exportTransition(current, user, now = new Date().toISOString()){
+  if (current?.state === "exported" && current.export_snapshot && !current.export_stale){
+    return { idempotent:true, pack:current.export_snapshot, patch:null };
+  }
+  if (!current || (!editableState(current.state) && current.state !== "approved")){
+    throw new CommsError("This campaign cannot be exported in its current state.", 409, "campaign_not_exportable");
+  }
+  const pack = mailchimpPack({ ...current, draft_copy:current.approved_copy || current.draft_copy }, now);
+  return {
+    idempotent:false,
+    pack,
+    patch:{
+      state:"exported",
+      approved_by:user.id,
+      approved_at:pack.exportedAt,
+      approved_copy:current.approved_copy || current.draft_copy,
+      exported_by:user.id,
+      exported_at:pack.exportedAt,
+      export_snapshot:pack,
+      export_format:EXPORT_SCHEMA_VERSION,
+      export_stale:false,
+      updated_at:pack.exportedAt,
+    },
+  };
+}
+function reopenTransition(current, now = new Date().toISOString()){
+  if (!current || !["exported", "approved"].includes(current.state)){
+    throw new CommsError("Only a frozen export can be reopened.", 409, "campaign_not_reopenable");
+  }
+  return {
+    state:"needs_review",
+    draft_copy:current.approved_copy || current.draft_copy,
+    campaign_revision:Number(current.campaign_revision || 1) + 1,
+    approved_by:null,
+    approved_at:null,
+    approved_copy:null,
+    export_stale:Boolean(current.exported_at || current.export_snapshot),
+    updated_at:new Date(now).toISOString(),
+  };
+}
+function syncPatch(current, candidate){
+  const materialChanged = current.content_hash !== candidate.contentHash;
+  const published = Boolean(current.published_at) || ["published", "partially_published"].includes(current.state);
+  const next = campaignPayload(candidate, materialChanged ? "needs_reapproval" : current.state);
+  if (materialChanged){
+    Object.assign(next, {
+      campaign_revision:Number(current.campaign_revision || 1) + 1,
+      approved_by:null,
+      approved_at:null,
+      approved_copy:null,
+      scheduled_at:null,
+      correction_required:published,
+      export_stale:Boolean(current.exported_at || current.export_snapshot),
+    });
+  } else {
+    delete next.draft_copy;
+    next.campaign_revision=current.campaign_revision;
+  }
+  return { patch:next, outcome:materialChanged ? (published ? "correction_required" : "approval_revoked") : "unchanged" };
+}
 async function syncCandidates(){
   const source = artifact();
   const synced = [];
@@ -45,35 +182,21 @@ async function syncCandidates(){
       synced.push({ campaignId:candidate.campaignId, outcome:"created" });
       continue;
     }
-    const materialChanged = current.content_hash !== candidate.contentHash;
-    const published = Boolean(current.published_at) || ["published", "partially_published"].includes(current.state);
-    const next = campaignPayload(candidate, materialChanged ? "needs_reapproval" : current.state);
-    if (materialChanged){
-      Object.assign(next, {
-        campaign_revision:Number(current.campaign_revision || 1) + 1,
-        approved_by:null, approved_at:null, approved_copy:null, scheduled_at:null,
-        correction_required:published,
-      });
-    } else {
-      delete next.draft_copy;
-      next.campaign_revision=current.campaign_revision;
-    }
-    await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${candidate.campaignId}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:next });
-    synced.push({ campaignId:candidate.campaignId, outcome:materialChanged ? (published ? "correction_required" : "approval_revoked") : "unchanged" });
+    const transition = syncPatch(current, candidate);
+    await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${candidate.campaignId}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:transition.patch });
+    synced.push({ campaignId:candidate.campaignId, outcome:transition.outcome });
   }
   return { schemaVersion:source.schemaVersion, sourceRevision:source.sourceRevision, synced };
 }
 async function queuePayload(){
-  const campaigns = await rows(CAMPAIGNS, { select:"campaign_id,event_id,source_revision,campaign_revision,content_hash,state,candidate,draft_copy,approved_copy,proposed_send_at,approved_at,scheduled_at,published_at,correction_required,late,updated_at", order:"proposed_send_at.asc" });
-  const audience = await rows(SUBSCRIBERS, { suppressed_at:"is.null", select:"subscriber_id" });
-  return { schemaVersion:marquee.SCHEMA_VERSION, audienceCount:audience.length, campaigns };
+  const campaigns = await rows(CAMPAIGNS, { select:"campaign_id,event_id,source_revision,campaign_revision,content_hash,state,candidate,draft_copy,approved_copy,proposed_send_at,approved_at,exported_at,export_snapshot,export_format,export_stale,scheduled_at,published_at,correction_required,late,updated_at", order:"proposed_send_at.asc" });
+  return { schemaVersion:marquee.SCHEMA_VERSION, exportSchemaVersion:EXPORT_SCHEMA_VERSION, campaigns };
 }
-function editableState(state){ return ["watching", "draft", "needs_review", "needs_reapproval", "failed", "connector_blocked"].includes(state); }
 async function campaign(id){ return (await rows(CAMPAIGNS, { campaign_id:`eq.${clean(id,80)}`, select:"*", limit:"1" }))[0] || null; }
 async function editCampaign(body){
   const current = await campaign(body.campaignId);
   if (!current) throw new CommsError("Campaign not found.", 404, "campaign_not_found");
-  if (!editableState(current.state) || current.approved_at) throw new CommsError("Approved campaign copy is frozen.", 409, "campaign_copy_frozen");
+  if (!editableState(current.state) || current.approved_at) throw new CommsError("Exported campaign copy is frozen.", 409, "campaign_copy_frozen");
   const copy = body.draftCopy && typeof body.draftCopy === "object" ? body.draftCopy : null;
   if (!copy) throw new CommsError("Draft copy is required.", 400, "draft_copy_required");
   const serialized = JSON.stringify(copy);
@@ -81,41 +204,21 @@ async function editCampaign(body){
   await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${current.campaign_id}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ draft_copy:copy, campaign_revision:Number(current.campaign_revision)+1, state:"needs_review", updated_at:new Date().toISOString() } });
   return { updated:true };
 }
-async function approveCampaign(body, user){
+async function exportCampaign(body, user){
   const current = await campaign(body.campaignId);
   if (!current) throw new CommsError("Campaign not found.", 404, "campaign_not_found");
-  if (!editableState(current.state)) throw new CommsError("This campaign cannot be approved in its current state.", 409, "campaign_not_approvable");
-  const now = new Date().toISOString();
-  await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${current.campaign_id}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ state:"approved", approved_by:user.id, approved_at:now, approved_copy:current.draft_copy, correction_required:false, updated_at:now } });
-  return { approved:true, campaignId:current.campaign_id, approvedAt:now };
+  const transition = exportTransition(current, user);
+  if (transition.patch){
+    await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${current.campaign_id}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:transition.patch });
+  }
+  return { ...transition.pack, idempotent:transition.idempotent };
 }
-async function sendNow(body){
-  if (body.confirmation !== "SEND NOW") throw new CommsError("Type SEND NOW to confirm this late campaign.", 409, "send_now_confirmation_required");
+async function reopenExport(body){
   const current = await campaign(body.campaignId);
-  if (!current?.approved_at) throw new CommsError("Approve the frozen campaign revision first.", 409, "campaign_approval_required");
-  const now = new Date().toISOString();
-  const channels = ["instagram", "email"];
-  for (const channel of channels){
-    const key = `${current.campaign_id}:${current.content_hash}:${channel}`;
-    await supabaseServiceRequest(rowsPath(DELIVERIES, { on_conflict:"idempotency_key" }), { method:"POST", headers:{ Prefer:"resolution=ignore-duplicates,return=minimal" }, body:{ campaign_id:current.campaign_id, channel, idempotency_key:key, status:"connector_blocked", receipt:{ reason:channel === "instagram" ? "requested_connector_not_installed" : "operator_sender_configuration_required", reconciled:true }, updated_at:now } });
-  }
-  await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${current.campaign_id}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ state:"connector_blocked", scheduled_at:null, updated_at:now } });
-  return { sent:false, state:"connector_blocked", reconciled:true, channels };
-}
-function validEmail(value){ const email = clean(value, 320).toLowerCase(); return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : ""; }
-async function importSubscribers(body){
-  if (!Array.isArray(body.rows) || !body.rows.length || body.rows.length > 5000) throw new CommsError("Supply between 1 and 5,000 consent rows.", 400, "invalid_consent_import");
-  let imported = 0, suppressedPreserved = 0;
-  for (const source of body.rows){
-    const email = validEmail(source.email), consentedAt = clean(source.consented_at, 64), consentSource = clean(source.consent_source, 200), scope = clean(source.consent_scope, 80), evidenceReference = clean(source.evidence_reference, 500);
-    if (!email || !Number.isFinite(Date.parse(consentedAt)) || !consentSource || scope !== "marquee_fixture_email" || !evidenceReference) throw new CommsError("Every row needs a valid email, consented_at, consent_source, marquee_fixture_email scope and evidence_reference.", 400, "invalid_consent_row");
-    const current = (await rows(SUBSCRIBERS, { email_normalized:`eq.${encodeURIComponent(email)}`, select:"*", limit:"1" }))[0] || null;
-    const newerThanSuppression = current?.suppressed_at && Date.parse(consentedAt) > Date.parse(current.suppressed_at);
-    const preserveSuppression = Boolean(current?.suppressed_at && !newerThanSuppression);
-    await supabaseServiceRequest(rowsPath(SUBSCRIBERS, { on_conflict:"email_normalized" }), { method:"POST", headers:{ Prefer:"resolution=merge-duplicates,return=minimal" }, body:{ email_normalized:email, consented_at:new Date(consentedAt).toISOString(), consent_source:consentSource, consent_scope:scope, evidence_reference:evidenceReference, suppressed_at:preserveSuppression ? current.suppressed_at : null, suppression_reason:preserveSuppression ? current.suppression_reason : null, updated_at:new Date().toISOString() } });
-    imported += 1; if (preserveSuppression) suppressedPreserved += 1;
-  }
-  return { imported, suppressedPreserved };
+  if (!current) throw new CommsError("Campaign not found.", 404, "campaign_not_found");
+  const patch = reopenTransition(current);
+  await supabaseServiceRequest(rowsPath(CAMPAIGNS, { campaign_id:`eq.${current.campaign_id}` }), { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:patch });
+  return { reopened:true, campaignId:current.campaign_id, campaignRevision:patch.campaign_revision };
 }
 
 module.exports = async function commsHandler(request, response){
@@ -128,9 +231,8 @@ module.exports = async function commsHandler(request, response){
     let payload;
     if (body.action === "sync-candidates") payload = await syncCandidates();
     else if (body.action === "edit") payload = await editCampaign(body);
-    else if (body.action === "approve") payload = await approveCampaign(body, user);
-    else if (body.action === "send-now") payload = await sendNow(body);
-    else if (body.action === "import-consent") payload = await importSubscribers(body);
+    else if (body.action === "export-mailchimp") payload = await exportCampaign(body, user);
+    else if (body.action === "reopen-export") payload = await reopenExport(body);
     else throw new CommsError("Unknown communications action.", 400, "unknown_comms_action");
     response.status(200).json(payload);
   }catch(error){
@@ -140,4 +242,7 @@ module.exports = async function commsHandler(request, response){
   }
 };
 
-module.exports._test = Object.freeze({ CommsError, campaignPayload, editableState, isAdminRole, validEmail });
+module.exports._test = Object.freeze({
+  CommsError, EXPORT_SCHEMA_VERSION, campaignPayload, editableState, exportTransition,
+  isAdminRole, mailchimpPack, reopenTransition, syncPatch,
+});

@@ -88,9 +88,42 @@
         "email": {
           "subject": "5/5 stakes: Australia v New Zealand — Thu 8:05 pm",
           "preheader": "Join the watch party, then rate the fixture after it finishes.",
+          "headline": "Australia v New Zealand: one to make time for",
+          "bodyParagraphs": [
+            "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
+            "Open the fixture in Nothing Sport to join the watch party, follow the live context and rate it after the finish."
+          ],
+          "timingLine": "Australia v New Zealand starts Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Expected finish: 11:05 pm AEDT.",
+          "broadcastLine": "Watch in Australia on Seven / 7plus Sport.",
           "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": "2026-10-13T09:05:00.000Z",
+            "sydney": {
+              "day": "Tue",
+              "date": "Tue 13 Oct 2026",
+              "time": "8:05 pm",
+              "timezone": "AEDT"
+            }
+          },
           "joinUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d",
-          "ratingUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d&intent=rate"
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_cd90a197f744002d-b18f3c2c5fba.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-b18f3c2c5fba.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Thu 15 Oct 2026 at 8:05 pm AEDT."
+          }
         },
         "when": {
           "day": "Thu",
@@ -215,9 +248,42 @@
         "email": {
           "subject": "5/5 stakes: Australia v New Zealand — Sat 3:45 pm",
           "preheader": "Join the watch party, then rate the fixture after it finishes.",
+          "headline": "Australia v New Zealand: one to make time for",
+          "bodyParagraphs": [
+            "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
+            "Open the fixture in Nothing Sport to join the watch party, follow the live context and rate it after the finish."
+          ],
+          "timingLine": "Australia v New Zealand starts Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Expected finish: 6:45 pm AEDT.",
+          "broadcastLine": "Watch in Australia on Stan Sport.",
           "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": "2026-10-15T04:45:00.000Z",
+            "sydney": {
+              "day": "Thu",
+              "date": "Thu 15 Oct 2026",
+              "time": "3:45 pm",
+              "timezone": "AEDT"
+            }
+          },
           "joinUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674",
-          "ratingUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674&intent=rate"
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-12c84dbfe6e5.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-12c84dbfe6e5.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Sat 17 Oct 2026 at 3:45 pm AEDT."
+          }
         },
         "when": {
           "day": "Sat",

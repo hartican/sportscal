@@ -7,7 +7,7 @@
 
   const SCHEMA_VERSION = "marquee-candidates.v1";
   const CAMPAIGN_STATES = Object.freeze([
-    "watching", "draft", "needs_review", "approved", "scheduled", "connector_blocked",
+    "watching", "draft", "needs_review", "approved", "exported", "scheduled", "connector_blocked",
     "partially_published", "published", "needs_reapproval", "failed", "cancelled",
   ]);
   const ATOMIC_TYPES = new Set(["match", "fixture", "race", "session", "test", "final"]);
@@ -105,13 +105,22 @@
   function draftCopy(event, timing){
     const title = clean(event?.displayTitleCompact || event?.name || "Fixture");
     const hook = clean(event?.storyline?.hookSpoilerOff || event?.selectedSentence || "A fixture worth making time for.");
+    const venue = clean(event?.venueDisplayName || event?.venue);
+    const broadcaster = clean(event?.broadcaster);
     const when = sydneyParts(timing.startTimeUtc);
     const finish = sydneyParts(timing.endTimeUtc);
     const subject = `5/5 stakes: ${title} — ${when.day} ${when.time}`;
     const preheader = "Join the watch party, then rate the fixture after it finishes.";
     const caption = `UNMISSABLE: ${title}. ${when.date} at ${when.time} ${when.timezone}. 5/5 stakes. ${hook} Join the watch party and rate it afterwards — link in bio.`;
     const altText = `Nothing Sport UNMISSABLE card for ${title}, starting ${when.date} at ${when.time} ${when.timezone}.`;
-    return { title, hook, when, finish, subject, preheader, caption, altText };
+    const headline = `${title}: one to make time for`;
+    const bodyParagraphs = [
+      hook,
+      "Open the fixture in Nothing Sport to join the watch party, follow the live context and rate it after the finish.",
+    ];
+    const timingLine = `${title} starts ${when.date} at ${when.time} ${when.timezone}${venue ? ` at ${venue}` : ""}. Expected finish: ${finish.time} ${finish.timezone}.`;
+    const broadcastLine = broadcaster ? `Watch in Australia on ${broadcaster}.` : "";
+    return { title, hook, when, finish, subject, preheader, caption, altText, headline, bodyParagraphs, timingLine, broadcastLine };
   }
   function ratingWindow(timing){
     return {

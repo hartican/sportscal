@@ -27,9 +27,46 @@ async function main(){
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"admin" } }), true);
   assert.equal(comms._test.isAdminRole({ app_metadata:{ role:"pilot" } }), false, "removed roles must take effect on the next server verification");
   assert.equal(comms._test.editableState("draft"), true);
+  assert.equal(comms._test.editableState("needs_reapproval"), true);
+  assert.equal(comms._test.editableState("exported"), false);
   assert.equal(comms._test.editableState("approved"), false);
-  assert.equal(comms._test.validEmail(" Person@Example.com "), "person@example.com");
-  assert.equal(comms._test.validEmail("not-an-email"), "");
+  const candidate = first.candidates[0];
+  assert.ok(candidate, "the fixed build must provide a campaign for export transition tests");
+  const current = {
+    campaign_id:candidate.campaignId,
+    event_id:candidate.eventId,
+    campaign_revision:3,
+    content_hash:candidate.contentHash,
+    state:"draft",
+    candidate,
+    draft_copy:candidate.drafts,
+    approved_copy:null,
+    proposed_send_at:candidate.proposedSendAt,
+  };
+  const exportTime = "2026-08-30T01:02:03.000Z";
+  const exported = comms._test.exportTransition(current, { id:"00000000-0000-4000-8000-000000000001" }, exportTime);
+  assert.equal(exported.pack.schemaVersion, "mailchimp-manual.v1");
+  assert.equal(exported.pack.campaignRevision, 3);
+  assert.equal(exported.pack.contentHash, candidate.contentHash);
+  assert.equal(exported.pack.exportedAt, exportTime);
+  assert.equal(exported.patch.state, "exported");
+  assert.deepEqual(exported.patch.export_snapshot, exported.pack, "the exact exported revision must be frozen");
+  assert.doesNotMatch(JSON.stringify(exported.pack), /recipient|email_normalized|subscriber/i, "manual handoff exports must never contain recipients");
+  const repeatedExport = comms._test.exportTransition({ ...current, state:"exported", export_snapshot:exported.pack, export_stale:false }, { id:"00000000-0000-4000-8000-000000000001" }, "2026-08-30T02:02:03.000Z");
+  assert.equal(repeatedExport.idempotent, true);
+  assert.equal(repeatedExport.patch, null);
+  assert.deepEqual(repeatedExport.pack, exported.pack, "repeat export must return the frozen snapshot without rewriting it");
+  const reopened = comms._test.reopenTransition({ ...current, state:"exported", approved_copy:candidate.drafts, exported_at:exportTime, export_snapshot:exported.pack }, "2026-08-30T03:02:03.000Z");
+  assert.equal(reopened.state, "needs_review");
+  assert.equal(reopened.campaign_revision, 4);
+  assert.equal(reopened.export_stale, true);
+  assert.equal(reopened.approved_copy, null);
+  const changedCandidate = { ...candidate, contentHash:"a".repeat(64) };
+  const changed = comms._test.syncPatch({ ...current, state:"exported", exported_at:exportTime, export_snapshot:exported.pack }, changedCandidate);
+  assert.equal(changed.patch.state, "needs_reapproval");
+  assert.equal(changed.patch.export_stale, true);
+  assert.equal(changed.patch.campaign_revision, 4);
+  assert.equal(Object.hasOwn(changed.patch, "export_snapshot"), false, "source changes must retain the previous export for audit");
 
   const cookieResponse = responseCapture();
   const identity = participation._test.deviceIdentity({ headers:{} }, cookieResponse, { PARTICIPATION_SECRET:"a".repeat(64) });
@@ -55,13 +92,23 @@ async function main(){
   assert.doesNotMatch(sql, /\bip_address\b|\braw_ip\b/i);
   assert.match(sql, /content_hash/);
   assert.match(sql, /suppression_reason/);
+  assert.match(sql, /export_snapshot/);
+  assert.match(sql, /export_stale/);
+  assert.match(sql, /mailchimp-manual\.v1/);
+  assert.match(sql, /state in \([^)]*'exported'/s);
 
-  const commsSource = read("api/comms.js"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
+  const commsSource = read("api/comms.js"), adminSource = read("admin-comms.html"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
   assert.match(commsSource, /app_metadata/);
   assert.doesNotMatch(commsSource, /user_metadata\?\.role/);
-  assert.match(commsSource, /requested_connector_not_installed/);
-  assert.match(commsSource, /operator_sender_configuration_required/);
-  assert.match(commsSource, /confirmation !== "SEND NOW"/);
+  assert.match(commsSource, /export-mailchimp/);
+  assert.match(commsSource, /reopen-export/);
+  assert.doesNotMatch(commsSource, /SEND NOW|send-now|import-consent|resend-broadcasts|instagram-mcp/);
+  assert.doesNotMatch(commsSource, /nothingsports_marquee_subscribers|nothingsports_marquee_deliveries/);
+  assert.match(adminSource, /Nothing Sport prepares the campaign; Mailchimp sends it\./);
+  assert.match(adminSource, /Prepare Mailchimp export/);
+  assert.match(adminSource, /Copy complete handoff/);
+  assert.match(adminSource, /Download image/);
+  assert.doesNotMatch(adminSource, /Send now|connector.blocked|audienceCount|import-consent/i);
   assert.match(participationSource, /same_origin_required/);
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
@@ -75,7 +122,7 @@ async function main(){
   assert.match(read("scripts/redeploy-and-release.sh"), /assets\/marquee/);
   assert.doesNotMatch(read("admin-comms.html") + read("participate.html"), /SUPABASE_SERVICE_ROLE_KEY|RESEND_API_KEY|RESEND_WEBHOOK_SECRET|PARTICIPATION_SECRET/);
 
-  console.log("Marquee communications validation passed (pipeline, approval gate, consent safety, webhooks, guest privacy and deep links). ");
+  console.log("Marquee communications validation passed (manual Mailchimp export, frozen revisions, stale-source recovery, dormant delivery compatibility and guest privacy). ");
 }
 
 main().catch(error => { console.error(error.stack || error.message); process.exitCode = 1; });
