@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="180">
+<meta name="app-shell-version" content="183">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2166,6 +2166,8 @@ main{
 .major-event-match-action{ min-width:124px; min-height:34px; border:1px solid var(--border); border-radius:6px; background:var(--soft-fill); color:var(--text); font:750 0.72rem/1 'DM Sans', sans-serif; cursor:pointer; }
 .major-event-match-action[aria-pressed="true"]{ border-color:var(--accent); color:var(--accent); }
 .major-event-match-action:disabled{ cursor:not-allowed; opacity:0.5; }
+.major-event-match > .editorial-l0-hook{ grid-column:1 / -1; width:100%; max-width:none; margin:0; }
+.major-event-match .editorial-l0-hook-label{ color:var(--sport-color, var(--accent)); font:850 .59rem/1.2 'DM Sans',sans-serif; }
 .ticket-sale-card{ position:relative; display:block; padding:0; gap:0; overflow:hidden; border:1px solid var(--border); border-left:4px solid var(--sport-color, var(--accent)); border-radius:12px; background:var(--bg-card); cursor:pointer; }
 .ticket-sale-card > .major-event-ticket-row,
 .ticket-sale-card > .major-event-identity,
@@ -6906,7 +6908,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=180")
+  : loadDeferredScript("config/national-team-identities.js?v=183")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7888,7 +7890,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=180",
+  moduleScriptUrl: "config/major-events.js?v=183",
   url: "data/major-events.v1.json",
 });
 
@@ -11590,7 +11592,7 @@ function visibleMajorEventSubEvents(record){
 }
 
 function majorEventFixtureSnapshot(subEvent, parent){
-  return MAJOR_EVENTS?.fixtureFromSubEvent?.(subEvent, parent) || null;
+  return MAJOR_EVENTS?.editorialFixtureFromSubEvent?.(subEvent, parent, [...EVENTS, ...activeEvents]) || null;
 }
 
 function setMajorEventFixtureAdded(subEvent, parent, enabled){
@@ -19142,9 +19144,11 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     }
     const { subEvent } = item;
     const fixture = majorEventFixtureSnapshot(subEvent, record);
+    const editorialRecord = MAJOR_EVENTS.editorialRecordForSubEvent(subEvent, record, [...EVENTS, ...activeEvents]);
     const row = document.createElement("article");
     row.className = `major-event-match is-${item.effectiveStatus}`;
     row.dataset.matchId = subEvent.id;
+    row.dataset.editorialProvenance = editorialRecord?.editorialNarrative ? "validated" : "missing";
     const copy = document.createElement("div");
     copy.className = "major-event-match-copy";
     const title = document.createElement("strong");
@@ -19200,6 +19204,8 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
       showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
     });
     row.append(copy, button);
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord));
+    if (editorialHook) row.appendChild(editorialHook);
     list.appendChild(row);
   });
   if (level === "L2" && timeline.hasOlder && !includeOlder){

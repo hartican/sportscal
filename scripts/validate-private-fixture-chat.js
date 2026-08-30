@@ -110,7 +110,7 @@ async function run(){
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine/);
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine\)\{[\s\S]+Background — polling paused[\s\S]+return;/);
   assert.match(html, /event\.key === "Escape"/);
-  assert.match(worker, /nothingsport-shell-v180/);
+  assert.match(worker, /nothingsport-shell-v183/);
   assert.match(worker, /"\/config\/chat-contract\.js"/);
 
   const ids = {

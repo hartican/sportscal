@@ -139,6 +139,19 @@ eventFixtureAudit.forEach(({ subEvent }) => {
   if (identity.ids[0] || identity.names[0]) assert(majorEvents.subEventMeetsDisplayPolicy(subEvent, { followedParticipantIds:identity.ids.slice(0, 1), followedParticipantNames:identity.names.slice(0, 1) }), `${subEvent.id} must surface for a followed participant at any stakes level`);
 });
 assert(eventFixtureAudit.some(({ subEvent }) => subEvent.stakesScore < 4), "the Event audit must exercise hidden early-round or low-stakes fixtures");
+const surfacedEventFixtureAudit = eventFixtureAudit.filter(({ subEvent }) => majorEvents.subEventMeetsDisplayPolicy(subEvent));
+surfacedEventFixtureAudit.forEach(({ parent, subEvent }) => {
+  const resolvedEditorial = majorEvents.editorialRecordForSubEvent(subEvent, parent, feed.events)?.editorialNarrative;
+  assert(
+    resolvedEditorial,
+    `${subEvent.id} must resolve researched editorial before it can surface under Events`
+  );
+  if (resolvedEditorial.generationMode === "verified-parent-child-projection"){
+    assert.notEqual(resolvedEditorial.hook, parent.editorialNarrative?.hook, `${subEvent.id} must receive an event-specific development instead of repeating its parent hook`);
+  }
+  assert(resolvedEditorial.dimensions?.some(dimension => ["path", "form", "matchup", "history", "consequence"].includes(dimension)), `${subEvent.id} editorial must retain a substantive dimension`);
+});
+assert(surfacedEventFixtureAudit.length >= 60, "the Events editorial gate must cover the comprehensive surfaced fixture catalogue");
 
 catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => {
   const sideLabels = majorEvents.matchupSideLabels(subEvent);
@@ -157,6 +170,18 @@ const rlwc = catalogue.events.find(record => record.id === "major-event:rlwc-202
 const drawnMatch = rlwc.subEvents[0];
 const fixture = majorEvents.fixtureFromSubEvent(drawnMatch, rlwc);
 const curatedOpener = feed.events.find(event => event.id === "rlwc-australia-new-zealand-2026");
+assert.equal(typeof majorEvents.editorialRecordForSubEvent, "function", "every rendered Events child card needs a shared editorial resolver");
+const aflEditorialChild = aflFinals.subEvents.find(event => event.id === "event:afl:cd_m20260142601");
+const aflEditorialFeedCard = feed.events.find(event => event.canonicalEventId === aflEditorialChild.id);
+const resolvedAflEditorialChild = majorEvents.editorialRecordForSubEvent(aflEditorialChild, aflFinals, feed.events);
+assert.equal(resolvedAflEditorialChild?.editorialNarrative?.projectionId, aflEditorialFeedCard?.editorialNarrative?.projectionId, "an Events fixture card must use its own researched Feed projection when one exists");
+const unresolvedUsOpenChild = catalogue.events.find(record => record.id === "major-event:us-open-2026").subEvents[0];
+const resolvedUsOpenEditorialChild = majorEvents.editorialRecordForSubEvent(unresolvedUsOpenChild, catalogue.events.find(record => record.id === "major-event:us-open-2026"), feed.events);
+assert.match(resolvedUsOpenEditorialChild?.editorialNarrative?.projectionId, /projection:major:us-open-2026:child:/, "an Events fixture without its own projection must receive a traceable child projection from validated parent research");
+assert.match(resolvedUsOpenEditorialChild?.editorialNarrative?.hook, /Serena Williams \/ Carlos Alcaraz and Erin Routliffe \/ Lloyd Glasspool/, "an inherited Events projection must develop the narrative around its actual participants");
+assert.notEqual(resolvedUsOpenEditorialChild?.editorialNarrative?.hook, catalogue.events.find(record => record.id === "major-event:us-open-2026").editorialNarrative.hook, "an Events fixture must not repeat its generic parent hook");
+const pinnedUsOpenEditorialChild = majorEvents.editorialFixtureFromSubEvent(unresolvedUsOpenChild, catalogue.events.find(record => record.id === "major-event:us-open-2026"), feed.events);
+assert.equal(pinnedUsOpenEditorialChild?.editorialNarrative?.projectionId, resolvedUsOpenEditorialChild?.editorialNarrative?.projectionId, "an Events fixture added to Feed must retain its resolved child editorial projection");
 assert.equal(fixture.eventId, drawnMatch.id);
 assert.equal(fixture.date, "2026-10-15");
 assert.equal(fixture.time, "20:05");
@@ -164,6 +189,8 @@ assert.equal(fixture.majorEventParentId, rlwc.id);
 assert.equal(fixture.cardKind, "fixture", "a pinned Event child must materialise as a normal fixture card");
 assert.equal(fixture.majorEventMarker, undefined, "a pinned child must not inherit its parent Event marker flags");
 assert(curatedOpener?.editorialNarrative, "the curated World Cup opener must retain its researched projection");
+const resolvedRlwcEditorialChild = majorEvents.editorialRecordForSubEvent(drawnMatch, rlwc, []);
+assert.match(resolvedRlwcEditorialChild.editorialNarrative.hook, /Australia and New Zealand open the month-long, 53-match programme/, "an Events-only World Cup child must retain the researched stakes even before its matching Feed card is loaded");
 assert.equal(majorEvents.fixtureSemanticKey(fixture), majorEvents.fixtureSemanticKey(curatedOpener), "the pinned child and curated opener must share one semantic fixture identity despite different IDs and ISO precision");
 assert(html.includes("const semanticKey = mainFeedFixtureSemanticKey") && html.includes("canonicalEditorialBySemanticKey") && html.includes("editorialMatch?.editorialNarrative"), "a pinned Events child must inherit the curated projection on the first Feed render without waiting for the lazy Events runtime");
 assert(html.includes(`"${fixture.id}":Object.freeze({`) && html.includes(`projectionId:"${curatedOpener.editorialNarrative.projectionId}"`) && html.includes(`hook:"${curatedOpener.editorialNarrative.hook}"`), "the one pre-canonical device-local pin must retain the exact validated projection without another startup request");
@@ -186,12 +213,14 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=180"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=183"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=180"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=183"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
+assert.match(html, /const editorialRecord = MAJOR_EVENTS\.editorialRecordForSubEvent\(subEvent, record, \[\.\.\.EVENTS, \.\.\.activeEvents\]\);[\s\S]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\)\)/, "every Events timetable card must render a validated L0 editorial hook");
+assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, \[\.\.\.EVENTS, \.\.\.activeEvents\]\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
 assert(html.includes("addedToFixtures") && html.includes("addedFixture"), "selected match persistence must be wired into the browser state");

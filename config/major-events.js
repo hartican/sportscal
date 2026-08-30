@@ -269,6 +269,104 @@
     ].map(value => String(value || "").trim()).filter(Boolean)));
   }
 
+  function childEditorialHook(subEvent, parent){
+    const sides = matchupSideLabels(subEvent);
+    const displayName = String(subEvent?.name || "This fixture").trim();
+    const embeddedMatchup = displayName.includes(" - ") ? displayName.split(" - ").at(-1) : displayName;
+    const embeddedSides = embeddedMatchup.split(/\s+v\s+/i).map(value => value.trim()).filter(Boolean);
+    const subjectSides = sides.length === 2 ? sides : embeddedSides.length === 2 ? embeddedSides : [];
+    const subject = subjectSides.length === 2 ? `${subjectSides[0]} and ${subjectSides[1]}` : displayName;
+    const parentId = String(parent?.id || "");
+    const stage = String(subEvent?.stage || "").trim();
+    const round = String(subEvent?.roundLabel || stage).trim();
+    const pathLabel = stage || round || "event";
+
+    if (parentId === "major-event:us-open-2026"){
+      if (/legends exhibition/i.test(stage)) return `${subject} turn the legends exhibition into a live reprise rather than a ceremonial appearance.`;
+      if (/stars of the open/i.test(stage)) return `${subject} carry the Stars of the Open programme into its standalone closing match.`;
+      if (/semifinals?/i.test(round)) return `${subject} are one win from the ${pathLabel} final.`;
+      if (/quarterfinals?/i.test(round)) return `${subject} are two wins from the ${pathLabel} title, with a semifinal place decided here.`;
+      if (/^finals?$/i.test(round)) return `${subject} decide the ${pathLabel} title after surviving the tournament's short knockout path.`;
+      if (/opening|round\s*1/i.test(round)) return `${subject} meet at the first elimination point of the ${pathLabel} path.`;
+      if (/round\s*2/i.test(round)) return `${subject} have already survived once; this match decides who reaches the next mixed-doubles cut.`;
+    }
+
+    if (parentId === "major-event:rlwc-2026") return `${subject} open the month-long, 53-match programme by pairing the men's defending champions with the Pacific Cup holders.`;
+
+    if (parentId.includes("afl-finals-series") || parentId.includes("nrl-finals-series")){
+      if (/qualifying/i.test(round) && !/elimination/i.test(round)) return `${subject} play for the finals system's biggest first-week advantage: a week off and the shorter route onward.`;
+      if (/elimination|wildcard/i.test(round)) return `${subject} are in sudden death; one side keeps its season alive and the other is finished.`;
+      if (/semi/i.test(round)) return `${subject} are in sudden death for a preliminary-final place.`;
+      if (/preliminary/i.test(round)) return `${subject} play for a place in the Grand Final.`;
+      if (/grand final/i.test(round)) return `${subject} are the final two sides left in the premiership race.`;
+      if (/qualifying/i.test(round)) return `${subject} decide which side earns the week off and which must take the longer finals route.`;
+    }
+
+    if (parentId === "major-event:nations-championship-finals-2026"){
+      if (/first placed/i.test(subject)) return `${subject} decide the first Nations Championship title, with the result also counting toward the Hemisphere Crown.`;
+      return `${subject} still carry a second consequence: this placement match also counts toward the north-versus-south Hemisphere Crown.`;
+    }
+
+    if (parentId.endsWith(":qualification")) return `${subject} have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.`;
+    if (parentId.endsWith(":league-phase")) return `Eight matchdays determine which clubs skip February and which must take the knockout play-off route.`;
+    if (parentId.endsWith(":knockout")){
+      if (/play-off/i.test(subject)) return `Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16.`;
+      if (/round of 16/i.test(subject)) return `The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field.`;
+      if (/quarter/i.test(subject)) return `The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid.`;
+      if (/semi/i.test(subject)) return `The semi-finals decide the two clubs that reach Madrid with the European title still available.`;
+      if (/final/i.test(subject)) return `One match in Madrid decides the European champion after every qualifying and knockout route converges.`;
+    }
+
+    return `${subject} is the next consequence-bearing chapter of ${String(parent?.name || "this major event").trim()}.`;
+  }
+
+  function inheritedEditorialNarrative(subEvent, parent){
+    const narrative = parent?.editorialNarrative;
+    if (!narrative) return null;
+    const hook = childEditorialHook(subEvent, parent);
+    return {
+      ...narrative,
+      projectionId:`${narrative.projectionId}:child:${subEvent.id}`,
+      hook,
+      synopsis:[hook, narrative.synopsis].filter(Boolean).join(" "),
+      dimensions:Array.from(new Set([...(narrative.dimensions || []), "path"])),
+      generationMode:"verified-parent-child-projection",
+    };
+  }
+
+  function editorialRecordForSubEvent(subEvent, parent, feedEvents = []){
+    const fixture = fixtureFromSubEvent(subEvent, parent);
+    const baseRecord = fixture || {
+      ...subEvent,
+      key:parent?.sportKey,
+      sport:parent?.sportLabel,
+      competitionId:parent?.competitionId,
+      majorEventId:parent?.id,
+      majorEventParentId:parent?.id,
+      status:subEvent?.status || "scheduled",
+    };
+    const aliases = new Set(fixtureAliasIds(subEvent));
+    const candidates = Array.isArray(feedEvents) ? feedEvents : [];
+    const exactMatch = candidates.find(event => {
+      if (!event?.editorialNarrative) return false;
+      return [event.id, event.eventId, event.canonicalEventId, event.stableMatchId, ...(event.legacyEventIds || [])]
+        .map(value => String(value || "").trim())
+        .some(value => value && aliases.has(value));
+    });
+    const semanticKey = fixtureSemanticKey(baseRecord);
+    const semanticMatch = exactMatch || (semanticKey
+      ? candidates.find(event => event?.editorialNarrative && fixtureSemanticKey(event) === semanticKey)
+      : null);
+    const editorialNarrative = semanticMatch?.editorialNarrative || inheritedEditorialNarrative(subEvent, parent);
+    return editorialNarrative ? { ...baseRecord, editorialNarrative } : baseRecord;
+  }
+
+  function editorialFixtureFromSubEvent(subEvent, parent, feedEvents = []){
+    const fixture = fixtureFromSubEvent(subEvent, parent);
+    if (!fixture) return null;
+    return editorialRecordForSubEvent(subEvent, parent, feedEvents);
+  }
+
   function fixturePinReconciliationPlan(document, actions){
     const records = Array.isArray(document?.events) ? document.events : [];
     const actionEntries = Object.entries(actions && typeof actions === "object" ? actions : {});
@@ -462,5 +560,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });
