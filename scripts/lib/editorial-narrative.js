@@ -27,6 +27,88 @@ function duplicateIds(records){
   return records.map(record => record?.id).filter(id => seen.has(id) || !seen.add(id));
 }
 
+function validateConsequence(consequence, { subjects = new Map(), sources = new Map(), facts = new Map(), projection = null, label = "consequence" } = {}){
+  const issues = [];
+  if (!consequence || typeof consequence !== "object" || Array.isArray(consequence)) return [`${label} must be an object.`];
+  if (consequence.schemaVersion !== "editorial-consequence.v1") issues.push(`${label}.schemaVersion must be editorial-consequence.v1.`);
+  if (!isIsoDateTime(consequence.capturedAt)) issues.push(`${label}.capturedAt must be an ISO UTC date-time.`);
+  if (!ID_PATTERN.test(consequence.primarySubjectId || "")) issues.push(`${label}.primarySubjectId must be a stable editorial id.`);
+  if (!Array.isArray(consequence.participants) || consequence.participants.length !== 2) {
+    issues.push(`${label}.participants must contain exactly two participants.`);
+  }
+  const participants = Array.isArray(consequence.participants) ? consequence.participants : [];
+  const participantIds = participants.map(participant => participant?.subjectId).filter(Boolean);
+  if (new Set(participantIds).size !== participantIds.length) issues.push(`${label}.participants must use distinct subject ids.`);
+  if (!participantIds.includes(consequence.primarySubjectId)) issues.push(`${label}.primarySubjectId must identify one of the participants.`);
+  participants.forEach((participant, participantIndex) => {
+    const participantLabel = `${label}.participants[${participantIndex}]`;
+    if (!ID_PATTERN.test(participant?.subjectId || "")) issues.push(`${participantLabel}.subjectId must be a stable editorial id.`);
+    else if (subjects.size && !subjects.has(participant.subjectId)) issues.push(`${participantLabel} references unknown subject ${participant.subjectId}.`);
+    if (!nonEmpty(participant?.name) || participant.name.length > 100) issues.push(`${participantLabel}.name must be 1-100 characters.`);
+    if (!nonEmpty(participant?.need) || participant.need.length < 12 || participant.need.length > 240) issues.push(`${participantLabel}.need must be 12-240 characters.`);
+    ["win", "draw", "loss"].forEach(outcomeKey => {
+      const outcome = participant?.outcomes?.[outcomeKey];
+      const outcomeLabel = `${participantLabel}.outcomes.${outcomeKey}`;
+      if (!outcome || typeof outcome !== "object" || Array.isArray(outcome)) {
+        issues.push(`${outcomeLabel} is required.`);
+        return;
+      }
+      if (!nonEmpty(outcome.effect) || outcome.effect.length < 12 || outcome.effect.length > 240) issues.push(`${outcomeLabel}.effect must be 12-240 characters.`);
+      if (!["certain", "conditional"].includes(outcome.certainty)) issues.push(`${outcomeLabel}.certainty is unsupported.`);
+      if (outcome.certainty === "conditional" && (!nonEmpty(outcome.dependsOn) || outcome.dependsOn.length < 12 || outcome.dependsOn.length > 240)) issues.push(`${outcomeLabel}.dependsOn must explain the unresolved dependency.`);
+      ["factIds", "sourceIds"].forEach(field => {
+        const values = outcome[field];
+        if (!Array.isArray(values) || !values.length || new Set(values).size !== values.length) issues.push(`${outcomeLabel}.${field} must contain unique provenance ids.`);
+      });
+      (outcome.factIds || []).forEach(id => {
+        if (facts.size && !facts.has(id)) issues.push(`${outcomeLabel} references unknown fact ${id}.`);
+        if (Array.isArray(consequence.factIds) && !consequence.factIds.includes(id)) issues.push(`${outcomeLabel}.factIds must be included in ${label}.factIds.`);
+      });
+      (outcome.sourceIds || []).forEach(id => {
+        if (sources.size && !sources.has(id)) issues.push(`${outcomeLabel} references unknown source ${id}.`);
+        if (Array.isArray(consequence.sourceIds) && !consequence.sourceIds.includes(id)) issues.push(`${outcomeLabel}.sourceIds must be included in ${label}.sourceIds.`);
+      });
+    });
+  });
+  if (!nonEmpty(consequence.previewSentence) || consequence.previewSentence.length < 20 || consequence.previewSentence.length > 360) issues.push(`${label}.previewSentence must be 20-360 characters.`);
+  else {
+    if (!/^If\b/i.test(consequence.previewSentence)) issues.push(`${label}.previewSentence must use an explicit If-then construction.`);
+    const primaryName = participants.find(participant => participant?.subjectId === consequence.primarySubjectId)?.name;
+    if (primaryName && !consequence.previewSentence.toLowerCase().includes(primaryName.toLowerCase())) issues.push(`${label}.previewSentence must name its primary subject.`);
+  }
+  ["factIds", "sourceIds"].forEach(field => {
+    const values = consequence[field];
+    if (!Array.isArray(values) || !values.length || new Set(values).size !== values.length) issues.push(`${label}.${field} must contain unique provenance ids.`);
+  });
+  (consequence.factIds || []).forEach(id => {
+    if (facts.size && !facts.has(id)) issues.push(`${label} references unknown fact ${id}.`);
+    if (projection && !(projection.factIds || []).includes(id)) issues.push(`${label}.factIds must be included in ${projection.id}.factIds.`);
+  });
+  (consequence.sourceIds || []).forEach(id => {
+    if (sources.size && !sources.has(id)) issues.push(`${label} references unknown source ${id}.`);
+    if (projection && !(projection.sourceIds || []).includes(id)) issues.push(`${label}.sourceIds must be included in ${projection.id}.sourceIds.`);
+  });
+  if (consequence.spoilerOnSentence !== undefined) {
+    if (!nonEmpty(consequence.spoilerOnSentence) || consequence.spoilerOnSentence.length < 20 || consequence.spoilerOnSentence.length > 700) issues.push(`${label}.spoilerOnSentence must be 20-700 characters when supplied.`);
+    if (!isIsoDateTime(consequence.resultCapturedAt)) issues.push(`${label}.resultCapturedAt is required with spoilerOnSentence.`);
+    [["resultFactIds", facts, "factIds"], ["resultSourceIds", sources, "sourceIds"]].forEach(([field, index, parentField]) => {
+      const values = consequence[field];
+      if (!Array.isArray(values) || !values.length || new Set(values).size !== values.length) issues.push(`${label}.${field} must contain unique result provenance ids.`);
+      (values || []).forEach(id => {
+        if (index.size && !index.has(id)) issues.push(`${label}.${field} references unknown provenance ${id}.`);
+        if (Array.isArray(consequence[parentField]) && !consequence[parentField].includes(id)) issues.push(`${label}.${field} must be included in ${label}.${parentField}.`);
+        if (projection && !(projection[parentField] || []).includes(id)) issues.push(`${label}.${field} must be included in ${projection.id}.${parentField}.`);
+      });
+    });
+    participants.forEach(participant => {
+      if (nonEmpty(participant?.name) && !String(consequence.spoilerOnSentence || "").toLowerCase().includes(participant.name.toLowerCase())) issues.push(`${label}.spoilerOnSentence must explain the result for ${participant.name}.`);
+    });
+  } else if (consequence.resultCapturedAt !== undefined || consequence.resultFactIds !== undefined || consequence.resultSourceIds !== undefined) {
+    issues.push(`${label} result provenance cannot be supplied without spoilerOnSentence.`);
+  }
+  return issues;
+}
+
 function validateKnowledge(document){
   const issues = [];
   if (!document || typeof document !== "object" || Array.isArray(document)) return ["Editorial knowledge must be a JSON object."];
@@ -143,6 +225,7 @@ function validateKnowledge(document){
     if (projection.hookSpoilerOn !== undefined && (!nonEmpty(projection.hookSpoilerOn) || projection.hookSpoilerOn.length > 180)) issues.push(`${projection.id}.hookSpoilerOn must be 1-180 characters when supplied.`);
     if (projection.synopsisSpoilerOn !== undefined && (!nonEmpty(projection.synopsisSpoilerOn) || projection.synopsisSpoilerOn.length > 700)) issues.push(`${projection.id}.synopsisSpoilerOn must be 1-700 characters when supplied.`);
     if (projection.audienceMemoryId !== undefined && !audienceMemories.has(projection.audienceMemoryId)) issues.push(`${projection.id} references unknown audience memory ${projection.audienceMemoryId}.`);
+    if (projection.consequence !== undefined) issues.push(...validateConsequence(projection.consequence, { subjects, sources, facts, projection, label:`${projection.id}.consequence` }));
     if (projection.originalityReview?.method !== "independent-summary-no-source-prose-retained" || !isIsoDateTime(projection.originalityReview?.reviewedAt)) issues.push(`${projection.id}.originalityReview must record the independent-summary review.`);
     const normalizedHook = String(projection.hook || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
     if (normalizedHook){
@@ -184,7 +267,7 @@ function editorialNarrativeFor(projection, indexes){
     relationship:projection.targetIds.includes(memory.sourceEventId) ? "source" : "carried",
   } : undefined;
   return {
-    schemaVersion:"editorial-narrative.v2",
+    schemaVersion:projection.consequence ? "editorial-narrative.v3" : "editorial-narrative.v2",
     projectionId:projection.id,
     researchTier:projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard",
     hook:projection.hook,
@@ -199,6 +282,7 @@ function editorialNarrativeFor(projection, indexes){
     refreshAfter:projection.refreshAfter ?? null,
     generationMode:projection.generationMode,
     ...(sentiment ? { sentiment } : {}),
+    ...(projection.consequence ? { consequence:JSON.parse(JSON.stringify(projection.consequence)) } : {}),
   };
 }
 
@@ -263,5 +347,6 @@ module.exports = {
   idFor,
   indexesFor,
   projectionForTarget,
+  validateConsequence,
   validateKnowledge,
 };

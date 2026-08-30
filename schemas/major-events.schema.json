@@ -39,6 +39,37 @@
         "inventoryVerifiedAt": { "type": ["string", "null"], "format": "date-time" }
       }
     },
+    "bracketDestination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "label"],
+      "properties": {
+        "status": { "enum": ["advances", "eliminated", "champion"] },
+        "nextMatchId": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 2, "maxLength": 120 }
+      }
+    },
+    "bracketMatchProgression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["matchId", "winner", "loser"],
+      "properties": {
+        "matchId": { "type": "string", "minLength": 1 },
+        "winner": { "$ref": "#/$defs/bracketDestination" },
+        "loser": { "$ref": "#/$defs/bracketDestination" }
+      }
+    },
+    "bracketProgression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "sourceUrl", "sourceCheckedAt", "matches"],
+      "properties": {
+        "schemaVersion": { "const": "bracket-progression.v1" },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sourceCheckedAt": { "type": "string", "format": "date-time" },
+        "matches": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/bracketMatchProgression" } }
+      }
+    },
     "subEvent": {
       "type": "object",
       "additionalProperties": false,
@@ -124,6 +155,7 @@
         "location": { "type": "string" },
         "summary": { "type": "string", "minLength": 1 },
         "editorialNarrative": { "$ref": "event-feed.schema.json#/$defs/editorialNarrative" },
+        "bracketProgression": { "$ref": "#/$defs/bracketProgression" },
         "details": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
         "scheduleAdapter": { "type": "string" },
         "drawType": { "type": "string" },

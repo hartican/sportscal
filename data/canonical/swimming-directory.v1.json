@@ -1,7 +1,7 @@
 {
   "schemaVersion": "individual-sport-directory.v1",
   "sportKey": "swimming",
-  "generatedAt": "2026-08-29T13:24:40.613135Z",
+  "generatedAt": "2026-08-30T09:40:17.5905718Z",
   "source": {
     "publisher": "World Aquatics",
     "url": "https://www.worldaquatics.com/swimming/rankings",
@@ -350,7 +350,7 @@
           "stroke": "BUTTERFLY",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 40,
+          "rank": 42,
           "aquaPoints": 825,
           "time": "58.21",
           "resultDate": "2026-07-05T00:00:00",
@@ -610,7 +610,7 @@
           "stroke": "BUTTERFLY",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 72,
+          "rank": 75,
           "aquaPoints": 803,
           "time": "58.73",
           "resultDate": "2026-07-30T00:00:00",
@@ -860,7 +860,7 @@
           "stroke": "BUTTERFLY",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 2,
+          "rank": 3,
           "aquaPoints": 917,
           "time": "56.18",
           "resultDate": "2026-01-15T00:00:00",
@@ -1361,7 +1361,7 @@
           "stroke": "BACKSTROKE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 53,
+          "rank": 55,
           "aquaPoints": 833,
           "time": "2:10.87",
           "resultDate": "2026-05-22T00:00:00",
@@ -1474,7 +1474,7 @@
           "stroke": "BUTTERFLY",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 23,
+          "rank": 26,
           "aquaPoints": 847,
           "time": "57.69",
           "resultDate": "2026-06-18T00:00:00",
@@ -1668,7 +1668,7 @@
           "stroke": "BUTTERFLY",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 17,
+          "rank": 19,
           "aquaPoints": 857,
           "time": "57.48",
           "resultDate": "2026-06-18T00:00:00",
@@ -1746,7 +1746,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 21,
+          "rank": 22,
           "aquaPoints": 860,
           "time": "4:06.16",
           "resultDate": "2026-03-13T00:00:00",
@@ -1758,7 +1758,7 @@
           "stroke": "BACKSTROKE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 61,
+          "rank": 64,
           "aquaPoints": 829,
           "time": "2:11.07",
           "resultDate": "2026-05-25T00:00:00",
@@ -2344,7 +2344,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 11,
+          "rank": 13,
           "aquaPoints": 939,
           "time": "3:44.59",
           "resultDate": "2026-04-09T00:00:00",
@@ -2356,7 +2356,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 149,
+          "rank": 161,
           "aquaPoints": 831,
           "time": "1:48.48",
           "resultDate": "2026-04-10T00:00:00",
@@ -2539,7 +2539,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 7,
+          "rank": 14,
           "aquaPoints": 912,
           "time": "1:45.16",
           "resultDate": "2026-06-09T00:00:00",
@@ -2588,11 +2588,11 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 3,
-          "aquaPoints": 930,
-          "time": "1:44.48",
-          "resultDate": "2026-06-28T00:00:00",
-          "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
+          "rank": 4,
+          "aquaPoints": 939,
+          "time": "1:44.15",
+          "resultDate": "2026-08-14T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
           "disciplineId": "54f8e2e1-0506-47f3-bc16-14648cee1369",
@@ -2647,6 +2647,18 @@
           "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
+          "disciplineId": "c8fe66f2-af1f-4f7c-82fd-96cb8d89ba53",
+          "disciplineName": "Men's 200m Medley",
+          "stroke": "MEDLEY",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 1,
+          "aquaPoints": 959,
+          "time": "1:54.24",
+          "resultDate": "2026-08-16T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
           "disciplineId": "ade37726-a680-4ae5-9790-c749220cbc90",
           "disciplineName": "Men's 100m Backstroke",
           "stroke": "BACKSTROKE",
@@ -2683,24 +2695,12 @@
           "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
-          "disciplineId": "c8fe66f2-af1f-4f7c-82fd-96cb8d89ba53",
-          "disciplineName": "Men's 200m Medley",
-          "stroke": "MEDLEY",
-          "distance": 200,
-          "poolConfiguration": "LCM",
-          "rank": 20,
-          "aquaPoints": 872,
-          "time": "1:57.95",
-          "resultDate": "2026-05-02T00:00:00",
-          "eventName": "2026 Speedo Fort Lauderdale Open (50m)"
-        },
-        {
           "disciplineId": "f05c3f19-4db5-4462-a239-a901608212ff",
           "disciplineName": "Men's 200m Freestyle",
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 84,
+          "rank": 92,
           "aquaPoints": 859,
           "time": "1:47.29",
           "resultDate": "2026-05-01T00:00:00",
@@ -2811,7 +2811,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 4,
+          "rank": 5,
           "aquaPoints": 929,
           "time": "1:44.53",
           "resultDate": "2026-03-19T00:00:00",
@@ -2932,11 +2932,11 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 9,
-          "aquaPoints": 910,
-          "time": "1:45.22",
-          "resultDate": "2026-03-19T00:00:00",
-          "eventName": "2026 China Open Swimming Championships (50m)"
+          "rank": 10,
+          "aquaPoints": 922,
+          "time": "1:44.79",
+          "resultDate": "2026-08-13T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
           "disciplineId": "de200594-8c53-4008-94af-ee7c14641fb4",
@@ -3004,6 +3004,30 @@
           "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
+          "disciplineId": "e230c7fc-0670-475b-813d-f50305472a0a",
+          "disciplineName": "Men's 400m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 400,
+          "poolConfiguration": "LCM",
+          "rank": 4,
+          "aquaPoints": 957,
+          "time": "3:43.14",
+          "resultDate": "2026-08-16T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "f05c3f19-4db5-4462-a239-a901608212ff",
+          "disciplineName": "Men's 200m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 1,
+          "aquaPoints": 949,
+          "time": "1:43.76",
+          "resultDate": "2026-08-10T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
           "disciplineId": "f3e00630-5e28-4a87-9cb8-9d97b733f2e9",
           "disciplineName": "Men's 200m Breaststroke",
           "stroke": "BREASTSTROKE",
@@ -3016,40 +3040,16 @@
           "eventName": "2026 Speedo Fort Lauderdale Open (50m)"
         },
         {
-          "disciplineId": "e230c7fc-0670-475b-813d-f50305472a0a",
-          "disciplineName": "Men's 400m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 400,
-          "poolConfiguration": "LCM",
-          "rank": 56,
-          "aquaPoints": 888,
-          "time": "3:48.79",
-          "resultDate": "2026-03-07T00:00:00",
-          "eventName": "2026 TYR Pro Swim Series - Westmont (50m)"
-        },
-        {
           "disciplineId": "c8fe66f2-af1f-4f7c-82fd-96cb8d89ba53",
           "disciplineName": "Men's 200m Medley",
           "stroke": "MEDLEY",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 13,
+          "rank": 16,
           "aquaPoints": 887,
           "time": "1:57.28",
           "resultDate": "2026-05-02T00:00:00",
           "eventName": "2026 Speedo Fort Lauderdale Open (50m)"
-        },
-        {
-          "disciplineId": "f05c3f19-4db5-4462-a239-a901608212ff",
-          "disciplineName": "Men's 200m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 200,
-          "poolConfiguration": "LCM",
-          "rank": 75,
-          "aquaPoints": 863,
-          "time": "1:47.12",
-          "resultDate": "2026-03-06T00:00:00",
-          "eventName": "2026 TYR Pro Swim Series - Westmont (50m)"
         },
         {
           "disciplineId": "de200594-8c53-4008-94af-ee7c14641fb4",
@@ -3228,11 +3228,11 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 46,
-          "aquaPoints": 896,
-          "time": "3:48.16",
-          "resultDate": "2026-04-19T00:00:00",
-          "eventName": "2026 Hungarian National Championships (50m)"
+          "rank": 23,
+          "aquaPoints": 919,
+          "time": "3:46.17",
+          "resultDate": "2026-08-16T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
           "disciplineId": "6293a131-a7ae-4600-9c32-d579476d8e60",
@@ -3349,7 +3349,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 57,
+          "rank": 67,
           "aquaPoints": 871,
           "time": "1:46.79",
           "resultDate": "2026-04-17T00:00:00",
@@ -3410,7 +3410,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 21,
+          "rank": 26,
           "aquaPoints": 915,
           "time": "3:46.52",
           "resultDate": "2026-04-23T00:00:00",
@@ -3520,7 +3520,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 15,
+          "rank": 17,
           "aquaPoints": 926,
           "time": "3:45.65",
           "resultDate": "2026-08-14T00:00:00",
@@ -3690,7 +3690,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 65,
+          "rank": 66,
           "aquaPoints": 880,
           "time": "3:49.50",
           "resultDate": "2026-08-12T00:00:00",
@@ -3711,6 +3711,80 @@
       ],
       "bestAquaPoints": 954,
       "ranking": 22,
+      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
+    },
+    {
+      "id": "athlete:swimming:40f5876f-0fbe-49e3-b1f9-17a593689537",
+      "displayName": "Hugo Gonzalez",
+      "aliases": [
+        "GONZALEZ Hugo"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "genderCategory": "male",
+      "countryCode": "ESP",
+      "countryBasis": "official-world-aquatics-ranking",
+      "identityId": "athlete:swimming:40f5876f-0fbe-49e3-b1f9-17a593689537",
+      "leagueId": "competition:world-aquatics-swimming",
+      "sourceRefs": [
+        "https://www.worldaquatics.com/swimming/rankings",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
+      ],
+      "eventRanks": [
+        {
+          "disciplineId": "c8fe66f2-af1f-4f7c-82fd-96cb8d89ba53",
+          "disciplineName": "Men's 200m Medley",
+          "stroke": "MEDLEY",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 2,
+          "aquaPoints": 954,
+          "time": "1:54.44",
+          "resultDate": "2026-08-16T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "de200594-8c53-4008-94af-ee7c14641fb4",
+          "disciplineName": "Men's 200m Backstroke",
+          "stroke": "BACKSTROKE",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 7,
+          "aquaPoints": 927,
+          "time": "1:54.75",
+          "resultDate": "2026-08-12T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "ade37726-a680-4ae5-9790-c749220cbc90",
+          "disciplineName": "Men's 100m Backstroke",
+          "stroke": "BACKSTROKE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 61,
+          "aquaPoints": 864,
+          "time": "54.16",
+          "resultDate": "2026-03-14T00:00:00",
+          "eventName": "2026 Campeonato de España Absoluto Open & Junior (50m)"
+        },
+        {
+          "disciplineId": "ab9c15b7-b216-44b6-8121-7821effab3d9",
+          "disciplineName": "Men's 100m Breaststroke",
+          "stroke": "BREASTSTROKE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 104,
+          "aquaPoints": 817,
+          "time": "1:00.82",
+          "resultDate": "2026-06-28T00:00:00",
+          "eventName": "2026 Campeonato de España Open Trials (50m)"
+        }
+      ],
+      "bestAquaPoints": 954,
+      "ranking": 23,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -3758,7 +3832,7 @@
         }
       ],
       "bestAquaPoints": 954,
-      "ranking": 23,
+      "ranking": 24,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -3786,7 +3860,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 5,
+          "rank": 6,
           "aquaPoints": 953,
           "time": "3:43.44",
           "resultDate": "2026-08-14T00:00:00",
@@ -3798,7 +3872,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 8,
+          "rank": 15,
           "aquaPoints": 911,
           "time": "1:45.19",
           "resultDate": "2026-08-12T00:00:00",
@@ -3806,7 +3880,7 @@
         }
       ],
       "bestAquaPoints": 953,
-      "ranking": 24,
+      "ranking": 25,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -3847,7 +3921,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 28,
+          "rank": 33,
           "aquaPoints": 909,
           "time": "3:47.01",
           "resultDate": "2026-07-25T00:00:00",
@@ -3867,7 +3941,7 @@
         }
       ],
       "bestAquaPoints": 953,
-      "ranking": 25,
+      "ranking": 26,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -3915,7 +3989,7 @@
         }
       ],
       "bestAquaPoints": 953,
-      "ranking": 26,
+      "ranking": 27,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -3946,7 +4020,7 @@
           "stroke": "FREESTYLE",
           "distance": 400,
           "poolConfiguration": "LCM",
-          "rank": 6,
+          "rank": 7,
           "aquaPoints": 953,
           "time": "3:43.45",
           "resultDate": "2026-07-31T00:00:00",
@@ -3982,7 +4056,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 33,
+          "rank": 42,
           "aquaPoints": 890,
           "time": "1:46.04",
           "resultDate": "2026-07-29T00:00:00",
@@ -4002,7 +4076,7 @@
         }
       ],
       "bestAquaPoints": 953,
-      "ranking": 27,
+      "ranking": 28,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -4055,7 +4129,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 12,
+          "rank": 19,
           "aquaPoints": 906,
           "time": "1:45.38",
           "resultDate": "2026-03-06T00:00:00",
@@ -4063,7 +4137,7 @@
         }
       ],
       "bestAquaPoints": 952,
-      "ranking": 28,
+      "ranking": 29,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -4108,80 +4182,6 @@
           "time": "1:56.93",
           "resultDate": "2026-04-18T00:00:00",
           "eventName": "2026 International Swimming Meet Faros Elena Sairi (50m)"
-        }
-      ],
-      "bestAquaPoints": 951,
-      "ranking": 29,
-      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
-    },
-    {
-      "id": "athlete:swimming:ebe688da-d13b-4d8a-b747-2ec9db0c317b",
-      "displayName": "Apostolos Siskos",
-      "aliases": [
-        "SISKOS Apostolos"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "genderCategory": "male",
-      "countryCode": "GRE",
-      "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:ebe688da-d13b-4d8a-b747-2ec9db0c317b",
-      "leagueId": "competition:world-aquatics-swimming",
-      "sourceRefs": [
-        "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ],
-      "eventRanks": [
-        {
-          "disciplineId": "de200594-8c53-4008-94af-ee7c14641fb4",
-          "disciplineName": "Men's 200m Backstroke",
-          "stroke": "BACKSTROKE",
-          "distance": 200,
-          "poolConfiguration": "LCM",
-          "rank": 2,
-          "aquaPoints": 951,
-          "time": "1:53.81",
-          "resultDate": "2026-08-12T00:00:00",
-          "eventName": "2026 European Aquatics Championships (50m)"
-        },
-        {
-          "disciplineId": "0d6ded2e-37db-4668-bbb2-ae750f8192ae",
-          "disciplineName": "Men's 200m Butterfly",
-          "stroke": "BUTTERFLY",
-          "distance": 200,
-          "poolConfiguration": "LCM",
-          "rank": 5,
-          "aquaPoints": 903,
-          "time": "1:54.13",
-          "resultDate": "2026-08-15T00:00:00",
-          "eventName": "2026 European Aquatics Championships (50m)"
-        },
-        {
-          "disciplineId": "ade37726-a680-4ae5-9790-c749220cbc90",
-          "disciplineName": "Men's 100m Backstroke",
-          "stroke": "BACKSTROKE",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 90,
-          "aquaPoints": 849,
-          "time": "54.49",
-          "resultDate": "2026-05-15T00:00:00",
-          "eventName": "2026 Greek National Open Swimming Championships & U23 (50m)"
-        },
-        {
-          "disciplineId": "254a1c54-7989-494f-8b11-2416301b950b",
-          "disciplineName": "Men's 100m Butterfly",
-          "stroke": "BUTTERFLY",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 141,
-          "aquaPoints": 827,
-          "time": "52.68",
-          "resultDate": "2026-05-09T00:00:00",
-          "eventName": "2026 Acropolis Swim Open (50m)"
         }
       ],
       "bestAquaPoints": 951,

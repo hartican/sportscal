@@ -15877,6 +15877,11 @@
           "name": "NRL — 2026 premiership schedule",
           "url": "https://www.nrl.com/news/2025/11/14/2026-nrl-telstra-premiership-schedule/",
           "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "NRL — finals progression explainer",
+          "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+          "checkedAt": "2026-08-29T23:56:41.761Z"
         }
       ],
       "editorialNarrative": {
@@ -15912,6 +15917,122 @@
         "researchedAt": "2026-08-29T19:30:00.000Z",
         "refreshAfter": "2026-09-01T12:00:00.000Z",
         "generationMode": "researched"
+      },
+      "bracketProgression": {
+        "schemaVersion": "bracket-progression.v1",
+        "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+        "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+        "matches": [
+          {
+            "matchId": "major-match:nrl-finals-2026:qualifying-final-1",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:preliminary-final-1",
+              "label": "Preliminary Final 1"
+            },
+            "loser": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:semi-final-1",
+              "label": "Semi Final 1"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:qualifying-final-2",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:preliminary-final-2",
+              "label": "Preliminary Final 2"
+            },
+            "loser": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:semi-final-2",
+              "label": "Semi Final 2"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:elimination-final-1",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:semi-final-1",
+              "label": "Semi Final 1"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Eliminated from the finals"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:elimination-final-2",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:semi-final-2",
+              "label": "Semi Final 2"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Eliminated from the finals"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:semi-final-1",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:preliminary-final-2",
+              "label": "Preliminary Final 2"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Eliminated from the finals"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:semi-final-2",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:preliminary-final-1",
+              "label": "Preliminary Final 1"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Eliminated from the finals"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:preliminary-final-1",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:grand-final",
+              "label": "NRL Grand Final"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Eliminated from the finals"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:preliminary-final-2",
+            "winner": {
+              "status": "advances",
+              "nextMatchId": "major-match:nrl-finals-2026:grand-final",
+              "label": "NRL Grand Final"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Eliminated from the finals"
+            }
+          },
+          {
+            "matchId": "major-match:nrl-finals-2026:grand-final",
+            "winner": {
+              "status": "champion",
+              "label": "NRL premiers"
+            },
+            "loser": {
+              "status": "eliminated",
+              "label": "Grand Final runner-up"
+            }
+          }
+        ]
       }
     },
     {

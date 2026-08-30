@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v186";
+const CACHE_NAME = "nothingsport-shell-v187";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,7 +7,7 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
-  "/config/national-team-identities.js?v=186",
+  "/config/national-team-identities.js?v=187",
   "/config/card-identities.js",
   "/config/card-results.js",
   "/config/country-flags.js",
@@ -33,7 +33,7 @@ const APP_SHELL = [
   "/config/follow-first.js",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=186",
+  "/config/major-events.js?v=187",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
@@ -79,64 +79,6 @@ const APP_SHELL = [
   "/assets/brand/web/nothingsport-logo.png",
   "/assets/identities/f1/formula-one-red-512.png",
   "/assets/identities/f1/formula-one-red-256.png",
-  "/assets/identities/national/aflw/australia-coat-of-arms.svg",
-  "/assets/identities/national/aflw/ireland-state-harp.svg",
-  "/assets/identities/national/basketball/boomers.png",
-  "/assets/identities/national/basketball/opals.png",
-  "/assets/identities/national/cricket/australia.jpg",
-  "/assets/identities/national/cricket/bangladesh.jpg",
-  "/assets/identities/national/cricket/england.jpg",
-  "/assets/identities/national/cricket/india.jpg",
-  "/assets/identities/national/cricket/new-zealand.jpg",
-  "/assets/identities/national/cricket/pakistan.jpg",
-  "/assets/identities/national/cricket/south-africa.jpg",
-  "/assets/identities/national/cricket/sri-lanka.jpg",
-  "/assets/identities/national/cricket/west-indies.jpg",
-  "/assets/identities/national/football/argentina.png",
-  "/assets/identities/national/football/belgium.png",
-  "/assets/identities/national/football/brazil.png",
-  "/assets/identities/national/football/canada.png",
-  "/assets/identities/national/football/colombia.png",
-  "/assets/identities/national/football/egypt.png",
-  "/assets/identities/national/football/england.png",
-  "/assets/identities/national/football/france.png",
-  "/assets/identities/national/football/matildas.png",
-  "/assets/identities/national/football/mexico.png",
-  "/assets/identities/national/football/morocco.png",
-  "/assets/identities/national/football/norway.png",
-  "/assets/identities/national/football/paraguay.png",
-  "/assets/identities/national/football/portugal.png",
-  "/assets/identities/national/football/socceroos.png",
-  "/assets/identities/national/football/spain.png",
-  "/assets/identities/national/football/switzerland.png",
-  "/assets/identities/national/football/turkiye.png",
-  "/assets/identities/national/football/usa.png",
-  "/assets/identities/national/hockey/hockeyroos.png",
-  "/assets/identities/national/hockey/kookaburras.svg",
-  "/assets/identities/national/multi-sport/team-australia.png",
-  "/assets/identities/national/netball/diamonds.svg",
-  "/assets/identities/national/netball/england-roses.png",
-  "/assets/identities/national/netball/jamaica-sunshine-girls.png",
-  "/assets/identities/national/netball/malawi-queens.png",
-  "/assets/identities/national/netball/silver-ferns.svg",
-  "/assets/identities/national/netball/south-africa-proteas.svg",
-  "/assets/identities/national/rugby-league/cook-islands-aitu.svg",
-  "/assets/identities/national/rugby-league/fiji-bati.svg",
-  "/assets/identities/national/rugby-league/jillaroos.svg",
-  "/assets/identities/national/rugby-league/kangaroos.svg",
-  "/assets/identities/national/rugby-league/kiwi-ferns.png",
-  "/assets/identities/national/rugby-league/kiwis.svg",
-  "/assets/identities/national/rugby/all-blacks.png",
-  "/assets/identities/national/rugby/argentina.png",
-  "/assets/identities/national/rugby/england.png",
-  "/assets/identities/national/rugby/france.png",
-  "/assets/identities/national/rugby/ireland.png",
-  "/assets/identities/national/rugby/italy.png",
-  "/assets/identities/national/rugby/japan.png",
-  "/assets/identities/national/rugby/scotland.png",
-  "/assets/identities/national/rugby/springboks.png",
-  "/assets/identities/national/rugby/wales.png",
-  "/assets/identities/national/rugby/wallabies.png",
   "/assets/providers/kayo-sports-negative.svg",
   "/assets/providers/stan-sport.jpg",
   "/assets/providers/foxtel.svg",
@@ -153,6 +95,69 @@ const APP_SHELL = [
   "/assets/icons/sporticon/basketball.svg",
   "/assets/licenses/FLAG-ICONS-MIT.txt"
 ];
+
+// National marks remain offline-capable without making the first install pay
+// their full multi-megabyte cost. Each mark is cached on first display.
+const DEFERRED_IDENTITY_ASSETS = new Set([
+  "/assets/identities/national/football/socceroos.png",
+  "/assets/identities/national/football/matildas.png",
+  "/assets/identities/national/football/turkiye.png",
+  "/assets/identities/national/football/usa.png",
+  "/assets/identities/national/football/paraguay.png",
+  "/assets/identities/national/football/egypt.png",
+  "/assets/identities/national/football/canada.png",
+  "/assets/identities/national/football/morocco.png",
+  "/assets/identities/national/football/france.png",
+  "/assets/identities/national/football/brazil.png",
+  "/assets/identities/national/football/norway.png",
+  "/assets/identities/national/football/mexico.png",
+  "/assets/identities/national/football/england.png",
+  "/assets/identities/national/football/portugal.png",
+  "/assets/identities/national/football/spain.png",
+  "/assets/identities/national/football/belgium.png",
+  "/assets/identities/national/football/argentina.png",
+  "/assets/identities/national/football/switzerland.png",
+  "/assets/identities/national/football/colombia.png",
+  "/assets/identities/national/rugby/wallabies.png",
+  "/assets/identities/national/rugby/ireland.png",
+  "/assets/identities/national/rugby/france.png",
+  "/assets/identities/national/rugby/italy.png",
+  "/assets/identities/national/rugby/japan.png",
+  "/assets/identities/national/rugby/springboks.png",
+  "/assets/identities/national/rugby/all-blacks.png",
+  "/assets/identities/national/rugby/argentina.png",
+  "/assets/identities/national/rugby/england.png",
+  "/assets/identities/national/rugby/scotland.png",
+  "/assets/identities/national/rugby/wales.png",
+  "/assets/identities/national/cricket/australia.jpg",
+  "/assets/identities/national/cricket/bangladesh.jpg",
+  "/assets/identities/national/cricket/england.jpg",
+  "/assets/identities/national/cricket/new-zealand.jpg",
+  "/assets/identities/national/cricket/south-africa.jpg",
+  "/assets/identities/national/cricket/india.jpg",
+  "/assets/identities/national/cricket/pakistan.jpg",
+  "/assets/identities/national/cricket/sri-lanka.jpg",
+  "/assets/identities/national/cricket/west-indies.jpg",
+  "/assets/identities/national/rugby-league/kangaroos.svg",
+  "/assets/identities/national/rugby-league/jillaroos.svg",
+  "/assets/identities/national/rugby-league/kiwis.svg",
+  "/assets/identities/national/rugby-league/kiwi-ferns.png",
+  "/assets/identities/national/rugby-league/fiji-bati.svg",
+  "/assets/identities/national/rugby-league/cook-islands-aitu.svg",
+  "/assets/identities/national/netball/diamonds.svg",
+  "/assets/identities/national/netball/england-roses.png",
+  "/assets/identities/national/netball/malawi-queens.png",
+  "/assets/identities/national/netball/south-africa-proteas.svg",
+  "/assets/identities/national/netball/jamaica-sunshine-girls.png",
+  "/assets/identities/national/netball/silver-ferns.svg",
+  "/assets/identities/national/basketball/boomers.png",
+  "/assets/identities/national/basketball/opals.png",
+  "/assets/identities/national/hockey/kookaburras.svg",
+  "/assets/identities/national/hockey/hockeyroos.png",
+  "/assets/identities/national/multi-sport/team-australia.png",
+  "/assets/identities/national/aflw/australia-coat-of-arms.svg",
+  "/assets/identities/national/aflw/ireland-state-harp.svg",
+]);
 
 self.addEventListener("install", event => {
   event.waitUntil(
@@ -235,6 +240,10 @@ self.addEventListener("fetch", event => {
     event.respondWith(staleWhileRevalidate(event.request, event, cacheKey));
     return;
   }
+  if (DEFERRED_IDENTITY_ASSETS.has(requestUrl.pathname)){
+    event.respondWith(cacheFirst(event.request, cacheKey));
+    return;
+  }
   if (/^\/assets\//.test(requestUrl.pathname)){
     event.respondWith(cacheFirst(event.request, cacheKey));
     return;
@@ -267,12 +276,16 @@ self.addEventListener("notificationclick", event => {
 self.addEventListener("push", event => {
   let payload = {};
   try{ payload = event.data?.json?.() || {}; }catch(_error){ payload = { body:event.data?.text?.() || "" }; }
-  event.waitUntil(self.registration.showNotification(payload.title || "Nothing Sport reminder", {
+  const show = self.registration.showNotification(payload.title || "Nothing Sport reminder", {
     body:payload.body || "Your sport starts in 15 minutes.",
     icon:"/icons/nothingsport-app-192.png",
     badge:"/icons/nothingsport-app-192.png",
     tag:payload.tag || "nothingsport-reminder",
     renotify:true,
-    data:{ url:payload.url || "/" },
-  }));
+    data:{ url:payload.url || "/", kind:payload.kind || "sport" },
+  });
+  const badge = payload.kind === "chat" && Number(payload.unreadCount) > 0
+    ? self.navigator?.setAppBadge?.(Number(payload.unreadCount))
+    : null;
+  event.waitUntil(Promise.all([show, badge].filter(Boolean)));
 });

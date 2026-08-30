@@ -97,6 +97,7 @@ async function main(){
   const html = fs.readFileSync(`${ROOT}/index.html`, "utf8");
   const worker = fs.readFileSync(`${ROOT}/service-worker.js`, "utf8");
   const migration = fs.readFileSync(`${ROOT}/supabase/reliable-web-push-reminders.sql`, "utf8");
+  const installationMigration = fs.readFileSync(`${ROOT}/supabase/follow-first-user-meta-and-notifications.sql`, "utf8");
   const vercel = JSON.parse(fs.readFileSync(`${ROOT}/vercel.json`, "utf8"));
   const quickReminder = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
   assert(quickReminder.includes("await ensureWebPushReminder(ev, timing)"), "Remind me must confirm a server reminder before updating local state");
@@ -106,10 +107,36 @@ async function main(){
   assert(!html.includes("scheduleBrowserReminders()"), "the retired active-app scheduler must not run alongside Web Push");
   assert(html.includes("backfillWebPushReminders") && html.includes('Notification.permission !== "granted"'), "already-permitted installations must backfill future reminders without prompting");
   assert(html.includes("await disablePushInstallation({ preserveSubscription:true })"), "sign-out must detach the current installation before the account session is cleared");
+  assert.match(html, /action:"register"[\s\S]{0,700}chatAlertsEnabled:[\s\S]{0,300}badgesEnabled:/, "push registration must send both saved chat-alert and badge preferences");
   assert(html.includes("Background notifications") && !html.includes("Local reminder—keep Nothing Sport open"), "notification copy must describe background delivery honestly");
   assert(worker.includes("new URL(targetUrl, self.location.origin)"), "notification taps must resolve an origin-safe event URL");
   assert(migration.includes("claimed_at timestamptz") && migration.includes("grant select, insert, update, delete"), "the database update must add claims and retain service-role grants");
+  [migration, installationMigration].forEach(source => {
+    assert.match(source, /chat_alerts_enabled boolean not null default true/i, "chat alerts must default on per installation");
+    assert.match(source, /badges_enabled boolean not null default true/i, "unread app badges must default on per installation");
+  });
   assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole dispatcher scheduler");
+
+  const pushQueueSource = html.match(/function createPushInstallationMutationQueue\(\)[\s\S]*?const enqueuePushInstallationMutation = createPushInstallationMutationQueue\(\);/)?.[0] || "";
+  assert(pushQueueSource, "push registration and teardown need one shared mutation queue");
+  const createPushInstallationMutationQueue = Function(`${pushQueueSource}; return createPushInstallationMutationQueue;`)();
+  const enqueuePushMutation = createPushInstallationMutationQueue();
+  let finishDelayedRegistration;
+  const delayedRegistrationGate = new Promise(resolve => { finishDelayedRegistration = resolve; });
+  const mutationOrder = [];
+  const delayedRegistration = enqueuePushMutation(async () => {
+    mutationOrder.push("register-started");
+    await delayedRegistrationGate;
+    mutationOrder.push("register-finished");
+  });
+  const signOutUnregister = enqueuePushMutation(async () => { mutationOrder.push("unregistered"); });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(mutationOrder, ["register-started"], "sign-out unregister must wait while an older registration is still pending");
+  finishDelayedRegistration();
+  await Promise.all([delayedRegistration, signOutUnregister]);
+  assert.deepEqual(mutationOrder, ["register-started", "register-finished", "unregistered"], "the final server mutation after a delayed register must be sign-out unregister");
+  assert.match(html, /async function ensurePushInstallation[\s\S]*?return enqueuePushInstallationMutation\(/, "registration must enter the shared mutation queue when requested");
+  assert.match(html, /async function disablePushInstallation[\s\S]*?return enqueuePushInstallationMutation\(/, "unregister must enter the same mutation queue when requested");
 
   const installationId = "11111111-1111-4111-8111-111111111111";
   const secondInstallationId = "22222222-2222-4222-8222-222222222222";
@@ -120,7 +147,7 @@ async function main(){
   const notificationService = async (path, options = {}) => {
     serviceCalls.push({ path, options });
     if (path.includes("nothingsports_push_installations?installation_id=eq.")){
-      return [{ installation_id:installationId, user_id:"user-1", secret_hash:secretHash }];
+      return [{ installation_id:installationId, user_id:"user-1", secret_hash:secretHash, chat_alerts_enabled:false, badges_enabled:false }];
     }
     if (path.includes("nothingsports_push_installations?user_id=eq.")){
       return [{ installation_id:installationId }, { installation_id:secondInstallationId }];
@@ -132,6 +159,28 @@ async function main(){
   };
   const notificationApi = await notificationsHarness({ user:{ id:"user-1" }, serviceRequest:notificationService });
   try{
+    let registration = await notificationApi.run({
+      action:"register", installationId, secret,
+      subscription:{ endpoint:"https://push.example.test/subscription", keys:{ p256dh:"key", auth:"auth" } },
+      timezone:"Australia/Sydney", chatAlertsEnabled:false, badgesEnabled:false,
+    });
+    assert.equal(registration.statusCode, 200);
+    let registrationWrite = serviceCalls.find(call => call.path.includes("nothingsports_push_installations?on_conflict=installation_id"));
+    assert.equal(registrationWrite.options.body.chat_alerts_enabled,false,"an explicit chat-alert opt-out must be persisted");
+    assert.equal(registrationWrite.options.body.badges_enabled,false,"an explicit badge opt-out must be persisted");
+
+    serviceCalls.length = 0;
+    registration = await notificationApi.run({
+      action:"register", installationId, secret,
+      subscription:{ endpoint:"https://push.example.test/subscription", keys:{ p256dh:"key", auth:"auth" } },
+      timezone:"Australia/Sydney",
+    });
+    assert.equal(registration.statusCode, 200);
+    registrationWrite = serviceCalls.find(call => call.path.includes("nothingsports_push_installations?on_conflict=installation_id"));
+    assert.equal(registrationWrite.options.body.chat_alerts_enabled,false,"an omitted legacy field must preserve an existing chat-alert opt-out");
+    assert.equal(registrationWrite.options.body.badges_enabled,false,"an omitted legacy field must preserve an existing badge opt-out");
+
+    serviceCalls.length = 0;
     const response = await notificationApi.run({
       action:"remind",
       installationId,

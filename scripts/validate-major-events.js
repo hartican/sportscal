@@ -79,6 +79,14 @@ assert(nrlFinals, "the NRL Finals Series must replace the lone Grand Final event
 assert.equal(nrlFinals.subEvents.length, 9, "NRL must retain four first-week finals, two Semis, two Prelims and the Grand Final");
 assert(nrlFinals.subEvents.every(event => event.startTimeUtc === null), "unpublished NRL slots must not receive invented start times");
 assert.equal(majorEvents.fixtureFromSubEvent(nrlFinals.subEvents[0], nrlFinals), null, "un-timed NRL finals must not materialise in Fixtures");
+assert.equal(nrlFinals.bracketProgression?.schemaVersion, "bracket-progression.v1", "NRL progression must be structured instead of parsed from slot labels");
+const nrlFinalIds = new Set(nrlFinals.subEvents.map(event => event.id));
+assert.deepEqual(new Set(nrlFinals.bracketProgression.matches.map(match => match.matchId)), nrlFinalIds, "every NRL finals slot must publish winner and loser progression");
+nrlFinals.bracketProgression.matches.forEach(match => [match.winner, match.loser].forEach(destination => {
+  if (destination.status === "advances") assert(nrlFinalIds.has(destination.nextMatchId), `${match.matchId} must advance to a canonical finals slot`);
+  else assert.equal(destination.nextMatchId, undefined, `${match.matchId} terminal outcomes must not have a destination slot`);
+}));
+assert(nrlFinals.sources.some(source => source.url === nrlFinals.bracketProgression.sourceUrl), "NRL bracket progression must retain official source evidence");
 
 const rugbyFinals = catalogue.events.find(record => record.id === "major-event:nations-championship-finals-2026");
 assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
@@ -219,13 +227,13 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=186"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=187"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=186"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=187"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
-assert.match(html, /const editorialRecord = MAJOR_EVENTS\.editorialRecordForSubEvent\(subEvent, record, \[\.\.\.EVENTS, \.\.\.activeEvents\]\);[\s\S]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\)\)/, "every Events timetable card must render a validated L0 editorial hook");
+assert.match(html, /const editorialRecord = MAJOR_EVENTS\.editorialRecordForSubEvent\(subEvent, record, \[\.\.\.EVENTS, \.\.\.activeEvents\]\);[\s\S]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\)/, "every Events timetable card must render a validated L0 editorial hook and consequence");
 assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, \[\.\.\.EVENTS, \.\.\.activeEvents\]\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");

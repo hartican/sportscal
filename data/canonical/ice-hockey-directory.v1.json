@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-08-29T13:39:47Z",
+  "generatedAt": "2026-08-30T09:41:45Z",
   "season": "20262027",
   "competitions": [
     {
@@ -31266,6 +31266,25 @@
       ]
     },
     {
+      "id": "athlete:chl:19ce18800cf5b26bb03c9b73",
+      "displayName": "Michal Dubek",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:11df2073083f06cccbb5132e",
+      "leagueId": "competition:chl",
+      "position": "GK",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:19ce18800cf5b26bb03c9b73",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446128",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-11df2073083f06cccbb5132e.json"
+      ]
+    },
+    {
       "id": "athlete:chl:3c273674b2f70ca8e6bfea76",
       "displayName": "Ian Glinski",
       "shortName": null,
@@ -32819,6 +32838,25 @@
       "genderCategory": "male",
       "identityId": "athlete:chl:ada1c8dbc756a6a932945d6e",
       "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446174",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-c9840a203093f97cae0a9495.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:aa0254351752170a6cc0aa7d",
+      "displayName": "Niko Rajala",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:c9840a203093f97cae0a9495",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:aa0254351752170a6cc0aa7d",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446195",
       "sourceRefs": [
         "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-c9840a203093f97cae0a9495.json"
       ]
@@ -35788,6 +35826,25 @@
       ]
     },
     {
+      "id": "athlete:chl:9c8cef822dbc2285955237e6",
+      "displayName": "Leon Andrés Nereng-Olsen",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:e5e5ff0d908f9cc719344e3e",
+      "leagueId": "competition:chl",
+      "position": "GK",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:9c8cef822dbc2285955237e6",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446194",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-e5e5ff0d908f9cc719344e3e.json"
+      ]
+    },
+    {
       "id": "athlete:chl:4b48d6ec6570496a72b3dfbb",
       "displayName": "Joni Tuulola",
       "shortName": null,
@@ -36239,6 +36296,101 @@
       "genderCategory": "male",
       "identityId": "athlete:chl:eccb1d438cd253aa7681938e",
       "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446192",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-6a0612c54317b473a6f67f56.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:3af567d38a4beb26357edc08",
+      "displayName": "Joona Karvonen",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:6a0612c54317b473a6f67f56",
+      "leagueId": "competition:chl",
+      "position": "DE",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:3af567d38a4beb26357edc08",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446196",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-6a0612c54317b473a6f67f56.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:8b10aace9a6234d7a91de914",
+      "displayName": "Ville Väärälä",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:6a0612c54317b473a6f67f56",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:8b10aace9a6234d7a91de914",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446197",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-6a0612c54317b473a6f67f56.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:c18ccf419389cfb04ace03f4",
+      "displayName": "Juho Järvelä",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:6a0612c54317b473a6f67f56",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:c18ccf419389cfb04ace03f4",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/444897",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-6a0612c54317b473a6f67f56.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:f77f4561e5d3323f5690eb36",
+      "displayName": "Jonne Tammela",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:6a0612c54317b473a6f67f56",
+      "leagueId": "competition:chl",
+      "position": "FW",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:f77f4561e5d3323f5690eb36",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/540",
+      "sourceRefs": [
+        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-6a0612c54317b473a6f67f56.json"
+      ]
+    },
+    {
+      "id": "athlete:chl:7748c69f50cbe3b96d04d11b",
+      "displayName": "Juha Riekki",
+      "shortName": null,
+      "aliases": [],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:chl:6a0612c54317b473a6f67f56",
+      "leagueId": "competition:chl",
+      "position": "GK",
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "identityId": "athlete:chl:7748c69f50cbe3b96d04d11b",
+      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446198",
       "sourceRefs": [
         "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-6a0612c54317b473a6f67f56.json"
       ]

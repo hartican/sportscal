@@ -11,11 +11,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="186">
+<meta name="app-shell-version" content="187">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
 <meta property="og:image" content="https://nothingsport.vercel.app/assets/brand/web/nothingsport-social-preview.png">
+<link rel="canonical" href="https://nothingsport.vercel.app/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,8 +225,19 @@ header.top{
 .brand-title-row{
   display:flex;
   align-items:center;
-  width:fit-content;
+  gap:10px;
+  width:100%;
   max-width:100%;
+}
+
+.share-app-action{
+  min-height:38px;
+  flex:0 0 auto;
+  padding:7px 10px;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  font-size:.68rem;
 }
 
 .brand-lockup{
@@ -2542,6 +2554,14 @@ main{
   font:650 .82rem/1.42 'Cardo', Georgia, serif;
   text-wrap:pretty;
 }
+.editorial-l0-consequence,
+.editorial-consequence-copy{
+  margin:6px 0 0;
+  color:color-mix(in srgb, var(--text) 88%, var(--text-dim));
+  font:650 .8rem/1.45 'Cardo', Georgia, serif;
+  text-wrap:pretty;
+}
+.editorial-l0-consequence{ padding-top:6px; border-top:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 18%, var(--border)); }
 
 .major-event-identity .editorial-l0-hook{
   margin:8px auto 0;
@@ -5075,15 +5095,17 @@ footer.app-footer{
     min-width:0;
     max-width:none;
     display:grid;
-    grid-template-columns:76px minmax(0, 1fr);
-    grid-template-rows:auto;
+    grid-template-columns:minmax(0, 1fr);
+    grid-template-rows:auto auto;
     align-items:center;
     column-gap:10px;
     row-gap:2px;
   }
-  .brand-title-row{ grid-row:1; }
+  .brand-title-row{ grid-row:1; grid-column:1 / -1; min-width:0; }
   .header-brand-logo{ width:min(75px, 100%); }
   .brand .slogan{
+    grid-row:2;
+    grid-column:1 / -1;
     font-size:clamp(.73rem, 3.2vw, .86rem);
     letter-spacing:0.01em;
   }
@@ -5488,6 +5510,8 @@ footer.app-footer{
   border-bottom:1px solid var(--border);
 }
 .chat-head-copy{ min-width:0; }
+.chat-head-actions{ display:flex; align-items:center; gap:8px; }
+.chat-head-share{ min-height:44px; white-space:nowrap; }
 .chat-head h2{ font-size:1rem; overflow-wrap:anywhere; }
 .chat-head p{ margin-top:4px; color:var(--text-dim); font-size:.72rem; line-height:1.4; }
 .chat-close{
@@ -5547,6 +5571,8 @@ footer.app-footer{
 button.chat-room-row{ cursor:pointer; }
 .chat-room-row strong,
 .chat-room-row span{ display:block; }
+.chat-room-row > :first-child,
+.chat-member-row > :first-child{ min-width:0; overflow-wrap:anywhere; }
 .chat-room-row span{ margin-top:3px; color:var(--text-dim); font-size:.68rem; }
 .chat-user-copy{ min-width:0; }
 .chat-user-name,
@@ -5565,7 +5591,8 @@ button.chat-room-row{ cursor:pointer; }
   font-weight:900;
 }
 .chat-message{
-  max-width:88%;
+  min-width:0;
+  max-width:min(88%, 38rem);
   justify-self:start;
   padding:9px 11px;
   border:1px solid var(--border);
@@ -5585,8 +5612,120 @@ button.chat-room-row{ cursor:pointer; }
   color:var(--text-dim);
   font-size:.63rem;
 }
-.chat-message-meta strong{ color:var(--text); font-size:.68rem; }
+.chat-message-meta strong{ min-width:0; overflow-wrap:anywhere; color:var(--text); font-size:.68rem; }
 .chat-message-body{ white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; line-height:1.45; }
+.chat-message-quote{
+  display:block;
+  width:100%;
+  margin:0 0 7px;
+  padding:7px 8px;
+  border:0;
+  border-left:3px solid color-mix(in srgb, var(--accent) 62%, var(--border));
+  border-radius:4px 8px 8px 4px;
+  background:color-mix(in srgb, var(--panel-bg) 78%, transparent);
+  color:var(--text-dim);
+  text-align:left;
+  cursor:pointer;
+  font:inherit;
+}
+.chat-message-quote strong,
+.chat-message-quote span{ display:block; overflow-wrap:anywhere; }
+.chat-message-quote strong{ margin-bottom:2px; color:var(--text); font-size:.63rem; }
+.chat-message-quote span{ font-size:.67rem; line-height:1.35; }
+.chat-message-actions,
+.chat-reactions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:7px;
+}
+.chat-message-action,
+.chat-reaction{
+  min-height:30px;
+  padding:4px 7px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:transparent;
+  color:var(--text-dim);
+  cursor:pointer;
+  font:700 .65rem/1 inherit;
+}
+.chat-reaction.own{
+  border-color:color-mix(in srgb, var(--accent) 62%, var(--border));
+  background:color-mix(in srgb, var(--accent) 14%, transparent);
+  color:var(--text);
+}
+.chat-reaction-picker{ display:flex; flex-wrap:wrap; gap:4px; }
+.chat-reaction-picker[hidden]{ display:none; }
+.chat-members{
+  margin:0 0 14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg-card);
+}
+.chat-members > summary{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  color:var(--text);
+  cursor:pointer;
+  font-size:.75rem;
+  font-weight:900;
+  list-style:none;
+}
+.chat-members > summary::-webkit-details-marker{ display:none; }
+.chat-members > summary::after{ content:"+"; color:var(--text-dim); font-size:1rem; }
+.chat-members[open] > summary::after{ content:"−"; }
+.chat-members-content{ display:grid; gap:12px; padding:0 12px 12px; }
+.chat-share-panel{ display:grid; gap:8px; padding-top:12px; border-top:1px solid var(--border); }
+.chat-share-link{
+  width:100%;
+  padding:9px 10px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--panel-bg);
+  color:var(--text-dim);
+  font:.66rem/1.35 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.chat-reply-preview{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg-card);
+  color:var(--text-dim);
+  font-size:.68rem;
+  line-height:1.4;
+}
+.chat-reply-preview strong{ display:block; margin-bottom:2px; color:var(--text); }
+.chat-room-composer{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  width:100%;
+  margin-top:10px;
+  padding-bottom:max(2px, env(safe-area-inset-bottom));
+}
+.chat-room-composer textarea{
+  box-sizing:border-box;
+  width:100%;
+  min-height:52px;
+  max-height:180px;
+  resize:none;
+  overflow-y:auto;
+}
+.chat-room-composer .btn{ width:100%; min-height:46px; }
+.chat-alert-prompt{ display:grid; gap:8px; margin:0 0 12px; }
+.chat-guest-preview{ display:grid; gap:12px; }
+.chat-guest-preview h3{ font-size:1rem; }
+.chat-guest-preview .field-label input{ width:100%; }
 .chat-new-messages{
   position:sticky;
   bottom:8px;
@@ -5633,6 +5772,30 @@ body.chat-open{ overflow:hidden; }
   line-height:1.35;
 }
 .nsc-summary strong{ color:var(--text); font-size:.73rem; }
+.nsc-receipt{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+  color:var(--text);
+  font-size:.7rem;
+  font-weight:850;
+}
+.nsc-receipt a,
+.nsc-receipt button{
+  padding:0;
+  border:0;
+  background:transparent;
+  color:var(--accent);
+  cursor:pointer;
+  font:inherit;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.nsc-submit{ width:100%; margin-top:10px; }
+.public-profile-summary{ display:grid; gap:4px; margin-top:8px; }
+.public-profile-summary strong{ overflow-wrap:anywhere; }
+.public-profile-summary span{ color:var(--text-dim); font-size:.68rem; }
 .nsc-phase{
   display:inline-flex;
   align-items:center;
@@ -5720,6 +5883,8 @@ body.nsc-open{ overflow:hidden; }
     padding-left:max(14px, env(safe-area-inset-left));
     padding-right:max(14px, env(safe-area-inset-right));
   }
+  .share-app-action .share-app-label{ display:none; }
+  .share-app-action{ min-width:40px; padding-inline:9px; }
   .header-actions{
     grid-template-columns:repeat(7, minmax(0, 1fr));
   }
@@ -5728,6 +5893,8 @@ body.nsc-open{ overflow:hidden; }
 
 @media (max-width: 350px){
   .header-actions{ grid-template-columns:repeat(4, minmax(44px, 1fr)); }
+  .brand{ min-width:0; }
+  .header-brand-logo{ width:82px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -6581,6 +6748,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="brand">
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
+        <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span aria-hidden="true">↗</span><span class="share-app-label">Share app</span></button>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>
@@ -6838,18 +7006,16 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <header class="chat-head">
       <div class="chat-head-copy">
         <h2 id="chatTitle">Active chats</h2>
-        <p id="chatSubtitle">Private fixture rooms for invited members.</p>
+        <p id="chatSubtitle">Fixture rooms for members and invited guests.</p>
         <p class="chat-connection" id="chatConnection" data-state="idle" role="status" aria-live="polite">Idle</p>
       </div>
-      <button class="chat-close" id="closeChatBtn" type="button" aria-label="Close chat">×</button>
+      <div class="chat-head-actions">
+        <button class="btn ghost chat-head-share" id="shareRoomHeaderBtn" type="button" hidden>Share room</button>
+        <button class="chat-close" id="closeChatBtn" type="button" aria-label="Close chat">×</button>
+      </div>
     </header>
     <div class="chat-body" id="chatBody"></div>
     <button class="btn primary chat-new-messages" id="chatNewMessagesBtn" type="button">New messages</button>
-    <form class="chat-composer" id="chatComposer" hidden>
-      <label class="sr-only" for="chatMessageInput">Message</label>
-      <textarea id="chatMessageInput" maxlength="500" rows="2" placeholder="Write a message or emoji" required></textarea>
-      <button class="btn primary" type="submit">Send</button>
-    </form>
   </aside>
 </div>
 
@@ -6868,7 +7034,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 <script src="config/brand-copy.js"></script>
 <script src="config/vector-assets.js"></script>
-<script src="config/card-identities.js"></script>
 <script src="config/card-results.js"></script>
 <script src="config/ticketing.js"></script>
 <script src="config/country-flags.js"></script>
@@ -6913,10 +7078,22 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=186")
+  : loadDeferredScript("config/national-team-identities.js?v=187")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
+      return null;
+    });
+let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
+const cardIdentitiesReady = CARD_IDENTITIES
+  ? Promise.resolve(CARD_IDENTITIES)
+  : loadDeferredScript("config/card-identities.js")
+    .then(() => {
+      CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
+      return CARD_IDENTITIES;
+    })
+    .catch(error => {
+      console.warn("Card identities could not be loaded; cards will retain semantic text labels", error);
       return null;
     });
 // The current feed is fetched as JSON. The generated script is loaded only as
@@ -6924,7 +7101,6 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
-const CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES;
 const CARD_RESULTS = globalThis.NOTHINGSPORTS_CARD_RESULTS;
 const TICKETING = globalThis.NOTHINGSPORTS_TICKETING;
 let MAJOR_EVENTS = globalThis.NOTHINGSPORTS_MAJOR_EVENTS || null;
@@ -7895,7 +8071,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=186",
+  moduleScriptUrl: "config/major-events.js?v=187",
   url: "data/major-events.v1.json",
 });
 
@@ -8013,10 +8189,28 @@ const SERVER_SYNC = globalThis.NOTHINGSPORTS_SERVER_SYNC || null;
 const serverSyncClient = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.createClient()
   : null;
+const CHAT_CAPABILITY_STORAGE_KEY = "ns_pending_chat_capability_v1";
+function captureChatCapabilityFromLocation(){
+  if (typeof window === "undefined") return "";
+  const fragment = new URLSearchParams(String(window.location.hash || "").replace(/^#/, ""));
+  const capability = String(fragment.get("chat") || "").trim();
+  if (!capability) return "";
+  try{ sessionStorage.setItem(CHAT_CAPABILITY_STORAGE_KEY, capability); }catch(_error){ /* Kept in memory below. */ }
+  fragment.delete("chat");
+  const remainder = fragment.toString();
+  history.replaceState(null, "", `${window.location.pathname}${window.location.search}${remainder ? `#${remainder}` : ""}`);
+  return capability;
+}
 let activeRecoverySession = typeof window !== "undefined" && SERVER_SYNC
   ? SERVER_SYNC.captureRecoveryFromLocation()
   : null;
 if (activeRecoverySession) serverSyncClient?.clearSession?.();
+let pendingChatCapability = activeRecoverySession || typeof window === "undefined"
+  ? ""
+  : captureChatCapabilityFromLocation();
+if (!pendingChatCapability){
+  try{ pendingChatCapability = typeof sessionStorage === "undefined" ? "" : sessionStorage.getItem(CHAT_CAPABILITY_STORAGE_KEY) || ""; }catch(_error){ pendingChatCapability = ""; }
+}
 const productEventSessionId = globalThis.crypto?.randomUUID?.()
   || `session_${Date.now().toString(36)}_${Math.random().toString(36).slice(2).padEnd(12, "0")}`;
 const productEventsQueue = PRODUCT_EVENTS && serverSyncClient
@@ -8307,11 +8501,16 @@ let serverPersistence = {
 };
 let chatState = {
   isAdmin:false,
+  isGuest:false,
   profile:{ displayName:null },
   rooms:[],
   currentRoom:null,
   messages:[],
   olderCursor:null,
+  draftBody:"",
+  replyToMessageId:null,
+  reactionCursor:"",
+  shareCapability:"",
   activeSignature:"",
 };
 let chatActiveTimer = null;
@@ -8333,7 +8532,11 @@ let nothingscorePollFailures = 0;
 let nothingscoreRenderQueued = false;
 let nothingscorePreviousFocus = null;
 let nothingscoreLeaderboardPeriod = "weekly";
+let publicProfileSettingsLoading = null;
 const NOTHINGSCORE_SOUND_KEY = "ns_nothingscore_sound_v1";
+let nothingscoreAudioContext = null;
+let nothingscoreAudioBlocked = false;
+let chatAudioContext = null;
 let productEventOwnerId = null;
 let productExposureObserver = null;
 const productExposureTargets = new WeakMap();
@@ -9159,6 +9362,7 @@ function clearAndRebuildDerivedCardCache(reference = nowAEST()){
 function setBackgroundNotificationPreference(preferences, enabled){
   const next = preferences;
   next.followFirst.notifications.enabled = Boolean(enabled);
+  next.followFirst.notifications.userChoice = Boolean(enabled);
   next.followFirst.notifications.defaultLeadMinutes = 15;
   next.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
   next.preferenceGraph.viewing = {
@@ -10739,7 +10943,7 @@ async function refreshFeedOnFirstLoad(){
     : Promise.resolve(setServerPersistence({ state:"checking", user:null, message:"" }));
   const remoteFeedTask = refreshRemoteFeed({ quiet:true, signedInHint:Boolean(storedSession) })
     .finally(() => { networkFeedSettled = true; });
-  const feedTask = Promise.all([nationalTeamIdentityReady, remoteFeedTask]).then(([, feed]) => feed);
+  const feedTask = Promise.all([nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask]).then(([, , feed]) => feed);
   const cachedFeedTask = sessionUserId
     ? restoreCachedPersonalisedFeed(sessionUserId).then(payload => {
         if (!payload || networkFeedSettled) return null;
@@ -11991,7 +12195,7 @@ function selectedSentenceForDisplay(ev){
   return storylineCopyForDisplay(ev).hook;
 }
 
-function buildEditorialL0Hook(copy){
+function buildEditorialL0Hook(copy, consequenceCopy = ""){
   const value = String(copy || "").trim();
   if (!value) return null;
   const hook = document.createElement("aside");
@@ -12004,12 +12208,26 @@ function buildEditorialL0Hook(copy){
   text.className = "editorial-l0-hook-copy";
   text.textContent = value;
   hook.append(label, text);
+  const consequence = String(consequenceCopy || "").trim();
+  if (consequence && consequence !== value){
+    const second = document.createElement("p");
+    second.className = "editorial-l0-consequence";
+    second.textContent = consequence;
+    hook.appendChild(second);
+  }
   return hook;
+}
+
+function editorialNarrativeReadyForCard(narrative){
+  if (!narrative || !/^editorial-narrative\.v(?:1|2|3)$/.test(String(narrative.schemaVersion || ""))) return false;
+  if (narrative.generationMode !== "researched") return true;
+  return narrative.schemaVersion === "editorial-narrative.v3"
+    && narrative.consequence?.schemaVersion === "editorial-consequence.v1";
 }
 
 function editorialNarrativeHookForDisplay(record){
   const narrative = record?.editorialNarrative;
-  if (!narrative || !/^editorial-narrative\.v(?:1|2)$/.test(String(narrative.schemaVersion || ""))) return "";
+  if (!editorialNarrativeReadyForCard(narrative)) return "";
   const completed = record.status === "completed" || getEventStatus(record) === "past";
   if (completed && isSpoilerVisible(record)) return narrative.hookSpoilerOn || narrative.hook || "";
   return narrative.hook || "";
@@ -12018,10 +12236,29 @@ function editorialNarrativeHookForDisplay(record){
 function editorialNarrativeCopyForDisplay(record, state){
   if (!["selected", "opened"].includes(state)) return "";
   const narrative = record?.editorialNarrative;
-  if (!narrative || !/^editorial-narrative\.v(?:1|2)$/.test(String(narrative.schemaVersion || ""))) return "";
+  if (!editorialNarrativeReadyForCard(narrative)) return "";
   const completed = record.status === "completed" || getEventStatus(record) === "past";
   if (completed && isSpoilerVisible(record)) return narrative.synopsisSpoilerOn || narrative.synopsis || "";
   return narrative.synopsis || "";
+}
+
+function editorialConsequenceForDisplay(record){
+  const narrative = record?.editorialNarrative;
+  const consequence = narrative?.consequence;
+  if (narrative?.schemaVersion !== "editorial-narrative.v3" || consequence?.schemaVersion !== "editorial-consequence.v1") return "";
+  const completed = record.status === "completed" || getEventStatus(record) === "past";
+  if (completed && isSpoilerVisible(record)) return consequence.spoilerOnSentence || consequence.previewSentence || "";
+  return consequence.previewSentence || "";
+}
+
+function appendEditorialConsequence(host, record){
+  const copy = editorialConsequenceForDisplay(record);
+  if (!copy) return null;
+  const paragraph = document.createElement("p");
+  paragraph.className = "editorial-consequence-copy";
+  paragraph.textContent = copy;
+  host.appendChild(paragraph);
+  return paragraph;
 }
 
 function buildEditorialSentiment(record){
@@ -14863,47 +15100,107 @@ async function pushServiceWorkerRegistration(){
   return navigator.serviceWorker.ready;
 }
 
+function createPushInstallationMutationQueue(){
+  let tail = Promise.resolve();
+  return operation => {
+    const current = tail.catch(() => null).then(operation);
+    tail = current.catch(() => null);
+    return current;
+  };
+}
+const enqueuePushInstallationMutation = createPushInstallationMutationQueue();
+
 async function ensurePushInstallation({ requestPermission = true } = {}){
-  const registration = await pushServiceWorkerRegistration();
-  const configResponse = await fetch("/api/notifications", { headers:{ Accept:"application/json" }, cache:"no-store" });
-  const config = await configResponse.json().catch(() => ({}));
-  if (!configResponse.ok || !config.configured || !config.publicKey) throw new Error("Notifications are not configured yet.");
-  if (Notification.permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
-  if (Notification.permission === "default"){
-    if (!requestPermission) throw new Error("Notification permission has not been granted on this device.");
-    const prompted = clonePreferences(userPreferences);
-    prompted.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
-    savePreferences(prompted);
-    const permission = await Notification.requestPermission();
-    if (permission !== "granted") throw new Error("Notification permission was not granted.");
-  }
-  let subscription = await registration.pushManager.getSubscription();
-  if (!subscription){
-    subscription = await registration.pushManager.subscribe({
-      userVisibleOnly:true,
-      applicationServerKey:vapidApplicationServerKey(config.publicKey),
-    });
-  }
-  const credentials = pushInstallationCredentials();
-  await serverSyncClient.notificationCommand({
-    action:"register",
-    ...credentials,
-    subscription:subscription.toJSON(),
-    timezone:Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Sydney",
-  }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
-  return { ...credentials, subscription };
+  return enqueuePushInstallationMutation(async () => {
+    const registration = await pushServiceWorkerRegistration();
+    const configResponse = await fetch("/api/notifications", { headers:{ Accept:"application/json" }, cache:"no-store" });
+    const config = await configResponse.json().catch(() => ({}));
+    if (!configResponse.ok || !config.configured || !config.publicKey) throw new Error("Notifications are not configured yet.");
+    if (Notification.permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
+    if (Notification.permission === "default"){
+      if (!requestPermission) throw new Error("Notification permission has not been granted on this device.");
+      const prompted = clonePreferences(userPreferences);
+      prompted.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+      savePreferences(prompted);
+      const permission = await Notification.requestPermission();
+      if (permission !== "granted") throw new Error("Notification permission was not granted.");
+    }
+    const storedCredentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+    let subscription = await registration.pushManager.getSubscription();
+    if (subscription && !storedCredentials){
+      await subscription.unsubscribe();
+      subscription = null;
+    }
+    if (!subscription){
+      subscription = await registration.pushManager.subscribe({
+        userVisibleOnly:true,
+        applicationServerKey:vapidApplicationServerKey(config.publicKey),
+      });
+    }
+    const credentials = pushInstallationCredentials();
+    await serverSyncClient.notificationCommand({
+      action:"register",
+      ...credentials,
+      subscription:subscription.toJSON(),
+      timezone:Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Sydney",
+      chatAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.chatAlertsEnabled !== false,
+      badgesEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.badgesEnabled !== false,
+    }, { authenticated:Boolean(serverSyncClient.getSession?.() || serverSyncClient.getGuestChatSession?.()) });
+    return { ...credentials, subscription };
+  });
 }
 
 async function disablePushInstallation({ preserveSubscription = false } = {}){
-  const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
-  const registration = "serviceWorker" in navigator ? await navigator.serviceWorker.ready.catch(() => null) : null;
-  if (credentials?.installationId && credentials?.secret){
-    await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
+  return enqueuePushInstallationMutation(async () => {
+    const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+    const registration = "serviceWorker" in navigator ? await navigator.serviceWorker.ready.catch(() => null) : null;
+    if (credentials?.installationId && credentials?.secret){
+      await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.() || serverSyncClient.getGuestChatSession?.()) });
+    }
+    if (preserveSubscription) return;
+    const subscription = await registration?.pushManager?.getSubscription?.();
+    await subscription?.unsubscribe?.();
+    localStorage.removeItem(PUSH_INSTALLATION_STORAGE_KEY);
+  });
+}
+
+async function syncNotificationInstallationPreferences(){
+  if (userPreferences?.followFirst?.notifications?.enabled === false) return { skipped:"preference" };
+  if (typeof Notification === "undefined" || Notification.permission !== "granted") return { skipped:"permission" };
+  return ensurePushInstallation({ requestPermission:false });
+}
+
+let permittedChatPushIdentity = "";
+let permittedChatPushInFlight = null;
+function activeChatNotificationIdentity(){
+  return serverSyncClient?.sessionSubject?.()
+    || serverSyncClient?.guestChatSessionSubject?.()
+    || "";
+}
+
+async function syncPermittedChatPushInstallation(){
+  const identity = activeChatNotificationIdentity();
+  if (!identity){
+    permittedChatPushIdentity = "";
+    return { skipped:"identity" };
   }
-  if (preserveSubscription) return;
-  const subscription = await registration?.pushManager?.getSubscription?.();
-  await subscription?.unsubscribe?.();
-  localStorage.removeItem(PUSH_INSTALLATION_STORAGE_KEY);
+  const notifications = userPreferences?.followFirst?.notifications || {};
+  if (notifications.enabled === false || notifications.chatAlertsEnabled === false) return { skipped:"preference" };
+  if (typeof Notification === "undefined" || Notification.permission !== "granted") return { skipped:"permission" };
+  if (permittedChatPushIdentity === identity) return { skipped:"current" };
+  if (permittedChatPushInFlight){
+    await permittedChatPushInFlight.catch(() => null);
+    return syncPermittedChatPushInstallation();
+  }
+  const requestedIdentity = identity;
+  permittedChatPushInFlight = ensurePushInstallation({ requestPermission:false });
+  try{
+    const installation = await permittedChatPushInFlight;
+    if (activeChatNotificationIdentity() === requestedIdentity) permittedChatPushIdentity = requestedIdentity;
+    return installation;
+  }finally{
+    permittedChatPushInFlight = null;
+  }
 }
 
 function notificationEventUrl(ev){
@@ -14962,7 +15259,7 @@ function webPushReminderEvents(){
 let webPushBackfillInFlight = null;
 let webPushBackfillFingerprint = "";
 async function backfillWebPushReminders({ force = false } = {}){
-  if (!userPreferences.followFirst?.notifications?.enabled) return { skipped:"disabled" };
+  if (!userPreferences.followFirst?.notifications?.enabled || userPreferences.followFirst?.notifications?.sportingRemindersEnabled === false) return { skipped:"disabled" };
   if (typeof Notification === "undefined" || Notification.permission !== "granted") return { skipped:"permission" };
   const reminders = webPushReminderEvents()
     .map(event => ({ event, timing:eventReminderTiming(event) }))
@@ -15273,18 +15570,15 @@ function buildNothingscoreSummary(ev){
   summary.className = "nsc-summary";
   summary.dataset.nscEventId = eventId;
   if (!snapshot){
-    summary.setAttribute("aria-label", "Nothingscore loading");
-    const phase = document.createElement("span");
-    phase.className = "nsc-phase";
-    phase.textContent = "NSC";
-    const copy = document.createElement("span");
-    copy.textContent = "Building";
-    summary.append(phase, copy);
+    summary.hidden = true;
     return summary;
   }
   const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
-  const aggregate = snapshot.aggregate || {};
-  const contributors = Number(aggregate.contributorCount ?? aggregate.uniqueContributors ?? aggregate.ratingCount ?? 0);
+  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || null;
+  if (receipt && ["heat", "impact"].includes(snapshot.phase)){
+    summary.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.name));
+    return summary;
+  }
   const phase = document.createElement("span");
   phase.className = "nsc-phase";
   if (snapshot.phase === "pulse"){
@@ -15294,17 +15588,29 @@ function buildNothingscoreSummary(ev){
     phase.appendChild(dot);
   }
   phase.append(document.createTextNode(phaseCopy.name));
-  const score = document.createElement("strong");
-  score.textContent = aggregate.building || aggregate.score == null ? `NSC building · ${aggregate.likeCount || 0} likes` : `${Number(aggregate.score).toFixed(1)}/5 · ${NOTHINGSCORE.labelFor(snapshot.phase, aggregate.score)}`;
-  const people = document.createElement("span");
-  people.textContent = `${contributors} contributor${contributors === 1 ? "" : "s"} · ${aggregate.likeCount || 0} like${aggregate.likeCount === 1 ? "" : "s"}`;
-  summary.append(phase, score, people);
-  if (snapshot.phase === "pulse"){
-    const watching = document.createElement("span");
-    watching.textContent = `${snapshot.watchingCount || 0} Watching Now`;
-    summary.appendChild(watching);
-  }
+  const action = document.createElement("strong");
+  action.textContent = snapshot.phase === "pulse" ? "Add your live score" : `Submit ${phaseCopy.name}`;
+  summary.append(phase, action);
   return summary;
+}
+
+function openNothingscoreLeaderboard(){
+  openNothingscoreDrawer();
+  window.requestAnimationFrame(() => document.getElementById("nothingscoreLeaderboard")?.scrollIntoView?.({ block:"start" }));
+}
+
+function buildNothingscoreReceipt(receipt, phaseName){
+  const row = document.createElement("div");
+  row.className = "nsc-receipt";
+  const points = Number(receipt?.pointsAwarded || 0);
+  const copy = document.createElement("span");
+  copy.textContent = `Submitted · ${phaseName} ${Number(receipt?.rating || 0)}/5 · +${points} NSC ${points === 1 ? "point" : "points"} · `;
+  const leaderboard = document.createElement("button");
+  leaderboard.type = "button";
+  leaderboard.textContent = "Leaderboard";
+  leaderboard.addEventListener("click", event => { event.stopPropagation(); openNothingscoreLeaderboard(); });
+  row.append(copy, leaderboard);
+  return row;
 }
 
 function nothingscoreStatus(panel, message){
@@ -15313,15 +15619,36 @@ function nothingscoreStatus(panel, message){
 }
 
 function nothingscoreSoundEnabled(){
-  try{ return localStorage.getItem(NOTHINGSCORE_SOUND_KEY) === "on"; }catch(_error){ return false; }
+  try{ return localStorage.getItem(NOTHINGSCORE_SOUND_KEY) !== "off"; }catch(_error){ return true; }
 }
 
-function playNothingscoreImpactSound(){
-  if (!nothingscoreSoundEnabled()) return;
+function prepareNothingscoreAudio(){
+  if (!nothingscoreSoundEnabled()) return null;
   try{
     const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
-    const audio = new AudioContext();
+    if (!AudioContext) return null;
+    nothingscoreAudioContext ||= new AudioContext();
+    const resume = nothingscoreAudioContext.state === "suspended"
+      ? nothingscoreAudioContext.resume()
+      : Promise.resolve();
+    resume.then(() => { nothingscoreAudioBlocked = nothingscoreAudioContext.state !== "running"; })
+      .catch(() => { nothingscoreAudioBlocked = true; });
+    return { audio:nothingscoreAudioContext, resume };
+  }catch(_error){
+    nothingscoreAudioBlocked = true;
+    return null;
+  }
+}
+
+async function playNothingscoreImpactSound(prepared = prepareNothingscoreAudio()){
+  if (!prepared || !nothingscoreSoundEnabled()) return false;
+  try{
+    await prepared.resume;
+    const audio = prepared.audio;
+    if (audio.state !== "running"){
+      nothingscoreAudioBlocked = true;
+      return false;
+    }
     [523.25, 659.25, 783.99].forEach((frequency, index) => {
       const oscillator = audio.createOscillator(), gain = audio.createGain();
       oscillator.frequency.value = frequency;
@@ -15332,27 +15659,59 @@ function playNothingscoreImpactSound(){
       oscillator.start(audio.currentTime + index * .06);
       oscillator.stop(audio.currentTime + index * .06 + .24);
     });
-    window.setTimeout(() => audio.close().catch(() => null), 700);
-  }catch(_error){ /* Browser audio policy, mute state or device support may block the opt-in cue. */ }
+    nothingscoreAudioBlocked = false;
+    return true;
+  }catch(_error){
+    nothingscoreAudioBlocked = true;
+    return false;
+  }
 }
 
-async function submitNothingscoreAction(command, panel, { success = "Your Nothingscore is in.", impactBurst = false } = {}){
+async function submitNothingscoreAction(command, panel, { success = "Your Nothingscore is in.", preparedAudio = null } = {}){
   if (!serverSyncClient?.nothingscoreRequest) return null;
   nothingscoreStatus(panel, "Saving…");
   panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = true; });
   try{
     const result = await serverSyncClient.nothingscoreRequest({}, command);
+    const submittedPhase = ["heat", "impact"].includes(String(result.phase || "")) ? String(result.phase) : null;
     nothingscoreStatus(panel, `${success}${result.pointsAwarded ? ` +${result.pointsAwarded} points.` : ""}`);
-    if (impactBurst){
+    if (command.action === "submit" && command.eventId && result.submitted && submittedPhase){
+      const eventId = String(command.eventId);
+      const snapshot = nothingscoreSnapshots.get(eventId);
+      if (snapshot){
+        mergeNothingscoreSnapshot({
+          ...snapshot,
+          currentUser:{
+            ...(snapshot.currentUser || {}),
+            submissions:{
+              ...(snapshot.currentUser?.submissions || {}),
+              [submittedPhase]:{
+                phase:submittedPhase,
+                rating:Number(result.rating ?? command.rating),
+                tags:Array.isArray(result.tags) ? [...result.tags] : Array.isArray(command.tags) ? [...command.tags] : [],
+                pointsAwarded:Number(result.pointsAwarded || 0),
+                submittedAt:result.submittedAt,
+              },
+            },
+          },
+        });
+        nothingscoreQueueRender();
+      }
+    }
+    if (submittedPhase === "impact" && result.replayed === false){
       panel.classList.remove("nsc-impact-burst");
       void panel.offsetWidth;
       panel.classList.add("nsc-impact-burst");
-      playNothingscoreImpactSound();
+      void playNothingscoreImpactSound(preparedAudio);
     }
     if (command.eventId){
-      const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
-      if (payload.viewer) nothingscoreViewer = payload.viewer;
-      if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
+      try{
+        const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
+        if (payload.viewer) nothingscoreViewer = payload.viewer;
+        if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
+      }catch(error){
+        console.warn("Nothingscore receipt saved; fresh community detail will retry later", error);
+      }
     }
     return result;
   }catch(error){
@@ -15366,7 +15725,13 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
 function buildNothingscoreChoices(ev, snapshot, panel){
   const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
   const current = snapshot.currentUser?.contribution || null;
+  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || null;
+  if (receipt && ["heat", "impact"].includes(snapshot.phase)){
+    panel.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.name));
+    return;
+  }
   const pulsePromptReady = snapshot.phase !== "pulse" || Date.now() >= Date.parse(snapshot.timing?.startTimeUtc || "") + 5 * 60_000 || Boolean(current);
+  let draftRating = snapshot.phase === "pulse" ? Number(current?.rating || 0) : 0;
   const choices = document.createElement("div");
   choices.className = "nsc-choice-row";
   choices.setAttribute("aria-label", `${phaseCopy.name} rating`);
@@ -15374,7 +15739,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
     const button = document.createElement("button");
     button.type = "button";
     button.className = "nsc-choice";
-    button.setAttribute("aria-pressed", String(Number(current?.rating) === value));
+    button.setAttribute("aria-pressed", String(draftRating === value));
     button.disabled = !pulsePromptReady;
     if (snapshot.phase === "pulse"){
       const wave = document.createElement("span");
@@ -15389,12 +15754,21 @@ function buildNothingscoreChoices(ev, snapshot, panel){
     label.textContent = phaseCopy.labels[value - 1];
     button.append(number, label);
     button.addEventListener("click", () => {
-      const tags = [...panel.querySelectorAll('.nsc-tag input:checked')].map(input => input.value);
-      const action = snapshot.phase === "pulse" ? "pulse" : "rate";
-      void submitNothingscoreAction({ action, eventId:nothingscoreEventId(ev), rating:value, tags }, panel, {
-        success:snapshot.phase === "pulse" ? "Pulse updated. Come back in another five-minute beat." : "Thanks — your take helps the pilot see the fixture more clearly.",
-        impactBurst:snapshot.phase === "impact" && value === 5,
+      if (snapshot.phase === "pulse"){
+        void submitNothingscoreAction({ action:"pulse", eventId:nothingscoreEventId(ev), rating:value, tags:[] }, panel, {
+          success:"Pulse updated. Come back in another five-minute beat.",
+        });
+        return;
+      }
+      draftRating = value;
+      choices.querySelectorAll(".nsc-choice").forEach((choice, index) => choice.setAttribute("aria-pressed", String(index + 1 === draftRating)));
+      panel.querySelectorAll(".nsc-tag input").forEach(input => {
+        input.disabled = draftRating < 4;
+        if (draftRating < 4) input.checked = false;
       });
+      const submit = panel.querySelector(".nsc-submit");
+      if (submit) submit.disabled = false;
+      nothingscoreStatus(panel, `${phaseCopy.name} ${draftRating}/5 selected. Tap Submit when ready.`);
     });
     choices.appendChild(button);
   }
@@ -15415,16 +15789,15 @@ function buildNothingscoreChoices(ev, snapshot, panel){
       const input = document.createElement("input");
       input.type = "checkbox";
       input.value = tag;
-      input.checked = (current?.tags || []).includes(tag);
-      input.disabled = Number(current?.rating || 0) < 4;
+      input.checked = false;
+      input.disabled = draftRating < 4;
       const copy = document.createElement("span");
       copy.textContent = tag;
       label.append(input, copy);
       input.addEventListener("change", () => {
-        if (Number(current?.rating || 0) < 4) return;
+        if (draftRating < 4) return;
         const selected = [...tags.querySelectorAll("input:checked")].slice(0, 3);
         tags.querySelectorAll("input:checked").forEach(item => { if (!selected.includes(item)) item.checked = false; });
-        void submitNothingscoreAction({ action:"rate", eventId:nothingscoreEventId(ev), rating:Number(current.rating), tags:selected.map(item => item.value) }, panel, { success:"Tags updated." });
       });
       tags.appendChild(label);
     });
@@ -15433,6 +15806,27 @@ function buildNothingscoreChoices(ev, snapshot, panel){
     note.className = "nsc-note";
     note.textContent = "Ratings of 4 or 5 can carry up to three tags.";
     panel.appendChild(note);
+    const submit = document.createElement("button");
+    submit.type = "button";
+    submit.className = "btn primary nsc-submit";
+    submit.textContent = "Submit";
+    submit.disabled = true;
+    submit.addEventListener("click", () => {
+      if (!draftRating) return;
+      const preparedAudio = snapshot.phase === "impact" ? prepareNothingscoreAudio() : null;
+      const selectedTags = [...tags.querySelectorAll("input:checked")].map(input => input.value);
+      void submitNothingscoreAction({
+        action:"submit",
+        phase:snapshot.phase,
+        eventId:nothingscoreEventId(ev),
+        rating:draftRating,
+        tags:selectedTags,
+      }, panel, {
+        success:`${phaseCopy.name} submitted.`,
+        preparedAudio,
+      });
+    });
+    panel.appendChild(submit);
   }
 }
 
@@ -15491,19 +15885,13 @@ function buildNothingscorePanel(ev, snapshot, state){
   panel.className = "nsc-panel";
   panel.dataset.nscPanel = nothingscoreEventId(ev);
   const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
-  const aggregate = snapshot.aggregate || {};
   const head = document.createElement("div");
   head.className = "nsc-panel-head";
   const heading = document.createElement("div");
   const title = document.createElement("h4");
-  title.textContent = `${phaseCopy.name} · ${phaseCopy.detail}`;
-  const explainer = document.createElement("p");
-  explainer.textContent = snapshot.phase === "pulse" ? "A fresh ten-minute view, with each person represented by their mean across live buckets." : snapshot.phase === "impact" ? "Impact combines post-fixture takes with the frozen live Pulse seed." : "Anticipation can help eligible fixture surfacing, but never rewrites chronology or your follows.";
-  heading.append(title, explainer);
-  const score = document.createElement("div");
-  score.className = "nsc-score-large";
-  score.textContent = aggregate.score == null ? "Building" : `${Number(aggregate.score).toFixed(1)}/5`;
-  head.append(heading, score);
+  title.textContent = phaseCopy.name;
+  heading.appendChild(title);
+  head.appendChild(heading);
   panel.appendChild(head);
 
   const status = document.createElement("p");
@@ -15526,34 +15914,12 @@ function buildNothingscorePanel(ev, snapshot, state){
     const create = document.createElement("button");
     create.type = "button";
     create.className = "btn primary";
-    create.textContent = "Create public pilot profile";
-    create.addEventListener("click", openNothingscoreDrawer);
+    create.textContent = "Create Public Profile";
+    create.addEventListener("click", () => { settingsSection = "account"; openSettings(); });
     panel.appendChild(create);
   } else {
     buildNothingscoreChoices(ev, snapshot, panel);
-    const actions = document.createElement("div");
-    actions.className = "nsc-actions";
-    const like = document.createElement("button");
-    like.type = "button";
-    like.className = "btn ghost";
-    like.textContent = snapshot.currentUser?.liked ? "Liked" : "Like this fixture";
-    like.setAttribute("aria-pressed", String(Boolean(snapshot.currentUser?.liked)));
-    like.addEventListener("click", () => { void submitNothingscoreAction({ action:"like", eventId:nothingscoreEventId(ev), active:!snapshot.currentUser?.liked }, panel, { success:snapshot.currentUser?.liked ? "Public like removed; your private feed choices are unchanged." : "Public like added. Your private feed learning remains separate." }); });
-    actions.appendChild(like);
-    if (snapshot.phase === "pulse"){
-      const watching = document.createElement("button");
-      watching.type = "button";
-      watching.className = "btn primary";
-      watching.textContent = snapshot.currentUser?.watching || nothingscoreWatching.has(nothingscoreEventId(ev)) ? "Watching Now ✓" : "Watching Now";
-      watching.addEventListener("click", async () => {
-        const result = await submitNothingscoreAction({ action:"watching", eventId:nothingscoreEventId(ev) }, panel, { success:"Watching Now is live for this fixture." });
-        if (result){ nothingscoreWatching.add(nothingscoreEventId(ev)); scheduleNothingscoreHeartbeat(60_000); }
-      });
-      actions.appendChild(watching);
-    }
-    panel.appendChild(actions);
   }
-  if (state === "opened") buildNothingscoreContributors(snapshot, panel);
   return panel;
 }
 
@@ -15870,7 +16236,7 @@ function buildEventCard(ev, options = {}){
   }
   mainDiv.appendChild(metaRow);
   if (state === "compact" && enrichment.stakesScore >= 2){
-    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(ev));
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(ev), editorialConsequenceForDisplay(ev));
     if (editorialHook) mainDiv.appendChild(editorialHook);
   }
   mainDiv.appendChild(buildNothingscoreSummary(ev));
@@ -15919,10 +16285,6 @@ function buildEventCard(ev, options = {}){
     if (state === "opened") void loadNothingscoreDetail(ev);
     expansionRegion.appendChild(buildNothingscorePanel(ev, socialSnapshot, state));
   }
-  if (state !== "compact"){
-    const sentiment = buildEditorialSentiment(ev);
-    if (sentiment) expansionRegion.appendChild(sentiment);
-  }
   if (state === "compact" && swipeEligible){
     const feedback = document.createElement("div");
     feedback.className = "event-inline-feedback";
@@ -15937,6 +16299,7 @@ function buildEventCard(ev, options = {}){
     selected.className = "event-selected-copy";
     selected.textContent = editorialNarrativeCopyForDisplay(ev, state) || selectedSentenceForDisplay(ev);
     expansionRegion.appendChild(selected);
+    appendEditorialConsequence(expansionRegion, ev);
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
       spoilerPanel.className = "spoiler-panel";
@@ -15963,6 +16326,7 @@ function buildEventCard(ev, options = {}){
     spiel.className = "event-opened-copy";
     spiel.textContent = editorialNarrativeCopyForDisplay(ev, state) || eventSpielForDisplay(ev);
     expansionRegion.appendChild(spiel);
+    appendEditorialConsequence(expansionRegion, ev);
 
     if (enrichment.editorialOverride){
       const editorialNote = document.createElement("p");
@@ -19217,7 +19581,7 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
       showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
     });
     row.append(copy, button);
-    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord));
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord));
     if (editorialHook) row.appendChild(editorialHook);
     list.appendChild(row);
   });
@@ -19460,7 +19824,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   identity.append(logo, kicker, title);
   identity.appendChild(facts);
   if (state === "compact"){
-    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(record));
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(record), editorialConsequenceForDisplay(record));
     if (editorialHook) identity.appendChild(editorialHook);
   }
 
@@ -19471,9 +19835,8 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
       narrative.className = state === "opened" ? "event-opened-copy" : "event-selected-copy";
       narrative.textContent = editorialCopy;
       identity.appendChild(narrative);
+      appendEditorialConsequence(identity, record);
     }
-    const sentiment = buildEditorialSentiment(record);
-    if (sentiment) identity.appendChild(sentiment);
   }
 
   card.append(identity, ticketRow);
@@ -20838,6 +21201,59 @@ function bindPasswordRecoveryFlow(){
   });
 }
 
+function appendPublicProfileAccountSettings(body){
+  const section = document.createElement("section");
+  section.className = "filter-panel";
+  const title = document.createElement("h3");
+  title.textContent = "Public Profile";
+  section.appendChild(title);
+  if (!nothingscoreViewer.signedIn){
+    const loading = document.createElement("p");
+    loading.className = "preference-help";
+    loading.textContent = "Loading your Public Profile…";
+    section.appendChild(loading);
+    publicProfileSettingsLoading ||= refreshNothingscoreViewer()
+      .catch(error => { loading.textContent = error.message || "Your Public Profile is temporarily unavailable."; })
+      .finally(() => {
+        publicProfileSettingsLoading = null;
+        if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
+      });
+    body.querySelector(".preference-stack")?.appendChild(section);
+    return;
+  }
+  section.appendChild(nothingscoreProfileForm());
+  const profile = nothingscoreViewer.profile;
+  if (profile && profile.visibility !== "deleted"){
+    const visibility = document.createElement("p");
+    visibility.className = "preference-help";
+    visibility.textContent = profile.visibility === "hidden"
+      ? "Hidden from public NSC and leaderboards. Your display name remains visible in rooms you join."
+      : "Visible on public NSC and leaderboards. Your display name is also used in signed-in chat.";
+    const actions = document.createElement("div");
+    actions.className = "account-sync-actions";
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "btn ghost";
+    toggle.textContent = profile.visibility === "hidden" ? "Show publicly" : "Hide public profile";
+    toggle.addEventListener("click", () => {
+      void setNothingscoreProfileVisibility(profile.visibility === "hidden" ? "visible" : "hidden")
+        .catch(error => showToast(error.message || "Profile visibility could not be changed."));
+    });
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "btn ghost";
+    remove.textContent = "Delete Public Profile";
+    remove.addEventListener("click", () => {
+      if (window.confirm("Delete your Public Profile? You must recreate it before posting in signed-in chat or NSC.")){
+        void setNothingscoreProfileVisibility("deleted").catch(error => showToast(error.message || "Profile could not be deleted."));
+      }
+    });
+    actions.append(toggle, remove);
+    section.append(visibility, actions);
+  }
+  body.querySelector(".preference-stack")?.appendChild(section);
+}
+
 function renderAccountSettings(body){
   if (serverPersistence.state === "checking" && !serverSyncClient?.getSession?.()) void ensureServerSyncStatus();
   const state = serverPersistence.state;
@@ -20926,6 +21342,7 @@ function renderAccountSettings(body){
       void clearCachedPersonalisedFeed(signedOutUserId);
       showToast("Signed out. Your local copy remains on this device.");
     });
+    appendPublicProfileAccountSettings(body);
     return;
   }
 
@@ -21194,26 +21611,46 @@ function renderSubscriptionSettings(body){
 }
 
 function renderNotificationSettings(body){
-  const enabled = draftPreferences.followFirst.notifications.enabled;
+  const preferences = draftPreferences.followFirst.notifications;
+  const enabled = preferences.enabled !== false;
   const permission = typeof Notification === "undefined" ? "unsupported" : Notification.permission;
-  const statusCopy = enabled && permission === "granted"
-    ? "Background notifications are enabled on this device."
-    : enabled
-      ? "Reminders are enabled for your account. Enable system notifications on this device to receive them here."
-      : "On iPhone and iPad, install Nothing Sport to the Home Screen first.";
-  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Background notifications</h3><p class="preference-help">Reminders arrive 15 minutes before kickoff or race start, even when Nothing Sport is closed. A published broadcast time is used only when the sporting start is unavailable.</p><p class="local-reminder-notice">Signed-in reminders are sent to every device where you have enabled Nothing Sport notifications.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn off on this device" : "Enable background notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${statusCopy}</p></section></div>`;
+  const iosInstall = iosPushRequiresHomeScreen();
+  const statusCopy = permission === "denied"
+    ? "System alerts are blocked. Allow notifications for Nothing Sport in this browser or device Settings, then return here."
+    : iosInstall
+      ? "On iPhone or iPad, add Nothing Sport to the Home Screen, open it there, then reopen a guest room link there once. System push and badges only work in the installed app."
+      : enabled && permission === "granted"
+        ? "System alerts are enabled on this device. Background sounds are controlled by the device."
+        : "Your alert choices default to on. Tap Enable system alerts to grant this device permission.";
+  const actionLabel = permission === "granted" && enabled ? "Turn off system alerts on this device" : "Enable system alerts";
+  body.innerHTML = `<div class="preference-stack">
+    <section class="filter-panel"><h3>Sounds, alerts and badges</h3>
+      <p class="preference-help">Background notifications can arrive even when Nothing Sport is closed. Nothing Sport asks for system permission only when you tap the button below. Message previews stay private: lock-screen chat alerts name only the room.</p>
+      <label class="viewing-toggle"><input type="checkbox" id="chatAlertsEnabled" ${preferences.chatAlertsEnabled !== false ? "checked" : ""}><span><strong>Chat alerts</strong>Notify you about new messages from other room participants.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="sportingRemindersEnabled" ${preferences.sportingRemindersEnabled !== false ? "checked" : ""}><span><strong>Sporting reminders</strong>Send requested reminders 15 minutes before the sporting start.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in NSC.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="notificationBadgesEnabled" ${preferences.badgesEnabled !== false ? "checked" : ""}><span><strong>Unread badges</strong>Show the total unread chat message count on the app icon where supported.</span></label>
+      <button class="btn ${permission === "granted" && enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn" ${permission === "unsupported" ? "disabled" : ""}>${actionLabel}</button>
+      <p class="preference-help" id="notificationPermissionStatus">${statusCopy}</p>
+    </section>
+  </div>`;
+  [["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
+    document.getElementById(id).addEventListener("change", event => {
+      draftPreferences.followFirst.notifications[key] = event.target.checked;
+    });
+  });
   document.getElementById("notificationPermissionBtn").addEventListener("click", async () => {
     const status = document.getElementById("notificationPermissionStatus");
     const button = document.getElementById("notificationPermissionBtn");
     button.disabled = true;
-    if (enabled){
-      status.textContent = "Turning off background notifications on this device…";
+    if (enabled && permission === "granted"){
+      status.textContent = "Turning off system alerts on this device…";
       try{
         await disablePushInstallation();
         setBackgroundNotificationPreference(draftPreferences, false);
         renderSettingsScreen();
       }catch(error){
-        status.textContent = error.message || "Background notifications could not be turned off.";
+        status.textContent = error.message || "System alerts could not be turned off.";
         button.disabled = false;
       }
       return;
@@ -21224,7 +21661,9 @@ function renderNotificationSettings(body){
       setBackgroundNotificationPreference(draftPreferences, true);
       renderSettingsScreen();
     }catch(error){
-      status.textContent = error.message || "Notification permission was not granted.";
+      status.textContent = error.message || (Notification.permission === "denied"
+        ? "Notifications are blocked. Allow Nothing Sport in browser or device Settings."
+        : "Notification permission was not granted.");
       button.disabled = false;
     }
   });
@@ -21703,6 +22142,7 @@ function saveSettingsPreferences(){
     : draftPreferences;
   const previousPreferences = clonePreferences(settingsDraftBaseline || userPreferences);
   savePreferences(reconciledDraft);
+  void syncNotificationInstallationPreferences().catch(error => console.warn("Notification preferences could not be synced", error));
   if (serverPersistence.user){
     void serverSyncClient.saveMeta(userPreferences.followFirst.startupMeta)
       .catch(error => console.warn("User metadata sync failed", error));
@@ -21900,6 +22340,38 @@ document.getElementById("confirmSelectorOptInBtn").addEventListener("click", () 
   showToast(`${selectionCount === 1 ? "New feed choice" : "New feed choices"} added.`);
 });
 
+function canonicalAppShareUrl(){
+  const configured = document.querySelector('link[rel="canonical"]')?.href || window.location.origin;
+  return new URL("/", configured).href;
+}
+
+async function shareOrCopyLink({ title, text, url }){
+  if (navigator.share){
+    try{
+      await navigator.share({ title, text, url });
+      return "shared";
+    }catch(error){
+      if (error?.name === "AbortError") return "cancelled";
+    }
+  }
+  if (navigator.clipboard?.writeText){
+    try{
+      await navigator.clipboard.writeText(url);
+      showToast("Link copied.");
+      return "copied";
+    }catch(_error){ /* Fall through to a selectable browser prompt. */ }
+  }
+  window.prompt("Copy this link", url);
+  return "selectable";
+}
+
+document.getElementById("shareAppBtn").addEventListener("click", () => {
+  void shareOrCopyLink({
+    title:"Nothing Sport",
+    text:"Live sport, nothing missed.",
+    url:canonicalAppShareUrl(),
+  });
+});
 document.getElementById("soundtrackToggle").addEventListener("click", toggleSoundtrack);
 document.getElementById("homeSpoilerToggle").addEventListener("click", () => {
   setGlobalSpoilerPreference(!userPreferences.showSpoilers, { notify: true });
@@ -21941,7 +22413,7 @@ function chatFixtureEligible(event){
 }
 
 function appendFixtureChatActions(container, event){
-  if (!serverPersistence.user || !serverSyncClient?.chatRequest || !CHAT) return;
+  if (!serverSyncClient?.chatRequest || !CHAT) return;
   const rooms = chatRoomsForFixture(event);
   if (rooms.length){
     const open = document.createElement("button");
@@ -21960,7 +22432,7 @@ function appendFixtureChatActions(container, event){
     setup.type = "button";
     setup.className = "event-quick-action event-chat-action";
     setup.textContent = "Set up chat";
-    setup.setAttribute("aria-label", `Set up a private chat for ${event.name}`);
+    setup.setAttribute("aria-label", `Set up a chat for ${event.name}`);
     setup.addEventListener("click", clickEvent => {
       clickEvent.stopPropagation();
       openChatSetup(event);
@@ -21972,13 +22444,22 @@ function appendFixtureChatActions(container, event){
 function updateActiveChatButton(){
   const button = document.getElementById("activeChatsBtn");
   const count = document.getElementById("activeChatCount");
-  const signedIn = Boolean(serverPersistence.user && serverSyncClient?.chatRequest);
+  const signedIn = Boolean((serverPersistence.user || serverSyncClient?.getGuestChatSession?.()) && serverSyncClient?.chatRequest);
   const unread = chatState.rooms.reduce((sum, room) => sum + Number(room.unreadCount || 0), 0);
   button.hidden = !signedIn;
   count.textContent = String(unread || chatState.rooms.length || 0);
   button.setAttribute("aria-label", unread
     ? `Active chats, ${unread} unread ${unread === 1 ? "message" : "messages"}`
     : `Active chats, ${chatState.rooms.length} open ${chatState.rooms.length === 1 ? "room" : "rooms"}`);
+  updateUnreadAppBadge(unread);
+}
+
+function updateUnreadAppBadge(unread){
+  const enabled = userPreferences?.followFirst?.notifications?.badgesEnabled !== false;
+  try{
+    if (enabled && Number(unread) > 0) void navigator.setAppBadge?.(Number(unread));
+    else void navigator.clearAppBadge?.();
+  }catch(_error){ /* Badging is a progressive enhancement. */ }
 }
 
 function chatConnection(message, state = "idle"){
@@ -22001,7 +22482,11 @@ function setChatDrawerOpen(open){
     chatState.currentRoom = null;
     chatState.messages = [];
     chatState.olderCursor = null;
-    document.getElementById("chatComposer").hidden = true;
+    chatState.draftBody = "";
+    chatState.replyToMessageId = null;
+    chatState.reactionCursor = "";
+    chatState.shareCapability = "";
+    document.getElementById("shareRoomHeaderBtn").hidden = true;
     document.getElementById("chatNewMessagesBtn").classList.remove("show");
     chatPreviousFocus?.focus?.();
     chatPreviousFocus = null;
@@ -22040,14 +22525,14 @@ function renderActiveChats(){
   chatState.currentRoom = null;
   chatState.messages = [];
   chatState.olderCursor = null;
-  setChatHeading("Active chats", "Private fixture rooms for invited members.");
+  setChatHeading("Active chats", "Fixture rooms you have joined.");
   chatConnection(navigator.onLine ? "Connected" : "Offline — polling paused", navigator.onLine ? "connected" : "retrying");
   const body = document.getElementById("chatBody");
   body.replaceChildren();
-  document.getElementById("chatComposer").hidden = true;
+  document.getElementById("shareRoomHeaderBtn").hidden = true;
   const disclosure = document.createElement("p");
   disclosure.className = "chat-disclosure";
-  disclosure.textContent = "Rooms are private to invited members. App admins can inspect open rooms and retain read-only access for seven days after closure.";
+  disclosure.textContent = "New rooms begin members-only. Administrators may enable an unlisted guest link; closed rooms revoke participant access and remain read-only to administrators for seven days.";
   body.appendChild(disclosure);
   if (!chatState.rooms.length){
     const empty = document.createElement("p");
@@ -22065,6 +22550,7 @@ function renderActiveChats(){
 }
 
 function openActiveChats(){
+  prepareChatAudio();
   setChatDrawerOpen(true);
   renderActiveChats();
   void refreshChatActive({ rerenderOpenList:true });
@@ -22075,10 +22561,10 @@ function renderFixtureRoomChooser(event){
   chatState.messages = [];
   chatState.olderCursor = null;
   const rooms = chatRoomsForFixture(event);
-  setChatHeading(event.name || "Fixture chats", rooms.length === 1 ? "One private room" : `${rooms.length} private rooms`);
+  setChatHeading(event.name || "Fixture chats", rooms.length === 1 ? "One room" : `${rooms.length} rooms`);
   const body = document.getElementById("chatBody");
   body.replaceChildren();
-  document.getElementById("chatComposer").hidden = true;
+  document.getElementById("shareRoomHeaderBtn").hidden = true;
   const list = document.createElement("div");
   list.className = "chat-room-list";
   rooms.forEach(room => list.appendChild(chatRoomRow(room)));
@@ -22094,6 +22580,7 @@ function renderFixtureRoomChooser(event){
 }
 
 function openFixtureChats(event){
+  prepareChatAudio();
   const rooms = chatRoomsForFixture(event);
   setChatDrawerOpen(true);
   if (rooms.length === 1) void openChatRoom(rooms[0].roomId);
@@ -22154,6 +22641,7 @@ function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
 
 function openChatSetup(event){
   if (!chatState.isAdmin) return;
+  prepareChatAudio();
   chatSetupFixture = event;
   chatState.currentRoom = null;
   chatState.messages = [];
@@ -22161,9 +22649,17 @@ function openChatSetup(event){
   setChatDrawerOpen(true);
   setChatHeading("Set up chat", event.name || "Upcoming fixture");
   chatConnection("Admin setup", "connected");
-  document.getElementById("chatComposer").hidden = true;
+  document.getElementById("shareRoomHeaderBtn").hidden = true;
   const body = document.getElementById("chatBody");
   body.replaceChildren();
+  if (!chatState.profile?.publicProfile){
+    const required = document.createElement("p");
+    required.className = "chat-disclosure";
+    required.textContent = "Create your global Public Profile before setting up a room. This display name is inherited by every signed-in chat and by NSC.";
+    body.appendChild(required);
+    renderChatPublicProfileForm(body, { onSaved:() => openChatSetup(event) });
+    return;
+  }
   const disclosure = document.createElement("p");
   disclosure.className = "chat-disclosure";
   disclosure.textContent = "Invited members and app admins can read the open room. Closing is irreversible; app admins retain read-only access for seven days before permanent purge.";
@@ -22212,9 +22708,217 @@ function openChatSetup(event){
   body.append(disclosure, form);
 }
 
+function clearPendingChatCapability(){
+  pendingChatCapability = "";
+  try{ sessionStorage.removeItem(CHAT_CAPABILITY_STORAGE_KEY); }catch(_error){ /* Memory copy is already cleared. */ }
+}
+
+function sharedChatErrorCopy(error){
+  if (["chat_share_invalid", "chat_share_disabled"].includes(error?.code)) return "This guest chat link is invalid, expired, or no longer enabled.";
+  if (error?.code === "chat_room_closed") return "This chat room is closed.";
+  if (error?.code === "chat_room_full") return "This chat room already has 25 participants.";
+  return error?.message || "This guest chat link is unavailable.";
+}
+
+function renderGuestChatPreview(preview, capability){
+  const room = preview.room;
+  setChatHeading(room.roomName || "Join chat", room.fixture?.name || "Fixture chat");
+  chatConnection("Guest preview", "connected");
+  const body = document.getElementById("chatBody");
+  body.replaceChildren();
+  const previewCard = document.createElement("section");
+  previewCard.className = "chat-guest-preview";
+  const heading = document.createElement("h3");
+  heading.textContent = room.roomName;
+  const fixture = document.createElement("p");
+  fixture.className = "chat-empty";
+  fixture.textContent = `${room.fixture?.name || "Fixture chat"} · ${Number(room.memberCount || 0)} of 25 participants`;
+  const note = document.createElement("p");
+  note.className = "chat-disclosure";
+  note.textContent = "Anyone with this unlisted link can join while guest sharing remains enabled. Choose a name for this room; no account or visible sign-in is required.";
+  const form = document.createElement("form");
+  form.className = "chat-form";
+  const label = document.createElement("label");
+  label.className = "field-label";
+  label.textContent = "Name in this room";
+  const input = document.createElement("input");
+  input.required = true;
+  input.minLength = CHAT.LIMITS.displayNameMin;
+  input.maxLength = CHAT.LIMITS.displayNameMax;
+  input.autocomplete = "nickname";
+  label.appendChild(input);
+  const status = document.createElement("p");
+  status.className = "chat-empty";
+  status.setAttribute("role", "status");
+  const join = document.createElement("button");
+  join.type = "submit";
+  join.className = "btn primary";
+  join.textContent = "Join room";
+  form.append(label, status, join);
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    prepareChatAudio();
+    join.disabled = true;
+    status.textContent = "Joining…";
+    try{
+      const anonymousSession = await serverSyncClient.anonymousChatSession({ capability, guestDisplayName:input.value });
+      void syncPermittedChatPushInstallation().catch(() => null);
+      const payload = anonymousSession.joined && anonymousSession.room?.roomId
+        ? anonymousSession
+        : await serverSyncClient.chatRequest({}, { action:"join-shared-room", capability, guestDisplayName:input.value });
+      clearPendingChatCapability();
+      chatState.isGuest = true;
+      await refreshChatActive();
+      await openChatRoom(payload.room.roomId);
+    }catch(error){
+      status.textContent = sharedChatErrorCopy(error);
+      join.disabled = false;
+    }
+  });
+  previewCard.append(heading, fixture, note, form);
+  body.appendChild(previewCard);
+}
+
+async function openPendingSharedChat(){
+  if (!pendingChatCapability || !serverSyncClient?.chatGuestPreview) return false;
+  const capability = pendingChatCapability;
+  setChatDrawerOpen(true);
+  setChatHeading("Join chat", "Checking this unlisted room link…");
+  chatConnection("Checking link…");
+  const body = document.getElementById("chatBody");
+  body.innerHTML = '<p class="chat-empty">Loading room preview…</p>';
+  try{
+    const preview = await serverSyncClient.chatGuestPreview(capability);
+    if (serverSyncClient.getSession?.()){
+      prepareChatAudio();
+      const payload = await serverSyncClient.chatRequest({}, { action:"join-shared-room", capability });
+      clearPendingChatCapability();
+      await refreshChatActive();
+      await openChatRoom(payload.room.roomId);
+    } else {
+      renderGuestChatPreview(preview, capability);
+    }
+    return true;
+  }catch(error){
+    chatConnection("Link unavailable", "retrying");
+    body.replaceChildren();
+    const message = document.createElement("p");
+    message.className = "chat-disclosure";
+    message.textContent = sharedChatErrorCopy(error);
+    body.appendChild(message);
+    clearPendingChatCapability();
+    return false;
+  }
+}
+
+async function openRequestedChatRoomFromLocation(){
+  const params = new URLSearchParams(window.location.search);
+  const roomId = String(params.get("chatRoom") || "");
+  if (!roomId || !(serverSyncClient?.getSession?.() || serverSyncClient?.getGuestChatSession?.())) return false;
+  setChatDrawerOpen(true);
+  await openChatRoom(roomId);
+  params.delete("chatRoom");
+  const search = params.toString();
+  history.replaceState(null, "", `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash || ""}`);
+  return true;
+}
+
+const CHAT_REACTION_EMOJIS = Object.freeze(["👍", "❤️", "😂", "😮", "😢", "👏"]);
+
+function prepareChatAudio(){
+  if (userPreferences?.followFirst?.notifications?.soundsEnabled === false) return null;
+  try{
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return null;
+    chatAudioContext ||= new AudioContext();
+    if (chatAudioContext.state === "suspended") void chatAudioContext.resume().catch(() => null);
+    return chatAudioContext;
+  }catch(_error){ return null; }
+}
+
+function playIncomingChatSound(){
+  const audio = prepareChatAudio();
+  if (!audio || audio.state !== "running") return false;
+  try{
+    const oscillator = audio.createOscillator();
+    const gain = audio.createGain();
+    oscillator.frequency.setValueAtTime(660, audio.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(880, audio.currentTime + .09);
+    gain.gain.setValueAtTime(.0001, audio.currentTime);
+    gain.gain.exponentialRampToValueAtTime(.055, audio.currentTime + .018);
+    gain.gain.exponentialRampToValueAtTime(.0001, audio.currentTime + .16);
+    oscillator.connect(gain).connect(audio.destination);
+    oscillator.start();
+    oscillator.stop(audio.currentTime + .18);
+    return true;
+  }catch(_error){ return false; }
+}
+
+function buildChatAlertPrompt(){
+  const notifications = userPreferences?.followFirst?.notifications || {};
+  const permission = typeof Notification === "undefined" ? "unsupported" : Notification.permission;
+  const wantsAlerts = notifications.enabled !== false && notifications.chatAlertsEnabled !== false;
+  const wantsSound = notifications.soundsEnabled !== false;
+  const audioReady = !wantsSound || chatAudioContext?.state === "running";
+  const needsPermission = wantsAlerts && permission !== "granted";
+  if (!needsPermission && audioReady) return null;
+  const prompt = document.createElement("section");
+  prompt.className = "chat-alert-prompt chat-disclosure";
+  const copy = document.createElement("p");
+  copy.className = "chat-empty";
+  if (permission === "denied"){
+    copy.textContent = "System alerts are blocked. Allow Nothing Sport notifications in browser or device Settings. You can still enable the in-app chat sound here.";
+  } else if (iosPushRequiresHomeScreen()){
+    copy.textContent = "On iPhone or iPad, add Nothing Sport to the Home Screen, open it there, then reopen this guest room link once to enable system alerts and badges.";
+  } else if (permission === "unsupported"){
+    copy.textContent = "System alerts are not supported here. Tap once to enable the in-app sound for incoming messages.";
+  } else {
+    copy.textContent = "Get privacy-safe system alerts for new room messages. Lock-screen alerts name only the room; background sounds remain device-controlled.";
+  }
+  prompt.appendChild(copy);
+  if (permission === "default" || !audioReady){
+    const enable = document.createElement("button");
+    enable.type = "button";
+    enable.className = "btn primary";
+    enable.textContent = permission === "default" ? "Enable system alerts" : "Tap to enable chat sound";
+    enable.addEventListener("click", async () => {
+      enable.disabled = true;
+      prepareChatAudio();
+      try{
+        if (permission === "default") await ensurePushInstallation({ requestPermission:true });
+        renderOpenChatRoom({ autoScroll:false, preserveScroll:true });
+      }catch(error){
+        copy.textContent = error.message || "Alerts could not be enabled. Check browser or device Settings.";
+        enable.disabled = false;
+      }
+    });
+    prompt.appendChild(enable);
+  }
+  return prompt;
+}
+
+function chatMessageById(messageId){
+  return chatState.messages.find(message => message.messageId === messageId) || null;
+}
+
+async function toggleChatReaction(messageId, emoji, control){
+  const room = chatState.currentRoom;
+  if (!room?.viewer?.canPost) return;
+  control.disabled = true;
+  try{
+    await serverSyncClient.chatRequest({}, { action:"toggle-reaction", roomId:room.roomId, messageId, emoji });
+    scheduleChatRoomPoll(0);
+  }catch(error){
+    chatConnection(error.message || "That reaction could not be changed.", "retrying");
+  }finally{
+    control.disabled = false;
+  }
+}
+
 function chatMessageElement(message){
   const item = document.createElement("article");
   item.className = `chat-message${message.own ? " own" : ""}`;
+  item.dataset.messageId = message.messageId;
   const meta = document.createElement("div");
   meta.className = "chat-message-meta";
   const sender = document.createElement("strong");
@@ -22228,39 +22932,109 @@ function chatMessageElement(message){
   body.className = "chat-message-body";
   body.textContent = message.body;
   meta.append(sender, time);
-  item.append(meta, body);
+  item.appendChild(meta);
+  if (message.replyTo){
+    const quote = document.createElement("button");
+    quote.type = "button";
+    quote.className = "chat-message-quote";
+    const quoteSender = document.createElement("strong");
+    quoteSender.textContent = message.replyTo.senderName;
+    const quoteBody = document.createElement("span");
+    quoteBody.textContent = message.replyTo.body;
+    quote.append(quoteSender, quoteBody);
+    quote.addEventListener("click", () => document.querySelector(`[data-message-id="${CSS.escape(message.replyTo.messageId)}"]`)?.scrollIntoView?.({ block:"center" }));
+    item.appendChild(quote);
+  }
+  item.appendChild(body);
+  const reactions = document.createElement("div");
+  reactions.className = "chat-reactions";
+  (message.reactions || []).forEach(reaction => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `chat-reaction${reaction.own ? " own" : ""}`;
+    button.setAttribute("aria-pressed", String(Boolean(reaction.own)));
+    button.textContent = `${reaction.emoji} ${reaction.count}`;
+    button.addEventListener("click", () => { void toggleChatReaction(message.messageId, reaction.emoji, button); });
+    reactions.appendChild(button);
+  });
+  const actions = document.createElement("div");
+  actions.className = "chat-message-actions";
+  const reply = document.createElement("button");
+  reply.type = "button";
+  reply.className = "chat-message-action";
+  reply.textContent = "Reply";
+  reply.addEventListener("click", () => {
+    chatState.replyToMessageId = message.messageId;
+    renderOpenChatRoom({ autoScroll:false, focusComposer:true });
+  });
+  const react = document.createElement("button");
+  react.type = "button";
+  react.className = "chat-message-action";
+  react.textContent = "React";
+  const picker = document.createElement("div");
+  picker.className = "chat-reaction-picker";
+  picker.hidden = true;
+  CHAT_REACTION_EMOJIS.forEach(emoji => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chat-message-action";
+    button.textContent = emoji;
+    button.setAttribute("aria-label", `React ${emoji}`);
+    button.addEventListener("click", () => { void toggleChatReaction(message.messageId, emoji, button); });
+    picker.appendChild(button);
+  });
+  react.addEventListener("click", () => { picker.hidden = !picker.hidden; });
+  if (chatState.currentRoom?.viewer?.canPost) actions.append(reply, react, picker);
+  if (reactions.childElementCount) item.appendChild(reactions);
+  if (actions.childElementCount) item.appendChild(actions);
   return item;
 }
 
-function renderChatDisplayNameForm(host){
+function renderChatPublicProfileForm(host, { onSaved } = {}){
   const form = document.createElement("form");
   form.className = "chat-form";
-  const label = document.createElement("label");
-  label.className = "field-label";
-  label.textContent = "Chat display name";
-  const input = document.createElement("input");
-  input.required = true;
-  input.minLength = CHAT.LIMITS.displayNameMin;
-  input.maxLength = CHAT.LIMITS.displayNameMax;
-  input.autocomplete = "nickname";
+  const heading = document.createElement("h3");
+  heading.className = "chat-section-title";
+  heading.textContent = "Public Profile";
+  const displayLabel = document.createElement("label");
+  displayLabel.className = "field-label";
+  displayLabel.textContent = "Display name";
+  const display = document.createElement("input");
+  display.required = true;
+  display.minLength = 2;
+  display.maxLength = 80;
+  display.autocomplete = "name";
+  displayLabel.appendChild(display);
+  const handleLabel = document.createElement("label");
+  handleLabel.className = "field-label";
+  handleLabel.textContent = "Handle";
+  const handle = document.createElement("input");
+  handle.required = true;
+  handle.minLength = 3;
+  handle.maxLength = 24;
+  handle.pattern = "[a-z0-9_]{3,24}";
+  handle.autocapitalize = "none";
+  handle.spellcheck = false;
+  handle.placeholder = "your_handle";
+  handleLabel.appendChild(handle);
   const help = document.createElement("p");
   help.className = "chat-empty";
-  help.textContent = "Use 2–30 characters. Members see this name; your email stays private.";
+  help.textContent = "This global display name is inherited by every signed-in chat and by NSC. Your @handle remains secondary; your email stays private.";
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
-  save.textContent = "Save display name";
-  label.appendChild(input);
-  form.append(label, help, save);
+  save.textContent = "Save Public Profile";
+  form.append(heading, displayLabel, handleLabel, help, save);
   form.addEventListener("submit", async submitEvent => {
     submitEvent.preventDefault();
     save.disabled = true;
     try{
-      const payload = await serverSyncClient.chatRequest({}, { action:"set-display-name", displayName:input.value });
-      chatState.profile = payload.profile;
-      renderOpenChatRoom();
+      await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
+      await refreshNothingscoreViewer();
+      await refreshChatActive();
+      await onSaved?.();
     }catch(error){
-      help.textContent = error.message || "The display name could not be saved.";
+      help.textContent = error.message || "The Public Profile could not be saved.";
       save.disabled = false;
     }
   });
@@ -22268,21 +23042,17 @@ function renderChatDisplayNameForm(host){
 }
 
 function renderChatAdminControls(host, room){
-  if (!chatState.isAdmin || room.status !== "open") return;
-  const heading = document.createElement("h3");
-  heading.className = "chat-section-title";
-  heading.textContent = "Room members";
   const list = document.createElement("div");
   list.className = "chat-member-list";
   const memberIds = new Set();
-  room.members.forEach(member => {
+  (room.members || []).forEach(member => {
     if (member.accountId) memberIds.add(member.accountId);
     const row = document.createElement("div");
     row.className = "chat-member-row";
     const name = document.createElement("span");
     name.textContent = member.displayName;
     row.appendChild(name);
-    if (member.accountId && member.accountId !== serverPersistence.user?.id){
+    if (chatState.isAdmin && room.status === "open" && member.accountId && member.accountId !== serverPersistence.user?.id){
       const remove = document.createElement("button");
       remove.type = "button";
       remove.className = "btn ghost";
@@ -22302,6 +23072,8 @@ function renderChatAdminControls(host, room){
     }
     list.appendChild(row);
   });
+  host.appendChild(list);
+  if (!chatState.isAdmin || room.status !== "open") return;
   const add = document.createElement("section");
   add.className = "chat-form";
   const selected = new Set();
@@ -22344,20 +23116,197 @@ function renderChatAdminControls(host, room){
       close.disabled = false;
     }
   });
-  host.append(heading, list, add, close);
+  const share = document.createElement("section");
+  share.className = "chat-share-panel";
+  const shareTitle = document.createElement("strong");
+  shareTitle.textContent = "Guest link";
+  const shareCopy = document.createElement("p");
+  shareCopy.className = "chat-empty";
+  shareCopy.textContent = room.guestShareEnabled
+    ? "Anyone with the unlisted link can join without a visible sign-in. It is not listed publicly."
+    : "Members only. Enable an unlisted guest link when you are ready to share this room.";
+  share.append(shareTitle, shareCopy);
+  if (chatState.shareCapability){
+    const link = document.createElement("input");
+    link.className = "chat-share-link";
+    link.readOnly = true;
+    link.value = roomGuestShareUrl(chatState.shareCapability);
+    link.addEventListener("focus", () => link.select());
+    share.appendChild(link);
+  }
+  const shareActions = document.createElement("div");
+  shareActions.className = "chat-form-actions";
+  const shareButton = document.createElement("button");
+  shareButton.type = "button";
+  shareButton.className = "btn primary";
+  shareButton.textContent = room.guestShareEnabled ? "Copy / Share" : "Enable guest link";
+  shareButton.addEventListener("click", () => { void shareRoomWithGuests(room, "enable"); });
+  shareActions.appendChild(shareButton);
+  if (room.guestShareEnabled){
+    const rotate = document.createElement("button");
+    rotate.type = "button";
+    rotate.className = "btn ghost";
+    rotate.textContent = "Rotate link";
+    rotate.addEventListener("click", () => {
+      if (window.confirm("Rotate this guest link? The old link will stop admitting new guests; guests who already joined stay in the room.")) void shareRoomWithGuests(room, "rotate");
+    });
+    const disable = document.createElement("button");
+    disable.type = "button";
+    disable.className = "btn ghost";
+    disable.textContent = "Disable guest access";
+    disable.addEventListener("click", () => {
+      if (window.confirm("Disable guest access? The link will stop working and all guest memberships will be removed immediately.")) void disableRoomGuestSharing(room);
+    });
+    shareActions.append(rotate, disable);
+  }
+  share.appendChild(shareActions);
+  host.append(add, share, close);
 }
 
-function renderOpenChatRoom({ autoScroll = true, showNew = false } = {}){
-  const room = chatState.currentRoom;
-  if (!room) return;
-  setChatHeading(room.roomName, room.fixture?.name || "Private fixture chat");
-  const body = document.getElementById("chatBody");
-  body.replaceChildren();
+function roomGuestShareUrl(capability){
+  return `${canonicalAppShareUrl()}#chat=${encodeURIComponent(String(capability || ""))}`;
+}
+
+async function shareRoomWithGuests(room, mode = "enable"){
+  const action = mode === "rotate" ? "rotate-share" : "enable-share";
+  chatConnection(mode === "rotate" ? "Rotating guest link…" : "Preparing guest link…");
+  try{
+    const payload = await serverSyncClient.chatRequest({}, { action, roomId:room.roomId });
+    const guestShare = payload.guestShare || {};
+    chatState.shareCapability = guestShare.capability || "";
+    chatState.currentRoom = { ...chatState.currentRoom, guestShareEnabled:Boolean(guestShare.enabled) };
+    renderOpenChatRoom({ autoScroll:false });
+    if (chatState.shareCapability){
+      await shareOrCopyLink({
+        title:`${room.roomName} · Nothing Sport`,
+        text:`Join ${room.roomName} for ${room.fixture?.name || "this fixture"}.`,
+        url:roomGuestShareUrl(chatState.shareCapability),
+      });
+    }
+    chatConnection("Guest link ready", "connected");
+  }catch(error){ chatConnection(error.message || "Guest sharing could not be enabled.", "retrying"); }
+}
+
+async function disableRoomGuestSharing(room){
+  chatConnection("Disabling guest access…");
+  try{
+    await serverSyncClient.chatRequest({}, { action:"disable-share", roomId:room.roomId });
+    chatState.shareCapability = "";
+    await openChatRoom(room.roomId);
+  }catch(error){ chatConnection(error.message || "Guest access could not be disabled.", "retrying"); }
+}
+
+function renderChatMembersDisclosure(room){
+  const details = document.createElement("details");
+  details.className = "chat-members";
+  const summary = document.createElement("summary");
+  const count = Number(room.memberCount || room.members?.length || 0);
+  summary.textContent = `Members (${count})`;
+  const content = document.createElement("div");
+  content.className = "chat-members-content";
   const disclosure = document.createElement("p");
-  disclosure.className = "chat-disclosure";
+  disclosure.className = "chat-empty";
   disclosure.textContent = room.status === "closed"
-    ? "This room is closed. Members lost access immediately; app admins may inspect this read-only transcript until its permanent purge seven days after closure."
-    : "Invited members and app admins can read this open room. If an admin closes it, members lose access immediately and admins retain read-only access for seven days before purge.";
+    ? "Closed and read-only. Member and guest access has been revoked; administrators retain this archive for seven days."
+    : room.guestShareEnabled
+      ? "Invited accounts and joined guests can read this unlisted room."
+      : "This room is members-only until an administrator enables its guest link.";
+  content.appendChild(disclosure);
+  renderChatAdminControls(content, room);
+  details.append(summary, content);
+  return details;
+}
+
+function buildChatReplyPreview(){
+  const message = chatMessageById(chatState.replyToMessageId);
+  if (!message) return null;
+  const preview = document.createElement("div");
+  preview.className = "chat-reply-preview";
+  const copy = document.createElement("div");
+  const name = document.createElement("strong");
+  name.textContent = `Replying to ${message.senderName}`;
+  const excerpt = document.createElement("span");
+  excerpt.textContent = message.body;
+  copy.append(name, excerpt);
+  const cancel = document.createElement("button");
+  cancel.type = "button";
+  cancel.className = "btn ghost";
+  cancel.textContent = "Cancel";
+  cancel.addEventListener("click", () => {
+    chatState.replyToMessageId = null;
+    renderOpenChatRoom({ autoScroll:false, focusComposer:true });
+  });
+  preview.append(copy, cancel);
+  return preview;
+}
+
+function sizeChatComposerInput(input){
+  input.style.height = "auto";
+  input.style.height = `${Math.min(180, Math.max(52, input.scrollHeight))}px`;
+}
+
+async function sendChatMessage(form){
+  const input = form.querySelector("textarea");
+  const room = chatState.currentRoom;
+  if (!room?.viewer?.canPost) return;
+  const body = CHAT.messageBody(input.value);
+  if (!body){
+    chatConnection("Messages must contain 1–500 Unicode characters.", "retrying");
+    return;
+  }
+  const submit = form.querySelector('[type="submit"]');
+  submit.disabled = true;
+  try{
+    const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
+    const payload = await serverSyncClient.chatRequest({}, {
+      action:"send-message",
+      roomId:room.roomId,
+      clientId,
+      body,
+      ...(chatState.replyToMessageId ? { replyToMessageId:chatState.replyToMessageId } : {}),
+    });
+    mergeChatMessages([payload.message]);
+    chatState.draftBody = "";
+    chatState.replyToMessageId = null;
+    renderOpenChatRoom({ autoScroll:true, focusComposer:true });
+    void refreshChatActive();
+  }catch(error){
+    chatConnection(error.message || "The message could not be sent.", "retrying");
+    submit.disabled = false;
+    input.focus();
+  }
+}
+
+function buildChatComposer({ focus = false } = {}){
+  const form = document.createElement("form");
+  form.className = "chat-room-composer";
+  form.id = "chatRoomComposer";
+  const label = document.createElement("label");
+  label.className = "sr-only";
+  label.htmlFor = "chatMessageInput";
+  label.textContent = "Message";
+  const input = document.createElement("textarea");
+  input.id = "chatMessageInput";
+  input.maxLength = 500;
+  input.rows = 2;
+  input.placeholder = "Write a message or emoji";
+  input.required = true;
+  input.value = chatState.draftBody || "";
+  input.addEventListener("input", () => { chatState.draftBody = input.value; sizeChatComposerInput(input); });
+  const send = document.createElement("button");
+  send.type = "submit";
+  send.className = "btn primary";
+  send.textContent = "Send";
+  form.append(label, input, send);
+  form.addEventListener("submit", event => { event.preventDefault(); void sendChatMessage(form); });
+  window.requestAnimationFrame(() => {
+    sizeChatComposerInput(input);
+    if (focus) input.focus({ preventScroll:true });
+  });
+  return form;
+}
+
+function buildChatMessageList(){
   const list = document.createElement("div");
   list.className = "chat-message-list";
   list.setAttribute("role", "log");
@@ -22378,15 +23327,92 @@ function renderOpenChatRoom({ autoScroll = true, showNew = false } = {}){
   } else {
     chatState.messages.forEach(message => list.appendChild(chatMessageElement(message)));
   }
-  body.append(disclosure, list);
-  if (!chatState.profile.displayName && !room.readOnly) renderChatDisplayNameForm(body);
-  renderChatAdminControls(body, room);
-  const composer = document.getElementById("chatComposer");
-  composer.hidden = Boolean(room.readOnly || !chatState.profile.displayName);
+  return list;
+}
+
+function refreshChatMessageStream({ autoScroll = false, showNew = false, preserveScroll = true } = {}){
+  const body = document.getElementById("chatBody");
+  const list = body.querySelector(".chat-message-list");
+  if (!list){
+    renderOpenChatRoom({ autoScroll, showNew, preserveScroll });
+    return;
+  }
+  const bodyTop = body.getBoundingClientRect().top;
+  const visibleAnchor = preserveScroll
+    ? [...list.querySelectorAll("[data-message-id]")].find(item => item.getBoundingClientRect().bottom >= bodyTop)
+    : null;
+  const anchorState = visibleAnchor
+    ? { messageId:visibleAnchor.dataset.messageId, offset:visibleAnchor.getBoundingClientRect().top - bodyTop }
+    : null;
+  const previousScrollTop = body.scrollTop;
+  const replacement = buildChatMessageList();
+  list.replaceWith(replacement);
+  document.getElementById("chatNewMessagesBtn").classList.toggle("show", Boolean(showNew));
+  if (autoScroll) body.scrollTop = body.scrollHeight;
+  else if (anchorState){
+    const nextAnchor = [...replacement.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
+    if (nextAnchor) body.scrollTop += nextAnchor.getBoundingClientRect().top - bodyTop - anchorState.offset;
+    else body.scrollTop = previousScrollTop;
+  } else if (preserveScroll) body.scrollTop = previousScrollTop;
+}
+
+function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer = false, preserveScroll = false } = {}){
+  const room = chatState.currentRoom;
+  if (!room) return;
+  setChatHeading(room.roomName, room.fixture?.name || "Fixture chat");
+  const shareHeader = document.getElementById("shareRoomHeaderBtn");
+  shareHeader.hidden = !(chatState.isAdmin && room.status === "open");
+  shareHeader.textContent = "Share room";
+  shareHeader.onclick = () => { void shareRoomWithGuests(room, "enable"); };
+  const body = document.getElementById("chatBody");
+  const bodyTop = body.getBoundingClientRect().top;
+  const visibleAnchor = preserveScroll
+    ? [...body.querySelectorAll("[data-message-id]")].find(item => item.getBoundingClientRect().bottom >= bodyTop)
+    : null;
+  const anchorState = visibleAnchor
+    ? { messageId:visibleAnchor.dataset.messageId, offset:visibleAnchor.getBoundingClientRect().top - bodyTop }
+    : null;
+  const previousScrollTop = body.scrollTop;
+  body.replaceChildren();
+  body.appendChild(renderChatMembersDisclosure(room));
+  const alertPrompt = buildChatAlertPrompt();
+  if (alertPrompt) body.appendChild(alertPrompt);
+  body.appendChild(buildChatMessageList());
+  if (room.viewer?.publicProfileRequired && !room.readOnly){
+    const required = document.createElement("p");
+    required.className = "chat-disclosure";
+    required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by NSC.";
+    body.appendChild(required);
+    renderChatPublicProfileForm(body, { onSaved:() => openChatRoom(room.roomId) });
+  } else if (room.viewer?.canPost){
+    const reply = buildChatReplyPreview();
+    if (reply) body.appendChild(reply);
+    body.appendChild(buildChatComposer({ focus:focusComposer }));
+  }
   const newer = document.getElementById("chatNewMessagesBtn");
   newer.classList.toggle("show", Boolean(showNew));
   if (autoScroll) body.scrollTop = body.scrollHeight;
+  else if (anchorState){
+    const replacement = [...body.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
+    if (replacement) body.scrollTop += replacement.getBoundingClientRect().top - bodyTop - anchorState.offset;
+    else body.scrollTop = previousScrollTop;
+  } else if (preserveScroll) body.scrollTop = previousScrollTop;
   chatConnection(room.status === "closed" ? "Closed · admin read-only" : (navigator.onLine ? "Connected" : "Offline — polling paused"), room.status === "closed" || !navigator.onLine ? "retrying" : "connected");
+}
+
+function chatBodyAtBottom(){
+  const body = document.getElementById("chatBody");
+  return body.scrollHeight - body.scrollTop - body.clientHeight < 56;
+}
+
+async function markCurrentChatRead(){
+  const room = chatState.currentRoom;
+  if (!room || room.readOnly) return;
+  document.getElementById("chatNewMessagesBtn").classList.remove("show");
+  try{
+    await serverSyncClient.chatRequest({}, { action:"mark-read", roomId:room.roomId, readAt:new Date().toISOString() });
+    await refreshChatActive();
+  }catch(_error){ /* The next successful room poll will reconcile unread state. */ }
 }
 
 function mergeChatMessages(messages){
@@ -22395,18 +23421,41 @@ function mergeChatMessages(messages){
   chatState.messages = [...byId.values()].sort((first, second) => Date.parse(first.sentAt) - Date.parse(second.sentAt));
 }
 
+function mergeChatReactionChanges(changes){
+  let changed = false;
+  (changes || []).forEach(change => {
+    const message = chatMessageById(change.messageId);
+    if (!message) return;
+    const next = Array.isArray(change.reactions) ? change.reactions : [];
+    if (JSON.stringify(message.reactions || []) !== JSON.stringify(next)){
+      message.reactions = next;
+      changed = true;
+    }
+  });
+  return changed;
+}
+
+function laterChatReactionCursor(first, second){
+  return Date.parse(second || "") > Date.parse(first || "") ? second : first || second || "";
+}
+
 async function openChatRoom(roomId){
   window.clearTimeout(chatRoomTimer);
   chatRoomTimer = null;
   chatConnection("Connecting…");
   try{
     const payload = await serverSyncClient.chatRequest({ roomId });
+    chatState.isAdmin = payload.isAdmin === undefined ? chatState.isAdmin : Boolean(payload.isAdmin);
     chatState.currentRoom = payload.room;
     chatState.messages = payload.messages || [];
+    mergeChatReactionChanges(payload.reactionChanges);
+    chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     chatState.olderCursor = payload.olderCursor || null;
     renderOpenChatRoom({ autoScroll:true });
     if (!payload.room.readOnly){
-      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:new Date().toISOString() }).catch(() => null);
+      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:new Date().toISOString() })
+        .then(() => refreshChatActive())
+        .catch(() => null);
     }
     chatPollFailures = 0;
     scheduleChatRoomPoll(CHAT.POLLING.roomMs);
@@ -22426,15 +23475,18 @@ async function loadOlderChatMessages(button){
   const before = chatState.olderCursor;
   if (!room || !before) return;
   button.disabled = true;
-  const body = document.getElementById("chatBody");
-  const previousHeight = body.scrollHeight;
   try{
     const payload = await serverSyncClient.chatRequest({ roomId:room.roomId, before });
     chatState.currentRoom = payload.room;
     mergeChatMessages(payload.messages);
+    mergeChatReactionChanges(payload.reactionChanges);
+    chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     chatState.olderCursor = payload.olderCursor || null;
-    renderOpenChatRoom({ autoScroll:false });
-    body.scrollTop += body.scrollHeight - previousHeight;
+    refreshChatMessageStream({
+      autoScroll:false,
+      showNew:document.getElementById("chatNewMessagesBtn").classList.contains("show"),
+      preserveScroll:true,
+    });
   }catch(error){
     chatConnection(error.message || "Older messages could not be loaded.", "retrying");
     button.disabled = false;
@@ -22454,19 +23506,26 @@ async function pollChatRoom(){
     return;
   }
   const body = document.getElementById("chatBody");
-  const atBottom = body.scrollHeight - body.scrollTop - body.clientHeight < 56;
+  const atBottom = chatBodyAtBottom();
   const after = chatState.messages.at(-1)?.sentAt || "";
   try{
-    const payload = await serverSyncClient.chatRequest({ roomId:chatState.currentRoom.roomId, after });
-    const beforeCount = chatState.messages.length;
+    const previousStatus = chatState.currentRoom.status;
+    const beforeIds = new Set(chatState.messages.map(message => message.messageId));
+    const payload = await serverSyncClient.chatRequest({ roomId:chatState.currentRoom.roomId, after, reactionAfter:chatState.reactionCursor });
     chatState.currentRoom = payload.room;
     mergeChatMessages(payload.messages);
-    const added = chatState.messages.length > beforeCount;
-    if (added || payload.room.status !== "open") renderOpenChatRoom({ autoScroll:atBottom, showNew:added && !atBottom });
-    if (added && !payload.room.readOnly){
-      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId:payload.room.roomId, readAt:new Date().toISOString() }).catch(() => null);
-      void refreshChatActive();
-    }
+    const incoming = (payload.messages || []).filter(message => !beforeIds.has(message.messageId) && !message.own);
+    const added = (payload.messages || []).some(message => !beforeIds.has(message.messageId));
+    const reactionsChanged = mergeChatReactionChanges(payload.reactionChanges);
+    chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
+    if (payload.room.status !== previousStatus) renderOpenChatRoom({ autoScroll:atBottom });
+    else if (added || reactionsChanged) refreshChatMessageStream({
+      autoScroll:atBottom,
+      showNew:(added && !atBottom) || document.getElementById("chatNewMessagesBtn").classList.contains("show"),
+      preserveScroll:!atBottom,
+    });
+    if (incoming.length) playIncomingChatSound();
+    if (added && atBottom && !payload.room.readOnly) void markCurrentChatRead();
     chatPollFailures = 0;
     chatConnection("Connected", "connected");
     scheduleChatRoomPoll(CHAT.POLLING.roomMs);
@@ -22477,20 +23536,34 @@ async function pollChatRoom(){
   }
 }
 
+function chatUnreadIncreasedOutsideOpenRoom(previousRooms, nextRooms, currentRoomId){
+  const previousUnreadByRoom = new Map((previousRooms || []).map(room => [room.roomId, Number(room.unreadCount || 0)]));
+  return (nextRooms || []).some(room => (
+    room.roomId !== currentRoomId
+    && previousUnreadByRoom.has(room.roomId)
+    && Number(room.unreadCount || 0) > Number(previousUnreadByRoom.get(room.roomId) || 0)
+  ));
+}
+
 async function refreshChatActive({ rerenderOpenList = false } = {}){
-  if (!serverPersistence.user || !serverSyncClient?.chatRequest || document.visibilityState === "hidden" || !navigator.onLine) return null;
+  const hasChatSession = Boolean(serverPersistence.user || serverSyncClient?.getGuestChatSession?.());
+  if (!hasChatSession || !serverSyncClient?.chatRequest || document.visibilityState === "hidden" || !navigator.onLine) return null;
   try{
     const payload = await serverSyncClient.chatRequest({ mode:"active" });
+    const outsideRoomUnreadIncreased = Boolean(chatState.activeSignature)
+      && chatUnreadIncreasedOutsideOpenRoom(chatState.rooms, payload.rooms, chatState.currentRoom?.roomId || null);
     const signature = JSON.stringify({ admin:payload.isAdmin, rooms:payload.rooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
     const changed = signature !== chatState.activeSignature;
     chatState = {
       ...chatState,
       isAdmin:Boolean(payload.isAdmin),
+      isGuest:!serverPersistence.user && Boolean(serverSyncClient.getGuestChatSession?.()),
       profile:payload.profile || { displayName:null },
       rooms:payload.rooms || [],
       activeSignature:signature,
     };
     updateActiveChatButton();
+    if (outsideRoomUnreadIncreased) playIncomingChatSound();
     if (rerenderOpenList && document.getElementById("chatBackdrop").classList.contains("show") && !chatState.currentRoom) renderActiveChats();
     if (changed) renderAll({ preserveViewport:true });
     scheduleChatActivePoll(CHAT.POLLING.activeMs);
@@ -22503,16 +23576,18 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
 
 function scheduleChatActivePoll(delay = CHAT?.POLLING?.activeMs || 30_000){
   window.clearTimeout(chatActiveTimer);
-  if (!serverPersistence.user || !serverSyncClient?.chatRequest) return;
+  if (!(serverPersistence.user || serverSyncClient?.getGuestChatSession?.()) || !serverSyncClient?.chatRequest) return;
   chatActiveTimer = window.setTimeout(() => { void refreshChatActive(); }, delay);
 }
 
 function syncChatSessionState(previousOwnerId, nextOwnerId){
   if (!CHAT || !serverSyncClient?.chatRequest) return;
-  if (!nextOwnerId){
+  if (previousOwnerId !== nextOwnerId) chatState.activeSignature = "";
+  void syncPermittedChatPushInstallation().catch(() => null);
+  if (!nextOwnerId && !serverSyncClient?.getGuestChatSession?.()){
     window.clearTimeout(chatActiveTimer);
     window.clearTimeout(chatRoomTimer);
-    chatState = { isAdmin:false, profile:{ displayName:null }, rooms:[], currentRoom:null, messages:[], olderCursor:null, activeSignature:"" };
+    chatState = { isAdmin:false, isGuest:false, profile:{ displayName:null }, rooms:[], currentRoom:null, messages:[], olderCursor:null, draftBody:"", replyToMessageId:null, reactionCursor:"", shareCapability:"", activeSignature:"" };
     updateActiveChatButton();
     if (document.getElementById("chatBackdrop")?.classList.contains("show")) setChatDrawerOpen(false);
     return;
@@ -22567,10 +23642,11 @@ function nothingscoreProfileForm(){
   const form = document.createElement("form");
   form.className = "nsc-profile-form";
   const heading = document.createElement("strong");
-  heading.textContent = nothingscoreViewer.profile?.visibility === "visible" ? "Public pilot profile" : "Create or restore your public pilot profile";
+  const existing = nothingscoreViewer.profile && nothingscoreViewer.profile.visibility !== "deleted";
+  heading.textContent = existing ? "Public Profile" : "Create Public Profile";
   const disclosure = document.createElement("p");
   disclosure.className = "nsc-note";
-  disclosure.textContent = "Your complete display name and unique lowercase handle appear beside contributions. Email and account identifiers are never shown.";
+  disclosure.textContent = "Set this once for signed-in chat and NSC. Your display name is your room name; the unique lowercase @handle stays secondary on NSC and leaderboards. Email and account identifiers are never shown.";
   const displayLabel = document.createElement("label");
   displayLabel.className = "field-label";
   displayLabel.textContent = "Display name";
@@ -22580,7 +23656,7 @@ function nothingscoreProfileForm(){
   display.minLength = 2;
   display.maxLength = 80;
   display.autocomplete = "name";
-  display.value = nothingscoreViewer.profile?.visibility === "visible" ? String(nothingscoreViewer.profile.displayName || "") : "";
+  display.value = existing ? String(nothingscoreViewer.profile.displayName || "") : "";
   displayLabel.appendChild(display);
   const handleLabel = document.createElement("label");
   handleLabel.className = "field-label";
@@ -22594,12 +23670,12 @@ function nothingscoreProfileForm(){
   handle.autocapitalize = "none";
   handle.spellcheck = false;
   handle.placeholder = "your_handle";
-  handle.value = nothingscoreViewer.profile?.visibility === "visible" ? String(nothingscoreViewer.profile.handle || "").replace(/^@/, "") : "";
+  handle.value = existing ? String(nothingscoreViewer.profile.handle || "").replace(/^@/, "") : "";
   handleLabel.appendChild(handle);
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
-  save.textContent = "Save public profile";
+  save.textContent = "Save Public Profile";
   const status = document.createElement("p");
   status.className = "nsc-status";
   status.setAttribute("role", "status");
@@ -22611,7 +23687,9 @@ function nothingscoreProfileForm(){
     try{
       await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
       await refreshNothingscoreViewer();
-      renderNothingscoreDrawer();
+      void refreshChatActive();
+      if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
+      else renderNothingscoreDrawer();
       nothingscoreQueueRender();
     }catch(error){
       status.textContent = error.message || "That profile could not be saved.";
@@ -22624,7 +23702,9 @@ function nothingscoreProfileForm(){
 async function setNothingscoreProfileVisibility(visibility){
   await serverSyncClient.nothingscoreRequest({}, { action:"profile-visibility", visibility });
   await refreshNothingscoreViewer();
-  renderNothingscoreDrawer();
+  void refreshChatActive();
+  if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
+  else renderNothingscoreDrawer();
   nothingscoreQueueRender();
 }
 
@@ -22637,18 +23717,42 @@ function renderNothingscoreDrawer(){
   soundInput.type = "checkbox";
   soundInput.checked = nothingscoreSoundEnabled();
   const soundCopy = document.createElement("span");
-  soundCopy.innerHTML = "<strong>5/5 Impact sound</strong>Separately opt in to a short celebration cue. It stays off by default and browser mute or audio policies still win.";
+  soundCopy.innerHTML = "<strong>Impact sound</strong>On by default. Plays once after every new Impact submission, whatever score you choose.";
   sound.append(soundInput, soundCopy);
-  soundInput.addEventListener("change", () => {
+  soundInput.addEventListener("change", async () => {
     try{ localStorage.setItem(NOTHINGSCORE_SOUND_KEY, soundInput.checked ? "on" : "off"); }catch(_error){ /* The switch remains session-only if storage is blocked. */ }
+    if (!soundInput.checked) return;
+    const played = await playNothingscoreImpactSound(prepareNothingscoreAudio());
+    const existing = body.querySelector(".nsc-audio-enable");
+    existing?.remove();
+    if (!played){
+      const enable = document.createElement("button");
+      enable.type = "button";
+      enable.className = "btn ghost nsc-audio-enable";
+      enable.textContent = "Tap to enable sound";
+      enable.addEventListener("click", async () => {
+        if (await playNothingscoreImpactSound(prepareNothingscoreAudio())) enable.remove();
+      });
+      sound.after(enable);
+    }
   });
   body.appendChild(sound);
+  if (nothingscoreAudioBlocked){
+    const enable = document.createElement("button");
+    enable.type = "button";
+    enable.className = "btn ghost nsc-audio-enable";
+    enable.textContent = "Tap to enable sound";
+    enable.addEventListener("click", async () => {
+      if (await playNothingscoreImpactSound(prepareNothingscoreAudio())) enable.remove();
+    });
+    body.appendChild(enable);
+  }
 
   const profileSection = document.createElement("section");
   if (!serverPersistence.user){
     const copy = document.createElement("p");
     copy.className = "chat-disclosure";
-    copy.textContent = "Nothingscore is public to read. Sign in from Settings if you are an approved pilot member and want to contribute.";
+    copy.textContent = "Nothingscore is public to read. Sign in from Settings to create one global Public Profile.";
     const signIn = document.createElement("button");
     signIn.type = "button";
     signIn.className = "btn primary";
@@ -22660,38 +23764,66 @@ function renderNothingscoreDrawer(){
     copy.className = "chat-disclosure";
     copy.textContent = "Checking this account's pilot access…";
     profileSection.appendChild(copy);
-  } else if (!nothingscoreViewer.pilot){
-    const copy = document.createElement("p");
-    copy.className = "chat-disclosure";
-    copy.textContent = "This account can view all Nothingscore results. Contributions remain limited to approved closed-pilot members.";
-    profileSection.appendChild(copy);
   } else {
-    profileSection.appendChild(nothingscoreProfileForm());
-    if (nothingscoreViewer.profile && nothingscoreViewer.profile.visibility !== "deleted"){
-      const actions = document.createElement("div");
-      actions.className = "nsc-actions";
-      const hide = document.createElement("button");
-      hide.type = "button";
-      hide.className = "btn ghost";
-      hide.textContent = nothingscoreViewer.profile.visibility === "hidden" ? "Profile hidden" : "Hide public name";
-      hide.disabled = nothingscoreViewer.profile.visibility === "hidden";
-      hide.addEventListener("click", () => { void setNothingscoreProfileVisibility("hidden").catch(error => showToast(error.message || "Profile could not be hidden.")); });
-      const remove = document.createElement("button");
-      remove.type = "button";
-      remove.className = "btn ghost";
-      remove.textContent = "Delete public profile";
-      remove.addEventListener("click", () => {
-        if (window.confirm("Delete your public Nothingscore name and handle? Existing aggregate scores remain, but your name becomes 'Hidden contributor'.")) void setNothingscoreProfileVisibility("deleted").catch(error => showToast(error.message || "Profile could not be deleted."));
-      });
-      actions.append(hide, remove);
-      profileSection.appendChild(actions);
+    const profile = nothingscoreViewer.profile;
+    const summary = document.createElement("div");
+    summary.className = "chat-disclosure public-profile-summary";
+    const name = document.createElement("strong");
+    name.textContent = profile && profile.visibility !== "deleted" ? profile.displayName : "Public Profile required";
+    const handle = document.createElement("span");
+    handle.textContent = profile && profile.visibility !== "deleted"
+      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public NSC" : ""}`
+      : "Create it once for signed-in chat and NSC.";
+    summary.append(name, handle);
+    const edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "btn ghost";
+    edit.textContent = profile && profile.visibility !== "deleted" ? "Edit in Settings" : "Create in Settings";
+    edit.addEventListener("click", () => { setNothingscoreDrawerOpen(false); settingsSection = "account"; openSettings(); });
+    profileSection.append(summary, edit);
+    if (!nothingscoreViewer.pilot){
+      const copy = document.createElement("p");
+      copy.className = "nsc-note";
+      copy.textContent = "This account can use its Public Profile in chat and view NSC. Scoring remains limited to approved pilot members.";
+      profileSection.appendChild(copy);
     }
   }
   body.appendChild(profileSection);
 
+  const communitySnapshots = [...nothingscoreSnapshots.values()]
+    .filter(snapshot => snapshot?.aggregate?.score != null)
+    .slice(0, 12);
+  if (communitySnapshots.length){
+    const communityHeading = document.createElement("h3");
+    communityHeading.className = "chat-section-title";
+    communityHeading.textContent = "Community scores";
+    const community = document.createElement("div");
+    community.className = "nsc-board";
+    communitySnapshots.forEach(snapshot => {
+      const event = activeEvents.find(item => nothingscoreEventId(item) === snapshot.eventId);
+      const row = document.createElement("div");
+      row.className = "nsc-board-row";
+      const phase = document.createElement("strong");
+      phase.textContent = nothingscorePhaseCopy(snapshot.phase).name.slice(0, 1);
+      const copy = document.createElement("div");
+      const name = document.createElement("strong");
+      name.textContent = event?.name || event?.displayTitleCompact || "Fixture";
+      const detail = document.createElement("small");
+      const contributors = Number(snapshot.aggregate?.contributorCount ?? snapshot.aggregate?.uniqueContributors ?? snapshot.aggregate?.ratingCount ?? 0);
+      detail.textContent = `${nothingscorePhaseCopy(snapshot.phase).name} · ${contributors} contributor${contributors === 1 ? "" : "s"}`;
+      copy.append(name, detail);
+      const score = document.createElement("span");
+      score.className = "nsc-board-points";
+      score.textContent = `${Number(snapshot.aggregate.score).toFixed(1)}/5`;
+      row.append(phase, copy, score);
+      community.appendChild(row);
+    });
+    body.append(communityHeading, community);
+  }
+
   const heading = document.createElement("h3");
   heading.className = "chat-section-title";
-  heading.textContent = "Pilot leaderboard";
+  heading.textContent = "NSC leaderboard";
   const tabs = document.createElement("div");
   tabs.className = "nsc-leaderboard-tabs";
   [["weekly","This week"],["all-time","All time"]].forEach(([period,label]) => {
@@ -22719,7 +23851,7 @@ async function loadNothingscoreLeaderboard(){
     if (!payload.entries?.length){
       const empty = document.createElement("p");
       empty.className = "nsc-note";
-      empty.textContent = "No pilot points yet. Early contributors set the pace.";
+      empty.textContent = "No NSC points yet. Early contributors set the pace.";
       board.appendChild(empty);
       return;
     }
@@ -22803,34 +23935,11 @@ document.getElementById("chatBackdrop").addEventListener("click", event => {
 document.getElementById("chatNewMessagesBtn").addEventListener("click", () => {
   const body = document.getElementById("chatBody");
   body.scrollTop = body.scrollHeight;
-  document.getElementById("chatNewMessagesBtn").classList.remove("show");
+  void markCurrentChatRead();
 });
-document.getElementById("chatComposer").addEventListener("submit", async event => {
-  event.preventDefault();
-  const input = document.getElementById("chatMessageInput");
-  const room = chatState.currentRoom;
-  if (!room || room.readOnly) return;
-  const body = CHAT.messageBody(input.value);
-  if (!body){
-    chatConnection("Messages must contain 1–500 Unicode characters.", "retrying");
-    return;
-  }
-  const submit = event.currentTarget.querySelector('button[type="submit"]');
-  submit.disabled = true;
-  try{
-    const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
-    const payload = await serverSyncClient.chatRequest({}, { action:"send-message", roomId:room.roomId, clientId, body });
-    mergeChatMessages([payload.message]);
-    input.value = "";
-    renderOpenChatRoom({ autoScroll:true });
-    void refreshChatActive();
-  }catch(error){
-    chatConnection(error.message || "The message could not be sent.", "retrying");
-  }finally{
-    submit.disabled = false;
-    input.focus();
-  }
-});
+document.getElementById("chatBody").addEventListener("scroll", () => {
+  if (document.getElementById("chatNewMessagesBtn").classList.contains("show") && chatBodyAtBottom()) void markCurrentChatRead();
+}, { passive:true });
 document.addEventListener("keydown", event => {
   const backdrop = document.getElementById("chatBackdrop");
   if (!backdrop.classList.contains("show")) return;
@@ -23000,6 +24109,12 @@ renderAll();
 scheduleFirstCardViewportFit();
 void syncAppRouteFromLocation();
 bindPasswordRecoveryFlow();
+window.requestAnimationFrame(() => {
+  void openPendingSharedChat().then(async opened => {
+    if (!opened) await openRequestedChatRoomFromLocation();
+    if (serverSyncClient?.getGuestChatSession?.()) await refreshChatActive();
+  });
+});
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
   window.addEventListener(eventName, () => {

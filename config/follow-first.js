@@ -218,7 +218,16 @@
       codeInteractions:[],
       location:normalizeLocation({}),
       subscriptions:[],
-      notifications:{ enabled:false, defaultLeadMinutes:15, permissionPromptedAt:null },
+      notifications:{
+        enabled:true,
+        sportingRemindersEnabled:true,
+        chatAlertsEnabled:true,
+        soundsEnabled:true,
+        badgesEnabled:true,
+        userChoice:null,
+        defaultLeadMinutes:15,
+        permissionPromptedAt:null,
+      },
       refinement:{ distinctOpenCount:0, lastOpenId:null, firstSwipeAt:null, promptedAt:null, completedAt:null, deferred:false },
       feedback:{ schemaVersion:FEEDBACK_SCHEMA_VERSION, sequence:0, entries:[] },
     };
@@ -288,7 +297,20 @@
         notifications:{
           ...defaults.notifications,
           ...(prior.notifications || {}),
-          enabled:prior.notifications?.enabled === true,
+          enabled:typeof prior.notifications?.userChoice === "boolean"
+            ? prior.notifications.userChoice
+            : prior.notifications?.enabled === false && prior.notifications?.permissionPromptedAt
+              ? false
+              : true,
+          sportingRemindersEnabled:prior.notifications?.sportingRemindersEnabled !== false,
+          chatAlertsEnabled:prior.notifications?.chatAlertsEnabled !== false,
+          soundsEnabled:prior.notifications?.soundsEnabled !== false,
+          badgesEnabled:prior.notifications?.badgesEnabled !== false,
+          userChoice:typeof prior.notifications?.userChoice === "boolean"
+            ? prior.notifications.userChoice
+            : prior.notifications?.enabled === false && prior.notifications?.permissionPromptedAt
+              ? false
+              : null,
           defaultLeadMinutes:15,
         },
         refinement:{ ...defaults.refinement, ...(prior.refinement || {}) },

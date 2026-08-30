@@ -90,6 +90,25 @@ async function run(){
   };
   const editorialServerEvent = feedPipeline.normalizeEvent(event("editorial-server-event", "2026-10-15T09:05:00.000Z", { editorialNarrative }), new Date("2026-08-30T00:00:00.000Z"));
   assert.deepEqual(editorialServerEvent.editorialNarrative, editorialNarrative, "the personalised feed must preserve the validated editorial projection for L0 and Sentiment rendering");
+  const consequenceOutcome = effect => ({ effect, certainty:"conditional", dependsOn:"The final path still depends on other verified results.", factIds:["fact:one"], sourceIds:["source:one"] });
+  const editorialV3 = {
+    ...editorialNarrative,
+    schemaVersion:"editorial-narrative.v3",
+    consequence:{
+      schemaVersion:"editorial-consequence.v1",
+      capturedAt:"2026-10-15T08:00:00.000Z",
+      primarySubjectId:"subject:one",
+      participants:[
+        { subjectId:"subject:one", name:"Team One", need:"to protect the shorter finals path", outcomes:{ win:consequenceOutcome("Strengthens the shorter path."), draw:consequenceOutcome("Leaves the path unresolved."), loss:consequenceOutcome("Weakens the shorter path.") } },
+        { subjectId:"subject:two", name:"Team Two", need:"to keep its qualification route alive", outcomes:{ win:consequenceOutcome("Strengthens the qualification route."), draw:consequenceOutcome("Leaves the route unresolved."), loss:consequenceOutcome("Weakens the qualification route.") } },
+      ],
+      previewSentence:"If Team One win, they strengthen the shorter path; if Team Two win, they keep qualification alive.",
+      factIds:["fact:one"],
+      sourceIds:["source:one"],
+    },
+  };
+  const editorialV3ServerEvent = feedPipeline.normalizeEvent(event("editorial-v3-server-event", "2026-10-15T09:05:00.000Z", { editorialNarrative:editorialV3 }), new Date("2026-08-30T00:00:00.000Z"));
+  assert.deepEqual(editorialV3ServerEvent.editorialNarrative, editorialV3, "the personalised feed must preserve v3 consequences without breaking the retained v2 reader");
 
   const correctedKickoffBefore = event("event:fixture:123", "2026-07-27T13:00:00.000Z", {
     canonicalEventId: "event:fixture:123",

@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 const assert = require("node:assert/strict");
+const crypto = require("node:crypto");
 const fs = require("node:fs");
 const server = require("../lib/supabase-server");
 const serverSync = require("../config/server-sync");
 const userStateSync = require("../config/user-state-sync");
 const authHandler = require("../api/auth");
 const userStateHandler = require("../api/user-state");
+const { anonymousSignupTicketHash, clientAddress, createShareCapability } = require("../lib/chat-capability");
 
 function responseStub(){
   return {
@@ -58,6 +60,7 @@ async function run(){
     SUPABASE_URL: "javascript:alert(1)",
     SUPABASE_PUBLISHABLE_KEY: "sb_publishable_test",
   }).configured, false, "invalid project URLs must not be accepted");
+  assert.equal(clientAddress({headers:{"x-forwarded-for":"203.0.113.8","x-vercel-forwarded-for":"198.51.100.250"}}),"203.0.113.8","an attacker-supplied alternate header must never override Vercel's canonical x-forwarded-for");
 
   const normalized = server.normalizeUserState({
     profile: { timezone: "Australia/Sydney" },
@@ -111,9 +114,15 @@ async function run(){
   const originalUrl = process.env.SUPABASE_URL;
   const originalPublishable = process.env.SUPABASE_PUBLISHABLE_KEY;
   const originalAnon = process.env.SUPABASE_ANON_KEY;
+  const originalService = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const originalSecret = process.env.SUPABASE_SECRET_KEY;
+  const originalShareSecret = process.env.CHAT_GUEST_LINK_SECRET;
   const originalFetch = global.fetch;
   process.env.SUPABASE_URL = "https://project-ref.supabase.co";
   process.env.SUPABASE_PUBLISHABLE_KEY = "sb_publishable_test";
+  process.env.SUPABASE_SERVICE_ROLE_KEY = "service-test";
+  process.env.SUPABASE_SECRET_KEY = "sb_secret_test_server_only";
+  process.env.CHAT_GUEST_LINK_SECRET = "test-only-chat-share-secret-00000000000000000000";
   delete process.env.SUPABASE_ANON_KEY;
 
   const requests = [];
@@ -139,9 +148,49 @@ async function run(){
     expires_in: 3600,
     user: authUser,
   };
+  const jwt = claims => `header.${Buffer.from(JSON.stringify(claims)).toString("base64url")}.signature`;
+  let issuedSignupTicket = "";
+  const anonymousSession = {
+    access_token:"",
+    refresh_token:"guest-refresh",
+    expires_in:3600,
+    user:{
+      id:"66666666-6666-4666-8666-666666666666",
+      email:"",
+      is_anonymous:true,
+      created_at:"2026-07-27T00:00:00.000Z",
+      app_metadata:{provider:"anonymous",providers:["anonymous"]},
+      user_metadata:{},
+    },
+  };
+  const cleanAnonymousSession = {
+    access_token:jwt({sub:anonymousSession.user.id,is_anonymous:true,user_metadata:{purpose:"fixture-chat-guest"},app_metadata:{provider:"anonymous",providers:["anonymous"],chat_guest_attested:true}}),
+    refresh_token:"guest-refresh-rotated",
+    expires_in:3600,
+    token_type:"bearer",
+    user:{
+      ...anonymousSession.user,
+      app_metadata:{provider:"anonymous",providers:["anonymous"],chat_guest_attested:true},
+      user_metadata:{purpose:"fixture-chat-guest",chat_signup_ticket:null},
+    },
+  };
+  const sharedRoom={id:"aaaaaaaa-aaaa-4aaa-8aaa-000000000001",guest_share_version:1,guest_share_nonce:"abcdefghijklmnopqrstuvwxyzABCDEF"};
+  const capability=createShareCapability(sharedRoom);
+  let anonymousAuthorizationOutcome="authorized",anonymousJoinOutcome="joined";
   global.fetch = async (url, options = {}) => {
     requests.push({ url: String(url), options });
     if (String(url).includes("/auth/v1/token?grant_type=password")) return fetchResponse(passwordSession);
+    if (String(url).includes("/auth/v1/token?grant_type=refresh_token")) return fetchResponse(cleanAnonymousSession);
+    if (String(url).endsWith("/auth/v1/signup")){
+      issuedSignupTicket=JSON.parse(options.body).data.chat_signup_ticket;
+      anonymousSession.access_token=jwt({sub:anonymousSession.user.id,is_anonymous:true,user_metadata:{purpose:"fixture-chat-guest",chat_signup_ticket:issuedSignupTicket}});
+      anonymousSession.user.user_metadata={purpose:"fixture-chat-guest",chat_signup_ticket:issuedSignupTicket};
+      return fetchResponse(anonymousSession);
+    }
+    if (String(url).includes("/rest/v1/rpc/nothingsports_chat_authorize_anonymous_session")) return fetchResponse([{outcome:anonymousAuthorizationOutcome}]);
+    if (String(url).includes("/rest/v1/rpc/nothingsports_chat_join_shared_room")) return fetchResponse([{outcome:anonymousJoinOutcome,existing_member:false,member_count:4}]);
+    if (String(url).includes(`/auth/v1/admin/users/${anonymousSession.user.id}`) && options.method === "DELETE") return fetchResponse({});
+    if (String(url).includes(`/auth/v1/admin/users/${anonymousSession.user.id}`) && options.method === "PUT") return fetchResponse(cleanAnonymousSession.user);
     if (String(url).includes("/auth/v1/recover?redirect_to=")) return fetchResponse({});
     if (String(url).endsWith("/auth/v1/user") && options.method === "PUT") return fetchResponse(authUser);
     if (String(url).endsWith("/auth/v1/user")) return fetchResponse(authUser);
@@ -160,8 +209,96 @@ async function run(){
     const statusResponse = responseStub();
     await authHandler({ method: "GET", headers: {} }, statusResponse);
     assert.equal(statusResponse.statusCode, 200);
-    assert.deepEqual(statusResponse.body, { configured: true, provider: "supabase" });
+    assert.deepEqual(statusResponse.body, { configured:true,provider:"supabase" });
     assert.equal(statusResponse.headers["Cache-Control"], "private, no-store, max-age=0");
+
+    const anonymousResponse = responseStub();
+    await authHandler({
+      method:"POST",
+      headers:{"x-forwarded-for":"203.0.113.42","x-vercel-forwarded-for":"198.51.100.250"},
+      body:{ action:"anonymous-chat-session", capability, guestDisplayName:"Guest Tester" },
+    }, anonymousResponse);
+    assert.equal(anonymousResponse.statusCode, 200);
+    assert.equal(anonymousResponse.body.user.isAnonymous, true);
+    assert.equal(anonymousResponse.body.session.access_token, cleanAnonymousSession.access_token);
+    assert.equal(anonymousResponse.body.room.roomId,sharedRoom.id);
+    const authorizationRequest=requests.find(request=>request.url.includes("nothingsports_chat_authorize_anonymous_session"));
+    const authorizationBody=JSON.parse(authorizationRequest.options.body);
+    assert.match(authorizationBody.target_ip_hash,/^[0-9a-f]{64}$/);
+    assert.match(authorizationBody.target_ticket_hash,/^[0-9a-f]{64}$/);
+    assert(!JSON.stringify(authorizationBody).includes("203.0.113.42"),"anonymous session persistence must receive only a server-keyed IP hash");
+    const anonymousRequest = requests.find(request => request.url.endsWith("/auth/v1/signup"));
+    const anonymousRequestBody=JSON.parse(anonymousRequest.options.body);
+    assert.deepEqual(anonymousRequestBody, {
+      data:{purpose:"fixture-chat-guest",chat_signup_ticket:issuedSignupTicket},
+    });
+    assert.match(issuedSignupTicket,/^[A-Za-z0-9_-]{43}$/,"anonymous signup must receive exactly 32 random base64url bytes");
+    assert.equal(authorizationBody.target_ticket_hash,anonymousSignupTicketHash(issuedSignupTicket),"only the SHA-256 signup-ticket hash may be persisted");
+    assert.equal(anonymousRequest.options.headers.apikey,"sb_secret_test_server_only","anonymous Auth must use the server-only Supabase secret key");
+    assert.equal(anonymousRequest.options.headers["Sb-Forwarded-For"],"203.0.113.42","Supabase Auth must rate-limit the Vercel-overwritten client address rather than proxy egress");
+    const joinRequest=requests.find(request=>request.url.includes("nothingsports_chat_join_shared_room"));
+    const metadataCleanup=requests.find(request=>request.url.includes(`/auth/v1/admin/users/${anonymousSession.user.id}`)&&request.options.method==="PUT");
+    const refreshRequest=requests.find(request=>request.url.includes("/auth/v1/token?grant_type=refresh_token"));
+    assert(requests.indexOf(authorizationRequest)<requests.indexOf(anonymousRequest)&&requests.indexOf(anonymousRequest)<requests.indexOf(joinRequest)&&requests.indexOf(joinRequest)<requests.indexOf(metadataCleanup)&&requests.indexOf(metadataCleanup)<requests.indexOf(refreshRequest),"authorization, hook-ticket signup, atomic join, metadata cleanup and sanitized refresh must run in order");
+    assert.deepEqual(JSON.parse(metadataCleanup.options.body),{
+      user_metadata:{purpose:"fixture-chat-guest",chat_signup_ticket:null},
+      app_metadata:{provider:"anonymous",providers:["anonymous"],chat_guest_attested:true},
+    });
+    assert.equal(refreshRequest.options.headers.apikey,"sb_secret_test_server_only");
+    assert.equal(refreshRequest.options.headers["Sb-Forwarded-For"],"203.0.113.42");
+    assert(!JSON.stringify(anonymousResponse.body).includes(issuedSignupTicket),"raw signup tickets must not appear in the API response");
+    assert(!JSON.stringify(anonymousResponse.body).includes("sb_secret_test_server_only"),"Supabase secret keys must never appear in the API response");
+    const returnedClaims=JSON.parse(Buffer.from(anonymousResponse.body.session.access_token.split(".")[1],"base64url").toString("utf8"));
+    assert.equal(returnedClaims.user_metadata?.chat_signup_ticket,undefined,"the returned guest JWT must not retain the one-time signup ticket");
+
+    const requestCountBeforeGuestRefresh=requests.length;
+    const guestRefresh=responseStub();
+    await authHandler({
+      method:"POST",headers:{"x-forwarded-for":"203.0.113.44"},
+      body:{action:"refresh-anonymous-chat-session",refreshToken:"guest-refresh-rotated"},
+    },guestRefresh);
+    assert.equal(guestRefresh.statusCode,200);
+    const laterGuestRefreshRequest=requests.slice(requestCountBeforeGuestRefresh).find(request=>request.url.includes("/auth/v1/token?grant_type=refresh_token"));
+    assert.equal(laterGuestRefreshRequest.options.headers.apikey,"sb_secret_test_server_only");
+    assert.equal(laterGuestRefreshRequest.options.headers["Sb-Forwarded-For"],"203.0.113.44");
+    assert(!JSON.stringify(guestRefresh.body).includes(issuedSignupTicket),"later guest refreshes must remain free of consumed signup tickets");
+
+    const requestCountBeforeAccountRefresh=requests.length;
+    const accountRefresh=responseStub();
+    await authHandler({method:"POST",headers:{"x-forwarded-for":"203.0.113.45"},body:{action:"refresh",refreshToken:"account-refresh"}},accountRefresh);
+    assert.equal(accountRefresh.statusCode,200);
+    const accountRefreshRequest=requests.slice(requestCountBeforeAccountRefresh).find(request=>request.url.includes("/auth/v1/token?grant_type=refresh_token"));
+    assert.equal(accountRefreshRequest.options.headers.apikey,"sb_publishable_test","ordinary account refresh must retain the low-privilege publishable key");
+    assert.equal(accountRefreshRequest.options.headers["Sb-Forwarded-For"],undefined,"ordinary account refresh must not impersonate the anonymous proxy-forwarding path");
+
+    const missingCapability=responseStub();
+    await authHandler({method:"POST",headers:{"x-forwarded-for":"203.0.113.42"},body:{action:"anonymous-chat-session",guestDisplayName:"Guest Tester"}},missingCapability);
+    assert.equal(missingCapability.body.code,"chat_share_invalid","anonymous Auth identities must never be minted without a signed room capability");
+
+    const configuredSecret=process.env.SUPABASE_SECRET_KEY;
+    delete process.env.SUPABASE_SECRET_KEY;
+    const requestCountBeforeMissingSecret=requests.length;
+    const missingSecret=responseStub();
+    await authHandler({method:"POST",headers:{"x-forwarded-for":"203.0.113.42"},body:{action:"anonymous-chat-session",capability,guestDisplayName:"Guest Tester"}},missingSecret);
+    assert.equal(missingSecret.statusCode,503);
+    assert.equal(missingSecret.body.code,"anonymous_chat_session_unavailable");
+    assert.equal(requests.length,requestCountBeforeMissingSecret,"missing forwarded-IP secret configuration must fail before rate authorization or anonymous signup");
+    process.env.SUPABASE_SECRET_KEY=configuredSecret;
+
+    anonymousAuthorizationOutcome="rate_limited";
+    const limitedAnonymous=responseStub();
+    await authHandler({method:"POST",headers:{"x-forwarded-for":"203.0.113.42"},body:{action:"anonymous-chat-session",capability,guestDisplayName:"Guest Tester"}},limitedAnonymous);
+    assert.equal(limitedAnonymous.statusCode,429);
+    assert.equal(limitedAnonymous.body.code,"chat_guest_rate_limited");
+    anonymousAuthorizationOutcome="authorized";
+
+    anonymousJoinOutcome="invalid";
+    const racedAnonymous=responseStub();
+    const requestCountBeforeRace=requests.length;
+    await authHandler({method:"POST",headers:{"x-forwarded-for":"203.0.113.43"},body:{action:"anonymous-chat-session",capability,guestDisplayName:"Guest Tester"}},racedAnonymous);
+    assert.equal(racedAnonymous.body.code,"chat_share_invalid");
+    assert(requests.slice(requestCountBeforeRace).some(request=>request.url.includes(`/auth/v1/admin/users/${anonymousSession.user.id}`)&&request.options.method==="DELETE"),"a newly minted anonymous user must be deleted when rotate/disable wins the join race");
+    anonymousJoinOutcome="joined";
 
     const passwordResponse = responseStub();
     await authHandler({
@@ -321,6 +458,12 @@ async function run(){
     else process.env.SUPABASE_PUBLISHABLE_KEY = originalPublishable;
     if (originalAnon === undefined) delete process.env.SUPABASE_ANON_KEY;
     else process.env.SUPABASE_ANON_KEY = originalAnon;
+    if (originalService === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY;
+    else process.env.SUPABASE_SERVICE_ROLE_KEY = originalService;
+    if (originalSecret === undefined) delete process.env.SUPABASE_SECRET_KEY;
+    else process.env.SUPABASE_SECRET_KEY = originalSecret;
+    if (originalShareSecret === undefined) delete process.env.CHAT_GUEST_LINK_SECRET;
+    else process.env.CHAT_GUEST_LINK_SECRET = originalShareSecret;
     global.fetch = originalFetch;
   }
 
@@ -442,6 +585,25 @@ async function run(){
   assert.equal((await rotatingClient.restoreSession()).accessToken, "rotated-access", "an expired persistent session must refresh without requesting the password");
   assert(rotatingStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("rotated-refresh"), "refresh-token rotation must replace the saved device session");
   assert(!rotatingStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("old-refresh"), "a rotated refresh token must not leave the superseded token behind");
+
+  const guestStorage=memoryStorage();
+  guestStorage.setItem(serverSync.GUEST_CHAT_SESSION_STORAGE_KEY,JSON.stringify({
+    accessToken:"expired-guest-access",refreshToken:"expired-guest-refresh",expiresAt:Date.parse("2026-07-27T09:00:00.000Z"),
+  }));
+  const guestRefreshClient=serverSync.createClient({
+    storage:memoryStorage(),persistentStorage:guestStorage,
+    now:()=>Date.parse("2026-07-27T10:00:00.000Z"),
+    fetchImpl:async (url,options={})=>{
+      const body=JSON.parse(options.body||"{}");
+      assert.equal(url,"/api/auth");
+      assert.equal(body.action,"refresh-anonymous-chat-session","expired guest sessions must use the secret-key server refresh action");
+      assert.equal(body.refreshToken,"expired-guest-refresh");
+      return browserResponse({session:cleanAnonymousSession});
+    },
+  });
+  const restoredGuest=await guestRefreshClient.anonymousChatSession();
+  assert.equal(restoredGuest.session.accessToken,cleanAnonymousSession.access_token);
+  assert(guestStorage.getItem(serverSync.GUEST_CHAT_SESSION_STORAGE_KEY).includes("guest-refresh-rotated"),"guest refresh-token rotation must replace the saved anonymous token");
 
   const sessionOnlyStorage = memoryStorage();
   const sessionOnlyPersistentStorage = memoryStorage();

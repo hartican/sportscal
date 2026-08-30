@@ -155,7 +155,7 @@ function spoilerContractIssues(event, now = new Date()) {
   const status = lifecycleFor(event, now);
   const completed = status === "completed";
   const storyline = event.storyline || {};
-  const researchedPreview = event.editorialNarrative?.schemaVersion === "editorial-narrative.v2";
+  const researchedPreview = ["editorial-narrative.v2", "editorial-narrative.v3"].includes(event.editorialNarrative?.schemaVersion);
   const rootCopy = `${event.selectedSentence || ""}\n${event.fullSpiel || ""}`;
 
   if (completed && RESULT_LEAK.test(rootCopy)) {

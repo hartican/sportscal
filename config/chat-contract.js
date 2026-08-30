@@ -5,7 +5,8 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function(){
   "use strict";
 
-  const SCHEMA_VERSION = "private-fixture-chat.v1";
+  const SCHEMA_VERSION = "private-fixture-chat.v2";
+  const REACTION_EMOJIS = Object.freeze(["👍", "❤️", "😂", "😮", "😢", "👏"]);
   const LIMITS = Object.freeze({
     membersPerRoom:25,
     openRoomsPerFixture:10,
@@ -14,6 +15,7 @@
     historyPage:100,
     displayNameMin:2,
     displayNameMax:30,
+    publicProfileNameMax:80,
     roomNameMax:80,
     userSearchMin:3,
     userSearchResults:10,
@@ -36,6 +38,11 @@
     const cleaned = cleanSingleLine(value);
     const length = codePointLength(cleaned);
     return length >= LIMITS.displayNameMin && length <= LIMITS.displayNameMax ? cleaned : "";
+  }
+
+  function reactionEmoji(value){
+    const emoji = String(value || "").normalize("NFC");
+    return REACTION_EMOJIS.includes(emoji) ? emoji : "";
   }
 
   function roomName(value){
@@ -66,6 +73,7 @@
 
   return Object.freeze({
     SCHEMA_VERSION,
+    REACTION_EMOJIS,
     LIMITS,
     POLLING,
     clientId,
@@ -73,6 +81,7 @@
     displayName,
     fixtureId,
     messageBody,
+    reactionEmoji,
     roomName,
   });
 });

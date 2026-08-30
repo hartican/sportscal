@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "editorial-consequences.v1",
+  "updatedAt": "2026-08-30T09:39:20.530Z",
+  "consequences": [
+    {
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-nrl-129992607"
+      ],
+      "schemaVersion": "editorial-consequence.v1",
+      "capturedAt": "2026-08-29T23:56:41.761Z",
+      "primarySubjectId": "subject:rolling:team-nrl-321",
+      "participants": [
+        {
+          "subjectId": "subject:rolling:team-nrl-321",
+          "name": "Warriors",
+          "need": "to protect a place in the top four and the qualifying-final route with a second chance",
+          "outcomes": {
+            "win": {
+              "effect": "Strengthens their chance of retaining a top-four qualifying-final place.",
+              "certainty": "conditional",
+              "dependsOn": "The final top-four order still depends on the remaining regular-season results.",
+              "factIds": [
+                "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+                "fact:nrl-finals-2026:top-four-race",
+                "fact:nrl-week1:two-paths"
+              ],
+              "sourceIds": [
+                "source:rolling:competition-nrl-premiership-2026:ladder",
+                "source:nrl:2026-locked-eight",
+                "source:nrl:finals-format-explainer"
+              ]
+            },
+            "draw": {
+              "effect": "Leaves the top-four order open and their route dependent on other results.",
+              "certainty": "conditional",
+              "dependsOn": "The final top-four order still depends on the remaining regular-season results.",
+              "factIds": [
+                "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+                "fact:nrl-finals-2026:top-four-race",
+                "fact:nrl-week1:two-paths"
+              ],
+              "sourceIds": [
+                "source:rolling:competition-nrl-premiership-2026:ladder",
+                "source:nrl:2026-locked-eight",
+                "source:nrl:finals-format-explainer"
+              ]
+            },
+            "loss": {
+              "effect": "Weakens their hold on the top-four route before the remaining results settle the order.",
+              "certainty": "conditional",
+              "dependsOn": "The final top-four order still depends on the remaining regular-season results.",
+              "factIds": [
+                "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+                "fact:nrl-finals-2026:top-four-race",
+                "fact:nrl-week1:two-paths"
+              ],
+              "sourceIds": [
+                "source:rolling:competition-nrl-premiership-2026:ladder",
+                "source:nrl:2026-locked-eight",
+                "source:nrl:finals-format-explainer"
+              ]
+            }
+          }
+        },
+        {
+          "subjectId": "subject:rolling:team-nrl-325",
+          "name": "Knights",
+          "need": "to improve their position within fifth to eighth before beginning the finals in sudden death",
+          "outcomes": {
+            "win": {
+              "effect": "Strengthens their chance of a better seed within the sudden-death half of the finals.",
+              "certainty": "conditional",
+              "dependsOn": "The final seed order still depends on the remaining regular-season results.",
+              "factIds": [
+                "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing",
+                "fact:nrl-week1:locked-eight",
+                "fact:nrl-week1:two-paths"
+              ],
+              "sourceIds": [
+                "source:rolling:competition-nrl-premiership-2026:ladder",
+                "source:nrl:2026-top-eight-locked-0829",
+                "source:nrl:finals-format-explainer"
+              ]
+            },
+            "draw": {
+              "effect": "Leaves their lower-half seed dependent on the remaining results.",
+              "certainty": "conditional",
+              "dependsOn": "The final seed order still depends on the remaining regular-season results.",
+              "factIds": [
+                "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing",
+                "fact:nrl-week1:locked-eight",
+                "fact:nrl-week1:two-paths"
+              ],
+              "sourceIds": [
+                "source:rolling:competition-nrl-premiership-2026:ladder",
+                "source:nrl:2026-top-eight-locked-0829",
+                "source:nrl:finals-format-explainer"
+              ]
+            },
+            "loss": {
+              "effect": "Leaves them exposed to a lower seed within the sudden-death half of the finals.",
+              "certainty": "conditional",
+              "dependsOn": "The final seed order still depends on the remaining regular-season results.",
+              "factIds": [
+                "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing",
+                "fact:nrl-week1:locked-eight",
+                "fact:nrl-week1:two-paths"
+              ],
+              "sourceIds": [
+                "source:rolling:competition-nrl-premiership-2026:ladder",
+                "source:nrl:2026-top-eight-locked-0829",
+                "source:nrl:finals-format-explainer"
+              ]
+            }
+          }
+        }
+      ],
+      "previewSentence": "If Warriors win, they strengthen their chance of a top-four qualifying final, so the stakes are a safer route into September.",
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-321:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-325:standing",
+        "fact:nrl-finals-2026:top-four-race",
+        "fact:nrl-week1:locked-eight",
+        "fact:nrl-week1:two-paths",
+        "fact:consequence:event-nrl-129992607:result"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder",
+        "source:nrl:2026-locked-eight",
+        "source:nrl:2026-top-eight-locked-0829",
+        "source:nrl:finals-format-explainer",
+        "source:consequence:event-nrl-129992607:result"
+      ],
+      "spoilerOnSentence": "Warriors defeated Knights 46-32. For Warriors, that strengthens their chance of retaining a top-four qualifying-final place; for Knights, it leaves them exposed to a lower seed within the sudden-death half of the finals. Before kickoff, Warriors needed to protect a place in the top four and the qualifying-final route with a second chance, while Knights needed to improve their position within fifth to eighth before beginning the finals in sudden death.",
+      "resultCapturedAt": "2026-08-30T09:39:20.530Z",
+      "resultFactIds": [
+        "fact:consequence:event-nrl-129992607:result"
+      ],
+      "resultSourceIds": [
+        "source:consequence:event-nrl-129992607:result"
+      ]
+    }
+  ]
+}

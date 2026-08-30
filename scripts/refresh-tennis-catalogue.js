@@ -177,10 +177,15 @@ function assertFresh(catalogue, referenceDate = new Date()){
   const ages = rankingSources.map(source => {
     const snapshotDay = Date.parse(`${source.effectiveDate}T00:00:00Z`);
     const ageDays = Math.floor((referenceDay - snapshotDay) / 86400000);
-    if (!Number.isFinite(ageDays) || ageDays < 0) throw new Error(`${source.tour} ranking snapshot has an impossible future date`);
-    if (ageDays <= catalogue.refreshPolicy.maximumRankingAgeDays) return ageDays;
     const publicationCheckDay = Date.parse(`${String(source.publicationCheckedAt || "").slice(0, 10)}T00:00:00Z`);
     const publicationCheckAgeDays = Math.max(0, Math.floor((referenceDay - publicationCheckDay) / 86400000));
+    const verifiedNextDayPublication = ageDays === -1
+      && source.ingestionMode === "public_first_party"
+      && source.sourceTrust === "verified"
+      && publicationCheckDay === referenceDay;
+    if (!Number.isFinite(ageDays) || (ageDays < 0 && !verifiedNextDayPublication)) throw new Error(`${source.tour} ranking snapshot has an impossible future date`);
+    if (verifiedNextDayPublication) return 0;
+    if (ageDays <= catalogue.refreshPolicy.maximumRankingAgeDays) return ageDays;
     const confirmedLatest = source.ingestionMode === "public_first_party"
       && source.sourceTrust === "verified"
       && Number.isFinite(publicationCheckDay)

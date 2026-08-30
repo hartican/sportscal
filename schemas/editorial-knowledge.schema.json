@@ -105,6 +105,7 @@
         "refreshAfter": { "type": ["string", "null"], "format": "date-time" },
         "generationMode": { "enum": ["researched", "source-derived-fallback"] },
         "audienceMemoryId": { "$ref": "#/$defs/id" },
+        "consequence": { "$ref": "#/$defs/consequence" },
         "originalityReview": {
           "type": "object",
           "additionalProperties": false,
@@ -114,6 +115,56 @@
             "reviewedAt": { "type": "string", "format": "date-time" }
           }
         }
+      }
+    },
+    "consequenceOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effect", "certainty", "factIds", "sourceIds"],
+      "properties": {
+        "effect": { "type": "string", "minLength": 12, "maxLength": 240 },
+        "certainty": { "enum": ["certain", "conditional"] },
+        "dependsOn": { "type": "string", "minLength": 12, "maxLength": 240 },
+        "factIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "sourceIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true }
+      }
+    },
+    "consequenceParticipant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subjectId", "name", "need", "outcomes"],
+      "properties": {
+        "subjectId": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "need": { "type": "string", "minLength": 12, "maxLength": 240 },
+        "outcomes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["win", "draw", "loss"],
+          "properties": {
+            "win": { "$ref": "#/$defs/consequenceOutcome" },
+            "draw": { "$ref": "#/$defs/consequenceOutcome" },
+            "loss": { "$ref": "#/$defs/consequenceOutcome" }
+          }
+        }
+      }
+    },
+    "consequence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "capturedAt", "primarySubjectId", "participants", "previewSentence", "factIds", "sourceIds"],
+      "properties": {
+        "schemaVersion": { "const": "editorial-consequence.v1" },
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "primarySubjectId": { "$ref": "#/$defs/id" },
+        "participants": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/consequenceParticipant" } },
+        "previewSentence": { "type": "string", "minLength": 20, "maxLength": 360 },
+        "spoilerOnSentence": { "type": "string", "minLength": 20, "maxLength": 700 },
+        "resultCapturedAt": { "type": "string", "format": "date-time" },
+        "resultFactIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "resultSourceIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "factIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "sourceIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "uniqueItems": true }
       }
     }
   }

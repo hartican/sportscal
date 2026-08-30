@@ -1,8 +1,8 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-08-29T13:40:20.744Z",
+  "generatedAt": "2026-08-30T09:42:19.029Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "574456ffa613a612e2c9f8fc0cd1fa1f1116b52b678d1ae556b965f61fdd61a9",
+  "fingerprint": "eb6b8fa0eb7d10dc0862c9399fdd1d71fca729041fc30bff59c771a68ebec165",
   "entries": [
     {
       "eventId": "evt_26",
@@ -34,13 +34,13 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
       "eventId": "evt_27",
       "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
-      "fullSpiel": "R13 Italian GP Race is scheduled for 2026-09-07 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "fullSpiel": "R13 Italian GP Race is scheduled for 2026-09-06 at 23:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
       "contextSignals": [
         "fixture-specific",
@@ -67,7 +67,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -100,7 +100,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -133,13 +133,13 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
       "eventId": "evt_30",
       "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Qualifying.",
-      "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 23:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "fullSpiel": "R15 Azerbaijan GP Qualifying is scheduled for 2026-09-25 at 22:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
       "contextSignals": [
         "fixture-specific",
@@ -166,13 +166,13 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
       "eventId": "evt_31",
       "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R15 Azerbaijan GP Race.",
-      "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 22:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "fullSpiel": "R15 Azerbaijan GP Race is scheduled for 2026-09-26 at 21:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
       "contextSignals": [
         "fixture-specific",
@@ -199,7 +199,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -232,7 +232,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -265,7 +265,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-08-29T13:40:20.744Z",
+      "sourceCheckedAt": "2026-08-30T09:42:19.029Z",
       "generationMode": "factual-fallback"
     }
   ]

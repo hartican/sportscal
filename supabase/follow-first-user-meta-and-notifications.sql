@@ -77,10 +77,16 @@ create table if not exists public.nothingsports_push_installations (
   timezone text not null default 'Australia/Sydney',
   user_agent text not null default '',
   permission text not null default 'granted' check (permission in ('granted', 'denied', 'default')),
+  chat_alerts_enabled boolean not null default true,
+  badges_enabled boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   last_seen_at timestamptz not null default now()
 );
+
+alter table public.nothingsports_push_installations
+  add column if not exists chat_alerts_enabled boolean not null default true,
+  add column if not exists badges_enabled boolean not null default true;
 
 create table if not exists public.nothingsports_reminders (
   id uuid primary key default gen_random_uuid(),

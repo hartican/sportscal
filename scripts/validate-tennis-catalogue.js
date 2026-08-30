@@ -16,6 +16,45 @@ assert.equal(catalogue.refreshPolicy.rankingsCadence, "weekly");
 assert.equal(catalogue.refreshPolicy.parityRequired, false);
 assert.equal(catalogue.refreshPolicy.independentPublicationFreshnessRequired, true);
 assert.equal(catalogue.refreshPolicy.failureMode, "retain_last_good_and_fail_closed");
+const verifiedNextDayPublication = {
+  ...catalogue,
+  sources: catalogue.sources.map(source => source.tour ? {
+    ...source,
+    effectiveDate: "2026-08-31",
+    publicationCheckedAt: "2026-08-30T03:45:00.000Z",
+    ingestionMode: "public_first_party",
+    sourceTrust: "verified",
+  } : source),
+};
+assert.equal(
+  assertFresh(verifiedNextDayPublication, "2026-08-30"),
+  0,
+  "a verified first-party ranking published one UTC calendar day early is current rather than impossibly future"
+);
+assert.throws(
+  () => assertFresh({
+    ...verifiedNextDayPublication,
+    sources: verifiedNextDayPublication.sources.map(source => source.tour === "ATP" ? { ...source, sourceTrust: "unverified" } : source),
+  }, "2026-08-30"),
+  /impossible future date/,
+  "the one-day publication lead must never admit unverified ranking data"
+);
+assert.throws(
+  () => assertFresh({
+    ...verifiedNextDayPublication,
+    sources: verifiedNextDayPublication.sources.map(source => source.tour === "ATP" ? { ...source, publicationCheckedAt: "2026-08-29T23:59:59.000Z" } : source),
+  }, "2026-08-30"),
+  /impossible future date/,
+  "the one-day publication lead must be observed on the current UTC publication-check day"
+);
+assert.throws(
+  () => assertFresh({
+    ...verifiedNextDayPublication,
+    sources: verifiedNextDayPublication.sources.map(source => source.tour === "ATP" ? { ...source, effectiveDate: "2026-09-01" } : source),
+  }, "2026-08-30"),
+  /impossible future date/,
+  "a verified first-party snapshot more than one UTC calendar day ahead must still fail closed"
+);
 const independentlyConfirmedFixture = {
   ...catalogue,
   sources: catalogue.sources.map(source => source.tour === "ATP" ? {

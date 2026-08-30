@@ -65,6 +65,8 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
       reason,
       projectionId:projection?.id || null,
       coverage:projection ? "covered" : "missing",
+      consequenceCoverage:projection?.consequence ? "covered" : "missing",
+      consequenceResearchRequired:Boolean(projection && !projection.consequence),
       priority:pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : stakesFor(record) === 5 ? "marquee" : "rolling",
       refreshDeadline:acceleratedDeadline,
     };
@@ -72,11 +74,13 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
     const rank = { "urgent-post-event":0, "audience-accelerated":1, marquee:2, rolling:3 };
     return rank[left.priority] - rank[right.priority] || Date.parse(left.startsAt || "9999-12-31") - Date.parse(right.startsAt || "9999-12-31") || left.targetId.localeCompare(right.targetId);
   });
+  const consequenceCovered = entries.filter(entry => entry.consequenceCoverage === "covered").length;
   return {
     schemaVersion:"editorial-research-queue.v1",
     generatedAt:reference.toISOString(),
     timeZone:"Australia/Sydney",
     rollingWindow:{ previousDays:7, nextDays:30, minimumStakes:2 },
+    consequenceMigration:{ covered:consequenceCovered, queued:entries.length - consequenceCovered },
     entries,
   };
 }
@@ -97,7 +101,7 @@ function main(){
   if (write) writeJson(OUTPUT_PATH, queue);
   const missing = queue.entries.filter(entry => entry.coverage === "missing");
   if (missing.length) throw new Error(`Editorial release gate blocked: ${missing.length} required card(s) lack substantive projections: ${missing.map(item => item.targetId).join(", ")}`);
-  console.log(`${write ? "Built" : "Validated"} editorial queue: ${queue.entries.length} required targets, 100% covered.`);
+  console.log(`${write ? "Built" : "Validated"} editorial queue: ${queue.entries.length} required targets, 100% projection-covered; ${queue.consequenceMigration.covered} consequence-covered and ${queue.consequenceMigration.queued} queued for sourced consequence research.`);
 }
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }

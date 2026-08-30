@@ -310,6 +310,8 @@ function completedCanonicalResult(fixture, participantsById){
     : { winner, loser, summary: outcomeText, marginText: `${winner} by ${margin}` };
   return {
     status: "completed",
+    homeScore,
+    awayScore,
     selectedSentence: `${fixture.displayName} is complete; the key moments are protected until you choose to reveal them.`,
     fullSpiel: `${fixture.displayName} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`,
     score: fixture.result.scorelineText,

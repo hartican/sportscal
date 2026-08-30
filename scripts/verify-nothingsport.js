@@ -176,7 +176,13 @@ assert(authApiSource.includes('"/auth/v1/token?grant_type=password"'), "the Auth
 assert(!authApiSource.includes("/auth/v1/otp") && !html.includes("magic link"), "the closed pilot must not expose magic-link or public account-creation paths");
 assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
 assert(html.includes('src="config/country-flags.js"') && html.includes("const COUNTRY_FLAGS"), "the local country-flag renderer must load before athlete names are built");
-assert(html.includes('src="config/card-identities.js"') && html.includes("const CARD_IDENTITIES"), "the official card-identity registry must load before event cards render");
+assert(
+  !html.includes('<script src="config/card-identities.js"></script>')
+    && html.includes('loadDeferredScript("config/card-identities.js")')
+    && html.includes("cardIdentitiesReady")
+    && html.includes("Promise.all([nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask])"),
+  "the official card-identity registry must load concurrently with the first feed and settle before event cards render",
+);
 assert(cardIdentitiesSource.includes('"competition:nrl"') && cardIdentitiesSource.includes('"brand:roland-garros"'), "card identities must include official competition and marquee-event marks");
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");
 assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
@@ -835,6 +841,7 @@ const sandbox = {
 };
 vm.createContext(sandbox);
 vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.js" });
+vm.runInContext(cardIdentitiesSource, sandbox, { filename: "config/card-identities.js" });
 vm.runInContext(cardResultsSource, sandbox, { filename: "config/card-results.js" });
 vm.runInContext(ticketingSource, sandbox, { filename: "config/ticketing.js" });
 vm.runInContext(sportDomainRegistrySource, sandbox, { filename: "config/sport-domain-registry.js" });

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-08-29T13:39:53.541Z",
+  "generatedAt": "2026-08-30T09:41:50.636Z",
   "sports": [
     {
       "key": "afl",
@@ -110,7 +110,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 3027,
+      "recordCount": 2954,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -142,7 +142,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1925,
+      "recordCount": 1933,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },

@@ -191,11 +191,11 @@ function validateFeed(feed) {
       if (!narrative || typeof narrative !== "object" || Array.isArray(narrative)) {
         errors.push(`${prefix}.editorialNarrative must be an object if present.`);
       } else {
-        if (!["editorial-narrative.v1", "editorial-narrative.v2"].includes(narrative.schemaVersion)) errors.push(`${prefix}.editorialNarrative.schemaVersion must be editorial-narrative.v1 or editorial-narrative.v2.`);
+        if (!["editorial-narrative.v1", "editorial-narrative.v2", "editorial-narrative.v3"].includes(narrative.schemaVersion)) errors.push(`${prefix}.editorialNarrative.schemaVersion must be editorial-narrative.v1, editorial-narrative.v2 or editorial-narrative.v3.`);
         if (!String(narrative.projectionId || "").trim()) errors.push(`${prefix}.editorialNarrative.projectionId is required.`);
         if (!["standard", "featured", "marquee"].includes(narrative.researchTier)) errors.push(`${prefix}.editorialNarrative.researchTier is unsupported.`);
         if (!String(narrative.hook || "").trim() || String(narrative.hook || "").length > 180) errors.push(`${prefix}.editorialNarrative.hook must be a non-empty string of 180 characters or fewer.`);
-        if (narrative.schemaVersion === "editorial-narrative.v2" && (String(narrative.synopsis || "").trim().length < 80 || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be 80-700 characters for v2 projections.`);
+        if (["editorial-narrative.v2", "editorial-narrative.v3"].includes(narrative.schemaVersion) && (String(narrative.synopsis || "").trim().length < 80 || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be 80-700 characters for v2/v3 projections.`);
         if (narrative.synopsis !== undefined && (!String(narrative.synopsis || "").trim() || String(narrative.synopsis || "").length > 700)) errors.push(`${prefix}.editorialNarrative.synopsis must be a non-empty string of 700 characters or fewer when present.`);
         [["threadIds", 1], ["factIds", 1], ["sourceIds", 1], ["dimensions", 1]].forEach(([field, minimum]) => {
           if (!Array.isArray(narrative[field]) || narrative[field].filter(Boolean).length < minimum || new Set(narrative[field]).size !== narrative[field].length) errors.push(`${prefix}.editorialNarrative.${field} must contain unique values.`);
@@ -203,6 +203,26 @@ function validateFeed(feed) {
         if (!isDateTime(narrative.researchedAt)) errors.push(`${prefix}.editorialNarrative.researchedAt must be an ISO date-time.`);
         if (narrative.refreshAfter !== undefined && narrative.refreshAfter !== null && !isDateTime(narrative.refreshAfter)) errors.push(`${prefix}.editorialNarrative.refreshAfter must be null or an ISO date-time.`);
         if (!["researched", "source-derived-fallback"].includes(narrative.generationMode)) errors.push(`${prefix}.editorialNarrative.generationMode is unsupported.`);
+        if (narrative.schemaVersion === "editorial-narrative.v3") {
+          const consequence = narrative.consequence;
+          if (!consequence || typeof consequence !== "object" || Array.isArray(consequence)) errors.push(`${prefix}.editorialNarrative.consequence is required for v3 projections.`);
+          else {
+            if (consequence.schemaVersion !== "editorial-consequence.v1") errors.push(`${prefix}.editorialNarrative.consequence.schemaVersion must be editorial-consequence.v1.`);
+            if (!isDateTime(consequence.capturedAt)) errors.push(`${prefix}.editorialNarrative.consequence.capturedAt must be an ISO date-time.`);
+            if (!Array.isArray(consequence.participants) || consequence.participants.length !== 2) errors.push(`${prefix}.editorialNarrative.consequence.participants must contain exactly two participants.`);
+            else consequence.participants.forEach((participant, participantIndex) => {
+              if (!String(participant?.subjectId || "").trim() || !String(participant?.name || "").trim() || String(participant?.need || "").trim().length < 12) errors.push(`${prefix}.editorialNarrative.consequence.participants[${participantIndex}] must include subjectId, name and need.`);
+              ["win", "draw", "loss"].forEach(outcomeKey => {
+                const outcome = participant?.outcomes?.[outcomeKey];
+                if (!outcome || String(outcome.effect || "").trim().length < 12 || !["certain", "conditional"].includes(outcome.certainty)) errors.push(`${prefix}.editorialNarrative.consequence.participants[${participantIndex}].outcomes.${outcomeKey} is invalid.`);
+                if (outcome?.certainty === "conditional" && String(outcome.dependsOn || "").trim().length < 12) errors.push(`${prefix}.editorialNarrative.consequence.participants[${participantIndex}].outcomes.${outcomeKey}.dependsOn is required for conditional effects.`);
+              });
+            });
+            if (!/^If\b/i.test(String(consequence.previewSentence || "")) || String(consequence.previewSentence || "").length > 360) errors.push(`${prefix}.editorialNarrative.consequence.previewSentence must be an If-then sentence of 360 characters or fewer.`);
+            if (!Array.isArray(consequence.factIds) || !consequence.factIds.length || !Array.isArray(consequence.sourceIds) || !consequence.sourceIds.length) errors.push(`${prefix}.editorialNarrative.consequence must retain fact and source provenance.`);
+            if (consequence.spoilerOnSentence !== undefined && (!String(consequence.spoilerOnSentence || "").trim() || String(consequence.spoilerOnSentence).length > 700 || !isDateTime(consequence.resultCapturedAt) || !Array.isArray(consequence.resultFactIds) || !consequence.resultFactIds.length || !Array.isArray(consequence.resultSourceIds) || !consequence.resultSourceIds.length)) errors.push(`${prefix}.editorialNarrative.consequence result copy requires captured fact and source provenance.`);
+          }
+        }
         if (narrative.sentiment !== undefined) {
           const sentiment = narrative.sentiment;
           if (!sentiment || typeof sentiment !== "object" || Array.isArray(sentiment)) errors.push(`${prefix}.editorialNarrative.sentiment must be an object if present.`);

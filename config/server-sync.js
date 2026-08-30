@@ -9,6 +9,7 @@
   const PERSISTENT_SESSION_STORAGE_KEY = "ns_auth_persistent_session_v1";
   const SESSION_PERSISTENCE_KEY = "ns_auth_persistence_v1";
   const RECOVERY_STORAGE_KEY = "ns_auth_recovery_v1";
+  const GUEST_CHAT_SESSION_STORAGE_KEY = "ns_guest_chat_session_v1";
   const RECOVERY_TTL_MS = 15 * 60 * 1000;
   const USER_STATE_SCHEMA_VERSION = "user-state.v2";
   const PRODUCT_EVENTS_SCHEMA_VERSION = "product-events.v1";
@@ -182,6 +183,8 @@
     let session = null;
     let persistSession = true;
     let refreshInFlight = null;
+    let guestChatSession = null;
+    let guestRefreshInFlight = null;
 
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
@@ -317,6 +320,78 @@
       }
     }
 
+    function saveGuestChatSession(next){
+      guestChatSession = parseSession(next, now());
+      storageWrite(persistentStorage, GUEST_CHAT_SESSION_STORAGE_KEY, guestChatSession);
+      return guestChatSession;
+    }
+
+    function clearGuestChatSession(){
+      guestChatSession = null;
+      guestRefreshInFlight = null;
+      storageWrite(persistentStorage, GUEST_CHAT_SESSION_STORAGE_KEY, null);
+    }
+
+    function restoreGuestChatSession(){
+      if (!guestChatSession) guestChatSession = storageRead(persistentStorage, GUEST_CHAT_SESSION_STORAGE_KEY);
+      return guestChatSession;
+    }
+
+    async function refreshGuestChatSession(){
+      if (!guestChatSession?.refreshToken) return null;
+      if (guestRefreshInFlight) return guestRefreshInFlight;
+      guestRefreshInFlight = (async () => {
+        try{
+          const payload = await jsonRequest("/api/auth", {
+            method:"POST",
+            body:JSON.stringify({ action:"refresh-anonymous-chat-session", refreshToken:guestChatSession.refreshToken }),
+          });
+          return saveGuestChatSession(payload.session);
+        }catch(error){
+          clearGuestChatSession();
+          throw error;
+        }finally{
+          guestRefreshInFlight = null;
+        }
+      })();
+      return guestRefreshInFlight;
+    }
+
+    async function currentGuestChatSession(){
+      const active = restoreGuestChatSession();
+      if (!active) return null;
+      if (active.expiresAt <= now() + REFRESH_EARLY_MS) await refreshGuestChatSession();
+      return guestChatSession;
+    }
+
+    async function guestAuthenticatedRequest(path, options = {}){
+      const activeSession = await currentGuestChatSession();
+      if (!activeSession){
+        const error = new Error("Join this room from its guest link first.");
+        error.status = 401;
+        error.code = "missing_guest_session";
+        throw error;
+      }
+      try{
+        return await jsonRequest(path, {
+          ...options,
+          headers:{ ...(options.headers || {}), Authorization:`Bearer ${activeSession.accessToken}` },
+        });
+      }catch(error){
+        if (error.status !== 401 || !guestChatSession?.refreshToken) throw error;
+        const refreshed = await refreshGuestChatSession();
+        return jsonRequest(path, {
+          ...options,
+          headers:{ ...(options.headers || {}), Authorization:`Bearer ${refreshed.accessToken}` },
+        });
+      }
+    }
+
+    async function chatAuthenticatedRequest(path, options = {}){
+      if (await currentSession()) return authenticatedRequest(path, options);
+      return guestAuthenticatedRequest(path, options);
+    }
+
     return Object.freeze({
       async status(){
         return jsonRequest("/api/auth");
@@ -393,11 +468,39 @@
         if (authenticated && (session || restoreStoredSession())){
           return authenticatedRequest("/api/notifications", options);
         }
+        if (authenticated && (guestChatSession || restoreGuestChatSession())){
+          return guestAuthenticatedRequest("/api/notifications", options);
+        }
         return jsonRequest("/api/notifications", options);
       },
-      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "" } = {}, command = null){
+      async anonymousChatSession({ capability = "", guestDisplayName = "" } = {}){
+        const existing = await currentGuestChatSession();
+        if (existing) return { session:{ ...existing }, existing:true };
+        const payload = await jsonRequest("/api/auth", {
+          method:"POST",
+          body:JSON.stringify({
+            action:"anonymous-chat-session",
+            capability:String(capability || ""),
+            guestDisplayName:String(guestDisplayName || ""),
+          }),
+        });
+        const saved = saveGuestChatSession(payload.session);
+        if (!saved){
+          const error = new Error("The guest chat session could not be started.");
+          error.code = "invalid_guest_chat_session";
+          throw error;
+        }
+        return { ...payload, session:{ ...saved } };
+      },
+      async chatGuestPreview(capability){
+        return jsonRequest("/api/chat", {
+          method:"POST",
+          body:JSON.stringify({ action:"guest-preview", capability:String(capability || "") }),
+        });
+      },
+      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "", reactionAfter = "" } = {}, command = null){
         if (command){
-          return authenticatedRequest("/api/chat", {
+          return chatAuthenticatedRequest("/api/chat", {
             method:"POST",
             body:JSON.stringify(command),
           });
@@ -408,7 +511,8 @@
         if (after) params.set("after", after);
         if (before) params.set("before", before);
         if (q) params.set("q", q);
-        return authenticatedRequest(`/api/chat?${params.toString()}`);
+        if (reactionAfter) params.set("reactionAfter", reactionAfter);
+        return chatAuthenticatedRequest(`/api/chat?${params.toString()}`);
       },
       async commsRequest(command = null){
         return authenticatedRequest("/api/comms", command ? {
@@ -472,8 +576,16 @@
         }
       },
       clearSession,
+      clearGuestChatSession,
       getSession(){
         return session ? { ...session } : restoreStoredSession();
+      },
+      getGuestChatSession(){
+        const active = restoreGuestChatSession();
+        return active ? { ...active } : null;
+      },
+      guestChatSessionSubject(){
+        return sessionSubject(restoreGuestChatSession());
       },
       sessionSubject(){
         return sessionSubject(session || restoreStoredSession());
@@ -501,6 +613,7 @@
     SESSION_STORAGE_KEY,
     SESSION_PERSISTENCE_KEY,
     RECOVERY_STORAGE_KEY,
+    GUEST_CHAT_SESSION_STORAGE_KEY,
     RECOVERY_TTL_MS,
     USER_STATE_SCHEMA_VERSION,
     buildUserState,

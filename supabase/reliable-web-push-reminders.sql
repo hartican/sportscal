@@ -4,6 +4,10 @@
 alter table public.nothingsports_reminders
   add column if not exists claimed_at timestamptz;
 
+alter table public.nothingsports_push_installations
+  add column if not exists chat_alerts_enabled boolean not null default true,
+  add column if not exists badges_enabled boolean not null default true;
+
 create index if not exists nothingsports_reminders_claim_idx
   on public.nothingsports_reminders (claimed_at, remind_at)
   where dispatched_at is null;

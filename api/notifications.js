@@ -71,6 +71,11 @@ function reminderDeliveryReset(existing, startsAt){
   return { dispatched_at:null, claimed_at:null, attempts:0, last_error:null };
 }
 
+function installationPreference(body, requestField, existing, databaseField){
+  if (Object.hasOwn(body, requestField)) return body[requestField] !== false;
+  return existing ? existing[databaseField] !== false : true;
+}
+
 async function enabledInstallationIds(user, installation){
   if (!user) return [installation.installation_id];
   if (installation.user_id !== user.id){
@@ -156,6 +161,8 @@ async function notificationsHandler(request, response){
           timezone:clean(body.timezone, 80) || "Australia/Sydney",
           user_agent:clean(request.headers?.["user-agent"], 512),
           permission:"granted",
+          chat_alerts_enabled:installationPreference(body, "chatAlertsEnabled", existing, "chat_alerts_enabled"),
+          badges_enabled:installationPreference(body, "badgesEnabled", existing, "badges_enabled"),
           updated_at:new Date().toISOString(),
           last_seen_at:new Date().toISOString(),
         },
