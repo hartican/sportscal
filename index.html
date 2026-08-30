@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="193">
+<meta name="app-shell-version" content="194">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -238,6 +238,11 @@ header.top{
   background:rgba(255,255,255,.06);
   color:var(--text);
   font-size:.68rem;
+}
+
+.share-app-action .vector-glyph{
+  width:16px;
+  height:16px;
 }
 
 .brand-lockup{
@@ -6753,7 +6758,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="brand">
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
-        <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span aria-hidden="true">↗</span><span class="share-app-label">Share app</span></button>
+        <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share app</span></button>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>

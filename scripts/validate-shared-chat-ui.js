@@ -30,6 +30,7 @@ function assertOrder(source, markers, message){
 // The app share action belongs in the brand row and shares only the canonical app URL.
 const brandRow = section(html, '<div class="brand-title-row">', '<div class="slogan"');
 assert.match(brandRow, /id="shareAppBtn"/);
+assert.match(brandRow, /data-vector-glyph="ui:share"/);
 assert.match(brandRow, />Share app</);
 const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("soundtrackToggle")');
 assert.match(html, /<link rel="canonical" href="https:\/\/nothingsport\.vercel\.app\/">/, "the clean production app URL must be configured independently of preview origins");
