@@ -146,6 +146,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
   ["scripts/validate-editorial-narratives.js"],
   ["scripts/validate-editorial-consequences.js"],
+  ["scripts/validate-editorial-render-coverage.js"],
   ["scripts/validate-editorial-sport-depth.js"],
   ["scripts/validate-editorial-interactions.js"],
   ["scripts/validate-editorial-audience-memory.js"],

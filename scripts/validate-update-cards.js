@@ -42,6 +42,7 @@ assert(localSteps.some(step => step[0] === "scripts/update-sport-editorial-depth
 assert(localSteps.some(step => step[0] === "scripts/enrich-editorial-consequences.js" && step.includes("--write")), "every canonical update must restore immutable consequence snapshots after generated sport-depth editorial");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-consequences.js"), "every canonical update must validate pre-kickoff consequence snapshots, result-aware copy and structured brackets");
+assert(localSteps.some(step => step[0] === "scripts/validate-editorial-render-coverage.js"), "every canonical update must prove every validated editorial projection passes the exact browser display gate");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-sport-depth.js"), "every canonical update must reject generic football, cricket and AFL hooks and narratives");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-interactions.js"), "every canonical update must keep L1/L2 copy editorial and likes reversible");
 assert(localSteps.some(step => step[0] === "scripts/snapshot-editorial-nothingscore.js" && step.includes("--write")), "every canonical update must snapshot privacy-safe Nothingscore aggregates before composing editorial work");
@@ -84,6 +85,8 @@ assert(
     && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-narratives.js")
       < localSteps.findIndex(step => step[0] === "scripts/validate-editorial-consequences.js")
     && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-consequences.js")
+      < localSteps.findIndex(step => step[0] === "scripts/validate-editorial-render-coverage.js")
+    && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-render-coverage.js")
       < localSteps.findIndex(step => step[0] === "scripts/validate-editorial-sport-depth.js")
     && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-sport-depth.js")
       < localSteps.findIndex(step => step[0] === "scripts/build-paged-feed.js"),
@@ -212,6 +215,7 @@ assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the
 assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
 assert.match(releaseScript, /vercel list sportscal --meta "releaseGitSha=\$DEPLOY_SHA" --status READY --json/, "the release must query READY deployments by immutable source commit");
 assert.match(releaseScript, /item\.target === "production"/, "the release metadata check must require the production target");
+assert.match(releaseScript, /validate-live-editorial-render-coverage\.js/, "every production release must prove that live data remains visible through the live browser predicate");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
 assert.match(releaseScript, /"data\/canonical\/joint-tennis-tournament-2026\.js"/, "the release commit must include the regenerated direct-file tournament bundle");
 assert.match(snapshotScript, /materialize-git-tree\.js "\$DEPLOY_SHA"/, "the deployment helper must materialise the resolved immutable commit from Git objects");

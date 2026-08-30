@@ -21,6 +21,10 @@ const {
   validateSnapshotRecord,
 } = require("./enrich-editorial-consequences.js");
 const { completedCanonicalResult } = require("./sync-canonical-fixtures-to-feed.js");
+const {
+  editorialConsequenceReadyForCard,
+  editorialNarrativeReadyForCard,
+} = require("../config/enrichment-engine.js");
 
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 
@@ -84,8 +88,11 @@ const indexes = indexesFor(knowledge);
 const legacyProjection = knowledge.eventProjections.find(projection => !projection.consequence);
 assert.equal(editorialNarrativeFor(legacyProjection, indexes).schemaVersion, "editorial-narrative.v2", "unenriched projections must remain readable v2 during migration");
 assert.equal(editorialNarrativeFor(warriorsProjection, indexes).schemaVersion, "editorial-narrative.v3", "enriched projections must emit v3");
-assert.match(html, /function editorialNarrativeReadyForCard\(narrative\)[\s\S]*generationMode !== "researched"[\s\S]*editorial-consequence\.v1/, "researched card editorial must stay unpublished until its sourced consequence exists");
-assert.match(html, /function editorialNarrativeHookForDisplay\(record\)[\s\S]*editorialNarrativeReadyForCard\(narrative\)/, "legacy readers may accept v1\/v2 data without presenting incomplete Why it matters copy");
+assert(editorialNarrativeReadyForCard(published.events.find(event => event.editorialNarrative?.schemaVersion === "editorial-narrative.v2")?.editorialNarrative), "validated researched v2 editorial must remain visible while consequences are backfilled");
+assert(editorialNarrativeReadyForCard(publishedWarriors.editorialNarrative), "v3 editorial must remain visible independently of its consequence sentence");
+assert(editorialConsequenceReadyForCard(publishedWarriors.editorialNarrative), "the fully sourced v3 consequence must remain visible");
+assert.match(html, /ENRICHMENT_ENGINE\?\.editorialNarrativeReadyForCard\?\.\(narrative\)/, "the UI must use the shared compatibility predicate");
+assert.match(html, /ENRICHMENT_ENGINE\?\.editorialConsequenceReadyForCard\?\.\(narrative\)/, "the UI must gate only the optional consequence through the shared predicate");
 
 const refreshedKnowledge = JSON.parse(JSON.stringify(knowledge));
 const refreshedFeed = JSON.parse(JSON.stringify(incoming));

@@ -303,3 +303,4 @@ if ! node -e '
 fi
 rm -f "$DEPLOYMENT_LIST_FILE"
 log "Production deployment metadata verified for origin/main $DEPLOY_SHA."
+node scripts/validate-live-editorial-render-coverage.js "${WEBSITE_URL:-https://nothingsport.vercel.app}"

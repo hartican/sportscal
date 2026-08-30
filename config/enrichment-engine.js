@@ -72,6 +72,29 @@
     return Math.min(max, Math.max(min, Number(value) || 0));
   }
 
+  function editorialNarrativeReadyForCard(narrative){
+    if (!narrative || !/^editorial-narrative\.v(?:1|2|3)$/.test(String(narrative.schemaVersion || ""))) return false;
+    if (!String(narrative.hook || "").trim() || !String(narrative.synopsis || "").trim()) return false;
+    if (narrative.generationMode !== "researched") return true;
+    return Array.isArray(narrative.factIds)
+      && narrative.factIds.length > 0
+      && Array.isArray(narrative.sourceIds)
+      && narrative.sourceIds.length > 0;
+  }
+
+  function editorialConsequenceReadyForCard(narrative){
+    const consequence = narrative?.consequence;
+    return narrative?.schemaVersion === "editorial-narrative.v3"
+      && consequence?.schemaVersion === "editorial-consequence.v1"
+      && String(consequence.previewSentence || "").trim().length > 0
+      && Array.isArray(consequence.participants)
+      && consequence.participants.length === 2
+      && Array.isArray(consequence.factIds)
+      && consequence.factIds.length > 0
+      && Array.isArray(consequence.sourceIds)
+      && consequence.sourceIds.length > 0;
+  }
+
   function eventDomainIdentifiers(event){
     const key = String(event?.key || "").trim();
     const sportId = String(event?.sportId || "").trim();
@@ -550,6 +573,8 @@
     spoilerSafeFixtureTitle,
     followContextForEvent,
     editorialOverrideFor,
+    editorialNarrativeReadyForCard,
+    editorialConsequenceReadyForCard,
     stakesScoreFor: numericStakes,
     intensityFor: numericIntensity,
     arcStageFor: arcStage,

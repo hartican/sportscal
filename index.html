@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="187">
+<meta name="app-shell-version" content="188">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -12219,10 +12219,7 @@ function buildEditorialL0Hook(copy, consequenceCopy = ""){
 }
 
 function editorialNarrativeReadyForCard(narrative){
-  if (!narrative || !/^editorial-narrative\.v(?:1|2|3)$/.test(String(narrative.schemaVersion || ""))) return false;
-  if (narrative.generationMode !== "researched") return true;
-  return narrative.schemaVersion === "editorial-narrative.v3"
-    && narrative.consequence?.schemaVersion === "editorial-consequence.v1";
+  return Boolean(ENRICHMENT_ENGINE?.editorialNarrativeReadyForCard?.(narrative));
 }
 
 function editorialNarrativeHookForDisplay(record){
@@ -12245,7 +12242,7 @@ function editorialNarrativeCopyForDisplay(record, state){
 function editorialConsequenceForDisplay(record){
   const narrative = record?.editorialNarrative;
   const consequence = narrative?.consequence;
-  if (narrative?.schemaVersion !== "editorial-narrative.v3" || consequence?.schemaVersion !== "editorial-consequence.v1") return "";
+  if (!ENRICHMENT_ENGINE?.editorialConsequenceReadyForCard?.(narrative)) return "";
   const completed = record.status === "completed" || getEventStatus(record) === "past";
   if (completed && isSpoilerVisible(record)) return consequence.spoilerOnSentence || consequence.previewSentence || "";
   return consequence.previewSentence || "";

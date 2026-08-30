@@ -9,6 +9,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const preferences = fs.readFileSync(path.join(ROOT, "config/follow-first.js"), "utf8");
+const enrichment = fs.readFileSync(path.join(ROOT, "config/enrichment-engine.js"), "utf8");
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
 
 function section(source, start, end){
@@ -129,16 +130,15 @@ assert.match(badge, /navigator\.setAppBadge\?\.\(Number\(unread\)\)/);
 assert.match(badge, /navigator\.clearAppBadge\?\.\(\)/);
 assert.match(worker, /payload\.kind === "chat"[\s\S]+setAppBadge/);
 
-// Narrative v3 chooses the result-aware consequence only for completed, spoiler-visible cards.
+// Narrative compatibility is independent from the optional v3 consequence.
 const narrativeGate = section(html, "function editorialNarrativeReadyForCard(narrative)", "function editorialNarrativeHookForDisplay");
-assert.match(narrativeGate, /editorial-narrative\\\.v\(\?:1\|2\|3\)/);
-assert.match(narrativeGate, /generationMode !== "researched"/);
-assert.match(narrativeGate, /editorial-consequence\.v1/);
+assert.match(narrativeGate, /ENRICHMENT_ENGINE\?\.editorialNarrativeReadyForCard/, "the shell must use the shared narrative compatibility predicate");
+assert.match(enrichment, /function editorialNarrativeReadyForCard\(narrative\)[\s\S]*editorial-narrative\\\.v\(\?:1\|2\|3\)/);
+assert.match(enrichment, /generationMode !== "researched"[\s\S]*factIds[\s\S]*sourceIds/, "researched editorial must require source provenance rather than a consequence backfill");
 const narrativeHook = section(html, "function editorialNarrativeHookForDisplay(record)", "function editorialNarrativeCopyForDisplay");
 assert.match(narrativeHook, /editorialNarrativeReadyForCard\(narrative\)/);
 const consequence = section(html, "function editorialConsequenceForDisplay(record)", "function appendEditorialConsequence");
-assert.match(consequence, /narrative\?\.schemaVersion !== "editorial-narrative\.v3"/);
-assert.match(consequence, /consequence\?\.schemaVersion !== "editorial-consequence\.v1"/);
+assert.match(consequence, /ENRICHMENT_ENGINE\?\.editorialConsequenceReadyForCard/, "only the optional consequence must use the stricter consequence predicate");
 assert.match(consequence, /completed && isSpoilerVisible\(record\)/);
 assertOrder(consequence, [
   "if (completed && isSpoilerVisible(record))",
