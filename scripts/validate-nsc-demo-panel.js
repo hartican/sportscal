@@ -103,7 +103,7 @@ assert.match(serverSource,/Crowd view · demo panel/);
 assert.match(html,/Independent context/);
 assert.match(html,/nsc-demo-badge/);
 assert.match(html,/dataset\.demoExposure/);
-assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=192"\)/,"the graph renderer must stay off the critical startup path");
+assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=193"\)/,"the graph renderer must stay off the critical startup path");
 assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/);
 assert.match(visualSource,/Accessible data for/);
 assert.match(html,/How do you think it’ll go\?/);

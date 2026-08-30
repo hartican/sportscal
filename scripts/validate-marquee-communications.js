@@ -97,7 +97,7 @@ async function main(){
   assert.match(sql, /mailchimp-manual\.v1/);
   assert.match(sql, /state in \([^)]*'exported'/s);
 
-  const commsSource = read("api/comms.js"), adminSource = read("admin-comms.html"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
+  const commsSource = read("api/comms.js"), adminSource = read("admin-comms.html"), participatePageSource = read("participate.html"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
   assert.match(commsSource, /app_metadata/);
   assert.doesNotMatch(commsSource, /user_metadata\?\.role/);
   assert.match(commsSource, /export-mailchimp/);
@@ -105,6 +105,9 @@ async function main(){
   assert.doesNotMatch(commsSource, /SEND NOW|send-now|import-consent|resend-broadcasts|instagram-mcp/);
   assert.doesNotMatch(commsSource, /nothingsports_marquee_subscribers|nothingsports_marquee_deliveries/);
   assert.match(adminSource, /Nothing Sport prepares the campaign; Mailchimp sends it\./);
+  assert.match(adminSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
+  assert.match(participatePageSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
+  assert.doesNotMatch(adminSource + participatePageSource, /nothingsport-logo-(?:day|night)\.png|nothingsport-helm/i);
   assert.match(adminSource, /Prepare Mailchimp export/);
   assert.match(adminSource, /Copy complete handoff/);
   assert.match(adminSource, /Download image/);
@@ -113,7 +116,7 @@ async function main(){
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
-  assert.match(worker, /nothingsport-shell-v192/);
+  assert.match(worker, /nothingsport-shell-v193/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));
   assert.ok(vercel.rewrites.some(rule => rule.source === "/fixture/:eventId"));
