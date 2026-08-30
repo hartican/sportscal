@@ -3,6 +3,11 @@
   "git": {
     "deploymentEnabled": false
   },
+  "functions": {
+    "api/chat.js": {
+      "includeFiles": "data/feed/*.json"
+    }
+  },
   "redirects": [
     {
       "source": "/sports_calendar.html",

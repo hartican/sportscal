@@ -73,6 +73,8 @@ async function run(){
   const client = fs.readFileSync("config/server-sync.js", "utf8");
   const html = fs.readFileSync("index.html", "utf8");
   const worker = fs.readFileSync("service-worker.js", "utf8");
+  const vercel = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
+  const feedManifest = JSON.parse(fs.readFileSync("data/feed/manifest.json", "utf8"));
   for (const table of ["profiles", "rooms", "members", "messages"]){
     assert.match(sql, new RegExp(`nothingsports_chat_${table}[\\s\\S]+enable row level security`, "i"));
     assert.match(sql, new RegExp(`nothingsports_chat_${table}[\\s\\S]+force row level security`, "i"));
@@ -95,6 +97,16 @@ async function run(){
   assert.match(api, /authenticatedUser\(bearerToken\(request\)\)/);
   assert.match(api, /supabaseServiceRequest/);
   assert.doesNotMatch(api, /console\.(?:log|info|warn|error)/, "chat content must never enter ordinary server logs");
+  assert.equal(vercel.functions?.["api/chat.js"]?.includeFiles, "data/feed/*.json", "the deployed chat function must include canonical fixture pages");
+  feedManifest.pages.forEach(page => {
+    assert.match(page.path, /^data\/feed\/[^/]+\.json$/, "every chat fixture page must match the Vercel includeFiles glob");
+    assert(fs.existsSync(page.path), `chat fixture page must exist: ${page.path}`);
+  });
+  assert.throws(
+    () => chatHandler._test.loadFixtureMap(() => { throw new Error("missing fixture bundle"); }),
+    error => error?.status === 503 && error?.code === "chat_fixture_data_unavailable" && error?.message === "Chat fixture data is temporarily unavailable.",
+    "missing deployed fixture files must return a safe, specific chat error"
+  );
   assert.match(client, /async chatRequest\([\s\S]+authenticatedRequest\("\/api\/chat"/);
   assert.match(html, /id="activeChatsBtn"/);
   assert.match(html, /Set up chat/);
@@ -110,7 +122,12 @@ async function run(){
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine/);
   assert.match(html, /document\.visibilityState !== "visible" \|\| !navigator\.onLine\)\{[\s\S]+Background — polling paused[\s\S]+return;/);
   assert.match(html, /event\.key === "Escape"/);
-  assert.match(worker, /nothingsport-shell-v185/);
+  assert.match(html, /\.chat-composer\[hidden\]\{ display:none; \}/, "the message composer must stay hidden during room setup");
+  assert.match(html, /copy\.className = "chat-user-copy"/);
+  assert.match(html, /name\.className = "chat-user-name"/);
+  assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
+  assert.match(worker, /nothingsport-shell-v186/);
+  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "186");
   assert.match(worker, /"\/config\/chat-contract\.js"/);
 
   const ids = {

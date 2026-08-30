@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="185">
+<meta name="app-shell-version" content="186">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5548,6 +5548,10 @@ button.chat-room-row{ cursor:pointer; }
 .chat-room-row strong,
 .chat-room-row span{ display:block; }
 .chat-room-row span{ margin-top:3px; color:var(--text-dim); font-size:.68rem; }
+.chat-user-copy{ min-width:0; }
+.chat-user-name,
+.chat-user-email{ display:block; overflow-wrap:anywhere; }
+.chat-user-email{ margin-top:3px; color:var(--text-dim); font-size:.68rem; }
 .chat-unread{
   min-width:24px;
   height:24px;
@@ -5600,6 +5604,7 @@ button.chat-room-row{ cursor:pointer; }
   border-top:1px solid var(--border);
   background:var(--panel-bg);
 }
+.chat-composer[hidden]{ display:none; }
 .chat-composer textarea{
   min-height:48px;
   max-height:140px;
@@ -6908,7 +6913,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=185")
+  : loadDeferredScript("config/national-team-identities.js?v=186")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7890,7 +7895,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=185",
+  moduleScriptUrl: "config/major-events.js?v=186",
   url: "data/major-events.v1.json",
 });
 
@@ -22126,9 +22131,12 @@ function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
         const row = document.createElement("label");
         row.className = "chat-user-row";
         const copy = document.createElement("span");
+        copy.className = "chat-user-copy";
         const name = document.createElement("strong");
+        name.className = "chat-user-name";
         name.textContent = account.displayName || "Display name not set";
         const email = document.createElement("span");
+        email.className = "chat-user-email";
         email.textContent = account.email;
         copy.append(name, email);
         const checkbox = document.createElement("input");

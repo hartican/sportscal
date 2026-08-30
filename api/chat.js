@@ -79,18 +79,29 @@ function validInstant(value){
   return instant && Number.isFinite(Date.parse(instant)) ? new Date(instant).toISOString() : "";
 }
 
-function fixtureMap(){
-  if (canonicalFixtures) return canonicalFixtures;
-  const root = path.join(__dirname, "..");
-  const manifest = JSON.parse(fs.readFileSync(path.join(root, "data/feed/manifest.json"), "utf8"));
-  canonicalFixtures = new Map();
-  (manifest.pages || []).forEach(page => {
-    const document = JSON.parse(fs.readFileSync(path.join(root, page.path), "utf8"));
-    (document.events || []).forEach(event => {
-      const ids = [event.canonicalEventId, event.eventId, event.id].map(value => String(value || "").trim()).filter(Boolean);
-      ids.forEach(id => canonicalFixtures.set(id, event));
+function loadFixtureMap(readFileSync = fs.readFileSync, root = path.join(__dirname, "..")){
+  try{
+    const manifest = JSON.parse(readFileSync(path.join(root, "data/feed/manifest.json"), "utf8"));
+    const fixtures = new Map();
+    (manifest.pages || []).forEach(page => {
+      const document = JSON.parse(readFileSync(path.join(root, page.path), "utf8"));
+      (document.events || []).forEach(event => {
+        const ids = [event.canonicalEventId, event.eventId, event.id].map(value => String(value || "").trim()).filter(Boolean);
+        ids.forEach(id => fixtures.set(id, event));
+      });
     });
-  });
+    return fixtures;
+  }catch(_error){
+    throw new ChatRequestError(
+      "Chat fixture data is temporarily unavailable.",
+      503,
+      "chat_fixture_data_unavailable"
+    );
+  }
+}
+
+function fixtureMap(){
+  if (!canonicalFixtures) canonicalFixtures = loadFixtureMap();
   return canonicalFixtures;
 }
 
@@ -512,6 +523,7 @@ chatHandler._test = Object.freeze({
   canonicalFixtureSnapshot,
   fixtureIsUpcomingOrLive,
   isAdmin,
+  loadFixtureMap,
   queryValue,
 });
 
