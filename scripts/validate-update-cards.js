@@ -38,7 +38,9 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" &
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
 assert(localSteps.some(step => step[0] === "scripts/apply-editorial-narratives.js" && step.includes("--write")), "every canonical update must project persistent stakes-led editorial before publication");
 assert(localSteps.some(step => step[0] === "scripts/update-rolling-editorial-projections.js" && step.includes("--write")), "every canonical update must build event-specific editorial for expected-score stakes before queue validation");
+assert(localSteps.some(step => step[0] === "scripts/update-sport-editorial-depth.js" && step.includes("--write")), "every canonical update must replace generic football, cricket and AFL templates with researched event-specific editorial");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
+assert(localSteps.some(step => step[0] === "scripts/validate-editorial-sport-depth.js"), "every canonical update must reject generic football, cricket and AFL hooks and narratives");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-interactions.js"), "every canonical update must keep L1/L2 copy editorial and likes reversible");
 assert(localSteps.some(step => step[0] === "scripts/snapshot-editorial-nothingscore.js" && step.includes("--write")), "every canonical update must snapshot privacy-safe Nothingscore aggregates before composing editorial work");
 assert(localSteps.some(step => step[0] === "scripts/build-editorial-research-queue.js" && step.includes("--write")), "every canonical update must recalculate the rolling stakes-2+ editorial queue");
@@ -61,6 +63,8 @@ assert(
     && localSteps.findIndex(step => step[0] === "scripts/snapshot-editorial-nothingscore.js")
       < localSteps.findIndex(step => step[0] === "scripts/update-rolling-editorial-projections.js")
     && localSteps.findIndex(step => step[0] === "scripts/update-rolling-editorial-projections.js")
+      < localSteps.findIndex(step => step[0] === "scripts/update-sport-editorial-depth.js")
+    && localSteps.findIndex(step => step[0] === "scripts/update-sport-editorial-depth.js")
       < localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
     && localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
       < localSteps.findIndex(step => step[0] === "scripts/update-editorial-audience-memory.js")
@@ -74,6 +78,8 @@ assert(
   localSteps.findIndex(step => step[0] === "scripts/publish-feed.js")
     < localSteps.findIndex(step => step[0] === "scripts/validate-editorial-narratives.js")
     && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-narratives.js")
+      < localSteps.findIndex(step => step[0] === "scripts/validate-editorial-sport-depth.js")
+    && localSteps.findIndex(step => step[0] === "scripts/validate-editorial-sport-depth.js")
       < localSteps.findIndex(step => step[0] === "scripts/build-paged-feed.js"),
   "published editorial must pass its quality gate before derived feed pages are built"
 );

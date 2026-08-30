@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-08-30T08:45:00.000Z",
+  "generatedAt": "2026-08-30T00:08:03.244Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -187,6 +187,54 @@
       "coverage": "covered",
       "priority": "marquee",
       "refreshDeadline": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:afl:cd_m20260142404",
+      "title": "Essendon v Port Adelaide",
+      "stakes": 2,
+      "startsAt": "2026-08-23T02:20:00.000Z",
+      "reason": "rolling-stakes-2-plus",
+      "projectionId": "projection:rolling:event-afl-cd-m20260142404",
+      "coverage": "covered",
+      "priority": "rolling",
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:nrl:129992507",
+      "title": "Titans v Sharks",
+      "stakes": 2,
+      "startsAt": "2026-08-23T04:00:00.000Z",
+      "reason": "rolling-stakes-2-plus",
+      "projectionId": "projection:rolling:event-nrl-129992507",
+      "coverage": "covered",
+      "priority": "rolling",
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:afl:cd_m20260142408",
+      "title": "Sydney Swans v North Melbourne",
+      "stakes": 2,
+      "startsAt": "2026-08-23T05:20:00.000Z",
+      "reason": "rolling-stakes-2-plus",
+      "projectionId": "projection:rolling:event-afl-cd-m20260142408",
+      "coverage": "covered",
+      "priority": "rolling",
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:nrl:129992508",
+      "title": "Roosters v Wests Tigers",
+      "stakes": 2,
+      "startsAt": "2026-08-23T06:05:00.000Z",
+      "reason": "rolling-stakes-2-plus",
+      "projectionId": "projection:rolling:event-nrl-129992508",
+      "coverage": "covered",
+      "priority": "rolling",
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -462,7 +510,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128935",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-30T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -474,7 +522,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128938",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-30T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -486,7 +534,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128941",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-30T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -498,7 +546,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128940",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-30T15:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -510,7 +558,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128933",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T19:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -534,7 +582,7 @@
       "projectionId": "projection:rolling:event-afl-cd-m20260142601",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-03T10:10:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -558,7 +606,7 @@
       "projectionId": "projection:rolling:event-afl-cd-m20260142603",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-04T09:40:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -582,7 +630,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128949",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-04T19:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -606,7 +654,7 @@
       "projectionId": "projection:rolling:event-afl-cd-m20260142602",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T05:15:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -642,7 +690,7 @@
       "projectionId": "projection:rolling:event-afl-cd-m20260142604",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T09:35:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -654,7 +702,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128951",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T11:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -666,7 +714,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128944",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -678,7 +726,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128945",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -690,7 +738,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128947",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -702,7 +750,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128950",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -714,7 +762,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128952",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -738,7 +786,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128948",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-05T16:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -786,7 +834,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128946",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-06T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -810,7 +858,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128943",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-06T15:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -834,7 +882,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128953",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -846,7 +894,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128954",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -858,7 +906,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128955",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -870,7 +918,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128957",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -882,7 +930,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128959",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -906,7 +954,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128962",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T16:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -918,7 +966,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128961",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-12T19:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -930,7 +978,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128956",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-13T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -954,7 +1002,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128960",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-13T15:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -966,7 +1014,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128958",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-14T19:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -978,7 +1026,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128964",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-18T19:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1002,7 +1050,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128972",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-19T11:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1014,7 +1062,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128965",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-19T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1026,7 +1074,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128966",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-19T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1038,7 +1086,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128968",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-19T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1050,7 +1098,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128970",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-19T14:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1062,7 +1110,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128971",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-19T16:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1074,7 +1122,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128963",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-20T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1086,7 +1134,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128969",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-20T13:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1098,7 +1146,7 @@
       "projectionId": "projection:rolling:epl-2026-27-128967",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-20T15:30:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1122,7 +1170,7 @@
       "projectionId": "projection:rolling:event-afl-cd-m20260142901",
       "coverage": "covered",
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-09-26T04:30:00.000Z"
     },
     {
       "targetType": "feed-event",

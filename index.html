@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="177">
+<meta name="app-shell-version" content="180">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6906,7 +6906,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=173")
+  : loadDeferredScript("config/national-team-identities.js?v=180")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7888,7 +7888,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=177",
+  moduleScriptUrl: "config/major-events.js?v=180",
   url: "data/major-events.v1.json",
 });
 
@@ -10288,7 +10288,19 @@ function mergeFootballFixtureEvents(events){
     merged.set(event.canonicalEventId || event.eventId || event.id, event);
   }));
   events.forEach(event => merged.set(event.canonicalEventId || event.eventId || event.id, event));
-  return Array.from(merged.values());
+  const semanticallyMerged = [];
+  const semanticIndexes = new Map();
+  Array.from(merged.values()).forEach(event => {
+    const semanticKey = mainFeedFixtureSemanticKey(event);
+    const existingIndex = semanticKey ? semanticIndexes.get(semanticKey) : undefined;
+    if (existingIndex === undefined){
+      if (semanticKey) semanticIndexes.set(semanticKey, semanticallyMerged.length);
+      semanticallyMerged.push(event);
+      return;
+    }
+    semanticallyMerged[existingIndex] = { ...semanticallyMerged[existingIndex], ...event };
+  });
+  return semanticallyMerged;
 }
 
 function applyLoadedFootballBundle(bundleKey, payload){
@@ -11173,8 +11185,11 @@ function nowAEST(){
 function eventDateTime(ev){
   const normalized = FEED_CONTROLS?.eventStart?.(ev);
   if (normalized) return normalized;
-  const [y,m,d] = ev.date.split("-").map(Number);
-  const [hh,mm] = ev.time.split(":").map(Number);
+  const date = ev.date || ev.startDate;
+  const time = ev.time || "00:00";
+  if (!date) return new Date(NaN);
+  const [y,m,d] = date.split("-").map(Number);
+  const [hh,mm] = time.split(":").map(Number);
   return new Date(y, m-1, d, hh, mm, 0);
 }
 
@@ -11197,6 +11212,7 @@ function getEventStatus(ev){
   const now = nowAEST();
   const timing = FEED_CONTROLS?.timingState?.(ev, now);
   if (timing?.key === "live-now") return "live";
+  if (Number.isNaN(start.getTime())) return ev.status === "completed" || ev.lifecycleStatus === "retired" ? "past" : "upcoming";
   if (now < start) return "upcoming";
   return "past";
 }

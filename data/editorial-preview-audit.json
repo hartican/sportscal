@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-29T21:22:25.965Z",
+  "generatedAt": "2026-08-30T00:08:05.534Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
@@ -17,6 +17,7 @@
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
+        "event-specific",
         "narrative:matchup",
         "narrative:form",
         "narrative:path"

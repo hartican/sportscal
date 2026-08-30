@@ -21,6 +21,7 @@ projectedRecords.forEach(record => {
 });
 assert(html.includes("editorialNarrativeCopyForDisplay(ev, state)"), "selected and opened Feed cards must resolve their copy from the validated editorial projection before structural fallbacks");
 assert(html.includes("editorialNarrativeCopyForDisplay(record, state)"), "selected and opened Major Events cards must resolve their copy from the validated editorial projection before structural fallbacks");
+assert.match(html, /function mergeFootballFixtureEvents\(events\)[^]*semanticIndexes[^]*semanticallyMerged\[existingIndex\] = \{ \.\.\.semanticallyMerged\[existingIndex\], \.\.\.event \}/, "lazy football fixture bundles must yield to the later canonical event and its researched projection regardless of page-load order");
 
 assert.equal(typeof followFirst.toggleFeedback, "function", "follow-first feedback must expose a repeat-tap toggle");
 const basePreferences = followFirst.migratePreferences({});

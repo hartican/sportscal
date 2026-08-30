@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-29T21:27:33.438Z",
+  "generatedAt": "2026-08-30T00:08:05.731Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -2119,7 +2119,7 @@
     },
     {
       "id": "evt_87",
-      "name": "1st Test v South Africa (Day 1)",
+      "name": "South Africa v Australia — First Test",
       "sport": "Cricket",
       "date": "2026-10-09",
       "status": "upcoming",
@@ -2199,7 +2199,7 @@
     },
     {
       "id": "evt_88",
-      "name": "2nd Test v South Africa (Day 1)",
+      "name": "South Africa v Australia — Second Test",
       "sport": "Cricket",
       "date": "2026-10-18",
       "status": "upcoming",
@@ -2247,7 +2247,7 @@
     },
     {
       "id": "evt_89",
-      "name": "3rd Test v South Africa (Day 1)",
+      "name": "South Africa v Australia — Third Test",
       "sport": "Cricket",
       "date": "2026-10-27",
       "status": "upcoming",
@@ -2455,7 +2455,7 @@
     },
     {
       "id": "evt_90",
-      "name": "Boxing Day Test v New Zealand",
+      "name": "Australia v New Zealand — Boxing Day Test",
       "sport": "Cricket",
       "date": "2026-12-26",
       "status": "upcoming",
@@ -2471,9 +2471,9 @@
     },
     {
       "id": "evt_91",
-      "name": "New Year's Test v New Zealand",
+      "name": "Australia v New Zealand — New Year's Test",
       "sport": "Cricket",
-      "date": "2027-01-02",
+      "date": "2027-01-04",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,

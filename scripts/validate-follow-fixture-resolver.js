@@ -105,6 +105,10 @@ const publishedLiverpool = require("../data/events.json").events.find(event => e
 const semanticLiverpool = resolveUserFollowFixtures({ events:[publishedLiverpool], userState:state(follow("team:football:epl:10")) });
 assert.equal(semanticLiverpool.events.filter(event => event.name === "Liverpool v Nottingham Forest").length, 1, "the curated and source-bundle versions of a fixture must deduplicate even when provider ids differ");
 assert.equal(semanticLiverpool.events.find(event => event.name === "Liverpool v Nottingham Forest").canonicalEventId, publishedLiverpool.canonicalEventId, "semantic deduplication must preserve the curated canonical identity");
+const sourceLiverpool = resolveUserFollowFixtures({ events:[], userState:state(follow("team:football:epl:10")) }).events.find(event => event.name === "Liverpool v Nottingham Forest");
+const latePublishedLiverpool = resolveUserFollowFixtures({ events:[sourceLiverpool, publishedLiverpool], userState:state(follow("team:football:epl:10")) }).events.find(event => event.name === "Liverpool v Nottingham Forest");
+assert.equal(latePublishedLiverpool.id, publishedLiverpool.id, "a later paged canonical event must replace the generic fixture identity regardless of load order");
+assert.equal(latePublishedLiverpool.editorialNarrative?.projectionId, publishedLiverpool.editorialNarrative.projectionId, "a later paged canonical event must retain its researched L0 projection regardless of load order");
 const publishedWorldCupOpener = require("../data/events.json").events.find(event => event.id === "rlwc-australia-new-zealand-2026");
 const semanticWorldCupOpener = resolveUserFollowFixtures({ events:[publishedWorldCupOpener], userState:state(follow("team:nrl:kangaroos")) });
 const worldCupOpeners = semanticWorldCupOpener.events.filter(event => event.startTimeUtc && Date.parse(event.startTimeUtc) === Date.parse(publishedWorldCupOpener.startTimeUtc) && eventParticipantIds(event).includes("team:nrl:kangaroos") && eventParticipantIds(event).includes("team:nrl:kiwis"));

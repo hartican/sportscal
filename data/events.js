@@ -11971,11 +11971,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "Australia v Bangladesh — 1st Test is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Australia v Bangladesh — 1st Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Cricket Australia Darwin first Test match report",
+    "selectedSentence": "Test cricket returned to Darwin after 22 years with Bangladesh seeking a first breakthrough on Australian soil.",
+    "fullSpiel": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
+    "sourceName": "Cricket Australia Darwin Test report",
     "sourceUrl": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
-    "sourceCheckedAt": "2026-08-20T18:21:12.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -11997,13 +11997,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "recap",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "Australia v Bangladesh — 1st Test is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Bangladesh defeated Australia by nine wickets in the first Test in Darwin.",
-      "synopsisSpoilerOff": "Australia v Bangladesh — 1st Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "Test cricket returned to Darwin after 22 years with Bangladesh seeking a first breakthrough on Australian soil.",
+      "hookSpoilerOn": "Bangladesh's nine-wicket win in Darwin was their first Test victory on Australian soil.",
+      "synopsisSpoilerOff": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
+      "synopsisSpoilerOn": "Bangladesh defeated Australia by nine wickets in the first Test in Darwin. Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-20T18:21:12.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "score": "Bangladesh beat Australia by 9 wickets",
@@ -12029,7 +12030,51 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:bangladesh"
-    ]
+    ],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-bangladesh-first-test-2026",
+      "researchTier": "featured",
+      "hook": "Test cricket returned to Darwin after 22 years with Bangladesh seeking a first breakthrough on Australian soil.",
+      "synopsis": "Darwin's first Test since 2004 opened Australia's longest modern red-ball workload and gave Bangladesh a chance it had never converted on Australian soil. The match is complete, but its historical consequence remains protected until results are enabled.",
+      "hookSpoilerOn": "Bangladesh's nine-wicket win in Darwin was their first Test victory on Australian soil.",
+      "synopsisSpoilerOn": "Bangladesh defeated Australia by nine wickets in the first Test in Darwin. Bangladesh chased a target of 57 with nine wickets in hand after dismissing Australia for 198 and 284. Hasan Mahmud's 9-111 across the match and Mehidy Hasan Miraz's second-innings five-for underpinned Bangladesh's first Test victory on Australian soil. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
+      "threadIds": [
+        "thread:depth:cricket:bangladesh"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-bangladesh-first-test-2026:1",
+        "fact:depth:cricket:cricket-australia-bangladesh-first-test-2026:2",
+        "fact:depth:cricket:cricket-australia-bangladesh-first-test-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:bangladesh-first",
+        "source:depth:cricket:season",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "history",
+        "consequence",
+        "path"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — bangladesh persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:consequence",
+        "narrative:path"
+      ],
+      "sourceName": "Cricket Australia Darwin Test report",
+      "sourceUrl": "https://www.cricket.com.au/news/4560415/day-four-match-report-australia-lose-to-bangladesh-first-test-2026-darwin-scores-highlights-historic-victory-target-57-cameron-green-century-mehidy-hasan-miraz-five-wickets",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "event-nrl-129992401",
@@ -14050,11 +14095,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "Australia v Bangladesh — 2nd Test is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Australia v Bangladesh — 2nd Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Cricket Australia Mackay second Test match report",
-    "sourceUrl": "https://www.cricket.com.au/news/4565090/match-report-australia-beat-bangladesh-innings-victory-day-two-second-test-mackay-highlights-scores-mitchell-starc-ten-wickets-pat-cummins-cameron-green-fifty?tags=9037",
-    "sourceCheckedAt": "2026-08-28T05:20:00.000Z",
+    "selectedSentence": "Mackay's first Test became Australia's immediate answer to Darwin, with the two-match series itself on the line.",
+    "fullSpiel": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
+    "sourceName": "Cricket Australia 2026/27 international schedule",
+    "sourceUrl": "https://www.cricket.com.au/news/4473637/",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -14078,12 +14123,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 7,
       "intensitySource": "computed",
       "archetype": "international test",
-      "hookSpoilerOff": "Australia v Bangladesh — 2nd Test is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay.",
-      "synopsisSpoilerOff": "Australia v Bangladesh — 2nd Test is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory."
+      "hookSpoilerOff": "Mackay's first Test became Australia's immediate answer to Darwin, with the two-match series itself on the line.",
+      "hookSpoilerOn": "Australia answered Darwin with an innings-and-51-run win in Mackay, levelling the two-Test series.",
+      "synopsisSpoilerOff": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
+      "synopsisSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay. Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-28T05:20:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
@@ -14108,6 +14154,50 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "loser": "Bangladesh",
       "summary": "Australia defeated Bangladesh by an innings and 51 runs in Mackay.",
       "marginText": "Australia by an innings and 51 runs"
+    },
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-bangladesh-second-test-2026",
+      "researchTier": "featured",
+      "hook": "Mackay's first Test became Australia's immediate answer to Darwin, with the two-match series itself on the line.",
+      "synopsis": "Bangladesh arrived in Mackay with a historic lead; Australia arrived needing a response at a venue hosting Test cricket for the first time. That made the second match both a new-city occasion and the only chance to prevent the two-Test contest being settled by the Darwin upset.",
+      "hookSpoilerOn": "Australia answered Darwin with an innings-and-51-run win in Mackay, levelling the two-Test series.",
+      "synopsisSpoilerOn": "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay. Australia levelled the series inside two days after bowling Bangladesh out for 64 and 95. Mitchell Starc finished with match figures of 10-51 as Australia's 210 proved enough for an innings victory. This result advances the persistent bangladesh series thread rather than ending at the scoreline.",
+      "threadIds": [
+        "thread:depth:cricket:bangladesh"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-bangladesh-second-test-2026:1",
+        "fact:depth:cricket:cricket-australia-bangladesh-second-test-2026:2",
+        "fact:depth:cricket:cricket-australia-bangladesh-second-test-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:season",
+        "source:depth:cricket:bangladesh-first",
+        "source:depth:cricket:bangladesh-second"
+      ],
+      "dimensions": [
+        "history",
+        "path",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — bangladesh persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia 2026/27 international schedule",
+      "sourceUrl": "https://www.cricket.com.au/news/4473637/",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     }
   },
   {
@@ -15249,13 +15339,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Essendon v Port Adelaide is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Essendon v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "AFL",
-    "sourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "sourceCheckedAt": "2026-08-23T05:30:50.296Z",
+    "selectedSentence": "Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for; the final answer stays behind the spoiler control.",
+    "fullSpiel": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
+    "sourceUrl": "https://www.afl.com.au/ladder",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-23T05:30:50.296Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15299,7 +15389,58 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": null,
     "isInternational": false,
     "competitionScope": "domestic",
-    "representativeCountryCodes": []
+    "representativeCountryCodes": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:event-afl-cd-m20260142404",
+      "researchTier": "standard",
+      "hook": "Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for; the final answer stays behind the spoiler control.",
+      "synopsis": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
+      "hookSpoilerOn": "Port Adelaide defeated Essendon 105-95. Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for.",
+      "synopsisSpoilerOn": "Port Adelaide defeated Essendon 105-95. Essendon v Port Adelaide finished 95-105 in Round 24, with Port Adelaide winning by 10 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "threadIds": [
+        "thread:depth:afl:close"
+      ],
+      "factIds": [
+        "fact:depth:afl:event-afl-cd-m20260142404:1",
+        "fact:depth:afl:event-afl-cd-m20260142404:2"
+      ],
+      "sourceIds": [
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142404"
+      ],
+      "dimensions": [
+        "consequence",
+        "path"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "AFL 2026 — the last round into finals",
+      "contextSignals": [
+        "event-specific",
+        "narrative:consequence",
+        "narrative:path"
+      ],
+      "sourceName": "AFL 2026 final home-and-away ladder",
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 2,
+      "arcStage": "recap",
+      "hookSpoilerOff": "Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for; the final answer stays behind the spoiler control.",
+      "hookSpoilerOn": "Port Adelaide defeated Essendon 105-95. Two clubs outside the Final Ten entered Round 24 with pride and list direction left to play for.",
+      "synopsisSpoilerOff": "Essendon and Port Adelaide entered the final round outside the new Final Ten, making this less about ladder movement than the evidence each could carry into off-season decisions. The result is protected, but the chapter matters as the last competitive measure of two difficult campaigns.",
+      "synopsisSpoilerOn": "Port Adelaide defeated Essendon 105-95. Essendon v Port Adelaide finished 95-105 in Round 24, with Port Adelaide winning by 10 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "id": "event-nrl-129992507",
@@ -15332,13 +15473,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Titans v Sharks is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Titans v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL Match Centre / Champion Data",
-    "sourceUrl": "https://www.nrl.com/draw",
-    "sourceCheckedAt": "2026-08-23T07:06:10.996Z",
+    "selectedSentence": "Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+    "fullSpiel": "Titans and Sharks arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "sourceName": "NRL Match Centre / Champion Data current NRL table",
+    "sourceUrl": "https://www.nrl.com/ladder",
+    "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-23T07:06:10.996Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15382,7 +15523,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": null,
     "isInternational": false,
     "competitionScope": "domestic",
-    "representativeCountryCodes": []
+    "representativeCountryCodes": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:event-nrl-129992507",
+      "researchTier": "standard",
+      "hook": "Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsis": "Titans and Sharks arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Sharks defeated Titans 30-22. Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsisSpoilerOn": "Sharks defeated Titans 30-22. The current table now has Titans 16th on 18 points and Sharks 5th on 34, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-337",
+        "thread:rolling:team-nrl-333"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-337:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-333:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "dimensions": [
+        "form"
+      ],
+      "researchedAt": "2026-08-29T23:53:24.207Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Titans — current NRL path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form"
+      ],
+      "sourceName": "NRL Match Centre / Champion Data current NRL table",
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 2,
+      "arcStage": "recap",
+      "hookSpoilerOff": "Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOn": "Sharks defeated Titans 30-22. Titans and Sharks met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsisSpoilerOff": "Titans and Sharks arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "synopsisSpoilerOn": "Sharks defeated Titans 30-22. The current table now has Titans 16th on 18 points and Sharks 5th on 34, keeping the result connected to the wider NRL path.",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z"
+    }
   },
   {
     "id": "event-afl-cd_m20260142408",
@@ -15415,13 +15603,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sydney Swans v North Melbourne is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Sydney Swans v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "AFL",
-    "sourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "sourceCheckedAt": "2026-08-23T08:35:05.473Z",
+    "selectedSentence": "Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
+    "fullSpiel": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
+    "sourceUrl": "https://www.afl.com.au/ladder",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-23T08:35:05.473Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15465,7 +15653,58 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": null,
     "isInternational": false,
     "competitionScope": "domestic",
-    "representativeCountryCodes": []
+    "representativeCountryCodes": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:event-afl-cd-m20260142408",
+      "researchTier": "standard",
+      "hook": "Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
+      "synopsis": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
+      "hookSpoilerOn": "Sydney Swans defeated North Melbourne 123-70. Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
+      "synopsisSpoilerOn": "Sydney Swans defeated North Melbourne 123-70. Sydney Swans v North Melbourne finished 123-70 in Round 24, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "threadIds": [
+        "thread:depth:afl:close"
+      ],
+      "factIds": [
+        "fact:depth:afl:event-afl-cd-m20260142408:1",
+        "fact:depth:afl:event-afl-cd-m20260142408:2"
+      ],
+      "sourceIds": [
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142408"
+      ],
+      "dimensions": [
+        "form",
+        "path"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "AFL 2026 — the last round into finals",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:path"
+      ],
+      "sourceName": "AFL 2026 final home-and-away ladder",
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 2,
+      "arcStage": "recap",
+      "hookSpoilerOff": "Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
+      "hookSpoilerOn": "Sydney Swans defeated North Melbourne 123-70. Sydney's five-match surge into a top-two finish closed against North Melbourne, with the result kept behind the spoiler control.",
+      "synopsisSpoilerOff": "Sydney arrived on a five-match streak and with a home qualifying final already taking shape. North Melbourne's role was not structural filler: this was Sydney's last competitive rehearsal before a double-chance final and North's final chance to test that finals-ready level.",
+      "synopsisSpoilerOn": "Sydney Swans defeated North Melbourne 123-70. Sydney Swans v North Melbourne finished 123-70 in Round 24, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "id": "event-nrl-129992508",
@@ -15498,13 +15737,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Roosters v Wests Tigers is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Roosters v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL Match Centre / Champion Data",
-    "sourceUrl": "https://www.nrl.com/draw",
-    "sourceCheckedAt": "2026-08-23T08:28:06.620Z",
+    "selectedSentence": "Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+    "fullSpiel": "Roosters and Wests Tigers arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+    "sourceName": "NRL Match Centre / Champion Data current NRL table",
+    "sourceUrl": "https://www.nrl.com/ladder",
+    "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-23T08:28:06.620Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15548,7 +15787,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": null,
     "isInternational": false,
     "competitionScope": "domestic",
-    "representativeCountryCodes": []
+    "representativeCountryCodes": [],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:event-nrl-129992508",
+      "researchTier": "standard",
+      "hook": "Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "synopsis": "Roosters and Wests Tigers arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "hookSpoilerOn": "Wests Tigers defeated Roosters 25-24. Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden.",
+      "synopsisSpoilerOn": "Wests Tigers defeated Roosters 25-24. The current table now has Roosters 4th on 38 points and Wests Tigers 14th on 22, keeping the result connected to the wider NRL path.",
+      "threadIds": [
+        "thread:rolling:team-nrl-331",
+        "thread:rolling:team-nrl-334"
+      ],
+      "factIds": [
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-331:standing",
+        "fact:rolling:competition-nrl-premiership-2026:team-nrl-334:standing"
+      ],
+      "sourceIds": [
+        "source:rolling:competition-nrl-premiership-2026:ladder"
+      ],
+      "dimensions": [
+        "form"
+      ],
+      "researchedAt": "2026-08-29T23:53:24.207Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Roosters — current NRL path",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form"
+      ],
+      "sourceName": "NRL Match Centre / Champion Data current NRL table",
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 2,
+      "arcStage": "recap",
+      "hookSpoilerOff": "Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
+      "hookSpoilerOn": "Wests Tigers defeated Roosters 25-24. Roosters and Wests Tigers met in Round 25 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden.",
+      "synopsisSpoilerOff": "Roosters and Wests Tigers arrived at Round 25 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
+      "synopsisSpoilerOn": "Wests Tigers defeated Roosters 25-24. The current table now has Roosters 4th on 38 points and Wests Tigers 14th on 22, keeping the result connected to the wider NRL path.",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z"
+    }
   },
   {
     "id": "event-afl-cd_m20260142409",
@@ -15581,13 +15867,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-    "fullSpiel": "West Coast Eagles and Hawthorn arrived at Round 24 inside a live AFL story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "Hawthorn's final trip west decided whether a top-four double chance survived the last day; the result stays hidden here.",
+    "fullSpiel": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15636,47 +15922,51 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142409",
       "researchTier": "standard",
-      "hook": "West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "synopsis": "West Coast Eagles and Hawthorn arrived at Round 24 inside a live AFL story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden.",
-      "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. The current table now has West Coast Eagles 16th on 16 points and Hawthorn 4th on 64, keeping the result connected to the wider AFL path.",
+      "hook": "Hawthorn's final trip west decided whether a top-four double chance survived the last day; the result stays hidden here.",
+      "synopsis": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
+      "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. Hawthorn's final trip west decided whether a top-four double chance survived the last day.",
+      "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles v Hawthorn finished 45-107 in Round 24, with Hawthorn winning by 62 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t150",
-        "thread:rolling:team-afl-cd-t80"
+        "thread:depth:afl:close"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t150:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t80:standing"
+        "fact:depth:afl:event-afl-cd-m20260142409:1",
+        "fact:depth:afl:event-afl-cd-m20260142409:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142409"
       ],
       "dimensions": [
-        "form"
+        "consequence",
+        "path"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden here.",
-      "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles and Hawthorn met in Round 24 with a late-season contest carrying finals-position pressure; the outcome stays hidden.",
-      "synopsisSpoilerOff": "West Coast Eagles and Hawthorn arrived at Round 24 inside a live AFL story: a late-season contest carrying finals-position pressure. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. The current table now has West Coast Eagles 16th on 16 points and Hawthorn 4th on 64, keeping the result connected to the wider AFL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Hawthorn's final trip west decided whether a top-four double chance survived the last day; the result stays hidden here.",
+      "hookSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. Hawthorn's final trip west decided whether a top-four double chance survived the last day.",
+      "synopsisSpoilerOff": "Hawthorn entered the last match of Round 24 with fourth place still dependent on the result, while Brisbane, Geelong and Adelaide watched the same outcome. West Coast therefore became the opponent in a four-club finals-seeding story, not merely the last fixture on the schedule.",
+      "synopsisSpoilerOn": "Hawthorn defeated West Coast Eagles 107-45. West Coast Eagles v Hawthorn finished 45-107 in Round 24, with Hawthorn winning by 62 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "West Coast Eagles — current AFL path",
+      "angle": "AFL 2026 — the last round into finals",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:consequence",
+        "narrative:path"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -15743,14 +16033,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Brighton & Hove Albion and Aston Villa arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 12-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Brighton's goals-by-committee attack met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15769,47 +16059,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128929",
       "researchTier": "standard",
-      "hook": "Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Brighton & Hove Albion and Aston Villa arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 12-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. The current table now has Brighton & Hove Albion 5th on 3 points and Aston Villa 17th on 0, keeping the result connected to the wider Premier League path.",
+      "hook": "Brighton's goals-by-committee attack met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton's goals-by-committee attack and Aston Villa's post-Europa rebuild now move into different next chapters.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton & Hove Albion completed a 4-goal win in Premier League Matchweek 1. The result now updates Brighton & Hove Albion's a side that spread last season's goals across 19 players thread and Aston Villa's a new midfield and defensive spine thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-131",
-        "thread:rolling:team-football-epl-2"
+        "thread:depth:epl:team-football-epl-131:2026-27",
+        "thread:depth:epl:team-football-epl-2:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+        "fact:depth:epl:team-football-epl-131:season-arc",
+        "fact:depth:epl:team-football-epl-2:season-arc",
+        "fact:depth:epl:epl-2026-27-128929:team-football-epl-131:entry-form",
+        "fact:depth:epl:epl-2026-27-128929:team-football-epl-2:entry-form",
+        "fact:depth:epl:epl-2026-27-128929:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128929"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton & Hove Albion and Aston Villa met in Premier League Matchweek 1 with a chance to compress or widen the 12-place gap in.",
-      "synopsisSpoilerOff": "Brighton & Hove Albion and Aston Villa arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 12-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. The current table now has Brighton & Hove Albion 5th on 3 points and Aston Villa 17th on 0, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Brighton's goals-by-committee attack met Aston Villa's post-Europa rebuild; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton's goals-by-committee attack and Aston Villa's post-Europa rebuild now move into different next chapters.",
+      "synopsisSpoilerOff": "Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a side that spread last season's goals across 19 players against a new midfield and defensive spine. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion defeated Aston Villa 4-0. Brighton & Hove Albion completed a 4-goal win in Premier League Matchweek 1. The result now updates Brighton & Hove Albion's a side that spread last season's goals across 19 players thread and Aston Villa's a new midfield and defensive spine thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Brighton & Hove Albion — current Premier League path",
+      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -15876,14 +16176,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Manchester City and AFC Bournemouth arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 11-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Manchester City's first post-Guardiola campaign met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -15902,47 +16202,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128930",
       "researchTier": "standard",
-      "hook": "Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Manchester City and AFC Bournemouth arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 11-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early.",
-      "synopsisSpoilerOn": "Manchester City defeated Bournemouth 2-1. The current table now has Manchester City 1st on 6 points and AFC Bournemouth 12th on 1, keeping the result connected to the wider Premier League path.",
+      "hook": "Manchester City's first post-Guardiola campaign met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City's first post-Guardiola campaign and Bournemouth's first European-season balancing act now move into different next.",
+      "synopsisSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City completed a 1-goal win in Premier League Matchweek 1. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-11",
-        "thread:rolling:team-football-epl-127"
+        "thread:depth:epl:team-football-epl-11:2026-27",
+        "thread:depth:epl:team-football-epl-127:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing"
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:team-football-epl-127:season-arc",
+        "fact:depth:epl:epl-2026-27-128930:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-128930:team-football-epl-127:entry-form",
+        "fact:depth:epl:epl-2026-27-128930:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128930"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City and AFC Bournemouth met in Premier League Matchweek 1 with a chance to compress or widen the 11-place gap in the early.",
-      "synopsisSpoilerOff": "Manchester City and AFC Bournemouth arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 11-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Manchester City defeated Bournemouth 2-1. The current table now has Manchester City 1st on 6 points and AFC Bournemouth 12th on 1, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign met Bournemouth's first European-season balancing act; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City's first post-Guardiola campaign and Bournemouth's first European-season balancing act now move into different next.",
+      "synopsisSpoilerOff": "Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against Marco Rose's attempt to preserve a best-ever finish. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Manchester City defeated Bournemouth 2-1. Manchester City completed a 1-goal win in Premier League Matchweek 1. The result now updates Manchester City's Enzo Maresca's continuity-versus-change problem thread and AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Manchester City — current Premier League path",
+      "angle": "Manchester City — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -15963,7 +16273,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Zandvoort's final scheduled Formula 1 weekend has a result-aware chapter ready behind spoiler protection. The persistent story joins the late-summer championship momentum to the circuit's farewell without exposing the outcome in the default view.",
     "sourceName": "FIA — 2026 Dutch Grand Prix report",
     "sourceUrl": "https://www.fia.com/news/f1-norris-wins-dramatic-dutch-grand-prix-ahead-antonelli-and-russell-verstappen-crashes",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -15984,9 +16294,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Zandvoort's final scheduled Formula 1 weekend has a result-aware chapter ready behind spoiler protection. The persistent story joins the late-summer championship momentum to the circuit's farewell without exposing the outcome in the default view.",
       "synopsisSpoilerOn": "Lando Norris followed his Hungary victory by catching and passing Kimi Antonelli after the restart at Zandvoort. The win closed Formula 1's final scheduled Dutch Grand Prix weekend and carried a two-race streak into the next chapter at Monza.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "sourceTrust": "unverified",
     "score": "1 Lando Norris; 2 Kimi Antonelli +11.536s; 3 George Russell +15.906s",
     "outcomeText": "Lando Norris won the Dutch Grand Prix ahead of Kimi Antonelli and George Russell.",
@@ -16029,7 +16339,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "matchup",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -16044,7 +16354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "FIA — 2026 Dutch Grand Prix report",
       "sourceUrl": "https://www.fia.com/news/f1-norris-wins-dramatic-dutch-grand-prix-ahead-antonelli-and-russell-verstappen-crashes",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     }
   },
@@ -16111,14 +16421,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Newcastle United and Liverpool arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Newcastle's new era after a summer exodus met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16137,47 +16447,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128931",
       "researchTier": "standard",
-      "hook": "Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Newcastle United and Liverpool arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the.",
-      "synopsisSpoilerOn": "Newcastle United drew Liverpool 2-2. The current table now has Newcastle United 3rd on 4 points and Liverpool 11th on 2, keeping the result connected to the wider Premier League path.",
+      "hook": "Newcastle's new era after a summer exodus met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle's new era after a summer exodus and Liverpool's high-press rebuild now move into different next chapters.",
+      "synopsisSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle United and Liverpool shared the points after a 2-2 draw. The result now updates Newcastle United's rebuilding leadership, midfield and coaching at once thread and Liverpool's Andoni Iraola's faster counterattacking identity thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-23",
-        "thread:rolling:team-football-epl-10"
+        "thread:depth:epl:team-football-epl-23:2026-27",
+        "thread:depth:epl:team-football-epl-10:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:team-football-epl-10:season-arc",
+        "fact:depth:epl:epl-2026-27-128931:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-128931:team-football-epl-10:entry-form",
+        "fact:depth:epl:epl-2026-27-128931:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128931"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle United and Liverpool met in Premier League Matchweek 1 with a chance to compress or widen the 8-place gap in the early table; the.",
-      "synopsisSpoilerOff": "Newcastle United and Liverpool arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Newcastle United drew Liverpool 2-2. The current table now has Newcastle United 3rd on 4 points and Liverpool 11th on 2, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Newcastle's new era after a summer exodus met Liverpool's high-press rebuild; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle's new era after a summer exodus and Liverpool's high-press rebuild now move into different next chapters.",
+      "synopsisSpoilerOff": "Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Andoni Iraola's faster counterattacking identity. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Newcastle United drew Liverpool 2-2. Newcastle United and Liverpool shared the points after a 2-2 draw. The result now updates Newcastle United's rebuilding leadership, midfield and coaching at once thread and Liverpool's Andoni Iraola's faster counterattacking identity thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Newcastle United — current Premier League path",
+      "angle": "Newcastle United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -16244,14 +16564,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Fulham and Chelsea arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 6-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Fulham's first post-Marco Silva season met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16270,47 +16590,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128932",
       "researchTier": "standard",
-      "hook": "Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Fulham and Chelsea arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 6-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Chelsea defeated Fulham 3-2. Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden.",
-      "synopsisSpoilerOn": "Chelsea defeated Fulham 3-2. The current table now has Fulham 14th on 0 points and Chelsea 8th on 3, keeping the result connected to the wider Premier League path.",
+      "hook": "Fulham's first post-Marco Silva season met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Chelsea defeated Fulham 3-2. Fulham's first post-Marco Silva season and Chelsea's Xabi Alonso reset now move into different next chapters.",
+      "synopsisSpoilerOn": "Chelsea defeated Fulham 3-2. Chelsea completed a 1-goal win in Premier League Matchweek 1. The result now updates Fulham's Alvaro Arbeloa's wide overloads thread and Chelsea's a new three-at-the-back project without European midweeks thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-34",
-        "thread:rolling:team-football-epl-4"
+        "thread:depth:epl:team-football-epl-34:2026-27",
+        "thread:depth:epl:team-football-epl-4:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:team-football-epl-4:season-arc",
+        "fact:depth:epl:epl-2026-27-128932:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-128932:team-football-epl-4:entry-form",
+        "fact:depth:epl:epl-2026-27-128932:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128932"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Chelsea defeated Fulham 3-2. Fulham and Chelsea met in Premier League Matchweek 1 with a chance to compress or widen the 6-place gap in the early table; the outcome stays hidden.",
-      "synopsisSpoilerOff": "Fulham and Chelsea arrived at Premier League Matchweek 1 inside a live Premier League story: a chance to compress or widen the 6-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Chelsea defeated Fulham 3-2. The current table now has Fulham 14th on 0 points and Chelsea 8th on 3, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Fulham's first post-Marco Silva season met Chelsea's Xabi Alonso reset; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Chelsea defeated Fulham 3-2. Fulham's first post-Marco Silva season and Chelsea's Xabi Alonso reset now move into different next chapters.",
+      "synopsisSpoilerOff": "Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new three-at-the-back project without European midweeks. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Chelsea defeated Fulham 3-2. Chelsea completed a 1-goal win in Premier League Matchweek 1. The result now updates Fulham's Alvaro Arbeloa's wide overloads thread and Chelsea's a new three-at-the-back project without European midweeks thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Fulham — current Premier League path",
+      "angle": "Fulham — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -16351,7 +16681,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16418,7 +16748,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -16428,7 +16758,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Storm defeated Broncos 46-20. Broncos and Storm met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
       "synopsisSpoilerOff": "Broncos and Storm arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "synopsisSpoilerOn": "Storm defeated Broncos 46-20. The current table now has Broncos 15th on 20 points and Storm 11th on 26, keeping the result connected to the wider NRL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
@@ -16481,7 +16811,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16548,7 +16878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -16558,7 +16888,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Sea Eagles defeated Dragons 44-10. Sea Eagles and Dragons met in Round 26 with a late-season test of where both clubs finish; the outcome stays hidden here.",
       "synopsisSpoilerOff": "Sea Eagles and Dragons arrived at Round 26 inside a live NRL story: a late-season test of where both clubs finish. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "synopsisSpoilerOn": "Sea Eagles defeated Dragons 44-10. The current table now has Sea Eagles 9th on 28 points and Dragons 17th on 14, keeping the result connected to the wider NRL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
@@ -16605,13 +16935,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-    "fullSpiel": "Western Bulldogs and Collingwood arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
+    "fullSpiel": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16660,47 +16990,51 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142502",
       "researchTier": "standard",
-      "hook": "Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "synopsis": "Western Bulldogs and Collingwood arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The current table now has Western Bulldogs 8th on 54 points and Collingwood 9th on 52, keeping the result connected to the wider AFL path.",
+      "hook": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
+      "synopsis": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
+      "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The first AFL wildcard final came down to one kick after the siren.",
+      "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t140",
-        "thread:rolling:team-afl-cd-t40"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t140:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t40:standing"
+        "fact:depth:afl:event-afl-cd-m20260142502:1",
+        "fact:depth:afl:event-afl-cd-m20260142502:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142502"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs and Collingwood met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Western Bulldogs and Collingwood arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The current table now has Western Bulldogs 8th on 54 points and Collingwood 9th on 52, keeping the result connected to the wider AFL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
+      "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The first AFL wildcard final came down to one kick after the siren.",
+      "synopsisSpoilerOff": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
+      "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Western Bulldogs — current AFL path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -16741,7 +17075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16808,7 +17142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -16818,7 +17152,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Panthers defeated Bulldogs 24-10. Panthers and Bulldogs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
       "synopsisSpoilerOff": "Panthers and Bulldogs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "synopsisSpoilerOn": "Panthers defeated Bulldogs 24-10. The current table now has Panthers 1st on 40 points and Bulldogs 10th on 28, keeping the result connected to the wider NRL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
@@ -16897,14 +17231,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Crystal Palace and Manchester City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 18-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Crystal Palace's Pierre Sage transition met Manchester City's first post-Guardiola campaign; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Enzo Maresca's continuity-versus-change problem. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -16923,47 +17257,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128937",
       "researchTier": "standard",
-      "hook": "Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Crystal Palace and Manchester City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 18-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early.",
-      "synopsisSpoilerOn": "Manchester City defeated Crystal Palace 4-1. The current table now has Crystal Palace 19th on 0 points and Manchester City 1st on 6, keeping the result connected to the wider Premier League path.",
+      "hook": "Crystal Palace's Pierre Sage transition met Manchester City's first post-Guardiola campaign; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Enzo Maresca's continuity-versus-change problem. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Crystal Palace's Pierre Sage transition and Manchester City's first post-Guardiola campaign now move into different next chapters.",
+      "synopsisSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Manchester City completed a 3-goal win in Premier League Matchweek 2. The result now updates Crystal Palace's a new build-from-the-back version of their established shape thread and Manchester City's Enzo Maresca's continuity-versus-change problem thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-6",
-        "thread:rolling:team-football-epl-11"
+        "thread:depth:epl:team-football-epl-6:2026-27",
+        "thread:depth:epl:team-football-epl-11:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing"
+        "fact:depth:epl:team-football-epl-6:season-arc",
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:epl-2026-27-128937:team-football-epl-6:entry-form",
+        "fact:depth:epl:epl-2026-27-128937:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-128937:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128937"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Crystal Palace and Manchester City met in Premier League Matchweek 2 with a chance to compress or widen the 18-place gap in the early.",
-      "synopsisSpoilerOff": "Crystal Palace and Manchester City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 18-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Manchester City defeated Crystal Palace 4-1. The current table now has Crystal Palace 19th on 0 points and Manchester City 1st on 6, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Crystal Palace's Pierre Sage transition met Manchester City's first post-Guardiola campaign; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Crystal Palace's Pierre Sage transition and Manchester City's first post-Guardiola campaign now move into different next chapters.",
+      "synopsisSpoilerOff": "Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Enzo Maresca's continuity-versus-change problem. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Manchester City defeated Crystal Palace 4-1. Manchester City completed a 3-goal win in Premier League Matchweek 2. The result now updates Crystal Palace's a new build-from-the-back version of their established shape thread and Manchester City's Enzo Maresca's continuity-versus-change problem thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Crystal Palace — current Premier League path",
+      "angle": "Crystal Palace — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -17004,7 +17348,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17071,7 +17415,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -17081,7 +17425,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Rabbitohs defeated Titans 42-22. Titans and Rabbitohs met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden here.",
       "synopsisSpoilerOff": "Titans and Rabbitohs arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "synopsisSpoilerOn": "Rabbitohs defeated Titans 42-22. The current table now has Titans 16th on 18 points and Rabbitohs 6th on 32, keeping the result connected to the wider NRL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
@@ -17134,7 +17478,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17201,7 +17545,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -17211,7 +17555,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Dolphins defeated Roosters 26-12. Roosters and Dolphins met in Round 26 with a direct finals-position contest; the outcome stays hidden here.",
       "synopsisSpoilerOff": "Roosters and Dolphins arrived at Round 26 inside a live NRL story: a direct finals-position contest. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "synopsisSpoilerOn": "Dolphins defeated Roosters 26-12. The current table now has Roosters 4th on 38 points and Dolphins 3rd on 38, keeping the result connected to the wider NRL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
@@ -17264,7 +17608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17331,7 +17675,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -17341,7 +17685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Cowboys defeated Wests Tigers 24-10. Cowboys and Wests Tigers met in Round 26 with a finals contender meeting a side capable of disrupting the run-in; the outcome stays hidden.",
       "synopsisSpoilerOff": "Cowboys and Wests Tigers arrived at Round 26 inside a live NRL story: a finals contender meeting a side capable of disrupting the run-in. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
       "synopsisSpoilerOn": "Cowboys defeated Wests Tigers 24-10. The current table now has Cowboys 8th on 32 points and Wests Tigers 14th on 22, keeping the result connected to the wider NRL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
@@ -17388,13 +17732,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-    "fullSpiel": "Melbourne and Carlton arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
+    "fullSpiel": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17443,47 +17787,51 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142501",
       "researchTier": "standard",
-      "hook": "Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "synopsis": "Melbourne and Carlton arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. The current table now has Melbourne 7th on 60 points and Carlton 10th on 50, keeping the result connected to the wider AFL path.",
+      "hook": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
+      "synopsis": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
+      "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season.",
+      "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t90",
-        "thread:rolling:team-afl-cd-t30"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t90:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t30:standing"
+        "fact:depth:afl:event-afl-cd-m20260142501:1",
+        "fact:depth:afl:event-afl-cd-m20260142501:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142501"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne and Carlton met in Wildcard Finals with a sudden-death final with no second chance; the outcome stays hidden here.",
-      "synopsisSpoilerOff": "Melbourne and Carlton arrived at Wildcard Finals inside a live AFL story: a sudden-death final with no second chance. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. The current table now has Melbourne 7th on 60 points and Carlton 10th on 50, keeping the result connected to the wider AFL path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
+      "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season.",
+      "synopsisSpoilerOff": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
+      "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Melbourne — current AFL path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -17550,14 +17898,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Liverpool and Nottingham Forest arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 2-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Liverpool's high-press rebuild met Nottingham Forest's Glasner reset; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a new three-at-the-back structure against a poor home run. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17576,47 +17924,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128939",
       "researchTier": "standard",
-      "hook": "Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Liverpool and Nottingham Forest arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 2-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the.",
-      "synopsisSpoilerOn": "Liverpool drew Nottingham Forest 2-2. The current table now has Liverpool 11th on 2 points and Nottingham Forest 13th on 1, keeping the result connected to the wider Premier League path.",
+      "hook": "Liverpool's high-press rebuild met Nottingham Forest's Glasner reset; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a new three-at-the-back structure against a poor home run. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool's high-press rebuild and Nottingham Forest's Glasner reset now move into different next chapters.",
+      "synopsisSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool and Nottingham Forest shared the points after a 2-2 draw. The result now updates Liverpool's Andoni Iraola's faster counterattacking identity thread and Nottingham Forest's a new three-at-the-back structure against a poor home run thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-10",
-        "thread:rolling:team-football-epl-15"
+        "thread:depth:epl:team-football-epl-10:2026-27",
+        "thread:depth:epl:team-football-epl-15:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing"
+        "fact:depth:epl:team-football-epl-10:season-arc",
+        "fact:depth:epl:team-football-epl-15:season-arc",
+        "fact:depth:epl:epl-2026-27-128939:team-football-epl-10:entry-form",
+        "fact:depth:epl:epl-2026-27-128939:team-football-epl-15:entry-form",
+        "fact:depth:epl:epl-2026-27-128939:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128939"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool and Nottingham Forest met in Premier League Matchweek 2 with a chance to compress or widen the 2-place gap in the early table; the.",
-      "synopsisSpoilerOff": "Liverpool and Nottingham Forest arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 2-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Liverpool drew Nottingham Forest 2-2. The current table now has Liverpool 11th on 2 points and Nottingham Forest 13th on 1, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Liverpool's high-press rebuild met Nottingham Forest's Glasner reset; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool's high-press rebuild and Nottingham Forest's Glasner reset now move into different next chapters.",
+      "synopsisSpoilerOff": "Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against a new three-at-the-back structure against a poor home run. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Liverpool drew Nottingham Forest 2-2. Liverpool and Nottingham Forest shared the points after a 2-2 draw. The result now updates Liverpool's Andoni Iraola's faster counterattacking identity thread and Nottingham Forest's a new three-at-the-back structure against a poor home run thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Liverpool — current Premier League path",
+      "angle": "Liverpool — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -17683,14 +18041,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "AFC Bournemouth and Everton arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Bournemouth's first European-season balancing act met Everton's search for more attack; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against adding goals to one of the league's strongest away defences. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17709,47 +18067,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128934",
       "researchTier": "standard",
-      "hook": "AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "AFC Bournemouth and Everton arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Bournemouth drew Everton 1-1. AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome.",
-      "synopsisSpoilerOn": "Bournemouth drew Everton 1-1. The current table now has AFC Bournemouth 12th on 1 points and Everton 4th on 4, keeping the result connected to the wider Premier League path.",
+      "hook": "Bournemouth's first European-season balancing act met Everton's search for more attack; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against adding goals to one of the league's strongest away defences. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Bournemouth drew Everton 1-1. Bournemouth's first European-season balancing act and Everton's search for more attack now move into different next chapters.",
+      "synopsisSpoilerOn": "Bournemouth drew Everton 1-1. Bournemouth and Everton shared the points after a 1-1 draw. The result now updates AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread and Everton's adding goals to one of the league's strongest away defences thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-127",
-        "thread:rolling:team-football-epl-7"
+        "thread:depth:epl:team-football-epl-127:2026-27",
+        "thread:depth:epl:team-football-epl-7:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing"
+        "fact:depth:epl:team-football-epl-127:season-arc",
+        "fact:depth:epl:team-football-epl-7:season-arc",
+        "fact:depth:epl:epl-2026-27-128934:team-football-epl-127:entry-form",
+        "fact:depth:epl:epl-2026-27-128934:team-football-epl-7:entry-form",
+        "fact:depth:epl:epl-2026-27-128934:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128934"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Bournemouth drew Everton 1-1. AFC Bournemouth and Everton met in Premier League Matchweek 2 with a chance to compress or widen the 8-place gap in the early table; the outcome.",
-      "synopsisSpoilerOff": "AFC Bournemouth and Everton arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 8-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Bournemouth drew Everton 1-1. The current table now has AFC Bournemouth 12th on 1 points and Everton 4th on 4, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Bournemouth's first European-season balancing act met Everton's search for more attack; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Bournemouth drew Everton 1-1. Bournemouth's first European-season balancing act and Everton's search for more attack now move into different next chapters.",
+      "synopsisSpoilerOff": "Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against adding goals to one of the league's strongest away defences. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Bournemouth drew Everton 1-1. Bournemouth and Everton shared the points after a 1-1 draw. The result now updates AFC Bournemouth's Marco Rose's attempt to preserve a best-ever finish thread and Everton's adding goals to one of the league's strongest away defences thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "AFC Bournemouth — current Premier League path",
+      "angle": "AFC Bournemouth — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -17816,14 +18184,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Coventry City and Hull City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 16-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Coventry's return after 25 years met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17842,47 +18210,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128936",
       "researchTier": "standard",
-      "hook": "Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Coventry City and Hull City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 16-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Hull City defeated Coventry City 1-0. Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the.",
-      "synopsisSpoilerOn": "Hull City defeated Coventry City 1-0. The current table now has Coventry City 18th on 0 points and Hull City 2nd on 6, keeping the result connected to the wider Premier League path.",
+      "hook": "Coventry's return after 25 years met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Hull City defeated Coventry City 1-0. Coventry's return after 25 years and Hull's top-flight return after nine years now move into different next chapters.",
+      "synopsisSpoilerOn": "Hull City defeated Coventry City 1-0. Hull City completed a 1-goal win in Premier League Matchweek 2. The result now updates Coventry City's the set-piece strength behind a 97-goal promotion thread and Hull City's a playoff-built counterattack thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-5",
-        "thread:rolling:team-football-epl-41"
+        "thread:depth:epl:team-football-epl-5:2026-27",
+        "thread:depth:epl:team-football-epl-41:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+        "fact:depth:epl:team-football-epl-5:season-arc",
+        "fact:depth:epl:team-football-epl-41:season-arc",
+        "fact:depth:epl:epl-2026-27-128936:team-football-epl-5:entry-form",
+        "fact:depth:epl:epl-2026-27-128936:team-football-epl-41:entry-form",
+        "fact:depth:epl:epl-2026-27-128936:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128936"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Hull City defeated Coventry City 1-0. Coventry City and Hull City met in Premier League Matchweek 2 with a chance to compress or widen the 16-place gap in the early table; the.",
-      "synopsisSpoilerOff": "Coventry City and Hull City arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 16-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Hull City defeated Coventry City 1-0. The current table now has Coventry City 18th on 0 points and Hull City 2nd on 6, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Coventry's return after 25 years met Hull's top-flight return after nine years; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Hull City defeated Coventry City 1-0. Coventry's return after 25 years and Hull's top-flight return after nine years now move into different next chapters.",
+      "synopsisSpoilerOff": "Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a playoff-built counterattack. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Hull City defeated Coventry City 1-0. Hull City completed a 1-goal win in Premier League Matchweek 2. The result now updates Coventry City's the set-piece strength behind a 97-goal promotion thread and Hull City's a playoff-built counterattack thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Coventry City — current Premier League path",
+      "angle": "Coventry City — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -17949,14 +18327,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in the early table; the outcome stays hidden here.",
-    "fullSpiel": "Tottenham Hotspur and Newcastle United arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 17-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Tottenham's first full De Zerbi season met Newcastle's new era after a summer exodus; both season questions were tested, with the details under spoiler control.",
+    "fullSpiel": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against rebuilding leadership, midfield and coaching at once. The match is complete, with the result protected until spoilers are enabled.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -17975,47 +18353,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128942",
       "researchTier": "standard",
-      "hook": "Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in the early table; the outcome stays hidden here.",
-      "synopsis": "Tottenham Hotspur and Newcastle United arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 17-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "hookSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in.",
-      "synopsisSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. The current table now has Tottenham Hotspur 20th on 0 points and Newcastle United 3rd on 4, keeping the result connected to the wider Premier League path.",
+      "hook": "Tottenham's first full De Zerbi season met Newcastle's new era after a summer exodus; both season questions were tested, with the details under spoiler control.",
+      "synopsis": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against rebuilding leadership, midfield and coaching at once. The match is complete, with the result protected until spoilers are enabled.",
+      "hookSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Tottenham's first full De Zerbi season and Newcastle's new era after a summer exodus now move into different next chapters.",
+      "synopsisSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Newcastle United completed a 2-goal win in Premier League Matchweek 2. The result now updates Tottenham Hotspur's a new ball-playing defence under an attacking coach thread and Newcastle United's rebuilding leadership, midfield and coaching at once thread rather than ending the story at full-time.",
       "threadIds": [
-        "thread:rolling:team-football-epl-21",
-        "thread:rolling:team-football-epl-23"
+        "thread:depth:epl:team-football-epl-21:2026-27",
+        "thread:depth:epl:team-football-epl-23:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing"
+        "fact:depth:epl:team-football-epl-21:season-arc",
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:epl-2026-27-128942:team-football-epl-21:entry-form",
+        "fact:depth:epl:epl-2026-27-128942:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-128942:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128942"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-30T00:08:03.029Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in the early table; the outcome stays hidden here.",
-      "hookSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Tottenham Hotspur and Newcastle United met in Premier League Matchweek 2 with a chance to compress or widen the 17-place gap in.",
-      "synopsisSpoilerOff": "Tottenham Hotspur and Newcastle United arrived at Premier League Matchweek 2 inside a live Premier League story: a chance to compress or widen the 17-place gap in the early table. The result remains protected, while the current table keeps this fixture connected to what each side must do next.",
-      "synopsisSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. The current table now has Tottenham Hotspur 20th on 0 points and Newcastle United 3rd on 4, keeping the result connected to the wider Premier League path.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Tottenham's first full De Zerbi season met Newcastle's new era after a summer exodus; both season questions were tested, with the details under spoiler control.",
+      "hookSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Tottenham's first full De Zerbi season and Newcastle's new era after a summer exodus now move into different next chapters.",
+      "synopsisSpoilerOff": "Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against rebuilding leadership, midfield and coaching at once. The match is complete, with the result protected until spoilers are enabled.",
+      "synopsisSpoilerOn": "Newcastle United defeated Tottenham Hotspur 2-0. Newcastle United completed a 2-goal win in Premier League Matchweek 2. The result now updates Tottenham Hotspur's a new ball-playing defence under an attacking coach thread and Newcastle United's rebuilding leadership, midfield and coaching at once thread rather than ending the story at full-time.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "recap"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Tottenham Hotspur — current Premier League path",
+      "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     }
   },
@@ -18042,7 +18430,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Australia arrived in Jujuy on an unbeaten three-match run but with a completely changed starting forward pack. The recent Argentina rivalry had split evenly across the previous two Tests, giving this opening leg form and selection tension without exposing its outcome.",
     "sourceName": "Rugby Australia — Wallabies win in Jujuy",
     "sourceUrl": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
-    "sourceCheckedAt": "2026-08-30T08:45:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -18067,9 +18455,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Australia held out Argentina 27-21 in Jujuy to extend its winning start under Les Kiss.",
       "synopsisSpoilerOff": "Australia arrived in Jujuy on an unbeaten three-match run but with a completely changed starting forward pack. The recent Argentina rivalry had split evenly across the previous two Tests, giving this opening leg form and selection tension without exposing its outcome.",
       "synopsisSpoilerOn": "Australia beat Argentina 27-21 after building an early lead and resisting the home side's second-half pressure. The result extends the Wallabies' winning start under Les Kiss and turns the second Test in Mendoza into Argentina's immediate response chapter.",
-      "lastReviewedAt": "2026-08-30T08:45:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T08:45:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "sourceTrust": "unverified",
     "competitionScope": "international",
     "isInternational": true,
@@ -18110,7 +18498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "history",
         "consequence"
       ],
-      "researchedAt": "2026-08-30T08:45:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -18134,7 +18522,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Rugby Australia — Wallabies win in Jujuy",
       "sourceUrl": "https://wallabies.rugby/news/wallabies-dig-deep-to-deliver-dogged-win-over-determined-argentina-in-jujuy-2026829",
-      "sourceCheckedAt": "2026-08-30T08:45:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     }
   },
@@ -18175,7 +18563,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -18225,7 +18613,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -18247,7 +18635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Warriors enter 2nd and Knights 7th; a direct finals-position contest.",
       "synopsisSpoilerOff": "Warriors are 2nd with 38 points, while Knights are 7th with 32. That makes this more than a date in Round 26: it is a direct finals-position contest, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Warriors are 2nd with 38 points, while Knights are 7th with 32. That makes this more than a date in Round 26: it is a direct finals-position contest, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -18288,7 +18676,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -18338,7 +18726,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -18360,7 +18748,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Eels enter 13th and Sharks 5th; a finals contender meeting a side capable of disrupting the run-in.",
       "synopsisSpoilerOff": "Eels are 13th with 22 points, while Sharks are 5th with 34. That makes this more than a date in Round 26: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Eels are 13th with 22 points, while Sharks are 5th with 34. That makes this more than a date in Round 26: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -18427,14 +18815,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Chelsea enter 8th and Brighton & Hove Albion 5th; a chance to compress or widen the 3-place gap in the early table.",
-    "fullSpiel": "Chelsea are 8th with 3 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Chelsea host Brighton & Hove Albion with Chelsea's Xabi Alonso reset and Brighton's goals-by-committee attack both under examination.",
+    "fullSpiel": "Chelsea arrives with an opening win, while Brighton & Hove Albion brings an opening win. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18446,45 +18834,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128935",
       "researchTier": "standard",
-      "hook": "Chelsea enter 8th and Brighton & Hove Albion 5th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsis": "Chelsea are 8th with 3 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Chelsea host Brighton & Hove Albion with Chelsea's Xabi Alonso reset and Brighton's goals-by-committee attack both under examination.",
+      "synopsis": "Chelsea arrives with an opening win, while Brighton & Hove Albion brings an opening win. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-4",
-        "thread:rolling:team-football-epl-131"
+        "thread:depth:epl:team-football-epl-4:2026-27",
+        "thread:depth:epl:team-football-epl-131:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing"
+        "fact:depth:epl:team-football-epl-4:season-arc",
+        "fact:depth:epl:team-football-epl-131:season-arc",
+        "fact:depth:epl:epl-2026-27-128935:team-football-epl-4:entry-form",
+        "fact:depth:epl:epl-2026-27-128935:team-football-epl-131:entry-form",
+        "fact:depth:epl:epl-2026-27-128935:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128935"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-08-30T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Chelsea — current Premier League path",
+      "angle": "Chelsea — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Chelsea enter 8th and Brighton & Hove Albion 5th; a chance to compress or widen the 3-place gap in the early table.",
-      "hookSpoilerOn": "Chelsea enter 8th and Brighton & Hove Albion 5th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsisSpoilerOff": "Chelsea are 8th with 3 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Chelsea are 8th with 3 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Chelsea host Brighton & Hove Albion with Chelsea's Xabi Alonso reset and Brighton's goals-by-committee attack both under examination.",
+      "hookSpoilerOn": "Chelsea host Brighton & Hove Albion with Chelsea's Xabi Alonso reset and Brighton's goals-by-committee attack both under examination.",
+      "synopsisSpoilerOff": "Chelsea arrives with an opening win, while Brighton & Hove Albion brings an opening win. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Chelsea arrives with an opening win, while Brighton & Hove Albion brings an opening win. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -18551,14 +18947,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Leeds United enter 10th and Brentford 7th; a chance to compress or widen the 3-place gap in the early table.",
-    "fullSpiel": "Leeds United are 10th with 3 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Leeds' carry-over momentum against Brentford's fast-break identity: one result will move two very different season stories.",
+    "fullSpiel": "Leeds United arrives with an opening win, while Brentford brings an opening win. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18570,45 +18966,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128938",
       "researchTier": "standard",
-      "hook": "Leeds United enter 10th and Brentford 7th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsis": "Leeds United are 10th with 3 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Leeds' carry-over momentum against Brentford's fast-break identity: one result will move two very different season stories.",
+      "synopsis": "Leeds United arrives with an opening win, while Brentford brings an opening win. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-9",
-        "thread:rolling:team-football-epl-130"
+        "thread:depth:epl:team-football-epl-9:2026-27",
+        "thread:depth:epl:team-football-epl-130:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing"
+        "fact:depth:epl:team-football-epl-9:season-arc",
+        "fact:depth:epl:team-football-epl-130:season-arc",
+        "fact:depth:epl:epl-2026-27-128938:team-football-epl-9:entry-form",
+        "fact:depth:epl:epl-2026-27-128938:team-football-epl-130:entry-form",
+        "fact:depth:epl:epl-2026-27-128938:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128938"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-08-30T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Leeds United — current Premier League path",
+      "angle": "Leeds United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Leeds United enter 10th and Brentford 7th; a chance to compress or widen the 3-place gap in the early table.",
-      "hookSpoilerOn": "Leeds United enter 10th and Brentford 7th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsisSpoilerOff": "Leeds United are 10th with 3 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Leeds United are 10th with 3 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Leeds' carry-over momentum against Brentford's fast-break identity: one result will move two very different season stories.",
+      "hookSpoilerOn": "Leeds' carry-over momentum against Brentford's fast-break identity: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Leeds United arrives with an opening win, while Brentford brings an opening win. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Leeds United arrives with an opening win, while Brentford brings an opening win. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -18675,14 +19079,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Sunderland enter 15th and Fulham 14th; a chance to compress or widen the 1-place gap in the early table.",
-    "fullSpiel": "Sunderland are 15th with 0 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Sunderland's Europe-and-league balancing act meets Fulham's first post-Marco Silva season; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Sunderland arrives with an opening defeat, while Fulham brings an opening defeat. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18694,45 +19098,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128941",
       "researchTier": "standard",
-      "hook": "Sunderland enter 15th and Fulham 14th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsis": "Sunderland are 15th with 0 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Sunderland's Europe-and-league balancing act meets Fulham's first post-Marco Silva season; one fixture now moves both season-defining questions.",
+      "synopsis": "Sunderland arrives with an opening defeat, while Fulham brings an opening defeat. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-29",
-        "thread:rolling:team-football-epl-34"
+        "thread:depth:epl:team-football-epl-29:2026-27",
+        "thread:depth:epl:team-football-epl-34:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing"
+        "fact:depth:epl:team-football-epl-29:season-arc",
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:epl-2026-27-128941:team-football-epl-29:entry-form",
+        "fact:depth:epl:epl-2026-27-128941:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-128941:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128941"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-08-30T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Sunderland — current Premier League path",
+      "angle": "Sunderland — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Sunderland enter 15th and Fulham 14th; a chance to compress or widen the 1-place gap in the early table.",
-      "hookSpoilerOn": "Sunderland enter 15th and Fulham 14th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsisSpoilerOff": "Sunderland are 15th with 0 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Sunderland are 15th with 0 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Sunderland's Europe-and-league balancing act meets Fulham's first post-Marco Silva season; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Sunderland's Europe-and-league balancing act meets Fulham's first post-Marco Silva season; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Sunderland arrives with an opening defeat, while Fulham brings an opening defeat. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Sunderland arrives with an opening defeat, while Fulham brings an opening defeat. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of the defensive base behind last season's seventh place against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -18799,14 +19213,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester United enter 16th and Ipswich Town 9th; a chance to compress or widen the 7-place gap in the early table.",
-    "fullSpiel": "Manchester United are 16th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Ipswich's immediate top-flight return comes to Manchester United, directly testing Manchester United's Carrick rebuild.",
+    "fullSpiel": "Manchester United arrives with an opening defeat, while Ipswich Town brings an opening win. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18818,45 +19232,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128940",
       "researchTier": "standard",
-      "hook": "Manchester United enter 16th and Ipswich Town 9th; a chance to compress or widen the 7-place gap in the early table.",
-      "synopsis": "Manchester United are 16th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Ipswich's immediate top-flight return comes to Manchester United, directly testing Manchester United's Carrick rebuild.",
+      "synopsis": "Manchester United arrives with an opening defeat, while Ipswich Town brings an opening win. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-12",
-        "thread:rolling:team-football-epl-8"
+        "thread:depth:epl:team-football-epl-12:2026-27",
+        "thread:depth:epl:team-football-epl-8:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+        "fact:depth:epl:team-football-epl-12:season-arc",
+        "fact:depth:epl:team-football-epl-8:season-arc",
+        "fact:depth:epl:epl-2026-27-128940:team-football-epl-12:entry-form",
+        "fact:depth:epl:epl-2026-27-128940:team-football-epl-8:entry-form",
+        "fact:depth:epl:epl-2026-27-128940:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128940"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-08-30T15:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Manchester United — current Premier League path",
+      "angle": "Manchester United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Manchester United enter 16th and Ipswich Town 9th; a chance to compress or widen the 7-place gap in the early table.",
-      "hookSpoilerOn": "Manchester United enter 16th and Ipswich Town 9th; a chance to compress or widen the 7-place gap in the early table.",
-      "synopsisSpoilerOff": "Manchester United are 16th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Manchester United are 16th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Ipswich's immediate top-flight return comes to Manchester United, directly testing Manchester United's Carrick rebuild.",
+      "hookSpoilerOn": "Ipswich's immediate top-flight return comes to Manchester United, directly testing Manchester United's Carrick rebuild.",
+      "synopsisSpoilerOff": "Manchester United arrives with an opening defeat, while Ipswich Town brings an opening win. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Manchester United arrives with an opening defeat, while Ipswich Town brings an opening win. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -18923,14 +19347,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Aston Villa enter 17th and Arsenal 6th; a chance to compress or widen the 11-place gap in the early table.",
-    "fullSpiel": "Aston Villa are 17th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 11-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Arsenal's first title defence in 22 years comes to Aston Villa, directly testing Aston Villa's post-Europa rebuild.",
+    "fullSpiel": "Aston Villa arrives with an opening defeat, while Arsenal brings an opening win. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -18942,45 +19366,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128933",
       "researchTier": "standard",
-      "hook": "Aston Villa enter 17th and Arsenal 6th; a chance to compress or widen the 11-place gap in the early table.",
-      "synopsis": "Aston Villa are 17th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 11-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Arsenal's first title defence in 22 years comes to Aston Villa, directly testing Aston Villa's post-Europa rebuild.",
+      "synopsis": "Aston Villa arrives with an opening defeat, while Arsenal brings an opening win. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-2",
-        "thread:rolling:team-football-epl-1"
+        "thread:depth:epl:team-football-epl-2:2026-27",
+        "thread:depth:epl:team-football-epl-1:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+        "fact:depth:epl:team-football-epl-2:season-arc",
+        "fact:depth:epl:team-football-epl-1:season-arc",
+        "fact:depth:epl:epl-2026-27-128933:team-football-epl-2:entry-form",
+        "fact:depth:epl:epl-2026-27-128933:team-football-epl-1:entry-form",
+        "fact:depth:epl:epl-2026-27-128933:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128933"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-08-31T19:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Aston Villa — current Premier League path",
+      "angle": "Aston Villa — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Aston Villa enter 17th and Arsenal 6th; a chance to compress or widen the 11-place gap in the early table.",
-      "hookSpoilerOn": "Aston Villa enter 17th and Arsenal 6th; a chance to compress or widen the 11-place gap in the early table.",
-      "synopsisSpoilerOff": "Aston Villa are 17th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 11-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Aston Villa are 17th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 2: it is a chance to compress or widen the 11-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Arsenal's first title defence in 22 years comes to Aston Villa, directly testing Aston Villa's post-Europa rebuild.",
+      "hookSpoilerOn": "Arsenal's first title defence in 22 years comes to Aston Villa, directly testing Aston Villa's post-Europa rebuild.",
+      "synopsisSpoilerOff": "Aston Villa arrives with an opening defeat, while Arsenal brings an opening win. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Aston Villa arrives with an opening defeat, while Arsenal brings an opening win. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a new midfield and defensive spine against settled champion structure, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -19021,7 +19455,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19071,7 +19505,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -19093,7 +19527,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Bulldogs enter 10th and Broncos 15th; a late-season test of where both clubs finish.",
       "synopsisSpoilerOff": "Bulldogs are 10th with 28 points, while Broncos are 15th with 20. That makes this more than a date in Round 27: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Bulldogs are 10th with 28 points, while Broncos are 15th with 20. That makes this more than a date in Round 27: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -19128,13 +19562,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Fremantle enter 1st and Hawthorn 4th; a qualifying final where one side earns a week off and the other retains a second chance.",
-    "fullSpiel": "Fremantle are 1st with 76 points, while Hawthorn are 4th with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
+    "fullSpiel": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19168,45 +19602,49 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142601",
       "researchTier": "standard",
-      "hook": "Fremantle enter 1st and Hawthorn 4th; a qualifying final where one side earns a week off and the other retains a second chance.",
-      "synopsis": "Fremantle are 1st with 76 points, while Hawthorn are 4th with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
+      "synopsis": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t60",
-        "thread:rolling:team-afl-cd-t80"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t60:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t80:standing"
+        "fact:depth:afl:event-afl-cd-m20260142601:1",
+        "fact:depth:afl:event-afl-cd-m20260142601:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142601"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "path"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-03T10:10:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Fremantle — current AFL path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Fremantle enter 1st and Hawthorn 4th; a qualifying final where one side earns a week off and the other retains a second chance.",
-      "hookSpoilerOn": "Fremantle enter 1st and Hawthorn 4th; a qualifying final where one side earns a week off and the other retains a second chance.",
-      "synopsisSpoilerOff": "Fremantle are 1st with 76 points, while Hawthorn are 4th with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Fremantle are 1st with 76 points, while Hawthorn are 4th with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
+      "hookSpoilerOn": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
+      "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
+      "synopsisSpoilerOn": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -19247,7 +19685,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19297,7 +19735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -19319,7 +19757,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Titans enter 16th and Dolphins 3rd; a finals contender meeting a side capable of disrupting the run-in.",
       "synopsisSpoilerOff": "Titans are 16th with 18 points, while Dolphins are 3rd with 38. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Titans are 16th with 18 points, while Dolphins are 3rd with 38. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -19354,13 +19792,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Geelong Cats enter 5th and Carlton 10th; a sudden-death final with no second chance.",
-    "fullSpiel": "Geelong Cats are 5th with 60 points, while Carlton are 10th with 50. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
+    "fullSpiel": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19394,45 +19832,49 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142603",
       "researchTier": "standard",
-      "hook": "Geelong Cats enter 5th and Carlton 10th; a sudden-death final with no second chance.",
-      "synopsis": "Geelong Cats are 5th with 60 points, while Carlton are 10th with 50. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
+      "synopsis": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t70",
-        "thread:rolling:team-afl-cd-t30"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t70:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t30:standing"
+        "fact:depth:afl:event-afl-cd-m20260142603:1",
+        "fact:depth:afl:event-afl-cd-m20260142603:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142603"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "path"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-04T09:40:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Geelong Cats — current AFL path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Geelong Cats enter 5th and Carlton 10th; a sudden-death final with no second chance.",
-      "hookSpoilerOn": "Geelong Cats enter 5th and Carlton 10th; a sudden-death final with no second chance.",
-      "synopsisSpoilerOff": "Geelong Cats are 5th with 60 points, while Carlton are 10th with 50. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Geelong Cats are 5th with 60 points, while Carlton are 10th with 50. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
+      "hookSpoilerOn": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
+      "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
+      "synopsisSpoilerOn": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -19473,7 +19915,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19523,7 +19965,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -19545,7 +19987,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Rabbitohs enter 6th and Roosters 4th; a direct finals-position contest.",
       "synopsisSpoilerOff": "Rabbitohs are 6th with 32 points, while Roosters are 4th with 38. That makes this more than a date in Round 27: it is a direct finals-position contest, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Rabbitohs are 6th with 32 points, while Roosters are 4th with 38. That makes this more than a date in Round 27: it is a direct finals-position contest, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -19612,14 +20054,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Ipswich Town enter 9th and Liverpool 11th; a chance to compress or widen the 2-place gap in the early table.",
-    "fullSpiel": "Ipswich Town are 9th with 3 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Ipswich's immediate top-flight return meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Ipswich Town arrives with an opening win, while Liverpool brings 2 draws from 2. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -19631,45 +20073,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128949",
       "researchTier": "standard",
-      "hook": "Ipswich Town enter 9th and Liverpool 11th; a chance to compress or widen the 2-place gap in the early table.",
-      "synopsis": "Ipswich Town are 9th with 3 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Ipswich's immediate top-flight return meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+      "synopsis": "Ipswich Town arrives with an opening win, while Liverpool brings 2 draws from 2. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-8",
-        "thread:rolling:team-football-epl-10"
+        "thread:depth:epl:team-football-epl-8:2026-27",
+        "thread:depth:epl:team-football-epl-10:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+        "fact:depth:epl:team-football-epl-8:season-arc",
+        "fact:depth:epl:team-football-epl-10:season-arc",
+        "fact:depth:epl:epl-2026-27-128949:team-football-epl-8:entry-form",
+        "fact:depth:epl:epl-2026-27-128949:team-football-epl-10:entry-form",
+        "fact:depth:epl:epl-2026-27-128949:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128949"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-04T19:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Ipswich Town — current Premier League path",
+      "angle": "Ipswich Town — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Ipswich Town enter 9th and Liverpool 11th; a chance to compress or widen the 2-place gap in the early table.",
-      "hookSpoilerOn": "Ipswich Town enter 9th and Liverpool 11th; a chance to compress or widen the 2-place gap in the early table.",
-      "synopsisSpoilerOff": "Ipswich Town are 9th with 3 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Ipswich Town are 9th with 3 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Ipswich's immediate top-flight return meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Ipswich's immediate top-flight return meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Ipswich Town arrives with an opening win, while Liverpool brings 2 draws from 2. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Ipswich Town arrives with an opening win, while Liverpool brings 2 draws from 2. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Gary O'Neil's more pragmatic second attempt against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -19710,7 +20162,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19760,7 +20212,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -19782,7 +20234,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Warriors enter 2nd and Sea Eagles 9th; a finals contender meeting a side capable of disrupting the run-in.",
       "synopsisSpoilerOff": "Warriors are 2nd with 38 points, while Sea Eagles are 9th with 28. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Warriors are 2nd with 38 points, while Sea Eagles are 9th with 28. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -19817,13 +20269,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Sydney Swans enter 2nd and Brisbane Lions 3rd; a qualifying final where one side earns a week off and the other retains a second chance.",
-    "fullSpiel": "Sydney Swans are 2nd with 72 points, while Brisbane Lions are 3rd with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
+    "fullSpiel": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19857,45 +20309,49 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142602",
       "researchTier": "standard",
-      "hook": "Sydney Swans enter 2nd and Brisbane Lions 3rd; a qualifying final where one side earns a week off and the other retains a second chance.",
-      "synopsis": "Sydney Swans are 2nd with 72 points, while Brisbane Lions are 3rd with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
+      "synopsis": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t160",
-        "thread:rolling:team-afl-cd-t20"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t160:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t20:standing"
+        "fact:depth:afl:event-afl-cd-m20260142602:1",
+        "fact:depth:afl:event-afl-cd-m20260142602:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142602"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "path"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T05:15:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Sydney Swans — current AFL path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:path"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Sydney Swans enter 2nd and Brisbane Lions 3rd; a qualifying final where one side earns a week off and the other retains a second chance.",
-      "hookSpoilerOn": "Sydney Swans enter 2nd and Brisbane Lions 3rd; a qualifying final where one side earns a week off and the other retains a second chance.",
-      "synopsisSpoilerOff": "Sydney Swans are 2nd with 72 points, while Brisbane Lions are 3rd with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Sydney Swans are 2nd with 72 points, while Brisbane Lions are 3rd with 64. That makes this more than a date in Qualifying & Elimination Finals: it is a qualifying final where one side earns a week off and the other retains a second chance, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
+      "hookSpoilerOn": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
+      "synopsisSpoilerOff": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
+      "synopsisSpoilerOn": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -19936,7 +20392,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -19986,7 +20442,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -20008,7 +20464,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Cowboys enter 8th and Raiders 12th; a finals contender meeting a side capable of disrupting the run-in.",
       "synopsisSpoilerOff": "Cowboys are 8th with 32 points, while Raiders are 12th with 26. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Cowboys are 8th with 32 points, while Raiders are 12th with 26. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -20049,7 +20505,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -20099,7 +20555,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -20121,7 +20577,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Sharks enter 5th and Storm 11th; a finals contender meeting a side capable of disrupting the run-in.",
       "synopsisSpoilerOff": "Sharks are 5th with 34 points, while Storm are 11th with 26. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Sharks are 5th with 34 points, while Storm are 11th with 26. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -20156,13 +20612,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Adelaide Crows enter 6th and Western Bulldogs 8th; a sudden-death final with no second chance.",
-    "fullSpiel": "Adelaide Crows are 6th with 60 points, while Western Bulldogs are 8th with 54. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "AFL current AFL table",
+    "selectedSentence": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
+    "fullSpiel": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
     "sourceUrl": "https://www.afl.com.au/ladder",
-    "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -20196,45 +20652,49 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142604",
       "researchTier": "standard",
-      "hook": "Adelaide Crows enter 6th and Western Bulldogs 8th; a sudden-death final with no second chance.",
-      "synopsis": "Adelaide Crows are 6th with 60 points, while Western Bulldogs are 8th with 54. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
+      "hook": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
+      "synopsis": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
       "threadIds": [
-        "thread:rolling:team-afl-cd-t10",
-        "thread:rolling:team-afl-cd-t140"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t10:standing",
-        "fact:rolling:competition-afl-premiership-2026:team-afl-cd-t140:standing"
+        "fact:depth:afl:event-afl-cd-m20260142604:1",
+        "fact:depth:afl:event-afl-cd-m20260142604:2"
       ],
       "sourceIds": [
-        "source:rolling:competition-afl-premiership-2026:ladder"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142604"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "consequence"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T09:35:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Adelaide Crows — current AFL path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:consequence"
       ],
-      "sourceName": "AFL current AFL table",
+      "sourceName": "AFL 2026 final home-and-away ladder",
       "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-08-23T12:15:37.000Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "Adelaide Crows enter 6th and Western Bulldogs 8th; a sudden-death final with no second chance.",
-      "hookSpoilerOn": "Adelaide Crows enter 6th and Western Bulldogs 8th; a sudden-death final with no second chance.",
-      "synopsisSpoilerOff": "Adelaide Crows are 6th with 60 points, while Western Bulldogs are 8th with 54. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Adelaide Crows are 6th with 60 points, while Western Bulldogs are 8th with 54. That makes this more than a date in Qualifying & Elimination Finals: it is a sudden-death final with no second chance, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
+      "hookSpoilerOn": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
+      "synopsisSpoilerOff": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+      "synopsisSpoilerOn": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -20301,14 +20761,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Newcastle United enter 3rd and AFC Bournemouth 12th; a chance to compress or widen the 9-place gap in the early table.",
-    "fullSpiel": "Newcastle United are 3rd with 4 points, while AFC Bournemouth are 12th with 1. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Bournemouth's first European-season balancing act comes to Newcastle United, directly testing Newcastle's new era after a summer exodus.",
+    "fullSpiel": "Newcastle United arrives with 1W-1D-0L, while AFC Bournemouth brings 0W-1D-1L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20320,45 +20780,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128951",
       "researchTier": "standard",
-      "hook": "Newcastle United enter 3rd and AFC Bournemouth 12th; a chance to compress or widen the 9-place gap in the early table.",
-      "synopsis": "Newcastle United are 3rd with 4 points, while AFC Bournemouth are 12th with 1. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Bournemouth's first European-season balancing act comes to Newcastle United, directly testing Newcastle's new era after a summer exodus.",
+      "synopsis": "Newcastle United arrives with 1W-1D-0L, while AFC Bournemouth brings 0W-1D-1L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-23",
-        "thread:rolling:team-football-epl-127"
+        "thread:depth:epl:team-football-epl-23:2026-27",
+        "thread:depth:epl:team-football-epl-127:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing"
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:team-football-epl-127:season-arc",
+        "fact:depth:epl:epl-2026-27-128951:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-128951:team-football-epl-127:entry-form",
+        "fact:depth:epl:epl-2026-27-128951:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128951"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T11:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Newcastle United — current Premier League path",
+      "angle": "Newcastle United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Newcastle United enter 3rd and AFC Bournemouth 12th; a chance to compress or widen the 9-place gap in the early table.",
-      "hookSpoilerOn": "Newcastle United enter 3rd and AFC Bournemouth 12th; a chance to compress or widen the 9-place gap in the early table.",
-      "synopsisSpoilerOff": "Newcastle United are 3rd with 4 points, while AFC Bournemouth are 12th with 1. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Newcastle United are 3rd with 4 points, while AFC Bournemouth are 12th with 1. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Bournemouth's first European-season balancing act comes to Newcastle United, directly testing Newcastle's new era after a summer exodus.",
+      "hookSpoilerOn": "Bournemouth's first European-season balancing act comes to Newcastle United, directly testing Newcastle's new era after a summer exodus.",
+      "synopsisSpoilerOff": "Newcastle United arrives with 1W-1D-0L, while AFC Bournemouth brings 0W-1D-1L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Newcastle United arrives with 1W-1D-0L, while AFC Bournemouth brings 0W-1D-1L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against Marco Rose's attempt to preserve a best-ever finish, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -20425,14 +20895,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brentford enter 7th and Sunderland 15th; a chance to compress or widen the 8-place gap in the early table.",
-    "fullSpiel": "Brentford are 7th with 3 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 8-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Sunderland's Europe-and-league balancing act comes to Brentford, directly testing Brentford's fast-break identity.",
+    "fullSpiel": "Brentford arrives with an opening win, while Sunderland brings an opening defeat. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20444,45 +20914,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128944",
       "researchTier": "standard",
-      "hook": "Brentford enter 7th and Sunderland 15th; a chance to compress or widen the 8-place gap in the early table.",
-      "synopsis": "Brentford are 7th with 3 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 8-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Sunderland's Europe-and-league balancing act comes to Brentford, directly testing Brentford's fast-break identity.",
+      "synopsis": "Brentford arrives with an opening win, while Sunderland brings an opening defeat. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-130",
-        "thread:rolling:team-football-epl-29"
+        "thread:depth:epl:team-football-epl-130:2026-27",
+        "thread:depth:epl:team-football-epl-29:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing"
+        "fact:depth:epl:team-football-epl-130:season-arc",
+        "fact:depth:epl:team-football-epl-29:season-arc",
+        "fact:depth:epl:epl-2026-27-128944:team-football-epl-130:entry-form",
+        "fact:depth:epl:epl-2026-27-128944:team-football-epl-29:entry-form",
+        "fact:depth:epl:epl-2026-27-128944:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128944"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Brentford — current Premier League path",
+      "angle": "Brentford — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Brentford enter 7th and Sunderland 15th; a chance to compress or widen the 8-place gap in the early table.",
-      "hookSpoilerOn": "Brentford enter 7th and Sunderland 15th; a chance to compress or widen the 8-place gap in the early table.",
-      "synopsisSpoilerOff": "Brentford are 7th with 3 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 8-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Brentford are 7th with 3 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 8-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Sunderland's Europe-and-league balancing act comes to Brentford, directly testing Brentford's fast-break identity.",
+      "hookSpoilerOn": "Sunderland's Europe-and-league balancing act comes to Brentford, directly testing Brentford's fast-break identity.",
+      "synopsisSpoilerOff": "Brentford arrives with an opening win, while Sunderland brings an opening defeat. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Brentford arrives with an opening win, while Sunderland brings an opening defeat. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -20549,14 +21029,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton & Hove Albion enter 5th and Leeds United 10th; a chance to compress or widen the 5-place gap in the early table.",
-    "fullSpiel": "Brighton & Hove Albion are 5th with 3 points, while Leeds United are 10th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Brighton's goals-by-committee attack meets Leeds' carry-over momentum; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Brighton & Hove Albion arrives with an opening win, while Leeds United brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20568,45 +21048,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128945",
       "researchTier": "standard",
-      "hook": "Brighton & Hove Albion enter 5th and Leeds United 10th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsis": "Brighton & Hove Albion are 5th with 3 points, while Leeds United are 10th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Brighton's goals-by-committee attack meets Leeds' carry-over momentum; one fixture now moves both season-defining questions.",
+      "synopsis": "Brighton & Hove Albion arrives with an opening win, while Leeds United brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-131",
-        "thread:rolling:team-football-epl-9"
+        "thread:depth:epl:team-football-epl-131:2026-27",
+        "thread:depth:epl:team-football-epl-9:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing"
+        "fact:depth:epl:team-football-epl-131:season-arc",
+        "fact:depth:epl:team-football-epl-9:season-arc",
+        "fact:depth:epl:epl-2026-27-128945:team-football-epl-131:entry-form",
+        "fact:depth:epl:epl-2026-27-128945:team-football-epl-9:entry-form",
+        "fact:depth:epl:epl-2026-27-128945:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128945"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Brighton & Hove Albion — current Premier League path",
+      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Brighton & Hove Albion enter 5th and Leeds United 10th; a chance to compress or widen the 5-place gap in the early table.",
-      "hookSpoilerOn": "Brighton & Hove Albion enter 5th and Leeds United 10th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsisSpoilerOff": "Brighton & Hove Albion are 5th with 3 points, while Leeds United are 10th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion are 5th with 3 points, while Leeds United are 10th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Brighton's goals-by-committee attack meets Leeds' carry-over momentum; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Brighton's goals-by-committee attack meets Leeds' carry-over momentum; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Brighton & Hove Albion arrives with an opening win, while Leeds United brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion arrives with an opening win, while Leeds United brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. That makes this fixture a direct test of a side that spread last season's goals across 19 players against the physical 3-4-2-1 that lost only three of its final 14 last season, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -20673,14 +21161,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham enter 14th and Crystal Palace 19th; a chance to compress or widen the 5-place gap in the early table.",
-    "fullSpiel": "Fulham are 14th with 0 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Fulham's first post-Marco Silva season against Crystal Palace's Pierre Sage transition: one result will move two very different season stories.",
+    "fullSpiel": "Fulham arrives with an opening defeat, while Crystal Palace brings 2 defeats from 2. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20692,45 +21180,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128947",
       "researchTier": "standard",
-      "hook": "Fulham enter 14th and Crystal Palace 19th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsis": "Fulham are 14th with 0 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Fulham's first post-Marco Silva season against Crystal Palace's Pierre Sage transition: one result will move two very different season stories.",
+      "synopsis": "Fulham arrives with an opening defeat, while Crystal Palace brings 2 defeats from 2. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-34",
-        "thread:rolling:team-football-epl-6"
+        "thread:depth:epl:team-football-epl-34:2026-27",
+        "thread:depth:epl:team-football-epl-6:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing"
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:team-football-epl-6:season-arc",
+        "fact:depth:epl:epl-2026-27-128947:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-128947:team-football-epl-6:entry-form",
+        "fact:depth:epl:epl-2026-27-128947:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128947"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Fulham — current Premier League path",
+      "angle": "Fulham — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Fulham enter 14th and Crystal Palace 19th; a chance to compress or widen the 5-place gap in the early table.",
-      "hookSpoilerOn": "Fulham enter 14th and Crystal Palace 19th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsisSpoilerOff": "Fulham are 14th with 0 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Fulham are 14th with 0 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Fulham's first post-Marco Silva season against Crystal Palace's Pierre Sage transition: one result will move two very different season stories.",
+      "hookSpoilerOn": "Fulham's first post-Marco Silva season against Crystal Palace's Pierre Sage transition: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Fulham arrives with an opening defeat, while Crystal Palace brings 2 defeats from 2. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Fulham arrives with an opening defeat, while Crystal Palace brings 2 defeats from 2. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -20797,14 +21295,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City enter 1st and Coventry City 18th; a chance to compress or widen the 17-place gap in the early table.",
-    "fullSpiel": "Manchester City are 1st with 6 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 17-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Manchester City's first post-Guardiola campaign meets Coventry's return after 25 years; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Manchester City arrives with 2 wins from 2, while Coventry City brings 2 defeats from 2. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20816,45 +21314,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128950",
       "researchTier": "standard",
-      "hook": "Manchester City enter 1st and Coventry City 18th; a chance to compress or widen the 17-place gap in the early table.",
-      "synopsis": "Manchester City are 1st with 6 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 17-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Manchester City's first post-Guardiola campaign meets Coventry's return after 25 years; one fixture now moves both season-defining questions.",
+      "synopsis": "Manchester City arrives with 2 wins from 2, while Coventry City brings 2 defeats from 2. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-11",
-        "thread:rolling:team-football-epl-5"
+        "thread:depth:epl:team-football-epl-11:2026-27",
+        "thread:depth:epl:team-football-epl-5:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing"
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:team-football-epl-5:season-arc",
+        "fact:depth:epl:epl-2026-27-128950:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-128950:team-football-epl-5:entry-form",
+        "fact:depth:epl:epl-2026-27-128950:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128950"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Manchester City — current Premier League path",
+      "angle": "Manchester City — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Manchester City enter 1st and Coventry City 18th; a chance to compress or widen the 17-place gap in the early table.",
-      "hookSpoilerOn": "Manchester City enter 1st and Coventry City 18th; a chance to compress or widen the 17-place gap in the early table.",
-      "synopsisSpoilerOff": "Manchester City are 1st with 6 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 17-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Manchester City are 1st with 6 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 17-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign meets Coventry's return after 25 years; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Manchester City's first post-Guardiola campaign meets Coventry's return after 25 years; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Manchester City arrives with 2 wins from 2, while Coventry City brings 2 defeats from 2. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Manchester City arrives with 2 wins from 2, while Coventry City brings 2 defeats from 2. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -20921,14 +21429,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Nottingham Forest enter 13th and Tottenham Hotspur 20th; a chance to compress or widen the 7-place gap in the early table.",
-    "fullSpiel": "Nottingham Forest are 13th with 1 points, while Tottenham Hotspur are 20th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Nottingham Forest's Glasner reset against Tottenham's first full De Zerbi season: one result will move two very different season stories.",
+    "fullSpiel": "Nottingham Forest arrives with 0W-1D-1L, while Tottenham Hotspur brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -20940,45 +21448,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128952",
       "researchTier": "standard",
-      "hook": "Nottingham Forest enter 13th and Tottenham Hotspur 20th; a chance to compress or widen the 7-place gap in the early table.",
-      "synopsis": "Nottingham Forest are 13th with 1 points, while Tottenham Hotspur are 20th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Nottingham Forest's Glasner reset against Tottenham's first full De Zerbi season: one result will move two very different season stories.",
+      "synopsis": "Nottingham Forest arrives with 0W-1D-1L, while Tottenham Hotspur brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-15",
-        "thread:rolling:team-football-epl-21"
+        "thread:depth:epl:team-football-epl-15:2026-27",
+        "thread:depth:epl:team-football-epl-21:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing"
+        "fact:depth:epl:team-football-epl-15:season-arc",
+        "fact:depth:epl:team-football-epl-21:season-arc",
+        "fact:depth:epl:epl-2026-27-128952:team-football-epl-15:entry-form",
+        "fact:depth:epl:epl-2026-27-128952:team-football-epl-21:entry-form",
+        "fact:depth:epl:epl-2026-27-128952:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128952"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Nottingham Forest — current Premier League path",
+      "angle": "Nottingham Forest — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Nottingham Forest enter 13th and Tottenham Hotspur 20th; a chance to compress or widen the 7-place gap in the early table.",
-      "hookSpoilerOn": "Nottingham Forest enter 13th and Tottenham Hotspur 20th; a chance to compress or widen the 7-place gap in the early table.",
-      "synopsisSpoilerOff": "Nottingham Forest are 13th with 1 points, while Tottenham Hotspur are 20th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Nottingham Forest are 13th with 1 points, while Tottenham Hotspur are 20th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Nottingham Forest's Glasner reset against Tottenham's first full De Zerbi season: one result will move two very different season stories.",
+      "hookSpoilerOn": "Nottingham Forest's Glasner reset against Tottenham's first full De Zerbi season: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Nottingham Forest arrives with 0W-1D-1L, while Tottenham Hotspur brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Nottingham Forest arrives with 0W-1D-1L, while Tottenham Hotspur brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against a new ball-playing defence under an attacking coach, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -21025,7 +21543,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-07-27T00:30:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-26",
@@ -21046,7 +21564,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "consequence"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -21056,7 +21574,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Kimi Antonelli leads by 50 points into R13 Italian GP Qualifying; this session sets the grid and determines who controls the race start.",
       "synopsisSpoilerOff": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R13 Italian GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
       "synopsisSpoilerOn": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R13 Italian GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -21123,14 +21641,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Hull City enter 2nd and Aston Villa 17th; a chance to compress or widen the 15-place gap in the early table.",
-    "fullSpiel": "Hull City are 2nd with 6 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Aston Villa's post-Europa rebuild comes to Hull City, directly testing Hull's top-flight return after nine years.",
+    "fullSpiel": "Hull City arrives with 2 wins from 2, while Aston Villa brings an opening defeat. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21142,45 +21660,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128948",
       "researchTier": "standard",
-      "hook": "Hull City enter 2nd and Aston Villa 17th; a chance to compress or widen the 15-place gap in the early table.",
-      "synopsis": "Hull City are 2nd with 6 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Aston Villa's post-Europa rebuild comes to Hull City, directly testing Hull's top-flight return after nine years.",
+      "synopsis": "Hull City arrives with 2 wins from 2, while Aston Villa brings an opening defeat. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-41",
-        "thread:rolling:team-football-epl-2"
+        "thread:depth:epl:team-football-epl-41:2026-27",
+        "thread:depth:epl:team-football-epl-2:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+        "fact:depth:epl:team-football-epl-41:season-arc",
+        "fact:depth:epl:team-football-epl-2:season-arc",
+        "fact:depth:epl:epl-2026-27-128948:team-football-epl-41:entry-form",
+        "fact:depth:epl:epl-2026-27-128948:team-football-epl-2:entry-form",
+        "fact:depth:epl:epl-2026-27-128948:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128948"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-05T16:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Hull City — current Premier League path",
+      "angle": "Hull City — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Hull City enter 2nd and Aston Villa 17th; a chance to compress or widen the 15-place gap in the early table.",
-      "hookSpoilerOn": "Hull City enter 2nd and Aston Villa 17th; a chance to compress or widen the 15-place gap in the early table.",
-      "synopsisSpoilerOff": "Hull City are 2nd with 6 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Hull City are 2nd with 6 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Aston Villa's post-Europa rebuild comes to Hull City, directly testing Hull's top-flight return after nine years.",
+      "hookSpoilerOn": "Aston Villa's post-Europa rebuild comes to Hull City, directly testing Hull's top-flight return after nine years.",
+      "synopsisSpoilerOff": "Hull City arrives with 2 wins from 2, while Aston Villa brings an opening defeat. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Hull City arrives with 2 wins from 2, while Aston Villa brings an opening defeat. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a playoff-built counterattack against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -21207,7 +21735,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Mendoza is explicitly linked to the first Test rather than treated as a duplicate fixture. It may become a sweep, split or recovery chapter after Jujuy, and it also moves Australia into the home stretch against South Africa and New Zealand.",
     "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
     "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -21232,9 +21760,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "The second Test is the response leg of a seven-day Argentina series; its real stakes wait on what happens in Jujuy.",
       "synopsisSpoilerOff": "Mendoza is explicitly linked to the first Test rather than treated as a duplicate fixture. It may become a sweep, split or recovery chapter after Jujuy, and it also moves Australia into the home stretch against South Africa and New Zealand.",
       "synopsisSpoilerOn": "Mendoza is explicitly linked to the first Test rather than treated as a duplicate fixture. It may become a sweep, split or recovery chapter after Jujuy, and it also moves Australia into the home stretch against South Africa and New Zealand.",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "A seven-day Argentina series",
@@ -21246,7 +21774,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
       "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -21284,7 +21812,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "schedule"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-08-30T09:00:00.000Z",
       "generationMode": "researched"
     }
@@ -21326,7 +21854,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -21376,7 +21904,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -21398,7 +21926,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Dragons enter 17th and Eels 13th; a late-season test of where both clubs finish.",
       "synopsisSpoilerOff": "Dragons are 17th with 14 points, while Eels are 13th with 22. That makes this more than a date in Round 27: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Dragons are 17th with 14 points, while Eels are 13th with 22. That makes this more than a date in Round 27: it is a late-season test of where both clubs finish, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -21439,7 +21967,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.nrl.com/ladder",
     "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -21489,7 +22017,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "dimensions": [
         "form"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -21511,7 +22039,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Panthers enter 1st and Wests Tigers 14th; a finals contender meeting a side capable of disrupting the run-in.",
       "synopsisSpoilerOff": "Panthers are 1st with 40 points, while Wests Tigers are 14th with 22. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
       "synopsisSpoilerOn": "Panthers are 1st with 40 points, while Wests Tigers are 14th with 22. That makes this more than a date in Round 27: it is a finals contender meeting a side capable of disrupting the run-in, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -21578,14 +22106,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Everton enter 4th and Manchester United 16th; a chance to compress or widen the 12-place gap in the early table.",
-    "fullSpiel": "Everton are 4th with 4 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 12-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Everton host Manchester United with Everton's search for more attack and Manchester United's Carrick rebuild both under examination.",
+    "fullSpiel": "Everton arrives with 1W-1D-0L, while Manchester United brings an opening defeat. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21597,45 +22125,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128946",
       "researchTier": "standard",
-      "hook": "Everton enter 4th and Manchester United 16th; a chance to compress or widen the 12-place gap in the early table.",
-      "synopsis": "Everton are 4th with 4 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 12-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Everton host Manchester United with Everton's search for more attack and Manchester United's Carrick rebuild both under examination.",
+      "synopsis": "Everton arrives with 1W-1D-0L, while Manchester United brings an opening defeat. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-7",
-        "thread:rolling:team-football-epl-12"
+        "thread:depth:epl:team-football-epl-7:2026-27",
+        "thread:depth:epl:team-football-epl-12:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing"
+        "fact:depth:epl:team-football-epl-7:season-arc",
+        "fact:depth:epl:team-football-epl-12:season-arc",
+        "fact:depth:epl:epl-2026-27-128946:team-football-epl-7:entry-form",
+        "fact:depth:epl:epl-2026-27-128946:team-football-epl-12:entry-form",
+        "fact:depth:epl:epl-2026-27-128946:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128946"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-06T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Everton — current Premier League path",
+      "angle": "Everton — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Everton enter 4th and Manchester United 16th; a chance to compress or widen the 12-place gap in the early table.",
-      "hookSpoilerOn": "Everton enter 4th and Manchester United 16th; a chance to compress or widen the 12-place gap in the early table.",
-      "synopsisSpoilerOff": "Everton are 4th with 4 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 12-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Everton are 4th with 4 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 12-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Everton host Manchester United with Everton's search for more attack and Manchester United's Carrick rebuild both under examination.",
+      "hookSpoilerOn": "Everton host Manchester United with Everton's search for more attack and Manchester United's Carrick rebuild both under examination.",
+      "synopsisSpoilerOff": "Everton arrives with 1W-1D-0L, while Manchester United brings an opening defeat. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Everton arrives with 1W-1D-0L, while Manchester United brings an opening defeat. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -21656,7 +22194,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Kimi Antonelli reaches Monza with the championship lead and the pressure of a home Grand Prix. Lando Norris arrives after consecutive wins, while the circuit turns that rivalry into a low-drag and heavy-braking setup compromise rather than a generic next race.",
     "sourceName": "Formula 1 — 2026 Italian Grand Prix hub",
     "sourceUrl": "https://www.formula1.com/en/racing/2026/italy",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -21677,9 +22215,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Kimi Antonelli reaches Monza with the championship lead and the pressure of a home Grand Prix. Lando Norris arrives after consecutive wins, while the circuit turns that rivalry into a low-drag and heavy-braking setup compromise rather than a generic next race.",
       "synopsisSpoilerOn": "Kimi Antonelli reaches Monza with the championship lead and the pressure of a home Grand Prix. Lando Norris arrives after consecutive wins, while the circuit turns that rivalry into a low-drag and heavy-braking setup compromise rather than a generic next race.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Norris closes on Antonelli",
@@ -21691,7 +22229,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Formula 1 — 2026 Italian Grand Prix hub",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/italy",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -21723,7 +22261,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "path"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-05T13:00:00.000Z",
       "generationMode": "researched"
     }
@@ -21791,14 +22329,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Arsenal enter 6th and Chelsea 8th; a chance to compress or widen the 2-place gap in the early table.",
-    "fullSpiel": "Arsenal are 6th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Arsenal's first title defence in 22 years against Chelsea's Xabi Alonso reset: one result will move two very different season stories.",
+    "fullSpiel": "Arsenal arrives with an opening win, while Chelsea brings an opening win. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -21810,45 +22348,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128943",
       "researchTier": "standard",
-      "hook": "Arsenal enter 6th and Chelsea 8th; a chance to compress or widen the 2-place gap in the early table.",
-      "synopsis": "Arsenal are 6th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Arsenal's first title defence in 22 years against Chelsea's Xabi Alonso reset: one result will move two very different season stories.",
+      "synopsis": "Arsenal arrives with an opening win, while Chelsea brings an opening win. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-1",
-        "thread:rolling:team-football-epl-4"
+        "thread:depth:epl:team-football-epl-1:2026-27",
+        "thread:depth:epl:team-football-epl-4:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+        "fact:depth:epl:team-football-epl-1:season-arc",
+        "fact:depth:epl:team-football-epl-4:season-arc",
+        "fact:depth:epl:epl-2026-27-128943:team-football-epl-1:entry-form",
+        "fact:depth:epl:epl-2026-27-128943:team-football-epl-4:entry-form",
+        "fact:depth:epl:epl-2026-27-128943:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128943"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-06T15:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Arsenal — current Premier League path",
+      "angle": "Arsenal — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Arsenal enter 6th and Chelsea 8th; a chance to compress or widen the 2-place gap in the early table.",
-      "hookSpoilerOn": "Arsenal enter 6th and Chelsea 8th; a chance to compress or widen the 2-place gap in the early table.",
-      "synopsisSpoilerOff": "Arsenal are 6th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Arsenal are 6th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 3: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Arsenal's first title defence in 22 years against Chelsea's Xabi Alonso reset: one result will move two very different season stories.",
+      "hookSpoilerOn": "Arsenal's first title defence in 22 years against Chelsea's Xabi Alonso reset: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Arsenal arrives with an opening win, while Chelsea brings an opening win. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Arsenal arrives with an opening win, while Chelsea brings an opening win. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of settled champion structure against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -21869,7 +22417,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The finalists include the Dolphins for the first time and South Sydney for the first time since 2022. Week 1 splits them between top-four qualifying finals with a safety net and elimination finals without one, while the final seed order remains a live development.",
     "sourceName": "NRL — 2026 top eight locked",
     "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Nine / Kayo Sports"
     ],
@@ -21891,7 +22439,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "NRL — 2026 top eight locked",
       "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -21904,9 +22452,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "The eight are known; the unresolved order decides who gets a second chance and who starts in sudden death.",
       "synopsisSpoilerOff": "The finalists include the Dolphins for the first time and South Sydney for the first time since 2022. Week 1 splits them between top-four qualifying finals with a safety net and elimination finals without one, while the final seed order remains a live development.",
       "synopsisSpoilerOn": "The finalists include the Dolphins for the first time and South Sydney for the first time since 2022. Week 1 splits them between top-four qualifying finals with a safety net and elimination finals without one, while the final seed order remains a live development.",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "sourceTrust": "unverified",
     "sourceType": "official",
     "editorialNarrative": {
@@ -21933,7 +22481,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-07T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -22001,14 +22549,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Aston Villa enter 17th and Nottingham Forest 13th; a chance to compress or widen the 4-place gap in the early table.",
-    "fullSpiel": "Aston Villa are 17th with 0 points, while Nottingham Forest are 13th with 1. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 4-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Aston Villa host Nottingham Forest with Aston Villa's post-Europa rebuild and Nottingham Forest's Glasner reset both under examination.",
+    "fullSpiel": "Aston Villa arrives with an opening defeat, while Nottingham Forest brings 0W-1D-1L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new midfield and defensive spine against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22020,45 +22568,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128953",
       "researchTier": "standard",
-      "hook": "Aston Villa enter 17th and Nottingham Forest 13th; a chance to compress or widen the 4-place gap in the early table.",
-      "synopsis": "Aston Villa are 17th with 0 points, while Nottingham Forest are 13th with 1. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 4-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Aston Villa host Nottingham Forest with Aston Villa's post-Europa rebuild and Nottingham Forest's Glasner reset both under examination.",
+      "synopsis": "Aston Villa arrives with an opening defeat, while Nottingham Forest brings 0W-1D-1L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new midfield and defensive spine against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-2",
-        "thread:rolling:team-football-epl-15"
+        "thread:depth:epl:team-football-epl-2:2026-27",
+        "thread:depth:epl:team-football-epl-15:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing"
+        "fact:depth:epl:team-football-epl-2:season-arc",
+        "fact:depth:epl:team-football-epl-15:season-arc",
+        "fact:depth:epl:epl-2026-27-128953:team-football-epl-2:entry-form",
+        "fact:depth:epl:epl-2026-27-128953:team-football-epl-15:entry-form",
+        "fact:depth:epl:epl-2026-27-128953:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128953"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Aston Villa — current Premier League path",
+      "angle": "Aston Villa — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Aston Villa enter 17th and Nottingham Forest 13th; a chance to compress or widen the 4-place gap in the early table.",
-      "hookSpoilerOn": "Aston Villa enter 17th and Nottingham Forest 13th; a chance to compress or widen the 4-place gap in the early table.",
-      "synopsisSpoilerOff": "Aston Villa are 17th with 0 points, while Nottingham Forest are 13th with 1. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 4-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Aston Villa are 17th with 0 points, while Nottingham Forest are 13th with 1. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 4-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Aston Villa host Nottingham Forest with Aston Villa's post-Europa rebuild and Nottingham Forest's Glasner reset both under examination.",
+      "hookSpoilerOn": "Aston Villa host Nottingham Forest with Aston Villa's post-Europa rebuild and Nottingham Forest's Glasner reset both under examination.",
+      "synopsisSpoilerOff": "Aston Villa arrives with an opening defeat, while Nottingham Forest brings 0W-1D-1L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new midfield and defensive spine against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Aston Villa arrives with an opening defeat, while Nottingham Forest brings 0W-1D-1L. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. That makes this fixture a direct test of a new midfield and defensive spine against a new three-at-the-back structure against a poor home run, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22125,14 +22683,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "AFC Bournemouth enter 12th and Brentford 7th; a chance to compress or widen the 5-place gap in the early table.",
-    "fullSpiel": "AFC Bournemouth are 12th with 1 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Bournemouth's first European-season balancing act meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+    "fullSpiel": "AFC Bournemouth arrives with 0W-1D-1L, while Brentford brings an opening win. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22144,45 +22702,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128954",
       "researchTier": "standard",
-      "hook": "AFC Bournemouth enter 12th and Brentford 7th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsis": "AFC Bournemouth are 12th with 1 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Bournemouth's first European-season balancing act meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+      "synopsis": "AFC Bournemouth arrives with 0W-1D-1L, while Brentford brings an opening win. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-127",
-        "thread:rolling:team-football-epl-130"
+        "thread:depth:epl:team-football-epl-127:2026-27",
+        "thread:depth:epl:team-football-epl-130:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing"
+        "fact:depth:epl:team-football-epl-127:season-arc",
+        "fact:depth:epl:team-football-epl-130:season-arc",
+        "fact:depth:epl:epl-2026-27-128954:team-football-epl-127:entry-form",
+        "fact:depth:epl:epl-2026-27-128954:team-football-epl-130:entry-form",
+        "fact:depth:epl:epl-2026-27-128954:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128954"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "AFC Bournemouth — current Premier League path",
+      "angle": "AFC Bournemouth — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "AFC Bournemouth enter 12th and Brentford 7th; a chance to compress or widen the 5-place gap in the early table.",
-      "hookSpoilerOn": "AFC Bournemouth enter 12th and Brentford 7th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsisSpoilerOff": "AFC Bournemouth are 12th with 1 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "AFC Bournemouth are 12th with 1 points, while Brentford are 7th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Bournemouth's first European-season balancing act meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Bournemouth's first European-season balancing act meets Brentford's fast-break identity; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "AFC Bournemouth arrives with 0W-1D-1L, while Brentford brings an opening win. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "AFC Bournemouth arrives with 0W-1D-1L, while Brentford brings an opening win. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against the league's leading fast-break and throw-in threat, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22249,14 +22817,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Chelsea enter 8th and Hull City 2nd; a chance to compress or widen the 6-place gap in the early table.",
-    "fullSpiel": "Chelsea are 8th with 3 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 6-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Hull's top-flight return after nine years comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
+    "fullSpiel": "Chelsea arrives with an opening win, while Hull City brings 2 wins from 2. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a playoff-built counterattack, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22268,45 +22836,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128955",
       "researchTier": "standard",
-      "hook": "Chelsea enter 8th and Hull City 2nd; a chance to compress or widen the 6-place gap in the early table.",
-      "synopsis": "Chelsea are 8th with 3 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 6-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Hull's top-flight return after nine years comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
+      "synopsis": "Chelsea arrives with an opening win, while Hull City brings 2 wins from 2. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a playoff-built counterattack, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-4",
-        "thread:rolling:team-football-epl-41"
+        "thread:depth:epl:team-football-epl-4:2026-27",
+        "thread:depth:epl:team-football-epl-41:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+        "fact:depth:epl:team-football-epl-4:season-arc",
+        "fact:depth:epl:team-football-epl-41:season-arc",
+        "fact:depth:epl:epl-2026-27-128955:team-football-epl-4:entry-form",
+        "fact:depth:epl:epl-2026-27-128955:team-football-epl-41:entry-form",
+        "fact:depth:epl:epl-2026-27-128955:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128955"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Chelsea — current Premier League path",
+      "angle": "Chelsea — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Chelsea enter 8th and Hull City 2nd; a chance to compress or widen the 6-place gap in the early table.",
-      "hookSpoilerOn": "Chelsea enter 8th and Hull City 2nd; a chance to compress or widen the 6-place gap in the early table.",
-      "synopsisSpoilerOff": "Chelsea are 8th with 3 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 6-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Chelsea are 8th with 3 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 6-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Hull's top-flight return after nine years comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
+      "hookSpoilerOn": "Hull's top-flight return after nine years comes to Chelsea, directly testing Chelsea's Xabi Alonso reset.",
+      "synopsisSpoilerOff": "Chelsea arrives with an opening win, while Hull City brings 2 wins from 2. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a playoff-built counterattack, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Chelsea arrives with an opening win, while Hull City brings 2 wins from 2. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of a new three-at-the-back project without European midweeks against a playoff-built counterattack, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22373,14 +22951,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Crystal Palace enter 19th and Ipswich Town 9th; a chance to compress or widen the 10-place gap in the early table.",
-    "fullSpiel": "Crystal Palace are 19th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 10-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Crystal Palace host Ipswich Town with Crystal Palace's Pierre Sage transition and Ipswich's immediate top-flight return both under examination.",
+    "fullSpiel": "Crystal Palace arrives with 2 defeats from 2, while Ipswich Town brings an opening win. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22392,45 +22970,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128957",
       "researchTier": "standard",
-      "hook": "Crystal Palace enter 19th and Ipswich Town 9th; a chance to compress or widen the 10-place gap in the early table.",
-      "synopsis": "Crystal Palace are 19th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 10-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Crystal Palace host Ipswich Town with Crystal Palace's Pierre Sage transition and Ipswich's immediate top-flight return both under examination.",
+      "synopsis": "Crystal Palace arrives with 2 defeats from 2, while Ipswich Town brings an opening win. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-6",
-        "thread:rolling:team-football-epl-8"
+        "thread:depth:epl:team-football-epl-6:2026-27",
+        "thread:depth:epl:team-football-epl-8:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+        "fact:depth:epl:team-football-epl-6:season-arc",
+        "fact:depth:epl:team-football-epl-8:season-arc",
+        "fact:depth:epl:epl-2026-27-128957:team-football-epl-6:entry-form",
+        "fact:depth:epl:epl-2026-27-128957:team-football-epl-8:entry-form",
+        "fact:depth:epl:epl-2026-27-128957:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128957"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Crystal Palace — current Premier League path",
+      "angle": "Crystal Palace — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Crystal Palace enter 19th and Ipswich Town 9th; a chance to compress or widen the 10-place gap in the early table.",
-      "hookSpoilerOn": "Crystal Palace enter 19th and Ipswich Town 9th; a chance to compress or widen the 10-place gap in the early table.",
-      "synopsisSpoilerOff": "Crystal Palace are 19th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 10-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Crystal Palace are 19th with 0 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 10-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Crystal Palace host Ipswich Town with Crystal Palace's Pierre Sage transition and Ipswich's immediate top-flight return both under examination.",
+      "hookSpoilerOn": "Crystal Palace host Ipswich Town with Crystal Palace's Pierre Sage transition and Ipswich's immediate top-flight return both under examination.",
+      "synopsisSpoilerOff": "Crystal Palace arrives with 2 defeats from 2, while Ipswich Town brings an opening win. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Crystal Palace arrives with 2 defeats from 2, while Ipswich Town brings an opening win. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of a new build-from-the-back version of their established shape against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22497,14 +23085,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Liverpool enter 11th and Fulham 14th; a chance to compress or widen the 3-place gap in the early table.",
-    "fullSpiel": "Liverpool are 11th with 2 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Fulham's first post-Marco Silva season comes to Liverpool, directly testing Liverpool's high-press rebuild.",
+    "fullSpiel": "Liverpool arrives with 2 draws from 2, while Fulham brings an opening defeat. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22516,45 +23104,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128959",
       "researchTier": "standard",
-      "hook": "Liverpool enter 11th and Fulham 14th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsis": "Liverpool are 11th with 2 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Fulham's first post-Marco Silva season comes to Liverpool, directly testing Liverpool's high-press rebuild.",
+      "synopsis": "Liverpool arrives with 2 draws from 2, while Fulham brings an opening defeat. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-10",
-        "thread:rolling:team-football-epl-34"
+        "thread:depth:epl:team-football-epl-10:2026-27",
+        "thread:depth:epl:team-football-epl-34:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing"
+        "fact:depth:epl:team-football-epl-10:season-arc",
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:epl-2026-27-128959:team-football-epl-10:entry-form",
+        "fact:depth:epl:epl-2026-27-128959:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-128959:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128959"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Liverpool — current Premier League path",
+      "angle": "Liverpool — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Liverpool enter 11th and Fulham 14th; a chance to compress or widen the 3-place gap in the early table.",
-      "hookSpoilerOn": "Liverpool enter 11th and Fulham 14th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsisSpoilerOff": "Liverpool are 11th with 2 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Liverpool are 11th with 2 points, while Fulham are 14th with 0. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Fulham's first post-Marco Silva season comes to Liverpool, directly testing Liverpool's high-press rebuild.",
+      "hookSpoilerOn": "Fulham's first post-Marco Silva season comes to Liverpool, directly testing Liverpool's high-press rebuild.",
+      "synopsisSpoilerOff": "Liverpool arrives with 2 draws from 2, while Fulham brings an opening defeat. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Liverpool arrives with 2 draws from 2, while Fulham brings an opening defeat. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. That makes this fixture a direct test of Andoni Iraola's faster counterattacking identity against Alvaro Arbeloa's wide overloads, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22601,7 +23199,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-07-27T00:30:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-28",
@@ -22622,7 +23220,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "consequence"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -22632,7 +23230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Kimi Antonelli leads by 50 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
       "synopsisSpoilerOff": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
       "synopsisSpoilerOn": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -22699,14 +23297,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Tottenham Hotspur enter 20th and Everton 4th; a chance to compress or widen the 16-place gap in the early table.",
-    "fullSpiel": "Tottenham Hotspur are 20th with 0 points, while Everton are 4th with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 16-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Everton's search for more attack comes to Tottenham Hotspur, directly testing Tottenham's first full De Zerbi season.",
+    "fullSpiel": "Tottenham Hotspur arrives with 2 defeats from 2, while Everton brings 1W-1D-0L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22718,45 +23316,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128962",
       "researchTier": "standard",
-      "hook": "Tottenham Hotspur enter 20th and Everton 4th; a chance to compress or widen the 16-place gap in the early table.",
-      "synopsis": "Tottenham Hotspur are 20th with 0 points, while Everton are 4th with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 16-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Everton's search for more attack comes to Tottenham Hotspur, directly testing Tottenham's first full De Zerbi season.",
+      "synopsis": "Tottenham Hotspur arrives with 2 defeats from 2, while Everton brings 1W-1D-0L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-21",
-        "thread:rolling:team-football-epl-7"
+        "thread:depth:epl:team-football-epl-21:2026-27",
+        "thread:depth:epl:team-football-epl-7:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing"
+        "fact:depth:epl:team-football-epl-21:season-arc",
+        "fact:depth:epl:team-football-epl-7:season-arc",
+        "fact:depth:epl:epl-2026-27-128962:team-football-epl-21:entry-form",
+        "fact:depth:epl:epl-2026-27-128962:team-football-epl-7:entry-form",
+        "fact:depth:epl:epl-2026-27-128962:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128962"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T16:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Tottenham Hotspur — current Premier League path",
+      "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Tottenham Hotspur enter 20th and Everton 4th; a chance to compress or widen the 16-place gap in the early table.",
-      "hookSpoilerOn": "Tottenham Hotspur enter 20th and Everton 4th; a chance to compress or widen the 16-place gap in the early table.",
-      "synopsisSpoilerOff": "Tottenham Hotspur are 20th with 0 points, while Everton are 4th with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 16-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Tottenham Hotspur are 20th with 0 points, while Everton are 4th with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 16-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Everton's search for more attack comes to Tottenham Hotspur, directly testing Tottenham's first full De Zerbi season.",
+      "hookSpoilerOn": "Everton's search for more attack comes to Tottenham Hotspur, directly testing Tottenham's first full De Zerbi season.",
+      "synopsisSpoilerOff": "Tottenham Hotspur arrives with 2 defeats from 2, while Everton brings 1W-1D-0L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Tottenham Hotspur arrives with 2 defeats from 2, while Everton brings 1W-1D-0L. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against adding goals to one of the league's strongest away defences, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22823,14 +23431,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Sunderland enter 15th and Arsenal 6th; a chance to compress or widen the 9-place gap in the early table.",
-    "fullSpiel": "Sunderland are 15th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Sunderland's Europe-and-league balancing act against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+    "fullSpiel": "Sunderland arrives with an opening defeat, while Arsenal brings an opening win. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of the defensive base behind last season's seventh place against settled champion structure, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22842,45 +23450,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128961",
       "researchTier": "standard",
-      "hook": "Sunderland enter 15th and Arsenal 6th; a chance to compress or widen the 9-place gap in the early table.",
-      "synopsis": "Sunderland are 15th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Sunderland's Europe-and-league balancing act against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+      "synopsis": "Sunderland arrives with an opening defeat, while Arsenal brings an opening win. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of the defensive base behind last season's seventh place against settled champion structure, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-29",
-        "thread:rolling:team-football-epl-1"
+        "thread:depth:epl:team-football-epl-29:2026-27",
+        "thread:depth:epl:team-football-epl-1:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+        "fact:depth:epl:team-football-epl-29:season-arc",
+        "fact:depth:epl:team-football-epl-1:season-arc",
+        "fact:depth:epl:epl-2026-27-128961:team-football-epl-29:entry-form",
+        "fact:depth:epl:epl-2026-27-128961:team-football-epl-1:entry-form",
+        "fact:depth:epl:epl-2026-27-128961:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128961"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-12T19:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Sunderland — current Premier League path",
+      "angle": "Sunderland — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Sunderland enter 15th and Arsenal 6th; a chance to compress or widen the 9-place gap in the early table.",
-      "hookSpoilerOn": "Sunderland enter 15th and Arsenal 6th; a chance to compress or widen the 9-place gap in the early table.",
-      "synopsisSpoilerOff": "Sunderland are 15th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Sunderland are 15th with 0 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Sunderland's Europe-and-league balancing act against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+      "hookSpoilerOn": "Sunderland's Europe-and-league balancing act against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Sunderland arrives with an opening defeat, while Arsenal brings an opening win. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of the defensive base behind last season's seventh place against settled champion structure, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Sunderland arrives with an opening defeat, while Arsenal brings an opening win. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of the defensive base behind last season's seventh place against settled champion structure, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -22947,14 +23565,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Coventry City enter 18th and Brighton & Hove Albion 5th; a chance to compress or widen the 13-place gap in the early table.",
-    "fullSpiel": "Coventry City are 18th with 0 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 13-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Coventry's return after 25 years against Brighton's goals-by-committee attack: one result will move two very different season stories.",
+    "fullSpiel": "Coventry City arrives with 2 defeats from 2, while Brighton & Hove Albion brings an opening win. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -22966,45 +23584,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128956",
       "researchTier": "standard",
-      "hook": "Coventry City enter 18th and Brighton & Hove Albion 5th; a chance to compress or widen the 13-place gap in the early table.",
-      "synopsis": "Coventry City are 18th with 0 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 13-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Coventry's return after 25 years against Brighton's goals-by-committee attack: one result will move two very different season stories.",
+      "synopsis": "Coventry City arrives with 2 defeats from 2, while Brighton & Hove Albion brings an opening win. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-5",
-        "thread:rolling:team-football-epl-131"
+        "thread:depth:epl:team-football-epl-5:2026-27",
+        "thread:depth:epl:team-football-epl-131:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing"
+        "fact:depth:epl:team-football-epl-5:season-arc",
+        "fact:depth:epl:team-football-epl-131:season-arc",
+        "fact:depth:epl:epl-2026-27-128956:team-football-epl-5:entry-form",
+        "fact:depth:epl:epl-2026-27-128956:team-football-epl-131:entry-form",
+        "fact:depth:epl:epl-2026-27-128956:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128956"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-13T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Coventry City — current Premier League path",
+      "angle": "Coventry City — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Coventry City enter 18th and Brighton & Hove Albion 5th; a chance to compress or widen the 13-place gap in the early table.",
-      "hookSpoilerOn": "Coventry City enter 18th and Brighton & Hove Albion 5th; a chance to compress or widen the 13-place gap in the early table.",
-      "synopsisSpoilerOff": "Coventry City are 18th with 0 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 13-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Coventry City are 18th with 0 points, while Brighton & Hove Albion are 5th with 3. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 13-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Coventry's return after 25 years against Brighton's goals-by-committee attack: one result will move two very different season stories.",
+      "hookSpoilerOn": "Coventry's return after 25 years against Brighton's goals-by-committee attack: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Coventry City arrives with 2 defeats from 2, while Brighton & Hove Albion brings an opening win. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Coventry City arrives with 2 defeats from 2, while Brighton & Hove Albion brings an opening win. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. That makes this fixture a direct test of the set-piece strength behind a 97-goal promotion against a side that spread last season's goals across 19 players, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23051,7 +23679,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-07-27T00:30:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:53:24.207Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-29",
@@ -23072,7 +23700,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "form",
         "consequence"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
+      "researchedAt": "2026-08-29T23:53:24.207Z",
       "refreshAfter": null,
       "generationMode": "researched"
     },
@@ -23082,7 +23710,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "Kimi Antonelli leads by 50 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
       "synopsisSpoilerOff": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
       "synopsisSpoilerOn": "Kimi Antonelli holds 219 points to Lewis Hamilton's 169 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "lastReviewedAt": "2026-08-29T23:53:24.207Z",
       "arcStage": "preview"
     }
   },
@@ -23149,14 +23777,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester United enter 16th and Manchester City 1st; a chance to compress or widen the 15-place gap in the early table.",
-    "fullSpiel": "Manchester United are 16th with 0 points, while Manchester City are 1st with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Manchester United host Manchester City with Manchester United's Carrick rebuild and Manchester City's first post-Guardiola campaign both under examination.",
+    "fullSpiel": "Manchester United arrives with an opening defeat, while Manchester City brings 2 wins from 2. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23168,45 +23796,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128960",
       "researchTier": "standard",
-      "hook": "Manchester United enter 16th and Manchester City 1st; a chance to compress or widen the 15-place gap in the early table.",
-      "synopsis": "Manchester United are 16th with 0 points, while Manchester City are 1st with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Manchester United host Manchester City with Manchester United's Carrick rebuild and Manchester City's first post-Guardiola campaign both under examination.",
+      "synopsis": "Manchester United arrives with an opening defeat, while Manchester City brings 2 wins from 2. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-12",
-        "thread:rolling:team-football-epl-11"
+        "thread:depth:epl:team-football-epl-12:2026-27",
+        "thread:depth:epl:team-football-epl-11:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing"
+        "fact:depth:epl:team-football-epl-12:season-arc",
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:epl-2026-27-128960:team-football-epl-12:entry-form",
+        "fact:depth:epl:epl-2026-27-128960:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-128960:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128960"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-13T15:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Manchester United — current Premier League path",
+      "angle": "Manchester United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Manchester United enter 16th and Manchester City 1st; a chance to compress or widen the 15-place gap in the early table.",
-      "hookSpoilerOn": "Manchester United enter 16th and Manchester City 1st; a chance to compress or widen the 15-place gap in the early table.",
-      "synopsisSpoilerOff": "Manchester United are 16th with 0 points, while Manchester City are 1st with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Manchester United are 16th with 0 points, while Manchester City are 1st with 6. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 15-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Manchester United host Manchester City with Manchester United's Carrick rebuild and Manchester City's first post-Guardiola campaign both under examination.",
+      "hookSpoilerOn": "Manchester United host Manchester City with Manchester United's Carrick rebuild and Manchester City's first post-Guardiola campaign both under examination.",
+      "synopsisSpoilerOff": "Manchester United arrives with an opening defeat, while Manchester City brings 2 wins from 2. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Manchester United arrives with an opening defeat, while Manchester City brings 2 wins from 2. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. That makes this fixture a direct test of a redesigned midfield carrying Champions League load against Enzo Maresca's continuity-versus-change problem, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23273,14 +23911,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Leeds United enter 10th and Newcastle United 3rd; a chance to compress or widen the 7-place gap in the early table.",
-    "fullSpiel": "Leeds United are 10th with 3 points, while Newcastle United are 3rd with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Leeds' carry-over momentum meets Newcastle's new era after a summer exodus; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Leeds United arrives with an opening win, while Newcastle United brings 1W-1D-0L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23292,45 +23930,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128958",
       "researchTier": "standard",
-      "hook": "Leeds United enter 10th and Newcastle United 3rd; a chance to compress or widen the 7-place gap in the early table.",
-      "synopsis": "Leeds United are 10th with 3 points, while Newcastle United are 3rd with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Leeds' carry-over momentum meets Newcastle's new era after a summer exodus; one fixture now moves both season-defining questions.",
+      "synopsis": "Leeds United arrives with an opening win, while Newcastle United brings 1W-1D-0L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-9",
-        "thread:rolling:team-football-epl-23"
+        "thread:depth:epl:team-football-epl-9:2026-27",
+        "thread:depth:epl:team-football-epl-23:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing"
+        "fact:depth:epl:team-football-epl-9:season-arc",
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:epl-2026-27-128958:team-football-epl-9:entry-form",
+        "fact:depth:epl:epl-2026-27-128958:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-128958:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128958"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-14T19:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Leeds United — current Premier League path",
+      "angle": "Leeds United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Leeds United enter 10th and Newcastle United 3rd; a chance to compress or widen the 7-place gap in the early table.",
-      "hookSpoilerOn": "Leeds United enter 10th and Newcastle United 3rd; a chance to compress or widen the 7-place gap in the early table.",
-      "synopsisSpoilerOff": "Leeds United are 10th with 3 points, while Newcastle United are 3rd with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Leeds United are 10th with 3 points, while Newcastle United are 3rd with 4. That makes this more than a date in Premier League Matchweek 4: it is a chance to compress or widen the 7-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Leeds' carry-over momentum meets Newcastle's new era after a summer exodus; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Leeds' carry-over momentum meets Newcastle's new era after a summer exodus; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Leeds United arrives with an opening win, while Newcastle United brings 1W-1D-0L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Leeds United arrives with an opening win, while Newcastle United brings 1W-1D-0L. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against rebuilding leadership, midfield and coaching at once, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23397,14 +24045,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brentford enter 7th and Chelsea 8th; a chance to compress or widen the 1-place gap in the early table.",
-    "fullSpiel": "Brentford are 7th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Brentford host Chelsea with Brentford's fast-break identity and Chelsea's Xabi Alonso reset both under examination.",
+    "fullSpiel": "Brentford arrives with an opening win, while Chelsea brings an opening win. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23416,45 +24064,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128964",
       "researchTier": "standard",
-      "hook": "Brentford enter 7th and Chelsea 8th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsis": "Brentford are 7th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Brentford host Chelsea with Brentford's fast-break identity and Chelsea's Xabi Alonso reset both under examination.",
+      "synopsis": "Brentford arrives with an opening win, while Chelsea brings an opening win. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-130",
-        "thread:rolling:team-football-epl-4"
+        "thread:depth:epl:team-football-epl-130:2026-27",
+        "thread:depth:epl:team-football-epl-4:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-130:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-4:standing"
+        "fact:depth:epl:team-football-epl-130:season-arc",
+        "fact:depth:epl:team-football-epl-4:season-arc",
+        "fact:depth:epl:epl-2026-27-128964:team-football-epl-130:entry-form",
+        "fact:depth:epl:epl-2026-27-128964:team-football-epl-4:entry-form",
+        "fact:depth:epl:epl-2026-27-128964:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128964"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-18T19:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Brentford — current Premier League path",
+      "angle": "Brentford — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Brentford enter 7th and Chelsea 8th; a chance to compress or widen the 1-place gap in the early table.",
-      "hookSpoilerOn": "Brentford enter 7th and Chelsea 8th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsisSpoilerOff": "Brentford are 7th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Brentford are 7th with 3 points, while Chelsea are 8th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Brentford host Chelsea with Brentford's fast-break identity and Chelsea's Xabi Alonso reset both under examination.",
+      "hookSpoilerOn": "Brentford host Chelsea with Brentford's fast-break identity and Chelsea's Xabi Alonso reset both under examination.",
+      "synopsisSpoilerOff": "Brentford arrives with an opening win, while Chelsea brings an opening win. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Brentford arrives with an opening win, while Chelsea brings an opening win. Brentford entered 2026/27 after ranking first in the league for goals from fast breaks and throw-ins, with Keith Andrews beginning his second season. Chelsea begin the Xabi Alonso era without European fixtures, giving a new tactical project more training time but leaving defensive resilience as an immediate test. That makes this fixture a direct test of the league's leading fast-break and throw-in threat against a new three-at-the-back project without European midweeks, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23475,7 +24131,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The teams cannot be named before Week 1 resolves, but the consequence is fixed: qualifying-final losers host elimination survivors in two sudden-death semi-finals. Each winner moves within one match of the Grand Final at Accor Stadium.",
     "sourceName": "NRL — finals progression explainer",
     "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Nine / Kayo Sports"
     ],
@@ -23496,9 +24152,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The teams cannot be named before Week 1 resolves, but the consequence is fixed: qualifying-final losers host elimination survivors in two sudden-death semi-finals. Each winner moves within one match of the Grand Final at Accor Stadium.",
       "synopsisSpoilerOn": "The teams cannot be named before Week 1 resolves, but the consequence is fixed: qualifying-final losers host elimination survivors in two sudden-death semi-finals. Each winner moves within one match of the Grand Final at Accor Stadium.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Week 2 removes every safety net",
@@ -23509,7 +24165,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "NRL — finals progression explainer",
       "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -23536,7 +24192,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "path",
         "consequence"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-14T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -23604,14 +24260,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Tottenham Hotspur enter 20th and Aston Villa 17th; a chance to compress or widen the 3-place gap in the early table.",
-    "fullSpiel": "Tottenham Hotspur are 20th with 0 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Tottenham's first full De Zerbi season meets Aston Villa's post-Europa rebuild; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Tottenham Hotspur arrives with 2 defeats from 2, while Aston Villa brings an opening defeat. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23623,45 +24279,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128972",
       "researchTier": "standard",
-      "hook": "Tottenham Hotspur enter 20th and Aston Villa 17th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsis": "Tottenham Hotspur are 20th with 0 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Tottenham's first full De Zerbi season meets Aston Villa's post-Europa rebuild; one fixture now moves both season-defining questions.",
+      "synopsis": "Tottenham Hotspur arrives with 2 defeats from 2, while Aston Villa brings an opening defeat. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-21",
-        "thread:rolling:team-football-epl-2"
+        "thread:depth:epl:team-football-epl-21:2026-27",
+        "thread:depth:epl:team-football-epl-2:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-21:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-2:standing"
+        "fact:depth:epl:team-football-epl-21:season-arc",
+        "fact:depth:epl:team-football-epl-2:season-arc",
+        "fact:depth:epl:epl-2026-27-128972:team-football-epl-21:entry-form",
+        "fact:depth:epl:epl-2026-27-128972:team-football-epl-2:entry-form",
+        "fact:depth:epl:epl-2026-27-128972:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128972"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-19T11:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Tottenham Hotspur — current Premier League path",
+      "angle": "Tottenham Hotspur — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Tottenham Hotspur enter 20th and Aston Villa 17th; a chance to compress or widen the 3-place gap in the early table.",
-      "hookSpoilerOn": "Tottenham Hotspur enter 20th and Aston Villa 17th; a chance to compress or widen the 3-place gap in the early table.",
-      "synopsisSpoilerOff": "Tottenham Hotspur are 20th with 0 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Tottenham Hotspur are 20th with 0 points, while Aston Villa are 17th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 3-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Tottenham's first full De Zerbi season meets Aston Villa's post-Europa rebuild; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Tottenham's first full De Zerbi season meets Aston Villa's post-Europa rebuild; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Tottenham Hotspur arrives with 2 defeats from 2, while Aston Villa brings an opening defeat. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Tottenham Hotspur arrives with 2 defeats from 2, while Aston Villa brings an opening defeat. Tottenham began Roberto De Zerbi's first full season with a rebuilt ball-playing defence and midfield intended to support his aggressive attacking model. Aston Villa enter a new cycle after finishing fourth and winning the Europa League, with several senior starters leaving during the summer. That makes this fixture a direct test of a new ball-playing defence under an attacking coach against a new midfield and defensive spine, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23728,14 +24394,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Brighton & Hove Albion enter 5th and Arsenal 6th; a chance to compress or widen the 1-place gap in the early table.",
-    "fullSpiel": "Brighton & Hove Albion are 5th with 3 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Brighton's goals-by-committee attack against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+    "fullSpiel": "Brighton & Hove Albion arrives with an opening win, while Arsenal brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23747,45 +24413,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128965",
       "researchTier": "standard",
-      "hook": "Brighton & Hove Albion enter 5th and Arsenal 6th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsis": "Brighton & Hove Albion are 5th with 3 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Brighton's goals-by-committee attack against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+      "synopsis": "Brighton & Hove Albion arrives with an opening win, while Arsenal brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-131",
-        "thread:rolling:team-football-epl-1"
+        "thread:depth:epl:team-football-epl-131:2026-27",
+        "thread:depth:epl:team-football-epl-1:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-131:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-1:standing"
+        "fact:depth:epl:team-football-epl-131:season-arc",
+        "fact:depth:epl:team-football-epl-1:season-arc",
+        "fact:depth:epl:epl-2026-27-128965:team-football-epl-131:entry-form",
+        "fact:depth:epl:epl-2026-27-128965:team-football-epl-1:entry-form",
+        "fact:depth:epl:epl-2026-27-128965:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128965"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-19T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Brighton & Hove Albion — current Premier League path",
+      "angle": "Brighton & Hove Albion — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Brighton & Hove Albion enter 5th and Arsenal 6th; a chance to compress or widen the 1-place gap in the early table.",
-      "hookSpoilerOn": "Brighton & Hove Albion enter 5th and Arsenal 6th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsisSpoilerOff": "Brighton & Hove Albion are 5th with 3 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Brighton & Hove Albion are 5th with 3 points, while Arsenal are 6th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Brighton's goals-by-committee attack against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+      "hookSpoilerOn": "Brighton's goals-by-committee attack against Arsenal's first title defence in 22 years: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Brighton & Hove Albion arrives with an opening win, while Arsenal brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Brighton & Hove Albion arrives with an opening win, while Arsenal brings an opening win. Brighton had 19 different Premier League scorers in 2025/26, more than any other club, before changing the centre of their defence. Arsenal begin their first Premier League title defence in 22 years, chasing consecutive championships for the first time in more than 90 years. That makes this fixture a direct test of a side that spread last season's goals across 19 players against settled champion structure, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23852,14 +24528,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Everton enter 4th and Ipswich Town 9th; a chance to compress or widen the 5-place gap in the early table.",
-    "fullSpiel": "Everton are 4th with 4 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Ipswich's immediate top-flight return comes to Everton, directly testing Everton's search for more attack.",
+    "fullSpiel": "Everton arrives with 1W-1D-0L, while Ipswich Town brings an opening win. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23871,45 +24547,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128966",
       "researchTier": "standard",
-      "hook": "Everton enter 4th and Ipswich Town 9th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsis": "Everton are 4th with 4 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Ipswich's immediate top-flight return comes to Everton, directly testing Everton's search for more attack.",
+      "synopsis": "Everton arrives with 1W-1D-0L, while Ipswich Town brings an opening win. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-7",
-        "thread:rolling:team-football-epl-8"
+        "thread:depth:epl:team-football-epl-7:2026-27",
+        "thread:depth:epl:team-football-epl-8:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-7:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-8:standing"
+        "fact:depth:epl:team-football-epl-7:season-arc",
+        "fact:depth:epl:team-football-epl-8:season-arc",
+        "fact:depth:epl:epl-2026-27-128966:team-football-epl-7:entry-form",
+        "fact:depth:epl:epl-2026-27-128966:team-football-epl-8:entry-form",
+        "fact:depth:epl:epl-2026-27-128966:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128966"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-19T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Everton — current Premier League path",
+      "angle": "Everton — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Everton enter 4th and Ipswich Town 9th; a chance to compress or widen the 5-place gap in the early table.",
-      "hookSpoilerOn": "Everton enter 4th and Ipswich Town 9th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsisSpoilerOff": "Everton are 4th with 4 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Everton are 4th with 4 points, while Ipswich Town are 9th with 3. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Ipswich's immediate top-flight return comes to Everton, directly testing Everton's search for more attack.",
+      "hookSpoilerOn": "Ipswich's immediate top-flight return comes to Everton, directly testing Everton's search for more attack.",
+      "synopsisSpoilerOff": "Everton arrives with 1W-1D-0L, while Ipswich Town brings an opening win. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Everton arrives with 1W-1D-0L, while Ipswich Town brings an opening win. Everton arrived with a strong defensive base after only Arsenal and Manchester City conceded fewer away goals in 2025/26, but needed more attacking output. Ipswich returned immediately after finishing second in the Championship, with Gary O'Neil adding a deeper and more pragmatic defensive plan. That makes this fixture a direct test of adding goals to one of the league's strongest away defences against Gary O'Neil's more pragmatic second attempt, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -23976,14 +24662,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Leeds United enter 10th and Crystal Palace 19th; a chance to compress or widen the 9-place gap in the early table.",
-    "fullSpiel": "Leeds United are 10th with 3 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Leeds United host Crystal Palace with Leeds' carry-over momentum and Crystal Palace's Pierre Sage transition both under examination.",
+    "fullSpiel": "Leeds United arrives with an opening win, while Crystal Palace brings 2 defeats from 2. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -23995,45 +24681,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128968",
       "researchTier": "standard",
-      "hook": "Leeds United enter 10th and Crystal Palace 19th; a chance to compress or widen the 9-place gap in the early table.",
-      "synopsis": "Leeds United are 10th with 3 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Leeds United host Crystal Palace with Leeds' carry-over momentum and Crystal Palace's Pierre Sage transition both under examination.",
+      "synopsis": "Leeds United arrives with an opening win, while Crystal Palace brings 2 defeats from 2. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-9",
-        "thread:rolling:team-football-epl-6"
+        "thread:depth:epl:team-football-epl-9:2026-27",
+        "thread:depth:epl:team-football-epl-6:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-9:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-6:standing"
+        "fact:depth:epl:team-football-epl-9:season-arc",
+        "fact:depth:epl:team-football-epl-6:season-arc",
+        "fact:depth:epl:epl-2026-27-128968:team-football-epl-9:entry-form",
+        "fact:depth:epl:epl-2026-27-128968:team-football-epl-6:entry-form",
+        "fact:depth:epl:epl-2026-27-128968:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128968"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-19T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Leeds United — current Premier League path",
+      "angle": "Leeds United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Leeds United enter 10th and Crystal Palace 19th; a chance to compress or widen the 9-place gap in the early table.",
-      "hookSpoilerOn": "Leeds United enter 10th and Crystal Palace 19th; a chance to compress or widen the 9-place gap in the early table.",
-      "synopsisSpoilerOff": "Leeds United are 10th with 3 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Leeds United are 10th with 3 points, while Crystal Palace are 19th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 9-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Leeds United host Crystal Palace with Leeds' carry-over momentum and Crystal Palace's Pierre Sage transition both under examination.",
+      "hookSpoilerOn": "Leeds United host Crystal Palace with Leeds' carry-over momentum and Crystal Palace's Pierre Sage transition both under examination.",
+      "synopsisSpoilerOff": "Leeds United arrives with an opening win, while Crystal Palace brings 2 defeats from 2. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Leeds United arrives with an opening win, while Crystal Palace brings 2 defeats from 2. Leeds lost only three of their final 14 league matches in 2025/26 and retained the physical 3-4-2-1 structure behind that finish. Crystal Palace retained a three-at-the-back shape under new coach Pierre Sage while shifting toward more possession and build-up through Adam Wharton. That makes this fixture a direct test of the physical 3-4-2-1 that lost only three of its final 14 last season against a new build-from-the-back version of their established shape, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24100,14 +24794,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Newcastle United enter 3rd and Hull City 2nd; a chance to compress or widen the 1-place gap in the early table.",
-    "fullSpiel": "Newcastle United are 3rd with 4 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Newcastle's new era after a summer exodus against Hull's top-flight return after nine years: one result will move two very different season stories.",
+    "fullSpiel": "Newcastle United arrives with 1W-1D-0L, while Hull City brings 2 wins from 2. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24119,45 +24813,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128970",
       "researchTier": "standard",
-      "hook": "Newcastle United enter 3rd and Hull City 2nd; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsis": "Newcastle United are 3rd with 4 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Newcastle's new era after a summer exodus against Hull's top-flight return after nine years: one result will move two very different season stories.",
+      "synopsis": "Newcastle United arrives with 1W-1D-0L, while Hull City brings 2 wins from 2. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-23",
-        "thread:rolling:team-football-epl-41"
+        "thread:depth:epl:team-football-epl-23:2026-27",
+        "thread:depth:epl:team-football-epl-41:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-23:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-41:standing"
+        "fact:depth:epl:team-football-epl-23:season-arc",
+        "fact:depth:epl:team-football-epl-41:season-arc",
+        "fact:depth:epl:epl-2026-27-128970:team-football-epl-23:entry-form",
+        "fact:depth:epl:epl-2026-27-128970:team-football-epl-41:entry-form",
+        "fact:depth:epl:epl-2026-27-128970:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128970"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-19T14:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Newcastle United — current Premier League path",
+      "angle": "Newcastle United — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Newcastle United enter 3rd and Hull City 2nd; a chance to compress or widen the 1-place gap in the early table.",
-      "hookSpoilerOn": "Newcastle United enter 3rd and Hull City 2nd; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsisSpoilerOff": "Newcastle United are 3rd with 4 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Newcastle United are 3rd with 4 points, while Hull City are 2nd with 6. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Newcastle's new era after a summer exodus against Hull's top-flight return after nine years: one result will move two very different season stories.",
+      "hookSpoilerOn": "Newcastle's new era after a summer exodus against Hull's top-flight return after nine years: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Newcastle United arrives with 1W-1D-0L, while Hull City brings 2 wins from 2. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Newcastle United arrives with 1W-1D-0L, while Hull City brings 2 wins from 2. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24224,14 +24928,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Nottingham Forest enter 13th and Coventry City 18th; a chance to compress or widen the 5-place gap in the early table.",
-    "fullSpiel": "Nottingham Forest are 13th with 1 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Nottingham Forest host Coventry City with Nottingham Forest's Glasner reset and Coventry's return after 25 years both under examination.",
+    "fullSpiel": "Nottingham Forest arrives with 0W-1D-1L, while Coventry City brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24243,45 +24947,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128971",
       "researchTier": "standard",
-      "hook": "Nottingham Forest enter 13th and Coventry City 18th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsis": "Nottingham Forest are 13th with 1 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Nottingham Forest host Coventry City with Nottingham Forest's Glasner reset and Coventry's return after 25 years both under examination.",
+      "synopsis": "Nottingham Forest arrives with 0W-1D-1L, while Coventry City brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-15",
-        "thread:rolling:team-football-epl-5"
+        "thread:depth:epl:team-football-epl-15:2026-27",
+        "thread:depth:epl:team-football-epl-5:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-15:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-5:standing"
+        "fact:depth:epl:team-football-epl-15:season-arc",
+        "fact:depth:epl:team-football-epl-5:season-arc",
+        "fact:depth:epl:epl-2026-27-128971:team-football-epl-15:entry-form",
+        "fact:depth:epl:epl-2026-27-128971:team-football-epl-5:entry-form",
+        "fact:depth:epl:epl-2026-27-128971:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128971"
       ],
       "dimensions": [
-        "form"
+        "form",
+        "history",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-19T16:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Nottingham Forest — current Premier League path",
+      "angle": "Nottingham Forest — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:form",
+        "narrative:history",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Nottingham Forest enter 13th and Coventry City 18th; a chance to compress or widen the 5-place gap in the early table.",
-      "hookSpoilerOn": "Nottingham Forest enter 13th and Coventry City 18th; a chance to compress or widen the 5-place gap in the early table.",
-      "synopsisSpoilerOff": "Nottingham Forest are 13th with 1 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Nottingham Forest are 13th with 1 points, while Coventry City are 18th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 5-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Nottingham Forest host Coventry City with Nottingham Forest's Glasner reset and Coventry's return after 25 years both under examination.",
+      "hookSpoilerOn": "Nottingham Forest host Coventry City with Nottingham Forest's Glasner reset and Coventry's return after 25 years both under examination.",
+      "synopsisSpoilerOff": "Nottingham Forest arrives with 0W-1D-1L, while Coventry City brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Nottingham Forest arrives with 0W-1D-1L, while Coventry City brings 2 defeats from 2. Nottingham Forest appointed Oliver Glasner after taking three points only once in their final 12 league home matches, rebuilding around a three-at-the-back defence. Championship winners Coventry returned to the Premier League after 25 years, having scored 97 league goals and a division-high 29 from set plays. That makes this fixture a direct test of a new three-at-the-back structure against a poor home run against the set-piece strength behind a 97-goal promotion, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24348,14 +25062,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "AFC Bournemouth enter 12th and Liverpool 11th; a chance to compress or widen the 1-place gap in the early table.",
-    "fullSpiel": "AFC Bournemouth are 12th with 1 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Bournemouth's first European-season balancing act meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+    "fullSpiel": "AFC Bournemouth arrives with 0W-1D-1L, while Liverpool brings 2 draws from 2. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24367,45 +25081,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128963",
       "researchTier": "standard",
-      "hook": "AFC Bournemouth enter 12th and Liverpool 11th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsis": "AFC Bournemouth are 12th with 1 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Bournemouth's first European-season balancing act meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+      "synopsis": "AFC Bournemouth arrives with 0W-1D-1L, while Liverpool brings 2 draws from 2. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-127",
-        "thread:rolling:team-football-epl-10"
+        "thread:depth:epl:team-football-epl-127:2026-27",
+        "thread:depth:epl:team-football-epl-10:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-127:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-10:standing"
+        "fact:depth:epl:team-football-epl-127:season-arc",
+        "fact:depth:epl:team-football-epl-10:season-arc",
+        "fact:depth:epl:epl-2026-27-128963:team-football-epl-127:entry-form",
+        "fact:depth:epl:epl-2026-27-128963:team-football-epl-10:entry-form",
+        "fact:depth:epl:epl-2026-27-128963:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128963"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-20T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "AFC Bournemouth — current Premier League path",
+      "angle": "AFC Bournemouth — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "AFC Bournemouth enter 12th and Liverpool 11th; a chance to compress or widen the 1-place gap in the early table.",
-      "hookSpoilerOn": "AFC Bournemouth enter 12th and Liverpool 11th; a chance to compress or widen the 1-place gap in the early table.",
-      "synopsisSpoilerOff": "AFC Bournemouth are 12th with 1 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "AFC Bournemouth are 12th with 1 points, while Liverpool are 11th with 2. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 1-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Bournemouth's first European-season balancing act meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Bournemouth's first European-season balancing act meets Liverpool's high-press rebuild; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "AFC Bournemouth arrives with 0W-1D-1L, while Liverpool brings 2 draws from 2. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "AFC Bournemouth arrives with 0W-1D-1L, while Liverpool brings 2 draws from 2. Bournemouth are balancing their first European campaign with a managerial change after recording the club's best Premier League finish under Andoni Iraola. Liverpool appointed Andoni Iraola after a disappointing title defence, beginning a pressing and counterattacking reset around a heavily changed squad. That makes this fixture a direct test of Marco Rose's attempt to preserve a best-ever finish against Andoni Iraola's faster counterattacking identity, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24472,14 +25196,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Manchester City enter 1st and Sunderland 15th; a chance to compress or widen the 14-place gap in the early table.",
-    "fullSpiel": "Manchester City are 1st with 6 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 14-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Manchester City's first post-Guardiola campaign against Sunderland's Europe-and-league balancing act: one result will move two very different season stories.",
+    "fullSpiel": "Manchester City arrives with 2 wins from 2, while Sunderland brings an opening defeat. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24491,45 +25215,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128969",
       "researchTier": "standard",
-      "hook": "Manchester City enter 1st and Sunderland 15th; a chance to compress or widen the 14-place gap in the early table.",
-      "synopsis": "Manchester City are 1st with 6 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 14-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Manchester City's first post-Guardiola campaign against Sunderland's Europe-and-league balancing act: one result will move two very different season stories.",
+      "synopsis": "Manchester City arrives with 2 wins from 2, while Sunderland brings an opening defeat. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-11",
-        "thread:rolling:team-football-epl-29"
+        "thread:depth:epl:team-football-epl-11:2026-27",
+        "thread:depth:epl:team-football-epl-29:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-11:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-29:standing"
+        "fact:depth:epl:team-football-epl-11:season-arc",
+        "fact:depth:epl:team-football-epl-29:season-arc",
+        "fact:depth:epl:epl-2026-27-128969:team-football-epl-11:entry-form",
+        "fact:depth:epl:epl-2026-27-128969:team-football-epl-29:entry-form",
+        "fact:depth:epl:epl-2026-27-128969:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128969"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-20T13:00:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Manchester City — current Premier League path",
+      "angle": "Manchester City — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Manchester City enter 1st and Sunderland 15th; a chance to compress or widen the 14-place gap in the early table.",
-      "hookSpoilerOn": "Manchester City enter 1st and Sunderland 15th; a chance to compress or widen the 14-place gap in the early table.",
-      "synopsisSpoilerOff": "Manchester City are 1st with 6 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 14-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Manchester City are 1st with 6 points, while Sunderland are 15th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 14-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Manchester City's first post-Guardiola campaign against Sunderland's Europe-and-league balancing act: one result will move two very different season stories.",
+      "hookSpoilerOn": "Manchester City's first post-Guardiola campaign against Sunderland's Europe-and-league balancing act: one result will move two very different season stories.",
+      "synopsisSpoilerOff": "Manchester City arrives with 2 wins from 2, while Sunderland brings an opening defeat. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Manchester City arrives with 2 wins from 2, while Sunderland brings an opening defeat. Manchester City began their first post-Pep Guardiola season under Enzo Maresca, whose possession principles preserve some continuity while replacing a defining coach. Sunderland entered Europa League football after finishing seventh with a defence that conceded fewer league goals than several top-five clubs. That makes this fixture a direct test of Enzo Maresca's continuity-versus-change problem against the defensive base behind last season's seventh place, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24596,14 +25330,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
-    "selectedSentence": "Fulham enter 14th and Manchester United 16th; a chance to compress or widen the 2-place gap in the early table.",
-    "fullSpiel": "Fulham are 14th with 0 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-    "sourceName": "Premier League current Premier League table",
+    "selectedSentence": "Fulham's first post-Marco Silva season meets Manchester United's Carrick rebuild; one fixture now moves both season-defining questions.",
+    "fullSpiel": "Fulham arrives with an opening defeat, while Manchester United brings an opening defeat. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
+    "sourceName": "Premier League current 2026/27 table",
     "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-    "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": false,
     "briefingEligible": false,
@@ -24615,45 +25349,55 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:epl-2026-27-128967",
       "researchTier": "standard",
-      "hook": "Fulham enter 14th and Manchester United 16th; a chance to compress or widen the 2-place gap in the early table.",
-      "synopsis": "Fulham are 14th with 0 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
+      "hook": "Fulham's first post-Marco Silva season meets Manchester United's Carrick rebuild; one fixture now moves both season-defining questions.",
+      "synopsis": "Fulham arrives with an opening defeat, while Manchester United brings an opening defeat. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
       "threadIds": [
-        "thread:rolling:team-football-epl-34",
-        "thread:rolling:team-football-epl-12"
+        "thread:depth:epl:team-football-epl-34:2026-27",
+        "thread:depth:epl:team-football-epl-12:2026-27"
       ],
       "factIds": [
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-34:standing",
-        "fact:rolling:competition-premier-league-2026-27:team-football-epl-12:standing"
+        "fact:depth:epl:team-football-epl-34:season-arc",
+        "fact:depth:epl:team-football-epl-12:season-arc",
+        "fact:depth:epl:epl-2026-27-128967:team-football-epl-34:entry-form",
+        "fact:depth:epl:epl-2026-27-128967:team-football-epl-12:entry-form",
+        "fact:depth:epl:epl-2026-27-128967:matchup"
       ],
       "sourceIds": [
-        "source:rolling:competition-premier-league-2026-27:ladder"
+        "source:depth:epl:table",
+        "source:depth:epl:season-guide",
+        "source:depth:epl:fixtures",
+        "source:depth:epl:match:epl-2026-27-128967"
       ],
       "dimensions": [
-        "form"
+        "history",
+        "form",
+        "matchup"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-20T15:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "Fulham — current Premier League path",
+      "angle": "Fulham — 2026/27 identity under pressure",
       "contextSignals": [
         "event-specific",
-        "narrative:form"
+        "narrative:history",
+        "narrative:form",
+        "narrative:matchup"
       ],
-      "sourceName": "Premier League current Premier League table",
+      "sourceName": "Premier League current 2026/27 table",
       "sourceUrl": "https://www.premierleague.com/en/tables/premier-league/2026-27",
-      "sourceCheckedAt": "2026-08-29T21:21:24.012Z",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 3,
-      "hookSpoilerOff": "Fulham enter 14th and Manchester United 16th; a chance to compress or widen the 2-place gap in the early table.",
-      "hookSpoilerOn": "Fulham enter 14th and Manchester United 16th; a chance to compress or widen the 2-place gap in the early table.",
-      "synopsisSpoilerOff": "Fulham are 14th with 0 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "synopsisSpoilerOn": "Fulham are 14th with 0 points, while Manchester United are 16th with 0. That makes this more than a date in Premier League Matchweek 5: it is a chance to compress or widen the 2-place gap in the early table, with the next chapter shaped by the separation they create or erase.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "Fulham's first post-Marco Silva season meets Manchester United's Carrick rebuild; one fixture now moves both season-defining questions.",
+      "hookSpoilerOn": "Fulham's first post-Marco Silva season meets Manchester United's Carrick rebuild; one fixture now moves both season-defining questions.",
+      "synopsisSpoilerOff": "Fulham arrives with an opening defeat, while Manchester United brings an opening defeat. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
+      "synopsisSpoilerOn": "Fulham arrives with an opening defeat, while Manchester United brings an opening defeat. Fulham started a new era after Marco Silva's five-year tenure, with Alvaro Arbeloa installing a width-heavy attacking structure. Manchester United entered Michael Carrick's first full season after finishing third, with a rebuilt midfield and Champions League football returning. That makes this fixture a direct test of Alvaro Arbeloa's wide overloads against a redesigned midfield carrying Champions League load, and the next result will advance both season threads.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24674,7 +25418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
     "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
     "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -24695,9 +25439,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
       "synopsisSpoilerOn": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Baku's walls and passing straight",
@@ -24709,7 +25453,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -24739,7 +25483,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "form"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-23T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -24775,13 +25519,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "The preliminary finals decide both names, but the destination is fixed: one match at the MCG for the premiership.",
-    "fullSpiel": "This card stays alive before the finalists are known because it is the endpoint of both preliminary-final paths. Once those teams are settled, the chapter changes from qualification to the season's single premiership decider at the MCG.",
-    "sourceName": "AFL finals bracket",
-    "sourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
+    "selectedSentence": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+    "fullSpiel": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+    "sourceName": "AFL 2026 final home-and-away ladder",
+    "sourceUrl": "https://www.afl.com.au/ladder",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -24815,43 +25559,49 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:event-afl-cd-m20260142901",
       "researchTier": "standard",
-      "hook": "The preliminary finals decide both names, but the destination is fixed: one match at the MCG for the premiership.",
-      "synopsis": "This card stays alive before the finalists are known because it is the endpoint of both preliminary-final paths. Once those teams are settled, the chapter changes from qualification to the season's single premiership decider at the MCG.",
+      "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+      "synopsis": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
       "threadIds": [
-        "thread:rolling:afl-finals-path"
+        "thread:depth:afl:finals"
       ],
       "factIds": [
-        "fact:rolling:afl:grand-final-path"
+        "fact:depth:afl:event-afl-cd-m20260142901:1",
+        "fact:depth:afl:event-afl-cd-m20260142901:2"
       ],
       "sourceIds": [
-        "source:rolling:afl:finals-bracket"
+        "source:depth:afl:ladder",
+        "source:depth:afl:finals-fixture",
+        "source:depth:afl:final-ten-rules",
+        "source:depth:afl:match:event-afl-cd-m20260142901"
       ],
       "dimensions": [
+        "history",
         "path"
       ],
-      "researchedAt": "2026-08-30T08:30:00.000Z",
-      "refreshAfter": null,
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-09-26T04:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 AFL finals path",
+      "angle": "AFL 2026 — the first Final Ten",
       "contextSignals": [
         "event-specific",
+        "narrative:history",
         "narrative:path"
       ],
-      "sourceName": "AFL finals bracket",
-      "sourceUrl": "https://www.afl.com.au/afl/matches/9028",
-      "sourceCheckedAt": "2026-08-29T21:21:20.081Z",
+      "sourceName": "AFL 2026 final home-and-away ladder",
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
       "stakes": 2,
-      "hookSpoilerOff": "The preliminary finals decide both names, but the destination is fixed: one match at the MCG for the premiership.",
-      "hookSpoilerOn": "The preliminary finals decide both names, but the destination is fixed: one match at the MCG for the premiership.",
-      "synopsisSpoilerOff": "This card stays alive before the finalists are known because it is the endpoint of both preliminary-final paths. Once those teams are settled, the chapter changes from qualification to the season's single premiership decider at the MCG.",
-      "synopsisSpoilerOn": "This card stays alive before the finalists are known because it is the endpoint of both preliminary-final paths. Once those teams are settled, the chapter changes from qualification to the season's single premiership decider at the MCG.",
-      "lastReviewedAt": "2026-08-30T08:30:00.000Z",
+      "hookSpoilerOff": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+      "hookSpoilerOn": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+      "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+      "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z",
       "arcStage": "preview"
     }
   },
@@ -24872,7 +25622,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The preliminary finals join two paths: Week 1 qualifying winners return from a bye against teams that have survived the semi-finals. Both games are sudden death, team-specific stories remain conditional, and the winners reach the 4 October Grand Final.",
     "sourceName": "NRL — finals progression explainer",
     "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Nine / Kayo Sports"
     ],
@@ -24894,9 +25644,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The preliminary finals join two paths: Week 1 qualifying winners return from a bye against teams that have survived the semi-finals. Both games are sudden death, team-specific stories remain conditional, and the winners reach the 4 October Grand Final.",
       "synopsisSpoilerOn": "The preliminary finals join two paths: Week 1 qualifying winners return from a bye against teams that have survived the semi-finals. Both games are sudden death, team-specific stories remain conditional, and the winners reach the 4 October Grand Final.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Eight finalists locked, but their routes remain open",
@@ -24909,7 +25659,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "NRL — finals progression explainer",
       "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -24943,7 +25693,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "matchup",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-21T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -24965,7 +25715,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
     "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
     "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -24986,9 +25736,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
       "synopsisSpoilerOn": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Baku's walls and passing straight",
@@ -25000,7 +25750,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -25029,7 +25779,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-25T14:00:00.000Z",
       "generationMode": "researched"
     }
@@ -25057,7 +25807,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Australia's 38–22 Ellis Park win and South Africa's 30–22 response in Cape Town give the next meeting recent matchup substance. At Optus Stadium, the Mandela Plate also leads directly into the Wallabies' Bledisloe block and longer home World Cup build.",
     "sourceName": "Rugby Australia — 2026 home Test venues",
     "sourceUrl": "https://www.rugby.com.au/news/venues-confirmed-as-tickets-go-on-sale-for-2026-wallabies-home-tests-2026215",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -25083,9 +25833,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Australia's 38–22 Ellis Park win and South Africa's 30–22 response in Cape Town give the next meeting recent matchup substance. At Optus Stadium, the Mandela Plate also leads directly into the Wallabies' Bledisloe block and longer home World Cup build.",
       "synopsisSpoilerOn": "Australia's 38–22 Ellis Park win and South Africa's 30–22 response in Cape Town give the next meeting recent matchup substance. At Optus Stadium, the Mandela Plate also leads directly into the Wallabies' Bledisloe block and longer home World Cup build.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "The Mandela Plate reaches Perth",
@@ -25097,7 +25847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Rugby Australia — 2026 home Test venues",
       "sourceUrl": "https://www.rugby.com.au/news/venues-confirmed-as-tickets-go-on-sale-for-2026-wallabies-home-tests-2026215",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -25137,7 +25887,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "matchup",
         "path"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-21T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -25297,21 +26047,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
   {
     "sport": "Cricket",
     "key": "cricket",
-    "name": "1st Test v South Africa (Day 1)",
+    "name": "South Africa v Australia — First Test",
     "date": "2026-10-09",
-    "time": "16:00",
+    "time": "18:30",
     "broadcaster": "Kayo / Foxtel",
     "expected": 7,
-    "venue": null,
+    "venue": "Kingsmead, Durban",
     "liveWindow": 8,
     "id": "evt_87",
     "eventId": "evt_87",
-    "displayTitleCompact": "1st Test v South Africa (Day 1)",
-    "selectedSentence": "An Australian Test appointment with series context and a full-day viewing window.",
-    "fullSpiel": "1st Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "displayTitleCompact": "South Africa v Australia — 1st Test",
+    "selectedSentence": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+    "fullSpiel": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+    "sourceName": "Cricket Australia South Africa Test tour guide",
+    "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -25323,18 +26073,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": true,
     "status": "upcoming",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — south africa persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia South Africa Test tour guide",
+      "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
     "participants": [
       {
-        "name": "1st Test",
+        "name": "South Africa",
         "role": "home"
       },
       {
-        "name": "South Africa (Day 1)",
+        "name": "Australia",
         "role": "away"
       }
     ],
@@ -25345,13 +26103,54 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 7,
       "intensitySource": "computed",
       "archetype": "international test",
-      "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
-      "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
-      "synopsisSpoilerOff": "1st Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "1st Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel."
+      "hookSpoilerOff": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+      "hookSpoilerOn": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+      "synopsisSpoilerOff": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "synopsisSpoilerOn": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
-    "sourceTrust": "unverified"
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "sourceTrust": "verified",
+    "startTimeUtc": "2026-10-09T07:30:00Z",
+    "sourceType": "official",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:south-africa",
+      "team:cricket:australia"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:evt-87",
+      "researchTier": "featured",
+      "hook": "Australia's first Test in South Africa since 2018 begins a three-match contest between the format's last two champions.",
+      "synopsis": "Kingsmead reopens a Test rivalry Australia has not contested in South Africa for eight years. With South Africa the reigning World Test Championship holder and Australia leading the current table at the schedule announcement, the first Test establishes both series control and a direct WTC argument.",
+      "threadIds": [
+        "thread:depth:cricket:south-africa"
+      ],
+      "factIds": [
+        "fact:depth:cricket:evt-87:1",
+        "fact:depth:cricket:evt-87:2",
+        "fact:depth:cricket:evt-87:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:south-africa",
+        "source:depth:cricket:season",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "history",
+        "matchup",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-10-09T07:30:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "rugby-new-zealand-australia-2026-10-10",
@@ -26374,7 +27173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
     "sourceName": "RLWC 2026 — competition rules",
     "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -26400,9 +27199,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
       "synopsisSpoilerOn": "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Champions meet on opening night",
@@ -26415,7 +27214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "RLWC 2026 — competition rules",
       "sourceUrl": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -26458,7 +27257,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-10-01T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -26486,7 +27285,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
     "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
     "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -26512,9 +27311,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
       "synopsisSpoilerOn": "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
       "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Sydney depends on Auckland",
@@ -26526,7 +27325,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "Rugby Australia — 2026 Wallabies Test schedule",
       "sourceUrl": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
@@ -26567,7 +27366,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-10-10T12:00:00.000Z",
       "generationMode": "researched"
     }
@@ -26970,21 +27769,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
   {
     "sport": "Cricket",
     "key": "cricket",
-    "name": "2nd Test v South Africa (Day 1)",
+    "name": "South Africa v Australia — Second Test",
     "date": "2026-10-18",
-    "time": "16:00",
+    "time": "19:00",
     "broadcaster": "Kayo / Foxtel",
     "expected": 8,
-    "venue": null,
+    "venue": "St George's Park, Gqeberha",
     "liveWindow": 8,
     "id": "evt_88",
     "eventId": "evt_88",
-    "displayTitleCompact": "2nd Test v South Africa (Day 1)",
-    "selectedSentence": "An Australian Test appointment with series context and a full-day viewing window.",
-    "fullSpiel": "2nd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "displayTitleCompact": "South Africa v Australia — 2nd Test",
+    "selectedSentence": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
+    "fullSpiel": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+    "sourceName": "Cricket Australia South Africa Test tour guide",
+    "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -27001,30 +27800,78 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
-      "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
-      "synopsisSpoilerOff": "2nd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "2nd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
+      "hookSpoilerOn": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
+      "synopsisSpoilerOff": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+      "synopsisSpoilerOn": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "participants": [
       {
-        "name": "2nd Test",
+        "name": "South Africa",
         "role": "home"
       },
       {
-        "name": "South Africa (Day 1)",
+        "name": "Australia",
         "role": "away"
       }
     ],
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — south africa persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:matchup"
+      ],
+      "sourceName": "Cricket Australia South Africa Test tour guide",
+      "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "startTimeUtc": "2026-10-18T08:00:00Z",
+    "sourceType": "official",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:south-africa",
+      "team:cricket:australia"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:evt-88",
+      "researchTier": "featured",
+      "hook": "Gqeberha is the series hinge: the first Test's winner can press for control while the loser has its clearest route back.",
+      "synopsis": "The second Test moves the contest to St George's Park with only one match left after it. Its narrative must update from Durban: it becomes either a chance to clinch, level or protect a lead, while the wider struggle between the last two WTC champions continues.",
+      "threadIds": [
+        "thread:depth:cricket:south-africa"
+      ],
+      "factIds": [
+        "fact:depth:cricket:evt-88:1",
+        "fact:depth:cricket:evt-88:2",
+        "fact:depth:cricket:evt-88:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:south-africa",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "matchup"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-10-18T08:00:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "epl-2026-27-128983",
@@ -28362,21 +29209,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
   {
     "sport": "Cricket",
     "key": "cricket",
-    "name": "3rd Test v South Africa (Day 1)",
+    "name": "South Africa v Australia — Third Test",
     "date": "2026-10-27",
-    "time": "16:00",
+    "time": "19:00",
     "broadcaster": "Kayo / Foxtel",
     "expected": 8,
-    "venue": null,
+    "venue": "Newlands, Cape Town",
     "liveWindow": 8,
     "id": "evt_89",
     "eventId": "evt_89",
-    "displayTitleCompact": "3rd Test v South Africa (Day 1)",
-    "selectedSentence": "An Australian Test appointment with series context and a full-day viewing window.",
-    "fullSpiel": "3rd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "displayTitleCompact": "South Africa v Australia — 3rd Test",
+    "selectedSentence": "The three-Test tour ends at Newlands, Australia's first Test return to the ground since the 2018 scandal.",
+    "fullSpiel": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
+    "sourceName": "Cricket Australia South Africa Test tour guide",
+    "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -28393,30 +29240,79 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
-      "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
-      "synopsisSpoilerOff": "3rd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "3rd Test v South Africa (Day 1) opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "The three-Test tour ends at Newlands, Australia's first Test return to the ground since the 2018 scandal.",
+      "hookSpoilerOn": "The three-Test tour ends at Newlands, Australia's first Test return to the ground since the 2018 scandal.",
+      "synopsisSpoilerOff": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
+      "synopsisSpoilerOn": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "participants": [
       {
-        "name": "3rd Test",
+        "name": "South Africa",
         "role": "home"
       },
       {
-        "name": "South Africa (Day 1)",
+        "name": "Australia",
         "role": "away"
       }
     ],
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — south africa persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:consequence",
+        "narrative:path"
+      ],
+      "sourceName": "Cricket Australia South Africa Test tour guide",
+      "sourceUrl": "https://www.cricket.com.au/news/4455441/australia-tour-south-africa-schedule-dates-odi-test-series-cape-town-johannesburg",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "startTimeUtc": "2026-10-27T08:00:00Z",
+    "sourceType": "official",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:south-africa",
+      "team:cricket:australia"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:evt-89",
+      "researchTier": "featured",
+      "hook": "The three-Test tour ends at Newlands, Australia's first Test return to the ground since the 2018 scandal.",
+      "synopsis": "Cape Town gives the series finale a consequence beyond whatever scoreline arrives from Durban and Gqeberha. Newlands is where Australia's previous South African Test tour fractured in 2018; this return closes the first series back and may also settle a live WTC contest.",
+      "threadIds": [
+        "thread:depth:cricket:south-africa"
+      ],
+      "factIds": [
+        "fact:depth:cricket:evt-89:1",
+        "fact:depth:cricket:evt-89:2",
+        "fact:depth:cricket:evt-89:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:south-africa",
+        "source:depth:cricket:season",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "history",
+        "consequence",
+        "path"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-10-27T08:00:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "rlwc-australia-cook-islands-2026",
@@ -30368,21 +31264,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Kayo Sports"
     ],
     "expected": 6,
-    "venue": "Sydney Cricket Ground",
+    "venue": "Perth Stadium",
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "England's Australian visit opens with a daytime ODI at the SCG.",
-    "fullSpiel": "Australia host England in the first ODI at the Sydney Cricket Ground. Cricket Australia lists a 2:30 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "Australia changes format and continent in 13 days, opening the England ODI series in Perth after three Tests in South Africa.",
+    "fullSpiel": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
+    "sourceName": "Cricket Australia 2026 England ODI series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": true,
     "briefingEligible": false,
     "catchupEligible": false,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -30392,7 +31288,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-first-odi-2026",
+      "researchTier": "standard",
+      "hook": "Australia changes format and continent in 13 days, opening the England ODI series in Perth after three Tests in South Africa.",
+      "synopsis": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-first-odi-2026:1",
+        "fact:depth:cricket:cricket-australia-england-first-odi-2026:2",
+        "fact:depth:cricket:cricket-australia-england-first-odi-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-odi",
+        "source:depth:cricket:england-history",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "path",
+        "history",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-13T03:30:00Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:history",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia 2026 England ODI series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 3,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Australia changes format and continent in 13 days, opening the England ODI series in Perth after three Tests in South Africa.",
+      "hookSpoilerOn": "Australia changes format and continent in 13 days, opening the England ODI series in Perth after three Tests in South Africa.",
+      "synopsisSpoilerOff": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
+      "synopsisSpoilerOn": "The first ODI begins a compact eight-match white-ball visit only 13 days after Australia's scheduled Cape Town Test finish. England is the opponent in a rivalry Australia won 3–2 in their last bilateral ODI series, but new squads and a new home sequence make Perth a reset rather than a continuation of that result.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "id": "cricket-australia-england-second-odi-2026",
@@ -30416,17 +31365,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "Australia and England shift to Adelaide for the second ODI.",
-    "fullSpiel": "Australia host England in the second ODI at Adelaide Oval. Cricket Australia lists a 2:30 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "A two-day Perth-to-Adelaide turnaround makes the opening result immediately matter to the three-match ODI series.",
+    "fullSpiel": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
+    "sourceName": "Cricket Australia 2026 England ODI series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -30436,7 +31385,59 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-second-odi-2026",
+      "researchTier": "standard",
+      "hook": "A two-day Perth-to-Adelaide turnaround makes the opening result immediately matter to the three-match ODI series.",
+      "synopsis": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-second-odi-2026:1",
+        "fact:depth:cricket:cricket-australia-england-second-odi-2026:2",
+        "fact:depth:cricket:cricket-australia-england-second-odi-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-odi",
+        "source:depth:cricket:england-history"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "history"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-15T03:30:00Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceName": "Cricket Australia 2026 England ODI series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 3,
+      "arcStage": "preview",
+      "hookSpoilerOff": "A two-day Perth-to-Adelaide turnaround makes the opening result immediately matter to the three-match ODI series.",
+      "hookSpoilerOn": "A two-day Perth-to-Adelaide turnaround makes the opening result immediately matter to the three-match ODI series.",
+      "synopsisSpoilerOff": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
+      "synopsisSpoilerOn": "The second ODI arrives with almost no recovery window after Perth. Its stakes cannot be honestly fixed before game one: Adelaide becomes either a chance to take the series, force a decider or build the first lead, all within a rivalry whose previous ODI contest went to a fifth match.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "id": "rugby-scotland-australia-2026-11-16",
@@ -30524,21 +31525,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Kayo Sports"
     ],
     "expected": 7,
-    "venue": "Melbourne Cricket Ground",
+    "venue": "Bellerive Oval, Hobart",
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "The England ODI series reaches the MCG for its third game.",
-    "fullSpiel": "Australia host England in the third ODI at the MCG. Cricket Australia lists a 2:30 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "Hobart closes the ODI contest before the same rivalry compresses into five T20s across 12 days.",
+    "fullSpiel": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
+    "sourceName": "Cricket Australia 2026 England ODI series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -30548,7 +31549,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-third-odi-2026",
+      "researchTier": "standard",
+      "hook": "Hobart closes the ODI contest before the same rivalry compresses into five T20s across 12 days.",
+      "synopsis": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-third-odi-2026:1",
+        "fact:depth:cricket:cricket-australia-england-third-odi-2026:2",
+        "fact:depth:cricket:cricket-australia-england-third-odi-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-odi",
+        "source:depth:cricket:england-t20",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "matchup"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-18T03:30:00Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:matchup"
+      ],
+      "sourceName": "Cricket Australia 2026 England ODI series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4603/australia-v-england-odis-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 3,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Hobart closes the ODI contest before the same rivalry compresses into five T20s across 12 days.",
+      "hookSpoilerOn": "Hobart closes the ODI contest before the same rivalry compresses into five T20s across 12 days.",
+      "synopsisSpoilerOff": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
+      "synopsisSpoilerOn": "The third ODI is the 50-over endpoint, not merely another venue change. It may be a decider or a dead rubber depending on Perth and Adelaide, and it immediately hands the rivalry into a five-match T20 sequence that demands a different squad balance and tempo.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "sport": "F1",
@@ -30598,21 +31652,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Kayo Sports"
     ],
     "expected": 7,
-    "venue": "Perth Stadium",
+    "venue": "Melbourne Cricket Ground",
     "liveWindow": 4,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "The England T20 series opens with an evening match in Perth.",
-    "fullSpiel": "Australia host England in the first T20 International at Perth Stadium. Cricket Australia lists a 7:15 pm Sydney start with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "Three days after the ODI finale, Australia and England restart the rivalry at the MCG in a five-match T20 series.",
+    "fullSpiel": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
+    "sourceName": "Cricket Australia 2026 England T20 series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -30622,7 +31676,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-first-t20-2026",
+      "researchTier": "standard",
+      "hook": "Three days after the ODI finale, Australia and England restart the rivalry at the MCG in a five-match T20 series.",
+      "synopsis": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-first-t20-2026:1",
+        "fact:depth:cricket:cricket-australia-england-first-t20-2026:2",
+        "fact:depth:cricket:cricket-australia-england-first-t20-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-t20",
+        "source:depth:cricket:england-odi",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "path",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-21T08:15:00Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia 2026 England T20 series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 3,
+      "arcStage": "preview",
+      "hookSpoilerOff": "Three days after the ODI finale, Australia and England restart the rivalry at the MCG in a five-match T20 series.",
+      "hookSpoilerOn": "Three days after the ODI finale, Australia and England restart the rivalry at the MCG in a five-match T20 series.",
+      "synopsisSpoilerOff": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
+      "synopsisSpoilerOn": "The MCG opener asks both sides to change personnel and tempo almost immediately after Hobart. With five matches across 12 days, the first result shapes a longer tactical series rather than a one-off night, and gives the earliest evidence of which white-ball lessons travel between formats.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "id": "epl-2026-27-129023",
@@ -31548,21 +32655,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Kayo Sports"
     ],
     "expected": 6,
-    "venue": "Adelaide Oval",
+    "venue": "Gold Coast Stadium",
     "liveWindow": 4,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "Australia and England take their T20 series to Adelaide under lights.",
-    "fullSpiel": "Australia host England in the second T20 International at Adelaide Oval. Cricket Australia lists a 7:15 pm Sydney start and the home schedule is carried by Seven, 7plus, Foxtel and Kayo Sports.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "The Gold Coast follows the MCG after only two rest days, making adaptation the first persistent thread of the T20 series.",
+    "fullSpiel": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
+    "sourceName": "Cricket Australia 2026 England T20 series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": false,
     "highlightEligible": true,
     "briefingEligible": false,
     "catchupEligible": false,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -31572,7 +32679,59 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-second-t20-2026",
+      "researchTier": "standard",
+      "hook": "The Gold Coast follows the MCG after only two rest days, making adaptation the first persistent thread of the T20 series.",
+      "synopsis": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-second-t20-2026:1",
+        "fact:depth:cricket:cricket-australia-england-second-t20-2026:2",
+        "fact:depth:cricket:cricket-australia-england-second-t20-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-t20",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "path",
+        "matchup",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-24T08:15:00Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:matchup",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia 2026 England T20 series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 3,
+      "arcStage": "preview",
+      "hookSpoilerOff": "The Gold Coast follows the MCG after only two rest days, making adaptation the first persistent thread of the T20 series.",
+      "hookSpoilerOn": "The Gold Coast follows the MCG after only two rest days, making adaptation the first persistent thread of the T20 series.",
+      "synopsisSpoilerOff": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
+      "synopsisSpoilerOn": "Game two changes ground and conditions before either side has much time to rebuild its plan. The opener supplies the first real evidence—selection, match-ups and death-overs execution—while the five-game format leaves room to answer rather than overreact.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "id": "cricket-australia-england-third-t20-2026",
@@ -31592,21 +32751,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Kayo Sports"
     ],
     "expected": 7,
-    "venue": "Sydney Cricket Ground",
+    "venue": "Brisbane Cricket Ground",
     "liveWindow": 4,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "The third England T20 brings the series to the SCG on a Friday night.",
-    "fullSpiel": "Australia host England in the third T20 International at the SCG. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "The Gabba is the middle game of five—the first point at which either side can make the series mathematically safe.",
+    "fullSpiel": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
+    "sourceName": "Cricket Australia 2026 England T20 series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -31616,7 +32775,59 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-third-t20-2026",
+      "researchTier": "standard",
+      "hook": "The Gabba is the middle game of five—the first point at which either side can make the series mathematically safe.",
+      "synopsis": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-third-t20-2026:1",
+        "fact:depth:cricket:cricket-australia-england-third-t20-2026:2",
+        "fact:depth:cricket:cricket-australia-england-third-t20-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-t20",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "consequence",
+        "path",
+        "form"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-27T08:15:00Z",
+      "generationMode": "researched"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:consequence",
+        "narrative:path",
+        "narrative:form"
+      ],
+      "sourceName": "Cricket Australia 2026 England T20 series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
+    },
+    "storyline": {
+      "stakes": 3,
+      "arcStage": "preview",
+      "hookSpoilerOff": "The Gabba is the middle game of five—the first point at which either side can make the series mathematically safe.",
+      "hookSpoilerOn": "The Gabba is the middle game of five—the first point at which either side can make the series mathematically safe.",
+      "synopsisSpoilerOff": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
+      "synopsisSpoilerOn": "By Brisbane, two matches of evidence replace the pre-series guesswork. If one team has swept the opening pair, the Gabba is a first clinching chance; if the series is level, it becomes the pivot that turns the final two matches into chase or defence.",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
+    }
   },
   {
     "sport": "Rugby",
@@ -32524,15 +33735,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Kayo Sports"
     ],
     "expected": 8,
-    "venue": "Brisbane Cricket Ground",
+    "venue": "Sydney Cricket Ground",
     "liveWindow": 4,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "A Sunday-night Brisbane T20 closes the England white-ball run.",
-    "fullSpiel": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "By the SCG, the five-match series has only two lives left: this is either a clincher, a rescue or a fight for the finale.",
+    "fullSpiel": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
+    "sourceName": "Cricket Australia 2026 England T20 series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -32553,20 +33764,29 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "A Sunday-night Brisbane T20 closes the England white-ball run.",
-      "hookSpoilerOn": "A Sunday-night Brisbane T20 closes the England white-ball run.",
-      "synopsisSpoilerOff": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-      "synopsisSpoilerOn": "Australia host England in the fourth T20 International at the Brisbane Cricket Ground. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "By the SCG, the five-match series has only two lives left: this is either a clincher, a rescue or a fight for the finale.",
+      "hookSpoilerOn": "By the SCG, the five-match series has only two lives left: this is either a clincher, a rescue or a fight for the finale.",
+      "synopsisSpoilerOff": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
+      "synopsisSpoilerOn": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:consequence",
+        "narrative:path",
+        "narrative:form"
+      ],
+      "sourceName": "Cricket Australia 2026 England T20 series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "competitionScope": "international",
     "isInternational": true,
     "representativeCountryCodes": [
@@ -32576,7 +33796,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-fourth-t20-2026",
+      "researchTier": "featured",
+      "hook": "By the SCG, the five-match series has only two lives left: this is either a clincher, a rescue or a fight for the finale.",
+      "synopsis": "The fourth T20 cannot be honestly labelled before Brisbane, but every possible state has consequence. One side may be protecting a lead, the other forcing Canberra to matter, or both may be trying to seize the first series point that cannot be answered immediately.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-fourth-t20-2026:1",
+        "fact:depth:cricket:cricket-australia-england-fourth-t20-2026:2",
+        "fact:depth:cricket:cricket-australia-england-fourth-t20-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-t20",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "consequence",
+        "path",
+        "form"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-11-29T08:15:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "sport": "F1",
@@ -32630,11 +33878,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 4,
     "round": "all",
     "narrativeType": "match",
-    "selectedSentence": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
-    "fullSpiel": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "Canberra is the eighth Australia–England white-ball match in 20 days and the last chance to settle what the series became.",
+    "fullSpiel": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
+    "sourceName": "Cricket Australia 2026 England T20 series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -32655,18 +33903,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 4,
       "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
-      "hookSpoilerOn": "The Australia–England T20 series reaches Canberra for a Manuka Oval finale.",
-      "synopsisSpoilerOff": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-      "synopsisSpoilerOn": "Australia host England in the fifth T20 International at Manuka Oval in Canberra. Cricket Australia lists a 7:15 pm Sydney start, with Seven, 7plus, Foxtel and Kayo Sports carrying the home schedule.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "Canberra is the eighth Australia–England white-ball match in 20 days and the last chance to settle what the series became.",
+      "hookSpoilerOn": "Canberra is the eighth Australia–England white-ball match in 20 days and the last chance to settle what the series became.",
+      "synopsisSpoilerOff": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
+      "synopsisSpoilerOn": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — england persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:matchup"
+      ],
+      "sourceName": "Cricket Australia 2026 England T20 series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4604/australia-v-england-t20is-2026-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
     "competitionScope": "international",
@@ -32678,7 +33935,36 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:england"
-    ]
+    ],
+    "sourceType": "official",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-england-fifth-t20-2026",
+      "researchTier": "featured",
+      "hook": "Canberra is the eighth Australia–England white-ball match in 20 days and the last chance to settle what the series became.",
+      "synopsis": "The Manuka Oval finale closes three ODIs and five T20s played in a compressed run across the country. It may decide the T20 trophy or resolve a dead rubber, but it always completes the persistent questions of adaptation, squad depth and which match-ups survived repeated venue changes.",
+      "threadIds": [
+        "thread:depth:cricket:england"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-england-fifth-t20-2026:1",
+        "fact:depth:cricket:cricket-australia-england-fifth-t20-2026:2",
+        "fact:depth:cricket:cricket-australia-england-fifth-t20-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:england-t20",
+        "source:depth:cricket:england-odi",
+        "source:depth:cricket:season"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "matchup"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-12-02T08:15:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "epl-2026-27-129043",
@@ -34360,11 +35646,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "liveWindow": 8,
     "round": "all",
     "narrativeType": "test",
-    "selectedSentence": "Australia's December Test calendar includes a home New Zealand match in Perth.",
-    "fullSpiel": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
-    "sourceName": "Cricket Australia 2026–27 international schedule",
-    "sourceUrl": "https://www.cricket.com.au/news/4425772/mark-your-calendar-2026-australia-cricket-schedule-fixtures-dates-tours-wtc-top-end-tests-south-africa-bangladesh-new-zealand-england-india-t20-world-cup",
-    "sourceCheckedAt": "2026-07-15T13:30:00+10:00",
+    "selectedSentence": "Perth opens the first four-Test trans-Tasman series, beginning Australia's tightest home Test campaign on record.",
+    "fullSpiel": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
+    "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -34386,18 +35672,27 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "Australia's December Test calendar includes a home New Zealand match in Perth.",
-      "hookSpoilerOn": "Australia's December Test calendar includes a home New Zealand match in Perth.",
-      "synopsisSpoilerOff": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
-      "synopsisSpoilerOn": "Australia host New Zealand in a Test at Perth Stadium. Cricket Australia lists a 1:20 pm Sydney start; Seven, 7plus, Foxtel and Kayo Sports carry the home international schedule.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "Perth opens the first four-Test trans-Tasman series, beginning Australia's tightest home Test campaign on record.",
+      "hookSpoilerOn": "Perth opens the first four-Test trans-Tasman series, beginning Australia's tightest home Test campaign on record.",
+      "synopsisSpoilerOff": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
+      "synopsisSpoilerOn": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — new zealand persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
     "sourceTrust": "unverified",
     "competitionScope": "international",
@@ -34409,7 +35704,36 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:cricket:australia",
       "team:cricket:new-zealand"
-    ]
+    ],
+    "sourceType": "official",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:cricket-australia-new-zealand-test-2026",
+      "researchTier": "featured",
+      "hook": "Perth opens the first four-Test trans-Tasman series, beginning Australia's tightest home Test campaign on record.",
+      "synopsis": "New Zealand's first Test tour of Australia since 2019/20 starts a four-match series compressed into 31 days. Perth is therefore both the first argument in a rare extended trans-Tasman contest and the start of a workload that runs through Adelaide, Melbourne and Sydney.",
+      "threadIds": [
+        "thread:depth:cricket:new-zealand"
+      ],
+      "factIds": [
+        "fact:depth:cricket:cricket-australia-new-zealand-test-2026:1",
+        "fact:depth:cricket:cricket-australia-new-zealand-test-2026:2",
+        "fact:depth:cricket:cricket-australia-new-zealand-test-2026:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:new-zealand",
+        "source:depth:cricket:season",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "history",
+        "path",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-12-09T02:20:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "epl-2026-27-129063",
@@ -36051,21 +37375,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
   {
     "sport": "Cricket",
     "key": "cricket",
-    "name": "Boxing Day Test v New Zealand",
+    "name": "Australia v New Zealand — Boxing Day Test",
     "date": "2026-12-26",
-    "time": "10:00",
+    "time": "10:30",
     "broadcaster": "Kayo / Foxtel",
     "expected": 9,
-    "venue": null,
+    "venue": "Melbourne Cricket Ground",
     "liveWindow": 8,
     "id": "evt_90",
     "eventId": "evt_90",
-    "displayTitleCompact": "Boxing Day Test v New Zealand",
-    "selectedSentence": "An Australian Test appointment with series context and a full-day viewing window.",
-    "fullSpiel": "Boxing Day Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "displayTitleCompact": "Australia v New Zealand — Boxing Day Test",
+    "selectedSentence": "Boxing Day is Test three of four in 31 days, where trans-Tasman tactics meet the physical cost of a compressed series.",
+    "fullSpiel": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
+    "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -36082,16 +37406,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "archetype": "international test",
-      "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
-      "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
-      "synopsisSpoilerOff": "Boxing Day Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "Boxing Day Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "Boxing Day is Test three of four in 31 days, where trans-Tasman tactics meet the physical cost of a compressed series.",
+      "hookSpoilerOn": "Boxing Day is Test three of four in 31 days, where trans-Tasman tactics meet the physical cost of a compressed series.",
+      "synopsisSpoilerOff": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
+      "synopsisSpoilerOn": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "participants": [
       {
-        "name": "Boxing Day Test",
+        "name": "Australia",
         "role": "home"
       },
       {
@@ -36100,12 +37425,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — new zealand persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:matchup",
+        "narrative:consequence"
+      ],
+      "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "startTimeUtc": "2026-12-25T23:30:00Z",
+    "sourceType": "official",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:australia",
+      "team:cricket:new-zealand"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:evt-90",
+      "researchTier": "featured",
+      "hook": "Boxing Day is Test three of four in 31 days, where trans-Tasman tactics meet the physical cost of a compressed series.",
+      "synopsis": "The MCG is the third Test after Perth and Adelaide, so the match arrives with both a series score and accumulated workload. It also continues an unusual tactical duel between Alex Carey and Tom Blundell, whose work standing up to pace helped undermine England before this series.",
+      "threadIds": [
+        "thread:depth:cricket:new-zealand"
+      ],
+      "factIds": [
+        "fact:depth:cricket:evt-90:1",
+        "fact:depth:cricket:evt-90:2",
+        "fact:depth:cricket:evt-90:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:new-zealand",
+        "source:depth:cricket:new-zealand-tactics",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "path",
+        "matchup",
+        "consequence"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2026-12-25T23:30:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "epl-2026-27-129083",
@@ -37690,21 +39063,21 @@ globalThis.NOTHINGSPORTS_EVENTS = [
   {
     "sport": "Cricket",
     "key": "cricket",
-    "name": "New Year's Test v New Zealand",
-    "date": "2027-01-02",
-    "time": "10:00",
+    "name": "Australia v New Zealand — New Year's Test",
+    "date": "2027-01-04",
+    "time": "10:30",
     "broadcaster": "Kayo / Foxtel",
     "expected": 8,
-    "venue": null,
+    "venue": "Sydney Cricket Ground",
     "liveWindow": 8,
     "id": "evt_91",
     "eventId": "evt_91",
-    "displayTitleCompact": "New Year's Test v New Zealand",
-    "selectedSentence": "An Australian Test appointment with series context and a full-day viewing window.",
-    "fullSpiel": "New Year's Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "displayTitleCompact": "Australia v New Zealand — New Year's Test",
+    "selectedSentence": "Sydney ends four trans-Tasman Tests in 31 days before Australia turns almost immediately toward a five-Test tour of India.",
+    "fullSpiel": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
+    "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
+    "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
+    "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
     "broadcastOptions": [
       "Kayo / Foxtel"
     ],
@@ -37721,16 +39094,17 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "archetype": "international test",
-      "hookSpoilerOff": "An Australian Test appointment with series context and a full-day viewing window.",
-      "hookSpoilerOn": "An Australian Test appointment with series context and a full-day viewing window.",
-      "synopsisSpoilerOff": "New Year's Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "synopsisSpoilerOn": "New Year's Test v New Zealand opens a new Test chapter. The card keeps the Sydney-local start, broadcast path, and series context together while the official squads and match conditions develop. Watch via Kayo / Foxtel.",
-      "intensitySource": "computed"
+      "hookSpoilerOff": "Sydney ends four trans-Tasman Tests in 31 days before Australia turns almost immediately toward a five-Test tour of India.",
+      "hookSpoilerOn": "Sydney ends four trans-Tasman Tests in 31 days before Australia turns almost immediately toward a five-Test tour of India.",
+      "synopsisSpoilerOff": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
+      "synopsisSpoilerOn": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-30T00:08:03.029Z"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-08-30T00:08:03.029Z",
     "participants": [
       {
-        "name": "New Year's Test",
+        "name": "Australia",
         "role": "home"
       },
       {
@@ -37739,12 +39113,60 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       }
     ],
     "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+      "status": "journalistic",
+      "angle": "Cricket — new zealand persistent series",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:form"
+      ],
+      "sourceName": "Cricket Australia 2026/27 New Zealand Test series",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA%3A4605/australia-v-new-zealand-tests-2026-27-men",
+      "sourceCheckedAt": "2026-08-30T00:08:03.029Z",
+      "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "startTimeUtc": "2027-01-03T23:30:00Z",
+    "sourceType": "official",
+    "competitionScope": "international",
+    "isInternational": true,
+    "participantIds": [
+      "team:cricket:australia",
+      "team:cricket:new-zealand"
+    ],
+    "representativeCountryCodes": [
+      "AUS"
+    ],
+    "representativeSportKey": "cricket",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:sport-depth:evt-91",
+      "researchTier": "featured",
+      "hook": "Sydney ends four trans-Tasman Tests in 31 days before Australia turns almost immediately toward a five-Test tour of India.",
+      "synopsis": "The New Year's Test is both the series endpoint and the hard stop on Australia's home summer. Whatever Perth, Adelaide and Melbourne produce, Sydney resolves the four-Test arc before a short turnaround into India, making fatigue, selection depth and WTC consequence part of the final chapter.",
+      "threadIds": [
+        "thread:depth:cricket:new-zealand"
+      ],
+      "factIds": [
+        "fact:depth:cricket:evt-91:1",
+        "fact:depth:cricket:evt-91:2",
+        "fact:depth:cricket:evt-91:3"
+      ],
+      "sourceIds": [
+        "source:depth:cricket:new-zealand",
+        "source:depth:cricket:season",
+        "source:depth:cricket:test-workload"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "form"
+      ],
+      "researchedAt": "2026-08-30T00:08:03.029Z",
+      "refreshAfter": "2027-01-03T23:30:00Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "epl-2026-27-129103",
@@ -45778,7 +47200,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "The corrected 5–7 March Shahdag programme is the last scheduled Moguls, Dual Moguls and Aerials stop. It follows a cancelled 2026 visit and a full season path, making the return and the Crystal Globes the verified stakes without predicting conditions or entrants.",
     "sourceName": "FIS — 2026/27 Moguls and Aerials calendar",
     "sourceUrl": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
-    "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
     "broadcastOptions": [
       "FIS broadcast"
     ],
@@ -45802,7 +47224,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       ],
       "sourceName": "FIS — 2026/27 Moguls and Aerials calendar",
       "sourceUrl": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
-      "sourceCheckedAt": "2026-08-30T06:00:00.000Z",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
     "storyline": {
@@ -45816,9 +47238,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOn": "The Crystal Globes return to the venue whose last scheduled final was cancelled by conditions and travel constraints.",
       "synopsisSpoilerOff": "The corrected 5–7 March Shahdag programme is the last scheduled Moguls, Dual Moguls and Aerials stop. It follows a cancelled 2026 visit and a full season path, making the return and the Crystal Globes the verified stakes without predicting conditions or entrants.",
       "synopsisSpoilerOn": "The corrected 5–7 March Shahdag programme is the last scheduled Moguls, Dual Moguls and Aerials stop. It follows a cancelled 2026 visit and a full season path, making the return and the Crystal Globes the verified stakes without predicting conditions or entrants.",
-      "lastReviewedAt": "2026-08-30T06:00:00.000Z"
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z"
     },
-    "lastReviewedAt": "2026-08-30T06:00:00.000Z",
+    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
     "sourceTrust": "unverified",
     "startTimeUtc": null,
     "dateOnly": true,
@@ -45853,7 +47275,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "history"
       ],
-      "researchedAt": "2026-08-30T06:00:00.000Z",
+      "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-12-01T00:00:00.000Z",
       "generationMode": "researched"
     }
