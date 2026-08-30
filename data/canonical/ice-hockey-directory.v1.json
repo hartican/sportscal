@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-08-30T23:04:16Z",
+  "generatedAt": "2026-08-30T23:32:15Z",
   "season": "20262027",
   "competitions": [
     {
@@ -27106,7 +27106,7 @@
     },
     {
       "id": "athlete:chl:0a9bd4ebe416c92a2aa57df7",
-      "displayName": "Malcolm Subban",
+      "displayName": "Malcolm-Jamaal Subban",
       "shortName": null,
       "aliases": [],
       "active": true,
@@ -27385,44 +27385,6 @@
       "genderCategory": "male",
       "identityId": "athlete:chl:e8c032e3f7bcd8c93aa5870c",
       "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446208",
-      "sourceRefs": [
-        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-3e2b15fb0e41329efc1f6237.json"
-      ]
-    },
-    {
-      "id": "athlete:chl:c6c783a1974a6f83d3a96098",
-      "displayName": "Jakub Vondraš",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:chl:3e2b15fb0e41329efc1f6237",
-      "leagueId": "competition:chl",
-      "position": "GK",
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "identityId": "athlete:chl:c6c783a1974a6f83d3a96098",
-      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/446209",
-      "sourceRefs": [
-        "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-3e2b15fb0e41329efc1f6237.json"
-      ]
-    },
-    {
-      "id": "athlete:chl:d66e100f7d811d7d3f1318f1",
-      "displayName": "Martin Kaut",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:chl:3e2b15fb0e41329efc1f6237",
-      "leagueId": "competition:chl",
-      "position": "FW",
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "identityId": "athlete:chl:d66e100f7d811d7d3f1318f1",
-      "headshotUrl": "https://res.cloudinary.com/chl-production/image/upload/c_fit,g_face,h_240,w_240/chl-prod/assets/players/2185",
       "sourceRefs": [
         "https://www.chl.hockey/api/s3?q=team-players-info-21ec9dad81abe2e0240460d0-fc954f6d33272fdf4a8b95bb-3e2b15fb0e41329efc1f6237.json"
       ]
