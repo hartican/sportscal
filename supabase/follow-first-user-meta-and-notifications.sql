@@ -93,6 +93,7 @@ create table if not exists public.nothingsports_reminders (
   viewing_url text check (viewing_url is null or viewing_url ~ '^https://'),
   fallback_to_broadcast boolean not null default false,
   dispatched_at timestamptz,
+  claimed_at timestamptz,
   attempts integer not null default 0,
   last_error text,
   created_at timestamptz not null default now(),
@@ -102,6 +103,9 @@ create table if not exists public.nothingsports_reminders (
 
 create index if not exists nothingsports_reminders_due_idx
   on public.nothingsports_reminders (remind_at)
+  where dispatched_at is null;
+create index if not exists nothingsports_reminders_claim_idx
+  on public.nothingsports_reminders (claimed_at, remind_at)
   where dispatched_at is null;
 create index if not exists nothingsports_push_installations_user_id_idx
   on public.nothingsports_push_installations (user_id)
@@ -116,6 +120,8 @@ alter table public.nothingsports_reminders enable row level security;
 alter table public.nothingsports_reminders force row level security;
 revoke all on table public.nothingsports_push_installations from anon, authenticated;
 revoke all on table public.nothingsports_reminders from anon, authenticated;
+grant select, insert, update, delete on table public.nothingsports_push_installations to service_role;
+grant select, insert, update, delete on table public.nothingsports_reminders to service_role;
 
 drop policy if exists "deny direct notification installation access" on public.nothingsports_push_installations;
 create policy "deny direct notification installation access" on public.nothingsports_push_installations

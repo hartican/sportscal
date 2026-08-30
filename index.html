@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="183">
+<meta name="app-shell-version" content="184">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6908,7 +6908,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=183")
+  : loadDeferredScript("config/national-team-identities.js?v=184")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7890,7 +7890,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=183",
+  moduleScriptUrl: "config/major-events.js?v=184",
   url: "data/major-events.v1.json",
 });
 
@@ -7987,7 +7987,6 @@ const STORAGE_KEYS = {
   legacyEventActions: "ns_event_actions_v1",
   hiddenItems: "ns_hidden_items_v1",
   derivedCardCache: "ns_derived_card_cache_v1",
-  reminderDelivery: "ns_reminder_delivery_v1",
   lastFeedVersion: "ns_last_feed_version_v1",
   lastFeedPublishedAt: "ns_last_feed_published_at_v1",
   lastRefreshAt: "ns_last_refresh_at_v1",
@@ -8841,8 +8840,10 @@ function savePreferences(next){
     entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
     collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
   });
-  if (typeof activeEvents !== "undefined") scheduleBrowserReminders();
   queueServerStateSync();
+  if (document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
+    void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
+  }
   if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined") void requestFeedRebuildAfterFollowChange();
   return profileSaved;
 }
@@ -9150,98 +9151,7 @@ function clearAndRebuildDerivedCardCache(reference = nowAEST()){
   return rebuildDerivedCardCache(activeEvents, reference);
 }
 
-function saveReminderDeliveryState(next){
-  reminderDeliveryState = next && typeof next === "object" ? next : {};
-  writeStorage(STORAGE_KEYS.reminderDelivery, reminderDeliveryState);
-}
-
-async function deliverBrowserReminder(reminder){
-  if (typeof Notification === "undefined" || Notification.permission !== "granted") return false;
-  const options = {
-    body: reminder.body,
-    icon: "/icons/nothingsport-app-192.png",
-    badge: "/icons/nothingsport-app-32.png",
-    tag: reminder.key,
-    data: { eventId: reminder.eventId, url: "/" },
-  };
-  try{
-    if ("serviceWorker" in navigator){
-      const registration = await navigator.serviceWorker.ready;
-      await registration.showNotification(reminder.title, options);
-    } else {
-      new Notification(reminder.title, options);
-    }
-    saveReminderDeliveryState({ ...reminderDeliveryState, [reminder.key]: new Date().toISOString() });
-    return true;
-  }catch(error){
-    console.warn("Browser reminder delivery failed", error);
-    return false;
-  }
-}
-
-function scheduleBrowserReminders(reference = nowAEST()){
-  reminderTimers.forEach(timer => clearTimeout(timer));
-  reminderTimers = [];
-  const viewing = userPreferences?.preferenceGraph?.viewing;
-  if (!REMINDER_ENGINE || !viewing?.browserAlertsEnabled) return [];
-  if (typeof Notification === "undefined" || Notification.permission !== "granted") return [];
-  const jointReminderEvents = (jointTournamentData?.schedule?.matches || [])
-    .map(match => jointMatchActionEvent(match, jointTournamentData))
-    .filter(event => event.startTimeUtc);
-  const majorEventReminderEvents = (majorEventsDocument?.events || [])
-    .filter(record => record.kind !== "ticket_sale")
-    .flatMap(record => [
-      majorEventActionEvent(record),
-      ...majorEventSubEvents(record).map(subEvent => majorEventFixtureSnapshot(subEvent, record)).filter(Boolean),
-    ]);
-  const reminderEvents = Array.from(new Map([
-    ...getPreferenceMatchedEvents(),
-    ...selectedMajorEventFixtures(),
-    ...majorEventReminderEvents,
-    ...jointReminderEvents,
-  ].map(event => [String(event.eventId || event.id), event])).values());
-  const schedule = REMINDER_ENGINE.buildSchedule(reminderEvents, {
-    now: reference,
-    leadMinutes: viewing.reminderLeadMinutes,
-    shouldRemind: event => Boolean(getEventAction(event).reminderRequested),
-    deliveredKeys: Object.keys(reminderDeliveryState),
-  });
-  REMINDER_ENGINE.schedulableReminders(schedule, reference).forEach(reminder => {
-    const delay = new Date(reminder.remindAt).getTime() - new Date(reference).getTime();
-    reminderTimers.push(setTimeout(() => deliverBrowserReminder(reminder), delay));
-  });
-  return schedule.reminders;
-}
-
-async function requestBrowserAlerts(){
-  if (typeof Notification === "undefined") return "unsupported";
-  if (Notification.permission === "granted") return "granted";
-  if (Notification.permission === "denied") return "denied";
-  return Notification.requestPermission();
-}
-
-async function localNotificationRegistration(){
-  if (typeof Notification === "undefined") throw new Error("Local notifications are not supported in this browser.");
-  if (iosPushRequiresHomeScreen()) throw new Error("On iPhone or iPad, add Nothing Sport to your Home Screen before enabling local reminders.");
-  if (!("serviceWorker" in navigator)) throw new Error("Local notifications are not supported in this browser.");
-  const registration = installedServiceWorkerRegistration
-    || await navigator.serviceWorker.register("/service-worker.js");
-  installedServiceWorkerRegistration = registration;
-  if (Notification.permission === "default" && userPreferences.followFirst?.notifications?.permissionPromptedAt){
-    throw new Error("Notification permission was already requested. Enable it in this app's system settings to use reminders.");
-  }
-  if (Notification.permission === "default"){
-    const prompted = clonePreferences(userPreferences);
-    prompted.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
-    savePreferences(prompted);
-  }
-  const permission = await requestBrowserAlerts();
-  if (permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
-  if (permission !== "granted") throw new Error("Notification permission was not granted.");
-  return navigator.serviceWorker.ready;
-}
-
-function setLocalNotificationPreference(preferences, enabled){
+function setBackgroundNotificationPreference(preferences, enabled){
   const next = preferences;
   next.followFirst.notifications.enabled = Boolean(enabled);
   next.followFirst.notifications.defaultLeadMinutes = 15;
@@ -9357,11 +9267,10 @@ let eventSpoilerState = loadEventSpoilerState(eventActions);
 let surfacePresentationState = loadSurfacePresentation();
 let archivedEventRefs = Array.isArray(activeProfileSection("archivedEvents", [])) ? activeProfileSection("archivedEvents", []) : [];
 let derivedCardCache = loadDerivedCardCache();
-let reminderDeliveryState = readStorage(STORAGE_KEYS.reminderDelivery, {});
-let reminderTimers = [];
 startupSessionStateBaseline = currentServerStatePayload();
 if (userPreferences.showSpoilers) clearHiddenSpoilerOverrides();
 let activeEvents = EVENTS.slice();
+let pendingNotificationEventId = "";
 const followFirstOpenId = globalThis.crypto?.randomUUID?.() || `open_${Date.now()}_${Math.random().toString(36).slice(2)}`;
 const preferencesAfterOpen = FOLLOW_FIRST?.registerOpen?.(userPreferences, followFirstOpenId);
 if (preferencesAfterOpen) savePreferences(preferencesAfterOpen);
@@ -9831,8 +9740,8 @@ function applyServerState(state){
 
     applyThemePreference(userPreferences.theme);
     rebuildDerivedCardCache(activeEvents);
-    scheduleBrowserReminders();
     renderAll({ preserveViewport: true });
+    void backfillWebPushReminders({ force:true }).catch(error => console.warn("Reminder backfill failed", error));
     return true;
   }finally{
     serverSyncApplying = false;
@@ -10312,8 +10221,8 @@ function applyLoadedFootballBundle(bundleKey, payload){
   activeEvents = mergeFootballFixtureEvents(activeEvents);
   normalizeEvents(activeEvents);
   rebuildDerivedCardCache(activeEvents);
-  scheduleBrowserReminders();
   renderAll({ preserveViewport: true });
+  void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   return events;
 }
 
@@ -10466,7 +10375,7 @@ async function loadJointTournamentData(){
       throw new Error("Unsupported joint tournament document");
     }
     jointTournamentData = normalizeJointTournamentFreshness(document);
-    scheduleBrowserReminders();
+    void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   }catch(error){
     jointTournamentError = error;
     console.warn("Joint tournament schedule unavailable", error);
@@ -10512,6 +10421,7 @@ async function loadMajorEventsData(){
     if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload);
     loadJointSchedule = payload.events.some(event => event.lifecycleStatus !== "retired" && event.scheduleAdapter === "joint-tennis-tournament-2026");
     refreshAddedFixtureSnapshots();
+    void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   }catch(error){
     majorEventsError = error;
     hydration?.fail("Events could not be loaded. Try again.");
@@ -10551,7 +10461,7 @@ function applyFeedEvents(events, meta, { append = false } = {}){
   } else {
     rebuildDerivedCardCache(activeEvents);
   }
-  scheduleBrowserReminders();
+  void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   if (meta?.version) writeStorage(STORAGE_KEYS.lastFeedVersion, meta.version);
   if (meta?.publishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, meta.publishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
@@ -10620,7 +10530,7 @@ function applyServerFeed(payload){
   saveDerivedCardCache(combinedCache || cache);
   serverFeedNextCursor = payload.pagination?.nextCursor ?? null;
   syncLegacyArchiveReferences(activeEvents);
-  scheduleBrowserReminders();
+  void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   if (payload.sourceVersion) writeStorage(STORAGE_KEYS.lastFeedVersion, payload.sourceVersion);
   if (payload.sourcePublishedAt) writeStorage(STORAGE_KEYS.lastFeedPublishedAt, payload.sourcePublishedAt);
   writeStorage(STORAGE_KEYS.lastRefreshAt, new Date().toISOString());
@@ -11532,7 +11442,6 @@ function updateEventAction(ev, patch){
   saveEventActions(EVENT_ACTION_IDENTITY?.writeAction?.(eventActions, ev, nextAction)
     || { ...eventActions, [key]: nextAction });
   rebuildDerivedCardCache(activeEvents);
-  scheduleBrowserReminders();
   return nextAction;
 }
 
@@ -13132,6 +13041,21 @@ async function syncAppRouteFromLocation(){
     return;
   }
   await syncCodeInspectorFromLocation();
+  const notificationEventId = new URLSearchParams(window.location.search).get("event");
+  if (notificationEventId){
+    pendingNotificationEventId = String(notificationEventId).slice(0, 180);
+    activeTab = "feed";
+    activeView = "list";
+    activeFilter = "all";
+    const matchingEvent = activeEvents.find(event => String(event.eventId || event.id) === pendingNotificationEventId);
+    if (matchingEvent && cardStateForEvent(matchingEvent) === "compact") setCardState(matchingEvent, "opened");
+    syncTopLevelNavigationState();
+    if (startupFeedState.phase === "ready"){
+      renderAll();
+      window.requestAnimationFrame(focusPendingNotificationEvent);
+    }
+    return;
+  }
   const eventsRoute = eventsDeepLinkFromLocation();
   if (eventsRoute){
     if (eventsRoute.type === "alert") openTicketAlertInEvents(eventsRoute.id, { pushHistory: false });
@@ -13148,6 +13072,20 @@ async function syncAppRouteFromLocation(){
   activeFilter = returnState.activeFilter;
   renderAll();
   window.requestAnimationFrame(() => window.scrollTo({ top: returnState.scrollY, behavior: "auto" }));
+}
+
+function focusPendingNotificationEvent(){
+  if (!pendingNotificationEventId) return false;
+  const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(pendingNotificationEventId)}"]`);
+  if (!target) return false;
+  const top = window.scrollY + target.getBoundingClientRect().top - stickyFeedChromeHeight() - 12;
+  window.scrollTo({ top:Math.max(0, top), behavior:"auto" });
+  target.focus({ preventScroll:true });
+  const url = new URL(window.location.href);
+  url.searchParams.delete("event");
+  history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
+  pendingNotificationEventId = "";
+  return true;
 }
 
 function codeInspectorCoverageCopy(code){
@@ -14877,6 +14815,10 @@ function eventReminderTiming(ev){
   return Number.isNaN(inferred.getTime()) ? null : { startsAt:inferred.toISOString(), fallback:true };
 }
 
+function reminderCanBeScheduled(timing, reference = Date.now()){
+  return Boolean(timing && Date.parse(timing.startsAt) - 15 * 60 * 1000 > Number(reference));
+}
+
 const PUSH_INSTALLATION_STORAGE_KEY = "ns_push_installation_v1";
 
 function pushInstallationCredentials(){
@@ -14916,13 +14858,17 @@ async function pushServiceWorkerRegistration(){
   return navigator.serviceWorker.ready;
 }
 
-async function ensurePushInstallation(){
+async function ensurePushInstallation({ requestPermission = true } = {}){
   const registration = await pushServiceWorkerRegistration();
   const configResponse = await fetch("/api/notifications", { headers:{ Accept:"application/json" }, cache:"no-store" });
   const config = await configResponse.json().catch(() => ({}));
   if (!configResponse.ok || !config.configured || !config.publicKey) throw new Error("Notifications are not configured yet.");
   if (Notification.permission === "denied") throw new Error("Notifications are blocked in system settings for this app.");
   if (Notification.permission === "default"){
+    if (!requestPermission) throw new Error("Notification permission has not been granted on this device.");
+    const prompted = clonePreferences(userPreferences);
+    prompted.followFirst.notifications.permissionPromptedAt ||= new Date().toISOString();
+    savePreferences(prompted);
     const permission = await Notification.requestPermission();
     if (permission !== "granted") throw new Error("Notification permission was not granted.");
   }
@@ -14943,20 +14889,25 @@ async function ensurePushInstallation(){
   return { ...credentials, subscription };
 }
 
-async function disablePushInstallation(){
+async function disablePushInstallation({ preserveSubscription = false } = {}){
   const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
   const registration = "serviceWorker" in navigator ? await navigator.serviceWorker.ready.catch(() => null) : null;
   if (credentials?.installationId && credentials?.secret){
-    await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.()) }).catch(() => null);
+    await serverSyncClient.notificationCommand({ action:"unregister", ...credentials }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
   }
+  if (preserveSubscription) return;
   const subscription = await registration?.pushManager?.getSubscription?.();
   await subscription?.unsubscribe?.();
   localStorage.removeItem(PUSH_INSTALLATION_STORAGE_KEY);
 }
 
-async function ensureWebPushReminder(ev, timing){
-  const installation = await ensurePushInstallation();
-  const viewing = FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []);
+function notificationEventUrl(ev){
+  const target = new URL("/", window.location.origin);
+  target.searchParams.set("event", String(ev.eventId || ev.id));
+  return target.href;
+}
+
+async function createWebPushReminder(ev, timing, installation){
   return serverSyncClient.notificationCommand({
     action:"remind",
     installationId:installation.installationId,
@@ -14964,26 +14915,74 @@ async function ensureWebPushReminder(ev, timing){
     eventId:String(ev.eventId || ev.id),
     title:spoilerSafeDisplayTitle(ev),
     startsAt:timing.startsAt,
-    viewingUrl:viewing?.url || null,
+    viewingUrl:notificationEventUrl(ev),
     fallbackToBroadcast:Boolean(timing.fallback),
   }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
 }
 
+async function ensureWebPushReminder(ev, timing){
+  const installation = await ensurePushInstallation();
+  return createWebPushReminder(ev, timing, installation);
+}
+
 async function removeWebPushReminder(ev){
   const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
-  if (!credentials) return { cancelled:true };
+  const authenticated = Boolean(serverSyncClient.getSession?.());
+  if (!credentials && !authenticated) return { cancelled:true };
   return serverSyncClient.notificationCommand({
     action:"cancel",
-    ...credentials,
+    ...(credentials || {}),
     eventId:String(ev.eventId || ev.id),
-  }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
+  }, { authenticated });
+}
+
+function webPushReminderEvents(){
+  const jointReminderEvents = (jointTournamentData?.schedule?.matches || [])
+    .map(match => jointMatchActionEvent(match, jointTournamentData))
+    .filter(event => event.startTimeUtc);
+  const majorEventReminderEvents = (majorEventsDocument?.events || [])
+    .filter(record => record.kind !== "ticket_sale")
+    .flatMap(record => [
+      majorEventActionEvent(record),
+      ...majorEventSubEvents(record).map(subEvent => majorEventFixtureSnapshot(subEvent, record)).filter(Boolean),
+    ]);
+  return Array.from(new Map([
+    ...activeEvents,
+    ...selectedMajorEventFixtures(),
+    ...majorEventReminderEvents,
+    ...jointReminderEvents,
+  ].map(event => [String(event.eventId || event.id), event])).values());
+}
+
+let webPushBackfillInFlight = null;
+let webPushBackfillFingerprint = "";
+async function backfillWebPushReminders({ force = false } = {}){
+  if (!userPreferences.followFirst?.notifications?.enabled) return { skipped:"disabled" };
+  if (typeof Notification === "undefined" || Notification.permission !== "granted") return { skipped:"permission" };
+  const reminders = webPushReminderEvents()
+    .map(event => ({ event, timing:eventReminderTiming(event) }))
+    .filter(item => getEventAction(item.event).reminderRequested && reminderCanBeScheduled(item.timing));
+  if (!reminders.length) return { reminded:0 };
+  const fingerprint = JSON.stringify({
+    account:serverSyncClient.sessionSubject?.() || "guest",
+    reminders:reminders.map(item => [String(item.event.eventId || item.event.id), item.timing.startsAt]),
+  });
+  if (!force && fingerprint === webPushBackfillFingerprint) return { skipped:"unchanged" };
+  if (webPushBackfillInFlight) return webPushBackfillInFlight;
+  webPushBackfillInFlight = (async () => {
+    const installation = await ensurePushInstallation({ requestPermission:false });
+    for (const item of reminders) await createWebPushReminder(item.event, item.timing, installation);
+    webPushBackfillFingerprint = fingerprint;
+    return { reminded:reminders.length };
+  })().finally(() => { webPushBackfillInFlight = null; });
+  return webPushBackfillInFlight;
 }
 
 async function toggleQuickReminder(ev, button){
   const timing = eventReminderTiming(ev);
-  if (!timing || Date.parse(timing.startsAt) <= Date.now()) return;
   const action = getEventAction(ev);
   const enabled = !action.reminderRequested;
+  if (enabled && !reminderCanBeScheduled(timing)) return;
   button.disabled = true;
   const actions = button.closest(".event-quick-actions");
   const showExplanation = message => {
@@ -14998,9 +14997,11 @@ async function toggleQuickReminder(ev, button){
   };
   try{
     if (enabled){
-      await localNotificationRegistration();
-      const next = setLocalNotificationPreference(clonePreferences(userPreferences), true);
+      await ensureWebPushReminder(ev, timing);
+      const next = setBackgroundNotificationPreference(clonePreferences(userPreferences), true);
       savePreferences(next);
+    } else {
+      await removeWebPushReminder(ev);
     }
     updateEventAction(ev, { reminderRequested:enabled });
     recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
@@ -15010,11 +15011,11 @@ async function toggleQuickReminder(ev, button){
     button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
     showExplanation("");
     showToast(enabled
-      ? `Local reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}. Keep Nothing Sport open.`
+      ? `Background reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}${serverSyncClient.getSession?.() ? " on every enabled device" : " on this device"}.`
       : "Reminder removed.");
   }catch(error){
     const message = error?.message || "Notifications could not be enabled on this device.";
-    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-pressed", String(Boolean(action.reminderRequested)));
     showExplanation(message);
     showToast(message);
   }finally{
@@ -15105,12 +15106,13 @@ function appendEventQuickActions(container, ev){
   const reminder = document.createElement("button");
   reminder.type = "button";
   reminder.className = "event-quick-action primary";
-  reminder.disabled = !timing || Date.parse(timing.startsAt) <= Date.now();
-  reminder.setAttribute("aria-pressed", String(Boolean(getEventAction(ev).reminderRequested)));
+  const reminderRequested = Boolean(getEventAction(ev).reminderRequested);
+  reminder.disabled = !reminderRequested && !reminderCanBeScheduled(timing);
+  reminder.setAttribute("aria-pressed", String(reminderRequested));
   reminder.title = timing?.fallback
-    ? "15 minutes before the published broadcast time because a kickoff or race start is not available. Local reminder—keep Nothing Sport open."
-    : "15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open.";
-  reminder.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${getEventAction(ev).reminderRequested ? "Reminder on" : "Remind me"}</span>`;
+    ? "Background notification 15 minutes before the published broadcast time because a kickoff or race start is not available."
+    : "Background notification 15 minutes before kickoff or race start.";
+  reminder.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${reminderRequested ? "Reminder on" : "Remind me"}</span>`;
   reminder.addEventListener("click", event => {
     event.stopPropagation();
     void toggleQuickReminder(ev, reminder);
@@ -16700,7 +16702,13 @@ function renderListView(){
   container.dataset.scrollList = "feed";
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
-  const baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
+  let baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
+  const notificationEvent = pendingNotificationEventId
+    ? activeEvents.find(event => String(event.eventId || event.id) === pendingNotificationEventId)
+    : null;
+  if (notificationEvent && !baseFiltered.some(event => String(event.eventId || event.id) === pendingNotificationEventId)){
+    baseFiltered = orderSurfacedEvents([...baseFiltered, notificationEvent]);
+  }
   let filtered = baseFiltered;
   ensureSessionRatingPrompt(filtered);
   const focusedArchived = focusedArchivedEvents();
@@ -20892,6 +20900,11 @@ function renderAccountSettings(body){
     document.getElementById("signOutAccountBtn").addEventListener("click", async () => {
       const signedOutUserId = serverPersistence.user?.id || serverSyncClient?.sessionSubject?.();
       try{
+        await disablePushInstallation({ preserveSubscription:true });
+      }catch(error){
+        console.warn("Notification installation detachment failed", error);
+      }
+      try{
         await serverSyncClient?.signOut();
       }catch(error){
         console.warn("Supabase sign out failed", error);
@@ -21177,21 +21190,38 @@ function renderSubscriptionSettings(body){
 
 function renderNotificationSettings(body){
   const enabled = draftPreferences.followFirst.notifications.enabled;
-  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Local notifications</h3><p class="preference-help">Reminders default to 15 minutes before kickoff or race start. A published broadcast time is used only when the sporting start is unavailable.</p><p class="local-reminder-notice">15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open. Reliable background iPhone delivery is not enabled in this release.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn local notifications off" : "Enable local notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${enabled ? "Enabled on this installation while the app remains active." : "On iPhone and iPad, install Nothing Sport to the Home Screen first."}</p></section></div>`;
+  const permission = typeof Notification === "undefined" ? "unsupported" : Notification.permission;
+  const statusCopy = enabled && permission === "granted"
+    ? "Background notifications are enabled on this device."
+    : enabled
+      ? "Reminders are enabled for your account. Enable system notifications on this device to receive them here."
+      : "On iPhone and iPad, install Nothing Sport to the Home Screen first.";
+  body.innerHTML = `<div class="preference-stack"><section class="filter-panel"><h3>Background notifications</h3><p class="preference-help">Reminders arrive 15 minutes before kickoff or race start, even when Nothing Sport is closed. A published broadcast time is used only when the sporting start is unavailable.</p><p class="local-reminder-notice">Signed-in reminders are sent to every device where you have enabled Nothing Sport notifications.</p><button class="btn ${enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn">${enabled ? "Turn off on this device" : "Enable background notifications"}</button><p class="preference-help" id="notificationPermissionStatus">${statusCopy}</p></section></div>`;
   document.getElementById("notificationPermissionBtn").addEventListener("click", async () => {
     const status = document.getElementById("notificationPermissionStatus");
+    const button = document.getElementById("notificationPermissionBtn");
+    button.disabled = true;
     if (enabled){
-      setLocalNotificationPreference(draftPreferences, false);
-      status.textContent = "Local notifications will be disabled when you save.";
-      renderSettingsScreen();
+      status.textContent = "Turning off background notifications on this device…";
+      try{
+        await disablePushInstallation();
+        setBackgroundNotificationPreference(draftPreferences, false);
+        renderSettingsScreen();
+      }catch(error){
+        status.textContent = error.message || "Background notifications could not be turned off.";
+        button.disabled = false;
+      }
       return;
     }
     status.textContent = "Requesting system permission…";
     try{
-      await localNotificationRegistration();
-      setLocalNotificationPreference(draftPreferences, true);
+      await ensurePushInstallation();
+      setBackgroundNotificationPreference(draftPreferences, true);
       renderSettingsScreen();
-    }catch(error){ status.textContent = error.message || "Notification permission was not granted."; }
+    }catch(error){
+      status.textContent = error.message || "Notification permission was not granted.";
+      button.disabled = false;
+    }
   });
 }
 
@@ -22897,9 +22927,11 @@ function completeStartupFeedHydration(){
     unlockDeferredCardImageLoading();
     scheduleStartupLogoFunnel({ feedReady:true });
     scheduleIdentityImageRecovery(document.getElementById("listView") || document);
+    focusPendingNotificationEvent();
   });
   const defer = window.requestIdleCallback || (callback => window.setTimeout(callback, 250));
   defer(() => { void loadDeferredStartupContext(); });
+  void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   runStartupPostLoadActions();
 }
 
@@ -22959,7 +22991,6 @@ setInterval(updateCalendarDate, 60 * 1000);
 renderAll();
 scheduleFirstCardViewportFit();
 void syncAppRouteFromLocation();
-scheduleBrowserReminders();
 bindPasswordRecoveryFlow();
 let startupFeedNavigationTouched = false;
 for (const eventName of ["pointerdown", "touchstart", "wheel", "keydown"]){
@@ -22984,13 +23015,14 @@ document.addEventListener("visibilitychange", () => {
   if (!startupFunnelStarted && loadingAudioPlayer?.enabled?.()) void loadingAudioPlayer.startFill();
   if (!weeklyPulseWasHidden) return;
   weeklyPulseWasHidden = false;
-  scheduleBrowserReminders();
+  void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   registerWeeklyPulseAppOpen();
 });
 window.addEventListener("pagehide", () => loadingAudioPlayer?.stop?.(), { passive:true });
 window.addEventListener("online", () => {
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
+  void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   if (followFeedRefreshPending) void requestFeedRebuildAfterFollowChange();
 });
 if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.permissions?.query && navigator.geolocation){

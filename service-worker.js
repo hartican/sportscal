@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v183";
+const CACHE_NAME = "nothingsport-shell-v184";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -7,7 +7,7 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
-  "/config/national-team-identities.js?v=183",
+  "/config/national-team-identities.js?v=184",
   "/config/card-identities.js",
   "/config/card-results.js",
   "/config/country-flags.js",
@@ -33,7 +33,7 @@ const APP_SHELL = [
   "/config/follow-first.js",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=183",
+  "/config/major-events.js?v=184",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
@@ -245,14 +245,21 @@ self.addEventListener("fetch", event => {
 self.addEventListener("notificationclick", event => {
   event.notification.close();
   const targetUrl = event.notification.data?.url || "/";
+  let target;
+  try{
+    target = new URL(targetUrl, self.location.origin);
+    if (target.origin !== self.location.origin) target = new URL("/", self.location.origin);
+  }catch(_error){
+    target = new URL("/", self.location.origin);
+  }
   event.waitUntil(
     self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(clients => {
       const existing = clients.find(client => "focus" in client);
       if (existing){
-        existing.navigate?.(targetUrl);
-        return existing.focus();
+        const navigation = existing.navigate ? existing.navigate(target.href) : Promise.resolve(existing);
+        return Promise.resolve(navigation).then(client => (client || existing).focus());
       }
-      return self.clients.openWindow ? self.clients.openWindow(targetUrl) : undefined;
+      return self.clients.openWindow ? self.clients.openWindow(target.href) : undefined;
     })
   );
 });

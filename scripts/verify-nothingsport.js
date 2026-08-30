@@ -216,8 +216,8 @@ assert(
     && html.includes("FEED_CONFIG.eventsScriptUrl"),
   "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
 );
-assert(html.includes("async function toggleQuickReminder") && html.includes("await localNotificationRegistration()"), "Remind me must enable the local reminder from the user gesture");
-assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open."), "local reminder UI must disclose its active-app delivery limit");
+assert(html.includes("async function toggleQuickReminder") && html.includes("await ensureWebPushReminder(ev, timing)") && html.includes("await removeWebPushReminder(ev)"), "Remind me must confirm Web Push creation and cancellation from the user gesture");
+assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"), "reminder UI must describe background delivery");
 assert(html.includes('id="soundtrackToggle"'), "background audio must use an explicit top-bar toggle");
 assert(html.includes('class="soundtrack-toggle-state">OFF</span>'), "the soundtrack toggle must expose an ON/OFF state");
 assert(html.includes('id="soundtrackAudio"') && html.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "the supplied Skyscraper Samba recording must be the sole audio source");
@@ -285,7 +285,8 @@ assert(html.includes('"Top 3 + followed"'), "summary standings must promise to r
 assert(html.includes('settingsMenuItem("subscriptions"') && html.includes('settingsMenuItem("notifications"'), "Subscriptions and Notifications must be separate Settings destinations");
 assert(html.includes("function renderSubscriptionSettings") && html.includes("function renderNotificationSettings"), "Subscriptions and Notifications must have independent settings screens");
 assert(!html.includes("Calendar sync starts enabled for new profiles") && !html.includes("calendar sync"), "calendar sync must remain removed from the app");
-assert(html.includes("async function localNotificationRegistration") && html.includes("Notification.requestPermission()"), "notification permission must remain deferred until the local reminder user gesture");
+assert(html.includes("async function ensurePushInstallation") && html.includes("Notification.requestPermission()"), "notification permission must remain deferred until explicit Web Push enablement");
+assert(html.includes("async function backfillWebPushReminders") && html.includes('Notification.permission !== "granted"'), "startup reminder backfill must not prompt for notification permission");
 assert(!html.includes("loadCachedFeedEvents"), "a stale saved feed must not override the generated published-feed fallback");
 assert(html.includes("--color-contrast:"), "every theme must expose a contrast token for the new-item marker");
 assert(html.includes("className = \"new-dot\""), "new cards must render the compact contrast-colour dot");

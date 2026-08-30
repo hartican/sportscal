@@ -176,14 +176,14 @@ assert(migration.includes("Gender and full age brackets are intentionally not co
 assert(html.includes("LOCALITY_COORDINATES") && html.includes("distanceKm") && html.includes("radiusKm"));
 assert(locationApi.includes("GOOGLE_MAPS_API_KEY") && locationApi.includes("FALLBACK_LOCATIONS"));
 assert(packageDocument.dependencies["web-push"]);
-assert(html.includes("localNotificationRegistration") && html.includes("deliverBrowserReminder"));
 const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
-assert(!quickReminderSource.includes("ensureWebPushReminder") && !quickReminderSource.includes("removeWebPushReminder"), "release reminders must remain local-only");
-assert(html.includes("15 minutes before kickoff or race start. Local reminder—keep Nothing Sport open."));
+assert(quickReminderSource.includes("ensureWebPushReminder") && quickReminderSource.includes("removeWebPushReminder"), "reminders must be confirmed through Web Push before local state changes");
+assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "the active-app timer path must stay retired");
+assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"));
 assert(notificationApi.includes("remind_at") && notificationApi.includes("15 * 60 * 1000"));
-assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification"));
+assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification") && dispatchApi.includes("claimed_at"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));
-assert(vercel.crons.some(cron => cron.path === "/api/notification-dispatch" && cron.schedule === "0 9 * * *"), "Hobby deployment must retain one daily notification-dispatch proof run");
+assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole reminder dispatcher");
 assert.equal(manifest.id, "/");
 
 for (const [name, minimum] of [["nrl", 500], ["afl", 650]]){

@@ -60,7 +60,36 @@ async function verifiedInstallation(id, secret){
   return installation;
 }
 
-module.exports = async function notificationsHandler(request, response){
+function sameInstant(first, second){
+  const firstTime = Date.parse(first || "");
+  const secondTime = Date.parse(second || "");
+  return Number.isFinite(firstTime) && Number.isFinite(secondTime) && firstTime === secondTime;
+}
+
+function reminderDeliveryReset(existing, startsAt){
+  if (existing && sameInstant(existing.starts_at, startsAt)) return {};
+  return { dispatched_at:null, claimed_at:null, attempts:0, last_error:null };
+}
+
+async function enabledInstallationIds(user, installation){
+  if (!user) return [installation.installation_id];
+  if (installation.user_id !== user.id){
+    const error = new Error("This notification installation is not registered to the signed-in account.");
+    error.status = 403;
+    error.payload = { code:"installation_account_mismatch" };
+    throw error;
+  }
+  const rows = await supabaseServiceRequest(`/rest/v1/nothingsports_push_installations?user_id=eq.${encodeURIComponent(user.id)}&permission=eq.granted&select=installation_id`);
+  return [...new Set((rows || []).map(row => validUuid(row.installation_id)).filter(Boolean))];
+}
+
+async function existingReminders(installationIds, eventId){
+  if (!installationIds.length) return new Map();
+  const rows = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=in.(${installationIds.map(encodeURIComponent).join(",")})&event_id=eq.${encodeURIComponent(eventId)}&select=installation_id,starts_at,dispatched_at,claimed_at,attempts,last_error`);
+  return new Map((rows || []).map(row => [row.installation_id, row]));
+}
+
+async function notificationsHandler(request, response){
   privateHeaders(response);
   try{
     if ((request.method || "GET") === "GET"){
@@ -78,14 +107,23 @@ module.exports = async function notificationsHandler(request, response){
     }
 
     const body = bodyOf(request);
+    const user = await optionalUser(request);
+    if (body.action === "cancel" && user){
+      const eventId = clean(body.eventId);
+      if (!eventId){
+        response.status(400).json({ error:"An event is required to cancel a reminder.", code:"invalid_event" });
+        return;
+      }
+      await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?user_id=eq.${encodeURIComponent(user.id)}&event_id=eq.${encodeURIComponent(eventId)}`, { method:"DELETE" });
+      response.status(200).json({ cancelled:true, eventId });
+      return;
+    }
     const installationId = validUuid(body.installationId);
     const secret = clean(body.secret, 256);
     if (!installationId || secret.length < 32){
       response.status(400).json({ error:"A valid notification installation is required.", code:"invalid_installation" });
       return;
     }
-    const user = await optionalUser(request);
-
     if (body.action === "register"){
       const subscription = body.subscription && typeof body.subscription === "object" ? body.subscription : {};
       const endpoint = validHttps(subscription.endpoint);
@@ -110,7 +148,7 @@ module.exports = async function notificationsHandler(request, response){
         headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
         body:{
           installation_id:installationId,
-          user_id:user?.id || existing?.user_id || null,
+          user_id:user?.id || null,
           secret_hash:sha256(secret),
           endpoint,
           p256dh,
@@ -141,31 +179,45 @@ module.exports = async function notificationsHandler(request, response){
         return;
       }
       const remindAt = new Date(startsAt.getTime() - 15 * 60 * 1000);
+      if (remindAt.getTime() <= Date.now()){
+        response.status(409).json({ error:"It is already less than 15 minutes before this sport starts.", code:"reminder_window_passed" });
+        return;
+      }
       const viewingUrl = body.viewingUrl ? validHttps(body.viewingUrl) : null;
-      await supabaseServiceRequest("/rest/v1/nothingsports_reminders?on_conflict=installation_id,event_id", {
-        method:"POST",
-        headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
-        body:{
-          installation_id:installationId,
-          user_id:user?.id || installation.user_id || null,
+      const installationIds = await enabledInstallationIds(user, installation);
+      if (!installationIds.length){
+        response.status(409).json({ error:"This account has no enabled notification installations.", code:"no_enabled_installations" });
+        return;
+      }
+      const existingByInstallation = await existingReminders(installationIds, eventId);
+      await Promise.all(installationIds.map(targetInstallationId => (
+        supabaseServiceRequest("/rest/v1/nothingsports_reminders?on_conflict=installation_id,event_id", {
+          method:"POST",
+          headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
+          body:{
+          installation_id:targetInstallationId,
+          user_id:user?.id || null,
           event_id:eventId,
           title,
           starts_at:startsAt.toISOString(),
           remind_at:remindAt.toISOString(),
           viewing_url:viewingUrl,
           fallback_to_broadcast:Boolean(body.fallbackToBroadcast),
-          dispatched_at:null,
-          attempts:0,
-          last_error:null,
+          ...reminderDeliveryReset(existingByInstallation.get(targetInstallationId), startsAt.toISOString()),
           updated_at:new Date().toISOString(),
-        },
-      });
-      response.status(200).json({ reminded:true, eventId, startsAt:startsAt.toISOString(), remindAt:remindAt.toISOString(), leadMinutes:15 });
+          },
+        })
+      )));
+      response.status(200).json({ reminded:true, eventId, startsAt:startsAt.toISOString(), remindAt:remindAt.toISOString(), leadMinutes:15, installations:installationIds.length });
       return;
     }
 
     if (body.action === "cancel"){
       const eventId = clean(body.eventId);
+      if (!eventId){
+        response.status(400).json({ error:"An event is required to cancel a reminder.", code:"invalid_event" });
+        return;
+      }
       await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=eq.${encodeURIComponent(installationId)}&event_id=eq.${encodeURIComponent(eventId)}`, { method:"DELETE" });
       response.status(200).json({ cancelled:true, eventId });
       return;
@@ -180,4 +232,7 @@ module.exports = async function notificationsHandler(request, response){
     const outgoing = publicError(error);
     response.status(outgoing.status).json(outgoing.body);
   }
-};
+}
+
+module.exports = notificationsHandler;
+module.exports._test = { reminderDeliveryReset, sameInstant };
